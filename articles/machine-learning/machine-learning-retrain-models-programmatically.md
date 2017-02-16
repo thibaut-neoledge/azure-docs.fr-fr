@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
+ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 
 ---
@@ -44,10 +44,11 @@ Pour créer l’expérience :
 5. Tapez Modèle de recensement.
 6. En bas de la zone de dessin de l’expérience, cliquez sur **Exécuter**.
 7. Cliquez sur **Configurer le service web**, puis sélectionnez **Reformation du service web**. 
+
+L’exemple suivant illustre l’expérience initiale.
    
    ![Expérience initiale.][2]
 
-Diagramme 2 : Expérience initiale.
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Créer une expérience prédictive et la publier comme service web
 Ensuite, vous créez une expérience prédictive.
@@ -79,7 +80,7 @@ Dans les deux cas, une fois l’exécution de l’expérience terminée, le flux
 
 ![Flux de travail produit après l’exécution.][4]
 
-Diagramme 3 : Flux de travail produit après l’exécution.
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Effectuer à nouveau l’apprentissage du modèle avec de nouvelles données à l’aide de BES
 Pour cet exemple, vous utilisez le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser l’exemple de code Python ou R.
@@ -185,6 +186,6 @@ Si vous avez déployé le service web prédictif en cliquant sur **Déployer un 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

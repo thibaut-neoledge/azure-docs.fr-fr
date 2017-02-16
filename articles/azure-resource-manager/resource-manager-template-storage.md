@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
+ms.sourcegitcommit: b089bc075ec3ec718eb21357bbbc5c4af09f4af1
+ms.openlocfilehash: b01125160875e367b9b6e1d02031c5dd80b41594
 
 
 ---
@@ -81,13 +81,13 @@ L’exemple suivant déploie un compte de stockage Standard Locally Redundant av
 ## <a name="quickstart-templates"></a>Modèles de démarrage rapide
 Il existe de nombreux modèles de démarrage rapide qui incluent un compte de stockage. Les modèles suivants illustrent des scénarios courants :
 
-* [Création d'un compte de stockage standard](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-* [Déploiement simple d'une machine virtuelle Windows](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-* [Déploiement simple d'une machine virtuelle Linux](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-* [Création d'un profil CDN, d'un point de terminaison CDN avec un compte de stockage comme origine](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-* [Création d'une batterie de serveurs SharePoint à haute disponibilité avec 9 machines virtuelles à l'aide de l'extension DSC Powershell](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-* [Déploiement simple d'un cluster Service Fabric sécurisé à 5 nœuds avec WAD activé](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-* [Création d'une machine virtuelle à partir d'une image Windows avec 4 disques de données vides](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+* [Création d'un compte de stockage standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+* [Déploiement simple d'une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [Déploiement simple d'une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin (Création d’un profil de CDN, d’un point de terminaison CDN avec un compte de stockage comme origine)]https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+* [Création d'une batterie de serveurs SharePoint à haute disponibilité avec 9 machines virtuelles à l'aide de l'extension DSC Powershell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+* [Déploiement simple d'un cluster Service Fabric sécurisé à 5 nœuds avec WAD activé](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+* [Création d'une machine virtuelle à partir d'une image Windows avec 4 disques de données vides](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations générales sur le stockage, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md).
@@ -96,6 +96,6 @@ Il existe de nombreux modèles de démarrage rapide qui incluent un compte de st
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

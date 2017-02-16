@@ -1,5 +1,5 @@
 ---
-title: "Prise en charge de la mutualisation dans Azure Site Recovery pour répliquer des machines virtuelles VMware vers Azure via le programme CSP | Microsoft Docs"
+title: "Prise en charge de l’architecture mutualisée pour la réplication de machines virtuelles VMware sur Azure (programme CSP) | Microsoft Docs"
 description: "Décrit comment déployer Azure Site Recovery dans un environnement mutualisé pour orchestrer la réplication, le basculement et la récupération de machines virtuelles VMware locales vers Azure via le programme CSP avec le portail Azure"
 services: site-recovery
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: manayar
 translationtype: Human Translation
-ms.sourcegitcommit: 4727eeb92a7cd06c4775d7cbf5594ab752a1e8f2
-ms.openlocfilehash: 80eb816f50d707e7605b9863c9cb99bce5c3d592
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
 
 
 ---
@@ -44,7 +44,7 @@ L’architecture se présente comme suit :
 
 **Figure 1 : Scénario d’hébergement partagé avec un vCenter**
 
-Comme illustré dans la représentation ci-dessus, chaque client aura un serveur d’administration distinct. Cela vise à limiter l’accès du locataire aux machines virtuelles spécifiques du locataire afin activer l’isolation des locataires. Le scénario de réplication de machine virtuelle VMware utilise le serveur de configuration pour gérer les comptes afin de découvrir des machines virtuelles et d’installer des agents. Nous suivons les mêmes principes pour les environnements mutualisés, en limitant en plus la découverte de machines virtuelles via le contrôle d’accès vCenter. 
+Comme illustré dans la représentation ci-dessus, chaque client aura un serveur d’administration distinct. Cela vise à limiter l’accès du locataire aux machines virtuelles spécifiques du locataire afin activer l’isolation des locataires. Le scénario de réplication de machine virtuelle VMware utilise le serveur de configuration pour gérer les comptes afin de découvrir des machines virtuelles et d’installer des agents. Nous suivons les mêmes principes pour les environnements mutualisés, en limitant en plus la découverte de machines virtuelles via le contrôle d’accès vCenter.
 
 L’exigence d’isolation des données nécessite que toutes les informations sensibles sur l’infrastructure (telles que les informations d’identification d’accès) ne soient pas divulguées aux locataires. Pour cette raison, nous recommandons que tous les composants du serveur d’administration (serveur de configuration (CS), serveur de traitement (PS) et serveur cible maître (MT)) restent sous le contrôle exclusif du partenaire. Cela inclut le PS d’évolution.
 
@@ -63,7 +63,7 @@ Une alternative consiste à affecter le compte d’utilisateur et un rôle au ni
 
 La procédure d’accès de compte vCenter est la suivante :
 
-1.  Créez un nouveau rôle en clonant le rôle prédéfini « Lecture seule » et donnez-lui un nom pratique (comme Azure_Site_Recovery dans cet exemple). 
+1.  Créez un nouveau rôle en clonant le rôle prédéfini « Lecture seule » et donnez-lui un nom pratique (comme Azure_Site_Recovery dans cet exemple).
 2.  Attribuez les autorisations suivantes à ce rôle :
  *  Banque de données -> Allouer de l’espace, parcourir la banque de données, opérations de fichier de bas niveau, supprimer le fichier, mettre à jour les fichiers de machine virtuelle
  *  Réseau -> Attribution de réseau
@@ -95,7 +95,7 @@ Pour limiter les opérations de récupération d’urgence jusqu’à l’état 
 
 ## <a name="other-multi-tenant-environments"></a>Autres environnements mutualisés
 
-Les conseils ci-dessus décrivent de manière détaillée la configuration d’un environnement mutualisé pour une solution d’hébergement partagé. Les deux autres solutions principales sont dédiées à l’hébergement et au service géré. Leur architecture se présente comme ci-dessous : 
+Les conseils ci-dessus décrivent de manière détaillée la configuration d’un environnement mutualisé pour une solution d’hébergement partagé. Les deux autres solutions principales sont dédiées à l’hébergement et au service géré. Leur architecture se présente comme ci-dessous :
 
 ### <a name="dedicated-hosting-solution"></a>Solution d’hébergement dédié
 
@@ -115,7 +115,7 @@ La différence architecturale est telle que l’infrastructure de chaque locatai
 
 
 ## <a name="csp-program-overview"></a>Vue d’ensemble du programme CSP
-Le [programme](https://partner.microsoft.com/en-US/cloud-solution-provider) Fournisseur de solutions cloud (CSP) de Microsoft met en avant des récits de collaboration avec les partenaires pour offrir tous les services cloud de Microsoft, notamment O365, EMS et Microsoft Azure. Il permet à nos partenaires d’établir une relation de bout en bout avec les clients et de devenir le point de contact principal. Grâce à CSP, un partenaire peut déployer des abonnements Azure pour les clients et combiner ces abonnements avec leurs propres offres personnalisées à valeur ajoutée. 
+Le [programme](https://partner.microsoft.com/en-US/cloud-solution-provider) Fournisseur de solutions cloud (CSP) de Microsoft met en avant des récits de collaboration avec les partenaires pour offrir tous les services cloud de Microsoft, notamment O365, EMS et Microsoft Azure. Il permet à nos partenaires d’établir une relation de bout en bout avec les clients et de devenir le point de contact principal. Grâce à CSP, un partenaire peut déployer des abonnements Azure pour les clients et combiner ces abonnements avec leurs propres offres personnalisées à valeur ajoutée.
 
 Dans le cas d’Azure Site Recovery, les partenaires peuvent gérer l’ensemble de la solution de récupération d’urgence pour les clients directement via CSP, ou utiliser CSP pour configurer les environnements Azure Site Recovery et permettre aux clients de gérer leurs propres besoins de récupération d’urgence en libre-service. Dans les deux cas, le partenaire est le lien entre Azure Site Recovery et les clients finaux, et le partenaire propose des services et facture aux clients son utilisation d’Azure Site Recovery.
 
@@ -152,11 +152,11 @@ Les prérequis de la machine virtuelle sont les mêmes que ceux décrits dans la
 ### <a name="step-2-access-tenant-account"></a>Étape 2 : Accéder au compte locataire
 
 1.  Vous pouvez accéder à l’abonnement du locataire à partir de la page « Clients » via votre tableau de bord comme décrit à l’étape 1. Accédez-y et cliquez sur le nom du compte locataire que vous venez de créer.
-2.  La section Abonnements du compte locataire s’affiche, où vous pouvez surveiller les abonnements existants du compte et ajouter d’autres abonnements si nécessaire. Pour gérer les opérations de récupération d’urgence du locataire, sélectionnez l’option « Toutes les ressources (portail Azure) » à droite de la page. 
+2.  La section Abonnements du compte locataire s’affiche, où vous pouvez surveiller les abonnements existants du compte et ajouter d’autres abonnements si nécessaire. Pour gérer les opérations de récupération d’urgence du locataire, sélectionnez l’option « Toutes les ressources (portail Azure) » à droite de la page.
 
     ![toutes-les-ressources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.  Cliquez sur le bouton « Toutes les ressources » pour pouvoir accéder aux abonnements Azure du locataire. Vous pouvez également le faire en vérifiant l’AAD affiché dans le coin supérieur droit du portail Azure. 
+3.  Cliquez sur le bouton « Toutes les ressources » pour pouvoir accéder aux abonnements Azure du locataire. Vous pouvez également le faire en vérifiant l’AAD affiché dans le coin supérieur droit du portail Azure.
 
     ![administrateur-aad](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
@@ -183,11 +183,11 @@ Pour une récupération d’urgence en libre-service, les informations sur le co
 Un partenaire peut également ajouter un nouvel utilisateur à l’abonnement du locataire via le portail CSP comme suit :
 
 1.  Accédez à la page d’abonnement CSP du locataire et sélectionnez l’option « Utilisateurs et licences ».
-    
+
     ![licences-utilisateur](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-    Vous pouvez maintenant créer un nouvel utilisateur en entrant les informations utiles et en sélectionnant des autorisations, vous pouvez également télécharger la liste des utilisateurs via un fichier CSV. 
-2.  Une fois les utilisateurs créés, revenez au portail Azure puis, sous le panneau Abonnement, sélectionnez l’abonnement approprié. 
+    Vous pouvez maintenant créer un nouvel utilisateur en entrant les informations utiles et en sélectionnant des autorisations, vous pouvez également télécharger la liste des utilisateurs via un fichier CSV.
+2.  Une fois les utilisateurs créés, revenez au portail Azure puis, sous le panneau Abonnement, sélectionnez l’abonnement approprié.
 3.  Sur le nouveau panneau qui s’affiche, sélectionnez Contrôle d’accès (IAM) et cliquez sur +Ajouter pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs créés via le portail CSP apparaissent automatiquement dans le panneau qui s’affiche après avoir cliqué sur un niveau d’accès.
 
     ![abonnement-utilisateur](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
@@ -196,8 +196,6 @@ Un partenaire peut également ajouter un nouvel utilisateur à l’abonnement du
 
 
 
-
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

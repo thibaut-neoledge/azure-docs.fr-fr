@@ -16,13 +16,13 @@ ms.workload: data-services
 ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
-ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 6941a0a5e108617ebb16354edc9917392b7cb786
 
 
 ---
 # <a name="documentdb-indexing-policies"></a>Stratégies d’indexation de DocumentDB
-Bien que de nombreux clients soient ravis de laisser Azure DocumentDB gérer automatiquement [tous les aspects de l’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d'indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.  
+Bien que de nombreux clients soient ravis de laisser Azure DocumentDB gérer automatiquement tous les aspects de l’indexation, DocumentDB prend également en charge la spécification d’une **stratégie d’indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.  
 
 Dans cet article, nous examinons en détail les stratégies d’indexation de DocumentDB, la personnalisation d’une stratégie d'indexation et les compromis associés. 
 
@@ -413,6 +413,6 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

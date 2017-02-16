@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 033fd0cb3512a22bb05488fe83aa2ffa9d81def3
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 3c2f1b23f952d6102d8bfa52b536621ef6282ab6
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Ce didacticiel vous montre comment configurer un flux de travail de déploiement continu pour votre application [Azure App Service] . L’intégration d’App Service à BitBucket, GitHub et Visual Studio Team Services (VSTS) permet un workflow de déploiement continu au cours duquel Azure extrait les mises à jour les plus récentes de votre projet publié sur l’un de ces services. Le déploiement continu est une option intéressante pour les projets auxquels plusieurs contributions fréquentes sont intégrées.
+
+Pour savoir comment configurer manuellement le déploiement continu à partir d’un référentiel cloud non répertorié par le portail Azure (tel que [GitLab](https://gitlab.com/)), consultez la rubrique sur la[configuration manuelle du déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Activer le déploiement continu
 Pour activer le déploiement continu,
@@ -97,6 +99,6 @@ Pour désactiver le déploiement continu :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

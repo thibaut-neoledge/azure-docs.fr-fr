@@ -1,5 +1,5 @@
 ---
-title: "Spécification d&quot;une version Node.js"
+title: "Spécification d’une version Node.js"
 description: "Découvrez comment spécifier la version de Node.js utilisée par Azure Web Sites et Azure Cloud Services"
 services: 
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: 8990d1d903cb0c168b39f3ed164043100f68851c
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 8de57909d4abf753a58e389f401018601c3eef24
 
 
 ---
@@ -100,6 +100,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

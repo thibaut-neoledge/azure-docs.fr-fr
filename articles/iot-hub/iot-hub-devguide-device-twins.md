@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Comprendre les représentations d’appareil | Microsoft Docs"
-description: "Guide du développeur Azure IoT Hub - Utiliser des représentations d’appareil pour synchroniser les données d’état et de configuration entre IoT Hub et vos appareils"
+title: "Présentation des représentations d’appareil Azure IoT Hub | Microsoft Docs"
+description: "Guide du développeur - Utiliser des représentations d’appareil pour synchroniser les données d’état et de configuration entre IoT Hub et vos appareils"
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 5cc2b8341bcb48f46d81e8b4d76890089a93c503
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 3c9b3a9509493e8c6900d90b5ab6519de7a0721f
 
 
 ---
-# <a name="understand-device-twins"></a>Comprendre les représentations d’appareils
+# <a name="device-twins"></a>Représentations d’appareil physique
 ## <a name="overview"></a>Vue d’ensemble
 Les *représentations d’appareil* sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez. Cet article décrit ce qui suit :
 
@@ -37,7 +37,7 @@ Vous pouvez utiliser des représentations d’appareil pour répondre aux besoin
 
 * Stocker dans le cloud des métadonnées spécifiques d’un appareil, telles que l’emplacement de déploiement d’un distributeur automatique.
 * Rapporter des informations d’état actuel, telles que les capacités disponibles et les conditions de votre application d’appareil, par exemple, pour un appareil qui se connecte via un réseau cellulaire ou Wi-Fi.
-* Synchroniser l’état des flux de travail de longue durée entre une application d’appareil et un serveur principal, par exemple, lorsque le serveur principal spécifie une nouvelle version de microprogramme à installer et que l’application d’appareil rapporte les différentes étapes du processus de mise à jour.
+* Synchroniser l’état des flux de travail de longue durée entre une application d’appareil et un serveur principal, par exemple, lorsque le serveur principal de la solution spécifie une nouvelle version de microprogramme à installer et que l’application d’appareil rapporte les différentes étapes du processus de mise à jour.
 * Interroger les métadonnées, la configuration ou l’état de vos appareils
 
 En cas de doute entre l’utilisation des propriétés signalées, des messages appareil-à-cloud ou du chargement de fichier, voir [Instructions pour la communication appareil-à-cloud][lnk-d2c-guidance].
@@ -47,15 +47,15 @@ En cas de doute entre l’utilisation des propriétés souhaitées des méthodes
 Les représentations d’appareil stockent des informations relatives aux appareils, dont l’utilité est la suivante :
 
 * Elles permettent à un appareil et à un serveur principal de synchroniser les conditions et la configuration de l’appareil.
-* Elles permettent à un serveur principal d’applications d’interroger et de cibler des opérations de longue durée.
+* Elles permettent à un serveur principal de solution d’interroger et de cibler des opérations de longue durée.
 
 Le cycle de vie d’une représentation d’appareil est lié à l’[identité d’appareil][lnk-identity] correspondante. Des représentations d’appareil sont implicitement créées et supprimées lors de la création ou de la suppression d’une identité d’appareil dans IoT Hub.
 
 Une représentation d’appareil est un document JSON incluant les éléments suivants :
 
-* **Tags** (balises). Document JSON lue et écrit par le serveur principal. Les Tags ne sont pas visibles pour des applications d’appareil.
-* **Propriétés souhaitées (Desired)**. Utilisées conjointement avec les propriétés signalées (Reported) pour synchroniser une configuration ou une condition d’appareil. Les propriétés souhaitées peuvent être définies uniquement par le serveur principal d’applications, et peuvent être lues par l’application d’appareil. L’application d’appareil peut également être informée en temps réel de changements des propriétés souhaitées.
-* **Propriétés signalées (Reported)**. Utilisées conjointement avec les propriétés souhaitées (Desired) pour synchroniser une configuration ou une condition d’appareil. Les propriétés signalées peuvent être définies uniquement par l’application d’appareil, et peuvent être lues et interrogées par le serveur principal d’applications.
+* **Tags** (balises). Document JSON lu et écrit par le serveur principal de solution. Les Tags ne sont pas visibles pour des applications d’appareil.
+* **Propriétés souhaitées (Desired)**. Utilisées conjointement avec les propriétés signalées (Reported) pour synchroniser une configuration ou une condition d’appareil. Les propriétés souhaitées peuvent être définies uniquement par le serveur principal de solution, et peuvent être lues par l’application d’appareil. L’application d’appareil peut également être informée en temps réel de changements des propriétés souhaitées.
+* **Propriétés signalées (Reported)**. Utilisées conjointement avec les propriétés souhaitées (Desired) pour synchroniser une configuration ou une condition d’appareil. Les propriétés signalées peuvent être définies uniquement par l’application d’appareil, et peuvent être lues et interrogées par le serveur principal de solution.
 
 De plus, la racine de la représentation d’appareil contient les propriétés en lecture seule de l’identité correspondante, telles qu’elles figurent dans le [registre des identités][lnk-identity].
 
@@ -104,12 +104,12 @@ L’objet racine contient les propriétés système et des objets conteneur pour
 ### <a name="reported-property-example"></a>Exemple de propriété signalée (Reported)
 Dans l’exemple ci-dessus, la représentation d’appareil contient une propriété `batteryLevel` qui est signalée par l’application d’appareil. Cette propriété permet d’interroger des appareils et d’agir sur ceux-ci en fonction du dernier niveau signalé de charge de la batterie. Un autre exemple pourrait être celui d’une application d’appareil signalant des capacités d’appareil ou des options de connectivité.
 
-Notez les propriétés signalées simplifient les scénarios où le serveur principal s’intéresse à la dernière valeur connue d’une propriété. Si le serveur principal doit traiter une télémétrie d’appareil se présentant sous la forme de séquences d’événements horodatés, telles que des séries chronologiques, utilisez des [messages appareil-à-cloud][lnk-d2c].
+Notez comment les propriétés signalées simplifient les scénarios où le serveur principal de solution s’intéresse à la dernière valeur connue d’une propriété. Si le serveur principal de la solution doit traiter une télémétrie d’appareil se présentant sous la forme de séquences d’événements horodatés, telles que des séries chronologiques, utilisez des [messages appareil-à-cloud][lnk-d2c].
 
 ### <a name="desired-property-example"></a>Exemple de propriété souhaitée
-Dans l’exemple ci-dessus, les propriétés souhaitées et signalées de la représentation d’appareil `telemetryConfig` sont utilisées par le serveur principal et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple :
+Dans l’exemple ci-dessus, les propriétés souhaitées et signalées de la représentation d’appareil `telemetryConfig` sont utilisées par le serveur principal d’application et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple :
 
-1. Le serveur principal d’applications définit la propriété souhaitée avec la valeur de configuration souhaitée. Voici la partie du document contenant la propriété souhaitée (Desired) :
+1. Le serveur principal de solution définit la propriété souhaitée avec la valeur de configuration souhaitée. Voici la partie du document contenant la propriété souhaitée (Desired) :
    
         ...
         "desired": {
@@ -130,7 +130,7 @@ Dans l’exemple ci-dessus, les propriétés souhaitées et signalées de la rep
             ...
         }
         ...
-3. Le serveur principal d’applications peut suivre les résultats de l’opération de configuration sur de nombreux appareils en [interrogeant][lnk-query] les représentations d’appareil.
+3. Le serveur principal de solution peut suivre les résultats de l’opération de configuration sur de nombreux appareils en [interrogeant][lnk-query] les représentations d’appareil.
 
 > [!NOTE]
 > Les extraits de code ci-dessus sont des exemples, optimisés pour la lisibilité, de manières possibles d’encoder la configuration d’un appareil et son état. L’IoT Hub n’impose pas de schéma spécifique pour les propriétés souhaitées et signalées de représentation d’appareil dans les représentations d’appareil.
@@ -140,10 +140,10 @@ Dans l’exemple ci-dessus, les propriétés souhaitées et signalées de la rep
 Dans de nombreux cas, des représentations sont utilisées pour synchroniser des opérations de longue durée, telles que des mises à jour de microprogramme. Pour plus d’informations sur l’utilisation de propriétés pour synchroniser et suivre des opérations de longue durée sur des appareils, voir [Utiliser des propriétés souhaitées pour configurer des appareils][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Opérations principales
-Le serveur principal opère sur la représentation d’appareil en utilisant les opérations atomiques suivantes, exposées via HTTP :
+Le serveur principal de solution opère sur la représentation d’appareil en utilisant les opérations atomiques suivantes, exposées via HTTP :
 
 1. **Récupérer la représentation d’appareil par son id**. Cette opération retourne le contenu du document de la représentation d’appareil, à savoir les Tags (balises) et les propriétés souhaitées (Desired), signalées (Reported) et système.
-2. **Mettre à jour Partiellement la représentation d’appareil**. Cette opération permet au serveur principal de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) de la représentation d’appareil. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété mentionnée. Les propriétés définies sur `null` sont supprimées. Par exemple, le code suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"`, et supprime complètement `otherOldProperty`. Les autres propriétés souhaitées ou Tags existants ne sont pas modifiés :
+2. **Mettre à jour Partiellement la représentation d’appareil**. Cette opération permet au serveur principal de solution de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) de la représentation d’appareil. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété mentionnée. Les propriétés définies sur `null` sont supprimées. Par exemple, le code suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"`, et supprime complètement `otherOldProperty`. Les autres propriétés souhaitées ou Tags existants ne sont pas modifiés :
    
         {
             "properties": {
@@ -156,19 +156,19 @@ Le serveur principal opère sur la représentation d’appareil en utilisant les
                 }
             }
         }
-3. **Remplacer des propriétés souhaitées**. Cette opération permet au serveur principal de remplacer complètement toutes les propriétés souhaitées existantes, et de remplacer `properties/desired` par un nouveau document JSON.
-4. **Remplacer des Tags**. De façon similaire au remplacement de propriétés souhaitées, cette opération permet au serveur principal de remplacer complètement tous les Tags existants, et de remplacer `tags` par un nouveau document JSON.
+3. **Remplacer des propriétés souhaitées**. Cette opération permet au serveur principal de la solution de remplacer complètement toutes les propriétés souhaitées existantes, et de remplacer `properties/desired` par un nouveau document JSON.
+4. **Remplacer des Tags**. De façon similaire au remplacement de propriétés souhaitées, cette opération permet au serveur principal de la solution de remplacer complètement tous les Tags existants, et de remplacer `tags` par un nouveau document JSON.
 
 Toutes les opérations ci-dessus prennent en charge l’[accès concurrentiel optimiste][lnk-concurrency] et requièrent l’autorisation **ServiceConnect** définie dans l’article [Sécurité][lnk-security].
 
-En plus de ces opérations, le serveur principal peut interroger les représentations d’appareil à l’aide du [langage de requête d’IoT Hub][lnk-query] de type SQL, et effectuer des opérations sur de grands ensembles de représentations en utilisant des [travaux][lnk-jobs].
+En plus de ces opérations, le serveur principal de solution peut interroger les représentations d’appareil à l’aide du [langage de requête d’IoT Hub][lnk-query] de type SQL, et effectuer des opérations sur de grands ensembles de représentations en utilisant des [travaux][lnk-jobs].
 
 ## <a name="device-operations"></a>Opérations d’appareil
 L’application d’appareil opère sur la représentation d’appareil en utilisant les opérations atomiques suivantes :
 
 1. **Récupérer la représentation d’appareil**. Cette opération retourne le contenu du document de la représentation d’appareil, à savoir les Tags (Balises) et les propriétés souhaitées (Desired), signalées (Reported) et système, pour l’appareil actuellement connecté.
-2. **Mettre à jour partiellement les propriétés signalées (Reported)**. Cette opération permet la mise à jour partielle des propriétés signalées de l’appareil actuellement connecté. Elle utilise le même format de mise à jour JSON que le serveur principal face à une mise à jour partielle des propriétés souhaitées.
-3. **Observer les propriétés souhaitées (Desired)**. L’appareil actuellement connecté peut choisir d’être informé des mises à jour des propriétés souhaitées dès qu’elles se produisent. L’appareil reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le serveur principal.
+2. **Mettre à jour partiellement les propriétés signalées (Reported)**. Cette opération permet la mise à jour partielle des propriétés signalées de l’appareil actuellement connecté. Elle utilise le même format de mise à jour JSON que le serveur principal de solution face à une mise à jour partielle des propriétés souhaitées.
+3. **Observer les propriétés souhaitées (Desired)**. L’appareil actuellement connecté peut choisir d’être informé des mises à jour des propriétés souhaitées dès qu’elles se produisent. L’appareil reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le serveur principal de la solution.
 
 Toutes les opérations ci-dessus requièrent l’autorisation **DeviceConnect** définie dans l’article [Sécurité][lnk-security].
 
@@ -265,9 +265,9 @@ Ces informations sont conservées à chaque niveau (pas uniquement celui des feu
 
 ## <a name="optimistic-concurrency"></a>Accès concurrentiel optimiste
 Les Tags ainsi que les propriétés souhaitées (Desired) et signalées (Reported) prennent en charge l’accès concurrentiel optimiste.
-Les Tags ont un ETag, conforme à la norme [RFC7232], correspondant à leur représentation JSON. Vous pouvez utiliser celui-ci dans des opérations de mise à jour conditionnelle à partir du serveur principal pour assurer la cohérence.
+Les Tags ont un ETag, conforme à la norme [RFC7232], correspondant à leur représentation JSON. Vous pouvez utiliser celui-ci dans des opérations de mise à jour conditionnelle à partir du serveur principal de solution pour assurer la cohérence.
 
-Les propriétés souhaitées et signalées de la représentation d’appareil n’ont pas d’ETag, mais une valeur `$version` dont la nature incrémentielle est garantie. De façon similaire à un ETag, la version peut être utilisée par la partie effectuant la mise à jour (par exemple, une application d’appareil pour une propriété signalée, ou le serveur principal pour une propriété souhaitée) afin d’assurer la cohérence des mises à jour.
+Les propriétés souhaitées et signalées de la représentation d’appareil n’ont pas d’ETag, mais une valeur `$version` dont la nature incrémentielle est garantie. De façon similaire à un ETag, la version peut être utilisée par la partie effectuant la mise à jour (par exemple, une application d’appareil pour une propriété signalée, ou le serveur principal d’application pour une propriété souhaitée) afin d’assurer la cohérence des mises à jour.
 
 Les versions sont également utiles quand un agent observateur (par exemple, l’application d’appareil observant les propriétés souhaitées) doit concilier des concurrences entre les résultats d’une opération de récupération et d’une notification de mise à jour. Pour plus d’informations, voir [Flux de reconnexion d’appareil][lnk-reconnection].
 
@@ -286,16 +286,16 @@ L’application d’appareil peut ignorer toutes les notifications dont la `$ver
 > 
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
-Autres rubriques de référence dans le Guide du développeur :
+Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
-* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre lors de l’utilisation du service.
-* La rubrique [Kits de développement logiciel (SDK) de services et appareils Azure IoT][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser lors du développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
+* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser lors du développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 * La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous savez ce que sont des représentations d’appareil, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur :
+À présent que vous savez ce que sont des représentations d’appareil, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
 * [Appeler une méthode directe sur un appareil][lnk-methods]
 * [Planifier des travaux sur plusieurs appareils][lnk-jobs]
@@ -335,6 +335,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

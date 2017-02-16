@@ -11,14 +11,14 @@ keywords: Docker, conteneurs, micro-services, Mesos, Azure
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 3edc4bf663244805fc184d9598621b3fbca72d5d
-ms.openlocfilehash: 430f895a783cbbe6b7454ccd24c2dd8d99f6228b
+ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
+ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
 
 
 ---
@@ -27,7 +27,11 @@ Azure Container Service simplifie la création, la configuration et la gestion d
 
 ![Azure Container Service offre un moyen de gérer les applications en conteneur sur plusieurs hôtes dans Azure.](./media/acs-intro/acs-cluster-new.png)
 
-Azure Container Service utilise le format de conteneur Docker pour assurer la portabilité complète de vos conteneurs d’application. Par ailleurs, il prend en charge votre choix d’utiliser Marathon et DC/OS ou Docker Swarm ou Kubernetes de sorte que vous puissiez mettre à l’échelle ces applications pour des milliers, voire des dizaines de milliers de conteneurs.
+Azure Container Service utilise le format de conteneur Docker pour assurer la portabilité complète de vos conteneurs d’application. Par ailleurs, il prend en charge votre choix d’utiliser Marathon et DC/OS, Docker Swarm ou Kubernetes pour vous permettre de mettre à l’échelle ces applications pour des milliers, voire des dizaines de milliers de conteneurs.
+
+>[!NOTE]
+> La prise en charge de Kubernetes dans l’Azure Container Service est actuellement en version préliminaire.
+>
 
 En utilisant Azure Container Service, vous pouvez tirer parti des fonctionnalités d’entreprise d’Azure tout en conservant la portabilité des applications, notamment au niveau des couches d’orchestration.
 
@@ -89,7 +93,7 @@ Il possède un jeu complet de fonctionnalités, notamment :
 * Secrets et gestion de la configuration
 * API basée sur les déploiements et restaurations automatisés
 * Réparation spontanée 
-* et plus encore...
+* et plus encore.
 
 
 
@@ -109,6 +113,6 @@ Création d’applications à l’aide du service de conteneur Azure (Build 2016
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

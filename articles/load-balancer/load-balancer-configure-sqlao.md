@@ -1,6 +1,6 @@
 ---
 title: "Configuration de l&quot;équilibrage de charge pour SQL Always On | Microsoft Docs"
-description: "Configuration de l&quot;équilibrage de charge pour fonctionner avec SQL Alway On et procédure d’exploitation de Powershell pour créer l&quot;équilibrage de charge pour l&quot;implémentation de SQL"
+description: "Configuration de l’équilibreur de charge de manière à ce qu’il fonctionne avec SQL Always On et procédure d’exploitation de Powershell pour créer l’équilibreur de charge pour l’implémentation de SQL"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 75f05f003b691ee6464168453fa7935f1fae166e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
 
 ---
 
@@ -55,7 +55,7 @@ Figure 1 : SQL AlwaysOn configuré avec équilibrage de charge côté Internet
 
     Dans l'exemple ci-dessus, la machine virtuelle 2 est appelée « sqlsvc1 » et « sqlsvc2 » en cours d'exécution dans le service de cloud « Sqlsvc ». Après avoir créé l’ILB avec le commutateur `DirectServerReturn`, vous ajoutez à l’ILB des points de terminaison à charge équilibrée pour permettre à SQL de configurer les écouteurs pour les groupes de disponibilité.
 
-Pour plus d’informations sur SQL AlwaysOn, voir [Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Pour plus d’informations sur SQL AlwaysOn, voir [Configurer un équilibrage de charge interne pour un groupe de disponibilité AlwaysOn dans Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## <a name="see-also"></a>Voir aussi
 [Prise en main de la configuration d’un équilibrage de charge sur Internet](load-balancer-get-started-internet-arm-ps.md)
@@ -68,6 +68,6 @@ Pour plus d’informations sur SQL AlwaysOn, voir [Configurer un équilibrage de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 Ce didacticiel de mise en route vous montre comment utiliser le portail Azure pour :
 
 - Visualiser les sauvegardes existantes d’une base de données
@@ -95,6 +32,9 @@ Ce didacticiel de mise en route vous montre comment utiliser le portail Azure po
 
 **Durée estimée** : ce didacticiel vous prendra environ 30 minutes (à condition que vous remplissiez déjà les conditions préalables).
 
+> [!TIP]
+> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide de [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -105,11 +45,11 @@ Ce didacticiel de mise en route vous montre comment utiliser le portail Azure po
 * Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
 
 
-> [!TIP]
-> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide de [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+> [!NOTE]
+> Ce didacticiel vous permet de vous informer sur le contenu des rubriques d’apprentissage suivantes : [sauvegardes de bases de données SQL](sql-database-automated-backups.md), [rétention de sauvegarde à long terme](sql-database-long-term-retention.md), et [récupération d’une base de données SQL Azure à l’aide de sauvegardes automatisées](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Connexion à l’aide de votre compte existant
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Se connecter au portail Azure avec un compte Azure
 À l’aide de votre [abonnement existant](https://account.windowsazure.com/Home/Index), suivez ces étapes pour vous connecter au portail Azure.
 
 1. Ouvrez votre navigateur préféré et connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -117,7 +57,6 @@ Ce didacticiel de mise en route vous montre comment utiliser le portail Azure po
 3. Dans la page **de connexion** , entrez les informations d’identification de votre abonnement.
    
    ![de connexion](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ Dans cette section du didacticiel, vous visualisez les informations relatives au
 
 1. Ouvrez le panneau **Base de données SQL** pour votre base de données, **sqldbtutorialdb**.
 
-    ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Dans la barre d’outils, cliquez sur **Restaurer**.
 
-    ![barre d’outils Restaurer](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![barre d’outils Restaurer](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. Dans le panneau Restaurer, examinez le point de restauration le plus ancien.
 
-    ![point de restauration le plus ancien](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![point de restauration le plus ancien](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurer une version antérieure d’une base de données
 
@@ -143,37 +82,37 @@ Dans cette section du didacticiel, vous restaurez la version antérieure d’une
 
 1. Dans le panneau **Restaurer** de la base de données, examinez le nom par défaut de la nouvelle base de données correspondant à la version antérieure restaurée de votre base de données (ce nom correspond au nom de base de données existant suivi d’un horodateur). Ce nom change afin de refléter la date et l’heure que vous allez spécifier dans le cadre des étapes suivantes.
 
-    ![nom de la base de données restaurée](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![nom de la base de données restaurée](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Cliquez sur l’icône **Calendrier** dans la zone d’entrée **Point de restauration (UTC)**.
 
-    ![point de restauration](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![point de restauration](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. Dans le calendrier, sélectionnez une date comprise dans la période de rétention.
 
-    ![date du point de restauration](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![date du point de restauration](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. Dans la zone d’entrée **Point de restauration (UTC)**, spécifiez l’heure de la date sélectionnée dont vous souhaitez restaurer les données de la base de données à partir des sauvegardes de base de données automatisées.
 
-    ![heure du point de restauration](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![heure du point de restauration](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Notez que le nom de la base de données a changé pour refléter la date et l’heure que vous avez sélectionnées. Notez également que vous ne pouvez pas changer le serveur sur lequel vous restaurez une version antérieure spécifique de la base de données. Pour restaurer la base de données sur un autre serveur, utilisez la [restauration géographique](sql-database-disaster-recovery.md#recover-using-geo-restore). Enfin, notez que vous pouvez restaurer la base de données dans un [pool élastique](sql-database-elastic-jobs-overview.md) ou pour un autre niveau tarifaire. 
-    >
+   >[!NOTE]
+   >Notez que le nom de la base de données a changé pour refléter la date et l’heure que vous avez sélectionnées. Notez également que vous ne pouvez pas changer le serveur sur lequel vous restaurez une version antérieure spécifique de la base de données. Pour restaurer la base de données sur un autre serveur, utilisez la [restauration géographique](sql-database-disaster-recovery.md#recover-using-geo-restore). Enfin, notez que vous pouvez restaurer la base de données dans un [pool élastique](sql-database-elastic-jobs-overview.md) ou pour un autre niveau tarifaire. 
+   >
 
 4. Cliquez sur **OK** pour restaurer cette version antérieure de votre base de données sous la forme d’une nouvelle base de données.
 
 5. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
 
-    ![progression du travail de restauration](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![progression du travail de restauration](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. Lorsque le travail de restauration est terminé, ouvrez le panneau **Bases de données SQL** pour visualiser la base de données nouvellement restaurée.
 
-    ![base de données restaurée](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![base de données restaurée](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour [extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour [extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Configurer la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services 
 
@@ -182,11 +121,11 @@ Dans cette section du didacticiel, vous [configurez un coffre Azure Recovery Ser
 
 > [!TIP]
 > Pour supprimer des sauvegardes, consultez [Delete long-term retention backups (Supprimer les sauvegardes de rétention à long terme)](sql-database-long-term-retention-delete.md).
-
+>
 
 1. Ouvrez le panneau **SQL Server** pour votre serveur, **sqldbtutorialserver**.
 
-    ![sql server blade](./media/sql-database-get-started/sql-server-blade.png)
+   ![sql server blade](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Cliquez sur **Long-term backup retention (Rétention des sauvegardes à long terme)**.
 
@@ -246,9 +185,9 @@ Dans cette section du didacticiel, vous [configurez un coffre Azure Recovery Ser
 
    ![visualiser le coffre Recovery Services](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > Une fois configurées, les sauvegardes s’affichent dans le coffre dans les sept jours qui suivent. Ne poursuivez pas ce didacticiel tant que les sauvegardes n’apparaissent pas dans le coffre.
-   >
+> [!IMPORTANT]
+> Une fois configurées, les sauvegardes s’affichent dans le coffre dans les sept jours qui suivent. Ne poursuivez pas ce didacticiel tant que les sauvegardes n’apparaissent pas dans le coffre.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Visualiser les sauvegardes de la rétention à long terme
 
@@ -260,17 +199,17 @@ Dans cette section du didacticiel, vous visualisez les informations relatives à
 
 2. Ouvrez le panneau **Base de données SQL** pour votre base de données, **sqldbtutorialdb**.
 
-    ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![new sample db blade](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Dans la barre d’outils, cliquez sur **Restaurer**.
 
-    ![barre d’outils Restaurer](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![barre d’outils Restaurer](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. Dans le panneau Restaurer, cliquez sur **À long terme**.
 
 5. Sous Azure vault backups (Sauvegardes de coffre Azure), cliquez sur **Sélectionner une sauvegarde** pour visualiser les sauvegardes de base de données disponibles dans la rétention des sauvegardes à long terme.
 
-    ![sauvegardes dans le coffre](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![sauvegardes dans le coffre](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Restaurer une base de données à partir d’une sauvegarde dans la rétention des sauvegardes à long terme
 
@@ -278,28 +217,25 @@ Dans cette section du didacticiel, vous restaurez la base de données sous la fo
 
 1. Dans le panneau **Azure vault backups (Sauvegardes de coffre Azure)**, cliquez sur la sauvegarde à restaurer, puis cliquez sur **Sélectionner**.
 
-    ![sélectionner une sauvegarde dans le coffre](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![sélectionner une sauvegarde dans le coffre](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. Dans la zone de texte **Nom de la base de données**, fournissez le nom de la base de données restaurée.
 
-    ![nom de la nouvelle base de données](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![nom de la nouvelle base de données](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Cliquez sur **OK** pour restaurer votre base de données à partir de la sauvegarde dans le coffre sous la forme d’une nouvelle base de données.
 
 4. Dans la barre d’outils, cliquez sur l’icône de notification pour visualiser l’état du travail de restauration.
 
-    ![progression du travail de restauration à partir du coffre](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![progression du travail de restauration à partir du coffre](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Lorsque le travail de restauration est terminé, ouvrez le panneau **Bases de données SQL** pour visualiser la base de données nouvellement restaurée.
 
-    ![base de données restaurée à partir du coffre](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![base de données restaurée à partir du coffre](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour [extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour [extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -309,6 +245,6 @@ Dans cette section du didacticiel, vous restaurez la base de données sous la fo
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

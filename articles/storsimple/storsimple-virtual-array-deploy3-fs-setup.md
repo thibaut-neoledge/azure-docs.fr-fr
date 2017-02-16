@@ -1,5 +1,5 @@
 ---
-title: "Déployer Microsoft Azure StorSimple Virtual Array - Configurer en tant que serveur de fichiers| Microsoft Docs"
+title: Configurer StorSimple Virtual Array comme un serveur de fichiers | Microsoft Docs
 description: "Ce troisième didacticiel du déploiement StorSimple Virtual Array vous explique comment configurer un appareil virtuel en tant que serveur de fichiers."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 5d250042d47b4dfdb6d6e95b93384b1acb323816
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Déploiement de StorSimple Virtual Array - Configuration en tant que serveur de fichiers
@@ -174,7 +174,7 @@ Pour créer un partage, procédez comme suit dans le [Portail Azure](https://por
 
     1. Nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
     
-    2. **Description** facultative du partage. La description permet d'identifier les propriétaires du partage.
+    2. Une **Description** facultative pour le partage. La description permet d'identifier les propriétaires du partage.
     
     3. **Type** du partage. Le partage peut présenter le type **Hiérarchisé** (valeur par défaut) ou **Attaché localement**. Pour les charges de travail qui nécessitent des garanties locales, une faible latence et les meilleures performances possibles, sélectionnez un partage **épinglé localement** . Pour toutes les autres données, sélectionnez un partage **à plusieurs niveaux** .
     La configuration d’un partage épinglé localement est complète, et garantit que les données principales sur le partage sont conservées en local sur l’appareil et ne débordent pas sur le cloud. D’autre part, la configuration d’un partage à plusieurs niveaux est légère. Lorsque vous créez un partage à plusieurs niveaux, 10 % de l'espace sont configurés au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n'avez plus d'espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux.
@@ -211,6 +211,6 @@ Découvrez comment [utiliser l’interface utilisateur web locale pour gérer vo
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

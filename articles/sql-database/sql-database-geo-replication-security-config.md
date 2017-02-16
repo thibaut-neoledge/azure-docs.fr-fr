@@ -1,9 +1,9 @@
 ---
-title: "Gestion de la sécurité après la restauration d’une base de données vers un nouveau serveur ou le basculement d’une base de données vers une copie de base de données secondaire | Microsoft Docs"
-description: "Cette rubrique décrit des considérations relatives à la gestion de la sécurité après un basculement ou une restauration de base de données."
+title: "Configurer la sécurité d’Azure SQL Database pour la récupération d’urgence | Microsoft Docs"
+description: "Cette rubrique décrit les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de la base de données ou un basculement vers un serveur secondaire en cas d’arrêt du centre de données ou d’un autre incident"
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: monicar
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3c8a05cb86522253bbbf85da2d29ba38f114120b
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 
 
 ---
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement 
 > [!NOTE]
 > La [géo-réplication active](sql-database-geo-replication-overview.md) est désormais disponible pour toutes les bases de données de tous les niveaux de service.
-> 
-> 
+>  
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Vue d’ensemble des exigences d’authentification pour la récupération d’urgence
 Cette rubrique décrit les exigences d’authentification requises pour configurer et contrôler la [géo-réplication active](sql-database-geo-replication-overview.md) et les opérations requises pour configurer l’accès utilisateur à la base de données secondaire. Elle explique également comment activer l’accès à la base de données restaurée après l’utilisation de la [géo-restauration](sql-database-recovery-using-backups.md#geo-restore). Pour plus d’informations sur les options de récupération, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
@@ -103,10 +102,9 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 * Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 * Pour plus d’informations sur l’utilisation de la restauration géographique, consultez [Restauration géographique](sql-database-recovery-using-backups.md#geo-restore)
 
-## <a name="additional-resources"></a>Ressources supplémentaires
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

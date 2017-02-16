@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 7b7bcc8d73796908f02c77f2df2f2a7c96e1ba47
-ms.openlocfilehash: 38388ead8e80217b44ec5d103c35d6eb5c13d0d3
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
 
 
 ---
+
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -120,7 +121,7 @@ Les sondes d’intégrité personnalisées apportent davantage de flexibilité a
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway. Ce nom est différent du nom d’hôte de la machine virtuelle. |
 | Chemin |Chemin relatif de la sonde. Le chemin valide commence par « / ». La sonde est envoyée à \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\> |
 | Intervalle |Intervalle d’analyse en secondes. Il s’agit de l’intervalle de temps qui s’écoule entre deux analyses consécutives. |
-| Délai d’attente |Délai d’expiration de l’analyse en secondes. La sonde est marquée comme étant en échec si aucune réponse valide n’est reçue dans le délai imparti. |
+| Délai d’attente |Délai d’expiration de l’analyse en secondes. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec. |
 | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 ### <a name="solution"></a>Solution
@@ -142,7 +143,9 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 
 Application Gateway permet aux utilisateurs de configurer ce paramètre via BackendHttpSetting pour l’appliquer ensuite à différents pools. Les pools de serveurs principaux peuvent avoir des paramètres BackendHttpSetting différents et, par conséquent, des délais d’attente différents.
 
+```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -151,6 +154,6 @@ Si les étapes précédentes ne vous permettent pas de résoudre le problème, o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

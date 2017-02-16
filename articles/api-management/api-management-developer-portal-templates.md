@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/09/2017
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e9b100a041934e6512a83c936effb48c2cba53b
+ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
+ms.openlocfilehash: 9ddd871a845af1169337480804b216a9a4fc9a06
 
 
 ---
@@ -60,65 +60,69 @@ Le volet **Template data** (Données du modèle) propose un guide du modèle de 
 
 Dans l’exemple précédent, deux produits sont affichés dans le portail des développeurs. Ils ont été récupérés à partir des données affichées dans le volet **Template data** (Données du modèle), comme l’illustre l’exemple suivant.
 
-    {
-        "Paging": {
-            "Page": 1,
-            "PageSize": 10,
-            "TotalItemCount": 2,
-            "ShowAll": false,
-            "PageCount": 1
+```json
+{
+    "Paging": {
+        "Page": 1,
+        "PageSize": 10,
+        "TotalItemCount": 2,
+        "ShowAll": false,
+        "PageCount": 1
+    },
+    "Filtering": {
+        "Pattern": null,
+        "Placeholder": "Search products"
+    },
+    "Products": [
+        {
+            "Id": "56ec64c380ed850042060001",
+            "Title": "Starter",
+            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+            "Terms": "",
+            "ProductState": 1,
+            "AllowMultipleSubscriptions": false,
+            "MultipleSubscriptionsCount": 1
         },
-        "Filtering": {
-            "Pattern": null,
-            "Placeholder": "Search products"
-        },
-        "Products": [
-            {
-                "Id": "56ec64c380ed850042060001",
-                "Title": "Starter",
-                "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
-                "Terms": "",
-                "ProductState": 1,
-                "AllowMultipleSubscriptions": false,
-                "MultipleSubscriptionsCount": 1
-            },
-            {
-                "Id": "56ec64c380ed850042060002",
-                "Title": "Unlimited",
-                "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
-                "Terms": null,
-                "ProductState": 1,
-                "AllowMultipleSubscriptions": false,
-                "MultipleSubscriptionsCount": 1
-            }
-        ]
-    }
+        {
+            "Id": "56ec64c380ed850042060002",
+            "Title": "Unlimited",
+            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+            "Terms": null,
+            "ProductState": 1,
+            "AllowMultipleSubscriptions": false,
+            "MultipleSubscriptionsCount": 1
+        }
+    ]
+}
+```
 
-Le balisage figurant dans le modèle **Product list** (Liste de produits) traite les données pour fournir le résultat souhaité en itérant au sein de la collection de produits pour afficher des informations et un lien vers chaque produit. Notez la présence des éléments `<search-control>` et `<page-control>` dans le balisage. Ceux-ci contrôlent l’affichage des contrôles de recherche et de pagination dans la page. `ProductsStrings|PageTitleProducts` est une référence de chaîne localisée qui contient le texte d’en-tête `h2` de la page. Pour obtenir la liste des ressources de chaîne, des contrôles de page et des icônes à utiliser dans les modèles du portail des développeurs, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+Le balisage figurant dans le modèle **Product list** (Liste de produits) traite les données pour fournir le résultat souhaité en itérant au sein de la collection de produits pour afficher des informations et un lien vers chaque produit. Notez la présence des éléments `<search-control>` et `<page-control>` dans le balisage. Ceux-ci contrôlent l’affichage des contrôles de recherche et de pagination dans la page. `ProductsStrings|PageTitleProducts` est une référence de chaîne localisée qui contient le texte d’en-tête `h2` de la page. Pour obtenir la liste des ressources de chaîne, des contrôles de page et des icônes à utiliser dans les modèles du portail des développeurs, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
-    <search-control></search-control>
-    <div class="row">
-        <div class="col-md-9">
-            <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
-        </div>
+```html
+<search-control></search-control>
+<div class="row">
+    <div class="col-md-9">
+        <h2>{% localized "ProductsStrings|PageTitleProducts" %}</h2>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-        {% if products.size > 0 %}
-        <ul class="list-unstyled">
-        {% for product in products %}
-            <li>
-                <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-                {{product.description}}
-            </li>    
-        {% endfor %}
-        </ul>
-        <paging-control></paging-control>
-        {% else %}
-        {% localized "CommonResources|NoItemsToDisplay" %}
-        {% endif %}
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+    {% if products.size > 0 %}
+    <ul class="list-unstyled">
+    {% for product in products %}
+        <li>
+            <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+            {{product.description}}
+        </li>    
+    {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
     </div>
+</div>
+```
 
 ## <a name="to-save-a-template"></a>Pour enregistrer un modèle
 Pour enregistrer un modèle, cliquez sur save (enregistrer) dans l’éditeur de modèle.
@@ -174,15 +178,9 @@ Pour restaurer la version par défaut de tous les modèles, cliquez sur **Restor
 
 Les modèles restaurés doivent ensuite être publiés un par un ou tous en même temps en suivant les étapes décrites dans la section [Pour publier un modèle](#to-publish-a-template).
 
-## <a name="developer-portal-templates-reference"></a>Informations de référence sur les modèles du portail des développeurs
-Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+## <a name="next-steps"></a>Étapes suivantes
+Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
-## <a name="watch-a-video-overview"></a>Regarder une vidéo de présentation
-Regardez la vidéo suivante pour savoir comment ajouter un forum de discussion et des évaluations aux pages d’API et d’opérations du portail des développeurs à l’aide de modèles.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
-> 
-> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -212,6 +210,6 @@ Regardez la vidéo suivante pour savoir comment ajouter un forum de discussion e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

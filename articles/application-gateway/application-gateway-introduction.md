@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
+ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
+ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
 
 Microsoft Azure Application Gateway intègre Application Delivery Controller (ADC) en tant que service, offrant diverses fonctionnalités d’équilibrage de charge de couche 7 pour votre application. Il permet aux clients d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway. Il fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Application Gateway inclut également un pare-feu d’applications web (WAF) qui protège votre application contre la plupart de 10 vulnérabilités web OWASP les plus courantes. La passerelle Application Gateway peut être configurée en tant que passerelle internet, passerelle interne uniquement ou une combinaison des deux. La passerelle Application Gateway est une solution Azure entièrement gérée, hautement évolutive et hautement disponible. Elle fournit un ensemble complet de fonctionnalités de diagnostics et de journalisation pour une meilleure gérabilité. La passerelle Application Gateway est compatible avec les machines virtuelles, les services de cloud et les applications web internes ou externes.
 
-La passerelle Application Gateway est une appliance virtuelle dédiée pour votre application et se compose de plusieurs instances Worker à des fins d’évolutivité et de haute disponibilité. Quand vous créez une passerelle Application Gateway, un point de terminaison (VIP public ou IP ILB interne) est associé et utilisé pour le trafic réseau en entrée. Ce point de terminaison VIP ou IP ILB est fourni par l’équilibreur de charge Azure fonctionnant au niveau du transport (TCP/UDP) et via l’équilibrage de la charge de tout le trafic réseau entrant pour les instances Worker de la passerelle Application Gateway. La passerelle Application Gateway achemine ensuite le trafic HTTP/HTTPS en fonction de sa configuration, qu’il s’agisse d’une machine virtuelle, d’un service cloud ou d’une adresse IP interne ou externe. Pour connaître le contrat SLA et les prix appliqués, consultez les pages [SLA](https://azure.microsoft.com/support/legal/sla/) et [Prix appliqués](https://azure.microsoft.com/pricing/details/application-gateway/).
+La passerelle Application Gateway est une appliance virtuelle dédiée pour votre application et se compose de plusieurs instances Worker, à des fins d’évolutivité et de haute disponibilité. Quand vous créez une passerelle Application Gateway, un point de terminaison (VIP public ou IP ILB interne) est associé et utilisé pour le trafic réseau en entrée. Ce point de terminaison VIP ou IP ILB est fourni par l’équilibreur de charge Azure fonctionnant au niveau du transport (TCP/UDP) et via l’équilibrage de la charge de tout le trafic réseau entrant pour les instances Worker de la passerelle Application Gateway. La passerelle Application Gateway achemine ensuite le trafic HTTP/HTTPS en fonction de sa configuration, qu’il s’agisse d’une machine virtuelle, d’un service cloud ou d’une adresse IP interne ou externe. Pour connaître le contrat SLA et les prix appliqués, consultez les pages [SLA](https://azure.microsoft.com/support/legal/sla/) et [Prix appliqués](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Caractéristiques
 
@@ -95,6 +95,6 @@ Pour savoir comment créer une passerelle d’application avec le routage de con
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

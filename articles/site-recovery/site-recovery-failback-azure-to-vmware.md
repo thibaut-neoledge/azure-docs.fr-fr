@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/05/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: ef381ef234608e0ccbf7f3814bd1f23816100d25
-ms.openlocfilehash: 3d78ec39d75da4118cc06f49ece3aa852eefd538
+ms.sourcegitcommit: 1663126f43b8e1cd3e68b9e9b2bbbb67298bb8c1
+ms.openlocfilehash: 893e2f64377b9b00596dfdc00e6eba36c024fa66
 
 
 ---
@@ -57,7 +57,7 @@ Si vous avez effectué le basculement d’une machine virtuelle VMware, vous pou
 
 * Si vous avez procédé au basculement de serveurs physiques, la restauration automatique est toujours effectuée vers une nouvelle machine virtuelle VMware.
   * Avant d’effectuer la restauration automatique d’un ordinateur physique, notez les points suivants :
-    * L’ordinateur physique protégé reviendra comme ordinateur virtuel après un basculement d'Azure vers VMware. Une machine Windows Server 2008 R2 SP1 protégée et basculée vers Azure ne peut pas être restaurée.
+    * L’ordinateur physique protégé reviendra comme ordinateur virtuel après un basculement d'Azure vers VMware. Une machine physique Windows Server 2008 R2 SP1 protégée et basculée vers Azure ne peut pas être restaurée. Une machine WS 2008R2 SP1 qui a démarré comme une machine virtuelle locale sera en mesure d’effectuer une restauration automatique
     * Veillez à découvrir au moins un serveur cible maître ainsi que les hôtes ESX/ESXi nécessaires sur lesquels vous devez effectuer une restauration automatique.
 * Si vous procédez à une restauration automatique vers la machine virtuelle d’origine, les conditions suivantes doivent être respectées :
   
@@ -237,7 +237,7 @@ Une fois la reprotection effectuée, la machine virtuelle est répliquée vers A
 4. Si vous utilisez la version gratuite d’ESXi 5.5 ou de vSphere 6 Hypervisor, le basculement devrait aboutir, mais la restauration automatique ne fonctionnera pas. Vous devrez effectuer une mise à niveau vers une licence d’évaluation pour activer la restauration automatique.
 5. Si le serveur de configuration n’est pas accessible à partir du serveur de processus, vous pouvez vérifier la connectivité entre ce dernier et le serveur de configuration en exécutant la commande -Telnet au niveau du serveur de configuration sur le port 443. Vous pouvez également essayer une commande ping sur le serveur de configuration à partir du serveur de processus. Un serveur de processus doit également avoir une pulsation lorsqu’il est connecté au serveur de configuration.
 6. Si vous essayez de revenir à un autre serveur vCenter, vérifiez si votre nouveau vCenter est détecté et que le serveur cible maître est également découvert. Un symptôme courant est que les magasins de données ne sont pas accessibles/visibles dans la boîte de dialogue Reprotéger.
-7. Une machine WS2008R2SP1 protégée comme machine physique ou virtuelle locale ne peut pas être restaurée localement à partir d’Azure.
+7. Une machine WS2008R2SP1 protégée comme machine physique locale ne peut pas être restaurée localement à partir d’Azure.
 
 ## <a name="failing-back-with-expressroute"></a>Restauration automatique avec ExpressRoute
 Vous pouvez effectuer une restauration automatique via une connexion VPN ou via Azure ExpressRoute. Si vous souhaitez utiliser ExpressRoute, notez les points suivants :
@@ -248,6 +248,6 @@ Vous pouvez effectuer une restauration automatique via une connexion VPN ou via
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

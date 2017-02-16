@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
-ms.openlocfilehash: 6a617da5135a362a0d6a0670c55242d64b1bdd85
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
 
 
 ---
@@ -121,7 +121,7 @@ Lors de l’installation de pip, une erreur d’autorisation est levée s’il e
 Si vous avez correctement configuré votre Azure IoT Hub avec l’interface de ligne de commande Azure, et avez besoin d’un outil pour gérer les appareils se connectant à votre IoT Hub, essayez les outils suivants.
 
 ### <a name="device-explorer"></a>Explorateur d’appareils
-L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) s’exécute sur votre ordinateur Windows local et se connecte à votre IoT Hub dans Azure. Il communique avec les [points de terminaison IoT Hub](iot-hub-devguide.md) suivants :
+L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) s’exécute sur votre ordinateur Windows local et se connecte à votre IoT Hub dans Azure. Il communique avec les [points de terminaison IoT Hub](iot-hub-devguide.md) suivants :
 
 * *Device identity management* (Gestion d’identité d’appareil) pour configurer et gérer les appareils inscrits auprès de votre IoT Hub.
 * *Receive device-to-cloud* (Réception appareil-à-cloud) pour pouvoir surveiller les messages envoyés par votre appareil à votre IoT Hub.
@@ -130,7 +130,7 @@ L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configurez la chaîne de connexion de votre IoT Hub dans cet outil pour utiliser toutes ses fonctionnalités.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) est un exemple d’outil d’interface de ligne de commande multiplateforme destiné à la gestion des appareils. Cet outil permet de gérer les appareils dans le registre des identités, de surveiller les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) est un exemple d’outil d’interface de ligne de commande multiplateforme destiné à la gestion des appareils. Cet outil permet de gérer les appareils dans le registre des identités, de surveiller les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil.
 
 Pour installer la dernière version (préliminaire) de l’outil iothub-explorer, dans votre environnement de ligne de commande, exécutez la commande suivante :
 
@@ -153,6 +153,6 @@ Une expérience complète de l’interface de ligne de commande vous permet de c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

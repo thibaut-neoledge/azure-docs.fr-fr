@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
 
 
 ---
@@ -37,10 +37,10 @@ Quand vous associez plusieurs comptes de stockage à votre compte Media Services
 
 Autres points à considérer :
 
-Media Services utilise la valeur de la propriété **IAssetFile.Name** durant la génération d’URL pour le contenu de diffusion en streaming (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut y avoir qu’un « . » pour l’extension de nom de fichier.
+Media Services utilise la valeur de la propriété **IAssetFile.Name** durant la génération d’URL pour le contenu de diffusion en streaming (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier.
 
 ## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Pour associer un compte de stockage à l'aide de l'API REST de gestion des services Azure
-Actuellement, le seul moyen d'associer plusieurs comptes de stockage consiste à utiliser l' [API REST de gestion des services Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). L’exemple de code indiqué dans la rubrique [Procédure : utiliser l’API REST de gestion de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) définit la méthode **AttachStorageAccountToMediaServiceAccount** qui associe un compte de stockage au compte Media Services spécifié. Le code indiqué dans cette même rubrique définit la méthode **ListStorageAccountDetails** qui répertorie tous les comptes de stockage associés au compte Media Services spécifié.
+Actuellement, le seul moyen d'associer plusieurs comptes de stockage consiste à utiliser l' [API REST de gestion des services Azure](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). L’exemple de code indiqué dans la rubrique [Procédure : utiliser l’API REST de gestion de Media Services](https://msdn.microsoft.com/library/azure/dn167656.aspx) définit la méthode **AttachStorageAccountToMediaServiceAccount** qui associe un compte de stockage au compte Media Services spécifié. Le code indiqué dans cette même rubrique définit la méthode **ListStorageAccountDetails** qui répertorie tous les comptes de stockage associés au compte Media Services spécifié.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Pour gérer des éléments multimédias Media Services dans plusieurs comptes de stockage
 Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Services pour effectuer les tâches suivantes :
@@ -257,6 +257,6 @@ Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,8 +1,8 @@
 
 L’exemple précédent contacte le fournisseur d’identité et le service mobile à chaque démarrage de l’application. Au lieu de cela, vous pouvez mettre en cache le jeton d’autorisation et essayer de l’utiliser d’abord.
 
-* La méthode recommandée pour chiffrer et stocker des jetons d’authentification sur un client iOS est d’utiliser le trousseau iOS. Nous allons utiliser [SSKeychain](https://github.com/soffes/sskeychain), un wrapper simple autour du trousseau iOS. Suivez les instructions de la page SSKeychain et ajoutez-le à votre projet. Vérifiez que le paramètre **Enable Modules** est activé dans l’option **Build Settings** du projet (section **Apple LLVM - Languages - Modules**.)
-* Ouvrez **QSTodoListViewController.m** et ajoutez le code suivant :
+* La méthode recommandée pour chiffrer et stocker des jetons d’authentification sur un client iOS est d’utiliser le trousseau iOS. Nous allons utiliser [SSKeychain](https://github.com/soffes/sskeychain) , un wrapper simple autour du trousseau iOS. Suivez les instructions de la page SSKeychain et ajoutez-le à votre projet. Vérifiez que le paramètre **Enable Modules** est activé dans l’option **Build Settings** du projet (section **Apple LLVM - Languages - Modules**.)
+* Ouvrez **QSTodoListViewController.m** et ajoutez le code suivant :
 
 ```
         - (void) saveAuthInfo {
@@ -21,16 +21,19 @@ L’exemple précédent contacte le fournisseur d’identité et le service mobi
         }
 ```
 
-* Dans `loginAndGetData`, modifiez le bloc de fin de `loginWithProvider:controller:animated:completion:`. Ajoutez la ligne suivante juste avant `[self refresh]` pour stocker l’ID utilisateur et les propriétés du jeton :
+* Dans `loginAndGetData`, modifiez le bloc de fin de `loginWithProvider:controller:animated:completion:`. Ajoutez la ligne suivante juste avant `[self refresh]` pour stocker l’ID utilisateur et les propriétés du jeton :
 
 ```
                 [self saveAuthInfo];
 ```
 
-* Nous allons charger l’ID utilisateur et le jeton au démarrage de l’application. Dans le `viewDidLoad` dans **QSTodoListViewController.m**, ajoutez ce droit après l’initialisation de `self.todoService`.
+* Nous allons charger l’ID utilisateur et le jeton au démarrage de l’application. Dans le `viewDidLoad` de **QSTodoListViewController.m**, ajoutez ce droit après l’initialisation de `self.todoService`.
 
 ```
                 [self loadAuthInfo];
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

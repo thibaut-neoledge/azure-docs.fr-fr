@@ -1,6 +1,7 @@
 ---
-title: "Migration d’une base de données SQL Server vers SQL Database à l’aide de l’Assistant de déploiement de base de données vers une base de données Microsoft Azure | Microsoft Docs"
-description: "Base de données SQL Microsoft Azure, migration de base de données, Assistant de base de données Microsoft Azure"
+title: "SSMS : Migration d’une base de données SQL Server vers Azure SQL Database | Microsoft Docs"
+description: "Cet article vous présente l’utilisation de l’Assistant de déploiement de base de données vers Microsoft Azure Database, disponible dans SQL Server Management Studio, qui permet de migrer une base de données SQL Server compatible directement dans votre serveur Azure SQL Database."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, Assistant de base de données Microsoft Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f4cbfc1a277cbe80edbfbb4dc651adb1972f41b4
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 6f0dc3b3df76dcb7a43fcdfad49ddfdb747e0747
 > 
 > 
 
-Cet assistant, disponible dans SQL Server Management Studio, permet de migrer une [base de données SQL Server compatible](sql-database-cloud-migrate.md) directement dans votre serveur Base de données SQL Microsoft Azure.
+Cet article vous présente l’utilisation de l’Assistant de déploiement de base de données vers Microsoft Azure Database, disponible dans SQL Server Management Studio, qui permet de migrer une [base de données SQL Server compatible](sql-database-cloud-migrate.md) directement dans votre serveur Azure SQL Database.
 
 ## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Utiliser l’assistant de déploiement de base de données dans une base de données Microsoft Azure
 > [!NOTE]
@@ -51,7 +52,7 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 4. Dans l’assistant de déploiement, cliquez sur **Suivant**, puis cliquez sur **Connecter** pour configurer la connexion à votre serveur SQL Database.
    
    ![Déployer vers Azure à partir du menu Tâches](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. Dans la boîte de dialogue Se connecter au serveur, entrez vos informations de connexion à votre serveur Base de données SQL.
+5. Dans la boîte de dialogue Se connecter au serveur, entrez vos informations de connexion à votre serveur Base de données SQL. Pour obtenir le nom de serveur d’un serveur existant, accédez à [Afficher et mettre à jour un serveur de base de données SQL et ses paramètres](sql-database-view-update-server-settings.md).
    
     ![Déployer vers Azure à partir du menu Tâches](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Fournissez les informations suivantes pour le fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que cet Assistant crée pendant le processus de migration :
@@ -79,6 +80,6 @@ Cet assistant, disponible dans SQL Server Management Studio, permet de migrer un
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

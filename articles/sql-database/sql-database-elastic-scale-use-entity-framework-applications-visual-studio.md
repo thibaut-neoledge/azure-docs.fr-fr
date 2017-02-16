@@ -8,6 +8,7 @@ author: torsteng
 editor: 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,13 +16,13 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ed3bceedd458e795524c6b1e29184eacf0672184
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 
 
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
-Ce document présente les modifications d'une application Entity Framework requises pour l'intégration avec les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md). L’objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l’approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour EF nous sert d'exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
+Ce document présente les modifications d'une application Entity Framework requises pour l'intégration avec les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md). L’objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l’approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour EF nous sert d’exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Téléchargement et exécution de l'exemple de code
 Pour télécharger le code utilisé dans cet article :
@@ -33,7 +34,7 @@ Pour télécharger le code utilisé dans cet article :
   
     ![Exemple d'application de base de données souples et d’Entity Framework][1] 
   
-    Sélectionnez l'échantillon appelé **Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework**. Une fois la licence acceptée, l'exemple se charge. 
+    Sélectionnez l’exemple **Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework**. Une fois la licence acceptée, l'exemple se charge. 
 
 Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Base de données SQL Azure :
 
@@ -255,7 +256,7 @@ Vous avez peut-être utilisé la version du constructeur héritée de la classe 
 Les approches décrites dans ce document entraînent quelques limitations : 
 
 * Les applications Entity Framework utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d'utiliser la bibliothèque cliente de base de données élastique. La montée en charge d’une application via le partitionnement avec l’infrastructure élastique n’est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 
-* Toutes les modifications apportées à l’application qui impliquent les modifications de schéma de base de données doivent passer par des migrations Entity Framework sur toutes les partitions. L'exemple de code pour ce document ne montre pas comment procéder. Envisagez d'utiliser la commande Update-Database avec un paramètre ConnectionString pour effectuer une itération sur toutes les partitions. Vous pouvez également extraire le script T-SQL pour la migration en attente à l'aide d'une commande Update-Database avec l'option –Script, puis appliquer le script T-SQL à vos partitions.  
+* Toutes les modifications apportées à l’application qui impliquent les modifications de schéma de base de données doivent passer par des migrations Entity Framework sur toutes les partitions. L'exemple de code pour ce document ne montre pas comment procéder. Envisagez d’utiliser la commande Update-Database avec un paramètre ConnectionString pour effectuer une itération sur toutes les partitions. Vous pouvez également extraire le script T-SQL pour la migration en attente à l’aide d’une commande Update-Database avec l’option -Script, puis appliquer le script T-SQL à vos partitions.  
 * Nous partons du principe que tous les traitements de base de données d’une demande donnée sont contenus dans une seule partition, identifiée par la clé de partitionnement fournie par la demande. Cependant, cette hypothèse n'est pas toujours vraie. Par exemple, lorsqu'il n'est pas possible de proposer une clé de partitionnement. Pour résoudre ce problème, les bibliothèques clientes fournissent la classe **MultiShardQuery** qui implémente une abstraction de connexion pour l’interrogation sur plusieurs partitions. Ce document ne permet pas d'apprendre à utiliser la **MultiShardQuery** conjointement à Entity Framework.
 
 ## <a name="conclusion"></a>Conclusion
@@ -268,6 +269,6 @@ En suivant les procédures décrites dans ce document, les applications Entity F
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

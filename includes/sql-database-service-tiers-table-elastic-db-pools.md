@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Nombre maximal d’eDTU par base de données | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>Limites du pool élastique standard (suite) **
+### <a name="standard-elastic-pool-limits-continued"></a>Limites du pool élastique standard (suite) 
 
 | Taille du pool (nombre d’eDTU)  |  **1 200** | **1 600** | **2 000** | **2 500** | **3 000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Nombre maximal d’eDTU par base de données | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>Limites du pool élastique Premium (suite) **
+### <a name="premium-elastic-pool-limits-continued"></a>Limites du pool élastique Premium (suite) 
 
 | Taille du pool (nombre d’eDTU)  |  **2 000** | **2 500** | **3 000** | **3 500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -72,9 +72,8 @@ sql-database-service-tiers.md
 
 \* Les bases de données élastiques se partagent l’espace de stockage du pool. Par conséquent, le stockage de base de données est limité au stockage de pool minimal restant ou au stockage maximal par base de données.
 
-\** La taille du pool de 3 000 eDTU pour un pool élastique Standard et celle du pool de 4 000 eDTU pour un pool élastique Premium sont actuellement disponibles via PowerShell et l’API REST uniquement. Ces tailles de pool seront bientôt disponibles dans le portail Azure. 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

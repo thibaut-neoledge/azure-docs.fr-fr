@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: 9164a93308a4a2f3eed4ff6262942239df029dae
 
 
 ---
@@ -23,12 +23,12 @@ ms.openlocfilehash: d53257f43c50ffae48dd8f024f9f0515be1c9338
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
 
 ## <a name="build-errors"></a>Erreurs de build
-*Dans Eclipse, quand j’ajoute le kit de développement logiciel (SDK) Application Insights via Maven ou Gradle, j’obtiens des erreurs de validation de build ou de somme de contrôle.*
+**Dans Eclipse, quand j’ajoute le kit de développement logiciel (SDK) Application Insights via Maven ou Gradle, j’obtiens des erreurs de validation de build ou de somme de contrôle.**
 
 * Si l’élément <version>de dépendance utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), essayez de spécifier une version spécifique, comme par exemple  `1.0.2`. Consultez les [notes de publication](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) relatives à la version la plus récente.
 
 ## <a name="no-data"></a>Absence de données
-*J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.*
+**J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.**
 
 * Attendez une minute, puis cliquez sur Actualiser. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez également les actualiser manuellement. L’intervalle d’actualisation dépend de l’intervalle de temps sur lequel porte le graphique.
 * Vérifiez que vous disposez d'une clé d'instrumentation définie dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet)
@@ -47,40 +47,47 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Ouvrez le panneau Quotas et tarification et vérifiez si l’ [échantillonnage](app-insights-sampling.md) est activé. (Une transmission de 100 % signifie que l’échantillonnage n’est pas activé). Le service Application Insights peut être défini pour n’accepter qu’une fraction des données de télémétrie provenant de votre application. Cela vous permet de respecter votre quota mensuel de télémétrie. 
 
 ## <a name="no-usage-data"></a>Absence de données d'utilisation
-*Je vois des données concernant les requêtes et les temps de réponse, mais rien concernant les affichages de pages, le navigateur ou les données utilisateur.*
+**Je vois des données concernant les requêtes et les temps de réponse, mais rien concernant les affichages de pages, le navigateur ou les données utilisateur.**
 
-Assurez-vous d'avoir configuré correctement votre application de façon à envoyer la télémétrie depuis le serveur. L’étape suivante consiste à [configurer vos pages web pour l’envoi de données de télémétrie depuis le navigateur web][usage].
+Assurez-vous d'avoir configuré correctement votre application de façon à envoyer la télémétrie depuis le serveur. L’étape suivante consiste à [configurer vos pages web pour l’envoi de la télémétrie depuis le navigateur web][usage].
 
-Si votre client est une application d’un [téléphone ou d’un autre appareil][platforms], vous pouvez également envoyer les données de télémétrie à partir de ce dernier. 
+Si votre client est une application d’un [téléphone ou d’un autre appareil][platforms], vous pouvez également envoyer la télémétrie à partir de ce dernier. 
 
 Utilisez la même clé d'instrumentation pour configurer la télémétrie de votre client et de votre serveur. Les données apparaîtront dans la même ressource Application Insights, et vous pourrez mettre en corrélation les événements du serveur et du client.
 
 
 ## <a name="disabling-telemetry"></a>Désactivation de la télémétrie
-*Comment puis-je désactiver la collecte télémétrique ?*
+**Comment puis-je désactiver la collecte télémétrique ?**
 
 Dans le code :
 
+```Java
+
     TelemetryConfiguration config = TelemetryConfiguration.getActive();
     config.setTrackingIsDisabled(true);
-
+```
 
 **Ou** 
 
 Mettez à jour ApplicationInsights.xml (situé dans le dossier de ressources de votre projet). Ajoutez le code suivant sous le nœud racine :
 
+```XML
+
     <DisableTelemetry>true</DisableTelemetry>
+```
 
 À l'aide de la méthode XML, vous devrez redémarrer l'application si vous modifiez la valeur.
 
 ## <a name="changing-the-target"></a>Modification de la cible
-*Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?*
+**Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?**
 
-* [Récupérez la clé d’instrumentation de la nouvelle ressource.][java]
+* [Obtenez la clé d’instrumentation de la nouvelle ressource.][java]
 * Si vous avez ajouté Application Insights à votre projet à l’aide du kit de ressources Azure pour Eclipse, cliquez avec le bouton droit sur votre projet web, sélectionnez **Azure**, **Configurer Application Insights**, puis modifiez la clé.
 * Sinon, mettez à jour la clé du fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet).
 
 ## <a name="debug-data-from-the-sdk"></a>Données de débogage du Kit de développement logiciel (SDK)
+
+**Comment puis-je savoir ce que fait le Kit de développement logiciel (SDK) ?**
 
 Pour obtenir plus d’informations sur ce qui se passe dans l’API, ajoutez `<SDKLogger/>` sous le nœud racine du fichier de configuration ApplicationInsights.xml.
 
@@ -98,28 +105,28 @@ Vous trouverez les fichiers sous `%temp%\javasdklogs`.
 
 
 ## <a name="the-azure-start-screen"></a>L'écran d'accueil Azure
-*J’ai ouvert [le portail Azure](https://portal.azure.com). Est-ce que la carte fournit des informations concernant mon application ?*
+**J’ai ouvert [le portail Azure](https://portal.azure.com). Est-ce que la carte fournit des informations concernant mon application ?**
 
 Non, elle montre l'intégrité des serveurs Azure dans le monde entier.
 
 *Depuis le panneau de démarrage Azure (l’écran d’accueil), comment trouver les données relatives à mon application ?*
 
-En supposant que vous ayez [configuré votre application pour Application Insights][java], cliquez sur Parcourir et sélectionnez Application Insights, puis la ressource d’application que vous avez créée pour votre application. Pour aller plus vite la prochaine fois, vous pouvez épingler votre application au panneau de démarrage.
+En supposant que vous ayez [configuré votre application pour Application Insights][java], cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez la ressource d’application que vous avez créée pour votre application. Pour aller plus vite la prochaine fois, vous pouvez épingler votre application au panneau de démarrage.
 
 ## <a name="intranet-servers"></a>Serveurs intranet
-*Puis-je surveiller un serveur sur mon intranet ?*
+**Puis-je surveiller un serveur sur mon intranet ?**
 
 Oui, à condition que votre serveur puisse envoyer la télémétrie vers le portail Application Insights via l'Internet public. 
 
 Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
 
 ## <a name="data-retention"></a>Conservation des données
-*Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?*
+**Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?**
 
-Consultez [Rétention de données et confidentialité][données].
+Consultez [Rétention des données et confidentialité][data].
 
 ## <a name="next-steps"></a>Étapes suivantes
-*J’ai configuré Application Insights pour mon application serveur Java. Que puis-je faire d’autre ?*
+**J’ai configuré Application Insights pour mon application serveur Java. Que puis-je faire d’autre ?**
 
 * [Surveiller la disponibilité de vos pages web][availability]
 * [Surveiller l’utilisation des pages web][usage]
@@ -128,12 +135,12 @@ Consultez [Rétention de données et confidentialité][données].
 * [Capturer les journaux de diagnostic][javalogs]
 
 ## <a name="get-help"></a>Obtenir de l'aide
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
-[données]: app-insights-data-retention-privacy.md
+[data]: app-insights-data-retention-privacy.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
@@ -143,6 +150,6 @@ Consultez [Rétention de données et confidentialité][données].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

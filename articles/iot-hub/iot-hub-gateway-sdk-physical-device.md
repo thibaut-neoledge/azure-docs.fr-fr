@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’un appareil physique avec le Kit de développement logiciel (SDK) de passerelle IoT | Microsoft Docs"
-description: "Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT utilisant un appareil SensorTag de Texas Instruments pour envoyer des données à un IoT Hub via une passerelle s’exécutant sur un Raspberry Pi 3"
+title: "Utilisation d’un appareil physique avec le Kit de développement logiciel (SDK) Gateway Azure IoT | Microsoft Docs"
+description: "Guide pratique d’utilisation d’un appareil SensorTag de Texas Instruments pour envoyer des données à un IoT Hub via une passerelle s’exécutant sur un Raspberry Pi 3. La passerelle est construite à l’aide du Kit de développement logiciel (SDK) de Gateway Azure IoT."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 9c8ab5b54644c3fa7999e7250825fba5d8532082
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-physical-device-using-linux"></a>Kit de développement logiciel (SDK) de passerelle Azure IoT (version bêta) - envoyer des messages appareil-à-cloud avec un appareil réel utilisant Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Utilisation du kit de développement logiciel (SDK) de passerelle Azure IoT (version bêta) pour envoyer des messages appareil-à-cloud avec un appareil réel (Linux)
 Cette procédure pas à pas sur l’[exemple de Bluetooth à faible consommation d’énergie][lnk-ble-samplecode] montre comment utiliser le [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-sdk] pour transférer des données de télémétrie d’appareil-à-cloud vers un IoT Hub à partir d’un appareil physique, et comment acheminer des commandes d’un IoT Hub vers un appareil physique.
 
 Cette procédure pas à pas inclut les étapes suivantes :
@@ -218,7 +218,7 @@ Lors de la rédaction du présent article, le Kit de développement logiciel (SD
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuration de deux exemples d’appareils dans votre IoT Hub
 * [Créez un IoT Hub][lnk-create-hub] dans votre abonnement Azure (pour effectuer cette procédure pas à pas, vous aurez besoin du nom de votre hub). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* Ajoutez un appareil nommé **SensorTag_01** à votre IoT Hub et notez son ID et sa clé d’appareil. Vous pouvez vous servir des outils de l’[Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil à l’IoT Hub que vous avez créé à l’étape précédente, et récupérer sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
+* Ajoutez un appareil nommé **SensorTag_01** à votre IoT Hub et notez son ID et sa clé d’appareil. Vous pouvez vous servir des outils de [l’Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil à l’IoT Hub que vous avez créé à l’étape précédente, et récupérer sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
 
 ### <a name="build-the-azure-iot-gateway-sdk-on-your-raspberry-pi-3"></a>Générer le Kit de développement logiciel (SDK) de passerelle Azure IoT sur votre Raspberry Pi 3
 
@@ -239,7 +239,7 @@ git submodule update --init --recursive
 Si vous disposez d’une copie complète du référentiel du Kit de développement logiciel (SDK) de passerelle IoT sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh --skip-unittests
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
@@ -426,10 +426,10 @@ Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de confi
 
 Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil SensorTag pour le rendre détectable avant d’exécuter l’exemple.
 
-Lorsque vous exécutez l’exemple, vous pouvez vous servir de l’outil de l’[Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transfère à partir de l’appareil SensorTag.
+Lorsque vous exécutez l’exemple, vous pouvez vous servir de l’outil de [l’Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transfère à partir de l’appareil SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
-Le module BLE prend également en charge l’envoi d’instructions à partir d’Azure IoT Hub à l’appareil. Vous pouvez utiliser l’[Explorateur d’appareils Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’[Explorateur IoT Hub](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE.
+Le module BLE prend également en charge l’envoi d’instructions à partir d’Azure IoT Hub à l’appareil. Vous pouvez utiliser [l’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’outil [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE.
 Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez activer la DEL rouge, la DEL verte, ou le vibreur sonore en envoyant des commandes à partir de l’IoT Hub. Pour ce faire, commencez par envoyer les deux messages JSON suivants dans l’ordre. Ensuite, vous pouvez envoyer n’importe laquelle des commandes pour activer les témoins ou le vibreur sonore.
 
 1 Réinitialisez les DEL et le vibreur sonore (en les mettant hors tension)
@@ -485,7 +485,7 @@ Si vous souhaitez approfondir vos connaissances sur le Kit de développement log
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
@@ -501,6 +501,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

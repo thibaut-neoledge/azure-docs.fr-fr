@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73ee6865a09af68a9ab55f17c85136608c4d84
-ms.openlocfilehash: cfe10bc9c86835d228b09550cc98a846ee1a78ad
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
 
 
 ---
@@ -233,12 +233,12 @@ Chaque événement dans le journal d’activité a un objet blob JSON similaire 
 | nextLink |Jeton de continuation pour extraire le jeu de résultats suivant lorsqu’ils sont divisés en plusieurs réponses. Généralement nécessaire lorsqu’il y a plus de 200 enregistrements. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
+* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](monitoring-stream-activity-logs-event-hubs.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

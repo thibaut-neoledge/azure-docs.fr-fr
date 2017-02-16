@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
+ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
 
 
 ---
@@ -26,21 +26,20 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Allemagne
 [Microsoft Cloud Allemagne](http://www.microsoft.de/cloud-deutschland) est un cloud souverain géré par un client allemand approuvé dans le domaine des données.
 
-Ce cloud est actuellement en version préliminaire. Une grande partie des scénarios que vous pouvez normalement faire vous-même, par exemple vérifier les domaines, doit être réalisée par l’opérateur. Contactez votre représentant Microsoft local pour plus d’informations sur la possibilité de participer à la version préliminaire.
-
 | URL à ouvrir dans le serveur proxy |
 | --- |
 | \**.microsoftonline.de |
 | \**.windows.net |
 | + Listes de révocation de certificat |
 
-Lorsque vous vous connectez à votre annuaire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
+Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 
 Fonctionnalités actuellement absentes de Microsoft Cloud Allemagne :
 
-* Azure AD Connect Health n’est pas disponible.
-* Les mises à jour automatiques ne sont pas disponibles.
-* L’écriture différée du mot de passe n’est pas disponible.
+* **Azure AD Connect Health** n’est pas disponible.
+* Les **mises à jour automatiques** ne sont pas disponibles.
+* **L’écriture différée du mot de passe** n’est pas disponible.
+* Les autres services Azure AD Premium ne sont pas disponibles.
 
 ## <a name="microsoft-azure-government-cloud"></a>Cloud Microsoft Azure Government
 Le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) est un cloud du gouvernement des États-Unis.
@@ -53,25 +52,25 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 | \**.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
-Azure AD Connect ne pourra pas détecter automatiquement que votre annuaire Azure AD se trouve dans le cloud Government. Au lieu de cela, vous devez effectuer les actions suivantes lorsque vous installez Azure AD Connect.
+Azure AD Connect ne peut pas détecter automatiquement que votre locataire Azure AD se trouve dans le cloud Government. Au lieu de cela, vous devez effectuer les actions suivantes lorsque vous installez Azure AD Connect.
 
 1. Lancez l’installation d’Azure AD Connect.
-2. Dès que vous voyez apparaître la première page où vous êtes censé accepter le CLUF, ne poursuivez pas, mais laissez l’Assistant Installation en cours d’exécution.
+2. Quand vous voyez apparaître la première page où vous êtes censé accepter le CLUF, ne poursuivez pas, mais laissez l’Assistant Installation en cours d’exécution.
 3. Lancez regedit et modifiez la clé de registre de la valeur `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` à la valeur `2`.
 4. Revenez à l’Assistant Installation d’Azure AD Connect, acceptez le CLUF et continuez. Pendant l’installation, veillez à utiliser le chemin d’accès d’installation de la **configuration personnalisée** (et non l’installation rapide). Puis continuez l’installation normalement.
 
 Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 
-* Azure AD Connect Health n’est pas disponible.
-* Les mises à jour automatiques ne sont pas disponibles.
-* L’écriture différée du mot de passe n’est pas disponible.
+* **Azure AD Connect Health** n’est pas disponible.
+* Les **mises à jour automatiques** ne sont pas disponibles.
+* **L’écriture différée du mot de passe** n’est pas disponible.
+* Les autres services Azure AD Premium ne sont pas disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

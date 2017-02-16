@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
 
 
 ---
@@ -32,6 +32,7 @@ Microsoft Azure Media Services (AMS) vous permet de sécuriser votre contenu mul
 AMS fournit un service de remise de licences DRM et de clés en clair AES aux clients autorisés. Le portail Azure vous permet de créer une **stratégie d’autorisation de clé/licence** pour tous les types de chiffrement.
 
 Cet article explique comment configurer des stratégies de protection du contenu avec le portail Azure. L’article explique également comment appliquer le chiffrement dynamique à vos ressources.
+
 
 > [!NOTE]
 > Si vous avez utilisé le portail Azure Classic pour créer des stratégies de protection, les stratégies peuvent être absentes du [portail Azure](https://portal.azure.com/). Toutefois, toutes les anciennes stratégies existent toujours. Vous pouvez les consulter à l’aide du SDK Azure Media Services .NET ou de l’outil [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases). Pour afficher les stratégies, cliquez avec le bouton droit sur l’élément multimédia -> Display information (F4) (Afficher les informations) -> cliquez sur l’onglet Content keys (Clés de contenu) -> cliquez sur la clé. 
@@ -93,10 +94,7 @@ Pour activer le chiffrement de FairPlay, vous devez fournir le certificat de l�
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Appliquer le chiffrement dynamique à votre ressource
-Pour tirer parti du chiffrement dynamique, vous devez effectuer les opérations suivantes :
-
-* Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif.
-* Obtenir au moins une unité de streaming à la demande pour le point de terminaison de streaming à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-portal-manage-streaming-endpoints.md).
+Pour tirer parti du chiffrement dynamique, vous devez encoder votre fichier source en un ensemble de fichiers MP4 à débit adaptatif.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Sélectionner une ressource que vous souhaitez chiffrer
 Pour afficher touts vos éléments multimédias, sélectionnez **Paramètres** > **Éléments multimédias**.
@@ -137,6 +135,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

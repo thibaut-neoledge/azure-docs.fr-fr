@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c748f4f65ec4a2ba32bca97648fb7ccdbb8d749
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
 
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Déployer une application web avec MSDeploy, un nom d’hôte personnalisé et un certificat SSL
 Ce guide explique la création d’un déploiement de bout en bout pour une Application Web Azure, exploitant MSDeploy, ainsi que l’ajout d’un nom d’hôte personnalisé et un certificat SSL au modèle ARM.
 
-Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="create-sample-application"></a>Créer un exemple d’application
 Vous allez déployer une application web ASP.NET. La première étape consiste à créer une application web simple (vous pouvez également choisir d’utiliser une application web existante, auquel cas vous pouvez ignorer cette étape).
@@ -200,6 +200,6 @@ Le PowerShell suivant montre le déploiement complet appelant Deploy-azureresour
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

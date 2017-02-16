@@ -1,6 +1,6 @@
 ---
-title: "Prise en charge des clients de niveau inférieur de SQL Database et modification des points de terminaison IP à des fins d’audit | Microsoft Docs"
-description: "En savoir plus sur la prise en charge des clients de niveau inférieur de la base de données SQL et sur la modification des points de terminaison IP à des fins d’audit."
+title: Audit, redirection TDS et points de terminaison IP pour Azure SQL Database | Microsoft Docs
+description: "En savoir plus sur l’audit, la redirection TDS et les modifications de point de terminaison IP lors de l’implémentation de l’audit de table dans Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: ronitr
@@ -13,16 +13,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2016
+ms.date: 01/05/2017
 ms.author: ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06c1dfbcfa365f6c34708021f63a756e295e2ab4
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: d225a6156ea3672ed214f8308d7e944e6ff08576
 
 
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
-[audit](sql-database-auditing-get-started.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS.
+L’[audit de table SQL Database](sql-database-auditing-get-started.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS. Notez que la redirection ne s’applique pas lorsque vous utilisez la méthode de l’audit d’objets Blob.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Prise en charge des clients de niveau inférieur
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
@@ -43,7 +43,7 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
 ## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Modification des points de terminaison IP lors de l’activation de l’audit
-Notez que l’activation de l’audit a pour effet de modifier le point de terminaison IP de votre base de données. Si vous avez défini des paramètres de pare-feu stricts, mettez-les à jour en conséquence.
+Notez que l’activation de l’audit de table a pour effet de modifier le point de terminaison IP de votre base de données. Si vous avez défini des paramètres de pare-feu stricts, mettez-les à jour en conséquence.
 
 Le nouveau point de terminaison IP de la base de données dépend de la région de votre base de données :
 
@@ -55,9 +55,11 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Sud-Est de l’Australie |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Sud du Brésil |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
 | Centre des États-Unis |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
+| EUAP Centre des États-Unis |52.180.178.16, 52.180.176.190 |
 | Est de l'Asie |23.99.125.133, 13.75.40.42, 23.97.71.138, 13.94.43.245 |
 | Est des États-Unis 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
 | Est des États-Unis |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
+| EUAP Est des États-Unis |52.225.190.86, 52.225.191.187 |
 | Inde centrale |104.211.98.219, 104.211.103.71 |
 | Inde du Sud |104.211.227.102, 104.211.225.157 |
 | Inde occidentale |104.211.161.152, 104.211.162.21 |
@@ -69,12 +71,15 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Asie du Sud-Est |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
 | Europe de l'Ouest |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
 | Ouest des États-Unis |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
-| Centre du Canada |13.88.248.106 |
-| Est du Canada |40.86.227.82 |
+| Ouest des États-Unis 2 |13.66.224.156, 13.66.227.8 |
+| Centre-Ouest des États-Unis |52.161.29.186, 52.161.27.213 |
+| Centre du Canada |13.88.248.106, 13.88.248.110 |
+| Est du Canada |40.86.227.82, 40.86.225.194 |
+| Nord du Royaume-Uni |13.87.101.18, 13.87.100.232 |
+| Sud du Royaume-Uni 2 |13.87.32.202, 13.87.32.226 |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

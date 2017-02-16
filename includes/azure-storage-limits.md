@@ -5,8 +5,10 @@
 | Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage |La seule limite est celle de 500 To de la capacité du compte de stockage |
 | Taille maximale d'un conteneur d'objets blob, d'une table ou d'une file d'attente |500 To |
 | Nombre maximal de blocs dans un objet blob de blocs ou ajouter des objets blob |50 000 |
-| Taille maximale d'un bloc dans un objet blob de blocs ou ajouter des objets blob |4 Mo |
-| Taille maximale d'un objet blob de blocs ou ajouter des objets blob |50 000 X 4 Mo (195 Go environ) |
+| Taille maximale d'un bloc dans un objet blob de blocs |100 Mo |
+| Taille maximale d'un objet blob de blocs |50 000 x 100 Mo (4,75 Go environ) |
+| Taille maximale d’un bloc dans un objet blob d’ajout |4 Mo |
+| Taille maximale d’un objet blob d’ajout |50 000 X 4 Mo (195 Go environ) |
 | Taille maximale d'un objet blob de pages |1 To |
 | Taille maximale d'une entité de table |1 Mo |
 | Nombre maximal de propriétés dans une entité de table |252 |
@@ -41,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

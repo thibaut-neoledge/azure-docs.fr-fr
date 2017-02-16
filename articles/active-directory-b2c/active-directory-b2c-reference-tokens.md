@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52360ffc7224ad6ec2009e239ee1aa0b35c7f1cc
+ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
+ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
 
 
 ---
@@ -80,8 +80,9 @@ Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre 
 | Hachage de code |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) . |
 | Hachage de jeton d’accès |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un jeton d’accès OAuth 2.0. Un hachage de jeton d’accès peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) . |
 | Valeur à usage unique |`nonce` |`12345` |La valeur à usage unique est une stratégie d’atténuation des attaques par relecture de jetons. Votre application peut spécifier une valeur à usage unique dans une demande d’autorisation à l’aide du paramètre de requête `nonce` . La valeur que vous fournissez dans la demande est émise sans aucune modification dans la revendication `nonce` du jeton d’ID. Cela permet à votre application de comparer la valeur à celle spécifiée dans la demande et d’associer la session de l’application à un jeton d’ID donné. Votre application doit effectuer cette validation au cours du processus de validation du jeton d’ID. |
-| Objet |`sub` |`Not supported currently. Use oid claim.` |Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Toutefois, la revendication de l’objet n’est pas encore implémentée dans Azure AD B2C. Au lieu d’utiliser la revendication de l’objet pour l’autorisation, configurez vos stratégies pour inclure la revendication `oid` d’ID objet et utiliser sa valeur pour identifier les utilisateurs. |
-| Référence de classe du contexte d’authentification |`acr` |`b2c_1_sign_in` |Nom de la stratégie utilisée pour acquérir le jeton d’ID. |
+| Objet |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour en savoir plus, lisez cet [article](active-directory-b2c-token-session-sso.md). |
+| Référence de classe du contexte d’authentification |`acr` |Non applicable |Non utilisé actuellement, sauf dans le cas de stratégies plus anciennes. Pour en savoir plus, lisez cet [article](active-directory-b2c-token-session-sso.md). |
+| Stratégie Trustframework |`tfp` |`b2c_1_sign_in` |Nom de la stratégie utilisée pour acquérir le jeton d’ID. |
 | Moment de l’authentification |`auth_time` |`1438535543` |Cette revendication est l’heure à laquelle l’utilisateur a entré ses informations d’identification pour la dernière fois, représentée en heure epoch. |
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
@@ -155,6 +156,6 @@ Les durées de vie du jeton suivantes sont fournies afin d’approfondir vos con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Référence du moteur de règles d’Azure Content Delivery Network | Microsoft Docs"
-description: "Cette rubrique décrit les fonctionnalités et conditions de correspondance du moteur de règles"
+title: "Référence du moteur de règles Azure CDN | Microsoft Docs"
+description: "Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Moteur de règle d’Azure Content Delivery Network
+# <a name="azure-cdn-rules-engine"></a>Moteur des règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des fonctionnalités et conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).
 
 Le moteur de règles HTTP est conçu pour être l’autorité finale sur la façon dont certains types de demandes sont traités par le CDN.
@@ -83,6 +83,6 @@ Espace | Un caractère d’espace est généralement traité comme un caractère
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "L’utilisation d’images d’un client Windows pour les scénarios de développement / test | Microsoft Docs"
+title: "Utilisation d’images de client Windows dans Azure | Microsoft Docs"
 description: "Comment utiliser les avantages de l’abonnement Visual Studio pour déployer Windows 7/8/10 dans Azure pour des scénarios de développement / de test"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d95dad55ad2f9feaf1e62f671adbf3187adf8cca
+ms.sourcegitcommit: 568bd06d1dfd0e253b960dcf2fb5409a390da91b
+ms.openlocfilehash: 2116abf974974c285d94d673b6a614360edbc593
 
 
 ---
@@ -59,6 +59,6 @@ Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerSh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

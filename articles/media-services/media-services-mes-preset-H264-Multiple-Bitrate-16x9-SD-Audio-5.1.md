@@ -1,6 +1,6 @@
 ---
 title: "H264 – Vitesse de transmission multiple – 16 x 9 SD – Audio 5.1 | Microsoft Docs"
-description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 – Vitesse de transmission multiple – 16 x 9 SD  – Audio 5.1**."
+description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 – Vitesse de transmission multiple – 16 x 9 SD – Audio 5.1**."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 63e51feb8c88c6c294fb7b712c3cede10e7253d8
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
  Cette présélection produit un ensemble de 5 fichiers MP4 alignés sur le groupe d’images, de 1 900 kbit/s à 400 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour connaître la signification des différents éléments et les valeurs valides pour chaque élément, consultez [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions restent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, tel que 1 280 x 720, 720 x 480, 640 x 360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1 920 x 1 080, 1 280 x 720, 1 080 x 576, 640 x 360. Vous ne devez pas utiliser un mélange de proportions, comme : 1 280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   
@@ -235,6 +235,7 @@ ms.openlocfilehash: b87bfb70171e79b7a4cec537874a57dc0cce2899
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

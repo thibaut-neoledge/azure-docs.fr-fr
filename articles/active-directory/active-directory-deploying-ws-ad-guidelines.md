@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
 
 
 ---
@@ -219,7 +219,7 @@ Le tableau suivant compare les processus de connexion avec et sans le déploieme
 | Authentification unique Office 365 avec AD FS et DirSync | Connexion à Office 365 identique avec DirSync + synchronisation de mots de passe |
 | --- | --- |
 | 1. L’utilisateur se connecte à un réseau d’entreprise et est authentifié à Windows Server Active Directory. |1. L’utilisateur se connecte à un réseau d’entreprise et est authentifié à Windows Server Active Directory. |
-| 2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com). |2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com). |
+| 2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com)). |2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com)). |
 | 3. Office 365 redirige l’utilisateur vers Azure AD. |3. Office 365 redirige l’utilisateur vers Azure AD. |
 | 4. Dans la mesure où Azure AD ne peut pas authentifier l’utilisateur et comprend qu’il existe une approbation avec AD FS en local, il redirige l’utilisateur vers AD FS. |4. Azure AD ne peut pas accepter de tickets Kerberos directement et aucune relation d’approbation n’existe. L’utilisateur est donc invité à saisir des informations d’identification. |
 | 5. L’utilisateur envoie un ticket Kerberos au STS AD FS. |5. L’utilisateur saisit le même mot de passe local et Azure AD le valide en fonction du nom d’utilisateur et du mot de passe qui ont été synchronisés par DirSync. |
@@ -393,7 +393,7 @@ Pour des raisons de performances et de tolérance de pannes, il est souhaitable 
 
 Les machines virtuelles inscrivent leur nom DNS automatiquement au démarrage ou lors d’une modification de nom.
 
-Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](../powershell-install-configure.md) et [Azure Management Cmdlet](https://msdn.microsoft.com/library/azure/jj152841) (Applets de commande de gestion Azure).
+Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](https://msdn.microsoft.com/library/azure/jj152841) (Applets de commande de gestion Azure).
 
 ### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Contrôleurs de domaine géolocalisés
 Azure présente des avantages lors de l’hébergement de plusieurs contrôleurs de domaine sur différents réseaux virtuels :
@@ -501,6 +501,6 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: a70eb51e7ebbc79e1aab4176d154dbef754368c1
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="build-and-run-the-c-sample-solution"></a>Générer et exécuter l'exemple de solution C
-Les instructions qui suivent décrivent les étapes permettant de connecter un appareil [mbed-enabled Freescale FRDM-K64F][lnk-mbed-home] à la solution de surveillance à distance.
+Les instructions qui suivent décrivent la procédure de connexion d’un appareil [mbed-enabled Freescale FRDM-K64F][lnk-mbed-home] à la solution de surveillance à distance.
 
 ### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Connectez le périphérique à votre réseau et à votre ordinateur de bureau
 1. Connectez le périphérique mbed à votre réseau avec un câble Ethernet. Cette étape est nécessaire car l'exemple d'application requiert un accès à internet.
-2. Voir [Mise en route avec mbed][lnk-mbed-getstarted] pour connecter votre appareil mbed à votre ordinateur de bureau.
+2. Voir [Getting Started with mbed (Prise en main de mbed)][lnk-mbed-getstarted] pour connecter votre appareil mbed à votre ordinateur de bureau.
 3. Si votre ordinateur de bureau exécute Windows, consultez [Configuration PC][lnk-mbed-pcconnect] pour configurer l’accès aux ports série de votre appareil mbed.
 
 ### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Créez un projet mbed et importez l’exemple de code
@@ -64,10 +64,14 @@ Les instructions qui suivent décrivent les étapes permettant de connecter un a
     ![][9]
 
 ### <a name="walk-through-the-code"></a>Examinez le code
-Si vous êtes intéressé par le fonctionnement du programme, cette section décrit certains éléments clés de l’exemple de code. Si vous souhaitez simplement exécuter le code, passez directement à la rubrique [Créez et exécutez le projet.](#buildandrun).
+Si vous êtes intéressé par le fonctionnement du programme, cette section décrit certains éléments clés de l’exemple de code. Si vous souhaitez simplement exécuter le code, passez directement à la rubrique [Créez et exécutez le programme](#buildandrun).
 
 #### <a name="defining-the-model"></a>Définition du modèle
-Cet exemple utilise la bibliothèque du [sérialiseur][lnk-serializer] pour définir un modèle qui spécifie les messages que l’appareil peut envoyer à IoT Hub et recevoir de IoT Hub. Dans cet exemple, l’espace de noms **Contoso** définit un modèle **Thermostat** qui spécifie les données de télémétrie **Temperature**, **ExternalTemperature**, et **Humidity**, ainsi que des métadonnées telles que l’ID de l’appareil, les propriétés de l’appareil et les commandes auxquelles l’appareil répond :
+Cet exemple utilise la bibliothèque du [sérialiseur][lnk-serializer] pour définir un modèle qui spécifie les messages que l’appareil peut envoyer à IoT Hub et recevoir de IoT Hub. Dans cet exemple, l’espace de noms **Contoso** définit un modèle **Thermostat** qui spécifie :
+
+- Les données de télémétrie **Temperature**, **ExternalTemperature** et **Humidity**.
+- Les métadonnées comme l’ID de l’appareil et les propriétés de l’appareil.
+- Les commandes auxquelles l’appareil répond :
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -204,6 +208,6 @@ Pour référence, voici un exemple de **commande** provenant d’IoT Hub :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

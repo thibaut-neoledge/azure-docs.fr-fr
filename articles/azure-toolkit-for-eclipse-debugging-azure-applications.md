@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 04e6a43e478484d90478e4aa90d489ea4eb0cc68
 
 
 ---
@@ -27,7 +27,7 @@ La Boîte à outils Azure pour Eclipse vous permet de déboguer vos applications
 
 Ce didacticiel part du principe que vous avez déjà créé une application et que vous savez utiliser l’émulateur de calcul et effectuer un déploiement sur Azure.
 
-Nous allons utiliser l’application du didacticiel [Utilisation de la bibliothèque Azure Service Runtime en JSP][Utilisation de la bibliothèque Azure Service Runtime en JSP] comme point de départ pour cette rubrique. Avant de commencer, créez cette application si ce n’est déjà fait.
+Nous allons utiliser l’application du didacticiel [Utilisation de la bibliothèque Azure Service Runtime en JSP][Using the Azure Service Runtime Library in JSP] comme point de départ pour cette rubrique. Avant de commencer, créez cette application si ce n’est déjà fait.
 
 ## <a name="to-debug-your-application-while-running-in-azure"></a>Pour déboguer votre application pendant son exécution dans Azure
 > [!WARNING]
@@ -39,7 +39,7 @@ Nous allons utiliser l’application du didacticiel [Utilisation de la biblioth�
 2. Régénérez votre projet : dans le menu Eclipse, cliquez sur **Projet**, puis sur **Générer tout**.
 3. Effectuez un déploiement *intermédiaire* de votre application dans Azure.
     >[AZURE.IMPORTANT] Comme mentionné ci-dessus, nous vous recommandons vivement de déboguer dans l’émulateur de calcul dans la plupart des cas, puis de déboguer dans l’environnement intermédiaire uniquement si un débogage supplémentaire est nécessaire. Nous vous recommandons de ne pas déboguer dans l’environnement de production.
-4. Une fois votre déploiement prêt dans Azure, récupérez le nom DNS du déploiement sur le [portail de gestion Azure][portail de gestion Azure]. Un déploiement intermédiaire a un nom DNS au format http://*&lt;guid&gt;*.cloudapp.net, où *&lt;guid&gt;* est une valeur GUID attribuée par Azure.
+4. Une fois votre déploiement prêt dans Azure, récupérez le nom DNS du déploiement sur le [portail de gestion Azure][Azure Management Portal]. Un déploiement intermédiaire a un nom DNS au format http://*&lt;guid&gt;*.cloudapp.net, où *&lt;guid&gt;* est une valeur GUID attribuée par Azure.
 5. Dans l’Explorateur de projets d’Eclipse, cliquez avec le bouton droit de la souris sur **WorkerRole1**, cliquez sur **Azure**, puis sur **Débogage**.
 6. Dans la boîte de dialogue **Propriétés de débogage pour WorkerRole1** :
    1. Cochez la case **Activer le débogage distant pour ce rôle**
@@ -119,22 +119,22 @@ Nous venons de voir comment déboguer dans l’émulateur de calcul. La section 
 * Pour activer le débogage à distance dans GlassFish, n’utilisez pas la fonctionnalité de configuration du débogage à distance de la Boîte à outils Azure pour Eclipse. Au lieu de cela, configurez GlassFish manuellement. En raison de la façon dont GlassFish traite les options Java prédéfinies dans les variables d’environnement, la fonctionnalité de configuration du débogage à distance de la boîte à outils ne fonctionne pas correctement avec GlassFish. Si la fonctionnalité de configuration du débogage à distance de la boîte à outils est activée, elle peut empêcher GlassFish de démarrer.
 
 ## <a name="see-also"></a>Voir aussi
-[Kit de ressources Azure pour Eclipse][Kit de ressources Azure pour Eclipse]
+[Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse]
 
-[Création d'une application Hello World pour Azure dans Eclipse][Création d'une application Hello World pour Azure dans Eclipse]
+[Création d’une application Hello World pour Azure dans Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Installation de la Boîte à outils Azure pour Eclipse][Installation de la Boîte à outils Azure pour Eclipse] 
+[Installation du kit de ressources Azure pour Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Création d'une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installation de la Boîte à outils Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Utilisation de la bibliothèque Azure Service Runtime en JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
@@ -145,6 +145,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

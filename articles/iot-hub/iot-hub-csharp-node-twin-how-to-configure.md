@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de propriétés de représentation d’appareils | Microsoft Docs"
-description: "Ce didacticiel montre comment utiliser des propriétés de représentation d’appareils"
+title: "Utilisation des propriétés des représentations physiques Azure IoT Hub (.NET/Node) | Microsoft Docs"
+description: "Guide d’utilisation des représentations d’appareils Azure IoT Hub pour configurer des appareils. Vous utilisez Azure IoT device SDK pour Node.js afin d’implémenter une application d’appareil simulé et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui modifie une configuration d’appareil avec une représentation d’appareil."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>Didacticiel : Utilisation des propriétés souhaitées pour configurer des appareils
+# <a name="use-desired-properties-to-configure-devices"></a>Utilisation des propriétés souhaitées pour configurer des appareils
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
 * **SimulateDeviceConfiguration.js**, application d’appareil simulée qui attend une mise à jour de configuration souhaitée, et signale l’état d’un processus de mise à jour de configuration simulée.
-* **SetDesiredConfigurationAndQuery**, application .NET destinée à être exécuté à partir du serveur principal, qui définit la configuration souhaitée sur un appareil, et interroge le processus de mise à jour de configuration.
+* **SetDesiredConfigurationAndQuery**, application .NET sur le serveur principal qui définit la configuration souhaitée sur un appareil, et interroge le processus de mise à jour de configuration.
 
 > [!NOTE]
-> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les Kits de développement logiciel (SDK) IoT que vous pouvez utiliser pour générer des applications d’appareils et de backend.
+> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les Kits de développement logiciel (SDK) IoT que vous pouvez utiliser pour générer des applications pour appareil et des applications principales.
 > 
 > 
 
@@ -39,7 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Node.js version 0.10.x ou ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
-Si vous avez suivi le didacticiel [Prise en main des représentations d’appareils][lnk-twin-tutorial], vous avez déjà un IoT Hub et une identité d’appareil nommée **myDeviceId**. Vous pouvez passer à la section [Créer l’application d’appareil simulée][lnk-how-to-configure-createapp].
+Si vous avez suivi le didacticiel [Prise en main des représentations d’appareil][lnk-twin-tutorial], vous avez déjà un IoT Hub et une identité d’appareil nommée **myDeviceId**. Vous pouvez passer à la section [Créer l’application pour appareil simulée][lnk-how-to-configure-createapp].
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -59,7 +59,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **SimulateDeviceConfiguration.js** dans le dossier **simulatedeviceconfiguration**.
-4. Ajoutez le code suivant au fichier **SimulateDeviceConfiguration.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
+4. Ajoutez le code suivant au fichier **SimulateDeviceConfiguration.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion à l’appareil que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -93,7 +93,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
             }
         });
    
-    L’objet **Client** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère la représentation d’appareils de **myDeviceId**, puis attache un gestionnaire pour la mise à jour sur les propriétés souhaitées. Le gestionnaire vérifie l’existence d’une demande de modification de configuration réelle en comparant les configIds, puis appelle une méthode qui démarre la modification de configuration.
+    L’objet **Client** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir de l’appareil. Le code précédent, après avoir initialisé l’objet **Client**, récupère la représentation d’appareil de **myDeviceId**, puis attache un gestionnaire pour la mise à jour sur les propriétés souhaitées. Le gestionnaire vérifie l’existence d’une demande de modification de configuration réelle en comparant les configIds, puis appelle une méthode qui démarre la modification de configuration.
    
     Notez que, par souci de simplicité, le code précédent utilise une valeur par défaut codées en dur pour la configuration initiale. Une application réelle chargerait probablement la configuration à partir d’un stockage local.
    
@@ -142,7 +142,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
             });
         };
    
-    La méthode **initConfigChange** met à jour les propriétés signalées sur l’objet de représentation d’appareils local avec la demande de mise à jour de configuration, et définit l’état sur **Pending** (En attente), puis met à jour la représentation d’appareils sur le service. Après la mise à jour de la représentation d’appareils, elle simule un processus de longue durée qui s’achève par l’exécution de **completeConfigChange**. Cette méthode met à jour les propriétés signalées locales en définissant l’état sur **Success** (Réussite) et en supprimant l’objet **pendingConfig**. Ensuite, elle met à jour la représentation d’appareils sur le service.
+    La méthode **initConfigChange** met à jour les propriétés signalées sur l’objet de représentation d’appareils local avec la demande de mise à jour de configuration, et définit l’état sur **Pending** (En attente), puis met à jour la représentation d’appareils sur le service. Après la mise à jour de la représentation d’appareil, elle simule un processus de longue durée qui s’achève par l’exécution de **completeConfigChange**. Cette méthode met à jour les propriétés signalées locales en définissant l’état sur **Success** (Réussite) et en supprimant l’objet **pendingConfig**. Ensuite, elle met à jour la représentation d’appareils sur le service.
    
     Notez que, pour économiser la bande passante, les propriétés signalées sont mises à jour en spécifiant uniquement les propriétés à modifier (nommées **patch** dans le code ci-dessus), au lieu de remplacer le document entier.
    
@@ -162,16 +162,16 @@ Dans cette section, vous créez une application console .NET qui met à jour les
 1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Nommez le projet **SetDesiredConfigurationAndQuery**.
    
     ![Nouveau projet Visual C# Bureau classique Windows][img-createapp]
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SetDesiredConfigurationAndQuery**, puis cliquez sur **Gérer les packages Nuget**.
-3. Dans la fenêtre **Gestionnaire de package Nuget**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement, l’installation et ajoute une référence au package Nuget [kit de développement logiciel (SDK) de service Microsoft Azure IoT][lnk-nuget-service-sdk] et ses dépendances.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SetDesiredConfigurationAndQuery**, puis cliquez sur **Gérer les packages NuGet**.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
    
-    ![Fenêtre du gestionnaire de package Nuget][img-servicenuget]
+    ![Fenêtre du gestionnaire de package NuGet][img-servicenuget]
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans la section précédente.
+5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur d’espace réservé par la chaîne de connexion IoT Hub pour le hub créé dans la section précédente.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -225,18 +225,18 @@ Dans cette section, vous créez une application console .NET qui met à jour les
 8. Avec **SimulateDeviceConfiguration.js** en cours d’exécution, exécutez l’application .NET depuis Visual Studio avec **F5** et vous devriez voir la configuration signalée passer de **Success** (Réussite) à **Pending** (En attente), puis de nouveau à **Success** (Réussite), avec la nouvelle fréquence d’envoi active de cinq minutes au lieu de 24 heures.
    
    > [!IMPORTANT]
-   > Un délai pouvant atteindre une minute s’écoule entre l’opération de signalement de l’appareil et le résultat de la requête. Il permet à l’infrastructure de requête d’opérer à très grande échelle. Pour récupérer des vues cohérentes d’une représentation d’appareils, utilisez la méthode **getDeviceTwin** dans la classe **Registry**.
+   > Un délai pouvant atteindre une minute s’écoule entre l’opération de signalement de l’appareil et le résultat de la requête. Il permet à l’infrastructure de requête d’opérer à très grande échelle. Pour récupérer des vues cohérentes d’une représentation d’appareil, utilisez la méthode **getDeviceTwin** dans la classe **Registry**.
    > 
    > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez défini une configuration souhaitée en tant que *propriétés souhaitées* à partir du backend et écrit une application d’appareil pour détecter cette modification et simuler un processus de mise à jour en plusieurs étapes signalant son état par le biais des propriétés signalées.
+Dans ce didacticiel, vous avez défini une configuration souhaitée en tant que *propriétés souhaitées* à partir du serveur principal et écrit une application d’appareil pour détecter cette modification et simuler un processus de mise à jour en plusieurs étapes signalant son état par le biais des propriétés signalées.
 
 Utilisez les ressources suivantes :
 
-* Pour savoir comment envoyer la télémétrie d’appareils, voir le didacticiel [Prise en main d’IoT Hub][lnk-iothub-getstarted].
-* Pour savoir comment planifier ou exécuter des opérations sur de grands ensembles d’appareils, voir le didacticiel [Planifier et diffuser des travaux][lnk-schedule-jobs].
-* Pour savoir comment contrôler des appareils de façon interactive (par exemple en mettant en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), voir le didacticiel [Utiliser des méthodes directes][lnk-methods-tutorial].
+* Pour savoir comment envoyer les données de télémétrie à partir d’appareils, consultez le didacticiel [Prise en main d’IoT Hub][lnk-iothub-getstarted].
+* Pour savoir comment planifier ou exécuter des opérations sur de grands ensembles d’appareils, consultez le didacticiel [Planifier et diffuser des travaux][lnk-schedule-jobs].
+* Pour savoir comment contrôler des appareils de façon interactive (par exemple en mettant en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), consultez le didacticiel [Utiliser des méthodes directes][lnk-methods-tutorial].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
@@ -254,7 +254,7 @@ Utilisez les ressources suivantes :
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -267,6 +267,6 @@ Utilisez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

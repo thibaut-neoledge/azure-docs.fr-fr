@@ -29,7 +29,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Interfaces réseau (NIC) |300 |10000 |
 | Groupes de sécurité réseau (NSG) |100 |400 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |200 |500 |
-| Tables d'itinéraires définis par l'utilisateur |100 |400 |
+| Tables d'itinéraires définis par l'utilisateur |100 |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |100 |400 |
 | Adresses IP publiques (dynamiques) |60 |contacter le support technique |
 | Adresses IP publiques (statiques) |20 |contacter le support technique |
@@ -43,6 +43,6 @@ Pour accroître les limites par défaut, contactez le support technique.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

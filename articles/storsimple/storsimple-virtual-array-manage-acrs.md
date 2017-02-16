@@ -1,5 +1,5 @@
 ---
-title: "Gérer les enregistrements de contrôle d’accès pour Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Gérer les enregistrements de contrôle d’accès pour StorSimple Virtual Array | Microsoft Docs"
 description: "Décrit comment gérer les enregistrements de contrôle d’accès pour déterminer les hôtes qui peuvent se connecter à un volume sur le StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: a0ba81faa20587d9559bf25cdc82dd6e20f42948
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer les enregistrements de contrôle d’accès pour le StorSimple Virtual Array
@@ -131,6 +131,6 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

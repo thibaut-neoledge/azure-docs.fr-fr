@@ -1,6 +1,6 @@
 ---
 title: "Utiliser le portail Azure pour créer un IoT Hub | Microsoft Azure"
-description: "Une vue d&quot;ensemble de la façon de créer et gérer les hubs IoT Azure via le portail Azure"
+description: "Comment créer, gérer et supprimer des IoT Hubs Azure via le portail Azure. Inclut des informations sur les niveaux de tarification, l’évolutivité, la sécurité et la configuration de la messagerie."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: ee072749e080264b4fa2b6cd0305071ed33b665e
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
 
 
 ---
@@ -39,7 +39,7 @@ Vous pouvez créer un hub IoT à l'aide des méthodes suivantes :
 * Création d'un hub IoT via Marketplace : un clic sur **Créer** ouvre un panneau identique au panneau précédent correspondant à l'expérience **+ New**. Les sections suivantes répertorient les différentes étapes nécessaire à la création d’un hub IoT.
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Choisir le nom du hub IoT
-Pour créer un IoT Hub, vous devez le nommer. Le nom doit être unique parmi les IoT Hubs. Aucune duplication de hubs n'est autorisée sur le serveur principal et il est donc recommandé de nommer ce hub de la façon la plus unique possible.
+Pour créer un IoT Hub, vous devez le nommer. Le nom doit être unique parmi les IoT Hubs. Aucune duplication de hubs n’est autorisée sur le serveur principal et il est donc recommandé de nommer ce hub de la façon la plus unique possible.
 
 ### <a name="choose-the-pricing-tier"></a>Choisir le niveau tarifaire.
 Vous pouvez choisir entre quatre niveaux : **Gratuit**, **Standard S1**, **Standard S2** et**Standard S3**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.
@@ -58,7 +58,7 @@ Vous pouvez choisir entre quatre niveaux : **Gratuit**, **Standard S1**, **Stand
 > 
 
 ### <a name="iot-hub-units"></a>Unités de hub IoT
-Une unité IoT Hub comprend un certain nombre de messages par jour. Le nombre total de messages pris en charge dans ce hub correspond au nombre d’unités multiplié par le nombre de messages par jour pour ce niveau. Par exemple, si vous souhaitez qu’IoT Hub prenne en charge l’arrivée de 700 000 messages, vous choisissez deux unités de niveau S1.
+Le nombre de messages autorisés par unité par jour dépend du niveau de tarification de votre concentrateur. Par exemple, si vous souhaitez qu’IoT Hub prenne en charge l’arrivée de 700 000 messages, vous choisissez deux unités de niveau S1.
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>Les partitions appareil-à-cloud et groupe de ressources
 Vous pouvez modifier le nombre de partitions pour un hub IoT. Les partitions par défaut sont définies sur 4 ; toutefois, vous pouvez choisir un nombre de partitions différent dans la liste déroulante.
@@ -86,7 +86,7 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 **Stratégies d’accès partagé** : ces stratégies définissent les autorisations pour que les appareils et services se connectent au IoT Hub. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d’accès partagé** sous **Général**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
 
 ### <a name="create-a-policy"></a>Création d’une stratégie
-* Cliquez sur **Ajouter** pour ouvrir un panneau. Ici, vous pouvez ouvrir un panneau dans lequel vous pouvez saisir le nouveau nom de stratégie, et les autorisations que vous voulez associer à la stratégie, comme illustré dans la figure suivante.
+* Cliquez sur **Ajouter** pour ouvrir un panneau. Ici, vous pouvez ouvrir un panneau dans lequel vous pouvez saisir le nouveau nom de stratégie, et les autorisations que vous voulez associer à la stratégie, comme illustré dans la figure suivante :
   
     Il existe plusieurs autorisations qui peuvent être associées à ces stratégies partagées. Les deux premières stratégies, **Lecture de registre** et **Écriture de registre**, accordent les autorisations en lecture et en écriture au stockage d’identité d’appareil ou au registre d’identité. Le choix de l'option en écriture choisit automatiquement l'option en lecture également.
   
@@ -95,11 +95,14 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 ![][10]
 
-## <a name="messaging"></a>Messagerie
-Cliquez **Messagerie** pour afficher une liste des messages de propriétés pour le concentrateur IoT en cours de modification. Il existe deux types principaux de propriétés que vous pouvez modifier ou copier : **Cloud vers appareil** et **Appareil vers cloud**.
+## <a name="endpoints"></a>Endpoints
+Cliquez **Points de terminaison** pour afficher une liste des points de terminaison pour le concentrateur IoT en cours de modification. Il existe deux principaux types de points de terminaison : les points de terminaison intégrées à IoT Hub, et ceux que vous avez ajoutés à IoT Hub après sa création.
 
-* Paramètres **Cloud vers appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
-* **Appareil vers cloud** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
+### <a name="built-in-endpoints"></a>Points de terminaison intégrés
+Il existe deux principales catégories de points de terminaison intégrés : les **commentaires de messages cloud-à-appareil** et les **événements**.
+
+* Paramètres **Commentaire de messages cloud-à-appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
+* **Événements** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
 
 **Partitions**: cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
 
@@ -115,6 +118,22 @@ Cliquez **Messagerie** pour afficher une liste des messages de propriétés pour
 > 
 
 ![][11]
+
+### <a name="custom-endpoints"></a>Points de terminaison personnalisés
+Vous pouvez ajouter des points de terminaison à votre IoT Hub via le portail. En haut du panneau Points de terminaison, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un point de terminaison**. Entrez les informations requises dans le panneau, puis cliquez sur **OK**. Votre point de terminaison personnalisé s’affiche dans le panneau Points de terminaison principal.
+
+![][13]
+
+Pour en savoir plus sur les points de terminaison personnalisés, consultez [Référence - Points de terminaison IoT Hub][lnk-devguide-endpoints].
+
+## <a name="routes"></a>Itinéraires
+Cliquez sur **Itinéraires** pour gérer la façon dont IoT Hub distribue vos messages cloud-à-appareil.
+
+![][14]
+
+Pour ajouter des itinéraires supplémentaires à votre IoT Hub, en haut du panneau, cliquez sur **Ajouter**, puis entrez les informations requises et cliquez sur **OK**. Votre itinéraire s’affiche dans le panneau Points de terminaison principal. Pour modifier un itinéraire, il vous suffit de cliquer dessus dans la liste des itinéraires, puis de changer ce que vous voulez. Pour activer un itinéraire, cliquez dessus dans la liste des itinéraires, puis définissez le paramètre Activer/Désactiver sur la valeur **Off** (Désactivé). Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
+
+![][15]
 
 ## <a name="pricing-and-scale"></a>Tarification et mise à l'échelle
 La tarification d'un concentrateur IoT existant peut être modifiée via les paramètres de **tarification** avec les exceptions suivantes :
@@ -133,13 +152,13 @@ Vous pouvez accéder au concentrateur IoT Hub en cliquant sur **Parcourir**, pui
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gérer en bloc des appareils IoT][lnk-bulk]
-* [Mesures d’utilisation][lnk-metrics]
+* [Métriques d’IoT Hub][lnk-metrics]
 * [Surveillance des opérations][lnk-monitor]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Guide du développeur IoT Hub][lnk-devguide]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -148,6 +167,9 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -156,9 +178,10 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

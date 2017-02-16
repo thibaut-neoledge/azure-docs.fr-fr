@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 08/25/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 628536e90ee682a1a1e64444f490fdaace6b125f
+ms.sourcegitcommit: 48f19f5085108b87d22951da049223ef9d4cd188
+ms.openlocfilehash: ea01213d375d93c47b9fa1e710f1e225adb85f92
 
 
 ---
@@ -69,7 +69,7 @@ Le chiffrement de base disponible pour la connectivité à Azure Government pren
 * Machines virtuelles IaaS : utilisez Azure Disk Encryption. Activez Storage Service Encryption pour chiffrer les fichiers VHD utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite Storage Service Encryption sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
 * Chiffrement côté client : il s’agit de la méthode la plus sûre pour chiffrer vos données, car il chiffre les données avant leur transit et il chiffre les données au repos. Toutefois, cette méthode vous oblige à ajouter du code dans vos applications qui utilisent le stockage, ce qui peut ne pas vous convenir. Dans ce cas, vous pouvez utiliser le protocole HTTPS pour vos données en transit, et Storage Service Encryption pour chiffrer les données au repos. Le chiffrement côté client entraîne également une plus grande charge pour le client. Vous devez donc tenir compte de ce paramètre dans vos plans d’extensibilité, en particulier si vous chiffrez et transférez une grande quantité de données.
 
-Pour plus d’informations sur les options de chiffrement dans Azure, consultez le [Guide de sécurité Azure Storage](/storage-security-guide).
+Pour plus d’informations sur les options de chiffrement dans Azure, consultez le [Guide de sécurité Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 
 ## <a name="protecting-customer-data-by-managing-secrets"></a>Protection des données client grâce à la gestion des secrets
 Une gestion sécurisée des clés est primordiale pour la protection des données du cloud. Les clients doivent s’efforcer de simplifier la gestion des clés et de garder le contrôle des clés utilisées par les services et applications cloud pour chiffrer les données.
@@ -99,6 +99,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, veuillez vo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

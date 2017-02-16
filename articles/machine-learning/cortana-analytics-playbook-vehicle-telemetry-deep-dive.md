@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee4ba38bf483ae4731212d6efb8398ac8ce413cb
+ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
+ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
 
 
 ---
@@ -35,9 +35,9 @@ La solution utilise deux sources de données différentes :
 
 Un simulateur de télématique des véhicules est intégré à cette solution. Ce simulateur émet des informations de diagnostic et des signaux correspondant à l’état du véhicule et au schéma de conduite à un moment donné dans le temps. Cliquez sur [Vehicle Telematics Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) pour télécharger la **solution Vehicle Telematics Simulator Visual Studio** afin de la personnaliser en fonction de vos besoins. Le catalogue de véhicules contient un jeu de données de référence associé à un mappage VIN/modèle.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
+![Simulateur de télématique des véhicules](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
-*Figure 2 – Simulateur de télématique des véhicules*
+*Figure 1 – Simulateur de télématique des véhicules*
 
 Il s’agit d’un jeu de données au format JSON qui contient le schéma suivant.
 
@@ -98,8 +98,8 @@ Le jeu de données de référence du modèle de véhicule contient un mappage en
 | ……. | |
 
 ### <a name="to-generate-simulated-data"></a>Générer les données simulées
-1. Pour télécharger le package du simulateur de données, cliquez sur la flèche située en haut à droite du nœud Vehicle Telematics Simulator. Enregistrez les fichiers en local et extrayez-les sur votre ordinateur. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figure 3 – Plan de la solution Vehicle Telemetry Analytics*
-2. Sur votre ordinateur local, accédez au dossier où vous avez extrait le package Vehicle Telematics Simulator. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figure 4 – Dossier Vehicle Telematics Simulator*
+1. Pour télécharger le package du simulateur de données, cliquez sur la flèche située en haut à droite du nœud Vehicle Telematics Simulator. Enregistrez les fichiers en local et extrayez-les sur votre ordinateur. ![Plan de solution Vechicle Telemetry Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Figure 2 – Plan de solution Vechicle Telemetry Analytics*
+2. Sur votre ordinateur local, accédez au dossier où vous avez extrait le package Vehicle Telematics Simulator. ![Dossier de simulateur de télématique des véhicules](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Figure 3 – Dossier de simulateur de télématique des véhicules*
 3. Exécutez l’application **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Références
@@ -115,13 +115,13 @@ Les composants Event Hubs, Stream Analytics et Data Factory d’Azure sont combi
 ### <a name="real-time-analysis"></a>Analyse en temps réel
 Les événements générés par le composant Vehicle Telematics Simulator sont publiés dans Azure Event Hub à l’aide du SDK Event Hub. La tâche Stream Analytics ingère ces événements à partir d’Event Hub et traite les données en temps réel pour analyser l’état du véhicule. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-event-hub-dashboard.png) 
+![Tableau de bord Event Hub](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
-*Figure 5 - Tableau de bord Event Hub*
+*Figure 4 - Tableau de bord Event Hub*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-processing-data.png) 
+![Données de traitement de la tâche Stream Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
 
-*Figure 6 - Données de traitement de la tâche Stream Analytics*
+*Figure 5 - Données de traitement de la tâche Stream Analytics*
 
 La tâche Stream Analytics :
 
@@ -131,28 +131,28 @@ La tâche Stream Analytics :
 
 La requête Stream Analytics suivante est utilisée pour conserver les données dans le stockage Blob Azure. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
+![Requête de tâche Stream Analytics pour l’ingestion de données](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
-*Figure 7 - Requête de la tâche Stream Analytics pour l’ingestion de données*
+*Figure 6 - Requête de tâche Stream Analytics pour l’ingestion de données*
 
 ### <a name="batch-analysis"></a>Analyse en mode batch
 Nous allons également générer un volume supplémentaire de signaux de véhicules simulés ainsi qu’un jeu de données de diagnostic pour permettre une analyse en mode batch approfondie. Cette étape est nécessaire pour garantir un volume de données représentatif dans le cadre d’un traitement par lots. Nous utilisons pour cela un pipeline nommé « PrepareSampleDataPipeline » dans le flux de travail Azure Data Factory pour générer l’équivalent d’une année de signaux et de diagnostics de véhicules simulés. Cliquez sur [Activité personnalisée Data Factory](http://go.microsoft.com/fwlink/?LinkId=717077) pour télécharger la solution Data Factory custom DotNet activity Visual Studio afin de la personnaliser en fonction de vos besoins. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+![Préparer des exemples de données pour le workflow de traitement par lots](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
-*Figure 8 - Préparer des exemples de données pour le workflow de traitement par lots*
+*Figure 7 - Préparer des exemples de données pour le workflow de traitement par lots*
 
 Le pipeline est composé d’un élément ADF .NET Activity personnalisé, illustré ici :
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline.png) 
+![Activité PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
-*Figure 9 - PrepareSampleDataPipeline*
+*Figure 8 - PrepareSampleDataPipeline*
 
 Une fois que le pipeline est correctement exécuté et que le jeu de données « RawCarEventsTable » est marqué comme « Prêt », l’équivalent d’une année de données de signaux et de diagnostics de véhicules simulés est généré. Le dossier et le fichier ci-dessous sont créés dans votre compte de stockage sous le conteneur « connectedcar » :
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
+![Sortie de PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
-*Figure 10 - Résultat du pipeline PrepareSampleDataPipeline*
+*Figure 9 - Sortie de PrepareSampleDataPipeline*
 
 ### <a name="references"></a>Références
 [Kit Azure Event Hub SDK pour la réception de flux](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -165,28 +165,28 @@ Une fois que le pipeline est correctement exécuté et que le jeu de données «
 ## <a name="partition-the-dataset"></a>Partitionner le jeu de données
 Les signaux et les données de diagnostic de véhicules bruts et semi-structurés sont partitionnés au cours de l’étape de préparation des données au format ANNÉE/MOIS. Ce partitionnement favorise une interrogation plus efficace et un stockage extensible à long terme en permettant le basculement d’un compte de stockage d’objets blob à un autre dès que le premier est rempli. 
 
-> [!NOTE]
-> Cette étape de la solution s’applique uniquement au traitement par lots.
-> 
-> 
+>[!NOTE] 
+>Cette étape de la solution s’applique uniquement au traitement par lots.
 
 Gestion des données d’entrée et de sortie :
 
 * Les **données de sortie** (intitulées *PartitionedCarEventsTable*) doivent être conservées pendant une longue période sous une forme primaire/« la plus brute » dans le « Data Lake » (lac de données) du client. 
 * Les **données d’entrée** de ce pipeline sont généralement ignorées, car les données de sortie représentent fidèlement les données d’entrée. Ces dernières sont simplement stockées (partitionnées) en vue d’être utilisées ultérieurement.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
+![Workflow Partition Car Events](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
-*Figure 11 - Workflow Partition Car Events*
+*Figure 10 - Workflow Partition Car Events*
 
 Les données brutes sont partitionnées à l’aide d’une activité Hive HDInsight dans « PartitionCarEventsPipeline ». Les exemples de données générés à l’étape 1 pour une année sont partitionnés par ANNÉE/MOIS. Les partitions sont utilisées pour générer les signaux et les données de diagnostic de véhicules pour chaque mois (12 partitions au total). 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
+![Activité PartitionCarEventsPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
-*Figure 12 - PartitionCarEventsPipeline*
+*Figure 11 - PartitionCarEventsPipeline*
+
+***Script Hive PartitionConnectedCarEvents***
 
 Le script Hive suivant, nommé « partitioncarevents.hql » et situé dans le dossier « \demo\src\connectedcar\scripts » de l’archive .zip téléchargée, est utilisé pour le partitionnement. 
-
+    
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
     set hive.cli.print.header=true;
@@ -322,13 +322,11 @@ Le script Hive suivant, nommé « partitioncarevents.hql » et situé dans le do
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-*Figure 13 - Script Hive PartitionConnectedCarEvents*
-
 Une fois le pipeline exécuté, les partitions suivantes sont générées dans votre compte de stockage sous le conteneur « connectedcar ».
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
+![Sortie partitionnée](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-*Figure 14 - Sortie partitionnée*
+*Figure 12 - Sortie partitionnée*
 
 Les données sont maintenant optimisées, plus faciles à gérer et prêtes à être traitées pour obtenir des informations de traitement par lots complètes. 
 
@@ -371,9 +369,9 @@ Lors de l’apprentissage des deux modèles, nous devons utiliser des données n
 ### <a name="real-time-analysis"></a>Analyse en temps réel
 La requête SQL suivante de Stream Analytics est utilisée pour calculer la moyenne de tous les paramètres de véhicule significatifs, tels que la vitesse du véhicule, le niveau de carburant, la température du moteur, le kilométrage, la pression des pneus, le niveau d’huile, etc. Les moyennes servent à détecter des anomalies, émettre des alertes et déterminer les conditions d’intégrité globale des véhicules utilisés dans une région spécifique, puis à les corréler à des données démographiques. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
+![Requête Stream Analytics pour le traitement en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-Figure 15 - Requête Stream Analytics pour le traitement en temps réel
+*Figure 13 - Requête Stream Analytics pour le traitement en temps réel*
 
 Toutes les moyennes sont calculées sur un TumblingWindow de 3 secondes. Nous utilisons TubmlingWindow dans ce cas car nous avons besoin d’intervalles de temps contigus et sans chevauchement. 
 
@@ -383,11 +381,11 @@ Pour en savoir plus sur les fonctionnalités de « fenêtrage » dans Azure Stre
 
 Une application est incluse dans le cadre de la solution pour configurer le modèle d’apprentissage automatique en temps réel. Cette application appelée « RealTimeDashboardApp » est créée et configurée dans le cadre du déploiement de la solution. L’application exécute les tâches suivantes :
 
-1. Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 - Requête Stream Analytics pour la publication des données dans une instance Event Hub de sortie* 
+1. Écoute une instance Event Hub dans laquelle Stream Analytics publie les événements en continu. ![Requête Stream Analytics pour la publication des données](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *Figure 14 - Requête Stream Analytics pour la publication des données dans une instance Event Hub de sortie* 
 2. Pour chaque événement reçu par cette application : 
    
    * Traite les données à l’aide du point de terminaison Request-Response Scoring (RRS) de Machine Learning. Le point de terminaison RRS est automatiquement publié dans le cadre du déploiement.
-   * La sortie RRS est publiée dans un ensemble de données PowerBI à l’aide d’API push.
+   * La sortie RRS est publiée dans un ensemble de données Power BI à l’aide d’API Push.
 
 Ce modèle s’applique également aux scénarios dans lesquels vous souhaitez intégrer une application métier avec le flux d’analyse en temps réel pour des scénarios tels que les alertes, les notifications et la messagerie.
 
@@ -395,19 +393,18 @@ Cliquez sur [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?Link
 
 **Pour exécuter l’application de tableau de bord en temps réel**
 
-1. Cliquez sur le nœud Power BI dans la vue schématique, puis sur le lien Télécharger l’application de tableau de bord en temps réel dans le volet des propriétés. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 - Instructions de configuration du tableau de bord Power BI*
-2. Extrayez le fichier et enregistrez-le en local ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 18 – Dossier RealtimeDashboardApp*
+1. Cliquez sur le nœud Power BI dans la vue schématique, puis sur le lien « Télécharger l’application de tableau de bord en temps réel » dans le volet des propriétés. ![Instructions de configuration du tableau de bord Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 15 – Instructions de configuration du tableau de bord Power BI*
+2. Extrayez le fichier et enregistrez-le localement ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – Dossier RealtimeDashboardApp*  
 3. Exécutez l’application RealtimeDashboardApp.exe
-4. Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur Accept ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4. Entrez des informations d’identification Power BI valides, connectez-vous, puis cliquez sur Accept ![Connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Fin de connexion à Power BI avec l’application de tableau de bord en temps réel](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
-*Figure 19 – RealtimeDashboardApp : connexion à Power BI*
+*Figure 17 – RealtimeDashboardApp : connexion à Power BI*
 
-> [!NOTE]
-> Si vous voulez vider le jeu de données Power BI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » : 
-> 
-> 
+>[!NOTE] 
+>Si vous voulez vider le jeu de données Power BI, exécutez l’application RealtimeDashboardApp avec le paramètre « flushdata » : 
 
     RealtimeDashboardApp.exe -flushdata
+
 
 ### <a name="batch-analysis"></a>Analyse en mode batch
 L’objectif ici est d’expliquer comment Contoso Motors exploite les capacités de calcul Azure pour tirer parti des Big Data afin d’obtenir de précieuses informations sur les schémas de conduite, le comportement d’utilisation et l’état du véhicule. Il est ainsi possible :
@@ -427,8 +424,11 @@ Examinons en détail chacune de ces mesures :
 
 Les signaux et les données de diagnostic de véhicules partitionnés sont traités dans le pipeline nommé « AggresiveDrivingPatternPipeline », qui utilise Hive pour déterminer les modèles, l’emplacement, le véhicule, les conditions de conduite et d’autres paramètres dénotant un mode de conduite agressive.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) 
-*Figure 20 – Workflow du mode de conduite agressive*
+![Workflow de modèle conduite agressive](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
+*Figure 18 – Workflow de modèle conduite agressive*
+
+
+***Requête Hive de mode de conduite agressive***
 
 Le script Hive nommé « aggresivedriving.hql » et utilisé pour analyser le modèle de condition de conduite agressive se trouve dans le dossier « \demo\src\connectedcar\scripts » du fichier zip téléchargé. 
 
@@ -489,23 +489,24 @@ Le script Hive nommé « aggresivedriving.hql » et utilisé pour analyser le 
     from PartitionedCarEvents
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
-*Figure 21 – Requête Hive du mode de conduite agressive*
 
 Il utilise à la fois la position du levier de vitesses, l’état de la pédale de frein et la vitesse du véhicule pour détecter un comportement de conduite imprudent/agressif en fonction du schéma de freinage à vitesse élevée. 
 
 Une fois le pipeline exécuté, les partitions suivantes sont générées dans votre compte de stockage sous le conteneur « connectedcar ».
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png) 
+![Sortie AggressiveDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
-*Figure 22 – Sortie AggressiveDrivingPatternPipeline*
+*Figure 19 – Sortie AggressiveDrivingPatternPipeline*
 
 **Mode de conduite économe en carburant**
 
 Les signaux et les données de diagnostic de véhicules partitionnés sont traités dans le pipeline nommé « FuelEfficientDrivingPatternPipeline ». Hive est utilisé pour déterminer les modèles, l’emplacement, le véhicule, les conditions de conduite et d’autres propriétés dénotant un mode de conduite économe en carburant.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png) 
+![Mode de conduite économe en carburant](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-*Figure 23 - Workflow du mode de conduite économe en carburant*
+*Figure 20 - Workflow du mode de conduite économe en carburant*
+
+***Requête Hive du mode de conduite économe en carburant***
 
 Le script Hive nommé « fuelefficientdriving.hql » et utilisé pour analyser le modèle de condition de conduite économe en carburant se trouve dans le dossier « \demo\src\connectedcar\scripts » du fichier zip téléchargé. 
 
@@ -567,35 +568,35 @@ Le script Hive nommé « fuelefficientdriving.hql » et utilisé pour analyser
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-*Figure 24 - Requête Hive du mode de conduite économe en carburant*
-
 Il utilise à la fois la position du levier de vitesses, l’état de la pédale de frein, la vitesse du véhicule et la position de la pédale d’accélérateur pour détecter un comportement de conduite économe en carburant en fonction des schémas d’accélération, de freinage et de vitesse élevée. 
 
 Une fois le pipeline exécuté, les partitions suivantes sont générées dans votre compte de stockage sous le conteneur « connectedcar ».
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
+![Sortie FuelEfficientDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-*Figure 25 – Sortie FuelEfficientDrivingPatternPipeline*
+*Figure 21 – Sortie FuelEfficientDrivingPatternPipeline*
 
 **Prédictions des rappels**
 
 L’expérience d’apprentissage automatique est configurée et publiée en tant que service web dans le cadre du déploiement de la solution. Le point de terminaison de notation par lots est utilisé dans ce workflow, enregistré tant que service Data Factory lié et mis en œuvre à l’aide de l’activité de notation par lots de Data Factory.
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-machine-learning-endpoint.png) 
+![Point de terminaison Machine Learning](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-*Figure 26 – Point de terminaison Machine Learning enregistré comme service lié dans Data Factory*
+*Figure 22 – Point de terminaison Machine Learning enregistré comme service lié dans Data Factory*
 
 Le service lié enregistré est utilisé dans le DetectAnomalyPipeline pour noter les données à l’aide du modèle de détection d’anomalies. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-aml-batch-scoring.png) 
+![Activité de notation par lot de Machine Learning dans Data Factory](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
 
-*Figure 27 – Activité de notation par lot d'Azure Machine Learning dans Data Factory* 
+*Figure 23 – Activité de notation par lot d’Azure Machine Learning dans Data Factory* 
 
 Quelques étapes sont exécutées dans ce pipeline pour préparer les données afin de les rendre opérationnelles avec le service web de notation par lots. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-pipeline-predicting-recalls.png) 
+![DetectAnomalyPipeline pour la prédiction des véhicules nécessitant des rappels](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
 
-*Figure 28 – DetectAnomalyPipeline pour la prédiction des véhicules nécessitant des rappels* 
+*Figure 24 – DetectAnomalyPipeline pour la prédiction des véhicules nécessitant des rappels* 
+
+***Requête Hive de détection des anomalies***
 
 Une fois l’évaluation terminée, une activité HDInsight est utilisée pour traiter et agréger les données que le modèle considère comme des anomalies, avec un score de probabilité d’au moins 0,60.
 
@@ -659,47 +660,48 @@ Une fois l’évaluation terminée, une activité HDInsight est utilisée pour t
 
 Une fois le pipeline exécuté, les partitions suivantes sont générées dans votre compte de stockage sous le conteneur « connectedcar ».
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png) 
+![Sortie DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
-*Figure 30 – Sortie DetectAnomalyPipeline*
+*Figure 25 – Sortie DetectAnomalyPipeline*
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>Publier
+
 ### <a name="real-time-analysis"></a>Analyse en temps réel
 L’une des requêtes de la tâche Stream Analytics publie les événements dans une instance Event Hub de sortie. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig31-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Publication des événements de la tâche Stream Analytics dans une instance Event Hub de sortie](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*Figure 31 - Publication des événements de la tâche Stream Analytics dans une instance Event Hub de sortie*
+*Figure 26 - Publication des événements de la tâche Stream Analytics dans une instance Event Hub de sortie*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig32-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![Requête Stream Analytics pour la publication d’événements dans une instance Event Hub de sortie](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*Figure 32 - Requête Stream Analytics pour la publication d’événements dans une instance Event Hub de sortie*
+*Figure 27 - Requête Stream Analytics pour la publication d’événements dans une instance Event Hub de sortie*
 
-Ce flux d’événements est utilisé par l’application RealTimeDashboardApp intégrée dans la solution. Cette application s’appuie sur le service web Request-Response de Machine Learning pour calculer les scores en temps réel, et publie les données obtenues dans un jeu de données Power BI. 
+Ce flux d’événements est utilisé par l’application RealTimeDashboardApp intégrée dans la solution. Cette application s’appuie sur le service web Request-Response de Machine Learning pour calculer les scores en temps réel, et publie les données obtenues dans un jeu de données Power BI. 
 
 ### <a name="batch-analysis"></a>Analyse en mode batch
 Les résultats du traitement par lots et en temps réel sont publiés dans les tables de base de données SQL Azure pour être consommés. Le serveur SQL, la base de données et les tables Azure sont créés automatiquement dans le cadre du script d’installation. 
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig33-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+![Copie des résultats du traitement par lots dans le workflow d’entrepôt de données](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-*Figure 33 – Copie des résultats du traitement par lots dans le workflow d’entrepôt de données*
+*Figure 28 – Copie des résultats du traitement par lots dans le workflow d’entrepôt de données*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig34-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![Publication des événements de la tâche Stream Analytics dans un entrepôt de données](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-*Figure 34 - Publication des événements de la tâche Stream Analytics dans un entrepôt de données*
+*Figure 29 - Publication des événements de la tâche Stream Analytics dans un entrepôt de données*
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig35-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
+![Configuration de l’entrepôt de données dans la tâche Stream Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
-*Figure 35 – Configuration de l’entrepôt de données dans la tâche Stream Analytics*
+*Figure 30 – Configuration de l’entrepôt de données dans la tâche Stream Analytics*
 
 ## <a name="consume"></a>Utiliser
 Power BI offre à cette solution un tableau de bord complet permettant de visualiser à la fois les données en temps réel et les analyses prédictives. 
 
-Cliquez ici pour obtenir des instructions détaillées sur la configuration des rapports et du tableau de bord Power BI. Le tableau de bord final doit ressembler à ceci :
+Cliquez ici pour obtenir des instructions détaillées sur la configuration des rapports et du tableau de bord Power BI. Le tableau de bord final doit ressembler à ceci :
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig36-vehicle-telematics-powerbi-dashboard.png)
+![Tableau de bord Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-*Figure 36 - Tableau de bord Power BI*
+*Figure 31 - Tableau de bord Power BI*
 
 ## <a name="summary"></a>Résumé
 Ce document explore de façon détaillée la solution Vehicle Telemetry Analytics. Il présente un modèle d’architecture lambda pour une analyse en temps réel et par lots reposant sur des prédictions et des actions. Ce modèle s’applique à un large éventail de scénarios qui requièrent des analyses à chaud (en temps réel) et à froid (par lots). 
@@ -707,6 +709,6 @@ Ce document explore de façon détaillée la solution Vehicle Telemetry Analytic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

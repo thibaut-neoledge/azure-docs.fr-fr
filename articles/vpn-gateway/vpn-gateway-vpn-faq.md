@@ -1,10 +1,10 @@
 ---
 title: "FAQ sur la passerelle VPN d’Azure Virtual Network | Microsoft Docs"
-description: "Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN"
+description: "Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ Par défaut, l'ordinateur client ne rétablit pas automatiquement la connexion V
 La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans les configurations VPN point à site.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Puis-je avoir des configurations coexistantes site à site et point à site pour un même réseau virtuel ?
-Oui. Ces deux solutions fonctionnent si vous avez un type de réseau VPN basé sur un itinéraire pour votre passerelle. Pour le modèle de déploiement Classic, vous avez besoin d’une passerelle dynamique. Nous ne prenons pas en charge la configuration point à site pour les passerelles VPN à routage statique ou les passerelles utilisant -VpnType PolicyBased.
+Oui. Ces deux solutions fonctionnent si vous avez un type de réseau VPN basé sur un itinéraire pour votre passerelle. Pour le modèle de déploiement Classic, vous avez besoin d’une passerelle dynamique. Nous ne prenons pas en charge la configuration point à site pour les passerelles VPN à routage statique ou les passerelles utilisant l’applet de commande `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Puis-je configurer un client point à site pour me connecter à plusieurs réseaux virtuels en même temps ?
 Oui, vous pouvez. Néanmoins les réseaux virtuels ne peuvent pas avoir de préfixes IP qui se chevauchent, et les espaces d’adressage point à site ne doivent pas se chevaucher entre les réseaux virtuels.
@@ -129,7 +129,7 @@ Oui, l’applet de commande PowerShell et l’API de clé prépartagée définie
 ### <a name="can-i-use-other-authentication-options"></a>Puis-je utiliser les autres options d'authentification ?
 Nous sommes limités à l'utilisation de clés prépartagées (PSK) pour l'authentification.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Qu’est-ce que le « sous-réseau de passerelle » et pourquoi est-il nécessaire ?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Qu’est-ce que l’élément « GatewaySubnet » et pourquoi est-il nécessaire ?
 Nous avons un service de passerelle que nous exécutons pour activer la connectivité entre différents locaux.
 
 Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle VPN. Tous les sous-réseaux de passerelle doivent être nommés GatewaySubnet afin de fonctionner correctement. N’attribuez pas un autre nom au sous-réseau de passerelle, et ne déployez pas de machines virtuelles ou d’autres éléments vers le sous-réseau de passerelle.
@@ -140,7 +140,14 @@ La taille minimale du sous-réseau de passerelle dépend entièrement de la conf
 Non.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Comment puis-je indiquer quel trafic traverse la passerelle VPN ?
-Si vous utilisez le portail Azure Classic, ajoutez chaque plage que vous souhaitez envoyer par le biais de la passerelle pour votre réseau virtuel dans la page Réseaux sous Réseaux locaux.
+
+####<a name="resource-manager-deployment-model"></a>Modèle de déploiement de Resource Manager
+* PowerShell : utilisez le paramètre « AddressPrefix » pour spécifier le trafic de la passerelle réseau locale.
+* Portail Azure : accédez à la zone Passerelle de réseau local > Configuration > Espace d’adressage.
+
+####<a name="classic-deployment-model"></a>Modèle de déploiement classique
+* Portail Azure : accédez au réseau virtuel classique > Connexions VPN > Connexions VPN site à site > Nom du site local > Site local > Espace d’adressage du client. 
+* Portail Azure Classic : ajoutez chaque plage que vous souhaitez envoyer via la passerelle pour votre réseau virtuel dans la page Réseaux, sous Réseaux locaux. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Puis-je configurer un tunneling forcé ?
 Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +174,7 @@ Non, les deux réseaux virtuels DOIVENT utiliser des réseaux VPN basés sur des
 Oui, il est protégé par le chiffrement IPsec/IKE.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Le trafic de réseau virtuel à réseau virtuel circule-t-il sur la dorsale principale d'Azure ?
-Oui.
+Oui, ce trafic traverse la dorsale principale d’Azure. Toutefois, il ne passe pas par Internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>À combien de sites locaux et de réseaux virtuels peut se connecter un réseau virtuel ?
 Bande passante 10 combinés pour les passerelles de routage dynamique de base et standard ; 30 pour les passerelles VPN de performances élevées.
@@ -176,7 +183,7 @@ Bande passante 10 combinés pour les passerelles de routage dynamique de base e
 Oui, les réseaux VPN point à site peuvent être utilisés avec les passerelles VPN se connectant à plusieurs sites locaux et à d’autres réseaux virtuels.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Puis-je configurer plusieurs tunnels entre mon réseau virtuel et mon site local à l'aide d’un VPN multisite ?
-Non, les tunnels redondants entre un réseau virtuel Azure et un site local ne sont pas pris en charge.
+Oui, mais vous devez configurer BGP sur les deux tunnels, au même emplacement.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Des espaces d'adressage peuvent-ils se chevaucher entre les réseaux virtuels connectés et les sites locaux ?
 Non. Le chevauchement des espaces d’adressage entraîne le téléchargement du fichier de configuration réseau ou l’échec de la création d’un réseau virtuel.
@@ -185,10 +192,12 @@ Non. Le chevauchement des espaces d’adressage entraîne le téléchargement du
 Non, tous les tunnels VPN, y compris les VPN point à site, partagent la même passerelle VPN Azure et la bande passante disponible.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Puis-je utiliser une passerelle VPN Azure pour faire transiter le trafic entre mes sites locaux ou vers un autre réseau virtuel ?
-**Modèle de déploiement classique**<br>
- Le transit du trafic via la passerelle VPN Azure est possible à l’aide du modèle de déploiement Classic, mais il s’appuie sur les espaces d’adressage définis de manière statique dans le fichier de configuration réseau. BGP n’est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN à l’aide du modèle de déploiement Classic. Sans BGP, la définition manuelle des espaces d’adressage de transit peut entraîner des erreurs et n’est pas recommandée.<br>
-**Modèle de déploiement Resource Manager**<br>
-Si vous utilisez le modèle de déploiement Resource Manager, consultez la section [BGP](#bgp) pour plus d’informations.
+
+####<a name="resource-manager-deployment-model"></a>Modèle de déploiement de Resource Manager
+Oui. Pour en savoir plus, voir [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Modèle de déploiement classique
+Le transit du trafic via la passerelle VPN Azure est possible à l’aide du modèle de déploiement Classic, mais il s’appuie sur les espaces d’adressage définis de manière statique dans le fichier de configuration réseau. BGP n’est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN à l’aide du modèle de déploiement Classic. Sans BGP, la définition manuelle des espaces d’adressage de transit peut entraîner des erreurs et n’est pas recommandée.<br>
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure génère-t-il la même clé prépartagée IPsec/IKE pour toutes les connexions VPN d'un même réseau virtuel ?
 Non, Azure génère par défaut différentes clés prépartagées pour différentes connexions VPN. Toutefois, vous pouvez utiliser l’API REST de clé de passerelle VPN définie ou la cmdlet PowerShell pour définir la valeur clé de votre choix. La clé DOIT être une chaîne alphanumérique d'une longueur comprise entre 1 et 128 caractères.
@@ -216,6 +225,6 @@ Des informations supplémentaires sur les réseaux virtuels sont disponibles dan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

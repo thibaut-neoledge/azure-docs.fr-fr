@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 8ebd5499-ca03-4e4e-8755-4cb34339285c
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,16 +17,20 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e24842a32a841b250525c2ee0e07cc01bda7fdfb
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: fb62e82865ac39031f86daa329f93261ec4ffd7b
 
 
 ---
-# <a name="builds-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Créer des applications mutualisées isolées et efficaces avec la base de données SQL Azure
+# <a name="build-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Créer des applications multi-locataires isolées avec Azure SQL Database, de manière efficace et isolée
 ## <a name="leverage-elastic-pools-and-build-more-efficient-multi-tenant-apps"></a>Tirer parti des pools élastiques pour créer des applications mutualisées plus efficaces
-En tant que développeur SaaS, si vous écrivez une application mutualisée avec de nombreux clients à gérer, vous devez souvent faire des compromis entre les performances, la gestion et la sécurité. Avec les pools de bases de données élastiques du service Base de données SQL Azure, ce n’est plus le cas. Ces pools vous permettent de gérer et de surveiller les applications mutualisées, tout en bénéficiant de plus d’avantages en termes d’isolation, avec un client par base de données. Consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+En tant que développeur SaaS, si vous écrivez une application mutualisée avec de nombreux clients à gérer, vous devez souvent faire des compromis entre les performances, la gestion et la sécurité. Avec les pools Azure SQL Database élastiques, ce n’est plus le cas. Ces pools vous permettent de gérer et de surveiller les applications mutualisées, tout en bénéficiant de plus d’avantages en termes d’isolation, avec un client par base de données. Consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+>
+>
 
 ## <a name="auto-scaling-you-control"></a>Une mise à l’échelle automatique dont vous avez le contrôle
 Les pools mettent à l’échelle les performances et la capacité de stockage des bases de données automatiquement, à la volée. Vous pouvez contrôler les performances affectées à un pool, ajouter ou supprimer des bases de données élastiques à la demande et définir les performances des bases de données sans la moindre incidence sur le coût global du pool. Vous n’avez donc pas à vous soucier de la gestion de l’utilisation des bases de données individuelles.
@@ -45,13 +50,13 @@ Les pools De base, Standard et Premium vous offrent un large éventail de perfor
 ## <a name="elastic-tools"></a>Outils élastiques
 En plus des pools élastiques, le service Base de données SQL Azure intègre des fonctionnalités qui vous aident à gérer les activités opérationnelles sur plusieurs bases de données :
 
-** Effectuez des requêtes de bases de données croisées et créez des rapports. **  
+**Effectuez des requêtes de bases de données croisées et créez des rapports**  
 [requêtes de base de données élastique](sql-database-elastic-query-overview.md) vous permettent d’exécuter des requêtes ou des rapports sur les bases de données de votre pool et d’accéder simultanément aux données distantes stockées dans de nombreuses bases de données de votre pool.
 
-** Exécutez des transactions dans plusieurs bases de données. **  
+**Exécutez des transactions dans plusieurs bases de données**  
 [Les transactions de base de données élastique](sql-database-elastic-transactions-overview.md) vous permettent d’exécuter des transactions portant sur plusieurs bases de données SQL et d’exécuter des opérations (par exemple, lors du traitement de transactions financières dans les bases de données ou de la mise à jour de l’inventaire d’une base de données et des commandes).
 
-** Exécutez les mêmes opérations sur plusieurs bases de données. **  
+**Exécutez les mêmes opérations sur plusieurs bases de données**  
 [tâches de base de données élastique](sql-database-elastic-jobs-overview.md) vous permettent d’exécuter des opérations administratives telles que la reconstruction d’index ou la mise à jour des schémas dans chaque base de données de votre pool élastique.
 
 Accédez à la page d’accueil pour voir les autres avantages du service Base de données SQL.
@@ -68,6 +73,6 @@ Consultez la [présentation technique de la base de données SQL](sql-database-t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

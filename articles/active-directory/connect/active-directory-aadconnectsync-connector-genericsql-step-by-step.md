@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 5ef0dab5ea1c087f0d88612b44bb60785c19a805
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
 
 
 ---
@@ -25,7 +25,7 @@ Cette rubrique est un guide pas à pas. Elle explique comment créer un simple e
 
 ## <a name="prepare-the-sample-database"></a>Préparer l’exemple de base de données
 Sur un serveur exécutant SQL Server, exécutez le script SQL disponible dans [l’Annexe A](#appendix-a). Un exemple de base de données portant le nom GSQLDEMO est créé. Le modèle objet pour la base de données créée a l’aspect suivant :   
-![Modèle objet](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\objectmodel.png)
+![Modèle objet](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
 Créez également l’utilisateur que vous souhaitez utiliser pour vous connecter à la base de données. Dans cette procédure pas à pas, l’utilisateur est appelé FABRIKAM\SQLUser et il est situé dans le domaine.
 
@@ -33,66 +33,66 @@ Créez également l’utilisateur que vous souhaitez utiliser pour vous connecte
 Le connecteur SQL générique utilise ODBC pour se connecter au serveur distant. Nous devons tout d’abord créer un fichier avec les informations de connexion ODBC.
 
 1. Démarrez l’utilitaire de gestion ODBC sur votre serveur :   
-   ![ODBC](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc.png)
-2. Sélectionnez l’onglet **Fichier DSN**. Cliquez sur **Ajouter...**.
-   ![ODBC1](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc1.png)
+   ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
+2. Sélectionnez l’onglet **Fichier DSN**. Cliquez sur **Ajouter...**.  
+   ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. Le pilote prêt à l’emploi fonctionne parfaitement. Par conséquent, sélectionnez-le, puis cliquez sur **Suivant>**.  
-   ![ODBC2](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc2.png)
+   ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
 4. Nommez le fichier, par exemple **GenericSQL**.  
-   ![ODBC3](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc3.png)
+   ![ODBC3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc3.png)
 5. Cliquez sur **Terminer**.  
-   ![ODBC4](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc4.png)
+   ![ODBC4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc4.png)
 6. Il est temps de configurer la connexion. Décrivez la source de données et fournissez le nom du serveur exécutant SQL Server.  
-   ![ODBC5](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc5.png)
+   ![ODBC5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc5.png)
 7. Sélectionnez le mode d’authentification avec SQL. Dans ce cas, nous utilisons l’authentification Windows.  
-   ![ODBC6](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc6.png)
+   ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
 8. Indiquez le nom de l’exemple de base de données **GSQLDEMO**.  
-   ![ODBC7](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc7.png)
+   ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
 9. Conservez toutes les valeurs par défaut sur cet écran. Cliquez sur **Terminer**.  
-   ![ODBC8](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc8.png)
+   ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
 10. Pour vérifier que tout fonctionne comme prévu, cliquez sur **Tester la source de données**.  
-    ![ODBC9](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc9.png)
+    ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)
 11. Vérifiez que le test a réussi.  
-    ![ODBC10](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc10.png)
+    ![ODBC10](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc10.png)
 12. Le fichier de configuration ODBC doit maintenant être visible dans le fichier DSN.  
-    ![ODBC11](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\odbc11.png)
+    ![ODBC11](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc11.png)
 
 Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à créer le connecteur.
 
 ## <a name="create-the-generic-sql-connector"></a>Créer le connecteur SQL générique
 1. Dans l’interface Synchronization Service Manager, cliquez sur **Connecteurs**, puis sur **Créer**. Sélectionnez **SQL générique (Microsoft)** et donnez-lui un nom descriptif.  
-   ![Connecteur1](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector1.png)
+   ![Connecteur1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
 2. Recherchez le fichier DSN que vous avez créé dans la section précédente et téléchargez-le sur le serveur. Entrez les informations de connexion à la base de données.  
-   ![Connecteur2](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector2.png)
+   ![Connecteur2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector2.png)
 3. Pour simplifier cette procédure pas à pas, disons qu’il existe deux types d’objet : **Utilisateur** et **Groupe**.
-   ![Connecteur3](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector3.png)
+   ![Connecteur3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector3.png)
 4. Pour rechercher les attributs, nous voulons que le connecteur les détecte en examinant la table elle-même. Étant donné que **Utilisateurs** est un mot réservé dans SQL, nous devons l’indiquer entre crochets [ ].  
-   ![Connecteur4](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector4.png)
+   ![Connecteur4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector4.png)
 5. Il est temps de définir l’attribut d’ancrage et l’attribut de nom de domaine. Pour **Utilisateurs**, nous utilisons la combinaison des deux attributs username et EmployeeID. Pour **Groupe**, nous utilisons GroupName (rappelons qu’il ne s’agit ici que d’un exemple).
-   ![Connecteur5](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector5.png)
+   ![Connecteur5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector5.png)
 6. Tous les types d’attribut ne peuvent pas être détectés dans une base de données SQL, le type d’attribut de référence en particulier. Pour le type d’objet de groupe, nous devons modifier OwnerID et MemberID en attributs de référence.  
-   ![Connecteur6](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector6.png)
+   ![Connecteur6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector6.png)
 7. Les attributs que nous avons sélectionnés en tant qu’attributs de référence à l’étape précédente nécessitent le type d’objet auquel ces valeurs font référence. Dans notre cas, il s’agit du type d’objet User.  
-   ![Connecteur7](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector7.png)
+   ![Connecteur7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector7.png)
 8. Dans la page Paramètres généraux, sélectionnez **Filigrane** comme stratégie delta. Entrez également le format de date/heure **yyyy-MM-dd HH:mm:ss**.
-   ![Connecteur8](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector8.png)
+   ![Connecteur8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector8.png)
 9. Dans la page **Configurer les partitions et hiérarchies** , sélectionnez les deux types d’objet.
-   ![Connecteur9](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\connector9.png)
+   ![Connecteur9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
 10. Dans **Sélectionner les types d’objet** et **Sélectionner les attributs**, sélectionnez les types d’objet et tous les attributs. Sur la page **Configurer les ancres**, cliquez sur **Terminer**.
 
 ## <a name="create-run-profiles"></a>Créer les profils d’exécution
 1. Dans l’interface Synchronization Service Manager, cliquez sur **Connecteurs**, puis sur **Configurer les profils d’exécution**. Cliquez sur **Nouveau profil**. Nous commençons par **Importation intégrale**.  
-   ![ProfilExecution1](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile1.png)
+   ![ProfilExecution1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
 2. Sélectionnez le type **Importation intégrale (intermédiaire uniquement)**.  
-   ![ProfilExecution2](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile2.png)
+   ![ProfilExecution2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. Sélectionnez la partition **OBJECT=User**.  
-   ![ProfilExecution3](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile3.png)
-4. Sélectionnez **Table** et tapez **[USERS]**. Faites défiler jusqu’à la section de type d’objet à valeurs multiples et entrez les données tel qu’indiqué dans l’image suivante. Sélectionnez **Terminer** pour enregistrer l’étape.
-   ![ProfilExecution4a](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile4a.png)  
-   ![ProfilExecution4b](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile4b.png)  
+   ![ProfilExecution3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
+4. Sélectionnez **Table** et tapez **[USERS]**. Faites défiler jusqu’à la section de type d’objet à valeurs multiples et entrez les données tel qu’indiqué dans l’image suivante. Sélectionnez **Terminer** pour enregistrer l’étape.  
+   ![ProfilExecution4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
+   ![ProfilExecution4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. Sélectionnez **Nouvelle étape**. Cette fois, sélectionnez **OBJECT=Group**. Sur la dernière page, utilisez la configuration indiquée dans l’image suivante. Cliquez sur **Terminer**.  
-   ![ProfilExecution5a](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile5a.png)  
-   ![ProfilExecution5b](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\runprofile5b.png)  
+   ![ProfilExecution5a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5a.png)  
+   ![ProfilExecution5b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5b.png)  
 6. Facultatif : si vous le souhaitez, vous pouvez configurer des profils d’exécution supplémentaires. Pour cette procédure pas à pas, seule l’importation intégrale est utilisée.
 7. Cliquez sur **OK** pour terminer de modifier les profils d’exécution.
 
@@ -100,8 +100,8 @@ Nous avons maintenant le fichier dont nous avons besoin et pouvons commencer à 
 Remplissez quelques données de test dans votre exemple de base de données. Lorsque vous êtes prêt, sélectionnez **Exécuter** et **Importation intégrale**.
 
 Voici un utilisateur avec deux numéros de téléphone et un groupe avec quelques membres.  
-![cs1](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\cs1.png)  
-![cs2](.\\media\\active-directory-aadconnectsync-connector-genericsql-step-by-step\\cs2.png)  
+![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
+![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Annexe A
 **Script SQL pour créer l’exemple de base de données**
@@ -205,6 +205,6 @@ GO
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

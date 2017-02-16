@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
+ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
+ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
 
 
 ---
@@ -25,7 +25,8 @@ Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-d
 
 1. Durées de vie des jetons de sécurité émis par Azure Active Directory (Azure AD) B2C.
 2. Durées de vie des sessions d’applications web gérées par Azure AD B2C.
-3. Comportement de l’authentification unique (SSO) entre plusieurs applications et stratégies dans votre client B2C.
+3. Formats des revendications importantes dans les jetons de sécurité émis par Azure AD B2C.
+4. Comportement de l’authentification unique (SSO) entre plusieurs applications et stratégies dans votre client B2C.
 
 Vous pouvez utiliser cette fonctionnalité dans votre client B2C comme suit :
 
@@ -37,8 +38,6 @@ Vous pouvez utiliser cette fonctionnalité dans votre client B2C comme suit :
 6. Apportez les modifications voulues. Apprenez-en plus sur les propriétés disponibles dans les sections suivantes.
 7. Cliquez sur **OK**.
 8. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
-
-![Capture d’écran de la configuration du jeton, de la session et de l’authentification unique](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
 ## <a name="token-lifetimes-configuration"></a>Configuration de la durée de vie des jetons
 Azure AD B2C prend en charge le [protocole d’autorisation OAuth 2.0](active-directory-b2c-reference-protocols.md) pour activer l’accès sécurisé aux ressources protégées. Pour implémenter cette prise en charge, Azure AD B2C émet divers [jetons de sécurité](active-directory-b2c-reference-tokens.md). Ce sont les propriétés que vous pouvez utiliser pour gérer les durées de vie des jetons de sécurité émis par Azure AD B2C :
@@ -61,7 +60,20 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
 * Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez configurer cela en définissant le commutateur **Durée de vie fenêtre glissante du jeton d’actualisation (jours)** sur **Non délimité** dans votre stratégie d’authentification.
 * Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes du jeton d’accès.
 
-## <a name="session-configuration"></a>Configuration de session
+## <a name="token-compatibility-settings"></a>Paramètres de compatibilité de jeton
+Nous avons apporté des modifications de mise en forme aux revendications importantes dans les jetons de sécurité émis par Azure AD B2C. Cela a été fait pour améliorer la prise en charge du protocole standard et pour une meilleure interopérabilité avec les bibliothèques d’identité tierces. Toutefois, pour éviter d’interrompre les applications existantes, nous avons créé les propriétés suivantes pour permettre aux clients de participer en fonction de leurs besoins :
+
+* **Revendication de l’émetteur (iss)** : identifie le client Azure AD B2C qui a émis le jeton.
+  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/` : il s’agit de la valeur par défaut.
+  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` : cette valeur inclut l’ID pour le client B2C et la stratégie utilisée dans la demande de jeton. Si votre application ou bibliothèque a besoin qu’Azure AD B2C soit conforme à [la spécification OpenId Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), utilisez cette valeur.
+* **Revendication d’objet (obj)** : identifie l’entité, par exemple, l’utilisateur, pour laquelle le jeton indique des informations.
+  * **ObjectID** : il s’agit de la valeur par défaut. Elle renseigne l’ID d’objet de l’utilisateur du répertoire dans la revendication `sub` du jeton.
+  * **Non pris en charge** : uniquement fourni pour la compatibilité descendante, nous vous recommandons de passer à **ObjectID** dès que vous le pouvez.
+* **ID de stratégie représentant la revendication** : identifie le type de revendication dans lequel l’ID de stratégie utilisé dans la demande de jeton est renseigné.
+  * **tfp** : il s’agit de la valeur par défaut.
+  * **acr** : uniquement fourni pour la compatibilité descendante, nous vous recommandons de passer à `tfp` dès que vous le pouvez.
+
+## <a name="session-behavior"></a>Comportement de la session
 Azure AD B2C prend en charge le [protocole d’authentification OpenID Connect](active-directory-b2c-reference-oidc.md) pour activer l’authentification sécurisée dans les applications web. Voici les propriétés que vous pouvez utiliser pour gérer les sessions d’application web :
 
 * **Durée de vie de session d’application web (minutes)**: la durée de vie du cookie de session Azure AD B2C stocké dans le navigateur de l’utilisateur après une authentification réussie.
@@ -86,6 +98,6 @@ Si vous avez plusieurs applications et stratégies dans votre client B2C, vous p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

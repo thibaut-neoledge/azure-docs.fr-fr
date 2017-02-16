@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Langage de requête d’IoT Hub | Microsoft Docs"
-description: "Guide du développeur Azure IoT Hub - Description du langage de requête d’IoT Hub de type SQL utilisé pour récupérer des informations sur les représentations d’appareil et les travaux à partir de votre IoT Hub"
+title: "Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs"
+description: "Guide du développeur - Description du langage de requête d’IoT Hub de type SQL utilisé pour récupérer des informations sur les représentations d’appareil et les tâches à partir de votre IoT Hub."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 627de0ca1647e98e08165521e7d3a519e1950296
-ms.openlocfilehash: 8007c6864368868d9cb489236d958eeada8789bd
+ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
+ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
 
 
 ---
@@ -27,8 +27,8 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 * une introduction aux principales fonctionnalités du langage de requête d’IoT Hub ;
 * la description détaillée du langage.
 
-## <a name="getting-started-with-device-twin-queries"></a>Prise en main des requêtes de représentation d’appareil
-Des [représentations d’appareil][lnk-twins] peuvent contenir des objets JSON arbitraires tels que des balises (Tags) et des propriétés. IoT Hub permet d’interroger une représentation d’appareil en tant que simple document JSON contenant toutes les informations relatives à la représentation d’appareil.
+## <a name="get-started-with-device-twin-queries"></a>Prise en main des requêtes de représentation d’appareil
+Des [représentations d’appareil][lnk-twins] peuvent contenir des objets JSON arbitraires tels que des balises (Tags) et des propriétés. IoT Hub vous permet d’interroger une représentation d’appareil en tant que simple document JSON contenant toutes les informations relatives à la représentation d’appareil.
 Par exemple, supposons que vos représentations d’appareil IoT Hub présentent la structure suivante :
 
         {                                                                      
@@ -90,7 +90,7 @@ Les opérateurs booléens et les comparaisons arithmétiques sont également pri
         WHERE tags.location.region = 'US'
             AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
-récupère toutes les représentations d’appareil situées aux États-Unis qui sont configurées pour envoyer des données de télémétrie moins souvent qu’une fois par minute. Pour des raisons pratiques, il est également possible d’utiliser des constantes de matrice en conjonction avec les opérateurs **IN** (dans) et **NIN** (pas dans). Par exemple,
+récupère toutes les représentations d’appareil situées aux États-Unis qui sont configurées pour envoyer des données de télémétrie moins souvent qu’une fois par minute. Pour des raisons pratiques, il est également possible d’utiliser des constantes de matrice avec les opérateurs **IN** (dans) et **NIN** (pas dans). Par exemple,
 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
@@ -126,7 +126,7 @@ retourne le nombre d’appareils dans chaque état de configuration de télémé
             }
         ]
 
-L’exemple ci-dessus illustre une situation où trois appareils ont signalé une configuration réussie, deux d’entre eux appliquant toujours la configuration et le troisième ayant signalé une erreur.
+L’exemple précédent illustre une situation où trois appareils ont signalé une configuration réussie, deux d’entre eux appliquant toujours la configuration et le troisième ayant signalé une erreur.
 
 ### <a name="c-example"></a>Exemple en code C#
 La fonctionnalité de requête est exposée par [Service SDK C#][lnk-hub-sdks] dans la classe **RegistryManager**.
@@ -143,10 +143,10 @@ Voici un exemple de requête simple :
         }
 
 Notez comment l’objet **query** est instancié avec une taille de page (jusqu’à 1 000), puis comment plusieurs pages peuvent être récupérées en appelant la méthode **GetNextAsTwinAsync** plusieurs fois.
-Il est important de noter que l’objet query expose plusieurs **Next\***, selon l’option de désérialisation requise par la requête, par exemple des objets représentation d’appareil ou travail, ou un JSON simple à utiliser en cas d’utilisation de projections.
+Notez que l’objet query expose plusieurs **Next\***, selon l’option de désérialisation requise par la requête, par exemple des objets représentation d’appareil ou travail, ou un JSON simple à utiliser en cas d’utilisation de projections.
 
-### <a name="node-example"></a>Exemple de nœud
-La fonctionnalité de requête est exposée par le [Service SDK Node][lnk-hub-sdks] dans l’objet **Registry**.
+### <a name="nodejs-example"></a>Exemple de Node.js
+La fonctionnalité de requête est exposée par le [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][lnk-hub-sdks] dans l’objet **Registry**.
 Voici un exemple de requête simple :
 
         var query = registry.createQuery('SELECT * FROM devices', 100);
@@ -167,12 +167,12 @@ Voici un exemple de requête simple :
         query.nextAsTwin(onResults);
 
 Notez comment l’objet **query** est instancié avec une taille de page (jusqu’à 1000), puis comment plusieurs pages peuvent être récupérées en appelant la méthode **nextAsTwin** plusieurs fois.
-Il est important de noter que l’objet query expose plusieurs **Next\***, selon l’option de désérialisation requise par la requête, par exemple des objets représentation d’appareil ou travail, ou un JSON simple à utiliser en cas d’utilisation de projections.
+Notez que l’objet query expose plusieurs **next\***, selon l’option de désérialisation requise par la requête, par exemple des objets représentation d’appareil ou travail, ou un JSON simple à utiliser en cas d’utilisation de projections.
 
 ### <a name="limitations"></a>Limitations
 Actuellement, les comparaisons ne sont prises en charge qu’entre types primitifs (aucun objet), par exemple `... WHERE properties.desired.config = properties.reported.config` est pris en charge uniquement si ces propriétés ont des valeurs primitives.
 
-## <a name="getting-started-with-jobs-queries"></a>Prise en main des requêtes de travaux
+## <a name="get-started-with-jobs-queries"></a>Prise en main des requêtes de travaux
 Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque représentation d’appareil contient les informations des travaux auxquels elle participe dans un regroupement nommé **travaux**.
 Sous forme logique,
 
@@ -216,7 +216,7 @@ Par exemple, pour obtenir tous les travaux (passés et planifiés) qui affectent
         WHERE devices.jobs.deviceId = 'myDeviceId'
 
 Notez comment cette requête fournit l’état spécifique de l’appareil (et éventuellement la réponse de méthode directe) pour chaque travail retourné.
-Il est également possible de filtrer avec des conditions booléennes arbitraires sur toutes les propriétés des objets du regroupement **devices.jobs**.
+Il est également possible de filtrer avec des conditions booléennes arbitraires sur toutes les propriétés d’objet du regroupement **devices.jobs**.
 Par exemple, la requête suivante :
 
         SELECT * FROM devices.jobs
@@ -235,12 +235,44 @@ Il est également possible de récupérer les résultats d’un travail unique p
 ### <a name="limitations"></a>Limitations
 Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 
-* les projections, par conséquent seul `SELECT *` est possible ;
-* les conditions faisant référence à la représentation d’appareil en plus des propriétés du travail, comme indiqué ci-dessus ;
+* les projections, par conséquent seul `SELECT *` est possible.
+* les conditions faisant référence à la représentation d’appareil en plus des propriétés du travail (voir section précédente).
 * l’exécution d’agrégations, par exemple, count, avg, group by.
 
+## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Prise en main des expressions de requête d’itinéraires de messages appareils-à-cloud
+
+À l’aide des [itinéraires appareil-à-cloud][lnk-devguide-messaging-routes], vous pouvez configurer IoT Hub pour distribuer les messages appareil-à-cloud sur différents points de terminaison sur la base d’expressions évaluées par rapport à des messages individuels.
+
+La [condition] [ lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de représentation et de travail. Les conditions d’itinéraire sont évaluées sur les propriétés du message en supposant que la représentation JSON suivante est utilisée :
+
+        {
+            "userProperty1": "",
+            "userProperty2": ""
+        }
+
+N’oubliez pas que les noms de propriété respectent la casse.
+
+> [!NOTE]
+> Toutes les propriétés de message sont des chaînes. Les propriétés système, comme décrit dans le [guide du développeur][lnk-devguide-messaging-format], ne sont actuellement pas disponibles pour utilisation dans les requêtes.
+>
+>
+
+Par exemple, si vous utilisez une propriété `messageType`, vous souhaiterez peut-être acheminer toutes les données de télémétrie vers un point de terminaison et toutes les alertes vers un autre point de terminaison. Vous pouvez écrire l’expression suivante pour acheminer les données de télémétrie :
+
+        messageType = 'telemetry'
+
+Et l’expression suivante pour acheminer les messages d’alerte :
+
+        messageType = 'alert'
+
+Les fonctions et expressions booléennes sont également prises en charge. Cette fonctionnalité vous permet de faire la distinction entre les niveaux de gravité, par exemple :
+
+        messageType = 'alerts' AND as_number(severity) <= 2
+
+Reportez-vous à la section [Expression et conditions] [ lnk-query-expressions] pour obtenir la liste complète des fonctions et opérateurs pris en charge.
+
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
-Chaque requête IoT Hub se compose de clauses SELECT et FROM et, en option, de clauses WHERE et GROUP BY. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des représentations d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Dans le cas d’agrégations, les résultats de cette étape sont regroupés comme spécifié dans la clause GROUP BY, puis, pour chaque groupe, une ligne est générée comme spécifié dans la clause SELECT.
+Chaque requête IoT Hub se compose de clauses SELECT et FROM et, en option, de clauses WHERE et GROUP BY. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des représentations d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec les agrégations, les résultats de cette étape sont regroupés comme spécifié dans la clause GROUP BY, puis, pour chaque groupe, une ligne est générée comme spécifié dans la clause SELECT.
 
         SELECT <select_list>
         FROM <from_specification>
@@ -251,12 +283,13 @@ Chaque requête IoT Hub se compose de clauses SELECT et FROM et, en option, de c
 La clause **FROM <from_specification>** clause ne peut supposer que deux valeurs : **FROM devices** pour interroger les représentations d’appareil, ou **FROM devices.jobs** pour interroger les détails de travaux par appareil.
 
 ## <a name="where-clause"></a>Clause WHERE
-La clause **WHERE <filter_condition>** est facultative. Elle indique les conditions que les documents JSON du regroupement FROM doivent remplir pour être inclus dans le résultat. Pour être inclus dans le résultat, chaque document JSON doit évaluer les conditions spécifiées comme « true ».
+La clause **WHERE <filter_condition>** est facultative. Elle indique une ou plusieurs conditions que les documents JSON du regroupement FROM doivent remplir pour être inclus dans le résultat. Pour être inclus dans le résultat, chaque document JSON doit évaluer les conditions spécifiées comme « true ».
 
 Les conditions autorisées sont décrites dans la section [Expressions et conditions][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Clause SELECT
-La clause SELECT (**SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON. Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON, construit avec les valeurs spécifiées dans la clause SELECT.
+La clause SELECT (**SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
+Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON, construit avec les valeurs spécifiées dans la clause SELECT.
 
 La grammaire de la clause SELECT est la suivante :
 
@@ -309,7 +342,7 @@ Actuellement, la clause GROUP BY est prise en charge uniquement lors de l’inte
 * prend la valeur d’une instance d’un type JSON (par exemple, Boolean, number, string, array ou object) ;
 * est définie en manipulant des données provenant du document JSON de l’appareil et des constantes à l’aide de fonctions et d’opérateurs intégrés.
 
-Les *conditions* sont des expressions qui prennent un booléen, par conséquent toute constante autre que le booléen **true** est considérée comme ayant la valeur **false** (y compris **null**, **undefined**, toute instance d’objet ou de tableau, toute chaîne et clairement le booléen **false**).
+Les *Conditions* sont des expressions qui correspondent à une valeur booléenne. Toute constante autre que le booléen **true** est considérée comme ayant la valeur **false** (y compris **null**, **undefined**, toute instance d’objet ou de tableau, toute chaîne et clairement le booléen **false**).
 
 La syntaxe des expressions est la suivante :
 
@@ -341,9 +374,9 @@ où :
 
 | Symbole | Définition |
 | --- | --- |
-| attribute_name |Toute propriété du document JSON dans le regroupement FROM. |
-| binary_operator |Tout opérateur binaire tel que défini dans la section Operators. |
-| function_name| La seule fonction prise en charge est`is_defined()` |
+| attribute_name | Toute propriété du document JSON dans le regroupement **FROM**. |
+| binary_operator | Tout opérateur binaire répertorié dans la section [Operators](#operators). |
+| function_name| Toutes les fonctions répertoriées dans la section [Fonctions](#functions). |
 | decimal_literal |Variable exprimée en notation décimale. |
 | hexadecimal_literal |Nombre exprimé par la chaîne « 0x » suivi d’une chaîne de chiffres hexadécimaux. |
 | string_literal |Les littéraux de chaîne sont des chaînes Unicode représentées par une séquence de zéro ou plusieurs caractères Unicode ou séquences d’échappement. Les littéraux de chaîne sont placés entre guillemets simples (apostrophes, ’) ou guillemets doubles ("). Échappements autorisés : `\'`, `\"`, `\\`, `\uXXXX` pour les caractères Unicode définis par 4 chiffres hexadécimaux. |
@@ -357,23 +390,74 @@ Les opérateurs suivants sont pris en charge :
 | Opérateurs logiques |AND, OR, NOT |
 | Opérateurs de comparaison |=, !=, <, >, <=, >=, <> |
 
+### <a name="functions"></a>Fonctions
+Lors des requêtes de représentation ou de travail, la seule fonction prise en charge est :
+
+| Fonction | Description |
+| -------- | ----------- |
+| IS_DEFINED(property) | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété (dont `null`). |
+
+Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont prises en charge :
+
+| Fonction | Description |
+| -------- | ----------- |
+| ABS(x) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
+| EXP(x) | Retourne la valeur exponentielle de l'expression numérique spécifiée (e^x). |
+| POWER(x,y) | Retourne la valeur de l’expression spécifiée élevée à la puissance spécifiée (x^y).|
+| SQUARE(x) | Retourne le carré de la valeur numérique spécifiée. |
+| CEILING(x) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
+| FLOOR(x) | Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée. |
+| SIGN(x) | Retourne le signe positif (+1), nul (0) ou négatif (-1) de l'expression numérique spécifiée.|
+| SQRT(x) | Retourne le carré de la valeur numérique spécifiée. |
+
+Dans les conditions d’itinéraire, les fonctions de vérification et de conversion de type suivantes sont prises en charge :
+
+| Fonction | Description |
+| -------- | ----------- |
+| AS_NUMBER | Convertit la chaîne d’entrée en nombre. `noop` si l’entrée est un nombre ; `Undefined` si la chaîne ne représente pas un nombre.|
+| IS_ARRAY | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type tableau. |
+| IS_BOOL | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type booléen. |
+| IS_DEFINED | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété. |
+| IS_NULL | Retourne une valeur booléenne indiquant si l’expression spécifiée est de type null. |
+| IS_NUMBER | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type nombre. |
+| IS_OBJECT | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type objet JSON. |
+| IS_PRIMITIVE | Retourne une valeur booléenne indiquant si l’expression spécifiée est de type primitif (chaîne, booléen, numérique ou `null`). |
+| IS_STRING | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type chaîne. |
+
+Dans les conditions d’itinéraire, les fonctions de chaîne suivantes sont prises en charge :
+
+| Fonction | Description |
+| -------- | ----------- |
+| CONCAT(x, …) | Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
+| LENGTH(x) | Retourne le nombre de caractères de l’expression de chaîne spécifiée.|
+| LOWER(x) | Retourne une expression de chaîne après la conversion des caractères majuscules en caractères minuscules. |
+| UPPER(x) | Retourne une expression de chaîne après la conversion des caractères minuscules en caractères majuscules. |
+| SUBSTRING(string, start [, length]) | Renvoie une partie d’une expression de chaîne commençant à la position de caractère spécifiée (avec base zéro) et se poursuit jusqu'à la longueur spécifiée ou à la fin de la chaîne. |
+| INDEX_OF(string, fragment) | Retourne la position de départ de la première occurrence de la seconde expression de chaîne dans la première expression de chaîne spécifiée, ou -1 si la chaîne est introuvable.|
+| STARTS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne commence par la seconde. |
+| ENDS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
+| CONTAINS(x,y) | Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde. |
+
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment exécuter des requêtes dans vos applications à l’aide des [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-device-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
+[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
+
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

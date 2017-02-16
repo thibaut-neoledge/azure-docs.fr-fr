@@ -1,5 +1,5 @@
 ---
-title: "Créer un espace de noms Event Hubs avec Event Hub et activer Archive à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+title: "Créer l’espace de noms Azure Event Hubs et activer Archive à l’aide d’un modèle | Microsoft Docs"
 description: "Créer un espace de noms Event Hubs avec Event Hub et activer Archive à l’aide d’un modèle Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 188e3638393262a8406f322a5720e7e3eadf3e49
-ms.openlocfilehash: 6fb396063f4944a3043314cfbc58121f45a5c0c6
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 10accc20d2093d95be3940e5704e352f55e9c4d2
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec Event Hub et activer Archive à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Event Hubs avec un Event Hub et active Archive sur votre Event Hub. Vous apprenez à définir les ressources à déployer et à configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
-Pour plus d’informations sur la création de modèles, voir [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Pour plus d’informations sur les pratiques et les modèles des conventions d’affectation de noms des ressources Azure, voir [Conventions d’affectation de noms des ressources Azure][Conventions d’affectation de noms des ressources Azure].
+Pour plus d’informations sur les pratiques et les modèles des conventions d’affectation de noms des ressources Azure, consultez [Conventions d’affectation de noms des ressources Azure][Azure Resources Naming Conventions].
 
-Pour le modèle complet, voir [Modèle d’Event Hub et activer Archive][Modèle d’Event Hub et activer Archive] sur GitHub.
+Pour le modèle complet, consultez [Event Hub et activer le modèle Archive][Event Hub and enable Archive template] sur GitHub.
 
 > [!NOTE]
-> Pour rechercher les derniers modèles, recherchez « Event Hubs » dans la galerie [Modèles de démarrage rapide Azure][Modèles de démarrage rapide Azure].
+> Pour rechercher les derniers modèles, recherchez Event Hubs dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
@@ -263,16 +263,16 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
 ```
 
-[Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-[Modèles de démarrage rapide Azure]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Utilisation d’Azure PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Modèle d’Event Hub et de groupe de consommateurs]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-[Conventions d’affectation de noms des ressources Azure]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
-[Modèle d’Event Hub et activer Archive]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
+[Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
+[Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

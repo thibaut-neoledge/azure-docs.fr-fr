@@ -1,5 +1,5 @@
 ---
-title: "Réplication de machines virtuelles VMware et de serveurs physiques sur Azure avec Azure Site Recovery dans le portail Azure | Microsoft Docs"
+title: "Répliquer des machines virtuelles et des serveurs physiques VMware sur Azure | Microsoft Docs"
 description: "Décrit comment déployer Azure Site Recovery pour orchestrer la réplication, le basculement et la récupération de machines virtuelles VMware ou des serveurs physiques Windows/Linux locaux vers Azure avec le portail Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 20ffa261ef17847a665e7c83defeb19e9029fb63
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: 82dbfe13577d135e3e0192f3f5fca6e085c389d3
 
 
 ---
@@ -57,7 +57,7 @@ Pour un déploiement complet, nous vous recommandons vivement de suivre les éta
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery dans le portail Azure
 Azure dispose de deux [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) différents pour créer et utiliser des ressources : le déploiement Azure Resource Manager et le déploiement classique. Azure propose également deux portails : le portail Azure Classic et le portail Azure.
 
-Cet article explique comment effectuer un déploiement dans le portail Azure, qui propose de nouvelles fonctionnalités et une expérience de déploiement rationalisée. Le portail classique peut être utilisé pour gérer les coffres existants. Il est impossible de créer des coffres à l’aide du portail classique. 
+Cet article explique comment effectuer un déploiement dans le portail Azure, qui propose de nouvelles fonctionnalités et une expérience de déploiement rationalisée. Le portail classique peut être utilisé pour gérer les coffres existants. Il est impossible de créer des coffres à l’aide du portail classique.
 
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery dans votre entreprise
@@ -86,7 +86,7 @@ Le graphique montre comment ces composants interagissent.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1 : VMware/Physique vers Azure**
+**VMware/physique vers Azure**
 
 ## <a name="azure-prerequisites"></a>Conditions préalables pour Azure
 Voici ce dont vous avez besoin dans Azure :
@@ -249,7 +249,7 @@ Configurez le serveur de configuration et inscrivez-le dans le coffre de Recover
 9. Dans **Emplacement d’installation**, sélectionnez l’emplacement où vous voulez installer les fichiers binaires et stocker le cache. Vous pouvez sélectionner un lecteur qui dispose d’au moins 5 Go de stockage disponible. Toutefois, nous vous recommandons d’utiliser un lecteur de cache présentant au moins 600 Go d’espace disponible.
 
     ![Emplacement d’installation](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
-10. Dans **Sélection du réseau**, spécifiez l’écouteur (carte réseau et port SSL) sur lequel le serveur de configuration envoie et reçoit les données de réplication. Vous pouvez modifier la valeur par défaut du port (9443). En plus de ce port, le port 443 sera utilisé par un serveur web qui gère les opérations de réplication. Le port 443 ne doit pas être utilisé pour la réception du trafic de réplication.
+10. Dans **Sélection du réseau**, spécifiez l’écouteur (carte réseau et port SSL) sur lequel le serveur de configuration envoie et reçoit les données de réplication. Vous pouvez modifier la valeur par défaut du port (9443). En plus de ce port, le port 443 sera utilisé par un serveur web qui gère les opérations de réplication. Le port&443; ne doit pas être utilisé pour la réception du trafic de réplication.
 
     ![Sélection du réseau](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
 
@@ -453,6 +453,10 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
 Vérifiez que les machines à répliquer sont prêtes pour l’installation du service Mobilité, et puis activez la réplication.
 
 ### <a name="install-the-mobility-service"></a>Installer le service Mobilité
+
+  > [!TIP]
+  > Azure Site Recovery prend désormais en charge l’installation du service Mobilité à l’aide d’outils de déploiement de logiciels tels que System Center Configuration Manager. Pour en savoir plus, consultez [Automatiser le déploiement du service Mobilité](site-recovery-install-mobility-service-using-sccm.md).  
+
 La première étape de l’activation de la protection des machines virtuelles et des serveurs physiques consiste à installer le service Mobilité. Vous pouvez accomplir cette opération de différentes manières :
 
 * **Installation Push à partir du serveur de processus**: lorsque vous activez la réplication sur une machine, transmettez et installez le composant du service Mobilité à partir du serveur de processus. L’installation Push n’a pas lieu si les machines exécutent déjà une version actualisée du composant.
@@ -625,10 +629,10 @@ Lorsque vous activez la réplication, tous les disques de la machine sont répli
 Nous vous recommandons de vérifier les propriétés de la machine source. N’oubliez pas que le nom de la machine virtuelle Azure doit respecter la [configuration requise pour les machines virtuelles Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Cliquez sur **Paramètres** > **Éléments répliqués** > et sélectionnez la machine. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
-2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
+1. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
 
     ![Activer la réplication](./media/site-recovery-vmware-to-azure/test-failover2.png)
-3. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez spécifier la taille de la cible et le nom de la machine virtuelle Azure. Si besoin, modifiez ce nom afin de respecter les exigences d’Azure.
+1. Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez spécifier la taille de la cible et le nom de la machine virtuelle Azure. Si besoin, modifiez ce nom afin de respecter les exigences d’Azure.
    Vous pouvez également afficher et ajouter des informations sur le réseau cible, le sous-réseau et l’adresse IP qui seront affectés à la machine virtuelle Azure. Notez les points suivants :
 
    * Vous pouvez définir l’adresse IP cible. Si vous ne fournissez pas d’adresse IP, la machine ayant basculé utilisera le service DHCP. Si vous définissez une adresse qui n’est pas disponible au moment du basculement, ce dernier échoue. Vous pouvez utiliser la même adresse IP cible pour le test de basculement si cette adresse est disponible sur le réseau de test de basculement.
@@ -641,30 +645,67 @@ Nous vous recommandons de vérifier les propriétés de la machine source. N’o
    * Si la machine virtuelle possède plusieurs cartes réseau, la première qui s’affiche dans la liste devient la carte réseau *par défaut* dans la machine virtuelle Azure.
 
      ![Activer la réplication](./media/site-recovery-vmware-to-azure/test-failover4.png)
-4. Les disques de données et du système d’exploitation de la machine virtuelle qui seront répliqués s’affichent dans **Disques** .
+1. Les disques de données et du système d’exploitation de la machine virtuelle qui seront répliqués s’affichent dans **Disques** .
 
-## <a name="step-7-test-the-deployment"></a>Étape 7 : Tester le déploiement
-Pour tester le déploiement, vous pouvez exécuter un basculement de test pour une seule machine virtuelle ou un plan de récupération qui contient une ou plusieurs machines virtuelles.
+### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
+Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP après le basculement, assurez-vous que vous effectuez les opérations suivantes :
 
-### <a name="prepare-for-failover"></a>Préparer un basculement
-* Pour exécuter un test de basculement, nous vous recommandons de créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). [En savoir plus](site-recovery-failover.md#run-a-test-failover) .
-* Pour obtenir les meilleures performances possibles lorsque vous effectuez un basculement vers Azure, assurez-vous que vous avez installé l’agent Azure sur l’ordinateur protégé. Cet agent permet de démarrer le système plus rapidement et facilite le dépannage. Installez l’agent [Linux](https://github.com/Azure/WALinuxAgent) ou [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Pour tester entièrement votre déploiement, vous avez besoin d’une infrastructure pour permettre à la machine répliquée de fonctionner comme prévu. Si vous souhaitez tester Active Directory et DNS, vous pouvez créer une machine virtuelle jouant le rôle de contrôleur de domaine avec DNS, puis la répliquer sur Azure, via Azure Site Recovery. Pour en savoir plus, lisez [Considérations en matière de test de basculement pour Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Assurez-vous que le serveur de configuration est en cours d’exécution. Dans le cas contraire, le basculement échouera.
-* Si vous avez exclu des disques de la réplication, vous devrez peut-être créer ces disques manuellement dans Azure après le basculement afin que l’application s’exécute comme prévu.
-* Si vous souhaitez exécuter un basculement non planifié au lieu d’un test de basculement, notez les éléments suivants :
+**Sur la machine locale, avant le basculement**:
 
-  * Il est préférable d’arrêter les machines principales avant d’exécuter un basculement non planifié lorsque c’est possible. Vous êtes ainsi sûr que les machines source et les réplicas ne fonctionnent pas en même temps. Si vous répliquez des machines virtuelles VMware, vous pouvez indiquer que Site Recovery doit faire au mieux pour arrêter les machines source. Selon l’état du site principal, cela peut fonctionner ou peut ne pas fonctionner. Si vous répliquez des serveurs physiques, Site Recovery ne propose pas cette option.
-  * Lorsque vous effectuez un basculement non planifié, la réplication des données depuis les machines principales s’arrête et les différences dans les données ne sont pas transférées après qu’un basculement non planifié a commencé. En outre, si vous exécutez un basculement non planifié sur un plan de récupération, il sera exécuté jusqu’à la fin, même si une erreur se produit.
+* Pour permettre l’accès par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et assurez-vous que RDP est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** et ce, pour tous les profils.
+* Pour permettre l’accès via une connexion site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux de types **Domaine** et **Privé**.
+* Installez [l’agent Azure VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) sur la machine locale.
+* Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur OnlineAll. [En savoir plus](https://support.microsoft.com/kb/3031135)
+* Désactivez le service IPSec avant d’exécuter le basculement.
+
+**Sur la machine virtuelle Azure, après le basculement**:
+
+* Ajoutez un point de terminaison public pour le protocole RDP (port 3389) et spécifiez les informations d’identification pour la connexion.
+* Assurez-vous qu’aucune de vos stratégies de domaine ne vous empêche de vous connecter à une machine virtuelle avec une adresse publique.
+* Essayez de vous connecter. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle fonctionne. Pour accéder à d’autres conseils de dépannage, lisez [cet article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+
+Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux après le basculement à l’aide d’un client Secure Shell (ssh), procédez comme suit :
+
+**Sur la machine locale, avant le basculement**:
+
+* Assurez-vous que le service Secure Shell, sur la machine virtuelle Azure, est défini pour démarrer automatiquement au démarrage du système.
+* Vérifiez que les règles de pare-feu autorisent une connexion SSH à ce dernier.
+
+**Sur la machine virtuelle Azure, après le basculement**:
+
+* Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée et le sous-réseau Azure auquel elle est connectée doivent autoriser les connexions entrantes avec le port SSH.
+* Un point de terminaison public doit être créé pour autoriser les connexions entrantes sur le port SSH (port TCP 22 par défaut).
+* Si la machine virtuelle est accessible via une connexion VPN (Express Route ou VPN de site à site), vous pouvez utiliser le client pour vous connecter directement à la machine virtuelle via SSH.
+
+**Sur la machine virtuelle Azure Windows/Linux après basculement**:
+
+Si vous avez un groupe de sécurité réseau associé à la machine virtuelle ou au sous-réseau de machines virtuelles, assurez-vous que le groupe possède une règle de trafic sortant pour autoriser HTTP/HTTPS. Assurez-vous également que le serveur DNS du réseau sur lequel la machine virtuelle échoue est correctement configuré. Sinon, le basculement peut expirer avec l’erreur -’Tâche PreFailoverWorkflow, expiration de WaitForScriptExecutionTask’. [Plus d’informations](site-recovery-monitoring-and-troubleshooting.md#recovery)
+
+
+
+## <a name="step-7--run-a-test-failover"></a>Étape 7 : Exécuter un test de basculement
+Pour tester le déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou un plan de récupération qui contient une ou plusieurs machines virtuelles.
+
+1. Pour effectuer le basculement d’une seule machine, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur l’icône **+Test de basculement**.
+
+    ![Test de basculement](./media/site-recovery-vmware-to-azure/test-failover1.png)
+1. Pour effectuer le basculement d’un plan de récupération, dans **Paramètres** > **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
+1. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure seront connectées après le basculement.
+1. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom de l’archivage > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+1. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez peut-être vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
+1. Si vous avez [préparé les connexions après le basculement](#prepare-to-connect-to-azure-vms-after-failover), vous devez être à même de vous connecter à la machine virtuelle Azure.
+1. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines virtuelles qui ont été créés au cours du test de basculement. 
+
+Pour plus d’informations, reportez-vous au document [Test de basculement dans Azure](site-recovery-test-failover-to-azure.md).
 
 ## <a name="failover"></a>Basculement
-Une fois que vous avez terminé la réplication initiale de vos ordinateurs, vous pouvez appeler des basculements en cas de besoin. Site Recovery prend en charge divers types de basculement : test de basculement, basculement planifié et basculement non planifié.
+Une fois que vous avez terminé la réplication initiale de vos ordinateurs, vous pouvez appeler des basculements en cas de besoin. Site Recovery prend en charge divers types de basculement : basculement de test et basculement non planifié.
 [En savoir plus](site-recovery-failover.md) sur les différents types de basculement et obtenir une description détaillée de quand et comment les effectuer.
 
+
 > [!NOTE]
-> Si votre intention est de migrer des machines virtuelles vers Azure, nous vous recommandons fortement d’utiliser une [opération de basculement planifié](site-recovery-failover.md#run-an-unplanned-failover). Une fois que l’application migrée est validée dans Azure à l’aide du test de basculement, procédez comme indiqué sous [Terminer la migration](#Complete-migration-of-your-virtual-machines-to-Azure) pour finaliser la migration de vos machines virtuelles. Il est inutile d’effectuer une validation ou une suppression. La fonction Terminer la migration termine la migration, supprime la protection de la machine virtuelle et arrête la facturation d’Azure Site Recovery pour l’ordinateur.
->
->
+> Si votre intention est de migrer des machines virtuelles vers Azure, nous vous recommandons vivement d’utiliser une [opération de basculement non planifié](site-recovery-failover.md#run-an-unplanned-failover). Une fois que l’application migrée est validée dans Azure à l’aide du test de basculement, procédez comme indiqué sous [Terminer la migration](#Complete-migration-of-your-virtual-machines-to-Azure) pour finaliser la migration de vos machines virtuelles. Il est inutile d’effectuer une validation ou une suppression. La fonction Terminer la migration termine la migration, supprime la protection de la machine virtuelle et arrête la facturation d’Azure Site Recovery pour l’ordinateur.
+
 
 ### <a name="run-an-unplanned-failover"></a>Exécuter un basculement non planifié
 Cette procédure explique comment exécuter un test de basculement non planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet Machines virtuelles. Avant de commencer, vérifiez que toutes les machines virtuelles dont vous voulez effectuer le basculement ont terminé la réplication initiale.
@@ -690,65 +731,6 @@ Cette procédure explique comment exécuter un test de basculement non planifié
 3. Cliquez sur **OK** pour terminer la migration. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés ou en sélectionnant le travail Terminer la migration dans **Paramètres > Travaux Site Recovery**.
 
 
-### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
-Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP après le basculement, assurez-vous que vous effectuez les opérations suivantes :
-
-**Sur la machine locale, avant le basculement**:
-
-* Pour permettre l’accès par Internet, activez la fonction RDP, vérifiez que les règles TCP et UDP sont ajoutées pour **Public** et assurez-vous que RDP est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** et ce, pour tous les profils.
-* Pour permettre l’accès via une connexion site à site, activez RDP sur la machine, en vérifiant que ce dernier est autorisé dans le champ **Pare-feu Windows** -> **Applications et fonctionnalités autorisées** pour les réseaux de types **Domaine** et **Privé**.
-* Installez [l’agent Azure VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) sur la machine locale.
-* [Installez manuellement le service Mobilité](#install-the-mobility-service-manually) sur les machines au lieu d’utiliser le serveur de processus pour transmettre automatiquement le service. En effet, l’installation Push a lieu uniquement lorsque la machine est activée pour la réplication.
-* Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur OnlineAll. [En savoir plus](https://support.microsoft.com/kb/3031135)
-* Désactivez le service IPSec avant d’exécuter le basculement.
-
-**Sur la machine virtuelle Azure, après le basculement**:
-
-* Ajoutez un point de terminaison public pour le protocole RDP (port 3389) et spécifiez les informations d’identification pour la connexion.
-* Assurez-vous qu’aucune de vos stratégies de domaine ne vous empêche de vous connecter à une machine virtuelle avec une adresse publique.
-* Essayez de vous connecter. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle fonctionne. Pour accéder à d’autres conseils de dépannage, lisez [cet article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-
-Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux après le basculement à l’aide d’un client Secure Shell (ssh), procédez comme suit :
-
-**Sur la machine locale, avant le basculement**:
-
-* Assurez-vous que le service Secure Shell, sur la machine virtuelle Azure, est défini pour démarrer automatiquement au démarrage du système.
-* Vérifiez que les règles de pare-feu autorisent une connexion SSH à ce dernier.
-
-**Sur la machine virtuelle Azure, après le basculement**:
-
-* Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée et le sous-réseau Azure auquel elle est connectée doivent autoriser les connexions entrantes avec le port SSH.
-* Un point de terminaison public doit être créé pour autoriser les connexions entrantes sur le port SSH (port TCP 22 par défaut).
-* Si la machine virtuelle est accessible via une connexion VPN (Express Route ou VPN de site à site), vous pouvez utiliser le client pour vous connecter directement à la machine virtuelle via SSH.
-
-**Sur la machine virtuelle Azure Windows/Linux après basculement**:
-
-Si vous avez un groupe de sécurité réseau associé à la machine virtuelle ou au sous-réseau de machines virtuelles, assurez-vous que le groupe possède une règle de trafic sortant pour autoriser HTTP/HTTPS. Assurez-vous également que le serveur DNS du réseau sur lequel la machine virtuelle échoue est correctement configuré. Sinon, le basculement peut expirer avec l’erreur -’Tâche PreFailoverWorkflow, expiration de WaitForScriptExecutionTask’. [En savoir plus](site-recovery-monitoring-and-troubleshooting.md#recovery).
-
-## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
-1. Pour effectuer le basculement d’une seule machine, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur l’icône **+Test de basculement**.
-
-    ![Test de basculement](./media/site-recovery-vmware-to-azure/test-failover1.png)
-2. Pour effectuer le basculement d’un plan de récupération, dans **Paramètres** > **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
-3. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure seront connectées après le basculement.
-4. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom de l’archivage > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
-5. Lorsque le basculement se trouve à l’état **Terminer le test** , procédez comme suit :
-
-   1. Examinez la machine virtuelle de réplication dans le portail Microsoft Azure. Vérifiez que la machine virtuelle démarre correctement.
-   2. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
-   3. Cliquez sur **Terminer le test** pour finaliser l’opération.
-
-       ![Test de basculement](./media/site-recovery-vmware-to-azure/test-failover6.png)
-   4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
-   5. Cliquez sur **Le test de basculement est terminé** pour nettoyer automatiquement l’environnement de test. Une fois cette opération terminée, le test de basculement affiche l’état **Terminé** .
-   6. À cette étape, les éléments ou machines virtuelles créés automatiquement par Site Recovery lors du test de basculement sont supprimés. Toutefois, les éléments supplémentaires que vous avez créés pour le test de basculement ne sont pas supprimés.
-
-      > [!NOTE]
-      > Si un test de basculement s’étend sur plus de deux semaines, le système le force à se terminer.
-      >
-      >
-6. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez peut-être vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
-7. Si vous avez [préparé les connexions après le basculement](#prepare-to-connect-to-azure-vms-after-failover), vous devez être à même de vous connecter à la machine virtuelle Azure.
 
 ## <a name="monitor-your-deployment"></a>Surveiller votre déploiement
 Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètres de configuration de votre déploiement Site Recovery :
@@ -816,6 +798,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

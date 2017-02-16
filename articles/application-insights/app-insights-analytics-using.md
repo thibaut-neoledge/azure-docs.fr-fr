@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
+ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
 
 
 ---
@@ -154,10 +154,10 @@ mais lorsque vous l’épinglez à un tableau de bord, elle ressemble à ceci :
 ![Graphique comportant des emplacements limités](./media/app-insights-analytics-using/pin-08.png)
 
 ## <a name="export-to-excel"></a>Exporter vers Excel
-Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. Cliquez sur **Exporter vers Excel**.
+Une fois votre requête exécutée, vous pouvez télécharger un fichier .csv. Cliquez sur **Exporter, Excel**.
 
 ## <a name="export-to-power-bi"></a>Exporter vers Power BI
-Placez le curseur dans une requête et choisissez **Exporter vers Power BI**.
+Placez le curseur dans une requête et choisissez **Exporter, Power BI**.
 
 ![Exportation depuis Log Analytics vers Power BI](./media/app-insights-analytics-using/240.png)
 
@@ -167,10 +167,22 @@ Avec Power BI, vous pouvez créer des tableaux de bord qui rassemblent les donn�
 
 [En savoir plus sur l’exportation vers Power BI](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>Lien ciblé
+
+Obtenez un lien sous **Exporter, Partager un lien** que vous pouvez envoyer à un autre utilisateur. À condition que l’utilisateur ait [accès à votre groupe de ressources](app-insights-resources-roles-access-control.md), la requête s’ouvre dans l’interface utilisateur Analytics.
+
+(Dans le lien, le texte de la requête s’affiche après « ? q = », il est compressé avec gzip et codé en base64. Vous pouvez écrire du code pour générer des liens ciblés que vous fournissez aux utilisateurs. Toutefois, la méthode recommandée pour exécuter Analytics à partir du code est d’utiliser l’[API REST](https://dev.applicationinsights.io/).)
+
 
 ## <a name="automation"></a>Automatisation
 
-Vous pouvez exécuter des requêtes Analytics via l'[API REST d’accès aux données](https://dev.applicationinsights.io/), par exemple à l’aide de PowerShell.
+Utilisez l’[API REST d’accès aux données](https://dev.applicationinsights.io/) pour exécuter des requêtes Analytics. [Par exemple](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (à l’aide de PowerShell) :
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+Contrairement à l’interface utilisateur Analytics, l’API REST n’ajoute pas automatiquement de limitation d’horodatage à vos requêtes. Pensez à ajouter votre propre clause where pour éviter d’obtenir des réponses volumineuses.
 
 
 
@@ -217,6 +229,6 @@ Si vous utilisez [LogStash](https://www.elastic.co/guide/en/logstash/current/get
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

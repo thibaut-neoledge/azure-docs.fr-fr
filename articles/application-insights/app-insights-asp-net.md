@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
+ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
+ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
 
 
 ---
@@ -59,7 +59,9 @@ Ouvrez la fenêtre Application Insights dans Visual Studio. Pour cela, cliquez s
 
 ![Dans Visual Studio, le bouton Application Insights apparaît pendant le débogage.](./media/app-insights-asp-net/55.png)
 
-Cette vue affiche la télémétrie générée du côté serveur de votre application. Faites des essais avec les filtres, puis cliquez sur n’importe quel événement pour afficher plus de détails.
+Cette vue (« Data from debug session (Données de la session de débogage »)) affiche la télémétrie générée du côté serveur de votre application. Faites des essais avec les filtres, puis cliquez sur n’importe quel événement pour afficher plus de détails.
+
+* *Pas de données ? Assurez-vous que l’intervalle de temps est correct, puis cliquez sur l’icône de recherche.*
 
 [En savoir plus sur les outils Application Insights dans Visual Studio](app-insights-visual-studio.md).
 
@@ -70,15 +72,34 @@ Vous pouvez également afficher les données de télémétrie dans le portail we
 
 Le portail offre plus de graphiques, d’outils d’analyse et de tableaux de bord que Visual Studio. 
 
-Ouvrez votre ressource Application Insights dans le [portail Azure](https://portal.azure.com/).
+Ouvrez votre ressource Application Insights : connectez-vous au [portail Azure](https://portal.azure.com/) et recherchez les éléments appropriés, ou cliquez sur le projet dans Visual Studio pour y accéder.
 
 ![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Lorsque le portail s’ouvre, il affiche les données de télémétrie de votre application : ![](./media/app-insights-asp-net/66.png)
+* *Erreur d’accès ? Si vous avez plusieurs jeux d’informations d’identification Microsoft, vous pourrez être connecté avec un jeu incorrect. Dans le portail, déconnectez-vous et reconnectez-vous.*
 
-* La première télémétrie apparaît dans [Live Metrics Stream (Flux continu de mesures)](app-insights-metrics-explorer.md#live-metrics-stream).
-* Les événements individuels apparaissent sous **Recherche** (1). Les données peuvent apparaître au bout de quelques minutes seulement. Cliquez sur n’importe quel événement pour afficher ses propriétés. 
-* Les métriques agrégées apparaissent dans les graphiques (2). L’affichage des données à cet endroit peut prendre une minute ou deux. Cliquez sur un graphique pour ouvrir un panneau plus détaillé.
+Lorsque le portail s’ouvre, il affiche les données de télémétrie de votre application : ![Page de vue d’ensemble d’Application Insights](./media/app-insights-asp-net/66.png)
+
+Cliquez sur n'importe quelle mosaïque ou n’importe quel graphique pour afficher plus de détails.
+
+### <a name="more-detail-in-the-portal"></a>Plus de détails dans le portail
+
+* Le [**Flux de métriques temps réel** ](app-insights-metrics-explorer.md#live-metrics-stream) (Live Metrics Stream) affiche les données de télémétrie presque instantanément.
+
+    ![Dans la vue d'ensemble, cliquez sur Live Stream](./media/app-insights-asp-net/livestream.png)
+
+    Ouvrez le Live Stream pendant l’exécution de votre application pour leur permettre de se connecter.
+
+    Live Stream affiche uniquement les données de télémétrie pendant une minute après leur envoi. Pour des investigations plus historiques, utilisez la Search, Metrics Explorer, et Analytics. Les données peuvent y apparaître au bout de quelques minutes seulement.
+
+* La [**Search**](app-insights-diagnostic-search.md) présente des événements individuels tels que des requêtes, des exceptions et des affichages de pages. Vous pouvez filtrer par type d’événement, correspondance de terme et valeurs de propriété. Cliquez sur n’importe quel événement pour afficher ses propriétés et les événements connexes. 
+
+    ![Dans la vue d'ensemble, cliquez sur Recherche](./media/app-insights-asp-net/search.png)
+
+ * En mode de développement, vous pouvez éventuellement voir un grand nombre d’événements de dépendance (AJAX). Il s’agit des synchronisations entre le navigateur et l’émulateur de serveur. Pour les masquer, cliquez sur le filtre de dépendance.
+* [**Les mesures agrégées**](app-insights-metrics-explorer.md) telles que les taux de requêtes et d’échec apparaissent dans les graphiques. Cliquez sur un graphique pour ouvrir un panneau plus détaillé. Cliquez sur la balise **Modifier** balise de n’importe quel graphique pour définir des filtres, la taille, etc.
+    
+    ![Dans la vue d'ensemble, cliquez sur un graphique quelconque](./media/app-insights-asp-net/metrics.png)
 
 [En savoir plus sur l’utilisation d’Application Insights dans le portail Azure](app-insights-dashboards.md).
 
@@ -175,6 +196,6 @@ Si vous utilisez Visual Studio Team Services, vous pouvez [obtenir un marqueur d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

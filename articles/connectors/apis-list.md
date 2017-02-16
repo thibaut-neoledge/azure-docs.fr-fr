@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ Les connecteurs d’entreprise permettent de créer des applications logiques po
 
 | enterprise<br/>connecteurs |  |
 | --- | --- |
-|![Icône API][MQicon]<br/>**MQ**|![Icône API][SAPicon]<br/>**SAP**|
+|![Icône API][MQicon]<br/>**MQ**|![Icône API][SAPicon]<br/>**SAP**<br/>[Connecteur SAP]|
 
 
 
@@ -151,6 +151,7 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 [youtubedoc]: ./connectors-create-api-youtube.md "Se connecte à YouTube et permet d’interagir avec des vidéos et des chaînes."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Se connecte à SparkPost et peut être utilisé pour la communication."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Utilise le connecteur de système de fichiers pour communiquer avec le système de fichiers local."
+[Connecteur SAP]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "En savoir plus sur le connecteur SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Vous pouvez aussi utiliser des connecteurs comme des actions dans vos applicatio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

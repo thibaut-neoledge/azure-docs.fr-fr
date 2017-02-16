@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 516575eb510c0be907fb54246d5752e95150f4e6
+ms.sourcegitcommit: 82e359621b18f6fd2f90b34799212006426cbc94
+ms.openlocfilehash: acd226c2eee8216843b68e322f6880de45a26b9a
 
 
 ---
@@ -39,9 +39,7 @@ HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-*  [cURL][curl]. Pour l’installer, consultez la page [Versions et téléchargements de cURL][curl-download].
+* [cURL][curl]. Pour l’installer, consultez la page [Versions et téléchargements de cURL][curl-download].
   
   > [!NOTE]
   > Lorsque vous utilisez la commande cURL sous Windows, remplacez les guillemets simples par des guillemets doubles pour exprimer la valeur des options.
@@ -54,18 +52,16 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
   |   Nom du cluster HDInsight |$clusterName | |Nom de votre cluster HDInsight |
   |   Nom d'utilisateur du cluster |$clusterUsername | |Nom d’utilisateur du cluster spécifié lors de la création du cluster. |
   |   Mot de passe du cluster |$clusterPassword | |Mot de passe utilisateur du cluster |
-  
-  > [!NOTE]
-  > Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
-  > 
-  > 
 
-## <a name="jump-start"></a>Démarrage rapide
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+
+## <a name="jump-start"></a>Lancer rapidement
 Il existe plusieurs façons d'utiliser Ambari pour surveiller les clusters HDInsight.
 
-**Utilisation d’Azure PowerShell**
+**Utilisation d'Azure PowerShell**
 
-Voici un script Azure PowerShell permettant d’obtenir des informations de suivi des tâches MapReduce *dans un cluster HDInsight 3.1.*   La différence principale réside dans le fait que nous allons extraire ces détails à partir du service YARN (plutôt que Map Reduce).
+Le script Azure PowerShell suivant permet d’obtenir les informations de suivi des tâches MapReduce *dans un cluster HDInsight 3.1.*  La différence principale réside dans le fait que nous allons extraire ces détails à partir du service YARN (plutôt que Map Reduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -81,7 +77,7 @@ Voici un script Azure PowerShell permettant d’obtenir des informations de suiv
 
     $response.metrics.'yarn.queueMetrics'
 
-Voici un script Azure PowerShell permettant d’obtenir les informations de suivi de tâche MapReduce *dans un cluster HDInsight 2.1.*:
+Le script PowerShell suivant permet d’obtenir les informations de suivi des tâches MapReduce *dans un cluster HDInsight 2.1* :
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -137,7 +133,7 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 | Obtenir des infos sur les clusters |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |clusters, services, hôtes |
 | Obtenir des services |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Les services incluent : hdfs, mapreduce |
 | Obtenir des infos sur les services |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
-| Obtenir des composants de service |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS : namenode, datanode<br/>MapReduce : jobtracker ; tasktracker |
+| Obtenir des composants de service |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
 | Obtenir des infos sur les composants |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, mesures |
 | Obtenir des hôtes |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
 | Obtenir des infos sur les hôtes |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |

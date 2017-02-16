@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 369b7c8775388f641727cb889b406ac60be13d16
+ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
+ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
 
 
 ---
@@ -28,7 +28,7 @@ Des services peuvent être appelés à l’aide de n’importe quel langage de p
 
 * Il présente une connexion réseau.
 * Il présente des fonctions SSL prévues pour exécuter les demandes HTTPS.
-* Il peut analyser du code JSON (manuellement ou à l’aide de bibliothèques d’assistance)
+* Il peut analyser JSON (directement ou avec les bibliothèques de prise en charge)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -38,12 +38,7 @@ Un service web Microsoft Azure Machine Learning peut être utilisé de deux man
 > Pour un moyen simple de créer une application web pour accéder à votre service web prédictif, voir [Utilisation d’un service web Microsoft Azure Machine Learning avec un modèle d’application web](machine-learning-consume-web-service-with-web-app-template.md).
 > 
 > 
-
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
--->
-
-Pour plus d’informations sur la création et le déploiement d’un service web Azure Machine Learning, voir [Déploiement d’un service web Azure Machine Learning][publish]. Pour une procédure pas à pas de création d’une expérience Machine Learning et son déploiement, voir [Développement d’une solution prédictive avec Azure Machine Learning][walkthrough].
+> Pour plus d’informations sur la création et le déploiement d’un service web Azure Machine Learning, consultez la page [Déploiement d’un service web Azure Machine Learning][publish]. Pour obtenir une procédure pas à pas portant sur la création d’une expérience Machine Learning et son déploiement, consultez la page [Développement d’une solution prédictive avec Azure Machine Learning][walkthrough].
 
 ## <a name="request-response-service-rrs"></a>Service de requête-réponse (RRS, Request-Response Service)
 Un service de requête-réponse (RRS) est un service web hautement évolutif, qui présente une latence faible et propose une interface pour les modèles sans état qui ont été créés et déployés à partir d’une expérience Azure Machine Learning Studio. Il permet de mettre en place des scénarios où l’application attend une réponse en temps réel.
@@ -738,6 +733,6 @@ Vous pouvez à présent utiliser les outils Swagger. Voici les instructions pour
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

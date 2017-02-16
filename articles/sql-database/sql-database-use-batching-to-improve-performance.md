@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: fa364ff88d449ec8efb318d26049c2e046ee42b8
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
 
 
 ---
@@ -236,7 +236,7 @@ Les résultats des tests ad hoc suivants montrent les performances du traitement
 > 
 > 
 
-Dans les lots plus petits, l’utilisation des paramètres table a permis d’obtenir de meilleures performances que la classe **SqlBulkCopy** . Pour les tests sur 1 000 et 10 000 lignes en revanche, l’utilisation de **SqlBulkCopy** a affiché des performances 12 à 31 % plus rapides que les paramètres table. Comme les paramètres table, **SqlBulkCopy** est une bonne option pour les insertions par lots, en particulier comparativement aux performances des opérations non traitées par lots.
+Dans les lots plus petits, l’utilisation des paramètres table a permis d’obtenir de meilleures performances que la classe **SqlBulkCopy** . Pour les tests sur 1 000 et 10 000 lignes en revanche, l’utilisation de **SqlBulkCopy** a affiché des performances de 12 à 31 % plus rapides que les paramètres table. Comme les paramètres table, **SqlBulkCopy** est une bonne option pour les insertions par lots, en particulier comparativement aux performances des opérations non traitées par lots.
 
 Pour plus d’informations sur la copie en bloc dans ADO.NET, consultez [Opérations de copie en bloc dans SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
@@ -627,6 +627,6 @@ Cet article se concentre sur la façon dont les techniques de conception et de c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

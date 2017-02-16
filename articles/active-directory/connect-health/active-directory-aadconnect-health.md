@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: fbb95696d8b9267d59d04769d3d7f48c29a8e4dd
+ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
+ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
 
 
 ---
@@ -63,7 +63,7 @@ La vidéo suivante fournit une vue d’ensemble d’Azure AD Connect Health pour
 >
 
 ## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Utilisation d’Azure AD Connect Health pour AD DS (version préliminaire)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health pour AD DS permet de surveiller les contrôleurs de domaine installés sur Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Une installation de l’agent d’intégrité simple et économique vous permet de surveiller votre environnement local AD DS directement à partir du cloud. Azure AD Connect Health pour AD DS fournit les fonctionnalités clé suivantes :
+Azure AD Connect Health pour AD DS permet de surveiller les contrôleurs de domaine installés sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. Une installation de l’agent d’intégrité simple et économique vous permet de surveiller votre environnement local AD DS directement à partir du cloud. Azure AD Connect Health pour AD DS fournit les fonctionnalités clé suivantes :
 
 * Alertes de surveillance pour détecter quand les contrôleurs de domaine sont défectueux, ainsi que des notifications par courrier électronique pour les alertes critiques.
 * Tableau de bord des contrôleurs de domaine qui fournit un aperçu rapide de l’intégrité et de l’état de fonctionnement de vos contrôleurs de domaine.
@@ -121,6 +121,6 @@ Le portail Azure AD Connect Health vous permet d’afficher des alertes, de surv
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

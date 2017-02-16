@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
-ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
+ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
+ms.openlocfilehash: 9dd2696ebf4e2c4749471e5adcbc446c3945babf
 
 
 ---
@@ -50,7 +50,7 @@ La messagerie Premium s’exécutant dans un environnement d’exécution compl�
 
 ## <a name="get-started-with-premium-messaging"></a>Prise en main de Premium Messaging
 
-La prise en main de Premium Messaging est immédiate et le processus est similaire à celui de la messagerie Standard. Commencez par [créer un espace de noms](service-bus-create-namespace-portal.md). Veillez à sélectionner *Premium* sous « Niveau de tarification ».
+La prise en main de Premium Messaging est immédiate ; le processus est similaire à celui de la messagerie Standard. Commencez par [créer un espace de noms](service-bus-create-namespace-portal.md). Veillez à sélectionner **Premium** sous **Niveau de tarification**.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -71,6 +71,6 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

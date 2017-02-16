@@ -15,13 +15,13 @@ ms.workload: tbd
 ms.date: 11/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1022f5a2bbb9b61ce7d941de9e2a5582db22b91b
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
-La disponibilité, les performances, les échecs et l’utilisation des [applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillés par [Application Insights][start]. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
+La disponibilité, les performances, les échecs et l’utilisation des [applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillés par [Application Insights][start]. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Exemple](./media/app-insights-cloudservices/sample.png)
 
@@ -56,7 +56,7 @@ Les informations suivantes vous indiqueront comment adapter votre propre projet 
 ## <a name="plan-resources-and-resource-groups"></a>Planifier des ressources et des groupes de ressources
 Les données de télémétrie de votre application seront stockées, analysées et affichées dans une ressource Azure de type Application Insights. 
 
-Chaque ressource appartient à un groupe de ressources. Les groupes de ressources servent à gérer les coûts, à accorder l’accès aux membres d’équipe et à déployer des mises à jour dans une transaction unique et coordonnée. Par exemple, vous pouvez [écrire un script pour déployer](../resource-group-template-deploy.md) un service cloud Azure et ses ressources de surveillance Application Insights en une seule opération.
+Chaque ressource appartient à un groupe de ressources. Les groupes de ressources servent à gérer les coûts, à accorder l’accès aux membres d’équipe et à déployer des mises à jour dans une transaction unique et coordonnée. Par exemple, vous pouvez [écrire un script pour déployer](../azure-resource-manager/resource-group-template-deploy.md) un service cloud Azure et ses ressources de surveillance Application Insights en une seule opération.
 
 ### <a name="resources-for-components"></a>Ressources pour les composants
 Le modèle recommandé consiste à créer une ressource distincte pour chaque composant de votre application, autrement dit chaque rôle web et rôle de travail. Vous pouvez analyser chaque composant séparément, mais vous pouvez aussi créer un [tableau de bord](app-insights-dashboards.md) qui réunit les principaux graphiques de tous les composants, pour pouvoir les comparer et les surveiller ensemble. 
@@ -135,10 +135,10 @@ Exécutez votre application et connectez-vous à Azure. Ouvrez les ressources Ap
 Ajoutez des données de télémétrie supplémentaires (voir les sections ci-dessous), puis publiez votre application pour obtenir un retour en direct sur le diagnostic et l’utilisation. 
 
 #### <a name="no-data"></a>Pas de données ?
-* Ouvrez la vignette [Recherche][diagnostic] pour afficher les événements individuels.
+* Ouvrez la vignette [Rechercher][diagnostic] pour afficher les événements individuels.
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
 * Attendez quelques secondes, puis cliquez sur Actualiser.
-* Consultez [Résolution des problèmes][qna].
+* Consultez la rubrique [Résolution des problèmes][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Affichage des événements de diagnostic Azure
 Où trouver les diagnostics :
@@ -212,10 +212,10 @@ Et voilà ! L’expérience du portail est déjà intégrée pour vous permettr
 ![Télémétrie corrélée](./media/app-insights-cloudservices/bHxuUhd.png)
 
 ## <a name="client-telemetry"></a>Télémétrie client
-[Ajoutez le Kit SDK JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme le nombre d’affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétrie personnalisées, ainsi que pour écrire des télémétries personnalisées dans les scripts de vos pages.
+[Ajoutez le Kit de développement logiciel (SDK) JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme le nombre d’affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétrie personnalisées que vous pouvez rédiger dans les scripts de vos pages.
 
 ## <a name="availability-tests"></a>Tests de disponibilité
-[Configurez les tests web][availability] pour vérifier que votre application est bien active.
+[Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 
 ## <a name="display-everything-together"></a>Afficher tous les éléments ensemble
 Pour obtenir une vue d’ensemble de votre système, vous pouvez rassembler les principaux graphiques de surveillance sur un même [tableau de bord](app-insights-dashboards.md). Vous pouvez par exemple épingler le décompte des demandes et des échecs de chaque rôle. 
@@ -228,7 +228,7 @@ Si vous avez une application mobile cliente, insérez du code pour envoyer des �
 [L'exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » lors de l’exécution dans Services cloud Azure
-Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles de Services cloud Azure. [Installez 4.6 sur chaque rôle](../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
+Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez 4.6 sur chaque rôle](../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration de l’envoi de diagnostics Azure à Application Insights](app-insights-azure-diagnostics.md)
@@ -240,7 +240,7 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[NetLogs]: app-insights-asp-net-trace-logs.md
+[netlogs]: app-insights-asp-net-trace-logs.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -248,6 +248,6 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

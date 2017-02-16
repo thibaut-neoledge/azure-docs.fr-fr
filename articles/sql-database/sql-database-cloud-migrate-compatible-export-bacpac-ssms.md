@@ -1,6 +1,7 @@
 ---
-title: "Exportation d’une base de données SQL Server vers un fichier BACPAC à l’aide de SQL Server Management Studio | Microsoft Docs"
-description: "Base de données SQL Microsoft Azure, migration de base de données, exportation de base de données, exportation de fichier BACPAC, Assistant d’exportation d’application de couche Données"
+title: "SSMS : exportation d’une base de données SQL Server vers un fichier BACPAC (Azure) | Microsoft Docs"
+description: "Cet article explique la procédure d’exportation d’une base de données SQL Server vers un fichier BACPAC à l’aide de l’Assistant Exportation d’une application de couche données dans SQL Server Management Studio."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, exportation de base de données, exportation de fichier BACPAC, Assistant d’exportation d’application de couche Données"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: f6f64479f6ddfda4badb8e826e03369c476d6d1d
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f0238ac34a4a047bd0286a1a87d2427caf0e06fd
 
 
 ---
@@ -67,6 +68,6 @@ Cet article explique la procédure d’exportation d’une base de données SQL 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

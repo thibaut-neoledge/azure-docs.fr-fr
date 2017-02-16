@@ -1,6 +1,7 @@
 ---
-title: "Résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers SQL Database | Microsoft Docs"
-description: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure"
+title: "SSMS : Correction des problèmes de migration de compatibilité pour Azure SQL Database | Microsoft Docs"
+description: "Cet article présente la résolution des problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers Azure SQL Database."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité, assistant de migration SQL Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,18 +17,17 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 355353fb15a00860573699cc652543b61c62c2c1
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 841c4d644c6b096251e1ecefac17a8254b5ca712
 
 
 ---
 # <a name="fix-sql-server-database-compatibility-issues-using-sql-server-management-studio-before-migration-to-sql-database"></a>Résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers Base de données SQL
 > [!div class="op_single_selector"]
-> * Utilisez l’ [Assistant Migration SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
+> * Utilisez [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > * Utilisez [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * Utilisez [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> 
-> 
+>  
 
 Les utilisateurs expérimentés peuvent résoudre les problèmes de compatibilité de base de données SQL Server à l’aide de SQL Server Management Studio avant la migration vers Base de données SQL Azure.
 
@@ -52,6 +52,6 @@ Servez-vous de SQL Server Management Studio pour résoudre les problèmes de com
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

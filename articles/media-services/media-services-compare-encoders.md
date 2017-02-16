@@ -1,6 +1,6 @@
 ---
 title: "Comparaison d’encodeurs multimédia à la demande Azure | Microsoft Docs"
-description: "Cette section compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**."
+description: "Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: c405f1bc405990ef4959e90d9e98e1629fe7f6b7
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
 
 
 ---
@@ -28,8 +28,8 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 ### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Compteur de facturation utilisé par chaque encodeur
 | Nom du processeur multimédia | Tarification applicable | Remarques |
 | --- | --- | --- |
-| **Media Encoder Standard** |ENCODEUR |Les tâches d’encodage seront facturées en fonction de la taille de l’élément multimédia de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne ENCODEUR. |
-| **Media Encoder Premium Workflow** |ENCODEUR PREMIUM |Les tâches d’encodage seront facturées en fonction de la taille de la ressource de sortie, en gigaoctets, à la vitesse spécifiée [ici][1], sous la colonne PREMIUM ENCODER. |
+| **Media Encoder Standard** |ENCODEUR |Les tâches d’encodage seront facturées en fonction de la durée totale, en minutes, de tous les fichiers multimédias produits, au débit spécifié [ici][1], sous la colonne ENCODEUR. |
+| **Media Encoder Premium Workflow** |ENCODEUR PREMIUM |Les tâches d’encodage seront facturées en fonction de la durée totale, en minutes, de tous les fichiers multimédias produits, au débit spécifié [ici][1], sous la colonne ENCODEUR PREMIUM. |
 
 ### <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
 | Formats de conteneurs/fichiers d’entrée | Media Encoder Standard | Media Encoder Premium Workflow |
@@ -134,6 +134,6 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

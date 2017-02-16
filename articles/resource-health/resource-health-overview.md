@@ -15,8 +15,8 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6de24842669e29ea7d6796f63fa2a8ae36930531
+ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
+ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
 
 
 ---
@@ -43,7 +43,7 @@ Le panneau Resource Health du portail Azure fournit des informations détaillée
 Une fois que vous êtes connecté au portail Azure, vous pouvez accéder au panneau Resource Health de deux manières : 
 
 ### <a name="open-the-resource-blade"></a>Ouvrir le panneau Ressource
-Ouvrez le panneau Ressource pour une ressource donnée. Dans le panneau Paramètres qui s’affiche en regard du panneau Ressource, cliquez sur Resource Health pour ouvrir le panneau Resource Health. 
+Ouvrez le panneau Ressource pour une ressource donnée. Dans le panneau de gauche qui s’affiche en regard du panneau Ressource, cliquez sur Resource Health sous Support et dépannage pour ouvrir le panneau Resource Health. 
 
 ![Panneau Resource Health](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -54,7 +54,7 @@ Cliquez sur le point d’interrogation dans le coin supérieur droit, puis séle
 
 ![Aide + Support](./media/resource-health-overview/HelpAndSupport.png)
 
-Si vous cliquez sur la mosaïque, le panneau d’abonnement à Resource Health s’ouvre. Il répertorie toutes les ressources de votre abonnement. Une icône située en regard de chaque ressource indique son état d’intégrité. Cliquez sur chaque ressource pour ouvrir le panneau Resource Health.
+Dans le panneau de gauche qui s’affiche en regard du panneau Aide + Support, cliquez sur Resource Health sous Support et dépannage. Si vous cliquez, le panneau d’abonnement à Resource Health s’ouvre. Il répertorie toutes les ressources de votre abonnement. Une icône située en regard de chaque ressource indique son état d’intégrité. Cliquez sur chaque ressource pour ouvrir le panneau Resource Health.
 
 **Vignette Resource Health**
 
@@ -110,6 +110,6 @@ Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggest
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

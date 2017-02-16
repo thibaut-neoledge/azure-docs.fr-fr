@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 67b5ea270bc8bcbe22aa4a3cbdd15b7affbbb4e6
+ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
+ms.openlocfilehash: 3aa4f497a928fe4bb894f01202b116429e6f5649
 
 
 ---
@@ -91,8 +91,8 @@ Ensuite, vous devrez mesurer les exigences de performances maximales de votre ap
 | Utilisation moyenne de la mémoire | | | |
 | Profondeur de file d’attente | | | |
 
-> **Remarque importante :**  
->  vous devez anticiper la mise à l’échelle de ces nombres en fonction de la croissance prévue de votre application. Il est judicieux de planifier la croissance, car il pourrait être plus difficile de modifier l’infrastructure ultérieurement afin d’en améliorer les performances.
+> [!NOTE]
+> vous devez anticiper la mise à l’échelle de ces nombres en fonction de la croissance prévue de votre application. Il est judicieux de planifier la croissance, car il pourrait être plus difficile de modifier l’infrastructure ultérieurement afin d’en améliorer les performances.
 >
 >
 
@@ -107,11 +107,11 @@ Les compteurs PerfMon sont disponibles pour le processeur, pour la mémoire et p
 
 | Compteur | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **Nombre d’E/S par seconde ou de transactions par seconde** |Nombre de demandes d’E/S émises sur le disque de stockage par seconde. |Nb d’opérations de lectures de disque/s  <br>  Nb d’opération d’écriture de disque/s |tps  <br> r/s  <br>  w/s |
-| **Opérations de lecture et d’écriture de disque** |% d’opérations de lecture et d’écriture exécutées sur le disque. |% temps de lecture du disque  <br>  % temps d’écriture du disque |r/s  <br>  w/s |
-| **Débit** |Quantité de données lues ou écrites sur le disque par seconde. |Nb d’octets de lecture de disque/s  <br>  Nb d’octets d’écriture de disque/s |kB_read/s <br> kB_wrtn/s |
-| **Latence** |Durée totale d’exécution d’une demande d’E/S sur le disque. |Temps de lecture moyen du disque/s  <br>  Temps d’écriture moyen du disque/s |await  <br>  svctm |
-| **Taille d’E/S** |La taille des demandes d’E/S émises sur les disques de stockage. |Nb moyen d’octets en lecture du disque  <br>  Nb moyen d’octets en écriture du disque |avgrq-sz |
+| **Nombre d’E/S par seconde ou de transactions par seconde** |Nombre de demandes d’E/S émises sur le disque de stockage par seconde. |Nb d’opérations de lectures de disque/s  <br> Nb d’opération d’écriture de disque/s |tps  <br> r/s  <br> w/s |
+| **Opérations de lecture et d’écriture de disque** |% d’opérations de lecture et d’écriture exécutées sur le disque. |% temps de lecture du disque  <br> % temps d’écriture du disque |r/s  <br> w/s |
+| **Débit** |Quantité de données lues ou écrites sur le disque par seconde. |Nb d’octets de lecture de disque/s  <br> Nb d’octets d’écriture de disque/s |kB_read/s <br> kB_wrtn/s |
+| **Latence** |Durée totale d’exécution d’une demande d’E/S sur le disque. |Temps de lecture moyen du disque/s  <br> Temps d’écriture moyen du disque/s |await  <br> svctm |
+| **Taille d’E/S** |La taille des demandes d’E/S émises sur les disques de stockage. |Nb moyen d’octets en lecture du disque  <br> Nb moyen d’octets en écriture du disque |avgrq-sz |
 | **Profondeur de file d’attente** |Nombre de demandes d’E/S en attente de lecture ou d’écriture sur le disque de stockage. |Longueur de file d’attente actuelle du disque |avgqu-sz |
 | **IOPS Mémoire** |Quantité de mémoire nécessaire pour une exécution fluide de l’application |% d’octets dédiés utilisés |Use vmstat |
 | **Bande passante UC** |Quantité d’UC nécessaire pour une application fluide de l’application |% temps processeur |%util |
@@ -126,18 +126,18 @@ Dans cette section, reportez-vous à la liste de contrôle des exigences de perf
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Aperçu de l’optimisation des E/S, du débit et de la latence
 Le tableau ci-dessous résume les facteurs de performances et les étapes nécessaires à l’optimisation des E/S, du débit et de la latence. Les sections qui suivent ce résumé décrivent en détail chaque facteur.
 
-|  | **D’OPÉRATIONS D’E/S PAR SECONDE** | **Débit** | **Latence** |
+| &nbsp; | **D’OPÉRATIONS D’E/S PAR SECONDE** | **Débit** | **Latence** |
 | --- | --- | --- | --- |
 | **Exemple de scénario** |Application OLTP d’entreprise nécessitant un taux très élevé de transactions par seconde. |Application d’entreposage de données d’entreprise traitant de grandes quantités de données. |Applications en temps quasi-réel nécessitant une réponse instantanée aux demandes utilisateur, telles que les jeux en ligne. |
-| Facteurs de performances | | | |
-| **Taille d’E/S** |Une plus petite taille d’E/S génère un nombre d’E/S par seconde plus élevé. |Une plus grande taille d’E/S génère un débit plus élevé. | |
+| Facteurs de performances | &nbsp; | &nbsp; | &nbsp; |
+| **Taille d’E/S** |Une plus petite taille d’E/S génère un nombre d’E/S par seconde plus élevé. |Une plus grande taille d’E/S génère un débit plus élevé. | &nbsp;|
 | **Taille de la machine virtuelle** |Utilisez une taille de machine virtuelle qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. Voir ici les tailles de machine virtuelle et les limites d’E/S par seconde qui leur sont associées. |Utilisez une taille de machine virtuelle qui offre une limite de débit supérieure aux besoins de votre application. Voir ici les tailles de machine virtuelle et les limites de débit qui leur sont associées. |Utilisez une taille de machine virtuelle qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. Voir ici les tailles de machine virtuelle et les limites qui leur sont associées. |
 | **Taille du disque** |Utilisez une taille de disque qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. Voir ici les tailles de disque et les limites d’E/S par seconde qui leur sont associées. |Utilisez une taille de disque qui offre une limite de débit supérieure aux besoins de votre application. Vous trouverez ici les tailles de disque et les limites de débit qui leur sont associées. |Utilisez une taille de disque qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. Vous trouverez ici les tailles de disque et les limites qui leur sont associées. |
 | **Limites de mises à l’échelle des machines virtuelles et des disques** |La limite d’E/S par seconde de la taille de machine virtuelle choisie doit être supérieure au nombre total d’E/S par seconde générées par les disques de stockage premium qui lui sont associés. |La limite de débit par seconde de la taille de machine virtuelle choisie doit être supérieure au débit total généré par les disques de stockage premium qui lui sont associés. |Les limites de mise à l’échelle de la taille de machine virtuelle choisie doivent être supérieures aux limites totales de mise à l’échelle des disques de stockage premium qui lui sont associés. |
-| **Mise en cache du disque** |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir un taux d’E/S en lecture par seconde plus élevé. | |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir de très faibles latences en lecture. |
-| **Entrelacement de disques** |Utilisez plusieurs disques et entrelacez-les pour augmenter la limite combinée de débit et d’E/S par seconde. Notez que la limite combinée par machine virtuelle doit être supérieure aux limites combinées des disques premium associés. | | |
-| **Taille de l’entrelacement** |Taille d’entrelacement plus petite pour les petits schémas d’E/S aléatoires associés aux applications OLTP. Utilisez par exemple une taille d’entrelacement de 64 Ko pour les applications OLTP sous SQL Server. |Plus grande taille d’entrelacement pour les grands schémas d’E/S séquentiels associés aux applications d’entrepôt de données. Utilisez par exemple une taille d’entrelacement de 256 Ko pour les applications d’entrepôt de données sous SQL Server. | |
-| **Traitement multithread** |Utilisez le traitement multithread pour envoyer un plus grand nombre de demandes à Premium Storage et augmenter ainsi le débit et le nombre d’E/S par seconde. Sur SQL Server, par exemple, définissez une valeur MAXDOP élevée pour allouer plus de ressources processeur à SQL Server. | | |
+| **Mise en cache du disque** |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir un taux d’E/S en lecture par seconde plus élevé. | &nbsp; |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir de très faibles latences en lecture. |
+| **Entrelacement de disques** |Utilisez plusieurs disques et entrelacez-les pour augmenter la limite combinée de débit et d’E/S par seconde. Notez que la limite combinée par machine virtuelle doit être supérieure aux limites combinées des disques premium associés. | &nbsp; | &nbsp; |
+| **Taille de l’entrelacement** |Taille d’entrelacement plus petite pour les petits schémas d’E/S aléatoires associés aux applications OLTP. Utilisez par exemple une taille d’entrelacement de 64 Ko pour les applications OLTP sous SQL Server. |Plus grande taille d’entrelacement pour les grands schémas d’E/S séquentiels associés aux applications d’entrepôt de données. Utilisez par exemple une taille d’entrelacement de 256 Ko pour les applications d’entrepôt de données sous SQL Server. | &nbsp; |
+| **Traitement multithread** |Utilisez le traitement multithread pour envoyer un plus grand nombre de demandes à Premium Storage et augmenter ainsi le débit et le nombre d’E/S par seconde. Sur SQL Server, par exemple, définissez une valeur MAXDOP élevée pour allouer plus de ressources processeur à SQL Server. | &nbsp; | &nbsp; |
 | **Profondeur de file d’attente** |Une plus grande profondeur de file d’attente génère un nombre plus élevé d’E/S par seconde. |Une plus grande profondeur de file d’attente génère un débit plus élevé. |Une plus petite profondeur de file d’attente réduit les latences. |
 
 ## <a name="nature-of-io-requests"></a>Nature des demandes d’E/S
@@ -160,7 +160,7 @@ Si vous utilisez une application qui vous permet de modifier la taille d’E/S, 
 
 Voici un exemple de calcul du nombre d’E/S par seconde et du débit ou de la bande passante pour votre application. Supposons une application utilisant un disque P30. Un disque P30 peut atteindre au maximum 5 000 E/S par seconde et 200 Mo de débit/bande passante par seconde. À présent, si votre application a besoin d’utiliser le nombre maximal d’E/S par seconde du disque P30 alors que vous utilisez une taille d’E/S inférieure à 8 Ko, vous devriez obtenir 40 Mo de bande passante par seconde. En revanche, si votre application requiert la valeur maximale de débit et de bande passante à partir du disque P30 et que vous utilisez une taille d’E/S supérieure à 1 024 Ko, vous obtiendrez seulement 200 E/S par seconde. Vous devez donc ajuster la taille d’E/S pour qu’elle réponde aux besoins de votre application tant en terme d’E/S que de débit et de bande passante. Le tableau ci-dessous récapitule les différentes tailles d’E/S en indiquant le nombre d’E/S par seconde et le débit correspondant dans le cas d’un disque P30.
 
-| **Spécification de l’application** | **Taille des E/S** | **D’OPÉRATIONS D’E/S PAR SECONDE** | **Débit/bande passante** |
+| Spécification de l’application | Taille des E/S | E/S par seconde | Débit/bande passante |
 | --- | --- | --- | --- |
 | Nb max. d’E/S par seconde |8 Ko |5 000 |40 Mo par seconde |
 | Débit max. |1 024 Ko |200 |200 Mo par seconde |
@@ -169,8 +169,8 @@ Voici un exemple de calcul du nombre d’E/S par seconde et du débit ou de la b
 
 Pour obtenir une valeur d’E/S par seconde et de bande passante supérieure à la valeur maximale d’un seul disque de stockage premium, utilisez plusieurs disques premium entrelacés ensemble. Par exemple, entrelacez deux disques P30 pour obtenir un total de 10 000 E/S par seconde ou un débit combiné de 400 Mo par seconde. Comme nous l’expliquons dans la section suivante, vous devez utiliser une taille de machine virtuelle qui prend en charge la valeur combinée d’E/S par seconde et de débit du disque.
 
-> **Remarque :**  
->  lorsque vous augmentez les E/S par seconde ou le débit, l’autre valeur augmente également ; assurez-vous de ne pas franchir les limites de débit ou d’E/S par seconde du disque ou de la machine virtuelle lorsque vous augmentez l’une de ces valeurs.
+> [!NOTE]
+> lorsque vous augmentez les E/S par seconde ou le débit, l’autre valeur augmente également ; assurez-vous de ne pas franchir les limites de débit ou d’E/S par seconde du disque ou de la machine virtuelle lorsque vous augmentez l’une de ces valeurs.
 >
 >
 
@@ -183,28 +183,28 @@ Ces machines virtuelles sont disponibles en différentes tailles, avec un nombre
 
 | Taille de la machine virtuelle | Cœurs d’unité centrale | Mémoire | Tailles du disque de la machine virtuelle | Bande passante disques de données | Taille du cache | E/S par seconde | Limites d’E/S du cache de bande passante |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 Go |OS = 1023 Go  <br>  SSD local = 224 Go |32 |576 Go |50 000 E/S par seconde  <br>  512 Mo par seconde |4 000 E/S par seconde et 33 Mo par seconde |
-| Standard_GS5 |32 |448 Go |OS = 1023 Go  <br>  SSD local = 896 Go |64 |4 224 Go |80 000 E/S par seconde  <br>  2 000 Mo par seconde |5 000 E/S par seconde et 50 Mo par seconde |
+| Standard_DS14 |16 |112 Go |OS = 1023 Go  <br> SSD local = 224 Go |32 |576 Go |50 000 E/S par seconde  <br> &512; Mo par seconde |4 000 E/S par seconde et 33 Mo par seconde |
+| Standard_GS5 |32 |448 Go |OS = 1023 Go  <br> SSD local = 896 Go |64 |4 224 Go |80 000 E/S par seconde  <br> &2; 000 Mo par seconde |5 000 E/S par seconde et 50 Mo par seconde |
 
 Pour afficher une liste complète de toutes les tailles de machine virtuelle Azure disponibles, consultez les articles [Tailles des machines virtuelles dans Azure (Windows)](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tailles des machines virtuelles dans Azure (Linux)](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Choisissez une taille de machine virtuelle capable de s’adapter aux exigences de performances souhaitées de votre application. En outre, prenez en compte les considérations suivantes lors du choix de tailles de machine virtuelle.
 
 *Limites de mise à l’échelle*  
- Les limites d’E/S par seconde par machine virtuelle et par disque sont différentes et indépendantes les unes des autres. Assurez-vous que l’application génère un nombre d’E/S par seconde dans les limites de la machine virtuelle et des disques premium qui lui sont associés. Dans le cas contraire, les performances de l’application seront limitées.
+Les limites d’E/S par seconde par machine virtuelle et par disque sont différentes et indépendantes les unes des autres. Assurez-vous que l’application génère un nombre d’E/S par seconde dans les limites de la machine virtuelle et des disques premium qui lui sont associés. Dans le cas contraire, les performances de l’application seront limitées.
 
 Par exemple, supposons une application exigeant un maximum de 4 000 E/S par seconde. Pour atteindre cette valeur, vous devez configurer un disque P30 sur une machine virtuelle DS1. Le disque P30 peut fournir jusqu’à 5 000 E/S par seconde. En revanche, la machine virtuelle DS1 est limitée à 3 200 E/S par seconde. Par conséquent, les performances de l’application seront contraintes par la limite de la machine virtuelle à 3 200 E/S par seconde, ce qui affectera les performances. Pour éviter cette situation, choisissez une taille de machine virtuelle et de disque qui satisfont toutes deux aux exigences de l’application.
 
 *Coût d’exploitation*  
- Dans de nombreux cas, il est possible que le coût global d’exploitation lié à l’utilisation de Premium Storage soit inférieur à celui associé à l’utilisation d’un stockage Standard.
+Dans de nombreux cas, il est possible que le coût global d’exploitation lié à l’utilisation de Premium Storage soit inférieur à celui associé à l’utilisation d’un stockage Standard.
 
-Imaginez par exemple une application nécessitant 16 000 E/S par seconde. Pour atteindre ces performances, vous aurez besoin d’une machine virtuelle IaaS Azure Standard\_StandardD14, qui peut délivrer 16 000 E/S par seconde maximum en utilisant 32 disques de stockage standard de 1 To. Chaque disque de stockage standard de 1 To peut atteindre un maximum de 500 E/S par seconde. Le coût mensuel estimé de cette machine virtuelle sera de 1 570 $. Le coût mensuel de 32 disques de stockage standard sera de 1 638 $. Le coût total mensuel estimé sera donc de 3 208 $.
+Imaginez par exemple une application nécessitant 16 000 E/S par seconde. Pour atteindre ces performances, vous aurez besoin d’une machine virtuelle IaaS Azure Standard\_StandardD14, qui peut délivrer 16 000 E/S par seconde maximum en utilisant 32 disques de stockage standard de 1 To. Chaque disque de stockage standard de 1 To peut atteindre un maximum de 500 E/S par seconde. Le coût mensuel estimé de cette machine virtuelle sera de&1; 570 $. Le coût mensuel de 32 disques de stockage standard sera de 1 638 $. Le coût total mensuel estimé sera donc de&3; 208 $.
 
-Toutefois, si vous aviez hébergé la même application sur Premium Storage, vous auriez besoin d’une plus petite taille de machine virtuelle et de moins de disques de stockage premium, ce qui réduirait le coût global. Une machine virtuelle Standard\_StandardDS13 peut couvrir les 16 000 E/S par seconde requis à l’aide de quatre disques P30. La machine virtuelle DS13 délivre 25 600 E/S par seconde au maximum et chaque disque P30 délivre 5 000 E/S par seconde. Globalement, cette configuration peut atteindre 5 000 x 4 = 20 000 E/S par seconde. Le coût mensuel estimé de cette machine virtuelle sera de 1 003 $. Le coût mensuel de quatre disques de stockage premium P30 sera de 544,34 $. Le coût total mensuel estimé sera donc de 1 544 $.
+Toutefois, si vous aviez hébergé la même application sur Premium Storage, vous auriez besoin d’une plus petite taille de machine virtuelle et de moins de disques de stockage premium, ce qui réduirait le coût global. Une machine virtuelle Standard\_StandardDS13 peut couvrir les 16 000 E/S par seconde requis à l’aide de quatre disques P30. La machine virtuelle DS13 délivre 25 600 E/S par seconde au maximum et chaque disque P30 délivre 5 000 E/S par seconde. Globalement, cette configuration peut atteindre 5 000 x 4 = 20 000 E/S par seconde. Le coût mensuel estimé de cette machine virtuelle sera de&1; 003 $. Le coût mensuel de quatre disques de stockage premium P30 sera de&544;,34 $. Le coût total mensuel estimé sera donc de&1; 544 $.
 
 Le tableau ci-dessous résume la répartition des coûts de ce scénario pour un stockage Standard et Premium.
 
-|  | **Standard** | **Premium** |
+| &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Coût de la machine virtuelle par mois** |1 570,58 $ (Standard\_StandardD14) |1 003,66 $ (Standard\_StandardDS13) |
+| **Coût de la machine virtuelle par mois** |1&570;,58 $ (Standard\_StandardD14) |1&003;,66 $ (Standard\_StandardDS13) |
 | **Coût des disques par mois** |1 638,40 $ (32 disques de 1 To) |544,34 $ (4 disques P30) |
 | **Coût global par mois** |3 208,98 $ |1 544,34 $ |
 
@@ -226,19 +226,19 @@ Azure Premium Storage offre actuellement trois tailles de disque. Chaque taille 
 Le nombre de disques que vous choisissez dépend de la taille de disque choisie. Vous pouvez utiliser un seul disque P30 ou plusieurs disques P10 pour répondre aux besoins de votre application. Tenez compte des remarques ci-dessous pour faire votre choix.
 
 *Limites de mise à l’échelle (E/S par seconde et débit)*  
- Les limites d’E/S par seconde et de débit de chaque taille de disque Premium sont différentes et indépendantes des limites de mise à l’échelle de la machine virtuelle. Assurez-vous que le nombre total d’E/S par seconde et le débit total des disques respectent bien les limites de mise à l’échelle de la taille de machine virtuelle choisie.
+Les limites d’E/S par seconde et de débit de chaque taille de disque Premium sont différentes et indépendantes des limites de mise à l’échelle de la machine virtuelle. Assurez-vous que le nombre total d’E/S par seconde et le débit total des disques respectent bien les limites de mise à l’échelle de la taille de machine virtuelle choisie.
 
 Imaginez par exemple que votre application requiert un débit maximum de 250 Mo/s et que vous utilisez une machine virtuelle DS4 avec un seul disque P30. La machine virtuelle DS4 peut délivrer un débit maximum de 256 Mo/s. Toutefois, un seul disque P30 a une limite de débit de 200 Mo/s. Par conséquent, l’application sera contrainte à 200 Mo/s en raison de la limite de disque. Pour contourner cette limite, configurez plusieurs disques de données sur la machine virtuelle.
 
-> **Remarque :**  
->  Les lectures traitées par le cache n’étant pas incluses dans les E/S et le débit de disque, elles ne sont pas soumises aux limites de disque. Le cache possède sa propre limite de débit et d’E/S pour chaque machine virtuelle.
+> [!NOTE]
+> Les lectures traitées par le cache n’étant pas incluses dans les E/S et le débit de disque, elles ne sont pas soumises aux limites de disque. Le cache possède sa propre limite de débit et d’E/S pour chaque machine virtuelle.
 >
 > Par exemple, les lectures et écritures sont initialement de 60 Mo/s et 40 Mo/s respectivement. Au fil du temps, le cache augmente et sert de plus en plus de lectures. Vous pouvez alors obtenir un plus grand débit en écriture à partir du disque.
 >
 >
 
 *Nombre de disques*  
- Déterminez le nombre de disques dont vous aurez besoin en évaluant les besoins de l’application. Chaque taille de chaque machine virtuelle est limitée quant au nombre de disques que vous pouvez lui associer. En règle générale, ce nombre est égal à deux fois le nombre de cœurs. Assurez-vous que la taille de machine virtuelle que vous choisissez est capable de prendre en charge le nombre de disques nécessaires.
+Déterminez le nombre de disques dont vous aurez besoin en évaluant les besoins de l’application. Chaque taille de chaque machine virtuelle est limitée quant au nombre de disques que vous pouvez lui associer. En règle générale, ce nombre est égal à deux fois le nombre de cœurs. Assurez-vous que la taille de machine virtuelle que vous choisissez est capable de prendre en charge le nombre de disques nécessaires.
 
 N’oubliez pas les disques Premium Storage délivrent des performances supérieures à celles des disques de stockage Standard. Par conséquent, si vous migrez votre application d’un stockage Standard à un stockage Premium à partir d’une machine virtuelle IaaS Azure, vous aurez probablement besoin de moins de disques premium pour atteindre des performances identiques ou supérieures pour votre application.
 
@@ -268,13 +268,13 @@ Voici les paramètres de cache de disque recommandés pour les disques de donné
 | Lecture/écriture |Configurer le cache hôte en lecture/écriture uniquement si votre application gère correctement l’écriture des données mises en cache sur les disques persistants lorsque cela est nécessaire. |
 
 *Lecture seule*  
- En configurant une mise en cache en lecture seule sur des disques de données Premium Storage, vous pouvez obtenir une faible latence de lecture et obtenir de très hautes performances d’E/S et de débit en lecture pour votre application. Cela est dû à deux raisons :
+En configurant une mise en cache en lecture seule sur des disques de données Premium Storage, vous pouvez obtenir une faible latence de lecture et obtenir de très hautes performances d’E/S et de débit en lecture pour votre application. Cela est dû à deux raisons :
 
 1. Les lectures effectuées à partir du cache, qui se trouvent sur la mémoire virtuelle et sur le SSD local, sont beaucoup plus rapides que les lectures effectuées à partir du disque de données, qui réside sur Azure Blob Storage.  
 2. Premium Storage ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Par conséquent, votre application est en mesure de délivrer de meilleures performances totales en termes d’E/S par seconde et de débit.
 
 *Lecture/écriture*  
- Par défaut, le cache en lecture/écriture est activé sur les disques du système d’exploitation. Nous avons récemment ajouté la prise en charge de la mise en cache en lecture/écriture sur les données des disques. Si vous utilisez la mise en cache en lecture/écriture, vous devez disposer d’un moyen approprié d’écrire les données du cache sur des disques persistants. Par exemple, SQL Server gère lui-même l’écriture de données mises en cache sur les disques de stockage persistants. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
+Par défaut, le cache en lecture/écriture est activé sur les disques du système d’exploitation. Nous avons récemment ajouté la prise en charge de la mise en cache en lecture/écriture sur les données des disques. Si vous utilisez la mise en cache en lecture/écriture, vous devez disposer d’un moyen approprié d’écrire les données du cache sur des disques persistants. Par exemple, SQL Server gère lui-même l’écriture de données mises en cache sur les disques de stockage persistants. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
 
 Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server exécutée sur Premium Storage de la manière suivante :
 
@@ -294,14 +294,14 @@ Important : avec l’interface utilisateur du Gestionnaire de serveurs, vous po
 Sous Linux, utilisez l’utilitaire MDADM pour entrelacer les disques. Pour obtenir des instructions détaillées sur l’entrelacement de disques sous Linux, reportez-vous à [Configuration d’un RAID logiciel sous Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 *Taille de l’entrelacement*  
- La taille d’entrelacement constitue un facteur important dans la configuration de l’entrelacement de disques. La taille d’entrelacement ou la taille de bloc représente la plus petite partie des données que l’application peut traiter sur un volume entrelacé. La taille d’entrelacement que vous configurez varie selon le type d’application et le modèle de demande associé. Si vous choisissez une taille d’entrelacement incorrecte, vous risquez de rencontrer un défaut d’alignement des E/S, ce qui conduirait à une dégradation des performances de votre application.
+La taille d’entrelacement constitue un facteur important dans la configuration de l’entrelacement de disques. La taille d’entrelacement ou la taille de bloc représente la plus petite partie des données que l’application peut traiter sur un volume entrelacé. La taille d’entrelacement que vous configurez varie selon le type d’application et le modèle de demande associé. Si vous choisissez une taille d’entrelacement incorrecte, vous risquez de rencontrer un défaut d’alignement des E/S, ce qui conduirait à une dégradation des performances de votre application.
 
 Par exemple, si une demande d’E/S générée par votre application est supérieure à la taille d’entrelacement de disque, le système de stockage écrira au-delà des limites d’unité de bande sur plusieurs disques. Au moment d’accéder aux données, il devra effectuer une recherche sur plusieurs unités de bande pour exécuter la demande. L’effet cumulatif de ce comportement peut entraîner une dégradation significative des performances. En revanche, si la taille de la demande d’E/S est inférieure à la taille d’entrelacement, et si ces E/S sont aléatoires par nature, les demandes d’E/S peuvent s’ajouter sur le même disque et provoquer un goulot d’étranglement responsable d’une dégradation des performances d’E/S.
 
-Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Pour de grandes demandes d’E/S séquentielles, utilisez en revanche une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez une taille d’entrelacement de 64 Ko pour les charges de travail OLTP et de 256 Ko pour les charges de travail d’entrepôt de données. Pour en savoir plus, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-guidance)
+Selon le type de charge de travail que votre application exécute, choisissez une taille d’entrelacement appropriée. Pour les petites demandes d’E/S aléatoires, utilisez une plus petite taille d’entrelacement. Pour de grandes demandes d’E/S séquentielles, utilisez en revanche une plus grande taille d’entrelacement. Découvrez les tailles d’entrelacement recommandées pour l’application exécutée sur Premium Storage. Pour SQL Server, configurez une taille d’entrelacement de 64 Ko pour les charges de travail OLTP et de 256 Ko pour les charges de travail d’entrepôt de données. Pour en savoir plus, consultez [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance)
 
-> **Remarque :**  
->  vous pouvez entrelacer au maximum 32 disques de stockage premium sur une machine virtuelle DS et 64 disques de stockage premium sur une machine virtuelle GS.
+> [!NOTE]
+> vous pouvez entrelacer au maximum 32 disques de stockage premium sur une machine virtuelle DS et 64 disques de stockage premium sur une machine virtuelle GS.
 >
 >
 
@@ -328,20 +328,20 @@ En règle générale, les applications du commerce ne vous permettent pas de mod
 Certaines applications fournissent des paramètres qui influencent la profondeur de file d’attente. Le paramètre MAXDOP (degré maximal de parallélisme) dans SQL Server, par exemple, est expliqué dans la section précédente. MAXDOP offre un moyen d’influencer la profondeur de file d’attente et le traitement multithread, sans pour autant modifier directement la valeur de profondeur de file d’attente de SQL Server.
 
 *Grande profondeur de file d’attente*  
- Une grande profondeur de file d’attente permet d’aligner davantage d’opérations sur le disque. Le disque peut anticiper la prochaine demande placée dans sa file d’attente. Il peut ainsi planifier les opérations à l’avance et les traiter dans un ordre optimal. Étant donné que l’application envoie davantage de requêtes sur le disque, ce dernier peut traiter un plus grand nombre d’E/S parallèles. Au final, l’application sera en mesure d’atteindre un taux supérieur d’E/S par seconde. Puisque l’application traite davantage de demandes, le débit total de l’application augmente également.
+Une grande profondeur de file d’attente permet d’aligner davantage d’opérations sur le disque. Le disque peut anticiper la prochaine demande placée dans sa file d’attente. Il peut ainsi planifier les opérations à l’avance et les traiter dans un ordre optimal. Étant donné que l’application envoie davantage de requêtes sur le disque, ce dernier peut traiter un plus grand nombre d’E/S parallèles. Au final, l’application sera en mesure d’atteindre un taux supérieur d’E/S par seconde. Puisque l’application traite davantage de demandes, le débit total de l’application augmente également.
 
 En général, une application peut atteindre un débit maximal avec 8-16 E/S en attente par disque connecté. Si la profondeur de file d’attente est de un, l’application ne force pas suffisamment d’E/S sur le système et traite moins de données pendant une période donnée. En d’autres termes, elle atteindra un débit inférieur.
 
-Par exemple, dans SQL Server, une valeur MAXDOP de 4 pour une requête signifiera pour SQL Server qu’il peut utiliser jusqu’à quatre cœurs pour exécuter la requête. SQL Server déterminera la meilleure valeur de profondeur de file d’attente ainsi que le nombre de cœurs à utiliser pour l’exécution de la requête.
+Par exemple, dans SQL Server, une valeur MAXDOP de&4; pour une requête signifiera pour SQL Server qu’il peut utiliser jusqu’à quatre cœurs pour exécuter la requête. SQL Server déterminera la meilleure valeur de profondeur de file d’attente ainsi que le nombre de cœurs à utiliser pour l’exécution de la requête.
 
 *Profondeur de file d’attente optimale*  
- Une valeur de profondeur de file d’attente très élevée présente aussi des inconvénients. Si la valeur de profondeur de file d’attente est trop importante, l’application tentera de générer un taux d’E/S par seconde très élevé. À moins que l’application repose sur des disques persistants associés à un nombre suffisant d’E/S par seconde, cela peut affecter sérieusement les latences d’application. La formule suivante montre la relation entre les E/S par seconde, la latence et la profondeur de file d’attente.  
+Une valeur de profondeur de file d’attente très élevée présente aussi des inconvénients. Si la valeur de profondeur de file d’attente est trop importante, l’application tentera de générer un taux d’E/S par seconde très élevé. À moins que l’application repose sur des disques persistants associés à un nombre suffisant d’E/S par seconde, cela peut affecter sérieusement les latences d’application. La formule suivante montre la relation entre les E/S par seconde, la latence et la profondeur de file d’attente.  
     ![](media/storage-premium-storage-performance/image6.png)
 
 Vous ne devez pas configurer la profondeur de file d’attente à une valeur élevée, mais plutôt à une valeur optimale, qui peut générer suffisamment d’E/S par seconde pour l’application sans affecter les latences. Par exemple, si la latence de l’application doit être de 1 milliseconde, la profondeur de file d’attente requise pour atteindre 5 000 E/S par seconde sera : PF = 5 000 x 0,001 = 5.
 
 *Profondeur de file d’attente pour le volume entrelacé*  
- Pour un volume entrelacé, conservez une profondeur de file d’attente suffisamment élevée de sorte que chaque disque dispose individuellement d’un pic de profondeur de file d’attente. Par exemple, considérez une application qui définit une profondeur de file d’attente de 2 dans un scénario d’entrelacement à 4 disques. Les deux demandes d’E/S seront transmises à deux disques et les deux disques restants seront inactifs. Vous devez par conséquent configurer la profondeur de file d’attente afin que tous les disques puissent être occupés. La formule ci-dessous montre comment déterminer la profondeur de file d’attente des volumes entrelacés.  
+Pour un volume entrelacé, conservez une profondeur de file d’attente suffisamment élevée de sorte que chaque disque dispose individuellement d’un pic de profondeur de file d’attente. Par exemple, considérez une application qui définit une profondeur de file d’attente de 2 dans un scénario d’entrelacement à 4 disques. Les deux demandes d’E/S seront transmises à deux disques et les deux disques restants seront inactifs. Vous devez par conséquent configurer la profondeur de file d’attente afin que tous les disques puissent être occupés. La formule ci-dessous montre comment déterminer la profondeur de file d’attente des volumes entrelacés.  
     ![](media/storage-premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitation
@@ -352,13 +352,13 @@ Le benchmarking consiste à simuler différentes charges de travail sur votre ap
 
 Nous avons utilisé les outils courants Iometer et FIO, pour Windows et Linux respectivement. Ces outils génèrent plusieurs threads qui simulent une charge de travail en production et mesurent les performances du système. L’utilisation de ces outils vous permet également de configurer des paramètres tels que la taille de bloc et la profondeur de file d’attente, que vous ne pouvez normalement pas modifier pour une application. Vous bénéficiez ainsi d’une plus grande souplesse pour optimiser les performances sur une machine virtuelle à grande échelle dotée de disques premium pour différents types de charges de travail applicatives. Pour en savoir plus sur chaque outil de benchmarking, visitez [Iometer](http://www.iometer.org/) et [FIO](http://freecode.com/projects/fio).
 
-Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard et attachez-y 11 disques Premium Storage. Sur ces 11 disques, configurez 10 disques avec une mise en cache de l’hôte définie sur « Aucun » et entrelacez-les dans un volume appelé NoCacheWrites. Configurez une mise en cache de l’hôte en « Lecture seule » sur le disque restant et créez un volume appelé CacheReads avec ce disque. Avec cette configuration, vous serez en mesure d’observer les performances de lecture et d’écriture maximale à partir d’une machine virtuelle DS14 Standard. Pour connaître les étapes détaillées de la création d’une machine virtuelle DS14 avec des disques premium, accédez à [Créer et utiliser un compte de stockage Premium pour un disque de données de machine virtuelle](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard et attachez-y 11 disques Premium Storage. Sur ces 11 disques, configurez 10 disques avec une mise en cache de l’hôte définie sur « Aucun » et entrelacez-les dans un volume appelé NoCacheWrites. Configurez une mise en cache de l’hôte en « Lecture seule » sur le disque restant et créez un volume appelé CacheReads avec ce disque. Avec cette configuration, vous serez en mesure d’observer les performances de lecture et d’écriture maximale à partir d’une machine virtuelle DS14 Standard. Pour connaître les étapes détaillées de la création d’une machine virtuelle DS14 avec des disques premium, accédez à [Créer et utiliser un compte de stockage Premium pour un disque de données de machine virtuelle](storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 *Préchauffage du cache*  
- Le disque dont la mise en cache de l’hôte est définie en lecture seule sera en mesure de générer un taux d’E/S par seconde supérieur à la limite du disque. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. De cette manière, les E/S de lecture que l’outil de benchmarking simulera sur le volume CacheReads pourront effectivement atteindre le cache et non pas le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
+Le disque dont la mise en cache de l’hôte est définie en lecture seule sera en mesure de générer un taux d’E/S par seconde supérieur à la limite du disque. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. De cette manière, les E/S de lecture que l’outil de benchmarking simulera sur le volume CacheReads pourront effectivement atteindre le cache et non pas le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
 
 > **Important :**  
->  Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
+> Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
 >
 >
 
@@ -366,16 +366,16 @@ Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard 
 [Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
 
 *Fichier de test*  
- Iometer utilise un fichier de test stocké sur le volume sur lequel vous allez exécuter le test de benchmarking. Les lectures et écritures sont activées sur ce fichier de test afin de mesurer le taux d’E/S par seconde et le débit du disque. Iometer crée ce fichier de test si vous n’en avez pas fourni. Créez un fichier de test de 200 Go appelé iobw.tst sur les volumes CacheReads et NoCacheWrites.
+Iometer utilise un fichier de test stocké sur le volume sur lequel vous allez exécuter le test de benchmarking. Les lectures et écritures sont activées sur ce fichier de test afin de mesurer le taux d’E/S par seconde et le débit du disque. Iometer crée ce fichier de test si vous n’en avez pas fourni. Créez un fichier de test de 200 Go appelé iobw.tst sur les volumes CacheReads et NoCacheWrites.
 
 *Spécifications d’accès*  
- Les spécifications (taille d’E/S de la demande, % de lecture-écriture, % aléatoire/séquentiel) sont configurées à l’aide de l’onglet « Access Specifications » d’Iometer. Créez une spécification d’accès pour chacun des scénarios ci-dessous. Créez les spécifications d’accès et enregistrez-les avec un nom approprié du type RandomWrites\_8K, RandomReads\_8K. Sélectionnez la spécification correspondante lorsque vous exécutez le scénario de test.
+Les spécifications (taille d’E/S de la demande, % de lecture-écriture, % aléatoire/séquentiel) sont configurées à l’aide de l’onglet « Access Specifications » d’Iometer. Créez une spécification d’accès pour chacun des scénarios ci-dessous. Créez les spécifications d’accès et enregistrez-les avec un nom approprié du type RandomWrites\_8K, RandomReads\_8K. Sélectionnez la spécification correspondante lorsque vous exécutez le scénario de test.
 
 Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scénario d’E/S en écriture maximales.  
     ![](media/storage-premium-storage-performance/image8.png)
 
 *Spécifications de test du taux maximal d’E/S par seconde*  
- Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
+Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
 
 | Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
 | --- | --- | --- | --- |
@@ -383,7 +383,7 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 | RandomReads\_8K |8 Ko |100 |100 |
 
 *Spécifications de test du débit maximal*  
- Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de requête 64 K et créez des spécifications pour les lectures et écritures aléatoires.
+Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de requête 64 K et créez des spécifications pour les lectures et écritures aléatoires.
 
 | Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
 | --- | --- | --- | --- |
@@ -391,7 +391,7 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 | RandomReads\_64K |64 Ko |100 |100 |
 
 *Exécution du test Iometer*  
- Procédez comme suit pour préparer le cache
+Procédez comme suit pour préparer le cache
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
@@ -417,11 +417,11 @@ Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test
 | Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde  |
 | Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
 | Bande passante Taux d’E/S par seconde combiné |CacheReads |RandomWrites\_8K |100 000 E/S par seconde |
-| NoCacheWrites |RandomReads\_8K | | |
+| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Bande passante Mo/s en lecture |CacheReads |RandomWrites\_64K |524 Mo/s |
 | Bande passante Mo/s en écriture |NoCacheWrites |RandomReads\_64K |524 Mo/s |
 | Mo/s combiné |CacheReads |RandomWrites\_64K |1 000 Mo/s |
-| NoCacheWrites |RandomReads\_64K | | |
+| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
 Voici les captures d’écran des résultats du test Iometer pour les scénarios de taux d’E/S par seconde et de débit combinés.
 
@@ -438,12 +438,14 @@ Avant de commencer, [téléchargez FIO](https://github.com/axboe/fio) et install
 
 Exécutez la commande ci-dessous pour Ubuntu.
 
-        apt-get install fio
+```
+apt-get install fio
+```
 
 Nous allons utiliser quatre threads de travail pour générer les opérations d’écriture et quatre threads de travail pour générer les opérations de lecture sur les disques. Les threads de travail dédiés à l’écriture généreront du trafic sur le volume « nocache », qui comporte 10 disques sans mise en cache (paramètre « Aucun »). Les threads de travail dédiés à la lecture généreront du trafic sur le volume « readcache », qui comporte 1 disque avec une mise en cache définie sur le paramètre « Lecture seule ».
 
 *Taux d’E/S par seconde maximal en écriture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
 
 ```
 [global]
@@ -475,13 +477,15 @@ Tenez compte des remarques suivantes qui sont en phase avec les instructions de 
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.  
 
-    sudo fio --runtime 30 fiowrite.ini
+```
+sudo fio --runtime 30 fiowrite.ini
+```
 
 Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 produit un taux d’E/S par seconde maximal en écriture limité à 50 000 E/S par seconde.  
     ![](media/storage-premium-storage-performance/image11.png)
 
 *Taux d’E/S par seconde maximal en lecture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
 
 ```
 [global]
@@ -513,13 +517,15 @@ Tenez compte des remarques suivantes qui sont en phase avec les instructions de 
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 
-    sudo fio --runtime 30 fioread.ini
+```
+sudo fio --runtime 30 fioread.ini
+```
 
 Pendant l’exécution du test, vous serez en mesure de voir le nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 64 000 E/S par seconde en lecture. Cette valeur représente les performances combinées du disque et du cache.  
     ![](media/storage-premium-storage-performance/image12.png)
 
 *Taux d’E/S par seconde maximal en lecture et en écriture*  
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
 
 ```
 [global]
@@ -568,13 +574,15 @@ Tenez compte des remarques suivantes qui sont en phase avec les instructions de 
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 
-    sudo fio --runtime 30 fioreadwrite.ini
+```
+sudo fio --runtime 30 fioreadwrite.ini
+```
 
 Pendant l’exécution du test, vous serez en mesure de voir le nombre combiné d’E/S par seconde en lecture et en écriture générées par la machine virtuelle et les disques Premium. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 100 000 E/S par seconde en lecture et en écriture. Cette valeur représente les performances combinées du disque et du cache.  
     ![](media/storage-premium-storage-performance/image13.png)
 
 *Débit maximal combiné*  
- Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.
+Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur Azure Premium Storage :
@@ -583,11 +591,11 @@ En savoir plus sur Azure Premium Storage :
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 
-* [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

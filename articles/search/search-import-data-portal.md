@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: c2bf44dc23a3b330994e51317b6b021fab6eef1f
 
 
 ---
@@ -77,7 +77,7 @@ Un index préliminaire est habituellement déduit du jeu de données. Ajoutez, m
 4. Cliquez sur l’onglet **Analyseur** si vous souhaitez spécifier un analyseur de langue au niveau du champ. Seuls les analyseurs de langage peuvent être spécifiés pour l’instant. L’utilisation d’un analyseur personnalisé ou d’un analyseur non dédié au langage, comme Keyword, Pattern, etc., nécessite du code.
    
    * Cliquez sur **Possibilité de recherche** pour désigner la recherche en texte intégral sur le champ et pour activer la liste déroulante de l’analyseur.
-   * Cliquez sur l’analyseur de votre choix. Voir [Création d’une définition d’index de document dans plusieurs langues dans Azure Search](search-language-support.md) pour plus d’informations.
+   * Cliquez sur l’analyseur de votre choix. Pour plus d’informations, voir [Création d’une définition d’index de document dans plusieurs langues dans Azure Search](search-language-support.md).
 5. Cliquez sur le **générateur de suggestions** pour activer les suggestions de requête type-ahead sur les champs sélectionnés.
 
 ## <a name="import-your-data"></a>Importer vos données
@@ -93,11 +93,17 @@ Dans Azure Search, les mises à jour structurelles d’un index nécessitent une
 
 L’ajout d’un nouveau champ, la modification des profils de score, la modification des générateurs de suggestions ou la modification des analyseurs de langue ne nécessitent pas de reconstruction. Consultez la page [Mettre à jour l’index](https://msdn.microsoft.com/library/azure/dn800964.aspx) pour plus de détails.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="query-an-index-using-search-explorer"></a>Interrogation d’un index à l’aide de l’Explorateur de recherche
+
+Le portail comprend **l’Explorateur de recherche** afin que vous puissiez interroger un index sans avoir à écrire du code. Vous pouvez utiliser l’Explorateur de recherche sur n’importe quel index.
+
+L’expérience de recherche est basée sur les paramètres par défaut, tels que la [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et [le paramètre de requête par défaut searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). Les résultats sont retournés au format JSON afin que vous puissiez inspecter le document dans son intégralité.
+
+## <a name="next-steps"></a>Étapes suivantes
 Suivez ces liens pour en savoir plus sur les indexeurs :
 
 * [Indexation d’Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Connexion de DocumentDB à Azure Search à l’aide d’indexeurs](../documentdb/documentdb-search-indexer.md)
+* [Connexion de DocumentDB à Azure Search à l’aide d’indexeurs](search-howto-index-documentdb.md)
 * [Indexation de documents dans Azure Blob Storage avec Azure Search](search-howto-indexing-azure-blob-storage.md)
 * [Indexation du stockage de tables Azure avec Azure Search](search-howto-indexing-azure-tables.md)
 
@@ -107,6 +113,6 @@ Suivez ces liens pour en savoir plus sur les indexeurs :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

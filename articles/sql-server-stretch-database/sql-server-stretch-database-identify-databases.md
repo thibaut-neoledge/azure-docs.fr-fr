@@ -12,11 +12,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
+ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1c59343393ca49e11765fdae0fd0fa7620ec08af
+ms.sourcegitcommit: 47b666a7f2178daebc1b2b442fd1bb8cf31e40bb
+ms.openlocfilehash: 3aef66c7b80ee356faedcaaadacd15aea3438714
 
 
 ---
@@ -56,11 +56,9 @@ Activer Stretch Database
 
 [Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md)
 
-[Toutes les rubriques pour le service Azure SQL Server Stretch Database](sql-server-stretch-database-index-all-articles.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

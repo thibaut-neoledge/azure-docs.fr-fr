@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 031667b3a6f0265e57568706e5454cd275ec9ecc
+ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
+ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
 
 ---
 
@@ -34,7 +34,7 @@ Pour configurer l’indexation de tables :
 
 1. Création d'une source de données
    * Définissez le paramètre `type` sur `azuretable`.
-   * Transmettez la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`.
+   * Transmettez la chaîne de connexion du compte de stockage en tant que paramètre `credentials.connectionString`. Vous pouvez obtenir la chaîne de connexion à partir du portail Azure en accédant au panneau du compte de stockage > **Paramètres** > **Clés** (pour les comptes de stockage classique) ou **Paramètres** > **Clés d’accès** (pour les comptes de stockage ARM). Veuillez noter que la Recherche Azure ne prend pas actuellement en charge les informations d’identification de la signature d’accès partagé. Si vous souhaitez utiliser SAP, veuillez voter pour [cette suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
    * Spécifiez le nom de la table à l’aide du paramètre `container.name` .
    * Si vous le souhaitez, spécifiez une requête en utilisant le paramètre `container.query` . Si possible, utilisez un filtre sur PartitionKey pour optimiser les performances ; toute autre requête entraîne une analyse complète des tables, ce qui peut entraîner une baisse des performances pour les tables volumineuses.
 2. Créez un index de recherche avec le schéma correspondant aux colonnes de la table que vous souhaitez indexer.
@@ -48,7 +48,7 @@ Pour configurer l’indexation de tables :
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
@@ -123,6 +123,6 @@ Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

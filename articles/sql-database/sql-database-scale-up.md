@@ -1,6 +1,6 @@
 ---
-title: "Modifier les niveaux de service et de performances d’une base de données SQL Azure | Microsoft Docs"
-description: "Cet article explique comment faire monter ou descendre en puissance une base de données SQL. Modification du niveau de tarification d’une base de données SQL Azure"
+title: "Portail Azure : modification du niveau tarifaire d’Azure SQL Database | Microsoft Docs"
+description: "Apprenez à utiliser le portail Azure pour modifier le niveau de performances et le niveau de service d’Azure SQL Database et augmenter ou réduire les ressources et la tarification de votre base de données SQL."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -15,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1e297de81be07a107691c54875ca638ae73d43df
-ms.openlocfilehash: 3f283166f09437611aa04d7cadf5b161d0e52f8a
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Modification des niveaux de service et de performances (niveau de tarification) d’une base de données SQL à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [**Portail Azure**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 Les niveaux de service et de performances décrivent les fonctionnalités et ressources disponibles pour votre base de données SQL, et peuvent être mis à jour à mesure que les besoins de votre application évoluent. Pour plus d’informations, voir [Niveaux de service](sql-database-service-tiers.md).
@@ -88,6 +88,6 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c03033fcadf0f92b77820fba1dd588f460287b86
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Aperçu : Service Fabric et conteneurs
 > [!NOTE]
-> Cette fonctionnalité est disponible en version préliminaire pour Linux. Elle n’est pas disponible actuellement sur Windows Server 2016. Elle sera proposée en version préliminaire sur Windows Server dans la version suivante d’Azure Service Fabric, après la disponibilité générale de Windows Server 2016. La version ultérieure devrait prendre cette fonctionnalité en charge.
-> 
-> 
+> Cette fonctionnalité est disponible en version préliminaire pour Linux et Windows Server 2016. 
+>   
 
 ## <a name="introduction"></a>Introduction
 Azure Service Fabric est un [orchestrateur](service-fabric-cluster-resource-manager-introduction.md) de services sur un cluster de machines. Les services peuvent être développés de nombreuses façons, via des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md) ou via le déploiement [d’exécutables invités](service-fabric-deploy-existing-app.md). Par défaut, Service Fabric déploie et active ces services en tant que processus. Ces processus assurent l’activation la plus rapide et offrent la densité la plus élevée en matière de ressources dans un cluster. Service Fabric peut également déployer des services dans les images de conteneur. Important : dans les conteneurs, vous pouvez combiner des processus et des services au sein de la même application. Selon votre scénario, vous obtenez le meilleur des deux mondes.
@@ -93,6 +92,6 @@ Dans cet article, vous avez appris ce qu’était un conteneur. Vous savez déso
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

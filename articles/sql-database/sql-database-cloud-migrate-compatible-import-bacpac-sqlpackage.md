@@ -1,6 +1,7 @@
 ---
-title: "Importation vers Base de données SQL à partir d’un fichier BACPAC à l’aide de SqlPackage"
-description: "Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, importer un fichier BACPAC, sqlpackage"
+title: 'SqlPackage : importer un fichier BACPAC dans Azure SQL Database | Microsoft Docs'
+description: "Cet article explique comment effectuer une importation dans SQL Database à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SqlPackage."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, importer un fichier BACPAC, sqlpackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: d1f701bc5e4028db4d97ac2e7097afedf46b1f1f
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 048a8f333eb555d860df0fd485ec8d53c27e3cd6
 
 
 ---
@@ -72,6 +73,6 @@ Procédez comme suit pour importer une base de données SQL Server (ou Base de d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

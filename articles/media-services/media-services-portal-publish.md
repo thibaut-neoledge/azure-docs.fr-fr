@@ -1,5 +1,5 @@
 ---
-title: "  Publier du contenu avec le Portail Azure | Microsoft Docs"
+title: "  Publier du contenu avec le portail Azure | Microsoft Docscs"
 description: "Ce didacticiel vous guide à travers les étapes de publication de votre contenu avec le Portail Azure."
 services: media-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
 
 
 ---
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez [Fournir du contenu (vue d’ensemble)](me
 > 
 > 
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Pour publier un élément multimédia à l’aide du portail
 Pour utiliser le portail pour publier un élément multimédia, procédez comme suit :
@@ -90,7 +90,6 @@ Certaines considérations s’appliquent :
 * Assurez-vous que la vidéo a été publiée.
 * Le **lecteur multimédia** effectue la lecture à partir du point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, cliquez sur l’URL pour la copier et utilisez un autre lecteur, par exemple, le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * Le point de terminaison de streaming à partir duquel vous diffusez en continu doit être en cours d’exécution.  
-* Pour diffuser en continu à partir d’un point de terminaison de streaming, vous devez ajouter au moins une unité de diffusion en continu. Pour plus d’informations, consultez [cette rubrique](media-services-portal-scale-streaming-endpoints.md) .   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.
@@ -103,6 +102,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

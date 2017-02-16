@@ -1,10 +1,10 @@
 ---
-title: "Communauté et actualités de DocumentDB | Microsoft Docs"
+title: "Communauté, actualités et événements d’Azure DocumentDB | Microsoft Docs"
 description: "Rejoignez la Communauté DocumentDB Azure pour établir des relations, faire la démonstration de votre travail et approfondir vos connaissances."
 services: documentdb
 documentationcenter: 
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
 ms.service: documentdb
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 3ab93acf3088b6c93c8ec231dc606f50de108fea
-ms.openlocfilehash: 5620a19c64913e0754c5433a8cc3f21ef01f1fb2
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
 
 
 ---
@@ -96,7 +96,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 ### <a name="recent-and-upcoming-events"></a>Événements récents et à venir
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Webinaire Wintellect : Présentation d'Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|En ligne|15 décembre 2016 1 pm EST|n/a|
+| [Webinaire Wintellect : Présentation d'Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|En ligne|12 janvier 2017 13 h EST|n/a|
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
 
@@ -131,7 +131,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 | [SQL Saturday #444 - Kansas City 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) |Jeff Renz |Kansas City, Missouri |3 octobre 2015 |n/a |
 | [SQL samedi #429 - Porto 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) |Leonard Lobel |Porto, Portugal |3 octobre 2015 |n/a |
 | [AzureCon](https://azure.microsoft.com/azurecon/) |David Makogon, Ryan Crawcour, John Macintyre |Événement virtuel |29 septembre 2015 |[Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) (Plateforme de données et d’analyse Azure) [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) (Utilisation de données NoSQL dans DocumentDB) |
-| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |Utrecht, Pays-Bas |26 septembre 2015 |[Présentation d’Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |Utrecht, Pays-Bas |26 septembre 2015 |[Présentation d’Azure DocumentDB](https://channel9.msdn.com/Blogs/Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday #441 - Denver 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) |Jeff Renz |Denver, Colorado |19 septembre 2015 |n/a |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) |Andrew Liu |San Francisco, CA |15 septembre 2015 |n/a |
 | [Rencontre de groupes d’utilisateurs Azure de Bélarus](https://www.facebook.com/events/786540124800276/) |Alex Zyl |Minsk, Bélarus |9 septembre 2015 |[Présentation des concepts DocumentDB, des niveaux de cohérence et des stratégies de partitionnement](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
@@ -184,7 +184,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 ### <a name="online-classes"></a>Classes en ligne
 | Partenaire d’apprentissage | Description |
 | --- | --- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) sont dirigées par les personnes qui participent au développement d’Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) sont dirigées par les personnes qui participent au développement d’Azure DocumentDB. |
 | [![pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) est l’un des principaux partenaires Microsoft proposant une formation Azure. Si vous êtes abonné à MSDN, utilisez vos avantages pour accéder aux formations Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) offre une formation technique approfondie sur Microsoft Azure. Suivez une formation dispensée par un instructeur sur site ou à distance menée par un des formateurs reconnus du secteur. |
 
@@ -196,12 +196,11 @@ Suivez-nous sur twitter [@DocumentDB](https://twitter.com/DocumentDB) et tenez-v
 | Fournisseur de forum | Description |
 | --- | --- |
 | [![Stackoverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |Site de questions et réponses indépendant du langage géré en collaboration pour les programmeurs. Suivez notre balise : [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) |Bonne adresse pour obtenir une assistance ou des commentaires sur les fonctionnalités et services de Microsoft Azure tels que les sites web, DocumentDB, etc. |
 
 ## <a name="contact-the-team"></a>Contactez l’équipe
 ![Équipe](./media/documentdb-community/documentdb-team.png)
 
-Vous avez besoin d’une assistance technique ? Vous avez des questions ? Vous vous demandez si NoSQL vous convient ? Vous pouvez [planifier une discussion 1 à 1 directement avec l’équipe d’ingénierie DocumentDB](http://www.askdocdb.com/). Vous pouvez également nous faire parvenir un [courrier électronique](mailto:askdocdb@microsoft.com) ou un tweet [@DocumentDB](https://twitter.com/DocumentDB). 
+Vous avez besoin d’une assistance technique ? Vous avez des questions ? Vous vous demandez si NoSQL vous convient ? Vous pouvez planifier une conversation individuelle directement avec l’équipe d’ingénierie DocumentDB en nous envoyant un [message électronique](mailto:askdocdb@microsoft.com) ou un tweet à [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## <a name="open-source-projects"></a>Projets Open source
 Ces projets sont activement développés par l’équipe Azure DocumentDB, en collaboration avec notre communauté Open source.
@@ -239,6 +238,6 @@ Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

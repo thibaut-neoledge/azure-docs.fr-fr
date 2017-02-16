@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble de la sécurité des machines virtuelles Azure | Microsoft Docs"
-description: " Azure Virtual Machines vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance.  Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Virtual Machines. "
+title: "Fonctionnalités de sécurité Azure utilisées avec les machines virtuelles Azure | Microsoft Docs"
+description: " Vue d’ensemble des principales fonctionnalités de sécurité Azure utilisables avec les machines virtuelles Azure. Les machines virtuelles Azure vous apportent la souplesse de la virtualisation sans vous obliger à acheter et le matériel qui exécute la machine virtuelle ni à en assurer la maintenance.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 0be0500296ad9bed302f65da9ef8de63e0ed08f6
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 5e9dcd9913cf301e7c5a50eb9e55fb0b3dc303e5
 
 
 ---
@@ -154,6 +154,6 @@ En savoir plus :
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

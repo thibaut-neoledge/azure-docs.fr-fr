@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
 
 
 ---
@@ -72,7 +72,7 @@ Dans le [portail](http://portal.azure.com) , procédez comme suit :
    
     Le tableau du bas contient des informations agrégées concernant les requêtes visibles.
    
-   * ID de requête – identificateur unique de la requête dans la base de données.
+   * ID de requête : identificateur unique de la requête dans la base de données.
    * UC par requête pendant l’intervalle observable (dépend de la fonction d’agrégation).
    * Durée par requête (dépend de la fonction d’agrégation).
    * Nombre total d’exécutions pour une requête particulière.
@@ -172,7 +172,7 @@ Le deuxième cas se produit lorsque le magasin de requêtes est désactivé ou s
 ### <a name="recommended-retention-and-capture-policy"></a>Stratégie de rétention et de capture recommandée
 Il existe deux types de stratégies de rétention :
 
-* Basée sur la taille : si la valeur AUTO est définie, les données sont automatiquement supprimées quand la taille maximale est proche.
+* Basée sur la taille : si la valeur AUTO est définie, les données sont automatiquement supprimées quand la taille maximale est proche.
 * Basée sur le temps : la période par défaut est de 30 jours. Ainsi, si le magasin de requêtes manque d’espace, il supprimera les informations liées aux requêtes âgées de plus de 30 jours.
 
 La stratégie de capture peut avoir les valeurs suivantes :
@@ -229,6 +229,6 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

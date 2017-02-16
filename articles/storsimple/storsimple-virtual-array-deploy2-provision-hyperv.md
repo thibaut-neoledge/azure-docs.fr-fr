@@ -1,5 +1,5 @@
 ---
-title: "Déployer Microsoft Azure StorSimple Virtual Array - Configurer dans Hyper-V| Microsoft Docs"
+title: Approvisionner StorSimple Virtual Array dans Hyper-V | Microsoft Docs
 description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d’un tableau virtuel dans Hyper-V."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V
@@ -217,6 +217,6 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

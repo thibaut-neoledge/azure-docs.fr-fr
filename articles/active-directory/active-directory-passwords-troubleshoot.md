@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad322aed5e2e6a42a2600a3995be28a99ee14f3a
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
 
 
 ---
@@ -659,7 +659,7 @@ Vous essayez à présent d’activer/de désactiver l’écriture différée des
               <p>Lorsque vous essayez de réinitialiser un mot de passe pour le compte d’un utilisateur à partir du portail de gestion Azure, un message tel que celui ci-dessous s’affiche : « Le service de réinitialisation du mot de passe de votre environnement local ne prend pas en charge la réinitialisation des mots de passe utilisateur par les administrateurs. Pour résoudre ce problème, veuillez procéder à une mise à niveau vers la dernière version d’Azure AD Connect ».</p>
             </td>
             <td>
-              <p>Cela se produit lorsque la version du moteur de synchronisation ne prend pas en charge l’opération d’écriture différée de mot de passe qui a été utilisée. Les versions d’Azure AD Connect ultérieures à la version 1.0.0419.0911 prennent en charge toutes les opérations de gestion des mots de passe, dont l’écriture différée de réinitialisation de mot de passe, l’écriture différée de modification du mot de passe et l’écriture différée de réinitialisation de mot de passe initialisée par l’administrateur à partir du Portail de gestion Azure.&nbsp; Les versions de DirSync ultérieures à la version 1.0.6862 prennent en charge uniquement l’écriture différée de réinitialisation du mot de passe. Pour résoudre ce problème, nous vous recommandons vivement d’installer la version la plus récente d’Azure AD Connect ou d’Azure Active Directory Connect. Pour plus d’informations, consultez [Intégration de vos identités locales](active-directory-aadconnect.md) pour résoudre ce problème et tirer le meilleur parti de l’écriture différée du mot de passe dans votre organisation.</p>
+              <p>Cela se produit lorsque la version du moteur de synchronisation ne prend pas en charge l’opération d’écriture différée de mot de passe qui a été utilisée. Les versions d’Azure AD Connect ultérieures à la version 1.0.0419.0911 prennent en charge toutes les opérations de gestion des mots de passe, dont l’écriture différée de réinitialisation de mot de passe, l’écriture différée de modification du mot de passe et l’écriture différée de réinitialisation de mot de passe initialisée par l’administrateur à partir du Portail de gestion Azure.&nbsp; Les versions de DirSync ultérieures à la version 1.0.6862 prennent en charge uniquement l’écriture différée de réinitialisation du mot de passe. Pour résoudre ce problème, nous vous recommandons vivement d’installer la version la plus récente d’Azure AD Connect ou d’Azure Active Directory Connect. Pour plus d’informations, consultez [Intégration de vos identités locales](connect/active-directory-aadconnect.md) pour résoudre ce problème et tirer le meilleur parti de l’écriture différée du mot de passe dans votre organisation.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1486,7 +1486,7 @@ Si la désactivation et la réactivation de la fonctionnalité d’écriture dif
 La réinstallation du package Azure AD Connect peut résoudre les problèmes de configuration susceptibles d’affecter votre capacité à vous connecter à nos services cloud ou à gérer les mots de passe de votre environnement Active Directory local.
 Il est préférable d’effectuer cette étape uniquement après avoir tenté les deux premières étapes décrites ci-dessus.
 
-1. Téléchargez la dernière version d’Azure AD Connect [ici](active-directory-aadconnect.md#install-azure-ad-connect).
+1. Téléchargez la dernière version d’Azure AD Connect [ici](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 2. Puisque vous avez déjà installé Azure AD Connect, il vous suffit d’effectuer une mise à niveau sur place pour mettre à jour votre installation d’Azure AD Connect vers la dernière version.
 3. Exécutez le package téléchargé et suivez les instructions à l’écran pour mettre à jour votre ordinateur Azure AD Connect.  Aucune opération manuelle supplémentaire n’est requise, sauf si vous avez personnalisé les règles de synchronisation par défaut, auquel cas vous devez **les sauvegarder avant de procéder à la mise à niveau et les déployer à nouveau manuellement une fois que vous avez terminé**.
 
@@ -1519,6 +1519,6 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

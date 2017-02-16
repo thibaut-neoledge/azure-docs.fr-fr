@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e9b7dcc2c7011a616d96c8623335c913f647a9b
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
 
 
 ---
@@ -75,17 +75,21 @@ Le test de basculement est effectué dans un réseau isolé du réseau de produc
 La plupart des applications requièrent également la présence d’un contrôleur de domaine et d’un serveur DNS pour pouvoir fonctionner. Donc, pour réaliser le basculement d’une application, un contrôleur de domaine doit être créé dans le réseau isolé pour qu’il puisse être utilisé pour le test de basculement. Pour ce faire, le plus simple consiste tout d’abord à activer la protection sur la machine virtuelle du contrôleur de domaine/DNS à l’aide de Site Recovery et à effectuer le test de basculement de cette machine virtuelle avant d’exécuter le test de basculement du plan de récupération d’urgence de l’application. Voici comment procéder :
 
 1. Activez la protection de la machine virtuelle du contrôleur de domaine/DNS dans Site Recovery.
-2. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
-3. Fournissez une adresse IP de DNS dans le réseau créé, comme l’adresse IP que la machine virtuelle du DNS devrait obtenir. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible** dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
+1. Créez un réseau isolé. Tout réseau virtuel créé dans Azure par défaut est isolé des autres réseaux. Il est recommandé que la plage d’adresses IP pour ce réseau soit identique à celle de votre réseau de production. N’activez pas la connectivité de site à site sur ce réseau.
+1. Fournissez une adresse IP de DNS dans le réseau créé, comme l’adresse IP que la machine virtuelle du DNS devrait obtenir. Si vous répliquez vers Azure, fournissez l’adresse IP de la machine virtuelle qui sera utilisée lors du basculement dans le paramètre **Adresse IP cible** dans les propriétés de la machine virtuelle. Si vous répliquez vers un autre site local et que vous utilisez DHCP, suivez les instructions pour [configurer DNS et DHCP pour le test de basculement](site-recovery-failover.md#prepare-dhcp)
 
-> [!NOTE]
-> L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si tel n’est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
-> 
-> 
+    > [!NOTE]
+    > L’adresse IP affectée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle obtiendrait durant un basculement planifié ou non planifié, si l’adresse IP est disponible dans le réseau de test de basculement. Si tel n’est pas le cas, la machine virtuelle reçoit une adresse IP différente qui est disponible dans le réseau de test de basculement.
+    > 
+    > 
 
-1. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé. Utilisez le dernier point de récupération d’application cohérent disponible de la machine virtuelle du contrôleur de domaine pour effectuer le test de basculement. 
-2. Exécutez un test de basculement pour le plan de récupération de l’application.
-3. Une fois le test terminé, marquez la tâche de test de basculement de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
+1. Sur la machine virtuelle du contrôleur de domaine, exécutez un test de basculement de celle-ci dans le réseau isolé. Utilisez le dernier point de récupération **cohérent avec l’application** disponible de la machine virtuelle du contrôleur de domaine pour effectuer le test de basculement. 
+1. Exécutez un test de basculement pour le plan de récupération de l’application.
+1. Une fois le test terminé, marquez la tâche de test de basculement de la machine virtuelle du contrôleur de domaine et le plan de récupération d’urgence comme terminés dans l’onglet **Tâches** du portail Site Recovery.
+
+### <a name="removing-reference-to-other-domain-controllers"></a>Suppression de la référence à d’autres contrôleurs de domaine
+Lorsque vous effectuez un test de basculement, vous n’utiliserez pas tous les contrôleurs de domaine dans le réseau de test. Pour supprimer la référence des autres contrôleurs de domaine qui existent dans votre environnement de production, vous devrez [prendre les rôles FSMO Active Directory et effectuer un nettoyage des métadonnées](http://aka.ms/ad_seize_fsmo) pour les contrôleurs de domaine absents. 
+
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS et contrôleur de domaine sur différentes machines
 Si DNS figure sur une machine virtuelle différente de celle du contrôleur de domaine, vous devez créer une machine virtuelle DNS pour le test de basculement. Si le DNS et le contrôleur de domaine figurent sur la même machine virtuelle, vous pouvez ignorer cette section.
@@ -114,6 +118,6 @@ Pour en savoir plus sur la protection des charges de travail d’entreprise avec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

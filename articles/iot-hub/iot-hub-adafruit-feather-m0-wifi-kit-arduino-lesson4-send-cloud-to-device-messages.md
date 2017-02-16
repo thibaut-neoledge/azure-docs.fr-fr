@@ -1,5 +1,5 @@
 ---
-title: "Exécution d’un exemple d’application pour recevoir des messages cloud-à-appareil à partir d’Azure IoT Hub | Microsoft Docs"
+title: "Connecter Arduino Pi (C) à Azure IoT - Leçon 4 : Cloud-à-appareil | Microsoft Docs"
 description: "Un exemple d’application s’exécute sur la carte Adafruit Feather M0 WiFi et surveille les messages entrants à partir de votre IoT Hub. Une nouvelle tâche gulp envoie des messages à la carte Adafruit Feather M0 WiFi à partir de votre IoT Hub pour faire clignoter la LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 55eda75c1e3290cedda1c4433db67c3cf320df20
+ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
+ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
 
 
 ---
@@ -139,6 +139,6 @@ Vous avez correctement envoyé des messages à partir de votre IoT Hub vers votr
 [change-the-on-and-off-led-behavior]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

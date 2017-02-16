@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dfeea14e412236b23f411fc4ad2a40223652a291
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 6ab17943e3ce21fc309a2b8986e99823b316384f
 
 
 ---
@@ -34,7 +34,7 @@ Pour parcourir les didacticiels dans la Galerie, ouvrez la [Galerie](http://gall
  La page **[Didacticiels](https://gallery.cortanaintelligence.com/tutorials)**
  affiche la liste des didacticiels les plus récents et les plus populaires.
 Cliquez sur **Afficher tout** pour voir tous les didacticiels.
-À partir de cette page, vous pouvez parcourir tous les didacticiels de la Galerie, ou vous effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
+Sur cette page, vous pouvez parcourir tous les didacticiels dans la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
  Cliquez sur n’importe quel didacticiel pour ouvrir la page Détails du didacticiel, puis lisez des informations supplémentaires à son sujet.
 Dans cette page, vous pouvez commenter, fournir un retour d’expérience ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec des amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers le didacticiel pour inviter d’autres utilisateurs à consulter la page.
@@ -49,28 +49,33 @@ Vous pouvez ajouter un didacticiel à la galerie pour aider d’autres utilisate
 ### <a name="create-a-tutorial"></a>Créer un didacticiel
 Pour créer et ajouter un didacticiel à la galerie Cortana Intelligence, procédez comme suit :
 
-* Connectez-vous à la galerie à l’aide de votre compte Microsoft.
-* Cliquez sur votre image en haut de la fenêtre, puis cliquez sur votre nom.
+1. Connectez-vous à la galerie à l’aide de votre compte Microsoft.
+
+2. Cliquez sur votre image en haut de la fenêtre, puis cliquez sur votre nom.
   
     ![Cliquez sur le nom de votre compte.](media/machine-learning-gallery-tutorials/click-account-name.png)
-* Cliquez sur **Nouvel élément**.
+
+3. Cliquez sur **Nouvel élément**.
   
     ![Cliquez sur « Nouvel élément ».](media/machine-learning-gallery-collections/click-new-item.png)
-* Sélectionnez **Collection** pour **Type d’élément**, nommez la collection, ajoutez un rapide résumé, une description ainsi que toutes les balises qui permettront aux utilisateurs de trouver la collection.
+
+4. Sélectionnez **Collection** pour **Type d’élément**, nommez la collection, ajoutez un rapide résumé, une description ainsi que toutes les balises qui permettront aux utilisateurs de trouver la collection.
   
     ![Entrer des informations pour la nouvelle collection](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
-* Cliquez sur **Suivant** : vous pouvez charger un fichier image ou sélectionner une image de stock qui sera affichée avec la collection. Choisissez quelque chose qui aidera les utilisateurs à identifier le contenu et l’objectif de la collection.
+5. Cliquez sur **Suivant** : vous pouvez charger un fichier image ou sélectionner une image de stock qui sera affichée avec la collection. Choisissez quelque chose qui aidera les utilisateurs à identifier le contenu et l’objectif de la collection.
   
     ![Entrer des informations pour le nouveau didacticiel](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
-* Cliquez sur **Suivant**. Vous pouvez décider si le didacticiel est **Public** (tout le monde peut le voir) ou **Non répertorié** (seules les personnes disposant d’un lien direct peuvent voir le didacticiel).
+
+6. Cliquez sur **Suivant**. Vous pouvez décider si le didacticiel est **Public** (tout le monde peut le voir) ou **Non répertorié** (seules les personnes disposant d’un lien direct peuvent voir le didacticiel).
   
-  > [!IMPORTANT]
-  > Après avoir défini un didacticiel comme **Public**, vous ne pouvez plus le définir comme **Non répertorié**.
-  > 
-  > 
+    > [!IMPORTANT]
+    > Après avoir défini un didacticiel comme **Public**, vous ne pouvez plus le définir comme **Non répertorié**.
+    > 
+    > 
   
     ![Sélectionner Public ou Non répertorié](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
-* Cliquez sur **Créer**
+
+7. Cliquez sur **Créer**
 
 Votre didacticiel figure désormais dans la galerie Cortana Intelligence. Il est répertorié sur la page de votre compte sous l’onglet **Éléments**.
 
@@ -81,6 +86,6 @@ Votre didacticiel figure désormais dans la galerie Cortana Intelligence. Il est
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

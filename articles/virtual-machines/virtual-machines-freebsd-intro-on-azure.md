@@ -1,0 +1,98 @@
+---
+title: "Présentation FreeBSD dans Azure | Microsoft Docs"
+description: "Apprenez à utiliser des machines virtuelles FreeBSD sur Azure"
+services: virtual-machines-linux
+documentationcenter: 
+author: KylieLiang
+manager: timlt
+editor: 
+tags: azure-service-management
+ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 01/09/2017
+ms.author: kyliel
+translationtype: Human Translation
+ms.sourcegitcommit: 71ad04b10bc49500197db6fecdcc0305a1ea0dd2
+ms.openlocfilehash: ecb1c385de6c1b12674326afe7d5a0ebf6cd9ad0
+
+
+---
+# <a name="introduction-to-freebsd-on-azure"></a>Présentation de FreeBSD sur Azure
+Cette rubrique offre une vue d’ensemble de l’exécution d’une machine virtuelle FreeBSD dans Azure.
+
+## <a name="overview"></a>Vue d'ensemble
+FreeBSD pour Microsoft Azure est un système d’exploitation informatique avancé utilisé sur les serveurs, ordinateurs de bureau et plateformes intégrées modernes.
+
+Microsoft Corporation rend disponibles des images de FreeBSD sur Azure avec [l’Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) préconfiguré. Actuellement, les versions FreeBSD suivantes sont proposées sous forme d’images par Microsoft :
+
+- FreeBSD 10.3-RELEASE
+- FreeBSD 11.0-RELEASE
+
+L’agent est responsable de la communication entre la machine virtuelle FreeBSD et Azure Fabric pour les opérations telles que l’approvisionnement de la machine virtuelle à la première utilisation (nom d’utilisateur, mot de passe ou clé SSH, nom d’hôte, etc.) et l’activation de fonctionnalités pour certaines extensions de machines virtuelles.
+
+Comme pour les versions futures de FreeBSD, la stratégie consiste à rester à jour et à rendre disponibles les dernières versions dès qu’elles sont publiées par l’équipe d’ingénieurs de lancement de FreeBSD.
+
+## <a name="deploying-a-freebsd-virtual-machine"></a>Déploiement d’une machine virtuelle FreeBSD
+Le déploiement d’une machine virtuelle FreeBSD est un processus simple qui fait appel à une image provenant d’Azure Marketplace :
+
+- [FreeBSD 10.3 sur Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+- [FreeBSD 11.0 sur Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+
+## <a name="vm-extensions-for-freebsd"></a>Extension de machine virtuelle pour FreeBSD
+Voici les extensions de machines virtuelles prises en charge par FreeBSD.
+
+### <a name="vmaccess"></a>VMAccess
+L’extension [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) peut :
+
+* Réinitialiser le mot de passe de l’utilisateur sudo d’origine.
+* Créer un nouvel utilisateur sudo avec le mot de passe spécifié.
+* Définir une clé hôte publique donnée.
+* Réinitialiser la clé hôte publique fournie pendant l’approvisionnement de la machine virtuelle si la clé hôte n’est pas fournie.
+* Ouvrir le port SSH (22) et restaurer sshd_config si reset_ssh a la valeur True.
+* Supprimer l’utilisateur existant.
+* Vérifier les disques.
+* Réparer un disque ajouté.
+
+### <a name="customscript"></a>CustomScript
+L’extension [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) peut :
+
+* Télécharger les scripts personnalisés dans le stockage Azure ou un stockage public externe (par exemple, GitHub) s’ils sont fournis.
+* Exécuter le script de point d’entrée.
+* Prendre en charge les commandes inline.
+* Convertir automatiquement le saut de ligne Windows dans des scripts Shell et Python.
+* Supprimer automatiquement les nomenclatures dans des scripts Shell et Python.
+* Protéger les données sensibles dans CommandToExecute.
+
+[!NOTE]La machine virtuelle FreeBSD prend uniquement en charge CustomScript version 1.x à ce stade.  
+
+## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Authentification : noms d’utilisateurs, mots de passe et clés SSH
+Lorsque vous créez une machine virtuelle FreeBSD avec le Portail Azure, vous devez fournir un nom d’utilisateur, un mot de passe ou une clé publique SSH.
+Le nom d’utilisateur pour le déploiement d’une machine virtuelle FreeBSD sur Azure ne doit pas correspondre au nom des comptes système (UID <&100;) déjà présents sur la machine virtuelle (« root », par exemple).
+Actuellement, seule la règle RSA SSH est prise en charge. Une clé SSH multiligne doit commencer par `---- BEGIN SSH2 PUBLIC KEY ----` et se terminer par `---- END SSH2 PUBLIC KEY ----`.
+
+## <a name="obtaining-superuser-privileges"></a>Obtention de privilèges de superutilisateur
+Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Le package de « sudo » a été installé dans l’image FreeBSD publiée.
+Une fois connecté avec ce compte utilisateur, vous pouvez exécuter les commandes en tant que root avec la syntaxe de commande.
+
+    $ sudo <COMMAND>
+
+Vous pouvez éventuellement obtenir un interpréteur de commandes root avec `sudo -s`.
+
+## <a name="known-issues"></a>Problèmes connus
+1. Il existe actuellement un problème avec FreeBSD 11.0 sur Hyper-V (et Azure) qui peut provoquer l’échec du démarrage des machines virtuelles si le système d’exploitation est corrigé à l’aide de `freebsd-update`. Le [correctif proposé](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) est inclus dans les images FreeBSD sur Azure Marketplace. Toutefois, il n’a pas été fusionné en amont par l’équipe FreeBSD. L’exécution de `freebsd-update` remplace donc le noyau par un noyau non corrigé. Il est recommandé aux utilisateurs Azure de ne pas installer les correctifs pour FreeBSD 11.0 jusqu’à ce que le correctif soit publié sous forme d’ERRATA.
+
+2. L’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.2 présente un problème [connu] (https://github.com/Azure/WALinuxAgent/pull/517) qui provoque l’échec de l’approvisionnement pour la machine virtuelle FreeBSD sur Azure. Il est recommandé que les utilisateurs de machines virtuelles FreeBSD sur Azure utilisent la version 2.2.1 ou une version antérieure. Le correctif sera capturé par l’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.3. 
+
+## <a name="next-steps"></a>Étapes suivantes
+* Accédez à [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) pour créer une machine virtuelle FreeBSD.
+* Si vous souhaitez utiliser votre propre FreeBSD dans Azure, consultez [Créer et charger un VHD FreeBSD dans Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

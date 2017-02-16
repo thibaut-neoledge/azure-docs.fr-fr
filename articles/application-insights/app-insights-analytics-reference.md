@@ -11,17 +11,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 
 
 ---
 # <a name="reference-for-analytics"></a>Référence pour Analytics
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
 
+Sources d’information supplémentaires :
+
+* Beaucoup de documents de référence sont disponibles dans Analytics. Saisissez une requête et l’outil vous propose des réponses possibles.
+* [La page du didacticiel](app-insights-analytics-tour.md) fournit une présentation pas à pas des fonctionnalités du langage.
 * [L’aide-mémoire des utilisateurs de SQL](https://aka.ms/sql-analytics) traduit les idiomes courants.
 * [Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo) si votre application n’envoie pas encore de données à Application Insights.
  
@@ -29,7 +33,7 @@ ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
 ## <a name="index"></a>Index
 **Let** [let](#let-clause)
 
-**Requêtes et opérateurs** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [directive render](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Requêtes et opérateurs** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -209,7 +213,7 @@ Notez que les modèles ne sont pas disjoints : ils peuvent se chevaucher et ne c
     Exemple : `T | evaluate autocluster("size_weight=0.8")`
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1;») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     Exemple : `T | evaluate autocluster("weight_column=sample_Count")` 
 
@@ -231,7 +235,7 @@ Tous les modèles qui apparaissent dans plus d’une fraction spécifiée (valeu
     Exemple : `T | evaluate basket("threshold=0.02")`
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1;») ; il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     Exemple : T | evaluate basket("weight_column=sample_Count")
 * `max_dims=` *1<int* (valeur par défaut : 5)
@@ -292,7 +296,7 @@ Notez que les modèles ne sont pas distincts : ils peuvent se chevaucher et ne c
   * `all` : toutes les colonnes de l’entrée sont générées.
 * `weight_column=` *column_name*
   
-    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de «&1; »). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
 
@@ -364,6 +368,70 @@ traces
     Age = now() - timestamp
 ```
 
+### <a name="find-operator"></a>Opérateur find
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Rechercher les lignes qui correspondent à un prédicat dans un ensemble de tables.
+
+**Syntaxe**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Arguments**
+
+* *Table1* Nom de table ou requête. Ce peut être une table définie par let, mais pas une fonction. Un nom de table est plus performant qu’une requête.
+* *Prédicat* Expression booléenne évaluée pour chaque ligne dans les tables spécifiées.
+* *Colonne1* L’option `project` vous permet de spécifier les colonnes qui doivent toujours apparaître dans la sortie. 
+
+**Résultat**
+
+Par défaut, la table de sortie contient :
+
+* `source_` - Indicateur de la table source pour chaque ligne.
+* Colonnes explicitement mentionnées dans le prédicat
+* Colonnes non vides communes à toutes les tables d’entrée.
+* `pack_` - Un jeu de propriétés contenant les données des autres colonnes.
+
+Notez que ce format peut varier en fonction des modifications apportées aux données d’entrée ou au prédicat. Pour spécifier un ensemble fixe de colonnes, utilisez `project`.
+
+**Exemple**
+
+Pour obtenir toutes les demandes et exceptions, à l’exception de celles des robots et des tests de disponibilité :
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Pour trouver toutes les demandes et exceptions émanant du Royaume-Uni, à l’exception de celles des robots et des tests de disponibilité :
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Recherchez les données de télémétrie les plus récentes, dans lesquelles un champ contient le terme « test » :
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Conseils sur les performances**
+
+* Ajoutez des critères temporels au prédicat `where`.
+* Utilisez des clauses `let` au lieu d’écrire des requêtes en ligne.
+
+
 
 ### <a name="join-operator"></a>opérateur join
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +455,10 @@ Une table avec :
 
 * Une colonne pour chaque colonne dans chacune des deux tables, y compris les clés correspondantes. Les colonnes du côté droit seront automatiquement renommées en cas de conflit de nom.
 * Une ligne pour chaque correspondance entre les tables d’entrée. Une correspondance est une ligne sélectionnée dans une table, dont tous les champs `on` ont la même valeur qu’une ligne dans l’autre table. 
-* `Kind` non spécifié
+* `Kind` non spécifié ou `= innerunique`
   
     Une seule ligne du côté gauche correspond à chaque valeur de la clé `on` . La sortie contient une ligne pour chaque correspondance de cette ligne avec des lignes du côté droit.
-* `Kind=inner`
+* `kind=inner`
   
      La sortie contient une ligne pour chaque combinaison de lignes correspondantes des côtés gauche et droit.
 * `kind=leftouter` (ou `kind=rightouter` ou `kind=fullouter`)
@@ -399,8 +467,10 @@ Une table avec :
 * `kind=leftanti`
   
      Retourne tous les enregistrements du côté gauche n’ayant pas de correspondance du côté droit. La table de résultats ne comporte que les colonnes du côté gauche. 
+* `kind=leftsemi` (ou `leftantisemi`)
 
-Si plusieurs lignes comportent les mêmes valeurs pour ces champs, des lignes s’affichent pour toutes les combinaisons.
+    Retourne une ligne de la table de gauche en cas de correspondance (ou pas) dans la table de droite. Le résultat n’inclut pas les données de la table de droite.
+
 
 **Conseils**
 
@@ -744,7 +814,7 @@ Tente de regrouper des enregistrements similaires. Pour chaque groupe, l’opér
 **Arguments**
 
 * *ColumnName :* colonne à examiner. Cette valeur doit être de type chaîne.
-* *Threshold :* valeur dans la plage {0 à 1}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
+* *Threshold :* valeur dans la plage {0 à&1;}. La valeur par défaut est 0,001. Pour les entrées volumineuses, le seuil doit être bas. 
 
 **Retourne**
 
@@ -836,9 +906,8 @@ Les lignes d’entrée sont organisées en groupes ayant les mêmes valeurs que 
 
 Le résultat contient autant de lignes qu’il existe de combinaisons de valeurs `by` . Si vous souhaitez générer une synthèse sur des plages de valeurs numériques, utilisez `bin()` pour limiter les plages aux valeurs discrètes.
 
-**Remarque :**
-
-Bien que vous puissiez fournir des expressions arbitraires pour les expressions d’agrégation et de regroupement, il est plus efficace d’utiliser des noms de colonne simples ou d’appliquer `bin()` à une colonne numérique.
+> [!NOTE]
+> Bien que vous puissiez fournir des expressions arbitraires pour les expressions d’agrégation et de regroupement, il est plus efficace d’utiliser des noms de colonne simples ou d’appliquer `bin()` à une colonne numérique.
 
 ### <a name="take-operator"></a>opérateur take
 Alias de [limit](#limit-operator)
@@ -937,13 +1006,13 @@ Cette version plus efficace génère le même résultat. Elle filtre chaque tabl
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### <a name="forcing-an-order-of-results"></a>Forcer l’ordre des résultats
+#### <a name="forcing-an-order-of-results"></a>Forcer l’ordre des résultats
 
 L’union ne garantit pas un ordre spécifique des lignes de résultats.
 Pour obtenir le même ordre chaque fois que vous exécutez la requête, ajoutez une colonne de balises à chaque table d’entrée :
@@ -953,6 +1022,9 @@ Pour obtenir le même ordre chaque fois que vous exécutez la requête, ajoutez 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### <a name="see-also"></a>Voir aussi
+
+Pensez à l’[opérateur join](#join-operator) comme alternative.
 
 ### <a name="where-operator"></a>opérateur where
      requests | where resultCode==200
@@ -964,11 +1036,13 @@ Filtre une table d’après le sous-ensemble de lignes correspondant à un préd
 **Syntaxe**
 
     T | where Predicate
+    T | where * has Term
 
 **Arguments**
 
 * *T* : entrée tabulaire dont les enregistrements doivent être filtrés.
 * *Predicate :* expression `boolean` [ ](#boolean) sur les colonnes de *T*. Elle est évaluée pour chaque ligne dans *T*.
+* *Terme* : chaîne qui doit correspondre à la totalité d’un mot dans une colonne.
 
 **Retourne**
 
@@ -1621,7 +1695,7 @@ Alias `floor`.
 
 Multiple le plus proche de *roundTo*, inférieur à *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Exemples**
 
@@ -1705,14 +1779,14 @@ Fonction racine carrée.
 
 ### <a name="toint"></a>toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
@@ -1874,7 +1948,7 @@ Numéro ordinal du jour de l’année.
 
 
 ### <a name="getmonth"></a>getmonth
-Obtient le numéro du mois (1 à 12) à partir d’une valeur datetime.
+Obtient le numéro du mois (1 à&12;) à partir d’une valeur datetime.
 
 **Exemple**
 
@@ -2607,6 +2681,6 @@ Entourez de guillemets un nom à l’aide de ['... '] ou ["..."] pour inclure d�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

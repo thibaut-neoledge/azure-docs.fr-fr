@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Glossaire | Microsoft Docs"
-description: "Un glossaire des termes courants relatifs à IoT Hub"
+title: Glossaire Azure IoT Hub | Microsoft Docs
+description: "Guide du développeur : un glossaire des termes courants relatifs à Azure IoT Hub."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
+ms.sourcegitcommit: 1f795dd5b3d99731b2e683085d889ed7943d6281
+ms.openlocfilehash: 3661ad7374fd91cf7bbc485b8ce0805b78518899
 
 
 ---
@@ -42,7 +42,7 @@ Des _Kits de développement logiciel (SDK) de services_ sont disponibles pour pl
 Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et de gérer l’ensemble de vos ressources Azure. Son contenu est organisé à l’aide de _panneaux_. Dans certains didacticiels concernant IoT Hub, vous pouvez être invité à utiliser le [portail Azure Classic](https://manage.windowsazure.com).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer les ressources pour votre solution dans le cadre d’une seule opération coordonnée.
@@ -63,7 +63,9 @@ Une passerelle cloud assure la connectivité d’appareils qui ne peuvent pas se
 Fait référence aux messages envoyés à partir d’un IoT Hub à un appareil connecté. Souvent, ces messages sont des commandes qui donnent pour instruction à l’appareil d’effectuer une action. Pour plus d’informations, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="connection-string"></a>Chaîne de connexion
-Vous utilisez des chaînes de connexion dans votre code d’application afin d’encapsuler les informations requises pour se connecter à un point de terminaison. Une chaîne de connexion inclut généralement l’adresse du point de terminaison et des informations de sécurité, mais le format de la chaîne de connexion varie selon les services.
+Vous utilisez des chaînes de connexion dans votre code d’application afin d’encapsuler les informations requises pour se connecter à un point de terminaison. Une chaîne de connexion inclut généralement l’adresse du point de terminaison et des informations de sécurité, mais les formats de chaîne de connexion varient selon les services. Il existe deux types de chaîne de connexion associés au service IoT Hub :
+- Les *Chaînes de connexion d’appareil* permettent aux périphériques de se connecter aux points de terminaison côté appareil sur un IoT Hub.
+- Les *Chaînes de connexion IoT Hub* activent des applications principales pour se connecter aux points de terminaison côté service sur un IoT Hub.
 
 ## <a name="custom-gateway"></a>Passerelle personnalisée
 Une passerelle assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). Le [Kit de développement logiciel (SDK) de passerelle Azure IoT](#azure-iot-gateway-sdk) permet de construire des passerelles personnalisées qui implémentent une logique personnalisée pour gérer des messages et des conversions de protocole personnalisées.
@@ -147,13 +149,13 @@ Une passerelle assure la connectivité d’appareils qui ne peuvent pas se conne
 Le [registre des identités](iot-hub-devguide-identity-registry.md) est le composant intégré d’un IoT Hub, qui stocke des informations sur les appareils autorisés à se connecter à un IoT Hub.
 
 ## <a name="interactive-message"></a>Message interactif
-Un message interactif est un message [cloud-à-appareil](#cloud-to-device) qui déclenche une action immédiate dans le serveur principal d’application. Par exemple, un appareil peut envoyer une alarme concernant une défaillance qui devrait être journalisée automatiquement dans un système CRM.
+Un message interactif est un message [cloud-à-appareil](#cloud-to-device) qui déclenche une action immédiate dans le serveur principal de solution. Par exemple, un appareil peut envoyer une alarme concernant une défaillance qui devrait être journalisée automatiquement dans un système CRM.
 
 ## <a name="iot-hub"></a>IoT Hub
 IoT Hub est un service Azure entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md). Votre [abonnement Azure](#subscription) vous permet de créer des IoT Hubs pour gérer vos charges de travail de messagerie IoT.
 
 ## <a name="iot-hub-metrics"></a>Métriques d’IoT Hub
-Les [métriques d’IoT Hub](iot-hub-metrics.md) fournissent des données sur l’état des IoT Hubs dans votre [abonnement Azure](#subscription). Grâce aux métriques, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Ces métriques peuvent vous aider à voir l’état de votre IoT Hub et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure.
+Les [métriques d’IoT Hub](iot-hub-metrics.md) fournissent des données sur l’état des IoT Hubs dans votre [abonnement Azure](#subscription). Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les métriques IoT Hub peuvent vous aider à voir l’état de votre IoT Hub et à examiner des problèmes constituant des causes premières sans devoir contacter le support Azure.
 
 ## <a name="iot-hub-query-language"></a>Langage de requête d’IoT Hub
 Le [langage de requête d’IoT Hub](iot-hub-devguide-query-language.md) est un langage similaire à SQL, qui vous permet d’interroger votre [travaux](#job) et représentations d’appareil.
@@ -225,7 +227,7 @@ L’abonnement est le mode de facturation d’Azure. Chaque ressource ou service
 Dans le contexte d’une [représentation d’appareil](iot-hub-devguide-device-twins.md), les propriétés système sont en lecture seule et incluent des informations sur l’utilisation de l’appareil, telles que l’heure et l’état de connexion de la dernière activité.
 
 ## <a name="tags"></a>Balises
-Dans le contexte d’une [représentation d’appareil](iot-hub-devguide-device-twins.md), les balises sont des métadonnées d’appareil stockées et récupérées par le serveur principal d’application sous la forme d’un document JSON. Les balises ne sont pas visibles pour les applications sur un appareil.
+Dans le contexte d’une [représentation d’appareil](iot-hub-devguide-device-twins.md), les balises sont des métadonnées d’appareil stockées et récupérées par le serveur principal de solution sous la forme d’un document JSON. Les balises ne sont pas visibles pour les applications sur un appareil.
 
 ## <a name="telemetry"></a>Télémétrie
 Les appareils collectent des données de télémétrie, telles que la vitesse du vent ou la température, et utilisent des [messages de point de données](#data-point-messages) pour envoyer les données de télémétrie à un IoT Hub.
@@ -237,6 +239,6 @@ Vous pouvez utiliser un service d’émission de jeton pour implémenter un méc
 Un appareil peut utiliser un certificat X.509 pour s’authentifier auprès du [IoT Hub](#iot-hub). L’utilisation d’un certificat X.509 est une alternative à l’utilisation d’un [jeton SAP](#shared-access-signature).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

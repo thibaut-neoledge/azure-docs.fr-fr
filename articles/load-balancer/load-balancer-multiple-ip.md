@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 8761e32f22471e00e33605916fc145881c8fe378
-ms.openlocfilehash: fed40bd97114a2f4eafedc5587b4744d73b2a0ff
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 64234747b92379e50edb800d03353be346c4d319
 
 ---
 
@@ -45,7 +45,7 @@ Pour obtenir la version préliminaire, envoyez un e-mail à [Plusieurs adresses 
 
 Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dessous :
 
-1. Installez Azure PowerShell. Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+1. Installez Azure PowerShell. Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Créez un groupe de ressources à l’aide des paramètres suivants :
 
     ```powershell
@@ -150,6 +150,6 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

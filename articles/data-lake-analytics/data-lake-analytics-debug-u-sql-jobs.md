@@ -3,7 +3,7 @@ title: "Débogage de travaux U-SQL | Microsoft Docs"
 description: "Apprenez à déboguer un vertex U-SQL ayant échoué à l’aide de Visual Studio. "
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
+author: yanancai
 manager: jhubbard
 editor: cgronlun
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
@@ -13,21 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
-ms.author: jgao
+ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a4cd690645200bc5f208fd0d15fe58537f9b2a4
+ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
+ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
 
 ---
-# <a name="debug-c-code-in-u-sql-for-data-lake-analytics-jobs"></a>Déboguer du code C# dans U-SQL pour les tâches Data Lake Analytics
-Apprenez à déboguer des travaux U-SQL ayant échoué en raison de bogues dans le code utilisateur à l’aide des outils Azure Data Lake Visual Studio. 
+# <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage du code C# défini par l’utilisateur pour les travaux U-SQL ayant échoué
 
-L’outil Visual Studio vous permet de télécharger le code compilé et les données du vertex nécessaires à partir du cluster pour tracer et déboguer des travaux ayant échoué.
+Découvrez la procédure de débogage de travaux U-SQL ayant échoué et présentant des bogues du code défini par l’utilisateur à l’aide d’Azure Data Lake Tools pour Visual Studio.
 
-Les systèmes de Big Data fournissent généralement un modèle d’extensibilité via des langages tels que Java, C#, Python, etc. Plusieurs de ces systèmes fournissent des informations de débogage limitées, ce qui rend les erreurs difficiles à déboguer dans le code personnalisé. Les derniers outils de Visual Studio sont fournis avec une fonctionnalité appelée « Échec de débogage du vertex ». À l’aide de cette fonctionnalité, vous pouvez télécharger les données d’exécution à partir d’Azure sur une station de travail locale afin de pouvoir déboguer le code C# personnalisé posant problème en utilisant le même runtime et les mêmes données d’entrée à partir du cloud.  Une fois les problèmes résolus, vous pouvez réexécuter le code révisé dans Azure à partir des outils.
+## <a name="background"></a>Arrière-plan
 
-Pour une présentation vidéo de cette fonctionnalité, consultez la page [Déboguer votre code personnalisé dans Azure Data Lake Analytics](https://mix.office.com/watch/1bt17ibztohcb).
+U-SQL fournit le modèle d’extensibilité via C#. Les utilisateurs peuvent écrire du code C# défini par l’utilisateur, comme un extracteur ou un réducteur défini par l’utilisateur, etc., pour obtenir davantage d’extensibilité (en savoir plus sur le [Code U-SQL défini par l’utilisateur](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). Toutefois, aucun développeur ne peut coder sans faire d’erreur et le débogage dans des systèmes de données volumineux est compliqué, car de nombreux systèmes ne fournissent que des informations limitées sur le débogage du runtime comme, par exemple, des journaux, etc. 
+
+Azure Data Lake Tools pour Visual Studio offre une fonctionnalité appelée **Débogage d'échec du vertex** qui vous permet de cloner aisément un environnement ayant échoué (notamment les données d’entrée intermédiaires et le code utilisateur, etc.) à partir du cloud sur votre ordinateur local pour le suivi et le débogage de travaux ayant échoué avec le même runtime et des données d’entrée exactes dans le cloud.
+
+La vidéo suivante illustre la fonction **Débogage d'échec du vertex** dans Azure Data Lake Tools pour Visual Studio.
+
+> [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
+>
+>
 
 > [!NOTE]
 > Visual Studio peut se bloquer si vous n’avez pas les deux mises à niveau Windows suivantes : [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682) et [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
@@ -37,64 +44,96 @@ Pour une présentation vidéo de cette fonctionnalité, consultez la page [Débo
 ## <a name="prerequisites"></a>Composants requis
 * Avoir parcouru l’article [Prise en main](data-lake-analytics-data-lake-tools-get-started.md) .
 
-## <a name="create-and-configure-debug-projects"></a>Création et configuration de projets de débogage
-Lorsque vous ouvrez un travail ayant échoué dans l’outil Data Lake Visual Studio, vous obtenez une alerte. Les informations détaillées sur l’erreur s’affichent dans l’onglet Erreur et dans la barre d’alerte jaune en haut de la fenêtre. 
+## <a name="download-failed-vertex-to-local"></a>Téléchargement en local du vertex ayant échoué
+
+Lorsque vous ouvrez un travail ayant échoué dans Azure Data Lake Tools pour Visual Studio, une alerte s’affiche. Les messages d’erreur détaillés s’affichent sous l’onglet Erreur et dans la barre d’alerte jaune en haut de la fenêtre.
+
+1. Cliquez sur **Télécharger** pour télécharger toutes les ressources et les flux d’entrée requis. Cliquez sur **Réessayer** si le téléchargement échoue. 
+
+2. Cliquez sur **Ouvrir** une fois le téléchargement terminé pour générer un environnement de débogage local. Une nouvelle instance de Visual Studio avec une solution de débogage est créée et ouverte automatiquement. 
+
+3. La procédure de débogage est légèrement différente selon les assemblys et les travaux ayant échoué avec code-behind.
+
+    - [Débogage de tâches ayant échoué avec code-behind](#debug-job-failed-with-code-behind)
+    - [Débogage de tâches ayant échoué avec des assemblys](#debug-job-failed-with-assemblies)
 
 ![Télécharger le vertex Visual Studio pour le débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-**Pour télécharger le vertex et créer une solution de débogage**
+## <a name="debug-job-failed-with-code-behind"></a>Débogage de tâches ayant échoué avec code-behind
 
-1. Dans Visual Studio, ouvrez un travail U-SQL ayant échoué.
-2. Cliquez sur **Télécharger** pour télécharger toutes les ressources et les flux d’entrée requis. Cliquez sur **Réessayer** si le téléchargement échoue.
-3. Cliquez sur **Ouvrir** une fois le téléchargement terminé pour créer un projet de débogage local. Une nouvelle solution Visual Studio appelée **VertexDebug** avec un projet vide appelé **LocalVertexHost** est créée.
+Si vous avez écrit le code défini par l’utilisateur dans un fichier code-behind (généralement appelé « Script.usql.cs » dans le projet U-SQL) et si le travail U-SQL a ensuite échoué, le code source est automatiquement importé dans la solution de débogage générée. Vous pouvez simplement utiliser l’expérience de débogage Visual Studio (espion, variables, etc.) pour résoudre le problème. 
 
-Si les opérateurs définis par l’utilisateur sont utilisés dans le code U-SQL en arrière-plan (Script.usql.cs), vous devez créer un projet en C# de bibliothèque de classes avec le code des opérateurs définis par l’utilisateur et inclure le projet dans la solution VertexDebug.
-
-Si vous avez enregistré des assemblys .dll dans votre base de données Data Lake Analytics, vous devez ajouter le code source des assemblys à la solution VertexDebug.
-
-Si vous avez créé une bibliothèque de classes C# distincte pour votre code U-SQL et les assemblys .dll inscrits dans votre base de données Data Lake Analytics, vous devez ajouter le projet C# source des assemblys à la solution VertexDebug.
-
-Dans certains cas rares, vous utilisez les opérateurs définis par l’utilisateur dans le code U-SQL suivant le fichier (Script.usql.cs) dans la solution d’origine. Si vous souhaitez que cela fonctionne, vous devez créer une bibliothèque C# contenant le code source et modifier le nom de l’assembly sur celui enregistré dans le cluster. Vous pouvez obtenir le nom de l’assembly enregistré dans le cluster en vérifiant que le script est en cours d’exécution dans le cluster. Vous pouvez le faire en ouvrant le travail U-SQL et en cliquant sur « script » dans le volet de travail. 
-
-**Pour configurer la solution**
-
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet C# que vous venez de créer, puis cliquez sur **Propriétés**.
-2. Définissez le chemin de sortie sur le chemin du répertoire de travail du projet LocalVertexHost. Vous pouvez obtenir le chemin du répertoire de travail du projet LocalVertexHost par le biais des propriétés de LocalVertexHost.
-3. Générez votre projet C# afin de placer le fichier .pdb dans le répertoire de travail du projet LocalVertexHost, ou vous pouvez copier manuellement le fichier .pdb dans ce dossier.
-4. Dans **Paramètres d’exception**, vérifiez les exceptions Common Language Runtime :
+Avant le débogage, vérifiez que vous avez activé **Exceptions Common Language Runtime** dans la fenêtre des paramètres d’exception (**Ctrl + Alt + E**).
 
 ![Configuration de Visual Studio pour le débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-## <a name="debug-the-job"></a>Débogage du travail
-Une fois que vous avez créé une solution de débogage en téléchargeant le vertex et une fois l’environnement configuré, vous pouvez commencer à déboguer votre code U-SQL.
+1. Appuyez sur **F5**. Le code code-behind s’exécute automatiquement jusqu’à ce qu’il soit arrêté par une exception.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **LocalVertexHost** que vous venez de créer, pointez sur **Déboguer**, puis cliquez sur **Démarrer une nouvelle instance**. Le projet LocalVertexHost doit être défini comme projet de démarrage. Le message suivant peut s’afficher pour la première fois. Vous pouvez l’ignorer. L’affichage de l’écran de débogage peut prendre jusqu'à une minute.
-   
-   ![Avertissement Visual Studio pour le débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
-2. Utilisez votre expérience de débogage basée sur Visual Studio (watch, variables, etc.) pour résoudre le problème. 
-3. Une fois que vous avez identifié un problème, corrigez le code, puis régénérez le projet C# avant de le tester à nouveau et ce, jusqu’à ce que tous les problèmes soient résolus. Une fois le débogage effectué correctement, la fenêtre de sortie affiche le message suivant 
-   
-     Le programme « LocalVertexHost.exe » s’est arrêté avec le code 0 (0x0).
+2. Ouvrez **ADLTool_Codebehind.usql.cs** dans le projet, définissez des points d’arrêt, puis appuyez sur F5 pour déboguer le code pas à pas.
+
+    ![Exception de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
+
+## <a name="debug-job-failed-with-assemblies"></a>Débogage de tâches ayant échoué avec des assemblys
+
+Si vous utilisez des assemblys dans le script U-SQL, le système ne peut pas obtenir automatiquement le code source. Vous devez effectuer certaines configurations avant le débogage du code défini par l’utilisateur, à savoir ajouter le code source des assemblys à la solution générée automatiquement.
+
+### <a name="configure-the-solution"></a>Configuration de la solution
+
+1. Cliquez avec le bouton droit sur **Solution 'VertexDebug'** > **Ajouter** > **Projet existant... ** pour rechercher le code source des assemblys et ajouter le projet à la solution de débogage.
+
+    ![Projet d’ajout de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
+
+2. Cliquez avec le bouton droit sur **LocalVertexHost** > **Propriétés** dans la solution, copiez le chemin d’accès **Répertoire de travail**.
+
+3. Cliquez avec le bouton droit sur **projet de code source d’assembly** > **Propriétés**, sélectionnez l’onglet **Créer** à gauche, collez le chemin d’accès copié à l’étape 2 dans **Sortie** > **Chemin de sortie**.  
+
+    ![Chemin d’accès de pdb de définition de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
+
+4. Appuyez sur **Ctrl + Alt + E**, vérifiez les **exceptions Common Language Runtime** dans la fenêtre des paramètres d’exception.
+
+### <a name="start-debug"></a>Début du débogage
+
+1. Cliquez avec le bouton droit sur **projet de code source d’assembly** > **Régénérer** pour créer des fichiers pdb dans le répertoire de travail LocalVertexHost.
+
+2. Appuyez sur **F5**. Le projet s’exécute automatiquement jusqu’ ce qu’il soit arrêté par une exception. Le message suivant peut s’afficher pour la première fois. Vous pouvez l’ignorer. L’affichage de l’écran de débogage peut prendre jusqu'à une minute.
+
+    ![Avertissement Visual Studio pour le débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
+
+3. Ouvrez le code source et définissez des points d’arrêt, puis appuyez sur **F5** pour déboguer le code pas à pas.
+
+Vous pouvez également utiliser d’autres expériences de débogage Visual Studio (espion, variables, etc.) pour résoudre le problème. 
+
+**Remarque** : vous devez régénérer le projet de code source d’assembly chaque fois que vous modifiez le code afin que les nouveaux fichiers pdb soient appliqués.
+
+Une fois le débogage terminé, la fenêtre de sortie affiche le message suivant :
+
+    The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
+
+![Débogage U-SQL Azure Data Lake Analytics réussi](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 ## <a name="resubmit-the-job"></a>Renvoyer le travail
-Une fois que vous avez terminé de déboguer votre code U-SQL, vous pouvez renvoyer le travail ayant échoué.
+Une fois le débogage terminé, vous pouvez renvoyer le travail ayant échoué.
 
 1. Enregistrez les nouveaux assemblys .dll dans votre base de données ADLA.
-   
-   1. À partir de l’Explorateur de serveurs/Explorateur cloud dans l’outil Data Lake Visual Studio, développez le nœud **Bases de données** 
-   2. Cliquez avec le bouton droit sur Assemblys pour enregistrer les assemblys. 
-   3. Enregistrez vos nouveaux assemblys .dll dans la base de données ADLA.
-2. Ou copiez votre code C# dans le code script.usql.cs--C# en arrière-plan du fichier.
+
+    1. À partir de l’Explorateur de serveurs/Cloud Explorer, développez le nœud **bases de données** > **du compte ADLA**.
+    2. Cliquez avec le bouton droit sur **Assemblys** pour enregistrer les assemblys. 
+    3. Enregistrez vos nouveaux assemblys .dll dans la base de données ADLA.
+    ![Assembly d’enregistrement de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
+2. Vous pouvez également recopier votre code C# dans le fichier code-behind C# script.usql.cs.
 3. Renvoyez le travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+* [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+* [Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * [Didacticiel : Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 * [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO1-->
 
 

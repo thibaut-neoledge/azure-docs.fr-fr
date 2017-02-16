@@ -1,5 +1,5 @@
 ---
-title: "Instructions pour les groupes à haute disponibilité | Microsoft Docs"
+title: "Instructions pour les groupes à haute disponibilité Azure | Microsoft Docs"
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de groupes à haute disponibilité dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c8d4f1c83d1f719122b90a205534b5ae4c1b03bd
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
 
 
 ---
-# <a name="availability-sets-guidelines"></a>Instructions pour les groupes à haute disponibilité
+# <a name="azure-availability-sets-guidelines"></a>Instructions pour les groupes à haute disponibilité Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification requises pour les groupes à haute disponibilité afin d’assurer que vos applications restent accessibles aux cours des événements planifiés et non planifiés.
@@ -44,9 +44,11 @@ En tant que meilleure pratique, les applications ne doivent pas résider sur une
 
 L’infrastructure sous-jacente dans Azure est divisée en domaines de mise à jour et domaines d’erreur. Ces domaines sont définis par les hôtes qui partagent un cycle de mise à jour commun, ou une infrastructure physique similaire, comme l’alimentation ou la mise en réseau. Azure distribue automatiquement vos machines virtuelles au sein d’un groupe à haute disponibilité sur plusieurs domaines pour assurer la disponibilité et la tolérance aux pannes. Selon la taille de votre application et le nombre de machines virtuelles au sein d’un groupe à haute disponibilité, vous pouvez régler le nombre de domaines que vous souhaitez utiliser. Vous pouvez en savoir plus sur [la gestion de la disponibilité et l’utilisation des domaines d’erreur et de mise à jour](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Lorsque vous concevez votre infrastructure d’application, vous devez également planifier les couches Application à utiliser. Groupez les machines virtuelles qui ont la même fonction dans des groupes à haute disponibilité définis, comme un groupe à haute disponibilité pour vos machines virtuelles frontales exécutant nginx ou Apache. Créez un groupe à haute disponibilité distinct pour les machines virtuelles principales tournant sous MongoDB ou MySQL. L’objectif est de vous assurer que chaque composant de votre application est protégé par un groupe à haute disponibilité et qu’au moins une instance est toujours exécutée.
+Lorsque vous concevez l’infrastructure de votre application, vous devez également planifier les couches Application à utiliser. Groupez les machines virtuelles qui ont la même fonction dans des groupes à haute disponibilité définis, comme un groupe à haute disponibilité pour vos machines virtuelles frontales exécutant nginx ou Apache. Créez un groupe à haute disponibilité distinct pour les machines virtuelles principales tournant sous MongoDB ou MySQL. L’objectif est de vous assurer que chaque composant de votre application est protégé par un groupe à haute disponibilité et qu’au moins une instance est toujours exécutée.
 
 Les équilibreurs de charge peuvent être utilisés devant chaque couche d’application pour fonctionner avec un groupe à haute disponibilité et assurer que le trafic peut être acheminé vers une instance en cours d’exécution. Sans équilibreur de charge, vos machines virtuelles peuvent continuer à s’exécuter dans l’ensemble des événements de maintenance planifiée et non planifiée, mais vos utilisateurs finaux pourraient ne pas être en mesure de les résoudre si la machine virtuelle principale n’est pas disponible à ce moment.
+
+Concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. Il est recommandé d’utiliser un compte de stockage séparé pour chaque machine virtuelle dans un groupe à haute disponibilité. Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage. Les [limites](../storage/storage-scalability-targets.md) du compte de stockage doivent être prises en compte lorsque vous ajoutez plusieurs disques durs virtuels à un compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
@@ -54,6 +56,6 @@ Les équilibreurs de charge peuvent être utilisés devant chaque couche d’app
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

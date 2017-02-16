@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 12/28/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3710f5966889b805b3ea8d2a3fe33fa9ab86c2ec
-ms.openlocfilehash: 5dff369ca32f9f4487684b27c57d2722ab9ad954
+ms.sourcegitcommit: f57c88cbace41af233f542880c6199b3e278700e
+ms.openlocfilehash: c8d893dbac1a4f6cb3f05f857e186bca155e5865
 
 
 ---
@@ -29,22 +29,32 @@ Cet article explique comment annuler l’inscription des serveurs à partir du c
 
 Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="unregister-a-configuration-server"></a>Annuler l’inscription d’un serveur de configuration
+## <a name="unregister-a-connected-configuration-server"></a>Annuler l’inscription d’un serveur de configuration connecté
 
-Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur Azure, vous pouvez annuler l’inscription du serveur de configuration à partir d’un coffre, en procédant comme suit :
+Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur Azure, vous pouvez annuler l’inscription d’un serveur de configuration connecté à partir d’un coffre, en procédant comme suit :
 
 1. Désactivez la protection des ordinateurs. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Supprimer**.
 2. Dissociez les stratégies. Dans **Infrastructure Site Recovery** > **For VMWare & Physical Machines (Pour les machines VMWare et physiques)** > **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le serveur de configuration, puis cliquez sur **Dissocier**.
 3. Supprimez les processus locaux supplémentaires ou les serveurs cibles maîtres. Dans **Infrastructure Site Recovery** > **For VMWare & Physical Machines (Pour les machines VMWare et physiques)** > **Serveurs de configuration**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
 4. Supprimez le serveur de configuration.
 5. Désinstallez manuellement le service Mobilité en cours d’exécution sur le serveur cible maître (serveur distinct ou serveur de configuration).
-6. Désinstallez le serveur de configuration.
-7. Désinstallez les serveurs de traitement supplémentaires.
+6. Désinstallez les serveurs de traitement supplémentaires.
+7. Désinstallez le serveur de configuration.
 8. Sur le serveur de configuration, désinstallez l’instance MySQL installée par Site Recovery.
 9. Dans le registre du serveur de configuration, supprimez la clé ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
-Les instructions sont identiques si le serveur de configuration est connecté à Azure ou déconnecté d’Azure.
+## <a name="unregister-a-unconnected-configuration-server"></a>Annuler l’inscription d’un serveur de configuration non connecté
 
+Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur Azure, vous pouvez annuler l’inscription d’un serveur de configuration non connecté à partir d’un coffre, en procédant comme suit :
+
+1. Désactivez la protection des ordinateurs. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Supprimer**. Sélectionnez **Arrêter la gestion de la machine**.
+2. Supprimez les processus locaux supplémentaires ou les serveurs cibles maîtres. Dans **Infrastructure Site Recovery** > **For VMWare & Physical Machines (Pour les machines VMWare et physiques)** > **Serveurs de configuration**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
+3. Supprimez le serveur de configuration.
+4. Désinstallez manuellement le service Mobilité en cours d’exécution sur le serveur cible maître (serveur distinct ou serveur de configuration).
+5. Désinstallez les serveurs de traitement supplémentaires.
+6. Désinstallez le serveur de configuration.
+7. Sur le serveur de configuration, désinstallez l’instance MySQL installée par Site Recovery.
+8. Dans le registre du serveur de configuration, supprimez la clé ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
 ## <a name="unregister-a-connected-vmm-server"></a>Annuler l’inscription d’un serveur VMM connecté
 
@@ -229,6 +239,6 @@ Utilisez cette procédure si vous répliquez des machines virtuelles Hyper-V sur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

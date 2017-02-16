@@ -1,5 +1,7 @@
 ---
-title: "Lecture des messages conservés dans le Stockage Azure | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 3 : Stockage de table | Microsoft Docs"
 description: "Surveillez les messages appareil-à-cloud alors qu’ils sont écrits dans votre stockage Table Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: d741d9be27c17171a9161b7e0ea335a9f5fbafc0
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 0e35ffda2d5f6698c4e9d96f1991998b36a7f230
 
 
 ---
@@ -74,6 +76,6 @@ Vous avez correctement connecté Pi à votre IoT Hub dans le cloud et utilisé l
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

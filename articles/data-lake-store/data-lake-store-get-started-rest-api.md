@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS et de Data Lake Store pour gérer les comptes et effectuer certaines opérations de système de fichiers sur Azure Data Lake Store. Azure Data Lake Store expose ses propres API REST pour les opérations de gestion des comptes. Toutefois, comme Data Lake Store est compatible avec HDFS et l’écosystème Hadoop, il prend en charge l’utilisation des API REST de WebHDFS pour les opérations de système de fichiers.
@@ -47,7 +48,7 @@ Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
 Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’Azure Active Directory :
 
-### <a name="enduser-authentication-interactive"></a>Authentification de l’utilisateur final (interactive)
+### <a name="end-user-authentication-interactive"></a>Authentification de l’utilisateur final (interactive)
 Dans ce scénario, l’application invite l’utilisateur à se connecter. Toutes les opérations sont effectuées dans le contexte de l’utilisateur. Pour l’authentification interactive, procédez comme suit.
 
 1. Dans votre application, redirigez l’utilisateur vers l’URL suivante :
@@ -88,7 +89,7 @@ Dans ce scénario, l’application invite l’utilisateur à se connecter. Toute
 
 Pour plus d’informations sur l’authentification utilisateur interactive, consultez [Flux d’octroi d’un code d’autorisation](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Authentification de service à service (non interactive)
+### <a name="service-to-service-authentication-non-interactive"></a>Authentification de service à service (non interactive)
 Dans ce scénario, l’application fournit ses propres informations d’identification pour effectuer les opérations. Avec cette méthode, vous devez émettre une demande POST, comme celle illustrée ci-dessous. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

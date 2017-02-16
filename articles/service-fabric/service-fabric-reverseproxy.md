@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc939fc1a70e179f714e73bc5757ed750974f17
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -58,7 +58,7 @@ Le proxy inverse utilise un format d’URI spécifique pour identifier la partit
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. En cas de trafic HTTPS, une terminaison SSL se produit au niveau du proxy inverse. Les requêtes qui sont transférées par le proxy inverse aux services du cluster transitent via le protocole HTTP.
+* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. En cas de trafic HTTPS, une terminaison SSL se produit au niveau du proxy inverse. Les requêtes qui sont transférées par le proxy inverse aux services du cluster transitent via le protocole HTTP. **Notez que les services HTTPS ne sont actuellement pas pris en charge.**
 * **Cluster FQDN | internal IP :** pour les clients externes, le proxy inverse peut être configuré afin d’être accessible via le domaine du cluster (par exemple, mycluster.eastus.cloudapp.azure.com). Par défaut, le proxy inverse s’exécutant sur chaque nœud, il est donc accessible pour le trafic interne sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne (par exemple, 10.0.0.1).
 * **Port :** port spécifié pour le proxy inverse. Exemple : 19008.
 * **ServiceInstanceName :** nom complet de l’instance de service déployée associée au service que vous tentez d’atteindre sans le schéma "fabric:/". Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
@@ -131,7 +131,7 @@ Le proxy inverse de Service Fabric peut être activé pour le cluster via le [mo
 
 Une fois que vous disposez du modèle associé au cluster à déployer (à partir d’exemples de modèle ou via la création d’un modèle Resource Manager personnalisé), vous pouvez activer le proxy inverse dans le modèle, en procédant comme suit.
 
-1. Définissez un port pour le proxy inverse, dans la [section des paramètres](../resource-group-authoring-templates.md) du modèle.
+1. Définissez un port pour le proxy inverse, dans la [section des paramètres](../azure-resource-manager/resource-group-authoring-templates.md) du modèle.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         }
     },
     ```
-2. Spécifier le port de chaque objet nodetype dans la **section du type de ressource** [Cluster](../resource-group-authoring-templates.md)
+2. Spécifier le port de chaque objet nodetype dans la **section du type de ressource** [Cluster](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Pour les versions d’API antérieures à « 2016-09-01 », le port est identifié par le nom de paramètre ***httpApplicationGatewayEndpointPort***.
    
@@ -229,7 +229,7 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
         ]
     }
     ```
-4. Pour configurer des certificats SSL sur le port du proxy inverse, ajoutez le certificat à la propriété httpApplicationGatewayCertificate dans la **section du type de ressource** [Cluster](../resource-group-authoring-templates.md)
+4. Pour configurer des certificats SSL sur le port du proxy inverse, ajoutez le certificat à la propriété httpApplicationGatewayCertificate dans la **section du type de ressource** [Cluster](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Pour les versions d’API antérieures à « 2016-09-01 », le certificat est identifié par le nom de paramètre ***httpApplicationGatewayCertificate***.
    
@@ -287,6 +287,6 @@ Une fois que vous disposez du modèle associé au cluster à déployer (à parti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

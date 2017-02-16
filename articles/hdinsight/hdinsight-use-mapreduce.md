@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
-ms.openlocfilehash: 068cd703d0d06206b3caa72e765dbe51b819ff17
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
 
 
 ---
@@ -168,6 +168,9 @@ HDInsight peut exécuter des tâches HiveQL à l’aide de différentes méthode
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows |Windows |
 | [Bureau à distance](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Utilisation de la commande Hadoop via le **bureau à distance** |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
 
 Même si MapReduce est doté de puissantes capacités de diagnostic, il peut être assez difficile à maîtriser. Il existe plusieurs infrastructures Java qui facilitent la définition d’applications MapReduce, ainsi que des technologies telles que Pig et Hive, qui facilitent également l’utilisation des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
@@ -187,12 +190,12 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

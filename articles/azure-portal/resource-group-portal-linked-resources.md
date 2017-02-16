@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/16/2015
 ms.author: adamab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a20b0b2f3967f64d2248e017b6888e21be6ef26a
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: b4c8ad69674c553f8b521a85765edbad0ce1faf2
 
 
 ---
@@ -27,16 +27,16 @@ La Galerie de vignettes vous permet de rechercher des vignettes pour une ressour
 La liaison est une fonctionnalité d’Azure Resource Manager.  Elle vous permet de déclarer des relations entre les ressources, même si ces dernières n’appartiennent pas au même groupe de ressources. La liaison n’a aucun impact sur le moment de l’exécution de vos ressources, sur la facturation, ni sur l’accès en fonction du rôle.  Il s’agit simplement d’un mécanisme qui vous permet de représenter les relations afin que les outils comme la Galerie de vignettes puissent offrir une expérience de gestion enrichie.  Vos outils peuvent inspecter les liens à l’aide de l’API de liens et fournir également des expériences de gestion des relations personnalisées. 
 
 ## <a name="how-do-i-link-my-resources"></a>Comment lier mes ressources ?
-Lorsque vous créez des ressources par le biais du portail ou en déployant un modèle par l’intermédiaire d’Azure PowerShell ou de l’interface de ligne de commande Azure, des liens sont automatiquement créés pour certaines ressources dépendantes. Vous pouvez également lier des ressources par programme à l’aide de l’ [API REST Ressources liées](https://msdn.microsoft.com/library/azure/mt238499.aspx) ou en déclarant les relations dans le modèle. Pour découvrir une description complète de la procédure d’utilisation des ressources liées, voir l’article [Liaison des ressources dans Azure Resource Manager](../resource-group-link-resources.md).
+Lorsque vous créez des ressources par le biais du portail ou en déployant un modèle par l’intermédiaire d’Azure PowerShell ou de l’interface de ligne de commande Azure, des liens sont automatiquement créés pour certaines ressources dépendantes. Vous pouvez également lier des ressources par programme à l’aide de l’ [API REST Ressources liées](https://msdn.microsoft.com/library/azure/mt238499.aspx) ou en déclarant les relations dans le modèle. Pour découvrir une description complète de la procédure d’utilisation des ressources liées, voir l’article [Liaison des ressources dans Azure Resource Manager](../azure-resource-manager/resource-group-link-resources.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur l’écriture de modèles Azure Resource Manager, voir l’article [Création de modèles](../resource-group-authoring-templates.md).
-* Pour plus d’informations sur la création de liens entre les ressources, voir l’article [Liaison des ressources dans Azure Resource Manager](../resource-group-link-resources.md).
-* Pour plus d’informations sur l’utilisation des groupes de ressources par le biais du portail en version préliminaire, voir l’article [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
+* Pour plus d’informations sur l’écriture de modèles Azure Resource Manager, voir l’article [Création de modèles](../azure-resource-manager/resource-group-authoring-templates.md).
+* Pour plus d’informations sur la création de liens entre les ressources, voir l’article [Liaison des ressources dans Azure Resource Manager](../azure-resource-manager/resource-group-link-resources.md).
+* Pour plus d’informations sur l’utilisation des groupes de ressources par le biais du portail en version préliminaire, voir l’article [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../azure-resource-manager/resource-group-portal.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

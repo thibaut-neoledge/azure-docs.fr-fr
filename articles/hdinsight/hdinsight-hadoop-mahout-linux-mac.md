@@ -1,6 +1,6 @@
 ---
-title: "Génération de recommandations à l’aide de Mahout de HDInsight basé sur Linux | Docs"
-description: "Apprenez à utiliser la bibliothèque à apprentissage automatique Apache Mahout pour générer des recommandations de films avec HDInsight sous Linux (Hadoop)."
+title: "Génération de recommandations à l’aide de Mahout et HDInsight (SSH) | Microsoft Docs"
+description: "Apprenez à utiliser la bibliothèque à apprentissage automatique Apache Mahout pour générer des recommandations de films avec HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,28 +13,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 2cd1c44552183b3167ea1cfec6b2c1d7c6b3fd0c
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: be8146ae3dd34f4c8d5e02b06fd1b1f8d5d63dc1
 
 
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight"></a>Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop sous Linux dans HDInsight
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop sous Linux dans HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 Apprenez à utiliser la bibliothèque à apprentissage automatique [Apache Mahout](http://mahout.apache.org) avec Azure HDInsight pour générer des recommandations de films
 
-Mahout est une bibliothèque à [apprentissage automatique][ml] pour Apache Hadoop. Mahout contient des algorithmes pour le traitement des données, tel que le filtrage, la classification et le clustering. Dans cet article, vous utilisez un moteur de recommandation pour générer des recommandations en fonction des films vus par vos amis.
+Mahout est une bibliothèque [Machine Learning][ml] pour Apache Hadoop. Mahout contient des algorithmes pour le traitement des données, tel que le filtrage, la classification et le clustering. Dans cet article, vous utilisez un moteur de recommandation pour générer des recommandations en fonction des films vus par vos amis.
 
-> [!NOTE]
-> Les étapes décrites dans ce document nécessitent un cluster Hadoop sous Linux dans HDInsight. Pour plus d’informations sur l’utilisation de Mahout avec un cluster Windows, consultez la page [Génération de recommandations de films à l’aide d’Apache Mahout avec HDInsight](hdinsight-mahout.md)
+## <a name="prerequisites"></a>Composants requis
 
-## <a name="prerequisites"></a>Conditions préalables
+* Un cluster HDInsight sous Linux Pour plus d’informations sur la création de ce dernier, consultez [Prise en main de Hadoop sous Linux dans HDInsight][getstarted].
 
-* Un cluster Hadoop Linux sur HDInsight. Pour des informations sur la création de ce dernier, consultez la page [Prise en main de Hadoop sous Linux dans HDInsight][getstarted]
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="mahout-versioning"></a>Contrôle de version Mahout
 
@@ -270,6 +270,6 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

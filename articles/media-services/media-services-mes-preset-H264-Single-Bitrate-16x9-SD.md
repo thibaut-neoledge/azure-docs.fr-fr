@@ -1,6 +1,6 @@
 ---
 title: "H264 - Vitesse de transmission unique - 16 x 9 SD | Microsoft Docs"
-description: "La rubrique présente une vue d’ensemble de la présélection de travaux **H264 - Vitesse de transmission unique - 16 x 9 SD**."
+description: "Cette rubrique présente une vue d’ensemble de la présélection de tâches **H264 - Vitesse de transmission unique - 16 x 9 SD**."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: d1c543c0e2ea0afa2338697b60628fa49350b1f5
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
   
  Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 2 200 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le format XML ou JSON défini ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Media Encoder Standard schema](media-services-mes-schema.md) (Schéma Media Encoder Standard).  
   
- XMLl  
+ XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -119,6 +119,7 @@ ms.openlocfilehash: 30c7ab92aa21c0896c35a57e0bff3aa3e5d15261
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
+ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 ---
@@ -114,13 +114,13 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). Pour ce didacticiel PHP, il n’est pas vraiment nécessaire de vous familiariser avec l’outil.
+3. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). Pour ce didacticiel node.js, il n’est pas vraiment nécessaire de vous familiariser avec l’outil.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     Pour connaître les valeurs possibles que vous pouvez utiliser pour `<location>`, utilisez la commande CLI `az appservice list-locations`.
 
-3. Créez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) appelé « FREE ». Pour ce didacticiel PHP, sachez que vous ne serez pas facturé pour les applications web utilisées dans ce plan.
+3. Créez un [plan App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) appelé « FREE ». Pour ce didacticiel node.js, sachez que vous ne serez pas facturé pour les applications web utilisées dans ce plan.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

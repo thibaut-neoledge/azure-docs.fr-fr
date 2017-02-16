@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble de la sécurisation de HDInsight | Microsoft Docs"
+title: "Sécurité Hadoop : clusters HDInsights joints à un domaine (Azure) | Microsoft Docs"
 description: "Découvrir..."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Introduction aux clusters HDInsight joints à un domaine (préversion)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Introduction aux fonctions de sécurité Hadoop sur la base de clusters HDInsight joints à un domaine (version préliminaire)
+
 Jusqu’à présent, Azure HDInsight ne prenait en charge qu’un seul administrateur local d’utilisateurs. Cela fonctionnait à merveille pour les petites équipes d’application ou les services. Avec le gain en popularité des charges de travail Hadoop dans le secteur de l’entreprise, les besoins en fonctionnalités de niveau entreprise comme l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle sont devenus plus en plus importants. À l’aide de clusters HDInsight joints à un domaine, vous pouvez créer un cluster HDInsight joint à un domaine Active Directory et configurer une liste des employés de l’entreprise qui peuvent s’authentifier via Azure Active Directory pour se connecter au cluster HDInsight. Toute personne en dehors de l’entreprise ne peut pas se connecter ni accéder au cluster HDInsight. L’administrateur d’entreprise peut configurer le contrôle d’accès en fonction du rôle pour la sécurité Hive à l’aide [d’Apache Ranger](http://hortonworks.com/apache/ranger/), limitant ainsi l’accès aux données de manière appropriée. Enfin, l’administrateur peut auditer l’accès aux données par les employés et les modifications apportées aux stratégies de contrôle d’accès, d’où un degré élevé de gouvernance des ressources de l’entreprise.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ La protection des données est importante pour respecter les exigences de confor
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

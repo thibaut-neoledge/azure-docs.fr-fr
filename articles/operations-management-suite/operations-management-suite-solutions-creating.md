@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 63b95e205a48e11a5a0717c07ad49cccc8da91b4
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
 
 
 ---
@@ -34,7 +34,7 @@ Les solutions de gestion dans OMS incluent plusieurs ressources prenant en charg
 Par exemple, une solution de gestion peut inclure un [runbook Azure Automation](../automation/automation-intro.md) qui collecte des données dans le référentiel Log Analytics à l’aide d’une [planification](../automation/automation-schedules.md) et d’une [vue](../log-analytics/log-analytics-view-designer.md) qui fournit différentes visualisations des données collectées.  La même planification peut être utilisée par une autre solution.  En tant qu’auteur de la solution de gestion, vous définissez les trois ressources mais spécifiez que le runbook et la vue doivent être automatiquement supprimés en même temps que la solution.    Vous pouvez également définir la planification, mais en spécifiant qu’elle doit rester en place si la solution est supprimée, au cas où elle est en cours d’utilisation par l’autre solution.
 
 ## <a name="management-solution-files"></a>Fichiers de solution de gestion
-Les solutions de gestion sont implémentées en tant que [modèles de gestion des ressources](../resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment définir des ressources de solution courantes.
+Les solutions de gestion sont implémentées en tant que [modèles de gestion des ressources](../azure-resource-manager/resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment définir des ressources de solution courantes.
 
 La structure de base d’un fichier solution de gestion est identique à un [modèle Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) qui se présente comme suit.  Chacune des sections suivantes décrit les éléments de niveau supérieur et leur contenu dans une solution.  
 
@@ -181,7 +181,7 @@ L’élément **resources** définit les différentes ressources incluses dans v
     ]
 
 ### <a name="dependencies"></a>Dépendances
-L’élément **dependsOn** spécifie une [dépendance](../resource-group-define-dependencies.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](operations-management-suite-solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
+L’élément **dependsOn** spécifie une [dépendance](../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](operations-management-suite-solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
 
 ### <a name="oms-workspace-and-automation-account"></a>Espace de travail OMS et compte Automation
 Les solutions de gestion nécessitent un [espace de travail OMS](../log-analytics/log-analytics-manage-access.md) qui contient des vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées.  Ces éléments doivent être disponibles avant que les ressources de la solution soient créées et ne doivent pas être définis dans la solution elle-même.  L’utilisateur [spécifiera un espace de travail et un compte](operations-management-suite-solutions.md#oms-workspace-and-automation-account) lors du déploiement de la solution, mais l’auteur doit tenir compte des points suivants.
@@ -228,7 +228,7 @@ Le nom pourrait ressembler à l’exemple suivant.
 
 
 ### <a name="dependencies"></a>Dépendances
-La ressource de la solution doit avoir une [dépendance](../resource-group-define-dependencies.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
+La ressource de la solution doit avoir une [dépendance](../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
 
 ### <a name="properties"></a>Propriétés
 La ressource de solution possède les propriétés indiquées dans le tableau suivant.  Cela inclut les ressources référencées et contenues dans la solution qui définit la manière dont la ressource est gérée après l’installation de la solution.  Chaque ressource de la solution doit être répertoriée dans la propriété **referencedResources** ou **containedResources**.
@@ -268,6 +268,6 @@ Avant de déployer votre solution de gestion, il est recommandé de la tester à
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

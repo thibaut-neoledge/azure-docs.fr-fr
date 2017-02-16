@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
-ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
 
 
 ---
@@ -210,10 +210,10 @@ az vm show --resource-group myResourceGroup --name myVM1
 az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Exportez votre nouvel environnement dans un modèle avec la commande [az resource group export](/cli/azure/resource/group#export) pour recréer rapidement des instances nouvelles :
+Exportez votre nouvel environnement dans un modèle avec la commande [az group export](/cli/azure/group#export) pour recréer rapidement des instances nouvelles :
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
 ## <a name="detailed-walkthrough"></a>Procédure pas à pas
@@ -230,7 +230,7 @@ Les groupes de ressources Azure sont des entités de déploiement logiques qui c
 az group create --name myResourceGroup --location westeurope
 ```
 
-Par défaut, la sortie est au format JSON (JavaScript Object Notation). Pour obtenir une sortie sous forme de liste ou de table, par exemple, utilisez [az configure --output](/cli/azure/#configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande **az resource group create**:
+Par défaut, la sortie est au format JSON (JavaScript Object Notation). Pour obtenir une sortie sous forme de liste ou de table, par exemple, utilisez [az configure --output](/cli/azure/#configure). Vous pouvez également ajouter `--output` à n’importe quelle commande pour modifier ponctuellement le format de sortie. L’exemple suivant illustre la sortie JSON obtenue avec la commande **az group create** :
 
 ```json                       
 {
@@ -244,7 +244,7 @@ Par défaut, la sortie est au format JSON (JavaScript Object Notation). Pour obt
 }
 ```
 
-## <a name="create-a-storage-account"></a>Créer un compte de stockage
+## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 Vous avez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaitez ajouter. Vous créez des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
 
 Ici, nous utilisons la commande [az storage account create](/cli/azure/storage/account#create) et transmettons l’emplacement du compte, le groupe de ressources qui le contrôle, ainsi que le type de support de stockage souhaité. L’exemple qui suit permet de créer un compte de stockage nommé `mystorageaccount` :
@@ -1079,28 +1079,28 @@ az vm create \
 
 
 ## <a name="export-the-environment-as-a-template"></a>Exportation de l’environnement en tant que modèle
-Maintenant que vous avez créé cet environnement, que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement. Vous créez des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exporter un environnement existant qui créera le modèle JSON pour vous. Utilisez la commande [az resource group export](/cli/azure/resource/group#export) pour exporter votre groupe de ressources comme suit :
+Maintenant que vous avez créé cet environnement, que se passe-t-il si vous souhaitez créer un environnement de développement supplémentaire avec les mêmes paramètres ou un environnement de production correspondant ? Resource Manager utilise des modèles JSON qui définissent tous les paramètres pour votre environnement. Vous créez des environnements entiers en faisant référence à ce modèle JSON. Vous pouvez [créer manuellement des modèles JSON](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exporter un environnement existant qui créera le modèle JSON pour vous. Utilisez la commande [az group export](/cli/azure/group#export) pour exporter votre groupe de ressources comme suit :
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Cette commande crée le fichier `myResourceGroup.json` dans votre répertoire de travail actuel. Lorsque vous créez un environnement à partir de ce modèle, vous êtes invité à fournir les noms de toutes les ressources, dont l’équilibreur de charge, les interfaces réseau ou les machines virtuelles. Vous pouvez entrer ces éléments dans votre fichier de modèle en ajoutant le paramètre `--include-parameter-default-value` à la commande **az resource group export** mentionnée précédemment. Modifiez votre modèle JSON pour spécifier les noms de ressources, ou [créez un fichier parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) qui spécifie les noms de ressources.
+Cette commande crée le fichier `myResourceGroup.json` dans votre répertoire de travail actuel. Lorsque vous créez un environnement à partir de ce modèle, vous êtes invité à fournir les noms de toutes les ressources, dont l’équilibreur de charge, les interfaces réseau ou les machines virtuelles. Vous pouvez entrer ces éléments dans votre fichier de modèle en ajoutant le paramètre `--include-parameter-default-value` à la commande **az group export** mentionnée précédemment. Modifiez votre modèle JSON pour spécifier les noms de ressources, ou [créez un fichier parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) qui spécifie les noms de ressources.
 
-Pour créer un environnement à partir de votre modèle, utilisez la commande [az resource group deployment create](/cli/azure/resource/group/deployment#create) comme suit :
+Pour créer un environnement à partir de votre modèle, utilisez la commande [az group deployment create](/cli/azure/group/deployment#create) comme suit :
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup \
+az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Vous pouvez lire la section contenant [plus de détails sur le déploiement à partir de modèles](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Découvrez notamment comment mettre à jour des environnements de manière incrémentielle, utiliser le fichier de paramètres et accéder aux modèles à partir d’un emplacement de stockage unique.
+Vous pouvez lire la section contenant [plus de détails sur le déploiement à partir de modèles](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Découvrez notamment comment mettre à jour des environnements de manière incrémentielle, utiliser le fichier de paramètres et accéder aux modèles à partir d’un emplacement de stockage unique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous voici en mesure de commencer à utiliser plusieurs composants réseau et machines virtuelles. Vous pouvez utiliser cet exemple d’environnement pour générer votre application en utilisant les composants de base présentés ici.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

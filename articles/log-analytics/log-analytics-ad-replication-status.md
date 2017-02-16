@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
+ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
 
 
 ---
@@ -47,7 +47,7 @@ Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine
 3. Sur cet ordinateur, définissez la clé de Registre suivante :
 
    * Clé : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Valeur : **IsTarge**
+   * Valeur : **IsTarget**
    * Données de la valeur : **true**
 
    > [!NOTE]
@@ -115,31 +115,31 @@ Vous pouvez également cliquer sur **Exporter** pour exporter les résultats ver
 
 ## <a name="ad-replication-status-faq"></a>FAQ sur l’état de la réplication AD
 **Q : Quelle est la fréquence de la mise à jour de l’état de la réplication AD ?**
- R : Les informations sont mises à jour tous les 5 jours.
+R : Les informations sont mises à jour tous les 5 jours.
 
 **Q : Est-il possible de configurer la fréquence de la mise à jour de ces données ?**
- R : Pas pour l’instant.
+R : Pas pour l’instant.
 
 **Q : Dois-je ajouter tous mes contrôleurs de domaine à mon espace de travail OMS pour afficher l’état de réplication ?**
- R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail OMS, toutes leurs données sont envoyées à OMS.
+R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail OMS, toutes leurs données sont envoyées à OMS.
 
 **Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail OMS. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
 R. : Oui. Vous pouvez définir la valeur d’une clé de Registre pour activer cette solution. Voir [Pour autoriser un ordinateur autre qu’un contrôleur de domaine à envoyer les données AD à OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **Q : Quel est le nom du processus qui effectue la collecte de données ?**
- R : AdvisorAssessment.exe
+R : AdvisorAssessment.exe
 
 **Q : Combien de temps la collecte de données prend-elle ?**
- R : La durée de la collecte de données dépend de la taille de l’environnement Active Directory, mais est généralement inférieure à 15 minutes.
+R : La durée de la collecte de données dépend de la taille de l’environnement Active Directory, mais est généralement inférieure à 15 minutes.
 
 **Q : Quels types de données sont collectés ?**
- R : Les informations de réplication sont recueillies par le biais de LDAP.
+R : Les informations de réplication sont recueillies par le biais de LDAP.
 
 **Q : Est-il possible de configurer les périodes de collecte de données ?**
- R : Pas pour l’instant.
+R : Pas pour l’instant.
 
 **Q : Quelles autorisations dois-je avoir pour collecter les données ?**
- R : Les autorisations utilisateur normales sur Active Directory sont généralement suffisantes.
+R : Les autorisations utilisateur normales sur Active Directory sont généralement suffisantes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Résoudre les problèmes de collecte de données
 Pour que le pack de solution État de la réplication AD puisse collecter des données, vous devez connecter au moins un contrôleur de domaine à votre espace de travail OMS. Tant que vous n’avez pas effectué cette opération, vous obtenez un message indiquant que **les données sont toujours en cours de collecte**.
@@ -153,6 +153,6 @@ Si vous ne souhaitez pas connecter un de vos contrôleurs de domaine directement
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 
-Le code de toutes les fonctions dans une application de fonction donnée se trouve dans un dossier racine contenant un fichier de configuration d’hôte et un ou plusieurs sous-dossiers, chacun d’entre eux contenant le code pour une fonction distincte, comme dans l’exemple suivant
+Le code de toutes les fonctions dans une application de fonction donnée se trouve dans un dossier racine contenant un fichier de configuration d’hôte et un ou plusieurs sous-dossiers, chacun d’entre eux contenant le code pour une fonction distincte, comme dans l’exemple suivant :
 
 ```
 wwwroot
@@ -21,6 +21,6 @@ Chaque fonction a un dossier contenant un ou plusieurs fichiers de code, la conf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

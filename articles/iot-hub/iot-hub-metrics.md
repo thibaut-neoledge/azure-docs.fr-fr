@@ -1,6 +1,6 @@
 ---
-title: "Métriques de diagnostic de IoT Hub"
-description: "Vue d’ensemble des métriques Azure IoT Hub, qui vous permet d’évaluer l’intégrité globale de leurs ressources"
+title: "Métriques Azure IoT Hub | Microsoft Docs"
+description: "Guide d’utilisation des métriques Azure IoT Hub pour évaluer et surveiller l’intégrité globale de votre IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: e2739f9f47495c4502af3aff95d2d3f3975a881b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 689e3a07fd9bdd82d8c57cbe714562a780a14714
 
 
 ---
-# <a name="introduction-to-diagnostic-metrics"></a>Introduction aux métriques de diagnostic
-Les métriques de diagnostic vous offrent de meilleures données sur l’état des ressources Azure de votre abonnement Azure. Grâce aux métriques, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
+# <a name="iot-hub-metrics"></a>Métriques d’IoT Hub
+Les métriques IoT Hub vous offrent de meilleures données sur l’état des ressources Azure IoT de votre abonnement Azure. Grâce aux métriques d’IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
 
-Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
+Vous pouvez activer les métriques d’IoT Hub à partir du portail Azure.
 
-## <a name="how-to-enable-diagnostic-metrics"></a>Comment activer les métriques de diagnostic
+## <a name="how-to-enable-iot-hub-metrics"></a>Activation des métriques IoT Hub
 1. Créez un hub IoT. Pour savoir comment créer un IoT Hub, consultez le guide [Prise en main][lnk-get-started].
 2. Ouvrez le panneau de votre hub IoT. De là, cliquez sur **Diagnostics**.
    
@@ -37,27 +37,27 @@ Vous pouvez activer les métriques de diagnostic à partir du portail Azure.
    
     ![][3]
 
-## <a name="metrics-and-how-to-use-them"></a>Métriques et leur utilisation
+## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métriques IoT Hub et instructions d’utilisation
 IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de l’intégrité de votre hub et du nombre total d’appareils connectés. Vous pouvez combiner les informations de plusieurs métriques pour obtenir une image plus grande de l’état du hub IoT. Le tableau suivant décrit les métriques dont chaque hub IoT effectue le suivi et la relation de chacune avec l’état global du hub IoT.
 
 | Mesure | Description de la métrique | Finalité de la métrique |
 | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Nombre de messages envoyés sur tous les appareils |Données globales sur les envois de messages |
 | d2c.telemetry.ingress.success |Nombre total de messages parvenant correctement à l’IoT Hub |Vue d’ensemble de l’entrée des messages réussis dans l’IoT Hub |
-| c2d.commands.egress.complete.success |Nombre total de messages de commande effectués par l’appareil de réception sur tous les appareils |Combiné aux métriques d’abandon et de rejet, donne une vue d’ensemble du taux de réussite global des commandes cloud-à-appareil |
+| c2d.commands.egress.complete.success |Nombre total de messages de commande effectués par l’appareil de réception sur tous les appareils |Combiné aux métriques d’abandon et de rejet, donne une vue d’ensemble du taux de réussite global des messages cloud-à-appareil |
 | c2d.commands.egress.abandon.success |Nombre total de messages correctement abandonnés par l’appareil de réception sur tous les appareils |Met en évidence des problèmes potentiels si la fréquence d’abandon de messages est anormalement élevée |
 | c2d.commands.egress.reject.success |Nombre total de messages correctement rejetés par l’appareil de réception sur tous les appareils |Met en évidence des problèmes potentiels si la fréquence de rejet de messages est anormalement élevée |
 | devices.totalDevices |Valeurs moyenne, minimale et maximale du nombre d’appareils enregistrés auprès du hub IoT |Nombre d’appareils enregistrés auprès de l’IoT Hub |
 | devices.connectedDevices.allProtocol |Valeurs moyenne, minimale et maximale du nombre d’appareils connectés simultanément |Vue d’ensemble du nombre d’appareils connectés à l’IoT Hub |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les métriques de diagnostic n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
+Les métriques d’IoT Hub n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
 
 * [Surveillance des opérations][lnk-monitor]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 * [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 <!-- Links and images -->
@@ -77,6 +77,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

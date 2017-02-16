@@ -3,7 +3,7 @@ title: "Utilisation d’Azure Data Lake Tools pour Visual Studio Code | Microsof
 description: "Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour créer, tester et exécuter des scripts U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
+author: jejiang
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/22/2016
-ms.author: jgao
+ms.date: 11/30/2016
+ms.author: jejiang
 translationtype: Human Translation
-ms.sourcegitcommit: fe5ef9bba31abdf9b29ad7c817a376407309f289
-ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
+ms.sourcegitcommit: e79513590bb37570764f398e716182a11c74612a
+ms.openlocfilehash: 59cc35bc740625ed0582c1557fac9a04bf0cb8bc
 
 ---
 
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-code"></a>Utilisation d’Azure Data Lake Tools pour Visual Studio Code
 
-Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code (VSCode) pour créer, tester et exécuter des scripts U-SQL.
+Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code (VSCode) pour créer, tester et exécuter des scripts U-SQL.  Ces informations sont également décrites dans la vidéo suivante :
 
+<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Composants requis
 
 Azure Data Lake Tools peut être installé sur les plateformes prises en charge par VSCode qui incluent Windows, Linux et MacOS. Vous pouvez rechercher les conditions préalables pour les différentes plateformes
 
--  Windows
+- Windows
 
     - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
     - [Java SE Runtime Environment version 8 mise à jour 77 ou ultérieure](https://java.com/download/manual.jsp). Vous devez ajouter le chemin d’accès java.exe à la variable d’environnement système Path.  Pour obtenir des instructions, consultez [Comment définir ou modifier la variable système Path ?]( https://www.java.com/download/help/path.xml) Le chemin d’accès est semblable à C:\Program Files\Java\jdk1.8.0_77\jre\bin
@@ -187,7 +188,7 @@ Pour la prise en charge de code-behind, vous devez ouvrir un dossier de travail.
 2. Ouvrez la palette de commandes en appuyant sur **CTRL+MAJ+P**.
 3. Entrez **ADL: Generate Code Behind**.  Un fichier code-behind est créé dans le même dossier. 
 
-Vous pouvez également cliquer avec le bouton droit sur un fichier de script, puis sur **ADL:Generate Code Behind** pour envoyer un travail U-SQL. 
+Vous pouvez également cliquer avec le bouton droit sur un fichier de script, puis sur **ADL:Generate Code Behind** pour générer un fichier code-behind. 
 
 Le fait de compiler et d’envoyer un script U-SQL avec code-behind est identique à la version autonome du script U-SQL.
 
@@ -197,9 +198,11 @@ Les deux captures d’écran suivantes illustrent un fichier code-behind et le f
 
 ![Data Lake Tools pour Visual Studio Code - code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
-## <a name="register-assemblies"></a>Inscription d’assemblys
+## <a name="use-assemblies"></a>Utiliser les assemblys
 
-À l’aide de Data Lake Tools, vous pouvez inscrire des assemblys de code personnalisé pour le metastore Data Lake Analytics.
+Pour plus d’informations sur le développement d’assemblys, consultez [Développement d’assemblys U-SQL pour les tâches d’Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+
+À l’aide de Data Lake Tools, vous pouvez inscrire des assemblys de code personnalisé pour le catalogue Data Lake Analytics.
 
 **Pour inscrire un assembly**
 
@@ -209,9 +212,26 @@ Les deux captures d’écran suivantes illustrent un fichier code-behind et le f
 4.  Sélectionnez une base de données.
 5.  Spécifiez le chemin d’accès de l’assembly local.
 
-## <a name="access-data-lake-analytics-metadata"></a>Accès aux métadonnées Data Lake Analytics
+Le code U-SQL suivant montre comment appeler un assembly. Dans l’exemple, le nom de l’assembly est *test*.
 
-Une fois connecté à Azure, vous pouvez utiliser les étapes suivantes pour accéder aux métadonnées U-SQL :
+    REFERENCE ASSEMBLY [test];
+    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
+    FROM @"ruoxin/SearchLog.txt" USING Extractors.Tsv();
+    
+    @d=SELECT DISTINCT Region FROM @a;
+    
+    @d1=PROCESS @d
+        PRODUCE Region string,
+                Mkt string
+                USING new USQLApplication_codebehind.MyProcessor();
+    
+    OUTPUT @d1 TO @"ruoxin/SearchLogtest.txt" USING Outputters.Tsv();
+
+
+
+## <a name="access-data-lake-analytics-catalog"></a>Accès au catalogue Data Lake Analytics
+
+Une fois connecté à Azure, vous pouvez utiliser les étapes suivantes pour accéder au catalogue U-SQL :
 
 **Pour accéder aux métadonnées U-SQL**
 
@@ -250,12 +270,13 @@ Data Lake Tools pour VSCode prend en charge les fonctionnalités suivantes :
 
 - Consultez [Didacticiel : bien démarrer avec Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md) pour obtenir des informations sur la prise en main de Data Lake Analytics.
 - Consultez [Didacticiel : développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) pour obtenir des informations sur l’utilisation de Data Lake Tools pour Visual Studio.
+- Pour plus d’informations sur le développement d’assemblys, consultez [Développement d’assemblys U-SQL pour les tâches d’Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

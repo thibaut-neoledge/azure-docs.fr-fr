@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/20/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 15997f889228ca1668f4aa4752ba6f6b0f157873
-ms.openlocfilehash: ee99c3ef9ac5ce4716214736c782cede30e2c662
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
 
 
 ---
@@ -71,7 +71,7 @@ La **Vue d’ensemble** fournit des informations de base sur votre cache, notamm
 
 ### <a name="activity-log"></a>Journal d’activité
 
-Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, voir [Consulter les journaux d’événements et d’audit](../monitoring-and-diagnostics/insights-debugging-with-events.md) et [Auditer les opérations avec Resource Manager](../resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
+Cliquez sur **Journaux d’activité** pour afficher les actions effectuées sur votre cache. Vous pouvez également utiliser le filtrage pour développer cette vue afin d’inclure d’autres ressources. Pour plus d’informations sur l’utilisation des journaux d’audit, voir [Consulter les journaux d’événements et d’audit](../monitoring-and-diagnostics/insights-debugging-with-events.md) et [Auditer les opérations avec Resource Manager](../azure-resource-manager/resource-group-audit.md). Pour plus d’informations sur la surveillance des événements du Cache Redis Azure, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
@@ -79,7 +79,7 @@ La section **Contrôle d’accès (IAM)** fournit une prise en charge pour le co
 
 ### <a name="tags"></a>Balises
 
-La section **Balises** vous aide à organiser vos ressources. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
+La section **Balises** vous aide à organiser vos ressources. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](../azure-resource-manager/resource-group-using-tags.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnostiquer et résoudre les problèmes
@@ -113,7 +113,7 @@ Cliquez sur **Clés d’accès** pour afficher ou régénérer les clés d’acc
 ![Clés d’accès de Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### <a name="advanced-settings"></a>Paramètres avancés
-Vous pouvez configurer les paramètres suivants dans le panneau **Paramètres avancés** .
+Vous pouvez configurer les paramètres suivants dans le panneau **Paramètres avancés**.
 
 * [Ports d’accès](#access-ports)
 * [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
@@ -265,11 +265,11 @@ Cliquez sur **Propriétés** pour afficher des informations sur le cache, y comp
 ![Propriétés de Cache Redis](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Verrous
-La section **Verrous** vous permet de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](../resource-group-lock-resources.md).
+La section **Verrous** vous permet de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script Automation
 
-Cliquez sur **Script Automation** pour générer et exporter un modèle de vos ressources déployées pour de futurs déploiements. Pour plus d’informations sur le fonctionnement des modèles, consultez [Déployer des ressources à l’aide de modèles Azure Resource Manager](../resource-group-template-deploy.md).
+Cliquez sur **Script Automation** pour générer et exporter un modèle de vos ressources déployées pour de futurs déploiements. Pour plus d’informations sur le fonctionnement des modèles, consultez [Déployer des ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="administration-settings"></a>Paramètres d’administration
 Les paramètres de la section **Administration** vous permettent d’effectuer les tâches administratives suivantes pour votre cache Premium. 
@@ -468,7 +468,7 @@ Pour déplacer votre cache vers un nouvel abonnement, cliquez sur **Déplacer**.
 
 ![Déplacer le Cache Redis](./media/cache-configure/redis-cache-move.png)
 
-Pour plus d’informations sur le déplacement des ressources d’un groupe de ressources vers un autre et d’un abonnement vers un autre, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../resource-group-move-resources.md).
+Pour plus d’informations sur le déplacement des ressources d’un groupe de ressources vers un autre et d’un abonnement vers un autre, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
@@ -476,6 +476,6 @@ Pour plus d’informations sur le déplacement des ressources d’un groupe de r
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68647c83f30fddd69aa920cae6f407f2728e14c8
 
 
 ---
@@ -50,7 +50,7 @@ Pour cette opération, vous aurez besoin des composants suivants de votre Starte
 Vous aurez également besoin des éléments suivants :
 
 * Une connexion câblée ou sans fil pour la connexion de Pi.
-* Un adaptateur USB-SD ou carte mini-SD pour graver l’image du système d’exploitation sur la carte microSD.
+* Un adaptateur USB-SD ou une carte mini-SD pour graver l’image du système d’exploitation sur la carte microSD.
 * Un ordinateur exécutant Windows, Mac ou Linux. L’ordinateur est utilisé pour installer Raspbian sur la carte microSD.
 * Une connexion Internet pour télécharger les outils et le logiciel nécessaires.
 
@@ -117,6 +117,6 @@ Dans cet article, vous avez appris à configurer Pi en installant Raspbian, en c
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

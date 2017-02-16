@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 81398cf3cc134ccd451a7173613c595f61cd2c23
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 0fcb0e2d8feea3c72688aace6d53edca728dd48b
 
 
 ---
@@ -283,7 +283,7 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Installation et configuration de l’interface de ligne de commande Azure]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centre pour développeurs Node.js]: /develop/nodejs/
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
@@ -302,6 +302,6 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

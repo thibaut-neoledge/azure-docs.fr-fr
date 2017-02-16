@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 3549272a74ebf7b5e37a70dbb8d7ce3b539c8103
-ms.openlocfilehash: f0b955193f2e698a22a1989ffeb7f7dc23028e18
+ms.sourcegitcommit: bc4a892ce1745d54ee4424e04a79a52942650b49
+ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
 
 
 ---
@@ -42,12 +42,26 @@ Vous pouvez également [attacher un disque de données à l’aide de PowerShell
 
 Continuez en suivant les instructions pour attacher un [nouveau disque](#option-1-attach-a-new-disk) ou un [disque existant](#option-2-attach-an-existing-disk).
 
-## <a name="option-1-attach-a-new-disk"></a>Option 1 : attacher un nouveau disque
+## <a name="option-1-attach-and-initialize-a-new-disk"></a>Option 1 : attacher et initialiser un nouveau disque
 1. Dans le panneau **Disques**, cliquez sur **Attacher un nouveau disque**.
 2. Passez en revue les paramètres par défaut, mettez-les à jour en fonction des besoins, puis cliquez sur **OK**.
    
    ![Examen des paramètres d’un disque](./media/virtual-machines-windows-attach-disk-portal/attach-new.png)
 3. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
+
+### <a name="initialize-a-new-data-disk"></a>Initialisation d’un nouveau disque de données
+
+1. Connectez-vous à la machine virtuelle. Pour plus d’informations, voir [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
+   
+    ![Ouvrir le gestionnaire de serveur](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+3. Développez le menu et sélectionnez **Disques**.
+4. La section **Disques** répertorie les disques. Dans la plupart des cas, elle contient le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d'exploitation, le disque 1 est le disque temporaire et le disque 2 est le disque de données que vous venez d'attacher à la machine virtuelle. Le nouveau disque de données répertorie la Partition comme **Inconnue**. Cliquez avec le bouton droit sur le disque et sélectionnez **Initialiser**.
+5. Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l'avertissement et initialiser le disque. Une fois l’opération terminée, la partition sera répertoriée comme **GPT**. Cliquez de nouveau avec le bouton droit sur le disque et sélectionnez **Nouveau volume**.
+6. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l'assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
+
+    ![Volume correctement initialisé](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
+
 
 ## <a name="option-2-attach-an-existing-disk"></a>Option 2 : attacher un disque existant
 1. Dans le panneau **Disques**, cliquez sur **Attacher un disque existant**.
@@ -61,24 +75,6 @@ Continuez en suivant les instructions pour attacher un [nouveau disque](#option-
 5. Sous **Attacher un disque existant**, le fichier que vous venez de sélectionner est répertorié sous **Fichier VHD**. Cliquez sur **OK**.
 6. Après qu’Azure a attaché le disque à la machine virtuelle, le disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-
-
-## <a name="initialize-a-new-data-disk"></a>Initialisation d’un nouveau disque de données
-1. Connectez-vous à la machine virtuelle. Pour plus d’informations, voir [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
-   
-    ![Ouvrir le gestionnaire de serveur](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
-3. Développez le menu et sélectionnez **Disques**.
-4. La section **Disques** répertorie les disques. Dans la plupart des cas, elle contient le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d'exploitation, le disque 1 est le disque temporaire et le disque 2 est le disque de données que vous venez d'attacher à la machine virtuelle. Le nouveau disque de données répertorie la Partition comme **Inconnue**. Cliquez avec le bouton droit sur le disque et sélectionnez **Initialiser**.
-5. Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l'avertissement et initialiser le disque. Une fois l’opération terminée, la partition sera répertoriée comme **GPT**. Cliquez de nouveau avec le bouton droit sur le disque et sélectionnez **Nouveau volume**.
-6. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l'assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
-
-    ![Volume correctement initialisé](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
-
-> [!NOTE]
-> La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-> 
-> 
 
 
 ## <a name="use-trim-with-standard-storage"></a>Utilisation de TRIM avec le stockage standard
@@ -102,6 +98,6 @@ Si votre application doit utiliser le lecteur D: pour stocker des données, vous
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

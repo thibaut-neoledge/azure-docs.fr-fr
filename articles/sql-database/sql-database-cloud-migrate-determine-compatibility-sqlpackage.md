@@ -1,6 +1,7 @@
 ---
-title: "Déterminer la compatibilité de SQL Database à l’aide de SqlPackage.exe | Microsoft Docs"
-description: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité Base de données SQL, SqlPackage"
+title: "SQLPackage : Compatibilité des bases de données Azure SQL Server | Microsoft Docs"
+description: "Cet article explique comment déterminer si une base de données SQL Server est compatible pour la migration vers SQL Database à l’aide de SqlPackage."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité Base de données SQL, SqlPackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -8,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: ebe2cf3e-9561-4ede-8fb9-f3e6ce3fb7a6
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: a3e43c6cb8e26daf7359f935816648bf498407ec
+ms.sourcegitcommit: 6728693290e2c1d6c970c60c7d8ef674764e053c
+ms.openlocfilehash: 834dae604fa87f753e8d050ce7cdfa7e9613f462
 
 
 ---
@@ -32,11 +34,13 @@ Cet article explique comment déterminer si une base de données SQL Server est 
 
 ## <a name="using-sqlpackageexe"></a>Avec SqlPackage.exe
 1. Ouvrez une invite de commandes et modifiez le répertoire contenant la version la plus récente de sqlpackage.exe. Cet utilitaire est fourni avec les dernières versions de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) et de [SQL Server Data Tools pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Vous pouvez également télécharger la dernière version de [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directement à partir du Centre de téléchargement Microsoft.
+
 2. Exécutez la commande SqlPackage suivante avec les arguments ci-dessous pour votre environnement :
 
-```   
+   ```   
     sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1
-```   
+   ```   
+
    | Argument | Description |
    | --- | --- |
    | < nom_serveur > |nom du serveur source |
@@ -45,9 +49,10 @@ Cet article explique comment déterminer si une base de données SQL Server est 
    | < nom_schéma.nom_table > |tables pour lesquelles les données sont générées dans le fichier cible |
    | < fichier_sortie > |nom de fichier et emplacement du fichier de sortie avec des erreurs, le cas échéant |
    
-    The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
+    L’argument /p:TableData est utilisé afin de tester uniquement la compatibilité de base de données en vue d’une exportation vers Azure SQL DB V12. Nous ne cherchons pas en effet à exporter les données de toutes les tables. Malheureusement, l’argument d’exportation de sqlpackage.exe ne prend pas en charge l’extraction de zéro table. Vous devez spécifier au moins une table, telle une petite table simple. Le fichier < fichier_sortie > contient le rapport d’erreurs. La chaîne « >&2;>&1 » dirige le résultat standard et l’erreur standard générés par l’exécution de la commande vers le fichier de sortie spécifié.
    
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+    ![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+
 3. Ouvrez le fichier de sortie et passez en revue les erreurs de compatibilité, le cas échéant. 
    
     ![Exporter une application de la couche Données à partir du menu Tâches](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
@@ -66,6 +71,6 @@ Cet article explique comment déterminer si une base de données SQL Server est 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

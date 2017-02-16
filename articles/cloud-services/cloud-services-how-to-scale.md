@@ -1,5 +1,5 @@
 ---
-title: "Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs"
+title: "Mise à l’échelle automatique d’un service cloud dans le portail (portail Classic) | Microsoft Docs"
 description: "(Classic) Découvrez comment utiliser le portail Classic pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 2d9b16dcd798ebb5a3d4797ed0398369aeb154ae
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: cf91520197ec292ff213afef06955a3f4df926f1
 
 
 ---
@@ -153,6 +153,6 @@ Lorsque vous mettez à l'échelle un rôle, il est souvent avantageux de mettre 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

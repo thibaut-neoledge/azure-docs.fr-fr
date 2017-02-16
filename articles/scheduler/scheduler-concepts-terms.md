@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Concepts, terminologie et hiérarchie d’entités de Scheduler
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concepts, terminologie et hiérarchie d’entités de Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Hiérarchie d’entités de Scheduler
 Le tableau suivant décrit les ressources principales exposées ou utilisées par l'API de Scheduler :
 

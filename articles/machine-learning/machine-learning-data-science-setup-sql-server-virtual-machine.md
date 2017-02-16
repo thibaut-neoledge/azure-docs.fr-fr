@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 353f09a8a6fa3798d764d41618a8f0b3ba83e3d0
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 777dc11be139b20363e2060776ac0227883591ff
 
 
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées
-Cette rubrique explique comment approvisionner et configurer une machine virtuelle SQL Server utilisable au sein d’un environnement de science des données dans le cloud. La machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure et AzCopy, ainsi que d’autres utilitaires utiles pour les projets de science des données. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage d’objets blob Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage d’objets blob.
+Cette rubrique explique comment approvisionner et configurer une machine virtuelle SQL Server utilisable au sein d’un environnement de science des données dans le cloud. Le machine virtuelle Windows est configurée avec des outils connexes, tels que Notebook IPython, l’Explorateur de stockage Azure et AzCopy, ainsi que d’autres utilitaires utiles pour les projets de science des données. Par exemple, l’Explorateur de stockage Azure et AzCopy facilitent le chargement de données dans le stockage d’objets blob Azure depuis votre ordinateur local ou le téléchargement de ces données vers votre ordinateur local à partir du stockage d’objets blob.
 
 La galerie de machines virtuelles Azure inclut différentes images contenant Microsoft SQL Server. Sélectionnez une image de machine virtuelle SQL Server adaptée à vos besoins en matière de données. Les images recommandées sont les suivantes :
 
@@ -233,7 +233,7 @@ Dans les étapes ultérieures du processus TDSP (Team Data Science Process) dans
 3. Entrez le nom d’utilisateur SQL dans la zone de texte **Nom de compte d’utilisateur du serveur** .
 4. Entrez le mot de passe de l’utilisateur SQL dans la zone de texte **Mot de passe de compte d’utilisateur du serveur** .
    
-   ![Importer les données Azure ML][13]
+   ![Importation de données Azure Machine Learning][13]
 
 ## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** .
@@ -277,6 +277,6 @@ Les étapes suivantes du processus de science des données sont présentées dan
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

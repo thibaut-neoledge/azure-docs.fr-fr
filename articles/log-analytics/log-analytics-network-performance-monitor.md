@@ -1,10 +1,10 @@
 ---
 title: "Solution Analyseur de performances réseau dans OMS | Microsoft Docs"
-description: "L’Analyseur de performances réseau vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau."
+description: "L’Analyseur de performances réseau vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et de localiser d’éventuels goulots d’étranglement affectant les performances réseau."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 2334540ec0eeec32d0c4b3a6d9597a290bad6ec0
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
 
 
 ---
@@ -246,6 +246,6 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

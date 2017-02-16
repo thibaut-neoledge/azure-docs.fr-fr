@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: b411a31b1e972f3a614735ef53d593f9f8f442cd
+ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
+ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: b411a31b1e972f3a614735ef53d593f9f8f442cd
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../resource-manager-deployment-model.md) avant d’utiliser une ressource Azure. Pour consulter la documentation des différents outils, sélectionnez une option en haut de cet article. Cet article traite du modèle de déploiement classique.
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) avant d’utiliser une ressource Azure. Pour consulter la documentation des différents outils, sélectionnez une option en haut de cet article. Cet article traite du modèle de déploiement classique.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -134,6 +134,6 @@ Pour activer le transfert IP dans la machine virtuelle FW1, procédez comme sui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

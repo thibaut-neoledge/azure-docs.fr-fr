@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1bfb0841ce6ad151d863d4635cb10d3ef1b1e06b
+ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
+ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
 
 
 ---
@@ -59,27 +59,29 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
 
 1. Dans votre environnement de développement, ouvrez le fichier de définition du service (CSDEF), ajoutez une section **Certificates** dans la section **WebRole**, puis ajoutez les informations qui suivent sur le certificat (et les certificats intermédiaires) :
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                            storeLocation="LocalMachine" 
-                            storeName="My"
-                            permissionLevel="limitedOrElevated" />
-               <!-- IMPORTANT! Unless your certificate is either
-               self-signed or signed directly by the CA root, you
-               must include all the intermediate certificates
-               here. You must list them here, even if they are
-               not bound to any endpoints. Failing to list any of
-               the intermediate certificates may cause hard-to-reproduce
-               interoperability problems on some clients.-->
-               <Certificate name="CAForSampleCertificate"
-                            storeLocation="LocalMachine"
-                            storeName="CA"
-                            permissionLevel="limitedOrElevated" />
-           </Certificates>
-       ...
-       </WebRole>
+    ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                        storeLocation="LocalMachine" 
+                        storeName="My"
+                        permissionLevel="limitedOrElevated" />
+            <!-- IMPORTANT! Unless your certificate is either
+            self-signed or signed directly by the CA root, you
+            must include all the intermediate certificates
+            here. You must list them here, even if they are
+            not bound to any endpoints. Failing to list any of
+            the intermediate certificates may cause hard-to-reproduce
+            interoperability problems on some clients.-->
+            <Certificate name="CAForSampleCertificate"
+                        storeLocation="LocalMachine"
+                        storeName="CA"
+                        permissionLevel="limitedOrElevated" />
+        </Certificates>
+    ...
+    </WebRole>
+    ```
    
    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve.
    
@@ -91,43 +93,50 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
    | elevated |Seuls les processus élevés peuvent accéder à la clé privée. |
 2. Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Endpoints>
-               <InputEndpoint name="HttpsIn" protocol="https" port="443" 
-                   certificate="SampleCertificate" />
-           </Endpoints>
-       ...
-       </WebRole>
+    ```xml
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Endpoints>
+            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+                certificate="SampleCertificate" />
+        </Endpoints>
+    ...
+    </WebRole>
+    ```
+
 3. Dans votre fichier de définition du service, ajoutez un élément **Binding** dans la section **Sites**. Cette section ajoute une liaison HTTPS pour mapper le point de terminaison à votre site :
    
-       <WebRole name="CertificateTesting" vmsize="Small">
-       ...
-           <Sites>
-               <Site name="Web">
-                   <Bindings>
-                       <Binding name="HttpsIn" endpointName="HttpsIn" />
-                   </Bindings>
-               </Site>
-           </Sites>
-       ...
-       </WebRole>
+    ```xml   
+    <WebRole name="CertificateTesting" vmsize="Small">
+    ...
+        <Sites>
+            <Site name="Web">
+                <Bindings>
+                    <Binding name="HttpsIn" endpointName="HttpsIn" />
+                </Bindings>
+            </Site>
+        </Sites>
+    ...
+    </WebRole>
+    ```
    
    Toutes les modifications nécessaires ont été apportées au fichier de définition de service, mais vous devez encore y ajouter les informations de certificat.
 4. Dans votre fichier de configuration de service (CSCFG) ServiceConfiguration.Cloud.cscfg, ajoutez une section **Certificates** dans la section **Role** en remplaçant la valeur d’empreinte numérique ci-dessous par celle de votre certificat :
    
-       <Role name="Deployment">
-       ...
-           <Certificates>
-               <Certificate name="SampleCertificate" 
-                   thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
-                   thumbprintAlgorithm="sha1" />
-               <Certificate name="CAForSampleCertificate"
-                   thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
-                   thumbprintAlgorithm="sha1" />
-           </Certificates>
-       ...
-       </Role>
+    ```xml   
+    <Role name="Deployment">
+    ...
+        <Certificates>
+            <Certificate name="SampleCertificate" 
+                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                thumbprintAlgorithm="sha1" />
+            <Certificate name="CAForSampleCertificate"
+                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                thumbprintAlgorithm="sha1" />
+        </Certificates>
+    ...
+    </Role>
+    ```
 
 (L’exemple précédent utilise **sha1** comme algorithme d’empreinte numérique. Spécifiez la valeur correspondant à l'algorithme d'empreinte numérique de votre certificat.)
 
@@ -136,15 +145,17 @@ Maintenant que les fichiers de définition du service et de configuration de ser
 ## <a name="step-3-upload-a-certificate"></a>Étape 3 : chargement d’un certificat
 Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le certificat dans Azure via le portail Azure Classic.
 
-1. Ouvrez une session sur le [Portail Azure Classic][Portail Azure Classic]. 
+1. Connectez-vous au [portail Azure Classic][Azure classic portal]. 
 2. Cliquez sur **Cloud Services** dans le volet de navigation de gauche.
 3. Cliquez sur le service cloud de votre choix.
 4. Cliquer sur l’onglet **Certificats**.
    
     ![Cliquer sur l’onglet Certificats](./media/cloud-services-configure-ssl-certificate/click-cert.png)
+
 5. Cliquez sur le bouton **Télécharger** .
    
     ![Télécharger](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
 6. Fournissez le **Fichier**, le **Mot de passe**, puis cliquez sur **Terminé** (la coche).
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Étape 4 : connexion à l’instance de rôle à l’aide de HTTPS
@@ -170,7 +181,7 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d’un d
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * [Gérez votre service cloud](cloud-services-how-to-manage.md).
 
-[Portail Azure Classic]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
 [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
 [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
@@ -179,6 +190,6 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d’un d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

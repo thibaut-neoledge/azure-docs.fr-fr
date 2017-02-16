@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -102,10 +102,10 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 
      **Utilisation**:
 
-     ![utilisation de cluster hdinsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-5. Cliquez sur **Paramètres**.
+     ![utilisation de cluster HDInsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+5. Cliquez sur **Settings**.
 
-    ![utilisation de cluster hdinsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![utilisation de cluster HDInsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Propriétés**: affichez les propriétés du cluster
    * **Identité AAS de cluster**:
@@ -188,10 +188,10 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurez la topologie « mytopology » pour utiliser 5 processus de travail,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>le spout « blue-spout » pour utiliser 3 exécuteurs et
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>le bolt « yellow-bolt » pour utiliser 10 exécuteurs
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Pour mettre à l’échelle des clusters**
 
@@ -327,7 +327,7 @@ Les informations d’identification du cluster fournies lors de sa création don
 3. Cliquez sur **Paramètres** dans le menu supérieur, puis sur **Bureau à distance**.
 4. Renseignez les champs **Expiration**, **Nom d’utilisateur de bureau à distance** et **Mot de passe de bureau à distance**, puis cliquez sur **Activer**.
 
-    ![hdinsight activer désactiver configurer Bureau à distance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight activer désactiver configurer Bureau à distance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     La valeur par défaut pour le champ Expiration est d’une semaine.
 

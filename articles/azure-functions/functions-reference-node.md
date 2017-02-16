@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
+ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
 
 
 ---
@@ -139,7 +139,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## <a name="node-version--package-management"></a>Version du nœud et gestion des packages
-La version de Node est actuellement verrouillée sur `5.9.1`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
+La version de Node est actuellement verrouillée sur `6.5.0`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
 
 Vous pouvez inclure des packages dans votre fonction en chargeant un fichier *package.json* dans le dossier de votre fonction dans le système de fichiers du conteneur de fonctions. Pour savoir comment charger un fichier, consultez la section **Comment mettre à jour les fichiers du conteneur de fonctions** de la rubrique [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md#fileupdate). 
 
@@ -155,7 +155,7 @@ Une fois les packages nécessaires installés, vous pouvez les importer dans vot
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
@@ -198,6 +198,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a063d7ec6759bb9890d9b541088a8190dfd79aef
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
 
 
 ---
@@ -177,15 +177,62 @@ Notez les points suivants :
 * Lorsque vous effectuez une restauration, il existe un risque que la sauvegarde restaurée soit antérieure à l’état de la partition avant la perte des données. Pour cette raison, vous ne devez effectuer une restauration qu’en dernier recours pour récupérer autant de données que possible.
 * La chaîne qui représente le chemin d’accès du dossier de sauvegarde et les chemins d’accès des fichiers dans le dossier de sauvegarde peut être supérieure à 255 caractères, selon le chemin d’accès FabricDataRoot et la longueur du nom du type d’application. Cela peut pousser des méthodes .NET, telles que **Directory.Move**, à lever l’exception **PathTooLongException**. Une solution de contournement consiste à appeler directement des API kernel32 telles que **CopyFile**.
 
-## <a name="backup-and-restore-reliable-actors"></a>Sauvegarder et restaurer Reliable Actors
-La sauvegarde et la restauration de Reliable Actors s’appuie sur les fonctionnalités de sauvegarde et de restauration fournies par des services fiables. Le propriétaire du service doit créer un service d’acteur personnalisé, qui dérive d’ **ActorService** (service Service Fabric fiable hébergeant des acteurs), puis effectuer une sauvegarde/restauration similaires à celles des services fiables, comme décrit dans les sections précédentes. Étant donné que les sauvegardes sont effectuées par partition, les états de tous les acteurs dans cette partition particulière sont sauvegardés (et la restauration se produit de façon similaire par partition).
 
-* Lorsque vous créez un service d’acteur personnalisé, vous devez l’inscrire également lors de l’inscription de l’acteur. Voir **ActorRuntime.RegistorActorAsync**.
-* Actuellement, le **KvsActorStateProvider** prend en charge uniquement la sauvegarde complète. De même, le **RestorePolicy.Safe** ignore l’option **KvsActorStateProvider**.
+
+
+## <a name="backup-and-restore-reliable-actors"></a>Sauvegarder et restaurer Reliable Actors
+
+
+L’infrastructure Reliable Actors est basée sur Reliable Services. Le service ActorService, qui héberge le ou les acteur(s), est un service fiable avec état. Par conséquent, toutes les fonctionnalités de sauvegarde et de restauration disponibles dans Reliable Services sont également disponibles pour Reliable Actors (à l’exception des comportements spécifiques au fournisseur d’état). Étant donné que les sauvegardes sont effectuées par partition, les états de tous les acteurs de cette partition sont sauvegardés (et la restauration se fait de façon similaire, par partition). Afin d’effectuer la sauvegarde ou la restauration, le propriétaire du service doit créer une classe de service d’acteur personnalisée, qui dérive de la classe ActorService, puis effectuer une sauvegarde/restauration similaire à celle de Reliable Services, comme décrit dans les sections précédentes.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo)
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Lorsque vous créez une classe de service d’acteur personnalisée, vous devez l’inscrire également lors de l’inscription de l’acteur.
+
+```
+ActorRuntime.RegisterActorAsync<MyActor>(
+   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+```
+
+Le fournisseur d’état par défaut pour Reliable Actors est **KvsActorStateProvider**. La sauvegarde incrémentielle n’est pas activée par défaut pour **KvsActorStateProvider**. Vous pouvez activer la sauvegarde incrémentielle en créant **KvsActorStateProvider** avec le paramètre approprié dans son constructeur et en le transmettant au constructeur ActorService comme indiqué dans l’extrait de code suivant :
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Une fois la sauvegarde incrémentielle activée, elle peut échouer avec l’erreur FabricMissingFullBackupException pour une des raisons suivantes et vous devrez effectuer une sauvegarde complète avant d’effectuer d’autres sauvegardes incrémentielles :
+
+* Le réplica n’a jamais fait l’objet d’une sauvegarde complète depuis qu’il est devenu le principal.
+* Certains enregistrements de journal ont été tronqués depuis la dernière sauvegarde.
+
+Lorsque la sauvegarde incrémentielle est activée, **KvsActorStateProvider** n’utilise pas de mémoire tampon circulaire pour gérer ses enregistrements de journal et les tronque de temps en temps. Si aucune sauvegarde n’est effectuée par l’utilisateur pendant une période de 45 minutes, le système tronque automatiquement les enregistrements du journal. Vous pouvez configurer cet intervalle en spécifiant **logTrunctationIntervalInMinutes** dans le constructeur **KvsActorStateProvider** (comme lors de l’activation de la sauvegarde incrémentielle). Les enregistrements de journal peuvent également être tronqués si le réplica principal nécessaire doit créer un autre réplica en envoyant toutes ses données.
+
+Lors de la restauration à partir d’une chaîne de sauvegarde, comme pour Reliable Services, BackupFolderPath doit contenir des sous-répertoires avec un seul sous-répertoire contenant la sauvegarde complète et les autres sous-répertoires contenant les sauvegardes incrémentielles. Si la validation de la chaîne de sauvegarde échoue, l’API de restauration lance une exception FabricException avec le message d’erreur correspondant. 
 
 > [!NOTE]
-> L’ActorStateProvider par défaut (c’est-à-dire **KvsActorStateProvider**) ne nettoie **pas** les dossiers de sauvegarde de lui-même (sous le dossier de travail de l’application obtenu via ICodePackageActivationContext.WorkDirectory). Cela peut entraîner une saturation du dossier de travail. Vous devez nettoyer explicitement le dossier de sauvegarde dans le rappel de sauvegarde après avoir déplacé la sauvegarde vers un stockage externe.
-> 
+> **KvsActorStateProvider** ignore actuellement l’option RestorePolicy.Safe. La prise en charge de cette fonctionnalité est prévue dans une prochaine version.
 > 
 
 ## <a name="testing-backup-and-restore"></a>Test de la sauvegarde et de la restauration
@@ -230,6 +277,6 @@ Cette étape garantit que l’état récupéré est cohérent.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

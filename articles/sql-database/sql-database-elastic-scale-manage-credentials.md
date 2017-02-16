@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -66,12 +66,12 @@ Dans cet exemple, **smmUserConnectionString** comporte la chaîne de connexion c
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Tout comme pour les informations d’identification de l’administrateur, n’utilisez pas de valeurs de type « nom_utilisateur@serveur ». "username@server".Utilisez simplement « nom_utilisateur » à la place.  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
+Tout comme pour les informations d’identification de l’administrateur, n’utilisez pas de valeurs sous la forme "username@server". Utilisez simplement « username ».  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
 
 ## <a name="see-also"></a>Consultez également la section 
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
-[Sécurisation de votre base de données SQL](sql-database-security.md)
+[Sécurisation de votre base de données SQL](sql-database-security-overview.md)
 
 [Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ Tout comme pour les informations d’identification de l’administrateur, n’u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 
 ---
@@ -35,7 +35,7 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 
 ## <a name="prerequisites"></a>Conditions préalables
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
-* Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
+* Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Lancez l’outil et connectez-vous à votre compte AMS.
 
@@ -47,14 +47,15 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 ## <a name="create-a-channel"></a>Créer un canal
 1. Dans l’outil AMSE, accédez à l’onglet **Live** , puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...** .
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-1. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTPM**. Vous pouvez laisser tous les autres paramètres inchangés.
+2. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTPM**. Vous pouvez laisser tous les autres paramètres inchangés.
 
-Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
+    Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
 
-1. Cliquez sur **Créer un canal**.
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. Cliquez sur **Créer un canal**.
+
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > Le démarrage du canal peut prendre jusqu’à 20 minutes.
@@ -108,7 +109,8 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
    * Profil : Principal
    * Trame-clé toutes les : 60 images
 
-     **Audio**
+    **Audio**
+
    * Vitesse de transmission cible : 192 kbit/s
    * Taux d’échantillonnage : 44 100 kHz
 
@@ -141,9 +143,10 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 >
 
 ## <a name="test-playback"></a>Tester la lecture
-1. Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
+
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Si le flux s’affiche dans le lecteur, cela signifie que l’encodeur a été correctement configuré pour se connecter à AMS.
 
@@ -157,13 +160,15 @@ Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les p
 3. Cochez la case **Démarrer le programme maintenant** .
 4. Cliquez sur **Créer le programme**.  
 
-    Remarque : la création d’un programme prend moins de temps que la création d’un canal.    
+   >[!NOTE]
+   >La création d’un programme prend moins de temps que la création d’un canal.
+       
 5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)**, puis sélectionnez **avec Azure Media Player**.  
 6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu).
 
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.  
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>résolution des problèmes
 Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacrée à la [résolution des problèmes](media-services-troubleshooting-live-streaming.md) .
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
@@ -174,6 +179,6 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

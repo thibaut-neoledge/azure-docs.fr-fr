@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/11/2017
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17250760526e72c05ee178e235a57082e2dfff94
+ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
+ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
 
 
 ---
@@ -26,9 +26,9 @@ Azure IoT Hub en mode natif prend en charge la communication par le biais des pr
 ## <a name="azure-iot-protocol-gateway"></a>passerelle de protocole Azure IoT
 La passerelle de protocole Azure IoT est une infrastructure pour l’adaptation du protocole, conçue pour la communication bidirectionnelle à grande échelle entre les appareils, avec IoT Hub. La passerelle de protocole est un composant direct qui accepte les connexions des appareils via un protocole spécifique. Elle réduit le trafic vers IoT Hub via AMQP 1.0. La passerelle de protocole Azure IoT est disponible en tant que projet de logiciel open source pour apporter de la flexibilité et une aide supplémentaire pour un grand nombre de protocoles et de versions de protocoles.
 
-Vous pouvez déployer la passerelle de protocole dans Azure de manière très évolutive grâce aux rôles de travail d’Azure Cloud Services. En outre, la passerelle de protocole peut être déployée dans les environnements locaux comme des passerelles de champ.
+Vous pouvez déployer la passerelle de protocole dans Azure de manière très évolutive grâce à Azure Service Fabric, aux rôles de travail d’Azure Cloud Services ou aux machines virtuelles Windows. En outre, la passerelle de protocole peut être déployée dans les environnements locaux comme des passerelles de champ.
 
-La passerelle de protocole Azure IoT inclut un adaptateur de protocole MQTT grâce auquel vous pouvez personnaliser le comportement du protocole MQTT, si nécessaire. Étant donné qu’IoT Hub prend naturellement en charge le protocole MQTT v3.1.1, vous ne devez envisager l’utilisation de l’adaptateur de protocole MQTT que si vous avez besoin de personnalisations de protocole ou de fonctionnalités supplémentaires.
+La passerelle de protocole Azure IoT inclut un adaptateur de protocole MQTT grâce auquel vous pouvez personnaliser le comportement du protocole MQTT, si nécessaire. Étant donné qu’IoT Hub prend naturellement en charge le protocole MQTT v3.1.1, vous ne devez envisager l’utilisation de l’adaptateur de protocole MQTT que si des personnalisations de protocole ou de fonctionnalités supplémentaires sont requises.
 
 L’adaptateur MQTT illustre également le modèle de programmation pour la création d’adaptateurs de protocole pour d’autres protocoles. En outre, le modèle de programmation de passerelle de protocole Azure IoT vous permet de connecter des composants personnalisés pour les traitements spécialisés, comme l’authentification personnalisée, les transformations de messages, la compression / décompression ou le chiffrement / déchiffrement du trafic entre les appareils et IoT Hub.
 
@@ -44,19 +44,14 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 
 * [Comparer à Event Hubs][lnk-compare]
 * [Mise à l’échelle, HA et DR][lnk-scaling]
-
-Pour explorer davantage les capacités de IoT Hub, consultez :
-
 * [Guide du développeur IoT Hub][lnk-devguide]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

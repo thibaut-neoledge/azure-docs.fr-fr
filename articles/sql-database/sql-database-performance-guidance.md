@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
+ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
 
 
 ---
@@ -62,15 +62,8 @@ Chaque niveau de service et de performance est associé à différentes limites 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-Les sections suivantes contiennent des informations supplémentaires sur l’utilisation en fonction de ces limites.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>Stockage OLTP In-Memory maximum
 Vous pouvez utiliser la vue **sys.dm_db_resource_stats** pour surveiller votre utilisation du stockage Microsoft Azure en mémoire. Pour plus d’informations sur la surveillance, consultez [Surveiller le stockage OLTP In-Memory](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> Actuellement, la version préliminaire du traitement en ligne des transactions Microsoft Azure In-Memory est prise en charge uniquement pour les bases de données uniques. Vous ne pouvez pas l’utiliser dans les bases de données des pools élastiques.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>Nombre maximal de requêtes simultanées
 Pour afficher le nombre de requêtes simultanées, exécutez cette requête Transact-SQL sur votre base de données SQL :
@@ -445,6 +438,6 @@ Certaines applications de base de données contiennent des charges de travail à
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

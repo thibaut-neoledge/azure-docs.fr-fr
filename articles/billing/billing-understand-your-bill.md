@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8768ccd5a1d04566c5f2e1f26ab328cea570cc61
+ms.sourcegitcommit: 25dc3835983f1f51047bc5680138dcc6b3879d7a
+ms.openlocfilehash: 5abb8627a2b0d06d9aa948ac35cfd1ba2b08ee31
 
 
 ---
@@ -132,7 +132,7 @@ Dans le cadre de notre engagement continu visant à faciliter la gestion de l’
 * **version 1** utilise le format existant
 * **version 2** contient des informations supplémentaires et des noms de colonnes mis à jour dans la section Utilisation quotidienne.  
 
-Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement, moins les éventuels crédits ou remises. Vous êtes facturé pour les arriérés de paiement relatifs à votre utilisation du mois passé.  La section supérieure du fichier présente les détails des services qui vous sont facturés au cours du cycle de facturation du mois précédent.  Le tableau ci-dessus répertorie les noms des colonnes pour chacune des versions du fichier .csv.
+Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement, moins les éventuels crédits ou remises. Vous êtes facturé pour les arriérés de paiement relatifs à votre utilisation du mois passé.  La section supérieure du fichier présente les détails des services qui vous sont facturés au cours du cycle de facturation du mois précédent.  Le tableau suivant répertorie les noms des colonnes pour chacune des versions du fichier .csv.
 
 | version 1 | version 2 | Description |
 |:--- |:--- | --- |
@@ -181,9 +181,9 @@ Les colonnes suivantes affichent les détails qui affectent les tarifs au début
 | Consommé |Quantité consommée |Contient la quantité de la ressource consommée ce jour-là. |
 | Sous-région |Emplacement de la ressource |Identifie le centre de données dans lequel la ressource est en cours d’exécution. |
 | de diffusion en continu |Service consommé |Cette colonne est utilisée pour suivre le service individuel de plateforme Azure qui ne peut pas être spécifiquement identifié dans la colonne Nom. La colonne Service indique à quel service spécifique l’utilisation se rapporte. |
-| N/A |Groupe de ressources |***Ajout de nouvelle colonne.***  Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Voir [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) |
+| N/A |Groupe de ressources |***Ajout de nouvelle colonne.*** Groupe de ressources dans lequel la ressource déployée est en cours d’exécution. Voir [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) |
 | Composant |ID de l’instance |Identificateur de la ressource en cours d’exécution. L’identificateur contient le nom que vous avez spécifié pour la ressource lors de sa création. |
-| N/A |Balises |***Ajout de nouvelle colonne.***  Nouveaux types de ressource dans Azure qui vous permettent de baliser les ressources. Voir [Organisation des ressources Azure à l’aide de balises](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
+| N/A |Balises |***Ajout de nouvelle colonne.*** Nouveaux types de ressource dans Azure qui vous permettent de baliser les ressources. Voir [Organisation des ressources Azure à l’aide de balises](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
 | Informations supplémentaires |Informations supplémentaires |Métadonnées supplémentaires associées au service. |
 | Informations sur le service 1 |Informations sur le service 1 |Cette colonne indique le nom du projet auquel le service appartient sur votre abonnement. |
 | Informations sur le service 2 |Informations sur le service 2 |Champ hérité capturant les métadonnées facultatives propres au service. |
@@ -232,6 +232,6 @@ OLD MSDN Articles
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

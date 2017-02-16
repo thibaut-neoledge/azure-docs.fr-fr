@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ccbf4b3819051f4520205ce6ebfb66bc39a9dd3b
+ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
+ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
 
 
 ---
@@ -197,10 +197,9 @@ Pour répondre à ces exigences, Dave active l’Azure Security Center. Il garan
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez la rubrique [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](resource-manager-template-best-practices.md).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) a contribué à cette rubrique.*
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

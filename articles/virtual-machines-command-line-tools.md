@@ -13,19 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
-ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Azure Service Management (ASM)
-> [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../articles/azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [approfondir les commandes du modèle Resource Manager](virtual-machines/azure-cli-arm-commands.md) et utiliser l’interface CLI pour [migrer les ressources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) du modèle Classic au modèle Resource Manager.
+
 
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement classique. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Azure Service Management (ASM). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. 
+
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../articles/azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [approfondir les commandes du modèle Resource Manager](virtual-machines/azure-cli-arm-commands.md) et utiliser l’interface de ligne de commande pour [migrer les ressources](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) du modèle Classic au modèle Resource Manager.
+>
+>Pour travailler dans le modèle Resource Manager, vous pouvez également essayer l’[Interface de ligne de commande Azure 2.0 (version préliminaire)](/cli/azure/install-az-cli2), notre nouvelle génération d’interface CLI multi-plateformes.
+>
+
 
 Pour commencer, [installez l’interface de ligne de commande (CLI) Azure](xplat-cli-install.md) et [connectez-vous à votre abonnement Azure](xplat-cli-connect.md).
 
@@ -2353,6 +2359,6 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

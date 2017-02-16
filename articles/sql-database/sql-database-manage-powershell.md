@@ -8,16 +8,16 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
+ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
+ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
 
 
 ---
@@ -31,6 +31,10 @@ ms.openlocfilehash: 54000d76fac3f5759f72fe623326324e6c978505
 
 Cette rubrique présente les applets de commande PowerShell utilisées pour effectuer de nombreuses tâches Azure SQL Database. Pour en obtenir la liste complète, consultez [Applets de commande d’Azure SQL Database](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
+> [!TIP]
+> Pour savoir comment créer un serveur ou un pare-feu basé sur un serveur, afficher les propriétés d’un serveur, se connecter à la base de données master et l’interroger, créer un exemple de base de données et une base de données vide, demander les propriétés d’une base de données, se connecter à l’exemple de base de données et l’interroger, consultez le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started-powershell.md).
+>
+
 ## <a name="how-do-i-create-a-resource-group"></a>Comment créer un groupe de ressources ?
 Pour créer un groupe de ressources pour notre base de données SQL Database et les ressources Azure associées, utilisez l’applet de commande [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx).
 
@@ -41,7 +45,7 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 ```
 
 Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
-Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Pour obtenir un didacticiel complet, voir [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>Création d’un serveur de base de données SQL
 Pour créer un serveur SQL Database, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Remplacez *server1* par le nom de votre serveur. Le nom doit être unique pour tous les serveurs Azure SQL Database. Vous obtiendrez une erreur si le nom est déjà utilisé pour un autre serveur. Cette commande peut prendre plusieurs minutes. Le groupe de ressources doit déjà exister dans votre abonnement.
@@ -54,8 +58,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -63,7 +67,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-Pour en savoir plus sur les serveurs, consultez la rubrique détaillant les [fonctionnalités de la base de données SQL](sql-database-features.md). Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Pour en savoir plus sur les serveurs, consultez la rubrique détaillant les [fonctionnalités de la base de données SQL](sql-database-features.md). Pour obtenir un didacticiel complet, voir [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>Créer une règle de pare-feu de serveur SQL Database
 Pour créer une règle de pare-feu et accéder au serveur, utilisez l’applet de commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx). Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs valides pour votre client. Le groupe de ressources et le serveur doivent déjà exister dans votre abonnement.
@@ -83,7 +87,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
 
 Pour autoriser d’autres services Azure à accéder à votre serveur, créez une règle de pare-feu et définissez à la fois `-StartIpAddress` et `-EndIpAddress` sur **0.0.0.0**. Cette règle de pare-feu spéciale autorise tout le trafic Azure à accéder au serveur.
 
-Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx). Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx). Pour obtenir un didacticiel complet, voir [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database"></a>Création d’une base de données SQL
 Pour créer une base de données SQL, utilisez l’applet de commande [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx). Le groupe de ressources et le serveur doivent déjà exister dans votre abonnement. 
@@ -101,7 +105,7 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Pour plus d’informations, consultez [Qu’est-ce que SQL Database](sql-database-technical-overview.md). Pour obtenir un exemple de script, consultez [Créer un script PowerShell de base de données SQL](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Pour plus d’informations, consultez [Qu’est-ce que SQL Database](sql-database-technical-overview.md). Pour obtenir un didacticiel complet, voir [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-change-the-performance-level-of-a-sql-database"></a>Modifier le niveau de performances d’une base de données SQL
 Pour modifier le niveau de performances, faites monter ou descendre en puissance votre base de données avec l’applet de commande [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx). Le groupe de ressources, le serveur et la base de données doivent déjà exister dans votre abonnement. Définissez `-RequestedServiceObjectiveName` sur un seul espace (comme dans l’extrait suivant) pour le niveau De base. Affectez-lui la valeur *S0*, *S1*, *P1*, *P6*, etc. comme dans l’exemple précédent pour les autres niveaux.
@@ -163,10 +167,10 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="how-do-i-create-and-manage-elastic-database-pools-using-powershell"></a>Créer et gérer des pools de bases de données élastiques à l’aide de PowerShell
-Pour plus d’informations sur la création de bases de données élastiques avec PowerShell, consultez [Créer un pool de base de données élastique avec PowerShell](sql-database-elastic-pool-create-powershell.md).
+## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>Créer et gérer des pools élastiques à l’aide de PowerShell
+Pour en savoir plus sur la création de pools élastiques avec PowerShell, voir [Créer un pool de bases de données élastiques avec PowerShell](sql-database-elastic-pool-create-powershell.md).
 
-Pour plus d’informations sur la gestion de bases de données élastiques avec PowerShell, consultez [Surveiller et gérer un pool de base de données élastique avec PowerShell](sql-database-elastic-pool-manage-powershell.md).
+Pour en savoir plus sur la gestion des pools élastiques avec PowerShell, voir [Surveiller et gérer un pool de bases de données élastiques avec PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 ## <a name="related-information"></a>Informations connexes
 * [Applets de commande de la base de données SQL Azure.](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
@@ -175,6 +179,6 @@ Pour plus d’informations sur la gestion de bases de données élastiques avec 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

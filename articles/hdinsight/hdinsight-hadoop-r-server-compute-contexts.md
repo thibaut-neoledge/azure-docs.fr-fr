@@ -12,30 +12,30 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2016
+ms.date: 01/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3743a1c9539f6e0077448aff4470cb8f5363ef2f
-ms.openlocfilehash: ac1e2c269d59d9e3262c385450a4912de0c9debe
+ms.sourcegitcommit: 841e70fa3a80bbeb7e2281246bac2f99c0de899f
+ms.openlocfilehash: 169743012b1f50d67d5eafdb279e706719752eb8
 
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)
-Microsoft R Server sur Azure HDInsight fournit les dernières fonctionnalités d’analyse basées sur R. Il utilise les données stockées dans HDFS dans un conteneur de votre compte de stockage [d’objets blob Azure](../storage/storage-introduction.md "d’objets blob Azure storage") ou le système de fichiers Linux local. Puisque R Server repose sur une version R open source, les applications basées sur R que vous créez peuvent tirer parti des plus de 8 000 packages R open source. Ils peuvent également tirer parti des routines dans [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), le package d’analyse Big Data de Microsoft fourni avec R Server.  
+Microsoft R Server sur Azure HDInsight fournit les dernières fonctionnalités d’analyse basées sur R. Il utilise les données stockées dans HDFS dans un conteneur de votre compte de stockage [d’objets blob Azure](../storage/storage-introduction.md "d’objets blob Azure storage"), un magasin Data Lake, ou le système de fichiers Linux local. Puisque R Server repose sur une version R open source, les applications basées sur R que vous créez peuvent tirer parti des plus de 8 000 packages R open source. Ils peuvent également tirer parti des routines dans [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), le package d’analyse Big Data de Microsoft fourni avec R Server.  
 
 Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud de périmètre vous permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les cœurs du serveur de nœud de périmètre. Vous avez également la possibilité de les exécuter sur les nœuds du cluster via l’utilisation des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périmètre
-En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception est ces étapes qui appellent une fonction ScaleR. Les appels ScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont vous définissez le contexte de calcul ScaleR.  Les valeurs possibles du contexte de calcul lors de l’exécution de votre script R à partir d’un nœud de périmètre sont les valeurs local (local sequential), localpar (local parallel), Map Reduce et Spark.
+En général, un script R exécuté dans R Server sur le nœud de périmètre s’exécute au sein de l’interpréteur R sur ce nœud. L’exception concerne ces étapes qui appellent une fonction ScaleR. Les appels ScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont vous définissez le contexte de calcul ScaleR.  Les valeurs possibles du contexte de calcul lors de l’exécution de votre script R à partir d’un nœud de périmètre sont les valeurs local (local sequential), localpar (local parallel), Map Reduce et Spark.
 
 Les options local et localpar diffèrent uniquement par la façon dont les appels rxExec sont exécutés. Elles exécutent toutes les deux d’autres appels de fonction rx de manière parallèle entre tous les cœurs disponibles sauf indication contraire à l’aide de l’option numCoresToUse ScaleR, par exemple, rxOptions (numCoresToUse=6). La liste suivante récapitule les différentes options de contexte de calcul
 
-| Contexte de calcul | Définition | Contexte d’exécution |
-| --- | --- | --- |
-| Local sequential |rxSetComputeContext(‘local’) |Exécution parallélisée sur les cœurs du serveur de nœud de périmètre, à l’exception des appels rxExec qui sont exécutés en série |
-| Local parallel |rxSetComputeContext(‘localpar’) |Exécution parallélisée sur les cœurs du serveur de nœud de périmètre |
-| Spark |RxSpark() |Exécution distribuée parallélisée via Spark sur les nœuds du cluster HDI |
-| Map Reduce |RxHadoopMR() |Exécution distribuée parallélisée via Map Reduce sur les nœuds du cluster HDI |
+| Contexte de calcul  | Définition                      | Contexte d’exécution                        |
+| ---------------- | ------------------------------- | ---------------------------------------- |
+| Local sequential | rxSetComputeContext(‘local’)    | Exécution parallélisée sur les cœurs du serveur de nœud de périmètre, à l’exception des appels rxExec qui sont exécutés en série |
+| Local parallel   | rxSetComputeContext(‘localpar’) | Exécution parallélisée sur les cœurs du serveur de nœud de périmètre |
+| Spark            | RxSpark()                       | Exécution distribuée parallélisée via Spark sur les nœuds du cluster HDI |
+| Map Reduce       | RxHadoopMR()                    | Exécution distribuée parallélisée via Map Reduce sur les nœuds du cluster HDI |
 
 En supposant que vous souhaitiez une exécution parallélisée à des fins de performances, trois options sont disponibles. L’option que vous choisissez dépend de la nature de votre travail d’analyse, ainsi que de la taille et de l’emplacement de vos données.
 
@@ -55,7 +55,7 @@ Une fois ces principes connus, il existe quelques règles générales que vous p
 * Si la quantité de données à analyser est peu ou moyennement importante et nécessite des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les via local ou localpar.
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
-* Si la quantité de données à analyser est importante, importez-les au format XDF dans HDFS (sauf si le stockage est un problème), puis analysez-les via Spark.
+* Si la quantité de données à analyser est importante, importez-les dans un tableau de données Spark en utilisant RxHiveData ou RxParquetData, ou en les convertissant au format XDF dans HDFS (sauf si le stockage est un problème), puis analysez-les via Spark.
 
 ### <a name="hadoop-map-reduce"></a>Hadoop Map Reduce
 * Utilisez-le uniquement si vous rencontrez un problème avec l’utilisation du contexte de calcul Spark car cela affecte généralement les performanes.  
@@ -65,19 +65,19 @@ Pour obtenir plus d’informations et des exemples de contextes de calcul ScaleR
 
     > ?rxSetComputeContext
 
-Vous pouvez également vous reporter à « ScaleR Distributed Computing Guide » (Guide des traitements distribués ScaleR) disponible dans la bibliothèque [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server sur MSDN") .
+Vous pouvez également vous reporter à « [ScaleR Distributed Computing Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) » (Guide des traitements distribués ScaleR) disponible dans la bibliothèque [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server sur MSDN").
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à créer un cluster HDInsight qui inclut R Server. Vous avez également appris les principes de base de l’utilisation de la console R à partir d’une session SSH. Maintenant, vous pouvez consulter les articles suivants pour découvrir d’autres façons de travailler avec R Server sur HDInsight :
 
 * [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-overview.md)
 * [Commencer à utiliser R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-get-started.md)
-* [Ajouter RStudio Server à HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Ajouter RStudio Server à HDInsight (s’il n’est pas ajouté lors de la création du cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Options d’Azure Storage pour R Server sur HDInsight](hdinsight-hadoop-r-server-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

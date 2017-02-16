@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 35a295a8c24475de90fc26687ca00024cfba1079
-ms.openlocfilehash: bccdfd49226261699f89ebca0adf437ff63c1cdf
+ms.sourcegitcommit: d18c204617bfa62797a875b379e3fa4a39dd6806
+ms.openlocfilehash: 73d6f352671165a020a0e3ab3b20fba725d99158
 
 
 ---
@@ -58,9 +58,9 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour pouvoir compa
 
 | Famille de références | ACU/Cœur |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [Très petite](#a-series) |50 |
+| [Petite à très grande](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -74,107 +74,98 @@ Les unités ACU signalées par un astérisque (*) utilisent la technologie Inte
 ## <a name="size-tables"></a>Tableaux des tailles
 Les tableaux ci-après indiquent les tailles et les capacités qu’elles offrent.
 
-* La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1 000^3 octets) à des disques mesurés en Gio (1 024^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
+* La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1&000;^3 octets) à des disques mesurés en Gio (1&024;^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
 * Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et Mbits/s où Mbits/s = 10^6 octets par seconde.
 * Les disques de données peuvent fonctionner en mode avec ou sans mise en cache. En cas de fonctionnement du disque de données avec mise en cache, le mode de mise en cache hôte est défini sur **ReadOnly** ou **ReadWrite**. En cas de fonctionnement du disque de données sans mise en cache, le mode de mise en cache hôte est défini sur **Aucun**.
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lorsque vous évoluez entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
 
 ## <a name="a-series"></a>Série A
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | Disque dur local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0,768 |20 |1 |1 x 500 |1 / Faible |
-| Standard_A1 |1 |1,75 |70 |2 |2 x 500 |1 / Modérée |
-| Standard_A2 |2 |3,5 Go |135 |4 |4 x 500 |1 / Modérée |
-| Standard_A3 |4 |7 |285 |8 |8 x 500 |2 / Élevée |
-| Standard_A4 |8 |14 |605 |16 |16 x 500 |4 / Élevée |
-| Standard_A5 |2 |14 |135 |4 |4 x 500 |1 / Modérée |
-| Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / Élevée |
-| Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / Élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Disque dur local : Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Très petite      | 1         | 0,768        | 20                   | 1 / Faible |
+| Petite           | 1         | 1,75         | 225                  | 1 / Modérée |
+| Moyenne          | 2         | 3,5 Go       | 490                  | 1 / Modérée |
+| Grande           | 4         | 7            | 1 000                 | 2 / Élevée |
+| Très grande      | 8         | 14           | 2040                 | 4 / Élevée |
+| A5              | 2         | 14           | 490                  | 1 / Modérée |
+| A6              | 4         | 28           | 1 000                 | 2 / Élevée |
+| A7              | 8         | 56           | 2040                 | 4 / Élevée |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
 Pour plus d’informations et pour connaître les éléments à prendre en compte pour l’utilisation de ces tailles, consultez [À propos des machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | Disque dur local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 / Élevée |
-| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 / Très élevée |
-| Standard_A10 |8 |56 |382 |16 |16 x 500 |2 / Élevée |
-| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 / Très élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Disque dur local : Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| A8*             |8          | 56           | 1817                 | 2 / Élevée |
+| A9*             |16         | 112          | 1817                 | 4 / Très élevée |
+| A10             |8          | 56           | 1817                 | 2 / Élevée |
+| A11             |16         | 112          | 1817                 | 4 / Très élevée |
 
 \*Compatible RDMA
 
 ## <a name="av2-series"></a>Série Av2
 
-| Taille        | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 x 500              | 1 / Modérée              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4 x 500              | 2 / Modérée              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 x 500              | 4 / Élevée                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 x 500             | 8 / Élevée                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4 x 500              | 2 / Modérée              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x 500              | 4 / Élevée                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x 500             | 8 / Élevée                  |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_A1_v2  | 1         | 2            | 10                   | 1 / Modérée                 |
+| Standard_A2_v2  | 2         | 4            | 20                   | 2 / Modérée                 |
+| Standard_A4_v2  | 4         | 8            | 40                   | 4 / Élevée                     |
+| Standard_A8_v2  | 8         | 16           | 80                   | 8 / Élevée                     |
+| Standard_A2m_v2 | 2         | 16           | 20                   | 2 / Modérée                 |
+| Standard_A4m_v2 | 4         | 32           | 40                   | 4 / Élevée                     |
+| Standard_A8m_v2 | 8         | 64           | 80                   | 8 / Élevée                     |
 
 
 ## <a name="d-series"></a>Série D
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| D1 standard |1 |3,5 |50 |2 |2 x 500 |1 / Modérée |
-| D2 standard |2 |7 |100 |4 |4 x 500 |2 / Élevée |
-| D3 standard |4 |14 |200 |8 |8 x 500 |4 / Élevée |
-| D4 standard |8 |28 |400 |16 |16 x 500 |8 / Élevée |
-| D11 standard |2 |14 |100 |4 |4 x 500 |2 / Élevée |
-| D12 standard |4 |28 |200 |8 |8 x 500 |4 / Élevée |
-| D13 standard |8 |56 |400 |16 |16 x 500 |8 / Élevée |
-| D14 standard |16 |112 |800 |32 |32 x 500 |8 / Très élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| D1 standard     | 1         | 3,5          | 50                   | 1 / Modérée |
+| D2 standard     | 2         | 7            | 100                  | 2 / Élevée |
+| D3 standard     | 4         | 14           | 200                  | 4 / Élevée |
+| D4 standard     | 8         | 28           | 400                  | 8 / Élevée |
+| D11 standard    | 2         | 14           | 100                  | 2 / Élevée |
+| D12 standard    | 4         | 28           | 200                  | 4 / Élevée |
+| D13 standard    | 8         | 56           | 400                  | 8 / Élevée |
+| D14 standard    | 16        | 112          | 800                  | 8 / Très élevée |
 
 ## <a name="dv2-series"></a>Série Dv2
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2 x 500 |1 / Modérée |
-| Standard_D2_v2 |2 |7 |100 |4 |4 x 500 |2 / Élevée |
-| Standard_D3_v2 |4 |14 |200 |8 |8 x 500 |4 / Élevée |
-| Standard_D4_v2 |8 |28 |400 |16 |16 x 500 |8 / Élevée |
-| Standard_D5_v2 |16 |56 |800 |32 |32 x 500 |8 / Extrêmement élevée |
-| Standard_D11_v2 |2 |14 |100 |4 |4 x 500 |2 / Élevée |
-| Standard_D12_v2 |4 |28 |200 |8 |8 x 500 |4 / Élevée |
-| Standard_D13_v2 |8 |56 |400 |16 |16 x 500 |8 / Élevée |
-| Standard_D14_v2 |16 |112 |800 |32 |32 x 500 |8 / Extrêmement élevée |
-| Standard_D15_v2 |20 |140 |1 000 |40 |40 x 500 |8 / Extrêmement élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / Modérée |
+| Standard_D2_v2  | 2         | 7            | 100                  | 2 / Élevée |
+| Standard_D3_v2  | 4         | 14           | 200                  | 4 / Élevée |
+| Standard_D4_v2  | 8         | 28           | 400                  | 8 / Élevée |
+| Standard_D5_v2  | 16        | 56           | 800                  | 8 / Extrêmement élevée |
+| Standard_D11_v2 | 2         | 14           | 100                  | 2 / Élevée |
+| Standard_D12_v2 | 4         | 28           | 200                  | 4 / Élevée |
+| Standard_D13_v2 | 8         | 56           | 400                  | 8 / Élevée |
+| Standard_D14_v2 | 16        | 112          | 800                  | 8 / Extrêmement élevée |
+| Standard_D15_v2 | 20        | 140          | 1&000;                | 8 / Extrêmement élevée |
 
 ## <a name="g-series"></a>Série G
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / Élevée |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / Élevée |
-| Standard_G3 |8 |112 |1 536 |16 |16 x 500 |4 / Très élevée |
-| Standard_G4 |16 |224 |3 072 |32 |32 x 500 |8 / Extrêmement élevée |
-| Standard_G5 |32 |448 |6 144 |64 |64 x 500 |8 / Extrêmement élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_G1     | 2         | 28           | 384                  |1 / Élevée |
+| Standard_G2     | 4         | 56           | 768                  |2 / Élevée |
+| Standard_G3     | 8         | 112          | 1&536;                |4 / Très élevée |
+| Standard_G4     | 16        | 224          | 3&072;                |8 / Extrêmement élevée |
+| Standard_G5     | 32        | 448          | 6&144;                |8 / Extrêmement élevée |
 
 ## <a name="h-series"></a>Série H
 Les machines virtuelles de la série H sont des machines virtuelles de calcul haute performance de nouvelles génération, destinées à répondre à des besoins de calcul de haut niveau, par exemple en relation avec la modélisation moléculaire et la dynamique des fluides. Les machines virtuelles à 8 et 16 cœurs reposent sur la technologie de processeur Intel Haswell E5-2667 V3 avec mémoire DDR4 et stockage SSD local.
 
 En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1 000 |16 |16 x 500 |8 / Élevée |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8 / Très élevée |
-| Standard_H8m |8 |112 |1 000 |16 |16 x 500 |8 / Élevée |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8 / Très élevée |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8 / Très élevée |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8 / Très élevée |
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_H8     | 8         | 56           | 1 000                 | 8 / Élevée |
+| Standard_H16    | 16        | 112          | 2000                 | 8 / Très élevée |
+| Standard_H8m    | 8         | 112          | 1 000                 | 8 / Élevée |
+| Standard_H16m   | 16        | 224          | 2000                 | 8 / Très élevée |
+| Standard_H16r*  | 16        | 112          | 2000                 | 8 / Très élevée |
+| Standard_H16mr* | 16        | 224          | 2000                 | 8 / Très élevée |
 
 \*Compatible RDMA
-
-## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Remarques : Standard A0 - A4 à l’aide de l’interface de ligne de commande et de Powershell
-Dans le modèle de déploiement classique, certains noms de tailles de machines virtuelles sont légèrement différents dans Powershell et dans l’interface de ligne de commande :
-
-* Standard_A0 est ExtraSmall (Très petit)
-* Standard_A1 est Small (Petit)
-* Standard_A2 est Medium (Moyen)
-* Standard_A3 est Large (Grand)
-* Standard_A4 est ExtraLarge (Très grand)
 
 ## <a name="configure-sizes-for-cloud-services"></a>Configurer les tailles pour les Cloud Services
 Vous pouvez spécifier la taille de l’ordinateur virtuel d’une instance de rôle dans le cadre du modèle de service décrit par le [fichier de définition de service](cloud-services-model-and-package.md#csdef). La taille du rôle détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Choisissez la taille du rôle en fonction des besoins en ressources de votre application.
@@ -196,12 +187,19 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 >
 >
 
+## <a name="get-a-list-of-sizes"></a>Obtenir une liste des tailles
+PowerShell ou l’API REST permet d’obtenir la liste des tailles. L’API REST est présentée [ici](https://msdn.microsoft.com/library/azure/dn469422.aspx). Le code suivant est une commande PowerShell qui répertorie les tailles disponibles pour votre Service Cloud.
+
+```powershell
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’ [abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md).
 * Pour des charges de travail telles que le calcul haute performance (HPC), consultez [À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

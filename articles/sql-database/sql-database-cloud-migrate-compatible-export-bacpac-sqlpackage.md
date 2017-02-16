@@ -1,6 +1,7 @@
 ---
-title: "Exportation d’une base de données SQL Server vers un fichier BACPAC à l’aide de SqlPackage | Microsoft Docs"
-description: "Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
+title: "SqlPackage : exportation d’une base de données SQL Server vers un fichier BACPAC (Azure) | Microsoft Docs"
+description: "Cet article explique la procédure d’exportation d’une base de données SQL Server à partir d’un fichier BACPAC à l’aide de l’utilitaire de ligne de commande SqlPackage."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, exporter une base de données, exporter un fichier BACPAC, sqlPackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 47c4c2e78432746a0a03f98692ddcd4602637212
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: e38c42ea1c078f9f2e11ae51be37d66671392828
 
 
 ---
@@ -61,6 +62,6 @@ Cet article explique comment exporter une base de données SQL Server à partir 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

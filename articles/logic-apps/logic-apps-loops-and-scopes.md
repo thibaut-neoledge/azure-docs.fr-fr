@@ -1,6 +1,6 @@
 ---
-title: "Boucles et étendues d’applications logiques | Microsoft Docs"
-description: "Vue d’ensemble des différentes façons de gérer des boucles et étendues dans une application logique"
+title: "Créer des boucles et des étendues, ou décomposer des données de workflow - Azure Logic Apps | Microsoft Docs"
+description: "Créez des boucles pour itérer au sein de données, regroupez les actions au sein d’étendues ou décomposez les données pour démarrer plusieurs workflows dans Azure Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 2556e43bba8f2080e292be4c5a7f2145f5718e57
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
 
 
 ---
@@ -159,6 +159,6 @@ Vous pouvez grouper une série d’actions à l’aide d’une étendue.  Cette 
 ```
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

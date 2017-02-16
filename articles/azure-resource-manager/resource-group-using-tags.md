@@ -12,11 +12,11 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: d7ba92abfe068790db0824541abb25babcefe669
+ms.sourcegitcommit: 87973df7bb1b81c2d1cbdeb31e2fabb584f7e625
+ms.openlocfilehash: 61e47f479b7cb05e1aca06e12ff5997769b2097d
 
 
 ---
@@ -35,56 +35,59 @@ Chaque ressource ou groupe de ressources peut inclure un maximum de 15 balises.
 > 
 
 ## <a name="templates"></a>Modèles
-Pour marquer une ressource au cours du déploiement, ajoutez simplement l’élément **tags** à la ressource que vous déployez et indiquez le nom et la valeur. Le nom et la valeur de la balise n’ont pas besoin d’exister préalablement dans votre abonnement. Vous pouvez fournir 15 balises au maximum pour chaque ressource.
+Pour marquer une ressource au cours du déploiement, ajoutez l’élément **tags** à la ressource que vous déployez et indiquez le nom et la valeur. Le nom et la valeur de la balise n’ont pas besoin d’exister préalablement dans votre abonnement. Vous pouvez fournir 15 balises au maximum pour chaque ressource.
 
 L’exemple suivant illustre un compte de stockage avec une balise.
 
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2015-06-15",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "tags": {
-                "dept": "Finance"
-            },
-            "properties": 
-            {
-                "accountType": "Standard_LRS"
-            }
-        }
-    ]
-
-Actuellement, Resource Manager ne prend pas en charge le traitement d’un objet pour les valeurs et les noms de balise. Au lieu de cela, passez un objet pour les valeurs de balise, mais vous devez toujours spécifier les noms de balise, comme indiqué dans l'exemple suivant.
-
+```json
+"resources": [
     {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "tagvalues": {
-          "type": "object",
-          "defaultValue": {
-            "dept": "Finance",
-            "project": "Test"
-          }
-        }
-      },
-      "resources": [
-      {
-        "apiVersion": "2015-06-15",
         "type": "Microsoft.Storage/storageAccounts",
-        "name": "examplestorage",
-        "tags": {
-          "dept": "[parameters('tagvalues').dept]",
-          "project": "[parameters('tagvalues').project]"
-        },
+        "apiVersion": "2015-06-15",
+        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
         "location": "[resourceGroup().location]",
-        "properties": {
-          "accountType": "Standard_LRS"
+        "tags": {
+            "dept": "Finance"
+        },
+        "properties": 
+        {
+            "accountType": "Standard_LRS"
         }
-      }]
     }
+]
+```
 
+Actuellement, Resource Manager ne prend pas en charge le traitement d’un objet pour les valeurs et les noms de balise. Au lieu de cela, passez un objet pour les valeurs de balise, mais vous devez toujours spécifier les noms de balise, comme indiqué dans l’exemple suivant :
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tagvalues": {
+      "type": "object",
+      "defaultValue": {
+        "dept": "Finance",
+        "project": "Test"
+      }
+    }
+  },
+  "resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "examplestorage",
+    "tags": {
+      "dept": "[parameters('tagvalues').dept]",
+      "project": "[parameters('tagvalues').project]"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+      "accountType": "Standard_LRS"
+    }
+  }]
+}
+```
 
 ## <a name="portal"></a>Portail
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
@@ -104,7 +107,7 @@ Vous pouvez également utiliser des balises pour catégoriser les coûts par env
 
 Vous pouvez récupérer des informations sur les balises par le biais des [API Resource Usage et RateCard](../billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV). Vous téléchargez le fichier d’utilisation depuis le [portail des comptes Azure](https://account.windowsazure.com/) ou depuis le [portail EA](https://ea.azure.com). Pour plus d’informations sur l’accès par programme aux informations de facturation, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](../billing-usage-rate-card-overview.md). Pour plus d’informations sur les opérations de l’API REST, consultez [Informations de référence sur l’API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises** . Pour plus d’informations, voir [Comprendre votre facture Microsoft Azure](../billing/billing-understand-your-bill.md).
+Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises** . Pour plus d’informations, consultez [Comprendre votre facture Microsoft Azure](../billing/billing-understand-your-bill.md).
 
 ![Voir les balises dans la facturation](./media/resource-group-using-tags/billing_csv.png)
 
@@ -118,6 +121,6 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

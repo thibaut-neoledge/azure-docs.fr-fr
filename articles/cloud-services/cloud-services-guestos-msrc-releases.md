@@ -12,16 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/1/2016
+ms.date: 1/10/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: f21cf5318cc3fe0a0fc18dec4d85e8bc020a2c8a
-ms.openlocfilehash: 4beac394fbb975b8956ff62a54cc605bacd2a505
+ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
+ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
 
 
 ---
 # <a name="azure-guest-os"></a>SE invité d'Azure
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="january-guest-os"></a>SE invité janvier
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Mise à jour de sécurité pour le service de sous-système d’autorité de sécurité locale |2.59 |10 janvier 2017 |
+
+## <a name="december-guest-os"></a>SE invité décembre
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Mise à jour de sécurité cumulative pour Internet Explorer |2.58, 3.46, 4.39 |13 décembre 2016 |
+| MS16-145 |[3204062] |Mise à jour de sécurité cumulative pour Microsoft Edge |5.4 |13 décembre 2016 |
+| MS16-146 |[3204066]   |Mise à jour de sécurité pour le composant graphique Microsoft|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-147 |[3204063]   |Mise à jour de sécurité pour Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-149 |[3205655]   |Mise à jour de sécurité pour Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-150 |[3205642]   |Mise à jour de sécurité pour le mode noyau sécurisé |5.4 |13 décembre 2016 |
+| MS16-151 |[3205651]   |Mise à jour de sécurité pour les pilotes en mode noyau|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-152 |[3199709]   |Mise à jour de sécurité pour le noyau Windows |5.4 |13 décembre 2016 |
+| MS16-153 |[3207328] |Mise à jour de sécurité pour le pilote de système de fichiers journaux commun|2.58, 3.46, 4.39, 5.4 |13 décembre 2016 |
+| MS16-155 |[3205640]   |Mise à jour de sécurité pour .NET Framework |5.4 |13 décembre 2016 |
+| N/A |[3197868] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.58 |13 décembre 2016 |
+| N/A |[3197877] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows Server 2012 |3.46 |13 décembre 2016 |
+| N/A |[3197874] |Correctif qualitatif mensuel de sécurité novembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.39 |13 décembre 2016 |
 
 ## <a name="november-guest-os"></a>SE invité novembre
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -127,7 +149,7 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | MS16-080 |[3164302] |Mise à jour de sécurité pour Microsoft Windows PDF |4.33, 3.40 |14 juin 2016 |
 | MS16-081 |[3160352] |Mise à jour de sécurité pour Active Directory |4.33, 3.40, 2.52 |14 juin 2016 |
 | N/A |[2922223] |Vous ne pouvez pas modifier le temps système si l’entrée de Registre RealTimeIsUniversal est activée dans Windows |2.52 |14 juin 2016 |
-| N/A |[3121255] |Erreur d’arrêt « 0 x 00000024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows |2.52 |14 juin 2016 |
+| N/A |[3121255] |Erreur d’arrêt «&0; x&00000;024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows |2.52 |14 juin 2016 |
 | N/A |[3125424] |Windows Server 2012 R2 ou Windows Server 2012 ne répondent pas en raison de blocages LSASS |4.33, 3.40 |14 juin 2016 |
 | N/A |[3125574] |Correctif cumulatif pratique pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.52 |14 juin 2016 |
 | N/A |[3140245] |Mise à jour pour activer TLS 1.1 et TLS 1.2 en tant que protocoles sécurisés par défaut dans WinHTTP dans Windows |3.40, 2.52 |14 juin 2016 |
@@ -381,6 +403,22 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A |[3007054] |Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2999802] |Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés |4.15, 3.22, 2.34 |13 janvier 2015 |
 | N/A |[2896881] |Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows |4.15, 3.22, 2.34 |13 janvier 2015 |
+
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
 
 [3199057]: http://support.microsoft.com/kb/3199057 
 [3199172]: http://support.microsoft.com/kb/3199172 
@@ -683,6 +721,6 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

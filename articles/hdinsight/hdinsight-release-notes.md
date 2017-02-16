@@ -13,19 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 6296917393c01d1070482f1711b8d51b4a4b58a6
-ms.openlocfilehash: 195d0db04ebde179c0def69ff52b147db2f4a88e
+ms.sourcegitcommit: ae7407e1293202f7c76da59560efe620dde2ea0a
+ms.openlocfilehash: 7ab9c75e44ff2072e2f5879952d7e2f605cccb36
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notes de publication pour les composants Hadoop sur Azure HDInsight
 
+
+##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>Notes relatives à la version du 18/11/2016 de Spark 2.0.1 sur HDInsight 3.5
+•   Spark 2.0.1 est désormais disponible sur les clusters Spark (HDInsight version 3.5).
+
 ## <a name="notes-for-11162016-release-of-r-server-90-on-hdinsight-35-spark-20"></a>Notes relatives à la version du 16/11/2016 de R Server 9.0 sur HDInsight 3.5 (Spark 2.0)
 *   Les clusters R Server incluent désormais un choix entre deux versions : R Server 9.0 sur HDI 3.5 (Spark 2.0) et R Server 8.0 sur HDI 3.4 (Spark 1.6).
-*   R Server 9.0 sur HDI 3.5 (Spark 2.0) inclut les nouvelles fonctions de source de données ScaleR appelées RxHiveData et RxParquetData permettant de charger des données à partir de Hive et de Parquet directement dans Spark DataFrames, pour que ScaleR les analyse. Pour plus d’informations, consultez l’aide en ligne sur ces fonctions dans R à l’aide des commandes ?RxHiveData et ?RxParquetData.
+*   •   R Server 9.0 sur HDI 3.5 (Spark 2.0) repose sur R 3.3.2 et inclut les nouvelles fonctions de source de données ScaleR appelées RxHiveData et RxParquetData permettant de charger des données à partir de Hive et de Parquet directement dans Spark DataFrames, pour que ScaleR les analyse. Pour plus d’informations, consultez l’aide en ligne sur ces fonctions dans R à l’aide des commandes ?RxHiveData et ?RxParquetData.
 *   L’édition communautaire de RStudio Server est désormais installée par défaut (avec une option de désistement) dans le panneau Configuration de cluster dans le cadre du flux d’approvisionnement.  
 
 ## <a name="notes-for-11092016-release-of-spark-20-on-hdinsight"></a>Notes relatives à la version du 09/11/2016 de Spark 2.0 sur HDinsight
@@ -1688,6 +1692,6 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

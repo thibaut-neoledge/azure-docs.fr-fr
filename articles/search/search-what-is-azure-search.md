@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29385af9183ef2f8431581aaa5fe38e89404d068
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
 
 
 ---
@@ -25,7 +25,7 @@ Le service Recherche Azure est une solution cloud de recherche sous forme de ser
 ## <a name="give-your-users-a-powerful-search-experience"></a>Offrez à vos utilisateurs une expérience de recherche puissante
 Des **requêtes puissantes** peuvent être formulées à l’aide de la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Celle-ci offre des opérateurs logiques, de recherche d’expression, de suffixe et de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) permet des recherches approximatives, des recherches de proximité, la valorisation de termes et des expressions régulières. Azure Search prend également en charge des analyseurs lexicaux personnalisés pour permettre à votre application de traiter des requêtes complexes à l'aide de la correspondance phonétique et des expressions régulières.
 
-**La prise en charge linguistique** est [incluse pour 56 langues différentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). À l’aide des analyseurs Lucene et Microsoft (perfectionnés par des années de traitement de langage naturel dans Office et Bing), Azure Search peut analyser le texte dans la zone de recherche de votre application pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc.
+**La prise en charge linguistique** est [incluse pour 56 langues différentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). À l’aide des analyseurs Lucene et Microsoft (perfectionnés par des années de traitement de langage naturel dans Office et Bing), Recherche Azure peut analyser le texte dans la zone de recherche de votre application pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc.
 
 **Suggestions de recherche** peut être activée pour les barres de recherche de saisie semi-automatique et pour les requêtes prédictives. [Les documents actuellement dans votre index sont suggérés](https://msdn.microsoft.com/library/azure/dn798936.aspx) lorsque les utilisateurs saisissent une entrée de recherche partielle.
 
@@ -46,7 +46,7 @@ Des **requêtes puissantes** peuvent être formulées à l’aide de la [syntaxe
 
 **Recherche de document** est disponible (actuellement en version préliminaire) [pour lire et indexer la plupart des formats de fichiers](search-howto-indexing-azure-blob-storage.md) , notamment les documents Microsoft Office, PDF et HTML.
 
-**Analyses de trafic de recherche** sont [facilement recueillies et analysées](search-traffic-analytics.md) to unlock insights from what users sont typing into the search box.
+Les **Analyses de trafic de recherche** sont [facilement recueillies et analysées](search-traffic-analytics.md) pour fournir une source d’information à partir des termes utilisés par les utilisateurs dans la zone de recherche.
 
 **Notation simple** est des principaux avantages d'Azure Search. [Profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx) permettent aux entreprises de modéliser la pertinence en fonction des valeurs dans les documents eux-mêmes. Par exemple, vous souhaiterez peut-être que les nouveaux produits ou les produits en promotion apparaissent en priorité dans les résultats de la recherche. Vous pouvez également créer des profils de score à l'aide de balises pour obtenir un score personnalisé en fonction de préférences de recherche de client que vous avez suivies et stockées séparément.
 
@@ -74,19 +74,22 @@ Une fois que vous avez défini les champs et les attributs de l'index, vous ête
 
 Le modèle de collecte est fourni par des indexeurs qui peuvent être configurés pour des mises à jour à la demande ou planifiées (consultez la rubrique [Opérations d'indexeur (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), ce qui vous permet de recevoir facilement les données et les modifications de données à partir d’Azure DocumentDB, Azure SQL Database, Azure Blob Storage, ou SQL Server, hébergé dans une machine virtuelle Azure.
 
-Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données à l’aide du format JSON. Pour obtenir des conseils sur le chargement des données, consultez [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md).
+Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données à l’aide du format JSON. Pour obtenir des conseils sur le chargement des données, consultez [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md).
 
 ### <a name="4-search"></a>4. Search
 Une fois que vous avez rempli l'index Azure Search, vous pouvez à présent [émettre des requêtes de recherche](https://msdn.microsoft.com/library/azure/dn798927.aspx) sur le point de terminaison de service à l'aide de simples requêtes HTTP avec l'API REST ou le Kit de développement logiciel .NET.
 
 ## <a name="try-it-now-for-free"></a>Faites un essai dès maintenant (gratuitement !)
-Vous pouvez essayer Azure Search dès aujourd'hui ! Si vous avez déjà un compte Azure, vous pouvez [configurer un service au niveau Gratuit](search-create-service-portal.md).
+Les abonnés Azure peuvent [configurer un service dans le niveau Gratuit](search-create-service-portal.md).
 
-Si vous n'avez pas un compte Azure, que vous pouvez essayer une session gratuite de 60 minutes sans aucune inscription nécessaire. Accédez à [Essayer Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) et sélectionnez « Application web ». Puis, sélectionnez le modèle « ASP.NET + Azure Search » pour commencer.
+Si vous n’êtes pas abonné, vous pouvez [ouvrir un compte Azure gratuitement](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu’ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web. Votre carte de crédit ne sera pas débitée tant que vous n'aurez pas explicitement modifié vos paramètres pour demander à l'être.
+
+Vous pouvez aussi [activer les avantages de l’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

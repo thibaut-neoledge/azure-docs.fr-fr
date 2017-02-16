@@ -1,5 +1,5 @@
 ---
-title: Protection des applications Service Bus contre les pannes et les sinistres | Microsoft Docs
+title: Protection des applications Azure Service Bus contre les pannes et les sinistres | Microsoft Docs
 description: "Décrit les techniques que vous pouvez utiliser pour protéger les applications contre une panne Service Bus potentielle."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a76ebad52b8b08311b488cd5bbdb909628d43ec3
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 6424d4dabe20514c0e41c6d755d644494afea302
 
 
 ---
@@ -35,22 +35,22 @@ Toutes les entités de messagerie Service Bus (files d’attente, rubriques, rel
 ## <a name="protecting-against-acs-outages"></a>Protection contre les pannes ACS
 Si vous utilisez des informations d'identification ACS et si ACS devient indisponible, les clients ne peuvent plus obtenir de jetons. Les clients qui ont un jeton au moment où ACS tombe en panne peuvent continuer à utiliser Service Bus jusqu'à ce que les jetons expirent. La durée de vie par défaut d'un jeton est de 3 heures.
 
-Pour vous protéger contre les pannes ACS, utilisez des jetons SAS (Signature d'accès partagé). Dans ce cas, le client s'authentifie directement auprès de Service Bus en signant un jeton auto-émis avec une clé secrète. Les appels aux services ACS ne sont plus nécessaires. Pour plus d’informations sur les jetons SAP, consultez [Authentification Service Bus][Authentification Service Bus].
+Pour vous protéger contre les pannes ACS, utilisez des jetons SAS (Signature d'accès partagé). Dans ce cas, le client s'authentifie directement auprès de Service Bus en signant un jeton auto-émis avec une clé secrète. Les appels aux services ACS ne sont plus nécessaires. Pour plus d’informations sur les jetons SAS, consultez [Authentification Service Bus][Service Bus authentication].
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protection des files d’attente et des rubriques contre les défaillances de la banque de messagerie
-Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d’informations sur les entités partitionnées, consultez [Entités de messagerie partitionnées][Entités de messagerie partitionnées].
+Une file d’attente ou une rubrique non partitionnée est affectée à une banque de messagerie. Si cette banque de messagerie n’est pas disponible, toutes les opérations sur cette file d’attente ou rubrique échoueront. D'autre part, une file d'attente partitionnée est constituée de plusieurs fragments. Chaque fragment est stocké dans une banque de messagerie différente. Lorsqu’un message est envoyé à une file d’attente ou une rubrique partitionnée, Service Bus affecte le message à l’un des fragments. Si la banque de messagerie correspondante n'est pas disponible, Service Bus écrit le message dans un fragment différent, si possible. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protection contre les pannes ou les sinistres du centre de données
 Pour permettre un basculement entre deux centres de données, vous pouvez créer un espace de noms de service Service Bus dans chaque centre de données. Par exemple, l’espace de noms de service Service Bus **contosoPrimary.servicebus.windows.net** peut se trouver dans la région États-Unis (Nord/Centre) et **contosoSecondary.servicebus.windows.net** peut se trouver dans la région États-Unis (Sud/Centre). Si une entité de messagerie Service Bus doit rester accessible en cas de panne du centre de données, vous pouvez créer cette entité dans les deux espaces de noms.
 
-Pour plus d’informations, consultez la section « Échec de Service Bus dans un centre de données Azure » sous [Modèles de messagerie asynchrone et haute disponibilité][Modèles de messagerie asynchrone et haute disponibilité].
+Pour plus d’informations, consultez la section « Échec de Service Bus dans un centre de données Azure » sous [Modèles de messagerie asynchrone et haute disponibilité][Asynchronous messaging patterns and high availability].
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protection des points de terminaison de relais contre les pannes ou les sinistres du centre de données
 La géo-réplication des points de terminaison de relais permet à un service qui expose un point de terminaison de relais d'être accessible en cas de pannes de Service Bus. Pour obtenir la géo-réplication, le service doit créer deux points de terminaison de relais dans des espaces de noms différents. Les espaces de noms doivent résider dans des centres de données différents et les deux points de terminaison doivent avoir des noms différents. Par exemple, un point de terminaison principal peut être accessible sous **contosoPrimary.servicebus.windows.net/myPrimaryService**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Le service écoute alors sur les deux points de terminaison et un client peut appeler le service par le biais de n'importe quel point de terminaison. Une application cliente choisit de façon aléatoire l'un des relais en tant que point de terminaison principal et envoie sa requête au point de terminaison actif. Si l'opération échoue avec un code d'erreur, cette défaillance indique que le point de terminaison de relais n'est pas disponible. L'application ouvre un canal vers le point de terminaison de sauvegarde et soumet la requête à nouveau. À ce stade, les points de terminaison actif et de sauvegarde permutent leurs rôles : l'application cliente considère l'ancien point de terminaison actif comme nouveau point de terminaison de sauvegarde, et l'ancien point de terminaison de sauvegarde comme nouveau point de terminaison actif. Si les deux opérations d'envoi échouent, les rôles des deux entités restent inchangés et une erreur est renvoyée.
 
-L’exemple [Géo-réplication avec la messagerie par relais Service Bus][Géo-réplication avec la messagerie par relais Service Bus] montre comment répliquer des relais.
+L’exemple [Géo-réplication avec la messagerie par relais Service Bus][Geo-replication with Service Bus relayed Messages] montre comment répliquer des relais.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protection des files d’attente et des rubriques contre les pannes ou les sinistres du centre de données
 Pour obtenir une résilience contre les pannes du centre de données lors de l’utilisation de la messagerie répartie, Service Bus prend en charge deux approches : la réplication *active* et *passive*. Pour chaque approche, si une file d’attente ou une rubrique donnée doit rester accessible en cas de panne du centre de données, vous pouvez la créer dans les deux espaces de noms. Les deux entités peuvent avoir le même nom. Par exemple, une file d’attente principale peut être accessible sous **contosoPrimary.servicebus.windows.net/myQueue**, alors que son homologue secondaire peut être accessible sous **contosoSecondary.servicebus.windows.net/myQueue**.
@@ -60,9 +60,9 @@ Si l'application ne nécessite pas une communication permanente entre l'expédit
 ## <a name="active-replication"></a>Réplication active
 La réplication active utilise des entités dans les deux espaces de noms pour chaque opération. Tout client qui envoie un message envoie deux copies du même message. La première copie est envoyée à l’entité principale (par exemple, **contosoPrimary.servicebus.windows.net/sales**) et la deuxième copie du message est envoyée à l’entité secondaire (par exemple, **contosoSecondary.servicebus.windows.net/sales**).
 
-Un client reçoit des messages des deux files d'attente. Le destinataire traite la première copie d'un message et la deuxième copie est supprimée. Pour supprimer les messages en double, l'expéditeur doit attribuer un identificateur unique à chaque message. Les deux copies du message doivent avoir le même identificateur. Vous pouvez utiliser les propriétés [BrokeredMessage.MessageId][BrokeredMessage.MessageId] ou [BrokeredMessage.Label][BrokeredMessage.Label], ou une propriété personnalisée, pour baliser le message. Le destinataire doit conserver une liste des messages qu'il a déjà reçus.
+Un client reçoit des messages des deux files d'attente. Le destinataire traite la première copie d'un message et la deuxième copie est supprimée. Pour supprimer les messages en double, l'expéditeur doit attribuer un identificateur unique à chaque message. Les deux copies du message doivent avoir le même identificateur. Vous pouvez utiliser les propriétés [BrokeredMessage.MessageId][BrokeredMessage.MessageId] ou [BrokeredMessage.Label][BrokeredMessage.Label] ou une propriété personnalisée, pour baliser le message. Le destinataire doit conserver une liste des messages qu'il a déjà reçus.
 
-L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Géo-réplication avec la messagerie répartie de Service Bus] illustre la réplication active des entités de messagerie.
+L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Geo-replication with Service Bus Brokered Messages] illustre la réplication active des entités de messagerie.
 
 > [!NOTE]
 > L'approche de réplication active double le nombre d'opérations ; par conséquent, cette approche peut mener à un coût plus élevé.
@@ -81,26 +81,26 @@ Lorsque vous utilisez la réplication passive, les messages peuvent être perdus
 * **Retard ou perte de message**: supposons que l'expéditeur a envoyé avec succès un message m1 à la file d'attente principale, et qu'ensuite la file d'attente devient indisponible avant que le destinataire ne reçoive m1. L'expéditeur envoie un message ultérieur m2 à la file d'attente secondaire. Si la file d'attente principale est temporairement indisponible, le destinataire reçoit m1 lorsque la file d'attente est à nouveau disponible. En cas de sinistre, le destinataire peut ne jamais recevoir m1.
 * **Réception de doublons**: supposons que l'expéditeur envoie un message m à la file d'attente principale. Service Bus traite m avec succès mais ne parvient pas à envoyer une réponse. Après expiration de l'opération d'envoi, l'expéditeur envoie une copie identique de m à la file d'attente secondaire. Si le destinataire peut recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire reçoit les deux copies de m approximativement au même moment. Si le destinataire ne peut pas recevoir la première copie de m avant que la file d'attente principale ne devienne indisponible, le destinataire ne reçoit initialement que la deuxième copie de m, mais reçoit ensuite une deuxième copie de m lorsque la file d'attente principale devient disponible.
 
-L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Géo-réplication avec la messagerie répartie de Service Bus] illustre la réplication passive des entités de messagerie.
+L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Geo-replication with Service Bus Brokered Messages] illustre la réplication passive des entités de messagerie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur la récupération d'urgence, consultez les articles suivants :
 
-* [Continuité de l’activité des bases de données SQL Azure][Continuité de l’activité des bases de données SQL Azure]
-* [Guide technique de la résilience Azure][Guide technique de la résilience Azure]
+* [Continuité de l’activité Azure SQL Database][Azure SQL Database Business Continuity]
+* [Guide technique de la résilience Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Entités de messagerie partitionnées]: service-bus-partitioning.md
-[Modèles de messagerie asynchrone et haute disponibilité]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Géo-réplication avec la messagerie par relais Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
-[BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
-[BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
-[Géo-réplication avec la messagerie répartie de Service Bus]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-[Continuité de l’activité des bases de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
-[Guide technique de la résilience Azure]: ../resiliency/resiliency-technical-guidance.md
+[Partitioned messaging entities]: service-bus-partitioning.md
+[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
+[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
+[BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

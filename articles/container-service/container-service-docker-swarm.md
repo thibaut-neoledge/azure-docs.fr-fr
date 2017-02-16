@@ -1,6 +1,6 @@
 ---
-title: Gestion de conteneur Azure Container Service avec Docker Swarm | Microsoft Docs
-description: "Déploiement de conteneurs sur un Docker Swarm dans Azure Container Service"
+title: "Gérer un cluster Swarm Azure avec l’API Docker | Microsoft Docs"
+description: "Déployez des conteneurs sur un cluster Docker Swarm dans Azure Container Service"
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2c6497ebe50b3493e376a871431fe5e5471479bd
-ms.openlocfilehash: 7c3f2e06f32856aa4aa603117b7f43bb54450da7
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: bd20dc4eb3948d08e3c2dd2ad2bb42d18df67796
 
 
 ---
@@ -119,6 +119,6 @@ Naturellement, vous pouvez utiliser `docker-compose ps` pour examiner uniquement
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

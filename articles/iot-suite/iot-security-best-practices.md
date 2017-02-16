@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92a0988e32270b6d6d58841e67ff545d07fa311a
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 9e62a38e71827c21883c6ac443ffb546c134c600
 
 
 ---
@@ -26,13 +26,13 @@ ms.openlocfilehash: 92a0988e32270b6d6d58841e67ff545d07fa311a
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
-* [Architecture de sécurité IoT][lnk-security-architecture]
+* [Architecture de la sécurité IoT][lnk-security-architecture]
 * [Sécuriser votre déploiement IoT][lnk-security-deployment]
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 
 * [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]
-* [Forum Aux Questions (FAQ) relatives à Azure IoT Suite][lnk-faq]
+* [Forum Aux Questions (FAQ) relatif à Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -42,6 +42,6 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

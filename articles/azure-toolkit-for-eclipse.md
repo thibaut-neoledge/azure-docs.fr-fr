@@ -4,7 +4,7 @@ description: En savoir plus sur le kit de ressources Azure pour Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
 ms.service: multiple
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2376cd1f4fd5dd6c79b5eb7969c0e82c07f5473
+ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
+ms.openlocfilehash: 1c60d3730aa2bbca63abf259727ec41ffc164b47
 
 
 ---
@@ -57,7 +57,7 @@ Les articles suivants expliquent comment utiliser la Boîte à outils Azure pour
 * [Réalisation de déploiements volumineux]
 * [Débogage d’une application web Java sur Azure dans Eclipse]
 * [Débogage des applications Azure dans Eclipse]
-* [Utilisation du plug-in Outils HDInsight pour Eclipse afin de créer des applications Spark pour un cluster Linux HDInsight Spark][Utilisation du plug-in Outils HDInsight pour Eclipse]
+* [Utilisation du plug-in Outils HDInsight pour Eclipse afin de créer des applications Spark pour un cluster Linux HDInsight Spark][HDInsight Tools Plugin for Eclipse]
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
@@ -71,11 +71,11 @@ Pour plus d’informations sur les boîtes à outils Azure pour les environnemen
   * [Créer une application web « Hello World » pour Azure dans IntelliJ]
   * [Nouveautés du Kit de ressources Azure pour IntelliJ]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure] et les [outils Java pour Visual Studio Team Services].
 
 <!-- URL List -->
 
-[Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
 [Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -85,6 +85,7 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Propriétés du projet Azure]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Propriétés du rôle Azure]: ./azure-toolkit-for-eclipse-azure-role-properties.md
@@ -97,8 +98,8 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Affichage du contenu Javadoc dans Eclipse pour le package de bibliothèques Azure pour Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Activation de l’accès à distance pour les déploiements Azure dans Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [Activer l’affinité de session]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
-[Utilisation du plug-in Outils HDInsight pour Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
-[Authentification des utilisateurs web auprès d’Azure Access Control Service à l’aide d’Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -110,6 +111,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

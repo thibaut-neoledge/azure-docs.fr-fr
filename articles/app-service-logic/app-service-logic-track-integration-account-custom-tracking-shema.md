@@ -1,6 +1,6 @@
 ---
-title: "Schéma de suivi personnalisé | Microsoft Docs"
-description: "En savoir plus sur le schéma de suivi personnalisé"
+title: "Schémas de suivi personnalisé | Microsoft Docs"
+description: "En savoir plus sur les schémas de suivi personnalisé"
 author: padmavc
 manager: erikre
 editor: 
@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 63ba6e8fec8df1cdbc9928b011130f47c5facf89
-ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
+ms.sourcegitcommit: d88fa57c2f343636d7529780dc1b27ccb604ee02
+ms.openlocfilehash: 0de8128b01f760340e85078b433707c566fa2e4f
 
 
 ---
-# <a name="custom-tracking-schema"></a>Schéma de suivi personnalisé
-## <a name="supported-custom-tracking-schema"></a>Schéma de suivi personnalisé pris en charge
+# <a name="custom-tracking-schemas"></a>Schéma de suivi personnalisé
+Vous pouvez utiliser un schéma de suivi personnalisé dans votre compte de l’intégration d’Azure pour vous aider à surveiller les transactions B2B.
+
+## <a name="custom-tracking-schema"></a>Schéma de suivi personnalisé
 ````java
 
         {
             "sourceType": "",
-            "source": { 
+            "source": {
 
             "workflow": {
                 "systemId": ""
@@ -56,36 +58,35 @@ ms.openlocfilehash: f846f23bef61e8e772920196b9c81d059546d8a6
 
 ````
 
-| Propriété | Description |
-| --- | --- |
-| sourceType |Obligatoire.  Cette propriété indique le type de source d’exécution. Les valeurs autorisées sont Microsoft.Logic/workflows ou custom. |
-| Source |Obligatoire. Si le type de source est Microsoft.Logic/workflows, les informations source doivent suivre ce schéma. Si le type de source est custom, le schéma est un JToken.  |
-| systemId |Chaîne obligatoire.  Elle indique l’ID système de l’application logique. |
-| runId |Chaîne obligatoire.  Elle indique l’ID d’exécution de l’application logique. |
-| operationName |Chaîne obligatoire.  Elle indique le nom de l’opération (par exemple action ou déclencheur). |
-| repeatItemScopeName |Chaîne obligatoire. Elle indique le nom de l’élément de répétition si l’action fait partie d’une boucle foreach ou until. |
-| repeatItemIndex |Entier obligatoire.  Si l’action fait partie d’une boucle foreach ou until, il indique l’index de l’élément répété.  |
-| trackingId |Chaîne facultative. Elle indique l’ID de suivi permettant de corréler les messages. |
-| correlationId |Chaîne facultative. Elle indique l’ID de corrélation permettant de corréler les messages. |
-| clientRequestId |Chaîne facultative.  Le client peut remplir ce champ pour corréler les messages. |
-| eventLevel |Obligatoire. Cette propriété indique le niveau de l’événement. |
-| eventTime |Obligatoire. Cette propriété indique l’heure de l’événement au format UTC AAAA-MM-DDTHH:MM:SS.00000Z |
-| recordType |Obligatoire. Cette propriété indique le type de l’enregistrement de suivi. La valeur autorisée est Custom. |
-| record |Obligatoire.  Cette propriété indique le type d’enregistrement personnalisé et le format autorisé est JToken. |
-|  | |
+| Propriété | Type | Description |
+| --- | --- | --- |
+| sourceType |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. (obligatoire) |
+| Source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
+| systemId | String | ID système d’application logique. (obligatoire) |
+| runId | String | ID d’exécution d’application logique. (obligatoire) |
+| operationName | String | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
+| repeatItemScopeName | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
+| repeatItemIndex | Entier  | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. (obligatoire) |
+| trackingId | String | ID de suivi permettant de corréler les messages. (facultatif) |
+| correlationId | String | ID de corrélation permettant de corréler les messages. (facultatif) |
+| clientRequestId | String | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
+| eventLevel |   | Niveau de l’événement. (obligatoire) |
+| eventTime |   | Heure de l’événement au format UTC AAAA-MM-JJTHH:MM:SS.00000Z. (obligatoire) |
+| recordType |   | Type de l’enregistrement de suivi. La valeur autorisée est **Custom**. (obligatoire) |
+| record |   | Type d'enregistrement personnalisé. Le format autorisé est JToken. (obligatoire) |
 
-## <a name="supported-b2b-protocol-tracking-schemas"></a>Protocole B2B pris en charge pour les schémas de suivi
-* [Schéma de suivi AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
-* [Schéma de suivi X12](app-service-logic-track-integration-account-x12-tracking-shemas.md) 
+## <a name="b2b-protocol-tracking-schemas"></a>Schémas de suivi de protocole B2B
+Pour plus d’informations sur les schémas de suivi de protocole B2B, consultez :
+* [Schémas de suivi AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md)   
+* [Schémas de suivi X12](app-service-logic-track-integration-account-x12-tracking-shemas.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur le suivi des messages B2B](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Suivi des messages B2B dans le portail OMS](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
-[En savoir plus sur Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
+* En savoir plus sur le [suivi des messages B2B](app-service-logic-monitor-b2b-message.md).   
+* En savoir plus sur le [suivi de messages B2B dans le portail Operations Management Suite](app-service-logic-track-b2b-messages-omsportal.md).
+* En savoir plus sur [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Déploiement de votre appareil StorSimple local (Update 2)
+# <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Déploiement de votre appareil StorSimple local (Update 2)
 > [!div class="op_single_selector"]
 > * [Update 2 et version ultérieure](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
@@ -56,7 +56,7 @@ Suivez ces étapes requises pour configurer votre appareil StorSimple et le conn
 | [Étape 1 : Création d’un nouveau service](#step-1-create-a-new-service) |Configurez le stockage et la gestion de cloud pour votre appareil StorSimple. *Ignorez cette étape si vous avez un service existant pour d'autres appareils StorSimple*. |
 | [Étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key) |Utilisez cette clé pour inscrire et connecter votre appareil StorSimple auprès du service de gestion. |
 | [Étape 3 : Configuration et inscription de l’appareil via Windows PowerShell pour StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Connectez l'appareil à votre réseau et enregistrez-le avec Azure pour terminer l'installation à l'aide du service de gestion. |
-| [Étape 4 : Fin de l’installation minimale de l’appareil](#step-4-complete-minimum-device-setupd)</br>[Facultatif : Mise à jour de votre appareil StorSimple](#scan-for-and-apply-updates) |Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
+| [Étape 4 : Fin de l’installation minimale de l’appareil](#step-4-complete-minimum-device-setup)</br>[Facultatif : Mise à jour de votre appareil StorSimple](#scan-for-and-apply-updates) |Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
 | [Étape 5 : Création d’un conteneur de volumes](#step-5-create-a-volume-container) |Créez un conteneur pour mettre en service les volumes. Un conteneur de volumes dispose de paramètres de compte de stockage, de bande passante et de chiffrement pour tous les volumes qu’il contient. |
 | [Étape 6 : Création d’un volume](#step-6-create-a-volume) |Mettez en service le(s) volume(s) de stockage sur l'appareil StorSimple pour vos serveurs. |
 | [Étape 7 : Montage, initialisation et formatage d’un volume](#step-7-mount-initialize-and-format-a-volume)</br>[Facultatif : Configuration de solution MPIO](storsimple-configure-mpio-windows-server.md) |Connectez vos serveurs au stockage iSCSI fourni par l'appareil. Vous avez la possibilité de configurer la solution MPIO pour vous assurer que vos serveurs peuvent tolérer une panne de liaison, de réseau et d’interface. |
@@ -95,7 +95,7 @@ Avant de commencer, assurez-vous que :
 
 * Les ports du pare-feu de votre centre de données sont ouverts pour autoriser le trafic iSCSI et du cloud, comme décrit dans la section [Configuration réseau requise pour un appareil StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
+## <a name="step-by-step-deployment"></a>DÉPLOIEMENT ÉTAPE PAR ÉTAPE
 Utilisez la procédure détaillée ci-dessous pour déployer votre appareil StorSimple dans le centre de données.
 
 ## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
@@ -224,6 +224,6 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9be3e2ac6f3ad8ec395c41e2c91379a5d44e29c0
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 6f51f0585dfc75d28da72d1056ef7173c06b24fd
 
 
 ---
@@ -128,7 +128,7 @@ Mappez les données en ajoutant un mappage de liste pour chaque client.
     -SqlDatabaseName '<shard_database_name>' 
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>Option 2 : Mapper les données pour un mappage de plage
-Ajoutez les mappages de plage pour la plage d’id client – associations de base de données :
+Ajoutez les mappages de plage pour la plage d’ID client – associations de bases de données :
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -174,6 +174,6 @@ Pour toute question, contactez-nous sur le [forum SQL Database](http://social.ms
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

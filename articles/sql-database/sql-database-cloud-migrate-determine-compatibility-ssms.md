@@ -1,6 +1,7 @@
 ---
-title: "Utilisez SQL Server Management Studio afin de déterminer la compatibilité de SQL Database avant la migration vers Azure SQL Database | Microsoft Azure"
-description: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité Base de données SQL, Assistant d’exportation d’application de couche Données"
+title: "SSMS : Compatibilité des bases de données Azure SQL Server | Microsoft Docs"
+description: "Dans cet article, vous découvrirez comment déterminer si une base de données SQL Server est compatible pour la migration vers Base de données SQL à l’aide de l’Assistant d’exportation d’une application de couche données dans SQL Server Management Studio."
+keywords: "Base de données SQL Microsoft Azure, migration de base de données, compatibilité Base de données SQL, Assistant d’exportation d’application de couche Données"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: 15d0bf86d6094b6a8c0d6aaf1e1bb59382a81ffb
+ms.sourcegitcommit: 82b76602133fa42db14e2095f29535b6002e9b2f
+ms.openlocfilehash: efcf1179f744e1b3d1645321af62d2533677afd2
 
 
 ---
@@ -70,6 +71,6 @@ Dans cet article, vous découvrirez comment déterminer si une base de données 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

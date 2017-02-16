@@ -12,15 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: c3f383a792994aaf1ff266338ca5b64c7e4362ec
 
 
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions
+
+Cet article répond aux questions fréquemment posées par communauté des utilisateurs d’Azure Media Services (AMS).
+
 ## <a name="general-ams-faqs"></a>Forum Aux Questions - Généralités AMS
 Q : comment mettre à l’échelle l’indexation ?
 
@@ -28,7 +31,7 @@ R : les unités réservées sont les mêmes pour les tâches d’encodage et d�
 
 Q : j’ai chargé, encodé et publié une vidéo. Pourquoi la vidéo n’est-elle pas lue lorsque j’essaie de la diffuser en continu ?
 
-R : une des raisons les plus courantes est que vous n’avez pas au moins une unité réservée de diffusion en continu allouée sur le point de terminaison de diffusion en continu à partir duquel vous essayez de lire la vidéo.  Suivez les instructions de la page [Mise à l’échelle des unités réservées de diffusion en continu](media-services-portal-scale-streaming-endpoints.md).
+R : une des raisons les plus courantes est que le point de terminaison de streaming à partir duquel vous essayez de lire n’est pas dans l’état **En cours d’exécution**.  
 
 Q : la composition d’un flux dynamique est-elle possible ?
 
@@ -48,7 +51,7 @@ R : pour copier des éléments multimédias d’un compte Media Services vers u
 
 Q: quels sont les caractères pris en charge pour les noms des fichiers en utilisant AMS ?
 
-R : Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut y avoir qu’un « . » pour l’extension de nom de fichier.
+R : Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier.
 
 Q: comment se connecter avec REST ?
 
@@ -56,7 +59,7 @@ R: Après vous être connecté à https://media.windows.net, vous recevrez une r
 
 Q : comment faire pivoter une vidéo au cours du processus d’encodage ?
 
-R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) prend en charge trois angles de rotation (90, 180 et 270). Le comportement par défaut est « Auto », ce qui signifie qu’il tente de détecter les métadonnées de rotation dans le fichier MP4/MOV entrant et de les compenser. Incluez l’élément **Sources** suivant dans l’une des présélections json définies [ici](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) prend en charge trois angles de rotation (90, 180 et 270). Le comportement par défaut est « Auto », ce qui signifie qu’il tente de détecter les métadonnées de rotation dans le fichier MP4/MOV entrant et de les compenser. Incluez l’élément **Sources** suivant dans l’une des présélections json définies [ici](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [
@@ -82,6 +85,6 @@ R : [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

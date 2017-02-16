@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 12/21/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 40c4f88bc91773158d416d5e89424b92cf15cf91
+ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
+ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
 
 
 ---
@@ -89,11 +89,11 @@ Vous avez besoin d’Active Directory sur le site de récupération secondaire p
 
 Les instructions fournies dans ce document supposent qu'un contrôleur de domaine est disponible sur l'emplacement secondaire. [ici](site-recovery-active-directory.md) .
 
-## <a name="integrate-protection-with-sql-server-always-on-on-premises-to-azure"></a>Intégrer la protection à SQL Server Always-On (localement vers Azure)
+## <a name="integrate-protection-with-sql-server-always-on-in-classic-azure-portal-on-premises-to-azure"></a>Intégrer la protection à SQL Server Always-On dans le portail Azure classique (localement vers Azure)
 Site Recovery prend en charge SQL AlwaysOn en mode natif. Si vous avez créé un groupe de disponibilité SQL avec une machine virtuelle Azure configurée comme « Secondaire », vous pouvez utiliser Site Recovery pour gérer le basculement des groupes de disponibilité.
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V du centre de données principal sont gérés dans des clouds VMM et quand la configuration VMware est gérée par un [Serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure.
+> Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V du centre de données principal sont gérés dans des clouds VMM et quand la configuration VMware est gérée par un [Serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure. Si vous utilisez le nouveau portail Azure, suivez les étapes de [cette section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal). 
 >
 >
 
@@ -106,7 +106,7 @@ Voici ce dont vous avez besoin pour intégrer SQL AlwaysOn à Site Recovery :
 * La communication à distance PowerShell doit être activée sur l’ordinateur SQL Server local. Le serveur VMM ou de configuration doit pouvoir effectuer des appels PowerShell distants vers le serveur SQL Server.
 * Un compte d’utilisateur doit être ajouté sur le serveur SQL Server local, dans les groupes d’utilisateurs SQL avec au minimum les autorisations suivantes :
   * ALTER AVAILABILITY GROUP : autorisations [ici](https://msdn.microsoft.com/library/hh231018.aspx) et [ici](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-  * ALTER DATABASE : autorisations[ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+  * ALTER DATABASE : autorisations [ici](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 * Un compte d’identification doit être créé sur le serveur VMM ou un compte doit être créé sur le serveur de configuration à l’aide de CSPSConfigtool.exe pour l’utilisateur indiqué dans l’étape précédente
 * Le module SQL PS doit être installé sur les serveurs SQL Server exécutés en local et sur des machines virtuelles Azure.
 * L’agent de machine virtuelle doit être installé sur les machines virtuelles exécutées dans Azure.
@@ -146,7 +146,7 @@ Une fois ajouté, le serveur SQL Server apparaît sous l’onglet **Serveurs SQL
 
 #### <a name="step-3-create-a-recovery-plan"></a>Étape 3 : créer un plan de récupération
 L’étape suivante consiste à créer un plan de récupération à l’aide des machines virtuelles et des groupes de disponibilité.
-Sélectionnez le serveur VMM ou de configuration utilisé à l’étape 1 comme source, et Microsoft Azure comme cible.
+Sélectionnez le serveur VMM ou de configuration utilisé à l’étape&1; comme source, et Microsoft Azure comme cible.
 
 ![Créer un plan de récupération](./media/site-recovery-sql/create-rp1.png)
 
@@ -183,7 +183,7 @@ Si vous voulez définir de nouveau le groupe de disponibilité comme principal s
 >
 >
 
-### <a name="protect-machines-without-a-vmm-server-or-a-configuration-server"></a>Protéger des ordinateurs sans serveur VMM ou de configuration
+### <a name="protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal"></a>Protéger les machines dans le nouveau portail Azure ou sans un serveur VMM ou un serveur de configuration dans le portail Azure classique
 Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configuration, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script. Pour configurer cela, procédez comme suit :
 
 1. Créez un fichier local pour le script qui bascule un groupe de disponibilité. Cet exemple de script spécifie le chemin d'accès au groupe de disponibilité sur le réplica Azure et le bascule vers cette instance de réplica. Ce script s’exécutera sur l’ordinateur virtuel du réplica SQL Server par l’intermédiaire de l'extension de script personnalisé.
@@ -206,12 +206,12 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
 1. **Test de basculement** : SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. Par conséquent, la méthode recommandée est la suivante :
     1. Configurez la [Sauvegarde Azure](../backup/backup-azure-vms.md) sur la machine virtuelle qui héberge le réplica du groupe de disponibilité dans Azure. 
-    1. Avant de déclencher le test de basculement du plan de récupération, récupérez la machine virtuelle à partir de la sauvegarde effectuée à l’étape 1
+    1. Avant de déclencher le test de basculement du plan de récupération, récupérez la machine virtuelle à partir de la sauvegarde effectuée à l’étape&1;
     1. Effectuer le test de basculement du plan de récupération
 
 
 > [!NOTE]
-> Le script ci-dessous suppose que le groupe de disponibilité SQL est hébergé sur une machine virtuelle Azure classique et que le nom de la machine virtuelle restaurée à l’étape 2 est SQLAzureVM-Test. Modifiez le script en fonction du nom que vous utilisez pour la machine virtuelle récupérée.
+> Le script ci-dessous suppose que le groupe de disponibilité SQL est hébergé sur une machine virtuelle Azure classique et que le nom de la machine virtuelle restaurée à l’étape&2; est SQLAzureVM-Test. Modifiez le script en fonction du nom que vous utilisez pour la machine virtuelle récupérée.
 > 
 > 
 
@@ -342,6 +342,6 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

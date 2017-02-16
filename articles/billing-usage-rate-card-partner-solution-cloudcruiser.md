@@ -4,7 +4,7 @@ description: "Décrit la façon dont Cloud Cruiser, un partenaire de facturatio
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 09/08/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;sirishap;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
+ms.openlocfilehash: fc40c33c7ae28adcd2975e89c395db4cfde90a49
 
 
 ---
@@ -49,7 +49,7 @@ Cloud Cruiser peut tirer parti des informations de l’API RateCard de différe
 
 Pour illustrer ce cas d’utilisation, imaginons une charge de travail de plusieurs instances en cours d’exécution sur Microsoft Azure Pack (WAP). L’objectif est de simuler cette même charge de travail sur Azure et d’estimer les coûts liés à cette migration. La création de cette simulation nécessite l’exécution de deux tâches principales :
 
-1. **Importation et traitement des informations de service collectées à partir de l’API RateCard.**  Cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
+1. **Importation et traitement des informations de service collectées à partir de l’API RateCard.** Cette tâche est également effectuée sur les classeurs, dans lesquels les informations extraites de l’API RateCard sont transformées et publiées sous la forme d’une nouvelle formule tarifaire. Cette nouvelle formule sera appliquée aux simulations pour estimer les prix Azure.
 2. **Normalisation des services WAP et des services Azure pour IaaS.** Par défaut, les services WAP reposent sur des ressources individuelles (UC, taille de la mémoire, taille de disque, etc.), alors que les services Azure sont basés sur la taille d’instance (A0, A1, A2, etc.). Cette première tâche peut être effectuée par le moteur ETL (extraction, transformation et chargement) de Cloud Cruiser, désigné sous le terme de classeurs, dans lesquels ces ressources peuvent être regroupées dans des tailles d’instance, analogues aux services d’instance d’Azure.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Importer les données de l’API RateCard
@@ -57,15 +57,15 @@ Les classeurs Cloud Cruiser automatisent la collecte et le traitement des infor
 
 Chaque classeur peut comporter une ou plusieurs collections, ce qui vous permet de mettre en corrélation les informations de différentes sources afin de compléter ou d’enrichir les données d’utilisation. Les deux captures d’écran suivantes illustrent la création d’une *collection* dans un classeur existant et l’importation d’informations de l’API RateCard dans cette *collection* :
 
-![Figure 1 : création d’une collection][1]
+![Figure 1 : création d’une collection][1]
 
-![Figure 2 : importation des données de la nouvelle collection][2]
+![Figure 2 : importation des données de la nouvelle collection][2]
 
 Après avoir importé les données dans le classeur, nous pouvons créer plusieurs étapes et processus de transformation afin de modifier et de modéliser les données. Dans notre exemple, étant donné que nous sommes uniquement intéressés par l’infrastructure as a service (IaaS), nous pouvons utiliser les étapes de transformation pour supprimer les lignes ou enregistrements inutiles liés aux services autres que l’IaaS.
 
 La capture d’écran suivante illustre les étapes de transformation permettant de traiter les données collectées à partir de l’API RateCard :
 
-![Figure 3 : étapes de transformation pour le traitement des données collectées à partir de l’API RateCard][3]
+![Figure 3 : étapes de transformation pour le traitement des données collectées à partir de l’API RateCard][3]
 
 ### <a name="defining-new-services-and-rate-plans"></a>Définition de nouveaux services et formules tarifaires
 Il existe différentes façons de définir des services sur Cloud Cruiser. L’une des possibilités consiste à importer les services à partir des données d’utilisation. Cette méthode est couramment utilisée lorsque l’on travaille avec des clouds publics, dans lesquels les services sont déjà définis par le fournisseur.
@@ -76,29 +76,29 @@ Dans cet exemple, nous allons utiliser les informations de service de l’API Ra
 
 À la fin du processus de transformation, il est possible de créer une autre étape et de publier les données de l’API RateCard sous la forme de nouveaux services et tarifs.
 
-![Figure 4 : publication des données de l’API RateCard sous la forme de nouveaux services et tarifs][4]
+![Figure 4 : publication des données de l’API RateCard sous la forme de nouveaux services et tarifs][4]
 
 ### <a name="verify-azure-services-and-rates"></a>Vérifier les services et tarifs Azure
 Après avoir publié les services et les tarifs, vous pouvez vérifier la liste des services importés dans l’onglet *Services* de Cloud Cruiser :
 
-![Figure 5 : vérification des nouveaux services][5]
+![Figure 5 : vérification des nouveaux services][5]
 
 Dans l’onglet *Rate Plans* , vous pouvez vérifier la nouvelle formule tarifaire appelée « AzureSimulation » en fonction des tarifs importés depuis l’API RateCard.
 
-![Figure 6 : vérification de la nouvelle formule tarifaire et des tarifs associés][6]
+![Figure 6 : vérification de la nouvelle formule tarifaire et des tarifs associés][6]
 
 ### <a name="normalize-wap-and-azure-services"></a>Normaliser les services WAP et Azure
 Par défaut, WAP fournit des informations d’utilisation reposant sur l’utilisation des ressources de calcul, de mémoire et de réseau. Cloud Cruiser vous permet de définir des services directement basés sur l’attribution ou l’utilisation facturée à l’usage de ces ressources. Par exemple, vous pouvez définir un tarif de base pour chaque heure d’utilisation de l’unité centrale, ou facturer les Go de mémoire alloués à une instance.
 
 Dans notre exemple, pour comparer les coûts entre WAP et Azure, nous devons agréger l’utilisation des ressources sur WAP sous forme d’offres groupées, qui peuvent ensuite être mappées sur les services Azure. Cette transformation peut être facilement implémentée dans les classeurs :
 
-![Figure 7 : transformation des données WAP pour normaliser les services][7]
+![Figure 7 : transformation des données WAP pour normaliser les services][7]
 
 La dernière étape au niveau du classeur consiste à publier les données dans la base de données Cloud Cruiser. Au cours de cette étape, les données d’utilisation sont désormais regroupées sous forme de services (mappés sur les services Azure) et associées aux tarifs par défaut pour créer les frais.
 
 Après avoir terminé le classeur, vous pouvez automatiser le traitement des données en ajoutant une tâche sur le planificateur et en spécifiant la fréquence et l’heure d’exécution du classeur.
 
-![Figure 8 : planification du classeur][8]
+![Figure 8 : planification du classeur][8]
 
 ### <a name="create-reports-for-workload-cost-simulation-analysis"></a>Créer des rapports concernant la simulation et l’analyse des coûts de la charge de travail
 Une fois les données d’utilisation collectées et les frais chargés dans la base de données Cloud Cruiser, nous pouvons exploiter le module Cloud Cruiser Insights pour créer la simulation des coûts de charge de travail dont nous avons besoin.
@@ -121,7 +121,7 @@ Dans ce didacticiel, nous présentons un exemple de la manière dont Cloud Cruis
 
 L’objectif final est de pouvoir créer des rapports comme le suivant et d’être en mesure d’analyser les coûts et la consommation sur la base de la structure de compte renseignée par les balises.
 
-![Figure 10 : rapport avec répartitions à l'aide de balises][10]
+![Figure 10 : rapport avec répartitions à l’aide de balises][10]
 
 ### <a name="microsoft-azure-tags"></a>Balises Microsoft Azure
 Les données disponibles à l'aide de l'API Azure Usage incluent des informations sur la consommation, mais également des métadonnées de ressources, notamment toutes les balises qui y sont associées. Les balises fournissent un moyen simple d'organiser vos ressources. Mais, pour les exploiter, vous devez vous assurer que :
@@ -172,7 +172,7 @@ Les classeurs Cloud Cruiser automatisent la collecte et le traitement des infor
 
 Chaque classeur peut comporter une ou plusieurs collections. Cela vous permet de mettre en corrélation les informations de différentes sources afin de compléter ou d’enrichir les données d’utilisation. Pour cet exemple, nous allons créer une nouvelle feuille dans le classeur modèle Azure (*UsageAPI)* et définir une nouvelle *collection* pour importer des informations à partir de l’API d’utilisation.
 
-![Figure 3 : données de l'API d'utilisation importées dans la feuille UsageAPI][12]
+![Figure 3 : données de l’API d’utilisation importées dans la feuille UsageAPI][12]
 
 Notez que ce classeur comporte déjà d’autres feuilles pour importer des services depuis Azure (*ImportServices*) et traiter les informations sur la consommation de l’API de facturation (*PublishData*).
 
@@ -181,7 +181,7 @@ Ensuite, nous utiliserons l’API d’utilisation pour remplir la feuille *Usage
 ### <a name="processing-the-tag-information-from-the-usage-api"></a>Traitement des informations de balisage depuis l'API d'utilisation
 Après avoir importé les données dans le classeur, nous créerons des étapes de transformation dans la feuille *UsageAPI* pour traiter les informations à partir de l'API. La première étape consiste à utiliser un processeur « Fractionner JSON » pour extraire les balises à partir d’un seul champ, puis à créer des champs pour chacune d’entre elles (département, projet, propriétaire et environnement).
 
-![Figure 4 : créer des champs pour les informations de balise][13]
+![Figure 4 : créer des champs pour les informations de balise][13]
 
 Notez que les informations de balise (zone jaune) ne figurent pas dans le service « Réseau », mais nous pouvons vérifier qu’il fait partie du même groupe de ressources en examinant le champ *ResourceGroupName* . Étant donné que nous avons les balises pour les autres ressources à partir de ce groupe de ressources, nous pouvons utiliser ces informations pour appliquer les balises manquantes à cette ressource ultérieurement dans le processus.
 
@@ -190,7 +190,7 @@ L'étape suivante consiste à créer une table de choix associant les informatio
 ### <a name="adding-the-tag-information-to-the-consumption-data"></a>Ajout des informations de balise aux données de consommation
 Maintenant que nous pouvons passer à la feuille *PublishData* , qui traite les informations de la consommation de l'API de facturation, puis ajouter les champs extraits à partir des balises. Pour cela, il suffit d'effectuer une recherche dans la table de choix créée à l'étape précédente en utilisant le *ResourceGroupName* comme clé de recherche.
 
-![Figure 5 : remplissage de la structure de compte avec les informations des recherches][14]
+![Figure 5 : remplissage de la structure de compte avec les informations des recherches][14]
 
 Notez que les champs de structure de compte appropriés pour le service « Réseau » ont été appliqués, ce qui a corrigé le problème des balises manquantes. Nous également renseigné les champs de structure de compte pour les ressources autres que notre groupe de ressources cible avec « Other » (Autre), afin de les différencier des rapports.
 
@@ -209,23 +209,23 @@ Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeu
 
 <!--Image references-->
 
-[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figure 1 : création d’une collection"
-[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figure 2 : importation des données de la nouvelle collection"
-[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figure 3 : étapes de transformation pour le traitement des données collectées à partir de l’API RateCard"
-[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Figure 4 : publication des données de l’API RateCard sous la forme de nouveaux services et tarifs"
-[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Figure 5 : vérification des nouveaux services"
-[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Figure 6 : vérification de la nouvelle formule tarifaire et des tarifs associés"
-[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Figure 7 : transformation des données WAP pour normaliser les services"
-[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 : planification du classeur"
-[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 : exemple de rapport pour le scénario de comparaison des coûts de la charge de travail"
-[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 : rapport avec répartitions à l’aide de balises"
+[1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figure 1 : création d’une collection"
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figure 2 : importation des données de la nouvelle collection"
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figure 3 : étapes de transformation pour le traitement des données collectées à partir de l’API RateCard"
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Figure 4 : publication des données de l’API RateCard sous la forme de nouveaux services et tarifs"
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Figure 5 : vérification des nouveaux services"
+[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Figure 6 : vérification de la nouvelle formule tarifaire et des tarifs associés"
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Figure 7 : transformation des données WAP pour normaliser les services"
+[8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 : planification du classeur"
+[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 : exemple de rapport pour le scénario de comparaison des coûts de la charge de travail"
+[10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 : rapport avec répartitions à l’aide de balises"
 [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 : groupe de ressources avec des balises associées dans le portail Azure"
-[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 : données de l’API d’utilisation importées dans la feuille UsageAPI"
-[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 : créer des champs pour les informations de balise"
-[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 : remplissage de la structure de compte avec les informations des recherches"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 : données de l’API d’utilisation importées dans la feuille UsageAPI"
+[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 : créer des champs pour les informations de balise"
+[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 : remplissage de la structure de compte avec les informations des recherches"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

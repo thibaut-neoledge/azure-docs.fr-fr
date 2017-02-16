@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: e2b83e0381dbd323dd03ff359cda8ce35d3c8a39
-ms.openlocfilehash: aed3bee0b5e533ae1a82536e977849ea1831a183
+ms.sourcegitcommit: b5545e089a67a16d20cac6bb1d8067a6ff9fcb17
+ms.openlocfilehash: e27e4f42722cd819f03f7271e72463b5781d2725
 
 
 ---
@@ -37,7 +37,7 @@ Lorsque vous utilisez une application logique déclenchée par une requête HTTP
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 
-Chaque point de terminaison de requête pour une application logique inclut une partie [Signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAP) dans l’URL.  Chaque URL contient un paramètre de requête `sp`, `sv` et `sig`.  Les autorisations sont spécifiées par `sp` et correspondent aux méthodes HTTP autorisées, `sv` est la version utilisée pour générer et `sig` est utilisé pour authentifier l’accès au déclencheur.  Il est généré à l’aide de l’algorithme SHA 256 avec une clé secrète sur tous les chemins d’accès à l’URL et les propriétés.  La clé secrète n’est jamais exposée et publiée, et est chiffrée et stockée dans l’application logique.  Votre application logique autorise uniquement les déclencheurs contenant une signature valide créée avec la clé secrète.
+Chaque point de terminaison de requête pour une application logique inclut une partie [Signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAP) dans l’URL.  Chaque URL contient un paramètre de requête `sp`, `sv` et `sig`.  Les autorisations sont spécifiées par `sp` et correspondent aux méthodes HTTP autorisées, `sv` est la version utilisée pour générer et `sig` est utilisé pour authentifier l’accès au déclencheur.  Il est généré à l’aide de l’algorithme SHA&256; avec une clé secrète sur tous les chemins d’accès à l’URL et les propriétés.  La clé secrète n’est jamais exposée et publiée, et est chiffrée et stockée dans l’application logique.  Votre application logique autorise uniquement les déclencheurs contenant une signature valide créée avec la clé secrète.
 
 #### <a name="regenerate-access-keys"></a>Régénération de clés d'accès
 
@@ -51,7 +51,7 @@ Les URL que vous récupérez après la régénération sont signées avec la nou
 
 #### <a name="creating-callback-urls-with-an-expiration-date"></a>Création d’URL de rappel avec une date d’expiration
 
-Si vous partagez l’URL avec d’autres utilisateurs, vous pouvez générer des URL avec des clés et des dates d’expiration spécifiques si nécessaire.  Cela vous permet de déployer des clés de manière transparente, ou de garantir que l’accès pour déclencher une application est limité à un intervalle de temps donné.  Vous pouvez spécifier une date d’expiration pour une URL via l’[API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers.md) comme suit :
+Si vous partagez l’URL avec d’autres utilisateurs, vous pouvez générer des URL avec des clés et des dates d’expiration spécifiques si nécessaire.  Cela vous permet de déployer des clés de manière transparente, ou de garantir que l’accès pour déclencher une application est limité à un intervalle de temps donné.  Vous pouvez spécifier une date d’expiration pour une URL via l’[API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers) comme suit :
 
 ``` http
 POST 
@@ -62,7 +62,7 @@ Dans le corps, incluez la propriété `NotAfter` en tant que chaîne de date JSO
 
 #### <a name="creating-urls-with-primary-or-secondary-secret-key"></a>Création d’URL avec une clé de secret principale ou secondaire
 
-Lorsque vous générez ou répertoriez des URL de rappel pour des déclencheurs basés sur une requête, vous pouvez également spécifier la clé à utiliser pour signer l’URL.  Vous pouvez générer une URL signée par une clé spécifique via l’[API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers.md) comme suit :
+Lorsque vous générez ou répertoriez des URL de rappel pour des déclencheurs basés sur une requête, vous pouvez également spécifier la clé à utiliser pour signer l’URL.  Vous pouvez générer une URL signée par une clé spécifique via l’[API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic/workflowtriggers) comme suit :
 
 ``` http
 POST 
@@ -280,6 +280,7 @@ Vous pouvez utiliser la fonctionnalité de connexion hybride locale pour que l�
 [Diagnostic des échecs et problèmes d’applications logiques](app-service-logic-diagnosing-failures.md)  
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO1-->
 
 

@@ -160,6 +160,6 @@ Voici l'exemple de script complet pour créer la machine virtuelle Windows et la
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

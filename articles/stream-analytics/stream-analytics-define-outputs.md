@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 12/05/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e5703e7aa26af81a0bf76ec393f124ddc80bf43c
-ms.openlocfilehash: 76adad7bc7f195b04601368fb715e34f5d3d7782
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
 
 
 ---
@@ -212,6 +212,37 @@ Pour une vue d’ensemble de la configuration d’un tableau de bord et d’une 
 > 
 > 
 
+### <a name="schema-creation"></a>Création d’un schéma
+Azure Stream Analytics crée un jeu de données et une table Power BI au nom de l’utilisateur s’il n’en existe pas encore. Dans tous les autres cas, la table est mise à jour avec les nouvelles valeurs. Actuellement, une seule table peut exister dans un jeu de données.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversion de types de données d’ASA vers Power BI
+Azure Stream Analytics met à jour le modèle de données dynamiquement lors de l’exécution si le schéma de sortie est modifié. L’intégralité des modifications de nom de colonne, modifications de type de colonne et ajouts ou suppressions de colonnes sont suivis.
+
+Ce tableau décrit les conversions de types de données des [types de données Steam Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) vers les [types Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power Bi si un jeu de données et une table POWER BI n’existent pas.
+
+
+De Stream Analytics | Vers Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | String
+datetime | DateTime
+float | Double
+Tableau d’enregistrements | Type chaîne, valeur constante « IRecord » ou « IArray »
+
+### <a name="schema-update"></a>Mise à jour d’un schéma
+Steam Analytics déduit le schéma de modèle de données sur la base du premier ensemble d’événements de la sortie. Plus tard, si nécessaire, le schéma de modèle de données est mis à jour pour prendre en compte les événements entrants qui ne correspondent pas au schéma d’origine.
+
+La requête `SELECT *` doit être évitée pour empêcher la mise à jour dynamique du schéma entre les lignes. En plus de l’impact potentiel sur les performances, le temps nécessaire pour les résultats devient impossible à déterminer. Les champs exacts qui doivent être présentés dans le tableau de bord Power BI doivent être sélectionnés. En outre, les valeurs de données doivent être compatibles avec le type de données choisi.
+
+
+Précédent/Actuel | Int64 | String | DateTime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | Chaîne | Chaîne | Chaîne |  | String | 
+DateTime | String | String |  DateTime | String
+
+
 ### <a name="renew-power-bi-authorization"></a>Renouvellement de l’autorisation Power BI
 Vous devrez authentifier de nouveau votre compte Power BI si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche. Si Multi-Factor Authentication (MFA) est configuré sur votre client Azure Active Directory (AAD), vous devrez également renouveler l’autorisation Power BI toutes les 2 semaines. Un symptôme de ce problème est l’absence de sortie de la tâche et une « erreur d’authentification de l’utilisateur » dans les journaux des opérations :
 
@@ -329,6 +360,6 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -41,7 +41,7 @@ Le tableau suivant fournit des exemples de niveaux adaptés à différentes char
 Commencez par déterminer si vous souhaitez exécuter une base de données unique ou regrouper des bases de données partageant des ressources. Consultez les [considérations relatives aux pools élastiques](sql-database-elastic-pool-guidance.md). Pour choisir un niveau de service, commencez par déterminer les fonctionnalités de base de données minimales dont vous avez besoin :
 
 * Taille maximale des différentes bases de données (2 Go pour le niveau De base, 250 Go pour le niveau Standard et 500 Go à 1 To pour le niveau Premium dans le cadre des niveaux de performances élevés)
-* Stockage total maximal dans le cas d’un pool élastique (117 Go pour le niveau De base, 1 200 Go pour le niveau Standard et 750 Go pour le niveau Premium)
+* Stockage total maximal dans le cas d’un pool élastique (117 Go pour le niveau De base, 1 200 Go pour le niveau Standard et 750 Go pour le niveau Premium)
 * Nombre maximal de bases de données par pool (400 pour le niveau De base, 400 pour le niveau Standard et 50 pour le niveau Premium)
 * Période de rétention des sauvegardes de base de données (7 jours pour le niveau De base, 35 jours pour les niveaux Standard et Premium)
 
@@ -49,8 +49,7 @@ Une fois que vous avez déterminé le niveau de service minimal, vous êtes prê
 
 Après avoir choisi un niveau de performances initial, vous pouvez procéder par la suite à une montée ou descente en puissance de la [base de données individuelle](sql-database-scale-up.md) ou de votre [pool élastique](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) de façon dynamique sur la base de votre expérience concrète. Dans le cas des scénarios de migration, vous pouvez également utiliser l’outil [DTU Calculator](http://dtucalculator.azurewebsites.net/) pour estimer le nombre de DTU nécessaire. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveau de service et niveau de performances d’une base de données unique
@@ -84,6 +83,6 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

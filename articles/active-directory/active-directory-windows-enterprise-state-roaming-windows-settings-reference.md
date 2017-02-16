@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
+ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
 
 
 ---
@@ -67,13 +67,7 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Données d’application**: les applications individuelles peuvent synchroniser des données |sauvegarde de synchronisation |sauvegarde de synchronisation |Interne |
 | **Liste d’applications**: liste des applications installées |X |backup |Autres |
 | **Bluetooth**: tous les paramètres Bluetooth |X |X | |
-| **Invite de commande**: tous les paramètres d’invite de commande |sync |X | |
-| **Cortana**: activer ou désactiver |X |X | |
-| **Cortana**: activer Cortana sur l’écran de verrouillage |X |X | |
-| **Cortana**: nom d’utilisateur |sync |sync |Interne |
-| **Cortana**: lire les SMS à haute voix |X |sync |Interne |
-| **Cortana**: recherche sécurisée |X |sync |Interne |
-| **Cortana**: recherche des informations sur les vols et bien plus encore |X |sync |Interne |
+| **Invite de commandes** : paramètres Defaults de l’invite de commandes |sync |X | |
 | **Informations d’identification**: stockage sécurisé des informations d’identification |sync |sync |password |
 | **Date, heure et région**: horaire automatique (synchronisation Internet) |sync |sync |language |
 | **Date, heure et région**: 24 heures |sync |X |language |
@@ -95,8 +89,8 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Navigateur Edge**: liste de lecture |sync |sync |Interne |
 | **Navigateur Edge**: favoris |sync |sync |Interne |
 | **Navigateur Edge**: tous les autres paramètres Edge |X |X | |
-| **Contraste élevé**: activé ou désactivé |sync |sync |options d’ergonomie |
-| **Contraste élevé**: paramètres du thème |sync |X | |
+| **Contraste élevé**: activé ou désactivé |sync |X |options d’ergonomie |
+| **Contraste élevé**: paramètres du thème |sync |X |options d’ergonomie |
 | **Internet Explorer**: ouvrir les onglets (URL et titre) |sync |sync |Internet Explorer |
 | **Internet Explorer**: liste de lecture |sync |sync |Internet Explorer |
 | **Internet Explorer**: URL saisies |sync |sync |Internet Explorer |
@@ -113,8 +107,8 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Langue**: QWERTY CHS - activer le classement de candidats dynamique |sync |X |language |
 | **Langue**: QWERTY CHS - jeu de caractères chinois simplifié |sync |X |language |
 | **Langue**: QWERTY CHS - jeu de caractères chinois traditionnel |sync |X |language |
-| **Langue**: QWERTY CHS - pinyin approximatif |sync |sync |language |
-| **Langue**: QWERTY CHS - paires approximatives |sync |sync |language |
+| **Langue**: QWERTY CHS - pinyin approximatif |sync |backup |Langage |
+| **Langue**: QWERTY CHS - paires approximatives |sync |backup |Langage |
 | **Langue**: QWERTY CHS - pinyin complet |sync |X |language |
 | **Langue**: QWERTY CHS - pinyin double |sync |X |language |
 | **Langue**: QWERTY CHS - lecture de correction automatique |sync |X |language |
@@ -122,8 +116,8 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Langue**: QWERTY CHS - touche bascule C/E, Ctrl |sync |X |language |
 | **Langue**: WUBI CHS - mode de saisie de caractère unique |sync |X |language |
 | **Langue**: WUBI CHS - afficher le codage de candidats restant |sync |X |language |
-| **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |sync |X |language |
-| **Langue**: Bopomofo CHS - inclure CJK Ext-A |sync |X |language |
+| **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |sync |X |Langage |
+| **Langue** : Bopomofo CHS - inclure CJK Ext-A |sync |X |language |
 | **Langue**: IME japonais - frappe prédictive et mots personnalisés |sync |sync |language |
 | **Langue**: coréen (KOR) IME |X |X |language |
 | **Langue**: reconnaissance d’écriture manuscrite |X |X |language |
@@ -147,11 +141,11 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Narrateur**: insérer le curseur après le Narrateur (activé par défaut) |sync |X |options d’ergonomie |
 | **Narrateur**: activer la mise en évidence visuelle du curseur du Narrateur (activé par défaut) |sync |X |options d’ergonomie |
 | **Narrateur**: lire les pistes audio (activé par défaut) |sync |X |options d’ergonomie |
-| **Narrateur**: activer les touches du clavier tactile lorsque vous levez le doigt (désactivé par défaut) |sync |sync |options d’ergonomie |
+| **Narrateur**: activer les touches du clavier tactile lorsque vous levez le doigt (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Options d’ergonomie**: définir l’épaisseur du curseur clignotant |sync |X |options d’ergonomie |
 | **Options d’ergonomie**: supprimer des images d’arrière-plan (désactivé par défaut) |sync |X |options d’ergonomie |
 | **Alimentation et mise en veille**: tous les paramètres |X |X | |
-| **Personnalisation de l’écran d’accueil**: couleur système |sync |sync |Thème |
+| **Personnalisation de l’écran d’accueil** : couleur d’accentuation (téléphone uniquement) |X |sync |Thème |
 | **Frappe**: dictionnaire |sync |backup |language |
 | **Frappe**: correction automatique du mot mal orthographié |sync |backup |language |
 | **Frappe**: mettre en surbrillance les mots mal orthographiés |sync |backup |language |
@@ -169,10 +163,10 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 * [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

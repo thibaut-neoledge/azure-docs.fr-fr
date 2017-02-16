@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
+ms.sourcegitcommit: 964adaa1b4d1247cf26bd1b8a345d785a114e3ab
+ms.openlocfilehash: ec1ed9ccf9510587a76a4860f910ac2772b35f9a
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: e8e3708989f85a7a0d895140baad5d6370ba3146
 ## <a name="introduction"></a>Introduction
 Les hubs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des hubs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la [Vue d'ensemble d’Event Hubs][Vue d'ensemble d’Event Hubs].
+Pour plus d’informations, consultez la page [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
-Dans ce didacticiel, vous allez apprendre à ingérer les messages dans un Event Hub à l’aide d’une application console en C et à les récupérer en parallèle en utilisant la bibliothèque de [l’hôte du processeur d’événements][hôte du processeur d’événements] en C#.
+Dans ce didacticiel, vous allez apprendre à ingérer les messages dans un hub d’événements à l’aide d’une application console en C et à les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements][Event Processor Host] en C#.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -55,23 +55,22 @@ Vous êtes maintenant prêt à exécuter les applications.
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez conçu une application opérationnelle qui crée un hub d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
 
-* Un [exemple d'application complet qui utilise des Event Hubs][exemple d'application complet qui utilise des Event Hubs].
-* Exemple de [montée en puissance du traitement des événements avec Event Hubs][montée en puissance du traitement des événements avec Event Hubs].
-* [Vue d'ensemble d’Event Hubs][Vue d'ensemble d’Event Hubs]
+* Un [exemple d'application complet qui utilise des hubs d’événements][sample application that uses Event Hubs].
+* L’exemple de [montée en puissance du traitement des événements avec Event Hubs][Scale out Event Processing with Event Hubs].
+* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Portail Azure Classic]: https://manage.windowsazure.com/
-[hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
-[exemple d'application complet qui utilise des Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

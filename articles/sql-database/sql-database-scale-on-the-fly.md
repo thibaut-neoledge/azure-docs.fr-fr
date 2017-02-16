@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98333c8721274c207ed3d7f2bd05cc20bcd10562
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: be19590bca7c7fb45e32f5a5e29c88ab5dd21deb
 
 
 ---
@@ -30,6 +30,10 @@ L’un des avantages de disposer d’une base de données SQL sur Microsoft Azu
 
 ## <a name="when-your-app-is-an-overnight-success"></a>Lorsque votre application rencontre un succès fulgurant,
 une base de données SQL facilite sa mise à l’échelle instantanée. Ainsi, si votre application rencontre un succès fulgurant, il vous suffit d’un clic pour adapter votre base de données aux nouveaux besoins de performances. De plus, sans interruption de service, vous n’aurez pas à vous préoccuper de l’impact sur votre application lorsque vous augmentez ou diminuez les capacités.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [Lire la documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -57,6 +61,6 @@ Consultez la [présentation technique de la base de données SQL](sql-database-t
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

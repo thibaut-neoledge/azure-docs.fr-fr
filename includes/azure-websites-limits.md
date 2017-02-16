@@ -6,7 +6,7 @@
 | types d'instance de calcul |Partagé |Partagé |Dédié<sup>3</sup> |Dédié<sup>3</sup> |Dédié<sup>3</sup></p> |
 | [Montée en charge](../articles/app-service-web/web-sites-scale.md) (nombre maximal d'instances) |1 partagée |1 partagée |3 dédiées<sup>3</sup> |10 dédiées<sup>3</sup> |20 dédiées (50 dans ASE)<sup>3,4</sup> |
 | Stockage<sup>5</sup> |1 Go<sup>5</sup> |1 Go<sup>5</sup> |10 Go<sup>5</sup> |50 Go<sup>5</sup> |500 Go<sup>4,5</sup></p> |
-| Temps processeur (court)<sup>6</sup> |3 minutes |3 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux tarifs standard |Illimité, facturation aux tarifs standard |
+| Temps processeur (5 min)<sup>6</sup> |3 minutes |3 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux tarifs standard |Illimité, facturation aux tarifs standard |
 | Temps processeur (jour)<sup>6</sup> |60 minutes |240 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux tarifs standard |Illimité, facturation aux tarifs standard |
 | Mémoire (1 heure) |1 024 Mo par plan de service d’application |1 024 Mo par application |N/A |N/A |N/A |
 | Bande passante |165 Mo |Illimitée, application du [taux de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/) |Illimitée, application du taux de transfert de données |Illimitée, application du taux de transfert de données |Illimitée, application du taux de transfert de données |
@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Surveillance de point de terminaison](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Emplacements intermédiaires (version préliminaire)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Emplacements intermédiaires](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domaines personnalisés par application</a> | |500 |500 |500 |500 |
 | Contrat SLA | |<p> |99,9 % |99,95 %<sup>10</sup> |99,95 %<sup>10</sup> |
 
@@ -40,6 +40,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

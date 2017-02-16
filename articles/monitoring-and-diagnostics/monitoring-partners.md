@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
+ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
+ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
 
 
 ---
@@ -75,7 +75,7 @@ OpsGenie joue le rôle de répartiteur pour les alertes générées par Azure. O
 [Consultez la documentation.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, la principale solution de gestion des incidents, propose une excellente prise en charge pour les alertes Azure sur les mesures. Aujourd'hui, PagerDuty prend en charge les notifications sur les événements Application Azure Monitor, les notifications de mise à l’échelle automatique et les événements de journal d’audit, en plus des notifications sur les mesures au niveau de la plateforme pour les services Azure. Ces améliorations donnent aux utilisateurs une meilleure visibilité sur la plateforme Azure de base tout en leur permettant de tirer pleinement parti des fonctionnalités de gestion des incidents de PagerDuty pour une réponse en temps réel. Notre intégration avancée avec Azure est rendue possible par les webhooks, qui permettent une personnalisation et une configuration rapides et faciles.
+PagerDuty, la principale solution de gestion des incidents, propose une excellente prise en charge pour les alertes Azure sur les mesures. Aujourd'hui, PagerDuty prend en charge les notifications sur les alertes Azure Monitor, les notifications de mise à l’échelle automatique et les événements de journal d’audit, en plus des notifications sur les mesures au niveau de la plateforme pour les services Azure. Ces améliorations donnent aux utilisateurs une meilleure visibilité sur la plateforme Azure de base tout en leur permettant de tirer pleinement parti des fonctionnalités de gestion des incidents de PagerDuty pour une réponse en temps réel. Notre intégration avancée avec Azure est rendue possible par les webhooks, qui permettent une personnalisation et une configuration rapides et faciles.
 
 [Consultez la documentation.][pagerduty-doc]
 
@@ -90,7 +90,7 @@ Sumo Logic est un service cloud natif sécurisé d'analyse des données de l'ord
 [En savoir plus.][sumologic-doc]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../resource-group-audit.md)
+* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
@@ -137,6 +137,6 @@ Sumo Logic est un service cloud natif sécurisé d'analyse des données de l'ord
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

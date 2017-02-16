@@ -1,5 +1,5 @@
 ---
-title: Instructions pour les abonnements et les comptes | Microsoft Docs
+title: Instructions pour les abonnements et les comptes Azure | Microsoft Docs
 description: "Découvrez les principales instructions de conception et d’implémentation pour les abonnements et les comptes sur Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b410436de11550aab2160421abfb27107f7874b0
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
 
 
 ---
-# <a name="subscription-and-accounts-guidelines"></a>Instructions pour les abonnements et les comptes
+# <a name="azure-subscription-and-accounts-guidelines"></a>Instructions pour les abonnements et les comptes Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension de l’approche de la gestion des abonnements et des comptes lorsque votre environnement et votre base d’utilisateurs augmentent.
@@ -69,6 +69,6 @@ Nous fournissons une facturation détaillée au moyen d’un fichier télécharg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

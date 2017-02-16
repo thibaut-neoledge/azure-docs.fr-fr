@@ -28,7 +28,7 @@ Si vous utilisez un fichier de paramètres pour transmettre des valeurs lors du 
 
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
-Pour fournir une valeur sensible pour un paramètre (par exemple, un mot de passe), ajoutez cette valeur à un coffre de clés. Récupérez le coffre de clés pendant le déploiement comme indiqué dans l’exemple précédent. Pour plus d’informations, consultez [Passage de valeurs sécurisés pendant le déploiement](../articles/resource-manager-keyvault-parameter.md). 
+Pour fournir une valeur sensible pour un paramètre (par exemple, un mot de passe), ajoutez cette valeur à un coffre de clés. Récupérez le coffre de clés pendant le déploiement comme indiqué dans l’exemple précédent. Pour plus d’informations, consultez [Passage de valeurs sécurisés pendant le déploiement](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 
 
 

@@ -8,7 +8,7 @@ manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
 keywords: 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: ba0848c14344f137a7032a0098d2c1e07e387960
-ms.openlocfilehash: 6ede8e11361c9df2a83c71d97cf47e2306d25371
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 9ae6e606bf215d9f53f725899b8ac7c466b781f1
 
 
 ---
@@ -27,6 +27,10 @@ ms.openlocfilehash: 6ede8e11361c9df2a83c71d97cf47e2306d25371
 
 ## <a name="prerequisites"></a>Composants requis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
+
+> [!NOTE]
+> La prise en charge de Kubernetes dans l’Azure Container Service est actuellement en version préliminaire.
+>
 
 Elle suppose également que vous avez installé les outils azure cli et kubectl.
 
@@ -123,7 +127,7 @@ Une fois que vous êtes dans cette vue, cliquez sur ReplicaSet, puis sur le bout
 
 ![Modification de Kubernetes](media/k8s/edit.png)
 
-Définissez le champ `spec.replicas` sur « 2 », puis appuyez sur « Mettre à jour ».
+Définissez le champ `spec.replicas` sur «&2; », puis appuyez sur « Mettre à jour ».
 
 Il n’y aura donc plus que deux réplicas, car l’un de vos pods sera supprimé.
 

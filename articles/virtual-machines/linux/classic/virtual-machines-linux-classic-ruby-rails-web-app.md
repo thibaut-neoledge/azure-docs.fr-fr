@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b8ab951046e031e5b1f8ae428ba7dc6ea936066e
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
 
 
 ---
@@ -27,7 +27,7 @@ Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure �
 Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous utilisez une distribution Linux différente, vous devrez peut-être modifier les étapes pour installer Rails.
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 > 
 > 
 
@@ -44,7 +44,7 @@ Pour créer la machine virtuelle, vous pouvez utiliser le portail Azure Classic
 Une fois que la machine virtuelle est configurée, cliquez sur son nom, puis cliquez sur **Tableau de bord**. Recherchez le point de terminaison SSH répertorié sous **Détails SSH**.
 
 ### <a name="azure-cli"></a>Interface de ligne de commande Azure
-Suivez les étapes de la section [Créer une machine virtuelle exécutant Linux][vm-instructions].
+Suivez les étapes de [Create a Virtual Machine Running Linux (Création d’une machine virtuelle exécutant Linux)][vm-instructions].
 
 Une fois que la machine virtuelle est configurée, vous pouvez obtenir le point de terminaison SSH en exécutant la commande suivante :
 
@@ -90,7 +90,7 @@ Le résultat ressemble à ce qui suit.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Ajout d’un point de terminaison
-1. Accédez au [portail Azure Classic][management-portal] et sélectionnez votre machine virtuelle.
+1. Accédez au [portail Azure Classic][management-portal] et sélectionnez votre machine virtuelle.
    
     ![liste des machines virtuelles][vmlist]
 2. Sélectionnez **POINTS DE TERMINAISON** dans la partie supérieure de la page, puis cliquez sur **+ AJOUTER UN POINT DE TERMINAISON** dans la partie inférieure de la page.
@@ -121,9 +121,9 @@ Pour en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][rail
 
 Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
-* [Stockage de données non structurées à l’aide d’objets blob][blobs]
-* [Stockage de paires clé/valeur à l’aide de tables][tables]
-* [Prise en charge d’une large bande passante avec le réseau de distribution de contenu][cdn-howto]
+* [Utilisation du stockage d’objets blob à partir de Ruby][blobs]
+* [Utilisation du stockage de tables à partir de Ruby][tables]
+* [Distribution de contenu à bande passante élevée avec le CDN][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
@@ -146,6 +146,6 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Découvrez les principes de base de la création et de l’utilisa
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 01/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 70d910f61fa414a0c58a22057133ef3b899dac05
+ms.sourcegitcommit: 34c1138a9c3b9313a12ffbf4bc4c3141db0a016e
+ms.openlocfilehash: 98b11144c049f9db780c7665610c83a753f23b21
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Prise en main d’Apache Kafka (version préliminaire) sur HDInsight
@@ -71,6 +71,11 @@ Utilisez les étapes suivantes pour créer un Kafka sur un cluster HDInsight :
     Enfin, utilisez le bouton **Sélectionner** pour enregistrer les paramètres.
      
     ![Sélectionner un type de cluster](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
+
+    > [!NOTE]
+    > Si votre abonnement Azure n’a pas accès à la version préliminaire Kafka, des instructions sur la façon d’y accéder sont affichées. Les instructions affichées sont similaires à l’image suivante :
+    >
+    > ![Aperçu du message : si vous souhaitez déployer un cluster Apache Kafka géré sur HDInsight, envoyez-nous un courrier électronique pour demander l’accès à la version préliminaire](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
 4. Utilisez les **informations d’identification** pour configurer la connexion au cluster et les informations d’identification de l’utilisateur SSH.  Utilisez le bouton **Sélectionner** pour enregistrer les paramètres.
    
@@ -320,6 +325,6 @@ Dans ce document, vous avez appris les bases de l’utilisation d’Apache Kafka
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

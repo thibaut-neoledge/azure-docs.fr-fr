@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 
 
 ---
@@ -34,7 +34,7 @@ Les blocs-notes dans la galerie fournissent des didacticiels et des explications
  La page **[Blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)**
  affiche la liste des ordinateurs portables les plus populaires.
 Cliquez sur **Afficher tout** pour afficher tous les blocs-notes.
-À partir de cette page, vous pouvez parcourir tous les blocs-notes de la Galerie, ou effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
+Sur cette page, vous pouvez parcourir tous les blocs-notes de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
  Cliquez sur bloc-notes pour ouvrir sa page de détails et lire des informations supplémentaires. Dans cette page, vous pouvez commenter, fournir un retour d’expérience ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec des amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers le bloc-notes pour inviter d’autres utilisateurs à consulter la page.
 
@@ -75,6 +75,6 @@ Le bloc-notes est répertorié, ainsi que vos autres blocs-notes, dans la page *
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

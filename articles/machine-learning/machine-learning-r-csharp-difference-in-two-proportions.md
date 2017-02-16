@@ -1,6 +1,6 @@
 ---
-title: "Test de différence des proportions | Microsoft Docs"
-description: "Test de différence des proportions"
+title: "(obsolète) Test de différence des proportions - Azure | Microsoft Docs"
+description: "(obsolète) Test de différence des proportions"
 services: machine-learning
 documentationcenter: 
 author: aniedea
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: aniedea
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b45b4689e6254afd603d434dc0b21dad90addd95
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
 
 
 ---
-# <a name="difference-in-proportions-test"></a>Test de différence des proportions
+# <a name="deprecated-difference-in-proportions-test"></a>(obsolète) Test de différence des proportions
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Deux proportions sont-elles différentes d'un point de vue statistique ? Supposons qu'un utilisateur souhaite comparer deux films pour déterminer si l'un présente une proportion nettement supérieure de « J'aime » par rapport à l'autre. Avec un échantillon de grande taille, il peut exister une différence statistiquement importante entre les proportions 0,50 et 0,51. Avec un petit échantillon, il peut ne pas y avoir suffisamment de données pour déterminer si ces proportions sont réellement différentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -129,6 +136,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

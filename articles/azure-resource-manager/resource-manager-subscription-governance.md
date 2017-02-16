@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: cd39256ae2132e25631d0264ae1fa2c5a1d76a6a
+ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
+ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
 
 
 ---
@@ -92,7 +92,7 @@ Le deuxième pilier de la structure implique la création de [stratégies Azure 
 
 * La stratégie est un système **d’autorisation** par défaut. Vous contrôlez les actions en définissant et en affectant des stratégies à des ressources qui refusent ou auditent des actions sur les ressources.
 * Les stratégies sont décrites par des définitions de stratégie dans un langage de définition de stratégie (conditions if-then).
-* Vous créez des stratégies avec des fichiers au format JSON (Javascript Object Notation). Après avoir défini une stratégie, vous l’affectez à une portée particulière : abonnement, groupe de ressources. ou ressource.
+* Vous créez des stratégies avec des fichiers au format JSON (Javascript Object Notation). Après avoir défini une stratégie, vous l’affectez à une portée particulière : abonnement, groupe de ressources ou ressource.
 
 Les stratégies incluent plusieurs actions qui permettent d’adopter une approche affinée de vos scénarios. Les actions sont les suivantes :
 
@@ -251,11 +251,9 @@ Parmi les plus grands blocages à l’adoption du cloud, on compte les préoccup
 ## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous connaissez mieux la gouvernance des abonnements, il est temps pour voir ces recommandations dans la pratique. Voir la rubrique [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Exemples d’implémentation de la gouvernance des abonnements Azure).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) a contribué à cette rubrique.*
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: d0015760fe086b00a264aabd38cc2625f55f4926
 
 
 ---
 # <a name="create-a-logic-app-deployment-template"></a>Création d’un modèle de déploiement d’applications logiques
-Après avoir créé une application logique, vous pouvez, si vous le souhaitez, la définir en tant que modèle Azure Resource Manager. De cette façon, vous pouvez facilement déployer l’application logique dans n’importe quel environnement ou groupe de ressources où elle peut être utile. Pour vous familiariser avec les modèles Resource Manager, consultez les articles sur la [création de modèles Azure Resource Manager](../resource-group-authoring-templates.md) et le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../resource-group-template-deploy.md).
+Après avoir créé une application logique, vous pouvez, si vous le souhaitez, la définir en tant que modèle Azure Resource Manager. De cette façon, vous pouvez facilement déployer l’application logique dans n’importe quel environnement ou groupe de ressources où elle peut être utile. Pour vous familiariser avec les modèles Resource Manager, consultez les articles sur la [création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Modèle de déploiement de l’application logique
 Une application logique possède trois composants de base :
@@ -41,8 +41,8 @@ Certains autres outils peuvent vous être utiles lorsque vous créez un modèle 
 
 > [!NOTE]
 > Les connexions doivent se trouver dans le même groupe de ressources que l’application logique
-> 
-> 
+>
+>
 
 ### <a name="install-the-logic-app-template-powershell-module"></a>Installer le module PowerShell Logic App Template
 Le moyen le plus simple d’installer le module consiste à utiliser [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) à l’aide de la commande `Install-Module -Name LogicAppTemplate`.  
@@ -65,7 +65,7 @@ Une fois PowerShell installé, vous pouvez générer un modèle à l’aide de l
 Après avoir créé votre modèle d’application logique, vous pouvez continuer à ajouter ou modifier les paramètres dont vous avez besoin. Par exemple, si votre définition inclut un ID de ressource à une fonction Azure ou à un workflow imbriqué que vous envisagez de déployer dans un déploiement unique, vous pouvez ajouter des ressources supplémentaires à votre modèle et  paramétrer les ID en fonction de vos besoins. Cela s’applique également à toutes les références aux API personnalisées ou aux points de terminaison Swagger que vous pensez déployer avec chaque groupe de ressources.
 
 ## <a name="deploy-a-logic-app-template"></a>Déployer un modèle d’application logique
-Vous pouvez procéder au déploiement de votre modèle à l’aide de n’importe quel outil (PowerShell, API REST, Visual Studio, Release Management) et à l’aide du service de déploiement de modèle du Portail Azure. Pour plus d’informations, consultez cet article sur le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../resource-group-template-deploy.md) . Nous vous recommandons également de créer un [fichier de paramètres](../resource-group-template-deploy.md#parameter-file) pour stocker les valeurs du paramètre.
+Vous pouvez procéder au déploiement de votre modèle à l’aide de n’importe quel outil (PowerShell, API REST, Visual Studio, Release Management) et à l’aide du service de déploiement de modèle du Portail Azure. Pour plus d’informations, consultez cet article sur le [déploiement de ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) . Nous vous recommandons également de créer un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameters) pour stocker les valeurs du paramètre.
 
 ### <a name="authorize-oauth-connections"></a>Autoriser des connexions OAuth
 Après le déploiement, l’application logique fonctionne de bout en bout avec des paramètres valides. Toutefois, les connexions OAuth devront toujours être autorisées pour générer un jeton d’accès valide. Pour cela, ouvrez l’application logique dans le concepteur, puis autorisez les connexions. Ou, si vous souhaitez automatiser le processus, utilisez un script pour autoriser chacune des connexions OAuth. Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
@@ -74,7 +74,7 @@ Après le déploiement, l’application logique fonctionne de bout en bout avec 
 Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Visual Studio Release Management avec un modèle de déploiement d’application logique. Visual Studio Team Services inclut une tâche de [déploiement d’un groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter dans n’importe quel pipeline de build ou de version. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer la définition de version.
 
 1. Dans Release Management, pour créer une nouvelle définition, sélectionnez **Empty** (Vide) pour démarrer avec une définition vide.
-   
+
     ![Créer une définition vide][1]   
 2. Choisissez les ressources dont vous avez besoin. Il peut s’agir du modèle d’application logique que vous avez généré manuellement ou dans le cadre du processus de génération.
 3. Ajoutez une tâche de **déploiement d’un groupe de ressources Azure** .
@@ -86,6 +86,6 @@ Le déploiement et la gestion d’un environnement passent souvent par l’utili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

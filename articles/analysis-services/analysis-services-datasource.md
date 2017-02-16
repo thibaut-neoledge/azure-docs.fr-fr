@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 
 ---
@@ -29,13 +29,18 @@ Par exemple : si vous disposez d’un modèle de données en mémoire ou de req
 Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
 
 ## <a name="data-source-providers"></a>Fournisseurs de sources de données
-Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou de requête directe lors de la connexion à des sources de données locales ou cloud :
+Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou DirectQuery lors de la connexion à des sources de données locales ou dans le cloud :
 
-|  | **Source de données** | **En mémoire** | **Requête directe** |
-| --- | --- | --- | --- |
-| **Cloud** |Azure SQL Data Warehouse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server |
+### <a name="cloud"></a>Cloud
+| **Source de données** | **En mémoire** | **Requête directe** |
+|  --- | --- | --- |
+| Azure SQL Data Warehouse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server |
 | Azure SQL Database |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
-| **Locale** (via une passerelle) |SQL Server |SQL Server Native Client 11.0 |Fournisseur de données .NET Framework pour SQL Server |
+
+### <a name="on-premises-via-gateway"></a>Local (via une passerelle)
+|**Source de données** | **En mémoire** | **Requête directe** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |Fournisseur de données .NET Framework pour SQL Server |
 | SQL Server |Fournisseur Microsoft OLE DB pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 | SQL Server |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 | Oracle |Fournisseur Microsoft OLE DB pour Oracle |Fournisseur de données Oracle pour .NET | |
@@ -75,6 +80,6 @@ Si vous disposez de sources de données locales, veillez à installer la [Passer
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

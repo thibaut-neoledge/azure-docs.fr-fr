@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 
 
 ---
@@ -114,7 +114,7 @@ Le panneau de vue d’ensemble constitue une passerelle permettant d’accéder 
 * **Vue d’ensemble** : revenez au panneau de vue d’ensemble de l’application.
 * **Journal d’activité** : alertes et événements d’administration Azure.
 * [**Contrôle d’accès**](app-insights-resources-roles-access-control.md) : donnez accès aux membres de l’équipe et à d’autres utilisateurs.
-* [**Balises**](../resource-group-using-tags.md) : utilisez des balises pour regrouper votre application avec d’autres utilisateurs.
+* [**Balises**](../azure-resource-manager/resource-group-using-tags.md) : utilisez des balises pour regrouper votre application avec d’autres utilisateurs.
 
 EXAMINER
 
@@ -141,7 +141,7 @@ CONFIGURER
 
 PARAMÈTRES
 
-* [**Verrous**](../resource-group-lock-resources.md) : verrouillez les ressources Azure.
+* [**Verrous**](../azure-resource-manager/resource-group-lock-resources.md) : verrouillez les ressources Azure.
 * [**Script d’automatisation**](app-insights-powershell.md) : exportez une définition de la ressource Azure afin de l’utiliser comme modèle pour créer d’autres ressources.
 
 SUPPORT
@@ -157,6 +157,6 @@ SUPPORT
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

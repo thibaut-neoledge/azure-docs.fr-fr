@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
+ms.sourcegitcommit: 28e9cbf05e75055a10c78fd42b5cb27e359b1d65
+ms.openlocfilehash: aad0e6de85a40df8a873aa11e5a33e7064090dce
 
 
 ---
@@ -69,7 +69,7 @@ Les en-têtes de réponse contiennent un élément **ocp-apim-trace-location** a
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-Le suivi peut être téléchargé depuis l'emplacement spécifié et examiné, comme indiqué dans l'étape suivante.
+Le suivi peut être téléchargé depuis l'emplacement spécifié et examiné, comme indiqué dans l'étape suivante. Notez que seules les 100 dernières entrées de journal sont stockées et que les emplacements de journal sont réutilisés en rotation. Par conséquent, si vous effectuez plus de 100 appels en gardant le suivi activé, vous finirez par remplacer les premières entrées.
 
 ## <a name="inspect-trace"> </a>Inspection du suivi
 Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir de l’URL **ocp-apim-trace-location**. Il s'agit d'un fichier texte au format JSON. Il se présente comme l'exemple ci-dessous.
@@ -269,6 +269,6 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

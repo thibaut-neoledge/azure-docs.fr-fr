@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
-ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
+ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
+ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
 
 
 ---
@@ -198,7 +198,7 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 7. Ouvrez le dossier et vérifiez les fichiers des deux dossiers.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
-Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
+Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
 
 Le modèle Resource Manager de niveau supérieur contient :
 
@@ -444,6 +444,6 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 1/05/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4917f58f9e179b6adca0886e7d278055e5c3d281
-ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
+ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
+ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
 
 
 ---
@@ -52,7 +52,7 @@ Le diagramme suivant montre la relation entre les applications et les instances 
 ## <a name="describe-a-service"></a>Décrire un service
 Le manifeste de service définit de manière déclarative le type de service et la version. Il spécifie les métadonnées de service telles que le type de service, les propriétés du contrôle d’intégrité, des mesures d’équilibrage de charge, des fichiers binaires de service et des fichiers de configuration.  Autrement dit, il décrit les packages de code, de configuration et de données qui composent un package de service pour prendre en charge un ou plusieurs types de service. Voici un exemple simple de manifeste de service :
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -70,11 +70,15 @@ Le manifeste de service définit de manière déclarative le type de service et 
         <Program>MyServiceHost.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
-~~~
+```
 
 **Version** sont des chaînes non structurées et ne sont pas analysés par le système. Ils permettent de gérer les versions de chaque composant au moment des mises à niveau.
 
@@ -82,18 +86,20 @@ Le manifeste de service définit de manière déclarative le type de service et 
 
 **SetupEntryPoint** est un point d'entrée privilégié qui s'exécute avec les mêmes informations d'identification que Service Fabric (généralement le compte *LocalSystem* ) avant tout autre point d'entrée. Le fichier exécutable spécifié par **EntryPoint** est généralement l’hôte de service à exécution longue. La présence d’un point d’entrée de configuration distinct évite d’avoir à exécuter l’hôte de service avec des privilèges élevés pendant de longues périodes de temps. Le fichier exécutable spécifié par **EntryPoint** est exécuté une fois que **SetupEntryPoint** se termine correctement. Le processus résultant fait l'objet d'une surveillance et est redémarré (à partir de **SetupEntryPoint**) en cas d'interruption ou de défaillance.
 
+**EnvironmentVariables** fournit une liste des variables d’environnement définies pour ce package de code. Celles-ci peuvent être remplacées dans le fichier `ApplicationManifest.xml` pour fournir différentes valeurs pour différentes instances de service. 
+
 **DataPackage** déclare un dossier, nommé par l’attribut **Name**, qui contient des données statiques arbitraires destinées à être consommées par le processus pendant l’exécution.
 
 **ConfigPackage** déclare un dossier, nommé par l’attribut **Name**, qui contient un fichier *Settings.xml*. Ce fichier contient des sections de paramètres clé-valeur définis par l'utilisateur que le processus peut lire pendant l'exécution. Le processus en cours d’exécution n’est pas redémarré pendant la mise à niveau si seule la **version** de **ConfigPackage** a changé. Au lieu de cela, un rappel indique au processus que les paramètres de configuration ont été modifiés afin qu'ils puissent être rechargés dynamiquement. Voici un exemple de fichier *Settings.xml* :
 
-~~~
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
-~~~
+```
 
 > [!NOTE]
 > Un manifeste de service peut contenir plusieurs packages de code, de configuration et de données. Les versions de chacun de ces packages peuvent être gérées de manière indépendante.
@@ -115,7 +121,7 @@ Le manifeste d’application décrit le type et la version de manière déclarat
 
 Ainsi, un manifeste d'application décrit les éléments au niveau de l'application et fait référence à un ou plusieurs des manifestes de service pour composer un type d'application. Voici un exemple simple de manifeste d'application :
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
@@ -125,6 +131,8 @@ Ainsi, un manifeste d'application décrit les éléments au niveau de l'applicat
   <Description>An example application manifest</Description>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
+    <ConfigOverrides/>
+    <EnvironmentOverrides CodePackageRef="MyCode"/>
   </ServiceManifestImport>
   <DefaultServices>
      <Service Name="MyService">
@@ -134,11 +142,12 @@ Ainsi, un manifeste d'application décrit les éléments au niveau de l'applicat
      </Service>
   </DefaultServices>
 </ApplicationManifest>
-~~~
+```
 
 Comme dans le cas des manifestes de service, les attributs **Version** sont des chaînes non structurées et ne sont pas analysés par le système. En outre, ils permettent de gérer les versions de chaque composant au moment des mises à niveau.
 
-**ServiceManifestImport** contient des références aux manifestes de service qui composent ce type d'application. Les manifestes de service importés déterminent les types de service qui sont valides dans ce type d'application.
+**ServiceManifestImport** contient des références aux manifestes de service qui composent ce type d'application. Les manifestes de service importés déterminent les types de service qui sont valides dans ce type d'application. Le ServiceManifestImport vous permet de remplacer les valeurs de configuration dans le fichier Settings.xml, ainsi que les variables d’environnement dans le fichier ServiceManifest.xml. 
+
 
 **DefaultServices** déclare des instances de service qui sont créées automatiquement chaque fois qu'une application est instanciée par rapport à ce type d'application. Les services par défaut peuvent s'avérer pratiques et se comportent à tous égards comme des services normaux une fois qu'ils ont été créés. Ils sont mis à niveau avec tous les autres services dans l'instance d'application et peuvent également être supprimés.
 
@@ -161,7 +170,7 @@ For more information about other features supported by application manifests, re
 ### <a name="package-layout"></a>Disposition du package
 Le manifeste d'application, le(s) manifeste(s) de service et les autres fichiers de package nécessaires doivent être organisés selon une disposition spécifique en vue du déploiement dans un cluster Service Fabric. Les exemples de manifestes dans cet article doivent être organisés selon la structure de répertoires suivante :
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -178,7 +187,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-~~~
+```
 
 Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MyCodeA** et **MyCodeB**, deux dossiers de même nom contiennent les fichiers binaires nécessaires pour chaque package de code.
 
@@ -188,6 +197,9 @@ Les dossiers sont nommés d'après les attributs **Name** de chaque élément co
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
 
+Pour plus d’informations sur la façon de configurer **SetupEntryPoint** consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)  
+
+### <a name="configure"></a>Configuration 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
 Si vous utilisez Visual Studio 2015 pour créer votre application, vous pouvez utiliser la commande Package pour créer automatiquement un package qui correspond à la disposition décrite ci-dessus.
 
@@ -197,19 +209,26 @@ Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Ex
 
 Quand la création du package est terminée, l'emplacement du package est indiqué dans la fenêtre **Sortie** . Notez que l'étape de création du package se produit automatiquement quand vous déployez ou déboguez votre application dans Visual Studio.
 
+### <a name="build-a-package-by-command-line"></a>Développer un package par ligne de commande
+Vous pouvez également empaqueter votre application par programme en utilisant `msbuild.exe`. Sous le capot : voici ce que Visual Studio exécute pour obtenir le même résultat.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
+
 ### <a name="test-the-package"></a>Test du package
 Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande **Test-ServiceFabricApplicationPackage** . Cette commande vérifie la présence de problèmes liés à l’analyse du manifeste, ainsi que toutes les références. Notez que cette commande vérifie uniquement l’exactitude structurelle des répertoires et des fichiers dans le package. Elle ne vérifie pas le code ou les données du contenu du package, mais uniquement si tous les fichiers nécessaires sont présents.
 
-~~~
+```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-~~~
+```
 
 Cette erreur indique que le fichier *MySetup.bat* référencé dans le manifeste de service **SetupEntryPoint** est manquant dans le package de code. Une fois le fichier manquant ajouté, la phase de vérification est terminée :
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -231,16 +250,16 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 PS D:\temp>
-~~~
+```
 
 Une fois l'application correctement empaquetée et vérifiée, elle peut être déployée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Déployer et supprimer des applications][10]
+[Déployer et supprimer des applications] [ 10] décrit comment utiliser PowerShell pour gérer des instances d’application
 
-[Gestion des paramètres d’application pour plusieurs environnements][11]
+[Gestion des paramètres d’application pour plusieurs environnements][11] décrit comment configurer les paramètres et les variables d’environnement pour différentes instances d’application.
 
-[RunAs : exécution d’une application Service Fabric avec des autorisations de sécurité différentes][12]
+[Configurer les stratégies de sécurité de votre application][12] décrit comment exécuter des services dans le cadre de stratégies de sécurité pour restreindre l’accès.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
@@ -255,6 +274,6 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

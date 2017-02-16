@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
 
 
 ---
@@ -29,11 +29,13 @@ L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accè
 ## <a name="related-documentation"></a>Documentation connexe
 Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités locales à Azure Active Directory](../active-directory-aadconnect.md), le tableau suivant fournit des liens vers des rubriques connexes.
 
-| Rubrique |
+|Rubrique |Lien|  
 | --- | --- |
-| Installation à l’aide de la configuration rapide |
-| Installation à l’aide des paramètres personnalisés |
-| Mise à niveau à partir de DirSync |
+|Téléchargez Azure AD Connect | [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Installation à l’aide des paramètres Express | [Installation rapide pour Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Mise à niveau à partir de DirSync | [Effectuer une mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Après l’installation | [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Installation à l’aide de la configuration rapide
 Dans la configuration rapide, l’Assistant d’installation demande des informations d’identification d’administrateur d’entreprise AD DS pour que votre annuaire Active Directory local puisse être configuré avec les autorisations nécessaires pour Azure AD Connect. Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous avez également besoin de vos informations d’identification d’administrateur général Azure AD.
@@ -45,7 +47,7 @@ Dans la configuration rapide, l’Assistant d’installation demande des informa
 | Connexion à AD DS |Informations d’identification Active Directory locales |Membre du groupe Administrateurs de l’entreprise dans Active Directory |<li>Crée un [compte](#active-directory-account) dans Active Directory et lui octroie des autorisations. Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>Informations d’identification d’administrateur d’entreprise
-Ces informations d’identification sont utilisées pendant l’installation et une fois que celle-ci est terminée. Il s’agit d’informations d’identification d’administrateur d’entreprise, et non d’administrateur de domaine, pour que les autorisations dans Active Directory puissent être définies dans tous les domaines.
+Ces informations d’identification ne sont utilisées que pendant l’installation. L’administrateur d’entreprise, et non l’administrateur de domaine, doit s’assurer que les autorisations dans Active Directory peuvent être définies dans tous les domaines.
 
 ### <a name="global-admin-credentials"></a>Informations d’identification d’administrateur général
 Ces informations d’identification ne sont utilisées que pendant l’installation. Elles permettent de créer le [compte Azure AD](#azure-ad-service-account) utilisé pour synchroniser les modifications apportées à Azure AD. En outre, le compte active la synchronisation en tant que fonctionnalité dans Azure AD.
@@ -84,9 +86,9 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Fonctionnalité | Autorisations |
 | --- | --- |
 | Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
-| Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
+| Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) pour les utilisateurs. |
-| Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](../active-directory-aadconnect-feature-device-writeback.md). |
+| Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver. |
 
 ## <a name="upgrade"></a>Mise à niveau
@@ -134,6 +136,6 @@ En savoir plus sur l’ [intégration de vos identités locales avec Azure Activ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

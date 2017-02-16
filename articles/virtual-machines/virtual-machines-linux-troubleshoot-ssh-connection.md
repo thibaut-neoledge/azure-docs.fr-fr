@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
+ms.sourcegitcommit: 10419c0e76ea647c0ef9e15f4cd0e514795a858e
+ms.openlocfilehash: 0191d6d84476b367e6cad6775738305e534c96a8
 
 
 ---
@@ -48,13 +48,13 @@ Si vous cherchez des procédures de dépannage plus détaillées et des explicat
 ## <a name="available-methods-to-troubleshoot-ssh-connection-issues"></a>Méthodes disponibles pour résoudre les problèmes de connexion SSH
 Vous pouvez réinitialiser les informations d’identification ou la configuration SSH avec l’une des méthodes suivantes :
 
-* [Portail Azure](#using-the-azure-portal) : utile si vous devez rapidement réinitialiser la configuration SSH ou la clé SSH et que vous n’avez pas installé les outils Azure.
-* [Interface de ligne de commande Azure](#using-the-azure-cli) : si vous êtes déjà dans la ligne de commande, réinitialisez rapidement la configuration SSH ou les informations d’identification.
-* [L’extension VMAccessForLinux Azure](#using-the-vmaccess-extension) : création et réutilisation de fichiers de définition json pour réinitialiser la configuration SSH ou les informations d’identification utilisateur.
+* [Portail Azure](#use-the-azure-portal) : utile si vous devez rapidement réinitialiser la configuration SSH ou la clé SSH et que vous n’avez pas installé les outils Azure.
+* [CLI Azure 1.0](#use-the-azure-cli-10) : si vous êtes déjà dans la ligne de commande, réinitialisez rapidement la configuration SSH ou les informations d’identification. Vous pouvez aussi utiliser la [CLI Azure 2.0 (version préliminaire)](#use-the-azure-cli-20-preview).
+* [L’extension VMAccessForLinux Azure](#use-the-vmaccess-extension) : création et réutilisation de fichiers de définition json pour réinitialiser la configuration SSH ou les informations d’identification utilisateur.
 
 Après chaque étape de résolution des problèmes, essayez de nouveau de vous connecter à la machine virtuelle. Si vous ne parvenez toujours pas à vous connecter, essayez l’étape suivante.
 
-## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 Le portail Azure offre un moyen rapide de réinitialiser la configuration SSH ou les informations d’identification utilisateur sans installer d’outils sur votre ordinateur local.
 
 Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler jusqu'à la section **Support + dépannage** et sélectionnez **Réinitialiser le de mot de passe** comme dans l’exemple suivant :
@@ -69,8 +69,8 @@ Pour réinitialiser les informations d’identification d’un utilisateur exist
 
 Vous pouvez également créer un utilisateur avec des privilèges sudo sur la machine virtuelle à partir de ce menu. Entrez un nouveau nom d’utilisateur et un mot de passe ou une clé SSH qui correspond, puis cliquez sur le bouton **Réinitialiser**.
 
-## <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
-Si ce n’est déjà fait, [installez l’interface CLI Azure et connectez-vous à votre abonnement Azure](../xplat-cli-install.md). Assurez-vous d’utiliser le mode Resource Manager comme indiqué ci-après :
+## <a name="use-the-azure-cli-10"></a>Utilisation de la CLI Azure 1.0
+Si ce n’est déjà fait, [installez la CLI Azure 1.0 et connectez-vous à votre abonnement Azure](../xplat-cli-install.md). Assurez-vous d’utiliser le mode Resource Manager comme indiqué ci-après :
 
 ```azurecli
 azure config mode arm
@@ -93,18 +93,38 @@ Si SSHD semble fonctionner correctement, vous pouvez réinitialiser le mot de pa
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --username myUsername --password myPassword
+     --user-name myUsername --password myPassword
 ```
 
-Si vous utilisez l’authentification par clé SSH, vous pouvez réinitialiser la clé SSH pour un utilisateur donné. L’exemple suivant met à jour la clé SSH stockée dans `~/.ssh/azure_id_rsa.pub` pour l’utilisateur nommé `myUsername` sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+Si vous utilisez l’authentification par clé SSH, vous pouvez réinitialiser la clé SSH pour un utilisateur donné. L’exemple suivant met à jour la clé SSH stockée dans `~/.ssh/id_rsa.pub` pour l’utilisateur nommé `myUsername` sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
+## <a name="use-the-azure-cli-20-preview"></a>Utilisation de la CLI Azure 2.0 (version préliminaire)
+Si ce n’est déjà fait, installez la dernière version de la [CLI Azure 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et connectez-vous à votre compte Azure avec [az login](/cli/azure/#login).
+
+Si vous avez créé et téléchargé une image de disque Linux personnalisée, assurez-vous que le [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 ou ultérieure est installé. Pour les machines virtuelles créées à l’aide d’images de la galerie, cette extension de l’accès est déjà installée et configurée.
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
+L’exemple suivant utilise [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user) pour réinitialiser les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+     --username myUsername --password myPassword
+```
+
+Si vous utilisez l’authentification par clé SSH, vous pouvez réinitialiser la clé SSH pour un utilisateur donné. L’exemple suivant utilise **az vm access set-linux-user** pour mettre à jour la clé SSH stockée dans `~/.ssh/id_rsa.pub` pour l’utilisateur `myUsername`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+    --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
-## <a name="using-the-vmaccess-extension"></a>Utilisation de l’extension VMAccess
+## <a name="use-the-vmaccess-extension"></a>Utilisation de l’extension VMAccess
 L’extension d’accès de machine virtuelle pour Linux lit dans un fichier json qui définit les actions à effectuer. Ces actions incluent la réinitialisation SSHD, la réinitialisation d’une clé SSH ou l’ajout d’un utilisateur. Vous utilisez toujours l’interface de ligne de commande Azure pour appeler l’extension VMAccess, mais vous pouvez réutiliser les fichiers json sur plusieurs machines virtuelles si vous le souhaitez. Cette approche vous permet de créer un référentiel´de fichiers json que vous pouvez ensuite appeler en fonction des scénarios.
 
 ### <a name="reset-sshd"></a>Réinitialiser SSHD
@@ -154,15 +174,22 @@ azure vm extension set myResourceGroup myVM \
 Si vous avez réinitialisé la configuration SSH et les informations d’identification utilisateur, ou si une erreur a été générée lors de cette opération, vous pouvez essayer de redémarrer la machine virtuelle à l’adresse liée aux problèmes de calcul.
 
 ### <a name="azure-portal"></a>Portail Azure
-Pour redémarrer une machine virtuelle à l’aide du portail Azure, sélectionnez votre machine virtuelle, puis cliquez sur le bouton ***redémarrer** comme dans l’exemple suivant :
+Pour redémarrer une machine virtuelle à l’aide du portail Azure, sélectionnez votre machine virtuelle, puis cliquez sur le bouton **Redémarrer** comme dans l’exemple suivant :
 
 ![Redémarrage d’une machine virtuelle dans le portail Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 L’exemple suivant redémarre la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+L’exemple suivant utilise [az vm restart](/cli/azure/vm#restart) pour redémarrer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+
+```azurecli
+az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 
@@ -179,11 +206,18 @@ Pour redéployer une machine virtuelle à l’aide du portail Azure, sélectionn
 
 ![Redéploiement de la machine virtuelle dans le portail Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli-10"></a>Azure CLI 1.0
 L’exemple suivant redéploie la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+L’exemple suivant utilise [az vm redeploy](/cli/azure/vm#redeploy) pour redéployer la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Machines virtuelles créées à l’aide du modèle de déploiement Classic
@@ -214,6 +248,6 @@ Procédez comme suit pour résoudre les problèmes de connexion SSH les plus cou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

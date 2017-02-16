@@ -1,3 +1,4 @@
+
 ---
 title: "Paramètres de stratégie de groupe et de MDM | Microsoft Docs"
 description: "Fournit des informations sur les paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM) qui doivent être utilisés sur les appareils d’entreprise. Ces stratégies sont appliquées à l’ensemble de l’appareil de l’utilisateur."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
+ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
 
 
 ---
@@ -57,10 +58,11 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 * [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

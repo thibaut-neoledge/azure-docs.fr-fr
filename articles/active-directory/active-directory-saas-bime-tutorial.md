@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
 
 
 ---
@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
+![Scénario](./media/active-directory-saas-bime-tutorial/IC775552.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-bime"></a>Activation de l’intégration d’applications pour Bime
 Cette section décrit l’activation de l’intégration d’applications pour Bime.
@@ -50,13 +50,13 @@ Cette section décrit l’activation de l’intégration d’applications pour B
    ![Applications](./media/active-directory-saas-bime-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-bime-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-bime-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-bime-tutorial/IC749322.png "Add an application from gallerry")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-bime-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, tapez **Bime**.
    
-   ![Galerie d’applications](./media/active-directory-saas-bime-tutorial/IC775553.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-bime-tutorial/IC775553.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **Bime**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
@@ -70,23 +70,23 @@ Si cette procédure ne vous est pas familière, consultez [Récupération de la 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’application **Bime** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC771709.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Bime**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775555.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775555.png "Configurer l’authentification unique")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL d’après le modèle « *https://\<nom_locataire\>.Bimeapp.com* », puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-bime-tutorial/IC775556.png "Configure App URL")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-bime-tutorial/IC775556.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur Bime**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat localement sous **c:\\Bime.cer**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775557.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775557.png "Configurer l’authentification unique")
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Bime en tant qu’administrateur.
 6. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Account**.
    
-   ![Admin](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
+   ![Administrateur](./media/active-directory-saas-bime-tutorial/IC775558.png "Administrateur")
 7. Dans la page de configuration du compte, procédez comme suit :
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775559.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775559.png "Configurer l’authentification unique")
    
    1. Sélectionnez **Activer l’authentification SAML**.
    2. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bime**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
@@ -96,10 +96,10 @@ Si cette procédure ne vous est pas familière, consultez [Récupération de la 
       > Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI)
       > 
       > 
-   4. Cliquez sur **Enregistrer**.
-8. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+   4. Cliquez sur **Save**.
+8. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775560.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775560.png "Configurer l’authentification unique")
    
    ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -110,13 +110,13 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
 1. Connectez-vous à votre locataire **Bime** .
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Users**.
    
-   ![Admin](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
+   ![Administrateur](./media/active-directory-saas-bime-tutorial/IC775561.png "Administrateur")
 3. Dans la **Users List**, cliquez sur **Add New User** (« + »).
    
-   ![Utilisateurs](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
+   ![Utilisateurs](./media/active-directory-saas-bime-tutorial/IC775562.png "Utilisateurs")
 4. Dans la page de boîte de dialogue **User Details** , procédez comme suit :
    
-   ![User Details](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
+   ![Détails de l’utilisateur](./media/active-directory-saas-bime-tutorial/IC775563.png "Détails de l’utilisateur")
    
    1. Entrez le prénom, le nom, la connexion et l’adresse de messagerie d’un compte AAD valide que vous voulez approvisionner
    2. Cliquez sur Enregistrer.
@@ -133,16 +133,16 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **Bime**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-bime-tutorial/IC775564.png "Assign users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-bime-tutorial/IC775564.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-bime-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-bime-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

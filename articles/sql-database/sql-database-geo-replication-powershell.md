@@ -1,6 +1,6 @@
 ---
-title: "Configurer la géoréplication pour Base de données SQL Azure avec PowerShell | Documents Microsoft"
-description: "Configurer la géoréplication active pour Base de données SQL Azure avec PowerShell"
+title: "Configurer la géoréplication active pour Azure SQL Database avec PowerShell | Documents Microsoft"
+description: "Configurer la géoréplication active pour Azure SQL Database avec PowerShell"
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,30 +16,30 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 605f7d33c197af60579e30f0b2823968865c7229
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 1849e257240a45a6161db524ce53a83cbf29068d
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-powershell"></a>Configurer la géoréplication pour Base de données SQL Azure avec PowerShell
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-powershell"></a>Configurer la géoréplication active pour Azure SQL Database avec PowerShell
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](sql-database-geo-replication-overview.md)
-> * [Portail Azure](sql-database-geo-replication-portal.md)
+> * [portail Azure](sql-database-geo-replication-portal.md)
 > * [PowerShell](sql-database-geo-replication-powershell.md)
 > * [T-SQL](sql-database-geo-replication-transact-sql.md)
 > 
 > 
 
-Cet article vous montre comment configurer la géoréplication active pour Base de données SQL à l’aide de PowerShell.
+Cet article vous montre comment configurer la géoréplication active pour SQL Database à l’aide de PowerShell.
 
 Pour lancer un basculement avec PowerShell, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 > [!NOTE]
-> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
+> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017, le type secondaire non accessible en lecture sera retiré et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
 > 
 > 
 
-Pour configurer la géoréplication active à l’aide de PowerShell, vous devez disposer des éléments suivants :
+Pour configurer la géoréplication active à l’aide de PowerShell, vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. 
 * Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer.
@@ -57,7 +57,7 @@ Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. 
 
     Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Après avoir exécuté **Select-AzureRmSubscription** , vous êtes redirigé vers l’invite PowerShell.
+Après avoir exécuté **Select-AzureRmSubscription**, vous êtes redirigé vers l’invite PowerShell.
 
 ## <a name="add-secondary-database"></a>Ajout d'une base de données secondaire
 Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat de géoréplication.  
@@ -66,42 +66,42 @@ Pour activer une base de données secondaire, vous devez être le propriétaire 
 
 Vous pouvez utiliser l’applet de commande **New-AzureRmSqlDatabaseSecondary** pour ajouter une base de données secondaire sur un serveur partenaire à une base de données locale sur le serveur auquel vous êtes connecté (base de données primaire). 
 
-Cette applet de commande remplace **Start-AzureSqlDatabaseCopy** par le paramètre **–IsContinuous**.  Elle génère en sortie un objet **AzureRmSqlDatabaseSecondary** qui peut être utilisé par d’autres applets de commande pour identifier clairement un lien de réplication spécifique. Cette applet de commande est renvoyée lorsque la base de données secondaire est créée et entièrement amorcée. Notez que, selon la taille de la base de données, l’opération peut prendre de quelques minutes à plusieurs heures.
+Cette applet de commande remplace **Start-AzureSqlDatabaseCopy** par le paramètre **-IsContinuous**.  Elle génère en sortie un objet **AzureRmSqlDatabaseSecondary** qui peut être utilisé par d’autres applets de commande pour identifier clairement un lien de réplication spécifique. Cette applet de commande est renvoyée lorsque la base de données secondaire est créée et entièrement amorcée. Notez que, selon la taille de la base de données, l’opération peut prendre de quelques minutes à plusieurs heures.
 
-La base de données répliquée sur le serveur secondaire aura le même nom que la base de données sur le serveur primaire et aura, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données élastique. Pour plus d’informations, consultez [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) et [Niveaux de service](sql-database-service-tiers.md).
-Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence. Les étapes ci-dessous décrivent comment accomplir cette tâche à l’aide de PowerShell pour créer des bases de données secondaires, accessibles en lecture ou non, avec une base de données unique ou une base de données élastique.
+La base de données répliquée sur le serveur secondaire aura le même nom que la base de données sur le serveur primaire et aura, par défaut, le même niveau de service. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données autonome ou d’une base de données dans un pool élastique. Pour plus d’informations, consultez [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) et [Niveaux de service](sql-database-service-tiers.md).
+Une fois la base de données secondaire créée et amorcée, une réplication asynchrone des données de la base de données primaire vers la base de données secondaire commence. Les étapes ci-dessous décrivent comment accomplir cette tâche à l’aide de PowerShell pour créer des bases de données secondaires, accessibles en lecture ou non, avec une base de données autonome ou une base de données élastique.
 
 Si la base de données partenaire existe déjà (par exemple, suite à l’arrêt d’une relation de géoréplication précédente), la commande échoue.
 
-### <a name="add-a-non-readable-secondary-single-database"></a>Ajouter une base de données secondaire non accessible en lecture (base de données unique)
+### <a name="add-a-non-readable-secondary-standalone-database"></a>Ajouter une base de données secondaire non accessible en lecture (base de données autonome)
 La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "No"
 
 
 
-### <a name="add-readable-secondary-single-database"></a>Ajouter une base de données secondaire accessible en lecture (base de données unique)
+### <a name="add-readable-secondary-standalone-database"></a>Ajouter une base de données secondaire accessible en lecture (base de données autonome)
 La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -AllowConnections "All"
 
 
 
 
-### <a name="add-a-non-readable-secondary-elastic-database"></a>Ajouter une base de données secondaire non accessible en lecture (base de données élastique)
-La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+### <a name="add-a-non-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire non accessible en lecture (pool élastique)
+La commande suivante crée un réplica secondaire non accessible en lecture de la base de données « mydb » dans le pool élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
-### <a name="add-a-readable-secondary-elastic-database"></a>Ajouter un réplica secondaire accessible en lecture (base de données élastique)
-La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » dans le pool de la base de données élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
+### <a name="add-a-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire accessible en lecture (pool élastique)
+La commande suivante crée un réplica secondaire accessible en lecture de la base de données « mydb » dans le pool élastique nommé « ElasticPool1 » du serveur « srv2 » dans le groupe de ressources « rg2 » :
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "rg2" -PartnerServerName "srv2" -SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
 
@@ -118,8 +118,8 @@ Pour supprimer la base de données secondaire, les utilisateurs doivent avoir ac
 
 Ce qui suit permet de supprimer le lien de réplication de la base de données nommée « mydb » pour le serveur « srv2 » du groupe de ressources « rg2 ». 
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -SecondaryResourceGroup "rg2" -PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
@@ -130,8 +130,8 @@ Les tâches de surveillance incluent la surveillance de la configuration de géo
 
 La commande suivante récupère l’état du lien de réplication entre la base de données primaire « mydb » et secondaire sur le serveur « srv2 » du groupe de ressources « rg2 ».
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
-    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroup "rg2” -PartnerServerName "srv2”
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -141,6 +141,6 @@ La commande suivante récupère l’état du lien de réplication entre la base 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -29,7 +29,7 @@ Cet aide-mémoire vous guide lors de la prise de décisions. Il propose des lien
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Télécharger l’aide-mémoire relatif au pipeline de données automatisé Machine Learning
 Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format tabloïd (11 x 17 pouces).
 
- **[aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**[aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
 

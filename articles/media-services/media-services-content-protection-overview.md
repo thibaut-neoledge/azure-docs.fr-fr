@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
+ms.sourcegitcommit: 564a86fbdd64c4d28d26b7e295cca6f3904a3f4a
+ms.openlocfilehash: 04dae4646de23ab128101606cfb19f18a47133ad
 
 
 ---
@@ -27,10 +27,8 @@ L’image suivante montre les flux de travail de protection du contenu pris en c
 
 ![Protéger avec PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu chiffré.
-> 
-> 
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Cette rubrique explique les [concepts et la terminologie](media-services-content-protection-overview.md) pertinentes pour comprendre la protection du contenu avec AMS. Cette rubrique contient également des [liens](media-services-content-protection-overview.md#common-scenarios) vers des rubriques qui montrent comment effectuer les tâches de protection du contenu. 
 
@@ -45,10 +43,6 @@ Vous devez également configurer la stratégie de remise de l’élément multim
 
 Lorsqu’un flux est demandé par un lecteur, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement de clé en clair AES ou DRM. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-> [!NOTE]
-> Pour tirer parti du chiffrement dynamique, vous devez d’abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu chiffré. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="storage-encryption"></a>Chiffrement du stockage
 Utilisez le chiffrement du stockage pour chiffrer votre contenu localement à l’aide du chiffrement AES 256 bits, puis chargez-le vers Azure Storage où il est stocké au repos sous forme chiffrée. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation des fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
@@ -96,6 +90,10 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 * [Intégration du service de remise de licences PlayReady d’Azure à votre propre chiffreur/serveur de diffusion en continu](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Utilisation de castLabs pour fournir des licences DRM à Azure Media Services](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>Les scénarios où vous utilisez un serveur (ou une technologie) DRM externe et un flux provenant d’AMS ne sont pas pris en charge pour le moment.
+
+
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -119,6 +117,6 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

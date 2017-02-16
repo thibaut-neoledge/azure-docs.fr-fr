@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
 
 
 ---
@@ -73,6 +73,7 @@ Maintenant, nous allons déployer notre premier modèle.
       
       ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Choisissez un groupe de ressources existant ou fournissez un nom afin de créer un nouveau groupe de ressources et choisissez un emplacement pour le groupe de ressources.
+
     ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Cliquez sur **Consulter les termes et conditions**, **Acheter**, puis cliquez sur **Créer** pour commencer le déploiement.  Sélectionnez **Épingler au tableau de bord** pour que le déploiement obtenu soit facilement visible sur votre page d’accueil du portail Azure.
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -113,6 +114,7 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle est utile 
       
       ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Choisissez un groupe de ressources existant ou fournissez un nom afin de créer un nouveau groupe de ressources et choisissez un emplacement pour le groupe de ressources.
+
     ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Cliquez sur **Consulter les termes et conditions**, **Acheter**, puis cliquez sur **Créer** pour commencer le déploiement.  Sélectionnez **Épingler au tableau de bord** pour que le déploiement obtenu soit facilement visible sur votre page d’accueil du portail Azure.
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -121,6 +123,7 @@ Maintenant nous allons déployer notre deuxième modèle.  Ce modèle est utile 
 8. Cliquez sur la ressource d’application web dans la liste des ressources, puis sur **Paramètres de l’application**
     ![Capture d’écran du groupe de ressources](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Remarquez l’existence de paramètres d’application pour le point de terminaison DocumentDB et chacune des clés principales DocumentDB.
+
     ![Capture d’écran des paramètres de l’application](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. N'hésitez pas à continuer à explorer le portail Azure ou à suivre l'un de nos [exemples](http://go.microsoft.com/fwlink/?LinkID=402386) DocumentDB pour créer votre propre application DocumentDB.
 
@@ -145,6 +148,6 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Instructions pour les groupes de ressources | Microsoft Docs
+title: Instructions pour les groupes de ressources Azure | Microsoft Docs
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement de groupes de ressources dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c915429f5dc631a4498b6e3224a4bdff36d5407
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 0d7c84d811b37a16e018f0915d3a0fde5183653f
 
 
 ---
@@ -57,6 +57,6 @@ Lorsque vous augmentez la taille des instances, la création de groupes de resso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

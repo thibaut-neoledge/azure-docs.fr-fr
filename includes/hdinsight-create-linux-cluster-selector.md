@@ -1,12 +1,16 @@
 > [!div class="op_single_selector"]
-> * [Windows-based](../articles/hdinsight/hdinsight-provision-clusters.md)
-> * [Overview](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
-> * [Azure portal](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)
-> * [Azure CLI](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+> * [Windows](../articles/hdinsight/hdinsight-provision-clusters.md)
+> * [Vue d'ensemble](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
+> * [Portail Azure](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)
+> * [Interface de ligne de commande Azure](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 > * [Azure PowerShell](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-> * [REST API (cURL)](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-> * [.NET SDK](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+> * [API REST (cURL)](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+> * [Kit SDK .NET](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 > 
 > 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

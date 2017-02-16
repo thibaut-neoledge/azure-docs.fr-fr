@@ -1,5 +1,5 @@
 ---
-title: "Déployer une machine virtuelle Linux dans un réseau virtuel Azure existant à l’aide de l’interface CLI | Microsoft Docs"
+title: "Déployer des machines virtuelles Linux dans des réseaux existants - Azure CLI | Microsoft Docs"
 description: "Déployez une machine virtuelle Linux dans un réseau virtuel existant à l’aide de l’interface CLI."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,86 +13,27 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2fad20978f40150ef9f1cb44054da2ba66848bda
-ms.openlocfilehash: 613ce9b27bc26643b2f46c490d7f550b370df998
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 93fa2521b81b423d663df6e04ef201839bca2814
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-vnet--nsg-using-the-cli"></a>Déployer une machine virtuelle Linux dans un réseau virtuel et un groupe de sécurité réseau existants à l’aide de l’interface CLI
+# <a name="deploy-a-linux-vm-into-an-existing-azure-virtual-network-using-the-cli"></a>Déployez une machine virtuelle Linux dans un réseau virtuel Azure existant à l’aide de l’interface de ligne de commande
 
-Cet article vous explique comment utiliser les indicateurs de l’interface CLI pour déployer une machine virtuelle dans un réseau virtuel existant, sécurisé à l’aide d’un groupe de sécurité réseau existant.  Les conditions requises sont :
+Cet article explique comment utiliser les indicateurs de l’interface de ligne de commande pour déployer une machine virtuelle dans un réseau virtuel existant.  Les conditions requises sont :
 
 - [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
-
 - [des fichiers de clés SSH publiques et privées](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Commandes rapides
 
-Remplacez les exemples par vos propres paramètres.
+Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes nécessaires. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
 
-### <a name="create-the-resource-group"></a>Créer le groupe de ressources
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### <a name="create-the-vnet"></a>Créez le réseau virtuel.
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### <a name="create-the-nsg"></a>Créer le groupe de sécurité réseau
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### <a name="add-an-inbound-ssh-allow-rule"></a>Ajouter une règle d’autorisation SSH entrante
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### <a name="add-a-subnet-to-the-vnet"></a>Ajouter un sous-réseau au réseau virtuel
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
-
-### <a name="add-a-vnic-to-the-subnet"></a>Ajouter une carte réseau virtuelle au réseau virtuel
-
-```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
-```
+Configuration requise : groupe de ressources, réseau virtuel, groupe de sécurité réseau avec SSH entrant, sous-réseau. Remplacez les exemples par vos propres paramètres.
 
 ### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Déployer la machine virtuelle dans le réseau virtuel, le groupe de sécurité réseau et connecter la carte réseau virtuelle
 
@@ -220,6 +161,6 @@ En utilisant les indicateurs CLI pour appeler les ressources existantes, nous i
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

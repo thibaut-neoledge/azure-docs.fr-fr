@@ -4,7 +4,7 @@ description: "Fournit des informations sur la résolution de certains problèmes
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: felixwu
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: a0907da1-cb2d-41d1-a97f-43841fabe355
@@ -13,23 +13,39 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/24/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e2e22b767ce1d54e7b90158fb6adb877e3a165b8
+ms.sourcegitcommit: 73c4ff6fdbde09dd08d1bcacf0ec87c7fa43f3b2
+ms.openlocfilehash: 7ded94f432f8e61153ee8dfbf2508b288a4ad5fd
 
 
 ---
 # <a name="i-cant-sign-up-for-azure"></a>Je ne parviens pas à m’inscrire à Azure
 Si vous ne parvenez pas à vous inscrire à Azure, il existe plusieurs choses que vous pouvez vérifier pour résoudre le problème.
 
+## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barre de progression se bloque dans la section « Vérification d’identité par carte »
+
+Lors de l’inscription à Azure, une section s’intitule « Vérification d’identité par carte ». Si la barre de progression se bloque :
+
+![Capture d’écran du blocage dans la section Vérification d’identité par carte pendant l’inscription](./media/billing-troubleshoot-azure-sign-up-issues/identity-verification-hangs.PNG)
+
+Ce problème se produit lorsque les cookies tiers sont bloqués pour votre navigateur.
+
+### <a name="suggestion"></a>Suggestion
+
+1. Autorisez les cookies tiers dans les paramètres de votre navigateur.
+  * Dans Edge, accédez à Paramètres -> Afficher les paramètres avancés -> Cookies, sélectionnez « Ne pas bloquer les cookies ».
+  * Dans Chrome, accédez à Paramètres-> Afficher les paramètres avancés -> Confidentialité-> Paramètres de contenu, décochez la case « Bloquer les cookies et les données de site tiers ».
+2. Actualisez la page d’inscription à Azure, puis vérifiez si le problème est résolu.
+3. Si l’actualisation n’a pas résolu le problème, quittez et redémarrez votre navigateur, puis réessayez.
+
 ## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Aucun message texte ni appel lors de la vérification du compte à l’inscription
 * Vérifiez que votre numéro de téléphone peut recevoir des SMS.
 * Vérifiez par deux fois le numéro de téléphone saisi, y compris l’indicatif du pays sélectionné dans le menu déroulant.
 * Assurez-vous que votre téléphone peut recevoir des messages texte (SMS) si vous utilisez l’option « Envoyer un message texte » ou s’il peut recevoir des appels téléphoniques si vous choisissez l’option « M’appeler ».
 * Si vous utilisez un téléphone mobile, vérifiez que vous disposez d’une bonne connexion téléphonique.
-* Attendez jusqu’à 4 minutes pour permettre au système de messagerie de vous envoyer le code texte si vous choisissez l’option « Envoyer un message texte ».
+* Attendez jusqu’à&4; minutes pour permettre au système de messagerie de vous envoyer le code texte si vous choisissez l’option « Envoyer un message texte ».
 * Dès que vous recevez le message texte, insérez le code dans la zone de texte et cliquez sur le bouton de vérification pour continuer.
 
 ### <a name="suggestions"></a>Suggestions
@@ -39,8 +55,8 @@ Si vous ne parvenez pas à vous inscrire à Azure, il existe plusieurs choses qu
 
 > [!NOTE]
 > Vous pouvez modifier ultérieurement votre numéro de téléphone par défaut en mettant à jour [vos informations de profil](billing-how-to-change-azure-account-profile.md).
-> 
-> 
+>
+>
 
 ## <a name="credit-card-declined-or-not-accepted"></a>Carte de crédit refusée
 Êtes-vous sûr que le mode de paiement utilisé lors de l’inscription est pris en charge pour les activations ou paiements Azure ?
@@ -77,15 +93,14 @@ Si vous ne disposez d’aucune clé OSA, contactez l’un des partenaires Micros
 Avez-vous utilisé un abonnement Azure auparavant ? Les conditions d’utilisation d’Azure n’autorisent l’activation que d’une seule évaluation gratuite pour tout utilisateur n’ayant jamais utilisé Azure. Si vous avez déjà souscrit un autre type d’abonnement Azure, vous ne pouvez pas activer une version d'évaluation gratuite.
 
 ### <a name="suggestion"></a>Suggestion
-* Si vous avez activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation. 
+* Si vous avez activé un abonnement Azure auparavant et que l’activation de votre évaluation gratuite échoue, envisagez d’acheter un abonnement avec paiement à l’utilisation.
 * Vérifiez si vous avez droit à une offre d’avantages. Pour en savoir plus, consultez la [page Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Les programmes d’avantages imposent des conditions requises spécifiques.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
+Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

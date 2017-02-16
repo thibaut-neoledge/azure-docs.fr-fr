@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
 
 
 ---
@@ -44,17 +44,22 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
 **Durée estimée** : ce didacticiel vous prendra environ 30 minutes (en supposant que vous remplissez déjà les conditions préalables).
 
+> [!TIP]
+> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide de [C#](sql-database-get-started-csharp.md) ou de [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## <a name="prerequisites"></a>Composants requis
 
 * Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide de [C#](sql-database-get-started-csharp.md) ou de [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> Ce didacticiel vous permet de vous familiariser avec le contenu des rubriques suivantes : [Serveurs logiques Azure SQL Database](sql-database-server-overview.md), [Vue d’ensemble de la base de données SQL Azure](sql-database-overview.md) et [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Connexion à l’aide de votre compte existant
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Se connecter au portail Azure avec un compte Azure
 À l’aide de votre [abonnement existant](https://account.windowsazure.com/Home/Index), suivez ces étapes pour vous connecter au portail Azure.
 
 1. Ouvrez votre navigateur préféré et connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -103,7 +108,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     ![server location](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > La case à cocher **Autoriser les services Azure à accéder au serveur** ne peut pas être modifiée dans ce panneau. Vous pouvez modifier ce paramètre dans le panneau de pare-feu du serveur. Pour plus d'informations, consultez [Prise en main de la sécurité](sql-database-get-started-security.md).
+    > La case à cocher **Autoriser les services Azure à accéder au serveur** ne peut pas être modifiée dans ce panneau. Vous pouvez modifier ce paramètre dans le panneau de pare-feu du serveur. Pour plus d'informations, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Cliquez sur **Create**.
@@ -183,7 +188,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Pour explorer la sécurité SQL, consultez [Prise en main de la sécurité](sql-database-get-started-security.md).
+    > Pour explorer la sécurité SQL, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Créer une base de données dans le portail Azure à l’aide de l’exemple Adventure Works LT
@@ -291,7 +296,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être explorer les nombreux autres didacticiels afin de mettre en œuvre ce que vous avez appris dans ce didacticiel. 
 
-* Si vous souhaitez commencer à explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-get-started-security.md).
+* Si vous souhaitez commencer à explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
 * Si vous connaissez Excel, découvrez comment [vous connecter à une base de données SQL dans Azure avec Excel](sql-database-connect-excel.md).
 * Si vous êtes prêt à commencer le codage, choisissez votre langage de programmation dans [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 * Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, consultez la page [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
@@ -306,6 +311,6 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

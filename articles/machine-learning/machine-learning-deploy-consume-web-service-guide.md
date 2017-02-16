@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: d71bbf32196bd249bdefb94e0e760847cc6ec5e0
-ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
 
 
 ---
@@ -35,7 +35,7 @@ Les liens suivants fournissent des informations générales sur le processus de 
 * Pour une présentation du déploiement d’un service web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 * Pour une présentation complète de la création et du déploiement d’un service web, consultez [Étape 1 du didacticiel pas à pas : créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md).
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
-  
+
   * [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md)
   * [Comment déployer un service web dans plusieurs régions](machine-learning-how-to-deploy-to-multiple-regions.md)
 
@@ -48,7 +48,7 @@ Le fournisseur de ressources Azure Machine Learning pour les services web permet
 ### <a name="with-powershell-cmdlets"></a>Avec des applets de commande PowerShell
 Le fournisseur de ressources Azure Machine Learning pour les services web permet le déploiement et la gestion des services web au moyen d’applets de commande PowerShell.
 
-Pour utiliser les applets de commande, vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+Pour utiliser les applets de commande, vous devez tout d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
 
 Pour exporter votre expérience prédictive, utilisez cet [exemple de code](https://github.com/ritwik20/AzureML-WebServices). Après avoir créé le fichier .exe à partir du code, vous pouvez taper :
 
@@ -57,10 +57,10 @@ Pour exporter votre expérience prédictive, utilisez cet [exemple de code](http
 L’exécution de l’application crée un modèle JSON de service web. Pour utiliser le modèle afin de déployer un service web, vous devez ajouter les informations suivantes :
 
 * Nom et clé du compte de stockage
-  
+
     Vous pouvez récupérer le nom et la clé du compte de stockage à partir du [portail Azure](https://portal.azure.com/) ou du [portail Azure Classic](http://manage.windowsazure.com/).
 * ID de plan d’engagement
-  
+
     Vous pouvez récupérer l’ID du plan sur le portail des [services web Azure Machine Learning](https://services.azureml.net) en vous connectant et en cliquant sur le nom d’un plan.
 
 Ajoutez-les au modèle JSON en tant qu’enfants du nœud *Propriétés* au même niveau que le nœud *MachineLearningWorkspace*.
@@ -99,7 +99,6 @@ Les services web Azure Machine Learning sont des API RESTful. Vous pouvez consom
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Utilisation des rubriques Service Bus avec Python | Microsoft Docs
+title: Utilisation des rubriques Azure Service Bus avec Python | Microsoft Docs
 description: "Découvrez comment utiliser les rubriques et abonnements Service Bus Azure depuis Python."
 services: service-bus-messaging
 documentationcenter: python
@@ -12,48 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86fa1e1cc5db31bdbec216e1c1f20c2b07cf68d9
+ms.sourcegitcommit: d0714870a0b01eca5e07c171c5ca8d0c0c1d6df1
+ms.openlocfilehash: 69f8807d509c31ae4aadeb16731fc481039a7e20
 
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Utilisation des rubriques et abonnements Service Bus
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en Python et utilisent le [Package Azure Python][Package Azure Python]. Les scénarios couverts incluent la **création de rubriques et d’abonnements**, la **création de filtres d’abonnement**, **l’envoi de messages à une rubrique**, la **réception de messages en provenance d’un abonnement** et enfin la **suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
+Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en Python et utilisent le [package Azure Python][Python Azure package]. Les scénarios couverts incluent la **création de rubriques et d’abonnements**, la **création de filtres d’abonnement**, **l’envoi de messages à une rubrique**, la **réception de messages en provenance d’un abonnement** et enfin la **suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Remarque :** Si vous devez installer Python ou le [Package Azure Python][Package Azure Python], veuillez consulter le [Guide d’installation de Python](../python-how-to-install.md).
+> [!NOTE] 
+> Si vous devez installer Python ou le [package Azure Python][Python Azure package], consultez le [Guide d’installation de Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
 
-```
+```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 Le code suivant crée un objet **ServiceBusService**. Remplacez `mynamespace`, `sharedaccesskeyname` et `sharedaccesskey` par un espace de noms, un nom et une valeur de clé de signature d’accès partagé (SAP) réels.
 
-```
+```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
 ```
 
-Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir de la fenêtre à partir du [Portail Azure][Portail Azure].
+Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir du [portail Azure][Azure portal].
 
-```
+```python
 bus_service.create_topic('mytopic')
 ```
 
 **create\_topic** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut comme la durée de vie du message ou la taille maximale de la rubrique. L’exemple suivant définit la taille maximale de la rubrique sur 5 Go et la durée de vie de message (TTL) sur 1 minute :
 
-```
+```python
 topic_options = Topic()
 topic_options.max_size_in_megabytes = '5120'
 topic_options.default_message_time_to_live = 'PT1M'
@@ -72,14 +73,14 @@ Les abonnements à des rubriques sont également créés à l’aide de l’obje
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n’est spécifié lors de la création d’un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement « AllMessages » qui est créé utilise le filtre par défaut **MatchAll**.
 
-```
+```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Création d’abonnements avec des filtres
 Vous pouvez également définir des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Le type de filtre le plus flexible pris en charge par les abonnements est **SqlFilter**, qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Le type de filtre le plus flexible pris en charge par les abonnements est **SqlFilter**, qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, consultez la syntaxe de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Vous pouvez ajouter des filtres à un abonnement en utilisant la méthode **create\_rule** de l’objet **ServiceBusService**. Cette méthode vous permet d’ajouter de nouveaux filtres à un abonnement existant.
 
@@ -90,7 +91,7 @@ Vous pouvez ajouter des filtres à un abonnement en utilisant la méthode **crea
 
 Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
-```
+```python
 bus_service.create_subscription('mytopic', 'HighMessages')
 
 rule = Rule()
@@ -103,7 +104,7 @@ bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 
 De même, l’exemple suivant crée l’abonnement `LowMessages` avec un **SqlFilter** qui sélectionne uniquement les messages dont la propriété **messagenumber** a une valeur inférieure ou égale à 3 :
 
-```
+```python
 bus_service.create_subscription('mytopic', 'LowMessages')
 
 rule = Rule()
@@ -121,18 +122,18 @@ Pour envoyer un message à une rubrique Service Bus, votre application doit util
 
 L’exemple suivant montre comment envoyer cinq messages de test à `mytopic`. Notez que la valeur de la propriété **messagenumber** de chaque message varie au niveau de l’itération de la boucle (ce qui détermine les abonnements qui le reçoivent) :
 
-```
+```python
 for i in range(5):
     msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Quotas Service Bus].
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 La méthode **receive\_subscription\_message** de l’objet **ServiceBusService** permet de recevoir les messages d’un abonnement.
 
-```
+```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
@@ -143,7 +144,7 @@ Le comportement de lecture et de suppression du message dans le cadre de l'opér
 
 Si le paramètre **peek\_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l’objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de l’abonnement.
 
-```
+```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 print(msg.body)
 
@@ -158,32 +159,32 @@ De même, il faut savoir qu’un message verrouillé dans un abonnement est asso
 Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **delete**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Lors de cette opération souvent appelée **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [Portail Azure][Portail Azure] ou par programmation. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
 
-```
+```python
 bus_service.delete_topic('mytopic')
 ```
 
 La suppression d’une rubrique a également pour effet de supprimer les abonnements inscrits dans la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante. Le code suivant montre comment supprimer l’abonnement `HighMessages` de la rubrique `mytopic` :
 
-```
+```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.
 
-* Consultez [Files d’attente, rubriques et abonnements.][Files d’attente, rubriques et abonnements.].
+* Consultez [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions].
 * Référence pour [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-[Portail Azure]: https://portal.azure.com
-[Package Azure Python]: https://pypi.python.org/pypi/azure  
-[Files d’attente, rubriques et abonnements.]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Quotas Service Bus]: service-bus-quotas.md 
+[Azure portal]: https://portal.azure.com
+[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Service Bus quotas]: service-bus-quotas.md 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

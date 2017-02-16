@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ab66e07f293b3efc156829659b805c17b06ebea6
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 727891d92c047abe405415ea544db6f77a0db9f9
 
 
 ---
@@ -263,7 +263,7 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 * [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md)
 * [Développement Agile en pratique : trucs et astuces pour le cycle de développement moderne](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Stratégies de déploiement avancées pour les applications web Azure à l’aide des modèles Resource Manager](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - Validateur JSON](http://jsonlint.com/)
 * [ARMClient – Configurer la publication GitHub sur site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
@@ -276,6 +276,6 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

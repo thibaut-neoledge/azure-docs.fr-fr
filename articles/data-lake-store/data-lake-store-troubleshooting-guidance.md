@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Forum aux questions pour Azure Data Lake Store
 Cet article vous présente les questions fréquentes relatives à Azure Data Lake Store.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>Comment gérer les corruptions de données et la récupération d’urgence de mon compte Azure Data Lake Store ?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Comment puis-je renforcer la protection de mes données contre les sinistres régionaux et les suppressions accidentelles ?
 Les données de votre compte Azure Data Lake Store seront résistantes aux défaillances matérielles temporaires au sein d’une région par le biais des réplicas automatisés. Cela garantit durabilité et haute disponibilité et permet de respecter le contrat de niveau de service d’Azure Data Lake Store. Voici de l’aide pour mieux protéger vos données contre les rares pannes ou suppressions accidentelles à l’échelle de la région.
 
 ### <a name="disaster-recovery-guidance"></a>Guide de récupération d’urgence
@@ -52,6 +52,6 @@ Les organisations peuvent également activer la [journalisation des diagnostics]
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

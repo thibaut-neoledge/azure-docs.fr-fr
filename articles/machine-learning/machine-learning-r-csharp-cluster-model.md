@@ -1,6 +1,6 @@
 ---
-title: "Modèle de cluster | Microsoft Docs"
-description: "Modèle de cluster"
+title: "(obsolète) Modèle de cluster - Azure | Microsoft Docs"
+description: "(obsolète) Modèle de cluster"
 services: machine-learning
 documentationcenter: 
 author: FrancescaLazzeri
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: lazzeri
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8206107550173959021ea69ac533aa046f7e12e3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 84c94b83878f851c2ac281fe33afe53e02f8456c
 
 
 ---
-# <a name="cluster-model"></a>Modèle de cluster
+# <a name="deprecated-cluster-model"></a>(obsolète) Modèle de cluster
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Comment pouvons-nous prédire le comportement de groupes de détenteurs de cartes de crédit afin de limiter le risque de non-paiement pour les émetteurs de carte de crédit ? Comment pouvons-nous définir des groupes de traits de personnalité chez des employés afin d'améliorer leurs performances au travail ? Comment les médecins peuvent-ils classer leurs patients en groupes selon les caractéristiques de leurs maladies ? En principe, l’outil d’analyse des clusters permet d’apporter une réponse à toutes ces questions.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +87,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (un 
 > 
 > 
 
-À partir d’Azure Machine Learning, une nouvelle expérience vide a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Le schéma de données a été créé avec un simple module [Exécuter le script R][execute-r-script]. Il a ensuite été lié à la section du modèle de cluster, à nouveau créée avec un module [Exécuter le script R][execute-r-script]. Dans le module [Exécuter le script R][execute-r-script] utilisé pour le modèle de cluster, le service web utilise ensuite la fonction « k moyenne », qui est prédéfinie dans le module [Exécuter le script R][execute-r-script] d’Azure Machine Learning.    
+À partir d’Azure Machine Learning, une nouvelle expérience vierge a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Le schéma de données a été créé avec un simple module [Exécuter le script R][execute-r-script]. Il a ensuite été lié à la section du modèle de cluster, à nouveau créée avec un module [Exécuter le script R][execute-r-script]. Dans le module [Exécuter le script R][execute-r-script] utilisé pour le modèle de cluster, le service web utilise ensuite la fonction « k moyenne », qui est prédéfinie dans le module [Exécuter le script R][execute-r-script] d’Azure Machine Learning.    
 
 ![Flux de l’expérience][3]
 
@@ -134,6 +141,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

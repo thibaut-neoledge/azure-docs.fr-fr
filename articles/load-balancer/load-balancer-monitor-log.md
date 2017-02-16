@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
+ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)
+# <a name="log-analytics-for-azure-load-balancer"></a>Analyse des journaux de l'équilibreur de charge Azure
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les équilibreurs de charge et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser différents types de journaux dans Azure pour gérer les é
 * **Journaux des sondes d'intégrité :** vous pouvez utiliser ce journal pour vérifier l’état des sondes d'intégrité, le nombre d'instances en ligne dans l’équilibreur de charge principal, et le pourcentage de machines virtuelles qui reçoivent le trafic de l’équilibreur de charge. Ce journal est écrit à chaque changement de l’événement d’état de la sonde.
 
 > [!IMPORTANT]
->  L'analyse des journaux s’applique uniquement aux équilibreurs de charge accessibles sur Internet. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
+> L'analyse des journaux s’applique uniquement aux équilibreurs de charge accessibles sur Internet. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
@@ -148,6 +148,6 @@ Vous devez vous connecter à votre compte de stockage et récupérer les entrée
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

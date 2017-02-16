@@ -1,5 +1,5 @@
 ---
-title: Application web .NET v2.0 Azure AD | Documentation Docs
+title: "Utiliser Azure AD v2.0 pour sécuriser une application web MVC .NET qui appelle une API web | Microsoft Docs"
 description: "Comment créer une application Web .NET MVC qui appelle des services Web à l’aide de comptes personnels Microsoft et de comptes professionnels ou scolaires pour la connexion."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 587a5136004525f5badc5e72d006fc6dd07d42d8
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 8c35bfbc75f99fc8558f83667b12a6df1cd3eefd
 
 
 ---
@@ -193,7 +193,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guide du développeur&2;.0 >>](active-directory-appmodel-v2-overview.md)
 * [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
@@ -202,6 +202,6 @@ Nous vous encourageons à activer les notifications d’incidents de sécurité 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

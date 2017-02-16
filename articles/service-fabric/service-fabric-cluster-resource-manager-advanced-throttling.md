@@ -12,24 +12,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce3e53a4edfa8b97ce4fdb6b553d0b6c917f54e4
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
 
 
 ---
-# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Limitation du comportement de Service Fabric Cluster Resource Manager
-Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple il peut y avoir des défaillance de nœud ou de domaine d’erreur simultanées. Que se passerait-il si cela se produisait pendant une mise à niveau ? Resource Manager fera de son mieux pour tout corriger, mais, dans ce cas, vous pouvez envisager d’appliquer une protection afin que le cluster lui-même ait une chance de se stabiliser (les nœuds qui peuvent se rétablir le font, les conditions de réseau se corrigent elles-mêmes, les bits corrigés sont déployés). Pour résoudre ce genre de problème, Service Fabric Cluster Resource Manager comprend plusieurs limitations. Notez que ces limitations peuvent entraîner des interruptions et qu’elles ne doivent généralement pas être utilisées, sauf si la quantité de travail parallèle pouvant être exécutée dans le cluster a été bien évaluée, ainsi que la fréquence à laquelle vous devez corriger ces événements de reconfiguration macroscopique non planifiés (c’est-à-dire : « Les très mauvais jours »).
 
-En général, nous recommandons d’éviter les très mauvais jours en utilisant d’autres options (telles que les mises à jour régulières de code et éviter la surplanification du cluster pour commencer) plutôt que de limiter votre cluster pour l’empêcher d’utiliser des ressources lorsqu’il tente de s’auto-corriger). Les limitations ont des valeurs par défaut que nous avons déterminées par défaut grâce à notre expérience, mais vous devez sans doute les calculer et les régler en fonction de votre charge réelle attendue. Bien qu’une bonne pratique consiste à limiter et charger le cluster, vous pouvez identifier des cas (jusqu’à ce que vous puissiez les résoudre) pour lesquels vous devez mettre en place des limitations, même si cela signifie que le cluster prendra plus de temps à se stabiliser.
+# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Limitation du comportement de Service Fabric Cluster Resource Manager
+Même si vous avez configuré le Cluster Resource Manager , le cluster peut être interrompu. Par exemple, il peut y avoir des défaillance de nœud ou de domaine d’erreur simultanées. Que se passe-t-il alors si cela se produit pendant une mise à niveau ? Le Gestionnaire de ressources de cluster essaie de résoudre tous les problèmes, mais cela peut introduire une évolution dans le cluster. Les limitations servent de filet de sécurité afin que le cluster puisse utiliser des ressources pour se stabiliser. Les nœuds reviennent, les partitions réseau sont réparées et les bits corrigés sont déployés.
+
+Pour résoudre ce genre de problème, le Gestionnaire de ressources de cluster Service Fabric comprend plusieurs limitations. Ces limitations sont relativement lourdes. Ces paramètres par défaut ne doivent pas être modifiés, sauf si le volume de travail que le cluster peut effectuer en parallèle a été revu avec attention.
+
+Les limitations ont des valeurs par défaut que l’équipe Service Fabric a considérées comme pertinentes. Si vous devez les modifier, vous devez les adapter à la charge de travail réelle attendue. Vous pouvez décider que vous avez besoin de certaines limitations, même si cela signifie que la stabilisation du cluster prend généralement plus de temps.
 
 ## <a name="configuring-the-throttles"></a>Configuration des limitations
 Les limitations qui sont incluses par défaut sont les suivantes :
 
-* GlobalMovementThrottleThreshold : contrôle le nombre total de mouvements dans le cluster au cours d’une certaine période (définie comme valeur GlobalMovementThrottleCountingInterval en secondes)
-* MovementPerPartitionThrottleThreshold : contrôle le nombre total de mouvements pour n’importe quelle partition de service au cours d’une certaine période (la valeur MovementPerPartitionThrottleCountingInterval en secondes)
+* GlobalMovementThrottleThreshold : ce paramètre contrôle le nombre total de mouvements dans le cluster au cours d’une certaine période (définie comme valeur GlobalMovementThrottleCountingInterval en secondes)
+* MovementPerPartitionThrottleThreshold : ce paramètre contrôle le nombre total de mouvements pour n’importe quelle partition de service au cours d’une certaine période (la valeur MovementPerPartitionThrottleCountingInterval en secondes)
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
@@ -40,15 +43,42 @@ Les limitations qui sont incluses par défaut sont les suivantes :
 </Section>
 ```
 
-La plupart du temps, les clients utilisent ces limitations parce qu’ils se trouvent déjà dans un environnement à ressources limitées (par exemple, une bande passante réseau limitée dans des nœuds ou des disques individuels qui ne répondent pas aux conditions requises pour les builds de réplicas parallèles qui y sont placés), ce qui signifie que ces opérations ne réussiraient pas ou seraient très lentes.  Dans ce cas, les clients apprécient l’idée d’augmenter potentiellement la durée nécessaire au cluster pour atteindre un état stable, notamment le fait de savoir que l’exécution se fait avec une fiabilité inférieure alors que les limitations sont appliquées.
+via ClusterConfig.json pour les déploiements autonomes ou Template.json pour les clusters hébergés sur Azure :
+
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "GlobalMovementThrottleThreshold",
+          "value": "1000"
+      },
+      {
+          "name": "GlobalMovementThrottleCountingInterval",
+          "value": "600"
+      },
+      {
+          "name": "MovementPerPartitionThrottleThreshold",
+          "value": "50"
+      },
+      {
+          "name": "MovementPerPartitionThrottleCountingInterval",
+          "value": "600"
+      }
+    ]
+  }
+]
+```
+
+La plupart du temps, les clients utilisent ces limitations, car ils travaillent déjà dans un environnement aux ressources restreintes. Par exemple, une bande passante réseau limitée dans les nœuds individuels ou des disques qui ne sont pas en mesure de générer de nombreux réplicas en parallèle en raison des limites de débit. Avec ces restrictions en place, les opérations déclenchées en réponse aux incidents échouaient ou fonctionnaient au ralenti, même sans les limitations. Dans ces cas de figure, les clients savaient qu’ils devaient prolonger la durée nécessaire au cluster pour avoir un état stable. Les clients comprenaient également qu’ils pourraient fonctionner avec une fiabilité globale inférieure pendant l’application des limitations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur l’ [équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
-* Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur celles-ci, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

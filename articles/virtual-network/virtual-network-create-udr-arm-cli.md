@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8be23107d3a377854a4bd17d99652fb5b84c99dc
-ms.openlocfilehash: d134dd27088b29c53a6d3cbe5c3305e0ab45fd11
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 6d03903d662ecac24fd4afc47134ce9f39af484f
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: d134dd27088b29c53a6d3cbe5c3305e0ab45fd11
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../resource-manager-deployment-model.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article.
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article.
 >
 
 Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [créer des routages définis par l’utilisateur dans le modèle de déploiement Classic](virtual-network-create-udr-classic-cli.md).
@@ -143,7 +143,7 @@ Pour créer la table de routage et l’itinéraire nécessaires pour le sous-ré
     azure network route-table create -g TestRG -n UDR-BackEnd -l westus
     ```
 
-2. Exécutez la commande suivante pour créer un itinéraire dans la table de routage pour envoyer tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) à la machine virtuelle **FW1** (192.168.0.4) :
+2. Exécutez la commande suivante pour créer un itinéraire dans la table d’itinéraires pour envoyer tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) à la machine virtuelle **FW1** (192.168.0.4) :
 
     ```azurecli
     azure network route-table route create -g TestRG -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -y VirtualAppliance -p 192.168.0.4
@@ -232,6 +232,6 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, procé
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

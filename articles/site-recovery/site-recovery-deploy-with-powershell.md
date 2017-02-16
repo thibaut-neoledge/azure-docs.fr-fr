@@ -1,6 +1,6 @@
 ---
-title: "Répliquer des machines virtuelles Hyper-V dans des clouds VMM à l’aide d’Azure Site Recovery et de PowerShell | Microsoft Docs"
-description: "Découvrez comment automatiser la réplication de machines virtuelles Hyper-V dans des clouds VMM à l&quot;aide de Site Recovery et PowerShell."
+title: "Répliquer des machines virtuelles Hyper-V sur Azure dans le portail Classic avec PowerShell | Microsoft Docs"
+description: "Automatiser la réplication de machines virtuelles Hyper-V dans des clouds VMM à l’aide de Site Recovery et de PowerShell dans le portail Classic"
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,17 +12,17 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7ccf60c1f83a50b948b9855f2fedefeb75a0393b
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell---classic"></a>Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de PowerShell et du déploiement classique
+# <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Répliquer des machines virtuelles Hyper-V sur Azure avec PowerShell dans le portail Classic
 > [!div class="op_single_selector"]
-> * [Portail Azure](site-recovery-vmm-to-azure.md)
+> * [portail Azure](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Portail Classic](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Classique](site-recovery-deploy-with-powershell.md)
@@ -408,6 +408,6 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

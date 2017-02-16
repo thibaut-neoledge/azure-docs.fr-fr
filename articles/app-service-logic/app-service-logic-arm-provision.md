@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61ab873e77e3f7a691c815ba48c7f29b45269db9
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: dfe1cddd8a0d2558eecff8123cc5ce6ebaad97e8
 
 
 ---
@@ -27,7 +27,7 @@ Pour plus d'informations sur les propriétés de l'application logique, consulte
 
 Pour obtenir des exemples sur la définition proprement dite, consultez [Créer des définitions d'application logique](app-service-logic-author-definitions.md). 
 
-Pour plus d'informations sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour plus d'informations sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Pour le modèle complet, consultez le [modèle d'application logique](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
@@ -113,6 +113,6 @@ Cette définition spécifique s’exécute une fois par heure et exécute une co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

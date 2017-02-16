@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 53b827f15fcba26630dd470c2c9e5bbc87919c84
-ms.openlocfilehash: 79270aa5650f4ac149b582204b3c0e41d099765b
+ms.sourcegitcommit: 4faf01ca10f263a5ecc18f51659b5004bf4f7c36
+ms.openlocfilehash: 3ca870da1a01bc216604cdd1142ba68dfd5e96e2
 
 
 ---
@@ -68,12 +68,13 @@ Enterprise Integration prend en charge les normes suivantes :
 * [Validation de message XML](app-service-logic-enterprise-integration-xml.md "Découvrez comment valider des messages XML avec vos applications logiques")
 * [Transformation XML](app-service-logic-enterprise-integration-transform.md "Découvrez les mappages d’intégration d’entreprise")
 * [Connecteurs d'intégration d’entreprise](../connectors/apis-list.md "En savoir plus sur les connecteurs Enterprise Integration Pack")
+* [Métadonnées du compte d'intégration](app-service-logic-enterprise-integration-metadata.md "En savoir plus sur les métadonnées du compte d’intégration")
 * [Suivi des messages B2B](app-service-logic-monitor-b2b-message.md "En savoir plus sur le suivi des messages B2B")
 * [Suivi des messages B2B dans le portail OMS](app-service-logic-track-b2b-messages-omsportal.md "En savoir plus sur le suivi des messages B2B dans le portail OMS")
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -10,7 +10,7 @@ Lors de la création de vos applications, vous pouvez utiliser certaines région
 * **Gouvernement des États-Unis - Virginie** et **Gouvernement des États-Unis - Iowa**
   * Instance physique et logique d’Azure isolée du réseau pour les administrations et les partenaires des États-Unis, gérée par un personnel autorisé aux États-Unis. Inclut des certifications de conformité supplémentaires comme [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) et [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). En savoir plus sur [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Inde centrale**, **Inde du Sud** et **Inde de l’Ouest**
-  * Ces régions sont actuellement accessibles aux clients et partenaires du programme de licence en volume avec une inscription locale en Inde. L’accès sera proposé aux abonnements en ligne tout au long de l’année 2016.
+  * Ces régions sont actuellement accessibles aux clients et partenaires du programme de licence en volume avec une inscription locale en Inde. En 2016, les utilisateurs peuvent y accéder si les utilisateurs ont acheté des abonnements en ligne.
 * **Est de la Chine** et **Nord de la Chine**
   * Ces régions sont disponibles grâce à un partenariat unique conclu entre Microsoft et 21Vianet, qui stipule que Microsoft ne gère pas directement les centres de données. En savoir plus sur [Microsoft Azure en Chine](http://www.windowsazure.cn/).
 * **Centre de l’Allemagne** et **Nord-Est de l’Allemagne**
@@ -92,6 +92,6 @@ Vous pouvez maintenant commencer à utiliser ces fonctionnalités de gestion de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
