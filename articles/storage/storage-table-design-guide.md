@@ -165,19 +165,19 @@ Ces listes résument certains des principaux conseils que vous devez garder à l
 
 Conception de votre solution de service de Table pour une *lecture* efficace :
 
-* ***Pensez votre conception pour l’interrogation dans des applications à lecture intensive.***  Lorsque vous concevez vos tables, pensez aux requêtes que vous allez exécuter (en particulier celles sensibles à la latence) avant de réfléchir à la méthode de mise à jour de vos entités. Cela permet généralement d’élaborer une solution efficace et performante.  
+* ***Pensez votre conception pour l’interrogation dans des applications à lecture intensive.*** Lorsque vous concevez vos tables, pensez aux requêtes que vous allez exécuter (en particulier celles sensibles à la latence) avant de réfléchir à la méthode de mise à jour de vos entités. Cela permet généralement d’élaborer une solution efficace et performante.  
 * ***Spécifiez les valeurs de PartitionKey et de RowKey dans vos requêtes.*** *requêtes de pointage* telles que celles-ci sont les requêtes de service de Table les plus efficaces.  
 * ***Envisagez de stocker des copies dupliquées des entités.*** Le stockage de table est bon marché. Vous pourriez donc stocker la même entité plusieurs fois (avec différentes clés) pour rendre les requêtes plus efficaces.  
 * ***Envisagez de dénormaliser vos données.*** Le stockage de tables est bon marché. Nous vous recommandons donc d’envisager la dénormalisation de vos données. Par exemple, stockez des entités de résumé pour que les requêtes d’agrégation de données aient seulement besoin d’accéder à une entité unique.  
 * ***Utilisez des valeurs de clé composées.*** Les seules clés dont vous disposez sont **PartitionKey** et **RowKey**. Par exemple, utilisez des valeurs de clé composées pour activer les chemins d’accès de clé de substitution pour les entités.  
-* ***Utilisez la projection de requête.***  Vous pouvez réduire la quantité de données que vous transférez sur le réseau en utilisant des requêtes qui sélectionnent uniquement les champs dont vous avez besoin.  
+* ***Utilisez la projection de requête.*** Vous pouvez réduire la quantité de données que vous transférez sur le réseau en utilisant des requêtes qui sélectionnent uniquement les champs dont vous avez besoin.  
 
 Conception de votre solution de service de Table pour une *écriture* efficace :  
 
-* ***Ne créez pas de partitions à chaud.***  Choisissez des clés qui vous permettent de répartir vos requêtes sur plusieurs partitions à tout moment.  
-* ***Évitez les pics de trafic.***  Fluidifiez le trafic sur une période de temps raisonnable et évitez les pics de trafic.
-* ***Ne créez pas nécessairement une table distincte pour chaque type d’entité.***  Lorsque vous avez besoin d’utiliser des transactions atomiques sur des types d’entité, vous pouvez stocker ces types d’entité multiples dans la même partition de la même table.
-* ***Prévoyez le débit maximal nécessaire.***  Vous devez connaître les objectifs d'extensibilité du service de Table et vous assurer que votre conception n'entraînera pas de dépassement.  
+* ***Ne créez pas de partitions à chaud.*** Choisissez des clés qui vous permettent de répartir vos requêtes sur plusieurs partitions à tout moment.  
+* ***Évitez les pics de trafic.*** Fluidifiez le trafic sur une période de temps raisonnable et évitez les pics de trafic.
+* ***Ne créez pas nécessairement une table distincte pour chaque type d’entité.*** Lorsque vous avez besoin d’utiliser des transactions atomiques sur des types d’entité, vous pouvez stocker ces types d’entité multiples dans la même partition de la même table.
+* ***Prévoyez le débit maximal nécessaire.*** Vous devez connaître les objectifs d'extensibilité du service de Table et vous assurer que votre conception n'entraînera pas de dépassement.  
 
 En lisant ce guide, vous rencontrerez des exemples mettant ces principes en pratique.  
 
@@ -300,7 +300,7 @@ Les modèles suivants de la section [Modèles de conception de table](#table-des
 ## <a name="encrypting-table-data"></a>Chiffrement de données de table
 La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.    
 
-Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut [EncryptProperty] (pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
+Pour les tables, outre la stratégie de chiffrement, les utilisateurs doivent spécifier les propriétés à chiffrer. Pour ce faire, il faut spécifier un attribut EncryptProperty \(pour les entités POCO qui dérivent de TableEntity) ou un programme de résolution de chiffrement dans les options de requête. Un programme de résolution de chiffrement est un délégué qui prend une clé de partition, une clé de ligne et un nom de propriété, puis renvoie une valeur booléenne indiquant si cette propriété doit être chiffrée. Au cours du chiffrement, la bibliothèque cliente utilise ces informations pour décider si une propriété doit être chiffrée lors de l’écriture en ligne. Le délégué fournit également la possibilité de définir la manière dont les propriétés sont chiffrées l’aide d’un programme logique. (Par exemple, si X, alors chiffrer la propriété A ; sinon chiffrer les propriétés A et B.) Notez qu’il n’est pas nécessaire de fournir ces informations lors de la lecture ou de l’interrogation des entités.
 
 Notez que la fusion n’est pas prise en charge pour le moment. Si un sous-ensemble de propriétés a été chiffré précédemment à l’aide d’une clé différente, la fusion des nouvelles propriétés et la mise à jour des métadonnées entraîne une perte de données. L’opération de fusion nécessite d’effectuer des appels de service supplémentaires pour lire l’entité pré-existante à partir du service ou d’utiliser une nouvelle clé par propriété. Ces deux solutions ne conviennent pas pour des raisons de performances.     
 
