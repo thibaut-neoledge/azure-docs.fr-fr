@@ -4,10 +4,11 @@ Les limites varient selon le [plan de tarification](https://azure.microsoft.com/
 
 | **Ressource** | **Limite par défaut** | **Remarque :**
 | --- | --- | --- |
-| Total des données par jour | 100 Go | Vous pouvez réduire cette quantité en définissant une limite.
+| Total des données par jour | 500 Go | Vous pouvez réduire cette quantité en définissant une limite. S’il vous faut une plus grande quantité, envoyez un e-mail à l’adresse suivante : AIDataCap@microsoft.com 
 | Données gratuites par mois<br/> (plan tarifaire de base) | 1 Go | Données supplémentaires payantes par Go
+| Limitation | 16 000 événements par seconde | Mesuré par minute. 
 | Conservation des données | 90 jours | pour [Recherche](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) et [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md)
-| Rétention des résultats détaillés du [test de disponibilité à plusieurs étapes](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 30 jours | Résultats détaillés de chaque étape
+| Rétention des résultats détaillés du [test de disponibilité à plusieurs étapes](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 jours | Résultats détaillés de chaque étape
 | Nombre de noms de [propriétés](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) et de [mesures](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
 | Longueur des noms de propriétés et de mesures | 150 |
 | Longueur de chaîne de valeur de propriété | 8 192 |
@@ -23,6 +24,6 @@ Les limites varient selon le [plan de tarification](https://azure.microsoft.com/
 
 [Tarification et quotas dans Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

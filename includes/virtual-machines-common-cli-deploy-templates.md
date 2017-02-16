@@ -1169,7 +1169,7 @@ info:    group delete command OK
 ```
 
 ## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Tâche : Afficher le journal d'un déploiement de groupe de ressources
-Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. (Pour plus d’informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez l’article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../articles/resource-manager-troubleshoot-deployments-cli.md).)
+Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. (Pour plus d’informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
 Pour résoudre certaines défaillances, vous pouvez utiliser des outils tels que **jq** pour obtenir des renseignements plus précis, comme par exemple, l’identification des défaillances individuelles à corriger. L’exemple ci-après utilise **jq** pour analyser un journal de déploiement à la recherche de défaillances dans **lbgroup**.
 
@@ -1302,6 +1302,6 @@ Pour consulter d’autres exemples d’utilisation de l’interface de ligne de 
 Pour plus d’informations sur les autres modèles utilisables, consultez les articles [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application utilisant des modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

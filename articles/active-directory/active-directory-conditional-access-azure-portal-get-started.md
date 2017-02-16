@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 12/14/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: f4f159c832865bc2ea0c24a8a072cade3bca8e33
-ms.openlocfilehash: 327238372d84efdb7f2d58867a366821534fc945
+ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
+ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
 
 
 ---
@@ -127,7 +127,7 @@ Pour plus d’informations sur les adresses IP approuvées, consultez [Adresses 
 
 12. Dans le panneau **Conditions**, cliquez sur **Terminé**.
 
-13. Dans le panneau **Nouveau**, pour ouvrir le panneau **Grant (Autoriser)**, cliquez sur **Grant (Autoriser)** dans la section **Contrôles**.
+13. Dans le panneau **Nouveau**, pour ouvrir le panneau **Octroyer**, cliquez sur **Octroyer** dans la section **Contrôles**.
 
     ![Accès conditionnel](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
@@ -164,6 +164,6 @@ Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,14 +13,12 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
+ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Liaison d’un abonnement Azure à un client Azure B2C pour payer les frais d’utilisation
-> [!IMPORTANT]
-> Prochainement disponible. Cette fonctionnalité n’est pas disponible pour tous les clients B2C.
 
 Les frais d’utilisation courants pour Azure Active Directory B2C (ou Azure AD B2C) sont facturés à un abonnement Azure. L’administrateur du client doit lier explicitement le client Azure AD B2C à un abonnement Azure après avoir créé le client B2C lui-même.  Ce lien est obtenu en créant une ressource « Client B2C » Azure AD dans l’abonnement Azure cible. De nombreux clients B2C peuvent être liés à un abonnement Azure, ainsi qu’à d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps).
 
@@ -69,6 +67,9 @@ Lorsque vous cliquez sur la ressource Client B2C, vous pouvez :
 
 ![Paramètres de ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>Problèmes connus
+- Suppression d’un locataire B2C. Si un locataire B2C est créé, supprimé et recréé avec le même nom de domaine, vous devez aussi supprimer et recréer la ressource « Liaison » avec le même nom de domaine.  Vous pouvez trouver cette ressource « Liaison » sous « Toutes les ressources » dans le locataire de l’abonnement via le portail Azure.
+- Restrictions auto-imposées sur l’emplacement des ressources régionales.  Dans de rares cas, un utilisateur peut avoir établi une restriction régionale pour la création de ressources Azure.  Cette restriction peut empêcher la création de la liaison entre un abonnement Azure et un locataire B2C. Pour atténuer ce problème, assouplissez cette restriction.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
@@ -84,6 +85,6 @@ Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnemen
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

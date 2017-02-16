@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0612949c412cf23272bf62d3c0ea424046366b36
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 3b7550b10339762882403a42f114d1b18da9e1ab
 
 
 ---
@@ -32,7 +32,7 @@ Azure AD B2C ne peut pas être utilisé avec Microsoft Office 365. En généra
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Que sont les comptes locaux dans Azure AD B2C ? En quoi sont-ils différents des comptes professionnels ou scolaires dans Azure AD ?
 Dans un client Azure AD, chaque utilisateur (à l’exception des utilisateurs avec des comptes Microsoft existants) se connecte avec une adresse e-mail sous la forme `<xyz>@<tenant domain>`, où `<tenant domain>` est l’un des domaines vérifiés dans le client ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un compte professionnel ou scolaire.
 
-Dans un client Azure AD B2C, la plupart des applications veulent que l’utilisateur se connecte avec n’importe quelle adresse e-mail arbitraire (par exemple, joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, ou jim@live.com).). Ce type de compte est un compte local. Aujourd’hui, nous prenons également en charge les noms d’utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux dans le service Azure AD B2C.
+Dans un client Azure AD B2C, la plupart des applications veulent que l’utilisateur se connecte avec n’importe quelle adresse e-mail arbitraire (par exemple, joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, ou jim@live.com)). Ce type de compte est un compte local. Aujourd’hui, nous prenons également en charge les noms d’utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux dans le service Azure AD B2C.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 Nous prenons actuellement en charge Facebook, Google+, LinkedIn et Amazon. Nous ajouterons la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.
@@ -124,6 +124,6 @@ Vous pouvez également consulter les [limites, restrictions et contraintes de se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

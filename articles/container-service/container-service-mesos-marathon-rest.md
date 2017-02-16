@@ -1,5 +1,5 @@
 ---
-title: "Gestion de conteneur Azure Container Service via l’API REST | Microsoft Docs"
+title: "Gérer le cluster DC/OS Azure avec l’API REST Marathon | Microsoft Docs"
 description: "Déployez des conteneurs vers un cluster Mesos Azure Container Service à l’aide de l’API REST Marathon."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
-ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 0a5f75a085991f8e14d0949e2d13da1072ca6978
 
 
 ---
-# <a name="container-management-through-the-rest-api"></a>Gestion de conteneur via l’API REST
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestion de conteneur DC/OS au moyen de l’API REST Marathon
 DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend une infrastructure qui gère la planification et l’exécution des charges de travail de calcul.
 
 Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec Marathon. Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b2653afe1aeb920ef7e14f3e15501c8541c43219
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ Le tableau suivant compare l’ERT et le RPO pour les trois scénarios les plus 
 | Géoréplication active |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Utiliser des sauvegardes de base de données pour récupérer une base de données
-Base de données SQL effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq minutes) pour protéger votre entreprise contre la perte de données. Ces sauvegardes sont stockées dans le stockage localement redondant pendant 35 jours pour les bases de données avec les niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données avec le niveau de service De base (pour plus d’informations, voir les [niveaux de service](sql-database-service-tiers.md) ). Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-scale-up.md). Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
+Base de données SQL effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq minutes) pour protéger votre entreprise contre la perte de données. Ces sauvegardes sont stockées dans le stockage géoredondant pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base (pour en savoir plus, consultez les [niveaux de service](sql-database-service-tiers.md)). Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-scale-up.md). Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
 
 Si la période de rétention intégrée n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant la stratégie de rétention à long terme pour vos bases de données. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md). 
 
@@ -76,8 +76,12 @@ Utilisez la géoréplication active si votre application répond à l’un des c
 * Affiche un taux élevé de données modifiées et la perte d’une heure de données n’est pas acceptable.
 * Le coût supplémentaire lié à l'utilisation de la géoréplication est plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Récupérer une base de données après une erreur d’utilisateur ou d’application
-* Personne n’est parfait ! Un utilisateur peut supprimer par inadvertance des données, un tableau important voire une base de données toute entière. Ou bien, une erreur d’application peut accidentellement remplacer des données correctes par des données incorrectes. 
+* Personne n’est parfait ! Un utilisateur peut supprimer par inadvertance des données, un tableau important voire une base de données tout entière. Ou bien, une erreur d’application peut accidentellement remplacer des données correctes par des données incorrectes. 
 
 Dans ce scénario, voici les options de récupération dont vous disposez.
 
@@ -154,6 +158,6 @@ Pour plus d’informations sur la conception d’applications pour des bases de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
