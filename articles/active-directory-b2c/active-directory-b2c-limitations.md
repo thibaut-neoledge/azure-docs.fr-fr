@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
-ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Az
 Si vous rencontrez des problèmes lors de la [création d’un client Azure AD B2C](active-directory-b2c-get-started.md), consultez [Création d’un client Azure AD ou d’un client Azure AD B2C : problèmes et résolutions](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
 
 Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C existant et à sa recréation sous le même nom de domaine. Vous devez créer un client B2C portant un nom de domaine différent.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Remarque sur les quotas de client B2C
-Par défaut, le nombre d’utilisateurs dans un client B2C est limité à 50 000 utilisateurs. Si vous avez besoin d’augmenter le quota de votre client B2C, vous devez contacter le support technique.
 
 ## <a name="branding-issues-on-verification-email"></a>Problèmes de marque sur le courrier électronique de vérification
 Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
@@ -51,6 +48,39 @@ De nombreuses architectures incluent une API Web qui doit appeler une autre API
 
 Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
 
+## <a name="restrictions-on-reply-urls"></a>Restrictions sur les URL de réponse
+Actuellement, les applications inscrites dans Azure Active Directory B2C sont limitées à un ensemble restreint de valeurs d’URL de réponse. L’URL de réponse pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de réponse doivent partager un même domaine DNS. Par exemple, vous ne pouvez pas inscrire une application web ayant une de ces URL de réponse :
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+Le système d’inscription compare le nom DNS complet de l’URL de réponse existante au nom DNS de l’URL de réponse que vous ajoutez. La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :
+
+* Le nom DNS complet de la nouvelle URL de réponse ne correspond pas au nom DNS de l’URL de réponse existante.
+* Le nom DNS complet de la nouvelle URL de réponse n’est pas un sous-domaine de l’URL de réponse existante.
+
+Par exemple, si l’application a cette URL de réponse :
+
+`https://login.contoso.com`
+
+Vous pouvez la compléter comme suit :
+
+`https://login.contoso.com/new`
+
+Dans ce cas, le nom DNS correspond exactement. Vous pouvez aussi définir l’URI suivant :
+
+`https://new.login.contoso.com`
+
+Dans ce cas, vous faites référence à un sous-domaine DNS de login.contoso.com. Si vous voulez disposer d’une application avec login-east.contoso.com et login-west.contoso.com comme URL de réponse, vous devez ajouter ces URL de réponse dans l’ordre suivant :
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+Vous pouvez ajouter les deux derniers car il s’agit de sous-domaines de la première URL de réponse, contoso.com. Cette limitation sera supprimée dans une version ultérieure.
+
+Pour savoir comment inscrire une application dans Azure Active Directory B2C, consultez [Inscription de votre application auprès d’Azure Active Directory B2C](active-directory-b2c-app-registration.md).
+
 ## <a name="restriction-on-libraries-and-sdks"></a>Restriction sur les bibliothèques et les kits de développement logiciel
 L’ensemble de bibliothèques prises en charge Microsoft qui fonctionnent avec Azure AD B2C est très limité pour l’instant. Nous prenons en charge les applications web .NET et les services et applications web Node.js.  Nous avons également une version préliminaire de la bibliothèque cliente .NET appelée bibliothèque MSAL qui peut être utilisée avec Azure AD B2C dans Windows et d’autres applications .NET.
 
@@ -62,7 +92,7 @@ Nos didacticiels de démarrage rapide iOS et Android utilisent les bibliothèque
 Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans Azure AD B2C, consultez notre [référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md). La prise en charge de SAML et WS-Fed n’est pas disponible.
 
 ## <a name="restriction-on-tokens"></a>Restriction sur les jetons
-La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons JSON Web Tokens (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. Certains exemples incluent les revendications « sub » et « preferred_username ».  À mesure que les valeurs, le format ou la signification des revendications évoluent, les jetons de vos stratégies existantes ne sont pas affectés et vous pouvez compter sur leurs valeurs dans les applications de production.  À mesure que les valeurs évoluent, nous allons vous donner la possibilité de configurer ces modifications pour chacune de vos stratégies.  Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
+La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons JSON Web Tokens (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. La revendication « preferred_username » est un exemple.  À mesure que les valeurs, le format ou la signification des revendications évoluent, les jetons de vos stratégies existantes ne sont pas affectés et vous pouvez compter sur leurs valeurs dans les applications de production.  À mesure que les valeurs évoluent, nous allons vous donner la possibilité de configurer ces modifications pour chacune de vos stratégies.  Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
 
 ## <a name="restriction-on-nested-groups"></a>Restriction sur les groupes imbriqués
 Les abonnements aux groupes imbriqués ne sont pas pris en charge dans les clients Azure AD B2C. Nous ne prévoyons pas d’ajouter cette fonctionnalité.
@@ -93,9 +123,13 @@ Les requêtes envoyées aux stratégies de connexion (avec l’authentification 
 * Utiliser la « stratégie de connexion ou d’inscription » au lieu de la « stratégie de connexion ».
 * Réduisez le nombre de demandes de **Revendications d’application** dans votre stratégie.
 
+## <a name="issues-with-windows-desktop-wpf-apps-using-azure-ad-b2c"></a>Problèmes avec les applications Windows Desktop WPF utilisant Azure Active Directory B2C
+Les demandes adressées à Azure Active Directory B2C depuis une application Windows Desktop WPF échouent parfois avec le message d’erreur suivant : « Échec de la boîte de dialogue de l’authentification basée sur le navigateur. Raison : Le protocole n’est pas connu et aucun protocole enfichable correspondant n’a été entré. ».
+
+Ceci est dû à la taille des codes d’autorisation fournis par Azure Active Directory B2C ; la taille est en corrélation avec le nombre de revendications demandées dans un jeton. Une solution de contournement pour ce problème consiste à réduire le nombre de revendications demandées dans le jeton et d’interroger l’API Graph séparément pour les autres revendications.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

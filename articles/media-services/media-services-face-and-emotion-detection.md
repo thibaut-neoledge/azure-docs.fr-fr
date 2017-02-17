@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: bd3dfe9472e944a127230d3dc0d564d344c4fbec
-ms.openlocfilehash: 2ca5813c12e1358afaa20b4a919de4ee8a355865
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -171,10 +171,10 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 #### <a name="aggregate-defaults"></a>Valeurs d'agrégation par défaut
 Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur AggregateEmotionWindowMs doit être supérieure à AggregateEmotionIntervalMs.
 
-| Valeur(s) par défaut | Valeur(s) min | Valeur(s) max |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |
-| AggregateEmotionIntervalMs |0.5 |1 |
+|| Valeur(s) par défaut | Valeur(s) min | Valeur(s) max |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0,25|
+| AggregateEmotionIntervalMs |0.5 |1 |0,25|
 
 ### <a name="json-output"></a>Sortie JSON
 Sortie JSON pour l’émotion agrégée (tronquée) :
@@ -525,6 +525,6 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
 
 ---
 
@@ -68,7 +68,7 @@ Comment votre code réagit-il si une défaillance se produit après l’insertio
 
 Si un élément de file d’attente a déjà été traité, permettez à votre fonction d’être une absence d’opération.
 
-Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation sur les [déclencheurs de file d’attente Stockage Azure](functions-bindings-storage.md#storagequeuetrigger).
+Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation sur les [déclencheurs de file d’attente Stockage Azure](functions-bindings-storage-queue.md#trigger).
  
 
 
@@ -107,6 +107,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

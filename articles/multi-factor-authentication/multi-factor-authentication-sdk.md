@@ -12,19 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 27907f312b97434fe7ab5359acdac942fb563862
+ms.sourcegitcommit: e793478028cee273a07e3665d409a669bdadc758
+ms.openlocfilehash: 4f9456c479b76588adf5f5aecbdd6379ec0e9704
 
 
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
-> [!IMPORTANT]
-> Pour télécharger le Kit de développement logiciel (SDK), vous devez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences de l’authentification multifacteur Azure, Azure AD Premium ou EMS. Cette configuration garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
-> 
-> 
 
 Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication vous permet d’intégrer une vérification en deux étapes dans les processus de connexion et de transaction des applications de votre locataire Azure AD.
 
@@ -33,6 +29,10 @@ Le Kit de développement logiciel (SDK) Multi-Factor Authentication est disponib
 La structure des API dans le Kit de développement logiciel (SDK) Multi-Factor Authentication est simple. Passez un simple appel de fonction vers une API avec les paramètres d’option multifacteur (notamment le mode de vérification) et les données utilisateur (comme le numéro de téléphone à appeler ou le code PIN à valider). Les API traduisent l'appel de fonction en demandes de services Web au service d'authentification multifacteur Azure basé sur le cloud. Tous les appels doivent inclure une référence au certificat privé compris dans chaque SDK.
 
 Comme les API n’ont pas accès aux utilisateurs enregistrés dans Azure Active Directory, vous devez fournir les informations utilisateur dans un fichier ou une base de données. En outre, les API ne fournissent pas de fonctionnalités d'inscription ou de gestion des utilisateurs, et vous devez donc créer ces processus dans votre application.
+
+> [!IMPORTANT]
+> Pour télécharger le Kit de développement logiciel (SDK), vous devez créer un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA. Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences de l’authentification multifacteur Azure, Azure AD Premium ou EMS. Cette configuration garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
+
 
 ## <a name="download-the-azure-multi-factor-authentication-sdk"></a>Téléchargement du SDK Azure Multi-Factor Authentication
 Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.  Pour télécharger le Kit de développement logiciel, accédez au portail de gestion multi-facteur. Vous pouvez accéder au portail soit en gérant directement le fournisseur Multi-Factor Auth, soit en cliquant sur le lien **Accéder au portail** sur la page des paramètres du MFA.
@@ -67,13 +67,11 @@ Le SDK contient les éléments suivants :
 * **Fichier(s) source** pour l'authentification multifacteur
 * **Certificat client** que vous utilisez pour communiquer avec le service d'authentification multifacteur
 * **Clé privée** pour le certificat
-* **Résultats des appels**  Une liste des codes de résultats d’appels. Pour ouvrir ce fichier, utilisez une application avec mise en forme du texte, comme WordPad. Utilisez les codes de résultats d’appels pour tester et dépanner l'implémentation de l'authentification multifacteur dans votre application. Ce ne sont pas des codes d'état de l'authentification.
-* **Exemples.**  Exemple de code pour une implémentation fonctionnelle de base de l'authentification multifacteur.
+* **Résultats des appels** Une liste des codes de résultats d’appels. Pour ouvrir ce fichier, utilisez une application avec mise en forme du texte, comme WordPad. Utilisez les codes de résultats d’appels pour tester et dépanner l'implémentation de l'authentification multifacteur dans votre application. Ce ne sont pas des codes d'état de l'authentification.
+* **Exemples.** Exemple de code pour une implémentation fonctionnelle de base de l'authentification multifacteur.
 
 > [!WARNING]
 > Le certificat client est un certificat privé unique généré spécialement pour vous. Ne partagez pas ou n’égarez pas ce fichier. Il garantit la sécurité de vos communications avec le service Multi-Factor Authentication.
-> 
-> 
 
 ## <a name="code-sample-standard-mode-phone-verification"></a>Exemple de code : Vérification de téléphone en mode standard
 Cet exemple de code montre comment utiliser les API du SDK Azure Multi-Factor Authentication pour ajouter la vérification de l'appel vocal en mode standard à votre application. Le mode standard est un appel téléphonique auquel l'utilisateur répond en appuyant sur la touche #.
@@ -82,8 +80,6 @@ Cet exemple utilise le SDK Azure Multi-Factor Authentication C# .NET 2.0 dans u
 
 > [!NOTE]
 > Lorsque vous implémentez l’authentification multifacteur, utilisez les méthodes supplémentaires (appel téléphonique ou SMS) comme vérification secondaire ou tertiaire pour compléter votre méthode d’authentification principale (nom d’utilisateur et mot de passe). Ces méthodes ne sont pas conçues comme des méthodes d’authentification principale.
-> 
-> 
 
 ### <a name="code-sample-overview"></a>Vue d'ensemble d’un exemple de code
 Cet exemple de code pour une application de démonstration Web simple utilise un appel téléphonique auquel l’utilisateur répond en appuyant sur la touche #. Ce facteur d'appel téléphonique est appelé mode standard dans l'authentification multifacteur.
@@ -161,7 +157,7 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
                 // Add call details from the user database.
                 PfAuthParams pfAuthParams = new PfAuthParams();
                 pfAuthParams.Username = username.Text;
-                pfAuthParams.Phone = "9134884271";
+                pfAuthParams.Phone = "5555555555";
                 pfAuthParams.Mode = pf_auth.MODE_STANDARD;
 
                 // Specify a client certificate
@@ -182,7 +178,7 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
                 else
                 {
                     lblResult.ForeColor = System.Drawing.Color.Red;
-                    lblResult.Text = " Multi-Factor Authentication failed.";
+                    lblResult.Text = "Multi-Factor Authentication failed.";
                 }
             }
 
@@ -191,6 +187,6 @@ Dans le code côté serveur suivant, l'authentification multifacteur est configu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

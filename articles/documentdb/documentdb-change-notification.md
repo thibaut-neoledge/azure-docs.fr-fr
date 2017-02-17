@@ -1,23 +1,9 @@
 ---
-title: "Notifications de modifications DocumentDB à l’aide de Logic Apps | Microsoft Docs"
-description: .
-keywords: notification de modification
-services: documentdb
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: 
-ms.assetid: 58925d95-dde8-441b-8142-482b487e4bdd
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
-ms.date: 09/23/2016
-ms.author: b-hoedid
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
+ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
+ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
 
 
 ---
@@ -26,7 +12,7 @@ L’idée de cet article m’est venue à la lecture d’une question figurant s
 
 J’ai travaillé de nombreuses années sur BizTalk Server, et il s’agit d’un scénario très courant dans l’utilisation de l’ [adaptateur métier WCF](https://msdn.microsoft.com/library/bb798128.aspx). J’ai donc décidé de voir si je pouvais dupliquer cette fonctionnalité dans DocumentDB pour les documents nouveaux et/ou modifiés.
 
-Cet article fournit une vue d’ensemble des composants de la solution de notification des modifications, qui inclut un [déclencheur](documentdb-programming.md#trigger) et une [application logique](../app-service-logic/app-service-logic-what-are-logic-apps.md). Des extraits de code importants sont inclus et la solution complète est disponible sur [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+Cet article fournit une vue d’ensemble des composants de la solution de notification des modifications, qui inclut un [déclencheur](documentdb-programming.md#trigger) et une [application logique](../logic-apps/logic-apps-what-are-logic-apps.md). Des extraits de code importants sont inclus et la solution complète est disponible sur [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## <a name="use-case"></a>Cas d’utilisation
 Voici le cas d’utilisation sur lequel porte cet article.
@@ -54,7 +40,7 @@ Si vous examinez la figure suivante, il existe plusieurs étapes dans le flux de
 
 La procédure comporte trois étapes :
 
-1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API.  La valeur par défaut est 1 heure avant.
+1. Vous devez obtenir la date/heure UTC actuelles à partir d’une application API.  La valeur par défaut est&1; heure avant.
 2. La valeur date/heure UTC est convertie en un format d’horodatage Unix. Il s’agit du format par défaut des horodatages dans DocumentDB.
 3. Vous publiez (via une requête POST) la valeur dans une application API, qui effectue une requête DocumentDB. La valeur est utilisée dans une requête.
    
@@ -72,12 +58,12 @@ La procédure comporte trois étapes :
    > Le stockage d’objets blob nécessite un compte Azure Storage. Vous devez approvisionner un compte de stockage d’objets blob Azure et ajouter un nouvel objet blob nommé « patients ». Pour plus d’informations, consultez les rubriques [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md) et [Prise en main du stockage d’objets blob Azure](../storage/storage-dotnet-how-to-use-blobs.md).
    > 
    > 
-5. Enfin, l’envoi d’un courrier électronique indique au destinataire le nombre de documents trouvés. Si aucun document n’est identifié, le corps du message est « 0 document(s) trouvé(s) ». 
+5. Enfin, l’envoi d’un courrier électronique indique au destinataire le nombre de documents trouvés. Si aucun document n’est identifié, le corps du message est «&0; document(s) trouvé(s) ». 
 
 Maintenant que vous avez une idée de ce que fait le flux de travail, examinons son implémentation.
 
 ### <a name="lets-start-with-the-main-logic-app"></a>Commençons par l’application logique principale.
-Si vous n’êtes pas familiarisé avec Logic Apps, vous le trouverez dans [Azure Marketplace](https://portal.azure.com/). Pour plus d’informations, consultez [Qu’est-ce qu’une application logique ?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+Si vous n’êtes pas familiarisé avec Logic Apps, vous le trouverez dans [Azure Marketplace](https://portal.azure.com/). Pour plus d’informations, consultez [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 Quand vous créez une application logique, vous êtes invité à **indiquer comment vous souhaitez démarrer**
 
@@ -747,7 +733,7 @@ Votre dernière étape consiste à envoyer une notification par courrier électr
 
 Dans cette action, vous envoyez une notification par courrier électronique.  Vous utilisez [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-Le code a été généré à l’aide d’un modèle d’application logique et SendGrid qui se trouve dans le [dépôt Github 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+Le code a été généré à l’aide d’un modèle d’application logique et SendGrid qui se trouve dans le [dépôt Github&101;-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 L’opération HTTP est un POST. 
 
@@ -780,7 +766,7 @@ Les paramètres d’autorisation figurent dans les propriétés du déclencheur.
 
 ```
 
-Le paramètre emailBody concatène le nombre de documents renvoyés par la requête, qui peut être « 0 » ou plus, avec « enregistrement(s) trouvé(s) ». Le reste des paramètres sont définis dans les paramètres du déclencheur.
+Le paramètre emailBody concatène le nombre de documents renvoyés par la requête, qui peut être «&0; » ou plus, avec « enregistrement(s) trouvé(s) ». Le reste des paramètres sont définis dans les paramètres du déclencheur.
 
 Cette action dépend de l’action **GetDocuments** .
 
@@ -829,7 +815,7 @@ Enfin, vous souhaitez être en mesure de voir les résultats de votre applicatio
 
 ```
 
-Cela permet de renvoyer la même valeur que celle qui est envoyée dans le corps du message électronique. La figure suivante illustre l’exemple : « 29 enregistrement(s) trouvé(s) ».
+Cela permet de renvoyer la même valeur que celle qui est envoyée dans le corps du message électronique. La figure suivante illustre l’exemple : «&29; enregistrement(s) trouvé(s) ».
 
 ![Résultats](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -1132,6 +1118,6 @@ Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

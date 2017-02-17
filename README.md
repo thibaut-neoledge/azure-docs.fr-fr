@@ -12,7 +12,6 @@ Merci de l’intérêt que vous portez à la documentation Azure.
 * [Organisation du dépôt](#repository-organization)
 * [Utiliser GitHub, Git et ce dépôt](#use-github-git-and-this-repository)
 * [Comment utiliser Markdown pour mettre en forme votre rubrique](#how-to-use-markdown-to-format-your-topic)
-* [Retour d’information, commentaires et support](./contributor-guide/feedback-and-comments.md)
 * [Autres ressources](#more-resources)
 * [Index de tous les articles du guide du contributeur](contributor-guide/contributor-guide-index.md) (ouvre une nouvelle page)
 
@@ -27,7 +26,7 @@ Ce projet a adopté le [Code de conduite open source de Microsoft](https://opens
 
 ## <a name="about-your-contributions-to-azure-content"></a>À propos de vos contributions au contenu Azure
 ### <a name="minor-corrections"></a>Corrections mineures
-Les corrections mineures ou les clarifications que vous soumettez pour la documentation, ainsi que les exemples de code dans ce dépôt, sont couvertes par les [Conditions d’utilisation du site web docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+Les corrections mineures ou les clarifications que vous soumettez pour la documentation, ainsi que les exemples de code dans ce dépôt, sont couvertes par les [Conditions d’utilisation du site web docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Corrections majeures
 Si vous envoyez une demande de tirage avec des ajouts ou d’importantes modifications de la documentation et des exemples de code, nous vous enverrons un commentaire dans GitHub pour vous inviter à signer un contrat de licence de contribution en ligne si vous n’êtes pas un employé de Microsoft. Vous devrez remplir le formulaire en ligne pour que nous puissions accepter votre demande de tirage (pull request).
@@ -87,6 +86,6 @@ Pour découvrir toutes nos rubriques d’aide, consultez l’[index du guide du 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portail Azure Classic](active-directory-sso-integrate-saas-apps.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -50,8 +50,8 @@ Configurer l’authentification unique pour une application que votre organisati
 
 > [!NOTE]
 > Afin de configurer l'authentification unique pour une application existante, vous devez disposer des droits d'administrateur global à la fois pour Azure AD et l'application SaaS.
-> 
-> 
+>
+>
 
 ### <a name="mapping-user-accounts"></a>Mappage de comptes d’utilisateurs
 L’identité d’un utilisateur comporte généralement un identificateur unique qui peut être une adresse de messagerie ou un nom d’utilisateur principal. Vous devrez lier (mapper) l’identité d'application de chaque utilisateur à son identité Azure AD correspondante. Il existe deux façons de procéder selon les exigences d'authentification de votre application.
@@ -61,7 +61,7 @@ Pour plus d'informations sur le mappage d'identités d'application sur des ident
 ### <a name="understanding-the-users-log-in-experience"></a>Comprendre l’expérience de connexion de l'utilisateur
 Lorsque vous intégrez l'authentification unique pour une application en cours d'utilisation, il est important de savoir que l'expérience utilisateur en sera affectée. Pour toutes les applications, les utilisateurs commenceront à se servir de leurs informations d'identification Azure AD pour se connecter. Il se peut également qu’ils doivent utiliser un autre portail pour accéder aux applications.
 
-L'authentification unique pour certaines applications peut être effectuée sur l'interface de connexion de l'application. Mais, pour d’autres applications, l'utilisateur doit passer par un portail central (comme [Mes applications](http://myapps.microsoft.com) ou [Office 365](http://portal.office.com/myapps)) pour se connecter. Pour en savoir plus sur les différents types d'authentification unique et leurs expériences utilisateur, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+L'authentification unique pour certaines applications peut être effectuée sur l'interface de connexion de l'application. Mais, pour d’autres applications, l'utilisateur doit passer par un portail central (comme [Mes applications](http://myapps.microsoft.com) ou [Office&365;](http://portal.office.com/myapps)) pour se connecter. Pour en savoir plus sur les différents types d'authentification unique et leurs expériences utilisateur, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 En outre, la section *Suppression du consentement de l'utilisateur* de l’article [Guide pour les développeurs](active-directory-applications-guiding-developers-for-lob-applications.md) constitue une source d'informations précieuse.
 
@@ -72,12 +72,11 @@ Si l’application n’apparaît pas dans la galerie d’applications, vous pouv
 
 Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Qu'est-ce que l'accès aux applications et l'authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
