@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45238ac71d722176a79adf6c9842b2bdc3b67df6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 53c84ff1e99236343585ff31ef1bcb57e0250fdc
 
 
 ---
@@ -58,7 +58,7 @@ Connectez les ports comme illustré ci-après à la Figure 1, puis définissez 
 
 ![Évaluation d’un modèle de régression](media/machine-learning-evaluate-model-performance/1.png)
 
- Figure 1. évaluation d’un modèle de régression
+Figure 1. évaluation d’un modèle de régression
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspection des résultats de l’évaluation
 Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation. Les mesures d’évaluation disponibles pour les modèles de régression sont les suivantes : *Erreur d’absolue moyenne*, *Erreur d’absolue moyenne racine*, *Erreur d’absolue relative*, *Erreur carrée relative* et *Coefficient de détermination*.
@@ -72,7 +72,7 @@ Le coefficient de détermination, également désigné sous le terme « R au ca
 Figure 2 : métriques d’évaluation de régression linéaire
 
 ### <a name="using-cross-validation"></a>Utilisation de la validation croisée
-Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez simplement besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée du modèle][cross-validate-model] (voir la figure ci-après). Notez que vous devez définir la colonne Étiquette sur *price* dans les propriétés du module [Effectuer la validation croisée du modèle][cross-validate-model].
+Comme indiqué précédemment, vous pouvez exécuter automatiquement des opérations répétées d’apprentissage, de notation et d’évaluation à l’aide du module [Effectuer la validation croisée du modèle][cross-validate-model]. Pour mener à bien cette tâche, vous avez simplement besoin d’un jeu de données, d’un modèle non formé et d’un module [Effectuer la validation croisée][cross-validate-model] du modèle (voir la figure ci-après). Notez que vous devez définir la colonne Étiquette sur *price* dans les propriétés du module [Effectuer la validation croisée du modèle][cross-validate-model].
 
 ![Validation croisée d’un modèle de régression](media/machine-learning-evaluate-model-performance/3.png)
 
@@ -133,14 +133,14 @@ Figure 8. validation croisée d’un modèle de classification binaire
 Figure 9. résultats de la validation croisée d’un classifieur binaire
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Évaluation d’un modèle de classification multiclasse
-Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est accessible de façon publique dans le [UCI Machine Learning Repository (Référentiel Machine Learning UCI)](http://archive.ics.uci.edu/ml/index.html) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
+Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
 Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
 
-* [Importer les données][import-data]
-* [Forêt de décision multiclasse][multiclass-decision-forest]
-* [Données fractionnées][split]
+* [Importer des données][import-data]
+* [Forêt d’arbres de décision multiclasse][multiclass-decision-forest]
+* [Fractionner les données][split]
 * [Former le modèle][train-model]
 * [Noter le modèle][score-model]
 * [Évaluer le modèle][evaluate-model]
@@ -189,6 +189,6 @@ Figure 13 : résultats de la validation croisée d’un modèle de classificat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

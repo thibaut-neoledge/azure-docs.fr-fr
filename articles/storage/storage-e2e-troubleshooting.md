@@ -4,18 +4,18 @@ description: "Didacticiel illustrant la résolution des problèmes de bout en bo
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 12cacb0abebf69a644aa34d78c047e99b23d4aaf
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
 
 
 ---
@@ -103,7 +103,7 @@ Pour configurer la journalisation et les métriques pour votre compte de stockag
 
 **Via PowerShell**
 
-Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Utilisez l'applet de commande [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) pour ajouter votre compte d'utilisateur Azure dans la fenêtre PowerShell :
    
@@ -374,6 +374,6 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 * [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

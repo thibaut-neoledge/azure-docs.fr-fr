@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53a57ed45276e793dab16a3b62dd1477339e5331
+ms.sourcegitcommit: dc07007eec860e0ad7342a4926c6797341719c5b
+ms.openlocfilehash: 20791d5729a65497b5f76f929bf331906ac65818
 
 
 ---
@@ -235,6 +235,6 @@ Exemple : le code suivant demande 8 recommandations pour l’article « 64f6e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

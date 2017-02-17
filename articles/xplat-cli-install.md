@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: a3b1b65ff1d61adfbbcc70bece938f71a83d0812
-ms.openlocfilehash: dce83b58c7127362232dce9af3a0a6f97044602a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2053470f0a54a0a9b388d020b416df1ff2bfd084
 
 
 ---
 # <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](powershell-install-configure.md)
+> * [PowerShell](/powershell/azureps-cmdlets-docs)
 > * [Interface de ligne de commande Azure](xplat-cli-install.md)
 
 Installez rapidement l’interface de ligne de commande Azure (Azure CLI) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure. Vous avez plusieurs options pour installer ces outils multiplateformes sur votre ordinateur : 
@@ -52,7 +52,7 @@ sudo npm install -g azure-cli
 > [!NOTE]
 > Si vous devez installer ou mettre à jour Node.js et npm sur votre distribution Linux ou votre système d’exploitation, nous vous recommandons d’installer la dernière version de Node.js LTS (4.x). Si vous utilisez une version antérieure, vous pouvez obtenir des erreurs d’installation. 
 
-Si vous préférez, téléchargez le dernier [fichier tar][linux-installer] Linux du package npm en local. Ensuite, installez le package npm téléchargé comme suit (sur les distributions Linux vous devrez peut-être utiliser **sudo**) :
+Si vous préférez, téléchargez le dernier [fichier tar][linux-installer] Linux pour le package npm en local. Ensuite, installez le package npm téléchargé comme suit (sur les distributions Linux vous devrez peut-être utiliser **sudo**) :
 
 ```bash
 npm install -g <path to downloaded tar file>
@@ -61,7 +61,7 @@ npm install -g <path to downloaded tar file>
 ## <a name="option-2-use-an-installer"></a>Option 2 : Utiliser un programme d’installation
 Si vous utilisez un ordinateur Mac ou Windows, les programmes d’installation de l’interface CLI suivants sont disponibles au téléchargement :
 
-* [Programme d’installation Mac OS X][mac-installer]
+* [Programme d’installation Mac OS X][mac-installer]
 * [MSI Windows][windows-installer] 
 
 > [!TIP]
@@ -132,11 +132,11 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]: virtual-machines-command-line-tools.md
-[cliasm]: ./virtual-machines/azure-cli-arm-commands.md
+[cliasm]: /cli/azure/get-started-with-az-cli2
+[cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

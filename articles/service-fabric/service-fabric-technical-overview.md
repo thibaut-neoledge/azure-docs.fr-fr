@@ -12,16 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
+ms.sourcegitcommit: e0efcabbb876e77e5b23537ce023c30f9fd153cd
+ms.openlocfilehash: 884e43e36517c0c894b72ab6f4e8f6aadb1d9bcf
 
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices extensibles et fiables. Cette rubrique décrit en détail la terminologie utilisée dans Service Fabric afin que vous compreniez les termes utilisés dans la documentation.
+
+Les concepts de cette section sont également traités dans les vidéos suivantes de Microsoft Virtual Academy : <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Principaux concepts</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Concepts de conception</a> et <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Concepts d’exécution</a>.
 
 ## <a name="infrastructure-concepts"></a>Concepts d’infrastructure
 **Cluster**: groupe de machines virtuelles ou physiques connectées au réseau sur lequel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
@@ -59,6 +61,8 @@ Il existe deux types de service :
 
 **Package de configuration**: répertoire de disque contenant les fichiers de configuration en lecture seule, statiques du type de service (en général, des fichiers texte). Les fichiers contenus dans le répertoire de package de configuration sont référencés par le fichier `ServiceManifest.xml` du type de service. Lorsqu’un service nommé est créé, les fichiers du package de configuration sont copiés vers le ou les nœuds sélectionnés pour exécuter le service nommé. Le code s’exécute alors et peut désormais accéder aux fichiers de configuration.
 
+**Conteneurs** : par défaut, Service Fabric déploie et active ces services en tant que processus. Service Fabric peut également déployer des services dans les images de conteneur. La technologie d’un conteneur virtualise le système d’exploitation sous-jacent par rapport aux applications. Chaque application, son runtime, ses dépendances et ses bibliothèques système s’exécutent au sein d’un conteneur bénéficiant d’un accès privé complet à leur propre vue isolée du conteneur sur les constructions du système d’exploitation. Service Fabric prend en charge les conteneurs Docker sur Linux et les conteneurs Windows Server.  Pour plus d’informations, consultez [Service Fabric et conteneurs](service-fabric-containers-overview.md).
+
 **Schéma de partition** : lors de la création d’un service nommé, vous indiquez un schéma de partition. Les services comportant de grandes quantités d’état fractionnent les données entre les partitions, ce qui permet de les répartir entre les nœuds du cluster. Cela permet d’adapter l’état de votre service nommé. Dans une partition, les services nommés sans état ont des instances tandis que les services nommés avec état ont des réplicas. En règle générale, les services nommés sans état ne possèdent qu’une partition, car ils sont dépourvus d’état interne. Les instances de partition assurent la disponibilité. En cas d’échec d’une instance, les autres instances continuent de fonctionner normalement, puis Service Fabric en crée une. Les services nommés avec état conservent leur état dans les réplicas, et chaque partition possède son propre jeu de réplicas avec tous les états synchronisés. En cas d’échec d’un réplica, Service Fabric en génère un nouveau à partir des réplicas existants.
 
 Pour plus d’informations, consultez l’article [Partitionnement des services fiables Service Fabric](service-fabric-concepts-partitioning.md) .
@@ -94,6 +98,6 @@ Pour en savoir plus sur Service Fabric :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

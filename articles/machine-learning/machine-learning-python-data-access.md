@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: huvalo;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1efa86208ef45f84de5143a6a906c871d958e9d
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 
 ---
@@ -78,7 +78,7 @@ Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opération
 
 * Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D’AUTORISATION** pour voir les jetons principaux et secondaires.  Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
 
-![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
+![Jetons d’autorisation](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 * Demander à être promu au rôle de propriétaire.  Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
@@ -126,7 +126,7 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
 
 1. Création d'une nouvelle expérience.
 2. Insérez un module **Jeu de données Adult Census Income Binary Classification** .
-3. Insérez un module [Fractionner][split] puis connectez son entrée à un module de jeu de données de sortie.
+3. Insérez un module [Fractionner][split] puis connectez son entrée à une sortie de module de jeu de données.
 4. Insérez un module [Convertir en CSV][convert-to-csv], puis connectez son entrée à l’une des sorties du module [Fractionner][split].
 5. Enregistrez l'expérience, exécutez-la et attendez qu'elle ait fini de s'exécuter.
 6. Cliquez sur le nœud de sortie du module [Convertir en CSV][convert-to-csv].
@@ -338,6 +338,6 @@ Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

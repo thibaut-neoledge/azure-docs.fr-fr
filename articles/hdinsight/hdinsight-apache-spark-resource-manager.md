@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a14f8437ed83cb546e3b84072494ceb18cc6c38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626fe6fc7a7ee74e8fcfa3b6c38f0cb25dd91da6
 
 
 ---
@@ -173,6 +173,6 @@ La mémoire du pilote du serveur Thrift Spark est configurée sur 25 % de la tai
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2387baad5737998d2ba7f289e0a4fcdd6dd04245
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
 
 
 ---
@@ -575,7 +575,7 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 * Pour afficher les **Concepteur d’applications logiques**, entrez le nom de l’application logique et le Plan App Service.
 * Sélectionnez une action HTTP, puis entrez les paramètres indiqués dans la figure suivante :
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![Concepteur Logic Apps](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Et ensuite ?
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
@@ -583,6 +583,6 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 265beec9-7478-4abd-9ab5-4094e2e75fe4
 ms.service: sql-database
+ms.custom: v11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/08/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 1596e1d146af13fba965a0db45c2d9bbc0c6f6be
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7fcbdd70d4145dfc603567163bee7b904a724614
 
 
 ---
@@ -81,6 +82,6 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

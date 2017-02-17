@@ -3,7 +3,7 @@ title: "Comment créer une collection hybride pour Azure RemoteApp | Microsoft D
 description: "Découvrez comment créer un déploiement de RemoteApp qui se connecte à votre réseau interne."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 * [S’inscrire](https://azure.microsoft.com/services/remoteapp/) à Azure RemoteApp.
 * Créer un compte d’utilisateur dans Active Directory à utiliser comme compte de service Azure RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine.
 * Collecter des informations sur votre réseau local : adresse IP et périphérique VPN.
-* Installer le module [Azure PowerShell](../powershell-install-configure.md) .
+* Installer le module [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Vous aurez besoin du nom d’utilisateur principal Azure Active Directory (par exemple, name@contoso.com)) pour chaque utilisateur. Assurez-vous que le nom UPN soit cohérent entre Azure AD et Active Directory.
 * Choisir votre image de modèle. Une image de modèle Azure RemoteApp contient les applications et les programmes que vous souhaitez publier pour les utilisateurs. Consultez les [options d’images Azure RemoteApp](remoteapp-imageoptions.md) pour plus d’informations.
 * Vous souhaitez utiliser l'image d'Office 365 ProPlus ? Pour plus d’informations, cliquez [ici](remoteapp-officesubscription.md).
@@ -126,7 +126,7 @@ Maintenant que vous avez créé votre collection, vous devez ajouter les utilisa
    
    **Remarques :**
    
-   Vérifiez que vous utilisez le format “user@domain.com”.
+   Assurez-vous d’utiliser le format *user@domain.com*.
    
    Si vous utilisez Office 365 ProPlus dans votre collection, vous devez utiliser les identités Active Directory de vos utilisateurs. Cela permet de valider la licence.
 3. Une fois les utilisateurs validés, cliquez sur **Enregistrer**.
@@ -140,6 +140,6 @@ Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

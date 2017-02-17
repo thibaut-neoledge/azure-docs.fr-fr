@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/02/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 70a4c5ee79a5c74d63d461371f70b49a23d5cf25
+ms.sourcegitcommit: 1116ae1c699f59b7f75f25bed105a53b508801b2
+ms.openlocfilehash: f3fd30791d9110ec0a72e9ec9e51b5e762020fe7
 
 
 ---
@@ -91,7 +91,7 @@ Les scénarios suivants incluent la configuration des règles d’autorisation, 
 Pour visionner un exemple fonctionnel d’application Service Bus qui illustre la configuration et l’autorisation SAP, consultez [Authentification de la Signature d’accès partagé avec Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Un exemple d’utilisation de règles d’autorisation SAP configuré sur les espaces de noms ou des rubriques pour sécuriser les abonnements Service Bus est disponible ici : [Utilisation de l’authentification de signature d’accès partagé (SAP) avec les abonnements Service Bus](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>Accès aux règles d’autorisation d’accès partagé sur un espace des noms
-Les opérations sur la racine de la racine d’espace de noms Service Bus requièrent l’authentification par certificat. Vous devez charger un certificat de gestion pour votre abonnement Azure. Pour charger un certificat de gestion, cliquez sur **Paramètres** dans le volet de gauche du [Portail Azure Classic][Portail Azure Classic]. Pour plus d’informations sur les certificats de gestion Azure, consultez la rubrique [Vue d’ensemble des certificats Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Les opérations sur la racine de la racine d’espace de noms Service Bus requièrent l’authentification par certificat. Vous devez charger un certificat de gestion pour votre abonnement Azure. Pour télécharger un certificat de gestion, cliquez sur **Paramètres** dans le volet de gauche du [portail Azure Classic][Azure classic portal]. Pour plus d’informations sur les certificats de gestion Azure, consultez la rubrique [Vue d’ensemble des certificats Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 Le point de terminaison pour l’accès aux règles d’autorisation de l’accès partagé dans un espace de noms Service Bus est la suivante :
 
@@ -208,7 +208,7 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Création d’une file d’attente |gérer |N’importe quelle adresse d’espace de noms |
 | Suppression d'une file d'attente |gérer |N’importe quelle adresse de file d’attente valide |
 | Énumérer les files d’attente |gérer |/$Resources/Queues |
-| Obtenir la description de file d’attente |Gérer ou envoyer |N’importe quelle adresse de file d’attente valide |
+| Obtenir la description de file d’attente |Gérer |N’importe quelle adresse de file d’attente valide |
 | Configure une règle d’autorisation pour une file d’attente |gérer |N’importe quelle adresse de file d’attente valide |
 | Envoyer dans la file d’attente |Envoyer |N’importe quelle adresse de file d’attente valide |
 | Réception des messages d'une file d'attente |Écouter |N’importe quelle adresse de file d’attente valide |
@@ -221,38 +221,33 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Création d'une rubrique |gérer |N’importe quelle adresse d’espace de noms |
 | Supprimer une rubrique |gérer |N’importe quelle adresse de rubrique valide |
 | Énumérer les rubriques |gérer |/$Resources/Topics |
-| Obtenir la description de la rubrique |Gérer ou envoyer |N’importe quelle adresse de rubrique valide |
+| Obtenir la description de la rubrique |Gérer |N’importe quelle adresse de rubrique valide |
 | Configure une règle d’autorisation pour une rubrique |gérer |N’importe quelle adresse de rubrique valide |
 | Envoyer à la rubrique |Envoyer |N’importe quelle adresse de rubrique valide |
 | **Abonnement** | | |
 | Création d'un abonnement |gérer |N’importe quelle adresse d’espace de noms |
 | Supprimer l’abonnement |gérer |../myTopic/Subscriptions/mySubscription |
 | Énumérer les abonnements |gérer |../myTopic/Subscriptions |
-| Obtenir la description de l’abonnement |Gérer ou écouter |../myTopic/Subscriptions/mySubscription |
+| Obtenir la description de l’abonnement |Gérer |../myTopic/Subscriptions/mySubscription |
 | Abandonner ou terminer des messages après la réception du message en mode de verrouillage |Écouter |../myTopic/Subscriptions/mySubscription |
 | Différer un message pour une récupération ultérieure |Écouter |../myTopic/Subscriptions/mySubscription |
 | Mettre un message au rebut |Écouter |../myTopic/Subscriptions/mySubscription |
 | Obtenir l’état associé à une session de rubrique |Écouter |../myTopic/Subscriptions/mySubscription |
 | Définir l’état associé à une session de rubrique |Écouter |../myTopic/Subscriptions/mySubscription |
-| **Règle** | | |
+| **Règles** | | |
 | Créer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules |
-| **Notification Hubs** | | |
-| Création d’un hub de notifications |gérer |N’importe quelle adresse d’espace de noms |
-| Créer ou mettre à jour l’inscription d’un appareil actif |Écouter ou gérer |.. /notificationHub/balises / {tag} / des enregistrements |
-| Mettre à jour les informations PNS |Écouter ou gérer |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| Création d’un hub de notification |Envoyer |../notificationHub/messages |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir une vue d’ensemble de SAP dans Service Bus, consultez [Signatures d’accès partagé](service-bus-sas-overview.md).
 
 Pour plus de contexte au sujet de l’authentification Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) .
 
-[Portail Azure Classic]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Sécuriser votre déploiement IoT | Microsoft Docs"
-description: "Cet article explique comment sécuriser votre déploiement IoT"
+title: "Sécuriser votre déploiement Azure IoT | Microsoft Docs"
+description: "Sécurisation de votre déploiement IoT. Inclut les instructions relatives à la sécurisation des solutions d’approvisionnement, de connexion et d’accès des appareils au service IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0fe48b3d8d9e2d8f167788cbbca7a9e564dfa51b
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 12bb5b1b5f5ec860de347c1ea806da29eda3f88f
 
 
 ---
@@ -25,12 +25,12 @@ ms.openlocfilehash: 0fe48b3d8d9e2d8f167788cbbca7a9e564dfa51b
 ## <a name="see-also"></a>Voir aussi
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

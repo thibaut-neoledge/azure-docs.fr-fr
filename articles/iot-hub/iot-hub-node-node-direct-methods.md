@@ -1,6 +1,6 @@
 ---
-title: "Utiliser des méthodes directes | Microsoft Docs"
-description: "Ce didacticiel explique comment utiliser des méthodes directes"
+title: "Méthodes directes Azure IoT Hub (Node) | Microsoft Docs"
+description: "Utilisation des méthodes directes Azure IoT Hub. Vous utilisez les SDK Azure IoT pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et une application de service qui appelle la méthode directe."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: fd80a245f2cc2415bec487f98360980534df8730
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
 
 
 ---
-# <a name="tutorial-use-direct-methods"></a>Didacticiel : Utiliser des méthodes directes
+# <a name="use-direct-methods-node"></a>Utilisation des méthodes directes (Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
@@ -64,7 +64,7 @@ Dans cette section, vous créez une application console Node.js qui répond à u
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil. Remplacez **{device connection string}** par la chaîne connexion que vous générée dans la section *Créer une identité d’appareil* :
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **DeviceClient**. Remplacez **{device connection string}** par la chaîne connexion de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
    
     ```
     var connectionString = '{device connection string}';
@@ -125,7 +125,7 @@ Dans cette section, vous créez une application console Node.js qui appelle une 
    
     var Client = require('azure-iothub').Client;
     ```
-5. Ajoutez la déclaration de variable suivante et remplacez la valeur de l’espace réservé par la chaîne de connexion pour votre IoT Hub :
+5. Ajoutez la déclaration de variable suivante et remplacez la valeur de l’espace réservé par la chaîne de connexion IoT Hub pour votre hub :
    
     ```
     var connectionString = '{iothub connection string}';
@@ -196,7 +196,7 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -213,6 +213,6 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

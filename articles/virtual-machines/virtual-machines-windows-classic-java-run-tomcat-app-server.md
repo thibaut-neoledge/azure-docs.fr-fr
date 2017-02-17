@@ -13,18 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fd09bb3a750d8d537abb12a386f46be0c60794
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Vous trouverez [ici](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/) plus d’informations pour déployer une application web avec Java 8 et Tomcat selon un modèle Resource Manager.
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous trouverez [ici](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/) plus d’informations pour déployer une application web avec Java 8 et Tomcat selon un modèle Resource Manager.
 
 Azure permet d'utiliser une machine virtuelle pour obtenir des fonctionnalités de serveur. Par exemple, vous pouvez configurer une machine virtuelle exécutée sur Azure pour qu'elle héberge un serveur d'applications Java, comme Apache Tomcat. Ce guide permet de comprendre comment créer une machine virtuelle exécutée sur Azure et comment la configurer pour exécuter un serveur d’applications Java.
 
@@ -60,7 +59,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
    3. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région, par exemple, **Bretagne**.
    4. Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
    5. Pour **Availability Set**, sélectionnez **(None)**.
-   6. Cliquez sur **Suivant**.
+   6. Cliquez sur **Next**.
 7. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
    1. Validez les entrées de points de terminaison par défaut.
    2. Cliquez sur **Terminé**.
@@ -156,6 +155,6 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
 
 
 ---
@@ -116,7 +116,7 @@ L'objet EngagementReach fournit deux méthodes pour gérer les autorisations de 
 
 Vous pouvez également décider de désactiver MPNS via la configuration Engagement \<windows-phone-sdk-reach-configuration\>.
 
-> 2.9.1) L’application doit tout d’abord décrire les notifications envoyées et **obtenir l’autorisation expresse de l’utilisateur**. Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services MPNS doivent être cohérentes avec la description fournie à l’utilisateur et doivent respecter toutes les [politiques d’application], [stratégies de contenu] et [exigences supplémentaires pour les types d’application spécifiques applicables].
+> 2.9.1) L’application doit tout d’abord décrire les notifications envoyées et **obtenir l’autorisation expresse de l’utilisateur**. Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services Microsoft Push Notification doivent être cohérentes avec la description fournie à l'utilisateur et respecter toutes les [Stratégies d'application][Content Policies] et [exigences supplémentaires pour les types d'application spécifiques] applicables.
 > 
 > 
 
@@ -280,12 +280,12 @@ Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre
 > 
 
 [politiques d'applications]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[stratégies de contenu]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[exigences supplémentaires pour les types d’application spécifiques applicables]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[exigences supplémentaires pour les types d'application spécifiques]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
-ms.author: CarlRabeler; ronitr; giladm
+ms.author: ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
-ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
+ms.openlocfilehash: 9f51fcdb291021064dc02a71afdf849f1f4a3d85
 
 
 ---
@@ -213,9 +214,9 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
 [Vue d’ensemble de l’audit Azure SQL Database]: #subheading-1
 [Configuration de l’audit pour votre base de données]: #subheading-2
 [Analyse des journaux et des rapports d’audit]: #subheading-3
-[Pratiques d’utilisation dans un environnement de production]: #subheading-5
-[Régénération des clés de stockage]: #subheading-6
-[Automation (PowerShell / API REST)]: #subheading-7
+[Practices for usage in production]: #subheading-5
+[Storage Key Regeneration]: #subheading-6
+[Automation (PowerShell / REST API)]: #subheading-7
 
 
 <!--Image references-->
@@ -241,6 +242,6 @@ Vous pouvez également configurer l’audit dans Azure SQL Database en utilisant
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

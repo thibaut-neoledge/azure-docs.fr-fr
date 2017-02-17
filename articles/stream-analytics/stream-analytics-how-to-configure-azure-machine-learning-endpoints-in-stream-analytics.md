@@ -1,5 +1,5 @@
 ---
-title: Configurer des points de terminaison Azure Machine Learning dans Stream Analytics | Microsoft Docs
+title: Utiliser les points de terminaison Azure Machine Learning dans Stream Analytics | Microsoft Docs
 description: "Fonctions de langage machine définies par l’utilisateur dans Stream Analytics"
 keywords: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce7dd546ce534ede6901444d5fe441493ac2fc45
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: e99bf516c7a700d15eaefe046f0a2086f4c16a39
 
 
 ---
@@ -207,6 +207,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

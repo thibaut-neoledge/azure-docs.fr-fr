@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 11/30/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
+ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
 
 
 ---
+
 # <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions
 Cette rubrique sert de référence générale concernant les déclencheurs et les liaisons. Elle comprend certaines des fonctionnalités avancées de liaison ainsi que la syntaxe prise en charge par tous les types de liaisons.  
 
-Si vous recherchez des informations détaillées sur la configuration et le codage d’un type de liaison ou de déclencheur en particulier, cliquez plutôt sur l’un des déclencheurs ou l’une des liaisons ci-dessous :
+Pour plus d’informations sur l’utilisation d’un type spécifique de déclencheur ou liaison, consultez une des rubriques de référence suivantes :
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Minuteur](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
+| [Base de données de documents](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [File d’attente de stockage](functions-bindings-storage-queue.md) |  [Table de stockage](functions-bindings-storage-table.md) |  
+| [Hubs d'événements](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 Ces articles supposent que vous ayez lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md), ainsi que les articles de référence pour les développeurs en [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md).
 
@@ -61,7 +67,7 @@ Une liaison de déclencheurs de file d’attente contient ces informations pour 
 }
 ```
 
-Votre code peut envoyer différents types de sorties selon de la manière dont est traité le nouvel élément de file d’attente. Par exemple, si vous souhaitez écrire un nouvel enregistrement dans une table de Stockage Azure,  vous pouvez configurer une liaison de sortie vers une table de Stockage Azure. Voici un exemple de fichier *function.json* qui inclut une liaison de sortie de table de stockage utilisable avec un déclencheur de file d’attente. 
+Votre code peut envoyer différents types de sorties selon de la manière dont est traité le nouvel élément de file d’attente. Par exemple, si vous souhaitez écrire un nouvel enregistrement dans une table de Stockage Azure,  vous pouvez créer une liaison de sortie vers une table de stockage Azure. Voici un exemple de fichier *function.json* qui inclut une liaison de sortie de table de stockage utilisable avec un déclencheur de file d’attente. 
 
 ```json
 {
@@ -125,7 +131,7 @@ Pour voir d’autres exemples de code et des informations plus précises sur les
 Pour utiliser les fonctionnalités de liaison plus avancées du Portail Azure, cliquez sur l’option **Éditeur avancé** dans l’onglet **Intégrer** de votre fonction. L’éditeur avancé vous permet de modifier le fichier *function.json* directement sur le portail.
 
 ## <a name="random-guids"></a>GUID aléatoires
-Azure Functions fournit une syntaxe permettant de générer des GUID aléatoires avec vos liaisons. La syntaxe de liaison suivante écrit la sortie dans un nouvel objet blob avec un nom unique dans un conteneur de Stockage Azure : 
+Azure Functions fournit une syntaxe permettant de générer des GUID aléatoires avec vos liaisons. La syntaxe de liaison suivante écrit la sortie dans un nouvel objet BLOB avec un nom unique dans un conteneur de stockage : 
 
 ```json
 {
@@ -182,7 +188,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-Cette approche est illustrée ci-dessous avec Node.js.
+Cette approche est illustrée comme suit avec Node.js :
 
 ```javascript
 module.exports = function (context, input) {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Voici un exemple de code F#.
+Vous trouverez ci-dessous un exemple de F# :
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -229,7 +235,7 @@ Au lieu de définir une configuration statique pour les propriétés de votre li
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -305,53 +311,61 @@ module.exports = function (context, myNewOrderItem) {
 Le modèle de liaison d’entrée et de sortie standard utilisant *function.json* est nommé liaison [*déclarative*](https://en.wikipedia.org/wiki/Declarative_programming). La liaison est définie par la déclaration JSON. Toutefois, vous pouvez utiliser une liaison [impérative](https://en.wikipedia.org/wiki/Imperative_programming). Avec ce modèle, vous pouvez effectuer une liaison avec n’importe quel nombre de liaisons d’entrée et de sortie prises en charge à la volée dans le code de votre fonction.
 Vous aurez peut-être besoin d’une liaison impérative pour les cas où le calcul du chemin de liaison ou d’autres entrées doit se produire au moment de l’exécution dans votre fonction et non au moment de la conception. 
 
-Pour effectuer une liaison impérative, procédez comme suit :
+Définissez une liaison impérative comme suit :
 
 - **N’incluez pas** d’entrée dans *function.json* pour les liaisons impératives souhaitées.
 - Transmettez un paramètre d’entrée [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Utilisez le modèle en C# suivant pour effectuer la liaison de données.
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
 où `BindingTypeAttribute` est l’attribut .NET qui définit votre liaison et `T` est le type d’entrée ou de sortie pris en charge par ce type de liaison. `T` ne peut pas être un type de paramètre `out` (comme `out JObject`). Par exemple, la liaison de sortie de la table Mobile Apps prend en charge [six types de sortie](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mais vous pouvez utiliser uniquement [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) pour `T`.
     
 L’exemple de code suivant crée une [liaison de sortie d’objet blob de stockage](functions-bindings-storage-blob.md#storage-blob-output-binding) avec un chemin d’objet blob défini au moment de l’exécution, puis écrit une chaîne vers l’objet blob.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) définit la liaison d’entrée ou de sortie de [l’objet blob de stockage](functions-bindings-storage-blob.md), et [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) est un type de liaison de sortie pris en charge.
 Le code tel quel obtient le paramètre d’application par défaut pour la chaîne de connexion de compte de stockage (c’est-à-dire `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Par exemple,
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 Le tableau suivant présente l’attribut .NET à utiliser pour chaque type de liaison, ainsi que le package auquel il convient de faire référence.
 
+> [!div class="mx-codeBreakAll"]
 | Liaison | Attribut | Ajouter la référence |
 |------|------|------|
 | Base de données de documents | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +376,7 @@ Le tableau suivant présente l’attribut .NET à utiliser pour chaque type de l
 | File d’attente de stockage | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Objet blob de stockage | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Table de stockage | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +389,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

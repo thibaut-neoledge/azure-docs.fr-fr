@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 345db9b2e45937ea45329acf780601e4e0fbd504
+ms.sourcegitcommit: daa311fcfd1ef06cf36e9443150fc967f0f39708
+ms.openlocfilehash: 052505260c0998c8528146c4985400126d094f0d
 
 
 ---
@@ -39,6 +39,129 @@ Cet article répertorie les erreurs les plus courantes et leur atténuation lors
 | La migration n’est pas prise en charge pour le déploiement {deployment-name} dans le service hébergé {hosted-service-name} car il contient des machines virtuelles qui ne font pas partie du groupe à haute disponibilité, même si le service hébergé en contient une. |La solution de contournement de ce scénario consiste à déplacer toutes les machines virtuelles dans un même groupe à haute disponibilité ou à supprimer toutes les machines virtuelles du groupe à haute disponibilité dans le service hébergé. |
 | Le compte de stockage/service hébergé/réseau virtuel {virtual-network-name} est en cours de migration et, par conséquent, n’est pas modifiable. |Cette erreur se produit lorsque l’opération de migration « Préparer » a été effectuée sur la ressource et qu’une opération susceptible d’apporter une modification à la ressource est déclenchée. En raison du verrouillage du plan de gestion après l’opération « Préparer », les modifications apportées à la ressource sont bloquées. Pour déverrouiller le plan de gestion, vous pouvez exécuter l’opération de migration « Valider » pour terminer la migration ou l’opération de migration « Abandonner » pour annuler l’opération « Préparer ». |
 | La migration n’est pas autorisée pour le service hébergé {hosted-service-name} car il contient une machine virtuelle {vm-name} à l’état : RoleStateUnknown. La migration n’est autorisée que lorsque la machine virtuelle est à l’un des états suivants : En cours d’exécution, Arrêtée, Arrêtée libérée. |La machine virtuelle peut être en cours de transition d’état, ce qui se produit habituellement lors d’une opération de mise à jour sur le service hébergé, comme un redémarrage, l’installation d’une extension, etc. Il est recommandé d’attendre que l’opération de mise à jour soit terminée sur le service hébergé avant d’essayer d’effectuer la migration. |
+| Le déploiement {nom} dans le service hébergé {nom} contient une machine virtuelle {nom} avec un disque de données {nom} dont les octets de taille d’objet Blob physique {taille} ne correspondent pas aux octets de taille logique de disque de données de la machine virtuelle {taille}. La migration se déroule sans spécifier une taille pour le disque de données pour la machine virtuelle Azure Resource Manager. Si vous souhaitez corriger la taille du disque de données avant de procéder à la migration, visitez https://aka.ms/vmdiskresize. | Cette erreur se produit si vous avez redimensionné l’objet Blob de disque dur virtuel sans mettre à jour la taille du modèle de l’API de machine virtuelle. Vous trouverez les étapes de correction détaillées [ci-dessous](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
+
+## <a name="detailed-mitigations"></a>Étapes de correction détaillées
+
+### <a name="vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes"></a>Une machine virtuelle avec un disque de données dont les octets de taille d’objet Blob physique ne correspondent pas à ceux de la taille logique du disque de données de la machine virtuelle.
+
+Cela se produit lorsque la taille logique du disque de données est désynchronisée avec celle de l’objet Blob de disque dur virtuel réel. Vous pouvez facilement vérifier cela à l’aide des commandes suivantes :
+
+#### <a name="verifying-the-issue"></a>Vérification du problème
+
+```PowerShell
+# Store the VM details in the VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+# Display the data disk properties
+# NOTE the data disk LogicalDiskSizeInGB below which is 11GB. Also note the MediaLink Uri of the VHD blob as we'll use this in the next step
+$vm.VM.DataVirtualHardDisks
+
+
+HostCaching         : None
+DiskLabel           : 
+DiskName            : coreosvm-coreosvm-0-201611230636240687
+Lun                 : 0
+LogicalDiskSizeInGB : 11
+MediaLink           : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+SourceMediaLink     : 
+IOType              : Standard
+ExtensionData       : 
+
+# Now get the properties of the blob backing the data disk above
+# NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
+$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+
+$blob
+
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudPageBlob
+BlobType          : PageBlob
+Length            : 16106127872
+ContentType       : application/octet-stream
+LastModified      : 11/23/2016 7:16:22 AM +00:00
+SnapshotTime      : 
+ContinuationToken : 
+Context           : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+Name              : coreosvm-dd1.vhd
+```
+
+#### <a name="mitigating-the-issue"></a>Correction du problème
+
+```PowerShell
+# Convert the blob size in bytes to GB into a variable which we'll use later
+$newSize = [int]($blob.Length / 1GB)
+
+# See the calculated size in GB
+$newSize
+
+15
+
+# Store the disk name of the data disk as we'll use this to identify the disk to be updated
+$diskName = $vm.VM.DataVirtualHardDisks[0].DiskName
+
+# Identify the LUN of the data disk to remove
+$lunToRemove = $vm.VM.DataVirtualHardDisks[0].Lun
+
+# Now remove the data disk from the VM so that the disk isn't leased by the VM and it's size can be updated
+Remove-AzureDataDisk -LUN $lunToRemove -VM $vm | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       213xx1-b44b-1v6n-23gg-591f2a13cd16   Succeeded  
+
+# Verify we have the right disk that's going to be updated
+Get-AzureDisk -DiskName $diskName
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : 
+Location             : East US
+DiskSizeInGB         : 11
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 0c56a2b7-a325-123b-7043-74c27d5a61fd
+OperationStatus      : Succeeded
+
+# Now update the disk to the new size
+Update-AzureDisk -DiskName $diskName -ResizedSizeInGB $newSize -Label $diskName
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureDisk     cv134b65-1b6n-8908-abuo-ce9e395ac3e7 Succeeded 
+
+# Now verify that the "DiskSizeInGB" property of the disk matches the size of the blob 
+Get-AzureDisk -DiskName $diskName
+
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : coreosvm-coreosvm-0-201611230636240687
+Location             : East US
+DiskSizeInGB         : 15
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 1v53bde5-cv56-5621-9078-16b9c8a0bad2
+OperationStatus      : Succeeded
+
+# Now we'll add the disk back to the VM as a data disk. First we need to get an updated VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+Add-AzureDataDisk -Import -DiskName $diskName -LUN 0 -VM $vm -HostCaching ReadWrite | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded      
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voici une liste d’articles qui expliquent le processus de migration.
@@ -50,6 +173,6 @@ Voici une liste d’articles qui expliquent le processus de migration.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

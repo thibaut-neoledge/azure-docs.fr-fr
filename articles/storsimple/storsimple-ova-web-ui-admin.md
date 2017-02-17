@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/07/2016
+ms.date: 12/1/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14f96cddea77bb0e91e1f79c66e3681d7a1dc3e0
+ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
+ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
 
 
 ---
@@ -109,11 +109,11 @@ Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interf
     Lorsque le redémarrage est en cours, la connexion à l'interface utilisateur s'interrompt. Vous pouvez surveiller le redémarrage en actualisant périodiquement l'interface utilisateur. Vous pouvez également surveiller l'état du redémarrage de l'appareil avec le Gestionnaire Hyper-V.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-manager-service-administration.md).
+Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil](storsimple-virtual-array-manager-service-administration.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

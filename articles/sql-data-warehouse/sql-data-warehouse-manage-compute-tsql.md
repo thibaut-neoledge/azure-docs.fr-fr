@@ -1,5 +1,5 @@
 ---
-title: "Gestion de la puissance de calcul dans Azure SQL Data Warehouse (T-SQL) | Microsoft Docs"
+title: "Suspendre, reprendre et mettre à l’échelle avec T-SQL dans Azure SQL Data Warehouse | Microsoft Docs"
 description: "Tâches Transact-SQL (T-SQL) permettant une montée en puissance des performances en ajustant les unités DWU. Réalisez des économies en réduisant vos ressources pendant les heures creuses."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 
 
 ---
@@ -29,17 +29,6 @@ ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Adaptez les performances en augmentant les ressources de calcul et la mémoire pour répondre à l’évolution des besoins de votre charge de travail. Réalisez des économies en réduisant vos ressources pendant les heures creuses ou en suspendant totalement vos ressources de calcul. 
-
-Cette collection de tâches utilise T-SQL pour :
-
-* Afficher les paramètres d’unités DWU actuels
-* Modifier les ressources de calcul en ajustant les unités DWU
-
-Pour suspendre ou reprendre une base de données, choisissez l’une des autres options de plateforme en haut de cet article.
-
-Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion de la puissance de calcul][Vue d’ensemble de la gestion de la puissance de calcul].
 
 <a name="current-dwu-bk"></a>
 
@@ -80,14 +69,14 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour d’autres tâches de gestion, consultez [vue d’ensemble de la gestion][vue d’ensemble de la gestion].
+Pour d’autres tâches de gestion, consultez la rubrique [Vue d’ensemble du système de gestion][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Limites de capacité des services]: ./sql-data-warehouse-service-capacity-limits.md
-[vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Vue d’ensemble de la gestion de la puissance de calcul]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -96,10 +85,10 @@ Pour d’autres tâches de gestion, consultez [vue d’ensemble de la gestion][v
 
 <!--Other Web references-->
 
-[Portail Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

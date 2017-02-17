@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/13/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a510763fe70d90a328c835cb123e78f455796850
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9ad8df803853a7f57fba5737506110d4b0cc68e7
 
 
 ---
@@ -80,7 +80,7 @@ Azure Multi-Factor Authentication est disponible en trois versions.
 | --- | --- |
 | Authentification multifacteur pour Office 365 |Cette version fonctionne exclusivement avec les applications Office 365 et est gérée à partir du portail Office 365. De ce fait, les administrateurs peuvent désormais sécuriser leurs ressources Office 365 avec la vérification en deux étapes. Cette version est fournie avec un abonnement à Office 365. |
 | Authentification multifacteur pour administrateurs Azure |Le même sous-ensemble de fonctionnalités de vérification en deux étapes pour Office 365 est disponible gratuitement pour l’ensemble des administrateurs Azure. Tout compte administratif dans le cadre d’un abonnement Azure peut activer cette fonctionnalité pour bénéficier d’une protection supplémentaire. Un administrateur qui souhaite accéder au portail Azure afin de créer une machine virtuelle, un site web, gérer le stockage, ou utiliser tout autre service Azure peut ajouter une authentification multifacteur à son compte d’administrateur. |
-| Azure Multi-Factor Authentication |Azure Multi-Factor Authentication offre un riche éventail de fonctionnalités. Il fournit des options de configuration supplémentaires via le [Portail Azure Classic](http://manage.windowsazure.com), des fonctions de rapports avancées et la prise en charge d’une sélection d’applications locales et dans le cloud. Azure Multi-Factor Authentication, fourni avec Azure Active Directory Premium et Enterprise Mobility Suite, peut être déployé localement ou dans le cloud. |
+| Azure Multi-Factor Authentication |Azure Multi-Factor Authentication offre un riche éventail de fonctionnalités. Il fournit des options de configuration supplémentaires via le [Portail Azure Classic](https://manage.windowsazure.com), des fonctions de rapports avancées et la prise en charge d’une sélection d’applications locales et dans le cloud. Azure Multi-Factor Authentication, fourni avec Azure Active Directory Premium et Enterprise Mobility Suite, peut être déployé localement ou dans le cloud. Reportez-vous à la rubrique ci-dessous pour découvrir [d’autres façons d’obtenir Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication). |
 
 ## <a name="feature-comparison-of-versions"></a>Comparaison des fonctionnalités suivant les versions
 Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles dans les différentes versions d’Azure Multi-Factor Authentication.
@@ -90,7 +90,7 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 > 
 > 
 
-| Fonctionnalité | Multi-Factor Authentication pour Office 365 (fourni dans les SKU Office 365) | Multi-Factor Authentication pour les administrateurs Azure (fourni avec un abonnement Azure) | Azure Multi-Factor Authentication (fourni dans Azure AD Premium et Enterprise Mobility Suite) |
+| Fonctionnalité | Authentification multifacteur pour Office 365 | Authentification multifacteur pour administrateurs Azure | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
 | Les administrateurs peuvent protéger les comptes avec MFA |● |● (Disponible uniquement pour les comptes d’administrateur Azure) |● |
 | Application mobile comme second facteur |● |● |● |
@@ -129,6 +129,6 @@ Pour commencer avec l’authentification multifacteur Azure, votre première ét
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

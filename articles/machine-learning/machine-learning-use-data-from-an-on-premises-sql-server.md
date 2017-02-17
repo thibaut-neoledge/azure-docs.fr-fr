@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: garye;krishnan
 translationtype: Human Translation
-ms.sourcegitcommit: 08e02c8e7bf031e42c574e457b70f3db45375096
-ms.openlocfilehash: b505c79f3a4df9717da021dc70b9f77452636f85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 60bd35262c0aa017b42b303dd8244054743a4635
 
 
 ---
@@ -80,19 +80,19 @@ La première étape consiste à créer et à configurer la passerelle pour accé
 2. Cliquez sur le panneau **PARAMÈTRES** sur la gauche, puis cliquez sur l’onglet **PASSERELLES DE DONNÉES** en haut.
 3. Cliquez sur **NOUVELLE PASSERELLE DE DONNÉES** en bas de l’écran.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
+    ![Nouvelle passerelle de données](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 4. Dans la boîte de dialogue **Nouvelle passerelle de données**, entrez le **Nom de la passerelle** et ajoutez éventuellement une **Description**. Cliquez sur la flèche située dans l’angle inférieur droit pour accéder à l’étape suivante de la configuration.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
+    ![Entrez la description et le nom de la passerelle](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. Dans la boîte de dialogue Télécharger et inscrire une passerelle de données, copiez la CLÉ D’INSCRIPTION DE LA PASSERELLE dans le presse-papiers.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
+    ![Téléchargez et enregistrez la passerelle de données](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Si vous n’avez pas encore téléchargé et installé la passerelle de gestion des données de Microsoft, cliquez sur **Télécharger la passerelle de gestion des données**. Vous accéderez au Centre de téléchargement Microsoft, où vous pourrez sélectionner la version de la passerelle dont vous avez besoin, la télécharger et l’installer. Vous trouverez des informations détaillées sur les conditions préalables à l’installation, des étapes d’installation et des conseils de dépannage dans les sections du début de l’article [Déplacer des données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 7. Une fois la passerelle installée, le Gestionnaire de configuration de la passerelle de gestion des données s’ouvre et la boîte de dialogue **Inscrire la passerelle** s’affiche. Collez la **Clé d’inscription de la passerelle** que vous avez copiée dans le presse-papiers et cliquez sur **Inscrire**.
 8. Si vous disposez déjà d’une passerelle installée, exécutez le Gestionnaire de configuration de la passerelle de gestion des données, cliquez sur **Modifier la clé**, collez la  **Clé d’inscription de la passerelle** que vous avez copiée dans le Presse-papiers et cliquez sur **OK**.
 9. Une fois l’installation terminée, la boîte de dialogue **Inscrire la passerelle** du Gestionnaire de configuration de la passerelle de gestion des données de Microsoft s’affiche. Collez la CLÉ D’INSCRIPTION DE LA PASSERELLE que vous avez copiée dans le presse-papiers ci-dessus et cliquez sur **Inscrire**.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
+    ![Inscrivez la passerelle](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 10. La configuration de la passerelle est terminée lorsque les valeurs suivantes sont définies sur l’onglet **Accueil** dans le Gestionnaire de configuration de la passerelle de gestion des données de Microsoft :
 
     * **Nom de la passerelle** et **Nom de l’instance** sont définis sur le nom de la passerelle.
@@ -100,20 +100,20 @@ La première étape consiste à créer et à configurer la passerelle pour accé
     * **État** est défini sur **Démarré**.
     * La barre d’état située au bas de l’écran affiche le message **Connecté au service cloud de la passerelle de gestion des données** accompagné d’une coche verte.
 
-      ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+      ![Gestionnaire de passerelle de gestion de données](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
       Azure Machine Learning Studio se met également à jour lorsque l’inscription réussit.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-registered.png)
+    ![Inscription de la passerelle réussie](media/machine-learning-use-data-from-an-on-premises-sql-server/gateway-registered.png)
 11. Dans la boîte de dialogue **Télécharger et inscrire la passerelle de données** , cliquez sur la coche pour terminer l’installation. La page **Paramètres** affiche l’état « En ligne » pour la passerelle. Dans le volet de droite, vous trouverez l’état et autres informations utiles.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\gateway-status.png)
+    ![Paramètres de la passerelle](media/machine-learning-use-data-from-an-on-premises-sql-server/gateway-status.png)
 12. Dans le Gestionnaire de configuration de la passerelle de gestion des données de Microsoft, basculez vers l’onglet **Certificat** . Le certificat spécifié dans cet onglet sert à chiffrer/déchiffrer les informations d’identification pour le magasin de données local que vous spécifiez dans le portail. Il s’agit du certificat généré par défaut. Microsoft recommande de le modifier pour spécifier votre propre certificat, que vous sauvegardez dans votre système de gestion des certificats. Cliquez sur **Modifier** pour utiliser votre propre certificat à la place.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-certificate.png)
+    ![Changez le certificat de la passerelle](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
 13. (Facultatif) Si vous souhaitez activer la journalisation détaillée pour résoudre les problèmes de passerelle, dans le Gestionnaire de configuration de la passerelle de gestion des données de Microsoft, basculez sur l’onglet **Diagnostics** et cochez l’option **Activer la journalisation détaillée pour résoudre des problèmes**. Vous trouverez les informations de journalisation dans l’Observateur d’événements Windows sous le nœud **Journaux des applications et des services** -&gt; **Passerelle de gestion des données**. Vous pouvez également utiliser l’onglet **Diagnostics** pour tester la connexion à une source de données locale à l’aide de la passerelle.
 
-    ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\data-gateway-configuration-manager-verbose-logging.png)
+    ![Activez la journalisation commentée](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 
 Le processus de configuration de la passerelle dans Azure Machine Learning est terminé.
 Vous êtes maintenant prêt à utiliser vos données locales.
@@ -127,19 +127,19 @@ Après avoir configuré la passerelle, vous pouvez ajouter un module **Importer 
 2. Recherchez et faites glisser le module **Importer des données** jusqu’à la zone de dessin de l’expérience.
 3. Cliquez sur **Enregistrer sous** sous le canevas. Entrez « Didacticiel SQL Server local Azure Machine Learning » comme nom de l’expérience, sélectionnez l’espace de travail, puis cochez la case **OK** .
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\experiment-save-as.png)
+   ![Enregistrez l’expérience sous un nouveau nom](media/machine-learning-use-data-from-an-on-premises-sql-server/experiment-save-as.png)
 4. Cliquez sur le module **Importer des données** pour le sélectionner puis, dans le volet **Propriétés** à droite de la zone de dessin, sélectionnez « Base de données SQL locale » dans la liste déroulante **Source de données**.
 5. Sélectionnez la **Passerelle de données** que vous avez installée et inscrite. Vous pouvez configurer une autre passerelle en sélectionnant « (Ajouter une passerelle de données...) ».
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-select-on-premises-data-source.png)
+   ![Sélectionnez une passerelle de données pour le module d’importation de données](media/machine-learning-use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
 6. Entrez le **Nom du serveur de base de données** et le **Nom de la base de données** SQL, ainsi que la **Requête de base de données** SQL que vous souhaitez exécuter.
 7. Cliquez sur **Entrer des valeurs** sous **Nom d’utilisateur et mot de passe** et entrez vos informations d’identification de base de données. Vous pouvez utiliser l’authentification intégrée Windows ou l’authentification SQL Server en fonction de la configuration de votre serveur local SQL Server.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\database-credentials.png)
+   ![Entrez les informations d’identification de la base de données](media/machine-learning-use-data-from-an-on-premises-sql-server/database-credentials.png)
 
    Le message « valeurs requises » devient « valeurs définies » avec une coche verte. Il vous suffit d’entrer les informations d’identification une seule fois, sauf si les informations de base de données ou de mot de passe changent. Azure Machine Learning utilise le certificat que vous avez fourni lors de l’installation de la passerelle pour chiffrer les informations d’identification dans le cloud. Azure ne stocke jamais d’informations d’identification locales sans chiffrement.
 
-   ![](media\\machine-learning-use-data-from-an-on-premises-sql-server\\import-data-properties-entered.png)
+   ![Importez les propriétés du module de données](media/machine-learning-use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Cliquez sur **EXÉCUTER** pour lancer l’expérience.
 
 Une fois l’expérimentation terminée, vous pouvez visualiser les données que vous avez importées à partir de la base de données en cliquant sur le port de sortie du module **Importer des données** et en sélectionnant **Visualiser**.
@@ -148,6 +148,6 @@ Une fois que vous avez terminé le développement de votre expérience, vous pou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

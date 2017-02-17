@@ -1,5 +1,5 @@
 ---
-title: "Prise en main de Reliable Services | Microsoft Docs"
+title: Prise en main de Reliable Services | Microsoft Docs
 description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/04/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 224538560a50f9ab24b8c2746e99de1ab87f084b
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 2a2378dbeb5e7994039291deffd35cb04bf8057c
 
 
 ---
@@ -27,11 +27,13 @@ ms.openlocfilehash: 224538560a50f9ab24b8c2746e99de1ab87f084b
 > 
 > 
 
-Cet article explique les notions de base d’Azure Service Fabric Reliable Services et vous guide pas à pas dans la création et le déploiement d’une application Reliable Service simple écrite en Java.
+Cet article explique les notions de base d’Azure Service Fabric Reliable Services et vous guide pas à pas dans la création et le déploiement d’une application Reliable Service simple écrite en Java. Cette vidéo Microsoft Virtual Academy vous montre également comment créer un service Reliable sans état :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="installation-and-setup"></a>Installation et configuration
 Avant de commencer, assurez-vous que l’environnement de développement Service Fabric est configuré sur votre ordinateur.
-Si vous devez le configurer, accédez à l’article sur la [prise en main sur Mac](service-fabric-get-started-mac.md) ou sur la [prise en main sur Linux](service-fabric-get-started-linux.md).
+Si vous devez le configurer, référez-vous à l’article sur la [prise en main sur Mac](service-fabric-get-started-mac.md) ou sur la [prise en main sur Linux](service-fabric-get-started-linux.md).
 
 ## <a name="basic-concepts"></a>Concepts de base
 Pour prendre en main Reliable Services, il vous suffit de comprendre quelques concepts de base :
@@ -163,13 +165,13 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
-La génération de modèles automatique Yeoman inclut un script Gradle pour générer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
+La structure Yeoman inclut un script Gradle pour générer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 
 ```bash
 $ gradle
 ```
 
-Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez simplement le script install.sh à déployer :
+Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez simplement le script install.sh à déployer :
 
 ```bask
 $ ./install.sh
@@ -177,6 +179,6 @@ $ ./install.sh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

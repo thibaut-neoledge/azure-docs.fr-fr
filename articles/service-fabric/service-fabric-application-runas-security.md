@@ -1,5 +1,5 @@
 ---
-title: "Présentation des stratégies de sécurité de service et de l’application Service Fabric | Microsoft Docs"
+title: "En savoir plus sur les stratégies de sécurité des microservices Azure | Microsoft Docs"
 description: "Vue d’ensemble de l’exécution d’une application Service Fabric sous des comptes de sécurité système et locaux, incluant le point SetupEntry où une application doit effectuer une action privilégiée avant de démarrer"
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9484de017b9903cc22b27b26bba753b09b311749
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
 
 
 ---
@@ -34,7 +34,7 @@ Comme le décrit le [modèle d’application](service-fabric-application-model.m
 
 L’exemple suivant est un exemple simple de manifeste de service illustrant SetupEntryPoint et le point d’entrée (EntryPoint) principal du service.
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -56,12 +56,12 @@ L’exemple suivant est un exemple simple de manifeste de service illustrant Set
   </CodePackage>
   <ConfigPackage Name="Config" Version="1.0.0" />
 </ServiceManifest>
-~~~
+```
 
 ### <a name="configure-the-policy-by-using-a-local-account"></a>Configurer la stratégie à l’aide d’un compte local
 Après avoir configuré le service pour obtenir un point d’entrée de configuration, vous pouvez modifier les autorisations de sécurité sous lesquelles ce point d’entrée s’exécute dans le manifeste d’application. L’exemple suivant montre comment configurer le service pour qu’il s’exécute avec des privilèges de compte d’administrateur de l’utilisateur.
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
@@ -81,7 +81,7 @@ Après avoir configuré le service pour obtenir un point d’entrée de configur
       </Users>
    </Principals>
 </ApplicationManifest>
-~~~
+```
 
 Tout d’abord, créez une section **Principals** avec un nom d’utilisateur, par exemple SetupAdminUser. Ceci indique que l'utilisateur est membre du groupe des administrateurs du système.
 
@@ -95,7 +95,7 @@ Vérifiez ensuite que le fichier MySetup.bat est inclus dans le package de servi
 
 Ouvrez maintenant le fichier MySetup.bat et ajoutez les commandes suivantes :
 
-~~~
+```
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > out.txt
@@ -103,25 +103,25 @@ echo %TestVariable% >> out.txt
 
 REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
-~~~
+```
 
 Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans Service Fabric Explorer, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez :
 
-~~~
+```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
-~~~
+```
 
 Ensuite, notez le nom du nœud sur lequel le service a été déployé et démarré dans Service Fabric Explorer, par exemple, Nœud 2. Accédez au dossier de travail de l’instance d’application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si ce service a été déployé sur le Nœud 2, vous pouvez accéder à ce chemin pour **MyApplicationType**:
 
-~~~
+```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
-~~~
+```
 
 ### <a name="configure-the-policy-by-using-local-system-accounts"></a>Configurer la stratégie à l’aide de comptes système locaux
 Il est souvent préférable d’exécuter le script de démarrage à l’aide d’un compte système local plutôt que d’un compte d’administrateur. En règle générale, exécuter la stratégie RunAs en tant que membre du groupe Administrateurs ne fonctionne pas correctement, car le contrôle d’accès utilisateur est activé par défaut sur les ordinateurs. Dans ce cas, **nous vous recommandons d’exécuter SetupEntryPoint en tant que LocalSystem plutôt qu’utilisateur local ajouté au groupe Administrateurs**. L’exemple suivant montre comment configurer SetupEntryPoint pour une exécution en tant que LocalSystem :
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
@@ -137,37 +137,37 @@ Il est souvent préférable d’exécuter le script de démarrage à l’aide d�
       </Users>
    </Principals>
 </ApplicationManifest>
-~~~
+```
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Lancer des commandes PowerShell à partir d’un point d’entrée de configuration
 Pour exécuter PowerShell à partir du point **SetupEntryPoint**, vous pouvez exécuter **PowerShell.exe** dans un fichier de commandes qui pointe vers un fichier PowerShell. Tout d’abord, ajoutez un fichier PowerShell au projet de service, par exemple **MySetup.ps1**. N’oubliez pas de définir la propriété *Copier si plus récent* afin que le fichier soit également inclus dans le package de service. L’exemple suivant montre un exemple de fichier de commandes permettant de lancer un fichier PowerShell appelé MySetup.ps1, qui définit une variable d’environnement appelée **TestVariable**.
 
 MySetup.bat pour lancer un fichier PowerShell :
 
-~~~
+```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
-~~~
+```
 
 Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d’environnement système :
 
-~~~
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
 > [!NOTE]
 > Par défaut, quand le fichier de commandes s’exécute, il détermine si le dossier d’application **work** contient des fichiers. Dans ce cas, quand MySetup.bat s’exécute, il doit rechercher le fichier MySetup.ps1 dans ce dossier, qui contient le **package de code** de l’application. À cette fin, définissez le dossier de travail :
 > 
 > 
 
-~~~
+```xml
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
 </SetupEntryPoint>
-~~~
+```
 
 ## <a name="use-console-redirection-for-local-debugging"></a>Utiliser la console de redirection pour le débogage local
 Parfois, à des fins de débogage, il est utile de visualiser la sortie de la console générée par l’exécution d’un script. Pour ce faire, vous pouvez définir une stratégie de redirection de console qui écrit la sortie dans un fichier. La sortie du fichier est écrite dans le dossier d’application **log** sur le nœud sur lequel l’application est déployée et exécutée. (Consultez l’exemple précédent pour déterminer son emplacement.)
@@ -179,7 +179,7 @@ Parfois, à des fins de débogage, il est utile de visualiser la sortie de la co
 
 L’exemple suivant montre comment configurer la redirection de console avec une valeur FileRetentionCount :
 
-~~~
+```xml
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
@@ -187,13 +187,13 @@ L’exemple suivant montre comment configurer la redirection de console avec une
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
 </SetupEntryPoint>
-~~~
+```
 
 Si vous modifiez le fichier MySetup.ps1 pour écrire une commande **Echo**, le contenu de celle-ci apparaît dans le fichier de sortie à des fins de débogage :
 
-~~~
+```
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
-~~~
+```
 
 **Une fois que vous avez débogué votre script, supprimez immédiatement cette stratégie de redirection de console**.
 
@@ -203,7 +203,7 @@ Dans les étapes précédentes, vous avez vu comment appliquer une stratégie Ru
 ### <a name="create-local-user-groups"></a>Création de groupes d'utilisateurs locaux
 Vous pouvez définir et créer des groupes d’utilisateurs permettant d’ajouter un ou plusieurs utilisateurs à un groupe. Cela est particulièrement utile s'il existe plusieurs utilisateurs pour des points d'entrée de service différents et s'ils doivent disposer de certains privilèges courants disponibles au niveau du groupe. L’exemple suivant montre un groupe local appelé **LocalAdminGroup** disposant de privilèges d’administrateur. Deux utilisateurs, Customer1 et Customer2, deviennent membres de ce groupe local.
 
-~~~
+```xml
 <Principals>
  <Groups>
    <Group Name="LocalAdminGroup">
@@ -225,48 +225,49 @@ Vous pouvez définir et créer des groupes d’utilisateurs permettant d’ajout
     </User>
   </Users>
 </Principals>
-~~~
+```
 
 ### <a name="create-local-users"></a>Création d'utilisateurs locaux
 Vous pouvez créer un utilisateur local qui peut être utilisé pour sécuriser un service au sein de l’application. Quand un type de compte **LocalUser** est spécifié dans la section Principals du manifeste d’application, Service Fabric crée des comptes d’utilisateurs locaux sur les ordinateurs où l’application est déployée. Par défaut, ces comptes n’ont pas les mêmes noms que ceux spécifiés dans le manifeste d’application (Customer3 dans l’exemple suivant). Ils sont générés dynamiquement et sont associés à des mots de passe aléatoires.
 
-~~~
+```xml
 <Principals>
   <Users>
      <User Name="Customer3" AccountType="LocalUser" />
   </Users>
 </Principals>
-~~~
+```
 
-<!-- If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
+Si une application nécessite que le compte d’utilisateur et le mot de passe soient identiques sur tous les ordinateurs (par exemple, pour activer l’authentification NTLM), le manifeste de cluster doit définir NTLMAuthenticationEnabled sur « true ». Le manifeste de cluster doit également spécifier un élément NTLMAuthenticationPasswordSecret à utiliser pour générer le même mot de passe sur tous les ordinateurs.
 
+```xml
 <Section Name="Hosting">
       <Parameter Name="EndpointProviderEnabled" Value="true"/>
       <Parameter Name="NTLMAuthenticationEnabled" Value="true"/>
       <Parameter Name="NTLMAuthenticationPassworkSecret" Value="******" IsEncrypted="true"/>
  </Section>
--->
+```
 
 ### <a name="assign-policies-to-the-service-code-packages"></a>Affectation de stratégies aux packages de code de service
 La section **RunAsPolicy** d’un **ServiceManifestImport** spécifie le compte de la section Principals qui doit être utilisé pour exécuter un package de code. Elle associe également des packages de code du manifeste de service à des comptes d’utilisateur dans la section Principals. Vous pouvez spécifier ce paramètre pour les points d’entrée de configuration ou principaux, ou choisir l’option `All` pour appliquer ce paramètre aux deux. L’exemple suivant illustre les différentes stratégies appliquées :
 
-~~~
+```xml
 <Policies>
 <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
 <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
-~~~
+```
 
 Si **EntryPointType** n'est pas spécifié, la valeur par défaut est définie sur EntryPointType=« Main ». La spécification d’un **SetupEntryPoint** est particulièrement utile quand vous souhaitez exécuter certaines opérations d’installation à privilèges élevés sous un compte système. Le code de service en tant que tel peut s’exécuter sous un compte à faible privilège.
 
 ### <a name="apply-a-default-policy-to-all-service-code-packages"></a>Application d’une stratégie par défaut à tous les packages de code de service
 La section **DefaultRunAsPolicy** permet de spécifier un compte utilisateur par défaut pour tous les packages de code qui n’ont pas de stratégie **RunAsPolicy** spécifique définie. Si la plupart des packages de code spécifiés dans le manifeste de service utilisé par une application doivent s’exécuter sous le même utilisateur, l’application peut définir une stratégie RunAs par défaut avec ce compte utilisateur. L’exemple suivant spécifie que, si un package de code n’a pas de stratégie **RunAsPolicy** spécifiée, le package de code doit être exécuté sous le compte **MyDefaultAccount** spécifié dans la section Principals.
 
-~~~
+```xml
 <Policies>
   <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
 </Policies>
-~~~
+```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Utiliser un utilisateur ou groupe de domaine Active Directory
 Pour une instance de Service Fabric installée sur Windows Server par le biais du programme d’installation autonome, vous pouvez exécuter le service sous les informations d’identification d’un compte de groupe ou d’utilisateur Active Directory. Remarque : il s’agit d’Active Directory en local au sein de votre domaine et non avec Azure Active Directory (Azure AD). En utilisant un groupe ou un utilisateur de domaine, vous pouvez accéder à d’autres ressources dans le domaine (par exemple, les partages de fichiers) qui disposent d’autorisations.
 
@@ -274,7 +275,7 @@ L’exemple suivant montre un utilisateur Active Directory appelé *TestUser* av
 
 Vous devez déployer la clé privée du certificat pour déchiffrer le mot de passe sur l’ordinateur local à l’aide d’une méthode hors bande (avec Azure Resource Manager dans Azure). Ensuite, lorsque Service Fabric déploie le package de service sur l’ordinateur, il est en mesure de déchiffrer le secret (ainsi que le nom d’utilisateur) et de s’authentifier auprès d’Active Directory pour s’exécuter sous ces informations d’identification.
 
-~~~
+```xml
 <Principals>
   <Users>
     <User Name="TestUser" AccountType="DomainUser" AccountName="Domain\User" Password="[Put encrypted password here using MyCert certificate]" PasswordEncrypted="true" />
@@ -287,23 +288,23 @@ Vous devez déployer la clé privée du certificat pour déchiffrer le mot de pa
   </SecurityAccessPolicies>
 </Policies>
 <Certificates>
-~~~
+```
 
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Affectation d’une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS
 Si vous appliquez une stratégie RunAs à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une stratégie **SecurityAccessPolicy** pour vous assurer que les ports affectés à ces points de terminaison sont bien au format ACL pour le compte utilisateur RunAs sous lequel le service est exécuté. Sinon, **http.sys** n’a pas accès au service et les appels en provenance du client échouent. L’exemple suivant applique le compte Customer3 au point de terminaison **ServiceEndpointName**, ce qui lui attribue des droits d’accès complets.
 
-~~~
+```xml
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
    <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
    <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
 </Policies>
-~~~
+```
 
 Pour le point de terminaison HTTPS, vous devez également indiquer le nom du certificat à retourner au client. Vous pouvez pour cela utiliser la stratégie **EndpointBindingPolicy**, avec le certificat défini dans une section dédiée aux certificats du manifeste d’application.
 
-~~~
+```xml
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
@@ -311,13 +312,13 @@ Pour le point de terminaison HTTPS, vous devez également indiquer le nom du cer
   <!--EndpointBindingPolicy is needed if the EndpointName is secured with https -->
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
-~~~
+```
 
 
 ## <a name="a-complete-application-manifest-example"></a>Exemple complet de manifeste d'application
 Le manifeste d’application suivant affiche un grand nombre des différents paramètres :
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application3Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
@@ -368,7 +369,7 @@ Le manifeste d’application suivant affiche un grand nombre des différents par
      <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
   </Certificates>
 </ApplicationManifest>
-~~~
+```
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -381,6 +382,6 @@ Le manifeste d’application suivant affiche un grand nombre des différents par
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

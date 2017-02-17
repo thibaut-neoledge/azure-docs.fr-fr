@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/05/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
 
 
 ---
@@ -43,8 +43,8 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 <table>
 <tbody>
 <tr>
-<td><B>Nom de la propriété</B></td>
-<td><B>Description</B></td>
+<td><B>NOM DE LA PROPRIÉTÉ</B></td>
+<td><B>DESCRIPTION</B></td>
 </tr>
 <tr>
 <td>Alias de sortie</td>
@@ -303,40 +303,17 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 ## <a name="documentdb"></a>Base de données de documents
 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
 
-Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
+La liste ci-dessous présente les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>Nom de la propriété</td>
-<td>DESCRIPTION</td>
-</tr>
-<tr>
-<td>Nom du compte</td>
-<td>Nom du compte DocumentDB.  Cela peut également être le point de terminaison du compte.</td>
-</tr>
-<tr>
-<td>Clé du compte</td>
-<td>Clé d’accès partagé du compte DocumentDB.</td>
-</tr>
-<tr>
-<td>Base de données</td>
-<td>Nom de la base de données DocumentDB.</td>
-</tr>
-<tr>
-<td>Modèle de nom de collection</td>
-<td>Modèle de nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0.<BR>Par exemple, Voici les entrées valides :<BR>MyCollection{partition}<BR>MyCollection<BR>Notez que les collections doivent exister avant que le travail d’analyse de flux de données soit démarré et ne sont pas créées automatiquement.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections.</td>
-</tr>
-<tr>
-<td>ID du document</td>
-<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.</td>
-</tr>
-</tbody>
-</table>
+* **Alias de sortie** : alias faisant référence à cette sortie dans votre requête ASA  
+* **Nom du compte** : nom ou URI du point de terminaison du compte DocumentDB.  
+* **Clé du compte** : clé d’accès partagé du compte DocumentDB.  
+* **Base de données** : nom de la base de données DocumentDB.  
+* **Modèle de nom de collection** : modèle ou nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Voici des exemples d’entrées valides :  
+  1\) MyCollection : il doit exister une collection nommée « MyCollection ».  
+  2\) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
+* **Clé de partition** : facultative. Nécessaire uniquement si vous utilisez un jeton {partition} dans votre modèle de nom de collection. Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
+* **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
@@ -360,6 +337,6 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

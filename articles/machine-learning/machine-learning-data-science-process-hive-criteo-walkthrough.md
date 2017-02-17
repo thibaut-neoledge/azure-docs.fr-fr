@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63ed48c874d75904cb7ea56b7ae1e50311f6b7f2
+ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
+ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
 
 
 ---
@@ -450,7 +450,7 @@ Cliquez avec le bouton droit sur le port de sortie du module **Importer des donn
 
 Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d’apprentissage automatique, recherchez les groupes de données à l’aide de la zone **Recherche** visible dans l’illustration ci-dessous. Puis tapez simplement une partie du nom attribué au groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Faites glisser l’ensemble de données sur le panneau principal](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Réalisez cette opération pour les groupes de données de formation et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs de la capture d’écran sont utilisées à simple titre d’illustration.**
@@ -460,7 +460,7 @@ Pour sélectionner le groupe de données enregistré et l’utiliser dans une ex
 ### <a name="a-namestep2a-step-2-create-a-simple-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
 Notre expérience Azure ML ressemble à ceci :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Expérience Machine Learning](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 Examinons maintenant les composants clés de cette expérience. En guise de rappel, nous devons d'abord faire glisser nos jeux de données d'apprentissage et de test sur la zone de dessin de l'expérience.
 
@@ -477,56 +477,56 @@ Certaines fonctionnalités catégorielles de jeux de données volumineux peuvent
 ##### <a name="building-counting-transforms"></a>Création de transformations de comptage
 Pour créer des fonctionnalités de comptage, nous utilisons le module **Créer une transformation de comptage** qui est disponible dans Azure Machine Learning. Le module se présente ainsi :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Créer un module de transformation de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Créer un module de transformation de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
 **Remarque importante** : dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
 
 Pour utiliser le module en mode MapReduce (adapté aux grands ensembles de données), nous devons accéder à un cluster HDInsight Hadoop (celui utilisé pour l’exploration de la fonctionnalité peut être réutilisé à cet effet) et ses informations d’identification. Les figures précédentes illustrent les valeurs renseignées (remplacez les valeurs fournies à titre d’illustration avec celles adaptées à votre propre cas d’utilisation).
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Paramètres du module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 Dans la figure ci-dessus, nous montrons comment entrer l'emplacement de l'objet blob en entrée. Cet emplacement comporte les données réservées pour la création de tables de comptage.
 
 Une fois l’exécution de ce module terminée, nous pouvons enregistrer la transformation pour une utilisation ultérieure en cliquant avec le bouton droit sur le module et en sélectionnant l’option **Enregistrer en tant que transformation** :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+![Option « Enregistrer en tant que transformation »](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 Dans notre architecture d'expérience illustrée ci-dessus, le jeu de données « ytransform2 » correspond précisément à une transformation de nombre enregistrée. Pour le reste de cette expérience, nous partons du principe que le lecteur a utilisé un module **Créer une transformation de comptage** sur certaines données pour générer des nombres et peut ensuite utiliser ces nombres pour générer des fonctionnalités de comptage sur les jeux de données d'apprentissage et de test.
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>Sélection des fonctionnalités de comptage à inclure dans les jeux de données d'apprentissage et de test
 Lorsqu'une transformation de nombre est prête, l'utilisateur peut choisir les fonctionnalités à inclure dans les jeux de données d'apprentissage et de test à l'aide du module **Modifier les paramètres de la table de comptage** . Nous montrons ce module ici par souci d’exhaustivité, mais dans un souci de simplification nous ne l’utilisons pas dans notre expérience.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Modifier les paramètres de la table de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 Dans ce cas, comme vous pouvez le constater, nous avons choisi d'utiliser uniquement les probabilités de journalisation et d'ignorer la colonne d'interruption. Nous pouvons également définir des paramètres, tels que le seuil d'emplacement de la corbeille, le nombre de pseudo-exemples précédents à ajouter pour le lissage et s'il faut utiliser le bruit Laplacien ou non. Il s'agit là de fonctionnalités avancées et il est à noter que les valeurs par défaut sont un bon point de départ pour les utilisateurs qui débutent dans ce type de génération de fonctionnalité.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>Transformation des données avant la génération des fonctionnalités de comptage
 Nous nous concentrons maintenant sur un point important de la transformation de nos données d'apprentissage et de test avant de générer réellement les fonctions de comptage. Notez qu'il existe deux modules **Exécuter le script R** utilisés avant que nous appliquions la transformation de nombre à nos données.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Modules Exécuter le script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Voici le premier script R :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![Premier script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
 
 Dans ce script R, nous renommons nos colonnes « Col1 » à « Col40 ». La transformation de nombre attend des noms dans ce format.
 
 Dans le deuxième script R, nous équilibrons la distribution entre les classes positives et négatives (classes 1 et 0 respectivement) en sous-échantillonnant la classe négative. Le script R suivant montre comment procéder :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Deuxième script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 Dans ce script R simple, nous utilisons « pos\_neg\_ratio » pour définir l'équilibre entre les classes positive et négatives. Ceci est important car l'amélioration du déséquilibre des classes a, en général, des avantages en matière de performances pour les problèmes de classification où la distribution des classes est déséquilibrée (n'oubliez pas que dans notre cas, nous avons 3,3 % de classe positive et 96,7 % de classe négative).
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>Application de la transformation de nombre à nos données
 Enfin, nous pouvons utiliser le module **Appliquer la transformation** pour appliquer les transformations de nombre à nos jeux de données d'apprentissage et de test. Ce module prend la transformation de nombre enregistrée comme une entrée et les jeux de données d'apprentissage ou de test comme l'autre entrée, et il renvoie les données avec des fonctionnalités de nombre. En voici l’illustration :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Appliquer le module de transformation](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### <a name="an-excerpt-of-what-the-count-features-look-like"></a>Un exemple de l'aspect des fonctionnalités de nombre
 Il est intéressant de voir à quoi les fonctionnalités de nombre ressemblent dans notre cas. En voici un exemple :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Fonctionnalités de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 Dans cet exemple, nous montrons que pour les colonnes sur lesquelles nous avons exécuté le comptage, nous obtenons les nombres et les probabilités de journalisation, en plus des interruptions pertinentes.
 
@@ -536,19 +536,19 @@ Nous sommes maintenant prêts à construire un modèle Azure Machine Learning à
 ##### <a name="choice-of-learner"></a>Choix de l'apprenant
 Nous devons tout d'abord choisir un apprenant. Nous utiliserons un arbre de décision optimisé à deux classes comme apprenant. Voici les options par défaut pour cet apprenant :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Paramètres de l’arbre de décision optimisé à deux classes](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 Pour notre expérience, nous allons choisir les valeurs par défaut. Vous constaterez que les valeurs par défaut sont généralement significatives et permettent d'obtenir rapidement des lignes de base pour les performances. Vous pouvez améliorer les performances en balayant les paramètres si vous le souhaitez, une fois que vous avez obtenu une ligne de base.
 
 #### <a name="train-the-model"></a>Formation du modèle
 Pour l'apprentissage, nous appelons simplement un module **Former le modèle** . Les deux entrées dans celui-ci sont l'apprenant Arbre de décision optimisé à deux classes et notre jeu de données d'apprentissage. En voici l’illustration :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Module de formation de modèle](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
 
-#### <a name="score-the-model"></a>Notation du modèle
+#### <a name="score-the-model"></a>Noter le modèle
 Une fois que nous avons formé un modèle, nous sommes prêts à noter le jeu de données de test et à évaluer ses performances. Pour cela, nous utilisons le module **Noter le modèle** illustré ci-dessous, ainsi qu’un module **Évaluer le modèle** :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a> Étape 5 : Évaluer le modèle
 Pour finir, nous souhaiterions analyser les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, nous raccordons le module **Noter le modèle** à un module **Évaluer le modèle**. Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique semblable à celui-ci :
@@ -602,7 +602,7 @@ Pour obtenir les ports d’entrée et de sortie bleus, vous cliquez simplement s
 
 Une fois le service Web publié, nous sommes redirigés vers une page similaire à celle illustrée ci-dessous :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Tableau de bord du service web](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 Nous apercevons deux liens pour les services Web sur le côté gauche :
 
@@ -628,6 +628,6 @@ Ceci conclut notre procédure pas à pas expliquant comment gérer un jeu de don
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemple 2 : Créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
-[Revenir à la page des bonnes pratiques concernant les limites de sécurité][Accueil]
+[Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
 
 Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic (Traffic Scenario) qui explique en détail et étape par étape l’évolution du trafic à travers les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios. 
 
@@ -79,9 +79,9 @@ Les règles qui suivent sont générées de façon déclarative pour le trafic e
 
 Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante en provenance d’HTTP arrive d’Internet à destination du serveur web, les 3 règles (autorisation) et les 5 règles (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au pare-feu. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à accéder au serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux directions, un routage défini par l’utilisateur est nécessaire. Cette question est explorée dans un autre exemple qui figure dans le [document de limite de sécurité principal][Accueil].
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux directions, le routage défini par l’utilisateur est requis. Cette opération est expliquée dans un autre exemple qui figure dans le [document de frontière de sécurité principal][HOME].
 
-Les règles de groupe de sécurité réseau présentées ci-dessus sont très similaires à celles décrites dans [Exemple 1 : Créer une zone DMZ simple à l’aide de groupes de sécurité réseau][Exemple1]. Veuillez consulter la description NSG dans ce document pour obtenir une description détaillée de chaque règle NSG et de ses attributs.
+Les règles NSG abordées ci-dessus sont très similaires aux règles NSG décrites dans [Exemple 1 : créer une zone DMZ simple à l’aide de groupes de sécurité réseau][Example1]. Veuillez consulter la description NSG dans ce document pour obtenir une description détaillée de chaque règle NSG et de ses attributs.
 
 ## <a name="firewall-rules"></a>Règles de pare-feu
 Un client de gestion devra être installé sur un ordinateur pour gérer le pare-feu et créer les configurations nécessaires. Consultez la documentation du fournisseur de votre pare-feu (ou autre NVA) sur la façon de gérer l’appareil. Le reste de cette section décrit la configuration du pare-feu lui-même par le biais du client de gestion des fournisseurs (et non par le portail Azure ou PowerShell).
@@ -218,7 +218,7 @@ Avec l’activation de l’ensemble de règles de pare-feu, la création de l’
 ## <a name="conclusion"></a>Conclusion
 Il s’agit d’un moyen relativement simple de protéger votre application avec un pare-feu et d’isoler le sous-réseau principal du trafic entrant.
 
-Vous trouverez d’autres exemples et une vue d’ensemble des limites de sécurité réseau [ici][Accueil].
+Vous trouverez d’autres exemples et une vue d’ensemble des frontières de sécurité réseau [ici][HOME].
 
 ## <a name="references"></a>Références
 ### <a name="main-script-and-network-config"></a>Script principal et configuration réseau
@@ -567,21 +567,21 @@ Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien v
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Exemples de scripts d’application
-Si vous voulez pour cela installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
+Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Zone DMZ entrante avec groupe de sécurité réseau"
+[1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Zone DMZ avec groupe de sécurité réseau (NSG)"
 [2]: ./media/virtual-networks-dmz-nsg-fw-asm/dstnaticon.png "Icône NAT de destination"
 [3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Règle de pare-feu"
 [4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "Activation de règle de pare-feu"
 
 <!--Link References-->
-[Accueil]: ../best-practices-network-security.md
+[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-[Exemple1]: ./virtual-networks-dmz-nsg-asm.md
+[Example1]: ./virtual-networks-dmz-nsg-asm.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

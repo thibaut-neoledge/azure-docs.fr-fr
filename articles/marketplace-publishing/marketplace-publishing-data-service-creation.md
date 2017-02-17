@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
 
 
 ---
@@ -31,7 +31,7 @@ Après avoir effectué l’étape 1, [Création de compte et enregistrement](mar
 ## <a name="1----login-to-the-publishing-portal"></a>1.    Connectez-vous au portail de publication.
 Accédez à [https://publish.windowsazure.com](https://publish.windowsazure.com.)
 
-**Pour votre première connexion au portail de publication, utilisez le même compte que celui avec lequel le profil de vendeur de votre entreprise a été inscrit dans le Centre de développement.**   (Plus tard, vous pourrez ajouter des employés de votre entreprise comme coadministrateurs dans le portail de publication.)
+**Pour votre première connexion au portail de publication, utilisez le même compte que celui avec lequel le profil de vendeur de votre entreprise a été inscrit dans le Centre de développement.**  (Plus tard, vous pourrez ajouter des employés de votre entreprise comme coadministrateurs dans le portail de publication.)
 
 Cliquez sur la mosaïque **Publier un service de données** s’il s’agit de votre première connexion au portail de publication.
 
@@ -162,6 +162,6 @@ Maintenant que vous avez créé votre offre de service de données, assurez-vous
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

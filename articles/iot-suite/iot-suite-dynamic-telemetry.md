@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 000bc72e5c880abdd455d50cd7ac0bb57a51391d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
 
 
 ---
@@ -29,8 +29,8 @@ Ce didacticiel utilise un appareil simulé Node.js simple que vous pouvez facile
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit Azure][lnk_free_trial].
-* [Node.js][lnk-node] version 0.12.x ou ultérieure.
+* Un abonnement Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk_free_trial].
+* [Node.js][lnk-node] version 0.12.x ou ultérieure.
 
 Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation (par exemple, Windows ou Linux) où vous pouvez installer Node.js.
 
@@ -38,9 +38,9 @@ Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation
 
 ## <a name="configure-the-nodejs-simulated-device"></a>Configurer l’appareil simulé Node.js
 1. Dans le tableau de bord de surveillance à distance, cliquez sur **+ Ajouter un appareil** , puis ajoutez un appareil personnalisé. Notez le nom d’hôte, l’ID de l’appareil et la clé de l’appareil IoT Hub. Vous en aurez besoin ultérieurement dans ce didacticiel lorsque vous préparerez l’application cliente de l’appareil remote_monitoring.js.
-2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez [Installing Node.js via package manager][node-linux] (Installation de Node.js via le gestionnaire de package).
-3. Une fois que vous avez installé Node.js, clonez la dernière version du dépôt [azure-iot-sdks][lnk-github-repo] sur votre ordinateur de développement. Utilisez toujours la branche **maître** pour avoir la version la plus récente des bibliothèques et des exemples.
-4. À partir de votre copie locale du dépôt [azure-iot-sdks][lnk-github-repo], copiez les deux fichiers suivants, contenus dans le dossier node/device/samples, dans un dossier vide sur votre ordinateur de développement :
+2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez l’article [Installing Node.js via package manager][node-linux] (Installation de Node.js par le biais d’un gestionnaire de package).
+3. Après avoir installé Node.js, clonez la dernière version du référentiel [azure-iot-sdks][lnk-github-repo] sur votre machine de développement. Utilisez toujours la branche **maître** pour avoir la version la plus récente des bibliothèques et des exemples.
+4. À partir de votre copie locale du référentiel [azure-iot-sdks][lnk-github-repo], copiez les deux fichiers suivants, contenus dans le dossier node/device/samples, dans un dossier vide sur votre machine de développement :
    
    * packages.json
    * remote_monitoring.js
@@ -232,15 +232,15 @@ Cette modification affecte uniquement l’affichage du graphique. Les données *
 Pour qu’un flux de données s’affiche sur le graphique, son **Type** dans les métadonnées **Device-Info** doit correspondre au type de données des valeurs de télémétrie. Par exemple, si les métadonnées spécifient que le **Type** de données d’humidité est **int** et qu’un **double** est trouvé dans le flux de télémétrie, la télémétrie d’humidité ne s’affiche pas sur le graphique. Toutefois, les valeurs **d’humidité** sont toujours stockées et mises à disposition pour le traitement principal, quel qu’il soit.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouvez en savoir plus sur la manière dont les solutions préconfigurées utilisent les informations d’appareil : [Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance][lnk-devinfo].
+Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouvez en savoir plus sur la manière dont les solutions préconfigurées utilisent les informations d’appareil : [Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
-[Image2]: media/iot-suite-dynamic-telemetry/image2.png
-[Image3]: media/iot-suite-dynamic-telemetry/image3.png
-[Image4]: media/iot-suite-dynamic-telemetry/image4.png
-[Image5]: media/iot-suite-dynamic-telemetry/image5.png
+[image2]: media/iot-suite-dynamic-telemetry/image2.png
+[image3]: media/iot-suite-dynamic-telemetry/image3.png
+[image4]: media/iot-suite-dynamic-telemetry/image4.png
+[image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
@@ -249,6 +249,6 @@ Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

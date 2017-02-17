@@ -1,6 +1,6 @@
 ---
-title: Planification des travaux | Microsoft Docs
-description: Ce didacticiel vous montre comment planifier les travaux.
+title: Planification des travaux avec Azure IoT Hub (Node) | Microsoft Docs
+description: "Procédure de planification d’une tâche Azure IoT Hub pour appeler une méthode directe sur plusieurs appareils. Vous pouvez utiliser les kits de développement logiciel (SDK) Azure IoT pour Node.js afin d’implémenter les applications d’appareil simulé et une application de service pour exécuter la tâche."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,31 +15,31 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4700bdd14f6b826116b919c12c63c8405eff6053
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Didacticiel : Planifier et diffuser des travaux
+# <a name="schedule-and-broadcast-jobs-node"></a>Planifier et diffuser des travaux (Node)
 
 ## <a name="introduction"></a>Introduction
-Azure IoT Hub est un service entièrement géré qui permet à un serveur principal d’application de créer et de suivre des travaux qui planifient et mettent à jour des millions d’appareils.  Les travaux peuvent être utilisés pour les actions suivantes :
+Azure IoT Hub est un service entièrement géré qui permet à une application principale de créer et de suivre des travaux qui planifient et mettent à jour des millions d’appareils.  Les travaux peuvent être utilisés pour les actions suivantes :
 
 * Mettre à jour les propriétés souhaitées
 * Mettre à jour les balises
 * Appeler des méthodes directes
 
-Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de représentation d’appareil.  Par exemple, à l’aide d’un travail, un serveur principal d’application peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de représentation d’appareil et planifiée dans l’avenir.  Cette application peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
+Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de représentation d’appareil.  Par exemple, à l’aide d’un travail, une application principale peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de représentation d’appareil et planifiée dans l’avenir.  Cette application peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
 * Représentation d’appareil et propriétés : [Prise en main des représentations d’appareil][lnk-get-started-twin] et [Tutorial: How to use device twin properties][lnk-twin-props] (Didacticiel : Utilisation des propriétés de représentation d’appareil)
-* méthodes directes : [Guide du développeur - Méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
+* méthodes directes : [Guide du développeur IoT Hub - Méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créer une application d’appareil simulé disposant d’une méthode directe permettant **lockDoor** qui peut être appelé par le serveur d’applications back-end.
-* Créer une application console qui appelle la méthode directe **lockDoor** sur l’application d’appareil simulé à l’aide d’un travail et met à jour les propriétés souhaitées à l’aide d’un travail d’appareil.
+* Créer une application d’appareil simulé disposant d’une méthode directe permettant **lockDoor** qui peut être appelé par le serveur de solutions principal.
+* Créer une application console Node.js qui appelle la méthode directe **lockDoor** sur l’application d’appareil simulé à l’aide d’un travail et met à jour les propriétés souhaitées à l’aide d’un travail d’appareil.
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
@@ -78,7 +78,7 @@ Dans cette section, vous créez une application console Node.js qui répond à u
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil.  
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -176,7 +176,7 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
@@ -271,6 +271,6 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

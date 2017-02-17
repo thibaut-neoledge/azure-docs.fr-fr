@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 160d6a41fc1ea3eecd39e8ad199bc5e69f236061
+ms.sourcegitcommit: ef4d5bb9b8b25d940aca26117d759a4152639730
+ms.openlocfilehash: bc8009e0ba0b604c995ce24f883eb03d586d667b
 
 
 ---
@@ -51,6 +51,7 @@ Les microservices avec état simplifient les conceptions d’applications, car i
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez à créer des services sans et avec état au moyen des modèles de programmation [Reliable Services](service-fabric-reliable-services-quick-start.md) et [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
+* En savoir plus sur les [modèles et scénarios](service-fabric-patterns-and-scenarios.md).
 * Consultez également les rubriques suivantes :
   * [En savoir plus sur les microservices](service-fabric-overview-microservices.md)
   * [Définition et gestion de l’état du service](service-fabric-concepts-state.md)
@@ -63,6 +64,6 @@ Les microservices avec état simplifient les conceptions d’applications, car i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
