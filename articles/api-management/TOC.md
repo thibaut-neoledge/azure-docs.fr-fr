@@ -14,6 +14,7 @@
 ## Sécuriser votre serveur principal
 ### [Protéger le serveur principal d’API web avec AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Se connecter à un réseau virtuel](api-management-using-with-vnet.md)
+### [Se connecter à un réseau virtuel interne](api-management-using-with-internal-vnet.md)
 ### [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md)
 ## Configuration des stratégies
 ### [Mise en cache personnalisée](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

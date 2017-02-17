@@ -23,8 +23,11 @@
 ## [Gestion des identités](security-identity-management-overview.md)
 ### [Meilleures pratiques en matière de sécurité et de gestion des identités](azure-security-identity-management-best-practices.md)
 ## Services PaaS
-### [Meilleures pratiques relatives à la sécurité IoT](azure-security-iot-best-practices.md)
+### [Sécurisation des déploiements PaaS](security-paas-deployments.md)
+#### [Sécurisation des applications PaaS à l’aide de SQL](security-paas-applications-using-sql.md)
+#### [Sécurisation des applications PaaS à l’aide d’App Services](security-paas-applications-using-app-services.md)
 ### [Présentation de la sécurité IoT](security-internet-of-things-overview.md)
+### [Meilleures pratiques relatives à la sécurité IoT](azure-security-iot-best-practices.md)
 ## Autres secteurs d’activité
 ### [Conception de solutions d’intégrité sécurisées](security-health-care-solution.md)
 ## [Architecture de la sécurité](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Vidéos traitant de la sécurité sur Channel 9](security-channel-nine.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

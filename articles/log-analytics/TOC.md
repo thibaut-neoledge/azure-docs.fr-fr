@@ -8,6 +8,7 @@
 ## [Proxy et pare-feu](log-analytics-proxy-firewall.md)
 ## [Données d'utilisation](log-analytics-usage.md)
 ## [FAQ sur Log Analytics](log-analytics-faq.md)
+## [Fournisseurs de services](log-analytics-service-providers.md)
 
 # Procédure
 ## Collecter les données
@@ -15,7 +16,7 @@
 #### [Agents Windows](log-analytics-windows-agents.md)
 #### [Agents Linux](log-analytics-linux-agents.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Ressources Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gestionnaire de configuration](log-analytics-sccm.md)
 #### [Passerelle OMS](log-analytics-oms-gateway.md)
@@ -45,6 +46,9 @@
 #### [Suivi des modifications](log-analytics-change-tracking.md)
 #### [Conteneurs](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
+#### Messages Logic Apps B2B
+##### [Solution Messages Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Évaluation des logiciels malveillants](log-analytics-malware.md)
 #### [Analyse de mise en réseau](log-analytics-azure-networking-analytics.md)
 #### [Analyseur de performances réseau](log-analytics-network-performance-monitor.md)
@@ -59,6 +63,7 @@
 ## Développement
 ### [API de collecte de données](log-analytics-data-collector-api.md)
 ### [Applets de commande PowerShell](log-analytics-powershell-workspace-configuration.md)
+### [Modèles Microsoft Azure Resource Manager](log-analytics-template-workspace-configuration.md)
 ### [API Recherche de journal](log-analytics-log-search-api.md)
 ### [API Alerte](log-analytics-api-alerts.md)
 
@@ -71,6 +76,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -6,12 +6,6 @@
 ### [Limites des ressources](sql-database-resource-limits.md)
 ### [Caractéristiques](sql-database-features.md)
 ### [Forum Aux Questions de base de données SQL](sql-database-faq.md)
-## Avantages
-### [Apprentissages et adaptations](sql-database-learn-and-adapt.md)
-### [Mises à l’échelle immédiates](sql-database-scale-on-the-fly.md)
-### [Création d’applications multi-locataires](sql-database-build-multi-tenant-apps.md)
-### [Sécurité et protection](sql-database-helps-secures-and-protects.md)
-### [Adapté à votre environnement](sql-database-works-in-your-environment.md)
 ## Comparaisons
 ### [SQL Database/SQL sur une machine virtuelle](sql-database-paas-vs-sql-server-iaas.md)
 ### [Différences de T-SQL](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [Didacticiels relatifs à la base de données SQL](sql-database-explore-tutorials.md)
 ## [Démarrages rapides de solution](sql-database-solution-quick-starts.md)
 ## Sécurité
+### [Présentation de la sécurité](sql-database-security-overview.md)
 ### [Azure Security Center pour Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Centre de sécurité SQL](https://msdn.microsoft.com/library/azure/bb510589)
 # Prise en main
@@ -69,12 +64,12 @@
 #### [Copier une base de données SQL](sql-database-copy.md)
 ## Règles de pare-feu, authentification et autorisation
 ### Découvrir
-#### [Vue d’ensemble](sql-database-security.md)
-#### [Conseils de sécurité](sql-database-security-guidelines.md)
+#### [Contrôle d’accès](sql-database-control-access.md)
 #### [Pare-feu](sql-database-firewall-configure.md)
 #### [Gérer les connexions](sql-database-manage-logins.md)
 ### À faire
-#### [Authentification et autorisation SQL](sql-database-get-started-security.md)
+#### [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md)
+#### [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Sécuriser et protéger des données
 ### Découvrir
 #### Audit
@@ -106,7 +101,8 @@
 #### [Effectuer une simulation de récupération d’urgence](sql-database-disaster-recovery-drills.md)
 #### [Présentation de la géo-réplication active](sql-database-geo-replication-overview.md)
 ### À faire
-#### [Bien démarrer avec la sauvegarde et la restauration SQL Database](sql-database-get-started-backup-recovery.md)
+#### [Portail Azure : sauvegarde et restauration](sql-database-get-started-backup-recovery.md)
+#### [PowerShell : sauvegarde et restauration](sql-database-get-started-backup-recovery-powershell.md)
 ## Développement d’applications
 ### Découvrir
 #### [Vue d’ensemble du développement d’applications de base de données](sql-database-develop-overview.md)
@@ -150,7 +146,7 @@
 #### [Bases de données uniques](sql-database-single-database-monitor.md)
 #### [Présentation de SQL Database Advisor](sql-database-advisor.md)
 #### [Conseils sur les bases de données uniques](sql-database-performance-guidance.md)
-#### [Informations sur la charge de travail dans le portail Azure](sql-database-performance.md)
+#### [Performance Insights : portail Azure](sql-database-performance.md)
 #### [Utiliser le traitement par lot](sql-database-use-batching-to-improve-performance.md)
 #### [Événements étendus](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,16 +249,15 @@
 #### [Configurer la rétention des sauvegardes à long terme](sql-database-configure-long-term-retention.md)
 #### [Afficher les sauvegardes dans un coffre Recovery Services](sql-database-view-backups-in-vault.md)
 #### [Restaurer à partir d’une rétention des sauvegardes à long terme](sql-database-restore-from-long-term-retention.md)
+#### [Supprimer à partir d’une rétention des sauvegardes à long terme](sql-database-long-term-retention-delete.md)
 ### Restauration d’une base de données supprimée
 #### [Restaurer une base de données supprimée à l’aide du portail Azure](sql-database-restore-deleted-database-portal.md)
 #### [Restaurer une base de données supprimée à l’aide de PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Restauration dans le temps
 #### [Restaurer à un point dans le temps](sql-database-point-in-time-restore.md)
 #### [Afficher le point de restauration le plus ancien](sql-database-view-oldest-restore-point.md)
-### Géo-restauration
-#### [Géo-restauration à l’aide du portail Azure](sql-database-geo-restore-portal.md)
-#### [Géo-restauration à l’aide de PowerShell](sql-database-geo-restore-powershell.md)
-## Géoréplication active
+### [Restaurer à partir d’une sauvegarde géoredondante](sql-database-geo-restore.md)
+## Géo-réplication active
 ### [Configurer à l’aide du portail Azure](sql-database-geo-replication-portal.md)
 ### [Configurer à l’aide de PowerShell](sql-database-geo-replication-powershell.md)
 ### [Configurer à l’aide de T-SQL](sql-database-geo-replication-transact-sql.md)
@@ -309,6 +304,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,15 +12,17 @@
 # Procédures
 ## Configurer la haute disponibilité
 ### [Options de haute disponibilité](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configurer des groupes de disponibilité Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Groupe de disponibilité AlwaysOn](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automatique - avec modèle](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuel - conditions préalables](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuel - didacticiel](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Équilibrage de charge - portail](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Équilibrage de charge - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Plusieurs régions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Instance de cluster de basculement
+#### [Configurer](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
-## Gérer
+## gérer
 ### [Utiliser l’extension SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Mise à jour corrective automatisée](virtual-machines-windows-sql-automated-patching.md)
 ### [Configurer l’intégration d’Azure Key Vault](virtual-machines-windows-ps-sql-keyvault.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
