@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
-ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
+ms.sourcegitcommit: 3db60639507f14b24de00a46b1e2f4effa255f56
+ms.openlocfilehash: c264682b7bee875cdfbbcc0abbc6ec49f2ba8a26
 
 
 ---
@@ -48,7 +48,7 @@ Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gest
 Pour obtenir un didacticiel complet, voir [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide d’Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>Création d’un serveur de base de données SQL
-Pour créer un serveur SQL Database, utilisez l’applet de commande [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Remplacez *server1* par le nom de votre serveur. Le nom doit être unique pour tous les serveurs Azure SQL Database. Vous obtiendrez une erreur si le nom est déjà utilisé pour un autre serveur. Cette commande peut prendre plusieurs minutes. Le groupe de ressources doit déjà exister dans votre abonnement.
+Pour créer un serveur SQL Database, utilisez l’applet de commande [New-AzureRmSqlServer](/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Remplacez *server1* par le nom de votre serveur. Le nom doit être unique pour tous les serveurs Azure SQL Database. Vous obtiendrez une erreur si le nom est déjà utilisé pour un autre serveur. Cette commande peut prendre plusieurs minutes. Le groupe de ressources doit déjà exister dans votre abonnement.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -123,7 +123,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Pour plus d’informations, consultez [Options et performances de SQL Database : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md). Pour obtenir un exemple de script, consultez [Exemple de script PowerShell pour modifier les niveaux de service et de performances de votre base de données SQL](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+Pour plus d’informations, consultez [Options et performances de SQL Database : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md). Pour obtenir un exemple de script, consultez [Exemple de script PowerShell pour modifier les niveaux de service et de performances de votre base de données SQL](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
 
 ## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>Copie d'une base de données SQL sur le même serveur
 Pour copier une base de données SQL sur le même serveur, utilisez l’applet de commande [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx). Définissez `-CopyServerName` et `-CopyResourceGroupName` sur les mêmes valeurs que votre groupe de ressources et votre serveur de base de données source.
@@ -179,6 +179,6 @@ Pour en savoir plus sur la gestion des pools élastiques avec PowerShell, voir [
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

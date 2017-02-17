@@ -26,6 +26,7 @@
 ### [Suivre une tâche de Runbook](automation-runbook-execution.md)
 ### [Paramètres du Runbook](automation-runbook-settings.md)
 ### [Gestion des données Azure Automation](automation-managing-data.md)
+### [Appeler un runbook Azure Automation à partir d’une alerte Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Gestion des configurations (configuration d’état souhaité)
 ### [Configuration d’état souhaité](automation-dsc-overview.md)
 ### [Prise en main](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Modules d’intégration](automation-integration-modules.md)
 ### [Planifications](automation-schedules.md)
 ### [Variables](automation-variables.md)
+### [Mettre à jour les modules Azure PowerShell](automation-update-azure-modules.md)
 ## Automatiser les scénarios
 ### [Galerie de runbooks](automation-runbook-gallery.md)
 ### [Démarrage/arrêt de machines virtuelles](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,9 @@
 ### [Supprimer le groupe de ressources](automation-scenario-remove-resourcegroup.md)
 ### [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 ### [Intégration du contrôle de code source avec GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Surveiller](automation-manage-send-joblogs-log-analytics.md)
+## Surveiller
+### [Transférer des données de travaux Azure Automation à Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Supprimer le lien d’un compte Azure Automation à partir de Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrer
 ### [Migrer à partir d’Orchestrator](automation-orchestrator-migration.md)
 ### [Déplacer le compte Automation](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Vidéo de présentation d’Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

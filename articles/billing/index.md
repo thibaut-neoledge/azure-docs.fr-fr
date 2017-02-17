@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation de la facturation Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à comprendre votre facturation Azure, ainsi qu’à gérer et analyser l’utilisation et les coûts. Didacticiels, FAQ, références d’API et autres documents."
+services: billing
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: billing
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 640915b6305b2865b21937e19c324e8e7f1ba0a7
-ms.openlocfilehash: 401406bccbb6e6e7b92b431efe57e49d6745e8c2
+ms.sourcegitcommit: 4a6b1a9e581904f7f7de2a6592dfb163ab2ec45e
+ms.openlocfilehash: 2284db5eaeba0bad709f7e2181ec357f58201d1e
 
 ---
 # <a name="azure-billing-documentation"></a>Documentation de la facturation Azure
@@ -77,7 +88,7 @@ Apprenez à comprendre votre facturation Azure et à gérer et analyser l’util
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">Référence sur les API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -99,18 +110,10 @@ Apprenez à comprendre votre facturation Azure et à gérer et analyser l’util
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation de la facturation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

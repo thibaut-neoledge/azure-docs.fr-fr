@@ -1,5 +1,5 @@
 ---
-title: "Documentation sur la passerelle VPN, didacticiels et référence API | Microsoft Docs"
+title: "Documentation de la passerelle VPN Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à configurer les passerelles de réseau privé virtuel (VPN) pour gérer le trafic entre les réseaux virtuels du cloud et en local, ou entre des réseaux virtuels sur le cloud."
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>Documentation de la passerelle VPN
@@ -169,6 +168,6 @@ Apprenez à configurer la Passerelle VPN, une passerelle de réseau privé virtu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

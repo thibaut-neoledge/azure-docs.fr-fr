@@ -7,27 +7,30 @@
 ## [Voir une présentation](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Prise en main
-## [Préparer le déploiement](site-recovery-best-practices.md)
+## [Répliquer des machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
+## [Répliquer des machines virtuelles VMware dans Azure dans le cadre d’un déploiement mutualisé (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Répliquer des machines virtuelles Hyper-V dans Azure (avec VMM)](site-recovery-vmm-to-azure.md)
+## [Réplication de machines virtuelles Hyper-V dans Azure](site-recovery-hyper-v-site-to-azure.md)
+## [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
+## [Répliquer des machines virtuelles Hyper-V vers un site secondaire (avec VMM)](site-recovery-vmm-to-vmm.md)
 
 # Procédure
 ## Planification
-### [Planification de la capacité](site-recovery-capacity-planner.md)
-### [Résultats des tests des performances et de la mise à l’échelle](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Conditions préalables au déploiement](site-recovery-prereq.md)
 ### [Considérations sur l’infrastructure réseau](site-recovery-network-design.md)
-### [Mappage réseau](site-recovery-network-mapping.md)
-### [Préparer le mappage de stockage entre des sites locaux](site-recovery-storage-mapping.md)
-## Réplication
-### [Serveurs physiques et machines virtuelles VMware dans Azure](site-recovery-vmware-to-azure.md)
-### [Serveurs physiques et machines virtuelles VMware sur un site secondaire](site-recovery-vmware-to-vmware.md)
-### [Machines virtuelles VMware avec prise en charge de l’architecture mutualisée dans Azure à l’aide du programme CSP](site-recovery-multi-tenant-support-vmware-using-csp.md)
-### [Machines virtuelles Hyper-V dans Azure (sans VMM)](site-recovery-vmm-to-azure.md)
-### [Machines virtuelles Hyper-V dans Azure (sans VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Machines virtuelles Hyper-V vers un site secondaire](site-recovery-vmm-to-vmm.md)
-### [Réplication de machines virtuelles Hyper-V sur un site secondaire (avec VMM)](site-recovery-vmm-san.md)
-### [Machines virtuelles Hyper-V (avec un serveur VMM unique)](site-recovery-single-vmm.md)
+### [Utiliser l’outil Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
+### [Planifier la capacité et mettre à l’échelle la réplication VMware dans Azure](site-recovery-plan-capacity-vmware.md)
+## Configuration
+### [Configurer l’environnement de réplication source](site-recovery-set-up-vmware-to-azure.md)
+### [Configurer les paramètres de réplication](site-recovery-setup-replication-settings-vmware.md)
+### [Déployer le service Mobilité pour la réplication VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [Déployer le service Mobilité à l’aide de System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+#### [Déployer le service Mobilité à l’aide d’Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### [Supprimer des serveurs et désactiver la protection](site-recovery-manage-registration-and-protection.md)
 ## Migrer
+### [Migration vers Azure](site-recovery-migrate-to-azure.md)
 ### [Migrer entre des régions Azure](site-recovery-migrate-azure-to-azure.md)
-### [Instances Windows AWS dans Azure](site-recovery-migrate-aws-to-azure.md)
+### [Migrer des instances Windows AWS dans Azure](site-recovery-migrate-aws-to-azure.md)
 ## Charges de travail
 ### [Active Directory et DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -38,14 +41,15 @@
 ### [SAP](site-recovery-workload.md#protect-sap)
 ### [Autres charges de travail](site-recovery-workload.md#workload-summary)
 ## Automatiser la réplication
-### [Machines virtuelles Hyper-V (avec VMM)](site-recovery-deploy-with-powershell.md)
-### [Machines virtuelles de Hyper-V (sans VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Ajouter l’automatisation aux plans de récupération](site-recovery-runbook-automation.md)
-### [Automatiser le déploiement du service Mobilité](site-recovery-automate-mobility-service-install.md)
-## Gérer
-### [Supprimer des serveurs et désactiver la protection](site-recovery-manage-registration-and-protection.md)
-### [Configurer des plans de récupération](site-recovery-create-recovery-plans.md)
+### [Automatiser la réplication Hyper-V dans Azure (sans VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Automatiser la réplication Hyper-V dans Azure (avec VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [Automatiser la réplication Hyper-V vers un site secondaire (avec VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+## Basculement et restauration automatique
 ### [Basculement dans Site Recovery](site-recovery-failover.md)
+### [Configurer des plans de récupération](site-recovery-create-recovery-plans.md)
+#### [Ajouter des Runbooks Azure à des plans de récupération](site-recovery-runbook-automation.md)
+### [Exécuter un test de basculement de VMware vers Azure](site-recovery-test-failover-to-azure.md)
+### [Exécuter un test de basculement entre deux sites VMM](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Restaurer automatiquement des serveurs physiques et des machines virtuelles VMware](site-recovery-failback-azure-to-vmware.md)
 ## [Surveiller et résoudre des problèmes](site-recovery-monitoring-and-troubleshooting.md)
 
@@ -65,6 +69,6 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

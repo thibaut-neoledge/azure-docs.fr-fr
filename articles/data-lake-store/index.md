@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Data Lake Store - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment configurer, gérer et accéder à un référentiel Data Lake à très grande échelle compatible avec Hadoop pour analyser des données de toute taille, de tout type et de toute vitesse d’ingestion."
+services: data-lake-store
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
-ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
+ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
+ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentation Data Lake Store
@@ -181,7 +192,7 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (gestion des comptes)</a></p>
                         <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestion du système de fichiers)</a></p>
                     </div>
@@ -203,15 +214,9 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Azure Data Lake Store </div>
-    </a>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

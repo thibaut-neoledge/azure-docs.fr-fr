@@ -23,7 +23,7 @@
 ### [Meilleures pratiques pour la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Mesures courantes pour la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Utiliser le journal d’activité
 ### [Afficher les événements et le journal d’activité](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Utiliser l’API REST
 ### [Procédure pas à pas : Utilisation de l’API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Diagnostics Schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Diagnostics Schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Diagnostics Schema 1.3 à 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # les ressources
 ## [Exemples PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Exemples d’Azure CLI 2.0 (version préliminaire)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Exemples Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Listes des mesures prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

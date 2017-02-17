@@ -1,12 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Machine Learning - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Documents, vidéos et exemples de modèle pour Machine Learning, un service cloud destiné aux développeurs et aux scientifiques des données qui utilisent des analyses prédictives dans leurs applications."
-author: garyericson
-ms.date: 01/18/2017
-ms.author: garye
+services: machine-learning
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: machine-learning
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
+ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
+ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentation Azure Machine Learning
@@ -123,7 +131,8 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/machinelearning">Référence d’API REST</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-web-service-error-codes">Codes d’erreur de service web</a></p>
                     </div>
                 </div>
             </div>
@@ -135,6 +144,6 @@ Découvrez comment les scientifiques des données et les développeurs utilisent
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

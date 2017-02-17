@@ -2,7 +2,7 @@
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [Choisir l’édition](active-directory-editions.md)
 ## [À propos de la gestion des identités Azure](fundamentals-identity.md)
-## [Afficher un aperçu de l’expérience du portail Azure](active-directory-preview-explainer.md)
+## [Afficher un aperçu de l’expérience du portail Azure AD](active-directory-preview-explainer.md)
 
 
 # Prise en main
@@ -99,22 +99,6 @@
 ### [Inscrire votre appareil](active-directory-azureadjoin-personal-device.md)
 ### [Inscrire un appareil Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
-### [Accès conditionnel](active-directory-conditional-access.md)
-#### [Prise en main](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Applications prises en charge](active-directory-conditional-access-supported-apps.md)
-#### [Inscrire des appareils](active-directory-conditional-access-device-registration-overview.md)
-#### [Gérer l’inscription automatique](active-directory-conditional-access-automatic-device-registration.md)
-##### [Paramétrage](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Gérer l’application d’authentification](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Comprendre les stratégies d’appareils](active-directory-conditional-access-device-policies.md)
-#### [Configurer l’accès aux applications connectées](active-directory-conditional-access-policy-connected-applications.md)
-#### [Déployer en local](active-directory-conditional-access-on-premises-setup.md)
-#### [FAQ](active-directory-conditional-faqs.md)
-#### [Résolution des problèmes](active-directory-conditional-access-device-remediation.md)
-#### [Référence](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planification](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Configuration de l’inscription des appareils](active-directory-azureadjoin-setup.md)
@@ -122,12 +106,13 @@
 #### [Déployer](active-directory-azureadjoin-devices-group-policy.md)
 #### [S’authentifier sans mots de passe](active-directory-azureadjoin-passport.md)
 #### [Activer Windows Hello Entreprise](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Comprendre l’intégration de Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Utiliser des appareils Windows 10](active-directory-azureadjoin-windows10-devices.md)
-
-### Authentification par certificat
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### résolution des problèmes
+##### [Résolution des problèmes pour Windows 10 et Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Résolution des problèmes pour les clients de bas niveau Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## Gérer des applications
 ### [Vue d’ensemble](active-directory-enable-sso-scenario.md)
@@ -139,25 +124,31 @@
 
 ### [Octroyer l’accès à distance aux services](active-directory-application-proxy-get-started.md)
 #### [Activer le Proxy d’application](active-directory-application-proxy-enable.md)
+#### [Comprendre les connecteurs](application-proxy-understand-connectors.md)
+
 #### Publier des applications
 ##### [Portail Azure](application-proxy-publish-azure-portal.md)
 ##### [Portail classique](active-directory-application-proxy-publish.md)
+#### [Sécurité](application-proxy-security-considerations.md)
+#### [Réseaux](application-proxy-network-topology-considerations.md)
+#### [Bureau à distance](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publier sur des réseaux distincts
 ##### [Portail Azure](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Portail classique](active-directory-application-proxy-connectors.md)
+#### [Serveurs proxy](application-proxy-working-with-proxy-servers.md)
 #### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
+#### [Accéder aux applications](active-directory-appssoaccess-whatis.md)
+##### [portail Azure](application-proxy-sso-azure-portal.md)
 #### [Authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-##### [Portail Azure](application-proxy-sso-azure-portal.md)
 #### [Applications prenant en charge les revendications](active-directory-application-proxy-claims-aware-apps.md)
 #### [Applications de client natif](active-directory-application-proxy-native-client.md)
+#### [Page d’accueil personnalisée](application-proxy-office365-app-launcher.md)
 #### [Accès conditionnel](active-directory-application-proxy-conditional-access.md)
 #### [Installation sans assistance](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Résolution des problèmes](active-directory-application-proxy-troubleshoot.md)
-### [Comprendre l’authentification unique pour les applications](active-directory-appssoaccess-whatis.md)
-
-### Intégrer des applications SaaS
-#### [Portail Azure](active-directory-enterprise-apps-manage-sso.md)
-#### [Portail classique](active-directory-sso-integrate-saas-apps.md)
 
 ### Gérer les applications d’entreprise
 #### [Affecter des utilisateurs](active-directory-coreapps-assign-user-azure-portal.md)
@@ -176,10 +167,10 @@
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
 #### [Accès libre-service](active-directory-self-service-application-access.md)
 #### [Certificats pour authentification unique](active-directory-sso-certs.md)
+#### [Restrictions du client](active-directory-tenant-restrictions.md)
 
 ### [Utilisez SCIM approvisionner les utilisateurs](active-directory-scim-provisioning.md)
 ### [Bibliothèque de documents ](active-directory-apps-index.md)
-
 
 ## Gérer votre répertoire
 ### Noms de domaine personnalisés
@@ -206,15 +197,30 @@
 #### [Paramètres Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Résolution des problèmes](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Intégrer des partenaires avec Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Vue d'ensemble](active-directory-b2b-collaboration-overview.md)
-#### [Fonctionnement](active-directory-b2b-how-it-works.md)
-#### [Comparer les fonctionnalités](active-directory-b2b-compare-external-identities.md)
-#### [Procédure pas à pas](active-directory-b2b-detailed-walkthrough.md)
-#### [Limitations](active-directory-b2b-current-preview-limitations.md)
-#### [Format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
-#### [Objets utilisateur](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [Jetons utilisateur](active-directory-b2b-references-external-user-token-format.md)
+#### [Ajout d’utilisateurs B2B par des administrateurs](active-directory-b2b-admin-add-users.md)
+#### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](active-directory-b2b-iw-add-users.md)
+#### [E-mail d’invitation](active-directory-b2b-invitation-email.md)
+#### [Échange d’invitation](active-directory-b2b-redemption-experience.md)
+#### [Propriétés de l’utilisateur B2B](active-directory-b2b-user-properties.md)
+#### [Ajouter un utilisateur invité à un rôle](active-directory-b2b-add-guest-to-role.md)
+#### [API et personnalisation](active-directory-b2b-api.md)
+#### [Déléguer des invitations](active-directory-b2b-delegate-invitations.md)
+#### [Groupes dynamiques et B2B](active-directory-b2b-dynamic-groups.md)
+#### [Authentification multifacteur pour B2B](active-directory-b2b-mfa-instructions.md)
+#### [Jetons utilisateur B2B](active-directory-b2b-user-token.md)
+#### [Mappage des revendications d’utilisateur B2B](active-directory-b2b-claims-mapping.md)
+#### [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
+#### [Comparer B2B et B2C](active-directory-b2b-compare-b2c.md)
+#### [Configuration des applications SaaS pour B2B](active-directory-b2b-configure-saas-apps.md)
+#### [Code et exemples PowerShell](active-directory-b2b-code-samples.md)
+#### [Limitations actuelles](active-directory-b2b-current-limitations.md)
+#### [Licences](active-directory-b2b-licensing.md)
+#### [Résolution de problèmes B2B](active-directory-b2b-troubleshooting.md)
+#### [Comparer la collaboration B2B et B2C](active-directory-b2b-compare-b2c.md)
+#### [Obtenir une assistance pour B2B](active-directory-b2b-support.md)
+#### [FORUM AUX QUESTIONS](active-directory-b2b-faq.md)
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
@@ -238,6 +244,22 @@
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
 
 ## Sécuriser vos identités
+### [Accès conditionnel](active-directory-conditional-access.md)
+#### [Prise en main](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Applications prises en charge](active-directory-conditional-access-supported-apps.md)
+#### [Inscrire des appareils](active-directory-conditional-access-device-registration-overview.md)
+#### [Gérer l’inscription automatique](active-directory-conditional-access-automatic-device-registration.md)
+##### [Paramétrage](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Gérer l’application d’authentification](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Comprendre les stratégies d’appareils](active-directory-conditional-access-device-policies.md)
+#### [Configurer l’accès aux applications connectées](active-directory-conditional-access-policy-connected-applications.md)
+#### [Déployer en local](active-directory-conditional-access-on-premises-setup.md)
+#### [FAQ](active-directory-conditional-faqs.md)
+#### [Résolution des problèmes](active-directory-conditional-access-device-remediation.md)
+#### [Référence](active-directory-conditional-access-technical-reference.md)
+### Authentification par certificat
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)
 #### [Détecter les vulnérabilités](active-directory-identityprotection-vulnerabilities.md)
@@ -301,6 +323,6 @@
 ## [Forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

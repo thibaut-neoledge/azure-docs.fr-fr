@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Ajoutez des utilisateurs afin de remplir le répertoire. Cet article explique co
 2. Sélectionnez **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
 3. Sélectionnez l’onglet **Utilisateurs** et, dans la barre de commandes, sélectionnez **Ajouter un utilisateur**.
 4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez l’une des options suivantes :
-   
+
    * **Nouvel utilisateur dans votre organisation** : permet d’ajouter un nouveau compte d’utilisateur dans votre répertoire.
    * **Utilisateur avec un compte Microsoft existant** : permet d’ajouter un compte consommateur Microsoft existant à votre répertoire (par exemple, un compte Outlook).
 5. En fonction de la valeur du champ **Type d’utilisateur**, saisissez un nom d’utilisateur (pour un nouvel utilisateur) ou une adresse e-mail (pour un utilisateur doté d’un compte Microsoft).
@@ -37,11 +37,11 @@ Ajoutez des utilisateurs afin de remplir le répertoire. Cet article explique co
 
 > [!IMPORTANT]
 > Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance des problèmes suivants lorsque vous ajoutez un compte d’utilisateur :
-> 
-> * Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord** geoffgrisso@contoso.onmicrosoft.com, **, par exemple, suivi de** geoffgrisso@contoso.com.
-> * **N’ajoutez pas ** avant d’ajouter geoffgrisso@contoso.comgeoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
-> 
-> 
+>
+> * Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord**, par exemple, geoffgrisso@contoso.onmicrosoft.com, **suivi de** geoffgrisso@contoso.com.
+> * **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir ajouté geoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
+>
+>
 
 ## <a name="change-user-information"></a>Modification des informations utilisateur
 Vous pouvez modifier tous les attributs de l’utilisateur à l’exception de l’ID d’objet.
@@ -87,6 +87,6 @@ Vous pouvez ensuite modifier les options de contrôle d’accès des utilisateur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

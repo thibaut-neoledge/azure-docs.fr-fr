@@ -4,6 +4,12 @@
 # Prise en main
 ## [Créer et gérer un compte](media-services-portal-create-account.md)
 ## [Configurer votre environnement de développement](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Se connecter par programme
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Proposer la vidéo à la demande
 ### [Portail](media-services-portal-vod-get-started.md)
 ### [Kit SDK .NET](media-services-dotnet-get-started.md)
@@ -15,19 +21,18 @@
 
 # Procédure
 ## Gérer
-### Gérer les comptes
+### Comptes
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Gérer des entités
+### Entités
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Se connecter par programme
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Gérer les points de terminaison de streaming](media-services-streaming-endpoints-overview.md)
+### [Points de terminaison de streaming](media-services-streaming-endpoints-overview.md)
 #### [Portail](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Guide pratique pour mettre à jour Media Services après la substitution de clés d’accès de stockage](media-services-roll-storage-access-keys.md)
+### Storage
+#### [Mettre à jour Media Services après la substitution de clés d’accès de stockage](media-services-roll-storage-access-keys.md)
+#### [Gérer les éléments multimédias de plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas et limitations](media-services-quotas-and-limitations.md)
 
 ## Téléchargement de contenu
@@ -35,6 +40,7 @@
 #### [Portail](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Télécharger des fichiers volumineux avec Aspera](media-services-upload-files-with-aspera.md)
 ### [Copier des objets blob existants](media-services-copying-existing-blob.md)
 
 ## [Encodage de contenu](media-services-encode-asset.md)
@@ -98,7 +104,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming en direct à l’aide d’un encodeur cloud](media-services-manage-live-encoder-enabled-channels.md)
-### Didacticiels sur les encodeurs cloud
 #### [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configurer des encodeurs locaux pour une utilisation avec un encodeur cloud](media-services-live-encoders-overview.md)
@@ -114,11 +119,14 @@
 ### [Configurer une clé en clair AES-128 pour votre diffusion](media-services-protect-with-aes128.md)
 ### [Chiffrer votre contenu avec le chiffrement de stockage à l'aide de l'API REST AMS](media-services-rest-storage-encryption.md)
 ### [Présentation du modèle de licence PlayReady de Media Services](media-services-playready-license-template-overview.md)
+### [Vue d’ensemble du modèle de licence Widevine](media-services-widevine-license-template-overview.md)
 ### [Remise de licence DRM](media-services-deliver-keys-and-licenses.md)
 ### [Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 ### [Utiliser Azure Media Services pour le streaming de votre contenu HLS protégé avec Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services](media-services-axinom-integration.md)
+### [Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services](media-services-castlabs-integration.md)
 
 ### Distribution d’éléments multimédia
 #### Configurer des stratégies de distribution d’éléments multimédia
@@ -152,16 +160,16 @@
 ### [Traitement multimédia](media-services-scale-media-processing-overview.md)
 #### [Portail](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Points de terminaison de diffusion en continu
 #### [Portail](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Distribuer le contenu](media-services-deliver-content-overview.md)
 ### [mise en package dynamique](media-services-dynamic-packaging-overview.md)
 ### [Présentation des filtres et des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
-### Création de filtres
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Créer des filtres avec .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Créer des filtres avec REST](media-services-rest-dynamic-manifest.md)
+### [Stratégie de mise en cache CDN dans l'extension Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publication de contenu
 #### [Portail](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -177,14 +185,10 @@
 #### [Application HTML5 avec DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Lecteurs Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Insérer des publicités côté client](media-services-inserting-ads-on-client-side.md)
+### [Licence du kit de portage du client de Smooth Streaming Microsoft](media-services-sspk.md)
 
 ## Integrate
-### [Stratégie de mise en cache CDN dans l'extension Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licence du kit de portage du client de Smooth Streaming Microsoft†"](media-services-sspk.md)
-### [Gérer les éléments multimédias de plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md)
-### [Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services](media-services-axinom-integration.md)
-### [Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services](media-services-castlabs-integration.md)
-### [Vue d'ensemble du modèle de licence Widevine](media-services-widevine-license-template-overview.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Surveiller
 ### Vérifier la progression des travaux
@@ -212,6 +216,6 @@
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

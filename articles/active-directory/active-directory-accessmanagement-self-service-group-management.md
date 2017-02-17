@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
@@ -41,7 +41,7 @@ Vous pouvez également utiliser **Utilisateurs pouvant utiliser le libre-service
 
 Vous pouvez également utiliser la zone **Groupe pouvant utiliser le libre-service pour les groupes de sécurité** pour spécifier un nom personnalisé pour un groupe dont les membres peuvent utiliser le libre-service.
 
-## <a name="additional-information"></a>Informations supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
@@ -52,7 +52,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

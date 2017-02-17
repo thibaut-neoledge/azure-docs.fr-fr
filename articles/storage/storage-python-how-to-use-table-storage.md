@@ -170,7 +170,7 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 * [Blog de l'équipe Azure Storage]
 * [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]
 
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
 
 

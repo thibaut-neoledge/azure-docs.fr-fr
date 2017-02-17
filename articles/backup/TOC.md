@@ -1,3 +1,4 @@
+
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure Backup ?](backup-introduction-to-azure-backup.md)
 # Prise en main
@@ -13,7 +14,7 @@
 ### [DPM dans le portail classique](backup-dpm-automation-classic.md)
 ### [Windows Server dans le portail Azure](backup-client-automation.md)
 ### [Windows Server dans le portail classique](backup-client-automation-classic.md)
-## Sauvegarder les charges de travail des applications
+## Sauvegarder et restaurer les charges de travail des applications
 ### [Préparer les charges de travail DPM dans le portail Azure](backup-azure-dpm-introduction.md)
 ### [Préparer les charges de travail DPM dans le portail classique](backup-azure-dpm-introduction-classic.md)
 ### [Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +23,7 @@
 ### [Récupérer des données dans le coffre de sauvegarde vers un autre serveur DPM](backup-azure-alternate-dpm-server.md)
 ### [Utiliser DPM pour sauvegarder des charges de travail SQL Server](backup-azure-backup-sql.md)
 ### [Utiliser DPM pour sauvegarder une batterie de serveurs SharePoint](backup-azure-backup-sharepoint.md)
-### [FAQ du coffre Recovery Services](backup-azure-backup-ibiza-faq.md)
-## Sauvegarder des machines virtuelles Azure
+## Sauvegarder et restaurer des machines virtuelles Azure
 ### [Préparer des machines virtuelles Azure](backup-azure-vms-prepare.md)
 ### [Préparer des machines virtuelles déployées par Resource Manager](backup-azure-arm-vms-prepare.md)
 ### [Planifier l’infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
@@ -33,9 +33,17 @@
 ### [Gérer et surveiller les sauvegardes de machines Virtuelles Azure dans le portail classique](backup-azure-manage-vms-classic.md)
 ### [Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure](backup-azure-manage-vms.md)
 ### [Surveiller des alertes pour les sauvegardes de machines virtuelles Azure dans le portail Azure](backup-azure-monitor-vms.md)
+### [Récupérer des fichiers à partir de sauvegardes de machines virtuelles Azure](backup-azure-restore-files-from-vm.md)
 ### [Restaurer des machines virtuelles dans Azure](backup-azure-restore-vms.md)
 ### [Restaurer des machines virtuelles déployées à l’aide de Resource Manager dans le portail Azure](backup-azure-arm-restore-vms.md)
-## Sauvegarder des ordinateurs Windows
+### [Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées à l’aide d’Azure Backup](backup-azure-restore-key-secret.md)
+## Sauvegarder et restaurer Azure SQL Database
+### [Configurer la rétention des sauvegardes à long terme](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Afficher les sauvegardes dans un coffre Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Restaurer à partir d’une rétention des sauvegardes à long terme](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Supprimer des sauvegardes à long terme SQL Azure](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Sauvegarder et restaurer des ordinateurs Windows
 ### [Windows Server avec le modèle de déploiement classique](backup-configure-vault-classic.md)
 ### [Windows Server avec le modèle de déploiement Resource Manager](backup-configure-vault.md)
 ### [Gérer les coffres Sauvegarde à l’aide du modèle de déploiement classique](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +51,8 @@
 ### [Récupérer des fichiers sur un serveur Windows à l’aide du modèle de déploiement Resource Manager](backup-azure-restore-windows-server.md)
 ### [Récupérer des fichiers sur un client Windows à l’aide du modèle de déploiement classique](backup-azure-restore-windows-server-classic.md)
 
+## [Utiliser le contrôle d’accès en fonction du rôle pour la gestion des sauvegardes](backup-rbac-rs-vault.md)
+## [Activer les fonctionnalités de sécurité pour les sauvegardes hybrides](backup-azure-security-feature.md)
 ## [Supprimer un coffre de Sauvegarde Azure](backup-azure-delete-vault.md)
 ## [Configurer la sauvegarde hors connexion](backup-azure-backup-import-export.md)
 ## [Utiliser Sauvegarde Azure pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +68,11 @@
 
 # les ressources
 ## [Tarification](https://azure.microsoft.com/pricing/details/backup/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

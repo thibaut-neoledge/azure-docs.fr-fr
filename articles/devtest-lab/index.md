@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure DevTest Labs - Didacticiels | Microsoft Docs"
 description: "Découvrez comment créer rapidement des environnements de test d’application à l’aide d’artefacts réutilisables. Des didacticiels, des vidéos, etc. vous montrent comment créer, gérer et sécuriser des laboratoires."
+services: devtest-lab
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
-ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
+ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
+ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentation DevTest Labs
@@ -103,18 +114,10 @@ Découvrez comment utiliser DevTest Labs pour créer rapidement des environnemen
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Dev/Test Lab </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

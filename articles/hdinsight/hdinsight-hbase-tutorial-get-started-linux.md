@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel HBase : prise en main de cluster HBase Linux dans Hadoop | Microsoft Azure'
+title: "Prise en main de HBase sur Azure HDInsight | Microsoft Docs"
 description: "Suivez ce didacticiel HBase pour apprendre à utiliser Apache HBase avec Hadoop dans HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
 keywords: apache hbase,hbase,shell hbase,didacticiel hbase
 services: hdinsight
@@ -13,19 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 34e173c6b54bc49cf8966de459e6c03c2260cbf8
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux
 
 Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide de Hive. Pour obtenir des informations générales sur HBase, voir [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
-
-Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur les clusters Windows, utilisez le sélecteur d’onglets en haut de la page pour basculer.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -285,6 +283,6 @@ Pour plus d'informations, consultez les rubriques suivantes :
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Stream Analytics - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à exécuter des analyses IoT dans le cloud avec le traitement des événements entièrement géré. Analysez en temps réel des données d’applications, de détecteurs, d’appareils et autres."
+services: stream-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
+ms.sourcegitcommit: d1f5daf99fca271b77cf15fb9f93f62fc443423c
+ms.openlocfilehash: d6146416962ba655d58255254351fecca0a9643e
 
 ---
 
@@ -166,6 +177,6 @@ Découvrez comment exécuter des analyses IoT dans le cloud avec Stream Analytic
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

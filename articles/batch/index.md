@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Batch - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Batch pour exécuter efficacement des applications de calcul haute performance en parallèle et à grande échelle. Didacticiels, références d’API et autres documents."
+services: batch
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
-ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Documentation Batch
@@ -127,8 +138,8 @@ Apprenez à utiliser Batch pour exécuter efficacement des applications de calcu
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.JS</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -140,7 +151,7 @@ Apprenez à utiliser Batch pour exécuter efficacement des applications de calcu
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/batchservice">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -148,16 +159,10 @@ Apprenez à utiliser Batch pour exécuter efficacement des applications de calcu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Azure Batch </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

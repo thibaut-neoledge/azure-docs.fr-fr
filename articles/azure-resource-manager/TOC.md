@@ -43,19 +43,22 @@
 ### [Créer un principal du service avec l’interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Créer un principal du service avec le portail](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
-### [Définir les stratégies de gestion](resource-manager-policy.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
 ### [Sécurité](best-practices-resource-manager-security.md)
+## Définir des stratégies de ressources
+### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
+### [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md)
+### [Stratégies de balises de ressources](resource-manager-policy-tags.md)
+### [Stratégies de stockage](resource-manager-policy-storage.md)
+### [Stratégies de machine virtuelle Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Stratégies de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditer et résoudre les problèmes
 ### [Résoudre les erreurs de déploiement courantes](resource-manager-common-deployment-errors.md)
 ### [Afficher les journaux d’activité](resource-group-audit.md)
-### [Voir les opérations de déploiement à l’aide du portail](resource-manager-troubleshoot-deployments-portal.md)
-### [Voir les opérations de déploiement avec PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Afficher les opérations de déploiement avec l’interface CLI Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Voir les opérations de déploiement avec l’API REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Voir les opérations de déploiement](resource-manager-deployment-operations.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI (version préliminaire)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -65,11 +68,12 @@
 
 # les ressources
 ## [Demandes de limitation](resource-manager-request-limits.md)
+## [Suivre les opérations asynchrones](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

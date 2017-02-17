@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Data Factory - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Data Factory pour configurer des pipelines de données automatisés vers et depuis des sources en local et dans le cloud afin de déplacer et traiter des données pour analyse."
+services: data-factory
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
-ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
+ms.sourcegitcommit: 7e5e1b41828d0c3d81f5594609910ecdba02a249
+ms.openlocfilehash: 9e9a23f8ddcff428b45f08ab001489d00b3ed7a9
 
 ---
 # <a name="azure-data-factory-documentation"></a>Documentation Azure Data Factory
@@ -108,7 +119,6 @@ Découvrez comment utiliser Data Factory, un service d’intégration des donné
                     <div class="cardText">
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Référence du développeur Azure Data Factory</a></p>
                    </div>
                 </div>
             </div>
@@ -120,7 +130,7 @@ Découvrez comment utiliser Data Factory, un service d’intégration des donné
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/datafactory/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -128,18 +138,9 @@ Découvrez comment utiliser Data Factory, un service d’intégration des donné
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Data Factory </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Stockage Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Azure Storage pour le stockage d’objets blob, de tables, de fichiers et de disques de machine virtuelle dans le cloud. Didacticiels, références d’API et autres documents."
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
+ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
 
 ---
 
@@ -133,6 +144,7 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Objets blob, files d’attente, tables et fichiers</a></p>
                         <p><a href="/rest/api/storagerp">Fournisseur de ressources</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/Export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Données de stockage API REST</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +156,6 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
