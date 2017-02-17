@@ -259,6 +259,6 @@ La création d’un appareil virtuel échoue si vous ne disposez d’aucune conn
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

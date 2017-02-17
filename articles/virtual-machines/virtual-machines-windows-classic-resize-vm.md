@@ -72,6 +72,6 @@ Vous trouverez [ici](https://github.com/Azure/azure-vm-scripts) un exemple de sc
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

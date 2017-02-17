@@ -1,5 +1,5 @@
 ---
-title: Configurer Intel NUC comme passerelle Azure IoT | Microsoft Docs
+title: "Appareil simulé et passerelle Azure IoT - Leçon 1 : Configurer NUC | Microsoft Docs"
 description: "Configurez Intel NUC comme passerelle IoT entre un capteur et Azure IoT Hub, afin de collecter des informations de capteurs et de les envoyer à IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,27 +16,27 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 7725f49d71cb77dd6ff7ae075cc7449e568c21d7
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
 
 
 ---
-# <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurer Intel NUC comme passerelle IoT
+# <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurer l’Intel NUC comme passerelle IoT
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
-- Configurez Intel NUC comme passerelle IoT.
-- Installez le package du kit de développement logiciel (SDK) de la passerelle Azure IoT sur Intel NUC.
+- Configurez l’Intel NUC comme passerelle IoT.
+- Installez le package du kit de développement logiciel (SDK) Gateway Azure IoT sur Intel NUC.
 - Exécutez un exemple d’application « hello_world » sur Intel NUC pour vérifier le bon fonctionnement de la passerelle.
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Contenu
 
-Dans cette leçon, vous allez apprendre ce qui suit :
+Dans cette leçon, vous allez apprendre :
 
-- Comment connecter Intel NUC avec les périphériques.
-- Comment installer et mettre à jour les packages requis sur Intel NUC à l’aide du gestionnaire de package intelligent.
-- Comment exécuter l’exemple d’application « hello_world » pour vérifier le bon fonctionnement de la passerelle.
+- la connexion d’Intel NUC à des périphériques ;
+- l’installation et la mise à jour des packages nécessaires sur Intel NUC à l’aide du gestionnaire de package intelligent ;
+- l’exécution de l’exemple d’application « hello_world » pour vérifier le bon fonctionnement de la passerelle.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
@@ -46,28 +46,28 @@ Dans cette leçon, vous allez apprendre ce qui suit :
 - Un câble VGA ou HDMI.
 - Un écran équipé d’un port VGA ou HDMI.
 
-![Kit de passerelle](media/iot-hub-gateway-kit-lessons/lesson1/kit_without_sensortag.png)
+![Un kit de passerelle](media/iot-hub-gateway-kit-lessons/lesson1/kit_without_sensortag.png)
 
-## <a name="connect-intel-nuc-with-the-peripherals"></a>Connecter Intel NUC avec les périphériques
+## <a name="connect-intel-nuc-with-the-peripherals"></a>Connexion d’Intel NUC aux périphériques
 
 L’image ci-dessous est un exemple d’Intel NUC connecté à plusieurs périphériques :
 
 1. Connecté à un clavier.
-2. Connecté à l’écran via un câble VGA ou un câble HDMI.
-3. Connecté à un réseau filaire via un câble Ethernet.
-4. Connecté à l’alimentation via un câble d’alimentation.
+2. Connecté à l’écran par le biais d’un câble VGA ou d’un câble HDMI.
+3. Connecté à un réseau filaire par le biais d’un câble Ethernet.
+4. Connecté à l’alimentation par le biais d’un câble d’alimentation.
 
 ![Intel NUC connecté à des périphériques](media/iot-hub-gateway-kit-lessons/lesson1/nuc.png)
 
-## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Se connecter au système Intel NUC à partir de l’ordinateur hôte via Secure Shell (SSH)
+## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Connexion au système Intel NUC à partir de l’ordinateur hôte par le biais de Secure Shell (SSH)
 
-Vous devez disposer d’un clavier et d’un écran pour obtenir l’adresse IP de votre périphérique NUC. Si vous connaissez déjà l’adresse IP, vous pouvez passer à l’étape 3 de cette section.
+Vous devez disposer d’un clavier et d’un écran pour obtenir l’adresse IP de votre appareil NUC. Si vous connaissez déjà l’adresse IP, vous pouvez passer à l’étape 3 de cette section.
 
 1. Activez Intel NUC en appuyant sur le bouton d’alimentation et connectez-vous au système.
 
    Le nom d’utilisateur et le mot de passe par défaut sont tous les deux `root`.
 
-2. Obtenez l’adresse IP de NUC en exécutant la commande `ifconfig`. Cette étape s’effectue sur le périphérique NUC.
+2. Obtenez l’adresse IP de NUC en exécutant la commande `ifconfig`. Cette étape s’effectue sur l’appareil NUC.
 
    Voici un exemple de la sortie de cette commande.
 
@@ -80,12 +80,12 @@ Vous devez disposer d’un clavier et d’un écran pour obtenir l’adresse IP 
    - [PuTTY](http://www.putty.org/) pour Windows.
    - Le client SSH intégré sur Ubuntu ou macOS.
 
-   Il est plus efficace et plus productif d’utiliser Intel NUC à partir d’un ordinateur hôte. Vous avez besoin de l’adresse IP, du nom d’utilisateur et du mot de passe pour vous connecter à NUC via un client SSH. Voici un exemple d’utilisation d’un client SSH sur macOS.
-   ![Client SSH sur macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
+   Il est plus efficace et plus productif d’utiliser Intel NUC à partir d’un ordinateur hôte. Vous avez besoin de l’adresse IP, du nom d’utilisateur et du mot de passe pour vous connecter à NUC par le biais d’un client SSH. Voici un exemple d’utilisation d’un client SSH sur macOS.
+   ![Client SSH exécuté sur macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Installer le package du kit de développement logiciel (SDK) de la passerelle Azure IoT
+## <a name="install-the-azure-iot-gateway-sdk-package"></a>Installation du package du Kit de développement logiciel (SDK) Gateway Azure IoT
 
-Le package du kit de développement logiciel (SDK) de la passerelle Azure IoT contient les fichiers binaires précompilés du kit de développement logiciel et de ses dépendances. Ces fichiers binaires sont : le kit de développement logiciel de la passerelle Azure IoT, le kit de développement logiciel Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. Le kit de développement logiciel constitue la partie principale de la passerelle. Pour installer le package, procédez comme suit :
+Le package du kit de développement logiciel (SDK) Gateway Azure IoT contient les fichiers binaires précompilés du Kit de développement logiciel (SDK) et de ses dépendances. Ces fichiers binaires sont : le kit de développement logiciel (SDK) Gateway Azure IoT, le Kit de développement logiciel (SDK) Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. Le Kit de développement logiciel (SDK) constitue la partie principale de la passerelle. Pour installer le package, procédez comme suit :
 
 1. Ajoutez le référentiel cloud IoT en exécutant les commandes suivantes dans une fenêtre de terminal :
 
@@ -94,9 +94,9 @@ Le package du kit de développement logiciel (SDK) de la passerelle Azure IoT co
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
    ```
 
-   La commande `rpm` importe la clé rpm. La commande `smart channel` ajoute le canal rpm au gestionnaire de package intelligent. Avant d’exécuter la commande `smart update`, vous voyez un résultat similaire à celui ci-dessous.
+   La commande `rpm` importe la clé rpm. La commande `smart channel` ajoute le canal rpm au gestionnaire de package intelligent (Smart Package Manager). Avant d’exécuter la commande `smart update`, vous voyez un résultat similaire à celui ci-dessous.
 
-   ![sortie des commandes rpm et canal intelligent](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
+   ![Sortie des commandes rpm et canal intelligent](media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
    ```bash
    smart update
@@ -110,11 +110,11 @@ Le package du kit de développement logiciel (SDK) de la passerelle Azure IoT co
 
    `packagegroup-cloud-azure` est le nom du package. La commande `smart install` permet d’installer le package.
 
-   Une fois le package installé, Intel NUC doit fonctionner comme une passerelle.
+   Une fois le package installé, Intel NUC doit fonctionner en tant que passerelle.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Exécuter l’exemple d’application de kit de développement logiciel de la passerelle Azure IoT « hello_world »
+## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » du Kit de développement logiciel (SDK) Gateway Azure IoT
 
-Accédez à `azureiotgatewaysdk/samples` et exécutez l’exemple d’application « hello_world ». Cet exemple d’application crée une passerelle à partir du fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture du kit de développement logiciel de la passerelle Azure IoT pour consigner le message « Hello World » dans un fichier toutes les 5 secondes.
+Accédez à `azureiotgatewaysdk/samples` et exécutez l’exemple d’application « hello_world ». Cet exemple d’application crée une passerelle à partir du fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture du Kit de développement logiciel (SDK) Gateway Azure IoT pour consigner le message « Hello World » dans un fichier toutes les 5 secondes.
 
 Vous pouvez exécuter l’exemple d’application « hello_world » en exécutant la commande suivante :
 
@@ -131,13 +131,13 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 ## <a name="summary"></a>Résumé
 
-Félicitations ! Vous avez terminé la configuration de Intel NUC comme passerelle. Vous pouvez maintenant passer à la leçon suivante afin de configurer un ordinateur hôte, de créer un hub Azure IoT et d’inscrire votre unité logique de hub Azure IoT.
+Félicitations ! Vous avez terminé la configuration d’Intel NUC comme passerelle. Vous pouvez maintenant passer à la leçon suivante afin de configurer un ordinateur hôte, de créer un Azure IoT Hub et d’inscrire votre unité logique Azure IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Préparer votre ordinateur hôte et Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -199,6 +199,6 @@ Découvrez comment utiliser le Cache Redis Azure, un cache de données sécuri
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

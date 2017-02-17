@@ -164,6 +164,6 @@ Apprenez à créer des machines virtuelles Windows. Les didacticiels, référenc
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

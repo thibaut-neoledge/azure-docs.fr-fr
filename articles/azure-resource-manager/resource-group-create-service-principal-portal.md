@@ -1,5 +1,5 @@
 ---
-title: "Création d’un principal du service dans le portail | Microsoft Docs"
+title: "Créer une identité pour une application Azure dans le portail | Microsoft Docs"
 description: "Décrit comment créer une application et un principal du service Active Directory qui peuvent être utilisés avec le contrôle d&quot;accès basé sur les rôles dans Azure Resource Manager pour gérer l&quot;accès aux ressources."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4312002b311ec17f175f6eb6bc45fbe1ce7c7a01
-ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
 >
 >
 
-Si une application doit accéder à des ressources ou les modifier, vous devez configurer une application Active Directory (AD) et lui accorder les autorisations nécessaires. Cette rubrique explique comment effectuer ces étapes via le portail. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.
+Si une application doit accéder à des ressources ou les modifier, vous devez configurer une application Active Directory (AD) et lui accorder les autorisations nécessaires. Cette approche est préférable à l’exécution de l’application avec vos propres informations d’identification, car :
+
+* Vous pouvez affecter à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
+* Il est inutile de modifier les informations d’identification de l’application si vos responsabilités évoluent. 
+* Vous pouvez utiliser un certificat pour automatiser l’authentification lors de l’exécution d’un script sans assistance.
+
+Cette rubrique explique comment effectuer ces étapes via le portail. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.
  
 ## <a name="required-permissions"></a>Autorisations requises
 Pour cette rubrique, vous devez disposer des autorisations suffisantes pour enregistrer une application auprès d’Active Directory et affecter l’application à un rôle dans votre abonnement Azure. Vérifions que vous disposez des droits suffisants pour effectuer ces étapes.
@@ -157,9 +163,19 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
      ![rechercher une application](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Sélectionnez **OK** pour finaliser l’affectation du rôle. Votre application apparaît dans la liste des utilisateurs affectés à un rôle pour cette étendue.
 
-Votre application est maintenant configurée dans Active Directory. Vous disposez d’un ID et d’une clé à utiliser pour la connexion en tant qu’application. Un rôle est affecté à l’application qui lui permet d’effectuer certaines actions. Vous pouvez rechercher des exemples d’applications pour en savoir plus sur l’exécution de tâches dans le code d’application.
+## <a name="log-in-as-the-application"></a>Se connecter en tant qu’application
 
-## <a name="sample-applications"></a>Exemples d'applications
+Votre application est maintenant configurée dans Active Directory. Vous disposez d’un ID et d’une clé à utiliser pour la connexion en tant qu’application. L’application se voit affecter un rôle qui lui permet d’effectuer certaines actions. 
+
+Pour vous connecter via PowerShell, consultez [Fournir des informations d’identification via PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+Pour vous connecter via l’interface de ligne de commande Azure, consultez [Fournir des informations d’identification via Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+Pour obtenir le jeton d’accès pour les opérations REST, consultez [Create the request](/rest/api/#create-the-request) (Créer la demande).
+
+Pour savoir comment vous connecter via le code de l’application, examinez les exemples d’applications suivants.
+
+### <a name="sample-applications"></a>Exemples d'applications
 Les exemples d’applications suivants montrent comment ouvrir une session en tant qu’application AD.
 
 **.NET**
@@ -194,6 +210,6 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

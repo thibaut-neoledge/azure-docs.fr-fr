@@ -1,5 +1,5 @@
 ---
-title: "Forum aux questions sur les machines virtuelles classiques | Microsoft Docs"
+title: "Forum aux questions sur les machines virtuelles Windows classiques | Microsoft Docs"
 description: "Fournit des réponses à certaines questions courantes sur les machines virtuelles Microsoft Azure créées avec le modèle de déploiement classique."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
+ms.sourcegitcommit: 872965ae70a0f0938f190a99832104cdfed25ef9
+ms.openlocfilehash: d05b0ff22fc20a6a049cc85cd0e401c680364820
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: eae3601dd9eaea34859d507b873291df5d0c6fb1
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

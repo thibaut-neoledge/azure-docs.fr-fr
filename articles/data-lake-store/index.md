@@ -217,6 +217,6 @@ Découvrez comment utiliser Data Lake Store pour créer un référentiel à trè
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

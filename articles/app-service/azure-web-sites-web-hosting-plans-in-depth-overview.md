@@ -13,18 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f4e2775a71c743c313831ce0cd567527c8ae5e2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ceaf35eed16fda272e4b3c501e3e9ab570855101
 
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Présentation détaillée des plans Azure App Service
-Les plans App Service représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager entre différentes applications. Les Web Apps, les Mobile Apps, les Function Apps et les API Apps, dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fonctionnent toutes dans un plan App Service. Ces plans prennent en charge cinq niveaux de tarification : *Gratuit*, *Partagé*, *De base*, *Standard* et *Premium*. Chaque niveau a ses propres capacité et limites. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l’ensemble des fonctionnalités définies par ce niveau de plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan.
+Les plans App Service représentent la collection des ressources physiques utilisées pour héberger vos applications.
 
-Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d’un niveau de service standard, toutes les applications associées à ce plan sont exécutées sur ces deux instances et ont accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
+Les plans App Service définissent :
+
+- Région (ouest des États-Unis, est des États-Unis, etc.)
+- Comptage (un, deux, trois instances, etc.)
+- La taille d’instance (« Petit », « Moyen », « Grand »)
+- Référence (SKU) (gratuit, partagé, basique, standard, premium)
+
+Les Web Apps, les Mobile Apps, les Function Apps et les API Apps, dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fonctionnent toutes dans un plan App Service.  Les applications dans le même abonnement et les mêmes région et groupe de ressources peuvent partager un plan App Service. 
+
+Toutes les applications affectées à un **plan App Service** partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications.
+
+Votre **plan App Service** peut évoluer des références (SKU) **gratuit** ou **partagé** vers **base**, **standard** ou **premium**, ce qui vous donne accès à plus de ressources et de fonctionnalités. 
+
+Si votre plan App Service est défini sur la référence **base** ou un plan supérieur, vous pouvez contrôler la **taille** et faire évoluer le nombre de machines virtuelles.
+
+Par exemple, si votre plan est configuré pour utiliser deux « petites » instances d’un niveau de service standard, toutes les applications associées à ce plan sont exécutées sur ces deux instances. Les applications ont également accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles. 
+
+La **Référence (SKU)** et **l’Échelle** du plan App Service déterminent le coût et non le nombre d’applications hébergées.
 
 Cet article présente les principales caractéristiques telles que le niveau et l’échelle d’un plan App Service, et comment elles entrent en jeu lors de la gestion de vos applications.
 
@@ -40,15 +57,15 @@ Lorsque vous avez plusieurs plans au sein d’un même groupe de ressources, vou
 ## <a name="create-an-app-service-plan-or-use-existing-one"></a>Créer un plan App Service ou utiliser un plan existant
 Lorsque vous créez une application, vous devez penser à créer un groupe de ressources. En revanche, si l’application que vous allez créer est un composant d’une application plus importante, elle doit être créée au sein du groupe de ressources alloué pour l’application en question.
 
-Que la nouvelle application soit autonome ou fasse partie d’une autre application, vous pouvez choisir d’utiliser un plan App Service existant pour l’héberger ou bien en créer un. Cette décision relève plus d’une question de capacité et de charge attendue.
+Que l’application soit autonome ou fasse partie d’une autre application, vous pouvez choisir d’utiliser un plan existant pour l’héberger ou bien en créer un. Cette décision relève plus d’une question de capacité et de charge attendue.
 
-Si la nouvelle application est destinée à consommer beaucoup de ressources et à avoir des facteurs d’échelle différents des autres applications hébergées dans un plan existant, il est recommandé de l’isoler dans son propre plan.
+Nous vous recommandons d’isoler votre application dans un nouveau plan App Service si :
 
-Lorsque vous créez un plan, vous pouvez allouer un nouvel ensemble de ressources à votre application et mieux contrôler l’allocation de ressources, car chaque plan obtient son propre ensemble d’instances.
+- L’application consomme beaucoup de ressources. 
+- L’application a différents facteurs d’échelle par rapport aux autres applications hébergées dans un plan existant.
+- L’application a besoin de ressources dans une région géographique différente.
 
-La capacité à déplacer des applications d’un plan à un autre permet également de modifier la façon dont les ressources sont allouées dans toute l’application principale.
-
-Si vous souhaitez créer une application dans une autre région et que celle-ci n’a pas de plan existant, créez un plan dans cette région pour pouvoir y héberger votre application.
+De cette façon, vous pouvez allouer un nouveau jeu de ressources pour votre application et mieux contrôler vos applications.
 
 ## <a name="create-an-app-service-plan"></a>Créer un plan App Service
 > [!TIP]
@@ -65,7 +82,7 @@ Vous pouvez ensuite sélectionner ou créer le plan App Service pour la nouvell
 
  ![Créer un plan App Service.][createASP]
 
-Pour créer un nouveau plan App Service, cliquez sur **[+] Créer nouveau**, saisissez le nom du **plan App Service**, puis sélectionnez un **emplacement**. Cliquez sur **Niveau de tarification**, puis sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner** .
+Pour créer un plan App Service, cliquez sur **[+] Créer nouveau**, saisissez le nom du **plan App Service**, puis sélectionnez un **emplacement**. Cliquez sur **Niveau de tarification**, puis sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner** .
 
 ## <a name="move-an-app-to-a-different-app-service-plan"></a>Déplacer une application vers un autre plan App Service
 Vous pouvez déplacer une application vers un autre plan App Service depuis le [portail Azure](https://portal.azure.com). Vous pouvez déplacer les applications d’un plan à l’autre tant que les plans se trouvent dans le même groupe de ressources et dans la même région géographique.
@@ -76,7 +93,7 @@ Pour déplacer une application vers un autre plan, accédez à l’application q
 
 ![Sélecteur de plan App Service.][change]
 
-Chaque plan a son propre niveau de tarification. Par exemple, quand vous faites passer un site du niveau Gratuit au niveau Standard, votre application peut alors utiliser toutes les fonctionnalités et ressources du niveau Standard.
+Chaque plan a son propre niveau de tarification. Par exemple, quand vous déplacez un site du niveau Gratuit au niveau Standard, toutes les applications affectées peuvent utiliser les fonctionnalités et ressources du niveau Standard.
 
 ## <a name="clone-an-app-to-a-different-app-service-plan"></a>Cloner une application vers un autre plan App Service
 Si vous souhaitez déplacer l'application vers une autre région, vous pouvez également utiliser le clonage d’application. Le clonage crée une copie de votre application dans un plan ou un environnement App Service, nouveau ou existant, dans n’importe quelle région.
@@ -90,7 +107,7 @@ Pour plus d’informations sur les limites du clonage, voir [Clonage de l’appl
 ## <a name="scale-an-app-service-plan"></a>Mettre à l’échelle un plan App Service
 Il existe trois façons de mettre à l'échelle un plan :
 
-* **Modifier le niveau de tarification du plan**. Par exemple, un plan associé au niveau de tarification De base peut être converti en un plan de niveau Standard ou Premium. Toutes les applications associées à ce plan peuvent alors utiliser les fonctionnalités proposées par le nouveau niveau de service.
+* **Modifier le niveau de tarification du plan**. Un plan au niveau de base peut être converti en plan Standard, et toutes les applications concernées peuvent alors utiliser les fonctionnalités du niveau Standard.
 * **Modifier la taille des instances du plan**. Par exemple, un plan associé au niveau de tarification De base et utilisant des petites instances peut être modifié pour utiliser de grandes instances. Toutes les applications associées à ce plan peuvent dans ce cas utiliser la mémoire supplémentaire et des ressources processeur offertes par l’instance la plus grande.
 * **Modifier le nombre d’instances du plan**. Par exemple, un plan Standard réparti sur trois instances peut évoluer vers 10 instances. Un plan Premium peut comporter jusqu’à 20 instances (selon la disponibilité). Toutes les applications associées à ce plan peuvent dans ce cas utiliser la mémoire supplémentaire et des ressources processeur offertes par le plus grand nombre d’instances.
 
@@ -117,6 +134,6 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

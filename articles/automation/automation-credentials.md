@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
-ms.openlocfilehash: d714907184ccdde8d912ff8cf4240b8c6d2c45e5
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 
 
 ---
@@ -27,7 +27,7 @@ Une ressource d’informations d’identification Automation conserve un objet [
 > Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.  
 
 ## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md) , utilisable dans les Runbooks Automation et les configurations DSC.
+Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell.  Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azureps-cmdlets-docs) , utilisable dans les Runbooks Automation et les configurations DSC.
 
 | Applets de commande | Description |
 |:--- |:--- |
@@ -104,6 +104,6 @@ Bien que les configurations DSC dans Azure Automation puissent se rapporter à d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

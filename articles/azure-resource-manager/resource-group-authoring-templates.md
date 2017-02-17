@@ -1,6 +1,6 @@
 ---
-title: "Création de modèles Azure Resource Manager | Microsoft Docs"
-description: "Créez des modèles Azure Resource Manager à l&quot;aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
+title: "Créer des modèles pour les déploiements Azure | Microsoft Docs"
+description: "Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
-ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
 
 
 ---
@@ -55,7 +55,7 @@ Dans sa structure la plus simple, un modèle contient les éléments suivants :
 Nous allons examiner les sections du modèle de manière plus approfondie plus loin dans cette rubrique.
 
 ## <a name="expressions-and-functions"></a>Expressions et fonctions
-La syntaxe de base du modèle est JSON. Toutefois, les expressions et les fonctions étendent la syntaxe JSON qui est disponible dans le modèle. Avec les expressions, vous créez des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets [ et ] et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
+La syntaxe de base du modèle est JSON. Toutefois, les expressions et les fonctions étendent la syntaxe JSON qui est disponible dans le modèle. Avec les expressions, vous créez des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre les crochets `[` et `]` et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d’utiliser une chaîne littérale qui commence par un crochet `[`, vous devez utiliser deux crochets `[[`.
 
 En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
 
@@ -64,7 +64,7 @@ L'exemple suivant vous indique comment utiliser plusieurs fonctions lors de la c
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -98,7 +98,7 @@ Vous définissez des paramètres avec la structure suivante :
 | Nom de l'élément | Requis | Description |
 |:--- |:--- |:--- |
 | nom_paramètre |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| type |Oui |Type de la valeur du paramètre. Consultez la liste ci-dessous pour découvrir les types autorisés. |
+| type |Oui |Type de la valeur du paramètre. La liste des types autorisés est présentée après ce tableau. |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
@@ -119,7 +119,7 @@ Les valeurs et types autorisés sont :
 
 Pour spécifier un paramètre comme facultatif, fournissez une valeur defaultValue (peut être une chaîne vide). 
 
-Si vous spécifiez un paramètre avec le même nom que l’un des paramètres dans la commande PowerShell pour déployer le modèle, vous êtes invité à fournir une valeur pour ce paramètre avec le suffixe **FromTemplate**. Par exemple, si vous incluez un paramètre nommé **ResourceGroupName** dans votre modèle qui est identique au paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment][deployment2cmdlet], vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
+Si vous spécifiez dans votre modèle un nom de paramètre qui correspond à un paramètre de la commande servant à déployer le modèle, il existe une ambiguïté potentielle concernant les valeurs que vous fournissez. Resource Manager élimine ce risque de confusion en ajoutant le suffixe **romTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**. En général, vous devez éviter cette confusion en ne nommant pas les paramètres avec un nom identique à celui des paramètres utilisés pour les opérations de déploiement.
 
 > [!NOTE]
 > Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString** . Si vous transmettez des données sensibles dans un objet JSON, utilisez le type **secureObject**. Il est impossible de lire les paramètres du modèle dont le type est secureString ou secureObject après le déploiement de la ressource. 
@@ -241,7 +241,7 @@ Vous définissez des ressources avec la structure suivante :
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]
@@ -257,10 +257,10 @@ Vous définissez des ressources avec la structure suivante :
 | location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (par exemple, une affectation de rôle) ne nécessitent aucun emplacement. |
 | tags |Non |Balises associées à la ressource. |
 | commentaires |Non |Vos commentaires pour documenter les ressources dans votre modèle |
-| dependsOn |Non |Les ressources qui doivent être déployées avant le déploiement de cette ressource. Resource Manager évalue les dépendances entre les ressources et les déploie dans le bon ordre. Quand les ressources ne dépendent les unes des autres, leur déploiement se fait en parallèle. La valeur peut être une liste séparée par des virgules de noms de ressource ou d’identificateurs de ressource uniques. Répertoriez uniquement les ressources qui sont déployées dans ce modèle. Les ressources qui ne sont pas définies dans ce modèle doivent déjà exister. Pour plus d’informations, consultez [Définition de dépendances dans des modèles Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |Non |Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, consultez [Fournisseurs du Gestionnaire de ressources, régions, versions d’API et schémas](resource-manager-supported-services.md). |
+| dependsOn |Non |Les ressources qui doivent être déployées avant le déploiement de cette ressource. Resource Manager évalue les dépendances entre les ressources et les déploie dans le bon ordre. Quand les ressources ne dépendent les unes des autres, leur déploiement se fait en parallèle. La valeur peut être une liste séparée par des virgules de noms de ressource ou d’identificateurs de ressource uniques. Répertoriez uniquement les ressources qui sont déployées dans ce modèle. Les ressources qui ne sont pas définies dans ce modèle doivent déjà exister. Évitez d’ajouter des dépendances inutiles, car cela risque de ralentir votre déploiement et de créer des dépendances circulaires. Pour savoir comment définir des dépendances, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md). |
+| properties |Non |Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Pour accéder à la documentation du schéma de ressources ou l’API REST, consultez [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md). |
 | copy |Non |Si plusieurs instances sont nécessaires, le nombre de ressources à créer. Pour plus d’informations, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md). |
-| les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Vous pouvez fournir uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le nom qualifié complet du type de ressource enfant inclut le type de ressource parente, tel que **Microsoft.Web/sites/extensions**. La dépendance à la ressource parent n’est pas induite ; vous devez la définir explicitement cette dépendance. |
+| les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. Le type complet de la ressource enfant inclut le type de ressource parente, par exemple **Microsoft.Web/sites/extensions**. La dépendance envers la ressource parente n’est pas induite. Vous devez la définir explicitement. |
 
 Connaître les valeurs à spécifier pour **apiVersion**, **type** et **location** n’est pas immédiatement évident. Heureusement, vous pouvez déterminer ces valeurs via Azure PowerShell ou l’interface de ligne de commande Azure.
 
@@ -290,15 +290,21 @@ Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez
 
 Pour obtenir tous les fournisseurs de ressources avec **l’interface de ligne de commande Azure**, utilisez :
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Dans la liste renvoyée, recherchez les fournisseurs de ressources qui vous intéressent. Pour obtenir les types de ressources pour un fournisseur de ressources (par exemple, Stockage), utilisez :
 
-    azure provider show Microsoft.Storage
+```azurecli
+azure provider show Microsoft.Storage
+```
 
 Pour obtenir les emplacements et les versions d’API pris en charge, utilisez :
 
-    azure provider show Microsoft.Storage --details --json
+```azurecli
+azure provider show Microsoft.Storage --details --json
+```
 
 Pour en savoir plus sur les fournisseurs de ressources, consultez [Fournisseurs, régions, versions d’API et schémas de Resource Manager](resource-manager-supported-services.md).
 
@@ -428,6 +434,6 @@ Pour plus d’informations sur le fonctionnement de la sortie, consultez [Partag
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

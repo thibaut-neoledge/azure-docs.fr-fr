@@ -146,6 +146,6 @@ Découvrez comment exécuter des machines virtuelles sur Azure à l’aide de la
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

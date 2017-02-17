@@ -1,9 +1,9 @@
 ---
-title: "Outils clients d’Azure Storage | Microsoft Docs"
+title: "Outils pour l’utilisation du stockage Azure | Microsoft Docs"
 description: "Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage."
 services: storage
 documentationcenter: 
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d2c365a271428a55e484939a2cce5ce5f7348d8
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
 
 
 ---
@@ -43,7 +43,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Portail Microsoft Azure</a></td>
@@ -60,7 +60,7 @@ Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces o
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Explorateur Microsoft Azure Storage</a></td>
+    <td><a href="http://storageexplorer.com/">Explorateur Stockage Microsoft Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -109,7 +109,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td> Linux</td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -126,7 +126,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -154,7 +154,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -196,7 +196,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="http://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -255,6 +255,6 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

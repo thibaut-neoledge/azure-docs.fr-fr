@@ -64,6 +64,6 @@ Lorsqu’un abonnement Azure AD Premium P2 ou EMS E5 arrive à expiration, ou qu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

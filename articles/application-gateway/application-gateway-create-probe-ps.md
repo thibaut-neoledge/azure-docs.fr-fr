@@ -1,5 +1,5 @@
 ---
-title: "Création d’une sonde personnalisée pour la passerelle Application Gateway avec PowerShell dans Resource Manager | Microsoft Docs"
+title: "Créer une sonde personnalisée - Passerelle Azure Application Gateway - PowerShell | Microsoft Docs"
 description: "Apprenez à créer une sonde personnalisée pour la passerelle Application Gateway à l&quot;aide de PowerShell dans Resource Manager"
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: d6856256a9ab272e0620e82d140c5ec735e5eabc
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 
 
 ---
@@ -312,6 +312,6 @@ Apprenez à configurer le déchargement SSL en consultant [Configurer le déchar
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

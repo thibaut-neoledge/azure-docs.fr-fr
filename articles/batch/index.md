@@ -163,6 +163,6 @@ Apprenez à utiliser Batch pour exécuter efficacement des applications de calcu
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

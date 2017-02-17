@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/19/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: da356a95fc372c140e089a943e5fcb680f0c9fd7
-ms.openlocfilehash: 009fde75bff1b7746ad0ae247a3b895366f54b84
+ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
+ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
 
 ---
 
@@ -39,15 +39,15 @@ Pas encore, mais il s’agit d’une demande courante que nous prévoyons de met
 
 Avec les mises à jour du système d’exploitation, le défi réside dans le fait qu’elles nécessitent généralement un redémarrage de l’ordinateur, ce qui entraîne une indisponibilité temporaire. En soi, ce n’est pas un problème, car Service Fabric redirige automatiquement le trafic de ces services vers d’autres nœuds. Toutefois, si les mises à jour du système d’exploitation ne sont pas coordonnées dans le cluster, plusieurs nœuds risquent d’être indisponibles en même temps. Ces redémarrages simultanés peuvent entraîner l’indisponibilité complète d’un service ou, au moins, d’une partition spécifique (pour un service avec état).
 
-À l’avenir, nous prendrons en charge une stratégie de mise à jour du système d’exploitation coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
+À l’avenir, nous prendrons en charge une stratégie de mise à jour du système d’exploitation, totalement automatisée et coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
 
-Entre-temps, la seule option sûre consiste à effectuer des mises à jour du système d’exploitation manuellement, un nœud à la fois.
+En attendant, nous [fournissons un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) qu’un administrateur de cluster peut utiliser pour lancer manuellement la correction de chaque nœud de manière sécurisée.
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Quelle est la taille minimale d’un cluster Service Fabric ? Pourquoi ne peut-il pas être plus petit ?
 
 La taille minimale prise en charge pour un cluster Service Fabric exécutant des charges de travail de production est de cinq nœuds. Pour les scénarios de développement/test, nous prenons en charge des clusters à trois nœuds.
 
-Ces valeurs minimales existent parce que le cluster Service Fabric exécute un ensemble de services système avec état, dont le service d’affectation de noms et Failover Manager. Ces services, qui suivent les services déployés sur le cluster ainsi que leur emplacement d’hébergement actuel, requièrent une cohérence forte. Cette cohérence forte, quant à elle, dépend de la capacité d’atteindre un *quorum* pour une mise à jour donnée de l’état de ces services, ce quorum représentant une majorité stricte des réplicas (N/2 + 1) pour un service donné.
+Ces valeurs minimales existent parce que le cluster Service Fabric exécute un ensemble de services système avec état, dont le service d’affectation de noms et Failover Manager. Ces services, qui suivent les services déployés sur le cluster ainsi que leur emplacement d’hébergement actuel, requièrent une cohérence forte. Cette cohérence forte, quant à elle, dépend de la capacité d’atteindre un *quorum* pour une mise à jour donnée de l’état de ces services, ce quorum représentant une majorité stricte des réplicas (N/2 +&1;) pour un service donné.
 
 Dans ce cadre, examinons certaines configurations de cluster possibles :
 
@@ -103,9 +103,17 @@ Notez que ce calcul suppose également :
 
 Comme avec les services fiables, la quantité de données que vous pouvez stocker dans un service d’acteur n’est limitée que par l’espace disque total et la mémoire disponible sur les nœuds de votre cluster. Toutefois, les acteurs sont plus efficaces lorsqu’ils sont utilisés pour encapsuler une petite quantité d’état et de logique métier associée. En règle générale, un acteur doit avoir l’état qui est mesuré en kilo-octets.
 
+## <a name="other-questions"></a>Autres questions
+
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Quel est le rapport entre Service Fabric et les conteneurs ?
 
 Les conteneurs constituent un moyen simple d’encapsuler les services et leurs dépendances pour qu’ils s’exécutent de manière cohérente dans tous les environnements et puissent fonctionner de manière isolée sur un seul ordinateur. Service Fabric vous permet de déployer et gérer des services, notamment des [services encapsulés dans un conteneur](service-fabric-containers-overview.md).
+
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Prévoyez-vous de diffuser le code de Service Fabric ?
+
+Nous avons l’intention de diffuser le code des infrastructures Reliable Services et Reliable Actors sur GitHub et d’accepter les contributions de la communauté à ces projets. Consultez le [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) pour en savoir plus.
+
+Pour l’instant, il n’est pas prévu de diffuser le code du runtime Service Fabric.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -113,6 +121,6 @@ Les conteneurs constituent un moyen simple d’encapsuler les services et leurs 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

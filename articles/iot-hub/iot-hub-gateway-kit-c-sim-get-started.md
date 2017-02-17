@@ -1,5 +1,5 @@
 ---
-title: "Prise en main du Kit de démarrage de passerelle Azure IoT | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Prise en main | Microsoft Docs"
 description: "Prise en main du Kit de démarrage de passerelle IoT, créer votre Azure IoT Hub et connecter la passerelle à l&quot;IoT Hub"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
 
 
 ---
@@ -35,16 +35,16 @@ Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux du
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Leçon 1 : Configuration de votre NUC
-![Diagramme de bout en bout pour la leçon 1](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Diagramme de bout en bout pour la leçon&1;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
-Dans cette leçon, vous configurez des NUC Intel (Next Unit of Computing) dans le Kit en tant que passerelle Azure IoT, installez le package du Kit de développement logiciel (SDK) de passerelle Azure IoT sur la NUC et exécutez un exemple d’application pour vérifier la fonctionnalité de passerelle.
+Dans cette leçon, vous configurez des NUC Intel (Next Unit of Computing) dans le Kit en tant que passerelle Azure IoT, installez le package du Kit de développement logiciel (SDK) Gateway Azure IoT sur la NUC et exécutez un exemple d’application pour vérifier la fonctionnalité de passerelle.
 
-*Durée estimée : 15 minutes*
+*Durée estimée : 15 minutes*
 
 Consultez [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
-## <a name="lesson-2-create-your-iot-hub"></a>Leçon 2 : Création de votre IoT Hub
-![Diagramme de bout en bout pour la leçon 2](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+## <a name="lesson-2-create-your-iot-hub"></a>Leçon 2 : Création de votre IoT Hub
+![Diagramme de bout en bout pour la leçon&2;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 Dans cette leçon, vous installez les outils et logiciels sur votre ordinateur hôte. Vous créez ensuite votre compte Azure gratuit, vous approvisionnez votre Azure IoT Hub et vous créez votre premier appareil dans l’IoT Hub.
 
@@ -55,9 +55,9 @@ Installez les outils et logiciels sur votre ordinateur hôte.
 
 *Durée estimée : 20 minutes*
 
-Accéder à [Obtenir les outils](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+Accédez à [Obtenir les outils](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md).
 
-### <a name="create-an-iot-hub-and-register-your-device"></a>Créer un hub IoT et enregistrer votre appareil
+### <a name="create-an-iot-hub-and-register-your-device"></a>Créer un IoT hub et enregistrer votre appareil
 Créez votre groupe de ressources, approvisionnez votre premier Azure IoT Hub et ajoutez votre premier appareil à l’IoT Hub à l’aide de l’interface de ligne de commande Azure.
 
 *Durée estimée : 10 minutes*
@@ -83,8 +83,8 @@ Exécutez un exemple de code sur votre ordinateur hôte pour lire les messages �
 
 Accédez à [Lire des messages à partir de votre IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
 
-## <a name="lesson-4-save-messages-to-azure-table-storage"></a>Leçon 4 : Enregistrer des messages sur le stockage de table Azure
-Créez une application de fonction Azure qui récupère les messages entrants à partir de votre IoT Hub et les écrit dans le Stockage Table Azure.
+## <a name="lesson-4-save-messages-to-azure-table-storage"></a>Leçon 4 : Enregistrer des messages sur le stockage Table Azure
+Créez une application de fonction Azure qui récupère les messages entrants à partir de votre IoT Hub et les écrit dans le stockage Table Azure.
 
 ![Diagramme de bout en bout pour la leçon 4](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson4.png)
 
@@ -93,9 +93,9 @@ Utilisez un modèle Azure Resource Manager pour créer une application de foncti
 
 *Durée estimée : 10 minutes*
 
-Accéder à [Création d’une application de fonction Azure et d’un compte de stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+Accédez à [Création d’une application de fonction Azure et d’un compte de stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 
-### <a name="read-messages-persisted-in-azure-table-storage"></a>Lire des messages conservés dans le stockage de table Azure
+### <a name="read-messages-persisted-in-azure-table-storage"></a>Lire des messages conservés dans le stockage Table Azure
 Surveillez les messages passerelle-à-cloud lorsqu’ils sont écrits dans le stockage Table Azure.
 
 *Durée estimée : 5 minutes*
@@ -106,9 +106,9 @@ Accédez à [Lire des messages conservés dans le stockage Table Azure](iot-hub-
 Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions dans l’article [Résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="explore-more"></a>Aller plus loin
-Consultez la section [Zone pour développeurs Intel IoT Gateway Kit](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) pour en savoir plus.
+Consultez la [zone pour développeurs Intel IoT Gateway Kit](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) pour en savoir plus.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -269,6 +269,6 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

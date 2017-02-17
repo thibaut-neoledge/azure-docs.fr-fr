@@ -1,6 +1,6 @@
 ---
-title: Concepteur de vues de Log Analytics | Microsoft Docs
-description: "Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées."
+title: "Créer des vues pour analyser les données dans OMS Log Analytics | Microsoft Docs"
+description: "Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées affichées dans les portails OMS et Azure, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
 
 
 ---
-# <a name="log-analytics-view-designer"></a>Concepteur de vues de Log Analytics
-Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
+# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics
+Le Concepteur de vues de [Log Analytics]() permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
 
 Autres articles disponibles concernant le Concepteur de vues :
 
@@ -99,6 +99,6 @@ Les vues ne comprennent qu’une seule ligne de composants de visualisation.  R�
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

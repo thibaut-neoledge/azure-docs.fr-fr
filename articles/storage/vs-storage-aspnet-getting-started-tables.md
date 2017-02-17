@@ -718,6 +718,6 @@ Pour plus d’informations sur les autres options de stockage de données dans A
   * [Prise en main du stockage de files d’attente Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

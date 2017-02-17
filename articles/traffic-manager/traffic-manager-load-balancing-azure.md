@@ -213,6 +213,6 @@ Nous allons maintenant configurer l’adresse IP et le port frontal de l’équ
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

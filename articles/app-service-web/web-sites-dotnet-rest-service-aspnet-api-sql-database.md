@@ -1,5 +1,5 @@
 ---
-title: "Créer un service REST à l’aide de l’API Web ASP.NET et de Base de données SQL dans Azure App Service"
+title: "Créer une API REST dans Azure avec ASP.NET et SQL DB | Microsoft Docs"
 description: "Didacticiel expliquant comment déployer une application qui utilise l’API Web ASP.NET dans une application web Azure à l’aide de Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2188a56fee942cd58b20b92fb77891708ab62d24
+ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
+ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
 
 
 ---
@@ -663,7 +663,7 @@ Lorsque vous constatez que l'élément que vous entrez est enregistré et s'affi
 L'application est à présent exécutée dans le cloud et utilise la base de données SQL Database pour stocker ses données. Lorsque vous avez fini de tester l'application dans Azure, supprimez-la. L'application est publique et ne dispose pas de mécanismes permettant d'en limiter l'accès.
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -672,7 +672,7 @@ Une véritable application requiert une authentification et une autorisation. Vo
 
 Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Microsoft Azure, consultez les liens suivants.
 
-* [Mise en route d’Entity Framework avec MVC][EFCodeFirstMVCTutorial]
+* [Mise en route d’Entity Framework avec MVC (en anglais)][EFCodeFirstMVCTutorial]
 * [Introduction à ASP.NET MVC 5 (en anglais)](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Votre première API Web ASP.NET (en anglais)](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Débogage de WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
@@ -685,10 +685,10 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[Ajout d’un fournisseur OAuth]: #addOauth
-[Ajout de rôles à la base de données des membres]:#mbrDB
-[Création d’un script de déploiement des données]:#ppd
-[Mise à jour de la base de données des membres]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Add Roles to the Membership Database]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -742,9 +742,9 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Ajouter une protection XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Ajouter une protection XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -755,6 +755,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

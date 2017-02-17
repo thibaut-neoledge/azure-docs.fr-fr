@@ -37,6 +37,6 @@ Lorsque vous créez des ressources par le biais du portail ou en déployant un m
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

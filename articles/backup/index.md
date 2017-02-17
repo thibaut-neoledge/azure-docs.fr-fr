@@ -148,6 +148,6 @@ Découvrez comment utiliser Azure Backup dans le cloud pour protéger les donné
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

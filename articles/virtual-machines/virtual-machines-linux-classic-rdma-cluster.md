@@ -382,6 +382,6 @@ Sur un cluster opérationnel à deux nœuds, vous devez voir une sortie comme c
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

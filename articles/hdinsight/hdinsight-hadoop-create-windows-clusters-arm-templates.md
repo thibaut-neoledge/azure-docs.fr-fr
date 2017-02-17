@@ -1,6 +1,6 @@
 ---
-title: "Création de clusters Hadoop basés sur Windows dans HDInsight à l’aide de modèles Azure Resource Manager | Microsoft Docs"
-description: "Apprenez à créer des clusters pour Azure HDInsight à l’aide de modèles Azure Resource Manager."
+title: "Créer un cluster Azure HDInsight Windows (Hadoop) à l’aide de modèles | Microsoft Docs"
+description: "Apprenez à créer des clusters Windows dans Azure HDInsight à l’aide de modèles Azure Resource Manager."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 9fb4862f3ba38058bd07d5a2e0bebcf78477e2d1
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ad511174f8df2fca752447ed942880d02c141308
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Création de clusters Hadoop basés sur Windows dans HDInsight à l’aide de modèles Azure Resource Manager
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resource Manager. Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour accéder à d’autres outils et fonctions de création de clusters, cliquez sur l’onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
+Apprenez à créer des clusters HDInsight Windows à l’aide des modèles Azure Resource Manager. Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). 
+
+Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la création de clusters Linux, consultez [Création de clusters Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 
 ## <a name="prerequisites"></a>Configuration requise :
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -290,6 +297,6 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Wind
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

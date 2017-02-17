@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de l’interface web Kubernetes dans Azure Container Service | Microsoft Docs"
+title: "Gérer le cluster Kubernetes Azure avec l’interface utilisateur Web | Microsoft Docs"
 description: "Utilisation de l’interface web Kubernetes dans Azure Container Service"
 services: container-service
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 9ae6e606bf215d9f53f725899b8ac7c466b781f1
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---using-the-kubernetes-web-ui"></a>Moteur de Microsoft Azure Container Service - Utilisation de l’interface web Kubernetes
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilisation de l’interface utilisateur Web Kubernetes avec Azure Container Service
 
 ## <a name="prerequisites"></a>Composants requis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -136,6 +136,6 @@ Il n’y aura donc plus que deux réplicas, car l’un de vos pods sera supprim�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

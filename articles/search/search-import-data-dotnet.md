@@ -240,6 +240,6 @@ Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

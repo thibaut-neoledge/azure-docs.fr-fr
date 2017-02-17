@@ -64,6 +64,6 @@ Découvrez comment créer des machines virtuelles Azure. Des didacticiels, des r
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

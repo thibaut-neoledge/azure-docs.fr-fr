@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 
 
 ---
-# <a name="use-u-sql-catalog"></a>Utiliser le catalogue U-SQL
+# <a name="use-azure-data-lake-analytics-u-sql-catalog"></a>Utilisation du catalogue Azure Data Lake Analytics (U-SQL)
 Le catalogue U-SQL est utilisé pour structurer les données et le code afin que les scripts U-SQL puissent les partager. Le catalogue permet les meilleures performances possibles avec les données comprises dans Azure Data Lake.
 
 Chaque compte Azure Data Lake Analytics a exactement un catalogue U-SQL associé. Vous ne pouvez pas supprimer le catalogue U-SQL. Actuellement, les catalogues U-SQL ne peuvent pas se partager entre les comptes Data Lake Store.
@@ -51,8 +51,8 @@ Vous pouvez utiliser les outils Data Lake pour Visual Studio pour gérer le cata
 
     - Pour ajouter une nouvelle base de données, cliquez avec le bouton droit sur **Base de données**, puis cliquez sur **Créer une base de données**.
     - Pour ajouter un nouvel assembly, cliquez avec le bouton droit sur **Assemblys**, puis cliquez sur **Inscrire l’assembly**.
-    - Pour ajouter un nouveau schéma, cliquez avec le bouton droit sur **Schémas**, puis cliquez sur Créer un schéma.
-    - Pour ajouter une nouvelle table, cliquez avec le bouton droit sur **Tables**, puis cliquez sur Créer une table.
+    - Pour ajouter un nouveau schéma, cliquez avec le bouton droit sur **Schémas**, puis cliquez sur **Créer un schéma**.
+    - Pour ajouter une nouvelle table, cliquez avec le bouton droit sur **Tables**, puis cliquez sur **Créer une table**.
     - Pour ajouter une nouvelle fonction table, consultez [Développer des opérateurs définis par l’utilisateur U-SQL pour des tâches Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
@@ -70,7 +70,7 @@ Vous pouvez utiliser les outils Data Lake pour Visual Studio pour gérer le cata
   
   * [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
   * [Utiliser les fonctions U-SQL dans les travaux d’analyse Azure Data Lake](data-lake-analytics-use-window-functions.md)
-  * [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * Gestion
   
   * [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
@@ -84,6 +84,6 @@ Vous pouvez utiliser les outils Data Lake pour Visual Studio pour gérer le cata
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

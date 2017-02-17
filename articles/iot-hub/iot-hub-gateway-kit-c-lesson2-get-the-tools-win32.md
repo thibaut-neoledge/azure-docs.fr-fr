@@ -1,5 +1,5 @@
 ---
-title: "Préparez votre ordinateur hôte et Azure IoT Hub | Microsoft Docs"
+title: "Appareil SensorTag et passerelle Azure IoT - Leçon 2 : Obtenir des outils (Windows) | Microsoft Docs"
 description: "Installez les outils et les logiciels sur votre ordinateur hôte exécutant Windows, créez un hub IoT et inscrivez votre appareil dans l’IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: c2e24522d1485cb8418b5f66ba16ce8c0b9bbca0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 4a854222be9aaf6733f1c256dd75195927299099
 
 
 ---
@@ -36,16 +36,16 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 ## <a name="what-you-will-learn"></a>Contenu
 
-Dans cette leçon, vous allez apprendre ce qui suit :
+Dans cette leçon, vous allez apprendre ce qui suit :
 
 - Installation de [Git](https://git-scm.com/) et [Node.js](https://nodejs.org/en/).
-  - Git est un système de contrôle de versions distribué open source. L’exemple d’application de cette leçon est stocké sur Git.
+  - Git est un système de contrôle de versions distribué open source très populaire. L’exemple d’application de cette leçon est stocké sur Git.
   - Node.js est un runtime JavaScript avec un écosystème de packages riche.
 - Utilisation de [NPM](https://www.npmjs.com/) pour installer des outils de développement Node.js.
   - La version minimale requise de Node.js est 4.5 LTS.
   - NPM est l’un des gestionnaires de packages pour Node.js.
 - Installation de Visual Studio Code.
-  - Visual Studio Code est un éditeur de code source multiplateforme simple mais puissant pour Windows, Linux et Mac OS. Il offre une aide appréciable pour le débogage, le contrôle Git incorporé, la mise en surbrillance de syntaxe, la complétion de code intelligente, les extraits et la refactorisation de code.
+  - Visual Studio Code est un éditeur de code source multiplateforme simple mais puissant pour Windows, Linux et macOS. Il offre une aide appréciable pour le débogage, le contrôle Git incorporé, la mise en surbrillance de syntaxe, la complétion de code intelligente, les extraits et la refactorisation de code.
 - Comment installer Python.
   - Python est un langage de programmation interprété et dynamique, à usage général et fréquemment utilisé.
 - Installation de l’interface de ligne de commande Azure.
@@ -123,10 +123,10 @@ Visual Studio Code, plus loin dans ce didacticiel, vous permet de modifier les f
 Vous avez installé tous les outils et logiciels nécessaires sur votre ordinateur hôte. La tâche suivante consiste à utiliser l’interface de ligne de commande Azure pour créer un IoT Hub et inscrire votre appareil dans votre IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer un IoT Hub et inscrire votre appareil](iot-hub-gateway-kit-c-lesson2-register-device.md)
+[Créer un hub IoT et enregistrer votre appareil](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

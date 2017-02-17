@@ -138,9 +138,9 @@ Chaque règle est abordée plus en détail par la suite (**Remarque**: tous les 
         Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] to $VMName[2]" `
         -Type Inbound -Priority 130 -Action Allow `
         -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
-        -DestinationAddressPrefix $VMIP[2] `
-        -DestinationPortRange '*' `
-        -Protocol *
+         -DestinationAddressPrefix $VMIP[2] `
+         -DestinationPortRange '*' `
+         -Protocol *
     ```
 
 6. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Avec les règles de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste. Cette règle est une règle de « prévention de défaillance » qui bloque tous les flux inattendus.
@@ -593,6 +593,6 @@ Si vous souhaitez installer un exemple d’application et d’autres exemples de
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Prise en main de Reliable Services | Microsoft Docs
+title: "Créer votre premier microservice Azure fiable en Java | Microsoft Docs"
 description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
-ms.openlocfilehash: 2a2378dbeb5e7994039291deffd35cb04bf8057c
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 2a2378dbeb5e7994039291deffd35cb04bf8057c
 > [!div class="op_single_selector"]
 > * [C# sur Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java sur Linux](service-fabric-reliable-services-quick-start-java.md)
-> 
-> 
+>
+>
 
 Cet article explique les notions de base d’Azure Service Fabric Reliable Services et vous guide pas à pas dans la création et le déploiement d’une application Reliable Service simple écrite en Java. Cette vidéo Microsoft Virtual Academy vous montre également comment créer un service Reliable sans état :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
@@ -39,7 +39,7 @@ Si vous devez le configurer, référez-vous à l’article sur la [prise en main
 Pour prendre en main Reliable Services, il vous suffit de comprendre quelques concepts de base :
 
 * **Type de service** : il s’agit de l’implémentation de votre service. Elle est définie par la classe que vous écrivez qui étend `StatelessService` et tout autre code ou dépendances utilisés ici, ainsi qu’un nom et un numéro de version.
-* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d’objet d’un type de classe. Les instances de service sont en fait des instanciations d’objet de votre classe de service que vous écrivez. 
+* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d’objet d’un type de classe. Les instances de service sont en fait des instanciations d’objet de votre classe de service que vous écrivez.
 * **Hôte de service** : les instances de service nommées que vous créez doivent s’exécuter au sein d’un ordinateur hôte. L’hôte de service est simplement un processus dans lequel les instances de votre service peuvent s’exécuter.
 * **Inscription du service** : l’inscription rassemble tous les éléments. Le type de service doit être inscrit auprès du runtime Service Fabric dans un hôte de service pour autoriser Service Fabric à créer des instances de ce type à exécuter.  
 
@@ -84,7 +84,7 @@ Ouvrez **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService
 
 ```java
 @Override
-protected CompletableFuture<?> runAsync() {
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
     ...
 }
 ```
@@ -98,10 +98,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Dans ce didacticiel, nous allons nous concentrer sur la méthode de point d’entrée `runAsync()` . C’est là que vous pouvez commencer immédiatement à exécuter votre code.
+Dans ce didacticiel, nous nous concentrons sur la méthode de point d’entrée `runAsync()`. C’est là que vous pouvez commencer immédiatement à exécuter votre code.
 
 ### <a name="runasync"></a>RunAsync
-La plateforme appelle cette méthode quand une instance d’un service est placée et prête à être exécutée. Le cycle d’ouverture/fermeture d’une instance de service peut se produire de nombreuses fois au cours de la durée de vie de votre service dans son ensemble. Il existe diverses raisons à cela, notamment :
+La plateforme appelle cette méthode quand une instance d’un service est placée et prête à être exécutée. Pour un service sans état, cela signifie simplement le moment où l’instance de service est ouverte. Un jeton d'annulation est fourni pour coordonner lorsque l'instance de service doit être fermée. Dans Service Fabric, ce cycle d’ouverture/fermeture d’une instance de service peut se produire plusieurs fois au cours de la durée de vie de votre service dans son ensemble. Il existe diverses raisons à cela, notamment :
 
 * Le système déplace vos instances de service à des fins d’équilibrage des ressources.
 * Des erreurs surviennent dans votre code.
@@ -110,42 +110,34 @@ La plateforme appelle cette méthode quand une instance d’un service est plac�
 
 Cette orchestration est gérée par Service Fabric afin de maintenir une haute disponibilité et un équilibrage correct pour votre service.
 
+`runAsync()` ne doit pas se bloquer de façon synchrone. Votre implémentation de runAsync doit renvoyer un objet CompletableFuture pour permettre au runtime de continuer si votre charge de travail a besoin d’implémenter une tâche longue qui doit être effectuée à l’intérieur de l’objet CompletableFuture.
+
 #### <a name="cancellation"></a>Annulation
-Il est primordial que votre code dans `runAsync()` puisse arrêter l’exécution lorsque Service Fabric le notifie. L’élément `CompletableFuture` retourné par `runAsync()` est annulé lorsque Service Fabric demande à votre service d’arrêter l’exécution. L’exemple suivant montre comment gérer un événement d’annulation : 
+L'annulation de votre charge de travail est un effort conjoint orchestré par le jeton d'annulation fourni. Le système attend la fin de la tâche (suite à sa réussite, à son annulation ou à une défaillance) avant de poursuivre. Il est important de respecter le jeton d’annulation, de terminer le travail et de quitter `runAsync()` aussi rapidement que possible quand le système demande une annulation. L’exemple suivant montre comment gérer un événement d’annulation :
 
 ```java
     @Override
-    protected CompletableFuture<?> runAsync() {
+    protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
-        CompletableFuture<?> completableFuture = new CompletableFuture<>();
-        ExecutorService service = Executors.newFixedThreadPool(1);
+        // TODO: Replace the following sample code with your own logic
+        // or remove this runAsync override if it's not needed in your service.
 
-        Future<?> userTask = service.submit(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
-                try
-                {
-                   logger.log(Level.INFO, this.context().serviceName().toString());
-                   Thread.sleep(1000);
-                }
-                catch (InterruptedException ex)
-                {
-                    logger.log(Level.INFO, this.context().serviceName().toString() + " interrupted. Exiting");
-                    return;
-                }
+        CompletableFuture.runAsync(() -> {
+          long iterations = 0;
+          while(true)
+          {
+            cancellationToken.throwIfCancellationRequested();
+            logger.log(Level.INFO, "Working-{0}", ++iterations);
+
+            try
+            {
+              Thread.sleep(1000);
             }
-         });
-
-        completableFuture.handle((r, ex) -> {
-            if (ex instanceof CancellationException) {
-                userTask.cancel(true);
-                service.shutdown();
-            }
-            return null;
+            catch (IOException ex) {}
+          }
         });
-
-        return completableFuture;
-   }
-``` 
+    }
+```
 
 ### <a name="service-registration"></a>Inscription du service
 Les types de service doivent être inscrits auprès du runtime Service Fabric. Le type de service est défini dans le fichier `ServiceManifest.xml` et votre classe de service qui implémente `StatelessService`. L’inscription du service est réalisée dans le point d’entrée principal du processus. Dans cet exemple, le point d’entrée principal du processus est `HelloWorldServiceHost.java` :
@@ -156,29 +148,29 @@ public static void main(String[] args) throws Exception {
         ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
         logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
         Thread.sleep(Long.MAX_VALUE);
-    } 
+    }
     catch (Exception ex) {
-        logger.log(Level.SEVERE, "Exception in registration: {0}", ex.toString());
+        logger.log(Level.SEVERE, "Exception in registration:", ex);
         throw ex;
     }
 }
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
-La structure Yeoman inclut un script Gradle pour générer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
+La génération de modèles automatique Yeoman inclut un script Gradle pour créer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 
 ```bash
 $ gradle
 ```
 
-Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez simplement le script install.sh à déployer :
+Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez le script install.sh à déployer :
 
-```bask
+```bash
 $ ./install.sh
 ```
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -163,6 +163,6 @@ Apprenez à utiliser un réseau virtuel (VNet), autrement dit une représentatio
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

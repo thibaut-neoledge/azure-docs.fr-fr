@@ -1,5 +1,5 @@
 ---
-title: "Créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique | Microsoft Docs"
+title: "Créer une sonde personnalisée - Passerelle Azure Application Gateway - PowerShell classic | Microsoft Docs"
 description: "Apprendre à créer une sonde personnalisée pour Application Gateway en utilisant PowerShell dans le modèle de déploiement classique"
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
-ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 
 
 ---
@@ -225,6 +225,6 @@ Si vous voulez configurer une passerelle Application Gateway à utiliser avec l�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

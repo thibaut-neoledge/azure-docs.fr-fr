@@ -52,6 +52,6 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

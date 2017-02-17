@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
+ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
+ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
 
 
 ---
@@ -121,7 +121,7 @@ Pour répondre à ces exigences, Dave active [l’Azure Security Center](../secu
 La direction de l’entreprise dans la division Chaîne logistique a identifié différentes possibilités d’accroître l’engagement auprès des clients de Contoso à l’aide d’une carte de fidélité. L’équipe d’Alice doit créer cette application et décide qu’Azure augmente la capacité à répondre aux besoins métier. Alice travaille avec Dave d’ETS pour configurer deux abonnements pour le développement et le fonctionnement de cette application.
 
 ### <a name="azure-subscriptions"></a>Abonnements Azure
-Dave se connecte à l’Azure Enterprise Portal et voit que le service Chaîne d’approvisionnement existe déjà.  Toutefois, comme ce projet est le premier projet de développement de l’équipe en charge de la chaîne d’approvisionnement dans Azure, Dave détecte le besoin d’un nouveau compte pour l’équipe de développement d’Alice.  Il crée le compte « R & D » pour son équipe et octroie l’accès à Alice. Alice se connecte par le biais du portail de compte et crée alors deux abonnements : l’un destiné aux serveurs de développement et l’autre dédié serveurs de production.  Elle suit les normes d’affectation de noms précédemment établies lors de la création des abonnements suivants :
+Dave se connecte à l’Azure Enterprise Portal et voit que le service Chaîne d’approvisionnement existe déjà.  Toutefois, comme ce projet est le premier projet de développement de l’équipe en charge de la chaîne d’approvisionnement dans Azure, Dave détecte le besoin d’un nouveau compte pour l’équipe de développement d’Alice.  Il crée le compte « R & D » pour son équipe et octroie l’accès à Alice. Alice se connecte au portail Azure et crée deux abonnements : l’un destiné aux serveurs de développement et l’autre dédié aux serveurs de production.  Elle suit les normes d’affectation de noms précédemment établies lors de la création des abonnements suivants :
 
 | Utilisation de l’abonnement | Nom |
 | --- | --- |
@@ -200,6 +200,6 @@ Pour répondre à ces exigences, Dave active l’Azure Security Center. Il garan
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

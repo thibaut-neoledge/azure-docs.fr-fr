@@ -1,5 +1,5 @@
 ---
-title: "Prise en main du Kit de démarrage de passerelle Azure IoT | Microsoft Docs"
+title: Appareil SensorTag et passerelle Azure IoT - Prise en main | Microsoft Docs
 description: "Prise en main du Kit de démarrage de passerelle IoT, créer votre Azure IoT hub et connecter SensorTag et la passerelle vers l’IoT hub"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
 
 
 ---
@@ -109,6 +109,6 @@ Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions
 Consultez la [zone pour développeurs Intel IoT Gateway Kit](http://software.intel.com/iot/microsoft-azure) pour en savoir plus.
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

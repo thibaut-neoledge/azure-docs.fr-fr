@@ -145,6 +145,6 @@ Consultez les parcours d’apprentissage Azure Media Services pour en savoir plu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

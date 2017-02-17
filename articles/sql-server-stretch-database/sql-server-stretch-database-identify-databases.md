@@ -1,5 +1,5 @@
 ---
-title: "Identifier des bases de données et des tables pour Stretch Database en exécutant Stretch Database Advisor | Microsoft Docs"
+title: "Identifier les bases de données et les tables pour Stretch Database - Azure | Microsoft Docs"
 description: "Découvrez comment identifier les bases de données et les tables candidates pour Stretch Database."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 47b666a7f2178daebc1b2b442fd1bb8cf31e40bb
-ms.openlocfilehash: 3aef66c7b80ee356faedcaaadacd15aea3438714
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: 0f1a7feea79c73d7b80343fcc9898509268d111c
 
 
 ---
@@ -36,10 +36,10 @@ Téléchargez et installez le Conseiller de mise à niveau [ici](http://go.micro
 
 ## <a name="review-the-results"></a>Passer en revue les résultats.
 1. Une fois l’analyse terminée, dans le panneau **Analyzed databases** (Bases de données analysées), sélectionnez l’une des bases de données analysées pour afficher le panneau **Analysis results** (Résultats de l’analyse).
-   
+
    Le panneau **Analysis results** (Résultats de l’analyse) répertorie les tables recommandées de la base de données qui correspondent aux critères de recommandation par défaut.
 2. Dans la liste des tables du panneau **Analysis results** (Résultats de l’analyse), sélectionnez l’une des tables recommandées pour afficher le panneau **Table results** (Résultats de la table).
-   
+
    En cas de problèmes de blocage, ceux-ci sont répertoriés dans le panneau **Table results** (Résultats de la table) de la table sélectionnée. Pour plus d’informations sur les problèmes de blocage détectés par Stretch Database Advisor, consultez [Limites de Stretch Database](sql-server-stretch-database-limitations.md).
 3. Dans la liste des problèmes de blocage dans le panneau **Table results** (Résultats de la table), sélectionnez l’un des problèmes pour afficher plus d’informations sur celui-ci et les mesures d’atténuation proposées. Implémentez la solution suggérée si vous souhaitez configurer la table sélectionnée pour Stretch Database.
 
@@ -58,7 +58,6 @@ Activer Stretch Database
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

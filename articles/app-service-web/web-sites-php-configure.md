@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 
 
 ---
@@ -182,7 +182,7 @@ Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dan
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -207,6 +207,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

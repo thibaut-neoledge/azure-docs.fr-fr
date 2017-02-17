@@ -230,7 +230,7 @@ Une fois que vous avez [créé une file d’attente](#create-a-queue), vous pouv
   
     ![Ajouter un message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-Les deux sections - [Lire un message depuis une file d’attente, sans le supprimer](#read-a-message-from-a-queue-without-removing-it) et [Lire et supprimer un message dans une file d’attente](#read-and-remove-a-message-from-a-queue) montrent comment lire les messages d’une file d’attente.    
+Les deux sections - [Lire un message depuis une file d’attente, sans le supprimer](#read-a-message-from-a-queue-without-removing-it) et [Lire et supprimer un message dans une file d’attente](#read-and-remove-a-message-from-a-queue) montrent comment lire les messages d’une file d’attente.     
 
 ## <a name="read-a-message-from-a-queue-without-removing-it"></a>Lire un message depuis une file d’attente, sans le supprimer
 
@@ -281,7 +281,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
 1. Mettez à jour l'objet **ViewBag** avec deux valeurs : le nom de la file d’attente et le message qui été lu. L'objet **CloudQueueMessage** expose deux propriétés permettant d'obtenir la valeur de l'objet : **CloudQueueMessage.AsBytes** et **CloudQueueMessage.AsString**. **AsString** (utilisé dans cet exemple) retourne une chaîne, tandis que **AsBytes** retourne un tableau d’octets.
 
     ```csharp
-    ViewBag.QueueName = queue.Name; 
+    ViewBag.QueueName = queue.Name;    
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
@@ -318,7 +318,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
 
 ## <a name="read-and-remove-a-message-from-a-queue"></a>Lire et supprimer un message dans une file d’attente
 
-Dans cette section, vous allez apprendre à lire et à supprimer un message d’une file d’attente.   
+Dans cette section, vous allez apprendre à lire et à supprimer un message d’une file d’attente.     
 
 > [!NOTE]
 > 
@@ -581,6 +581,6 @@ Pour plus d’informations sur les autres options de stockage de données dans A
   * [Prise en main du stockage de tables Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

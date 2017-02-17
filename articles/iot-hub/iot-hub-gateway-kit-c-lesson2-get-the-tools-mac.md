@@ -1,5 +1,5 @@
 ---
-title: "Préparer votre ordinateur Mac et Azure IoT Hub | Microsoft Docs"
+title: "Appareil SensorTag et passerelle Azure IoT - Leçon 2 : Obtenir des outils (macOS) | Microsoft Docs"
 description: "Installez les outils sur votre ordinateur Mac, créez un IoT Hub et inscrivez votre appareil dans l’IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 90b211e1d0b85e2c99ab31a633ddcee9218d4874
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b105cebd5b3e6c5cae726abbf5f2c48c0cd7587
 
 
 ---
@@ -36,16 +36,16 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 ## <a name="what-you-will-learn"></a>Contenu
 
-Dans cette leçon, vous allez apprendre ce qui suit :
+Dans cette leçon, vous allez apprendre ce qui suit :
 
 - Installation de [Git](https://git-scm.com/) et [Node.js](https://nodejs.org/en/).
-  - Git est un système de contrôle de versions distribué open source. L’exemple d’application de cette leçon est stocké sur Git.
+  - Git est un système de contrôle de versions distribué open source très populaire. L’exemple d’application de cette leçon est stocké sur Git.
   - Node.js est un runtime JavaScript avec un écosystème de packages riche.
 - Utilisation de [NPM](https://www.npmjs.com/) pour installer des outils de développement Node.js.
   - La version minimale requise de Node.js est 4.5 LTS.
   - NPM est l’un des gestionnaires de packages pour Node.js.
 - Installation de Visual Studio Code.
-  - Visual Studio Code est un éditeur de code source multiplateforme simple mais puissant pour Windows, Linux et Mac OS. Il offre une aide appréciable pour le débogage, le contrôle Git incorporé, la mise en surbrillance de syntaxe, la complétion de code intelligente, les extraits et la refactorisation de code.
+  - Visual Studio Code est un éditeur de code source multiplateforme simple mais puissant pour Windows, Linux et macOS. Il offre une aide appréciable pour le débogage, le contrôle Git incorporé, la mise en surbrillance de syntaxe, la complétion de code intelligente, les extraits et la refactorisation de code.
 - Comment installer Python.
   - Python est un langage de programmation interprété et dynamique, à usage général et fréquemment utilisé.
 - Installation de l’interface de ligne de commande Azure.
@@ -92,7 +92,7 @@ Si vous rencontrez des problèmes lors de l’installation, consultez le [guide 
 
 ## <a name="install-python"></a>Installer python
 
-Bien que Mac OS X soit fourni avec Python 2.7, il est recommandé d’installer Python via Homebrew. Consultez [Installation de Python sur Mac OS X](http://docs.python-guide.org/en/latest/starting/install/osx/).
+Bien que macOS X soit fourni avec Python 2.7, il est recommandé d’installer Python via Homebrew. Consultez [Installation de Python sur macOS X](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
 Installez Python et pip en exécutant la commande suivante :
 
@@ -134,6 +134,6 @@ Vous avez installé tous les outils et logiciels nécessaires sur votre ordinate
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

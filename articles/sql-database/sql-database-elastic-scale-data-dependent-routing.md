@@ -1,6 +1,6 @@
 ---
-title: "Routage dépendant des données | Microsoft Docs"
-description: "Utilisation de la classe ShardMapManager dans des applications .NET pour le routage dépendant des données, une fonctionnalité de base de données élastique pour la base de données SQL Azure"
+title: "Routage dépendant des données avec Azure SQL Database | Microsoft Docs"
+description: "Utilisation de la classe ShardMapManager dans les applications .NET pour le routage dépendant des données, une fonctionnalité des bases de données partagées dans Azure SQL Database"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ Une pratique recommandée dans le développement d’applications d’accès aux
 
 La gestion des erreurs temporaires peut coexister naturellement avec le modèle de routage dépendant des données. La condition clé consiste à réessayer la demande d'accès aux données, notamment le bloc **using** qui a obtenu la connexion de routage dépendant des données. L'exemple précédent pourrait être réécrit comme suit (remarquez la modification mise en surbrillance). 
 
-### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Exemple : routage dépendant des données avec gestion des erreurs temporaires
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Exemple : routage dépendant des données avec gestion des erreurs temporaires
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ Pour détacher une partition ou la rattacher, consultez [Utilisation de la class
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

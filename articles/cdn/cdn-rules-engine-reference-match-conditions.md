@@ -1,6 +1,6 @@
 ---
-title: "Conditions de correspondance du moteur de règles Azure Content Delivery Network | Microsoft Docs"
-description: "Cette rubrique décrit les fonctionnalités et conditions de correspondance du moteur de règles"
+title: "Conditions de correspondance du moteur de règles Azure CDN | Microsoft Docs"
+description: "Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: f96e977c777e4ecd007d6cd863054addb465489d
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
 
 
 ---
 
-#<a name="match-conditions-for-azure-content-delivery-network-cdn-rules-engine"></a>Conditions de correspondance pour le moteur de règles Azure Content Delivery Network (CDN)
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).
 
 La deuxième partie d’une règle est la condition de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles un ensemble de fonctionnalités est exécuté.
@@ -128,6 +128,6 @@ Caractère générique de requête d’URL | Compare les valeurs spécifiées à
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

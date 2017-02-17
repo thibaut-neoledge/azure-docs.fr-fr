@@ -12,33 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dcb28a67ef21728d9b21159f356ed122e0b7a1be
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: b3ff0e93ee144e98dec69c0678c3b467db1e0bc0
 
 
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analyser les journaux de télémétrie Application Insights avec Spark sur HDInsight
+
 [Visual Studio Application Insights](../application-insights/app-insights-overview.md) est un service d’analyse qui surveille vos applications web. Les données de télémétrie générées par Application Insights peuvent être exportées vers Azure Storage, et de là, elles peuvent être analysées par HDInsight.
 
 Dans ce document, vous allez apprendre à utiliser HDInsight pour analyser les données de télémétrie Application Insight à l’aide d’Apache Spark.
 
 ## <a name="prerequisites"></a>Conditions préalables
+
 * Un abonnement Azure.
+
 * Une application configurée pour utiliser Application Insights. 
+
 * Maîtrise de la création d’un cluster HDInsight sous Linux. Si vous ne maîtrisez pas la création d’un cluster, consultez la rubrique [Créer Spark sur HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) pour plus d’informations.
   
-  > [!NOTE]
-  > Ce document ne fournit aucune procédure détaillée concernant la création d’un cluster. Au lieu de cela, il fait référence à d’autres documents qui contiennent des informations sur la création d’un cluster capable d’accéder aux données de télémétrie.
-  > 
-  > 
+  > [!IMPORTANT]
+  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un navigateur Web. Utilisé pour exécuter interactivement l’analyse à l’aide d’un notebook Jupyter.
 
 Les éléments suivants ont été utilisés lors du développement et du test de ce document :
 
 * Les données de télémétrie d’Application Insights ont été générées à l’aide d’une [application web Node.js configurée pour utiliser Application Insights](../application-insights/app-insights-nodejs.md).
+
 * Un système Spark Linux sur le cluster HDInsight version 3.4 a été utilisé pour analyser les données.
 
 ## <a name="architecture-and-planning"></a>Architecture et planification
@@ -47,6 +51,7 @@ Le schéma suivant illustre l'architecture du service dans cet exemple :
 ![diagramme montrant les données transmises par Application Insights vers le stockage d’objets blob, puis traitées par Spark sur HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Stockage Azure
+
 Un cluster HDInsight peut accéder directement aux objets blob de blocs d’un compte de stockage Azure, et Application Insights peut être configurée pour exporter en permanence des informations de télémétrie vers des objets blob dans Azure Storage. Toutefois, il existe certaines conditions que vous devez remplir :
 
 * **Emplacement** : le compte de stockage doit figurer dans la même région que HDInsight. Cela réduit la latence lors de l’accès aux données et évite les frais d’acheminement qu’entraîne le déplacement des données entre différentes régions.
@@ -56,6 +61,7 @@ Un cluster HDInsight peut accéder directement aux objets blob de blocs d’un c
     Au lieu de cela, il est recommandé d’utiliser des comptes de stockage distincts pour la télémétrie HDInsight et Application Insights, et d [’utiliser des signatures d’accès partagé (SAP) pour restreindre l’accès aux données à partir de HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md). L’utilisation d’une signature d’accès partagé vous permet d’accorder un accès en lecture seule à HDInsight pour les données de télémétrie.
 
 ### <a name="data-schema"></a>Schéma de données
+
 Application Insights fournit des informations [Modèle d’exportation de données](../application-insights/app-insights-export-data-model.md) pour le format des données de télémétrie exportées vers des objets blob. Les étapes décrites dans ce document permettent d’utiliser Spark SQL avec les données. Spark SQL peut générer automatiquement un schéma pour la structure de données JSON consignées par Application Insights, et vous n’avez donc pas à définir manuellement le schéma lors de l’analyse.
 
 ## <a name="export-telemetry-data"></a>Exporter les données de télémétrie
@@ -180,7 +186,7 @@ Le document Signature d’accès partagé fournit des informations sur l’ajout
         jsonData.registerTempTable("requests")
         sqlContext.sql("select context.location.city from requests where context.location.city is not null")
    
-    Cette requête renvoie les informations deville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
+    Cette requête renvoie les informations de ville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
    
    > [!NOTE]
    > La structure de contexte est présente dans toutes les données de télémétrie consignées par Application Insights ; toutefois, l’élément de ville ne peut pas renseigné dans vos journaux. Utilisez le schéma pour identifier d’autres éléments que vous pouvez interroger et qui peuvent contenir des données pour vos journaux.
@@ -349,6 +355,6 @@ Pour plus d’informations sur la création et l’exécution d’applications S
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

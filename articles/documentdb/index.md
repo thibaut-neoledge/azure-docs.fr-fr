@@ -226,6 +226,6 @@ Découvrez comment utiliser DocumentDB dans des applications hautes performances
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

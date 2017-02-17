@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ea811d7315298132a45a8d1873da8a2bf5600c1c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5989d31306aa896a404b29b2c71c9ddf7e23da01
 
 
 ---
@@ -66,7 +66,7 @@ La liste suivante répertorie des exemples de temps médian jusqu’au premier o
 Il existe plusieurs problèmes à prendre en compte lorsque vous envisagez d’utiliser le CDN :  
 
 * **Déploiement**. Vous devez décider l’origine à partir de laquelle le CDN va extraire le contenu, et si vous avez besoin de déployer le contenu dans plusieurs systèmes de stockage (par exemple, dans le CDN et dans un autre emplacement).
-  
+
   Le mécanisme de déploiement de votre application doit prendre en compte le processus de déploiement de contenu et de ressources statiques, ainsi que de déploiement des fichiers d’application tels que des pages ASPX. Par exemple, il se peut que vous deviez implémenter une étape distincte pour charger du contenu dans le stockage d’objets blob Azure.
 * **Contrôle de version et de cache**. Vous devez envisager la façon dont vous allez mettre à jour du contenu statique et déployer de nouvelles versions. Le contenu CDN peut être [vidé](cdn/cdn-purge-endpoint.md) à l'aide du portail Azure lorsque de nouvelles versions de vos ressources sont disponibles. Il s’agit d’un problème similaire à la gestion de la mise en cache côté client, comme celle qui se produit dans un navigateur web.
 * **Test**. Il peut être difficile de réaliser des tests locaux de vos paramètres de CDN lors du développement et du test d’une application localement ou dans un environnement intermédiaire.
@@ -74,7 +74,7 @@ Il existe plusieurs problèmes à prendre en compte lorsque vous envisagez d’u
 * **Sécurité du contenu**. De nombreux services de CDN, tel le CDN Azure, n’offrent actuellement aucun type de contrôle d’accès pour le contenu.
 * **Sécurité du client**. Des clients peuvent se connecter à partir d’un environnement qui n’autorise pas l’accès aux ressources sur le CDN. Cela peut être un environnement soumis à des contraintes de sécurité qui limite l’accès uniquement à un ensemble de sources connues ou qui empêche le chargement de ressources à partir de tout autre emplacement que la page d’origine. Une implémentation de secours est requise pour gérer ces situations.
 * **Résilience**. Le CDN peut être le point unique de défaillance d’une application. Il dispose d’une disponibilité SLA inférieure au stockage d’objets blob (qui peut être utilisé pour distribuer directement du contenu). Par conséquent, vous devrez peut-être envisager d’implémenter un mécanisme de secours pour le contenu important.
-  
+
   Vous pouvez surveiller la disponibilité du contenu, la bande passante, les données transférées, les accès, le taux d’accès au cache et les métriques du cache de votre CDN sur le portail Azure en [temps réel](cdn/cdn-real-time-stats.md) et dans les [rapports agrégés](cdn/cdn-analyze-usage-patterns.md).
 
 Les scénarios où le CDN peut s’avérer moins utile sont :  
@@ -247,7 +247,6 @@ Notez que l’utilisation de la réécriture d’URL requiert que vous apportiez
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

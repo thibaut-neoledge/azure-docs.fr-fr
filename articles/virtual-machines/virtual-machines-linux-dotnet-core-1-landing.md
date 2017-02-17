@@ -1,5 +1,5 @@
 ---
-title: Didacticiel sur DotNet Core pour les machines virtuelles Azure 1 | Microsoft Docs
+title: "Didacticiel sur DotNet Core pour les machines virtuelles Linux Azure 1 | Microsoft Docs"
 description: Didacticiel sur DotNet Core pour les machines virtuelles Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 11d67e09c25028a66c33020dedfb7acb8699d55f
+ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
+ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
 
 
 ---
@@ -73,6 +73,6 @@ Une fois le déploiement du modèle terminé, accédez à l’adresse IP publiqu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+title: "Créer une rubrique, un abonnement et une règle Azure Service Bus à l’aide d’un modèle | Microsoft Docs"
 description: "Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,22 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1a5d9d6fa62bee7b2b463ddc89fe6c99740e03d
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 16da81e14b7c4059de61b2dfebe081a9e4f08d5e
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus avec une rubrique, un abonnement et une règle (filtre). Vous apprenez à définir les ressources à déployer et à configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
-Pour en savoir plus sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour plus d’informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Pour plus d’informations sur les pratiques et les modèles des conventions d’affectation de noms des ressources Azure, consultez [Conventions d’affectation de noms des ressources Azure][Conventions d’affectation de noms des ressources Azure].
+Pour plus d’informations sur les pratiques et les modèles des conventions d’affectation de noms des ressources Azure, consultez [Conventions d’affectation de noms recommandées pour les ressources Azure][Recommended naming conventions for Azure resources].
 
-Pour accéder au modèle complet, consultez le [modèle d’espace de noms Service Bus avec rubrique, abonnement et règle][modèle d’espace de noms Service Bus avec rubrique, abonnement et règle].
+Pour obtenir le modèle complet, consultez le [modèle d’espace de noms Service Bus avec rubrique, abonnement et règle][Service Bus namespace with topic, subscription, and rule].
 
 > [!NOTE]
 > Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
@@ -37,7 +37,7 @@ Pour accéder au modèle complet, consultez le [modèle d’espace de noms Servi
 > * [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
 > * [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 > 
-> Pour rechercher les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure].
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
@@ -47,7 +47,7 @@ Avec ce modèle, vous déployez un espace de noms Service Bus avec rubrique, abo
 Les [rubriques et les abonnements Service Bus](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fournissent une forme de communication de type un-à-plusieurs dans un modèle de *publication/abonnement*. Lorsque vous utilisez des rubriques et des abonnements, les composants d’une application distribuée ne communiquent pas directement les uns avec les autres : ils échangent des messages par le biais d’une rubrique qui fait office d’intermédiaire. Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique. Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique. Une filtre sur un abonnement vous permet de spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
 ## <a name="what-are-rules-filters"></a>Qu’est-ce qu’une règle (filtre) ?
-Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Pour en savoir plus sur les règles (filtres), consultez [Files d’attente, rubriques et abonnements Service Bus][Files d’attente, rubriques et abonnements Service Bus].
+Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés souhaitées, puis apporter certaines modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Pour en savoir plus sur les règles (filtres), consultez [Files d’attente, rubriques et abonnements Service Bus][Service Bus queues, topics, and subscriptions].
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
@@ -61,7 +61,7 @@ Le modèle définit les paramètres suivants :
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nom de l’espace de noms Service Bus à créer.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -70,7 +70,7 @@ Nom de l’espace de noms Service Bus à créer.
 ### <a name="servicebustopicname"></a>serviceBusTopicName
 Nom de la rubrique créée dans l’espace de noms Service Bus.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -79,7 +79,7 @@ Nom de la rubrique créée dans l’espace de noms Service Bus.
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 Nom de l'abonnement créé dans l'espace de noms Service Bus.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -87,7 +87,7 @@ Nom de l'abonnement créé dans l'espace de noms Service Bus.
 ### <a name="servicebusrulename"></a>serviceBusRuleName
 Nom de la règle (filtre) créée dans l’espace de noms Service Bus.
 
-```
+```json
    "serviceBusRuleName": {
    "type": "string",
   }
@@ -95,7 +95,7 @@ Nom de la règle (filtre) créée dans l’espace de noms Service Bus.
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La version de l’API Service Bus du modèle.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -103,7 +103,7 @@ La version de l’API Service Bus du modèle.
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubrique, abonnement et règles.
 
-```
+```json
  "resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -156,12 +156,12 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
@@ -172,20 +172,20 @@ Maintenant que vous avez créé et déployé des ressources à l’aide d’Azur
 
 * [Gérer Azure Service Bus à l'aide d'Azure Automation](service-bus-automation-manage.md)
 * [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-[modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[En savoir plus sur les rubriques et abonnements Service Bus]: service-bus-queues-topics-subscriptions.md
-[Utilisation d’Azure PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Conventions d’affectation de noms des ressources Azure]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
-[modèle d’espace de noms Service Bus avec rubrique, abonnement et règle]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
-[Files d’attente, rubriques et abonnements Service Bus]:service-bus-queues-topics-subscriptions.md
-
-
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
+[Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
+[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

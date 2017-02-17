@@ -1,5 +1,5 @@
 ---
-title: "Création d’une passerelle Application Gateway avec le pare-feu d’applications web à l’aide du portail | Microsoft Docs"
+title: "Créer une passerelle Application Gateway Azure avec le pare-feu d’applications | Microsoft Docs"
 description: "Apprenez à créer une passerelle Application Gateway avec le pare-feu d’applications web à l’aide du portail"
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: ce8143823f7a33cc9d88cdb7f6f2ce72ff5330b9
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
@@ -69,13 +69,13 @@ Les paramètres permettant de mettre à jour une passerelle d’application exis
 
 * **Niveau** - Le niveau sélectionné doit être **WAF** pour prendre en charge les pare-feu d’applications web
 * **Taille de la référence (SKU)** - Taille de la passerelle Application Gateway avec un pare-feu d’applications web. Les options disponibles sont **Moyen** et **Grand**.
-* **État du pare-feu** - Ce paramètre désactive ou active la pare-feu d’applications web.
+* **État du pare-feu** - Ce paramètre désactive ou active le pare-feu d’applications web.
 * **Mode pare-feu** - Ce paramètre spécifique comment le pare-feu d’applications web traite le trafic malveillant. Le mode de **Détection** consigne uniquement les événements, tandis que le mode de **Prévention** consigne les événements et bloque le trafic malveillant.
 
 ![panneau montrant les paramètres de base][2]
 
 > [!NOTE]
-> Pour afficher les journaux de pare-feu d’applications web, les diagnostics doivent être activés et ApplicationGatewayFirewallLog doit être sélectionné. Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas disponibles lorsque vous utilisez des pare-feu d’applications web.
+> Pour afficher les journaux de pare-feu d’applications web, les diagnostics doivent être activés et ApplicationGatewayFirewallLog doit être sélectionné. Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à&2; n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas disponibles lorsque vous utilisez des pare-feu d’applications web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>créer une passerelle d’application avec le pare-feu d’applications web
 
@@ -108,7 +108,7 @@ Les informations nécessaires pour les paramètres de base sont les suivantes :
 ![panneau montrant les paramètres de base][2-2]
 
 > [!NOTE]
-> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas prises en charge dans les scénarios de pare-feu d’applications web.
+> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à&2; n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas prises en charge dans les scénarios de pare-feu d’applications web.
 
 ### <a name="step-3"></a>Étape 3
 
@@ -205,6 +205,6 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

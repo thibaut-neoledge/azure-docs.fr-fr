@@ -153,6 +153,6 @@ Ces rubriques décrivent comment concevoir des applications résistantes aux dé
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

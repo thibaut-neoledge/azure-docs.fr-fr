@@ -1,5 +1,5 @@
 ---
-title: "Configuration d’un pare-feu d’applications web sur une passerelle Application Gateway nouvelle ou existante | Microsoft Docs"
+title: "Configurer un pare-feu d’applications web - Passerelle Application Gateway Azure | Microsoft Docs"
 description: "Cet article explique comment utiliser un pare-feu d’applications web sur une passerelle d’application nouvelle ou existante."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
 
 
 ---
@@ -336,6 +336,6 @@ Apprenez à configurer la journalisation des diagnostics, à consigner les évé
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
 
 
 ---
@@ -41,7 +41,7 @@ Vous apprendrez ce qui suit :
 > [!NOTE]
 > Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting) .
 > 
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/). Vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -104,10 +104,10 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
     ![_Layout.cshtml dans l'Explorateur de solutions][newapp004]
 2. Remplacez le lien ActionLink *_Layout.cshtml* par le code suivant :
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Pour le troisième paramètre, remplacez "Home" par "Contacts". Le balisage ci-dessus crée un lien "Contacts" sur chaque page vers la méthode Index du contrôleur Contacts. Remplacez le nom de l’application dans l’en-tête et le pied de page "Mon application ASP.NET" et "Nom de l’application" par "Gestionnaire de contacts" et "Démonstration GC". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Pour le troisième paramètre, remplacez "Home" par "Contacts". Le balisage ci-dessus crée un lien "Contacts" sur chaque page vers la méthode Index du contrôleur Contacts. Remplacez le nom de l’application dans l’en-tête et le pied de page "Mon application ASP.NET" et "Nom de l’application" par "Gestionnaire de contacts" et "Démonstration GC". 
 
 ### <a name="run-the-application-locally"></a>Exécution locale de l'application
 1. Appuyez sur Ctrl+F5 pour exécuter l'application.
@@ -443,7 +443,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
           }
    
     Si vous effectuez une recherche globale pour *AllowAnonymous*, vous pouvez voir qu’il est utilisé dans les méthodes de connexion et d’inscription du contrôleur Compte.
-3. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous : 
+3. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action sauf Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous : 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -663,6 +663,6 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -72,6 +72,6 @@ Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

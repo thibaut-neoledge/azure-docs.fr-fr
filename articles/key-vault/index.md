@@ -166,6 +166,6 @@ Apprenez à utiliser Key Vault pour protéger et gérer les clés de chiffrement
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

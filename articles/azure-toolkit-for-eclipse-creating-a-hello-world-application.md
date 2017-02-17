@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9f062f1cc855a47bb75668e99330e98bb2395b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b7a74df9bfcf75b00af5aaf21e9f74610712ab47
 
 
 ---
@@ -32,7 +32,7 @@ L’application sera semblable à ce qui suit :
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à l’adresse suivante : <http://www.eclipse.org/downloads/>.
 * Distribution d’un serveur web ou d’un serveur d’applications basé sur Java, tel qu’Apache Tomcat, GlassFish, JBoss Application Server, Jetty ou IBM® WebSphere® Application Server Liberty Core.
 * Un abonnement Azure, qui peut être obtenu à l’adresse <http://azure.microsoft.com/pricing/purchase-options/>.
-* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse][Installation du kit de ressources Azure pour Eclipse].
+* Kit de ressources Azure pour Eclipse. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse][Installing the Azure Toolkit for Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Pour créer une application Hello World
 Tout d’abord, nous allons commencer par créer un projet Java.
@@ -74,13 +74,13 @@ Dès qu’une application web Java est prête à être testée, vous pouvez util
    5. Dans **Système d’exploitation cible**, sélectionnez la version du système d’exploitation que vous souhaitez utiliser pour le déploiement.
    6. Dans **Environnement cible**, pour les besoins de ce didacticiel, sélectionnez **Intermédiaire**. (Lorsque vous êtes prêt à procéder au déploiement sur votre site de production, vous devez modifier ce paramètre et le définir sur **Production**.)
    7. Facultatif : vérifiez que la case **Remplacer le déploiement précédent** est cochée si vous souhaitez que votre nouveau déploiement remplace automatiquement le déploiement précédent. Si vous activez cette option, vous ne rencontrerez pas de problèmes « Conflit (409) » lors de la publication vers le même emplacement.
-       La boîte de dialogue **Publier sur Azure** contient une section **Accès à distance**. Par défaut, l’accès à distance n’est pas activé, et nous ne l’activerons pas pour cet exemple. Pour activer l’accès à distance, vous devez entrez un nom d’utilisateur et un mot de passe à utiliser lors de la connexion à distance. Pour plus d’informations sur l’accès à distance, consultez la page [Activation de l’accès à distance pour les déploiements Azure dans Eclipse][Activation de l’accès à distance pour les déploiements Azure dans Eclipse].
+       La boîte de dialogue **Publier sur Azure** contient une section **Accès à distance**. Par défaut, l’accès à distance n’est pas activé, et nous ne l’activerons pas pour cet exemple. Pour activer l’accès à distance, vous devez entrez un nom d’utilisateur et un mot de passe à utiliser lors de la connexion à distance. Pour plus d’informations sur l’accès à distance, consultez la page [Activation de l’accès à distance pour les déploiements Azure dans Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
        La boîte de dialogue **Publier sur Azure** apparaît, semblable à ce qui suit :  ![][ic719488]
 5. Cliquez sur **Publier** pour publier dans l’environnement intermédiaire.
     Lorsque vous êtes invité à effectuer une génération complète, cliquez sur **Oui**. La première génération peut prendre plusieurs minutes.
     Un **journal des activités Azure** s’affiche dans la section des vues Eclipse avec onglets.
     ![][ic719489]
-    Vous pouvez utiliser ce journal, ainsi que la vue **Console** pour afficher la progression de votre déploiement. Vous pouvez également vous connecter au [portail de gestion Azure][portail de gestion Azure] et utiliser la section **Cloud Services** pour surveiller l’état.
+    Vous pouvez utiliser ce journal, ainsi que la vue **Console** pour afficher la progression de votre déploiement. Vous pouvez également vous connecter au [portail de gestion Azure][Azure Management Portal] et utiliser la section **Services Cloud** pour surveiller l’état.
 6. Si votre déploiement est effectué avec succès, le **journal des activités Azure** indique l’état **Publié**. Cliquez sur **Publié**, comme illustré dans l’image suivante pour ouvrir une instance de votre déploiement dans le navigateur.
     ![][ic719490]
 
@@ -115,7 +115,7 @@ Pour modifier le JDK, le serveur d’applications ou la liste des applications 
 3. Développez le sous-menu **Azure** dans le menu contextuel.
 4. Cliquez sur **Configuration du serveur**
 
-Que vous ayez démarré cette procédure de configuration du serveur en modifiant un projet de déploiement Azure existant comme indiqué ci-dessus ou en en créant un depuis le début, les mêmes types de boîte de dialogue s’affichent et vous permettent de configurer vos composants JDK, serveur et application. Pour découvrir comment modifier les paramètres dans ces boîtes de dialogue, par exemple pour modifier le JDK, le serveur d’applications, et pour ajouter ou supprimer des applications dans un déploiement, consultez l’article [Propriétés de configuration de serveur][Propriétés de configuration de serveur].
+Que vous ayez démarré cette procédure de configuration du serveur en modifiant un projet de déploiement Azure existant comme indiqué ci-dessus ou en en créant un depuis le début, les mêmes types de boîte de dialogue s’affichent et vous permettent de configurer vos composants JDK, serveur et application. Pour découvrir comment modifier les paramètres dans ces boîtes de dialogue, par exemple pour modifier le JDK, le serveur d’applications, et pour ajouter ou supprimer des applications dans un déploiement, consultez l’article [Propriétés de configuration de serveur][Server configuration properties].
 
 ## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Windows uniquement : Pour déployer votre application vers l’émulateur de calcul
 > [!NOTE]
@@ -155,24 +155,24 @@ Sélectionnez l’abonnement et le service cloud qui contient votre déploiement
 (Une alternative à l’utilisation du kit de ressources pour supprimer le déploiement consiste à utiliser la section **Cloud Services** du portail de gestion Azure : accédez à votre déploiement, sélectionnez-le, puis cliquez sur le bouton**Supprimer**. Le déploiement est alors arrêté, puis supprimé. Si vous voulez uniquement arrêter le déploiement sans le supprimer, cliquez sur le bouton **Arrêter** et non sur le bouton **Supprimer**. Cependant, comme indiqué précédemment, si vous ne le supprimez pas, des frais facturables continueront de s’accumuler pour votre déploiement, même s’il est arrêté).
 
 ## <a name="see-also"></a>Voir aussi
-[Kit de ressources Azure pour Eclipse][Kit de ressources Azure pour Eclipse]
+[Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse]
 
-[Installation du kit de ressources Azure pour Eclipse][Installation du kit de ressources Azure pour Eclipse] 
+[Installation du kit de ressources Azure pour Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Nouveautés du kit de ressources Azure pour Eclipse][Nouveautés du kit de ressources Azure pour Eclipse]
+[Nouveautés du kit de ressources Azure pour Eclipse][What's New in the Azure Toolkit for Eclipse]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Propriétés du rôle Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Activation de l’accès à distance pour les déploiements Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Propriétés de configuration de serveur]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Nouveautés du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -197,6 +197,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
-ms.openlocfilehash: ec71a4674e9281927cd20897476e0180256936da
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 067725ee5f303fc21baa3204509e8facd6f216fc
 
 
 ---
@@ -34,7 +34,11 @@ Dans cet article, vous allez apprendre à utiliser les outils HDInsight pour Vis
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Azure HDInsight (Hadoop sur HDInsight, Linux ou Windows)
+* Un cluster Azure HDInsight sous Linux (Hadoop sur HDInsight)
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Visual Studio (l'une des versions suivantes) :
   
     Visual Studio 2013 Community/Professional/Premium/Ultimate avec [mise à jour 4](https://www.microsoft.com/download/details.aspx?id=44921)
@@ -155,6 +159,6 @@ Pour plus d’informations sur les outils de HDInsight pour Visual Studio :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

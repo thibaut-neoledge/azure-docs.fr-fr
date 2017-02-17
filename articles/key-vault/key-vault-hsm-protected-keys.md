@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3de8751c58870fceee2575608982a5b36eca7478
+ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
+ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
 
 
 ---
@@ -233,7 +233,7 @@ Cette étape est facultative, mais recommandée afin que vous puissiez valider l
 
 Pour valider le package téléchargé :
 
-1. Exécutez le script verifykeypackage.py en rattachant une des valeurs suivantes, selon votre région géographique ou votre instance d’Azure :
+1. Exécutez le script verifykeypackage.py en tapant l’une des valeurs suivantes, selon votre région géographique ou votre instance d’Azure :
    
    * Pour l’Amérique du Nord :
      
@@ -411,6 +411,6 @@ Vous pouvez maintenant utiliser cette clé protégée HSM dans votre coffre de c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

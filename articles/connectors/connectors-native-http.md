@@ -4,7 +4,7 @@ description: "Vue d’ensemble de l’action HTTP et de ses propriétés"
 services: 
 documentationcenter: 
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
 
 
 ---
@@ -29,7 +29,7 @@ Vous pouvez :
 * Créez des workflows d’application logique qui s’activent (se déclenchent) lors d’une défaillance d’un site Web que vous gérez.
 * Communiquez avec n’importe quel point de terminaison par le biais de HTTP afin d’étendre vos workflows à d’autres services.
 
-Pour commencer à utiliser l’action HTTP dans une application logique, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour commencer à utiliser l’action HTTP dans une application logique, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-http-trigger"></a>Utilisation du déclencheur HTTP
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
@@ -125,7 +125,7 @@ Vous trouverez ci-dessous les détails de sortie correspondant à la requête HT
 | Code d’état |int |Code d'état HTTP |
 
 ## <a name="authentication"></a>Authentification
-La fonction Logic Apps d’Azure App Service vous permet d’utiliser différents types d’authentification sur vos points de terminaison HTTP. Vous pouvez utiliser cette authentification avec les connecteurs **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** et **[HTTP Webhook](connectors-native-webhook.md)**. Les types d’authentification suivants sont configurables :
+La fonctionnalité Logic Apps vous permet d’utiliser différents types d’authentification sur vos points de terminaison HTTP. Vous pouvez utiliser cette authentification avec les connecteurs **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** et **[HTTP Webhook](connectors-native-webhook.md)**. Les types d’authentification suivants sont configurables :
 
 * [Authentification de base](#basic-authentication)
 * [Authentification par certificat client](#client-certificate-authentication)
@@ -209,11 +209,11 @@ Par exemple :
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

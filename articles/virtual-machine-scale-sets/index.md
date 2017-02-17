@@ -129,6 +129,6 @@ Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -251,6 +251,6 @@ Découvrez comment [déployer et configurer votre appareil StorSimple local](sto
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

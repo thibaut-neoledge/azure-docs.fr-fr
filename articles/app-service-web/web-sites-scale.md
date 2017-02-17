@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
 
 
 ---
@@ -89,7 +89,7 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 * Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](http://go.microsoft.com/fwlink/?LinkId=523751) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](https://azure.microsoft.com/try/app-service/) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
 > 
 > 
 
@@ -143,6 +143,6 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

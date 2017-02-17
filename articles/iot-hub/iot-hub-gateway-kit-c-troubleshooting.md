@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes de votre passerelle Azure IoT | Microsoft Docs"
+title: "Appareil SensorTag et passerelle Azure IoT - Résolution de problèmes | Microsoft Docs"
 description: "Page de résolution des problèmes pour la passerelle Intel NUC"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: c1c7679af9a931c46d25a2e1509e67b781b00f35
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: f24a620a18d7756b24f8f5f63d8b31fca63ade25
 
 
 ---
@@ -174,6 +174,6 @@ Une expérience complète de l’interface de ligne de commande vous permet de c
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

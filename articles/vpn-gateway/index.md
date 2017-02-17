@@ -168,6 +168,6 @@ Apprenez à configurer la Passerelle VPN, une passerelle de réseau privé virtu
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

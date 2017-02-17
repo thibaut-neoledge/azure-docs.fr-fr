@@ -66,6 +66,6 @@ La mise à la disposition générale signifie qu’Azure Search est désormais a
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

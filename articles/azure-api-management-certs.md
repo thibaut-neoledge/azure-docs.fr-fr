@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 04/18/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f7b0c3acea5bef6017230df82c57ab7a6ebccd80
-ms.openlocfilehash: 19e5ef3d18deb4bf49699df6449d1cafab92ff53
+ms.sourcegitcommit: 783390791f27a9bf8ea400403a8b0f866f8c5cee
+ms.openlocfilehash: 0f1ae486340270cac5cfdb5d44485d05cb996388
 
 
 ---
@@ -53,10 +53,10 @@ Une fois le certificat de gestion créé (fichier .cer contenant uniquement la c
     ![Paramètres](./media/azure-api-management-certs/upload-dialog.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’ [API REST de Service Management](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
+Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’ [API REST Gestion des services](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble de la configuration de Reliable Actors ReliableDictionaryActorStateProvider dans Azure Service Fabric | Microsoft Docs"
+title: "Modifier les paramètres de ReliableDictionaryActorStateProvider dans les microservices Azure | Microsoft Docs"
 description: "Découvrez comment configurer les acteurs avec état Azure Service Fabric de type ReliableDictionaryActorStateProvider."
 services: Service-Fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2016
+ms.date: 02/8/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59c8a1a09580161593639d01cc8a3d8d8ef0f6f4
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
 
 
 ---
@@ -69,14 +69,14 @@ Les configurations de sécurité du réplicateur sont utilisées pour sécuriser
 Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 
 ### <a name="section-name"></a>Nom de la section
-&lt;NomActeur&gt;ServiceReplicatorSecurityConfig
+&lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuration du réplicateur
 Les configurations de réplicateur servent à configurer le réplicateur en charge de la haute fiabilité de l’état du fournisseur d’état d’acteur par la réplication et la persistance de l’état au niveau local.
 La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
 
 ### <a name="section-name"></a>Nom de la section
-&lt;NomActeur&gt;ServiceReplicatorConfig
+&lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Noms des configurations
 | Nom | Unité | Valeur par défaut | Remarques |
@@ -128,6 +128,6 @@ Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1930,6 +1930,6 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

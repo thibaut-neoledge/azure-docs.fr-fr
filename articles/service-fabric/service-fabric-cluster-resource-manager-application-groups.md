@@ -167,6 +167,6 @@ Les restrictions sont appliquées lors de la création d’applications (côté 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

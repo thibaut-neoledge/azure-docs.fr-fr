@@ -1,5 +1,5 @@
 ---
-title: Restauration SQL Data Warehouse | Microsoft Docs
+title: "Restaurer un entrepôt de données Azure - local et géoredondant | Microsoft Docs"
 description: "Vue d’ensemble des options de restauration de base de données pour la récupération d’une base de données dans Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2147967edc1dadcc8bda5e5a33bbdedd62a22b4f
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
 
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauration SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Vue d'ensemble][Vue d'ensemble]
-> * [Portail][Portail]
+> * [Vue d’ensemble][Overview]
+> * [Portail][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
 > 
@@ -90,9 +90,9 @@ Pour effectuer une restauration d’entrepôt de données, utilisez l’une des 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: ../sql-database/sql-database-business-continuity.md
-[Vue d'ensemble]: ./sql-data-warehouse-restore-database-overview.md
-[Portail]: ./sql-data-warehouse-restore-database-portal.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
@@ -103,6 +103,6 @@ Pour effectuer une restauration d’entrepôt de données, utilisez l’une des 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

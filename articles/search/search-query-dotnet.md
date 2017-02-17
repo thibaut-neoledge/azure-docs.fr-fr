@@ -169,6 +169,6 @@ L’exemple de code ci-dessus utilise la console pour générer les résultats d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

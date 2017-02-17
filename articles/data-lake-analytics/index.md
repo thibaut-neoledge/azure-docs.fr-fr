@@ -253,6 +253,6 @@ Apprenez à utiliser Data Lake Analytics pour exécuter des travaux d’analyse 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

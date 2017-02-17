@@ -1,5 +1,5 @@
 ---
-title: "Unités de requête dans DocumentDB | Microsoft Docs"
+title: "Unités de requête et estimation du débit - Azure DocumentDB | Microsoft Docs"
 description: "Découvrez les besoins en unités de requête dans DocumentDB, et comment les spécifier et les estimer."
 services: documentdb
 author: syamkmsft
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
 
 
 ---
@@ -120,7 +120,7 @@ Par exemple :
 6. Calculer les unités de requête nécessaires étant donné l’estimation du nombre d’exécutions d’opérations prévues chaque seconde.
 
 ## <a name="a-request-unit-estimation-example"></a>Exemple d’estimation d’unités de requête
-Considérez le document suivant d’environ 1 Ko :
+Considérez le document suivant d’environ&1; Ko :
 
     {
      "id": "08259",
@@ -239,6 +239,6 @@ Pour commencer avec le test des performances et de la mise à l’échelle avec 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

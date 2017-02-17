@@ -130,6 +130,6 @@ Est-il possible d’utiliser ces configurations pour les services d’un cluster
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -164,6 +164,6 @@ Découvrez comment utiliser Service Fabric pour empaqueter, déployer et gérer 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Envoi de travaux Spark à distance à l’aide de Livy | Microsoft Docs"
+title: "Utiliser Livy pour soumettre des travaux à distance à Spark sur Azure HDInsight | Microsoft Docs"
 description: "Découvrez comment utiliser Livy avec les clusters HDInsight pour soumettre les travaux Spark à distance."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0866581d6feebc71ed82aa48f6e41a58068af900
-ms.openlocfilehash: 0b8c9f9395f034355c8f10574e750fcf40e870de
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Envoi de tâches Spark à distance à un cluster Apache Spark sous HDInsight Linux à l'aide de Livy
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Soumettre des travaux Spark à distance à un cluster Apache Spark sous HDInsight à l’aide de Livy
+
 Un cluster Apache Spark sur Azure HDInsight inclut Livy, une interface REST permettant de soumettre des travaux à distance à un cluster Spark. Consultez la documentation détaillée sur Livy [ici](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Vous pouvez utiliser Livy pour exécuter des interpréteurs de commandes Spark interactifs ou soumettre des traitements par lots à exécuter sur Spark. Cet article traite de l’utilisation de Livy pour soumettre des traitements par lots. La syntaxe ci-dessous utilise Curl pour effectuer des appels REST au point de terminaison Livy.
@@ -31,7 +32,7 @@ Vous pouvez utiliser Livy pour exécuter des interpréteurs de commandes Spark i
 Vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="submit-a-batch-job"></a>Soumettre un traitement par lots
 Avant de soumettre un traitement par lots, vous devez télécharger le fichier .jar d’application sur le stockage associé au cluster. Pour ce faire, vous pouvez utiliser l’utilitaire de ligne de commande [**AzCopy**](../storage/storage-use-azcopy.md). De nombreux autres clients permettent également de télécharger des données. Pour en savoir plus à leur sujet, consultez [Téléchargement de données pour les travaux Hadoop dans HDInsight](hdinsight-upload-data.md).
@@ -80,7 +81,7 @@ Dans cette section, nous étudions des exemples sur l’utilisation de Livy pour
 
 Procédez comme suit.
 
-1. Vérifions tout d’abord que Livy est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy, 0 doit être la valeur renvoyée.
+1. Vérifions tout d’abord que Livy est en cours d’exécution sur le cluster. Pour ce faire, nous pouvons obtenir une liste des lots en cours d’exécution. S’il s’agit de la première fois que vous exécutez un travail à l’aide de Livy,&0; doit être la valeur renvoyée.
    
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
    
@@ -193,6 +194,6 @@ Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins loc
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

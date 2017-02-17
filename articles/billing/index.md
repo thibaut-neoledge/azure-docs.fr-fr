@@ -114,6 +114,6 @@ Apprenez à comprendre votre facturation Azure et à gérer et analyser l’util
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

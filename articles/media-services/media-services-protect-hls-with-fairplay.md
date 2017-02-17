@@ -566,6 +566,6 @@ L'exemple suivant illustre la fonctionnalité introduite dans le kit SDK Azure M
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

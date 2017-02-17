@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble du point de terminaison v2.0 | Microsoft Docs"
+title: Ressources pour le point de terminaison Azure AD v2.0 | Microsoft Docs
 description: "Introduction à la création d’applications avec une connexion de compte Microsoft et Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 245655ac4feed23cb91890d6a4dd2fa5d23cf54f
-ms.openlocfilehash: 30b9f44cdde09d69f41ed9fb42f63786f08c4040
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: d3571d3d842ac908200c7e6b437b40d3c370b38d
 
 
 ---
@@ -59,6 +59,6 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

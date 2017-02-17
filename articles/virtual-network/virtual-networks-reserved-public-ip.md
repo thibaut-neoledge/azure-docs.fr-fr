@@ -168,6 +168,6 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

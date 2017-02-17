@@ -156,6 +156,6 @@ Découvrez comment utiliser Azure Storage, un service de stockage cloud fiable, 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

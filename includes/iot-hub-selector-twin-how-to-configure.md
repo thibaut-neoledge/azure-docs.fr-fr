@@ -94,6 +94,6 @@ Ce didacticiel vous explique les procédures suivantes :
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

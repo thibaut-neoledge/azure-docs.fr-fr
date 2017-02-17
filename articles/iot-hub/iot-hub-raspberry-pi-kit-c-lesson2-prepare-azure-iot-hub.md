@@ -1,5 +1,5 @@
 ---
-title: "Création de votre IoT Hub et inscription de Raspberry Pi 3 | Microsoft Docs"
+title: "Connecter Raspberry Pi (C) à Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
 description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscrivez votre Pi dans Azure IoT Hub à l’aide de l’interface de ligne de commande Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 4fb7280cbf9221d1fe8b9fae24356e367969d32a
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d7bc143b509e84d50f3ce0164d31ae51a26f75d4
 
 
 ---
@@ -99,6 +99,6 @@ Vous avez créé un IoT Hub et enregistré Pi sous une identité d’appareil da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

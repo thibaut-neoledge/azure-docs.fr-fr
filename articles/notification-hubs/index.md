@@ -217,6 +217,6 @@ Apprenez à utiliser Notification Hubs, un moteur de notifications push multipla
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

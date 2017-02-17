@@ -170,6 +170,6 @@ Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer p
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

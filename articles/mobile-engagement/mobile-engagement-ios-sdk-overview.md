@@ -184,6 +184,6 @@ Par exemple, si vous avez implémenté la méthode 1 ci-dessus :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

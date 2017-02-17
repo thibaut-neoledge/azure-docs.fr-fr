@@ -12,11 +12,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4753f54d319475e8d1a87e5497ab9e03765f8546
-ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
 
 
 ---
@@ -24,10 +24,8 @@ ms.openlocfilehash: b0e28cdc4ac8abd8dae7d9c08731664a03a44b2e
 
 Les actions de script sont un moyen de personnaliser les clusters Azure HDInsight en spécifiant les paramètres de configuration de cluster ou en installant des services, outils ou autres logiciels supplémentaires sur le cluster. Vous pouvez utiliser les actions de script lors de la création du cluster ou sur un cluster en cours d'exécution.
 
-> [!NOTE]
-> Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur l’utilisation des actions de script avec les clusters basés sur Windows, consultez [Développement d’action de script avec HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
-> 
-> 
+> [!IMPORTANT]
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="what-are-script-actions"></a>Définition des actions de script
 
@@ -75,32 +73,34 @@ L’autre différence majeure entre HDInsight 3.4 et 3.5 résident dans le fait 
 
 Vous pouvez vérifier la version du système d’exploitation à l’aide de `lsb_release`. Les extraits de code suivants dans le script d’installation Hue montre comment déterminer si le script s’exécute sur Ubuntu 14 ou 16 :
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"
-        systemctl daemon-reload
-        systemctl stop webwasb.service    
-        systemctl start webwasb.service
-    else
-        echo "Using upstart configuration"
-        initctl reload-configuration
-        stop webwasb
-        start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+...
+if [[ $OS_VERSION == 16* ]]; then
+    echo "Using systemd configuration"
+    systemctl daemon-reload
+    systemctl stop webwasb.service    
+    systemctl start webwasb.service
+else
+    echo "Using upstart configuration"
+    initctl reload-configuration
+    stop webwasb
+    start webwasb
+fi
+...
+if [[ $OS_VERSION == 14* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+elif [[ $OS_VERSION == 16* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+fi
+```
 
 Le script complet contenant ces extraits de code est consultable à l’adresse https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
@@ -142,7 +142,9 @@ Les composants que vous installez sur le cluster peuvent être configurés par d
 
 Par exemple, le texte suivant copie le fichier giraph-examples.jar du système de fichiers local vers WASB :
 
-    hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```bash
+hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```
 
 ### <a name="a-namebps7awrite-information-to-stdout-and-stderr"></a><a name="bPS7"></a>Écrire des informations sur STDOUT et STDERR
 
@@ -153,11 +155,15 @@ Les informations écrites dans STDOUT et STDERR pendant l’exécution du script
 
 La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
 
-    echo "Getting ready to install Foo"
+```bash
+echo "Getting ready to install Foo"
+```
 
 Par défaut, `echo` envoie la chaîne à STDOUT. Pour la diriger vers STDERR, ajoutez `>&2` avant `echo`. Par exemple :
 
-    >&2 echo "An error occurred installing Foo"
+```bash
+>&2 echo "An error occurred installing Foo"
+```
 
 Les informations sont redirigées vers STDOUT (1, par défaut et donc, non répertoriées ici) vers STDERR (2). Pour plus d’informations sur la redirection des E/S, consultez [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
@@ -167,8 +173,10 @@ Pour plus d’informations sur l’affichage des informations consignées par le
 
 Les scripts d’interpréteur de commandes doivent être stockés au format ASCII, avec des lignes terminées se terminant par LF. Si les fichiers sont stockés au format UTF-8 qui peuvent inclure une marque d’ordre d’octet au début du fichier, ou avec des fins de ligne CRLF, ce qui est courant pour les éditeurs de Windows, le script échoue avec des erreurs ressemblant à ce qui suit :
 
-    $'\r': command not found
-    line 1: #!/usr/bin/env: No such file or directory
+```
+$'\r': command not found
+line 1: #!/usr/bin/env: No such file or directory
+```
 
 ### <a name="a-namebps9a-use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire
 
@@ -176,40 +184,46 @@ Lors du téléchargement de fichiers, de l’installation de packages à l’aid
 
 Pour rendre votre script résistant aux erreurs temporaires, vous pouvez implémenter la logique de nouvelle tentative. Voici un exemple de fonction qui exécute toute commande qui lui est transmise et qui, si la commande échoue, réessaye jusqu’à trois fois. Deux secondes s’écoulent entre chaque tentative.
 
-    #retry
-    MAXATTEMPTS=3
+```bash
+#retry
+MAXATTEMPTS=3
 
-    retry() {
-        local -r CMD="$@"
-        local -i ATTMEPTNUM=1
-        local -i RETRYINTERVAL=2
+retry() {
+    local -r CMD="$@"
+    local -i ATTMEPTNUM=1
+    local -i RETRYINTERVAL=2
 
-        until $CMD
-        do
-            if (( ATTMEPTNUM == MAXATTEMPTS ))
-            then
-                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
-                    return 1
-            else
-                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
-                    sleep $(( RETRYINTERVAL ))
-                    ATTMEPTNUM=$ATTMEPTNUM+1
-            fi
-        done
-    }
+    until $CMD
+    do
+        if (( ATTMEPTNUM == MAXATTEMPTS ))
+        then
+                echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                return 1
+        else
+                echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                sleep $(( RETRYINTERVAL ))
+                ATTMEPTNUM=$ATTMEPTNUM+1
+        fi
+    done
+}
+```
 
 Voici quelques exemples d’utilisation de cette fonction.
 
-    retry ls -ltr foo
+```bash
+retry ls -ltr foo
 
-    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+```
 
 ## <a name="a-namehelpermethodsahelper-methods-for-custom-scripts"></a><a name="helpermethods"></a>Méthodes d'assistance pour les scripts personnalisés
 
 L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ceux-ci sont définis dans [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh)et peuvent être inclus dans vos scripts à l’aide des éléments suivants :
 
-    # Import the helper method module.
-    wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```bash
+# Import the helper method module.
+wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```
 
 Les programmes d’assistance sont ainsi disponibles pour une utilisation dans votre script :
 
@@ -252,7 +266,9 @@ Lors des accès ultérieurs aux informations, il est possible d’utiliser `$PAS
 
 Les variables d’environnement définies dans le script existent uniquement dans le cadre du script. Dans certains cas, vous devrez peut-être ajouter des variables d’environnement de niveau système qui persisteront une fois le script terminé. En général, c’est ainsi pour que les utilisateurs qui se connectent au cluster via SSH utilisent les composants installés par votre script. Vous pouvez accomplir cette action en ajoutant la variable d’environnement à `/etc/environment`. Par exemple, ce qui suit ajoute **HADOOP\_CONF\_DIR** :
 
-    echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```bash
+echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Accès aux emplacements où sont stockés les scripts personnalisés
 
@@ -282,14 +298,16 @@ Différentes versions de HDInsight s’appuient sur des versions spécifiques d�
 
 Pour vérifier la version du système d’exploitation, utilisez `lsb_release`. L’exemple suivant montre comment référencer un fichier tar différent selon la version du système d’exploitation :
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
 
 ## <a name="a-namedeployscriptachecklist-for-deploying-a-script-action"></a><a name="deployScript"></a>Liste de vérification pour le déploiement d'une action de script
 
@@ -357,6 +375,6 @@ Pour la commande ci-dessus, remplacez **INFILE** par le fichier contenant la mar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

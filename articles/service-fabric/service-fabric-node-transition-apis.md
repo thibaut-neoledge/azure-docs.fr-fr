@@ -1,6 +1,6 @@
 ---
-title: "Remplacement des API de démarrage et d’arrêt de nœud par l’API de transition de nœud Azure Service Fabric | Microsoft Docs"
-description: "Remplacement des API de démarrage et d’arrêt de nœud par l’API de transition de nœud Azure Service Fabric"
+title: "Démarrer et arrêter des nœuds de cluster pour tester les microservices Azure | Microsoft Docs"
+description: "Découvrez comment utiliser l’injection d’erreurs pour tester une application Service Fabric en démarrant et en arrêtant des nœuds de cluster."
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 4ca07de3604c3f543354d97db100b1f578cb0a5a
-ms.openlocfilehash: 5096ad4bdb75766850e557ed09f39b15c95126da
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: 5f76100007466f2baf4e067de963486f47fbf857
 
 
 ---
@@ -291,6 +291,6 @@ Démarrer un nœud *arrêté* à l’aide de l’API de transition de nœud le f
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

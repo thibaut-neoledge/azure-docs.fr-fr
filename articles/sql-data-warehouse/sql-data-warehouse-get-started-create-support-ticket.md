@@ -101,6 +101,6 @@ En outre, vous pouvez contacter la communauté SQL Data Warehouse sur [Stack Ove
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b572ac3416936b1511a9d267c30b56af714eaf3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 80f25488b6573579d980880cb4aaadf7fc59c5e7
 
 
 ---
@@ -321,7 +321,7 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
@@ -362,6 +362,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

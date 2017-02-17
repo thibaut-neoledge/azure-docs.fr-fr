@@ -1,5 +1,5 @@
 ---
-title: "Préparez votre ordinateur hôte et Azure IoT Hub | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Leçon 2 : Obtenir des outils (Windows) | Microsoft Docs"
 description: "Installez les outils et les logiciels sur votre ordinateur hôte exécutant Windows, créez un hub IoT et inscrivez votre appareil dans l’IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: fd00d36e55109dfa4c6ddfab7d92872854696ba0
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b07c6c383f31f77a78628593a60b7b76a49bca4f
 
 
 ---
@@ -127,6 +127,6 @@ Vous avez installé tous les outils et logiciels nécessaires sur votre ordinate
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

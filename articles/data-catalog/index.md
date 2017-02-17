@@ -82,6 +82,6 @@ Découvrez comment configurer Data Catalog pour aider votre organisation et votr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

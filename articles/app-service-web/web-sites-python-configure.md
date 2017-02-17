@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8a9cdbc993468db23f2a256c1ff092c1b057a18
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c4fe19e608061c4b69f3856313ece87e9870bbf9
 
 
 ---
@@ -353,7 +353,7 @@ Contenu de `ptvs_virtualenv_proxy.py`:
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -363,6 +363,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

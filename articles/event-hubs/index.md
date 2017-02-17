@@ -145,6 +145,6 @@ Découvrez comment utiliser Event Hubs pour collecter et gérer des millions d�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

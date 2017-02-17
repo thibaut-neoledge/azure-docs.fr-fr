@@ -12,23 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 45a5c8f16dd70f65967907c18752f4f98ffa75ea
 
 
 ---
 # <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Conversion de WordPress en WordPress multisite dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
-*Par [Ben Lobaughben][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
+*Par [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 Ce didacticiel vous explique comment prendre une application Web WordPress existante créée par le biais de la galerie dans Azure et la convertir en une installation WordPress multisite. En outre, vous allez apprendre à attribuer un domaine personnalisé à chacun des sous-sites de votre installation.
 
-Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Dans le cas contraire, suivez les instructions fournies dans [Création d’un site web WordPress à partir de la galerie dans Azure][website-from-gallery].
+Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Si tel n’est pas le cas, suivez les instructions fournies dans la page [Création d’un site Web WordPress à partir de la galerie dans Azure][website-from-gallery].
 
-La conversion d’une installation de site unique WordPress existante en installation multisite est généralement assez simple. De nombreuses étapes initiales sont issues de la page [Créer un réseau][wordpress-codex-create-a-network] du [Codex WordPress](http://codex.wordpress.org).
+La conversion d’une installation monosite WordPress en une installation multisite est généralement assez simple, et un grand nombre d’étapes initiales proviennent de la page [Create A Network (Création d’un réseau)][wordpress-codex-create-a-network] sur le [Codex WordPress](http://codex.wordpress.org).
 
 Allons-y.
 
@@ -53,7 +53,7 @@ Connectez-vous à la zone *wp-admin* de votre application web. Vous devez voir 
 
 Ce didacticiel utilise le schéma de site *Sous-dossiers* parce qu’il doit toujours fonctionner. Nous définirons des domaines personnalisés pour chaque sous-site ultérieurement dans le didacticiel. Toutefois, il doit être possible de configurer l’installation du sous-domaine, si vous mappez un domaine via le [portail Azure](https://portal.azure.com) et que vous configurez correctement le DNS générique.
 
-Pour plus d’informations sur les configurations de sous-domaine et de sous-répertoire, voir l’article [Types de réseau multisite][wordpress-codex-types-of-networks] (en anglais) du Codex WordPress.
+Pour plus d’informations sur les configurations de sous-domaine et de sous-dossier, consultez [Types of multisite network (Types de réseau multisite)][wordpress-codex-types-of-networks] sur le Codex WordPress.
 
 ## <a name="enable-the-network"></a>Activation du réseau
 Le réseau est maintenant configuré dans la base de données, mais il reste une étape pour activer cette fonctionnalité. Finalisez les paramètres `wp-config.php` et vérifiez que `web.config` achemine correctement chaque site.
@@ -120,7 +120,7 @@ Par défaut, le nouveau domaine est réécrit sur le domaine de site généré a
 La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines illimité à une application web. Pour ajouter un autre domaine, vous devez exécuter les sections **Vérification de votre domaine** et **Configuration de l’enregistrement A du domaine** pour chaque domaine.    
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -143,6 +143,6 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "WordPress d’entreprise sur Azure App Service | Microsoft Docs"
+title: "WordPress d’entreprise sur Azure | Microsoft Docs"
 description: "Découvrez comment héberger un site WordPress d’entreprise sur Azure App Service"
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
-ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
+ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
+ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 
 
 ---
-# <a name="enterprise-class-wordpress-on-azure-app-service"></a>WordPress d’entreprise sur Azure App Service
+# <a name="enterprise-class-wordpress-on-azure"></a>WordPress en version entreprise sur Azure
 Azure App Service fournit un environnement modulable, sécurisé et facile à utiliser pour les sites [WordPress][wordpress] stratégiques et à grande échelle. Microsoft gère également des sites d’entreprise tels que les blogs [Office][officeblog] et [Bing][bingblog]. Cet article vous indique comment utiliser la fonction Web Apps du service Microsoft Azure App Service pour établir et gérer un site WordPress d’entreprise basé sur le cloud, capable de gérer un grand nombre de visiteurs.
 
 ## <a name="architecture-and-planning"></a>Architecture et planification
@@ -191,7 +191,7 @@ Une fois que le site WordPress a été créé ou migré, utilisez les informatio
 * [Astuces pour WordPress sur Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant de créer un compte Azure, accédez à la page [Essayez Azure App Service](http://go.microsoft.com/fwlink/?LinkId=523751), qui vous permet de créer immédiatement une application web temporaire de démarrage dans App Service. Aucune carte de crédit n’est nécessaire ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant de créer un compte Azure, accédez à la page [Essayez Azure App Service](https://azure.microsoft.com/try/app-service/), qui vous permet de créer immédiatement une application web temporaire de démarrage dans App Service. Aucune carte de crédit n’est nécessaire ; vous ne prenez aucun engagement.
 >
 >
 
@@ -246,6 +246,6 @@ Pour obtenir un guide présentant les modifications apportées dans le cadre de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

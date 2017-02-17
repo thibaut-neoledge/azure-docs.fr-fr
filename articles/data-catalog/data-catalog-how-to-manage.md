@@ -1,5 +1,5 @@
 ---
-title: "Gestion des ressources de données | Microsoft Docs"
+title: "Comment gérer les ressources de données dans Azure Data Catalog | Microsoft Docs"
 description: "Article de procédure expliquant comment contrôler la visibilité et la propriété des ressources de données inscrites dans Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
+ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
 
 
 ---
-# <a name="how-to-manage-data-assets"></a>Gestion des ressources de données
+# <a name="how-to-manage-data-assets-in-azure-data-catalog"></a>Comment gérer les ressources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
 **Azure Data Catalog** intègre des fonctionnalités de détection de sources de données qui permettent aux utilisateurs de découvrir et comprendre facilement les sources de données dont ils ont besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités de découverte se révèlent tout particulièrement utiles lorsque tous les utilisateurs peuvent effectuer une recherche sur les nombreuses sources de données disponibles et les comprendre. Par conséquent, le comportement par défaut de Data Catalog consiste à rendre visibles et détectables l’ensemble des sources de données inscrites pour tous les utilisateurs du catalogue.
 
@@ -31,8 +31,8 @@ Il peut arriver, cependant, que certaines sources de données ne doivent être v
 
 > [!NOTE]
 > La fonctionnalité décrite dans cet article est uniquement disponible dans l’édition Standard d’Azure Data Catalog. L’édition gratuite ne fournit aucune fonctionnalité de propriété ou de restriction de la visibilité des ressources de données.
-> 
-> 
+>
+>
 
 ## <a name="managing-ownership-of-data-assets"></a>Gestion de propriété des ressources de données
 Par défaut, les ressources de données inscrites dans Data Catalog ne sont pas associées à un propriétaire ; tout utilisateur autorisé à accéder au catalogue peut découvrir et annoter ces ressources. Les utilisateurs peuvent prendre possession de ressources de données sans propriétaire et limiter ensuite la visibilité des ressources qu’ils possèdent.
@@ -41,8 +41,8 @@ Lorsqu’une ressource de données de Data Catalog est affectée à un propriét
 
 > [!NOTE]
 > La propriété dans Data Catalog affecte uniquement les métadonnées stockées dans le catalogue. Elle ne confère aucune autorisation sur la source de données sous-jacente.
-> 
-> 
+>
+>
 
 ### <a name="taking-ownership"></a>Prise de possession
 Les utilisateurs peuvent prendre possession de ressources de données en sélectionnant l’option « Prendre possession » dans le portail Data Catalog. Aucune autorisation particulière n’est requise pour prendre possession d’une ressource de données sans propriétaire ; tous les utilisateurs peuvent prendre possession d’une ressource de données qui n’est pas affectée à un propriétaire.
@@ -52,8 +52,8 @@ Si une ressource de données est déjà affectée à un propriétaire, les utili
 
 > [!NOTE]
 > Il est recommandé de désigner au moins deux propriétaires pour n’importe quelle ressource de données détenue par un propriétaire.
-> 
-> 
+>
+>
 
 ### <a name="removing-owners"></a>Suppression de propriétaires
 De la même manière que n’importe quel propriétaire de ressources peut ajouter des copropriétaires, n’importe quel propriétaire de ressource a la possibilité de supprimer des copropriétaires.
@@ -65,8 +65,8 @@ Les propriétaires de ressources de données peuvent contrôler la visibilité d
 
 > [!NOTE]
 > Dans la mesure du possible, les autorisations de possession et de visibilité des ressources doivent être attribuées à des groupes de sécurité, et non à des utilisateurs individuels.
-> 
-> 
+>
+>
 
 ## <a name="catalog-administrators"></a>Administrateurs de Data Catalog
 Les administrateurs de Data Catalog sont implicitement copropriétaires de toutes les ressources de données du catalogue. Les propriétaires des ressources ne peuvent pas supprimer la visibilité des ressources pour les administrateurs de Data Catalog ; de même, les administrateurs peuvent gérer la possession et la visibilité de toutes les ressources de données contenues dans le catalogue.
@@ -76,7 +76,6 @@ Data Catalog repose sur un modèle de découverte de données et de métadonnée
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

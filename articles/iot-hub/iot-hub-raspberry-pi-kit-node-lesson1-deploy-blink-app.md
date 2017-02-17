@@ -1,5 +1,7 @@
 ---
-title: "Création et déploiement de l’application de clignotement | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 1 : Déployer une application | Microsoft Docs"
 description: "Clonez l’exemple d’application Node.js à partir de GitHub et utilisez gulp pour déployer cette application sur votre carte Raspberry Pi 3. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
-ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -153,6 +155,6 @@ Vous avez installé les outils nécessaires pour travailler avec Pi et déployé
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

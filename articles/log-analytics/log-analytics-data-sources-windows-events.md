@@ -1,10 +1,10 @@
 ---
-title: "Journaux des événements Windows dans Log Analytics | Microsoft Docs"
+title: "Collecter et analyser les journaux des événements Windows dans OMS Log Analytics | Microsoft Docs"
 description: "Les journaux d’événements Windows sont une des sources de données les plus couramment utilisées par Log Analytics.  Cet article décrit comment configurer la collecte des journaux d’événements Windows et des détails des enregistrements qu&quot;ils créent dans le référentiel OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 055a60c174c280ba56ea40cb47779e233b54fe8e
-ms.openlocfilehash: 867dc9fd84793debc8c8dcd2a27dfc0b0ccf69c4
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
 
 
 ---
@@ -35,7 +35,9 @@ Lorsque vous saisissez le nom d’un journal d’événements, Log Analytics sug
 ![Configurer les événements Windows](media/log-analytics-data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte chaque événement correspondant à un niveau de gravité sélectionné à partir d'un journal d’événements surveillé à mesure que l'événement est créé.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion pendant un moment, Log Analytics collecte les événements à partir de là où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.
+Log Analytics collecte chaque événement correspondant à un niveau de gravité sélectionné à partir d'un journal d’événements surveillé à mesure que l'événement est créé.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion pendant un moment, Log Analytics collecte les événements à partir de là où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.  Il est possible que ces événements ne soient pas collectés si des événements non collectés d’un journal sont écrasés pendant que l’agent est hors connexion.
+
+
 
 ## <a name="windows-event-records-properties"></a>Propriétés des enregistrements d’événements Windows
 Les enregistrements d'événements Windows sont de type **Événement** et possèdent les propriétés affichées dans le tableau suivant :
@@ -53,7 +55,7 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manager.  Pour les autres agents, cette valeur est AOI-<workspace ID> |
 | RenderedDescription |Description de l'événement avec les valeurs de paramètres |
 | Source |Source de l’événement. |
-| SourceSystem |Type d’agent auprès duquel l’événement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou géré par Operations Manager <br>  Linux – Tous les agents Linux  <br>  AzureStorage – Diagnostics Azure |
+| SourceSystem |Type d’agent auprès duquel l’événement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou géré par Operations Manager <br> Linux – Tous les agents Linux  <br> AzureStorage – Diagnostics Azure |
 | TimeGenerated |Date et heure de création de l’événement dans Windows. |
 | Nom d’utilisateur |Nom d'utilisateur du compte qui a consigné l'événement. |
 
@@ -76,6 +78,6 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -63,6 +63,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

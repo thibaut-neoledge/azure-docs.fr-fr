@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: dcab09385c6a664186d124ce3e042cc1fac82bd6
+ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
+ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
 
 
 ---
@@ -33,7 +33,7 @@ Une fois que vous avez créé un cluster HDInsight ayant accès à un compte Dat
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md).
+* **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
 
 ## <a name="do-you-learn-fast-with-videos"></a>Les vidéos vous permettent-elles d’apprendre rapidement ?
@@ -44,7 +44,7 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
 1. Si vous possédez un cluster Windows, connectez-vous à distance à un cluster ayant accès à un compte Data Lake Store. Pour la marche à suivre, consultez [Connexion à des clusters à l’aide du bureau à distance](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). À partir du Bureau du cluster, ouvrez la ligne de commande Hadoop.
 
-    Si vous disposez d’un cluster Linux, utilisez SSH pour vous connecter au cluster. Consultez [Connexion à un cluster HDInsight sous Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster). Exécutez les commandes de l’invite SSH.
+    Si vous disposez d’un cluster Linux, utilisez SSH pour vous connecter au cluster. Consultez [Connexion à un cluster HDInsight sous Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Exécutez les commandes de l’invite SSH.
 2. Vérifiez si vous pouvez accéder aux objets blob d’Azure Storage (WASB). Exécutez la commande suivante :
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -66,6 +66,52 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
     Cette commande copie le contenu du répertoire **/myfolder** du compte Data Lake Store vers le dossier **/example/data/gutenberg/** de WASB.
 
+## <a name="performance-considerations-while-using-distcp"></a>Considérations de performances lors de l’utilisation de DistCp
+
+La granularité la plus basse de DistCp étant un fichier unique, la définition du nombre maximal de copies simultanées est le paramètre le plus important à optimiser par rapport à Data Lake Store. Vous le contrôlez en définissant le paramètre de nombre de mappeurs (‘m’) en ligne de commande. Ce paramètre spécifie le nombre maximal de mappeurs utilisés pour copier les données. La valeur par défaut est 20.
+
+**Exemple**
+
+    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder -m 100
+
+### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Comment déterminer le nombre de mappeurs à utiliser ?
+
+Voici quelques conseils à suivre.
+
+* **Étape 1 : Déterminer la quantité totale de mémoire YARN** : la première étape consiste à déterminer la mémoire YARN disponible pour le cluster sur lequel vous exécutez la tâche DistCp. Ces informations sont disponibles dans le portail de Ambari associé au cluster. Accédez à YARN et affichez l’onglet Configurations pour voir la mémoire YARN. Pour obtenir la mémoire YARN totale, multipliez la mémoire YARN par nœud par le nombre de nœuds dans votre cluster.
+
+* **Étape 2 : Calculer le nombre de mappeurs** : la valeur de **m** est égale au quotient de la mémoire de YARN totale divisée par la taille du conteneur YARN. Les informations sur la taille du conteneur YARN sont également disponibles dans le portail Ambari. Accédez à YARN et affichez l’onglet Configurations. La taille du conteneur YARN s’affiche dans cette fenêtre. L’équation pour obtenir le nombre de mappeurs (**m**) est
+
+        m = (number of nodes * YARN memory for each node) / YARN container size
+
+**Exemple**
+
+Supposons que vous avez un 4 nœuds D14v2s dans le cluster et que vous essayez de transférer 10 To de données à partir de 10 différents dossiers. Chaque dossier contient différentes quantités de données, et la taille des fichiers dans chaque dossier est différente.
+
+* Total de mémoire YARN : à partir du portail Ambari, vous déterminez que la mémoire YARN est de 96 Go pour un nœud D14. Ainsi, la mémoire YARN totale pour un cluster à 4 nœuds est : 
+
+        YARN memory = 4 * 96GB = 384GB
+
+* Nombre de mappeurs : à partir du portail Ambari, vous déterminez que la taille du conteneur YARN est de 3072 pour un nœud de cluster D14. Par conséquent, le nombre de mappeurs est :
+
+        m = (4 nodes * 96GB) / 3072MB = 128 mappers
+
+Si d’autres applications utilisent de la mémoire, vous pouvez choisir d’utiliser uniquement une partie de la mémoire de YARN de votre cluster pour DistCp.
+
+### <a name="copying-large-datasets"></a>Copie de jeux de données volumineux
+
+Lorsque la taille du jeu de données à déplacer est très volumineuse (par exemple > 1 To) ou si vous avez de nombreux dossiers, vous devez envisager d’utiliser plusieurs tâches DistCp. Il n’y a probablement aucun gain de performance, mais cela répartira les tâches. Ainsi, si une tâche échoue, il vous suffit de redémarrer la tâche en question plutôt que l’ensemble complet.
+
+### <a name="limitations"></a>Limitations
+
+* DistCp tente de créer des mappeurs similaires en taille pour optimiser les performances. L’augmentation du nombre de mappeurs n’améliore pas nécessairement les performances.
+
+* DistCp est limité à un seul mappeur par fichier. Par conséquent, vous ne devez pas avoir plus de mappeurs que de fichiers. Étant donné que DistCp peut affecter un seul mappeur par fichier, cela limite la quantité d’exécutions simultanées utilisables pour copier des fichiers volumineux.
+
+* Si vous avez un petit nombre de fichiers volumineux, vous devez les fractionner en plusieurs segments de fichier de 256 Mo pour avoir un meilleur potentiel de simultanéité. 
+ 
+* Si vous copiez à partir d’un compte de stockage d’objets Blob Azure, votre tâche de copie peut être limitée sur le côté du stockage d’objets blob. Cela dégradera les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-subscription-service-limits.md).
+
 ## <a name="see-also"></a>Voir aussi
 * [Copier des données d’objets blob Azure Storage vers Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
@@ -74,6 +120,6 @@ Un cluster HDInsight est fourni avec l’utilitaire Distcp, que vous pouvez util
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

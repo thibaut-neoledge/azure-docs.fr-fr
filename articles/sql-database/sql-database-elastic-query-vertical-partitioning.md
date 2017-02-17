@@ -192,6 +192,6 @@ Pour interroger des bases de données partitionnées horizontalement, consultez 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

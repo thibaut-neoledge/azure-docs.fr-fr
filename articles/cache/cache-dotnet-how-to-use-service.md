@@ -12,21 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/20/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6feeeaef2bd5e5ff665ca870b61036365d75f53d
+ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
+ms.openlocfilehash: 66907ccb97dedc176c5fe76826abd3b31f4ccdb9
 
 
 ---
 # <a name="how-to-use-azure-managed-cache-service"></a>Utilisation de Service de cache géré Azure
-Ce guide décrit la prise en main du **Service de cache géré Azure**. Les exemples sont écrits en C\# et utilisent l’API .NET. Les scénarios couverts incluent la **création et la configuration d’un cache**, la **configuration des clients du cache**, l’**ajout et la suppression d’objets dans le cache, le stockage de l’état de session ASP.NET dans le cache**, et l’**activation de la mise en cache de sortie de pages ASP.NET avec le cache**. Pour plus d’informations sur l’utilisation du Cache Azure, consultez la section [Next Steps][Next Steps].
-
 > [!IMPORTANT]
-> Conformément à ce qui a été [annoncé](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)l’année dernière, le service de cache géré Azure et le service In-Role Cache Azure seront supprimés le 30 novembre 2016. Nous vous recommandons d’utiliser [Cache Redis Azure](https://azure.microsoft.com/services/cache/). Pour obtenir des informations sur la migration, consultez [Migrer un Service de cache géré vers le Cache Redis Azure](../redis-cache/cache-migrate-to-redis.md).
+> Conformément à notre [annonce](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) de l’année dernière, le service de cache géré d’Azure et le service In-Role Cache d’Azure **ont été supprimés** le 30 novembre 2016. Nous vous recommandons d’utiliser [Cache Redis Azure](https://azure.microsoft.com/services/cache/). Pour obtenir des informations sur la migration, consultez [Migrer un Service de cache géré vers le Cache Redis Azure](../redis-cache/cache-migrate-to-redis.md).
 > 
 > 
+
+Ce guide décrit la prise en main du **Service de cache géré Azure**. Les exemples sont écrits en C\# et utilisent l’API .NET. Les scénarios couverts incluent la **création et la configuration d’un cache**, la **configuration des clients du cache**, l’**ajout et la suppression d’objets dans le cache, le stockage de l’état de session ASP.NET dans le cache**, et l’**activation de la mise en cache de sortie de pages ASP.NET avec le cache**. Pour plus d'informations sur l’utilisation d’Azure Cache, consultez la section [Étapes suivantes][Next Steps].
+
+
 
 <a name="what-is"></a>
 
@@ -47,41 +49,41 @@ Service de cache géré est disponible en trois options :
 * Standard - Tailles de cache comprises entre 1 Go et 10 Go
 * Premium - Tailles de cache comprises entre 5 Go et 150 Go
 
-Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d’informations sur la tarification, consultez la page [Tarification - Cache][Tarification - Cache].
+Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide. Pour plus d'informations sur la tarification, consultez [Cache Redis Tarification][Cache Pricing Details].
 
-Ce guide fournit un aperçu de la prise en main de Service de cache géré. Pour plus d’informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez [Présentation de Service de cache géré Azure][Présentation de Service de cache géré Azure].
+Ce guide fournit un aperçu de la prise en main de Service de cache géré. Pour plus d’informations sur ces fonctionnalités qui ne sont pas décrites dans ce guide de prise en main, consultez [Documentation Cache Redis][Overview of Azure Managed Cache Service].
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="getting-started-with-cache-service"></a>Prise en main du Service de cache
 La prise en main de Service de cache géré est aisée. Pour commencer, vous mettez en service et configurez un cache. Ensuite, vous configurez les clients du cache pour qu'ils puissent accéder au cache. Une fois les clients du cache configurés, vous pouvez commencer à les utiliser.
 
-* [Création du cache][Création du cache]
-* [Configuration du cache][Configuration du cache]
-* [Configuration des clients du cache][Configuration des clients du cache]
+* [Création du cache][Create the cache]
+* [Configuration du cache][Configure the cache]
+* [Configuration des clients de cache][Configure the cache clients]
 
 <a name="create-cache"></a>
 
 ## <a name="create-a-cache"></a>Création d'un cache
 Les instances de cache dans Service de cache géré sont créées à l'aide d’applets de commande PowerShell. 
 
-> Une fois qu’une instance du Service de cache géré est créée à l’aide des applets de commande PowerShell, vous pouvez l’afficher et la configurer dans le [Portail Azure Classic][Portail Azure Classic].
+> Lorsqu’une instance du service de cache géré est créée à l’aide des applets de commande PowerShell, vous pouvez l’afficher et la configurer dans le [portail Azure Classic][Azure Classic Portal].
 > 
 > 
 
 Pour créer une instance du service de cache géré, ouvrez une fenêtre de commande Azure PowerShell.
 
-> Pour obtenir des instructions sur l’installation et l’utilisation d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
+> Pour plus d’informations sur l’installation et l’utilisation d’Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 > 
 > 
 
-Appelez l’applet de commande [Add-AzureAccount][Add-AzureAccount], puis entrez l’adresse e-mail et le mot de passe associés à votre compte. Un abonnement est choisi par défaut et s’affiche une fois que vous avez appelé l’applet de commande [Add-AzureAccount][Add-AzureAccount]. Pour changer l’abonnement, appelez l’applet de commande [Select-AzureSubscription][Select-AzureSubscription].
+Appelez l’applet de commande [Add-AzureAccount][Add-AzureAccount], puis entrez l’adresse électronique et le mot de passe associés à votre compte. Un abonnement est choisi par défaut et s’affiche lorsque vous appelez l’applet de commande [Add-AzureAccount][Add-AzureAccount]. Pour changer d’abonnement, appelez l’applet de commande [Select-AzureSubscription][Select-AzureSubscription].
 
-> Si vous avez configuré Azure PowerShell avec un certificat pour votre compte, vous pouvez sauter cette étape. Pour plus d’informations sur la connexion d’Azure PowerShell à votre compte Azure, consultez [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
+> Si vous avez configuré Azure PowerShell avec un certificat pour votre compte, vous pouvez sauter cette étape. Pour plus d’informations sur la connexion d’Azure PowerShell à votre compte Azure, consultez [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 > 
 > 
 
-Un abonnement est choisi par défaut et s’affiche. Pour changer l’abonnement, appelez l’applet de commande [Select-AzureSubscription][Select-AzureSubscription].
+Un abonnement est choisi par défaut et s’affiche. Pour changer d’abonnement, appelez l’applet de commande [Select-AzureSubscription][Select-AzureSubscription].
 
 Appelez l’applet de commande [New-AzureManagedCache][New-AzureManagedCache], puis spécifiez le nom, la région, l’offre de cache et la taille de la mémoire cache.
 
@@ -95,19 +97,19 @@ Dans **Emplacement**, spécifiez la région du cache. Pour des performances opti
 * Standard - Tailles de cache comprises entre 1 Go et 10 Go par incréments de 1 Go, avec prise en charge des notifications et de dix caches nommés (maximum)
 * Premium - Tailles de cache comprises entre 5 Go et 150 Go par incréments de 5 Go, avec prise en charge des notifications, de la haute disponibilité et de dix caches nommés (maximum)
 
-Choisissez les valeurs de **Référence (SKU)** et de **Mémoire** qui répondent aux besoins de votre application. Notez que certaines fonctionnalités du cache, telles les notifications et la haute disponibilité, ne sont disponibles qu'avec certaines offres de cache. Pour plus d’informations sur le choix de l’offre et de la taille de cache les plus adaptées à votre application, consultez [Offres de cache][Offres de cache].
+Choisissez les valeurs de **Référence (SKU)** et de **Mémoire** qui répondent aux besoins de votre application. Notez que certaines fonctionnalités du cache, telles les notifications et la haute disponibilité, ne sont disponibles qu'avec certaines offres de cache. Pour plus d’informations sur le choix de l’offre et de la taille de cache la plus adaptée à votre application, consultez [Offres de cache pour service de cache géré Azure][Cache offerings].
 
  Dans l'exemple suivant, un cache de base de 128 Mo est créé avec le nom contosocache, dans le Sud du centre des États-Unis.
 
     New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 
-> Pour obtenir la liste complète des paramètres et des valeurs qui peuvent être utilisés durant la création d’un cache, consultez la documentation de l’applet de commande [New-AzureManagedCache][New-AzureManagedCache].
+> Pour obtenir la liste complète des paramètres et valeurs utilisables lors de la création d’un cache, consultez la documentation de l’applet de commande [New-AzureManagedCache][New-AzureManagedCache].
 > 
 > 
 
-Une fois l'applet de commande PowerShell appelée, la création du cache peut prendre plusieurs minutes. Après sa création, le cache a l’état `Running` et est prêt à fonctionner avec les paramètres par défaut. En outre, vous pouvez l’afficher et le configurer dans le [Portail Azure Classic][Portail Azure Classic]. Pour personnaliser la configuration de votre cache, consultez la section [Configuration du cache][Configuration du cache].
+Une fois l'applet de commande PowerShell appelée, la création du cache peut prendre plusieurs minutes. Après sa création, le cache a l’état `Running` et est prêt à fonctionner avec les paramètres par défaut. En outre, vous pouvez l’afficher et le configurer dans le [portail Azure Classic][Azure Classic Portal]. Pour personnaliser la configuration de votre cache, consultez la section [Configuration du cache][Configure the cache].
 
-Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure PowerShell. Une fois que le cache est prêt à l’emploi, l’applet de commande [New-AzureManagedCache][New-AzureManagedCache] affiche les informations relatives à ce dernier, comme le montre l’exemple suivant.
+Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure PowerShell. Une fois le cache prêt à l’emploi, l’applet de commande [New-AzureManagedCache][New-AzureManagedCache] affiche les informations relatives à ce dernier, comme dans l’exemple suivant.
 
     PS C:\> Add-AzureAccount
     VERBOSE: Account "user@domain.com" has been added.
@@ -155,21 +157,21 @@ Quand vous spécifiez **Jamais**, **Durée (min)** doit avoir la valeur **0** et
 
 **Absolute** est la stratégie d’expiration par défaut, et 10 minutes la valeur par défaut pour **Durée (min)**. La stratégie d’expiration est fixée pour chaque élément dans un cache nommé, mais le paramètre **Durée (min)** peut être personnalisé pour chaque élément avec les surcharges des méthodes **Add** et **Put**, qui prennent un paramètre Délai d’expiration.
 
-Pour plus d’informations sur les stratégies d’éviction et d’expiration, consultez [Expiration et éviction][Expiration et éviction].
+Pour plus d’informations sur les stratégies d’éviction et d’expiration, consultez la page [Expiration et éviction pour le service de cache géré Azure][Expiration and Eviction].
 
 ## <a name="notifications"></a>Notifications
 Les notifications du cache permettent à vos applications de recevoir des notifications asynchrones lorsque diverses opérations de cache ont lieu sur le cluster de cache. Elles fournissent également l'invalidation automatique des objets mis en cache localement. Pour plus d’informations, consultez [Notifications][Notifications].
 
-> Les notifications sont disponibles dans les offres de cache Standard et Premium, mais pas dans l'offre Basic. Pour plus d’informations, consultez [Offres de cache][Offres de cache].
+> Les notifications sont disponibles dans les offres de cache Standard et Premium, mais pas dans l'offre Basic. Pour plus d’informations, consultez [Offres de cache pour service de cache géré Azure][Cache offerings].
 > 
 > 
 
 ## <a name="high-availability"></a>Haute disponibilité
 Lorsque la haute disponibilité est activée, une copie de sauvegarde de chaque élément ajouté au cache est créée. Si une défaillance inattendue se produit sur la copie principale de l'élément, la copie de sauvegarde reste disponible.
 
-Par définition, l'utilisation de la haute disponibilité multiplie par deux la quantité de mémoire requise pour chaque élément en cache. Tenez compte de cet impact sur la mémoire pendant les tâches de planification de la capacité. Pour plus d’informations, consultez [Haute disponibilité][Haute disponibilité].
+Par définition, l'utilisation de la haute disponibilité multiplie par deux la quantité de mémoire requise pour chaque élément en cache. Tenez compte de cet impact sur la mémoire pendant les tâches de planification de la capacité. Pour plus d’informations, consultez la page [Haute disponibilité pour le service de cache géré Azure][High Availability].
 
-> La haute disponibilité est disponible dans l'offre de cache Premium, mais pas dans les offres Basic ou Standard. Pour plus d’informations, consultez [Offres de cache][Offres de cache].
+> La haute disponibilité est disponible dans l'offre de cache Premium, mais pas dans les offres Basic ou Standard. Pour plus d’informations, consultez [Offres de cache pour service de cache géré Azure][Cache offerings].
 > 
 > 
 
@@ -177,7 +179,7 @@ Par définition, l'utilisation de la haute disponibilité multiplie par deux la 
 Pour maintenir la capacité de mémoire disponible à l'intérieur d'un cache, la dernière éviction récemment utilisée (LRU) est prise en charge. Lorsque la consommation de mémoire dépasse le seuil de mémoire, les objets sont expulsés de la mémoire, qu'ils aient expiré ou pas, jusqu'à ce que la pression sur la mémoire se relâche.
 L'éviction est activée par défaut. Si elle est désactivée, les éléments ne sont pas expulsés du cache lorsque la capacité est atteinte, et les opérations Put et Add échouent.
 
-Pour plus d’informations sur les stratégies d’éviction et d’expiration, consultez [Expiration et éviction][Expiration et éviction].
+Pour plus d’informations sur les stratégies d’éviction et d’expiration, consultez la page [Expiration et éviction pour le service de cache géré Azure][Expiration and Eviction].
 
 Une fois le cache configuré, vous pouvez configurer les clients du cache pour autoriser l'accès au cache.
 
@@ -197,7 +199,7 @@ Tapez **WindowsAzure.Caching** dans la zone de texte **Rechercher en ligne**, et
 
 Le package NuGet fait plusieurs choses : il ajoute la configuration requise au fichier de configuration de l'application, et il ajoute les références d'assembly nécessaires. Pour les projets Services cloud, il ajoute également le niveau de diagnostic des clients du cache comme paramètre au fichier ServiceConfiguration.cscfg du service cloud.
 
-> Pour les projets web ASP.NET, le package Cache NuGet ajoute également deux sections commentées au fichier web.config. La première section active l'état de session à stocker dans le cache, et la seconde section active la mise en cache de la sortie de pages ASP.NET. Pour plus d’informations, consultez [Stockage de l’état de session ASP.NET dans le cache] et [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][Stockage de la mise en cache de sortie de pages ASP.NET dans le cache].
+> Pour les projets web ASP.NET, le package Cache NuGet ajoute également deux sections commentées au fichier web.config. La première section active l'état de session à stocker dans le cache, et la seconde section active la mise en cache de la sortie de pages ASP.NET. Pour plus d’informations, consultez les rubriques [Stockage de l’état de session ASP.NET dans le cache] et [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][How To: Store ASP.NET Page Output Caching in the Cache].
 > 
 > 
 
@@ -262,7 +264,7 @@ Pour les projets Services cloud, le package NuGet ajoute également un paramètr
       </ConfigurationSettings>
     </Role>
 
-> Le niveau de diagnostic des clients configure le niveau des informations de diagnostic de la mise en cache collectées pour les clients du cache. Pour plus d’informations, consultez [Dépannage et diagnostics][Dépannage et diagnostics].
+> Le niveau de diagnostic des clients configure le niveau des informations de diagnostic de la mise en cache collectées pour les clients du cache. Pour plus d’informations, consultez [Dépannage et diagnostics pour les applications service caché managé][Troubleshooting and Diagnostics].
 > 
 > 
 
@@ -286,11 +288,11 @@ Une fois que votre projet client est configuré pour la mise en cache, vous pouv
 ## <a name="working-with-caches"></a>Utilisation des caches
 Cette section décrit l'exécution des tâches courantes avec Cache.
 
-* [Création d'un objet DataCache][Création d'un objet DataCache]
-* [Ajout et récupération d'un objet dans le cache][Ajout et récupération d'un objet dans le cache]
-* [Spécification de l'expiration d'un objet dans le cache][Spécification de l'expiration d'un objet dans le cache]
+* [Création d’un objet DataCache][How To: Create a DataCache Object]
+* [Ajout et récupération d’un objet dans le cache][How To: Add and Retrieve an Object from the Cache]
+* [Spécification de l’expiration d’un objet dans le cache][How To: Specify the Expiration of an Object in the Cache]
 * [Stockage de l’état de session ASP.NET dans le cache][Stockage de l’état de session ASP.NET dans le cache]
-* [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][Stockage de la mise en cache de sortie de pages ASP.NET dans le cache]
+* [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][How To: Store ASP.NET Page Output Caching in the Cache]
 
 <a name="create-cache-object"></a>
 
@@ -299,7 +301,7 @@ Pour utiliser un cache par programmation, vous avez besoin d'une référence au 
 
     using Microsoft.ApplicationServer.Caching;
 
-> Si Visual Studio ne reconnaît pas les types dans l'instruction using, même après l'installation du package Cache NuGet, qui ajoute les références nécessaires, assurez-vous que le profil cible du projet est .NET Framework 4 ou une version ultérieure et veillez à sélectionner l'un des profils qui ne spécifient pas **Client Profile**. Pour obtenir des instructions sur la configuration des clients du cache, consultez [Configuration des clients du cache][Configuration des clients du cache].
+> Si Visual Studio ne reconnaît pas les types dans l'instruction using, même après l'installation du package Cache NuGet, qui ajoute les références nécessaires, assurez-vous que le profil cible du projet est .NET Framework 4 ou une version ultérieure et veillez à sélectionner l'un des profils qui ne spécifient pas **Client Profile**. Pour obtenir des instructions sur la configuration des clients du cache, consultez [Configuration des clients du cache][Configure the cache clients].
 > 
 > 
 
@@ -378,7 +380,7 @@ Pour afficher l’intervalle restant du délai d’expiration d’un élément d
 <a name="store-session"></a>
 
 ## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>Stockage de l'état de session ASP.NET dans le cache
-Le fournisseur d'état de session d'Azure Cache est un mécanisme de stockage hors processus pour les applications ASP.NET. Il vous permet de stocker l'état de votre session dans un cache Azure plutôt qu'en mémoire ou dans une base de données SQL Server. Pour utiliser le fournisseur d’état de session de mise en cache, commencez par configurer votre cache, puis configurez votre application ASP.NET pour Cache à l’aide du package Cache NuGet, comme décrit dans la rubrique [Prise en main du Service de cache géré][Prise en main du Service de cache géré]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config une section placée en commentaire contenant la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session d'Azure Cache.
+Le fournisseur d'état de session d'Azure Cache est un mécanisme de stockage hors processus pour les applications ASP.NET. Il vous permet de stocker l'état de votre session dans un cache Azure plutôt qu'en mémoire ou dans une base de données SQL Server. Pour utiliser le fournisseur d’état de session de mise en cache, configurez votre cache puis votre application ASP.NET pour Cache à l’aide du package Cache NuGet, comme indiqué dans [Prise en main du Service de cache][Getting Started with Managed Cache Service]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config une section placée en commentaire contenant la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session d'Azure Cache.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -393,18 +395,18 @@ Le fournisseur d'état de session d'Azure Cache est un mécanisme de stockage ho
       </sessionState>
     </system.web>-->
 
-> Si votre fichier web.config ne contient pas cette section placée en commentaire après l’installation du package Cache NuGet, vérifiez que le dernier Gestionnaire de package NuGet a été installé à partir de la page [Installation du Gestionnaire de package NuGet][Installation du Gestionnaire de package NuGet], puis désinstallez et réinstallez le package.
+> Si votre fichier web.config ne contient pas cette section mise en commentaire après l’installation du package Cache NuGet, assurez-vous que le dernier Gestionnaire de package NuGet a été installé à partir de la page [Installation du Gestionnaire de package NuGet][NuGet Package Manager Installation], puis désinstallez et réinstallez le package.
 > 
 > 
 
 Pour activer le fournisseur d'état de session d'Azure Cache, supprimez les marques de commentaire de la section spécifiée. Le cache par défaut est spécifié dans l'extrait fourni. Pour utiliser un autre cache, spécifiez le cache voulu dans l'attribut **cacheName** .
 
-Pour plus d’informations sur l’utilisation du fournisseur d’état de session du Service de cache géré, consultez [Fournisseur d'état de session pour Azure Cache][Fournisseur d'état de session pour Azure Cache].
+Pour plus d’informations sur l’utilisation du fournisseur d’état de session du Service de cache géré, consultez [Fournisseur d’état de session pour service de cache géré Azure][Session State Provider for Azure Cache].
 
 <a name="store-page"></a>
 
 ## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>Stockage de la mise en cache de sortie de pages ASP.NET dans le cache
-Le fournisseur de caches de sortie d'Azure Cache est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte au nouveau point d'extension du fournisseur de caches de sortie introduit dans ASP.NET 4. Pour utiliser le fournisseur de caches de sortie, configurez d’abord votre cluster de cache, puis configurez votre application ASP.NET pour la mise en cache à l’aide du package Cache NuGet, comme décrit dans la rubrique [Prise en main du Service de cache géré][Prise en main du Service de cache géré]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config la section commentée suivante, qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur de caches de sortie d'Azure Caching.
+Le fournisseur de caches de sortie d'Azure Cache est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte au nouveau point d'extension du fournisseur de caches de sortie introduit dans ASP.NET 4. Pour utiliser le fournisseur de caches de sortie, configurez votre cluster de cache puis votre application ASP.NET pour la mise en cache à l’aide du package Cache NuGet, comme indiqué dans [Prise en main du Service de cache géré][Getting Started with Managed Cache Service]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config la section commentée suivante, qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur de caches de sortie d'Azure Caching.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -419,7 +421,7 @@ Le fournisseur de caches de sortie d'Azure Cache est un mécanisme de stockage h
       </outputCache>
     </caching>-->
 
-> Si votre fichier web.config ne contient pas cette section placée en commentaire après l’installation du package Cache NuGet, vérifiez que le dernier Gestionnaire de package NuGet a été installé à partir de la page [Installation du Gestionnaire de package NuGet][Installation du Gestionnaire de package NuGet], puis désinstallez et réinstallez le package.
+> Si votre fichier web.config ne contient pas cette section mise en commentaire après l’installation du package Cache NuGet, assurez-vous que le dernier Gestionnaire de package NuGet a été installé à partir de la page [Installation du Gestionnaire de package NuGet][NuGet Package Manager Installation], puis désinstallez et réinstallez le package.
 > 
 > 
 
@@ -429,44 +431,44 @@ Ajoutez une directive **OutputCache** à chaque page pour laquelle vous voulez m
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-Dans cet exemple, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page sera mise en cache pour chaque combinaison de paramètres. Pour plus d’informations sur les options disponibles, consultez [Directive OutputCache][Directive OutputCache].
+Dans cet exemple, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page sera mise en cache pour chaque combinaison de paramètres. Pour plus d’informations sur les options disponibles, consultez [Directive OutputCache][OutputCache Directive].
 
-Pour plus d’informations sur l’utilisation du fournisseur de caches de sortie d’Azure Cache, consultez [Fournisseur de caches de sortie d'Azure Cache][Fournisseur de caches de sortie d'Azure Cache].
+Pour plus d’informations sur l’utilisation du fournisseur de caches de sortie d’Azure Cache, consultez [Fournisseur de caches de sortie d’Azure Cache][Output Cache Provider for Azure Cache].
 
 <a name="next-steps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez appris les bases du Service de cache géré, suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus complexes.
 
-* Consultez la référence MSDN : [Service de cache géré][Service de cache géré]
-* Découvrez comment migrer vers Service de cache géré : [Migration vers Service de cache géré][Migration vers Service de cache géré]
-* Consultez les exemples : [Exemples de Service de cache géré][Exemples de Service de cache géré]
+* Consultez la référence MSDN : [Service de cache géré][Managed Cache Service]
+* Découvrez comment migrer vers le Service de cache géré : [Migration vers un service de cache géré Azure][Migrate to Managed Cache Service]
+* Consultez les exemples : [Exemples de services de cache géré Azure][Managed Cache Service Samples]
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
-[Qu'est-ce que le Service de cache géré Azure ?]: #what-is
-[Création d’un cache Azure]: #create-cache
-[Quel type de mise en cache me convient ?]: #choosing-cache
-[Préparation d’un projet Visual Studio pour utiliser la mise en cache Azure]: #prepare-vs
-[Configuration de l’application pour utiliser la mise en cache]: #configure-app
-[Prise en main du Service de cache géré]: #getting-started-cache-service
-[Création du cache]: #create-cache
-[Configuration du cache]: #enable-caching
-[Configuration des clients du cache]: #NuGet
-[Utilisation des caches]: #working-with-caches
-[Création d'un objet DataCache]: #create-cache-object
-[Ajout et récupération d'un objet dans le cache]: #add-object
-[Spécification de l'expiration d'un objet dans le cache]: #specify-expiration
+[What is Azure Managed Cache Service?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Getting Started with Managed Cache Service]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
 [Stockage de l’état de session ASP.NET dans le cache]: #store-session
-[Stockage de la mise en cache de sortie de pages ASP.NET dans le cache]: #store-page
-[Ciblage d’un profil .NET Framework pris en charge]: #prepare-vs-target-net
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
+[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
 
 <!-- IMAGES -->
 [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
 
 [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
 
-[Point de terminaison]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
+[Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
 
 [AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
 
@@ -478,43 +480,43 @@ Pour plus d’informations sur l’utilisation du fournisseur de caches de sorti
 
 
 <!-- LINKS -->
-[Portail Azure Classic]: https://manage.windowsazure.com/
-[Comment : Configurer un client de cache par programmation]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Fournisseur d'état de session pour Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Cache Azure AppFabric : mise en cache de l’état de session]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Fournisseur de caches de sortie d'Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Azure Classic Portal]: https://manage.windowsazure.com/
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Blog de l’équipe]: http://blogs.msdn.com/b/windowsazure/
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Configuration de la taille des machines virtuelles]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Considérations sur la planification des capacités de mise en cache Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Comment : Définir de façon déclarative la capacité de mise en cache d’une page ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Comment : Définir par programme la capacité de mise en cache d’une page]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Présentation de Service de cache géré Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Service de cache géré]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Directive OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[Dépannage et diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
-[Installation du Gestionnaire de package NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Tarification - Cache]: http://www.windowsazure.com/pricing/details/cache/
-[Offres de cache]: http://go.microsoft.com/fwlink/?LinkId=317277
-[Planification de la capacité]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Expiration et éviction]: http://go.microsoft.com/fwlink/?LinkId=317278
-[Haute disponibilité]: http://go.microsoft.com/fwlink/?LinkId=317329
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Overview of Azure Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
+[Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
+[Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
+[High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
 [Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
-[Migration vers Service de cache géré]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Exemples de Service de cache géré]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Migrate to Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Managed Cache Service Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
-[Applets de commande de cache gérée Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
-[Installation et configuration d’Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
+[How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Quelle est l'offre Azure Cache qui me convient ?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

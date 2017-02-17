@@ -1,5 +1,5 @@
 ---
-title: "Flux implicite d’Azure AD v2.0 | Microsoft Docs"
+title: "Sécuriser les applications à page unique à l’aide du flux implicite d’Azure AD v2.0 | Microsoft Docs"
 description: "Création d’applications web à l’aide de l’implémentation v2.0 d’Azure AD du flux implicite pour les applications à page unique."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: c38acf898a96b63c348ce28fb315a4e30fdb460f
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
 
 
 ---
@@ -242,6 +242,6 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -95,6 +95,6 @@ Découvrez comment utiliser Site Recovery pour la stratégie de continuité d�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 97b81c9b5904dea8d43042fd5b6529580eb35e74
-ms.openlocfilehash: e83518c0cd41c101170de6598c3321543b2ccf53
+ms.sourcegitcommit: 2d568a38f66605da63054d1797ce23653e6204d4
+ms.openlocfilehash: ff5d64bc00bc5fb3617160db852c7d08f8b3677b
 
 
 ---
@@ -68,7 +68,7 @@ Vous devez obtenir une clé API distincte pour chaque modèle de version VSTS.
    
     Collez votre clé API pour la définition de la variable APIKey.
    
-    ![Dans la fenêtre Team Services, sélectionnez l’onglet Configuration, puis cliquez sur Ajouter une variable. Définissez le nom ApiKey et dans Valeur, collez la clé que vous venez de générer.](./media/app-insights-annotations/50.png)
+    ![Dans la fenêtre Team Services, sélectionnez l’onglet Configuration, puis cliquez sur Ajouter une variable. Définissez le nom ApiKey et, dans Valeur, collez la clé que vous venez de générer, puis cliquez sur l’icône de verrouillage.](./media/app-insights-annotations/50.png)
 7. Enfin, **enregistrez** la définition de version.
 
 
@@ -109,6 +109,6 @@ Il est facile de modifier le script, par exemple pour créer des annotations pou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 10/24/2016
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 38529bf9869b38c5c932cdac56aafe0bd9045fae
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
 
 
 ---
@@ -36,7 +36,7 @@ Vos services cloud sont concernés si l'une des conditions suivantes s'applique�
 2. Vous n'avez pas de valeur pour osFamily explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. Actuellement, le système utilise la valeur par défaut « 1 » dans ce cas.
 3. Le portail Azure Classic répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ».
 
-Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](../powershell-install-configure.md). Vous devrez toutefois [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script ci-dessous dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](/powershell/azureps-cmdlets-docs). Vous devrez toutefois [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -77,6 +77,6 @@ Consultez les dernières [versions du système d’exploitation invité](cloud-s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

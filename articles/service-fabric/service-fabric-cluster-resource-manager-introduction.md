@@ -68,6 +68,6 @@ Bien que certaines de ces stratégies présentent un intérêt, Service Fabric C
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

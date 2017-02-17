@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0038c582d1a597dfcbb1fe8255b3a0fac1235e25
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: a8ecad3552f35c02c07fe33aa8531fb462b27002
 
 
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Prise en main du connecteur Dropbox
 Connectez-vous à Dropbox pour gérer vos fichiers. Vous pouvez exécuter différentes actions, comme charger, mettre à jour, obtenir et supprimer des fichiers dans Dropbox.
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-dropbox"></a>Se connecter à Dropbox
 Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Dropbox, vous devez préalablement disposer d’une *connexion* Dropbox. Pour créer une connexion, vous devez fournir les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ainsi, dans l’exemple Dropbox, entrez les informations d’identification de votre compte Dropbox pour créer la connexion correspondante. [Apprenez-en davantage sur les connexions]()
@@ -35,7 +35,7 @@ Pour que votre application logique puisse accéder à un service, vous devez com
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Utiliser un déclencheur Dropbox
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Dans cet exemple, nous allons utiliser le déclencheur **Lorsqu’un fichier est créé**. Lorsque ce déclencheur apparaîtra, nous appellerons l’action Dropbox **Obtenir le contenu d’un fichier à l’aide du chemin**. 
 
@@ -45,7 +45,7 @@ Dans cet exemple, nous allons utiliser le déclencheur **Lorsqu’un fichier est
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Utiliser une action Dropbox
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action qui récupérera le contenu du nouveau fichier.
 
@@ -354,11 +354,11 @@ Les actions et déclencheurs ci-dessus peuvent renvoyer un ou plusieurs des code
 | default |L’opération a échoué. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

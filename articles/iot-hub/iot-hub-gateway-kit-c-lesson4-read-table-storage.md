@@ -1,6 +1,6 @@
 ---
-title: "Lire des messages conservés dans le stockage Table Azure | Microsoft Docs"
-description: "Enregistrez des messages à partir de l’Intel NUC dans votre IoT Hub, écrivez-les dans le stockage Table Azure, puis lisez-les à partir du cloud."
+title: "Appareil SensorTag et passerelle Azure IoT - Leçon 4 : Stockage de table | Microsoft Docs"
+description: "Enregistrez des messages à partir d’Intel NUC dans votre hub IoT, écrivez-les dans le stockage Table Azure, puis lisez-les à partir du cloud."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
@@ -78,7 +78,7 @@ Mettez à jour le fichier `config-azure.json` afin que l’exemple de code qui s
 
 2. Remplacez `[Azure storage connection string]` par la chaîne de connexion de stockage Azure que vous avez obtenue.
 
-   `[IoT hub connection string]` doit déjà être remplacé dans la section [Lire des messages à partir d’Azure IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) de la leçon 3.
+   `[IoT hub connection string]` doit déjà être remplacé dans la section [Lire des messages à partir d’Azure IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) de la leçon&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Lire des messages dans votre stockage Table Azure
 
@@ -101,6 +101,6 @@ Les messages envoyés et reçus sont tous affichés instantanément sur la même
 Vous avez exécuté l’exemple de code pour lire les messages de votre stockage Table Azure enregistrés par votre application Azure Function.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

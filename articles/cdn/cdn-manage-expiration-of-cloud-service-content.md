@@ -1,9 +1,9 @@
 ---
-title: "Gestion de l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET et d’IIS dans le réseau de distribution de contenu (CDN) Azure | Microsoft Docs"
-description: "Décrit comment gérer l&quot;expiration des contenus de service cloud dans Azure CDN"
+title: "Gérer l’expiration du contenu web dans Azure CDN | Microsoft Docs"
+description: "Découvrez comment gérer l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure."
 services: cdn
 documentationcenter: .NET
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61c14a27fc82b128dec41e2ed46850ac7fb554ad
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 02d0270c5763eb9dd2190bc24b793022ea536746
 
 
 ---
-# <a name="how-to-manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Gestion de l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure
+# <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Gérer l’expiration des contenus d’Azure Web Apps/Services cloud, d’ASP.NET ou d’IIS dans le réseau de distribution de contenu (CDN) Azure
 > [!div class="op_single_selector"]
-> * [Azure Web Apps/Services cloud, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure Web Apps/Cloud Services, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Service Azure Storage Blob](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
@@ -75,6 +75,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 697580da9d7c836655ec64745cfb211beabb84f2
-ms.openlocfilehash: 941d5a8dba421dd5f59bb61af35ac654e42d5910
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
 
 
 ---
 
 # <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage Azure supplémentaires à HDInsight
 
-Découvrez comment utiliser des actions de script pour ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant.
+Découvrez comment utiliser des actions de script pour ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant utilisant Linux comme système d’exploitation.
 
 > [!IMPORTANT]
 > Ce document porte sur l’ajout de stockage supplémentaire à un cluster après que celui-ci a été créé. Pour plus d’informations sur l’ajout de comptes de stockage supplémentaires pendant la création du cluster, consultez la section __Utiliser du stockage supplémentaire__ du document [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
@@ -134,6 +134,6 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 Dans ce document, vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

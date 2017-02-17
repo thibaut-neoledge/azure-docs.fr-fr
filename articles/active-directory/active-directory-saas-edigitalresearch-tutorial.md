@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59ecf25dfe445343c0908c0955f9a17bad12226f
 
 
 ---
@@ -134,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
       - **L’ID d’entité**
    
       - **L’URL du service de déconnexion unique**
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
@@ -246,6 +246,6 @@ Lorsque vous cliquez sur la vignette eDigitalResearch dans le volet d’accès, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

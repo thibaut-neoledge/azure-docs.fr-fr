@@ -103,6 +103,6 @@ Découvrez comment utiliser SQL Server Stretch Database pour migrer vos donnée
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

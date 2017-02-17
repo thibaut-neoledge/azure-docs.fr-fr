@@ -56,6 +56,6 @@ Concevez votre application à des fins de haute disponibilité au niveau de la c
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

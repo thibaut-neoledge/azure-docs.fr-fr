@@ -77,6 +77,6 @@ Voici une dernière remarque concernant l’affinité : les relations d’affin
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

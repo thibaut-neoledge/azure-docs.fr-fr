@@ -1,23 +1,22 @@
 ---
 title: Calcul Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 
 ---
@@ -26,16 +25,18 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 Pour plus d’informations sur ce service et son utilisation, consultez [Tailles de Machines virtuelles Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variantes
-Les références de machines virtuelles suivantes sont mises à la disposition générale (GA) dans Azure Government :
+Les produits (machines virtuelles) sont disponibles dans Azure Government :
 
-| Référence de la machine virtuelle | Gouvernement américain VA | Gouvernement américain IA | Remarques |
-| --- | --- | --- | --- |
-| Une |GA |GA |Aucun |
-| Dv1 |GA |- |Aucun |
-| DSv1 |GA |- |Aucun |
-| Dv2 |GA |GA |15 bientôt disponible |
-| F |GA |GA |Aucun |
-| G |Prévu |- |Aucun |
+| Produits (machines virtuelles) | Gouvernement américain VA | Gouvernement américain IA |
+| --- | --- | --- |
+| A0-A7 |O |O |
+| Série D |O |N |
+| Série Dv2 |O |O |
+| Série DS |O |N |
+| Série F |O |O |
+| Série FS |N |N |
+| Série G |O |N |
+| Série GS |O |N |
 
 ### <a name="data-considerations"></a>Considérations sur les données
 Les informations suivantes identifient les limites d’Azure Government pour les machines virtuelles Azure :
@@ -50,6 +51,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 52316e90cd2207ee20033cd96f981692b20b5ece
-ms.openlocfilehash: a711f3aa3a50f54974eeecdbb16658b8176e4f6a
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
 
 
 ---
@@ -38,6 +38,6 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

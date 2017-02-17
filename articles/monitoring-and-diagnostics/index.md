@@ -174,6 +174,6 @@ Apprenez à utiliser les services de surveillance et de diagnostic Azure pour su
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

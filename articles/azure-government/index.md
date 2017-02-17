@@ -89,6 +89,6 @@ Microsoft Azure Government offre une plateforme cloud basée sur les principes f
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
