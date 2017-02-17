@@ -1,5 +1,5 @@
 ---
-title: "Protéger votre contenu HLS avec Apple FairPlay et/ou Microsoft PlayReady | Microsoft Docs"
+title: "Protéger le contenu HLS avec Microsoft PlayReady ou Apple FairPlay - Azure | Microsoft Docs"
 description: "Cette rubrique fournit une vue d’ensemble et montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 61ac849c20fa21181bd41289da896b4d53e0b9c3
 
 
 ---
@@ -126,7 +126,7 @@ Les clients peuvent développer des lecteurs à l’aide du SDK iOS. Pour pouvoi
 >
 
 ## <a name="streaming-urls"></a>URL de diffusion
-Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de diffusion en continu : (format=’m3u8-aapl’, encryption=’xxx’).
+Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de streaming : (format=’m3u8-aapl’, encryption=’xxx’).
 
 Les considérations suivantes s'appliquent :
 
@@ -134,18 +134,18 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :  
-  * **cenc** : chiffrement commun (Playready ou Widevine)
+  * **cenc** : Common Encryption (Playready ou Widevine)
   * **des CBC-aapl**: Fairplay
   * **cbc**: chiffrement de l’enveloppe AES.
 
 ## <a name="net-example"></a>Exemple .NET
-L'exemple suivant illustre la fonctionnalité introduite dans le Kit de développement logiciel (SDK) Azure Media Services pour .NET version 3.6.0 (la possibilité d'utiliser Azure Media Services pour fournir votre contenu chiffré avec FairPlay). La commande de package Nuget suivante a été utilisée pour installer le package :
+L'exemple suivant illustre la fonctionnalité introduite dans le kit SDK Azure Media Services pour .NET version 3.6.0 (la possibilité d'utiliser Azure Media Services pour fournir votre contenu chiffré avec FairPlay). La commande de package Nuget suivante a été utilisée pour installer le package :
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
 1. Créez un projet Console.
-2. Utilisez NuGet pour installer et ajouter les extensions du kit de développement logiciel .NET Azure Media Services.
+2. Utilisez NuGet pour installer et ajouter les extensions du kit SDK .NET Azure Media Services.
 3. Ajouter des références : System.Configuration.
 4. Ajoutez le fichier de configuration qui contient le nom du compte et les informations sur la clé :
 
@@ -566,6 +566,6 @@ L'exemple suivant illustre la fonctionnalité introduite dans le Kit de dévelop
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

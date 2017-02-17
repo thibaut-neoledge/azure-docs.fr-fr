@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 377c0d78db83a013e2063d50fcf45ba5beb2a989
-ms.openlocfilehash: 17e5621c6b7816062c2096b35a99c9e5b36b50d3
+ms.sourcegitcommit: 3b3250c17f0086ee0fd25b5c7fb8822eb52a26f8
+ms.openlocfilehash: 25865776748ae0605310eb86aefca2afebac2799
 
 
 ---
@@ -299,10 +299,10 @@ Les groupes de ressources font partie d’un nouveau concept de déploiement. To
 Pendant la configuration, les ressources suivantes sont nécessaires :
 
 * La note SAP [1928533] contient :
-  * la liste des tailles de machines virtuelles Azure prises en charge pour le déploiement de logiciels SAP 
+  * liste des tailles de machines virtuelles Azure prises en charge pour le déploiement de logiciels SAP 
   * informations importantes sur la capacité par taille de machine virtuelle Azure
   * logiciels SAP pris en charge et combinaison système d’exploitation/base de données
-  * la version du noyau SAP requise pour Windows et Linux sur Microsoft Azure
+  * version du noyau SAP requise pour Windows et Linux sur Microsoft Azure
 
 * La note SAP [2015553] établit les conditions préalables nécessaires pour garantir la prise en charge par SAP lors du déploiement de logiciels SAP sur Microsoft Azure.
 * La note SAP [2178632] contient des informations détaillées sur toutes les métriques d’analyse signalées pour SAP sur Microsoft Azure. 
@@ -313,8 +313,8 @@ Pendant la configuration, les ressources suivantes sont nécessaires :
 * La note SAP [2002167] contient des informations sur Red Hat Enterprise Linux 7.x
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’analyse Azure améliorée pour SAP.
 * [SAP WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) qui contient toutes les notes SAP requises pour Linux
-* Applets de commande PowerShell spécifiques à SAP qui font partie d’[Azure PowerShell][azure-ps]
-* Interface de ligne de commande Azure spécifique à SAP faisant partie de l’[interface de ligne de commande Azure][azure-cli]
+* Applets de commande PowerShell spécifiques à SAP qui font partie [d’Azure PowerShell][azure-ps]
+* Interface de ligne de commande Azure spécifique à SAP faisant partie de [l’interface de ligne de commande Azure][azure-cli]
 * [Portail Microsoft Azure][azure-portal]
 
 [comment]: <> (MSSedusch TODO Add ARM patch level for SAP Host Agent in SAP Note 1409604)
@@ -355,11 +355,11 @@ Les étapes pour créer une image privée diffèrent en fonction du type d’ima
 > 
 
 - - -
-Vous pouvez configurer le contenu de votre base de données en utilisant le gestionnaire de déploiement de logiciels SAP pour installer un nouveau système SAP, restaurer une sauvegarde de base de données à partir d’un disque dur virtuel connecté à la machine virtuelle ou restaurer directement une sauvegarde de base de données à partir de Stockage Azure si le SGBD le prend en charge. (Voir le [Guide de déploiement DBMS][dbms-guide]). Si vous avez déjà installé un système SAP sur votre machine virtuelle locale (en particulier pour les systèmes à 2 niveaux), vous pouvez adapter les paramètres du système SAP après le déploiement de la machine virtuelle Azure à l’aide la procédure de renommage système prise en charge par le gestionnaire de déploiement de logiciels SAP (Note SAP [1619720]). Sinon, vous pouvez installer les logiciels SAP après le déploiement de la machine virtuelle Azure.
+Vous pouvez configurer le contenu de votre base de données en utilisant le gestionnaire de déploiement de logiciels SAP pour installer un nouveau système SAP, restaurer une sauvegarde de base de données à partir d’un disque dur virtuel connecté à la machine virtuelle ou restaurer directement une sauvegarde de base de données à partir du Stockage Azure si le SGBD le prend en charge. (Voir le [Guide de déploiement DBMS][dbms-guide]). Si vous avez déjà installé un système SAP sur votre machine virtuelle locale (en particulier pour les systèmes à 2 niveaux), vous pouvez adapter les paramètres du système SAP après le déploiement de la machine virtuelle Azure à l’aide la procédure de renommage système prise en charge par le gestionnaire de déploiement de logiciels SAP (Note SAP [1619720]). Sinon, vous pouvez installer les logiciels SAP après le déploiement de la machine virtuelle Azure.
 
 Pour plus d’informations, consultez le chapitre [Scénario 2 : Déploiement avec une machine virtuelle provenant d’une image personnalisée pour SAP][déploiement-guide-3.3].
 
-#### <a name="moving-a-vm-from-on-premises-to-microsoft-azure-with-a-non-generalized-disk"></a>Déplacer une machine virtuelle locale vers Microsoft Azure avec un disque non généralisé
+#### <a name="moving-a-vm-from-on-premises-to-microsoft-azure-with-a-non-generalized-disk"></a>Déplacement d’une machine virtuelle locale vers Microsoft Azure avec un disque non généralisé
 Vous envisagez de déplacer un système SAP spécifique local vers Microsoft Azure. Pour ce faire, vous pouvez charger le disque dur virtuel qui contient le système d’exploitation, les fichiers binaires SAP et les éventuels fichiers binaires SGBD, ainsi que les disques durs virtuels contenant les données et les fichiers journaux du SGBD pour Microsoft Azure. Contrairement au scénario décrit dans le chapitre [Déploiement d’une machine virtuelle avec une image personnalisée][déploiement-guide-3.1.2] ci-dessus, vous conservez le nom d’hôte, le SID SAP et les comptes d’utilisateur SAP dans la machine virtuelle Azure, conformément à leur configuration dans l’environnement local. Par conséquent, il n’est pas nécessaire de généraliser le système d’exploitation. Ce cas s’applique tout particulièrement pour les scénarios intersites dans lesquels une partie du paysage SAP est exécutée en local et une autre sur Microsoft Azure.
 
 Pour plus d’informations, consultez le chapitre [Scénario 3 : Déplacement d’une machine virtuelle locale à l’aide d’un disque dur virtuel Azure non généralisé avec SAP][déploiement-guide-3.4].
@@ -373,8 +373,8 @@ Les étapes spécifiques à SAP pour déployer une machine virtuelle provenant d
 
 Les étapes suivantes doivent être exécutées d’après l’organigramme :
 
-#### <a name="create-virtual-machine-using-the-azure-portal"></a>Créer une machine virtuelle à l’aide du portail Azure
-Le moyen le plus simple de créer une machine virtuelle à l’aide d’une image provenant d’Azure Marketplace est d’utiliser le portail Azure. Accédez à <https://portal.azure.com/#create> ou cliquez sur « + » sur le côté gauche du portail Azure. Entrez le type de système d’exploitation que vous voulez déployer, par exemple, Windows, SLES or RHEL, puis sélectionnez la version. Veillez à sélectionner le modèle de déploiement Resource Manager, puis cliquez sur Créer.
+#### <a name="create-virtual-machine-using-the-azure-portal"></a>Création d’une machine virtuelle à l’aide du portail Azure
+Le moyen le plus simple de créer une machine virtuelle à l’aide d’une image provenant d’Azure Marketplace est d’utiliser le portail Azure. Accédez à <https://portal.azure.com/#create> ou cliquez sur « + » sur le côté gauche du portail Azure. Entrez le type de système d’exploitation que vous voulez déployer, par exemple, Windows, SLES or RHEL, puis sélectionnez la version. Veillez à sélectionner le modèle de déploiement « Resource Manager », puis cliquez sur Créer.
 
 L’assistant vous guide pour configurer les paramètres requis pour créer la machine virtuelle, ainsi que toutes les ressources requises, telles que les interfaces réseau ou les comptes de stockage. Voici certains exemples de paramètres :
 
@@ -386,7 +386,7 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
    1. Emplacement : sélectionnez l’emplacement où la nouvelle machine virtuelle doit être déployée. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez le chapitre [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans le [Guide de planification][planning-guide].
 1. Taille
 
-   veuillez lire la note SAP [1928533] pour obtenir la liste des types de machine virtuelle pris en charge. Veillez également à sélectionner le type approprié si vous voulez utiliser le stockage Premium. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Consultez le chapitre [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Premium Azure][planning-guide-azure-premium-storage] dans le [Guide de planification][planning-guide] pour plus de détails.
+   Veuillez lire la note SAP [1928533] pour obtenir la liste des types de machine virtuelle pris en charge. Veillez également à sélectionner le type approprié si vous voulez utiliser le stockage Premium. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Consultez le chapitre [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Premium Azure][planning-guide-azure-premium-storage] dans le [Guide de planification][planning-guide] pour plus de détails.
 
 1. Settings
    1. Compte de stockage : sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage. Lisez le chapitre [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide] pour plus d’informations sur les différents types de stockage. Notez que tous les types de stockage ne sont pas pris en charge pour l’exécution d’applications SAP.
@@ -400,8 +400,8 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
 
 Une fois l’assistant terminé, votre machine virtuelle sera déployée dans le groupe de ressources que vous avez sélectionné.
 
-#### <a name="create-virtual-machine-using-a-template"></a>Créer une machine virtuelle à l’aide d’un modèle
-Vous pouvez également créer un déploiement à l’aide de l’un des modèles SAP publiés dans le [référentiel github azure-quickstart-templates][azure-quickstart-templates-github]. Vous pouvez également créer une machine virtuelle manuellement à l’aide du [Portail Azure][virtual-machines-windows-tutorial], de [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] ou de l’[interface de ligne de commande Azure][virtual-machines-linux-tutorial].
+#### <a name="create-virtual-machine-using-a-template"></a>Création d’une machine virtuelle à l’aide d’un modèle
+Vous pouvez également créer un déploiement à l’aide de l’un des modèles SAP publiés dans le [référentiel github azure-quickstart-templates][azure-quickstart-templates-github]. Vous pouvez également créer une machine virtuelle manuellement à l’aide du [Portail Azure][virtual-machines-windows-tutorial], de [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] ou de [l’interface de ligne de commande Azure][virtual-machines-linux-tutorial].
 
 * [Modèle de configuration à 2 niveaux (une seule machine virtuelle) (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image] Utilisez ce modèle si vous voulez créer un système à 2 niveaux avec une seule machine virtuelle.
 * [Modèle de configuration à 3 niveaux (plusieurs machines virtuelles) (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image] Utilisez ce modèle si vous voulez créer un système à 3 niveaux avec plusieurs machines virtuelles.
@@ -418,9 +418,9 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
     * La liste ne contient pas tous les systèmes d’exploitation. Par exemple, la liste ne contient pas Windows Server 2008 R2 bien qu’il est pris en charge par SAP. Veuillez lire la note SAP [1928533] pour obtenir la liste des systèmes d’exploitation pris en charge.
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **System Availability** : (modèle à 3 niveaux uniquement) disponibilité du système
+  * **System Availability** : (modèle à&3; niveaux uniquement) disponibilité du système
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
@@ -480,9 +480,9 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
   * **Os Type** : type de système d’exploitation à déployer, Windows ou Linux
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **System Availability** : (modèle à 3 niveaux uniquement) disponibilité du système 
+  * **System Availability** : (modèle à&3; niveaux uniquement) disponibilité du système 
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section 
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
@@ -501,7 +501,7 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
 Après avoir entré tous les paramètres, confirmez l’écran en cliquant sur Purchase (Achat).
 
 #### <a name="install-vm-agent-linux-only"></a>Installer l’agent de machine virtuelle (Linux uniquement)
-L’agent Linux doit déjà être installé sur l’image utilisateur si vous voulez utiliser les modèles ci-dessus. Si ce n'est pas le cas, le déploiement échoue. Téléchargez et installez l’agent de machine virtuelle dans l’image utilisateur, comme décrit dans le chapitre [Télécharger, installer et activer l’agent de machine virtuelle Azure][deployment-guide-4.4] de ce document.
+L’agent Linux doit déjà être installé sur l’image utilisateur si vous voulez utiliser les modèles ci-dessus. Si ce n'est pas le cas, le déploiement échoue. Téléchargez et installez l’agent de machine virtuelle dans l’image utilisateur, comme décrit dans le chapitre [Télécharger, installer et activer l’agent de machine virtuelle Azure][déploiement-guide-4.4] de ce document.
 Si vous n’utilisez pas les modèles ci-dessus, vous pouvez également installer l’agent de machine virtuelle plus tard.
 
 #### <a name="join-domain-windows-only"></a>Joindre le domaine (Windows uniquement)
@@ -545,7 +545,7 @@ En supposant que le disque est déjà chargé et défini dans Azure (voir le [Gu
 #### <a name="create-virtual-machine"></a>Créer une machine virtuelle
 Pour créer un déploiement à l’aide d’un disque privé de système d’exploitation par l’intermédiaire du portail Azure, utilisez le modèle SAP publié dans le [référentiel github azure-quickstart-templates][azure-quickstart-templates-github]. Vous pouvez également créer une machine virtuelle en utilisant [PowerShell][virtual-machines-windows-create-vm-specialized] manuellement.
 
-* [Modèle de configuration à 2 niveaux (une seule machine virtuelle) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
+* [Modèle de configuration à&2; niveaux (une seule machine virtuelle) (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
   * Utilisez ce modèle si vous voulez créer un système à 2 niveaux avec une seule machine virtuelle.
 
 Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accède à un écran sur lequel vous pouvez entrer les paramètres pour le modèle. Entrez les informations suivantes :
@@ -559,7 +559,7 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
   * **Os Type** : type de système d’exploitation à déployer, Windows ou Linux
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194] 
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
@@ -710,6 +710,8 @@ Ces paramètres doivent également être valides pour que le compte LocalSystem 
 4. Ouvrez l’onglet Connexions, cliquez sur Paramètres réseau.
 5. Désactivez « Détecter automatiquement les paramètres de connexion ».
 6. Activez « Utiliser un serveur proxy pour votre réseau local » et entrez l’adresse et le port du proxy
+7. Cliquez sur Avancé
+8. Ajoutez l’adresse IP 168.63.129.16 à la liste des exceptions
 
 #### <a name="linux"></a>Linux
 Configurer le proxy approprié dans le fichier de configuration de l’agent invité Microsoft Azure, qui se trouve dans/etc/waagent.conf. Les paramètres suivants doivent être définis :
@@ -828,7 +830,7 @@ La version figurant dans le chemin d’accès à l’extension d’analyse ci-de
 > 
 > 
 
-Si l’extension d’analyse Azure améliorée n’est pas installée ou que le service « AzureEnhancedMonitoring » n’est pas en cours d’exécution, cela signifie que l’extension n’a pas été configurée correctement. Dans ce cas, consultez le chapitre [Étapes supplémentaires de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP][deployment-guide-5.3] pour obtenir des instructions détaillées sur le redéploiement de l’extension.
+Si l’extension d’analyse Azure améliorée n’est pas installée ou que le service « AzureEnhancedMonitoring » n’est pas en cours d’exécution, cela signifie que l’extension n’a pas été configurée correctement. Dans ce cas, consultez le chapitre [Étapes supplémentaires de la résolution des problèmes de l’infrastructure d’analyse Azure pour SAP][déploiement-guide-5.3] pour obtenir des instructions détaillées sur le redéploiement de l’extension.
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Vérifiez la sortie renvoyée par azperflib.exe
 La sortie de azperflib.exe indique tous les compteurs de performances Azure remplis pour SAP. En bas de la liste des compteurs collectés, vous trouverez un résumé et un indicateur d’intégrité, qui indique l’état de l’analyse Azure. 
@@ -840,7 +842,7 @@ Vérifiez le résultat renvoyé pour la sortie du « Nombre de compteurs » si
 
 Vous pouvez interpréter les valeurs comme suit :
 
-| Résultats du fichier exécutable azperflib.exe | État d’intégrité de la surveillance Azure |
+| Résultats du fichier exécutable azperflib.exe | Surveillance de l’état d’intégrité Azure |
 | --- | --- |
 | **Appels de l’API - non disponibles** | Les compteurs qui ne sont pas disponibles peuvent ne pas être concernés par la configuration de la machine virtuelle ou les erreurs - voir l’état d’intégrité | 
 | **Nombre total de compteurs : vide** |Les 2 compteurs suivants de stockage Azure peuvent être vides :  <ul><li>Stockage Lecture Op Latence Serveur msec</li><li>Stockage Lecture Op Latence E2E msec</li></ul>Tous les autres compteurs doivent contenir des valeurs. |
@@ -963,6 +965,6 @@ Si la note SAP [1999351] ne permet pas de résoudre les problèmes, exécutez à
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

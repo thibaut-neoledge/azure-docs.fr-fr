@@ -1,5 +1,5 @@
 ---
-title: "Préparation de la sauvegarde des charges de travail à l’aide du serveur de sauvegarde Azure | Microsoft Docs"
+title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de travail dans le portail Azure Classic | Microsoft Docs
 description: "Assurez-vous que votre environnement est correctement préparé à la sauvegarde des charges de travail à l’aide d’Azure Backup Server"
 services: backup
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: jimpark;trinadhk;pullabhk; markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff232c2f5424d1a65c11b3c58d23e2776d619ad1
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
 
 
 ---
@@ -27,15 +27,15 @@ ms.openlocfilehash: ff232c2f5424d1a65c11b3c58d23e2776d619ad1
 > * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
-> 
-> 
+>
+>
 
 Cet article concerne la préparation de votre environnement à la sauvegarde des charges de travail à l’aide d’Azure Backup Server. Avec Azure Backup Server, vous pouvez protéger des charges de travail d’application telles que les machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et les clients Windows à partir d’une console unique :
 
 > [!WARNING]
 > Azure Backup Server hérite des fonctionnalités de Data Protection Manager (DPM) pour la sauvegarde de charge de travail. Vous trouverez des liens vers la documentation DPM pour certaines de ces fonctionnalités. Cependant, le serveur Microsoft Azure Backup ne fournit pas de protection sur bande et ne s’intègre pas à System Center.
-> 
-> 
+>
+>
 
 ## <a name="1-windows-server-machine"></a>1. Machine Windows Server
 ![étape 1](./media/backup-azure-microsoft-azure-backup/step1.png)
@@ -49,8 +49,8 @@ La première étape de la mise en service d’Azure Backup Server consiste à se
 
 > [!NOTE]
 > Il est conseillé d’installer Azure Backup Server sur un ordinateur équipé de Windows Server 2012 R2 Datacenter. La dernière version du système d’exploitation Windows est automatiquement conforme aux conditions préalables requises.
-> 
-> 
+>
+>
 
 Si vous envisagez d’ajouter ce serveur à un domaine à un moment donné, il est conseillé d’exécuter l’activité du domaine associé avant l’installation du serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
@@ -65,18 +65,18 @@ Pour créer un archivage de sauvegarde :
 2. Cliquez sur **Nouveau** > **Services de données** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer au coffre de sauvegarde.
 3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Celui-ci doit être unique pour chaque abonnement.
 4. Dans **Region**, sélectionnez la région géographique du coffre. En règle générale, la région dans laquelle le coffre se trouve est choisie en fonction de la souveraineté ou des contraintes de latence réseau.
-   
+
     ![Créer un archivage de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
 5. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
-   
+
     ![Créer une notification toast l’archivage](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
 6. Un message confirme que l’archivage a été correctement créé et l’archivage est affiché dans la page Services de récupération avec l’état Actif.
     ![Liste des coffres de sauvegarde](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-   
+
    > [!IMPORTANT]
    > Assurez-vous que l'option de redondance de stockage appropriée est choisie juste après la création de l'archivage. En savoir plus sur les options [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage) dans cette [présentation](../storage/storage-redundancy.md).
-   > 
-   > 
+   >
+   >
 
 ## <a name="3-software-package"></a>3. Package logiciel
 ![étape 3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -85,14 +85,14 @@ Pour créer un archivage de sauvegarde :
 Vous pouvez télécharger Microsoft Azure Backup pour les charges de travail d’application depuis la **page de démarrage rapide** d’un coffre de sauvegarde au même titre que les informations d’identification.
 
 1. Cliquez sur **Pour les charges de travail d’application (Disque à Disque vers Cloud)**. Vous serez alors orienté vers la page du centre de téléchargement à partir de laquelle le package logiciel peut être téléchargé.
-   
+
     ![Écran d’accueil Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/dpm-venus1.png)
 2. Cliquez sur **Télécharger**.
-   
+
     ![Centre de téléchargement 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 3. Sélectionnez tous les fichiers, puis cliquez sur **Suivant**. Téléchargez tous les fichiers en provenance de la page de téléchargement Microsoft Azure Backup et placez tous les fichiers dans le même dossier.
    ![Centre de téléchargement 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
-   
+
     Puisque la taille de téléchargement de l’ensemble des fichiers est > 3G, sur un lien de téléchargement de 10 Mbits/s, le téléchargement peut prendre jusqu’à 60 minutes.
 
 ### <a name="extracting-the-software-package"></a>Extraction du package logiciel
@@ -100,8 +100,8 @@ Une fois que vous avez téléchargé tous les fichiers, cliquez sur **MicrosoftA
 
 > [!WARNING]
 > Au moins 4 Go d’espace libre sont nécessaires pour l’extraction des fichiers d’installation.
-> 
-> 
+>
+>
 
 ![L’Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
@@ -109,47 +109,47 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
 ### <a name="installing-the-software-package"></a>Installation du package logiciel
 1. Cliquez sur **Microsoft Azure Backup** pour lancer l’Assistant d’installation.
-   
+
     ![L’Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant** . Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour Azure Backup Server sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant** .
-   
+
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure Backup Server requiert SQL Server Standard, et le package d’installation d’Azure Backup Server est fourni avec les fichiers binaires SQL Server appropriés. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
-   
+
     ![Serveur de sauvegarde Azure - Vérification SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
-   
+
     Si une défaillance se produit et qu’il est conseillé de redémarrer la machine, faites-le, puis cliquez sur **Vérifier à nouveau**.
-   
+
    > [!NOTE]
    > Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local.
-   > 
-   > 
+   >
+   >
 4. Fournissez un emplacement pour l’installation des fichiers de serveur Microsoft Azure Backup, puis cliquez sur **Suivant**.
-   
+
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
-   
+
     Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et de stockage sur disque](https://technet.microsoft.com/library/hh758075.aspx).
 5. Fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et cliquez sur **Suivant**.
-   
+
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 6. Indiquez si vous souhaitez utiliser *Microsoft Update* pour vérifier les mises à jour et cliquez sur **Suivant**.
-   
+
    > [!NOTE]
    > Nous conseillons de faire en sorte que Windows Update soit redirigé vers Microsoft Update, qui offre une sécurité et des mises à jour importantes pour Windows et autres produits, tels que le serveur Microsoft Azure Backup.
-   > 
-   > 
-   
+   >
+   >
+
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Examinez le *Résumé des paramètres* et cliquez sur **Installer**.
-   
+
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. L’installation se déroule en plusieurs phases. Lors de la première phase, l’Agent Microsoft Azure Recovery Services est installé sur le serveur. L’Assistant vérifie également la connectivité à Internet. Si la connectivité à Internet est disponible, vous pouvez poursuivre l’installation, sinon, vous devez fournir les informations de proxy détaillées pour se connecter à Internet.
-   
+
     L’étape suivante consiste à configurer l’Agent Microsoft Azure Recovery Services. Dans le cadre de la configuration, vous devrez fournir les informations d’identification de coffre pour inscrire l’ordinateur dans le coffre de sauvegarde. Vous allez également fournir une phrase secrète pour chiffrer/déchiffrer les données circulant entre Azure et votre environnement local. Vous pouvez automatiquement générer une phrase secrète ou fournir votre propre phrase secrète d’au minimum 16 caractères. Continuez avec l’Assistant jusqu’à ce que l’agent soit configuré.
-   
+
     ![PreReq2 de serveur de sauvegarde Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Une fois l’inscription du serveur Microsoft Azure Backup terminée et réussie, l’Assistant général d’installation procède à l’installation et à la configuration de SQL Server et des composants Azure Backup Server. Une fois l’installation du composant SQL Server terminée, les composants Azure Backup Server sont installés.
-   
+
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 Lorsque l’étape d’installation est terminée, les icônes du produit sur le bureau sont en principe créées elles aussi. Double-cliquez sur l’icône pour lancer le produit.
@@ -159,8 +159,8 @@ La première copie de sauvegarde est conservée sur l’espace de stockage assoc
 
 > [!NOTE]
 > Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture actuelle d’Azure Backup Server, le coffre Azure Backup conserve la *deuxième* copie des données, alors que le stockage local conserve la première copie (obligatoire).  
-> 
-> 
+>
+>
 
 ## <a name="4-network-connectivity"></a>4. Connectivité réseau
 ![step4](./media/backup-azure-microsoft-azure-backup/step4.png)
@@ -212,7 +212,6 @@ Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion d
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

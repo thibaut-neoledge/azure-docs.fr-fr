@@ -1,5 +1,5 @@
 ---
-title: "Créer un environnement Linux complet à l’aide de la version préliminaire de l’interface Azure CLI 2.0 | Microsoft Docs"
+title: "Créer un environnement Linux à l’aide d’Azure CLI 2.0 | Microsoft Docs"
 description: "Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface Azure CLI 2.0 (version préliminaire)."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: d8308ed6ec03457bd0ec30d34166631357e2b60f
 
 
 ---
@@ -1101,6 +1101,6 @@ Vous voici en mesure de commencer à utiliser plusieurs composants réseau et ma
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

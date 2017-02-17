@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure SQL Database et performances pour les bases de données uniques | Microsoft Docs"
+title: "Performances d’Azure SQL Database pour les bases de données uniques | Microsoft Docs"
 description: "Cet article vous aide à déterminer le niveau de service adapté à votre application. Il vous présente également des moyens de paramétrer votre application pour tirer le meilleur parti de votre instance Azure SQL Database."
 services: sql-database
 documentationcenter: na
@@ -16,13 +16,13 @@ ms.workload: data-management
 ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
-ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
 
 
 ---
 # <a name="azure-sql-database-and-performance-for-single-databases"></a>Microsoft Azure SQL Database et performances pour les bases de données uniques
-Azure SQL Database propose trois [niveaux de service](sql-database-service-tiers.md): De base, Standard et Premium. Chaque niveau de service isole strictement les ressources pouvant être utilisées par SQL Database, et garantit des performances prévisibles pour ce niveau de service. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
+Azure SQL Database propose trois [niveaux de service](sql-database-service-tiers.md): De base, Standard et Premium. Chaque niveau de service isole strictement les ressources pouvant être utilisées par votre base de données SQL et garantit des performances prévisibles. Dans cet article, nous vous offrons des recommandations qui vous aideront à choisir le niveau de service adapté à votre application. Nous abordons également des modes de paramétrage de votre application destinés à tirer le meilleur de Microsoft Azure SQL Database.
 
 > [!NOTE]
 > Cet article se concentre sur les recommandations de performances pour les bases de données uniques dans Microsoft Azure SQL Database. Pour un guide des performances relatives aux pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md). Notez, cependant, que vous pouvez appliquer un grand nombre des recommandations de cet article sur les bases de données d’un pool élastique, afin d’obtenir des avantages similaires en matière de performances.
@@ -109,7 +109,10 @@ Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous
 Pour l’analyse de SQL Database, vous pouvez obtenir des statistiques d’historique sur les sessions. Interrogez **sys.resource_stats**, puis utilisez la colonne **active_session_count**. Pour plus d’informations sur l’utilisation de cet affichage, consultez la section suivante.
 
 ## <a name="monitor-resource-use"></a>Surveiller l’utilisation des ressources
-Il existe deux vues qui vous permettent de surveiller l’utilisation des ressources d’une base de données SQL par rapport à son niveau de service :
+
+Vous pouvez surveiller l’utilisation des ressources à l’aide de [SQL Database Query Performance Insight](sql-database-query-performance.md) et du [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx).
+
+Vous pouvez également surveiller l’utilisation à l’aide de ces deux vues :
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -438,6 +441,6 @@ Certaines applications de base de données contiennent des charges de travail à
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

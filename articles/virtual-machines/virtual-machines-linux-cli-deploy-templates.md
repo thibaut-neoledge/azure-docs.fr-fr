@@ -1,5 +1,5 @@
 ---
-title: "Déployer et gérer des machines virtuelles avec des modèles | Microsoft Docs"
+title: "Déployer des machines virtuelles Linux avec des modèles Azure | Microsoft Docs"
 description: "Déployez et gérez les configurations les plus courantes pour les machines virtuelles Azure à l’aide des modèles Resource Manager et de l’interface de ligne de commande Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 382ab1e465efd94d7bf9bbf21228a19e126a1f4d
 
 
 ---
@@ -29,6 +29,6 @@ Cet article montre comment utiliser les modèles Azure Resource Manager et l’
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

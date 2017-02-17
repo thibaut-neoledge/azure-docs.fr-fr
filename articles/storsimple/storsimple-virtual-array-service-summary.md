@@ -1,5 +1,5 @@
 ---
-title: "Panneau de synthèse des services pour StorSimple Device Manager  - Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Panneau de synthèse du service StorSimple Virtual Array | Microsoft Docs"
 description: "Décrit le panneau de synthèse des services pour StorSimple Device Manager et explique comment l’utiliser pour surveiller l’intégrité de votre instance StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 813b4d430665e8df6f664c9c6a8db370f6ad7ac9
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
 
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utiliser le panneau de synthèse des services pour StorSimple Device Manager connecté à StorSimple Virtual Array
@@ -49,6 +49,6 @@ Découvrez comment [utiliser l’interface utilisateur web locale pour gérer vo
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

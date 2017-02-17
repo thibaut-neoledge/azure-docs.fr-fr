@@ -1,5 +1,5 @@
 ---
-title: "Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP | Microsoft Docs"
+title: "Obtention de tables ARP - Resource Manager : guide de résolution des problèmes Azure ExpressRoute | Microsoft Docs"
 description: "Cette page fournit des instructions sur l’obtention des tables ARP pour un circuit ExpressRoute"
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
 
 
 ---
-# <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Guide de résolution des problèmes d’ExpressRoute - Obtention de tables ARP dans le modèle de déploiement Resource Manager
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - Classique](expressroute-troubleshooting-arp-classic.md)
@@ -171,6 +171,6 @@ La table ARP d’une homologation peut servir à valider la connectivité et la 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

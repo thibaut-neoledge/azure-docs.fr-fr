@@ -1,6 +1,6 @@
 ---
-title: "gérer vos informations d’identification du compte de stockage StorSimple pour Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Explique comment utiliser la page Configurer de StorSimple Manager pour ajouter, modifier, supprimer ou régénérer les clés de sécurité des informations d’identification du compte de stockage associé à StorSimple Virtual Array."
+title: "Gérer les informations d’identification du compte de stockage StorSimple Virtual Array | Microsoft Docs"
+description: "Explique comment utiliser la page Configurer de StorSimple Device Manager pour ajouter, modifier, supprimer ou régénérer les clés de sécurité des informations d’identification du compte de stockage associé à StorSimple Virtual Array."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: fe38d4239c26f81aff0108fe6110325a5230c12b
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 6df75f229b95de99fb7f97714336fdc857e672eb
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation du service StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
@@ -154,6 +154,6 @@ Pour informer le service StorSimple Device Manager de la modification, vous deve
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

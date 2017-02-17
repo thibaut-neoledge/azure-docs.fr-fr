@@ -1,5 +1,5 @@
 ---
-title: Approvisionner un cache Redis | Microsoft Docs
+title: "Approvisionner un cache Redis à l’aide d’Azure Resource Manager | Microsoft Docs"
 description: "Utilisez un modèle Azure Resource Manager pour déployer un cache Redis Azure."
 services: app-service
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 8669d9526da27c3b7faebb7b4d3a9128233508f6
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
 
 
 ---
@@ -135,6 +135,6 @@ Crée le cache Redis Azure.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

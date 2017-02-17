@@ -1,28 +1,25 @@
 ---
-title: "Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git"
+title: "Configurer le service Gestion des API à l’aide de Git - Azure | Microsoft Docs"
 description: "Découvrez comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git"
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
-> [!IMPORTANT]
-> La configuration Git du service Gestion des API est actuellement disponible en version préliminaire. Cette fonctionnalité est complète et opérationnelle, mais elle est en version préliminaire pour nous permettre de collecter activement les commentaires client à son sujet. En fonction des commentaires client reçus, nous serons peut-être amenés à apporter des modifications avec rupture. Nous vous recommandons donc de ne pas utiliser cette fonctionnalité comme composant essentiel dans votre environnement de production. N’hésitez pas à nous faire part de vos commentaires ou questions à l’adresse `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ Quand vous apportez des modifications à votre service en utilisant le portail d
 
 Les étapes suivantes fournissent une vue d’ensemble de la gestion de votre instance du service Gestion des API à l’aide de Git.
 
-1. Activer l’accès à Git dans votre service
+1. Accéder à la configuration de Git dans votre service
 2. Enregistrer votre base de données de configuration de service dans votre dépôt Git
 3. Cloner le dépôt Git sur votre ordinateur local
 4. Récupérer le dernier dépôt sur votre ordinateur local, puis valider les modifications et les transférer vers votre dépôt
@@ -48,20 +45,14 @@ Les étapes suivantes fournissent une vue d’ensemble de la gestion de votre in
 
 Cet article décrit comment activer et utiliser Git pour gérer votre configuration de service et fournit une référence pour les fichiers et dossiers dans le dépôt Git.
 
-## <a name="to-enable-git-access"></a>Pour activer l’accès à Git
-Vous pouvez rapidement vérifier l’état de votre configuration Git en affichant l’icône Git dans le coin supérieur droit du portail de publication. Dans cet exemple, l’accès à Git n’a pas encore été activé.
+## <a name="access-git-configuration-in-your-service"></a>Accéder à la configuration de Git dans votre service
+Vous pouvez rapidement vérifier l’état de votre configuration Git en affichant l’icône Git dans le coin supérieur droit du portail de publication. Dans cet exemple, le message d’état indique que des modifications apportées au dépôt n’ont pas été enregistrées. Cela est dû au fait que la base de données de configuration du service Gestion des API n’a pas encore été enregistrée dans le dépôt.
 
 ![État de Git][api-management-git-icon-enable]
 
 Pour afficher et configurer vos paramètres de configuration Git, cliquez sur l’icône Git, ou cliquez dans le menu **Sécurité** et accédez à l’onglet **Dépôt de configuration**.
 
 ![Activer GIT][api-management-enable-git]
-
-Pour activer l’accès à Git, cochez la case **Activer l’accès à Git** .
-
-Après quelques instants, la modification est enregistrée et un message de confirmation s’affiche. L’icône Git a changé de couleur pour signaler que l’accès à Git est activé et le message d’état indique maintenant que des modifications n’ont pas été enregistrées dans le dépôt. Cela est dû au fait que la base de données de configuration du service Gestion des API n’a pas encore été enregistrée dans le dépôt.
-
-![Git activé][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Tous les secrets qui ne sont pas définis en tant que propriétés sont stockés dans le dépôt et demeurent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les propriétés fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations de l’API ; vous n’êtes donc pas obligé de les stocker directement dans les instructions de votre stratégie. Pour plus d’informations, consultez [Utilisation des propriétés dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
@@ -321,6 +312,6 @@ Pour plus d’informations sur d’autres méthodes pour gérer votre instance d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

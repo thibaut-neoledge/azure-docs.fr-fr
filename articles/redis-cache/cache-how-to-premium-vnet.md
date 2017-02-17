@@ -1,5 +1,5 @@
 ---
-title: "Configurer la prise en charge des réseaux virtuels pour un Cache Redis Azure Premium | Microsoft Docs"
+title: "Configurer un réseau virtuel pour un Cache Redis Azure Premium | Microsoft Docs"
 description: "Découvrez comment créer et gérer la prise en charge de réseau virtuel pour vos instances de Cache Redis Azure de niveau Premium"
 services: redis-cache
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: a3e1472ed737039157a4593404dce371c57906da
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 2cc95618b2edcb8d0f7c172a18156871887b8f69
 
 
 ---
@@ -168,6 +168,6 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

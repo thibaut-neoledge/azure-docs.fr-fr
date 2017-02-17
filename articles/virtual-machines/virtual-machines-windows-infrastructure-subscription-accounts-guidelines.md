@@ -1,5 +1,5 @@
 ---
-title: Instructions pour les abonnements et les comptes Azure | Microsoft Docs
+title: Abonnement et comptes pour les machines virtuelles Windows dans Azure | Microsoft Docs
 description: "Découvrez les principales instructions de conception et d’implémentation pour les abonnements et les comptes sur Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
-ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 09c87e78aaccae4f70b2ff61cfc2a0a174dbdfaf
 
 
 ---
@@ -69,6 +69,6 @@ Nous fournissons une facturation détaillée au moyen d’un fichier télécharg
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

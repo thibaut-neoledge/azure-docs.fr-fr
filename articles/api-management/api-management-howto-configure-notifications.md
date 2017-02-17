@@ -1,5 +1,5 @@
 ---
-title: "Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure"
+title: "Configurer des notifications et des modèles d’e-mails dans Gestion des API Azure | Microsoft Docs"
 description: "Apprenez à configurer des notifications et des modèles de messages électroniques dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 5d52b7609eb5ade1850e78868cbe0929c40c3c4f
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
 
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
@@ -122,6 +121,6 @@ Pour enregistrer les modifications apportées au modèle de message, cliquez sur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

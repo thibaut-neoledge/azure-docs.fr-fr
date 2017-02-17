@@ -1,6 +1,6 @@
 ---
-title: "Comment migrer des groupes d’affinités vers un réseau virtuel régional"
-description: "En savoir plus sur la migration des groupes d’affinités vers les réseaux virtuels régionaux"
+title: "Migrer un réseau virtuel Azure depuis un groupe d’affinités vers une région | Classique | Microsoft Docs"
+description: "Découvrez comment migrer un réseau virtuel Azure depuis un groupe d’affinités vers une région."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 198a726229f4950906e79272da6913f1a1afd15d
+ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
+ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 
 
 ---
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-vnet"></a>Comment migrer des groupes d’affinités vers un réseau virtuel régional
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>Comment migrer un réseau virtuel Azure depuis un groupe d’affinités vers une région
 Vous pouvez utiliser un groupe d’affinités pour vous assurer que les ressources créées dans le même groupe d’affinités sont physiquement hébergées par des serveurs proches les uns des autres, ce qui leur permet de communiquer plus rapidement. Auparavant, les groupes d’affinités étaient requis pour la création des réseaux virtuels. À cette époque, le service de gestionnaire réseau qui gérait les réseaux virtuels ne fonctionnait qu’au sein d’un ensemble de serveurs physiques ou d’une unité d’échelle. Les améliorations architecturales ont augmenté la portée de la gestion réseau à une région.
 
 Suite à ces améliorations architecturales, les groupes d’affinités ne sont plus recommandés ou requis pour les réseaux virtuels. L’utilisation des groupes d’affinités pour les réseaux virtuels est remplacée par les régions. Les réseaux virtuels associés à des régions sont appelés réseaux virtuels régionaux.
@@ -74,6 +74,6 @@ Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

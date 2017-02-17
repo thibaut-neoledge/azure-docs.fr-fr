@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
-ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
 
 
 ---
@@ -60,6 +60,11 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
 * Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez configurer cela en définissant le commutateur **Durée de vie fenêtre glissante du jeton d’actualisation (jours)** sur **Non délimité** dans votre stratégie d’authentification.
 * Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes du jeton d’accès.
 
+    > [!NOTE]
+    > Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.
+    > 
+    > 
+
 ## <a name="token-compatibility-settings"></a>Paramètres de compatibilité de jeton
 Nous avons apporté des modifications de mise en forme aux revendications importantes dans les jetons de sécurité émis par Azure AD B2C. Cela a été fait pour améliorer la prise en charge du protocole standard et pour une meilleure interopérabilité avec les bibliothèques d’identité tierces. Toutefois, pour éviter d’interrompre les applications existantes, nous avons créé les propriétés suivantes pour permettre aux clients de participer en fonction de leurs besoins :
 
@@ -87,6 +92,11 @@ Voici quelques cas d’usage que vous pouvez activer à l’aide de ces proprié
 * Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes de la session d’application web.
 * Forcez la réauthentification après une période donnée pendant une interaction utilisateur avec une partie haute sécurité de votre application web. 
 
+    > [!NOTE]
+    > Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.
+    > 
+    > 
+
 ## <a name="single-sign-on-sso-configuration"></a>Configuration de l’authentification unique
 Si vous avez plusieurs applications et stratégies dans votre client B2C, vous pouvez gérer les interactions utilisateur à l’aide de la propriété **Configuration de l’authentification unique** . Vous pouvez définir la propriété sur l’un des paramètres suivants :
 
@@ -95,9 +105,14 @@ Si vous avez plusieurs applications et stratégies dans votre client B2C, vous p
 * **Stratégie**: ceci vous permet de maintenir une session utilisateur exclusivement pour une stratégie, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée à la stratégie n’expire pas.
 * **Désactivé**: ceci oblige l’utilisateur à réexécuter toute la procédure pour chaque exécution de la stratégie. Par exemple, cela permet à plusieurs utilisateurs de s’inscrire à votre application (dans un scénario de bureau partagé), même lorsqu’un seul utilisateur reste connecté pendant toute la durée.
 
+    > [!NOTE]
+    > Ces paramètres ne sont pas disponibles pour les stratégies de réinitialisation de mot de passe.
+    > 
+    > 
 
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO4-->
 
 

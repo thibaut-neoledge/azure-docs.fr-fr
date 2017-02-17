@@ -1,5 +1,5 @@
 ---
-title: Utilisation de l&quot;inspecteur d&quot;API pour le suivi des appels dans Gestion des API Azure
+title: "Suivre les appels avec l’inspecteur d’API - Gestion des API Azure | Microsoft Docs"
 description: "Découvrez comment suivre les appels à l&quot;aide de l&quot;inspecteur d&quot;API dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 28e9cbf05e75055a10c78fd42b5cb27e359b1d65
-ms.openlocfilehash: aad0e6de85a40df8a873aa11e5a33e7064090dce
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
@@ -269,6 +268,6 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

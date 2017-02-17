@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : Ports | Microsoft Docs"
+title: "Ports et protocoles nécessaires pour l’identité hybride - Azure | Microsoft Docs"
 description: "Cette page contient des informations de référence techniques sur les ports qui doivent être ouverts pour Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 
 ---
@@ -77,9 +77,9 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 |Protocole|Numéro de port|Description
 | --- | --- | ---
 |HTTP|80|Active le trafic HTTP sortant pour valider la sécurité, comme SSL.
-|HTTPS|443| Active l’authentification utilisateur auprès d’Azure AD
-|HTTPS|10100 à 10120| Active les réponses à partir du connecteur vers Azure AD 
-|Azure Service Bus|9352, 5671|  Active la communication depuis le connecteur vers le service Azure pour les requêtes entrantes.
+|HTTPS|443|    Active l’authentification utilisateur auprès d’Azure AD
+|HTTPS|10100 à&10120;|    Active les réponses à partir du connecteur vers Azure AD 
+|Azure Service Bus|9352, 5671|    Active la communication depuis le connecteur vers le service Azure pour les requêtes entrantes.
 |HTTPS|9350|    Facultatif ; pour de meilleures performances pour les requêtes entrantes
 |HTTPS|8080/443|    Active la séquence de démarrage du connecteur et la mise à jour automatique du connecteur.
 |HTTPS|9090|    Active l’enregistrement du connecteur (obligatoire uniquement pour le processus d’inscription du connecteur).
@@ -102,6 +102,6 @@ Pour obtenir la liste des points de terminaison, consultez la section [Configura
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

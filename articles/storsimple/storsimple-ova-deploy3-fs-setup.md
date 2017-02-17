@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de StorSimple Virtual Array 3 - Configuration de l’appareil virtuel en tant que serveur de fichiers"
+title: Configurer StorSimple Virtual Array comme un serveur de fichiers | Microsoft Docs
 description: "Ce troisième didacticiel du déploiement StorSimple Virtual Array vous explique comment configurer un appareil virtuel en tant que serveur de fichiers."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f99e3dc59c0637053cad6c2b3b6baedac803f42
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
 
 
 ---
@@ -65,7 +65,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
 6. Sur la page **Paramètres de l’appareil** :
    
    1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
-   2. Cliquez sur l’icône **Serveur de fichiers![](./media/storsimple-ova-deploy3-fs-setup/image6.png) ** pour le **type** d’appareil que vous créez. Un serveur de fichiers vous permettra de créer des dossiers partagés.
+   2. Cliquez sur l’icône **Serveur de fichiers** ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) pour le **type** d’appareil que vous créez. Un serveur de fichiers vous permettra de créer des dossiers partagés.
    3. Votre appareil étant un serveur de fichiers, vous devez l’associer à un domaine. Entrez un **nom de domaine**.
    4. Cliquez sur **Apply**.
 7. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône en forme de coche. Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
@@ -85,8 +85,8 @@ Utilisez la procédure détaillée ci-dessous pour configurer et déployer votre
    
    Sur la page **Proxy Web** :
    
-   1. Indiquez **l’URL du proxy web** au format suivant : *http://adresse IP hôte&lt; ou &gt;Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
-   2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
+   1. Indiquez **l’URL du proxy web** au format suivant : *http://&lt;adresse IP ou nom de domaine complet de l’hôte&gt;:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+   2. Définissez **Authentification** sur la valeur **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devrez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
 10. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
@@ -177,7 +177,7 @@ Vous devrez maintenant vous connecter aux partages que vous avez créés à l'é
 
 Regardez la vidéo pour découvrir comment configurer et inscrire StorSimple Virtual Array comme un serveur de fichiers.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -187,6 +187,6 @@ Découvrez comment [utiliser l’interface utilisateur web locale pour gérer vo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

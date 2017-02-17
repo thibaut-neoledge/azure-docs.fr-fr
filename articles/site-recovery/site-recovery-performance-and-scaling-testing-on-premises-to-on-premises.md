@@ -1,5 +1,5 @@
 ---
-title: "Test de performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre avec Site Recovery | Microsoft Docs"
+title: "Résultats des tests de la réplication Hyper-V entre sites avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit des informations sur les tests des performances pour la réplication d’un site local à un autre à l’aide d’Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3c35bf129dd1566f3e2084caacc0330b5a6fc32
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
 
 
 ---
-# <a name="performance-test-and-scale-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local avec Site Recovery
+# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Résultats des tests de la réplication Hyper-V d’un site local à un autre avec Site Recovery
 Vous pouvez utiliser Microsoft Azure Site Recovery pour orchestrer et gérer la réplication des machines virtuelles et des serveurs physiques sur Azure ou sur un centre de données secondaire. Cet article présente les résultats des tests de performances que nous avons effectués lors de la réplication de machines virtuelles Hyper-V entre deux centres de données locaux.
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -173,7 +173,6 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

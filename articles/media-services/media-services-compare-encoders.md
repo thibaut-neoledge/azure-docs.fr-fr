@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/27/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: dca8087230b261f14e876e49b9b0fb12579b96d0
+ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
+ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 
 ---
@@ -43,7 +43,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | Windows Media/ASF |Oui |Oui |
 | AVI (8 bits/10 bits non compressé) |Oui |Oui |
 | 3GPP/3GPP2 |Oui |Non |
-| Format de fichier de diffusion en continu lisse (PIFF 1.3) |Oui |Non |
+| Format de fichier Smooth Streaming (PIFF 1.3) |Oui |Non |
 | [Enregistrement vidéo numérique Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Oui |Non |
 | Matroska/WebM |Oui |Non |
 | QuickTime (.mov) |Oui |Non |
@@ -95,7 +95,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | MPEG-TS |Oui |Oui |
 | Windows Media/ASF |Non |Oui |
 | AVI (8 bits/10 bits non compressé) |Non |Oui |
-| Format de fichier de diffusion en continu lisse (PIFF 1.3) |Non |Oui |
+| Format de fichier Smooth Streaming (PIFF 1.3) |Non |Oui |
 
 ### <a name="output-video-codecs"></a>Codecs vidéo de sortie
 | Codecs vidéo de sortie | Media Encoder Standard | Media Encoder Premium Workflow |
@@ -118,6 +118,8 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | MP3 (MPEG-1 Audio Layer 3) |Non |Oui |
 | Windows Media Audio |Non |Oui |
 
+>[!NOTE]
+>Si vous encodez en Dolby® Digital (AC3), la sortie peut uniquement être écrite dans un fichier MP4 ISO.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -134,6 +136,6 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

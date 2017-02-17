@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)"
+title: "Intégrer Key Vault à SQL Server sur des machines virtuelles Windows dans Azure | Microsoft Docs"
 description: "Apprenez à automatiser la configuration du chiffrement de SQL Server pour une utilisation avec Azure Key Vault. Cette rubrique explique comment utiliser l’intégration de coffre de clés Azure avec des machines virtuelles SQL Server créées avec Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 10/25/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 097b2bc4ce0726b2d1f0c9414035af767125cb69
+ms.sourcegitcommit: 7a285920888bdfb46922d8708cf778229efff0a3
+ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
 
 
 ---
@@ -68,6 +68,6 @@ Lorsque vous avez terminé, cliquez sur le bouton **OK** au bas du panneau **Con
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

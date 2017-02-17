@@ -1,5 +1,5 @@
 ---
-title: StorSimple Adapter for SharePoint | Microsoft Docs
+title: Installer un adaptateur StorSimple pour SharePoint | Microsoft Docs
 description: "Décrit comment installer et configurer ou supprimer StorSimple Adapter pour SharePoint dans une batterie de serveurs SharePoint."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a108e20c36208fd211e45d180fc77a65e501b191
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
 
 
 ---
@@ -31,8 +31,8 @@ StorSimple Adapter for SharePoint fonctionne comme un fournisseur Remote BLOB St
 > 
 > 
 
-* Pour télécharger StorSimple Adapter for SharePoint, consultez la rubrique [StorSimple Adapter for SharePoint][1] dans le centre de téléchargement Microsoft.
-* Pour plus d’informations sur la planification des limitations RBS et RBS, consultez la rubrique [Choix de l’utilisation de RBS dans SharePoint 2013][2] ou [Planification de RBS (SharePoint Server 2010)][3].
+* Pour télécharger StorSimple Adapter pour SharePoint, consultez la rubrique [StorSimple Adapter pour SharePoint][1] dans le centre de téléchargement Microsoft.
+* Pour plus d’informations sur la planification de RBS et des limitations RBS, consultez la rubrique [Choix de l’utilisation de RBS dans SharePoint 2013][2] ou [Planification de RBS (SharePoint Server 2010)][3].
 
 Le reste de cette présentation décrit brièvement le rôle de StorSimple Adapter for SharePoint et les limites de capacité et de performances de SharePoint que vous devez connaître avant d'installer et de configurer l'adaptateur. Après avoir pris connaissance de ces informations, consultez la rubrique [Installation de StorSimple Adapter for SharePoint](#storsimple-adapter-for-sharepoint-installation) pour commencer la configuration de l'adaptateur.
 
@@ -50,7 +50,7 @@ L’implémentation Microsoft Azure StorSimple de RBS offre les avantages suivan
 * Vous pouvez utiliser un logiciel de récupération de données comme Kroll Ontrack PowerControls avec des instantanés StorSimple de données blob pour effectuer une récupération au niveau des éléments du contenu SharePoint. (Ce logiciel de récupération des données est vendu séparement).
 * StorSimple Adapter for SharePoint se connecte au portail d'administration centrale de SharePoint, ce qui vous permet de gérer votre solution SharePoint à partir d'un emplacement central.
 
-Le déplacement du contenu blob vers le système de fichiers peut entraîner d’autres réductions de coût et avantages. Par exemple, RBS peut réduire les besoins en stockage de niveau 1 coûteux et, puisqu’il réduit la base de données de contenu, réduire le nombre de bases de données requises dans la batterie de serveurs SharePoint. Toutefois, d'autres facteurs comme les limites de taille de base de données et la quantité de contenu non RBS, peuvent également affecter les exigences de stockage. Pour plus d'informations sur les coûts et les avantages de l'utilisation de RBS, consultez la rubrique [Planification RBS (SharePoint Foundation 2010)][4] et [Choix de l’utilisation de RBS dans SharePoint 2013][5].
+Le déplacement du contenu blob vers le système de fichiers peut entraîner d’autres réductions de coût et avantages. Par exemple, RBS peut réduire les besoins en stockage de niveau 1 coûteux et, puisqu’il réduit la base de données de contenu, réduire le nombre de bases de données requises dans la batterie de serveurs SharePoint. Toutefois, d'autres facteurs comme les limites de taille de base de données et la quantité de contenu non RBS, peuvent également affecter les exigences de stockage. Pour plus d’informations sur les coûts et les avantages de RBS, consultez la rubrique [Planification de RBS (SharePoint Foundation 2010)][4] et [Choix de l’utilisation de RBS dans SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Limites de capacité et de performances
 Avant d'envisager l'utilisation de RBS dans votre solution SharePoint, vous devez être conscient des limites de performances et de capacité de SharePoint Server 2010 et de SharePoint Server 2013, et comment ces limites se situent par rapport à des performances acceptables. Pour plus d'informations, consultez la rubrique [Limites des logiciels et limites pour SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
@@ -178,7 +178,7 @@ Lorsque des objets sont supprimés d'un site SharePoint, ils ne sont pas automat
 
 Ce programme de maintenance (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) est automatiquement installé sur tous les serveurs WFE SharePoint et serveurs d'applications lorsque vous activez RBS. Le programme est installé à l'emplacement suivant : *disque de démarrage*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
-Pour plus d'informations sur la configuration et l'utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
+Pour plus d’informations sur la configuration et l’utilisation du programme de maintenance, consultez la rubrique [Maintenance de RBS dans SharePoint Server 2013][8].
 
 > [!IMPORTANT]
 > Le programme de maintenance RBS consomme beaucoup de ressources. Vous devez planifier son exécution uniquement pendant les périodes de faible activité au niveau de la batterie de serveurs SharePoint.
@@ -275,6 +275,6 @@ Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

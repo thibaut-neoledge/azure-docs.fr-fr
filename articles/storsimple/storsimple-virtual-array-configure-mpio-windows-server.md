@@ -1,5 +1,5 @@
 ---
-title: "Configuration de MPIO sur votre hôte de baie virtuelle Microsoft Azure StorSimple| Microsoft Docs"
+title: "Configurer MPIO sur un hôte connecté à StorSimple Virtual Array | Microsoft Docs"
 description: "Décrit comment configurer Multipath I/O (MPIO) pour votre tableau virtuel StorSimple connecté à un hôte exécutant Windows Server 2012 R2."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 53308da656f46a43332a204d9d49e972d8c1799c
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurer MPIO (Multipath I/O) sur un hôte Windows Server pour la baie virtuelle StorSimple
@@ -160,6 +160,6 @@ En savoir plus sur l’ [utilisation du service StorSimple Device Manager pour g
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

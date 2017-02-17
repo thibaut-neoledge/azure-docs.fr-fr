@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de services web Azure ML utilisant les modules d’importation et d’exportation des données | Microsoft Docs"
+title: "Utiliser Importer/Exporter des données dans les services web Azure Machine Learning | Microsoft Docs"
 description: "Découvrez comment utiliser les modules Importer des données et Exporter des données pour envoyer et recevoir des données à partir d’un service web."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
 
 
 ---
@@ -121,7 +121,7 @@ Pour déployer comme un service web classique et créer une application afin de 
 Pour déployer comme un nouveau service web et créer une application afin de l’utiliser :
 
 1. En bas de la zone de dessin de l’expérience, cliquez sur **Exécuter**.
-2. ///MARDI 11H/// Une fois l’exécution terminée, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [nouveau]**.
+2. ///MARDI&11;H/// Une fois l’exécution terminée, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [nouveau]**.
 3. Sur la page de l’expérience de déploiement, nommez votre service web, sélectionnez un plan de tarification, puis cliquez sur **Déployer**.
 4. Sur la page **Quickstart**, cliquez sur **Consommer**.
 5. Dans la section **Exemple de code**, cliquez sur **Lot**.
@@ -145,6 +145,6 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

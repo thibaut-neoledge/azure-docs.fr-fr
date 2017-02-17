@@ -1,5 +1,5 @@
 ---
-title: "Installation de votre appareil StorSimple 8600 | Microsoft Docs"
+title: "Installer un appareil Microsoft Azure StorSimple 8600 | Microsoft Docs"
 description: "Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
 
 
 ---
@@ -203,8 +203,8 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    
    | Étiquette | Description |
    | --- | --- |
-   |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
-   |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
+   |   0/1/4/5 |Interfaces réseau de&1; Gigabit Ethernet |
+   |   2/3 |Interfaces réseau de&10; Gigabit Ethernet |
    |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
@@ -271,6 +271,6 @@ Vous êtes maintenant prêt à procéder au [déploiement et à la configuration
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

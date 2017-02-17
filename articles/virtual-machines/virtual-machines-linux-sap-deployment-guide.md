@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 3a5e22315e338fe089cf557688f741ee16416da2
-ms.openlocfilehash: 5214f55b8e65ec758ba93fb86d548b45a1b4f21e
+ms.sourcegitcommit: 83ab4f79031eb34e3be6bfb65c9d0ebfa00bc6db
+ms.openlocfilehash: 609e7ec6949b341c42b2e3b793a46dc1264cfd06
 
 
 ---
@@ -382,7 +382,7 @@ L’assistant vous guide pour configurer les paramètres requis pour créer la m
    1. Emplacement : sélectionnez l’emplacement où la nouvelle machine virtuelle doit être déployée. Si vous voulez connecter la machine virtuelle à votre réseau local, veillez à sélectionner l’emplacement du réseau virtuel qui connecte Azure à votre réseau local. Pour plus d’informations, consultez le chapitre [Mise en réseau Microsoft Azure][planning-guide-microsoft-azure-networking] dans le [Guide de planification][planning-guide].
 1. Taille
 
-    Veuillez lire la note SAP [1928533] pour obtenir la liste des types de machine virtuelle pris en charge. Veillez également à sélectionner le type approprié si vous voulez utiliser le stockage Premium. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Pour plus d’informations, consultez le chapitre [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Premium Azure][planning-guide-azure-premium-storage] dans le [Guide de planification][planning-guide].
+    Veuillez lire la note SAP [1928533] pour obtenir la liste des types de machine virtuelle pris en charge. Veillez également à sélectionner le type approprié si vous voulez utiliser le stockage Premium. Tous les types de machine virtuelle ne prennent pas en charge le stockage Premium. Consultez le chapitre [Stockage : Stockage Microsoft Azure et disques de données][planning-guide-storage-microsoft-azure-storage-and-data-disks] et [Stockage Premium Azure][planning-guide-azure-premium-storage] dans le [Guide de planification][planning-guide] pour plus de détails.
     
 1. Settings
    1. Compte de stockage : sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage. Lisez le chapitre [Microsoft Azure Storage][dbms-guide-2.3] du [Guide SGBD][dbms-guide] pour plus d’informations sur les différents types de stockage. Notez que tous les types de stockage ne sont pas pris en charge pour l’exécution d’applications SAP.
@@ -414,20 +414,20 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
     * La liste ne contient pas tous les systèmes d’exploitation. Par exemple, la liste ne contient pas Windows Server 2008 R2 bien qu’il est pris en charge par SAP. Veuillez lire la note SAP [1928533] pour obtenir la liste des systèmes d’exploitation pris en charge.
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **System Availability** : (modèle à 3 niveaux uniquement) disponibilité du système
+  * **System Availability** : (modèle à&3; niveaux uniquement) disponibilité du système
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
-      * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
   * **Admin Username** et **Admin Password** : nom d’utilisateur et mot de passe
     * Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
   * **New Or Existing Subnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
   * **Subnet Id** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
-1. Conditions générales  
+1. Conditions  
     Lisez et acceptez les conditions juridiques.
 
 Après avoir entré tous les paramètres, confirmez l’écran en cliquant sur Purchase (Achat). 
@@ -476,13 +476,13 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
   * **Os Type** : type de système d’exploitation à déployer, Windows ou Linux
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **System Availability** : (modèle à 3 niveaux uniquement) disponibilité du système 
+  * **System Availability** : (modèle à&3; niveaux uniquement) disponibilité du système 
     * Sélectionnez haute disponibilité si la configuration est adaptée à une installation haute disponibilité. Deux serveurs de base de données et deux serveurs pour l’ASCS seront créés.
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section 
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
-      * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
   * **User Image Vhd Uri** : URI du disque dur virtuel de l’image privée du système d’exploitation, par exemple https://`<accountname`>.blob.core.windows.net/vhds/userimage.vhd
   * **User Image Storage Account** : nom du compte de stockage où l’image privée du système d’exploitation est stockée, par exemple, `<accountname`> dans l’exemple d’URI ci-dessus
@@ -491,7 +491,7 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
   * **New Or Existing Subnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
   * **Subnet Id** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
-1. Conditions générales  
+1. Conditions  
     Lisez et acceptez les conditions juridiques.
 
 Après avoir entré tous les paramètres, confirmez l’écran en cliquant sur Purchase (Achat).
@@ -555,17 +555,17 @@ Une fois que vous avez ouvert un des modèles ci-dessus, le portail Azure accèd
   * **Os Type** : type de système d’exploitation à déployer, Windows ou Linux
   * **Sap System Size** : taille du système SAP
     * Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
-  * **Storage Type** : (modèle à 2 niveaux uniquement) type de stockage à utiliser 
+  * **Storage Type** : (modèle à&2; niveaux uniquement) type de stockage à utiliser 
     * Pour les systèmes plus importants, il est fortement recommandé d’utiliser le stockage Premium. Pour plus d’informations sur les différents types de stockage, lisez la section
       * [Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP][2367194] 
       * [Microsoft Azure Storage][dbms-guide-2.3] du [Guide DBMS][dbms-guide]
-      * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure][storage-premium-storage-preview-portal]
       * [Présentation du stockage Microsoft Azure][storage-introduction]
   * **Os Disk Vhd Uri** : URI du disque de système d’exploitation privé, par exemple https://`<accountname`>.blob.core.windows.net/vhds/osdisk.vhd
   * **New Or Existing Subnet** : détermine si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
   * **Subnet Id** : identifiant du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription id`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
-1. Conditions générales  
+1. Conditions  
     Lisez et acceptez les conditions juridiques.
 
 Après avoir entré tous les paramètres, confirmez l’écran en cliquant sur Purchase (Achat).
@@ -670,11 +670,11 @@ Pour les machines virtuelles déployées à partir d’Azure Marketplace, cette 
   * Téléchargez le package d’installation de l’agent de machine virtuelle Azure à partir de : <https://go.microsoft.com/fwlink/?LinkId=394789>
   * Stockez le package MSI de l’agent de machine virtuelle localement sur l’ordinateur portable ou sur un serveur.
 * Installez l’agent de machine virtuelle Azure :
-  * Connectez-vous à la machine virtuelle Azure déployée avec le Bureau à distance (RDP).
-  * Ouvrez une fenêtre de l’explorateur Windows sur la machine virtuelle et choisissez un répertoire cible pour le fichier MSI de l’agent de machine virtuelle.
+  * Connectez-vous à la machine virtuelle Azure déployée avec le Bureau à distance (RDP)
+  * Ouvrez une fenêtre de l’explorateur Windows sur la machine virtuelle et choisissez un répertoire cible pour le fichier MSI de l’agent de machine virtuelle
   * Glissez et déposez le fichier MSI du programme d’installation de l’agent de machine virtuelle Azure de votre ordinateur portable/serveur local au répertoire cible de l’agent de machine virtuelle dans la machine virtuelle.
   * Double-cliquez sur le fichier MSI dans la machine virtuelle
-  * Pour la machine virtuelle associée à des domaines locaux, veillez à ce que les paramètres de proxy Internet s’appliquent au compte système local Windows (S-1-5-18) de la machine virtuelle, comme décrit dans le chapitre [Configurer le proxy][deployment-guide-configure-proxy]. L’agent de machine virtuelle s’exécute dans ce contexte et doit être en mesure de se connecter à Azure.
+  * Pour les machines virtuelles associées à des domaines locaux, veillez à ce que les paramètres de proxy Internet s’appliquent au compte système local Windows (S-1-5-18) de la machine virtuelle, comme décrit dans le chapitre [Configurer le proxy][deployment-guide-configure-proxy]. L’agent de machine virtuelle s’exécute dans ce contexte et doit être en mesure de se connecter à Azure.
 
 La mise à jour de l’agent de machine virtuelle Azure ne nécessite aucune intervention de la part de l’utilisateur. L’agent de machine virtuelle se met à jour automatiquement et ne nécessite pas un redémarrage de la machine virtuelle.
 
@@ -705,7 +705,9 @@ Ces paramètres doivent également être valides pour que le compte LocalSystem 
 3. Ouvrez le panneau de configuration et accédez à Réseau et Internet -> Options Internet.
 4. Ouvrez l’onglet Connexions, cliquez sur Paramètres réseau.
 5. Désactivez « Détecter automatiquement les paramètres de connexion ».
-6. Activez « Utiliser un serveur proxy pour votre réseau local » et entrez l’adresse et le port du proxy.
+6. Activez « Utiliser un serveur proxy pour votre réseau local » et entrez l’adresse et le port du proxy
+7. Cliquez sur Avancé
+8. Ajoutez l’adresse IP 168.63.129.16 à la liste des exceptions
 
 #### <a name="linux"></a>Linux
 Configurer le proxy approprié dans le fichier de configuration de l’agent invité Microsoft Azure, qui se trouve dans/etc/waagent.conf. Les paramètres suivants doivent être définis :
@@ -959,6 +961,6 @@ Si la note SAP [1999351] ne permet pas de résoudre les problèmes, exécutez à
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

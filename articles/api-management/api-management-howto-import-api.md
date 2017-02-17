@@ -1,6 +1,6 @@
 ---
-title: Principaux concepts du service API Management
-description: Learn about APIs, products, roles, groups, and other API Management key concepts.
+title: Importer une API dans Gestion des API Azure | Microsoft Docs
+description: "Découvrez comment importer une API et ses opérations dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: b69c8e918bb0380a10b1505fbf9792e284149de0
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Importation de la définition d'une API avec des opérations dans Gestion des API Azure
@@ -97,6 +96,6 @@ Une fois l'API créée et les opérations importées, vous pouvez vérifier et c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

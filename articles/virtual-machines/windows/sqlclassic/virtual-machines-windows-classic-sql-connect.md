@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 98165704fe2699f8ff8a90edb7af8ad10b4d296c
+ms.sourcegitcommit: c6c716c4dce810f190ed66d633524472ba665256
+ms.openlocfilehash: 60d74f1a8dff6441aa461cdc740b5aadc6b77be3
 
 
 ---
@@ -55,7 +55,7 @@ Dans ce scénario, vous pouvez vous connecter à l’aide de la machine virtuell
 ### <a name="connect-to-sql-server-over-the-internet"></a>Se connecter à SQL Server via Internet
 Si vous souhaitez vous connecter à votre moteur de base de données SQL Server à partir d’Internet, vous devez créer un point de terminaison de machine virtuelle pour les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
-Pour vous connecter via Internet, vous devez utiliser le nom DNS de la machine virtuelle et le numéro de port du point de terminaison de la machine virtuelle (configuré plus loin dans cet article). Pour rechercher le nom DNS, accédez au portail Azure, puis sélectionnez **Machines virtuelles (classique)**. Sélectionnez ensuite votre machine virtuelle. Le **nom DNS** est indiqué dans la section **Vue d’ensemble**.
+Pour vous connecter via Internet, vous devez utiliser le nom DNS de la machine virtuelle et le numéro de port du point de terminaison de la machine virtuelle (configuré plus loin dans cet article). Pour trouver le nom DNS, accédez au portail Azure, puis sélectionnez **Machines virtuelles (classiques)**. Sélectionnez ensuite votre machine virtuelle. Le **nom DNS** est indiqué dans la section **Vue d’ensemble**.
 
 Prenons par exemple une machine virtuelle classique nommée **mysqlvm** avec comme nom DNS **mysqlvm7777.cloudapp.net** et un point de terminaison de machine virtuelle **57500**. En supposant que la connectivité est correctement configurée, vous pouvez utiliser la chaîne de connexion suivante pour accéder à la machine virtuelle à partir de n’importe où sur Internet :
 
@@ -112,6 +112,6 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Migration de cache vers Redis | Microsoft Docs
-description: "Apprenez à migrer les applications du Service de cache géré vers le Cache Redis Azure"
+title: "Migrer les applications du Service de cache géré vers Redis - Azure | Microsoft Docs"
+description: "Découvrez comment migrer les applications du Service de cache géré et d’In-Role Cache vers le Cache Redis Azure"
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
 
 
 ---
@@ -190,6 +190,6 @@ Explorez la [documentation du Cache Redis Azure](https://azure.microsoft.com/doc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

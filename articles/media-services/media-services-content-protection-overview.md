@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble de la protection du contenu | Microsoft Docs"
+title: "Protéger votre contenu avec Azure Media Services | Microsoft Docs"
 description: "Cet article donne une vue d’ensemble de la protection du contenu avec Media Services."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 564a86fbdd64c4d28d26b7e295cca6f3904a3f4a
-ms.openlocfilehash: 04dae4646de23ab128101606cfb19f18a47133ad
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 
 
 ---
@@ -28,14 +28,14 @@ L’image suivante montre les flux de travail de protection du contenu pris en c
 ![Protéger avec PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 >[!NOTE]
->Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Cette rubrique explique les [concepts et la terminologie](media-services-content-protection-overview.md) pertinentes pour comprendre la protection du contenu avec AMS. Cette rubrique contient également des [liens](media-services-content-protection-overview.md#common-scenarios) vers des rubriques qui montrent comment effectuer les tâches de protection du contenu. 
 
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 Microsoft Azure Media Services vous permet de transmettre du contenu chiffré de manière dynamique avec le chiffrement de clé en clair AES ou DRM : Microsoft PlayReady, Google Widevine et Apple FairPlay.
 
-Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
+Actuellement, vous pouvez chiffrer les formats de streaming suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
 
 Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à votre élément multimédia et configurer des stratégies d’autorisation pour la clé.
 
@@ -67,7 +67,7 @@ La stratégie d’autorisation des clés de contenu peut comporter une ou plusie
 Lorsque vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres principaux de clé de vérification, émetteur et public. La clé de vérification principale contient la clé utilisée pour signer le jeton, l’émetteur est le service de jeton sécurisé qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 ## <a name="streaming-urls"></a>URL de diffusion
-Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de diffusion en continu : (format=’m3u8-aapl’, encryption=’xxx’).
+Si votre ressource a été chiffrée avec plusieurs DRM, vous devez utiliser une balise de chiffrement dans l’URL de streaming : (format=’m3u8-aapl’, encryption=’xxx’).
 
 Les considérations suivantes s'appliquent :
 
@@ -87,7 +87,7 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 * [Diffuser en continu votre contenu HLS protégé avec Apple FairPlay et/ou PlayReady](media-services-protect-hls-with-fairplay.md)
 
 ### <a name="additional-scenarios"></a>Autres cas de figure
-* [Intégration du service de remise de licences PlayReady d’Azure à votre propre chiffreur/serveur de diffusion en continu](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
+* [Intégration du service de remise de licences PlayReady d’Azure à votre propre chiffreur/serveur de streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Utilisation de castLabs pour fournir des licences DRM à Azure Media Services](media-services-castlabs-integration.md)
 
 >[!NOTE]
@@ -117,6 +117,6 @@ Les rubriques suivantes montrent comment protéger le contenu stocké et diffuse
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
