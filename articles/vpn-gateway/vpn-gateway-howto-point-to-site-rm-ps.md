@@ -1,10 +1,10 @@
 ---
-title: "Configuration d’une connexion par passerelle VPN point à site à un réseau virtuel à l’aide du modèle de déploiement Resource Manager | Microsoft Docs"
-description: "Connectez-vous de façon sécurisée à votre réseau virtuel Azure en créant une connexion par passerelle VPN point à site."
+title: "Connecter un ordinateur à un réseau virtuel Azure à l’aide d’une passerelle point à site : PowerShell | Microsoft Docs"
+description: "Connectez de façon sécurisée un ordinateur à votre réseau virtuel Azure en créant une connexion par passerelle VPN point à site."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/19/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
+ms.sourcegitcommit: 70b6c9b8cb14e4e0b1162162071c03174bb150c1
+ms.openlocfilehash: 48f93102d70da0e1e593afe1cea1a0af3a78f8e0
 
 
 ---
@@ -43,7 +43,7 @@ Le tableau suivant présente les deux modèles de déploiement et les méthodes 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="basic-workflow"></a>Flux de travail de base
-![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "point-to-site")
+![Diagramme de connexion d’un ordinateur à un réseau virtuel Azure à l’aide d’une passerelle point à site](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
 Dans ce scénario, vous allez créer un réseau virtuel avec une connexion point à site. Les instructions vous aideront également à générer des certificats, qui sont nécessaires pour cette configuration. Une connexion P2S est composée des éléments suivants : un réseau virtuel avec une passerelle VPN, un fichier .cer de certificat racine (clé publique), un certificat client et la configuration VPN sur le client. 
 
@@ -126,31 +126,31 @@ Dans cette section, vous vous connectez et déclarez les valeurs utilisées pour
 ## <a name="a-namecertificatesapart-3---certificates"></a><a name="Certificates"></a>Partie 3 - Certificats
 Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous exportez des données de certificat public (pas la clé privée) sous forme de fichier .cer codé Base64 X.509 à partir d’un certificat racine généré par une solution de certificat d’entreprise ou d’un certificat racine auto-signé. Vous importez ensuite les données de certificat public à partir du certificat racine dans Azure. Vous devez également générer un certificat client à partir du certificat racine pour les clients. Chaque client souhaitant se connecter au réseau virtuel à l’aide d’une connexion P2S doit avoir un certificat client, qui a été généré à partir du certificat racine, installé.
 
-### <a name="a-namecera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Obtenir le fichier .cer pour le certificat racine
+### <a name="a-namecerastep-1---obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>Étape 1 : Obtenir le fichier .cer pour le certificat racine
 Vous devez obtenir les données de certificat public pour le certificat racine que vous souhaitez utiliser.
 
 * Si vous utilisez un système de certificat d’entreprise, il vous faut obtenir le fichier .cer pour le certificat racine que vous souhaitez utiliser. 
-* Si vous n’utilisez pas de solution de certificat d’entreprise, vous devez générer un certificat racine auto-signé. Pour connaître les étapes relatives à Windows 10, référez-vous à l’article [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md).
+* Si vous n’utilisez pas de solution de certificat d’entreprise, vous devez générer un certificat racine auto-signé. La méthode recommandée pour créer un certificat auto-signé pour P2S est makecert. Bien qu’il soit possible d’utiliser PowerShell pour créer des certificats auto-signés, le certificat généré à l’aide de PowerShell ne contient pas les champs nécessaires pour les connexions P2S. Pour connaître les étapes relatives à Windows 10, référez-vous à l’article [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md).
 
 1. Pour obtenir un fichier .cer à partir d’un certificat, ouvrez **certmgr.msc** et recherchez le certificat racine. Cliquez avec le bouton droit sur le certificat racine auto-signé, puis cliquez sur **toutes les tâches** et sur **exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**.
 2. Dans l’Assistant, cliquez sur **Suivant**, sélectionnez **Non, ne pas exporter la clé privée**, puis cliquez sur **Suivant**.
-3. Sur la page **Format de fichier d’exportation**, sélectionnez **Codé à base 64 X.509 (.cer).** Cliquez ensuite sur **Suivant**. 
+3. Sur la page **Format de fichier d’exportation**, sélectionnez **Codé à base&64; X.509 (.cer).** Cliquez ensuite sur **Suivant**. 
 4. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
 5. Cliquez sur **Terminer** pour exporter le certificat.
 
-### <a name="a-namegeneratea2-generate-the-client-certificate"></a><a name="generate"></a>2. Générer le certificat client
+### <a name="a-namegenerateastep-2---generate-the-client-certificate"></a><a name="generate"></a>Étape 2 : Générer le certificat client
 Ensuite, générez les certificats clients. Vous pouvez générer un certificat unique pour chaque client qui se connecte, ou utiliser le même certificat pour plusieurs clients. Générer des certificats clients uniques vous offre la possibilité de révoquer un seul certificat si nécessaire. Dans le cas contraire, si tous les clients utilisent le même certificat client et que vous devez révoquer le certificat pour un client, vous devrez générer et installer de nouveaux certificats pour tous les clients qui utilisent le certificat pour s’authentifier. Les certificats clients sont installés sur chaque ordinateur client plus loin dans cet exercice.
 
 * Si vous utilisez une solution de certificat d’entreprise, générez un certificat client avec le format de valeur de nom commun 'name@yourdomain.com',, plutôt que le format ’DOMAINE\nom_utilisateur’ NetBIOS. 
 * Si vous utilisez un certificat auto-signé, consultez [Utilisation des certificats racine auto-signés pour les configurations point à site](vpn-gateway-certificates-point-to-site.md) pour générer un certificat client.
 
-### <a name="a-nameexportclientcerta3-export-the-client-certificate"></a><a name="exportclientcert"></a>3. Exporter le certificat client
+### <a name="a-nameexportclientcertastep-3---export-the-client-certificate"></a><a name="exportclientcert"></a>Étape 3 : Exporter le certificat client
 Un certificat client est requis pour l’authentification. Après avoir généré le certificat client, exportez-le. Le certificat client que vous exportez sera installé plus tard sur chaque ordinateur client.
 
 1. Pour exporter un certificat client, vous pouvez utiliser *certmgr.msc*. Cliquez avec le bouton droit sur le certificat client à exporter, cliquez sur **Toutes les tâches**, puis sur **Exporter**.
 2. Exportez le certificat client avec la clé privée. Il s’agit d’un fichier *.pfx* . Prenez soin d’enregistrer ou de mémoriser le mot de passe (clé) que vous définissez pour ce certificat.
 
-### <a name="a-nameuploada4-upload-the-root-certificate-cer-file"></a><a name="upload"></a>4. Charger le fichier .cer de certificat racine
+### <a name="a-nameuploadastep-4---upload-the-root-certificate-cer-file"></a><a name="upload"></a>Étape 4 : Charger le fichier .cer du certificat racine
 Déclarez la variable pour le nom de votre certificat, en remplaçant la valeur par la vôtre :
 
         $P2SRootCertName = "Mycertificatename.cer"
@@ -185,7 +185,7 @@ Un certificat client et un package de configuration du client VPN doivent être 
 3. Effectuez un copier-coller du lien renvoyé dans un navigateur web pour télécharger le package. Installez ensuite le package sur l’ordinateur client. Si une fenêtre contextuelle SmartScreen s’affiche, cliquez sur **Plus d’infos**, puis sur **Exécuter quand même** afin d’installer le package.
 4. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis cliquez sur **VPN**. La connexion apparaît dans la liste. Le nom du réseau virtuel auquel il se connectera s’affiche, sous une forme semblable à cet exemple : 
    
-    ![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
+    ![Client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png)
 
 ## <a name="a-nameclientcertificateapart-6---install-the-client-certificate"></a><a name="clientcertificate"></a>Partie 6 - Installation d’un certificat client
 Chaque ordinateur client doit avoir un certificat client pour s’authentifier. Lorsque vous installez le certificat client, vous avez besoin du mot de passe qui a été créé lorsque le certificat client a été exporté.
@@ -197,10 +197,10 @@ Chaque ordinateur client doit avoir un certificat client pour s’authentifier. 
 1. Pour vous connecter à votre réseau virtuel, sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous avez créée. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**. Un message contextuel faisant référence à l’utilisation du certificat peut s’afficher. Le cas échéant, cliquez sur **Continuer** pour utiliser des privilèges élevés. 
 2. Dans la page de statut **Connexion**, cliquez sur **Connecter** pour démarrer la connexion. Si un écran **Sélectionner un certificat** apparaît, vérifiez que le certificat client affiché est celui que vous souhaitez utiliser pour la connexion. Dans le cas contraire, utilisez la flèche déroulante pour sélectionner le certificat approprié, puis cliquez sur **OK**.
    
-    ![Connexion client VPN](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png "VPN client connection")
+    ![Connexion du client VPN à Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. À présent, votre connexion doit être établie.
    
-    ![Connexion établie](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connection established")
+    ![Connexion établie](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
 ## <a name="a-nameverifyapart-8---verify-your-connection"></a><a name="verify"></a>Partie 8 - Vérification de votre connexion
 1. Pour vérifier que votre connexion VPN est active, ouvrez une invite de commandes avec élévation de privilèges, puis exécutez *ipconfig/all*.
@@ -229,7 +229,7 @@ Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés 
    
     Copiez les valeurs, comme illustré dans l’exemple suivant :
    
-    ![certificat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
+    ![certificat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
 2. Indiquez le nom du certificat et les informations clés en tant que variable. Remplacez les informations par les vôtres, comme illustré dans l’exemple suivant :
    
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
@@ -294,6 +294,6 @@ Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

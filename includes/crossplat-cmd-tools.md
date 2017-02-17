@@ -35,13 +35,13 @@ La liste suivante contient des informations permettant d’installer les outils 
         sudo npm install azure-cli -g
 * **Windows** : exécutez le programme d’installation de Windows (fichier .msi), disponible ici : [Outils en ligne de commande Azure][windows-installer].
 
-Pour tester l'installation, tapez `azure` à l'invite de commandes. Si l’installation a réussi, une liste de toutes les commandes `azure` disponibles apparaît.
+Pour tester l’installation, tapez `azure` à l’invite de commandes. Si l’installation a réussi, une liste de toutes les commandes `azure` disponibles apparaît.
 
 <h2><a id="CreateAccount"></a>Création d’un compte Azure</h2>
 
 Pour utiliser les outils en ligne de commande Azure pour Mac et Linux, vous avez besoin d’un compte Azure.
 
-Ouvrez un navigateur Web et accédez à l’adresse [http://www.windowsazure.com][windowsazuredotcom], puis cliquez sur l’option **free trial** située dans le coin supérieur droit.
+Ouvrez un navigateur Web, accédez à l’adresse [http://www.windowsazure.com][windowsazuredotcom], puis cliquez sur l’option **compte gratuit** dans le coin supérieur droit.
 
 ![Site Web Azure][Azure Web Site]
 
@@ -55,7 +55,7 @@ Pour commencer, vous devez d’abord télécharger et importer vos paramètres d
 
 Cette commande ouvre votre navigateur par défaut et vous invite à vous connecter au portail de gestion. Une fois que vous êtes connecté, votre fichier `.publishsettings` est téléchargé. Prenez note de son emplacement.
 
-Importez ensuite le fichier `.publishsettings` en exécutant la commande suivante, en remplaçant `{path to .publishsettings file}` par le chemin d'accès de votre fichier `.publishsettings` :
+Importez ensuite le fichier `.publishsettings` en exécutant la commande suivante, en remplaçant `{path to .publishsettings file}` par le chemin d’accès de votre fichier `.publishsettings` :
 
     azure account import {path to .publishsettings file}
 
@@ -63,7 +63,7 @@ Vous pouvez supprimer toutes les informations stockées par la commande <code>im
 
     azure account clear
 
-Pour afficher la liste des options des commandes `account`, utilisez l'option `-help` :
+Pour afficher la liste des options des commandes `account`, utilisez l’option `-help` :
 
     azure account -help
 
@@ -82,19 +82,19 @@ Vous êtes désormais prêt à créer et à gérer des sites web et des machines
 
 <h2><a id="WebSites"></a>Création et gestion d’un site web Azure</h2>
 
-### <a name="create-a-website"></a>Création d'un site web
+### <a name="create-a-website"></a>Création d’un site web
 Pour créer un site web Azure, commencez par créer un répertoire vide appelé `MySite` , puis accédez à ce répertoire.
 
 Exécutez ensuite la commande suivante :
 
     azure site create MySite --git
 
-Le résultat de cette commande contient l'URL par défaut du site web qui vient d'être créé. L’option `--git` vous permet d’utiliser git pour publier sur votre site web en créant des référentiels git à la fois dans votre répertoire d’application local et dans le centre de données de votre site web. Notez que si votre dossier local est déjà un référentiel git, la commande ajoute une nouvelle référence distante au référentiel existant, en pointant vers le référentiel du centre de données de votre site web.
+Le résultat de cette commande contient l’URL par défaut du site web qui vient d’être créé. L’option `--git` vous permet d’utiliser git pour publier sur votre site web en créant des référentiels git à la fois dans votre répertoire d’application local et dans le centre de données de votre site web. Notez que si votre dossier local est déjà un référentiel git, la commande ajoute une nouvelle référence distante au référentiel existant, en pointant vers le référentiel du centre de données de votre site web.
 
 Remarque : vous pouvez exécuter la commande `azure site create` avec l’une ou l’autre des options suivantes :
 
 * `--location [location name]`. Cette option vous permet de spécifier l’emplacement du centre de données dans lequel votre site web est créé (par exemple : « Ouest des États-Unis »). Si vous omettez cette option, vous êtes invité à choisir un emplacement.
-* `--hostname [custom host name]`. Cette option vous permet de spécifier un nom d'hôte personnalisé pour votre site web.
+* `--hostname [custom host name]`. Cette option vous permet de spécifier un nom d’hôte personnalisé pour votre site web.
 
 Vous pouvez ensuite ajouter du contenu au répertoire de votre site web. Utilisez le flux git normal (`git add`, `git commit`) pour valider votre contenu. Utilisez la commande git suivante pour envoyer le contenu de votre site web vers Azure : 
 
@@ -112,7 +112,7 @@ Lorsque vous configurez la publication à partir de GitHub, la branche par défa
     azure site repository <branch name>
 
 ### <a name="configure-app-settings"></a>Configuration des paramètres d’application
-Les paramètres d’application sont des paires clé-valeur disponibles pour votre application au moment de l’exécution. Lorsqu'elles sont définies pour un site web Azure, les valeurs de paramètre d'application sont prioritaires par rapport aux paramètres de même clé définis dans le fichier Web.config de votre site. Pour les applications Node.js et PHP, les paramètres d’application sont disponibles en tant que variables d’environnement. L’exemple suivant illustre comment définir une paire clé-valeur :
+Les paramètres d’application sont des paires clé-valeur disponibles pour votre application au moment de l’exécution. Lorsqu’elles sont définies pour un site web Azure, les valeurs de paramètre d’application sont prioritaires par rapport aux paramètres de même clé définis dans le fichier Web.config de votre site. Pour les applications Node.js et PHP, les paramètres d’application sont disponibles en tant que variables d’environnement. L’exemple suivant illustre comment définir une paire clé-valeur :
 
     azure site config add <key>=<value> 
 
@@ -214,6 +214,6 @@ Pour obtenir la liste complète des commandes permettant de créer et de gérer 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

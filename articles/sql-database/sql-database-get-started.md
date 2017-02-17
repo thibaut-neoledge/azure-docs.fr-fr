@@ -14,17 +14,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
+ms.sourcegitcommit: 6fd3c0ebe6d7b7e23550358ca1d93840ae8acaa1
+ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
 
 ---
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Didacticiel SQL Database : Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-the-azure-portal-and-sql-server-management-studio"></a>Didacticiel : Configuration et accès à une base de données SQL Azure à l’aide du portail Azure et de SQL Server Management Studio
 
-Ce didacticiel de mise en route vous montre comment utiliser le portail Azure pour :
+Ce didacticiel vous montre comment utiliser le Portail Azure pour :
 
 * créer un groupe de ressources Azure ;
 * créer un serveur logique Azure SQL ;
@@ -296,7 +296,9 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être explorer les nombreux autres didacticiels afin de mettre en œuvre ce que vous avez appris dans ce didacticiel. 
 
-* Si vous souhaitez commencer à explorer la sécurité Azure SQL Database, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
+- Pour un didacticiel de prise en main de l’authentification SQL Server, voir [Authentification et autorisations SQL](sql-database-control-access-sql-authentication-get-started.md).
+- Pour un didacticiel de prise en main de l’authentification Azure Active Directory, voir [Authentification et autorisations AAD](sql-database-control-access-aad-authentication-get-started.md).
+* Si vous souhaitez interroger l’échantillon de base de données dans le portail Azure, consultez la section [Version préliminaire publique : Expérience interactive pour les requêtes portant sur les bases de données SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/).
 * Si vous connaissez Excel, découvrez comment [vous connecter à une base de données SQL dans Azure avec Excel](sql-database-connect-excel.md).
 * Si vous êtes prêt à commencer le codage, choisissez votre langage de programmation dans [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 * Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, consultez la page [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
@@ -311,6 +313,6 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

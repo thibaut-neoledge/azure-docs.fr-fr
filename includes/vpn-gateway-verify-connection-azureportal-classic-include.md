@@ -1,4 +1,4 @@
-Dans le portail Azure, vous pouvez afficher l’état de la connexion pour une passerelle de réseau virtuel classique en accédant à cette dernière. Pour ce faire, plusieurs options s’offrent à vous. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
+Dans le portail Azure, vous pouvez afficher l’état de la connexion pour une passerelle VPN de réseau virtuel classique en accédant à cette dernière. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
 
 1. Dans le [portail Azure](http://portal.azure.com), cliquez sur **Toutes les ressources** et accédez à votre réseau virtuel classique.
 2. Dans le panneau de réseau virtuel, cliquez sur **Vue d’ensemble** pour accéder à la section **Connexions VPN** du panneau.
@@ -12,6 +12,6 @@ Dans le portail Azure, vous pouvez afficher l’état de la connexion pour une p
 
     ![En savoir plus sur l’état de la connexion](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Plus d’informations sur l’état de la connexion")
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

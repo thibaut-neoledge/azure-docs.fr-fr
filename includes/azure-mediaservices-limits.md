@@ -17,7 +17,8 @@
 | Unités de diffusion en continu par point de terminaison de diffusion en continu  |10 |
 | Unités réservées de média (RU) par compte AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
 | Comptes de stockage | 1 000<sup>5</sup> (fixe) |
-| Stratégies | |1,000,000<sup>6</sup> |
+| Stratégies | 1,000,000<sup>6</sup> |
+| Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
  
 <sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest.
 
@@ -25,7 +26,7 @@
 
 <sup>3</sup> Lors d’une requête visant à répertorier les entités de travail, un maximum de 1 000 est renvoyé par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d'accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/media-services-content-protection-overview.md) section.
+<sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/media-services-content-protection-overview.md) section.
 
 <sup>5</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
 
@@ -34,8 +35,15 @@
 >[!NOTE]
 > Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès, etc.
 
+<sup>7</sup>Si vous chargez du contenu dans une ressource dans Azure Media Services dans l’objectif de le traiter avec des processeurs multimédias de notre service (par exemple, des encodeurs comme Media Encoder Standard et le workflow d’encodeur multimédia premium, ou des moteurs d’analyse comme Face Detector), vous devez être conscient des limites suivantes. 
+
+| Types d’unités réservées de média | Taille maximale du fichier (Go)| 
+| --- | --- | 
+|S1 | 35|
+|S2 | 75|
+|S3 | 260|
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

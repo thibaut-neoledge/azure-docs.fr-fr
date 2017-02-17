@@ -1,5 +1,5 @@
 ---
-title: "Prise en main des fonctionnalités de sauvegarde et de restauration des bases de données SQL Azure pour la protection et la récupération des données | Microsoft Docs"
+title: "Portail Azure : sauvegarder et restaurer une base de données SQL Azure | Microsoft Docs"
 description: "Ce didacticiel explique comment restaurer une version antérieure d’une base de données à partir de sauvegardes automatisées, comment stocker des sauvegardes automatisées dans le coffre Azure Recovery Services et comment restaurer des bases de données à partir du coffre Azure Recovery Services."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
@@ -17,13 +17,13 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
-ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
+ms.sourcegitcommit: 062860b6bc1343a419cd8d35f6fbe5610396a239
+ms.openlocfilehash: c598268186869c8443007c8537853978555d6428
 
 
 ---
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données
-Ce didacticiel de mise en route vous montre comment utiliser le portail Azure pour :
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-the-azure-portal"></a>Didacticiel : Sauvegarder et restaurer une base de données SQL Azure à l’aide du portail Azure
+Ce didacticiel vous montre comment utiliser le Portail Azure pour :
 
 - Visualiser les sauvegardes existantes d’une base de données
 - Restaurer une version antérieure d’une base de données
@@ -245,6 +245,6 @@ Dans cette section du didacticiel, vous restaurez la base de données sous la fo
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

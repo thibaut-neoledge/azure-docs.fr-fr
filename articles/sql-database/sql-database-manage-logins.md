@@ -1,5 +1,5 @@
 ---
-title: Authentification et autorisation de SQL Database | Microsoft Docs
+title: "Connexions et utilisateurs Azure SQL | Microsoft Docs"
 description: "Découvrez la gestion de la sécurité SQL Database, en particulier la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur."
 keywords: "sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données"
 services: sql-database
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
-ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
+ms.sourcegitcommit: baf3adaa0bb1e93cccd592648018c84353496cb7
+ms.openlocfilehash: cf2cc63d9b0abbca79e4da340cd76ddb348b6679
 
 
 ---
@@ -83,7 +83,7 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
    ```
    
    > [!NOTE]
-   > Utilisez un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données à relation contenant-contenu. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
+   > Utilisez un mot de passe fort au moment de la création d’une connexion ou d’un utilisateur de base de données à relation contenant-contenu. Pour plus d’informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
     
    Pour améliorer les performances, les connexions (principaux au niveau du serveur) sont temporairement mises en cache au niveau de la base de données. Pour actualiser le cache d’authentification, consultez [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
@@ -188,11 +188,11 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 - Pour obtenir un didacticiel, consultez [Didacticiel sur la base de données SQL : créer des comptes d’utilisateurs de base de données SQL pour accéder et gérer une base de données](sql-database-control-access-sql-authentication-get-started.md).
 - Pour plus d’informations sur les vues et procédures stockées, consultez [Création des vues et des procédures stockées](https://msdn.microsoft.com/library/ms365311.aspx).
 - Pour plus d’informations sur l’octroi d’accès à un objet de base de données, consultez [Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx).
-- Pour obtenir un didacticiel utilisant l’authentification SQL Server, consultez la section [Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md).
-- Pour obtenir un didacticiel reposant sur l’authentification Azure Active Directory, consultez la section [Didacticiel sur les bases de données SQL : authentification AAD, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-aad-authentication-get-started.md).
+- Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Didacticiel : authentification SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+- Pour obtenir un didacticiel sur l’utilisation de l’authentification Azure Active Directory, voir [Didacticiel : authentification AAD](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

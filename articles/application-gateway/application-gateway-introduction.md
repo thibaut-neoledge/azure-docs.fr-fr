@@ -1,6 +1,6 @@
 ---
 title: "Introduction à Application Gateway | Microsoft Docs"
-description: "Cette page offre une vue d’ensemble du service Application Gateway pour l&quot;équilibrage de charge de couche 7, notamment les tailles de passerelle, l’équilibrage de charge HTTP, l’affinité de session basée sur les cookies et le déchargement SSL."
+description: "Cette page offre une vue d’ensemble du service Application Gateway pour l’équilibrage de charge de couche 7, notamment les tailles de passerelle, l’équilibrage de charge HTTP, l’affinité de session basée sur les cookies et le déchargement SSL."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
-ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
+ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
+ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
 
 
 ---
@@ -53,7 +53,7 @@ Application Gateway est utile pour :
 * Applications prenant en charge le trafic websocket
 * Protection des applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session.
 
-L'équilibrage de charge Application Gateway sous forme de service géré par Azure permet la mise en service d'un équilibreur de charge de couche 7 derrière l'équilibreur de charge logiciel Azure. Traffic Manager peut être utilisé pour conclure le scénario, comme illustré dans l’image suivante, dans lequel il fournit la redirection et la disponibilité du trafic vers plusieurs ressources de passerelle d’application dans différentes régions, tandis que la passerelle d’application offre l’équilibrage de charge de couche 7 entre régions. Vous trouverez un exemple de ce scénario dans : [Utilisation des services d’équilibrage de charge dans le cloud Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+L’équilibrage de charge Application Gateway sous forme de service géré par Azure permet la mise en service d’un équilibreur de charge de couche 7 derrière l’équilibreur de charge logiciel Azure. Traffic Manager peut être utilisé pour conclure le scénario, comme illustré dans l’image suivante, dans lequel il fournit la redirection et la disponibilité du trafic vers plusieurs ressources de passerelle d’application dans différentes régions, tandis que la passerelle d’application offre l’équilibrage de charge de couche 7 entre régions. Vous trouverez un exemple de ce scénario dans : [Utilisation des services d’équilibrage de charge dans le cloud Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
 
 ![scénario avec traffic manager et application gateway](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
@@ -61,13 +61,13 @@ L'équilibrage de charge Application Gateway sous forme de service géré par Az
 
 ## <a name="gateway-sizes-and-instances"></a>Instances et tailles de passerelle
 
-Application Gateway est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
+Application Gateway est actuellement disponible en&3; tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
 Il existe actuellement deux références SKU de passerelle Application Gateway : **WAF** et **Standard**.
 
-Vous pouvez créer jusqu'à 50 passerelles d’application par abonnement et chacune peut contenir jusqu’à 10 instances. Chaque passerelle Application Gateway peut contenir 20 écouteurs HTTP. Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
+Vous pouvez créer jusqu’à 50 passerelles d’application par abonnement et chacune peut contenir jusqu’à 10 instances. Chaque passerelle Application Gateway peut contenir 20 écouteurs HTTP. Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
 
-Le tableau suivant présente un débit moyen de performances pour chaque instance d'Application Gateway :
+Le tableau suivant présente un débit moyen de performances pour chaque instance d’application Gateway avec le déchargement SSL activé :
 
 | Réponse de la page principale | Petite | Moyenne | Grande |
 | --- | --- | --- | --- |
@@ -95,6 +95,6 @@ Pour savoir comment créer une passerelle d’application avec le routage de con
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

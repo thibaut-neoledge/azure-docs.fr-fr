@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 25de4caa583f128dd049899de288bd214e5918ba
+ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>Didacticiel sur les bases de données SQL : authentification AAD, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu au niveau du serveur et règles de pare-feu de niveau de la base de données
+# <a name="sql-database-tutorial-azure-ad-authentication-access-and-database-level-firewall-rules"></a>Didacticiel SQL Database : accès d’authentification Azure AD et règles de pare-feu au niveau de la base de données
 Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations aux bases de données et aux serveurs Azure SQL Database. Vous allez découvrir comment effectuer les actions suivantes :
 
 - Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
@@ -154,7 +154,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
 7. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **blankdb**, puis cliquez sur **Nouvelle requête**.
 
-8. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. Vous pouvez voir que la valeur dbo est renvoyée pour le compte d’utilisateur qui exécute cette requête (par défaut, la connexion d’administrateur de serveur est mappée au compte d’utilisateur dbo dans chaque base de données utilisateur).
+8. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. Notez que dbo est renvoyée pour le compte d’utilisateur qui exécute cette requête (par défaut, la connexion d’administrateur serveur est mappée au compte d’utilisateur dbo dans chaque base de données utilisateur).
 
    ```
    SELECT USER;
@@ -265,7 +265,7 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
 > Les [règles de pare-feu au niveau de la base de données](sql-database-firewall-configure.md) augmentent la portabilité de votre base de données. Nous explorerons cette fonctionnalité dans d’autres didacticiels.
 >
 
-1. Sur un autre ordinateur pour lequel vous n’avez pas encore créé une règle de pare-feu au niveau du serveur, ouvrez SQL Server Management Studio.
+1. Sur un autre ordinateur pour lequel vous n’avez pas déjà créé une règle de pare-feu au niveau du serveur, ouvrez SQL Server Management Studio.
 
    > [!IMPORTANT]
    > Utilisez toujours la dernière version de SSMS disponible sous [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
@@ -279,7 +279,7 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
    
    ![Se connecter en tant qu’utilisateur aaduser1 sans règle firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 
-4. Cliquez sur **Connecter**. Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose d’aucune règle de pare-feu permettant l’accès à la base de données. La boîte de dialogue qui s’affiche comporte deux variantes selon les étapes que vous avez effectuées précédemment avec les pare-feu, mais c’est généralement la première boîte de dialogue qui s’affiche.
+4. Cliquez sur **Connecter**. Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose d’aucune règle de pare-feu permettant l’accès à la base de données. La boîte de dialogue qui s’affiche comporte deux variantes selon les étapes que vous avez effectuées précédemment avec les pare-feu, mais c’est généralement la première boîte de dialogue qui apparaît.
 
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule3](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
 
@@ -291,7 +291,7 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
 
 4. Copiez l’adresse IP du client à partir de cette boîte de dialogue pour une utilisation à l’étape 7.
 5. Cliquez sur **Annuler**, mais ne fermez pas la boîte de dialogue **Se connecter au serveur**.
-6. Revenez sur un ordinateur pour lequel vous avez déjà créé une règle de pare-feu au niveau du serveur, et connectez-vous à votre serveur à l’aide du compte d’administrateur de serveur.
+6. Passez sur un ordinateur pour lequel vous avez déjà créé une règle de pare-feu au niveau du serveur et connectez-vous à votre serveur à l’aide du compte d’administrateur de serveur.
 7. Dans une nouvelle fenêtre de requête connectée à la base de données AdventureWorksLT en tant qu’administrateur de serveur, exécutez l’instruction suivante pour créer un pare-feu au niveau de la base de données en exécutant [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) via l’adresse IP de l’étape 4 :
 
    ```
@@ -317,6 +317,6 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

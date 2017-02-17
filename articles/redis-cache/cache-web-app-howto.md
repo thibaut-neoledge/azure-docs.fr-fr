@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/06/2017
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
-ms.openlocfilehash: c6166484fb132395e7c06d695a6a03a7a628b56a
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Si vous utilisez Visual Studio 2013, vous pouvez [télécharger la dernière ver
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 1. Ouvrez Visual Studio et cliquez sur **Fichier**, **Nouveau**, **Projet**.
-2. Développez le nœud **Visual C#** dans la liste **Modèles**, sélectionnez **Cloud**, puis cliquez sur **Application web ASP.NET**. Vérifiez que **.NET Framework 4.5.2** est sélectionné.  Tapez **ContosoTeamStats** dans la zone de texte **Nom** et cliquez sur **OK**.
+2. Développez le nœud **Visual C#** dans la liste **Modèles**, sélectionnez **Cloud**, puis cliquez sur **Application web ASP.NET**. Vérifiez que l’option **.NET Framework 4.5.2** est sélectionnée.  Tapez **ContosoTeamStats** dans la zone de texte **Nom** et cliquez sur **OK**.
    
     ![Créer un projet][cache-create-project]
 3. Sélectionnez le type de projet **MVC** . Désactivez la case à cocher **Héberger sur le cloud** . Vous [approvisionnerez les ressources Azure](#provision-the-azure-resources) et [publierez l’application sur Azure](#publish-the-application-to-azure) au cours des étapes suivantes du didacticiel. Pour obtenir un exemple d’approvisionnement d’application web App Service à partir de Visual Studio en laissant la case à cocher **Héberger sur le cloud** activée, consultez [Prise en main de Web Apps dans Azure App Service à l’aide d’ASP.NET et Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
@@ -852,6 +852,6 @@ Une fois que vous avez sélectionné ou créé le cache à utiliser, accédez au
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

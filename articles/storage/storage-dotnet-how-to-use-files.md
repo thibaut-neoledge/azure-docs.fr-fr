@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 8661d4b3da31e3e3e54590a013b5c784216ecefb
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Prise en main du stockage de fichiers Azure sur Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur les objectifs d’évolutivité et de performance
 ## <a name="video-using-azure-file-storage-with-windows"></a>Vidéo : Utilisation du stockage de fichiers Azure avec Windows
 Voici une vidéo montrant comment créer et utiliser des partages de fichiers Azure sous Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -645,6 +645,9 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
 15. **Comment résoudre les erreurs du Stockage Fichier Azure ?**
     
     Vous pouvez vous référer à [l’article Résolution des problèmes relatifs aux fichiers Azure](storage-troubleshoot-file-connection-problems.md) pour obtenir une aide de bout en bout.               
+16. ** Puis-je utiliser FileSystemWatcher pour écouter des événements tels que la création/modification/suppression de fichiers et de répertoires dans mon partage Azure File Services ?
+
+Non. Vous pouvez utiliser le Kit de développement logiciel (SDK) Tâches web Azure. Vous pouvez écrire vos propres liaisons déclenchées ou non déclenchées et écouter les événements dans votre Stockage Fichier. Vous trouverez plus d’informations pour commencer ici - [Instructions pour la création de déclencheurs et binders](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
@@ -670,6 +673,6 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

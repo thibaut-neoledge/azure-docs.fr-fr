@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
-ms.openlocfilehash: 275a33567fa1472573bc8abc87948ad306e853f0
+ms.sourcegitcommit: 9d92b6401b70bbfce33fec053e3134a8bd7b4805
+ms.openlocfilehash: e86e20dbc38cc575542193002e6b86aa608e80e5
 
 
 ---
-# <a name="sql-database-tutorial-sql-server-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données
+# <a name="sql-database-tutorial-sql-server-authentication-access-and-database-level-firewall-rules"></a>Didacticiel SQL Database : accès d’authentification SQL Server et règles de pare-feu au niveau de la base de données
 Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification SQL Server, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations pour les serveurs Azure SQL Database et les bases de données. Vous allez découvrir comment effectuer les actions suivantes :
 
 - Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
@@ -76,7 +76,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur la 
 
 1. Si ce n’est déjà fait, téléchargez et installez la dernière version de SSMS via [Téléchargement de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour vous permettre de rester à jour, la dernière version de SSMS vous envoie une invite lorsqu’une nouvelle version est disponible au téléchargement.
 
-2. Une fois l’installation terminée, tapez **Microsoft SQL Server Management Studio** dans la zone de recherche de Windows, puis cliquez sur **Entrée** pour ouvrir SSMS.
+2. Une fois l’installation terminée, saisissez **Microsoft SQL Server Management Studio** dans la zone de recherche de Windows, puis cliquez sur **Entrée** pour ouvrir SSMS.
 
    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
 
@@ -103,7 +103,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
    > Pour plus d’informations sur les autres comptes d’utilisateur qui s’affichent, consultez [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
    >
 
-3. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **Master**, puis sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données master.
+3. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données master.
 4. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. sqladmin est retourné pour le compte d’utilisateur exécutant cette requête (nous obtiendrons un résultat différent lorsque nous interrogerons une base de données utilisateur plus loin dans cette procédure).
 
    ```
@@ -138,7 +138,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
    ![comptes d’utilisateur dans blankdb](./media/sql-database-control-access-sql-authentication-get-started/user_accounts_in_blankdb.png)
 
-7. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **blankdb**, puis sur **Nouvelle requête**.
+7. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **blankdb**, puis cliquez sur **Nouvelle requête**.
 
 8. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. Notez que dbo est renvoyée pour le compte d’utilisateur qui exécute cette requête (par défaut, la connexion d’administrateur serveur est mappée au compte d’utilisateur dbo dans chaque base de données utilisateur).
 
@@ -146,9 +146,9 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
    SELECT USER;
    ```
 
-   ![sélectionner la requête de l’utilisateur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_blankdb_database.png)
+   ![Sélectionner la requête de l’utilisateur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_blankdb_database.png)
 
-9. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur dbo. Notez que dbo est membre du rôle public et également membre du rôle de base de données fixe db_owner. Pour plus d’informations, consultez la page [Rôles au niveau de la base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+9. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur dbo. Vous pouvez voir que dbo est membre du rôle public, mais également du rôle de base de données fixe db_owner. Pour en savoir plus, voir [Rôles au niveau de la base de données](https://msdn.microsoft.com/library/ms189121.aspx).
 
    ```
    SELECT prm.permission_name
@@ -168,9 +168,9 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
    WHERE p.name = 'dbo';
    ```
 
-   ![autorisations de l’administrateur de serveur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
+   ![Autorisations de l’administrateur de serveur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
 
-10. Le cas échéant, répétez les trois étapes précédentes pour la base de données utilisateur AdventureWorksLT.
+10. Le cas échéant, répétez les trois étapes précédentes pour la base de données utilisateur AdventureWorksLT.
 
 ## <a name="create-a-new-user-in-the-adventureworkslt-database-with-select-permissions"></a>Créer un utilisateur dans la base de données AdventureWorksLT avec des autorisations SELECT
 
@@ -189,7 +189,7 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
    ```
    ![nouvel utilisateur user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
 
-3. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur user1. Les seules autorisations dont dispose l’utilisateur user1 sont les autorisations héritées du rôle public.
+3. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur user1. Vous pouvez voir que les seules autorisations dont dispose l’utilisateur user1 sont les autorisations héritées du rôle public.
 
    ```
    SELECT prm.permission_name
@@ -209,9 +209,9 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
    WHERE p.name = 'user1';
    ```
 
-   ![autorisations du nouvel utilisateur dans une base de données utilisateur](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
+   ![Autorisations du nouvel utilisateur dans une base de données utilisateur](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
 
-4. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
+4. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -219,17 +219,17 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
    REVERT;
    ```
 
-   ![aucune autorisation select](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
+   ![Aucune autorisation select](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
 
-5. Exécutez l’instruction suivante pour accorder à l’utilisateur user1 des autorisations SELECT sur la table ProductCategory dans le schéma SalesLT.
+5. Exécutez l’instruction suivante pour accorder à l’utilisateur user1 des autorisations SELECT sur la table ProductCategory dans le schéma SalesLT.
 
    ```
    GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
    ```
 
-   ![accorder des autorisations select](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
+   ![Accorder des autorisations select](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
 
-6. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
+6. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -261,17 +261,17 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
    
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
-4. Cliquez sur **Connecter**. Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose pas d’une règle de pare-feu permettant l’accès à la base de données. La boîte de dialogue qui s’affiche comporte deux variantes selon les étapes que vous avez effectuées précédemment avec les pare-feu, mais c’est généralement la première boîte de dialogue qui apparaît.
+4. Cliquez sur **Connecter**. Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose d’aucune règle de pare-feu permettant l’accès à la base de données. La boîte de dialogue qui s’affiche comporte deux variantes selon les étapes que vous avez effectuées précédemment avec les pare-feu, mais c’est généralement la première boîte de dialogue qui apparaît.
 
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule3](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule3.png)
 
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
 
    > [!NOTE]
-   > Les dernières versions de SSMS comprennent une fonctionnalité autorisant les propriétaires d’abonnement et les collaborateurs à se connecter à Microsoft Azure et à créer une règle de pare-feu au niveau du serveur.
+   > Les dernières versions de SSMS comprennent une fonctionnalité autorisant les propriétaires d’abonnement et les collaborateurs à se connecter à Microsoft Azure et à créer une règle de pare-feu au niveau du serveur.
    > 
 
-4. Copiez l’adresse IP du client à partir de cette boîte de dialogue pour une utilisation à l’étape 7.
+4. Copiez l’adresse IP du client à partir de cette boîte de dialogue pour une utilisation à l’étape 7.
 5. Cliquez sur **Annuler**, mais ne fermez pas la boîte de dialogue **Se connecter au serveur**.
 6. Passez sur un ordinateur pour lequel vous avez déjà créé une règle de pare-feu au niveau du serveur et connectez-vous à votre serveur à l’aide du compte d’administrateur de serveur.
 7. Dans une nouvelle fenêtre de requête connectée à la base de données AdventureWorksLT en tant qu’administrateur de serveur, exécutez l’instruction suivante pour créer un pare-feu au niveau de la base de données en exécutant [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) à l’aide de l’adresse IP de l’étape 4 :
@@ -419,16 +419,16 @@ CREATE USER blankdbuser1
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour une vue d’ensemble de l’accès et du contrôle dans la base de données SQL, consultez la page [Accès à la base de données SQL et contrôle](sql-database-control-access.md).
-- Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, consultez la page [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).
-- Pour plus d’informations sur les principaux de base de données, consultez la page [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
-- Pour plus d’informations sur les rôles de base de données, consultez la page [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+- Pour obtenir une vue d’ensemble de l’accès et du contrôle dans la base de données SQL, voir [Accès à la base de données SQL et contrôle](sql-database-control-access.md).
+- Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, voir [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).
+- Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
+- Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
 - Pour plus d’informations sur les règles de pare-feu dans la base de données SQL, consultez [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
 - Pour obtenir un didacticiel utilisant l’authentification Azure Active Directory, consultez le [Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

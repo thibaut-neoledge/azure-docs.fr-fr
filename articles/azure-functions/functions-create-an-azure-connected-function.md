@@ -1,6 +1,6 @@
 ---
-title: "Créer une fonction Azure liée à un service Azure | Microsoft Docs"
-description: "Créez une fonction Azure, une application sans serveur, qui interagit avec d&quot;autres services Azure."
+title: "Créer une fonction qui se connecte aux services Azure | Microsoft Docs"
+description: "Utilisez les fonctions Azure pour créer une application sans serveur qui se connecte à d’autres services Azure."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a4d871686a54465e12f93c1720a44985785b94ae
+ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Créer une fonction Azure connectée à un service Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Utiliser les fonctions Azure pour créer une fonction qui se connecte à d’autres services Azure
 
-Cette rubrique vous explique comment créer une fonction Azure qui écoute les messages dans une file d'attente de stockage Azure et copie les messages dans les lignes d’une table de stockage Azure. Une fonction de minuteur déclencheur est utilisée pour charger des messages dans la file d’attente. Une deuxième fonction lit la file d’attente et écrit les messages dans la table. La file d’attente et la table sont créées pour vous par les fonctions Azure basées sur les définitions de liaison. 
+Cette rubrique vous explique comment créer une fonction Azure qui écoute les messages dans une file d’attente de stockage Azure et copie les messages dans les lignes d’une table de stockage Azure. Une fonction de minuteur déclencheur est utilisée pour charger des messages dans la file d’attente. Une deuxième fonction lit la file d’attente et écrit les messages dans la table. La file d’attente et la table sont créées pour vous par les fonctions Azure basées sur les définitions de liaison. 
 
 Pour rendre les choses plus intéressantes, une fonction est écrite en JavaScript et l’autre est écrite en script C#. Cela montre qu’une Function App peut avoir des fonctions dans différentes langues.
 
@@ -186,9 +186,9 @@ Maintenant que les messages s’ajoutent dans la file d’attente, vous pouvez c
 Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 * [Référence du développeur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.
+  décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
 
@@ -197,6 +197,6 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

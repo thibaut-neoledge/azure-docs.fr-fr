@@ -1,5 +1,5 @@
 ---
-title: "Présentation d’Azure Container Service | Microsoft Docs"
+title: "Cluster de conteneur Docker dans le cloud Azure | Microsoft Docs"
 description: "Azure Container Service offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
-ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
+ms.sourcegitcommit: 0bf622c24b9865832fe9aeb1ece7a7b94e283f46
+ms.openlocfilehash: e4623d6e1fd0944b9d95a4f0c5bdc8a5d6593614
 
 
 ---
@@ -42,7 +42,7 @@ L’objectif d’Azure Container Service est de proposer un environnement d’h�
 Pour commencer à utiliser Azure Container Service, vous déployez un cluster Azure Container Service via le portail (recherchez « Azure Container Service »), à l’aide d’un modèle Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) ou [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou à l’aide de la [CLI](/documentation/articles/xplat-cli-install/). Les modèles de démarrage rapide fournis peuvent être modifiés pour inclure une configuration Azure supplémentaire ou avancée. Pour plus d’informations sur le déploiement d’un cluster Azure Container Service, consultez [Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Déploiement d’une application
-Le service de conteneur Azure propose le choix entre Docker Swarm et DC/OS ou Kubernetes pour l'orchestration. Le déploiement de votre application dépend de votre choix en termes d’orchestrateur.
+Le service de conteneur Azure propose le choix entre Docker Swarm et DC/OS ou Kubernetes pour l’orchestration. Le déploiement de votre application dépend de votre choix en termes d’orchestrateur.
 
 ### <a name="using-dcos"></a>Utilisation de DC/OS
 DC/OS est un système d’exploitation distribué basé sur le noyau de systèmes distribués Apache Mesos. Hébergé par l’Apache Software Foundation, Apache Mesos répertorie certains des [plus grands noms des technologies de l’information](http://mesos.apache.org/documentation/latest/powered-by-mesos/) en tant qu’utilisateurs et contributeurs.
@@ -113,6 +113,6 @@ Création d’applications à l’aide du service de conteneur Azure (Build 2016
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
