@@ -11,7 +11,7 @@
 
 # Prise en main
 ## [Configuration requise](active-directory-aadconnect-prerequisites.md)
-## [Installer Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Installer Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Paramètres Express](active-directory-aadconnect-get-started-express.md)
 ### [Paramètres personnalisés](active-directory-aadconnect-get-started-custom.md)
 ### [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,8 +33,7 @@
 
 
 ## Gérer la synchronisation d’Azure AD Connect
-### [Connecteur SQL générique - Guide pas à pas](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
-### [prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+### [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronisation du mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Compte de service Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Assistant d’installation](active-directory-aadconnectsync-installation-wizard.md)
@@ -58,14 +57,11 @@
 
 
 # Référence
-## [Connecteur Windows PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-## [Connecteur SQL générique](active-directory-aadconnectsync-connector-genericsql.md)
-## [Connecteur LDAP générique](active-directory-aadconnectsync-connector-genericldap.md)
-## [Connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 ## [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Ports et protocoles nécessaires à l’identité hybride](active-directory-aadconnect-ports.md)
 ## [Fonctionnalités de la version préliminaire](active-directory-aadconnect-feature-preview.md)
 ## [Historique des versions](active-directory-aadconnect-version-history.md)
+## [Comptes et autorisations](active-directory-aadconnect-accounts-permissions.md)
 
 ## Synchronisation d’Azure AD Connect
 ### [Attributs synchronisés avec Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[Abandon de la synchronisation de répertoires](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
