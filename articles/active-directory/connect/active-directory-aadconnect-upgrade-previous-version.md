@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ Il existe plusieurs stratégies pour mettre à niveau Azure AD Connect.
 | [Migration « swing »](#swing-migration) |Avec deux serveurs, vous pouvez en préparer un avec la nouvelle version ou configuration, et changer de serveur actif quand vous êtes prêt. |
 
 Pour connaître les autorisations requises, consultez [Autorisations requises pour la mise à niveau](active-directory-aadconnect-accounts-permissions.md#upgrade).
+
+> [!NOTE]
+> Une fois que vous avez activé votre nouveau serveur Azure AD Connect pour démarrer la synchronisation des modifications avec Azure AD, vous ne devez pas revenir à l’utilisation de DirSync ou Azure AD Sync. La rétrogradation à partir d’Azure AD Connect vers des clients hérités, notamment DirSync et Azure AD Sync, n’est pas prise en charge et peut entraîner des problèmes tels que la perte de données dans Azure AD. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>Mise à niveau sur place
 Une mise à niveau sur place fonctionne à partir d’Azure AD Sync ou d’Azure AD Connect, mais pas pour DirSync ou une solution combinant FIM et Azure AD Connect.
@@ -76,7 +81,7 @@ Voici les éléments qui doivent être configurés de la même façon sur les de
 * Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et l’écriture différée du mot de passe
 
 **Déplacer les règles de synchronisation**  
- Pour déplacer une règle de synchronisation personnalisée, procédez comme suit :
+Pour déplacer une règle de synchronisation personnalisée, procédez comme suit :
 
 1. Ouvrez l’ **Éditeur de règles de synchronisation** sur votre serveur actif.
 2. Sélectionnez votre règle personnalisée. Cliquez sur **Exporter**. Une fenêtre Bloc-notes apparaît. Enregistrez le fichier temporaire avec une extension PS1. Le fichier devient un script PowerShell. Copiez le fichier ps1 sur le serveur intermédiaire.  
@@ -91,6 +96,6 @@ En savoir plus sur l’ [intégration de vos identités locales avec Azure Activ
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Manuel d’utilisation du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité | Microsoft Docs"
+title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Modèle de solution Cortana Intelligence | Microsoft Docs"
 description: "Modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
 services: cortana-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
 
 
 ---
@@ -204,9 +204,9 @@ Pour chaque enregistrement d’un équipement, nous choisissons une fenêtre cum
 
 Pour la démonstration, observez la Figure 1 où nous représentons des valeurs de capteur enregistrées pour un équipement pour chaque unité de temps avec les lignes bleues, et nous marquons le calcul des caractéristiques de la moyenne cumulative pour W=3 pour les enregistrements à t<sub>1</sub> et t<sub>2</sub> qui sont indiqués respectivement par des regroupements orange et verts.
 
-![ Figure 1. Caractéristiques des agrégats cumulatifs](media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+![Figure 1. Caractéristiques des agrégats cumulatifs](media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
 
- Figure 1. Caractéristiques des agrégats cumulatifs
+Figure 1. Caractéristiques des agrégats cumulatifs
 
 Par exemple, pour une défaillance d’un composant d’un avion, les valeurs de capteur pour la dernière semaine, pour les trois derniers jours et pour le dernier jour ont été utilisées pour créer les caractéristiques des moyennes cumulatives, de l’écart type et de la somme. De même, pour les défaillances des distributeurs de billets, les caractéristiques des valeurs de capteur brutes et des moyennes cumulatives, de la moyenne, de la plage, des écarts type, des valeurs aberrantes au-delà de trois écarts types, de la somme cumulative inférieure et supérieure ont été utilisées.
 
@@ -224,7 +224,7 @@ Figure 2 : Caractéristiques des agrégats bascules
 Par exemple, pour les éoliennes, W=1 et k=3 mois ont été utilisés pour créer des caractéristiques antérieures correspondantes pour chacun des 3 derniers mois en utilisant les valeurs aberrantes la plus haute et la plus basse.
 
 #### <a name="static-features"></a>Caractéristiques statiques
-Il s’agit des spécifications techniques de l’équipement, comme la date de fabrication, le numéro de modèle, l’emplacement, etc. Alors que les caractéristiques antérieures correspondantes sont principalement numériques par nature, les caractéristiques statiques deviennent généralement des variables catégoriques dans les modèles. Par exemple, les propriétés des coupe-circuits, comme les spécifications de  voltage, de courant et de puissance, ainsi que les types de transformateurs, les sources d’alimentation, etc., ont été utilisées. Pour les défaillances des disques de frein, le type des jantes, alliage ou acier, a été utilisé pour certaines des caractéristiques statiques.
+Il s’agit des spécifications techniques de l’équipement, comme la date de fabrication, le numéro de modèle, l’emplacement, etc. Alors que les caractéristiques antérieures correspondantes sont principalement numériques par nature, les caractéristiques statiques deviennent généralement des variables catégoriques dans les modèles. Par exemple, les propriétés des coupe-circuits, comme les spécifications de voltage, de courant et de puissance, ainsi que les types de transformateurs, les sources d’alimentation, etc., ont été utilisées. Pour les défaillances des disques de frein, le type des jantes, alliage ou acier, a été utilisé pour certaines des caractéristiques statiques.
 
 Lors de la génération des caractéristiques, d’autres étapes importantes doivent être effectuées, comme la gestion des valeurs manquantes et la normalisation. Il existe de nombreuses méthodes d’imputation des valeurs manquantes : elles ne sont pas abordées ici, de même que la normalisation des données. Il est cependant avantageux d’essayer différentes méthodes pour voir si une augmentation des performances de la prédiction est possible.
 
@@ -372,6 +372,6 @@ Pour plus d'informations sur chacun des composants de l'architecture, consultez 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

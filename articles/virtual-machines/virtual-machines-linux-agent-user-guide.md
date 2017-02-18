@@ -1,5 +1,5 @@
 ---
-title: "Guide d’utilisation de l’agent Linux | Microsoft Docs"
+title: "Vue d’ensemble de l’agent de machine virtuelle Linux Azure | Microsoft Docs"
 description: "Apprenez à installer et à configurer l&quot;agent Linux (waagent) pour gérer l&quot;interaction de votre machine virtuelle avec le contrôleur de structure Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -49,7 +49,7 @@ L’agent Microsoft Azure Linux (waagent) gère l’approvisionnement de Linux e
   * Garantie de la stabilité du nom de l'interface réseau
 * **Noyau**
   
-  * Configure la topologie NUMA virtuelle (désactivée pour le noyau < à 2.6.37)
+  * Configure la topologie NUMA virtuelle (désactivée pour le noyau < à&2;.6.37)
   * Consommation de l'entropie Hyper-V pour /dev/random
   * Configuration des délais d'expiration SCSI de l'appareil racine (qui peut être distant)
 * **Diagnostics**
@@ -210,7 +210,7 @@ Si ce paramètre est défini, waagent exécute CustomData après l’approvision
 
 **Provisioning.PasswordCryptId**  
 Type : chaîne  
-Par défaut : 6
+Par défaut :&6;
 
 Algorithme utilisé par crypt lors de la génération du hachage de mot de passe.  
  1 - MD5  
@@ -220,7 +220,7 @@ Algorithme utilisé par crypt lors de la génération du hachage de mot de passe
 
 **Provisioning.PasswordCryptSaltLength**  
 Type : chaîne  
-Par défaut : 10
+Par défaut :&10;
 
 Longueur de la chaîne salt aléatoire utilisée lors de la génération du hachage de mot de passe.
 
@@ -309,6 +309,6 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

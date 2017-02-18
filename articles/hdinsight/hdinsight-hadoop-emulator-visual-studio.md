@@ -1,5 +1,5 @@
 ---
-title: "Utiliser les outils Azure Data Lake pour Visual Studio avec le bac à sable Hortonworks| Microsoft Docs"
+title: Outils Azure Data Lake pour Visual Studio avec Hortonworks Sandbox | Microsoft Docs
 description: "Apprendre à utiliser les outils Azure Data Lake pour Visual Studio avec le bac à sable Hortonworks (exécuté sur une machine virtuelle locale). Grâce à ces outils, vous pouvez créer et exécuter des tâches Hive et Pig sur le bac à sable et afficher la sortie et l’historique de la tâche."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4b0572d8fb3b81fd4bd2a34794141f137b50eed0
-ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
 
 
 ---
@@ -43,11 +43,12 @@ Assurez-vous que Hortonworks Sandbox est en cours d’exécution, puis suivez le
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connexion des outils au bac à sable
 
 1. Ouvrez Visual Studio et sélectionnez **Affichage**, puis **Explorateur de serveurs**.
+
 2. Dans **l’Explorateur de serveurs**, cliquez avec le bouton droit sur l’entrée **HDInsight**, puis sélectionnez **Connexion à l’émulateur HDInsight**.
 
     ![Connexion à l’émulateur HDInsight](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
-3. Dans la boîte de dialogue **Connexion à l’émulateur HDInsight** , entrez le mot de passe que vous avez configuré pour Ambari.
+3. Dans la boîte de dialogue **Connexion à l’émulateur HDInsight**, entrez le mot de passe que vous avez configuré pour Ambari.
 
     ![Entrer le mot de passe Ambari](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
@@ -209,6 +210,6 @@ Vous pouvez ensuite créer la table à l’aide d’un formulaire. Vous pouvez a
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

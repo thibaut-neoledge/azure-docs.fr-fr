@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 05c82a87e839a0a95e7050092d6f6867e76fb316
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
 
 
 ---
@@ -236,10 +236,10 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-Si vous disposez d’une copie complète du référentiel du Kit de développement logiciel (SDK) de passerelle IoT sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
+Si vous disposez d’une copie complète du référentiel du Kit de développement logiciel (SDK) de la passerelle IoT sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK).
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
@@ -429,11 +429,11 @@ Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil Senso
 Lorsque vous exécutez l’exemple, vous pouvez vous servir de l’outil de [l’Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour surveiller les messages que la passerelle transfère à partir de l’appareil SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
-Le module BLE prend également en charge l’envoi d’instructions à partir d’Azure IoT Hub à l’appareil. Vous pouvez utiliser [l’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) ou l’outil [iothub-explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE.
+Le module BLE prend également en charge l’envoi d’instructions à partir d’Azure IoT Hub à l’appareil. Vous pouvez utiliser [l’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou l’outil [iothub-explorer](https://github.com/Azure/iothub-explorer) pour envoyer des messages JSON que le module de passerelle BLE transmet à l’appareil BLE.
 Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez activer la DEL rouge, la DEL verte, ou le vibreur sonore en envoyant des commandes à partir de l’IoT Hub. Pour ce faire, commencez par envoyer les deux messages JSON suivants dans l’ordre. Ensuite, vous pouvez envoyer n’importe laquelle des commandes pour activer les témoins ou le vibreur sonore.
 
-1 Réinitialisez les DEL et le vibreur sonore (en les mettant hors tension)
-  
+1. Réinitialiser (éteindre) les LED et le vibreur sonore (en les mettant hors tension) :
+
     ```json
     {
       "type": "write_once",
@@ -441,7 +441,8 @@ Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez active
       "data": "AA=="
     }
     ```
-2 Configures les E/S en tant que « à distance »
+    
+2. Configurer les E/S en tant que « à distance » :
   
     ```json
     {
@@ -450,7 +451,10 @@ Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez active
       "data": "AQ=="
     }
     ```
-* Allumer le voyant rouge
+    
+Ensuite, vous pouvez envoyer l’une des commandes suivantes pour allumer les voyants ou le vibreur sonore.
+
+* Allumer la LED rouge :
   
     ```json
     {
@@ -459,7 +463,8 @@ Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez active
       "data": "AQ=="
     }
     ```
-* Allumer le voyant vert
+
+* Allumer la LED verte :
   
     ```json
     {
@@ -468,7 +473,8 @@ Si vous utilisez l’appareil SensorTag de Texas Instruments, vous pouvez active
       "data": "Ag=="
     }
     ```
-* Allumer l’alarme sonore
+
+* Allumer le vibreur sonore :
   
     ```json
     {
@@ -485,7 +491,7 @@ Si vous souhaitez approfondir vos connaissances sur le Kit de développement log
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub][lnk-devguide]
+* [Guide du développeur IoT Hub][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
@@ -501,6 +507,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

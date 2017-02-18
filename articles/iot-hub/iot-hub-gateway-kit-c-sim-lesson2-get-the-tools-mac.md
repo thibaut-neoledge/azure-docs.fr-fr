@@ -1,5 +1,5 @@
 ---
-title: "Préparer votre ordinateur Mac et Azure IoT Hub | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Leçon 2 : Obtenir des outils (macOS) | Microsoft Docs"
 description: "Installez les outils sur votre ordinateur Mac, créez un IoT Hub et inscrivez votre appareil dans l’IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: f3bed8620c13372c3af50657bb54aa8dce115529
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b79b166fb16d6454fde46996e715779bf19eac7
 
 
 ---
@@ -134,6 +134,6 @@ Vous avez installé tous les outils et logiciels nécessaires sur votre ordinate
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

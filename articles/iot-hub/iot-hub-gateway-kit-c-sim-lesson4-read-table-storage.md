@@ -1,5 +1,5 @@
 ---
-title: "Lecture des messages conservés dans le stockage Table Azure | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Leçon 4 : Stockage de table | Microsoft Docs"
 description: "Enregistrez des messages à partir d’Intel NUC dans votre hub IoT, écrivez-les dans le stockage Table Azure, puis lisez-les à partir du cloud."
 services: iot-hub
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: e229c919db797133d3dc30fc65b482e5135f7cc5
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
 
 
 ---
 
-# <a name="read-messages-persisted-in-azure-table-storage"></a>Lecture des messages conservés dans le stockage Table Azure
+# <a name="read-messages-persisted-in-azure-table-storage"></a>Lire des messages conservés dans le stockage Table Azure
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
@@ -33,19 +33,19 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 ## <a name="what-you-will-learn"></a>Contenu
 
-Utilisation de l’outil gulp pour exécuter l’exemple de code permettant de lire les messages dans votre Stockage Table Azure.
+Utilisation de l’outil gulp pour exécuter l’exemple de code permettant de lire les messages dans votre stockage Table Azure.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-Vous avez correctement effectué les tâches suivantes :
+Vous avez effectué les tâches suivantes :
 
-- [créer l’application de fonction Azure et le compte de stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md) ;
-- [exécuter l’exemple d’application de la passerelle](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md) ;
-- [lire les messages à partir de votre IoT hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md).
+- [créer l’application de fonction Azure et le compte de stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md) ;
+- [exécuter l’exemple d’application de la passerelle](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md) ;
+- [lire des messages à partir de votre IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md).
 
-## <a name="get-your-azure-storage-connection-strings"></a>Obtention de vos chaînes de connexion Stockage Azure
+## <a name="get-your-azure-storage-connection-strings"></a>Obtenir vos chaînes de connexion de stockage Azure
 
-Au début de cette leçon, vous avez créé avec succès un compte de stockage Azure. Pour obtenir la chaîne de connexion du compte de stockage Azure, exécutez les commandes suivantes :
+Au début de cette leçon, vous avez créé un compte de stockage Azure. Pour obtenir la chaîne de connexion du compte de stockage Azure, exécutez les commandes suivantes :
 
 * Répertoriez tous vos comptes de stockage.
 
@@ -65,7 +65,7 @@ Si vous n’avez pas modifié la valeur à la leçon 2, utilisez `iot-gateway` e
 
 Mettez à jour le fichier `config-azure.json` afin que l’exemple de code qui s’exécute sur l’ordinateur hôte puisse lire le message dans votre stockage Table Azure. Procédez comme suit pour configurer la connexion de l’appareil :
 
-1. Ouvrez le fichier de configuration `config-azure.json` de votre appareil en exécutant les commandes suivantes :
+1. Ouvrez le fichier de configuration d’appareil `config-azure.json` en exécutant les commandes suivantes :
 
    ```bash
    # For Windows command prompt
@@ -76,22 +76,22 @@ Mettez à jour le fichier `config-azure.json` afin que l’exemple de code qui s
 
    ![configuration](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-2. Remplacez `[Azure storage connection string]` par la chaîne de connexion Stockage Azure que vous avez obtenue.
+2. Remplacez `[Azure storage connection string]` par la chaîne de connexion de stockage Azure que vous avez obtenue.
 
-   `[IoT hub connection string]` doit déjà être remplacé dans la section [Lire des messages à partir d’Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) de la leçon 3.
+   `[IoT hub connection string]` doit déjà être remplacé dans la section [Lire des messages à partir d’Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) de la leçon&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Lire des messages dans votre stockage Table Azure
 
-Exécutez l’exemple d’application de la passerelle et lisez les messages de stockage Table Azure avec la commande suivante :
+Exécutez l’exemple d’application de la passerelle et lisez les messages de stockage Table Azure avec la commande suivante :
 
 ```bash
 gulp run --table-storage
 ```
 
-Votre IoT Hub déclenche votre application Azure Function pour enregistrer le message dans votre stockage Table Azure à l’arrivée d’un nouveau message.
-La commande `gulp run` exécute l’exemple d’application de la passerelle qui envoie des messages à votre IoT Hub. Avec le paramètre `table-storage`, il génère également un processus enfant pour recevoir le message enregistré dans votre stockage Table Azure.
+Votre IoT Hub déclenche votre application Azure Function pour enregistrer un nouveau message arrivant dans votre stockage Table Azure.
+La commande `gulp run` exécute l’exemple d’application de la passerelle qui envoie des messages à votre IoT Hub. Avec le paramètre `table-storage`, elle génère également un processus enfant pour recevoir le message enregistré dans votre stockage Table Azure.
 
-Les messages envoyés et reçus sont tous affichés instantanément sur la même fenêtre de console sur la machine hôte. L’exemple d’instance d’application se ferme automatiquement au bout de 40 secondes.
+Les messages envoyés et reçus sont tous affichés instantanément sur la même fenêtre de console sur l’ordinateur hôte. L’exemple d’instance d’application se ferme automatiquement au bout de 40 secondes.
 
    ![lecture de gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table_simudev.png)
 
@@ -102,6 +102,6 @@ Vous avez exécuté l’exemple de code pour lire les messages de votre stockage
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

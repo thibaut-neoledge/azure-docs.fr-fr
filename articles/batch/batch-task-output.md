@@ -1,5 +1,5 @@
 ---
-title: "Conservation des sorties des travaux et des tâches dans Azure Batch | Microsoft Docs"
+title: "Conserver la sortie à partir des travaux et des tâches - Azure Batch | Microsoft Docs"
 description: "Découvrez comment utiliser Azure Storage comme banque de données durable pour les sorties des tâches et des travaux Batch, et comment activer l’affichage de ces sorties conservées dans le portail Azure."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1ae4ee2e8728ac8bcbc1dc528eb76d11a2f3d8a3
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
 
 
 ---
@@ -251,6 +251,6 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

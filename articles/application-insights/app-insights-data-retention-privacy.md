@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: be100e88e5d10c317be10aa829124a9be30e28b4
+ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
+ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
 
 
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
 
-Quand vous installez le SDK [Azure Application Insights][start] dans votre application, il envoie la télémétrie de votre application vers le cloud. Bien-sûr, les développeurs responsables veulent savoir exactement quelles données sont envoyées, ce qu’elles deviennent et comment ils peuvent conserver le contrôle. Ils souhaitent savoir, plus particulièrement, si les données sensibles peuvent être envoyées, où elles sont stockées et à quel point elles sont sécurisées ? 
+Quand vous installez le Kit de développement logiciel (SDK) [Azure Application Insights][start] dans votre application, il envoie des données de télémétrie sur votre application au cloud. Bien-sûr, les développeurs responsables veulent savoir exactement quelles données sont envoyées, ce qu’elles deviennent et comment ils peuvent conserver le contrôle. Ils souhaitent savoir, plus particulièrement, si les données sensibles peuvent être envoyées, où elles sont stockées et à quel point elles sont sécurisées ? 
 
 Tout d’abord, la réponse courte :
 
 * Les modules de télémétrie standard qui s’exécutent « dès le départ » sont peu susceptibles d’envoyer des données sensibles au service. La télémétrie s’attache aux métriques de charge, de performance et d’utilisation, aux rapports d’exception et autres données de diagnostic. Les données d’utilisateur principal visibles dans les rapports de diagnostics sont des URL ; mais votre application ne doit en aucun cas mettre des données sensibles en texte brut dans une URL.
-* Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez appliquer des processus de révision stricts à l’ensemble du code que vous écrivez.
+* Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez vérifier de manière approfondie l’ensemble du code que vous écrivez.
 * Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur. 
 * Les données sont stockées sur des serveurs [Microsoft Azure](http://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit, mais pas dans les serveurs.
 
 Le reste de cet article aborde plus en détail ces réponses. Il est conçu pour être autonome, afin que vous puissiez le montrer à des collègues qui ne font pas partie de votre équipe.
 
 ## <a name="what-is-application-insights"></a>Présentation d’Application Insights
-[Azure Application Insights][start] est un service fourni par Microsoft pour vous aider à améliorer les performances et la convivialité de votre application dynamique. Il analyse votre application tout au long de son exécution, pendant les tests et une fois que vous avez l’avez publiée ou déployée. Application Insights crée des graphiques et tableaux présentant, par exemple, les heures de la journée à laquelle vous avez le plus d’utilisateurs, la réactivité de l’application et comment elle est prise en charge par les services externes dont elle dépend. En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous enverra des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application.
+[Azure Application Insights][start] est un service de Microsoft qui vous aide à améliorer les performances et la convivialité de votre application dynamique. Il analyse votre application tout au long de son exécution, pendant les tests et une fois que vous avez l’avez publiée ou déployée. Application Insights crée des graphiques et tableaux présentant, par exemple, les heures de la journée à laquelle vous avez le plus d’utilisateurs, la réactivité de l’application et comment elle est prise en charge par les services externes dont elle dépend. En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous enverra des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application.
 
 Pour obtenir cette fonctionnalité, vous devez installer un Kit SDK Application Insights dans votre application, il devient partie intégrante de son code. Lorsque votre application s’exécute, le Kit SDK surveille ses opérations et envoie les données de télémétrie au service Application Insights. Il s’agit d’un service cloud hébergé par [Microsoft Azure](http://azure.com). (Mais Application Insights fonctionne pour toutes les applications, pas uniquement celles qui sont hébergées dans Azure.)
 
@@ -88,7 +88,7 @@ Cela est possible en écrivant un [plug-in de processeur de télémétrie](app-i
 ## <a name="how-long-is-the-data-kept"></a>Combien de temps sont conservées les données ?
 Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 90 jours maximum. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser l’ [exportation continue](app-insights-export-telemetry.md) pour les copier dans un compte de stockage.
 
-Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées pour une minute pendant 30 jours et pour une heure ou un jour (selon le type) pendant au moins 90 jours.
+Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -153,22 +153,22 @@ Toutefois, vous pouvez implémenter cette fonctionnalité dans votre application
 Application Insights ne filtre pas les données et ne les supprime pas non plus. Vous devez gérer les données de façon appropriée et éviter d’envoyer ce type de données à Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Données envoyées par Application Insights
-Les Kits SDK varient en fonction des plateformes et vous pouvez installer plusieurs composants. (Voir [Application Insights - Vue d’ensemble][start].) Chaque composant envoie des données différentes.
+Les Kits SDK varient en fonction des plateformes et vous pouvez installer plusieurs composants. (Consultez [Application Insights - Vue d’ensemble][start].) Chaque composant envoie des données différentes.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classes de données envoyées dans différents scénarios
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
-| [Ajouter le SDK Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requêtes<br/>**Exceptions**<br/>Session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requêtes<br/>**Exceptions**<br/>Session<br/>users |
 | [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Ajouter le SDK Application Insights à une application web Java][Java] |ServerContext<br/>Inferred<br/>Requête<br/>Session<br/>users |
-| [Ajouter le SDK JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>Session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
-| [Appel TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
-| [Appel Track*][api] |Nom de l'événement<br/>**Propriétés** |
-| [Appel TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
+| [Appeler TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
+| [Appeler Track*][api] |Nom de l'événement<br/>**Propriétés** |
+| [Appeler TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
 | Le Kit SDK ne peut pas collecter les données. Par exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
 
-En ce qui concerne les [SDK des autres plateformes][platforms], consultez les documents correspondants.
+Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 
 #### <a name="the-classes-of-collected-data"></a>Les classes de données collectées
 | Classe des données collectées | Comprend (liste non exhaustive) |
@@ -193,7 +193,7 @@ En ce qui concerne les [SDK des autres plateformes][platforms], consultez les do
 | Availability |Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test |
 | SDK diagnostics |Message de suivi ou exception |
 
-Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
+Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config].
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [http://www.maxmind.com](http://www.maxmind.com).
@@ -216,7 +216,7 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md
-[Java]: app-insights-java-get-started.md
+[java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -225,6 +225,6 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

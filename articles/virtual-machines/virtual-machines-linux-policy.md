@@ -1,5 +1,5 @@
 ---
-title: "Application de stratégies aux machines virtuelles Azure Resource Manager | Microsoft Docs"
+title: "Appliquer la sécurité avec des stratégies sur des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Linux"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71036b1aa9915750992d9d671af6b1023def41c3
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Application de stratégies aux machines virtuelles Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Appliquer la sécurité et des stratégies aux machines virtuelles Linux avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous allons décrire comment utiliser les stratégies d'Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
 
 Les grandes lignes des étapes sont présentées ci-dessous.
@@ -99,6 +99,6 @@ Après avoir créé la stratégie, vous devez l’appliquer sur une étendue dé
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

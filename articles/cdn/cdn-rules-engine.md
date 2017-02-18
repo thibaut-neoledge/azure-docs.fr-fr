@@ -1,9 +1,9 @@
 ---
-title: "Remplacement du comportement HTTP par défaut à l’aide du moteur de règles Azure Content Delivery Network (CDN) | Microsoft Docs"
+title: "Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN | Microsoft Docs"
 description: "Le moteur de règles vous permet de personnaliser la manière dont Azure CDN gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 41e17c4aeda48c1ff7db1206bf52bb709b109bea
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
 
 
 ---
-# <a name="override-default-http-behavior-using-the-azure-content-delivery-network-cdn-rules-engine"></a>Remplacement du comportement HTTP par défaut à l’aide du moteur de règles Azure Content Delivery Network (CDN)
+# <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Remplacement du comportement HTTP à l’aide du moteur de règles Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -87,6 +87,6 @@ Le moteur de règles vous permet de personnaliser comment sont gérées les requ
 * [Azure Friday : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

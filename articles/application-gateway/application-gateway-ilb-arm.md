@@ -1,10 +1,10 @@
 ---
-title: "Créer et configurer une passerelle Application Gateway avec un équilibrage de charge interne (ILB) à l’aide d’Azure Resource Manager | Microsoft Docs"
+title: "Utiliser la passerelle Azure Application Gateway avec équilibreur de charge interne - PowerShell | Microsoft Docs"
 description: "Cette page fournit des instructions pour la création, la configuration, le démarrage et la suppression d’une passerelle Application Gateway Azure avec un équilibrage de charge interne (ILB) pour Azure Resource Manager"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
-ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 > [!div class="op_single_selector"]
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ilb-arm.md)
-> 
-> 
 
 Vous pouvez configurer une passerelle Azure Application Gateway avec une adresse IP virtuelle côté Internet ou avec un point de terminaison interne non exposé à Internet, également appelé point de terminaison d’équilibrage de charge interne (ILB). La configuration de la passerelle avec un équilibrage de charge interne est utile pour les applications métier internes non exposées à Internet. Elle est également utile pour les services et niveaux au sein d’une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison SSL (Secure Sockets Layer).
 
@@ -76,11 +74,11 @@ Vérifiez les abonnements associés au compte.
 Get-AzureRmSubscription
 ```
 
-Vous êtes invité à saisir vos informations d’identification.<BR>
+Vous êtes invité à saisir vos informations d’identification.
 
 ### <a name="step-3"></a>Étape 3 :
 
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser. <BR>
+Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -96,9 +94,9 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d’une passerelle Application Gateway utilisent le même groupe de ressources.
 
-Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-rg », ainsi que l’emplacement « West US ».
+Dans l’exemple précédent, nous avons créé un groupe de ressources appelé « appgw-rg », ainsi que l’emplacement « West US ».
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Création d'un réseau virtuel et d'un sous-réseau pour la passerelle Application Gateway
+## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Créer un réseau virtuel et un sous-réseau pour la passerelle Application Gateway
 
 L’exemple ci-après indique comment créer un réseau virtuel à l’aide de Resource Manager :
 
@@ -118,7 +116,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 
 Crée un réseau virtuel nommé « appgwvnet » dans le groupe de ressources « appw-rg » pour la région « West US » à l’aide du préfixe 10.0.0.0/16 avec le sous-réseau 10.0.0.0/24.
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 ```powershell
 $subnet = $vnet.subnets[0]
@@ -142,7 +140,7 @@ Crée une configuration IP de passerelle Application Gateway nommée « gateway
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-Configure le pool d’adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
+Configure le pool d’adresses IP principal nommé « pool01 » avec les adresses IP « 134.170.185.46, 134.170.188.221, 134.170.185.50 ». Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Remplacez les adresses IP précédentes pour ajouter vos propres points de terminaison d’adresse IP d’application.
 
 ### <a name="step-3"></a>Étape 3
 
@@ -150,7 +148,7 @@ Configure le pool d’adresses IP principal nommé « pool01 » avec les adres
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Configure les paramètres de passerelle Application Gateway « poolsetting01 » pour le trafic réseau à charge équilibrée dans le pool principal.
+Cette étape permet de configurer les paramètres de passerelle Application Gateway « poolsetting01 » pour le trafic réseau à charge équilibrée dans le pool principal.
 
 ### <a name="step-4"></a>Étape 4
 
@@ -158,7 +156,7 @@ Configure les paramètres de passerelle Application Gateway « poolsetting01 �
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-Configure le port d’adresses IP frontal nommé « frontendport01 » pour l’équilibrage de charge interne.
+Cette étape permet de configurer le port d’adresses IP frontal nommé « frontendport01 » pour l’équilibrage de charge interne.
 
 ### <a name="step-5"></a>Étape 5
 
@@ -166,7 +164,7 @@ Configure le port d’adresses IP frontal nommé « frontendport01 » pour l�
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Crée la configuration IP frontale nommée « fipconfig01 » et lui associe une adresse IP privée à partir du sous-réseau du réseau virtuel actuel.
+Cette étape permet de créer la configuration IP frontale nommée « fipconfig01 » et lui associe une adresse IP privée à partir du sous-réseau du réseau virtuel actuel.
 
 ### <a name="step-6"></a>Étape 6
 
@@ -174,7 +172,7 @@ Crée la configuration IP frontale nommée « fipconfig01 » et lui associe un
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Crée l’écouteur nommé « listener01 » et associe le port frontal à la configuration IP frontale.
+Cette étape permet de créer l’écouteur nommé « listener01 » et associe le port frontal à la configuration IP frontale.
 
 ### <a name="step-7"></a>Étape 7
 
@@ -182,7 +180,7 @@ Crée l’écouteur nommé « listener01 » et associe le port frontal à la c
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Crée la règle d’acheminement d’équilibrage de charge nommée « rule01 » qui configure le comportement d’équilibrage de charge.
+Cette étape permet de créer la règle d’acheminement d’équilibrage de charge nommée « rule01 » qui configure le comportement d’équilibrage de charge.
 
 ### <a name="step-8"></a>Étape 8
 
@@ -190,27 +188,24 @@ Crée la règle d’acheminement d’équilibrage de charge nommée « rule01 
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Configure la taille d’instance de la passerelle Application Gateway.
+Cette étape permet de configurer la taille d’instance de la passerelle Application Gateway.
 
 > [!NOTE]
 > La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut du paramètre *GatewaySize* est Medium. Vous pouvez choisir entre Standard_Small, Standard_Medium et Standard_Large.
-> 
-> 
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Créer une passerelle Application Gateway avec New-AzureApplicationGateway
 
-Crée une passerelle Application Gateway avec tous les éléments de configuration à partir de la procédure ci-dessus. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
-
+Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Crée une passerelle Application Gateway avec tous les éléments de configuration à partir de la procédure ci-dessus. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
+Cette étape permet de créer une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
 
 ## <a name="delete-an-application-gateway"></a>Supprimer une passerelle Application Gateway
 
-Pour supprimer une passerelle Application Gateway, vous devez effectuer les opérations suivantes dans l'ordre :
+Pour supprimer une passerelle Application Gateway, vous devez effectuer les opérations suivantes dans l’ordre :
 
 1. Utilisez l’applet de commande `Stop-AzureRmApplicationGateway` pour arrêter la passerelle.
 2. Utilisez l’applet de commande `Remove-AzureRmApplicationGateway` pour supprimer la passerelle.
@@ -256,8 +251,6 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 > [!NOTE]
 > Il est possible d’utiliser le commutateur **-force** pour supprimer le message de confirmation de suppression.
-> 
-> 
 
 Pour vérifier que le service a été supprimé, vous pouvez utiliser l’applet de commande `Get-AzureRmApplicationGateway`. Cette étape n'est pas requise.
 
@@ -285,6 +278,6 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

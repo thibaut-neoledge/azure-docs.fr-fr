@@ -1,5 +1,5 @@
 ---
-title: "Créer une application de fonction Azure et d’un compte de Stockage Azure | Microsoft Docs"
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 3 : Déploiement de modèle | Microsoft Docs"
 description: "L’application de fonction Azure écoute les événements d’Azure IoT Hub, traite les messages entrants et les écrit dans le stockage Table Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: df446b1a6b244761f39bfdcebb7e404435c2c35d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
 
 
 ---
@@ -78,6 +78,6 @@ Vous avez créé votre application de fonction Azure pour traiter les messages d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement SGBD | Microsoft Docs"
+title: "SAP NetWeaver sur machines virtuelles Azure - Guide de déploiement SGBD | Microsoft Docs"
 description: "SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement SGBD"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 7cbb85e3f6705770a3eab7cc5a0da5070f2a170e
-ms.openlocfilehash: 52506430dcaccca1a29878470abb86585593b5a7
+ms.sourcegitcommit: 73d08acd6cd57a9430826413d71a8c53b9646dd5
+ms.openlocfilehash: 61a1181ee06c989b4837442800110aee0c5f1abf
 
 
 ---
@@ -76,7 +76,7 @@ ms.openlocfilehash: 52506430dcaccca1a29878470abb86585593b5a7
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Mise en cache pour les machines virtuelles et les disques durs virtuels) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (RAID logiciel) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Stockage Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure d’un déploiement SGBDR) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 et versions ultérieures) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 et versions antérieures) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Utilisation d’images SQL Server issues de Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Résumé - SQL Server général pour SAP sur Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Caractéristiques de SGBDR SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuration du stockage) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Sauvegarde et restauration) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Considérations sur les performances de sauvegarde et de restauration) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Autres) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver sur les machines virtuelles Azure – Guide de déploiement SGBD) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Mise en cache pour les machines virtuelles et les disques durs virtuels) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (RAID logiciel) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Stockage Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure d’un déploiement SGBDR) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 et versions ultérieures) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 et versions antérieures) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Utilisation d’images SQL Server issues de la Place de marché Microsoft Azure) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Résumé - SQL Server général pour SAP sur Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Caractéristiques de SGBDR SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuration du stockage) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Sauvegarde et restauration) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Considérations sur les performances de sauvegarde et de restauration) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Autres) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -274,7 +274,7 @@ Certains documents Microsoft décrivent les scénarios de déploiement entre dif
 ### <a name="resources"></a>Ressources
 Les déploiements SAP sur Azure sont décrits dans les guides suivants :
 
-* [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide]
+* [SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide][planning-guide]
 * [SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement][deployment-guide]
 * [SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement SGBD (ce document)][dbms-guide]
 * [SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement haute disponibilité][ha-guide]
@@ -350,11 +350,11 @@ L’emplacement des fichiers de base de données et des fichiers journaux et le 
 Selon la série de machines virtuelles Azure, les disques locaux du nœud de calcul affichent des performances différentes qui peuvent être classées comme suit :
 
 * A0-A7 : performances très limitées. Non utilisables pour autre chose que le fichier d’échange Windows.
-* A8-A11 : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série D : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série DS : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série G : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série GS : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
+* A8-A11 : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série D : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série DS : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série G : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série GS : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
 
 Les chiffres donnés ci-dessus s’appliquent aux types de machines virtuelles certifiés pour SAP. Les séries de machines virtuelles présentant un nombre d’E/S par seconde et un débit excellents sont adaptées à certaines fonctionnalités de SGBD, telles que tempdb ou l’espace de table temporaire.
 
@@ -408,7 +408,7 @@ Les considérations pour tirer parti de séries de machines virtuelles compatibl
 * Exigence d’une latence d’E/S plusieurs fois inférieure à celle offerte par le stockage Azure Standard.
 * Nombre d’E/S par seconde par machine virtuelle plus élevé que ce que permettent d’atteindre plusieurs disques durs virtuels Standard avec un certain type de machine virtuelle.
 
-Comme le stockage Azure sous-jacent réplique chaque disque dur virtuel sur au moins trois nœuds de stockage, un simple entrelacement RAID 0 peut être utilisé. Il est inutile d’utiliser RAID 5 ou RAID 1.
+Comme le stockage Azure sous-jacent réplique chaque disque dur virtuel sur au moins trois nœuds de stockage, un simple entrelacement RAID 0 peut être utilisé. Il est inutile d’utiliser RAID&5; ou RAID&1;.
 
 ### <a name="a-name10b041ef-c177-498a-93ed-44b3441ab152amicrosoft-azure-storage"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage
 Microsoft Azure Storage stocke la base machine virtuelle de base (avec le système d’exploitation) et les disques durs virtuels ou des objets blob sur au moins trois nœuds de stockage distincts. Lors de la création d’un compte de stockage, plusieurs options de protection sont proposées :
@@ -431,7 +431,7 @@ Des informations supplémentaires sont disponibles [ici][storage-redundancy].
 > 
 > Le problème est plus simple à expliquer avec un exemple de système. Supposons que vous disposez d’un système SAP téléchargé dans Azure qui utilise 8 disques durs virtuels contenant les fichiers de données du SGBD et un disque dur virtuel contenant le fichier journal des transactions. Sur chacun de ces 9 disques durs virtuels, les données seront écrites à l’aide d’une même méthode dépendant du SGBD, que les données soient écrites dans les fichiers de données ou le fichier journal des transactions.
 > 
-> Afin de géo-répliquer correctement les données et de conserver une image de base de données cohérente, il faudrait répliquer le contenu des 9 disques durs virtuels dans l’ordre exact où les opérations d’E/S ont été exécutées sur les 9 différents disques durs virtuels. Toutefois, la géo-réplication Azure Storage ne permet pas de déclarer des dépendances entre des disques durs virtuels. Cela signifie que la géo-réplication Microsoft Azure Storage ignore que le contenu de ces 9 différents disques virtuels est lié et que les modifications de données ne sont cohérentes que lorsque la réplication est effectuée dans l’ordre où les opérations d’E/S ont eu lieu sur l’ensemble des 9 disques durs virtuels.
+> Afin de géo-répliquer correctement les données et de conserver une image de base de données cohérente, il faudrait répliquer le contenu des&9; disques durs virtuels dans l’ordre exact où les opérations d’E/S ont été exécutées sur les&9; différents disques durs virtuels. Toutefois, la géo-réplication Azure Storage ne permet pas de déclarer des dépendances entre des disques durs virtuels. Cela signifie que la géo-réplication Microsoft Azure Storage ignore que le contenu de ces 9 différents disques virtuels est lié et que les modifications de données ne sont cohérentes que lorsque la réplication est effectuée dans l’ordre où les opérations d’E/S ont eu lieu sur l’ensemble des 9 disques durs virtuels.
 > 
 > Outre la forte probabilité que les images géo-répliquées dans ce scénario ne produisent pas une image de base de données cohérente, le stockage géo-redondant peut également avoir un impact très négatif sur les performances. En résumé, n’utilisez pas ce type de redondance de stockage pour les charges de travail du type SGBD.
 > 
@@ -603,7 +603,7 @@ Cette fonctionnalité vous permet de sauvegarder directement les données sur le
 
 Dans ce cas, il n’est pas nécessaire d’utiliser des disques VHD pour stocker les données de sauvegarde SQL Server, ce qui est un avantage. Ainsi, un nombre moins important de disques VHD est alloué et la totalité de la bande passante associée aux E/S par seconde des disques VHD peut être utilisée pour les fichiers journaux et les données. N’oubliez pas que la taille maximale d’une sauvegarde est limitée à un 1 To, comme décrit dans la section « Limitations » de cet article : <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. Si, malgré l’utilisation de la compression de sauvegarde SQL Server, la taille de la sauvegarde dépasse 1 To, la fonctionnalité décrite dans le chapitre [SQL Server 2012 SP1 CU3 et versions antérieures][dbms-guide-5.5.2] du présent document doit être utilisée.
 
-La [documentation associée](https://msdn.microsoft.com/library/dn449492.aspx) décrivant la restauration des bases de données à partir de sauvegardes sur le magasin d’objets blob Azure vous recommande de ne pas restaurer directement les données depuis ce magasin si la taille des sauvegardes est supérieure à 25 Go. La recommandation indiquée dans cet article repose simplement sur des considérations relatives aux performances, et non sur des restrictions fonctionnelles. Par conséquent, différentes conditions peuvent s’appliquer au cas par cas.
+La [documentation associée](https://msdn.microsoft.com/library/dn449492.aspx) décrivant la restauration des bases de données à partir de sauvegardes sur le magasin d’objets blob Azure vous recommande de ne pas restaurer directement les données depuis ce magasin si la taille des sauvegardes est supérieure à&25; Go. La recommandation indiquée dans cet article repose simplement sur des considérations relatives aux performances, et non sur des restrictions fonctionnelles. Par conséquent, différentes conditions peuvent s’appliquer au cas par cas.
 
 Pour des informations sur la configuration et l’exploitation de ce type de sauvegarde, voir [ce](https://msdn.microsoft.com/library/dn466438.aspx) didacticiel
 
@@ -860,7 +860,7 @@ Si vous avez déployé la machine virtuelle dans un scénario de cloud uniquemen
 > 
 > 
 
-Vous trouverez plus d’informations sur le nom DNS [ici][virtual-machines-azurerm-versus-azuresm].
+Pour plus de détails sur le nom DNS, voir [ici][virtual-machines-azurerm-versus-azuresm].
 
 Lorsque vous définissez le paramètre de profil SAP icm/host_name_full sur le nom DNS de la machine virtuelle Azure, le lien peut ressembler à ceci :
 
@@ -1013,7 +1013,7 @@ Si vous avez déployé la machine virtuelle dans un scénario de cloud uniquemen
 > 
 > 
 
-Vous trouverez plus d’informations sur le nom DNS [ici][virtual-machines-azurerm-versus-azuresm].
+Pour plus de détails sur le nom DNS, voir [ici][virtual-machines-azurerm-versus-azuresm].
 
 Lorsque vous définissez le paramètre de profil SAP icm/host_name_full sur le nom DNS de la machine virtuelle Azure, le lien peut ressembler à ceci :
 
@@ -1340,6 +1340,6 @@ Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azur
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

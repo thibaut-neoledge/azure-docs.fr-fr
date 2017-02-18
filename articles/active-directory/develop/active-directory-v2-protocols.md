@@ -1,5 +1,5 @@
 ---
-title: "Protocoles Azure AD v2.0 | Microsoft Docs"
+title: "En savoir plus sur les protocoles d’autorisation pris en charge par Azure AD v2.0 | Microsoft Docs"
 description: Un guide sur les protocoles pris en charge par le point de terminaison Azure AD v2.0.
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 05a9fbab63ae19ee48eb88951dfdc4dc9beaabbd
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
 
 
 ---
@@ -85,6 +85,6 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

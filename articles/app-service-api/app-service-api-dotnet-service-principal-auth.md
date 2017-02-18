@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
 
 
 ---
@@ -27,7 +27,7 @@ Cet article explique comment utiliser l’authentification App Service pour l’
 Cet article porte sur les points suivants :
 
 * Utiliser Azure Active Directory (Azure AD) pour protéger une application API contre tout accès non authentifié
-* Utiliser une application API protégée à partir d’une application API, web ou mobile à l’aide des informations d’identification du principal du service (identité de l’application) Azure AD. Pour savoir comment utiliser une application API protégée à partir d’une application logique, consultez [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* Utiliser une application API protégée à partir d’une application API, web ou mobile à l’aide des informations d’identification du principal du service (identité de l’application) Azure AD. Pour savoir comment utiliser une application API protégée à partir d’une application logique, consultez [Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques](../logic-apps/logic-apps-custom-hosted-api.md).
 * S’assurer que les utilisateurs connectés n’ont pas la possibilité d’appeler l’application API protégée à partir d’un navigateur
 * S’assurer que seul un principal du service Azure AD spécifique a la possibilité d’appeler l’application API protégée
 
@@ -352,6 +352,6 @@ Pour plus d’informations sur les autres méthodes de déploiement de projets V
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

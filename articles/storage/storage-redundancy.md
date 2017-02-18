@@ -1,5 +1,5 @@
 ---
-title: "Réplication Azure Storage | Microsoft Docs"
+title: "Réplication de données dans le stockage Azure | Microsoft Docs"
 description: "Les données de votre compte de stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)."
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8253e4c58cf9f1900a6e76885af3abac32c78cb0
+ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
+ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
 
 
 ---
@@ -77,12 +77,12 @@ Le stockage géo-redondant (GRS) réplique vos données vers une région seconda
 
 Pour un compte de stockage avec GRS activé, une mise à jour est d’abord appliquée dans la région primaire, où elle est répliquée trois fois. La mise à jour est ensuite répliquée trois fois également de manière asynchrone dans la région secondaire.
 
-Avec le stockage GRS, les régions principale et secondaire gèrent les réplicas sur plusieurs domaines d’erreur et domaines de mise à niveau distincts, au sein d’une unité d’échelle de stockage comme décrit pour le stockage LRS.
+Avec le stockage GRS, les régions primaire et secondaire gèrent les réplicas sur plusieurs domaines d’erreur et domaines de mise à niveau distincts, au sein d’une unité d’échelle de stockage comme décrit pour le stockage LRS.
 
 Considérations :
 
 * Étant donné que la réplication asynchrone implique un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues, si les données ne peuvent pas être récupérées à partir de la région primaire.
-* Le réplica n’est disponible que si Microsoft lance le basculement vers la région secondaire.
+* Le réplica n’est disponible que si Microsoft lance le basculement vers la région secondaire. Si Microsoft initie un basculement vers la région secondaire, vous obtiendrez un accès en lecture et écriture à ces données une fois le basculement effectué. Pour plus d’informations, consultez [Conseils sur la récupération d’urgence](storage-disaster-recovery-guidance.md). 
 * Si une application souhaite lire du contenu à partir de la région secondaire, l’utilisateur doit activer le stockage RA-GRS.
 
 Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La région secondaire est déterminée en fonction de la région primaire et ne peut pas être modifiée. Le tableau suivant montre les paires de régions primaires et secondaires.
@@ -129,9 +129,12 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 Considérations :
 
 * Votre application doit gérer le point de terminaison avec lequel l’interaction se fait lors de l’utilisation du stockage RA-GRS.
+* Étant donné que la réplication asynchrone implique un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues, si les données ne peuvent pas être récupérées à partir de la région primaire.
+* Si Microsoft initie un basculement vers la région secondaire, vous obtiendrez un accès en lecture et écriture à ces données une fois le basculement effectué. Pour plus d’informations, consultez [Conseils sur la récupération d’urgence](storage-disaster-recovery-guidance.md). 
 * Le stockage RA-GRS est destiné à des fins de haute disponibilité. Pour obtenir des conseils sur l’évolutivité, veuillez consulter la [liste de vérification de performances](storage-performance-checklist.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tarification d’Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
 * [À propos des comptes de stockage Azure](storage-create-storage-account.md)
 * [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
@@ -141,6 +144,6 @@ Considérations :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Rapports HTTP avancés dans Microsoft Azure CDN | Microsoft Docs"
-description: "Rapports HTTP avancés dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN."
+title: "Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN | Microsoft Docs"
+description: "Découvrez comment créer des rapports HTTP avancés dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91cafe744e07416426da6ca5a5785a21e7874f6d
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
 
 
 ---
-# <a name="advanced-http-reports-in-microsoft-azure-cdn"></a>Rapports HTTP avancés dans Microsoft Azure CDN
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN
 ## <a name="overview"></a>Vue d'ensemble
 Ce document présente les rapports HTTP avancés disponibles dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN.
 
@@ -207,6 +207,6 @@ Les informations suivantes figurent sous le graphique pour les 250 ressources l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

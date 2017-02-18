@@ -1,5 +1,5 @@
 ---
-title: "Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud | Microsoft Docs"
+title: "Connecter Raspberry Pi (C) à Azure IoT - Leçon 3 : Exécuter les exemples | Microsoft Docs"
 description: "Déployez et exécutez sur Raspberry Pi 3 un exemple d’application qui envoie des messages à votre IoT Hub et fait clignoter la LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 946e80b450fdda244a48e2c4d2aa87a7822be456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
 
 
 ---
@@ -112,6 +112,6 @@ Vous avez déployé et exécuté le nouvel exemple d’application de clignoteme
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

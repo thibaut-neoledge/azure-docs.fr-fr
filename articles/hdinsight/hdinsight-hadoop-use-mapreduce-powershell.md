@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
-ms.openlocfilehash: 9b852d1ca82c85e40c4f33da8c6380ffd48dd222
+ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
+ms.openlocfilehash: c2bed4f1fddf99183faa0730f052ee79cf77f9f8
 
 
 ---
@@ -31,10 +31,12 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécut
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* **Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux**
+* **Un cluster Azure HDInsight (Hadoop sur HDInsight)**
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
-  
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="a-idpowershellarun-a-mapreduce-job-using-azure-powershell"></a><a id="powershell"></a>Exécution d’une tâche MapReduce avec Azure PowerShell
 
@@ -54,22 +56,21 @@ Les applets de commande suivantes sont utilisées lors de l’exécution des tâ
 
 Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight.
 
-1. À l’aide d’un éditeur, enregistrez le code suivant sous **mapreducejob.ps1**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
+1. À l’aide d’un éditeur, enregistrez le code suivant sous **mapreducejob.ps1**.
     
     ```powershell
-    #Specify the values
-    $clusterName = "CLUSTERNAME"
-
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Login-AzureRmAccount
+        Add-AzureRmAccount
     }
 
-    #Get HTTPS/Admin credentials for submitting the job later
-    $creds = Get-Credential
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+
     #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
@@ -90,11 +91,11 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
     # -ClassName = the class of the application
     # -Arguments = The input file, and the output directory
     $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+        -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
         -ClassName "wordcount" `
         -Arguments `
-            "wasbs:///example/data/gutenberg/davinci.txt", `
-            "wasbs:///example/data/WordCountOutput"
+            "wasb:///example/data/gutenberg/davinci.txt", `
+            "wasb:///example/data/WordCountOutput"
 
     #Submit the job to the cluster
     Write-Host "Start the MapReduce job..." -ForegroundColor Green
@@ -115,13 +116,10 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
         -Container $container `
         -Destination output.txt `
         -Context $context
-    # Print the output
+    # Print the output of the job.
     Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds
     ```
 
@@ -129,7 +127,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
    
         .\mapreducejob.ps1
    
-    Quand vous exécutez le script, vous êtes invité à vous authentifier auprès de votre abonnement Azure. Vous devez également fournir le nom et le mot de passe du compte HTTPS/Admin pour le cluster HDInsight.
+    Lorsque vous exécutez le script, vous êtes invité à entrer le nom du cluster HDInsight et le nom du compte HTTPS/Admin, ainsi que le mot de passe pour le cluster. Vous pouvez également être invité à vous authentifier sur votre abonnement Azure.
 
 3. Une fois la tâche terminée, vous devez recevoir une sortie similaire à celle présentée ci-dessous :
     
@@ -167,9 +165,6 @@ Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```
@@ -194,6 +189,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

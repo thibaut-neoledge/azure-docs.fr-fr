@@ -4,7 +4,7 @@ description: "Les solutions de gestion étendent les fonctionnalités OMS (Opera
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
-ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
+ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
+ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
 
 
 ---
@@ -261,13 +261,14 @@ Pour obtenir des informations et des exemples de ressources communes aux solutio
 Avant de déployer votre solution de gestion, il est recommandé de la tester à l’aide de [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Cela permet de valider votre fichier de solution et vous aide à identifier les problèmes éventuels avant son déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.
+* [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
+* [Ajoutez des runbooks Automation et d’autres ressources](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
 * Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.
-* Afficher les détails de [l’ajout de vues à une solution de gestion](operations-management-suite-solutions-resources-views.md).
-* Afficher les détails de [l’ajout de ressources Automation à une solution de gestion](operations-management-suite-solutions-resources-automation.md).
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Accès conditionnel pour les applications publiées avec le proxy d&quot;application Azure AD"
+title: "Accès conditionnel aux applications locales - Azure AD | Microsoft Docs"
 description: "Explique comment configurer l&quot;accès conditionnel pour que les applications que vous publiez soient accessibles à distance à l’aide du proxy d&quot;application Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 
 
 ---
-# <a name="working-with-conditional-access"></a>Utilisation de l’accès conditionnel
+# <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Utilisation de l’accès conditionnel dans le proxy d’application Azure AD
 Vous pouvez configurer les règles d’accès pour accorder l’accès conditionnel aux applications publiées à l’aide du proxy d’application. Vous pouvez ainsi effectuer les opérations suivantes :
 
 * Exiger l’authentification multifacteur par application.
@@ -43,11 +43,11 @@ Les règles d'accès sont évaluées lorsqu'un utilisateur accède à une applic
 3. Cliquez sur **Applications** et faites défiler jusqu’à la section **Règles d’accès**. La section des règles d’accès ne s’affiche que pour les applications publiées à l’aide du proxy d’application qui utilisent l’authentification fédérée.
 4. Activez la règle en positionnant **Activer les règles d’accès** sur **Oui**.
 5. Spécifiez les utilisateurs et les groupes auxquels les règles s'appliqueront. Utilisez le bouton **Ajouter un groupe** pour sélectionner un ou plusieurs groupes auxquels doit s’appliquer la règle d’accès. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés.  Lorsque les règles d’accès s’appliquent aux groupes, elles ne s’appliqueront qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés.  
-   
+
    * Pour exclure explicitement des groupes de sécurité de la règle, cochez **Sauf** et spécifiez un ou plusieurs groupes. Les utilisateurs qui sont membres d'un groupe dans la liste Sauf ne seront pas tenus d’effectuer l'authentification multifacteur.  
    * Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. En savoir plus sur [l’authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md).
 6. Sélectionnez la règle d'accès que vous souhaitez définir :
-   
+
    * **Exiger une authentification multifacteur**: les utilisateurs auxquels s’appliquent des règles d’accès doivent effectuer l’authentification multifacteur pour accéder à l’application à laquelle la règle s’applique.
    * **Exiger l’authentification multifacteur à l’extérieur de l’entreprise**: les utilisateurs qui tentent d’accéder à l’application à partir d’une adresse IP approuvée ne sont pas tenus d’effectuer l’authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
    * **Bloquer l’accès quand l’utilisateur n’est pas au travail**: les utilisateurs qui tentent d’accéder à l’application en dehors de votre réseau d’entreprise ne sont pas en mesure d’accéder à l’application.
@@ -69,7 +69,6 @@ Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog]
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes | Microsoft Docs"
+title: "Connecter Raspberry Pi (C) à Azure IoT - Résolution des problèmes | Microsoft Docs"
 description: "Page Résolution des problèmes pour l’expérience Node.js Raspberry Pi"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
 
 
 ---
@@ -123,6 +123,7 @@ Si vous avez correctement configuré votre Azure IoT Hub avec l’interface de l
 ### <a name="device-explorer"></a>Explorateur d’appareils
 L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) s’exécute sur votre ordinateur Windows local et se connecte à votre IoT Hub dans Azure. Il communique avec les [points de terminaison IoT Hub](iot-hub-devguide.md) suivants :
 
+
 * *Device identity management* (Gestion d’identité d’appareil) pour configurer et gérer les appareils inscrits auprès de votre IoT Hub.
 * *Receive device-to-cloud* (Réception appareil-à-cloud) pour pouvoir surveiller les messages envoyés par votre appareil à votre IoT Hub.
 * *Send cloud-to-device* (Envoi cloud-à-appareil) pour pouvoir envoyer des messages à vos appareils à partir de votre IoT Hub.
@@ -153,6 +154,6 @@ Une expérience complète de l’interface de ligne de commande vous permet de c
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 
 ---
-title: "Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0 | Microsoft Docs"
+title: "Azure AD v2.0 permet d’accéder aux ressources sécurisées sans aucune intervention de l’utilisateur | Microsoft Docs"
 description: "Créez des applications web à l’aide de la mise en œuvre du protocole d’authentification OAuth 2.0 d’Azure AD."
 services: active-directory
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d619f6e98563448859e54ecbb0605df1365246ce
+ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
+ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
 
 
 ---
@@ -211,6 +211,6 @@ Pour voir un exemple d’application qui implémente l’octroi client_credentia
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

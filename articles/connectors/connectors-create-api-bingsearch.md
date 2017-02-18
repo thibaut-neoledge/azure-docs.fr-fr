@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 327b66296521eaef5dacbb069eff7580610c09e9
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: dbb920f212d46365233e83ba1e0a0ae99917e405
 
 
 ---
@@ -28,7 +28,7 @@ Connecte-vous à Bing Search pour rechercher des actualités, des vidéos et bie
 * Créer votre flux d’activité en fonction des données que vous obtenez pendant votre recherche. 
 * Utiliser des actions pour rechercher des images, des actualités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, vous pouvez rechercher une vidéo, puis utiliser Twitter pour la publier dans un flux Twitter.
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Déclencheurs et actions
 Bing Search inclut les actions suivantes. Il n’y a aucun déclencheur. 
@@ -274,13 +274,13 @@ Récupère la totalité des sites web, vidéos, images, etc. à partir d’une r
 | RelatedSearchResults |array |no |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Revenir à la [liste des API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

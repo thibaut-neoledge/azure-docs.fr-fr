@@ -1,5 +1,5 @@
 ---
-title: Le point de terminaison v2.0 Azure AD | Microsoft Docs
+title: "En quoi le point de terminaison Azure AD v2.0 est-il différent ? | Microsoft Docs"
 description: "Une comparaison entre la version Azure AD d’origine et les points de terminaison v2.0."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 8a8f8af9b23c66461385a73f80c148a2fdd652d5
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
 
 
 ---
@@ -29,7 +29,7 @@ Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà
 >
 
 ## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Comptes Microsoft et comptes Azure AD
-Le point de terminaison v2.0 permet aux développeurs d’écrire des applications qui prennent en charge la connexion à partir de comptes Microsoft et de comptes Azure AD, à l’aide d’un seul point de terminaison d’authentification.  Vous pouvez donc écrire votre application en ignorant complètement le type de compte avec lequel l’utilisateur se connecte.  Bien entendu, vous *pouvez* faire en sorte que votre application reconnaisse le type de compte utilisé dans une session particulière, mais vous n’y êtes pas tenu.
+Le point de terminaison v2.0 permet aux développeurs d’écrire des applications qui prennent en charge la connexion à partir de comptes Microsoft et de comptes Azure AD, à l’aide d’un seul point de terminaison d’authentification.  Vous pouvez donc écrire votre application en ignorant complètement le type de compte avec lequel l’utilisateur se connecte.  Bien entendu, vous *pouvez* faire en sorte que votre application reconnaisse le type de compte utilisé dans une session particulière, mais vous n’y êtes pas tenu.
 
 Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les utilisateurs de l’entreprise, telles que leurs sites SharePoint ou les données Directory.  Néanmoins, pour de nombreuses actions, telles que la [lecture du courrier d’un utilisateur](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), le code peut être exactement le même pour les comptes Microsoft et Azure AD.  
 
@@ -113,7 +113,7 @@ Si votre application ne sollicite pas l’étendue `offline_access`, elle ne re�
 
 Pour en savoir plus sur OAuth 2.0, les jetons d’actualisation et les jetons d’accès, consultez [Informations de référence sur les protocoles du point de terminaison v2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid-profile--email"></a>OpenID, profile et email
+#### <a name="openid-profile-and-email"></a>OpenID, profile et email
 Dans le service Azure Active Directory d’origine, le flux de connexion OpenID Connect le plus simple fournit une somme d’informations sur l’utilisateur dans le paramètre id_token résultant.  Les revendications contenues dans un paramètre id_token peuvent inclure différentes informations utilisateur : son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
 
 À présent, nous allons limiter les informations auxquelles l’étendue `openid` permet à votre application d’accéder.  L’étendue « openid » permettra uniquement à votre application de connecter l’utilisateur et de recevoir un identificateur propre à l’application pour l’utilisateur.  Si vous souhaitez obtenir des informations d’identification personnelle (PII) sur l’utilisateur dans votre application, votre application devra lui demander des autorisations supplémentaires.  Nous introduisons deux nouvelles étendues, les étendues `email` et `profile`, qui vous permettent d’effectuer cette opération.
@@ -132,6 +132,6 @@ Il existe quelques restrictions à connaître lors de l’utilisation du point v
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

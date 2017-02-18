@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
 
 
 ---
@@ -114,7 +114,7 @@ L’ancien modèle API Apps proposait des API qui permettaient de découvrir pen
 4. Au moment du déploiement, renseignez les paramètres d’application de toutes les applications API (et des clients) avec les points de terminaison des autres applications API. Ceci est viable dans les déploiements de modèles et depuis que API Apps vous confère le contrôle de l’URL.
 
 ## <a name="using-api-apps-with-logic-apps"></a>Utilisation d’API Apps avec Logic Apps
-Le nouveau modèle d’API Apps fonctionne bien avec le [schéma Logic Apps version 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+Le nouveau modèle d’API Apps fonctionne bien avec le [schéma Logic Apps version 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus, lisez les articles de la [section Documentation de l’API Apps](https://azure.microsoft.com/documentation/services/app-service/api/). Ils ont été mis à jour pour prendre en compte le nouveau modèle pour API Apps. Par ailleurs, accédez aux forums pour obtenir des détails ou des conseils supplémentaires sur la migration :
@@ -125,6 +125,6 @@ Pour en savoir plus, lisez les articles de la [section Documentation de l’API 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: " Utiliser le connecteur Slack dans vos applications logiques | Microsoft Docs"
-description: Utiliser le connecteur Slack dans vos applications logiques Microsoft Azure App Service
+title: " Utiliser le connecteur Slack dans vos applications logiques | Microsoft Docss"
+description: Prise en main du connecteur Slack dans vos applications logiques
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 404776283ee10aa9410d002597e054757516bcab
 
 
 ---
@@ -33,7 +33,7 @@ Avec le connecteur Slack, vous pouvez :
 
 * créer des applications logiques.
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>À propos des déclencheurs et des actions
 Le connecteur Slack peut être utilisé en tant qu’action ; il n’y a aucun déclencheur. Tous les connecteurs prennent en charge les données aux formats JSON et XML. 
@@ -109,7 +109,7 @@ Suivez ces étapes pour vous connecter à Slack et terminer la configuration de 
 
 - - -
 ## <a name="object-definitions"></a>Définition(s) d’objet :
- **Message**: message Yammer
+ **Message** : message Slack
 
 Propriétés requises pour Message :
 
@@ -141,7 +141,7 @@ Aucune des propriétés n’est obligatoire.
 | liked_by |non défini |
 | system_message |booléenne |
 
- **PostOperationRequest**: représente une demande de publication sur Yammer pour le connecteur Yammer
+ **PostOperationRequest** : représente une demande de publication sur Slack émanant du connecteur Slack
 
 Propriétés requises pour PostOperationRequest :
 
@@ -231,7 +231,7 @@ Aucune des propriétés n’est obligatoire.
 | full_name |string |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="object-definitions"></a>Définition(s) d’objet :
  **WebResultModel**: résultats de la recherche sur le web par Bing
@@ -400,7 +400,7 @@ Aucune des propriétés n’est obligatoire.
 | is_user-deleted |booléenne |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 
@@ -411,6 +411,6 @@ Aucune des propriétés n’est obligatoire.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

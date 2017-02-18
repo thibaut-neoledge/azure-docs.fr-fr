@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e37687e44fa80f59a3e95ec0e3051290bd9c0c0
+ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
+ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
 
 
 ---
@@ -41,7 +41,7 @@ Les mises à jour ordinaires s’effectuent sans interruption du service et peuv
 > 
 > 
 
-* Pour plus de détails sur l’installation de mises à jour périodiques par le biais du portail Azure Classic, consultez [Installation de mises à jour périodiques via le portail Azure Classic(#install-regular-updates-via-the-azure-classic-portal).
+* Pour plus de détails sur l’installation de mises à jour périodiques par le biais du Portail Azure Classic, consultez [Installation de mises à jour périodiques via le Portail Azure Classic](#install-regular-updates-via-the-azure-classic-portal).
 * Vous pouvez également installer les mises à jour ordinaires via Windows PowerShell pour StorSimple Pour des informations détaillées, consultez la page [Installer les mises à jour ordinaires via Windows PowerShell pour StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Mises à jour en mode Maintenance
@@ -122,6 +122,6 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

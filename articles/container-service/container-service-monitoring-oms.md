@@ -1,7 +1,6 @@
 ---
-
-title: Solution Conteneurs OMS | Microsoft Docs
-description: "La solution Conteneurs OMS fait partie intégrante d’OMS Log Analytics, qui vous octroie une visibilité sur le stock, les performances et les fichiers journaux des conteneurs à un emplacement unique. Vous pouvez auditer les conteneurs, résoudre les problèmes en consultant les fichiers journaux de manière centralisée, et identifier les conteneurs bruyants sur un hôte."
+title: "Surveiller le cluster DC/OS - Gestion des opérations | Microsoft Docs"
+description: Surveillez un cluster DC/OS Azure Container Service avec Microsoft Operations Management Suite.
 services: container-service
 documentationcenter: 
 author: keikhara
@@ -18,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 translationtype: Human Translation
-ms.sourcegitcommit: 10770c96900737e1894405a6aedaa7fe2a55fd3d
-ms.openlocfilehash: 9697a4c23b50b5ed2435a00a31fa2ee239c56c48
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: f10236ab89339234a32abf42c42083e233ab3a52
 
 
 ---
 
-# <a name="using-oms-to-monitor-container-applications-on-acs-dcos"></a>Utilisation d’OMS pour surveiller les applications de conteneurs sur ACS DC/OS
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Surveillez un cluster DC/OS Azure Container Service avec Operations Management Suite.
 
-Microsoft Operations Management Suite (OMS) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. La solution Conteneurs fait partie intégrante d’OMS Log Analytics, qui vous octroie une visibilité sur le stock, les performances et les fichiers journaux des conteneurs à un emplacement unique. Vous pouvez auditer les conteneurs, résoudre les problèmes en consultant les fichiers journaux de manière centralisée, et identifier les conteneurs bruyants à consommation supérieure sur un hôte.
+Microsoft Operations Management Suite (OMS) est une solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et de cloud. La solution Conteneurs fait partie intégrante d’OMS Log Analytics, qui vous octroie une visibilité sur le stock, les performances et les fichiers journaux des conteneurs à un emplacement unique. Vous pouvez auditer les conteneurs, résoudre les problèmes en consultant les fichiers journaux de manière centralisée, et identifier les conteneurs bruyants à consommation supérieure sur un hôte.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -73,7 +72,7 @@ Une fois dans la **Galerie de solutions**, sélectionnez **Conteneurs**.
 
 ![](media/container-service-monitoring-oms/image7.png)
 
-Une fois que vous avez sélectionné la solution de conteneur, la vignette s’affiche sur la page du tableau de bord de présentation OMS. Dès que les données de conteneurs fournies sont indexées, les vignettes de vue de la solutions sont renseignées avec les informations.
+Une fois que vous avez sélectionné la solution de conteneur, la vignette s’affiche sur la page du tableau de bord de présentation OMS. Dès que les données de conteneurs fournies sont indexées, les vignettes de vue de la solution sont renseignées avec les informations.
 
 ![](media/container-service-monitoring-oms/image8.png)
 
@@ -120,6 +119,6 @@ Qu’est-ce qui fonctionne ? Quels sont les manquements ? Quels éléments pou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

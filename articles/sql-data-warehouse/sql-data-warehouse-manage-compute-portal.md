@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: c1c23ab46d9b4e43154a62080cb8865b246489f9
-ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
 
 
 ---
@@ -30,22 +30,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 >
 >
 
-Adaptez les performances en augmentant les ressources de calcul et la mémoire pour répondre à l’évolution des besoins de votre charge de travail. Réalisez des économies en réduisant vos ressources pendant les heures creuses ou en suspendant totalement vos ressources de calcul.
-
-Cette collection de tâches utilise le portail Azure pour :
-
-* Mise à l’échelle des ressources de calcul
-* Suspension du calcul
-* Reprise du calcul
-
-Pour plus d’informations, consultez l’article [Vue d’ensemble de la gestion du calcul][Vue d’ensemble de la gestion du calcul].
 
 ## <a name="scale-compute-power"></a>Mise à l’échelle de la puissance de calcul
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 Pour modifier les ressources de calcul :
 
-1. Ouvrez le [portail Azure][portail Azure], puis votre base de données, et cliquez sur **Mettre à l’échelle**.
+1. Ouvrez le [portail Azure][Azure portal], ouvrez votre base de données, puis cliquez sur **Mettre à l’échelle**.
 
     ![Cliquez sur Mettre à l’échelle.][1]
 2. Dans le panneau de mise à l’échelle, déplacez le curseur vers la gauche ou vers la droite pour modifier le paramètre DWU.
@@ -62,7 +53,7 @@ Pour modifier les ressources de calcul :
 
 Pour suspendre une base de données :
 
-1. Ouvrez le [portail Azure][portail Azure], puis votre base de données. Notez que l’état est **En ligne**.
+1. Ouvrez le [portail Azure][Azure portal], puis votre base de données. Notez que l’état est **En ligne**.
 
     ![État En ligne][6]
 2. Pour interrompre les ressources de calcul et de mémoire, cliquez sur **Pause**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
@@ -80,7 +71,7 @@ Pour suspendre une base de données :
 
 Pour reprendre une base de données :
 
-1. Ouvrez le [portail Azure][portail Azure], puis votre base de données. Notez que l’état est **Suspendu**.
+1. Ouvrez le [portail Azure][Azure portal], puis votre base de données. Notez que l’état est **Suspendu**.
 
     ![Suspendre la base de données][4]
 2. Pour relancer la base de données, cliquez sur **Démarrer**. Un message de confirmation s’affiche. Cliquez sur **Oui** pour confirmer ou sur **Non** pour annuler.
@@ -94,7 +85,7 @@ Pour reprendre une base de données :
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez l’article [vue d’ensemble de la gestion][vue d’ensemble de la gestion].
+Pour plus d’informations, consultez la [vue d’ensemble de la gestion][Management overview].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -106,18 +97,18 @@ Pour plus d’informations, consultez l’article [vue d’ensemble de la gestio
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[vue d’ensemble de la gestion]: ./sql-data-warehouse-overview-manage.md
-[Vue d’ensemble de la gestion du calcul]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[portail Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation | Microsoft Docs"
+title: "SAP NetWeaver sur machines virtuelles Azure - Planification et implémentation | Microsoft Docs"
 description: "SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation"
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 08f82498d46b2e67d55ad7dfb05efdb266e7fc61
-ms.openlocfilehash: 56da763a21da7c55aa0cd295a04fa22b2815d2ac
+ms.sourcegitcommit: 06b8f8cc99809338fcf512fb8e4bbf72721cb243
+ms.openlocfilehash: 433b2bc5d602c1117c2ef2e16399eb6d29b425d7
 
 
 ---
@@ -389,7 +389,7 @@ Ce scénario est un scénario intersite où de nombreux modèles de déploiement
 >
 >
 
-Consultez [cet article][vpn-gateway-create-site-to-site-rm-powershell] pour plus d’informations sur la façon de connecter votre réseau local à Microsoft Azure
+Lisez [cet article][vpn-gateway-create-site-to-site-rm-powershell] pour plus d’informations sur la façon de connecter votre réseau local à Microsoft Azure
 
 > [!IMPORTANT]
 > Lorsque nous parlons de scénarios intersites entre les déploiements client locaux et Azure, nous nous intéressons à la granularité des systèmes SAP entiers.Cross-Premises Les scénarios *non pris en charge* pour les situations intersites sont les suivants :
@@ -503,11 +503,11 @@ Le stockage non persistant est directement attaché aux machines virtuelles en c
 Le lecteur réel est volatil, car il est stocké sur le serveur hôte. Si la machine virtuelle a été déplacée lors d’un redéploiement (par exemple, en raison d’une maintenance sur l’hôte ou d’un arrêt et d’un redémarrage), le contenu du lecteur est perdu. Par conséquent, il n’est pas recommandé de stocker des données importantes sur ce lecteur. Le type de support utilisé pour ce genre de stockage diffère entre les séries de machines virtuelles qui présentent des caractéristiques de performances très variées. Vous trouverez ci-dessous un récapitulatif de ces performances (données datant de juin 2015) :
 
 * A5-A7 : performances très limitées. Déconseillées pour le stockage autre que celui de fichier d’échange.
-* A8-A11 : très bonnes caractéristiques de performances avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série D : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série DS : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série G : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
-* Série GS : très bonnes caractéristiques de performances, avec quelque 10 000 E/S par seconde et un débit supérieur à 1 Go/s.
+* A8-A11 : très bonnes caractéristiques de performances avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série D : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série DS : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série G : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
+* Série GS : très bonnes caractéristiques de performances, avec quelque&10;&000; E/S par seconde et un débit supérieur à&1; Go/s.
 
 Les chiffres donnés ci-dessus s’appliquent aux types de machines virtuelles certifiés pour SAP. Les séries de machines virtuelles présentant un nombre d’E/S par seconde et un débit excellents sont adaptées à certaines fonctionnalités SGBD. Pour plus de détails, consultez le [Guide de déploiement SGBD][dbms-guide].
 
@@ -1555,7 +1555,7 @@ Configurez votre domaine de transport sur le système que vous avez désigné en
 Activation
 
 * Dans notre scénario, nous avons décidé que le système d’assurance qualité local sera le contrôleur de domaine CTS. Appelez le STMS de transaction. La boîte de dialogue du TMS s’affiche. Une boîte de dialogue de configuration du domaine de transport s’affiche. (cette boîte de dialogue apparaît uniquement si vous n’avez pas encore configuré de domaine de transport).
-* Assurez-vous que l’utilisateur automatiquement créé TMSADM est autorisé (SM59 -> ABAP Connection (Connexion ABAP) -> TMSADM@E61.DOMAIN_E61 -> Details (Détails) -> Utilities(M) (Utilitaires (M)) -> Authorization Test (Test d’autorisation)). L’écran initial du STMS de transaction doit indiquer que ce système SAP fonctionne désormais comme contrôleur du domaine de transport comme indiqué ici :
+* Assurez-vous que l’utilisateur automatiquement créé TMSADM est autorisé (SM59 -> ABAP Connection -> Details -> Utilities(M) -> Authorization Test) (SM59 -> Connexion ABAP -> TMSADM@E61.DOMAIN_E61 -> Détails -> Utilitaires(M) -> Test d’autorisation. L’écran initial du STMS de transaction doit indiquer que ce système SAP fonctionne désormais comme contrôleur du domaine de transport comme indiqué ici :
 
 ![Écran initial du STMS de transaction sur le contrôleur de domaine][planning-guide-figure-2300]
 
@@ -1874,6 +1874,6 @@ Voici les points clés de la haute disponibilité des systèmes SAP dans Azure :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer une identité professionnelle ou scolaire dans AAD | Microsoft Docs"
+title: "Créer une identité professionnelle ou scolaire dans AAD pour Windows | Microsoft Docs"
 description: "Découvrez comment créer une identité professionnelle ou scolaire dans Azure Active Directory à utiliser avec vos machines virtuelles Windows."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 4df6ed7cd62a5f59057624039522f0f97b335108
+ms.sourcegitcommit: 1d35114800ba024d0c201840722df2c6a74d1d61
+ms.openlocfilehash: 824f8535a3043d5141dd1955e38ad7430b89ba89
 
 
 ---
@@ -33,6 +33,6 @@ Toutefois, de récentes modifications permettent de gérer votre abonnement avec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

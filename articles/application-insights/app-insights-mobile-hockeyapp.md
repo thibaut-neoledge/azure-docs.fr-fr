@@ -1,6 +1,6 @@
 ---
-title: "Analyse des performances des applications web mobiles avec Developer Analytics | Microsoft Docs"
-description: "Analyse de l’utilisation et des performances des applications pour les développeurs d’applications mobiles. Applications de bureau, de service web et principales avec HockeyApp et Application Insights."
+title: Surveillance des performances des applications mobiles - Azure Application Insights | Microsoft Docs
+description: "Analyse de l’utilisation et des performances des applications pour les développeurs d’applications mobiles. DevOps avec HockeyApp et Application Insights."
 author: alancameronwills
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: c4077aa88a401a1c75c0d3fbcd58186f7cb137c2
 
 
 ---
@@ -64,6 +64,6 @@ Vous pouvez examiner les données de télémétrie personnalisées et de journal
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

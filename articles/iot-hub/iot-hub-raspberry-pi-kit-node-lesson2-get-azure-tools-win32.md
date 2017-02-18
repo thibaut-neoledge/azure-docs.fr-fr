@@ -1,5 +1,5 @@
 ---
-title: "Obtenir les outils Azure (Windows 7 et versions ultérieures) | Microsoft Docs"
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 1 : Obtenir des outils (Windows) | Microsoft Docs"
 description: "Sur Windows 7 et versions ultérieures, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: 9fe70cbb905ff45498294abcb2893ffadc70b480
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 822ec5c36203a6de5efb25249c2c4a93794b759d
 
 
 ---
@@ -75,6 +75,6 @@ Vous avez installé l’interface de ligne de commande Azure. La tâche suivante
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

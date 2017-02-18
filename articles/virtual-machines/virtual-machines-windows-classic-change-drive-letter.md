@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 002e7fe3a0573898fff2552264a318d528eec25c
+ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
+ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
 
 
 ---
@@ -52,20 +52,9 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 1. Lorsque la machine virtuelle a redémarré, connectez-vous de nouveau.
 2. Cliquez sur le menu **Démarrer**, tapez **diskmgmt.msc** et appuyez sur Entrée. La Gestion des disques démarre.
 3. Avec le bouton droit, cliquez sur **D**, le disque de stockage temporaire, puis sélectionnez **Modifier la lettre du lecteur et les chemins d’accès**.
-4. Sous la lettre de lecteur, sélectionnez le lecteur **G**, puis cliquez sur **OK**. 
+4. Sous la lettre du lecteur, sélectionnez un nouveau lecteur (**T**, par exemple), puis cliquez sur **OK**. 
 5. Avec le bouton droit, cliquez sur le disque de données, puis sélectionnez **Modifier la lettre de lecteur et les chemins d'accès**.
 6. Sous la lettre de lecteur, sélectionnez le lecteur **D**, puis cliquez sur **OK**. 
-7. Avec le bouton droit, cliquez sur **G**, le disque de stockage temporaire, puis sélectionnez **Modifier la lettre du lecteur et les chemins d’accès**.
-8. Sous la lettre du lecteur, sélectionnez le lecteur **E**, puis cliquez sur **OK**. 
-
-> [!NOTE]
-> Si votre machine virtuelle a d'autres disques ou lecteurs, utilisez la même méthode pour réaffecter les lettres de lecteur des autres disques et lecteurs. La configuration du disque doit être comme suit :  
-> 
-> * C: Disque de système d’exploitation  
-> * D: Disque de données  
-> * E: Disque temporaire
-> 
-> 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Déplacement de pagefile.sys vers le disque de stockage temporaire
 1. Avec le bouton droit, cliquez sur le menu **Démarrer** et sélectionnez **Système**.
@@ -74,7 +63,7 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 4. Sélectionnez l'onglet **Avancé** .
 5. Dans la section **Mémoire virtuelle**, sélectionnez **Modifier**.
 6. Sélectionnez le disque du système d’exploitation **C**, puis cliquez sur **Aucun fichier d’échange** et sur **Définir**.
-7. Sélectionnez le disque de stockage temporaire **E**, puis cliquez sur **Taille gérée par le système** et sur **Définir**.
+7. Sélectionnez le disque de stockage temporaire **T**, puis cliquez sur **Taille gérée par le système** et sur **Définir**.
 8. Cliquez sur **Apply**. Vous serez averti que l'ordinateur doit être redémarré pour que les modifications prennent effet.
 9. Redémarrez la machine virtuelle.
 
@@ -84,6 +73,6 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

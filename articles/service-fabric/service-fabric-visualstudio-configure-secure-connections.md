@@ -1,5 +1,5 @@
 ---
-title: "Configurer des connexions sécurisées prises en charge par le cluster Service Fabric | Microsoft Docs"
+title: "Configurer des connexions sécurisées au cluster Azure Service Fabric | Microsoft Docs"
 description: "Découvrez comment utiliser Visual Studio pour configurer des connexions sécurisées prises en charge par le cluster Azure Service Fabric."
 services: service-fabric
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 
 
 ---
@@ -74,6 +74,6 @@ Pour plus d’informations sur l’accès aux clusters Service Fabric, consultez
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
