@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
+ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
 
 
 ---
@@ -46,7 +46,6 @@ Ensuite, pour gérer les éventuelles pannes, vous pouvez créer un CDN par-dess
 
 Les considérations suivantes s'appliquent :
 
-* La version actuelle de Media Services SDK ne prend pas en charge la création d'un localisateur avec un ID de localisateur spécifié. Pour effectuer cette tâche, nous utiliserons Media Services REST API.
 * La version actuelle de Media Services SDK ne prend pas en charge la génération automatique des informations IAssetFile permettant d’associer une ressource à des fichiers de ressources. Pour effectuer cette tâche, nous utiliserons l'API REST CreateFileInfos Media Services. 
 * Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (dans la mesure où la clé de chiffrement sera différente dans les deux comptes Media Services). 
 * Si vous souhaitez tirer parti de l’empaquetage dynamique, assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
@@ -950,6 +949,6 @@ Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les dem
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a4d871686a54465e12f93c1720a44985785b94ae
-ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
@@ -26,12 +26,9 @@ ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 Cette rubrique vous explique comment créer une fonction Azure qui écoute les messages dans une file d’attente de stockage Azure et copie les messages dans les lignes d’une table de stockage Azure. Une fonction de minuteur déclencheur est utilisée pour charger des messages dans la file d’attente. Une deuxième fonction lit la file d’attente et écrit les messages dans la table. La file d’attente et la table sont créées pour vous par les fonctions Azure basées sur les définitions de liaison. 
 
-Pour rendre les choses plus intéressantes, une fonction est écrite en JavaScript et l’autre est écrite en script C#. Cela montre qu’une Function App peut avoir des fonctions dans différentes langues.
+Pour rendre les choses plus intéressantes, une fonction est écrite en JavaScript et l’autre est écrite en script C#. Cela montre qu’une Function App peut avoir des fonctions dans différentes langues. 
 
-## <a name="watch-the-video"></a>Regarder la vidéo
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Vous pouvez voir la démonstration de ce scénario dans une [vidéo sur Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Créer une fonction qui écrit dans la file d’attente
 
@@ -197,6 +194,6 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Vidéos traitant de la sécurité sur Channel 9 | Microsoft Docs"
-description: "Cet article fournit une liste des présentations de sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent."
+description: "Cet article fournit une liste des présentations concernant la sécurité Azure sur Channel 9. Channel 9 est une communauté qui met en contact ceux qui se cachent derrière nos produits avec ceux qui les utilisent."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 
 
 ---
@@ -53,7 +53,7 @@ Sujets abordés dans cette vidéo :
 * Présentation des API de protection des données, des clés principales et des certificats
 * Création de la clé principale et des certificats à l’aide de commandes SQL, et chiffrement de la base de données
 
-[Comment définir la sécurité dans DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+[Comment définir la sécurité dans DevTest Labs](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
 En tant que propriétaire de votre laboratoire, vous pouvez en sécuriser l’accès grâce à deux rôles de laboratoire : propriétaire et utilisateur DevTest Labs. Une personne ayant un rôle de propriétaire a un accès complet au laboratoire, tandis qu’une personne ayant un rôle d’utilisateur DevTest Labs a un accès limité. Dans cette vidéo, nous vous montrons comment affecter à une personne l’un ou l’autre de ces rôles pour un laboratoire.
 
@@ -81,6 +81,6 @@ Amit Bapat présente Azure Key Vault à Scott. Avec Azure Key Vault, vous pouvez
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

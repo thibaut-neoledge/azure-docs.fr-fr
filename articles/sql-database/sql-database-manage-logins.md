@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: baf3adaa0bb1e93cccd592648018c84353496cb7
-ms.openlocfilehash: cf2cc63d9b0abbca79e4da340cd76ddb348b6679
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ Lorsque les règles de pare-feu ont été configurées, les personnes peuvent se
 
 >  [!NOTE]  
 >  Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
+>
+
+> [!TIP]
+> Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Didacticiel : authentification SQL Server](sql-database-control-access-sql-authentication-get-started.md). Pour obtenir un didacticiel sur l’utilisation de l’authentification Azure Active Directory, voir [Didacticiel : authentification AAD](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Comptes d’administration non restreints
 Il existe deux comptes d’administration (**Administrateur de serveur** et **Administrateur Active Directory**) qui agissent en tant qu’administrateurs. Pour identifier ces comptes d’administrateur de votre serveur SQL, ouvrez le portail Azure et accédez aux propriétés de votre serveur SQL.

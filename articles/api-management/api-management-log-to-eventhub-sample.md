@@ -1,5 +1,5 @@
 ---
-title: "Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope"
+title: Surveiller les API avec Gestion des API Azure, Event Hubs et Runscope | Microsoft Docs
 description: "Exemple d’application illustrant la stratégie log-to-eventhub par la connexion de Gestion des API Azure, d’Azure Event Hubs et de Runscope pour la journalisation HTTP et la surveillance"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope
@@ -275,8 +274,8 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Event Hubs
-  * [Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * En savoir plus sur l’intégration de Gestion des API et Event Hubs
   * [Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ Le service de gestion des API Azure fournit un emplacement idéal pour capturer 
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

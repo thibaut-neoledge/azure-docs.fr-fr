@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 062e56fd32147da81e92e6e561f3f2ef5d4f4794
-ms.openlocfilehash: 7e891f563584200d50c11a70b511bfef6ab3b8ea
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Capture d'une machine virtuelle Linux classique en tant qu'image
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Cet article vous montre comment capturer une machine virtuelle (MV) Azure classique exécutant Linux en tant qu'image pour créer d'autres machines virtuelles. Cette image comprend le disque du système d'exploitation ainsi que les disques de données attachés à la machine virtuelle. Elle ne comprend pas la configuration de mise en réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles à partir de l’image.
 
@@ -94,7 +93,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
    ![Capture d’image réussie](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-L’image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de l’interface CLI Azure et fournir le nom de l’image que vous avez créée. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec le modèle de déploiement Classic](../virtual-machines-command-line-tools.md). 
+L’image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de l’interface CLI Azure et fournir le nom de l’image que vous avez créée. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec le modèle de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
 
 Vous pouvez également utiliser le [Portail Azure Classic][Azure classic portal] pour créer une machine virtuelle personnalisée en utilisant l’option **À partir de la galerie** et en sélectionnant l’image que vous avez créée. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][How to Create a Custom Virtual Machine].
 
@@ -108,6 +107,6 @@ Vous pouvez également utiliser le [Portail Azure Classic][Azure classic portal
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Connexion de réseaux virtuels Azure à l’aide d’une passerelle VPN et de PowerShell | Microsoft Docs"
+title: "Connecter un réseau virtuel Azure à un autre réseau virtuel : PowerShell | Microsoft Docs"
 description: "Cet article vous guide dans l’interconnexion de réseaux virtuels avec Azure Resource Manager et PowerShell"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Configuration d’une connexion de réseau virtuel à réseau virtuel pour Resource Manager à l’aide de PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Configurer une connexion de réseau virtuel à réseau virtuel à l’aide de PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ Cet article vous guidera au long des étapes de création d’une connexion entr
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modèles et méthodes de déploiement pour les connexions de réseau virtuel à réseau virtuel
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de connexion de réseau virtuel à réseau virtuel. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau.
+Le tableau suivant présente les modèles et les méthodes de déploiement disponibles pour les configurations de connexion de réseau virtuel à réseau virtuel. Quand un article avec les étapes de configuration est disponible, le lien vers cet article est ajouté à ce tableau. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
   
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
-### <a name="vnet-to-vnet-faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+### <a name="vnet-to-vnet-considerations"></a>Interconnexion de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quelle procédure dois-je utiliser ?
@@ -434,6 +434,6 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

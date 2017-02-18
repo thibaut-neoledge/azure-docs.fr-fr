@@ -1,9 +1,9 @@
 ---
-title: "Rôles dans PIM | Microsoft Docs"
+title: "Rôles dans Azure AD Privileged Identity Management | Microsoft Docs"
 description: "Découvrez les rôles utilisés pour les identités dotées de privilèges avec l’extension Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
+ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
+ms.openlocfilehash: d21bf547c80c533481254a8a9640b5dcef6a66c2
 
 
 ---
-# <a name="roles-in-azure-ad-privileged-identity-management"></a>Rôles dans Azure AD Privileged Identity Management
+# <a name="roles-in-azure-ad-pim"></a>Rôles dans Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD. Ces affectations de rôles contrôlent quelles tâches, telles que l’ajout/la suppression d’utilisateurs ou la modification des paramètres de service, les utilisateurs sont autorisés à effectuer sur Azure AD, Office 365 et autres services Microsoft Online Services et applications connectées.  
@@ -63,7 +63,7 @@ Si vous souhaitez autoriser un autre utilisateur à effectuer la gestion dans PI
 ## <a name="roles-not-managed-in-pim"></a>Rôles non gérés dans PIM
 Les rôles dans Exchange Online ou SharePoint Online, à l’exception de ceux mentionnés ci-dessus, ne sont pas représentés dans Azure AD et par conséquent, ne sont pas visibles dans PIM. Pour plus d’informations sur la modification des affectations de rôles affinées dans ces services Office 365, consultez [Autorisations dans Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, consultez [Guide pratique pour ajouter ou modifier des rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md) et, pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC) Azure, consultez [Contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-configure.md).
+Les groupes de ressources et les abonnements Azure ne sont pas représentés non plus dans Azure AD. Pour gérer les abonnements Azure, consultez [Guide pratique pour ajouter ou modifier des rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md) et, pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC) Azure, consultez [Contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -71,7 +71,7 @@ Les groupes de ressources et les abonnements Azure ne sont pas représentés non
 ## <a name="user-roles-and-signing-in"></a>Rôles d’utilisateur et connexion
 Pour certains services et applications Microsoft, l’affectation d’un utilisateur à un rôle peut ne pas suffire pour permettre à cet utilisateur d’être un administrateur.
 
-L’accès au portail Azure Classic nécessite que l’utilisateur soit un administrateur de service ou un coadministrateur sur un abonnement Azure, même si l’utilisateur n’a pas besoin de gérer les abonnements Azure.  Par exemple, pour gérer les paramètres de configuration pour Azure AD dans le portail classique, un utilisateur doit être administrateur général dans Azure AD et coadministrateur des abonnements sur un abonnement Azure.  Pour savoir comment ajouter des utilisateurs aux abonnements Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md).
+L’accès au portail Azure Classic nécessite que l’utilisateur soit un administrateur de service ou un coadministrateur sur un abonnement Azure, même si l’utilisateur n’a pas besoin de gérer les abonnements Azure.  Par exemple, pour gérer les paramètres de configuration pour Azure AD dans le portail classique, un utilisateur doit être administrateur général dans Azure AD et coadministrateur des abonnements sur un abonnement Azure.  Pour savoir comment ajouter des utilisateurs aux abonnements Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 L’accès à Microsoft Online Services peut nécessiter l’affectation d’une licence à l’utilisateur pour qu’il puisse ouvrir le portail du service ou effectuer des tâches administratives.
 
@@ -92,6 +92,6 @@ L’accès à Microsoft Online Services peut nécessiter l’affectation d’une
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

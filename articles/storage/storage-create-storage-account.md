@@ -1,6 +1,6 @@
 ---
-title: "Création, gestion ou suppression d’un compte de stockage dans le portail Azure | Microsoft Docs"
-description: "Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le portail Azure. En savoir plus sur les comptes de stockage standard et Premium."
+title: "Création, gestion ou suppression d’un compte de stockage à l’aide du Portail Azure | Microsoft Docs"
+description: "Créez un compte de stockage, gérez vos clés d’accès au compte ou supprimez un compte de stockage dans le Portail Azure. En savoir plus sur les comptes de stockage standard et Premium."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
-ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
 
 
 ---
@@ -162,6 +162,6 @@ Pour plus d’informations, voir la [documentation sur les machines virtuelles A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

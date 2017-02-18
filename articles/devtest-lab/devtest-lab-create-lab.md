@@ -58,6 +58,6 @@ Une fois que vous avez créé votre laboratoire, voici quelques étapes à prend
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

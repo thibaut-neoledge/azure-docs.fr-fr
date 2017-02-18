@@ -3,7 +3,7 @@ title: "Comment activer ou désactiver un rôle | Microsoft Docs"
 description: "Découvrez comment activer des rôles pour des identités privilégiées avec l’application Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 67695e5715e83e2214b27a2abd76a3f68fb4a75a
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
 
 
 ---
@@ -53,7 +53,6 @@ Une fois qu’un rôle a été activé, il se désactive automatiquement lorsque
 
 Si vous avez terminé tôt, vous pouvez également désactiver un rôle manuellement dans l'application Azure AD Privileged Identity Management.  Sélectionnez **Activer mes rôles**, choisissez le rôle que vous venez de terminer, puis sélectionnez **Désactiver**.  
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez en savoir plus sur Azure AD Privileged Identity Management, les liens suivants contiennent d'autres informations.
 
@@ -66,6 +65,6 @@ Si vous souhaitez en savoir plus sur Azure AD Privileged Identity Management, le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

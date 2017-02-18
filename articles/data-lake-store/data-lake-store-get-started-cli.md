@@ -1,5 +1,5 @@
 ---
-title: Prise en main de Data Lake Store avec une interface de ligne de commande multiplateforme | Microsoft Docs
+title: "Utiliser l’interface de ligne de commande pour la prise en main d’Azure Data Lake Store | Microsoft Docs"
 description: "Utilisation de l&quot;interface de ligne de commande multi-plateforme Azure pour créer un compte Data Lake Store et effectuer des opérations de base"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -32,6 +32,11 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
+
+> [!NOTE]
+> Pour charger et télécharger de grandes quantités de données (des fichiers volumineux, un grand nombre de fichiers ou les deux), nous vous recommandons d’utiliser le [SDK Python](data-lake-store-get-started-python.md), le [SDK .NET](data-lake-store-get-started-net-sdk.md) ou [Azure PowerShell](data-lake-store-get-started-powershell.md). Ces options offrent de meilleures performances, car elles utilisent plusieurs threads pour paralléliser le déplacement des données.
+> 
+>  
 
 Apprenez à utiliser l'interface de ligne de commande Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme la création de dossiers, le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations sur Data Lake Store, consultez [Vue d’ensemble de Data Lake Store](data-lake-store-overview.md).
 
@@ -177,6 +182,6 @@ Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

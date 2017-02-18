@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel - Prise en main de la bibliothèque .NET Azure Batch | Microsoft Docs"
+title: "Didacticiel : utiliser la bibliothèque cliente Azure Batch pour .NET | Microsoft Docs"
 description: "Découvrez les concepts de base d’Azure Batch et la procédure de développement applicable au service Batch avec un scénario simple."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/13/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 75fecce3e8b755d250e7d01170368c63d74fd56a
-ms.openlocfilehash: c752187cb5cd83d06d93d51987d2d869c4567cd6
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
 
 
 ---
@@ -805,6 +805,6 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

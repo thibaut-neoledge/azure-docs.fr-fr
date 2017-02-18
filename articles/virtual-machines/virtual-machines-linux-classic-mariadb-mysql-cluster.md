@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 91090ad383d6a03e6d978376d8dd45dc05eac7e8
-ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
 
 
 ---
@@ -44,7 +44,7 @@ Cet article décrit comment effectuer les opérations suivantes :
 ![Architecture du système](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> Comme cette rubrique utilise les outils [Azure CLI](../xplat-cli-install.md), veillez à les télécharger et à les connecter à votre abonnement Azure en suivant les instructions. Si vous avez besoin d’une référence pour les commandes disponibles dans l’interface de ligne de commande Azure, consultez [Référence des commandes de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md). Vous devrez également [créer une clé SSH pour l’authentification] et noter l’emplacement du fichier .pem.
+> Comme cette rubrique utilise les outils [Azure CLI](../xplat-cli-install.md), veillez à les télécharger et à les connecter à votre abonnement Azure en suivant les instructions. Si vous avez besoin d’une référence pour les commandes disponibles dans l’interface de ligne de commande Azure, consultez [Référence des commandes de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Vous devrez également [créer une clé SSH pour l’authentification] et noter l’emplacement du fichier .pem.
 >
 >
 
@@ -367,6 +367,6 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

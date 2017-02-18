@@ -1,5 +1,5 @@
 ---
-title: "Protéger SQL Server avec la récupération d’urgence SQL Server et Azure Site Recovery | Documents Microsoft"
+title: "Répliquer des applications avec SQL Server et Azure Site Recovery | Microsoft Docs"
 description: "Cet article décrit comment répliquer SQL Server à l’aide d’Azure Site Recovery et des fonctionnalités de récupération de SQL Server."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
-ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 2d55db297bcef2c5789cb33a8791cf2c787a0789
 
 
 ---
@@ -93,7 +93,7 @@ Les instructions fournies dans ce document supposent qu'un contrôleur de domain
 Site Recovery prend en charge SQL AlwaysOn en mode natif. Si vous avez créé un groupe de disponibilité SQL avec une machine virtuelle Azure configurée comme « Secondaire », vous pouvez utiliser Site Recovery pour gérer le basculement des groupes de disponibilité.
 
 > [!NOTE]
-> Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V du centre de données principal sont gérés dans des clouds VMM et quand la configuration VMware est gérée par un [Serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure. Si vous utilisez le nouveau portail Azure, suivez les étapes de [cette section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal). 
+> Cette fonctionnalité est actuellement en version préliminaire et disponible quand les serveurs hôtes Hyper-V du centre de données principal sont gérés dans des clouds VMM et quand la configuration VMware est gérée par un [Serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure. Si vous utilisez le nouveau portail Azure, suivez les étapes de [cette section](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal).
 >
 >
 
@@ -205,15 +205,15 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
 
 
 1. **Test de basculement** : SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. Par conséquent, la méthode recommandée est la suivante :
-    1. Configurez la [Sauvegarde Azure](../backup/backup-azure-vms.md) sur la machine virtuelle qui héberge le réplica du groupe de disponibilité dans Azure. 
+    1. Configurez la [Sauvegarde Azure](../backup/backup-azure-vms.md) sur la machine virtuelle qui héberge le réplica du groupe de disponibilité dans Azure.
     1. Avant de déclencher le test de basculement du plan de récupération, récupérez la machine virtuelle à partir de la sauvegarde effectuée à l’étape&1;
     1. Effectuer le test de basculement du plan de récupération
 
 
 > [!NOTE]
 > Le script ci-dessous suppose que le groupe de disponibilité SQL est hébergé sur une machine virtuelle Azure classique et que le nom de la machine virtuelle restaurée à l’étape&2; est SQLAzureVM-Test. Modifiez le script en fonction du nom que vous utilisez pour la machine virtuelle récupérée.
-> 
-> 
+>
+>
 
 
      workflow SQLAvailabilityGroupFailover
@@ -241,7 +241,7 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
                     Write-output "tfo"
-                    
+
                     Write-Output "Creating ILB"
                     Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
                     Write-Output "ILB Created"
@@ -251,14 +251,14 @@ Pour les environnements qui ne sont pas gérés par un serveur VMM ou de configu
                     Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
 
                     Write-Output "Added Endpoint"
-        
-                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
-                       
+
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test"
+
                     Write-Output "UnInstalling custom script extension"
-                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM
                     Write-Output "Installing custom script extension"
                     Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
-                    
+
                     Write-output "Starting AG Failover"
                     Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
                     Write-output "Completed AG Failover"
@@ -342,6 +342,6 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -67,7 +67,7 @@ Créez un nouvel ID d’application explicite pour votre application auprès d�
    > Il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe **Apple Development iOS Push Notification Services:**.
    > 
    > 
-10. Dans Trousseau d’accès, cliquez avec le bouton droit sur le certificat Push que vous venez de créer dans la catégorie **Certificats** . Cliquez sur **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Enregistrer**.
+10. Dans Trousseau d’accès, maintenez enfoncée la touche Ctrl en cliquant sur le certificat Push que vous venez de créer dans la catégorie **Certificats** . Cliquez sur **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Enregistrer**.
     
     Notez le nom du fichier et l’emplacement du certificat .p12 exporté. Il sert à activer l’authentification avec APNS en le téléchargeant dans le portail Azure Classic.
 
@@ -91,6 +91,6 @@ Créez un nouvel ID d’application explicite pour votre application auprès d�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

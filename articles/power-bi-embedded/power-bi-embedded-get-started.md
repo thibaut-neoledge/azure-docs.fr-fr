@@ -1,6 +1,6 @@
 ---
 title: Prise en main de Microsoft Power BI Embedded
-description: "Power BI Embedded, ajout de rapports Power BI interactifs dans votre application décisionnelle"
+description: "Power BI incorporée, ajoutez des rapports interactifs Power BI dans votre application business intelligence"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ Nous allons voir comment créer une **collection d’espaces de travail** à l�
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Sous **Données + analyse**, cliquez sur **Power BI Embedded**.
-4. Dans le **panneau Création**, entrez les informations requises. Pour connaître la **tarification**, consultez la page [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. Dans le **panneau Collection d’espaces de travail**, entrez les informations requises. Pour connaître la **tarification**, consultez la page [Tarification de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Cliquez sur **Create**.
@@ -68,6 +68,10 @@ Copiez-les et stockez-les de manière sécurisée dans votre application. Il est
 Même si deux touches sont répertoriées, une seule est nécessaire à un moment donné. La seconde vous est fournie pour regénérer régulièrement les touches sans interrompre l'accès au service.
 
 Maintenant que vous disposez d’une instance de Power BI pour votre application, ainsi que des **touches d’accès rapide**, vous pouvez importer un rapport dans votre propre application. Avant que vous appreniez à importer un rapport, la section suivante décrit comment créer des rapports et jeux de données Power BI à intégrer dans une application.
+
+## <a name="working-with-workspaces"></a>Utilisation des espaces de travail
+
+Une fois votre collection d’espaces de travail créée, vous devrez créer un espace de travail qui hébergera vos rapports et vos jeux de données. Pour créer un espace de travail, vous devrez utiliser [l’API REST Post Workspace](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Création de rapports et de jeux de données à intégrer dans une application
 Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
@@ -109,6 +113,6 @@ Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

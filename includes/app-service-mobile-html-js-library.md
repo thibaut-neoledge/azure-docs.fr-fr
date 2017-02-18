@@ -107,7 +107,7 @@ La méthode `.includeTotalCount()` est utilisée pour ajouter un champ totalCoun
 
 Vous pouvez ensuite utiliser la variable pages et des boutons d’interface utilisateur pour fournir une liste de pages ; utilisez `loadPage()` pour charger les nouveaux enregistrements pour chaque page.  Implémentez la mise en cache pour accélérer l’accès aux enregistrements qui ont déjà été chargés.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Procédure : renvoi de données triées
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Procédure : renvoi de données triées
 Utilisez les méthodes de requête `.orderBy()` ou `.orderByDescending()` :
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de Redgate Data Platform Studio pour charger des données dans SQL Data Warehouse | Microsoft Docs"
+title: "Utiliser Redgate pour charger des données sur votre entrepôt de données Azure | Microsoft Docs"
 description: "Apprenez à utiliser Redgate Data Platform Studio pour les scénarios d’entreposage de données."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
 
 
 ---
@@ -154,6 +154,6 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

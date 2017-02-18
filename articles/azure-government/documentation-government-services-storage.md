@@ -15,8 +15,8 @@ ms.workload: azure-government
 ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
-ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
 
 
 ---
@@ -35,7 +35,7 @@ Pour plus d’informations sur ce service et son utilisation, consultez la [docu
 | [Stockage Blob à chaud/froid] (../storage/storage-blob-storage-tiers.md) |N/D |N/D |
 | [Stockage Chiffrement du service] (../storage/storage-service-encryption.md) |GA |GA |
 | [Stockage Premium] (../storage/storage-premium-storage.md) |GA |N/D | Comprend des machines virtuelles de la série DS. |
-| [Importation/Exportation d’objets Blob] (../storage/storage-import-export-service.md) |GA |GA | Seuls les comptes de stockage classiques sont actuellement pris en charge. |
+| [Importation/Exportation d’objets Blob] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Variantes
@@ -85,6 +85,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

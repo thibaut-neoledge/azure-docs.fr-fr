@@ -1,6 +1,6 @@
 ---
-title: "À propos des périphériques VPN pour les connexions des passerelles VPN site à site pour les réseaux virtuels Azure | Microsoft Docs"
-description: "Cet article présente les périphériques VPN et les paramètres IPsec pour les connexions de passerelle VPN site à site (S2S) et contient des liens vers des instructions et des exemples de configuration."
+title: "À propos des périphériques VPN pour les connexions Azure entre locaux | Microsoft Docs"
+description: "Cet article traite des périphériques VPN et des paramètres IPsec pour les connexions entre locaux de passerelle VPN S2S. Des liens sont fournis vers des instructions et des exemples de configuration."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN pour les connexions de la passerelle VPN de site à site
-La configuration d’une connexion VPN site à site (S2S) nécessite un périphérique VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés.
+Un périphérique VPN est requis pour configurer une connexion VPN site à site (S2S) entre locaux à l’aide d’une passerelle VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés.
 
 > [!NOTE]
 > Lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | **Propriété** | **PolicyBased** | **Basé sur un itinéraire et passerelle VPN standard ou hautes performances** |
 | --- | --- | --- |
 | Version IKE |IKEv1 |IKEv2 |
-| Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128) |
+| Algorithme de hachage |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Durée de vie d’association de sécurité de phase 2 (temps) |3&600; secondes |3&600; secondes |
 | Durée de vie d’association de sécurité de phase 2 (débit) |102 400 000 Ko |- |
 | Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |Voir *Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire* (ci-dessous) |
@@ -153,6 +153,6 @@ Le tableau suivant répertorie les offres d’authentification et de chiffrement
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

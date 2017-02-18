@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ Procédez comme suit pour créer un client Azure AD B2C. Actuellement, les fon
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>Étape 4 : Lier votre locataire Azure Active Directory B2C à votre abonnement Azure
+Si vous prévoyez d’utiliser votre locataire B2C pour des applications de production, vous devez lier votre locataire Azure Active Directory B2C à votre abonnement Azure pour payer les frais d’utilisation. Pour découvrir comment procéder, lisez cet [article](active-directory-b2c-how-to-enable-billing.md).
+
+   > [!IMPORTANT]
+   > Si vous ne liez votre locataire Azure Active Directory B2C à votre abonnement Azure, vous voyez un message d’avertissement (« Aucun abonnement lié à ce locataire B2C ou vérifiez votre abonnement. ») dans le panneau des fonctionnalités B2C sur le portail Azure. Il est important d’effectuer cette étape avant de passer vos applications en production.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Accès facile au panneau de fonctionnalités B2C sur le portail Azure
 Pour améliorer la détectabilité, nous avons ajouté un raccourci dans le panneau de fonctionnalités B2C sur le portail Azure.
 
@@ -82,6 +90,6 @@ Découvrez comment inscrire une application avec Azure AD B2C et créer une appl
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

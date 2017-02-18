@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c842993d662d565c254cd6e43f0b8b65e64f2d1a
-ms.openlocfilehash: ac94062fb7be643408a6ae6f9625f54823144124
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Vous pouvez également [charger une image de disque personnalisé à l’aide d’Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [charger une image de disque personnalisé à l’aide d’Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Découvrez comment préparer le système d’exploitation afin de pouvoir l’utiliser pour créer plusieurs machines virtuelles basées sur cette image. 
 
@@ -39,7 +38,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 > [!NOTE]
 > Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX au format VHD à l’aide de [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou de l’applet de commande PowerShell [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). De plus, Azure ne prend pas en charge le chargement de disques durs virtuels dynamiques. Vous devez convertir ces disques en disques durs virtuels statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/Microsoft/azure-vhd-utils-for-go) pour convertir les disques dynamiques au cours du processus de téléchargement vers Azure.
 
-* **Interface de ligne de commande Azure** : installez [l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) la plus récente pour charger le disque dur virtuel.
+* **Interface de ligne de commande Azure** : installez [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) la plus récente pour charger le disque dur virtuel.
 
 <a id="prepimage"> </a>
 
@@ -110,7 +109,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 Pour créer vos machines virtuelles, fournissez vos propres nom d’utilisateur et mot de passe, emplacement, nom DNS et nom d’image.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, voir [référence CLI Azure pour le modèle de déploiement Azure Classic](../virtual-machines-command-line-tools.md).
+Pour plus d’informations, voir [référence CLI Azure pour le modèle de déploiement Azure Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
@@ -118,6 +117,6 @@ Pour plus d’informations, voir [référence CLI Azure pour le modèle de dépl
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

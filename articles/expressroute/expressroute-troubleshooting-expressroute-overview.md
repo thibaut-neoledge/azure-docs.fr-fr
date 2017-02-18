@@ -1,6 +1,6 @@
 ---
-title: "Guide de dépannage Azure ExpressRoute : vérification de la connectivité | Microsoft Docs"
-description: "Cette page fournit des instructions sur le dépannage et la validation de la connectivité de bout en bout d’un circuit ExpressRoute"
+title: "Vérification de la connectivité : Guide de dépannage Azure ExpressRoute | Microsoft Docs"
+description: "Cette page fournit des instructions sur le dépannage et la validation de la connectivité de bout en bout d’un circuit ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: rambk
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 1/5/2017
 ms.author: rambala
 translationtype: Human Translation
-ms.sourcegitcommit: 3c25cd8dae3a1c830cefbced5d2cd9ec04f4dda8
-ms.openlocfilehash: 9d97dcc9b59a40a714b8f1d71137baf51136d134
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
 
 
 ---
@@ -417,6 +417,6 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

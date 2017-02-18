@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fe84f732c24efc8aa647e1f1f650960fcf6514a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
 
 
 ---
@@ -349,7 +349,7 @@ La création de prévisions de demande d’énergie en tant que problème de ré
 À partir de notre expérience de l’implémentation et du déploiement du pilote de prévisions de demande en énergie, nous avons découvert que les modèles de régression avancés disponibles dans Azure ML ont tendance à produire les meilleurs résultats, et nous les utilisons.
 
 ## <a name="model-evaluation"></a>Évaluation de modèle
-L’évaluation du modèle joue un rôle essentiel au sein du **Cycle de développement de modèle**. À ce stade, nous cherchons à valider le modèle et ses performances en utilisant les données réelles. Lors de l’étape de modélisation, nous utilisons une partie des données disponibles pour l’apprentissage du modèle. Pendant la phase d’évaluation, nous prenons le reste des données pour tester le modèle. Dans la pratique, cela signifie que nous alimentons en nouvelles données le modèle qui a été restructuré et qu’il contient les mêmes fonctionnalités que le jeu de données d’apprentissage. Toutefois, pendant le processus de validation, nous utilisons le modèle pour réduire la variable cible plutôt que de fournir la variable cible disponible. Nous faisons souvent référence à ce processus en tant qu’évaluation de modèle. Nous utilisons ensuite les valeurs cible réelles et les comparons aux valeurs prévues. L’objectif ici consiste à mesurer et à réduire l’erreur de prévision, en d’autres termes, la différence entre prévision et valeur réelle. La quantification de la mesure d’erreur est primordiale, car nous souhaitons adapter le modèle et vérifier que l’erreur diminue. L’ajustement du modèle peut être effectué par la modification des paramètres de modèle qui contrôlent le processus d’apprentissage ou en ajoutant ou en supprimant les fonctionnalités de données (appelées [balayage de paramètres](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Dans la pratique, cela signifie qu’il convient d’intervenir entre les phases d’ingénierie des fonctionnalités, de modélisation et d’évaluation de modèle plusieurs fois, jusqu’à être capable de réduire l’erreur jusqu’au niveau requis.
+L’évaluation du modèle joue un rôle essentiel au sein du **Cycle de développement de modèle**. À ce stade, nous cherchons à valider le modèle et ses performances en utilisant les données réelles. Lors de l’étape de modélisation, nous utilisons une partie des données disponibles pour l’apprentissage du modèle. Pendant la phase d’évaluation, nous prenons le reste des données pour tester le modèle. Dans la pratique, cela signifie que nous alimentons en nouvelles données le modèle qui a été restructuré et qu’il contient les mêmes fonctionnalités que le jeu de données d’apprentissage. Toutefois, pendant le processus de validation, nous utilisons le modèle pour réduire la variable cible plutôt que de fournir la variable cible disponible. Nous faisons souvent référence à ce processus en tant qu’évaluation de modèle. Nous utilisons ensuite les valeurs cible réelles et les comparons aux valeurs prévues. L’objectif ici consiste à mesurer et à réduire l’erreur de prévision, en d’autres termes, la différence entre prévision et valeur réelle. La quantification de la mesure d’erreur est primordiale, car nous souhaitons adapter le modèle et vérifier que l’erreur diminue. L’ajustement du modèle peut être effectué par la modification des paramètres de modèle qui contrôlent le processus d’apprentissage ou en ajoutant ou en supprimant les fonctionnalités de données (appelées [balayage de paramètres](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Dans la pratique, cela signifie qu’il convient d’intervenir entre les phases d’ingénierie des fonctionnalités, de modélisation et d’évaluation de modèle plusieurs fois, jusqu’à être capable de réduire l’erreur jusqu’au niveau requis.
 
 Il convient de souligner que l’erreur de prédiction ne sera jamais à zéro, car il n’existe aucun modèle qui prédit parfaitement chaque résultat. Cependant, il existe une certaine amplitude d’erreur acceptable par l’entreprise. Pendant le processus de validation, nous aimerions nous assurer que notre erreur de prédiction de modèle est au niveau de tolérance d’entreprise, voire inférieure. Il est donc important de définir le niveau d’erreur tolérable au début du cycle pendant la phase de **Formulation de problème** .
 
@@ -404,6 +404,6 @@ Pour plus d’informations sur chacun des composants et de l’architecture d’
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

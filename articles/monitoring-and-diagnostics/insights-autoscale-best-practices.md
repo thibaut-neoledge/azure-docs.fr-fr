@@ -1,8 +1,8 @@
 ---
-title: "Meilleures pratiques pour la mise à l’échelle automatique d’Azure Monitor. | Microsoft Docs"
-description: "Découvrez les principes pour utiliser efficacement la mise à l’échelle automatique dans Azure Monitor."
+title: "Bonnes pratiques pour la mise à l’échelle automatique | Microsoft Docs"
+description: "Découvrez comment procéder efficacement à une mise à l’échelle automatique dans Machines virtuelles, Virtual Machine Scale Sets et Services cloud."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
+ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 
 
 ---
-# <a name="best-practices-for-azure-monitor-autoscaling"></a>Meilleures pratiques pour la mise à l’échelle automatique d’Azure Monitor
-Les sections suivantes de ce document vous permettent de comprendre les meilleures pratiques pour la mise à l’échelle automatique dans Azure. Après avoir consulté ces informations, vous pourrez utiliser la mise à l’échelle automatique dans votre infrastructure Azure plus efficacement.
+# <a name="best-practices-autoscaling-virtual"></a>Bonnes pratiques relatives à la mise à l’échelle automatique des machines virtuelles
+Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. Il s’applique à Machines virtuelles, Virtual Machine Scale Sets et Services cloud.  Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
 * Une ressource ne peut avoir qu’ *un* paramètre de mise à l’échelle automatique
@@ -46,7 +46,7 @@ Si vous mettez à jour manuellement le nombre d’instances avec une valeur inf�
 Si vous n’utilisez qu’une partie de la combinaison, la mise à l’échelle automatique augmente ou diminue la taille des instances uniquement pour cette partie jusqu’à ce que la valeur maximum ou minimum soit atteinte.
 
 ### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Ne basculez pas entre le portail Azure et le portail Azure Classic lors de la gestion de la mise à l’échelle automatique.
-Pour Cloud Services et App Services (Web Apps), utilisez le portail Azure (portal.azure.com) pour créer et gérer les paramètres de mise à l’échelle automatique. Pour les jeux de mise à l’échelle de machine virtuelle, utilisez PoSH, l’interface de ligne de commande (CLI) ou l’API REST pour créer et gérer les paramètres de mise à l’échelle automatique. Ne basculez pas entre le portail Azure Classic (manage.windowsazure.com) et le portail Azure (portal.azure.com) lors de la gestion des configurations de mise à l’échelle automatique. Le portail Azure Classic et son serveur principal sous-jacent présentent des limitations. Accédez au portail Azure pour gérer la mise à l’échelle automatique à l’aide d’une interface utilisateur graphique. Les options disponibles sont : Autoscale PowerShell, l’interface de ligne de commande (CLI) ou l’API REST (via Azure Resource Explorer).
+Pour Services cloud et App Services (Web Apps), utilisez le portail Azure (portal.azure.com) pour créer et gérer les paramètres de mise à l’échelle automatique. Pour Virtual Machine Scale Sets, utilisez PowerShell, l’interface de ligne de commande (CLI) ou l’API REST pour créer et gérer les paramètres de mise à l’échelle automatique. Ne basculez pas entre le portail Azure Classic (manage.windowsazure.com) et le portail Azure (portal.azure.com) lors de la gestion des configurations de mise à l’échelle automatique. Le portail Azure Classic et son serveur principal sous-jacent présentent des limitations. Accédez au portail Azure pour gérer la mise à l’échelle automatique à l’aide d’une interface utilisateur graphique. Les options disponibles sont : Autoscale PowerShell, l’interface de ligne de commande (CLI) ou l’API REST (via Azure Resource Explorer).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Sélection de la statistique appropriée pour votre mesure de diagnostic
 Pour les mesures de diagnostics, vous pouvez choisir entre *Moyen*, *Minimum*, *Maximum* et *Total* comme mesure de mise à l’échelle. La statistique la plus courante est *Moyen*.
@@ -59,7 +59,7 @@ Nous vous *déconseillons* de choisir des paramètres de mise à l’échelle te
 * Augmenter les instances de 1 lorsque le nombre de threads <= 600
 * Diminuer les instances de 1 lorsque le nombre de threads >= 600
 
-Examinons un exemple de ce qui peut entraîner un comportement qui peut sembler déroutant. Considérez la séquence suivante.
+Examinons un exemple de ce qui peut entraîner un comportement qui peut sembler déroutant. Examinez la séquence suivante.
 
 1. Supposons qu’il existe 2 instances pour commencer et ensuite, le nombre moyen de threads par instance atteint 625.
 2. La mise à l’échelle automatique augmente la taille des instances en ajoutant une 3ème instance.
@@ -67,7 +67,7 @@ Examinons un exemple de ce qui peut entraîner un comportement qui peut sembler 
 4. Avant la descente en puissance, la mise à l’échelle automatique essaye d’estimer quel sera l’état final en cas de diminution de la taille des instances. Par exemple, 575 x 3 (nombre d’instances actuel) = 1 725 / 2 (nombre final d’instances lors de la descente en puissance) = 862,5 threads. Cela signifie que la mise à l’échelle automatique augmenterait immédiatement la taille des instances même après la diminution des instances, si le nombre moyen de threads reste le même ou même baisse d’une petite quantité. Toutefois, en cas de nouvelle montée en puissance, l’ensemble du processus se répète, menant à une boucle infinie.
 5. Pour éviter ce problème , la mise à l’échelle automatique ne descend pas du tout en puissance. Au lieu de cela, elle ignore et réévalue la condition lors de la prochaine exécution de la tâche du service. Cela peut perturber de nombreuses personnes, car la mise à l’échelle automatique semble ne pas fonctionner lorsque le nombre moyen de threads est de 575.
 
-Cette estimation pendant la diminution de la taille des instances vise à éviter une situation incertaine. Gardez ce comportement à l’esprit lorsque vous choisissez les mêmes seuils pour la diminution et l’augmentation de la taille des instances.
+Lors d’une mise à l’échelle, l’estimation permet d’éviter les situations de « bagottement », où la taille des instances est continuellement modifiée (diminuée puis augmentée, et inversement). Gardez ce comportement à l’esprit lorsque vous choisissez les mêmes seuils pour la diminution et l’augmentation de la taille des instances.
 
 Nous vous recommandons de choisir une marge suffisante entre les seuils de diminution et d’augmentation de la taille des instances. Par exemple, examinez la combinaison de règles suivante bien plus adaptée.
 
@@ -152,7 +152,6 @@ La mise à l’échelle automatique notifie par e-mail les administrateurs et le
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

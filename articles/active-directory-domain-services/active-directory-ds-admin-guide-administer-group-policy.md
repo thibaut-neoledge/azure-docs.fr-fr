@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2f3ea8b6be032b732b5ab1c587843f10387a4efb
-ms.openlocfilehash: 56397e33fb86cd839899a4009f2be95402a09b14
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
 
 
 ---
@@ -83,15 +83,40 @@ Vous pouvez utiliser la console de gestion de stratégie de groupe sur la machin
 2. Cliquez sur **Gestion des stratégies de groupe** pour lancer la console de gestion des stratégies de groupe.
 
     ![Console de stratégie de groupe](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Cliquez pour développer les nœuds **Forest: contoso100.com** et **Domains** afin d’afficher les stratégies de groupe de votre domaine géré. Il existe deux objets de stratégie de groupe (GPO) intégrés : un pour le conteneur « Ordinateurs AADDC » et un autre pour le conteneur « AADDC utilisateurs » dans votre domaine géré.
+
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Tâche 4 : personnaliser les objets de stratégie de groupe intégrés
+Il existe deux objets de stratégie de groupe (GPO) intégrés : un pour le conteneur « Ordinateurs AADDC » et un autre pour le conteneur « AADDC utilisateurs » dans votre domaine géré. Vous pouvez personnaliser ces objets de stratégie de groupe pour configurer la stratégie de groupe sur le domaine géré.
+
+1. Dans la console **Gestion des stratégies de groupe**, cliquez pour développer les nœuds **Forest: contoso100.com** et **Domains** afin d’afficher les stratégies de groupe de votre domaine géré.
 
     ![Objets de stratégie de groupe (GPO) intégrés](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier... ** pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
+2. Vous pouvez personnaliser ces GPO intégrés pour configurer des stratégies de groupe sur votre domaine géré. Cliquez avec le bouton droit sur le GPO de votre choix, puis cliquez sur **Modifier... ** pour personnaliser le GPO intégré. L’outil Éditeur de la configuration de la stratégie de groupe vous permet de personnaliser le GPO.
 
     ![Modifier un GPO intégré](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. Vous pouvez maintenant utiliser la console **Éditeur de gestion de stratégie de groupe** pour modifier les GPO intégrés. Par exemple, la capture d’écran suivante illustre la personnalisation du GPO « Ordinateurs AADDC » intégré.
+3. Vous pouvez maintenant utiliser la console **Éditeur de gestion de stratégie de groupe** pour modifier les GPO intégrés. Par exemple, la capture d’écran suivante illustre la personnalisation du GPO « Ordinateurs AADDC » intégré.
 
     ![Personnaliser un GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Tâche 5 : créer un objet de stratégie de groupe personnalisé
+Vous pouvez créer ou importer vos propres objets de stratégie de groupe. Vous pouvez également lier des objets de stratégie de groupe personnalisés à une unité d’organisation personnalisée que vous avez créée dans votre domaine géré. Pour plus d’informations sur la création d’unités d’organisation personnalisées, consultez [Créer une unité d’organisation personnalisée sur un domaine géré](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> Vous devez être membre du groupe « AAD DC Administrators » pour pouvoir administrer la stratégie de groupe dans le domaine géré.
+>
+>
+
+1. Dans la console **Gestion des stratégies de groupe**, cliquez pour sélectionner votre unité d’organisation personnalisée. Cliquez avec le bouton droit sur l’unité d’organisation, puis cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici**.
+
+    ![Créer un objet de stratégie de groupe personnalisé](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Spécifiez un nom pour le nouvel objet de stratégie de groupe et cliquez sur **OK**.
+
+    ![Spécifier un nom pour l’objet de stratégie de groupe](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. Un objet de stratégie de groupe est créé et lié à votre unité d’organisation personnalisée. Cliquez avec le bouton droit sur l’objet de stratégie de groupe et cliquez sur **Modifier** dans le menu.
+
+    ![Objet de stratégie de groupe nouvellement créé](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. Vous pouvez personnaliser l’objet de stratégie de groupe nouvellement créé à l’aide de l’**Éditeur de gestion des stratégies de groupe**.
+
+    ![Personnaliser le nouvel objet de stratégie de groupe](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 Pour plus d’informations sur l’utilisation de la [Console de gestion de stratégie de groupe](https://technet.microsoft.com/library/cc753298.aspx), consultez le site Technet.
@@ -104,6 +129,6 @@ Pour plus d’informations sur l’utilisation de la [Console de gestion de stra
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
 
 
 ---
@@ -96,31 +96,31 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 ![][10]
 
 ## <a name="endpoints"></a>Endpoints
-Cliquez **Points de terminaison** pour afficher une liste des points de terminaison pour le concentrateur IoT en cours de modification. Il existe deux principaux types de points de terminaison : les points de terminaison intégrées à IoT Hub, et ceux que vous avez ajoutés à IoT Hub après sa création.
-
-### <a name="built-in-endpoints"></a>Points de terminaison intégrés
-Il existe deux principales catégories de points de terminaison intégrés : les **commentaires de messages cloud-à-appareil** et les **événements**.
-
-* Paramètres **Commentaire de messages cloud-à-appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le hub IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’une heure. Pour ajuster ces valeurs, utilisez les curseurs ou tapez les valeurs.
-* **Événements** : ce paramètre contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d'autres paramètres secondaires qui sont personnalisables. Ces paramètres sont répertoriés dans la section suivante.
-
-**Partitions**: cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
-
-**Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et vous pouvez nécessiter l'accès dans certaines circonstances. Ce nom compatible Event Hub et le point de terminaison ne peuvent pas être personnalisés, mais sont disponibles à l’utilisation via le bouton **Copier** .
-
-**Durée de rétention**: la valeur par défaut est un jour, mais elle peut être personnalisée sur d’autres valeurs à l’aide de la liste déroulante. Cette valeur est exprimée en jours et non en heures, de même que le paramètre similaire pour cloud-à-appareil.
-
-**Groupes de consommateurs**: les groupes de consommateurs sont similaires aux systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos hubs IoT.
-
-> [!NOTE]
-> Le groupe de consommateurs par défaut ne peut être ni modifié ni supprimé.
-> 
-> 
+Pour afficher la liste des points de terminaison associés à l’IoT Hub que vous essayez de modifier, cliquez sur **Points de terminaison**. Il existe deux types de points de terminaison : les points de terminaison intégrées à IoT Hub, et ceux que vous avez ajoutés à IoT Hub après sa création.
 
 ![][11]
 
+### <a name="built-in-endpoints"></a>Points de terminaison intégrés
+Il existe deux catégories de points de terminaison intégrés : les **commentaires de messages cloud-à-appareil** et les **événements**.
+
+* Paramètres **Commentaire de messages cloud-à-appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** (en heures) pour les messages. Lorsque vous créez une instance IoT Hub, ces deux paramètres sont paramétrés par défaut sur une heure. Pour les ajuster, utilisez les curseurs ou saisissez les valeurs de votre choix.
+* Paramètres **Événements** : ils présentent plusieurs configurations secondaires, qui sont pour certaines en lecture seule. La liste ci-dessous décrit ces paramètres :
+
+    * **Partitions** : une valeur par défaut est définie lors de la création de l’instance IoT Hub. Vous pouvez ici modifier le nombre de partitions.
+
+    * **Nom compatible et point de terminaison Concentrateur d'événements** : lorsque le concentrateur IoT est créé, un Concentrateur d'événements est créé en interne, et vous pouvez nécessiter l'accès dans certaines circonstances. S’il est impossible de personnaliser le nom compatible et les valeurs de points de terminaison du concentrateur d’événements, vous pouvez copier ces valeurs en cliquant sur **Copier**.
+
+    * **Durée de rétention** : cette valeur est définie par défaut sur un jour, mais pouvez la modifier à l’aide de la liste déroulante. Cette valeur est exprimée en jours pour le paramètre d’appareil-à-cloud.
+
+    * **Groupes de consommateurs** : les groupes de consommateurs sont similaires aux autres systèmes de messagerie qui peuvent être utilisés pour extraire des données de façon spécifique afin de connecter des applications ou des services à IoT Hub. Chaque hub IoT est créé avec un groupe de consommateurs par défaut. Toutefois, vous pouvez ajouter ou supprimer des groupes de consommateurs de vos instances IoT Hub via ce paramètre.
+
+    > [!NOTE]
+    > Le groupe de consommateurs par défaut ne peut être ni modifié ni supprimé.
+    > 
+    > 
+
 ### <a name="custom-endpoints"></a>Points de terminaison personnalisés
-Vous pouvez ajouter des points de terminaison à votre IoT Hub via le portail. En haut du panneau Points de terminaison, cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter un point de terminaison**. Entrez les informations requises dans le panneau, puis cliquez sur **OK**. Votre point de terminaison personnalisé s’affiche dans le panneau Points de terminaison principal.
+Vous pouvez ajouter des points de terminaison personnalisés sur votre IoT Hub par le biais de ce portail. En haut du panneau **Points de terminaison**, cliquez sur **Ajouter** afin d’ouvrir le panneau **Ajouter un point de terminaison**. Saisissez les informations requises, puis cliquez sur **OK**. Votre point de terminaison personnalisé est désormais répertorié dans le panneau principal **Points de terminaison**.
 
 ![][13]
 
@@ -131,7 +131,7 @@ Cliquez sur **Itinéraires** pour gérer la façon dont IoT Hub distribue vos me
 
 ![][14]
 
-Pour ajouter des itinéraires supplémentaires à votre IoT Hub, en haut du panneau, cliquez sur **Ajouter**, puis entrez les informations requises et cliquez sur **OK**. Votre itinéraire s’affiche dans le panneau Points de terminaison principal. Pour modifier un itinéraire, il vous suffit de cliquer dessus dans la liste des itinéraires, puis de changer ce que vous voulez. Pour activer un itinéraire, cliquez dessus dans la liste des itinéraires, puis définissez le paramètre Activer/Désactiver sur la valeur **Off** (Désactivé). Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
+Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires***, saisissez les informations requises, puis cliquez sur **OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus sur la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver** sur **Désactiver**. Pour enregistrer vos modifications, en bas du panneau, cliquez sur **OK**.
 
 ![][15]
 
@@ -182,6 +182,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

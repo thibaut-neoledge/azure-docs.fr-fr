@@ -1,5 +1,5 @@
 ---
-title: "Prise en main d’Azure Data Lake Store à l’aide de Python | Microsoft Docs"
+title: "Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Python | Microsoft Docs"
 description: "Découvrez comment gérer le kit de développement logiciel (SDK) Python avec les comptes Data Lake Store et le système de fichiers."
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d8faeafc6d4c73c4c71d0bc1554b04302dffdc55
-ms.openlocfilehash: 72186e03a1dc47f67b8f4cdcac55208a61c8e147
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
 
 
 ---
@@ -245,6 +245,6 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

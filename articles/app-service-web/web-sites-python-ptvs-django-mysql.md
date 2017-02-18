@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez utiliser [Python Tools pour Visual Studio](https
 > [!NOTE]
 > Les informations contenues dans ce didacticiel sont également disponibles dans la vidéo suivante :
 > 
-> [PTVS 2.1: Django app with MySQL (PTVS 2.1 : application Django avec MySQL)][video]
+> [PTVS 2.1 : application Django avec MySQL][video]
 > 
 > 
 
@@ -47,7 +47,7 @@ Visitez le [Centre de développement Python] pour consulter d’autres articles 
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
 > 
 > 
 
@@ -135,7 +135,7 @@ Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de dép
    * **Plan App Service**
    * **Groupe de ressources**
    * **Région**
-   * Dans **Serveur de base de données**, conservez **Aucune base de données**.
+   * Dans **Serveur de base de données**, conservez **Aucune base de données**
 5. Acceptez toutes les valeurs par défaut et cliquez sur **Publier**.
 6. Votre navigateur web ouvre automatiquement l’application web publiée. L’application doit fonctionner comme prévu et utiliser la base de données **MySQL** hébergée sur Azure.
    
@@ -163,7 +163,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 <!--External Link references-->
 
 [portail Azure]: https://portal.azure.com
-[Python Tools pour Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -175,10 +175,10 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Projets de service cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentation Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[vidéo]: http://youtu.be/oKCApIrS0Lo
+[video]: http://youtu.be/oKCApIrS0Lo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

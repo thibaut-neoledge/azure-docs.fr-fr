@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: f9969f9805e6476ef83108687a12a69ffaaed1a1
-ms.openlocfilehash: ae7ff68eb39366a5d9abe2c863c16998eb151c71
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: bc90832422a8643afda292d6897a275280cfe690
 
 
 ---
@@ -238,7 +238,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 Vous pouvez trouver la référence des commandes de la CLI Azure 1.0 pour travailler avec des ressources de stockage ici :
 
 * [Commandes de la CLI Azure en mode Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../virtual-machines-command-line-tools.md#commands-to-manage-your-storage-objects)
+* [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../xplat-cli-install.md)
 
 Vous pouvez également essayer [Azure CLI 2.0 (version préliminaire)](storage-azure-cli.md), une interface de ligne de commande nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
 
@@ -246,6 +246,6 @@ Vous pouvez également essayer [Azure CLI 2.0 (version préliminaire)](storage
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

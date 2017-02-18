@@ -1,5 +1,5 @@
 ---
-title: "Processus TDSP (Team Data Science Process) en action : utilisation des clusters Hadoop HDInsight sur le groupe de données Criteo de 1 To | Microsoft Docs"
+title: "Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To | Microsoft Docs"
 description: "Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&quot;aide d&quot;un groupe de données volumineux (1 To), disponible publiquement"
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
-ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 5e4bf617d80d3b0f4b88a819257bf4226db0ab7a
 
 
 ---
-# <a name="the-team-data-science-process-in-action---using-azure-hdinsight-hadoop-clusters-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation de clusters Azure HDInsight Hadoop sur un jeu de données de 1 To
+# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
+
 Dans cette procédure pas à pas, nous vous indiquons comment utiliser le processus TDSP (Team Data Science Process) avec un scénario complet au moyen d’un [cluster Hadoop Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur un des groupes de données [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction d’échantillon. Nous utilisons Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Nous vous expliquons également comment publier un de ces modèles en tant que service Web.
 
 Il est également possible d'utiliser un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l’aide d’une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
@@ -75,7 +76,7 @@ Pour accéder au groupe de données [Criteo](http://labs.criteo.com/downloads/do
 
 Cliquez sur **Poursuivre le téléchargement** pour en savoir plus sur le jeu de données et sa disponibilité.
 
-Les données résident dans un emplacement [Stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) public : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l’emplacement Stockage Blob Azure. 
+Les données résident dans un emplacement [Stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md) public : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l'emplacement de stockage d'objets blob Azure. 
 
 1. Les données de ce stockage d’objets blob publics sont constituées de trois sous-dossiers de données décompressées :
    
@@ -407,7 +408,9 @@ N’oublions pas de mentionner un composant très important qui concerne la tabl
 ## <a name="a-namecounta-a-brief-discussion-on-the-count-table"></a><a name="count"></a> Une brève discussion sur la table de comptage
 Comme nous avons pu le remarquer, plusieurs variables catégorielles ont une dimensionnalité très élevée. Dans notre procédure pas à pas, nous vous présentons une technique puissante appelée [Apprentissage à l’aide de compteurs](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) pour encoder ces variables de manière fiable et efficace. Plus d'informations sur cette technique sont indiquées dans le lien fourni.
 
-**Remarque :** dans cette procédure pas à pas, nous nous penchons sur l'utilisation de tables de comptage nous permettant de produire des représentations compactes de fonctionnalités catégorielles de grande dimension. Ce n’est pas la seule manière d’encoder des fonctionnalités catégorielles ; pour plus d’informations sur les autres techniques, les utilisateurs intéressés peuvent consulter les rubriques [Encodage à chaud](http://en.wikipedia.org/wiki/One-hot) et [Hachage de caractéristiques](http://en.wikipedia.org/wiki/Feature_hashing).
+[!NOTE]
+>Dans cette procédure pas à pas, nous nous penchons sur l’utilisation de tables de comptage permettant de produire des représentations compactes de fonctionnalités catégorielles de grande dimension. Ce n’est pas la seule manière d’encoder des fonctionnalités catégorielles ; pour plus d’informations sur les autres techniques, les utilisateurs intéressés peuvent consulter les rubriques [Encodage à chaud](http://en.wikipedia.org/wiki/One-hot) et [Hachage de caractéristiques](http://en.wikipedia.org/wiki/Feature_hashing).
+>
 
 Pour créer des tables de comptage sur les données numériques, nous utilisons les données dans le dossier raw/count. Dans la rubrique de modélisation, nous expliquons aux utilisateurs comment créer de toutes pièces ces tables de comptage pour fonctionnalités catégorielles, ou également comment utiliser une table de comptage prédéfinie pour leurs explorations. Lorsque nous utilisons le terme de « tables de comptage prédéfinies », nous entendons par là l’utilisation des tables de comptage que nous fournissons. Vous trouverez des instructions détaillées sur l’accès à ces tables dans la section suivante.
 
@@ -415,11 +418,10 @@ Pour créer des tables de comptage sur les données numériques, nous utilisons 
 Notre processus de création de modèles dans Azure Machine Learning se déroule comme suit :
 
 1. [Récupération des données des tables Hive dans Azure Machine Learning](#step1)
-2. [Création de l'expérience : nettoyage des données, sélection d’un apprenant et caractérisation des tables de comptage](#step2)
-3. [Formation du modèle](#step3)
-4. [Notation du modèle sur les données de test](#step4)
-5. [Évaluation du modèle](#step5)
-6. [Publication du modèle en tant que service Web à utiliser](#step6)
+2. [Création de l’expérience : nettoyage des données et caractérisation des tables de comptage](#step2)
+3. [Création, formation et notation du modèle](#step3)
+4. [Évaluation du modèle](#step4)
+5. [Publication du modèle comme service web](#step5)
 
 Nous sommes désormais prêts à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Nous utilisons le module **Importer des données** d’Azure Machine Learning pour lire ces données. Les informations d’identification permettant d’accéder au compte de stockage de ce cluster sont indiquées ci-après.
 
@@ -472,7 +474,7 @@ Le module **Nettoyer des données manquantes**, comme son nom l’indique, netto
 Nous avons décidé ici de remplacer toutes les valeurs manquantes par 0. D'autres options, mentionnées dans les listes déroulantes du module, sont également proposées.
 
 #### <a name="feature-engineering-on-the-data"></a>Conception de fonctionnalités sur les données
-Certaines fonctionnalités catégorielles de jeux de données volumineux peuvent rassembler des millions de valeurs uniques. L'utilisation des techniques naïves, telles que l'encodage à chaud pour représenter des fonctionnalités catégorielles de grande dimension, est tout bonnement impossible. Dans cette procédure pas à pas, nous démontrons comment utiliser les fonctionnalités de comptage à l'aide de modules Azure Machine Learning intégrés pour générer des représentations compactes de ces variables catégorielles de grande dimension. Le résultat final est un modèle de plus petite taille, un apprentissage plus rapide et des mesures de performances tout à fait comparables à l'utilisation d'autres techniques.
+Certaines fonctionnalités catégorielles de jeux de données volumineux peuvent rassembler des millions de valeurs uniques. L’utilisation des techniques naïves, telles que l’encodage à chaud pour représenter des fonctionnalités catégorielles de grande dimension, est tout bonnement impossible. Dans cette procédure pas à pas, nous démontrons comment utiliser les fonctionnalités de comptage à l'aide de modules Azure Machine Learning intégrés pour générer des représentations compactes de ces variables catégorielles de grande dimension. Le résultat final est un modèle de plus petite taille, un apprentissage plus rapide et des mesures de performances tout à fait comparables à l'utilisation d'autres techniques.
 
 ##### <a name="building-counting-transforms"></a>Création de transformations de comptage
 Pour créer des fonctionnalités de comptage, nous utilisons le module **Créer une transformation de comptage** qui est disponible dans Azure Machine Learning. Le module se présente ainsi :
@@ -480,7 +482,9 @@ Pour créer des fonctionnalités de comptage, nous utilisons le module **Créer 
 ![Créer un module de transformation de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
 ![Créer un module de transformation de comptage](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Remarque importante** : dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
+> [!IMPORTANT] 
+> Dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
+> 
 
 Pour utiliser le module en mode MapReduce (adapté aux grands ensembles de données), nous devons accéder à un cluster HDInsight Hadoop (celui utilisé pour l’exploration de la fonctionnalité peut être réutilisé à cet effet) et ses informations d’identification. Les figures précédentes illustrent les valeurs renseignées (remplacez les valeurs fournies à titre d’illustration avec celles adaptées à votre propre cas d’utilisation).
 
@@ -532,8 +536,9 @@ Dans cet exemple, nous montrons que pour les colonnes sur lesquelles nous avons 
 
 Nous sommes maintenant prêts à construire un modèle Azure Machine Learning à l'aide de ces jeux de données transformés. Dans la section suivante, nous expliquons comment procéder.
 
-#### <a name="azure-machine-learning-model-building"></a>Création de modèle Azure Machine Learning
-##### <a name="choice-of-learner"></a>Choix de l'apprenant
+### <a name="a-namestep3a-step-3-build-train-and-score-the-model"></a><a name="step3"></a> Étape 3 : Créer, former et noter le modèle
+
+#### <a name="choice-of-learner"></a>Choix de l'apprenant
 Nous devons tout d'abord choisir un apprenant. Nous utiliserons un arbre de décision optimisé à deux classes comme apprenant. Voici les options par défaut pour cet apprenant :
 
 ![Paramètres de l’arbre de décision optimisé à deux classes](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
@@ -550,7 +555,7 @@ Une fois que nous avons formé un modèle, nous sommes prêts à noter le jeu de
 
 ![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a> Étape 5 : Évaluer le modèle
+### <a name="a-namestep4a-step-4-evaluate-the-model"></a><a name="step4"></a> Étape 4 : Évaluer le modèle
 Pour finir, nous souhaiterions analyser les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, nous raccordons le module **Noter le modèle** à un module **Évaluer le modèle**. Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique semblable à celui-ci :
 
 ![Évaluation du modèle du module BDT](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -559,7 +564,7 @@ Pour des problèmes de classification binaire (à deux classes), l'aire sous la 
 
 ![Visualisation du module Évaluer le modèle](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="a-namestep6a-step-6-publish-the-model-as-a-web-service"></a><a name="step6"></a> Étape 6 : Publier le modèle en tant que service Web
+### <a name="a-namestep5a-step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Étape 5 : Publier le modèle comme service web
 La possibilité de publier un modèle Azure Machine Learning en tant que services Web avec un minimum de complications est une fonctionnalité utile qui se doit d'être largement accessible. Une fois cela fait, tout utilisateur peut effectuer des appels vers le service Web avec des données d'entrée pour lesquelles il a besoin de prédictions et le service Web utilise le modèle pour renvoyer ces prédictions.
 
 Pour ce faire, nous enregistrons tout d'abord notre modèle formé en tant qu’ objet de modèle formé. Cette opération s’effectue en cliquant avec le bouton droit sur le module **Former le modèle** et en utilisant l’option **Enregistrer en tant que modèle formé**.
@@ -628,6 +633,6 @@ Ceci conclut notre procédure pas à pas expliquant comment gérer un jeu de don
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 73b5f05bf8b127a2fa5cc2aa26a7bd655569368c
-ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
+ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
+ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
 
 
 ---
@@ -132,23 +132,23 @@ Dans cette étape, vous créez un compte d’utilisateur pour accéder à votre 
 
 Comme vous êtes actuellement connecté en tant qu’administrateur du serveur, vous êtes autorisé à créer des connexions et des utilisateurs.
 
-2. À l’aide de SSMS ou d’un autre client de requête, ouvrez une nouvelle requête pour **master**.
+1. À l’aide de SSMS ou d’un autre client de requête, ouvrez une nouvelle requête pour **master**.
 
     ![Nouvelle requête sur Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![Nouvelle requête sur Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Dans la fenêtre de requête, exécutez cette commande T-SQL pour créer des connexions nommées XLRCLOGIN et un utilisateur nommé Loading User. Cette connexion peut atteindre un serveur SQL Server logique.
+2. Dans la fenêtre de requête, exécutez cette commande T-SQL pour créer une connexion nommée MedRCLogin et un utilisateur nommé LoadingUser. Cette connexion peut atteindre un serveur SQL Server logique.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. En interrogeant la *base de données SQL Data Warehouse*, créez un utilisateur de base de données en fonction de la connexion que vous avez créée pour accéder à la base de données et y effectuer des opérations.
 
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 4. Octroyez à l’utilisateur de base de données des autorisations de contrôle sur la base de données appelée NYT. 
@@ -160,13 +160,16 @@ Comme vous êtes actuellement connecté en tant qu’administrateur du serveur, 
     > Si le nom de votre base de données comporte des traits d’union, veillez à le placer entre crochets. 
     >
 
-### <a name="give-the-user-extra-large-resource-allocations"></a>Accorder à l’utilisateur des allocations de ressources de très grande taille
+### <a name="give-the-user-medium-resource-allocations"></a>Accorder à l’utilisateur des allocations de ressources de taille moyenne
 
-1. Exécutez cette commande T-SQL pour qu’il devienne membre de la classe de ressources de très grande taille, appelée xlargerc. 
+1. Exécutez cette commande T-SQL pour qu’il devienne membre de la classe de ressources de taille moyenne, appelée mediumrc. 
 
     ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
+    > [!NOTE]
+    > Cliquez [ici](sql-data-warehouse-develop-concurrency.md#resource-classes) pour en savoir plus sur les classes d’accès concurrentiel et de ressources. 
+    >
 
 2. Connectez-vous au serveur logique en utilisant les nouvelles informations d’identification.
 
@@ -223,7 +226,8 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = ''DATE_FORMAT = '',
+            STRING_DELIMITER = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -352,7 +356,7 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
         LOCATION = 'Time',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value
+        REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
@@ -403,7 +407,7 @@ Vous êtes maintenant prêt à charger des données dans votre entrepôt de donn
     )
     WITH
     (
-        LOCATION = 'Weather2013'
+        LOCATION = 'Weather2013',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
@@ -670,6 +674,6 @@ savings by pausing and scaling to meet your business needs.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Présentation du stockage | Microsoft Docs"
+title: "Présentation du stockage Azure | Microsoft Docs"
 description: "Vue d’ensemble d’Azure Storage, stockage de données en ligne de Microsoft dans le cloud. Découvrez comment utiliser la meilleure solution de stockage cloud disponible dans vos applications."
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
+
 ## <a name="overview"></a>Vue d'ensemble
 Azure Storage est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et l’extensibilité pour répondre aux besoins des clients. En lisant cet article, les développeurs, les professionnels de l’informatique et les décideurs économiques peuvent découvrir :
 
@@ -65,7 +66,7 @@ Un compte de stockage Azure est un compte sécurisé qui vous donne accès à de
 
 [!INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
-## <a name="blob-storage"></a>Stockage d’objets blob
+## <a name="blob-storage"></a>Stockage d'objets blob
 Pour les utilisateurs qui doivent stocker de grandes quantités de données d’objets non structurées dans le cloud, le stockage d’objets blob offre une solution peu coûteuse et évolutive. Vous pouvez utiliser le stockage d'objets blob pour stocker les contenus suivants :
 
 * Documents
@@ -101,7 +102,7 @@ Lors de la conception d'applications pour la mise à l'échelle, des composants 
 
 Un compte de stockage peut contenir un nombre quelconque de files d'attente. Une file d'attente peut contenir un nombre quelconque de messages, jusqu'à la limite de capacité du compte de stockage. La taille maximale des messages individuels est de 64 Ko.
 
-## <a name="file-storage"></a>Stockage de fichiers
+## <a name="file-storage"></a>Stockage Fichier
 Le stockage de fichiers Azure offre des partages de fichiers SMB dans le cloud permettant de migrer des applications héritées utilisant ces partages vers Azure rapidement, sans réécritures onéreuses. Avec le stockage de fichiers Azure, les applications exécutées sur des machines virtuelles Azure ou dans des services cloud peuvent monter un partage de fichiers dans le cloud, tout comme une application de bureau monte un partage SMB standard. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
 
 Un partage Stockage Fichier étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage par le biais d’API d’E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
@@ -110,7 +111,7 @@ Comme les autres services de stockage Azure, le stockage de fichiers expose une 
 
 Les applications distribuées peuvent également utiliser le stockage de fichiers pour stocker et partager des données d'application, et des outils de développement et de test. Par exemple, une application peut stocker des fichiers de configuration et des données de diagnostic (telles que des journaux, mesures et vidages sur incident) dans un partage de stockage de fichiers afin de les rendre disponibles pour plusieurs machines virtuelles ou rôles. Les développeurs et les administrateurs peuvent stocker des utilitaires dont ils ont besoin por générer ou générer une application dans un partage de stockage de fichiers disponible pour tous les composants, plutôt que de les installer sur chaque machine virtuelle ou instance de rôle.
 
-## <a name="access-to-blob-table-queue-and-file-resources"></a>Accès aux ressources d'objets blob, de files d'attente, de tables et de fichiers
+## <a name="access-to-blob-table-queue-and-file-resources"></a>Accès aux ressources d'objets blob, de tables, de files d'attente et de fichiers
 Par défaut, seul le propriétaire du compte de stockage peut accéder aux ressources dans le compte de stockage. Pour la sécurité de vos données, chaque demande concernant les ressources de votre compte doit être authentifiée. L'authentification s'appuie sur un modèle de clé partagée. Les objets blob peuvent également être configurés pour prendre en charge l'authentification anonyme.
 
 Deux clés d'accès privées sont attribuées à votre compte de stockage lors de sa création. Elles sont utilisées pour l'authentification. L'existence de deux clés permet de s'assurer que votre application reste disponible lorsque la pratique courante de gestion des clés de sécurité vous amène à régénérer régulièrement les clés.
@@ -207,7 +208,9 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 
 ### <a name="documentation"></a>Documentation
-* [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Créer un compte de stockage](storage-create-storage-account.md)
+* [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>Pour les administrateurs
 * [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
@@ -246,12 +249,8 @@ Pour en savoir plus sur Azure Storage, explorez les ressources suivantes :
 * [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 * [Utilisation du stockage de fichiers à partir de Python](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Étapes suivantes
-
-* [Créer un compte de stockage](storage-create-storage-account.md)
-* [Familiarisez-vous avec Azure Storage en cinq minutes](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

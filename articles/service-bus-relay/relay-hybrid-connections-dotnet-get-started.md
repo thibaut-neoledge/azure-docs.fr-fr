@@ -1,5 +1,5 @@
 ---
-title: Prise en main des connexions hybrides Relay | Microsoft Docs
+title: Prise en main des connexions hybrides Azure Relay dans .NET | Microsoft Docs
 description: "Comment écrire une application de console C# pour les connexions hybrides"
 services: service-bus-relay
 documentationcenter: .net
@@ -12,24 +12,26 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 3ab92ba4e5c19d4b713ceb2da30835542f343d68
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Prise en main des connexions hybrides Relay
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Ce didacticiel présente les [connexions hybrides Azure Relay](relay-what-is-it.md#hybrid-connections) et explique comment créer une application client qui envoie des messages à une application d’écouteur correspondante. 
+
 ## <a name="what-will-be-accomplished"></a>Les opérations que nous allons effectuer
-Étant donné que les connexions hybrides nécessitent un client et un serveur, nous allons créer deux applications de console dans ce didacticiel. Voici la procédure à suivre :
+Étant donné que les connexions hybrides nécessitent un client et un serveur, le didacticiel crée deux applications de console. Les étapes sont les suivantes :
 
 1. Créer un espace de noms Relay à l’aide du portail Azure.
 2. Créer une connexion hybride, à l’aide du portail Azure.
-3. Écrire une application de console de serveur pour recevoir des messages.
-4. Écrire une application de console de client pour envoyer des messages.
+3. Écrire une application de console (écouteur) de serveur pour recevoir des messages.
+4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 
 ## <a name="prerequisites"></a>Composants requis
 1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2015.
@@ -38,12 +40,12 @@ ms.openlocfilehash: 3ab92ba4e5c19d4b713ceb2da30835542f343d68
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
-Si vous disposez déjà d’un espace de noms Relay créé précédemment, passez directement à la section [Créer une connexion hybride à l’aide du portail Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
+Si vous avez déjà créé un espace de noms Relay, passez directement à la section [Créer une connexion hybride à l’aide du portail Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Créer une connexion hybride à l’aide du portail Azure
-Si vous disposez déjà d’une connexion hybride, passez directement à la section [Créer une application de serveur](#3-create-a-server-application-listener).
+Si vous avez déjà créé une connexion hybride, passez directement à la section [Créer une application de serveur](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
@@ -74,6 +76,6 @@ Félicitations, vous avez créé une application de connexions hybrides de bout 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Configuration du Kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml | Microsoft Docs"
-description: "Activer ou désactiver les modules de collecte de données et ajouter des compteurs de performances et d’autres paramètres"
+title: "Référence sur ApplicationInsights.config - Azure | Microsoft Docs"
+description: "Activez ou désactivez les modules de collecte de données et ajoutez des compteurs de performances et d’autres paramètres."
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier de configuration permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
 
-Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du Kit de développement logiciel (SDK)][start]. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield] ou lorsque vous sélectionnez l’extension [Application Insights pour un site web ou une machine virtuelle Azure](app-insights-azure-web-apps.md).
+Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du Kit de développement logiciel (SDK)][start]. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield] ou lorsque vous sélectionnez l’[extension Appplication Insights pour un site web ou une machine virtuelle Azure](app-insights-azure-web-apps.md).
 
-Il n’existe pas de fichier équivalent permettant le contrôle du [Kit de développement logiciel (SDK) dans une page web][client].
+Il n’existe aucun fichier équivalent permettant de contrôler le [kit de développement logiciel (SDK) dans une page web][client].
 
 Ce document décrit les sections du fichier de configuration, la façon dont ils contrôlent les composants du Kit de développement logiciel (SDK) et les packages NuGet qui chargent ces composants.
 
@@ -37,7 +37,7 @@ Il existe un nœud dans le fichier de configuration pour chaque module. Pour dé
 ### <a name="dependency-tracking"></a>Suivi des dépendances
 [Dependency tracking](app-insights-asp-net-dependencies.md) collecte la télémétrie des appels de votre application aux bases de données et aux services et bases de données externes. Pour permettre à ce module de fonctionner dans un serveur IIS, vous devez [installer Status Monitor][redfield]. Pour l’utiliser dans des applications web ou des machines virtuelles Azure, [sélectionnez l’extension Application Insights](app-insights-azure-web-apps.md).
 
-Vous pouvez également écrire votre propre code de suivi des dépendances à l'aide de l’ [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Vous pouvez également écrire votre propre code de suivi des dépendances à l'aide de l’ [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
@@ -49,7 +49,7 @@ Vous pouvez également écrire votre propre code de suivi des dépendances à l'
 * [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) .
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Télémétrie des diagnostics Application Insights
-Le `DiagnosticsTelemetryModule` répertorie les erreurs dans le code d'instrumentation Application Insights lui-même. Par exemple, si le code ne peut pas accéder aux compteurs de performances ou si un `ITelemetryInitializer` renvoie une exception. La télémétrie des traces suivie par ce module s’affiche dans la [Recherche de diagnostic][diagnostic]. Envoie des données de diagnostic à dc.services.vsallin.net.
+Le `DiagnosticsTelemetryModule` répertorie les erreurs dans le code d'instrumentation Application Insights lui-même. Par exemple, si le code ne peut pas accéder aux compteurs de performances ou si un `ITelemetryInitializer` renvoie une exception. La télémétrie de trace suivie par ce module s’affiche dans [Diagnostic Search (Recherche de diagnostic)][diagnostic]. Envoie des données de diagnostic à dc.services.vsallin.net.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) . Si vous installez simplement ce package, le fichier ApplicationInsights.config n'est pas créé automatiquement.
@@ -67,7 +67,7 @@ Indique le [temps de réponse et le code résultant](app-insights-asp-net.md) de
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
 
 ### <a name="exception-tracking"></a>Suivi des exceptions
-`ExceptionTrackingTelemetryModule` comptabilise le nombre d’exceptions non traitées dans votre application web. Voir [Échecs et exceptions][exceptions].
+`ExceptionTrackingTelemetryModule` comptabilise le nombre d’exceptions non traitées dans votre application web. Consultez [Échecs et exceptions][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) 
@@ -246,7 +246,7 @@ Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à
 
 ```
 
-Pour obtenir une nouvelle clé, [créez une ressource dans le portail Application Insights][nouveau].
+Pour obtenir une nouvelle clé, [créez une ressource dans le portail Application Insights][new].
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur l’API][api].
@@ -257,13 +257,13 @@ Pour obtenir une nouvelle clé, [créez une ressource dans le portail Applicatio
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[NetLogs]: app-insights-asp-net-trace-logs.md
-[nouveau]: app-insights-create-new-resource.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

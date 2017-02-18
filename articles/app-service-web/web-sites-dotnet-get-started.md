@@ -1,5 +1,5 @@
 ---
-title: "Déploiement d’une application ASP.NET dans Azure App Service à l’aide de Visual Studio | Microsoft Docs"
+title: "Déployer une application ASP.NET dans Azure à l’aide de Visual Studio | Microsoft Docs"
 description: "Apprenez à déployer un projet web ASP.NET dans une nouvelle application web dans Azure App Service à l’aide de Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -39,7 +39,7 @@ Le schéma montre ce que vous allez faire dans ce didacticiel.
 
 À la fin du didacticiel, une section [Résolution de problèmes](#troubleshooting) fournit des suggestions sur la marche à suivre en cas de dysfonctionnement, et une section [Étapes suivantes](#next-steps) vous oriente vers d’autres didacticiels plus détaillés sur l’utilisation d’Azure App Service.
 
-Comme il s’agit d’un didacticiel de pris en main, le projet web dont il décrit le déploiement est simple et n’utilise aucune base de données, authentification ou autorisation. Pour obtenir des liens vers des rubriques de déploiement plus avancées, consultez [Déploiement de votre application dans Azure App Service](web-sites-deploy.md).
+Comme il s’agit d’un didacticiel de prise en main, le projet web dont il décrit le déploiement est simple et n’utilise aucune base de données, authentification ou autorisation. Pour obtenir des liens vers des rubriques de déploiement plus avancées, consultez [Déploiement de votre application dans Azure App Service](web-sites-deploy.md).
 
 En plus du temps nécessaire pour installer le Kit de développement logiciel Azure SDK pour .NET, ce didacticiel dure de 10 à 15 minutes.
 
@@ -47,7 +47,7 @@ En plus du temps nécessaire pour installer le Kit de développement logiciel Az
 * Ce didacticiel suppose que vous connaissiez ASP.NET MVC et Visual Studio. Si vous avez besoin d’une introduction, consultez [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer une première application temporaire dans App Service. Aucune carte de crédit ni engagement n’est nécessaire.
+    Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://azure.microsoft.com/try/app-service/). Là, vous pouvez créer une première application temporaire dans App Service. Aucune carte de crédit ni engagement n’est nécessaire.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configuration de l’environnement de développement
 Ce didacticiel a été rédigé pour Visual Studio 2015 avec le [Kit de développement logiciel (SDK) Azure pour .NET](../dotnet-sdk.md) version 2.9 ou ultérieure. 
@@ -129,7 +129,7 @@ Maintenant, vous allez indiquer à Visual Studio les ressources Azure que vous s
 9. Dans la boîte de dialogue **Créer App Service**, cliquez sur **Créer**.
 
 ## <a name="inspect-the-azure-resources-in-visual-studio"></a>Inspection des ressources Azure dans Visual Studio
-Visual Studio crée rapidement, généralement en moins de 1 minute, le projet web et l’application web.  
+Visual Studio crée rapidement, généralement en moins de&1; minute, le projet web et l’application web.  
 
 La fenêtre **Explorateur de solutions** indique les fichiers et les dossiers du nouveau projet.
 
@@ -182,7 +182,7 @@ Dans cette section, vous déployez le projet web dans la ressource d’applicati
    
    > [!TIP]
    > Vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour effectuer la publication ou cliquer sur un bouton pour ouvrir l’Assistant **Publier le site web** .
-   > ![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+   > ![Barre d’outils Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
    > 
    > 
 
@@ -204,7 +204,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
     Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. Choisissez **Microsoft Azure App Service** comme cible de publication, puis cliquez sur **Nouveau**. Ensuite, les boîtes de dialogue sont identiques à celles que vous avez vues dans ce didacticiel.
 * Déployer un projet web à partir du contrôle de code source
   
-    Pour plus d’informations sur [l’automatisation du déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) à partir d’un [système de contrôle de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consultez [Déployer votre première application web dans Azure en 5 minutes](app-service-web-get-started.md) et [Déploiement de votre application dans Azure App Service](web-sites-deploy.md).
+    Pour plus d’informations sur [l’automatisation du déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) à partir d’un [système de contrôle de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consultez [Déployer votre première application web dans Azure en&5; minutes](app-service-web-get-started.md) et [Déploiement de votre application dans Azure App Service](web-sites-deploy.md).
 * Déployer une API web ASP.NET dans une application API dans Azure App Service
   
     Vous avez vu comment créer une instance d’Azure App Service qui est principalement destinée à héberger un site web. App Service propose également des fonctionnalités d’hébergement des API web, comme la prise en charge de CORS et des métadonnées d’API pour la génération du code client. Vous pouvez utiliser les fonctionnalités d’API dans une application web, mais si votre objectif est d’héberger une API dans une instance d’App Service, il vaut mieux opter pour une **application API** . Pour plus d’informations, consultez [Prise en main d’API Apps et d’ASP.NET dans Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
@@ -222,6 +222,6 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 > [!div class="op_single_selector"]
 > * [Premier site HTML](app-service-web-get-started-html-cli-nodejs.md)
 > * [Première application .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Première application  PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Première application PHP](app-service-web-get-started-php-cli-nodejs.md)
 > * [Première application Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
 > * [Première application Python](app-service-web-get-started-python-cli-nodejs.md)
 > * [Première application Java](app-service-web-get-started-java.md)
@@ -46,7 +46,7 @@ Vous allez :
 * Obtenir un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+> Vous pouvez [essayer App Service](https://azure.microsoft.com/try/app-service/) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 > 
 > 
 
@@ -131,6 +131,6 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

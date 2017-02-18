@@ -1,5 +1,5 @@
 ---
-title: "Déployer un cluster Azure Container Service avec CLI | Microsoft Docs"
+title: "Déployer un cluster de conteneur Docker avec la CLI Azure | Microsoft Docs"
 description: "Déployer un cluster Azure Container Service à l’aide de la version préliminaire d’Azure CLI 2.0"
 services: container-service
 documentationcenter: 
@@ -14,116 +14,137 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 855f0fe77bd55f6ec0dacad4bc28603ac1c6979c
-ms.openlocfilehash: c4a513686433e802f27f78de60e8b7fca21b4634
+ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
+ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Utiliser la version préliminaire d’Azure CLI 2.0 pour créer un cluster Azure Container Service
+# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Utiliser Azure CLI 2.0 (version préliminaire) pour créer un cluster Azure Container Service
 
-Pour créer un cluster Azure Container Service, vous avez besoin des éléments suivants :
-* un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
-* La version [Azure CLI 2.0 (version préliminaire)](https://github.com/Azure/azure-cli#installation) installée
-* une connexion à votre compte Azure (voir ci-dessous)
+Utilisez les commandes `az acs` dans Azure CLI 2.0 (version préliminaire) pour créer et gérer des clusters dans Azure Container Service. Vous pouvez également déployer un cluster Azure Container Service à l’aide du [portail Azure](container-service-deployment.md) ou des API Azure Container Service.
 
-## <a name="log-in-to-your-account"></a>Se connecter à son compte
+Pour obtenir de l’aide sur les commandes `az acs`, transmettez le paramètre `-h` dans une commande. Par exemple : `az acs create -h`.
+
+
+
+## <a name="prerequisites"></a>Composants requis
+Pour créer un cluster Azure Container Service à l’aide d’Azure CLI 2.0 (version préliminaire), vous devez :
+* disposer d’un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
+* avoir installé et configuré la version [Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2)
+
+## <a name="get-started"></a>Prise en main 
+### <a name="log-in-to-your-account"></a>Se connecter à son compte
 ```azurecli
 az login 
 ```
-Accédez à ce [lien](https://login.microsoftonline.com/common/oauth2/deviceauth) pour vous authentifier à l’aide du code de l’appareil fourni dans l’interface de ligne de commande.
 
-![saisie de la commande](media/container-service-create-acs-cluster-cli/login.png)
+Suivez les invites pour vous connecter de manière interactive. Pour d’autres méthodes de connexion, consultez [Prise en main d’Azure CLI 2.0 (version préliminaire)](/cli/azure/get-started-with-az-cli2).
 
-![iPhone](media/container-service-create-acs-cluster-cli/login-browser.png)
+### <a name="set-your-azure-subscription"></a>Définir votre abonnement Azure
+
+Si vous disposez de plusieurs abonnements Azure, définissez l’abonnement par défaut. Par exemple :
+
+```
+az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
+```
 
 
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+### <a name="create-a-resource-group"></a>Créer un groupe de ressources
+Nous vous recommandons de créer un groupe de ressources pour chaque cluster. Spécifiez une région Azure dans laquelle Azure Container Service est [disponible](https://azure.microsoft.com/en-us/regions/services/). Par exemple :
+
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
+Le résultat ressemble à ce qui suit :
 
-![Image création du groupe de ressources](media/container-service-create-acs-cluster-cli/rg-create.png)
+![Créer un groupe de ressources](media/container-service-create-acs-cluster-cli/rg-create.png)
 
-## <a name="list-of-available-azure-container-service-cli-commands"></a>Liste des commandes CLI Azure Container Service disponibles
-
-```azurecli
-az acs -h
-```
-
-![utilisation des commandes ACS](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
 ## <a name="create-an-azure-container-service-cluster"></a>Créer un cluster Azure Container Service
 
-*création d’un cluster ACS dans CLI*
+Pour créer un cluster, utilisez `az acs create`.
+Un nom pour le cluster et le nom du groupe de ressources créé à l’étape précédente sont des paramètres obligatoires. 
 
-```azurecli
-az acs create -h
-```
-Le nom du service de conteneur, le groupe de ressources créé à l’étape précédente et un nom DNS unique sont obligatoires. Les autres paramètres sont définis sur les valeurs par défaut (voir l’écran suivant avec l’instantané d’aide ci-dessous), sauf s’ils sont remplacés via leurs commutateurs respectifs.
-![Image aide pour la création du cluster ACS](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
+Les autres paramètres sont définis sur les valeurs par défaut (voir l’écran suivant), sauf s’ils sont remplacés via leurs commutateurs respectifs. Par exemple, l’Orchestrator est défini par défaut sur DC/OS. Et si vous n’en spécifiez pas un, un préfixe de nom DNS est créé sur la base du nom du cluster.
 
-*Création rapide du cluster ACS à l’aide des valeurs par défaut. Si vous n’avez pas de clé SSH, utilisez la seconde commande. Cette seconde commande de création qui intègre le commutateur --generate-ssh-keys créera automatiquement une clé pour vous*
+![création d’un cluster acs az](media/container-service-create-acs-cluster-cli/create-help.png)
+
+
+### <a name="quick-acs-create-using-defaults"></a>`acs create` rapide à l’aide des valeurs par défaut
+Si vous disposez d’un fichier de clé publique SSH `id_rsa.pub` dans l’emplacement par défaut (ou que vous en avez créé un pour [OS X et Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), utilisez une commande semblable à ce qui suit :
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
 ```
+Si vous n’avez pas de clé publique SSH, utilisez cette seconde commande. Cette commande avec le commutateur `--generate-ssh-keys` en crée une pour vous.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*Assurez-vous que le préfixe dns (commutateur -d) est unique. Si vous obtenez une erreur, veuillez réessayer avec une chaîne unique.*
-
-Après avoir saisi la commande précédente, attendez environ 10 minutes que le cluster soit créé.
+Après avoir saisi la commande, attendez environ 10 minutes que le cluster soit créé. La sortie de la commande inclut des noms de domaine complet (FQDN) de nœuds principal et d’agent et une commande SSH pour se connecter au premier principal. Voici la sortie abrégée :
 
 ![Image création du cluster ACS](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
-## <a name="list-acs-clusters"></a>Répertorier les clusters ACS 
+> [!TIP]
+> La [procédure pas à pas Kubernetes](container-service-kubernetes-walkthrough.md) montre comment utiliser `az acs create` avec les valeurs par défaut pour créer un cluster Kubernetes.
+>
 
-### <a name="under-a-subscription"></a>Dans un abonnement
+## <a name="manage-acs-clusters"></a>Gérer des clusters ACS
+
+Utilisez des commandes `az acs` supplémentaires pour gérer votre cluster. Voici quelques exemples.
+
+### <a name="list-clusters-under-a-subscription"></a>Répertorier les clusters dans un abonnement
 
 ```azurecli
 az acs list --output table
 ```
 
-### <a name="in-a-specific-resource-group"></a>Dans un groupe de ressources spécifique
+### <a name="list-clusters-in-a-resource-group"></a>Répertorier les clusters au sein d’un groupe de ressources
 
 ```azurecli
 az acs list -g acsrg1 --output table
 ```
 
-![Image liste des clusters ACS](media/container-service-create-acs-cluster-cli/acs-list.png)
+![liste des clusters acs](media/container-service-create-acs-cluster-cli/acs-list.png)
 
 
-## <a name="display-details-of-a-container-service-cluster"></a>Afficher les détails d’un cluster Container Service
+### <a name="display-details-of-a-container-service-cluster"></a>Afficher les détails d’un cluster Container Service
 
 ```azurecli
 az acs show -g acsrg1 -n acs-cluster --output list
 ```
 
-![Image liste des clusters ACS](media/container-service-create-acs-cluster-cli/acs-show.png)
+![affichage du cluster acs](media/container-service-create-acs-cluster-cli/acs-show.png)
 
 
-## <a name="scale-the-acs-cluster"></a>Mettre à l’échelle le cluster ACS
-*Vous pouvez effectuer une mise à l’échelle verticale ou horizontale. Le paramètre new-agent-count indique le nouveau nombre d’agents dans le cluster ACS.*
+### <a name="scale-the-cluster"></a>Mettre à l’échelle le cluster
+Vous pouvez effectuer une mise à l’échelle verticale ou horizontale des nœuds d’agent. Le paramètre `new-agent-count` indique le nouveau nombre d’agents dans le cluster ACS.
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```
 
-![Image mise à l’échelle du cluster ACS](media/container-service-create-acs-cluster-cli/acs-scale.png)
+![mise à l’échelle du cluster acs](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Supprimer un cluster Container Service
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*Notez que cette commande de suppression ne supprime pas toutes les ressources (réseau et stockage) créées lors de la création du service de conteneur. Pour supprimer toutes les ressources, nous vous recommandons de ne créer qu’un seul cluster ACS par groupe de ressources et de supprimer ensuite directement le groupe de ressources lorsque vous n’avez plus besoin du cluster ACS afin de vous assurer que toutes les ressources associées sont supprimées et qu’elles n’occasionnent plus aucun frais.*
+Cette commande ne supprime pas toutes les ressources (réseau et stockage) créées lors de la création du service de conteneur. Pour supprimer toutes les ressources facilement, il est recommandé de déployer chaque cluster dans un groupe de ressources distinct. Supprimez ensuite le groupe de ressources lorsque le cluster n’est plus nécessaire.
+
+## <a name="next-steps"></a>Étapes suivantes
+À présent que vous disposez d’un cluster opérationnel, consultez les documents suivants pour obtenir des informations supplémentaires concernant la connexion et la gestion du cluster :
+
+* [Connexion à un cluster Azure Container Service](container-service-connect.md)
+* [Gestion de conteneur via l’API REST](container-service-mesos-marathon-rest.md)
+* [Gestion des conteneurs avec Docker Swarm](container-service-docker-swarm.md)
+* [Gestion des conteneurs avec Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

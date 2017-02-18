@@ -1,6 +1,6 @@
 ---
 title: "Traiter les messages appareil-à-cloud d’Azure IoT Hub (Java) | Microsoft Docs"
-description: "Guide de traitement des messages appareil-à-cloud IoT Hub en lisant à partir du point de terminaison compatible Event Hubs sur un IoT Hub. Vous créez une application de service Java qui utilise une instance d’EventProcessorHost."
+description: "Comment traiter des messages appareil-à-cloud IoT Hub en utilisant les règles de routage et les points de terminaison personnalisés pour distribuer les messages vers d’autres services principaux."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 5ede1fdd040b2f59383dda27d6fb26b87c2d7f02
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 616bca96eaff12fa1929605f3480098bd8b867c2
 
 
 ---
@@ -95,7 +95,7 @@ Dans cette section, vous allez modifier l’application d’appareil simulé que
     }
     ```
    
-    Cela ajoute au hasard la propriété `"level": "critical"` aux messages envoyés par l’appareil simulé, ce qui simule un message qui requiert une action immédiate du serveur principal de la solution. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
+    Cela ajoute au hasard la propriété `"level": "critical"` aux messages envoyés par l’appareil émulé, ce qui simule un message qui requiert une action immédiate du serveur principal de l’application. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
    
    > [!NOTE]
    > Vous pouvez utiliser les propriétés de message pour acheminer les messages pour de nombreux scénarios, tels que le traitement de chemin d’accès à froid, en plus de l’exemple de chemin d’accès à chaud présenté ici.
@@ -120,25 +120,25 @@ Dans cette section, vous allez créer une file d’attente Service Bus, la conne
 
 1. Créez une file d’attente Service Bus, comme décrit dans [Prise en main des files d’attente][Service Bus queue]. Prenez note de l’espace de noms et de la file d’attente.
 
-2. Dans le portail Azure, ouvrez votre IoT hub et cliquez sur **Points de terminaison**.
+2. Dans le portail Azure, ouvrez votre IoT Hub, puis cliquez sur **Points de terminaison**.
     
     ![Points de terminaison dans IoT hub][30]
 
-3. Dans le panneau de points de terminaison, cliquez en haut, sur **Ajouter**, pour ajouter votre file d’attente à votre IoT Hub. Nommez le point de terminaison « CriticalQueue », puis utilisez les listes déroulantes pour sélectionner **File d’attente Service Bus**, l’espace de noms Service Bus dans lequel réside votre file d’attente, ainsi que le nom de votre file d’attente. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
+3. En haut du panneau **Points de terminaison**, cliquez sur **Ajouter** pour ajouter votre file d’attente à votre IoT Hub. Nommez le point de terminaison **CriticalQueue**, puis utilisez les listes déroulantes pour sélectionner **File d’attente Service Bus**, l’espace de noms Service Bus dans lequel réside votre file d’attente, ainsi que le nom de votre file d’attente. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
     
     ![Ajout d’un point de terminaison][31]
     
-4. À présent, cliquez sur **Itinéraires** dans votre IoT Hub. Cliquez en haut, sur **Ajouter**, pour créer une règle qui achemine les messages vers la file d’attente que vous venez d’ajouter. Sélectionnez **DeviceTelemetry** comme source de données. Entrez `level="critical"` comme condition, puis choisissez la file d’attente que vous venez d’ajouter comme point de terminaison en tant que point de terminaison de l’itinéraire. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
+4. À présent, cliquez sur **Itinéraires** dans votre IoT Hub. En haut du panneau, cliquez sur **Ajouter** afin de créer une règle qui achemine les messages vers la file d’attente que vous venez d’ajouter. Sélectionnez **DeviceTelemetry** comme source de données. Saisissez `level="critical"` comme condition, puis sélectionnez la file d’attente que vous venez d’ajouter comme point de terminaison personnalisé en tant que point de terminaison de la règle de routage. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
     
     ![Ajout d’un itinéraire][32]
     
-    Assurez-vous que l’itinéraire de secours est activé. Il s’agit de la configuration par défaut du IoT Hub.
+    Assurez-vous que l’itinéraire de secours est défini sur **ACTIVÉ**. Ce paramètre correspond à la configuration par défaut d’un IoT Hub.
     
     ![Itinéraire de secours][33]
 
 
 ## <a name="optional-read-from-the-queue-endpoint"></a>(Facultatif) Lecture à partir du point de terminaison de la file d’attente
-Vous pouvez éventuellement lire les messages à partir de la file d’attente en suivant les instructions fournies dans [Prise en main des files d’attente][lnk-sb-queues-java]. Nommez l’application **read-critical-queue**.
+Vous pouvez éventuellement lire les messages à partir du point de terminaison de la file d’attente en suivant les instructions fournies dans [Prise en main des files d’attente][lnk-sb-queues-java]. Nommez l’application **read-critical-queue**.
 
 ## <a name="run-the-applications"></a>Exécution des applications
 Vous êtes maintenant prêt à exécuter les trois applications.
@@ -230,6 +230,6 @@ Pour en savoir plus sur le routage des messages dans IoT Hub, consultez [Envoyer
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
-Pour gérer l’accès à Log Analytics, effectuez diverses tâches administratives liées aux espaces de travail. Cet article fournit des conseils pratiques et des procédures que vous utiliserez pour gérer les espaces de travail à l’aide de différents types de comptes. Un espace de travail est en fait un conteneur qui inclut des informations de compte et des informations de configuration simple pour le compte. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
+Pour gérer l’accès à Log Analytics, effectuez diverses tâches administratives liées aux espaces de travail. Cet article fournit des conseils pratiques et des procédures pour gérer les espaces de travail. Un espace de travail est en fait un conteneur qui inclut des informations de compte et des informations de configuration simple pour le compte. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
 
 Pour créer un espace de travail, vous devez :
 
@@ -41,8 +41,9 @@ Aujourd'hui, un espace de travail fournit :
 * un emplacement géographique pour le stockage des données ;
 * des données granulaires pour la facturation ;
 * l’isolation des données.
+* Étendue de la configuration
 
-Compte tenu des caractéristiques ci-dessus, vous pouvez créer plusieurs espaces de travail si :
+Compte tenu des caractéristiques précédentes, vous pouvez créer plusieurs espaces de travail si :
 
 * Vous travaillez pour une entreprise globale et vous avez besoin de stocker vos données dans des régions spécifiques pour des raisons de conformité ou de souveraineté des données.
 * Vous utilisez Azure et vous souhaitez éviter les frais liés au transfert de données sortantes en configurant un espace de travail dans la même région que les ressources Azure qu’il gère.
@@ -61,7 +62,7 @@ Vous pouvez afficher des détails sur votre espace de travail dans le portail Az
 #### <a name="view-workspace-information-the-azure-portal"></a>Afficher les informations de l’espace de travail dans le portail Azure
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement Azure.
-2. Dans le menu **Hub**, cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Log Analytics**.  
+2. Dans le menu **Hub**, cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
     ![Hub Azure](./media/log-analytics-manage-access/hub.png)  
 3. Dans le panneau d’abonnements de Log Analytics, sélectionnez un espace de travail.
 4. Le panneau Espace de travail affiche des détails sur l’espace de travail et des liens vers des informations supplémentaires.  
@@ -78,8 +79,7 @@ Deux emplacements permettent de contrôler l’accès à l’espace de travail :
 * Dans Microsoft Azure, le contrôle d’accès basé sur les rôles permet de donner accès à l’abonnement Azure et aux ressources Azure associées. Ces autorisations servent aussi à donner accès à l’API REST et à PowerShell.
 * Dans le portail OMS, vous pouvez accéder au portail OMS uniquement, et non à l’abonnement Azure.
 
-Les utilisateurs ne voient pas les données dans les vignettes des solutions Sauvegarde et Site Recovery si vous leur donnez accès au portail OMS mais pas à l’abonnement Azure auquel il est lié.
-Pour permettre à tous les utilisateurs de voir les données de ces solutions, vérifiez qu’ils disposent au moins d’un accès **Lecteur** au coffre Sauvegarde et au coffre Site Recovery liés à l’espace de travail.   
+Pour voir les données dans les vignettes des solutions Sauvegarde et Site Recovery, vous devez disposer d’autorisations d’administrateur ou de coadministrateur pour l’abonnement Azure auquel l’espace de travail est lié.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Gestion de l’accès à Log Analytics à l’aide du portail Azure
 Si vous octroyez à certaines personnes un accès à l’espace de travail Log Analytics au moyen d’autorisations Azure, dans le portail Azure par exemple, ces mêmes utilisateurs peuvent accéder au portail Log Analytics. Si des utilisateurs se trouvent dans le portail Azure, ils peuvent accéder au portail OMS en cliquant sur la tâche **Portail OMS** lors de l’affichage de la ressource d’espace de travail Log Analytics.
@@ -199,7 +199,7 @@ Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en 
 8. Cliquez sur **OK**. L’espace de travail est maintenant lié à votre compte Azure.
 
 > [!NOTE]
-> Si l’espace de travail que vous souhaitez lier ne s’affiche pas, cela signifie que votre abonnement Azure n’a pas accès à l’espace de travail que vous avez créé sur le site web OMS.  Vous devez accorder l’accès à ce compte à partir du portail OMS. Pour ce faire, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
+> Si l’espace de travail que vous souhaitez lier ne s’affiche pas, cela signifie que votre abonnement Azure n’a pas accès à l’espace de travail que vous avez créé sur le site web OMS.  Pour accorder l’accès à ce compte à partir du portail OMS, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -232,15 +232,20 @@ Si vous disposez d’un engagement monétaire Azure dans le cadre de l’inscri
 
 Si vous devez modifier l’abonnement Azure auquel l’espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Migrer un espace de travail vers un plan de données payant
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Migrer un espace de travail vers un niveau tarifaire payant
 1. Connectez-vous au [portail Azure](http://portal.azure.com).
 2. Recherchez **Log Analytics** et sélectionnez-le.
 3. Vous voyez la liste des espaces de travail existants. Sélectionnez un espace de travail.  
-4. Dans le volet Espace de travail sous **Général**, cliquez sur **Niveau tarifaire**.  
-5. Sous **Niveau tarifaire**, cliquez sur un plan de données, puis cliquez sur **Sélectionner**.  
+4. Dans le panneau Espace de travail sous **Général**, cliquez sur **Niveau tarifaire**.  
+5. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire, puis cliquez sur **Sélectionner**.  
     ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Quand vous actualisez l’affichage dans le portail Azure, le **niveau tarifaire** mis à jour s’affiche pour le plan sélectionné.  
+6. Quand vous actualisez l’affichage dans le portail Azure, le **niveau tarifaire** mis à jour s’affiche pour le niveau sélectionné.  
     ![plan mis à jour](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Modifier la durée de stockage des données par Log Analytics
 
@@ -293,6 +298,6 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

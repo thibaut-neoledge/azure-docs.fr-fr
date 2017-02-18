@@ -1,22 +1,22 @@
 ---
-title: "Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS"
+title: RDG et Azure MFA Server avec RADIUS | Microsoft Docs
 description: "Il s&quot;agit de la page d&quot;authentification multifacteur Azure qui facilite le déploiement de la passerelle Bureau à distance (RD) et le serveur Azure Multi-Factor Authentication à l’aide de RADIUS."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtand
+editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
 
 
 ---
@@ -37,7 +37,7 @@ La passerelle Bureau à distance utilise NPS pour envoyer la demande RADIUS à A
 4. Copiez cette stratégie pour en créer une. Dans la nouvelle stratégie, ajoutez une condition qui met en correspondance le nom convivial du client et le nom convivial défini à l'étape 2 ci-dessus pour le client RADIUS du serveur Azure Multi-Factor Authentication. Choisissez un ordinateur local comme fournisseur d'authentification. Cette stratégie garantit que lorsqu'une demande RADIUS est reçue du serveur Azure Multi-Factor Authentication, l'authentification se produit localement au lieu de renvoyer une demande RADIUS au serveur Azure Multi-Factor Authentication, ce qui entraînerait une condition de boucle. Pour éviter la condition de boucle, cette nouvelle stratégie doit être placée AU-DESSUS de la stratégie d'origine de transfert vers le serveur Azure Multi-Factor Authentication.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Configuration d’Azure Multi-Factor Authentication
-- - -
+
 Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RADIUS entre la passerelle Bureau à distance et le serveur NPS.  Il devrait être installé sur un serveur appartenant à un domaine, distinct du serveur de la passerelle Bureau à distance. Utilisez la procédure suivante pour configurer le serveur Azure Multi-Factor Authentication.
 
 1. Ouvrez le serveur Azure Multi-Factor Authentication, puis cliquez sur l'icône de l'authentification RADIUS. Cochez la case Activer l'authentification RADIUS.
@@ -47,9 +47,14 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 
 ![Authentification RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
+## <a name="next-steps"></a>Étapes suivantes
+
+- Intégrer Azure MFA et les [applications web IIS](multi-factor-authentication-get-started-server-iis.md)
+
+- Obtenez des réponses en consultant le [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

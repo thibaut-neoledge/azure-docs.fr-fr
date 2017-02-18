@@ -1,8 +1,8 @@
 ---
-title: "Configurer un webhook sur des alertes de journal d’activité Azure | Microsoft Docs"
-description: "Découvrez comment utiliser des alertes de journal d’activité pour appeler des webhooks. "
+title: "Appeler un webhook sur une alerte de journal d’activité Azure | Microsoft Docs"
+description: "Routez les événements du journal d’activité à d’autres services pour les actions personnalisées. Par exemple envoyer des SMS, journaliser des bogues ou notifier une équipe via un service de chat/messagerie."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
-ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configurer un webhook sur une alerte de journal d’activité Azure
-Les webhooks vous permettent d’acheminer une notification d’alerte Azure vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Vous pouvez utiliser un webhook sur une alerte pour acheminer cette dernière vers des services qui envoient un SMS, consignent les bogues, avertissent une équipe par le biais de services de conversation instantanée/messagerie ou exécutent diverses autres actions. Cet article décrit la procédure de définition d’un webhook sur une alerte de journal d’activité Azure, ainsi que l’aspect de la charge utile de la requête HTTP POST vers un webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de métrique Azure, [consultez plutôt cette page](insights-webhooks-alerts.md). Vous pouvez également configurer une alerte de journal d’activité pour l’envoi d’un e-mail lors de l’activation.
+# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Appeler un webhook sur une alerte de journal d’activité Azure
+Les webhooks vous permettent d’acheminer une notification d’alerte Azure vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Vous pouvez utiliser un webhook sur une alerte pour acheminer cette dernière vers des services qui envoient un SMS, consignent les bogues, avertissent une équipe par le biais de services de conversation instantanée/messagerie ou exécutent diverses autres actions. Cet article explique comment définir le webhook qui doit être appelé quand une alerte du journal d’activité Azure est déclenchée. Il montre également à quoi ressemble le contenu d’une requête HTTP POST à un webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de métrique Azure, [consultez plutôt cette page](insights-webhooks-alerts.md). Vous pouvez également configurer une alerte de journal d’activité pour l’envoi d’un e-mail lors de l’activation.
 
 > [!NOTE]
 > Cette fonctionnalité est actuellement en version préliminaire et sera bientôt supprimée.
-> 
-> 
+>
+>
 
-Vous pouvez configurer une alerte de journal d’activité à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-alert-rules), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Vous pouvez configurer une alerte de journal d’activité à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-alert-rules), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). Il n’est pas possible de configurer un webhook à l’aide du portail Azure.
 
 ## <a name="authenticating-the-webhook"></a>Authentification du webhook
 Le webhook peut s’authentifier à l’aide de l’une des méthodes suivantes :
 
-1. **Autorisation par jeton** : l’URI du webhook est enregistré avec un ID de jeton, par ex. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorisation de base** : l’URI du webhook est enregistré avec un nom d’utilisateur et un mot de passe, par ex. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **Autorisation par jeton** : l’URI du webhook est enregistré avec un ID de jeton, par exemple, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2. **Autorisation de base** : l’URI du webhook est enregistré avec un nom d’utilisateur et un mot de passe, par exemple, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes basées sur un journal d’activité. Ce schéma est semblable à celui utilisé par les alertes basées sur des métriques.
@@ -126,7 +126,6 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

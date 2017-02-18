@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b16e7e221853f5d44248430cef2296301a09d497
-ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: a95e65db804f1c6cc2927901216ee7a287a911ee
 
 
 ---
@@ -37,15 +37,14 @@ Dans ce didacticiel, vous créez et surveillez une instance d’Azure Data Fac
 
 La fonctionnalité Activité de copie effectue le déplacement des données dans Azure Data Factory. Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).   
 
-> [!IMPORTANT]
-> Avant de suivre ce didacticiel, parcourez la [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les étapes préalables requises.
+> [!NOTE]
+> cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [Référence des applets de commande Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) pour obtenir une documentation complète sur ces applets de commande.
 >
-> cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [Référence des applets de commande Data Factory](https://msdn.microsoft.com/library/dn820234.aspx) pour obtenir une documentation complète sur ces applets de commande.
->
->
+> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
 
 ## <a name="prerequisites"></a>Composants requis
-Outre les étapes préalables répertoriées dans la rubrique Vue d’ensemble du didacticiel, vous devez installer Azure PowerShell. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- Consultez [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une vue d’ensemble du didacticiel et effectuer les **étapes préalables requises** .
+- Installez Azure PowerShell. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 ## <a name="in-this-tutorial"></a>Dans ce didacticiel
 Le tableau suivant répertorie les étapes que vous allez exécuter dans le cadre de ce didacticiel.
@@ -460,11 +459,10 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 ## <a name="see-also"></a>Voir aussi
 | Rubrique | Description |
 |:--- |:--- |
-| [Activités de déplacement des données](data-factory-data-movement-activities.md) |Cet article fournit une description détaillée de la fonctionnalité Activité de copie que vous avez utilisée dans ce didacticiel. |
-| [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
+| [Informations de référence sur les applets de commande de Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | Cette section fournit des informations sur l’ensemble des applets de commande Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory. |
 | [datasets](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
-| [Surveiller et gérer les pipelines à l’aide de l’application de surveillance](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
+| [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -484,6 +482,6 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

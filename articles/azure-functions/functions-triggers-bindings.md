@@ -1,6 +1,6 @@
 ---
-title: "Déclencheurs et liaisons Azure Functions | Microsoft Docs"
-description: "Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions."
+title: "Utiliser des déclencheurs et des liaisons dans Azure Functions | Microsoft Docs"
+description: "Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter l’exécution de votre code aux événements en ligne et aux services cloud."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
-ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
 
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions
-Cette rubrique sert de référence générale concernant les déclencheurs et les liaisons. Elle comprend certaines des fonctionnalités avancées de liaison ainsi que la syntaxe prise en charge par tous les types de liaisons.  
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions 
+Cette rubrique montre comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter votre code à divers déclencheurs, services Azure et autres services cloud. Elle comprend certaines des fonctionnalités avancées de liaison, ainsi que la syntaxe prise en charge par tous les types de liaisons.  
 
 Pour plus d’informations sur l’utilisation d’un type spécifique de déclencheur ou liaison, consultez une des rubriques de référence suivantes :
 
@@ -389,6 +389,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

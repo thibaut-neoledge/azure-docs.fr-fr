@@ -1,5 +1,5 @@
 ---
-title: "Query Performance Insight pour base de données SQL Azure"
+title: "Analyse des performances des données pour Azure SQL Database | Microsoft Docs"
 description: "La surveillance des performances des requêtes identifie les requêtes consommant le plus d’UC pour une base de données SQL Azure."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ La gestion et le réglage des performances des bases de données relationnelles 
 
 
 ## <a name="prerequisites"></a>Composants requis
-* Query Performance Insight est uniquement disponible avec la base de données SQL Azure V12.
 * Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
 ## <a name="permissions"></a>Autorisations
@@ -229,6 +228,6 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

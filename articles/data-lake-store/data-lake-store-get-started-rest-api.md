@@ -1,5 +1,5 @@
 ---
-title: Prise en main de Data Lake Store avec les API REST| Microsoft Docs
+title: "Prise en main de Data Lake Store à l’aide de l’API REST | Microsoft Docs"
 description: "Utiliser les API REST de WebHDFS pour effectuer des opérations sur Data Lake Store"
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 33574b0c1f023a8a5f83b1bf06f0523623891757
 
 
 ---
@@ -264,6 +264,6 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

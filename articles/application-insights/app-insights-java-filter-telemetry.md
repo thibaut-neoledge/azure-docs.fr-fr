@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9ade7b48b16d79c23355a8dbd46e9367abe4abd6
-ms.openlocfilehash: f2ddd6b02ac0dcf35c2519589f2f439c02c886c9
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
 
 
 ---
@@ -29,7 +29,7 @@ Les filtres prêts à l’emploi incluent :
 * Réponses rapides, autrement dit, les demandes auxquelles votre application a répondu rapidement
 * Noms des événements spécifiques
 
-> [!NOTE] 
+> [!NOTE]
 > Les filtres faussent les mesures de votre application. Par exemple, vous pouvez décider que, pour diagnostiquer les réponses lentes, vous allez définir un filtre permettant d’ignorer les temps de réponse rapides. Toutefois, vous devez être conscient que les temps de réponse moyens signalés par Application Insights seront plus lents que la vitesse réelle, et que le nombre de demandes sera inférieur au nombre réel.
 > Si cela pose problème, utilisez plutôt [l’échantillonnage](app-insights-sampling.md).
 
@@ -66,7 +66,7 @@ Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme da
 
            <!-- Exclude telemetry from availability tests and bots -->
            <Processor type="SyntheticSourceFilter">
-                <!-- Optional: specify which synthetic sources, 
+                <!-- Optional: specify which synthetic sources,
                      comma-separated
                      - default is all synthetics -->
                 <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
@@ -115,7 +115,7 @@ Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme da
            </Processor>
 ```
 
-* `DurationThresholdInMS` : la durée correspond au temps nécessaire pour charger la page. Si ce paramètre est défini, les pages qui se sont chargées plus rapidement que cette durée ne sont pas signalées. 
+* `DurationThresholdInMS` : la durée correspond au temps nécessaire pour charger la page. Si ce paramètre est défini, les pages qui se sont chargées plus rapidement que cette durée ne sont pas signalées.
 * `NotNeededNames` : liste séparée par des virgules de noms de pages.
 * `NotNeededUrls` : liste séparée par des virgules de fragments d’URL. Par exemple, `"home"` exclut toutes les pages contenant « home » dans l’URL.
 
@@ -160,7 +160,7 @@ Exclure les données de télémétrie pour des sources synthétiques spécifique
 
 ### <a name="telemetry-event-filter"></a>Filtre Événements de télémétrie
 
-Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)).
+Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -176,7 +176,7 @@ Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()]
 
 ### <a name="trace-telemetry-filter"></a>Filtre Télémétrie des traces
 
-Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) ou d’un [collecteur framework de journalisation](app-insights-java-trace-logs.md)).
+Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) ou d’un [collecteur framework de journalisation](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -194,14 +194,11 @@ Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](app-insi
  *  CRITICAL        - Exclure tout sauf CRITICAL
 
 
-```
+## <a name="custom-filters"></a>Filtres personnalisés
 
+### <a name="1-code-your-filter"></a>1. Codez votre filtre
 
-## Custom filters
-
-### 1. Code your filter
-
-In your code, create a class that implements `TelemetryProcessor`:
+Dans votre code, créez une classe qui implémente `TelemetryProcessor`:
 
 ```Java
 
@@ -215,7 +212,7 @@ In your code, create a class that implements `TelemetryProcessor`:
        private final String successful;
 
        /* Initializers for the parameters, named "setParameterName" */
-       public void setNotNeeded(String successful) 
+       public void setNotNeeded(String successful)
        {
           this.successful = successful;
        }
@@ -269,7 +266,6 @@ Dans ApplicationInsights.xml :
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

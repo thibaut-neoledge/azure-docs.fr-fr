@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel Apache Storm : prise en main de Storm sur HDInsight basé sur Linux | Microsoft Docs"
+title: "Prise en main d’Apache Storm sur Azure HDInsight | Microsoft Docs"
 description: "Prise en main de l’analyse Big Data avec Apache Storm et des exemples Starter Storm sur HDInsight basé sur HDInsight. Découvrez comment utiliser Storm pour traiter les données en temps réel."
 keywords: apache storm,didacticiel apache storm,analyses big data,prise en main storm
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7ade85d98c41bddddb61fe75d212b351ff62eef0
-ms.openlocfilehash: 1e24cebace0e6b7de7ae318f06d6430b3caa342a
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Consultez les exemples suivants de topologies qui peuvent être utilisées avec 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

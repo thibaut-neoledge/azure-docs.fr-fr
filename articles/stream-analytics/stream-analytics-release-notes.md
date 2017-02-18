@@ -12,15 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
+ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notes de publication de Stream Analytics
+## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notes relatives à la version du 01/02/2017 de Stream Analytics
+Cette version contient la mise à jour suivante.
+
+| Intitulé | Description |
+| --- | --- |
+| Présentation des fonctions JavaScript définies par l’utilisateur |Des [fonctions Java définies par l’utilisateur](stream-analytics-javascript-user-defined-functions.md) sont désormais disponibles pour offrir davantage de souplesse lors de la création de requêtes. |
+| Présentation des outils pour Visual Studio et Stream Analytics |Des [outils pour Visual Studio](stream-analytics-tools-for-visual-studio.md) sont désormais disponibles pour le débogage et d’autres fonctions utiles. |
+| Présentation de la journalisation des diagnostics |La [journalisation des diagnostics](stream-analytics-job-diagnostic-logs.md) propose des options de dépannage supplémentaires. |
+| Présentation des fonctions géospatiales |Des [fonctions géospatiales](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) sont désormais disponibles. |
+
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>Notes pour la version 04/15/2016 de Stream Analytics 
 Cette version contient la mise à jour suivante.
 
@@ -136,6 +146,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
