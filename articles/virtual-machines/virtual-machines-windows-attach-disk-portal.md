@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: bc4a892ce1745d54ee4424e04a79a52942650b49
-ms.openlocfilehash: f25942f24c1a2f24050c15908b86489d39ee9a13
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 
 
 ---
@@ -29,7 +29,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 * Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
 * Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier .vhd présent, s’il n’est attaché à aucune autre machine virtuelle, ou charger votre propre fichier .vhd sur le compte de stockage.
 
-Vous pouvez également [attacher un disque de données à l’aide de PowerShell](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine).
+Vous pouvez également [attacher un disque de données à l’aide de PowerShell](virtual-machines-windows-attach-disk-ps.md).
 
 
 ## <a name="find-the-virtual-machine"></a>Recherchez la machine virtuelle.
@@ -98,6 +98,6 @@ Si votre application doit utiliser le lecteur D: pour stocker des données, vous
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

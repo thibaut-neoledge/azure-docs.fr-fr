@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
-ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 
 
 ---
@@ -27,12 +27,12 @@ Lorsqu’un attribut d’un utilisateur change, le système évalue toutes les r
 
 > [!NOTE]
 > Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365. Les appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications.
-> 
+>
 > L’appartenance dynamique à des groupes nécessite qu’une licence Azure AD Premium soit affectée à
-> 
+>
 > * L’administrateur qui gère la règle sur un groupe
 > * Tous les membres du groupe
-> 
+>
 
 ## <a name="to-create-the-advanced-rule"></a>Pour créer une règle avancée
 1. Dans le [portail Azure Classic](https://manage.windowsazure.com), sélectionnez **Active Directory**, puis ouvrez le répertoire de votre organisation.
@@ -57,17 +57,18 @@ Pour obtenir la liste complète des paramètres et des opérateurs de règle d�
 Notez que la propriété doit être préfixée par le type d’objet approprié : utilisateur ou appareil.
 La règle ci-dessous échoue à la validation : mail –ne null
 
-La règle correcte serait : 
+La règle correcte serait :
 
 user.mail –ne null
 
 La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
 
 > [!NOTE]
-> Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
+> Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse.
+> Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
 > Utilisez uniquement des guillemets pour les valeurs de type chaîne ; utilisez uniquement des guillemets anglais.
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
 Le tableau suivant répertorie tous les opérateurs de règle d’expression pris en charge et leur syntaxe à utiliser dans le corps de la règle avancée :
@@ -86,14 +87,14 @@ Le tableau suivant répertorie tous les opérateurs de règle d’expression pri
 ## <a name="operator-precedence"></a>Précédence des opérateurs
 
 Tous les opérateurs sont répertoriés ci-dessous par précédence, de la plus basse à la plus élevée, les opérateurs dans la même ligne sont de même précédence -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union.
 
 Notez que les parenthèses ne sont pas toujours nécessaires, vous devez uniquement ajouter des parenthèses lorsque la précédence ne satisfait pas vos exigences Par exemple :
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-équivaut à : 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+équivaut à :
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -173,7 +174,7 @@ Opérateurs autorisés
 
 ## <a name="use-of-null-values"></a>Utiliser des valeurs Null
 
-Pour spécifier une valeur null dans une règle, vous pouvez utiliser « null » ou $null. Exemple : 
+Pour spécifier une valeur null dans une règle, vous pouvez utiliser « null » ou $null. Exemple :
 
    user.mail –ne null équivaut à user.mail –ne $null
 
@@ -197,7 +198,7 @@ Vous pouvez accéder au nom de l’attribut personnalisé dans le répertoire en
 Pour inclure une propriété à valeurs multiples dans une règle, utilisez l’opérateur "-any" comme dans
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## <a name="direct-reports-rule"></a>Règle de collaborateurs
 Vous pouvez remplir les membres d’un groupe en fonction de l’attribut de responsable hiérarchique d’un utilisateur.
 
@@ -207,11 +208,11 @@ Vous pouvez remplir les membres d’un groupe en fonction de l’attribut de res
 2. Sélectionnez l’onglet **Groupes** , puis ouvrez le groupe que vous souhaitez modifier.
 3. Sélectionnez l’onglet **Configurer** puis **RÈGLE AVANCÉE**.
 4. Entrez la règle avec la syntaxe suivante :
-   
+
     Rapports directs pour *Rapports directs pour {ID objet_du_responsable}*. Voici un exemple e règle valable pour Collaborateurs :
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID objet du responsable. L’ID d’objet se trouve dans Azure AD, dans l’ **onglet Profil** de la page Utilisateur de l’utilisateur qui est responsable.
 5. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Le remplissage initial du groupe peut prendre quelques minutes.
 
@@ -239,10 +240,10 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 > [!NOTE]
 > Ces règles d’appareil ne peuvent pas être créées à l’aide de la liste déroulante « règle simple » dans le portail Azure Classic.
-> 
-> 
+>
+>
 
-## <a name="additional-information"></a>Informations supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Résolution des problèmes liés à l’appartenance dynamique à des groupes](active-directory-accessmanagement-troubleshooting.md)
@@ -250,7 +251,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
 
 
 

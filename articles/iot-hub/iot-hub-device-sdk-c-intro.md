@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 02907ef15742cda456fd0c5f10b777b11aa7c35e
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
@@ -30,7 +30,7 @@ Le Kit de développement logiciel (SDK) a été testé sur un large éventail de
 Dans cet article, vous allez découvrir l’architecture du kit de développement logiciel (SDK) d’appareil Azure IoT pour C. Nous allons vous montrer comment initialiser la bibliothèque de périphériques, envoyer des événements à IoT Hub et recevoir des messages de sa part. Les informations de cet article sont suffisantes pour commencer à utiliser le Kit de développement logiciel (SDK), mais elles vous fournissent également des indications qui vous permettront d’obtenir des informations supplémentaires sur les bibliothèques.
 
 ## <a name="sdk-architecture"></a>Architecture du kit de développement logiciel (SDK)
-Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 Vous trouverez la dernière version des bibliothèques dans la branche **maître** de ce référentiel :
 
@@ -466,6 +466,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

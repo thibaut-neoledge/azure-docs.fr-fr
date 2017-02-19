@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: dd398e258cd1634e187a5c258158d5bc01e5a943
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
 
 
 ---
@@ -29,7 +29,7 @@ Cet article conclut en abordant des sujets divers, notamment les informations d�
 
 Nous allons utiliser les exemples du Kit de développement logiciel (SDK) **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
 
-Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-lower-level-apis"></a>API de niveau inférieur
 L’article précédent traitait du fonctionnement de base **d’IotHubClient** dans le contexte de l’application **iothub\_client\_sample\_amqp**. Par exemple, il expliquait comment initialiser la bibliothèque à l’aide de ce code.
@@ -279,6 +279,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
