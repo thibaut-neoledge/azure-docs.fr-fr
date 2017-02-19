@@ -3,7 +3,7 @@ title: "Vue d’ensemble du test d’évaluation de la base de données SQL Azu
 description: "Cette rubrique décrit le test d’évaluation de la base de données SQL Azure utilisé pour mesurer les performances de la base de données SQL Azure."
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: jan-eng
 manager: jhubbard
 editor: monicar
 ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
-ms.author: carlrab
+ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: cbe53ce7f259432085a828ef8c1fe3ae2da42074
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
 
 
 ---
@@ -131,10 +131,10 @@ Le test d’évaluation de la base de données SQL Azure mesure les performance
 
 [Niveaux de service et niveaux de performances](sql-database-service-tiers.md)
 
-[Guide des performances pour les bases de données autonomes](sql-database-performance-guidance.md)
+[Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
-ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
 
 
 ---
@@ -84,7 +84,7 @@ Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les journaux d’audit Azure et les définitions de propriétés, consultez :
 
-* [Opérations d’audit avec Resource Manager](../resource-group-audit.md)
+* [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx) : pour récupérer les événements du journal d’audit.
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -95,6 +95,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

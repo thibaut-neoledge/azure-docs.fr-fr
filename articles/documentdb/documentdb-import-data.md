@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
-ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
 
 
 ---
@@ -403,7 +403,7 @@ Pour importer dans seule collection, entrez le nom de la collection dans laquell
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
 3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1] [0-9] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
 
-Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit >&10;&000; RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, consultez [Demander l’augmentation des limites de compte DocumentDB](documentdb-increase-limits.md).
+Une fois que les noms de la collection ont été spécifiés, choisissez le débit souhaité des collections (entre 400 RU et 250 000 RU). Pour de meilleures performances d’importation, choisissez un débit plus élevé. Pour plus d’informations sur les niveaux de performances, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md). Les importations dans des collections avec un débit >&10;&000; RU nécessitent une clé de partition. Si vous choisissez d’avoir plus de 250 000 RU, vous devrez envoyer une demande d’augmentation de votre compte dans le portail.
 
 > [!NOTE]
 > Le paramètre de débit s’applique uniquement à la création de collections. Si la collection spécifiée existe déjà, son débit ne sera pas modifié.
@@ -526,6 +526,6 @@ Choisissez ensuite si vous souhaitez consigner tous les messages d’erreur, uni
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

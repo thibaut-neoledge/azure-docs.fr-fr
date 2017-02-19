@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 40ad0b85072c3a54c7791500663c4dd88133c095
 
 SnelStart crée des logiciels populaires de gestion financière et commerciale pour les petites et moyennes entreprises (PME) aux Pays-Bas. Une équipe de 110 employés, dont 35 dans le service informatique, est au service de ses 55 000 clients. En passant des logiciels de bureau à une offre SaaS (logiciel en tant que service) basée sur Azure, SnelStart a tiré le meilleur parti des services intégrés, en automatisant la gestion grâce à un environnement familier en C# et en optimisant les performances et l’évolutivité grâce à un approvisionnement parfaitement calibré à l’aide de pools élastiques. L’utilisation d’Azure fournit à SnelStart la fluidité nécessaire pour déplacer les clients mobiles en local et sur le cloud.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
 > 
 > 
 
@@ -111,6 +111,6 @@ L’objectif immédiat de SnelStart est de continuer à faire croître sa base d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

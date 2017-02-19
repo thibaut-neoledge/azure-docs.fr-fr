@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a5bd3866f3150b1c787e5f3700bdbd0b74fbaf42
-ms.openlocfilehash: 666a8031a262aef72fc8c3e73647f81d79b1c916
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 6a02bb20ff2ed10ed528bfe2a3aae51ab20e4a60
 
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
-Docteur Stephen F Elston.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introduction
 Ce didacticiel de démarrage rapide vous aide à vous lancer rapidement dans l'extension d'Azure Machine Learning à l'aide du langage de programmation R. Suivez ce didacticiel sur la programmation R pour créer, tester et exécuter du code R dans Azure Machine Learning. Au cours de ce didacticiel de démarrage rapide, vous allez créer une solution de prévision complète à l'aide du langage R dans Azure Machine Learning.  
@@ -1284,6 +1285,6 @@ Quelques ressources Internet particulièrement utiles :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

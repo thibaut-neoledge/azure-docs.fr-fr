@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/13/2016
+ms.date: 01/05/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
-ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
+ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
+ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
 
 
 ---
@@ -35,7 +35,7 @@ La configuration logicielle suivante est requise pour les clients de stockage qu
 
 | Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>L’allocation dynamique Windows Server 2012 et les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>L’allocation dynamique Windows Server 2012 et 2016 les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 et 6.0 |Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. |
 | Linux RHEL/CentOS |5, 6 et 7 |Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5, 6 et 7. |
 | Linux |SUSE Linux 11 | |
@@ -253,6 +253,6 @@ Lisez attentivement ces meilleures pratiques recommandées pour assurer la haute
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

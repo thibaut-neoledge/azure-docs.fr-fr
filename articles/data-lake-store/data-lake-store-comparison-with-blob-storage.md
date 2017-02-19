@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
-ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
 
 
 ---
@@ -38,7 +38,7 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 | Opérations de données - Audit |Disponible. Pour plus d’informations, voir [ici](data-lake-store-diagnostic-logs.md) . |Disponible |
 | Chiffrement des données au repos |Transparent, côté serveur <ul><li>Avec des clés gérées par le service</li><li>Avec des clés gérées par le client dans Azure KeyVault</li></ul> |<ul><li>Transparent, côté serveur</li> <ul><li>Avec des clés gérées par le service</li><li>Avec des clés gérées par le client dans Azure KeyVault (disponible prochainement)</li></ul><li>chiffrement côté client</li></ul> |
 | Opérations de gestion (par exemple, créer un compte) |[Le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md) (RBAC) fournit par Azure pour la gestion des comptes ; |[Le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md) (RBAC) fournit par Azure pour la gestion des comptes ; |
-| Kits de développement logiciel pour développeur |.NET, Java, Node.js |.NET, Java, Python, Node.js, C++, Ruby |
+| Kits de développement logiciel pour développeur |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby |
 | Performances des charges de travail d’analyse |Optimisation des performances pour les charges de travail d’analyses parallèles. Débit et nombre d’E/S par seconde élevés. |Non optimisé pour les charges de travail d’analyse |
 | Limites de taille |Aucune limite de taille pour les comptes, les fichiers ou le nombre de fichiers |Limites spécifiques documentées [ici](../azure-subscription-service-limits.md#storage-limits) |
 | Géo-redondance |Localement redondant (plusieurs copies des données dans une région Azure) |Localement redondant (LRS), globalement redondant (GRS), accès en lecture redondant globalement (RA-GRS). Pour plus d’informations, voir [ici](../storage/storage-redundancy.md) |
@@ -53,6 +53,6 @@ Le tableau de cet article résume les différences entre Azure Data Lake Store e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
