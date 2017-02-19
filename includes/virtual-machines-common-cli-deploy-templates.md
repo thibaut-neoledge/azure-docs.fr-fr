@@ -36,18 +36,24 @@ Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonn
 À présent, [connectez-vous à votre compte Azure de façon interactive](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure. 
 
 > [!NOTE]
-> Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à 2 facteurs n’est pas activée, vous pouvez **également** utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour vous connecter de la même façon.
+> Si vous disposez d’un ID professionnel ou scolaire et que vous savez que l’authentification à&2; facteurs n’est pas activée, vous pouvez **également** utiliser `azure login -u` avec l’ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d’un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour vous connecter de la même façon.
 >
 >
 
 Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
-```azure cli azure account list info:    Executing command account list data:    Name                              Id                                    Tenant Id                            Current data:    --------------------------------  ------------------------------------  ------------------------------------  ------- data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+```azurecli
+azure account list
+info:    Executing command account list
+data:    Name                              Id                                    Tenant Id                            Current
+data:    --------------------------------  ------------------------------------  ------------------------------------  -------
+data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
+data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
+Vous pouvez définir l’abonnement Azure actuel en tapant la commande suivante. Utilisez le nom d’abonnement ou l’ID doté des ressources que vous souhaitez gérer.
 
 ```azurecli
 azure account set <subscription name or ID> true
@@ -1302,6 +1308,6 @@ Pour consulter d’autres exemples d’utilisation de l’interface de ligne de 
 Pour plus d’informations sur les autres modèles utilisables, consultez les articles [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application utilisant des modèles](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

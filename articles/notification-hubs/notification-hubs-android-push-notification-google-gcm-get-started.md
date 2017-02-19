@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 ### <a name="create-a-new-android-project"></a>Créer un projet Android
 1. Dans Android Studio, démarrez un nouveau projet Android Studio.
    
-     ![Android Studio - nouveau projet][13]
+   ![Android Studio - nouveau projet][13]
 2. Choisissez le format **Phone and Tablet** (Téléphone et tablette) et le **Minimum SDK** (SDK minimal) que vous voulez prendre en charge. Cliquez ensuite sur **Suivant**.
    
-     ![Android Studio - workflow de création de projet][14]
+   ![Android Studio - workflow de création de projet][14]
 3. Choisissez **Empty Activity** (Activité vide) comme activité principale, cliquez sur **Next** (Suivant), puis sur **Finish** (Terminer).
 
 ### <a name="add-google-play-services-to-the-project"></a>Ajout de services Google Play au projet
@@ -619,13 +619,14 @@ Parallèlement à cela, assurez-vous que vous avez ajouté votre compte Google �
 #### <a name="running-the-application"></a>Exécution de l'application
 1. Exécutez l’application et notez qu’un ID d’inscription apparaît quand l’inscription réussit.
    
-       ![Testing on Android - Channel registration][18]
+      ![Tests sur Android - Inscription de canal][18]
 2. Entrez le message de notification à envoyer à tous les appareils Android inscrits auprès du hub.
    
-       ![Testing on Android - sending a message][19]
+      ![Tests sur Android - envoi d’un message][19]
+
 3. Appuyez sur **Envoyer une notification**. Tous les appareils sur lesquels l’application est en cours d’exécution affichent une instance `AlertDialog` comportant le message de notification Push. Les appareils sur lesquels l’application n’est pas en cours d’exécution, mais qui ont déjà été inscrits aux notifications Push, reçoivent une notification dans le gestionnaire de notifications Android. Vous pouvez afficher ces notifications en effectuant un balayage vers le bas depuis l’angle supérieur gauche.
    
-       ![Testing on Android - notifications][21]
+      ![Tests sur Android - notifications][21]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs] comme prochaine étape. Il vous expliquera comment envoyer des notifications à partir d’un serveur principal ASP.NET en utilisant des balises pour cibler des utilisateurs spécifiques.
@@ -671,6 +672,6 @@ Pour obtenir des informations générales sur Notification Hubs, consultez nos [
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

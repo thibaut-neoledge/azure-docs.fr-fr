@@ -16,7 +16,7 @@ Vous trouverez des modèles d’exemple de jeux de mise à l’échelle de machi
 
 Dans les pages de détail correspondant à ces modèles, vous pouvez voir un bouton qui est associé à la fonction de déploiement de portail. Pour déployer le jeu de mise à l’échelle de machine virtuelle, cliquez sur le bouton et renseignez ensuite tous les paramètres requis dans le portail. Si vous ne savez pas si une ressource prend en charge les majuscules ou les casses mixtes, il est préférable d’utiliser toujours les valeurs de paramètre en minuscules. Il existe également une pratique de dissection vidéo d’un modèle d’ensemble de mise à l’échelle de machine virtuelle ici :
 
-[Dissection des modèles de jeu de mise à l’échelle de machine virtuelle](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[Dissection des modèles de jeu de mise à l’échelle de machine virtuelle](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Mise à l’échelle d’un jeu de mise à l’échelle de machine virtuelle
 Pour augmenter ou diminuer le nombre de machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle, il suffit de changer la propriété *capacité* et de redéployer le modèle. Cette simplicité rend plus facile l’écriture de votre couche de mise à l’échelle personnalisée si vous souhaitez définir des événements d’échelle personnalisée qui ne sont pas pris en charge par l’échelle automatique Azure.
@@ -64,7 +64,7 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 ## <a name="vm-scale-set-frequently-asked-questions"></a>jeu de mise à l’échelle de machine virtuelle - Forum aux Questions.
 **Q.** Combien de machines virtuelles peut-il y avoir dans un jeu de mise à l’échelle de machine virtuelle ?
 
-**A.** 100 si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40, étant donné que les images personnalisées sont limitées à un seul compte de stockage lors de la visualisation.
+**A.** &100; si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40, étant donné que les images personnalisées sont limitées à un seul compte de stockage lors de la visualisation.
 
 **Q** Quelles sont les autres limites de ressource qui existent pour les jeux de mise à l’échelle de machine virtuelle ?
 
@@ -118,6 +118,6 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
