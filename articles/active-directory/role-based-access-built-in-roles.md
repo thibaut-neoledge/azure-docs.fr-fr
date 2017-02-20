@@ -1,5 +1,5 @@
 ---
-title: "RBAC : rôles intégrés | Microsoft Docs"
+title: "Actions et NotActions - Rôles dans Azure RBAC | Microsoft Docs"
 description: "Cette rubrique décrit les rôles intégrés pour le contrôle d’accès en fonction du rôle (RBAC)."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
+ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 
 
 ---
@@ -28,14 +28,17 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 
 > [!NOTE]
 > Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez les applets de commande `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas.
-> 
-> 
+>
+>
 
 | Nom de rôle | Description |
 | --- | --- |
 | [Collaborateur du service de gestion des API](#api-management-service-contributor) |Gérer les services de gestion des API |
 | [Collaborateur de composants Application Insights](#application-insights-component-contributor) |Gérer les composants Application Insights |
 | [Opérateur Automation](#automation-operator) |Démarrer, arrêter, suspendre et reprendre les travaux |
+| [Contributeur de sauvegarde](#backup-contributor) | Gérer la sauvegarde dans le coffre Recovery Services |
+| [Opérateur de sauvegarde](#backup-operator) | Gérer la sauvegarde (à l’exception de la suppression de la sauvegarde) dans le coffre Recovery Services |
+| [Lecteur de sauvegarde](#backup-reader) | Afficher tous les services de gestion des sauvegardes  |
 | [Collaborateur BizTalk](#biztalk-contributor) |Gérer BizTalk Services |
 | [Collaborateur de base de données ClearDB MySQL](#cleardb-mysql-db-contributor) |Gérer les bases de données ClearDB MySQL |
 | [Collaborateur](#contributor) |Gérer tout sauf les accès |
@@ -117,6 +120,98 @@ Démarrer, arrêter, suspendre et reprendre les travaux
 | Microsoft.Resources/deployments/* |Créer et gérer les déploiements de groupes de ressources |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lire les groupes de ressources |
 | Microsoft.Support/* |Créer et gérer les tickets de support |
+
+### <a name="backup-contributor"></a>Contributeur de sauvegarde
+Gérer toutes les actions de gestion des sauvegardes, à l’exception de la création du coffre Recovery Services et de l’octroi d’accès à d’autres personnes
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Lire les réseaux virtuels |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gérer les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Créer et gérer des conteneurs de sauvegarde dans les structures de sauvegarde du coffre Recovery Services |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Créer et gérer des travaux de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporter des travaux de sauvegarde dans un fichier Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Créer et gérer des métadonnées associées à la gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Créer et gérer les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Créer et gérer des stratégies de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Créer et gérer les éléments qui peuvent être sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Créer et gérer les éléments sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Créer et gérer les conteneurs contenant les éléments de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Créer et gérer des certificats associés à la sauvegarde dans le coffre Recovery Services |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Créer et gérer des informations étendues associées au coffre | 
+| Microsoft.RecoveryServices/Vaults/read | Lire les coffres Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gérer les opérations de découverte pour récupérer les conteneurs récemment créés |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Créer et gérer les identités inscrites |
+| Microsoft.RecoveryServices/Vaults/usages/* | Créer et gérer l’utilisation du coffre Recovery Services |
+| Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Storage/storageAccounts/read | Lire les comptes de stockage |
+| Microsoft.Support/* |Créer et gérer les tickets de support |
+
+### <a name="backup-operator"></a>Opérateur de sauvegarde
+Gérer toutes les actions de gestion des sauvegardes, à l’exception de la création des coffres, de la suppression des sauvegardes et de l’octroi d’accès à d’autres personnes
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Lire les réseaux virtuels |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Lire les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Lire les résultats des opérations sur les conteneurs de protection |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Effectuer une opération de sauvegarde à la demande sur un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Lire le résultat d’une opération effectuée sur un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Lire l’état d’une opération effectuée sur un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Lire les éléments sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Lire le point de récupération d’un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Effectuer une opération de restauration en utilisant le point de récupération d’un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Créer un élément de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Lire les conteneurs contenant l’élément de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Créer et gérer des travaux de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporter des travaux de sauvegarde dans un fichier Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Lire les métadonnées associées à la gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Créer et gérer les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Lire les résultats des opérations effectuées sur les stratégies de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Lire les stratégies de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Créer et gérer les éléments qui peuvent être sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Lire les éléments sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Lire les conteneurs sauvegardés contenant les éléments de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Lire les informations étendues associées au coffre | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Écrire les informations étendues associées au coffre | 
+| Microsoft.RecoveryServices/Vaults/read | Lire les coffres Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gérer les opérations de découverte pour récupérer les conteneurs récemment créés |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Lire les résultats d’une opération effectuée sur les éléments enregistrés du coffre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Lire les éléments enregistrés du coffre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Écrire des éléments enregistrés dans le coffre |
+| Microsoft.RecoveryServices/Vaults/usages/read | Lire l’utilisation du coffre Recovery Services |
+| Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Lire les groupes de ressources |
+| Microsoft.Storage/storageAccounts/read | Lire les comptes de stockage |
+| Microsoft.Support/* | Créer et gérer les tickets de support |
+
+### <a name="backup-reader"></a>Lecteur de sauvegarde
+Surveiller la gestion des sauvegardes dans le coffre Recovery Services
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Lire les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Lire les résultats des opérations sur les conteneurs de protection |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Lire le résultat d’une opération effectuée sur un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Lire l’état d’une opération effectuée sur un élément sauvegardé |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Lire les éléments sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Lire les conteneurs contenant l’élément de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Lire les résultats des travaux de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Lire les travaux de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporter des travaux de sauvegarde dans un fichier Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Lire les métadonnées associées à la gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Lire les résultats des opérations de gestion des sauvegardes |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Lire les résultats des opérations effectuées sur les stratégies de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Lire les stratégies de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Lire les éléments sauvegardés |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Lire les conteneurs sauvegardés contenant les éléments de sauvegarde |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Lire les informations étendues associées au coffre |
+| Microsoft.RecoveryServices/Vaults/read  | Lire les coffres Recovery Services |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Lire le résultat de l’opération de découverte visant à récupérer les conteneurs récemment créés |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Lire les résultats d’une opération effectuée sur les éléments enregistrés du coffre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Lire les éléments enregistrés du coffre |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Lire l’utilisation du coffre Recovery Services |
 
 ### <a name="biztalk-contributor"></a>Collaborateur BizTalk
 Gérer BizTalk Services
@@ -555,7 +650,6 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

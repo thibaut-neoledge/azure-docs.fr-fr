@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 8661d4b3da31e3e3e54590a013b5c784216ecefb
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
@@ -602,52 +602,61 @@ Vous pouvez également vous référer à [l’article Résolution des problèmes
    
     À l’heure actuelle, l’authentification ou les listes de contrôle d’accès basées sur Active Directory ne sont pas prises en charge, mais elles figurent dans notre liste de demandes de fonctionnalités. Pour l’instant, les clés de compte de stockage Azure sont utilisées pour l’authentification auprès du partage de fichiers. Nous offrons néanmoins une solution de contournement utilisant les signatures d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes. À l’aide des SAP, vous pouvez générer des jetons assortis d’autorisations spécifiques valides pendant une période définie. Par exemple, vous pouvez générer un jeton offrant un accès en lecture seule à un fichier donné. Toute personne qui possède ce jeton pendant sa période de validité dispose d’un accès en lecture seule à ce fichier.
    
-    Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers via le protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu.
-2. **Les partages de fichiers Azure sont-ils visibles publiquement sur Internet ou sont-ils seulement accessibles à partir d’Azure ?**
-   
-    Tant que le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (*par exemple*, Windows 8 ou Windows Server 2012), votre partage de fichiers est disponible via Internet.  
-3. **Le trafic réseau entre une machine virtuelle Azure et un partage de fichiers est-il considéré comme de la bande passante externe qui est facturée dans le cadre de l’abonnement ?**
+    Les SAP sont uniquement prises en charge via l’API REST ou les bibliothèques clientes. Lorsque vous montez le partage de fichiers via le protocole SMB, vous ne pouvez pas utiliser de SAP pour déléguer l’accès à son contenu. 
+
+2. **Comment fournir l’accès à un fichier spécifique via un navigateur web ?**
+   À l’aide des SAP, vous pouvez générer des jetons assortis d’autorisations spécifiques valides pendant une période définie. Par exemple, vous pouvez générer un jeton avec un accès en lecture seule à un fichier spécifique pendant une période donnée. Toute personne qui possède cette url peut effectuer le téléchargement directement à partir de n’importe quel navigateur web tant qu’il est valide. Les clés SAP peuvent être facilement générées à partir d’une interface utilisateur telle que Storage Explorer.
+
+3.   **Quelles sont les différentes façons d’accéder aux fichiers dans le stockage de fichiers Azure ?**
+    Vous pouvez monter le partage de fichiers sur votre ordinateur local à l’aide du protocole SMB 3.0 ou utiliser des outils tels que [Storage Explorer](http://storageexplorer.com/) ou Cloudberry pour accéder aux fichiers dans votre partage de fichiers. À partir de votre application, vous pouvez utiliser des bibliothèques clientes, l’API REST ou Powershell pour accéder à vos fichiers dans le partage de fichiers Azure.
+    
+4.   **Comment monter le partage de fichiers Azure sur mon ordinateur local ?** Vous pouvez monter le partage de fichiers par le biais du protocole SMB tant que le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (*par exemple*, Windows 8 ou Windows Server 2012). Contactez votre fournisseur d’accès Internet pour débloquer le port. En attendant, vous pouvez afficher vos fichiers à l’aide de Storage Explorer ou tout autre tiers tel que Cloudberry.
+
+5. **Le trafic réseau entre une machine virtuelle Azure et un partage de fichiers est-il considéré comme de la bande passante externe qui est facturée dans le cadre de l’abonnement ?**
    
     Si le partage de fichiers et la machine virtuelle se trouvent dans des régions différentes, le trafic entre eux sera facturé en tant que bande passante externe.
-4. **Si le trafic réseau se fait entre une machine virtuelle et un partage de fichiers se trouvant dans la même région, est-il gratuit ?**
+6. **Si le trafic réseau se fait entre une machine virtuelle et un partage de fichiers se trouvant dans la même région, est-il gratuit ?**
    
     Oui. Le trafic est gratuit s’il concerne une même région.
-5. **La connexion depuis des machines virtuelles locales au stockage de fichiers Azure repose-t-elle sur Azure ExpressRoute ?**
+7. **La connexion depuis des machines virtuelles locales au stockage de fichiers Azure repose-t-elle sur Azure ExpressRoute ?**
    
     Non. Si vous ne disposez pas d’ExpressRoute, vous pouvez accéder au partage de fichiers depuis votre site à condition que le port 445 (TCP sortant) soit ouvert pour l’accès Internet. Vous pouvez toutefois utiliser ExpressRoute avec le stockage de fichiers si vous le souhaitez.
-6. **Un « témoin de partage de fichiers » pour un cluster de basculement constitue-t-il un des cas d’utilisation du stockage de fichiers Azure ?**
+8. **Un « témoin de partage de fichiers » pour un cluster de basculement constitue-t-il un des cas d’utilisation du stockage de fichiers Azure ?**
    
     Cela n’est pas pris en charge à l’heure actuelle.
-7. **Le stockage de fichiers est répliqué uniquement via LRS ou GRS pour l’instant, n’est-ce pas ?**  
+9. **Le stockage de fichiers est répliqué uniquement via LRS ou GRS pour l’instant, n’est-ce pas ?**  
    
     Nous prévoyons de prendre en charge RA-GRS, mais nous n’avons pas encore de calendrier bien défini.
-8. **Quand pourrai-je utiliser des comptes de stockage existants pour le stockage de fichiers Azure ?**
+10. **Quand pourrai-je utiliser des comptes de stockage existants pour le stockage de fichiers Azure ?**
    
     Le stockage de fichiers Azure est dès à présent activé pour tous les comptes de stockage.
-9. **Avez-vous prévu d’ajouter également une opération Rename à l’API REST ?**
+11. **Avez-vous prévu d’ajouter également une opération Rename à l’API REST ?**
    
     L’opération Rename n’est pas encore prise en charge dans notre API REST.
-10. **Est-il possible d’avoir des partages imbriqués, autrement dit, un partage sous un partage ?**
+12. **Est-il possible d’avoir des partages imbriqués, autrement dit, un partage sous un partage ?**
     
     Non. Le partage de fichiers est le pilote virtuel que vous pouvez monter et les partages imbriqués ne sont donc pas pris en charge.
-11. **Est-il possible de spécifier des autorisations en lecture seule ou en écriture seule sur des dossiers au sein du partage ?**
+13. **Est-il possible de spécifier des autorisations en lecture seule ou en écriture seule sur des dossiers au sein du partage ?**
     
     Vous ne bénéficiez pas de ce niveau de contrôle sur les autorisations si vous montez le partage de fichiers via SMB. Toutefois, vous pouvez y parvenir en créant une signature d’accès partagé (SAP) via l’API REST ou les bibliothèques clientes.  
-12. **Les performances étaient lentes lorsque j’ai essayé de décompresser des fichiers dans File Storage. Que dois-je faire ?**
+14. **Les performances étaient lentes lorsque j’ai essayé de décompresser des fichiers dans File Storage. Que dois-je faire ?**
     
     Pour transférer un grand nombre de fichiers dans le stockage de fichiers, nous vous recommandons d’utiliser AzCopy, Azure Powershell (Windows) ou CLI Azure (Unix/Linux), car ces outils ont été optimisés pour le transfert réseau.
-13. **Correctif publié pour résoudre le problème de ralentissement des performances avec les fichiers Azure**
+15. **Correctif publié pour résoudre le problème de ralentissement des performances avec les fichiers Azure**
     
     L’équipe Windows a récemment publié un correctif permettant de résoudre un problème de ralentissement des performances lorsque le client accède au stockage de fichiers Azure à partir de Windows 8.1 ou de Windows Server 2012 R2. Pour plus d’informations, consultez l’article de la base de connaissances associé [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Ralentissement des performances lors de l’accès à Azure File Storage depuis Windows 8.1 ou Server 2012 R2).
-14. **Utilisation du stockage de fichiers Azure avec Linux**
+16. **Utilisation du stockage de fichiers Azure avec Linux**
     
     IBM a publié un document visant à guider les clients IBM MQ lors de la configuration du stockage de fichiers Azure avec leur service. Pour plus d’informations, consultez l’article [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Comment configurer le gestionnaire de file d’attente multi-instance IBM MQ avec le service de fichiers Microsoft Azure).
-15. **Comment résoudre les erreurs du Stockage Fichier Azure ?**
+17. **Comment résoudre les erreurs du Stockage Fichier Azure ?**
     
     Vous pouvez vous référer à [l’article Résolution des problèmes relatifs aux fichiers Azure](storage-troubleshoot-file-connection-problems.md) pour obtenir une aide de bout en bout.               
-16. ** Puis-je utiliser FileSystemWatcher pour écouter des événements tels que la création/modification/suppression de fichiers et de répertoires dans mon partage Azure File Services ?
 
-Non. Vous pouvez utiliser le Kit de développement logiciel (SDK) Tâches web Azure. Vous pouvez écrire vos propres liaisons déclenchées ou non déclenchées et écouter les événements dans votre Stockage Fichier. Vous trouverez plus d’informations pour commencer ici - [Instructions pour la création de déclencheurs et binders](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+18. **Comment activer le chiffrement côté serveur pour les fichiers Azure ?**
+
+    Le [chiffrement côté serveur](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) est actuellement en version préliminaire. Pendant la version préliminaire, la fonction ne peut être activée que pour les nouveaux comptes de stockage Azure Resource Manager (ARM).
+    Vous pouvez activer cette fonction sur le compte de stockage Azure Resource Manager à l’aide du portail Azure. Nous envisageons de disposer d’[Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), de l’[interface de ligne de commande (CLI) Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) ou de l’[API du fournisseur de ressources Microsoft Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) pour activer le chiffrement pour le stockage de fichiers d’ici la fin du mois de février. L’activation de cette fonction sera sans frais supplémentaires. Lorsque vous activez le chiffrement du service de stockage pour le stockage de fichiers Azure, vos données sont chiffrées automatiquement pour vous. 
+    En savoir plus sur le chiffrement du service de stockage. Vous pouvez également contacter ssediscussions@microsoft.com pour toute question supplémentaire sur la version préliminaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
@@ -660,6 +669,7 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 * [Utilisation d'Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
 * [Utilisation de AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
 * [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Résolution des problèmes de stockage de fichiers Azure](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -673,6 +683,6 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

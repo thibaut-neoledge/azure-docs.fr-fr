@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Sauvegarde cohérente avec les applications** : pour sauvegarder un serveur de fichiers, une machine virtuelle ou une base de données SQL, vous avez besoin de savoir qu’un point de récupération contient toutes les données requises pour restaurer la copie de sauvegarde. Azure Backup fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
 
-**Conservation à long terme** : sauvegardez vos données dans Azure pendant 99 ans. Au lieu de basculer les copies de sauvegarde sur disque vers la sauvegarde sur bande, puis de déplacer cette dernière vers un emplacement hors site pour le stockage à long terme, vous pouvez utiliser Azure pour la rétention à court terme et à long terme.
+**Rétention à long terme** : au lieu de basculer les copies de sauvegarde sur disque vers la sauvegarde sur bande, puis de déplacer cette dernière vers un emplacement hors site pour le stockage à long terme, vous pouvez utiliser Azure pour la rétention à court terme et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Sauvegarde ou Recovery Services. Vous pouvez conserver des données dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. Consultez la section [Sauvegarde et rétention](backup-introduction-to-azure-backup.md#backup-and-retention) dans cet article pour savoir comment cette limite peut avoir un impact sur vos besoins de sauvegarde.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quels composants Azure Backup dois-je utiliser ?
 Si vous ne savez pas quel composant Azure Backup utiliser pour vos besoins, consultez le tableau suivant qui explique ce que vous pouvez protéger avec chaque composant. Le portail Azure fournit un Assistant intégré pour vous aider à choisir le composant à télécharger et à déployer. L’Assistant, qui fait partie de la création du coffre Recovery Services, vous permet de sélectionner un objectif de sauvegarde et de choisir les données ou les applications à protéger en quelques étapes.
@@ -107,6 +107,15 @@ Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le
 
 ### <a name="restore-premium-storage-vms"></a>Restaurer des machines virtuelles Premium Storage
 Les machines virtuelles Stockage Premium peuvent être restaurées dans Stockage Premium ou dans le stockage standard. La restauration d'un point de récupération de machines virtuelles Premium Storage dans Premium Storage est le processus de restauration classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Premium Storage dans le stockage standard. Ce type de restauration peut être utilisé si vous avez besoin d'un sous-ensemble de fichiers de la machine virtuelle.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Utilisation des machines virtuelles de disque géré avec Azure Backup
+Azure Backup protège les machines virtuelles de disque géré. Les disques gérés vous libèrent de la gestion des comptes de stockage des machines virtuelles et simplifient considérablement l’approvisionnement des machines virtuelles.
+
+### <a name="back-up-managed-disk-vms"></a>Sauvegarder des machines virtuelles de disque géré
+La sauvegarde des machines virtuelles sur des disques gérés est identique à la sauvegarde des machines virtuelles de Resource Manager. Vous pouvez sauvegarder directement à partir de la vue de la machine virtuelle ou de la vue de coffre de Recovery Services. La sauvegarde de machines virtuelles sur des disques gérés est prise en charge par le biais des collections RestorePoint basées sur des disques gérés. Azure Backup ne prend actuellement pas en charge la sauvegarde des machines virtuelles de disque géré chiffrées avec Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Restaurer des machines virtuelles de disque géré
+Azure Backup vous permet de restaurer une machine virtuelle complète avec des disques gérés ou de restaurer des disques gérés sur un compte de stockage Resource Manager. Tandis que les disques créés au cours du processus de restauration sont gérés par Azure, un compte de stockage créé dans le cadre du processus de restauration est similaire à tout autre compte de stockage Resource Manager et doit être géré par le client.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quelles sont les fonctionnalités de chaque composant Azure Backup ?
 Les sections suivantes comportent des tableaux qui résument la disponibilité ou la prise en charge de diverses fonctionnalités dans chaque composant Azure Backup. Pour un support ou des détails supplémentaires, consultez les informations après chaque tableau.
@@ -175,7 +184,7 @@ Si vous sauvegardez vos données sur un System Center DPM ou sur un serveur de s
 #### <a name="network-throttling"></a>Limitation du réseau
 L’agent Azure Backup assure une limitation du réseau qui permet de contrôler l’utilisation de la bande passante réseau pendant le transfert de données. Cette limitation peut s’avérer utile si vous avez besoin de sauvegarder des données pendant les heures de travail, mais ne souhaitez pas que le processus de sauvegarde interfère avec le reste du trafic internet. La limitation du transfert de données s’applique aux activités de sauvegarde et de restauration.
 
-### <a name="backup-and-retention"></a>Sauvegarde et rétention
+## <a name="backup-and-retention"></a>Sauvegarde et rétention
 
 La solution Sauvegarde Azure présente une limite de 9 999 points de récupération, également appelés copies ou instantanés de sauvegarde, par *instance protégée*. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail configurés pour sauvegarder des données dans Azure. Pour plus d’informations, consultez la section [Qu’est-ce qu’une instance protégée ?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Une instance est protégée une fois qu’une copie de sauvegarde des données a été enregistrée. La copie de sauvegarde des données constitue la protection. Si les données sources sont perdues ou endommagées, la copie de sauvegarde peut les restaurer. Le tableau ci-après indique la fréquence de sauvegarde maximale pour chaque composant. Votre configuration de votre stratégie de sauvegarde détermine la rapidité avec laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
 
@@ -234,6 +243,6 @@ Pour plus d’informations sur la protection des autres charges de travail, cons
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

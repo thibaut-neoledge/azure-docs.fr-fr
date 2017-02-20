@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/30/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: fc04923c6a6b4b870011a82fcd9688ca8e0c8a7e
-ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
+ms.sourcegitcommit: ff87afae1b468bef77947edd9806d330047f2ba6
+ms.openlocfilehash: 3b167db06ee30f7c3483eca30782437c61f8dcc8
 
 
 ---
@@ -119,9 +119,7 @@ Une fois connecté à la Place de marché Azure, suivez ces étapes pour finalis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
-
-Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche de codage à partir d’un fichier entrant dans le conteneur configuré. Pour plus d’informations, consultez [cet exemple](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
+Vous pouvez désormais [copier des objets blob d’un compte de stockage dans un compte AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -132,6 +130,6 @@ Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

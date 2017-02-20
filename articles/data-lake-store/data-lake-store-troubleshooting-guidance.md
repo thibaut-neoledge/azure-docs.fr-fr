@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -41,7 +41,7 @@ En cas de panne régionale, vous pouvez accéder à vos données dans la région
 Si Azure Data Lake Store assure la résilience des données via des réplicas automatisés, cela ne protège aucunement votre application (ou les développeurs/utilisateurs) de la corruption des données ou d’une suppression accidentelle.
 
 #### <a name="best-practices"></a>Meilleures pratiques
-Pour éviter toute suppression accidentelle, nous vous recommandons de définir tout d’abord les stratégies d’accès adaptées à votre compte Data Lake Store à l’aide des [fonctionnalités de sécurité de Data Lake Store](data-lake-store-security-overview.md) disponibles. Nous vous recommandons également de créer régulièrement des copies de vos données critiques avec [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) dans un autre compte Data Lake Store, dossier ou abonnement Azure.  Cela peut servir à la récupération après un incident de corruption ou de suppression de données. Azure Data Factory est un service utile pour créer et déployer des pipelines de déplacement des données à intervalles réguliers.
+Pour éviter toute suppression accidentelle, nous vous recommandons de définir tout d’abord les stratégies d’accès adaptées à votre compte Data Lake Store.  Cela inclut la mise en œuvre de [verrous de ressources Azure](../azure-resource-manager/resource-group-lock-resources.md) pour verrouiller des ressources importantes, ainsi que l’application d’un contrôle d’accès au niveau du compte et des fichiers à l’aide des [fonctionnalités de sécurité de Data Lake Store](data-lake-store-security-overview.md) disponibles. Nous vous recommandons également de créer régulièrement des copies de vos données critiques avec [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) dans un autre compte Data Lake Store, dossier ou abonnement Azure.  Cela peut servir à la récupération après un incident de corruption ou de suppression de données. Azure Data Factory est un service utile pour créer et déployer des pipelines de déplacement des données à intervalles réguliers.
 
 Les organisations peuvent également activer la [journalisation des diagnostics](data-lake-store-diagnostic-logs.md) pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations sur les auteurs potentiels d’une suppression ou d’une mise à jour de fichier.
 
@@ -52,6 +52,6 @@ Les organisations peuvent également activer la [journalisation des diagnostics]
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

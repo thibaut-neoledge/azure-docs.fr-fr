@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/30/2016
+ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
-ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
+ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
+ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
 
 
 ---
@@ -40,7 +40,7 @@ Les avantages de l’utilisation du CDN pour mettre en cache les ressources de s
 1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`.  Le DNS achemine la demande à l’emplacement du point de présence (POP) le plus performant.  Il s’agit en général du point de présence le plus proche géographiquement de l'utilisateur.
 2. Si les serveurs Edge du point de présence ne disposent pas du fichier dans leur cache, le serveur Edge demande le fichier à l'origine.  L'origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
 3. L'origine renvoie les fichiers sur le serveur Edge, notamment les en-têtes HTTP facultatifs décrivant la durée de vie du fichier.
-4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice).  Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie.  Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de 7 jours.
+4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice).  Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie.  Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de&7; jours.
 5. Des utilisateurs supplémentaires peuvent demander le même fichier à l’aide de la même URL et peuvent également être dirigés vers ce même point de présence.
 6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge renvoie le fichier à partir du cache.  L’expérience utilisateur est en conséquence plus rapide et plus réactive.
 
@@ -51,7 +51,8 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 | --- | --- | --- | --- |
 | Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) et [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Prise en charge de HTTPS |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Prise en charge HTTPS avec un point de terminaison CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS sur un domaine personnalisé | |**&#x2713;** |**&#x2713;** |
 | Équilibrage de la charge |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Double pile IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -91,6 +92,6 @@ Pour obtenir des informations sur la tarification, consultez la page [Prix appli
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
+ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
+ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
 
 
 ---
@@ -40,7 +40,7 @@ Le plan De base est la valeur par défaut lorsqu’une ressource Application Ins
 
 * Dans le plan De base, vous êtes facturé en fonction du volume de données : nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application.
 * Votre premier 1 Go pour chaque application est gratuit. Si vous expérimentez ou développez simplement, vous n'aurez probablement pas à payer.
-* [L'exportation continue](app-insights-export-telemetry.md) et le [connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) sont disponibles pour un coût supplémentaire par Go ajouté au plan De base, même s’ils sont gratuits jusqu’au début mars 2017.
+* [L’exportation continue](app-insights-export-telemetry.md) est disponible pour un coût supplémentaire par Go ajouté au plan De base, même s’il est gratuit jusqu’à début mars 2017.
 
 ### <a name="enterprise-plan"></a>Plan Entreprise
 
@@ -66,7 +66,7 @@ Le plan De base est la valeur par défaut lorsqu’une ressource Application Ins
 
 * La méthode de comptage de nœuds précise varie selon le Kit de développement logiciel (SDK) Application Insights que votre application utilise. 
   * Dans les versions du Kit de développement logiciel 2.2 et ultérieures, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ou [le Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) Application Insights signale chaque hôte d’application en tant que nœud, par exemple le nom d’ordinateur pour le serveur physique et les hôtes de machine virtuelle ou le nom d’instance dans le cas de services cloud.  La seule exception concerne les applications qui utilisent uniquement [.NET Core](https://dotnet.github.io/) et le Kit de développement logiciel (SDK) principal Application Insights, auquel cas un seul nœud sera signalé pour tous les hôtes, car le nom d’hôte n’est pas disponible. 
-  * Pour les versions antérieures du Kit de développement logiciel (SDK), le [Kit de développement logiciel (SDK) web} (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporte comme les nouvelles versions du Kit de développement logiciel (SDK). Toutefois, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ne signale qu’un seul nœud, quel que soit le nombre d’hôtes d’application actuel. 
+  * Pour les versions antérieures du Kit de développement logiciel (SDK), le [Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporte comme les nouvelles versions du Kit de développement logiciel (SDK). Toutefois, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ne signale qu’un seul nœud, quel que soit le nombre d’hôtes d’application actuel. 
   * Notez que, si votre application utilise le Kit de développement logiciel (SDK) pour définir l’instance de rôle (roleInstance) sur une valeur personnalisée, cette même valeur est utilisée par défaut pour déterminer le nombre de nœuds. 
   * Si vous utilisez une nouvelle version du Kit de développement logiciel (SDK) avec une application exécutée à partir d’ordinateurs clients ou d'appareils mobiles, il est possible que le nombre de nœuds retourné soit très important (en raison du grand nombre d’ordinateurs clients ou d'appareils mobiles). 
 
@@ -174,6 +174,6 @@ Les applications existantes peuvent continuer à utiliser les anciens niveaux de
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

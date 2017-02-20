@@ -35,20 +35,20 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 
 | Famille de références | ACU/Cœur |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A1-A4](#a-series) |100 |
+| [A5-A7](#a-series) |100 |
+| [A1_v2-A8_v2](#av2-series) |100 |
+| [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [DS1-14](#ds-series) |160 |
-| [DS1-15v2](#dsv2-series) |210-250* |
+| [D1-D14](#d-series) |160 |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
+| [DS1-DS14](#ds-series) |160 |
+| [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-5](#g-series) |180 - 240* |
-| [GS1-5](#gs-series) |180 - 240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances.  Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -56,7 +56,7 @@ Les unités ACU signalées par un astérisque (*) utilisent la technologie Inte
 ## <a name="size-tables"></a>Tableaux des tailles
 Les tableaux ci-après indiquent les tailles et les capacités qu’elles offrent.
 
-* La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1 000^3 octets) à des disques mesurés en Gio (1 024^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
+* La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1&000;^3 octets) à des disques mesurés en Gio (1&024;^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
 * Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et Mbits/s où Mbits/s = 10^6 octets par seconde.
 * Les disques de données peuvent fonctionner en mode avec ou sans mise en cache.  En cas de fonctionnement du disque de données avec mise en cache, le mode de mise en cache hôte est défini sur **ReadOnly** ou **ReadWrite**.  En cas de fonctionnement du disque de données sans mise en cache, le mode de mise en cache hôte est défini sur **Aucun**.
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lors du déplacement entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
@@ -128,9 +128,11 @@ Pour plus d’informations et pour connaître les éléments à prendre en compt
 | Standard_D12_v2 |4 |28 |200 |8 |8 x 500 |4 / Élevée |
 | Standard_D13_v2 |8 |56 |400 |16 |16 x 500 |8 / Élevée |
 | Standard_D14_v2 |16 |112 |800 |32 |32 x 500 |8 / Extrêmement élevée |
-| Standard_D15_v2 |20 |140 |1 000 |40 |40 x 500 |8 / Extrêmement élevée* |
+| Standard_D15_v2** |20 |140 |1&000; |40 |40 x&500; |8 / Extrêmement élevée* |
 
 * Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_D15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+
+**L’instance G5 est isolée sur un matériel dédié à un client unique.
 
 <br>
 
@@ -164,7 +166,7 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 | Standard_DS12_v2 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 192 |4 Élevée |
 | Standard_DS13_v2 |8 |56 |112 |16 |32 000 / 256 (288) |25 600 / 384 |8 Élevée |
 | Standard_DS14_v2 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 768 |8 Extrêmement élevé |
-| Standard_DS15_v2 |20 |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 / Extrêmement élevée** |
+| Standard_DS15_v2*** |20 |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 / Extrêmement élevée** |
 
 Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
@@ -172,6 +174,7 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 ** Dans certaines régions, l’accélération réseau est disponible pour la taille Standard_DS15_v2. Pour plus d’informations sur l’utilisation et la disponibilité, consultez [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (L’accélération réseau est disponible en version préliminaire) et [Accélération réseau pour une machine virtuelle](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
+***L’instance G5 est isolée sur un matériel dédié à un client unique.
 <br>
 
 ## <a name="f-series"></a>Série F
@@ -205,10 +208,11 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / Élevée |
 | Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / Élevée |
-| Standard_G3 |8 |112 |1 536 |16 |16 x 500 |4 / Très élevée |
-| Standard_G4 |16 |224 |3 072 |32 |32 x 500 |8 / Extrêmement élevée |
-| Standard_G5 |32 |448 |6 144 |64 |64 x 500 |8 / Extrêmement élevée |
+| Standard_G3 |8 |112 |1&536; |16 |16 x 500 |4 / Très élevée |
+| Standard_G4 |16 |224 |3&072; |32 |32 x 500 |8 / Extrêmement élevée |
+| Standard_G5* |32 |448 |6&144; |64 |64 x 500 |8 / Extrêmement élevée |
 
+*L’instance est isolée sur un matériel dédié à un client unique.
 <br>
 
 ## <a name="gs-series"></a>Série GS*
@@ -218,12 +222,13 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 | Standard_GS2 |4 |56 |112 |8 |20 000 / 200 (528) |10 000 / 250 |2 / Élevée |
 | Standard_GS3 |8 |112 |224 |16 |40 000 / 400 (1 056) |20 000 / 500 |4 / Très élevée |
 | Standard_GS4 |16 |224 |448 |32 |80 000 / 800 (2 112) |40 000 / 1 000 |8 / Extrêmement élevée |
-| Standard_GS5 |32 |448 |896 |64 |160 000 / 1 600 (4 224) |80 000 / 2 000 |8 / Extrêmement élevée |
+| Standard_GS5** |32 |448 |896 |64 |160 000 / 1 600 (4 224) |80 000 / 2 000 |8 / Extrêmement élevée |
 
 Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés. 
 
+**L’instance G5 est isolée sur un matériel dédié à un client unique.
 <br>
 
 ## <a name="h-series"></a>Série H
@@ -257,7 +262,7 @@ Les instances NV sont alimentées par une carte GPU NVIDIA Tesla M60 et NVIDIA G
 | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 |
 | Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1 440 | 4 |
+| Standard_NV24 |24 |224 |1&440; | 4 |
 
 1 GPU = une moitié de carte M60.
 
@@ -272,8 +277,8 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1 440 | 4 |
-| Standard_NC24r* |24 |224 | 1 440 | 4 |
+| Standard_NC24 |24 |224 | 1&440; | 4 |
+| Standard_NC24r* |24 |224 | 1&440; | 4 |
 
 1 GPU = une moitié de carte K80.
 
@@ -301,6 +306,6 @@ Dans le modèle de déploiement classique, certains noms de tailles de machines 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

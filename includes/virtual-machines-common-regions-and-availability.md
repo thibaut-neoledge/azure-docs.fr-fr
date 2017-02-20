@@ -37,8 +37,13 @@ Vous pouvez afficher la [liste des paires de régions ici](../articles/best-prac
 Certains services ou fonctionnalités des machines virtuelles ne sont disponibles que dans certaines régions, par exemple des tailles de machines virtuelles ou des types de stockage spécifiques. De même, certains services Azure globaux ne vous obligent pas à sélectionner une région particulière, par exemple [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), ou [Azure DNS](../articles/dns/dns-overview.md). Pour vous aider à concevoir votre environnement d’application, vous pouvez vérifier la [disponibilité des services Azure dans chaque région](https://azure.microsoft.com/regions/#services). 
 
 ## <a name="storage-availability"></a>Disponibilité du stockage
-Il est important de bien comprendre les régions géographiques Azure lorsque vous considérez les options de réplication de stockage Azure disponibles. Lorsque vous créez un compte de stockage, vous devez sélectionner une des options de réplication suivantes :
+Il est important de bien comprendre les régions géographiques Azure lorsque vous considérez les options de réplication de stockage disponibles. Selon le type de stockage, vous disposez d’options de réplication différentes.
 
+**Azure Managed Disks**
+* Stockage localement redondant (LRS)
+  * Réplique trois fois vos données dans la région dans laquelle vous avez créé votre compte de stockage.
+
+**Disques basés sur un compte de stockage**
 * Stockage localement redondant (LRS)
   * Réplique trois fois vos données dans la région dans laquelle vous avez créé votre compte de stockage.
 * Stockage redondant dans une zone (ZRS)
@@ -56,11 +61,15 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 | Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
 
-Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/storage-redundancy.md).
+Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Coûts de stockage
-Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez. 
+Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez.
 
+**Azure Managed Disks**
+* Les disques gérés Premium s’appuient sur des disques SSD et les disques gérés Standard sur des disques à rotation classique. Les disques gérés Premium et Standard sont facturés en fonction de la capacité déployée pour le disque.
+
+**Disques non gérés**
 * Le stockage Premium s’appuie sur des disques SSD et est facturé en fonction de la capacité du disque.
 * Le stockage standard s’appuie sur des disques rotatifs ordinaires et est facturé en fonction de la capacité en cours d’utilisation et la disponibilité de stockage souhaitée.
   * Pour RA-GRS, les frais de transfert de données de géo-réplication supplémentaires correspondent au coût de la bande passante nécessaire à la réplication de ces données vers une autre région Azure.
@@ -75,7 +84,7 @@ Lorsque vous créez une machine virtuelle à partir d’une image dans Azure Mar
 Vous pouvez également créer vos propres images personnalisées et les charger à l’aide de la [CLI Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou d’[Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour créer rapidement des machines virtuelles personnalisées selon les besoins spécifiques de votre build.
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité représente le compromis entre deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD).
+Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de&99;,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/storage/storage-premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. Un groupe à haute disponibilité représente le compromis entre deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD).
 
 ![Schéma conceptuel de la configuration du domaine de mise à jour et du domaine d’erreur](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
@@ -83,6 +92,9 @@ Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines vir
 
 ### <a name="fault-domains"></a>Domaines d'erreur
 Un domaine d’erreur est un groupe logique de matériels sous-jacents qui partagent la même source d’alimentation et le même commutateur réseau, par exemple un rack dans un centre de données local. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines d’erreur. Cette approche limite l’impact des défaillances du matériel physique, des pannes de réseau ou des coupures de courant susceptibles de survenir.
+
+#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Domaines d’erreur et groupes à haute disponibilité avec des disques gérés
+Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/storage/storage-faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région).
 
 ### <a name="update-domains"></a>Domaines de mise à jour
 Un domaine de mise à jour est un groupe logique de matériels sous-jacents qui peuvent faire l’objet d’une opération de maintenance ou être redémarrés en même temps. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines de mise à jour. Cette approche garantit qu’au moins une instance de votre application reste toujours en cours d’exécution, car la plateforme Azure fait l’objet d’une maintenance périodique. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois.
@@ -92,6 +104,6 @@ Vous pouvez maintenant commencer à utiliser ces fonctionnalités de gestion de 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

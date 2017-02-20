@@ -1,6 +1,6 @@
 ---
 title: Activation de Transparent Data Encryption dans Azure Security Center | Microsoft Docs
-description: "Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activer le chiffrement transparent des données**."
+description: "Ce document vous explique comment implémenter la recommandation de l’Azure Security Center **Activer le chiffrement transparent des données**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
 
 
 ---
@@ -27,8 +27,8 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Activer Transparent Data Encryption**.
@@ -37,9 +37,9 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
    ![Sélectionner la base de données SQL sur laquelle activer Transparent Data Encryption][2]
 3. Dans le panneau **Transparent Data Encryption**, sélectionnez **ON** sous Chiffrement des données et sélectionnez **Enregistrer** dans le ruban supérieur du panneau.
    ![Activer Transparent Data Encryption][3]
-   
+
    Une fois TDE activé dans la base de données SQL sélectionnée, **l’état de chiffrement** affiche **Chiffré**.    
-   
+
    ![État du chiffrement][4]
 
 ## <a name="see-also"></a>Voir aussi
@@ -66,6 +66,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

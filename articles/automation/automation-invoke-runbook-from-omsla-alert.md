@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 76706d1ab9b1c675167af8119b58dd7cb0cda4a3
-ms.openlocfilehash: 15270983b3c3299f85c7e2020c9e11e9b3c168f4
+ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
+ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 ---
 
@@ -76,7 +76,7 @@ Le runbook contient un paramètre d’entrée de type **objet** appelé **Webhoo
 
 Pour cet exemple, dans Log Analytics, nous avons créé deux champs personnalisés, *SvcDisplayName_CF* et *SvcState_CF*, pour extraire le nom d’affichage et l’état du service (en cours d’exécution ou arrêté) à partir de l’événement écrit dans le journal des événements système.  Nous créons maintenant une règle d’alerte avec la requête de recherche suivante : `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` afin de pouvoir détecter lorsque le service Spouleur d’impression est arrêté sur le système Windows.  Il peut s’agir de n’importe quel service, mais pour cet exemple, nous référençons l’un des services inclus dans le système d’exploitation Windows.  L’action d’alerte est configurée pour exécuter notre runbook utilisé dans cet exemple et s’exécuter sur le Runbook Worker hybride, lesquels sont activés sur les systèmes cibles.   
 
-L’activité de code du runbook **Obtenir le nom du service à partir de LA** convertit la chaîne au format JSON en un type d’objet et la filtre sur l’élément *SvcDisplayName_CF pour extraire le nom d’affichage du service Windows et le transmettre à l’activité suivante, qui vérifie que le service est arrêté avant de tenter de le redémarrer.  *SvcDisplayName_CF* est un [champ personnalisé](../log-analytics/log-analytics-custom-fields.md) créé dans Log Analytics pour illustrer cet exemple.
+L’activité de code du runbook **Obtenir le nom du service à partir de LA** convertit la chaîne au format JSON en un type d’objet et la filtre sur l’élément *SvcDisplayName_CF* pour extraire le nom d’affichage du service Windows et le transmettre à l’activité suivante, qui vérifie que le service est arrêté avant de tenter de le redémarrer.  *SvcDisplayName_CF* est un [champ personnalisé](../log-analytics/log-analytics-custom-fields.md) créé dans Log Analytics pour illustrer cet exemple.
 
     $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
     $SearchResults.SvcDisplayName_CF  
@@ -92,6 +92,7 @@ Si vous ne possédez pas de compte Automation lié à votre espace de travail OM
 * Pour comprendre comment déclencher des runbooks à l’aide d’un webhook, consultez [Webhooks Azure Automation](automation-webhooks.md).
 
 
-<!--HONumber=Jan17_HO5-->
+
+<!--HONumber=Feb17_HO2-->
 
 

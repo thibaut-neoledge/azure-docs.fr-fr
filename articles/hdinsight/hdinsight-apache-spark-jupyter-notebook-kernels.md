@@ -1,6 +1,6 @@
 ---
-title: Noyaux disponibles avec les blocs-notes Jupyter sur des clusters HDInsight Spark sur Linux | Microsoft Docs
-description: "En savoir plus sur les noyaux de bloc-notes Jupyter supplémentaires disponibles avec le cluster Spark sur HDInsight Linux."
+title: "Utiliser différents noyaux avec des blocs-notes Jupyter sur des clusters Azure Spark | Microsoft Docs"
+description: "Découvrez les noyaux PySpark et Spark, que vous pouvez utiliser avec le bloc-notes Jupyter disponible avec les clusters Spark sur HDInsight sur Linux."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -13,65 +13,66 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b322e44f53567e2618df086500ca42e81e4e233e
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: fc39933ac8d9f3c46023a5852df036b87e559647
 
 
 ---
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight-linux"></a>Noyaux disponibles pour les blocs-notes Jupyter avec les clusters Apache Spark sur HDInsight Linux
-Le cluster Apache Spark sur HDInsight (Linux) comprend des blocs-notes Jupyter qui vous permettent de tester vos applications. Un noyau est un programme qui exécute et interprète votre code. Les clusters HDInsight Spark fournissent deux noyaux que vous pouvez utiliser avec le bloc-notes Jupyter. Ces étapes sont les suivantes :
+# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Noyaux de blocs-notes Jupyter avec les clusters Apache Spark dans HDInsight 
 
-1. **PySpark** (pour les applications écrites en Python)
-2. **Spark** (pour les applications écrites en Scala)
+Les clusters HDInsight Spark fournissent deux noyaux que vous pouvez utiliser avec le bloc-notes Jupyter pour tester vos applications Spark. Un noyau est un programme qui exécute et interprète votre code. Les deux noyaux sont les suivants :
 
-Dans cet article, vous allez découvrir comment utiliser ces noyaux ainsi que leurs avantages.
+- **PySpark** (pour les applications écrites en Python)
+- **Spark** (pour les applications écrites en Scala)
+
+Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les avantages de leur utilisation.
 
 **Configuration requise :**
 
 Vous devez disposer des éléments suivants :
 
-* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-use-the-kernels"></a>Utilisation des noyaux
-1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
-2. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord du cluster**, puis sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
+1. À partir du [portail Azure](https://portal.azure.com/), ouvrez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters). Le cluster est ouvert dans un nouveau panneau du portail.
+2. À partir de la section **Liens rapides** , cliquez sur **Tableaux de bord des clusters** pour ouvrir le panneau **Tableaux de bord des clusters**.  Si vous ne voyez pas **Liens rapides**, cliquez sur **Vue d’ensemble** dans le menu gauche du panneau.
+
+    ![Tableaux de bord des clusters](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Tableaux de bord des clusters") 
+3. Cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
    
    > [!NOTE]
    > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
-   > 
+   >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
-3. Créez un nouveau bloc-notes avec les nouveaux noyaux. Cliquez sur **Nouveau**, puis sur **Pyspark** ou **Spark**. Utilisez le noyau Spark pour les applications Scala et le noyau PySpark pour les applications Python.
+3. Cliquez sur **Nouveau**, puis sur **Pyspark** ou **Spark** pour créer un bloc-notes. Utilisez le noyau Spark pour les applications Scala et le noyau PySpark pour les applications Python.
    
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Créer un bloc-notes Jupyter") 
+
 4. Un nouveau bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
-## <a name="why-should-i-use-the-pyspark-or-spark-kernels"></a>Pourquoi utiliser les noyaux PySpark ou Spark ?
+## <a name="choose-between-the-kernels"></a>Choix entre les noyaux
 Voici quelques avantages de l’utilisation des nouveaux noyaux.
 
-1. **Contextes prédéfinis**. Avec les noyaux **PySpark** ou **Spark** fournis avec les blocs-notes Jupyter, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser l’application que vous développez ; ils sont disponibles par défaut. Ces contextes sont les suivants :
+- **Contextes prédéfinis**. Avec les noyaux **PySpark** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications ; ils sont disponibles par défaut. Ces contextes sont les suivants :
    
    * **sc** : pour le contexte Spark
    * **sqlContext** : pour le contexte Hive
 
     Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
 
-        ###################################################
-        # <a name="you-do-not-need-to-run-this-with-the-new-kernels"></a>IL N’EST PAS NÉCESSAIRE D’EXÉCUTER CES INSTRUCTIONS SUR LES NOUVEAUX NOYAUX
-        ###################################################
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
+      sc = SparkContext('yarn-client')  sqlContext = HiveContext(sc)
 
     En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
 
-1. **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` <args>). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur.     Pour plus d’informations sur les commandes magiques, cliquez [ici](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Commandes magiques de cellule**. Le noyau PySpark fournit certaines « commandes magiques » prédéfinies, qui sont des commandes spéciales que vous pouvez appeler avec `%%` (par exemple, `%%MAGIC` <args>). La commande magique doit se trouver au tout début d’une cellule de code et autoriser plusieurs lignes de contenu. Le mot magic doit être le premier mot de la cellule. Ajouter quoi que ce soit avant la commande magique, même des commentaires, provoque une erreur.     Pour plus d’informations sur les commandes magiques, cliquez [ici](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     Le tableau ci-dessous répertorie les différentes commandes magiques disponibles par le biais des noyaux.
-   
+
    | Commande magique | Exemple | Description |
    | --- | --- | --- |
    | help |`%%help` |Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
@@ -82,11 +83,11 @@ Voici quelques avantages de l’utilisation des nouveaux noyaux.
    | journaux |`%%logs` |Génère les journaux de la session Livy en cours. |
    | delete |`%%delete -f -s <session number>` |Supprime une session spécifique du point de terminaison Livy actuel. Notez que vous ne pouvez pas supprimer la session qui est lancée pour le noyau lui-même. |
    | cleanup |`%%cleanup -f` |Supprime toutes les sessions pour le point de terminaison Livy actuel, y compris la session de ce bloc-notes. L’indicateur de forçage -f est obligatoire. |
-   
+
    > [!NOTE]
-   > Outre les commandes magiques ajoutées par le noyau PySpark, vous pouvez également utiliser les [commandes magiques IPython intégrées](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), notamment `%%sh`. Vous pouvez utiliser la commande magique `%%sh` pour exécuter des scripts et des blocs de code sur le nœud principal du cluster. 
-   > 
-   > 
+   > Outre les commandes magiques ajoutées par le noyau PySpark, vous pouvez également utiliser les [commandes magiques IPython intégrées](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), notamment `%%sh`. Vous pouvez utiliser la commande magique `%%sh` pour exécuter des scripts et des blocs de code sur le nœud principal du cluster.
+   >
+   >
 2. **Visualisation automatique**. Le noyau **Pyspark** visualise automatiquement la sortie des requêtes Hive et SQL. Vous pouvez choisir entre plusieurs types de visualisations, notamment tableau, secteurs, courbes, aires et barres.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Paramètres pris en charge avec la commande magique %%sql
@@ -102,7 +103,7 @@ La commande magique %%sql prend en charge différents paramètres qui vous perme
 
 **Exemple :**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2 
+    %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
 L’instruction ci-dessus effectue les actions suivantes :
@@ -113,7 +114,7 @@ L’instruction ci-dessus effectue les actions suivantes :
 * Enfin, comme nous avons utilisé `-o query2` , elle enregistre également la sortie dans une trame de données appelée **query2**.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Points à prendre en compte lors de l'utilisation des nouveaux noyaux
-Quel que soit le noyau que vous utilisez (PySpark ou Spark), laisser les blocs-notes s’exécuter consomme vos ressources de cluster.  Avec ces noyaux, les contextes étant prédéfinis, le simple fait de quitter les blocs-notes n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d'utilisation. Une bonne pratique avec les noyaux PySpark et Spark consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du bloc-notes. Cela supprime le contexte puis ferme le bloc-notes.     
+Quel que soit le noyau que vous utilisez (PySpark ou Spark), laisser les blocs-notes s’exécuter consomme vos ressources de cluster.  Avec ces noyaux, les contextes étant prédéfinis, le simple fait de quitter les blocs-notes n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d’utilisation. Une bonne pratique avec les noyaux PySpark et Spark consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du bloc-notes. Cela supprime le contexte puis ferme le bloc-notes.     
 
 ## <a name="show-me-some-examples"></a>Voici quelques exemples :
 Lorsque vous ouvrez un bloc-notes Jupyter, deux dossiers sont disponibles au niveau racine.
@@ -156,7 +157,7 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -168,7 +169,6 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

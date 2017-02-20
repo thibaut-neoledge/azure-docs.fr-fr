@@ -1,5 +1,5 @@
 ---
-title: "Déplacer des ressources vers un nouveau groupe de ressources | Microsoft Docs"
+title: "Déplacer des ressources Azure vers un nouveau groupe de ressources ou abonnement | Microsoft Docs"
 description: "Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement."
 services: azure-resource-manager
 documentationcenter: 
@@ -12,40 +12,51 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5718ca956680ac3c92f4eb479a5948d0296b8b21
-ms.openlocfilehash: a9271062bc9de41a180c8e78fe911afed9e1fc7a
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
 
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 Cette rubrique vous montre comment déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources dans le même abonnement. Vous pouvez utiliser le portail, PowerShell, Azure CLI ou l’API REST pour déplacer des ressources. Les opérations de déplacement de cette rubrique sont disponibles sans assistance du support technique Azure.
 
-Généralement, vous déplacez des ressources dans les cas de figure suivants :
-
-* À des fins de facturation, une ressource doit être placée au sein d’un abonnement distinct.
-* Une ressource ne partage plus le cycle de vie des ressources avec lesquelles elle était précédemment groupée. Vous souhaitez déplacer la ressource vers un nouveau groupe, afin d’être en mesure de la gérer séparément des autres ressources.
-
 Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont verrouillés pendant l’opération. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources, mais il ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données. 
 
 Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d’une ressource consiste uniquement en sa translation vers un nouveau groupe de ressources. Le nouveau groupe de ressources peut présenter à un autre emplacement, mais l’emplacement de la ressource n’est aucunement modifié.
 
 > [!NOTE]
-> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez en fait modifier votre offre de compte Azure (par exemple, en procédant à une mise à niveau d’une version par paiement à l’utilisation vers une version par prépaiement) tout en continuant à utiliser vos ressources existantes, consultez [Changer d’offre pour votre abonnement Azure](../billing-how-to-switch-azure-offer.md). 
+> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez en fait modifier votre offre de compte Azure (par exemple, en procédant à une mise à niveau d’une version par paiement à l’utilisation vers une version par prépaiement) tout en continuant à utiliser vos ressources existantes, consultez [Changer d’offre pour votre abonnement Azure](../billing/billing-how-to-switch-azure-offer.md). 
 > 
 > 
 
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
 
-1. Le service doit activer la possibilité de déplacer des ressources. Cette rubrique répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
-2. Les abonnements source et de destination doivent exister dans le même [client Active Directory](../active-directory/active-directory-howto-tenant.md). Pour passer à un nouveau client, contactez le support technique.
+1. Les abonnements source et de destination doivent exister dans le même [client Active Directory](../active-directory/active-directory-howto-tenant.md). Pour vérifier que les deux abonnements ont le même ID client, utilisez Azure PowerShell ou Azure CLI.
+
+  Pour Azure PowerShell, utilisez :
+
+  ```powershell
+  (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
+  ```
+
+  Pour Azure CLI 2.0 (version préliminaire), utilisez :
+
+  ```azurecli
+  az account show --subscription "Example Subscription" --query tenantId
+  ```
+
+  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Active Directory associé. 
+
+  ![Modifier l’annuaire](./media/resource-group-move-resources/edit-directory.png) 
+
+  Si cette icône n’est pas disponible, vous devez contacter le support pour déplacer les ressources vers un nouveau client.
+
+2. Le service doit activer la possibilité de déplacer des ressources. Cette rubrique répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
 3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Pour découvrir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](resource-manager-supported-services.md#resource-providers-and-types).
-4. Si vous déplacez une application App Service, vous avez lu attentivement les [limitations d’App Service](#app-service-limitations).
-5. Si vous déplacez des ressources associées à Recovery Services, vous avez consulté les [limitations de Recovery Services](#recovery-services-limitations)
-6. Si vous déplacez des ressources déployées via le modèle Classic, vous avez passé en revue [Limitations relatives au déploiement Classic](#classic-deployment-limitations).
 
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 Vous pouvez déplacer la plupart des ressources via les opérations en libre-service présentées dans cette rubrique. Utilisez les opérations en libre-service pour :
@@ -75,7 +86,6 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Data Factory
 * Data Lake Analytics
 * Data Lake Store
-* DevTest Lab
 * DNS
 * Base de données de documents
 * Event Hubs
@@ -102,7 +112,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Stream Analytics
 * Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
 * Traffic Manager
-* Machines virtuelles : toutefois, ne prend pas en charge le déplacement vers un nouvel abonnement lorsque ses certificats sont stockés dans un Key Vault
+* Machines virtuelles : ne prend pas en charge le déplacement vers un nouvel abonnement lorsque ses certificats sont stockés dans un Key Vault
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Virtual Network
 
@@ -118,6 +128,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Application Insights
 * BizTalk Services
 * ExpressRoute
+* Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * Sécurité
@@ -202,13 +213,13 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez uti
 
 1. Vérifiez si l’abonnement source peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 
-  ```   
+  ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
    
      Dans le corps de la demande, spécifiez :
 
-  ``` 
+  ```json 
   {
     "role": "source"
   }
@@ -216,7 +227,7 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez uti
   
      La réponse pour l’opération de validation est au format suivant :
 
-  ``` 
+  ```json 
   {
     "status": "{status}",
     "reasons": [
@@ -228,13 +239,13 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez uti
 
 2. Vérifiez si l’abonnement de destination peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 
-  ``` 
+  ```HTTP 
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      Dans le corps de la demande, spécifiez :
 
-  ``` 
+  ```json 
   {
     "role": "target"
   }
@@ -243,13 +254,13 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez uti
      La réponse est dans le même format que la validation de l’abonnement source.
 3. Si les deux abonnements sont validés, déplacez toutes les ressources classiques d’un abonnement à l’autre via l’opération suivante :
 
-  ``` 
+  ```HTTP 
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     Dans le corps de la demande, spécifiez :
 
-  ``` 
+  ```json 
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
@@ -258,13 +269,11 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez uti
 Cette opération peut prendre plusieurs minutes. 
 
 ## <a name="use-portal"></a>Utilisation du portail
-Pour déplacer des ressources vers un nouveau groupe de ressources dans le **même abonnement**, sélectionnez le groupe de ressources contenant ces ressources, puis sélectionnez le bouton **Déplacer**.
+Pour déplacer des ressources, sélectionnez le groupe de ressources contenant ces ressources, puis sélectionnez le bouton **Déplacer**.
 
-![Déplacer des ressources](./media/resource-group-move-resources/edit-rg-icon.png)
+![Déplacer des ressources](./media/resource-group-move-resources/select-move.png)
 
-Pour déplacer des ressources vers un **nouvel abonnement**, sélectionnez le groupe de ressources contenant ces ressources, puis sélectionnez l’icône Modifier l’abonnement.
-
-![Déplacer des ressources](./media/resource-group-move-resources/change-subscription.png)
+Indiquez si vous déplacez les ressources vers un nouveau groupe de ressources ou vers un nouvel abonnement.
 
 Sélectionnez les ressources à déplacer et le groupe de ressources de destination. Confirmez que vous devez mettre à jour les scripts de ces ressources et sélectionnez **OK**. Si vous avez sélectionné l’icône Modifier l’abonnement à l’étape précédente, vous devez également sélectionner l’abonnement de destination.
 
@@ -279,7 +288,7 @@ Lorsqu’elle est terminée, vous êtes informé du résultat.
 ![afficher les résultats du déplacement](./media/resource-group-move-resources/show-result.png)
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
-Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande **Move-AzureRmResource** .
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande `Move-AzureRmResource`.
 
 Le premier exemple vous indique comment déplacer une ressource vers un nouveau groupe de ressources.
 
@@ -296,7 +305,7 @@ $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Pour déplacer des ressources vers un nouvel abonnement, renseignez une valeur pour le paramètre **DestinationSubscriptionId** .
+Pour déplacer des ressources vers un nouvel abonnement, renseignez une valeur pour le paramètre `DestinationSubscriptionId`.
 
 Vous devez confirmer que vous souhaitez déplacer les ressources spécifiées.
 
@@ -310,8 +319,23 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
-Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, exécutez la commande **azure resource move** . Fournissez les ID des ressources à déplacer. Vous pouvez obtenir les ID des ressources avec la commande suivante :
+## <a name="use-azure-cli-20-preview"></a>Utilisez Azure CLI 2.0 (version préliminaire)
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande `az resource move`. Fournissez les ID des ressources à déplacer. Vous pouvez obtenir les ID des ressources avec la commande suivante :
+
+```azurecli
+az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
+```
+
+L’exemple suivant montre comment déplacer un compte de stockage vers un nouveau groupe de ressources. Dans le paramètre `--ids`, spécifiez une liste séparée par des espaces des ID des ressources à déplacer.
+
+```azurecli
+az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
+```
+
+Pour déplacer des ressources vers un nouvel abonnement, spécifiez le paramètre `--destination-subscription-id`.
+
+## <a name="use-azure-cli-10"></a>Utiliser Azure CLI 1.0
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande `azure resource move`. Fournissez les ID des ressources à déplacer. Vous pouvez obtenir les ID des ressources avec la commande suivante :
 
 ```azurecli
 azure resource list -g sourceGroup --json
@@ -336,7 +360,7 @@ Elle retourne les informations au format suivant :
 ]
 ```
 
-L’exemple suivant montre comment déplacer un compte de stockage vers un nouveau groupe de ressources. Dans le paramètre **-i**, spécifiez une liste séparée par des virgules des ID des ressources à déplacer.
+L’exemple suivant montre comment déplacer un compte de stockage vers un nouveau groupe de ressources. Dans le paramètre `-i`, spécifiez une liste séparée par des virgules des ID des ressources à déplacer.
 
 ```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
@@ -347,7 +371,7 @@ Vous devez confirmer que vous souhaitez déplacer la ressource spécifiée.
 ## <a name="use-rest-api"></a>Avec l’API REST
 Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, exécutez :
 
-```
+```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 ```
 
@@ -362,6 +386,6 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

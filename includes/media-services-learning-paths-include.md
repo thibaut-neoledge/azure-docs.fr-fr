@@ -1,10 +1,9 @@
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+Vous pouvez consulter les parcours d’apprentissage Azure Media Services ici :
 
-* [Workflow en flux continu AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Workflow du streaming à la demande AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Workflow de vidéo en flux continu Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Workflow de streaming à la demande Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

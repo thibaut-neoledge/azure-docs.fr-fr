@@ -1,28 +1,28 @@
 ---
-title: "Diagnostic des problèmes de performances sur un site web IIS en cours d’exécution | Microsoft Docs"
-description: "Analysez les performances d&quot;un site web sans le redéployer. Utilisation autonome ou avec le Kit de développement logiciel (SDK) Application Insights pour obtenir des données de télémétrie relatives aux dépendances."
+title: "Surveiller une application web ASP.NET active avec Azure Application Insights | Microsoft Docs"
+description: "Analysez les performances d&quot;un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 15de13cfaec7a5dcd906733727bb1f826893a31b
-ms.openlocfilehash: 61a2aca74f9d422550b90d218c5e060c89e354ad
+ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
+ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
 
 
-Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Si vos applications sont hébergées par un serveur IIS local, vous pouvez installer Status Monitor ; s’il s’agit d’applications web Azure ou d’applications exécutées sur une machine virtuelle Azure, vous pouvez installer l’extension Application Insights. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).)
+Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Si vos applications sont hébergées par un serveur IIS local, vous pouvez installer Status Monitor ; s’il s’agit d’applications web Azure ou d’applications exécutées sur une machine virtuelle Azure, vous pouvez installer l’extension Application Insights. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](app-insights-java-live.md) et [d’Azure Cloud Services](app-insights-cloudservices.md).) Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com) .
 
 ![Exemples de graphiques](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -45,88 +45,63 @@ Voici un résumé de ce que vous apporte chaque méthode :
 | [Mode Page et données utilisateur](app-insights-javascript.md) |Oui | |
 | Régénération du code inutile |Non | |
 
-## <a name="instrument-your-web-app-at-run-time"></a>Instrumenter votre application web au moment de l’exécution
-Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com) .
 
-### <a name="if-your-app-is-an-azure-web-app-or-cloud-service"></a>Si votre application est une application web Azure ou un service cloud
+## <a name="monitor-a-live-azure-web-app"></a>Surveiller une application web Azure active
+
+Si votre application s’exécute en tant que service web Azure, voici comment activer la surveillance :
+
 * Sélectionnez Application Insights sur le panneau de configuration de l’application dans Azure.
 
-    [Plus d’informations](app-insights-azure.md)
+    ![Configurer Application Insights pour une application web Azure](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
+* Lorsque la page de résumé d’Application Insights s’ouvre, cliquez sur le lien en bas pour ouvrir la ressource Application Insights complète.
 
-### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Si votre application est hébergée sur votre serveur IIS
+    ![Cliquer pour accéder à Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
+
+[Surveillance des applications de machine virtuelle et cloud](app-insights-azure.md).
+
+## <a name="monitor-a-live-iis-web-app"></a>Surveiller une application web IIS active
+
+Si votre application est hébergée sur un serveur IIS, activez Application Insights à l’aide de Status Monitor.
+
 1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
-2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).  
-3. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights. Vous devez être connecté à Microsoft Azure.
+2. Si Application Insights Status Monitor n’est pas encore installé, téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+3. Dans Status Monitor, sélectionnez l’application web installée ou le site Web à surveiller. Connectez-vous avec vos informations d’identification Azure.
+
+    Configurez la ressource où vous souhaitez afficher les résultats dans le portail Application Insights. (En règle générale, il est préférable de créer une ressource. Sélectionnez une ressource existante si vous avez déjà configuré des [tests web][availability] ou une [Surveillance du client][client] pour cette application.) 
 
     ![Choisissez une application et une ressource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
-
-    Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
 4. Redémarrez IIS.
 
     ![Cliquez sur Redémarrer en haut de la boîte de dialogue.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Votre service web sera interrompu pendant une courte période.
-5. Notez que ApplicationInsights.config est inséré dans les applications web que voulez surveiller.
 
-    ![Recherchez le fichier .config et les fichiers de code de l’application web.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-   
+## <a name="customize-monitoring-options"></a>Personnaliser les options de surveillance
 
-#### <a name="want-to-reconfigure-later"></a>Vous voulez (re)configurer plus tard ?
-Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
+L’activation d’Application Insights ajoute des DLL et ApplicationInsights.config à votre application web. Vous pouvez [modifier le fichier .config](app-insights-configuration-with-applicationinsights-config.md) pour changer certaines options.
 
-![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>Lorsque vous republiez votre application, réactivez Application Insights
 
-## <a name="view-performance-telemetry"></a>Affichage des données de télémétrie relatives aux performances
-Connectez-vous au [portail Azure](https://portal.azure.com), accédez à Application Insights et ouvrez la ressource que vous avez créée.
+Avant de republier votre application, vous pouvez [ajouter Application Insights au code dans Visual Studio][greenbrown]. Vous obtiendrez des données de télémétrie plus détaillées et aurez la possibilité de personnaliser la télémétrie à l’aide de code.
 
-![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
+Si vous souhaitez procéder à la republication sans ajouter Application Insights au code, sachez que le processus de déploiement peut supprimer les DLL et ApplicationInsights.config du site web publié. Par conséquent :
 
-Ouvrez le panneau des performances pour afficher les données de demande, les données de temps de réponse, les dépendances et les autres données.
+1. Si vous avez modifié le fichier ApplicationInsights.config, copiez-le avant de republier votre application.
+2. Republiez votre application.
+3. Réactivez la surveillance d’Application Insights. (Utilisez la méthode appropriée : le panneau de configuration de l’application web Azure ou Status Monitor sur un hôte IIS.)
+4. Rétablissez les éventuelles modifications que vous avez effectuées dans le fichier .config.
 
-![Performances](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Cliquez sur un graphique pour ouvrir une vue plus détaillée.
+## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Résolution des problèmes de configuration d’exécution d’Application Insights
 
-Vous pouvez [modifier, réorganiser, enregistrer](app-insights-metrics-explorer.md) et épingler des graphiques ou l’intégralité du panneau à un [tableau de bord](app-insights-dashboards.md).
+### <a name="cant-connect-no-telemetry"></a>Vous n’arrivez pas à vous connecter ? Vous n’obtenez aucune donnée de télémétrie ?
 
-## <a name="dependencies"></a>Dépendances
-Le graphique de la durée de la dépendance indique la durée comptabilisée pour les appels de votre application aux composants externes, tels que les bases de données, les API REST ou le stockage de blobs Azure.
+* Vous devez ouvrir [certains ports sortants](app-insights-ip-addresses.md#outgoing-ports) dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner.
 
-Pour segmenter le graphique par appels à des dépendances différentes, procédez comme suit : modifiez le graphique, désactivez le regroupement, puis regroupez par dépendance, type de dépendance ou performances de dépendance.
-
-![Dépendance](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
-
-## <a name="performance-counters"></a>Compteurs de performances
-Cliquez sur Serveurs sur le panneau de présentation pour voir les graphiques des compteurs de performance de serveur telles que l’utilisation de la mémoire et l’occupation du processeur.
-
-Si vous disposez de plusieurs instances de serveur, vous pouvez être amené à modifier les graphiques à regrouper par instance de rôle.
-
-![Serveurs](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
-
-Vous pouvez également changer l’ensemble des compteurs de performances qui sont rapportées par le Kit de développement logiciel (SDK). 
-
-## <a name="exceptions"></a>Exceptions
-![Cliquez sur le graphique d’exceptions de serveur.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
-
-Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et obtenir les arborescences des appels de procédure et des données de contexte.
-
-## <a name="sampling"></a>Échantillonnage
-Si votre application envoie des données en grand nombre et si vous utilisez le Kit SDK Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
-
-## <a name="troubleshooting"></a>Résolution des problèmes
-### <a name="connection-errors"></a>Erreurs de connexion
-Vous devez ouvrir [certains ports sortants](app-insights-ip-addresses.md#outgoing-ports) dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner.
-
-### <a name="no-telemetry"></a>Vous n’obtenez aucune donnée de télémétrie ?
-* Utilisez votre site pour créer des données.
-* Attendez quelques minutes le temps que les données arrivent, puis cliquez sur **Actualiser**.
-* Ouvrez Recherche de diagnostic (vignette de recherche) pour afficher chaque événement. Les événements sont souvent visibles dans Recherche de diagnostic avant que les données agrégées n’apparaissent dans les graphiques.
 * Ouvrez Status Monitor et sélectionnez votre application dans le volet gauche. Vérifiez la présence de messages de diagnostic pour cette application dans la section « Notifications de configuration » :
 
   ![Ouvrez le panneau des performances pour afficher la demande, le temps de réponse, la dépendance et d’autres données.](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
-* Vérifiez que le pare-feu de votre serveur autorise le trafic sortant sur les ports répertoriés ci-dessus.
 * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
   * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
   * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
@@ -209,10 +184,19 @@ Identifiez les applications qui sont surveillées :
 * Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
+
+Affichez vos données de télémétrie :
+
+* [Explorez les mesures](app-insights-metrics-explorer.md) pour surveiller les performances et l’utilisation
+* [Effectuez des recherches dans les événements et les journaux][diagnostic] pour diagnostiquer les problèmes
+* [Utilisez la fonctionnalité Analytics](app-insights-analytics.md) pour des requêtes plus élaborées
+* [Créez des tableaux de bord](app-insights-dashboards.md)
+
+Ajoutez des données de télémétrie :
+
 * [Créez des tests web][availability] pour vous assurer que votre site reste actif.
-* [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
 * [Ajoutez la télémétrie de client web][usage] pour afficher les exceptions à partir du code de la page web et vous permettre d’insérer un suivi des appels.
-* [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code de service web][greenbrown] afin de pouvoir insérer un suivi des appels et des appels de journaux dans le code du serveur.
+* [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code][greenbrown] afin de pouvoir insérer un suivi et des appels de journaux
 
 <!--Link references-->
 
@@ -227,6 +211,6 @@ Identifiez les applications qui sont surveillées :
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

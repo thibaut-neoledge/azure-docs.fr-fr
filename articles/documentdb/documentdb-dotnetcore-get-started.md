@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel NoSQL : kit de développement logiciel (SDK) .NET Core de DocumentDB | Microsoft Docs"
+title: "Didacticiel NoSQL : kit de développement logiciel (SDK) .NET Core de DocumentDB | Microsoft Docs"
 description: "Un didacticiel NoSQL qui crée une application de base de données en ligne et de console #C à l’aide du Kit de développement logiciel (SDK) .NET Core de DocumentDB. DocumentDB est une base de données NoSQL pour JSON."
 services: documentdb
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
-ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
+ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
+ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
 
 
 ---
@@ -72,13 +72,13 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 1. Ouvrez **Visual Studio 2015** sur votre ordinateur.
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis choisissez **Projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Modèles** / **Visual C#** / **.NET Core**/**Application console (.NET Core)**, nommez votre projet, puis cliquez sur **OK**.
-   ![Capture d’écran de la fenêtre Nouveau projet](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Capture d’écran de la fenêtre Nouveau projet](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur votre nouvelle application console, qui se trouve sous votre solution Visual Studio.
 5. Ensuite, sans quitter le menu, cliquez sur **Gérer les packages NuGet...**
-   ![Capture d’écran du menu contextuel du projet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Capture d’écran du menu contextuel du projet](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Dans l’onglet **NuGet**, cliquez sur **Parcourir** et tapez **azure documentdb** dans la zone de recherche.
 7. Dans les résultats, recherchez **Microsoft.Azure.DocumentDB.Core** et cliquez sur **Installer**.
-   L’ID de package de la bibliothèque cliente DocumentDB est [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
+   L’ID de package de la bibliothèque cliente DocumentDB pour .NET Core est [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Si vous ciblez une version de .NET Framework (net461, par exemple) qui n’est pas prise en charge par ce package NuGet .NET Core, utilisez [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB), qui prend en charge toutes les versions de .NET Framework à partir de la version 4.5.
 
 Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
@@ -113,7 +113,7 @@ Ensuite, accédez au [portail Azure](https://portal.azure.com) pour récupérer 
 
 Dans le portail Azure, accédez à votre compte DocumentDB, puis cliquez sur **Clés**.
 
-Copiez l’URI à partir du portail et collez-le dans `<your endpoint URI>` dans le fichier program.cs. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `<your key>`. Si vous utilisez l’émulateur Azure DocumentDB, utilisez `https://localhost:443` comme point de terminaison et la clé d’autorisation bien définie dans [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Comment développer à l’aide de l’émulateur DocumentDB).
+Copiez l’URI à partir du portail et collez-le dans `<your endpoint URI>` dans le fichier program.cs. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `<your key>`. Si vous utilisez l’émulateur Azure DocumentDB, utilisez `https://localhost:8081` comme point de terminaison et la clé d’autorisation bien définie dans [How to develop using the DocumentDB Emulator](documentdb-nosql-local-emulator.md) (Comment développer à l’aide de l’émulateur DocumentDB).
 
 ![Capture d’écran du portail Azure utilisée par le didacticiel NoSQL pour créer une application de console C#. Présente un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
@@ -369,7 +369,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé deux collections de documents DocumentDB.  
 
-![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Étape 7 : interroger les ressources DocumentDB
 DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection.  L'exemple de code suivant affiche différentes requêtes (à l'aide de la syntaxe SQL de DocumentDB et de LINQ) que nous pouvons exécuter sur les documents insérés à l'étape précédente.
@@ -423,7 +423,7 @@ Félicitations ! Vous avez effectué une requête sur une collection DocumentDB
 
 Le diagramme suivant montre comment la syntaxe de requête SQL de DocumentDB est appelée sur la collection que vous avez créée. C'est par ailleurs cette même logique qui s'applique à la requête LINQ.
 
-![Diagramme illustrant l’étendue et la signification de la requête utilisée par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagramme illustrant l’étendue et la signification de la requête utilisée par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Le mot clé [FROM](documentdb-sql-query.md#from-clause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
@@ -558,10 +558,10 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET Cor
 * Consultez la section Développer de la [page de documentation DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/)pour découvrir plus en détail le modèle de programmation.
 
 [documentdb-create-account]: documentdb-create-account.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

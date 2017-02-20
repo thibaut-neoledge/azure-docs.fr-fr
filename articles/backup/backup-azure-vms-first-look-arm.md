@@ -1,6 +1,6 @@
 ---
 title: "Découverte : Protéger les machines virtuelles Azure avec un coffre Recovery Services | Microsoft Docs"
-description: "Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle Classic et des machines virtuelles Premium Storage pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
+description: "Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle Classic et des machines virtuelles, machines virtuelles chiffrées et machines virtuelles sur disques gérés du service de stockage Premium pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 02/06/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
-ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
+ms.sourcegitcommit: b73d5bb1f4f9e7adc65bf38a3c98db846a341cb3
+ms.openlocfilehash: 2d8bedcf51cf55e13cc22d5a2d258218f0a786bb
 
 
 ---
@@ -33,10 +33,11 @@ Ce didacticiel détaille les procédures de création d’un coffre Recovery Ser
 * Machines virtuelles déployées à l’aide de Resource Manager
 * les machines virtuelles Classic,
 * les machines virtuelles de stockage standard,
-* les machines virtuelles Premium Storage.
+* les machines virtuelles Premium Storage. 
+* Machines virtuelles exécutées sur des disques gérés
 * les machines virtuelles chiffrées à l’aide d’Azure Disk Encryption, avec des clés BEK et KEK
 
-Pour plus d’informations sur la protection des machines virtuelles Premium Storage, consultez [Sauvegarder et restaurer des machines virtuelles Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)
+Pour plus d’informations sur la protection des machines virtuelles Premium Storage, consultez [Sauvegarder et restaurer des machines virtuelles Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Sauvegarder et restaurer des machines virtuelles sur des disques gérés).
 
 > [!NOTE]
 > Dans ce didacticiel, nous partons du principe que vous disposez déjà d’une machine virtuelle dans votre abonnement Azure et que vous avez autorisé le service de sauvegarde à accéder à la machine virtuelle.
@@ -246,6 +247,6 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

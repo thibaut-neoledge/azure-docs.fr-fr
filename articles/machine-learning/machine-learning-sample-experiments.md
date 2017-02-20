@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,34 +39,34 @@ Dans cette page, vous pouvez afficher les expériences **Recently added** (Réce
 Pour parcourir toutes les expériences :
 
 1. Cliquez sur **Browse all** (Parcourir tout) en haut de la page.
-2. Sous **Refine by** (Affiner par), sélectionnez **Experiment** (Expérience) pour afficher toutes les expériences de la galerie.
+2. Dans la section **Catégories**, sous **Refine by** (Affiner par), sélectionnez **Experiment** (Expérience) pour afficher toutes les expériences de la galerie.
 3. Vous y trouverez des expériences qui répondent à vos besoins de différentes façons :
    * **Sélectionnez des filtres à gauche.** Par exemple, pour parcourir les expériences utilisant un algorithme de détection des anomalies PCA, sélectionnez **Experiment** (Expérience) sous **Categories** (Catégories), puis **PCA-Based Anomaly Detection** (Détection des anomalies PCA) sous **Algorithms Used** (Algorithmes utilisés). (Si vous ne voyez pas cet algorithme, cliquez sur **Show all** (Afficher tout) en bas de la liste.)<br></br>
      ![Sélectionner des filtres](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Utilisez la zone de recherche.**  Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) : ![Utiliser la zone de recherche](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Utilisez la zone de recherche.** Par exemple, pour rechercher les expériences partagées par Microsoft sur la reconnaissance de chiffres et qui utilisent un algorithme de machine à vecteurs de support à deux classes, entrez « reconnaissance de chiffres » dans la zone de recherche. Ensuite, sélectionnez les filtres **Experiment** (Expérience), **Microsoft content only** (Contenu Microsoft uniquement) et **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) :<br></br>
+     ![Utiliser la zone de recherche](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Cliquez sur une expérience pour en savoir plus à propos de celle-ci.
-5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience.
-
-   > [!NOTE]
-   > Pour ouvrir une expérience dans Machine Learning Studio, vous devez vous connecter avec les informations d’identification de votre compte Microsoft. Si vous n'avez pas encore d'espace de travail Machine Learning, un espace de travail d'essai gratuit est créé. [Que comprend l’essai gratuit de Machine Learning ?](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Pour exécuter et/ou modifier l’expérience, cliquez sur **Ouvrir dans Studio** sur la page de l’expérience. <br></br>
 
     ![Exemple d'expérience](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > Lorsque vous ouvrez une expérience dans Machine Learning Studio pour la première fois, vous pouvez l’essayer gratuitement ou souscrire un abonnement Azure. [En savoir plus sur les différences entre l’essai gratuit et le service payant de Machine Learning Studio](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Utiliser un modèle dans Machine Learning Studio
 Vous pouvez également créer une expérience dans Machine Learning Studio en prenant un exemple de la galerie comme modèle.
 
-1. Connectez-vous à [Studio](https://studio.azureml.net)avec les informations d’identification de votre compte Microsoft, puis cliquez sur **Nouveau** pour créer une expérience.
+1. Connectez-vous à [Studio](https://studio.azureml.net) avec les informations d’identification de votre compte Microsoft, puis cliquez sur **Nouveau** pour créer une expérience.
 2. Parcourez les exemples de contenu, puis cliquez sur l’un d’entre eux.
 
 Une expérience est créée dans votre espace de travail, et l’exemple d’expérience sert de modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Préparez de vos données](machine-learning-data-science-import-data.md)
-* [Essayez d'utiliser R dans votre expérience](machine-learning-r-quickstart.md)
-* [Passez en revue les exemples d'expériences](machine-learning-r-csharp-web-service-examples.md)
-* [Création d’une API de service web](machine-learning-publish-a-machine-learning-web-service.md)
+* [Importer des données à partir de diverses sources](machine-learning-data-science-import-data.md)
+* [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](machine-learning-r-quickstart.md)
+* [Déploiement d’un service web Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 

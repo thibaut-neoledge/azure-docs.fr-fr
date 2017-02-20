@@ -1,6 +1,6 @@
 ---
-title: "Portail Azure : Prise en main d’Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide du portail Azure. Vous apprendrez également à interroger des bases de données à l’aide de SQL Server Management Studio."
+title: "Démarrage rapide : Votre première solution Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide du portail Azure. Vous apprendrez également à utiliser SQL Server Management Studio avec SQL Azure Database."
 keywords: "didacticiel sur la base de données sql, créer une base de données sql"
 services: sql-database
 documentationcenter: 
@@ -14,53 +14,52 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/01/2017
+ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 6fd3c0ebe6d7b7e23550358ca1d93840ae8acaa1
-ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="tutorial-provision-and-access-an-azure-sql-database-using-the-azure-portal-and-sql-server-management-studio"></a>Didacticiel : Configuration et accès à une base de données SQL Azure à l’aide du portail Azure et de SQL Server Management Studio
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Didacticiel de démarrage rapide : Votre première solution Azure SQL Database
 
-Ce didacticiel vous montre comment utiliser le Portail Azure pour :
+Ce didacticiel de démarrage rapide vous apprendra plusieurs choses :
 
-* créer un groupe de ressources Azure ;
-* créer un serveur logique Azure SQL ;
-* afficher les propriétés de serveur logique Azure SQL ;
-* créer une règle de pare-feu au niveau du serveur ;
-* créer l’exemple de base de données Adventure Works LT sous la forme d’une base de données unique ;
-* afficher les propriétés de l’exemple de base de données Adventure Works LT dans Azure.
+* [Création d’un serveur logique](sql-database-get-started.md#create-a-new-logical-sql-server) 
+* [Affichage des propriétés de serveur logique](sql-database-get-started.md#view-the-logical-server-properties) 
+* [Création d’une règle de pare-feu de niveau serveur](sql-database-get-started.md#create-a-server-level-firewall-rule) 
+* [Connexion au serveur avec SSMS](sql-database-get-started.md#connect-to-the-server-with-ssms) 
+* [Création d’une base de données avec des exemples de données](sql-database-get-started.md#create-a-database-with-sample-data) 
+* [Affichage des propriétés de base de données](sql-database-get-started.md#view-the-database-properties) 
+* [Interrogation de la base de données dans le portail Azure](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
+* [Connexion à la base de données et interrogation avec SSMS](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
+* [Création d’une base de données vide avec SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
+* [Résolution des problèmes de connectivité](sql-database-get-started.md#troubleshoot-connectivity) 
+* [Supprimer une base de données](sql-database-get-started.md#delete-a-single-database) 
 
-Dans ce didacticiel, vous utilisez également la version la plus récente de SQL Server Management Studio pour :
 
-* se connecter au serveur logique et à sa base de données master ;
-* interroger la base de données MASTER ;
-* se connecter à l’exemple de base de données ;
-* interroger l’exemple de base de données.
+Dans ce didacticiel de démarrage rapide, vous allez créer un exemple de base de données et une base de données vide s’exécutant dans un groupe de ressources Azure, le tout attaché à un serveur logique. Vous créerez également deux règles de pare-feu de niveau serveur configurées pour permettre au principal au niveau du serveur de se connecter au serveur à partir de deux adresses IP spécifiées. Enfin, vous apprendrez à interroger une base de données dans le portail Azure, ainsi qu’à vous connecter et à effectuer des requêtes à l’aide de SQL Server Management Studio. 
 
-Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de données et une base de données vide en cours d’exécution dans un groupe de ressources Azure et attachés à un serveur logique. Vous aurez également une règle de pare-feu de niveau serveur configurée pour permettre au principal de niveau serveur de se connecter au serveur à partir d’une adresse IP spécifiée (ou d’une plage d’adresses IP). 
-
-**Durée estimée** : ce didacticiel vous prendra environ 30 minutes (en supposant que vous remplissez déjà les conditions préalables).
+**Durée estimée** : ce didacticiel prend environ 30 minutes (en supposant que vous remplissez déjà les conditions préalables).
 
 > [!TIP]
-> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide de [C#](sql-database-get-started-csharp.md) ou de [PowerShell](sql-database-get-started-powershell.md).
+> Vous pouvez exécuter ces mêmes tâches à l’aide de [C#](sql-database-get-started-csharp.md) ou de [PowerShell](sql-database-get-started-powershell.md).
 >
 
 ## <a name="prerequisites"></a>Composants requis
 
 * Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
-* Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
+* Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui soit membre du propriétaire de l’abonnement ou membre du rôle Collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
-> Ce didacticiel vous permet de vous familiariser avec le contenu des rubriques suivantes : [Serveurs logiques Azure SQL Database](sql-database-server-overview.md), [Vue d’ensemble de la base de données SQL Azure](sql-database-overview.md) et [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
+> Ce didacticiel de démarrage rapide vous permet de vous familiariser avec le contenu des rubriques suivantes : [Vue d’ensemble du serveur Azure SQL Database](sql-database-server-overview.md), [Vue d’ensemble de SQL Database](sql-database-overview.md) et [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
 >  
 
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Se connecter au portail Azure avec un compte Azure
-À l’aide de votre [abonnement existant](https://account.windowsazure.com/Home/Index), suivez ces étapes pour vous connecter au portail Azure.
+### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Connexion au portail Azure avec votre compte Azure
+À l’aide de votre [compte Azure](https://account.windowsazure.com/Home/Index), suivez ces étapes pour vous connecter au portail Azure.
 
 1. Ouvrez votre navigateur préféré et connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -71,7 +70,9 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Créer un serveur SQL logique dans le portail Azure
+## <a name="create-a-new-logical-sql-server"></a>Création d’un serveur logique SQL
+
+Suivez les étapes de cette procédure pour créer un serveur logique avec le portail Azure, dans la région de votre choix.
 
 1. Cliquez sur **Nouveau**, saisissez **sql server**, puis cliquez sur **ENTRÉE**.
 
@@ -87,7 +88,7 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     ![new server name](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > Le nom complet de votre nouveau serveur sera <votre_nom_serveur>.database.windows.net.
+    > Le nom complet de votre nouveau serveur se présente sous la forme suivante : <votre_nom_serveur>.database.windows.net.
     >
     
 4. Dans la zone de texte serveur de connexion administrateur du serveur, fournissez un nom d’utilisateur pour la connexion d’authentification SQL de ce serveur. Cette connexion est connue comme la connexion principale du serveur. Une coche verte indique que vous avez fourni un nom valide.
@@ -115,7 +116,9 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![créer un bouton](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Afficher les propriétés de serveur logique SQL Server dans le portail Azure
+## <a name="view-the-logical-server-properties"></a>Affichage des propriétés du serveur logique
+
+Suivez les étapes de cette procédure pour afficher les propriétés du serveur avec le portail Azure. Vous aurez besoin du nom de serveur complet pour vous connecter à ce serveur dans le cadre d’une procédure ultérieure. 
 
 1. Dans le portail Azure, cliquez sur **More services** (Plus de services).
 
@@ -137,17 +140,15 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![sql server full name](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
+## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
+
+Suivez les étapes de cette procédure pour créer une nouvelle règle de pare-feu de niveau serveur avec le portail Azure. Elle vous servira à vous connecter à votre serveur avec SQL Server Management Studio dans la procédure suivante.
 
 1. Dans le panneau SQL Server, sous Paramètres, cliquez sur **Pare-feu** pour ouvrir le panneau de pare-feu pour le serveur SQL Server.
 
     ![sql server firewall](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Vérifiez l’adresse IP du client affichée et confirmez qu’il s’agit de votre adresse IP sur Internet à l’aide du navigateur de votre choix (demandez « quelle est mon adresse IP »). Parfois, elles ne correspondent pas pour diverses raisons.
-
-    ![your IP address](./media/sql-database-get-started/your-ip-address.png)
-
-3. En supposant que les adresses IP correspondent, cliquez sur **Ajouter une adresse IP cliente** sur la barre d’outils.
+2. Cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils.
 
     ![add client IP](./media/sql-database-get-started/add-client-ip.png)
 
@@ -159,14 +160,16 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![add client IP](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Se connecter au serveur SQL Server à l’aide de SQL Server Management Studio (SSMS)
+## <a name="connect-to-the-server-with-ssms"></a>Connexion au serveur avec SSMS
+
+Suivez les étapes de cette procédure pour vous connecter au serveur logique SQL avec SQL Server Management Studio.
 
 1. Si ce n’est déjà fait, téléchargez et installez la dernière version de SSMS via [Téléchargement de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour vous permettre de rester à jour, la dernière version de SSMS vous envoie une invite lorsqu’une nouvelle version est disponible au téléchargement.
 
 2. Une fois l’installation terminée, tapez **Microsoft SQL Server Management Studio** dans la zone de recherche de Windows, puis cliquez sur **Entrée** pour ouvrir SSMS :
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. Dans la boîte de dialogue Se connecter au serveur, entrez les informations nécessaires pour vous connecter à votre serveur SQL Server à l’aide de l’authentification SQL Server.
+3. Dans la boîte de dialogue Se connecter au serveur, entrez les informations nécessaires pour vous connecter à votre serveur SQL Server à l’aide de l’authentification SQL Server.
 
     ![connect to server](./media/sql-database-get-started/connect-to-server.png)
 4. Cliquez sur **Connecter**.
@@ -191,7 +194,9 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
     > Pour explorer la sécurité SQL, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md).
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Créer une base de données dans le portail Azure à l’aide de l’exemple Adventure Works LT
+## <a name="create-a-database-with-sample-data"></a>Création d’une base de données avec des exemples de données
+
+Suivez les étapes de cette procédure pour créer une base de données avec des exemples de données, dans le portail Azure. La base de données créée sera attachée au serveur logique créé précédemment. Si le niveau de service De base n’est pas disponible dans la région dans laquelle vous avez créé votre serveur, supprimez celui-ci, puis recréez-le dans une autre région. Pour les étapes de suppression, consultez la dernière procédure de ce didacticiel.
 
 1. Dans le portail Azure, cliquez sur **SQL databases** dans le panneau par défaut.
 
@@ -223,7 +228,9 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![créer un bouton](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Afficher les propriétés de la base de données dans le portail Azure
+## <a name="view-the-database-properties"></a>Affichage des propriétés de base de données
+
+Suivez les étapes de cette procédure pour interroger la base de données avec le portail Azure.
 
 1. Dans le panneau de bases de données SQL, cliquez sur votre nouvelle base de données pour afficher ses propriétés dans le portail Azure. Les didacticiels suivants vous aident à comprendre les options disponibles dans ce panneau. 
 
@@ -242,7 +249,41 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![new sample db in server essentials pane](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Connecter et interroger l’exemple de base de données à l’aide de SQL Server Management Studio
+## <a name="query-the-database-in-the-azure-portal"></a>Interrogation de la base de données dans le portail Azure
+
+Suivez les étapes de cette procédure pour interroger la base de données avec l’éditeur de requêtes, dans le portail Azure. La requête affiche les objets dans la base de données.
+
+1. Dans le panneau des bases de données SQL, cliquez sur **Outils** dans la barre d’outils.
+
+    ![outils](./media/sql-database-get-started/tools.png)
+2. Dans le panneau Outils, cliquez sur **Éditeur de requêtes (version préliminaire)**.
+
+    ![query editor](./media/sql-database-get-started/query-editor.png)
+3. Cliquez sur la case à cocher pour confirmer que l’éditeur de requêtes est une fonctionnalité préliminaire, puis cliquez sur **OK**.
+4. Dans le panneau de l’**Éditeur de requêtes**, cliquez sur **Connexion**.
+
+    ![query editor blade](./media/sql-database-get-started/query-editor-blade.png)
+5. Examinez le type d’autorisation et la connexion, puis fournissez le mot de passe pour cette connexion. 
+
+    ![query editor login](./media/sql-database-get-started/query-editor-login.png)
+6. Cliquez sur **OK** pour tenter de vous connecter.
+7. Si vous recevez une erreur de connexion indiquant que votre client n’est pas autorisé à se connecter en raison de l’absence de règle de pare-feu pour l’adresse IP du client, copiez l’adresse IP du client dans la fenêtre d’erreur puis, dans le panneau de serveur SQL pour cette base de données, créez une règle de pare-feu de niveau serveur.
+
+    ![query editor error](./media/sql-database-get-started/query-editor-error.png)
+8. Répétez les 6 étapes précédentes pour vous connecter à votre base de données.
+9. Après vous être authentifié, saisissez la requête suivante dans la fenêtre de requête :
+
+   ```select * from sys.objects```
+
+    ![query editor query](./media/sql-database-get-started/query-editor-query.png)
+10.  Cliquez sur **Exécuter**.
+11. Passez en revue les résultats de la requête dans le panneau **Résultats**.
+
+    ![query editor results](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="connect-and-query-the-database-with-ssms"></a>Connexion à la base de données et interrogation avec SSMS
+
+Suivez les étapes de cette procédure pour vous connecter à la base de données avec SQL Server Management Studio, puis interrogez les exemples de données pour afficher les objets dans la base de données.
 
 1. Basculez vers SQL Server Management Studio et, dans l’Explorateur d’objets, cliquez sur **Bases de données**, puis sur **Actualiser** dans la barre d’outils pour afficher l’exemple de base de données.
 
@@ -261,14 +302,16 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![new sample db query system objects with ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Créer une base de données vide à l’aide de SQL Server Management Studio
+## <a name="create-a-blank-database-with-ssms"></a>Création d’une base de données vierge avec SSMS
+
+Suivez les étapes de cette procédure pour créer une base de données sur le serveur logique avec SQL Server Management Studio.
 
 1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Nouvelle base de données**.
 
     ![new blank database with ssms](./media/sql-database-get-started/new-blank-database-ssms.png)
 
     > [!NOTE]
-    > Vous pouvez également ordonner à SSMS de générer un script de création de base de données pour créer une base de données à l’aide de Transact-SQL.
+    > Vous pouvez également ordonner à SSMS de créer pour vous un script de base de données afin de générer une base de données à l’aide de Transact-SQL.
     >
 
 2. Dans la boîte de dialogue Nouvelle base de données, fournissez un nom dans la zone de texte Nom de la base de données. 
@@ -288,8 +331,25 @@ Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de don
 
     ![new blank database in object explorer](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>Résoudre les problèmes de connectivité
+
+> [!IMPORTANT]
+> Si vous rencontrez des problèmes de connectivité, consultez [roblèmes de connectivité](sql-database-troubleshoot-common-connection-issues.md).
+> 
+
+## <a name="delete-a-single-database"></a>Suppression d’une base de données unique
+
+Suivez les étapes de cette procédure pour supprimer une base de données unique avec le portail Azure.
+
+1. Dans le panneau du portail Azure pour votre solution SQL Database, cliquez sur **Supprimer**.
+
+    ![delete-database](./media/sql-database-get-started/delete-database.png)
+2. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer définitivement cette base de données.
+
+    ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> Vous pouvez économiser de l’argent pendant votre apprentissage en supprimant des bases de données que vous n’utilisez pas. Pour les bases de données de l’édition de base, vous pouvez les restaurer dans les sept jours. Toutefois, ne supprimez pas de serveur. Si vous le faites, vous ne pourrez pas récupérer le serveur ou l’une de ses bases de données supprimées.
+> Pendant la période de rétention de votre base de données, vous pouvez la restaurer à partir des sauvegardes automatiques initiées par le service. Pour les bases de données de l’édition de base, vous pouvez les restaurer dans les sept jours. Toutefois, ne supprimez pas de serveur. Si vous le faites, vous ne pourrez pas récupérer le serveur ou l’une de ses bases de données supprimées. Pour plus d’informations sur les sauvegardes de base de données, voir [Découvrir les sauvegardes SQL Database](sql-database-automated-backups.md) et pour plus d’informations sur la restauration d’une base de données à partir de sauvegardes, voir [Récupération de base de données](sql-database-recovery-using-backups.md). Pour connaître la procédure de restauration d’une base de données supprimée, consultez [Restaurer une base de données SQL supprimée (portail Azure)](sql-database-restore-deleted-database-portal.md).
 >
 
 
@@ -302,7 +362,7 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 * Si vous connaissez Excel, découvrez comment [vous connecter à une base de données SQL dans Azure avec Excel](sql-database-connect-excel.md).
 * Si vous êtes prêt à commencer le codage, choisissez votre langage de programmation dans [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 * Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, consultez la page [Migration de base de données SQL Server vers SQL Database dans le cloud](sql-database-cloud-migrate.md).
-* Si vous souhaitez charger des données dans une nouvelle table à partir d’un fichier CSV avec l’outil de ligne de commande BCP, consultez la page [Chargement de données dans une base de données SQL à partir d’un fichier CSV à l’aide de BCP](sql-database-load-from-csv-with-bcp.md).
+* Si vous souhaitez charger des données dans une nouvelle table à partir d’un fichier CSV avec l’outil de ligne de commande BCP, voir [Chargement de données dans SQL Database à partir d’un fichier CSV à l’aide de BCP](sql-database-load-from-csv-with-bcp.md).
 * Si vous souhaitez commencer à créer des tables et d’autres objets, consultez la rubrique « Création d’une table » dans [Création d’une table](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -313,6 +373,6 @@ Maintenant que vous avez terminé ce didacticiel, vous souhaiterez peut-être ex
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

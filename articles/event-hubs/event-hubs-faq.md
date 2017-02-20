@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: a584086e459c5446a814bbca3e50ac343fa9201e
-ms.openlocfilehash: f7b3974bf789df8c87254cc4186d8c7c85282aaa
+ms.sourcegitcommit: fceb8f6c8f28e84eb8926586257cf39dc0cd14d4
+ms.openlocfilehash: 4977daeecd9e206906c2e0b3b95b63d4d55cb859
 
 
 ---
@@ -79,11 +79,15 @@ Un support technique pour les hubs d'événements est disponible via les [forums
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
+## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-* [Vue d’ensemble d’Event Hubs][Event Hubs overview].
-* Un [exemple d'application complet qui utilise des hubs d’événements][sample application that uses Event Hubs].
+Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-diagnostic-logs.md) (journaux d’archivage des erreurs et journaux des opérations), qui sont tous deux représentés en json et peuvent être activés via le portail Azure.
+
+## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
+
+* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Créer un hub d’événements](event-hubs-create.md)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -91,6 +95,6 @@ Pour plus d’informations sur les hubs d’événements, consultez les articles
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

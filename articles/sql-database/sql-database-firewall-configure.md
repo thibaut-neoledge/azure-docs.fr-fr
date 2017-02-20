@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
+ms.sourcegitcommit: 5b94c884c585824ab580f307f3a04e27c8536947
+ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
 
 
 ---
@@ -60,11 +60,12 @@ Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir
    ![Diagramme décrivant la configuration de pare-feu.][1]
 
 ## <a name="connecting-from-the-internet"></a>Connexion à partir d’Internet
-Quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie tout d’abord l’adresse IP d’origine de la demande par rapport à la totalité des règles de pare-feu :
 
-* Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau du serveur, la connexion est accordée à votre serveur Azure SQL Database.
-* Si l’adresse IP de la demande n’appartient pas à une des plages spécifiées dans la règle de pare-feu au niveau du serveur, les règles de pare-feu au niveau de la base de données sont vérifiées. Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau de la base de données, la connexion est accordée uniquement à la base de données qui possède une règle au niveau de la base de données correspondante.
-* Si l’adresse IP de la demande n’appartient pas aux plages spécifiées dans une règle de pare-feu au niveau du serveur ou de la base de données, la demande de connexion échoue.
+Quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie d’abord l’adresse IP d’origine de la demande par rapport aux règles de pare-feu au niveau de la base de données, pour la base de données requise par la connexion :
+
+* Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau de la base de données, la connexion est accordée à votre base de données SQL contenant la règle.
+* Si l’adresse IP de la demande n’appartient pas à une des plages spécifiées dans la règle de pare-feu au niveau de la base de données, les règles de pare-feu au niveau du serveur sont vérifiées. Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu au niveau du serveur, la connexion est accordée. Les règles de pare-feu au niveau du serveur s’appliquent à toutes les bases de données SQL sur le serveur Azure SQL.  
+* Si l’adresse IP de la demande n’appartient pas aux plages spécifiées dans des règles de pare-feu au niveau du serveur ou de la base de données, la demande de connexion échoue.
 
 > [!NOTE]
 > Pour accéder à Azure SQL Database à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.
@@ -154,6 +155,6 @@ Pour comprendre comment naviguer dans les bases de données, consultez [Gérer l
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

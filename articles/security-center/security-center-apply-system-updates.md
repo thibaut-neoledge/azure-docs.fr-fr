@@ -1,6 +1,6 @@
 ---
 title: "Appliquer les mises à jour système dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter les recommandations d’Azure Security Center **Appliquer les mises à jour système** et **Redémarrer après l’application des mises à jour système**."
+description: "Ce document vous explique comment implémenter les recommandations de l’Azure Security Center **Appliquer les mises à jour système** et **Redémarrer après l’application des mises à jour système**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8fc8917555028d3045166e462362d502e677e4a0
+ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
+ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
 
 
 ---
@@ -25,23 +25,30 @@ Azure Security Center recherche quotidiennement les mises à jour manquantes du 
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Appliquer les mises à jour système**.
+
    ![Appliquer des mises à jour système][1]
 2. Le panneau **Appliquer les mises à jour système** s’ouvre en affichant une liste des mises à jour système manquantes sur les machines virtuelles. Sélectionnez une machine virtuelle.
+
    ![Sélectionner une machine virtuelle][2]
 3. Un panneau s’ouvre et affiche une liste des mises à jour manquantes sur cette machine. Sélectionnez une mise à jour système. Dans cet exemple, sélectionnons KB3156016.
+
    ![Mises à jour de sécurité manquantes][3]
+
 4. Suivez les étapes du panneau **Mise à jour de sécurité** pour appliquer la mise à jour manquante.
-   ![Security update][4]
+
+   ![Mise à jour de sécurité][4]
 
 ## <a name="reboot-after-system-updates"></a>Redémarrer après l’application des mises à jour système
 1. Retournons au panneau **Recommandations** . Une fois que vous avez appliqué les mises à jour système, une nouvelle entrée est générée, appelée **Redémarrer après l’application des mises à jour système**. Cette entrée vous permet de savoir que vous devez redémarrer la machine virtuelle pour terminer le processus d’application des mises à jour système.
+
    ![Redémarrer après l’application des mises à jour système][5]
 2. Sélectionnez **Redémarrer après l’application des mises à jour système**. Cette opération ouvre le panneau **Un redémarrage est en attente pour terminer les mises à jour système** qui affiche une liste de machines virtuelles que vous devez redémarrer pour terminer le processus d’application des mises à jour système.
+
    ![Redémarrage en attente][6]
 
 Redémarrez la machine virtuelle à partir d’Azure pour terminer le processus.
@@ -67,6 +74,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

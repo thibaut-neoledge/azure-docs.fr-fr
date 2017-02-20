@@ -1,6 +1,6 @@
 ---
 title: "Ajouter un pare-feu de nouvelle génération dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter les recommandations du Centre de sécurité **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**."
+description: "Ce document vous explique comment implémenter les recommandations de l’Azure Security Center **Ajouter un pare-feu de nouvelle génération** et **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,38 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
 
 
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Ajouter un pare-feu de nouvelle génération dans le Centre de sécurité Azure
-Le Centre de sécurité Azure peut vous recommander l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. Ce document inclut un exemple vous expliquant comment procéder.
+Azure Security Center peut vous recommander l’ajout d’un pare-feu de nouvelle génération d’un partenaire Microsoft afin de renforcer vos protections de sécurité. Ce document inclut un exemple vous expliquant comment procéder.
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Ajouter un pare-feu de nouvelle génération**.
    ![Ajouter un pare-feu de nouvelle génération][1]
 2. Dans le panneau **Ajouter un pare-feu de nouvelle génération** , sélectionnez un point de terminaison.
    ![Sélectionner un point de terminaison][2]
-3. Un second panneau **Ajouter un pare-feu de nouvelle génération** s’ouvre. Vous pouvez choisir d'utiliser une solution existante le cas échéant, ou en créer une. Dans cet exemple, il n'existe aucune solution existante, et nous allons donc en créer un nouveau pare-feu de nouvelle génération.
-   ![Créer une solution de pare-feu de nouvelle génération][3]
-4. Pour créer un pare-feu de nouvelle génération, sélectionnez une solution dans la liste des partenaires intégrés. Dans cet exemple, nous allons sélectionner **Check Point**.
+3. Un second panneau **Ajouter un pare-feu de nouvelle génération** s’ouvre. Vous pouvez choisir d'utiliser une solution existante le cas échéant, ou en créer une. Dans cet exemple, aucune solution existante n’est disponible ; nous allons donc créer un pare-feu de nouvelle génération.
+   ![Créer un pare-feu de nouvelle génération][3]
+4. Pour créer un pare-feu de nouvelle génération, sélectionnez une solution dans la liste des partenaires intégrés. Dans cet exemple, nous sélectionnons **Check Point**.
    ![Sélectionner une solution de pare-feu de nouvelle génération][4]
 5. Le panneau **Check Point** s’ouvre et affiche des informations sur la solution du partenaire. Sélectionnez **Créer** dans le panneau d’informations.
    ![Panneau d’informations du pare-feu][5]
-6. Le panneau **Créer une machine virtuelle** s’ouvre. Vous pouvez y entrer les informations nécessaires pour créer une machine virtuelle qui exécutera le pare-feu de nouvelle génération. Suivez les étapes et fournissez les informations requises concernant le pare-feu de nouvelle génération. Sélectionnez OK pour appliquer les modifications.
+6. Le panneau **Créer une machine virtuelle** s’ouvre. Vous pouvez y entrer les informations nécessaires pour créer une machine virtuelle qui exécute le pare-feu de nouvelle génération. Suivez les étapes et fournissez les informations requises concernant le pare-feu de nouvelle génération. Sélectionnez OK pour appliquer les modifications.
    ![Créer une machine virtuelle pour exécuter un pare-feu de nouvelle génération][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Acheminer le trafic uniquement via un pare-feu de nouvelle génération
-Retournons au panneau **Recommandations** . Une nouvelle entrée appelée **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**a été générée une fois que vous avez ajouté un pare-feu de nouvelle génération via le Centre de sécurité. Cette recommandation est créée uniquement si vous avez installé votre pare-feu de nouvelle génération via le Centre de sécurité. Si vous utilisez des points de terminaison accessibles sur Internet, le Centre de sécurité vous recommandera de configurer des règles de groupe de sécurité réseau qui forcent le trafic entrant vers votre machine virtuelle via votre pare-feu de nouvelle génération.
+Retournons au panneau **Recommandations** . Une nouvelle entrée nommée **Acheminer le trafic uniquement via un pare-feu de nouvelle génération** a été générée une fois que vous avez ajouté un pare-feu de nouvelle génération via Security Center. Cette recommandation est créée uniquement si vous avez installé votre pare-feu de nouvelle génération via le Centre de sécurité. Si vous utilisez des points de terminaison accessibles sur Internet, Security Center vous recommande de configurer des règles de groupe de sécurité réseau qui forcent le trafic entrant vers votre machine virtuelle via votre pare-feu de nouvelle génération.
 
 1. Dans le **panneau Recommandations**, sélectionnez **Acheminer le trafic uniquement via un pare-feu de nouvelle génération**.
    ![Acheminer le trafic uniquement via un pare-feu de nouvelle génération][7]
@@ -83,6 +83,6 @@ Pour plus d’informations sur Security Center, consultez :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -52,7 +52,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos 3 stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos&3; stratégies, assurez-vous de :
 
 * Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 * Choisissez le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
@@ -60,7 +60,7 @@ Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratég
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos 3 stratégies créées, vous pouvez générer votre application.
+Une fois vos&3; stratégies créées, vous pouvez générer votre application.
 
 Pour en savoir plus sur le fonctionnement des stratégies dans Azure AD B2C, commencez par consulter le [didacticiel de prise en main des applications web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: stratégie que vous souhaitez utiliser pour valider les jetons atteignant votre serveur. Cette stratégie doit être la même que celle que vous utilisez sur l’application cliente pour vous connecter.
 
 > [!NOTE]
-> Pour notre aperçu B2C, utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Puisque vous avez suivi cette procédure, vous n’avez pas besoin de configurer de nouvelles stratégies pour les procédures pas à pas destinées au client sur le site.
+> Pour l’instant, utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Puisque vous avez suivi cette procédure, vous n’avez pas besoin de configurer de nouvelles stratégies pour les procédures pas à pas destinées au client sur le site.
 >
 >
 
@@ -763,6 +763,6 @@ Vous pouvez maintenant aborder des rubriques plus avancées, telles que :
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

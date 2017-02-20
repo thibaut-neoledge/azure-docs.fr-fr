@@ -1,11 +1,23 @@
 
-Les limites suivantes s’appliquent à chaque espace de travail Operational Insights/Log Analytics.
+>[!NOTE]
+>Log Analytics s’appelait auparavant Operational Insights.
+>
+>
+
+Les limites suivantes s’appliquent aux ressources Log Analytics par abonnement :
+
+| Ressource | Limite par défaut | Commentaires
+| --- | --- | --- |
+| Nombre d’espaces de travail gratuits par abonnement | 10 | Cette limite ne peut pas être augmentée. |
+| Nombre d’espaces de travail payants par abonnement | N/A | Vous êtes limité par le nombre de ressources au sein d’un groupe de ressources et le nombre de groupes de ressources par abonnement. | 
+
+
+Les limites suivantes s’appliquent à chaque espace de travail Log Analytics :
 
 |  | Gratuit | Standard | Premium | Standalone | OMS |
 | --- | --- | --- | --- | --- | --- |
-| Limite quotidienne de transfert de données |500 MO<sup>1</sup> |Aucun |Aucun | Aucun | Aucun
+| Volume de données collecté par jour |500 MO<sup>1</sup> |Aucun |Aucun | Aucun | Aucun
 | Période de rétention des données |7 jours |1 mois |12 mois | 1 mois<sup>2</sup> | 1 mois <sup>2</sup>|
-| Limite de stockage des données |500 Mo * 7 jours = 3, 5 Go |illimitée |illimitée | illimitée |illimitée | 
 
 <sup>1</sup> Lorsque les clients atteignent leur limite quotidienne de transfert de données de 500 Mo, l’analyse des données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC.
 
@@ -18,6 +30,6 @@ Les limites suivantes s’appliquent à chaque espace de travail Operational In
  
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

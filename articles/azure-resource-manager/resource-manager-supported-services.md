@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 12/27/2016
 ms.author: magoedte;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: af96c2b6063f7200cdeb6b51e5c729aa4643127f
+ms.sourcegitcommit: 7fa1be008b5be0c912af14674ffb38d99dcf6bcc
+ms.openlocfilehash: 4042810a5ccfffba74ae9cffd82f194e8058ad83
 
 
 ---
@@ -91,8 +91,8 @@ Les Services cloud (classiques) peuvent être utilisés avec d’autres ressourc
 | Cognitive Services |Oui | [REST de Cognitive Services](/rest/api/cognitiveservices) |[Schéma Cognitive Services](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
 | Data Catalog |Oui |[Data Catalog REST](/rest/api/datacatalog) |[Schéma Data Catalog](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
 | Data Factory |Oui |[Data Factory REST](/rest/api/datafactory) | |[Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Data Lake Analytics |Oui | [REST du Data Lake](/rest/api/datalakeanalytics) |[Schéma Data Lake](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| Data Lake Store |Oui |[Data Lake Store REST](/rest/api/datalakestore) |[Schéma Data Lake](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
+| Data Lake Analytics |Oui | [REST du Data Lake](/rest/api/datalakeanalytics) |[Schéma Data Lake Analytics](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
+| Data Lake Store |Oui |[Data Lake Store REST](/rest/api/datalakestore) |[Schéma Data Lake Store](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
 | HDInsights |Oui |[HDInsights REST](/rest/api/hdinsight) | |[Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Apprentissage automatique |Oui |[Machine Learning REST](/rest/api/machinelearning) |[Schéma Machine Learning](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) | |
 | Stream Analytics |Oui |[Stream Analytics REST](/rest/api/streamanalytics) | | |
@@ -110,7 +110,7 @@ Les Services cloud (classiques) peuvent être utilisés avec d’autres ressourc
 | Service | Resource Manager activé | API REST | Schéma | Modèles de démarrage rapide |
 | --- | --- | --- | --- | --- |
 | CDN |Oui |[CDN REST](/rest/api/cdn) |[Schéma CDN](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Media Service |Oui |[Media Services REST](/rest/api/media) |[Schéma Media](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) | |
+| Media Service |Oui |[Media Services REST](/rest/api/media) |[Schéma Media](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
 ## <a name="hybrid-integration"></a>Intégration hybride
 | Service | Resource Manager activé | API REST | Schéma | Modèles de démarrage rapide |
@@ -304,6 +304,6 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions** .
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure | Microsoft Docs"
+title: "Créer des rôles personnalisés dans RBAC Azure | Microsoft Docs"
 description: "Découvrez comment définir des rôles personnalisés à l’aide du contrôle d’accès en fonction du rôle Azure pour une gestion plus précise des identités dans votre abonnement Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
+ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 
 
 ---
@@ -54,9 +54,10 @@ Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machi
 }
 ```
 ## <a name="actions"></a>Actions
-La propriété **Actions** d’un rôle personnalisé spécifie les opérations Azure auxquelles le rôle accorde l’accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Les chaînes d’opération contenant des caractères génériques (\*) accordent l’accès à toutes les opérations qui correspondent à la chaîne d’opération. Exemple :
+La propriété **Actions** d’un rôle personnalisé spécifie les opérations Azure auxquelles le rôle accorde l’accès. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Les chaînes d’opération contenant des caractères génériques (\*) accordent l’accès à toutes les opérations qui correspondent à la chaîne d’opération. Exemple :
 
 * `*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.
+* `Microsoft.Compute/*` accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.
 * `Microsoft.Network/*/read` accorde l’accès aux opérations de lecture pour tous les types de ressources dans le fournisseur de ressources Microsoft.Network d’Azure.
 * `Microsoft.Compute/virtualMachines/*` accorde l’accès à toutes les opérations des machines virtuelles et ses types de ressources enfants.
 * `Microsoft.Web/sites/restart/Action` autorise le redémarrage des sites web.
@@ -69,7 +70,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Capture d’écran PowerShell - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | Opération de texte intégral, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![Capture d’écran PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -84,8 +85,8 @@ Utilisez la propriété **NotActions** si l’ensemble des opérations que vous 
 
 > [!NOTE]
 > Si un utilisateur se voit attribuer un rôle qui exclut une opération dans **NotActions**et un second rôle qui accorde l’accès à cette même opération, il sera autorisé à effectuer cette opération. **NotActions** n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>AssignableScopes
 La propriété **AssignableScopes** du rôle personnalisé spécifie les étendues (abonnements, groupes de ressources ou ressources) au sein desquelles le rôle personnalisé peut être affecté. Vous pouvez rendre le rôle personnalisé disponible uniquement dans les abonnements ou les groupes de ressources qui le nécessitent afin de ne pas surcharger l’expérience utilisateur pour le reste des abonnements ou des groupes de ressources.
@@ -98,8 +99,8 @@ Voici des exemples d’étendues assignables valides :
 
 > [!NOTE]
 > Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Contrôle d’accès des rôles personnalisés
 La propriété **AssignableScopes** du rôle personnalisé contrôle également les personnes autorisées à afficher, modifier et supprimer le rôle.
@@ -122,7 +123,6 @@ La propriété **AssignableScopes** du rôle personnalisé contrôle également 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
