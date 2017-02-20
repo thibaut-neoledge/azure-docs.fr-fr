@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: e82d677c9d53ec5d28a40a7def4b911081765ca5
+ms.openlocfilehash: 0a249d63df35f9c3334a658672777e9b1359265e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 Découvrez comment définir la cohérence globale, utiliser les clés et supprimer un compte DocumentDB dans le portail Azure.
 
 ## <a name="a-idconsistencyamanage-documentdb-consistency-settings"></a><a id="consistency"></a>Gestion des paramètres de cohérence DocumentDB
-La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Vous devez vous familiariser avec les niveaux de cohérence disponibles dans DocumentDB en lisant [Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB][consistency]. DocumentDB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souples (Obsolescence limitée, Session ou Éventuel) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données. 
+La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Vous devez vous familiariser avec les niveaux de cohérence disponibles dans DocumentDB en lisant l’article relatif à [l’utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB][consistency]. DocumentDB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souples (Obsolescence limitée, Session ou Éventuel) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données. 
 
 ### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>Pour spécifier le niveau de cohérence par défaut d’un compte DocumentDB
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte DocumentDB.
@@ -87,12 +87,12 @@ Procédez comme suit pour récupérer votre chaîne de connexion :
 Si vous utilisez la chaîne de connexion dans [l’outil de migration de base de données DocumentDB](documentdb-import-data.md), ajoutez le nom de la base de données à la fin de la chaîne de connexion. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Supprimer un compte DocumentDB
-Pour supprimer du portail Azure un compte DocumentDB dont vous ne vous servez plus, utilisez la commande **Supprimer le compte** du panneau **Compte DocumentDB**.
+Pour supprimer du portail Azure un compte DocumentDB dont vous ne vous servez plus, cliquez avec le bouton droit sur le nom du compte, puis cliquez sur **Supprimer le compte**.
 
 ![Comment supprimer un compte DocumentDB dans le portail Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez au compte DocumentDB à supprimer.
-2. Dans le panneau **Compte DocumentDB**, cliquez sur **Plus**, puis sur **Supprimer le compte**. Ou, cliquez avec le bouton droit sur le nom de la base de données, puis cliquez sur **Supprimer le compte**.
+2. Dans le panneau **Compte DocumentDB**, cliquez avec le bouton droit sur le compte, puis cliquez sur **Supprimer le compte**. 
 3. Dans le volet de confirmation qui s'affiche, entrez le nom du compte DocumentDB afin pour confirmer que vous souhaitez le supprimer.
 4. Cliquez sur le bouton **Supprimer** .
 
@@ -119,6 +119,6 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

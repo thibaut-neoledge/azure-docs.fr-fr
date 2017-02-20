@@ -12,84 +12,109 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
+ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
+ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
 
 
 ---
-# <a name="performance-levels-and-pricing-tiers-in-documentdb"></a>Niveaux de performances et niveaux tarifaires dans DocumentDB
-Cet article fournit une vue d’ensemble des niveaux de performances dans [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+# <a name="performance-levels-in-documentdb"></a>Niveaux de performances dans DocumentDB
 
-Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
+> [!IMPORTANT] 
+> Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouvelles collections DocumentDB.
+>
 
-* Qu'est-ce qu'un niveau de performances ?
-* Comment le débit est-il réservé pour un compte de base de données ?
-* Comment puis-je utiliser les niveaux de performances ?
-* Quel est le mode de facturation des niveaux de performances ?
+Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S3 et explique comment les collections qui les utilisent seront migrées vers des collections à partition unique le 1er août 2017. Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-## <a name="introduction-to-performance-levels"></a>Introduction aux niveaux de performances
-Chaque collection DocumentDB créée dans un compte DocumentDB standard est configurée avec un niveau de performances associé. Chaque collection dans une base de données peut avoir un niveau de performances différent, ce qui vous permet de désigner davantage de débit pour les collections fréquemment sollicitées et moins de débit pour les collections rarement sollicitées. 
+- [Pourquoi les niveaux de performances S1, S2 et S3 vont-ils être mis hors service ?](#why-retired)
+- [En quoi les collections à partition unique et les collections partitionnées se différencient-elles des niveaux de performances S1, S2 et S3 ?](#compare)
+- [Comment assurer un accès ininterrompu à mes données ?](#uninterrupted-access)
+- [Qu’est-ce qui va changer au niveau de ma collection suite à la migration ?](#collection-change)
+- [Qu’est-ce qui va changer au niveau de ma facturation suite à la migration vers des collections à partition unique ?](#billing-change)
+- [Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?](#more-storage-needed)
+- [Puis-je modifier les niveaux de performances entre S1, S2 et S3 avant le 1er août 2017 ?](#change-before)
+- [Comment serai-je informé de la migration de ma collection ?](#when-migrated)
+- [Comment procéder à la migration des niveaux de performances S1, S2 et S3 vers des collections à partition unique par moi-même ?](#migrate-diy)
+- [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
 
-Comme présenté dans le tableau suivant, DocumentDB prend en charge les niveaux de performances **définis par l’utilisateur** et les niveaux de performances **prédéfinis**.  Les performances définies par l’utilisateur vous permettent de réserver un débit par unités de 100 UR/s et de disposer d’un stockage illimité, tandis que les trois niveaux de performances prédéfinis présentent des options de débit spécifiques et un quota de stockage de 10 Go. Le tableau suivant compare les performances **définies par l’utilisateur** et les performances **prédéfinies** .
+<a name="why-retired"></a>
 
-|Type de performance|Détails|Débit|Storage|Version|API|
-|----------------|-------|----------|-------|-------|----|
-|Performances définies par l’utilisateur|L’utilisateur définit le débit en unités de 100 UR/s|Illimité|Illimité|V2|API 2015-12-16 et versions ultérieures|
-|Performances prédéfinies|10 Go de stockage réservé.<br><br>S1 = 250 UR/s<br>S2 = 1 000 UR/s<br>S3 = 2 500 UR/s|2 500 unités de demande/s|10 Go|V1|Quelconque|
+## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Pourquoi les niveaux de performances S1, S2 et S3 vont-ils être mis hors service ?
 
-Le débit est réservé par collection, et son utilisation est disponible exclusivement pour cette collection. Le débit est mesuré en [UR (unités de requête)](documentdb-request-units.md), identifiant la quantité de ressources requises pour effectuer diverses opérations de base de données DocumentDB.
+Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité que les collections DocumentDB à partition unique. Avec les niveaux de performances S1, S2 et S3, le débit et la capacité de stockage étaient prédéfinis. DocumentDB offre désormais la possibilité de personnaliser votre débit et votre stockage, ce qui vous garantit une plus grande flexibilité en matière d’adaptation à l’évolution de vos besoins.
 
-> [!NOTE]
-> Le niveau de performances d’une collection peut être ajusté à l’aide des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou du [Portail Azure](https://portal.azure.com/). Les modifications au niveau des performances sont censées se terminer en 3 minutes.
-> 
-> 
+<a name="compare"></a>
 
-## <a name="setting-performance-levels-for-collections"></a>Définition des niveaux de performances pour les collections
-Lorsqu'une collection est créée, l'affectation complète des unités de demande est réservée pour la collection, en fonction du niveau de performances désigné.
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>En quoi les collections à partition unique et les collections partitionnées se différencient-elles des niveaux de performances S1, S2 et S3 ?
 
-Notez qu’avec les niveaux de performances prédéfinis et définis par l’utilisateur, DocumentDB fonctionne selon la réservation de débit. En créant une collection, une application a réservé et est facturée pour le débit réservé, quelle que soit la quantité de débit utilisée activement. Avec les niveaux de performances définis par l’utilisateur, le stockage est mesuré en fonction de la consommation, mais avec les niveaux de performances prédéfinis, 10 Go de stockage est réservé au moment de la création de la collection.  
+Le tableau suivant compare les options de débit et de stockage disponibles dans les collections à partition unique, les collections partitionnées et les niveaux de performances S1, S2 et S3. Voici un exemple pour la région Est des États-Unis 2 :
 
-Après la création de collections, vous pouvez modifier le niveau de performances et/ou le débit à l’aide des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou du [Portail Azure](https://portal.azure.com/).
+|   |Collection partitionnée|Collection à partition unique|S1|S2|S3|
+|---|---|---|---|---|---|
+|Débit maximal|Illimité|10 000 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
+|Débit minimal|2 500 RU/s|400 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
+|Stockage maximal|Illimité|10 Go|10 Go|10 Go|10 Go|
+|Prix|Débit : 6 USD / 100 RU/s<br><br>Stockage :&0;,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage :&0;,25 USD/Go|25 USD|50 USD|100 USD|
 
-> [!IMPORTANT]
-> Les collections DocumentDB standard sont facturées au tarif horaire et chaque collection que vous créez sera facturée pour une heure d'utilisation au minimum.
-> 
-> 
+Vous êtes un client Contrat Entreprise ? Si oui, voir [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
 
-Si vous ajustez le niveau de performances d'une collection pendant une période d'une heure, vous serez facturé pour le plus haut niveau de performances défini pendant cette période. Par exemple, si vous augmentez votre niveau de performances pour une collection à 8 h 53, vous serez facturé pour le nouveau niveau à partir de 8 h 00. De même, si vous diminuez le niveau de performances à 8 h 53, le nouveau taux s'appliquera à partir de 9 h 00.
+<a name="uninterrupted-access"></a>
 
-Les unités de demande sont réservées pour chaque collection sur la base du niveau de performances défini. La consommation d'unités de demande est évaluée sous la forme d'un taux par seconde. Les applications qui dépassent le taux d'unités de demande (ou le niveau de performances) configuré sur une collection sont limitées jusqu'à ce que le taux tombe sous le niveau réservé pour cette collection. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le niveau de performances pour chaque collection.
+## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Comment assurer un accès ininterrompu à mes données ?
 
-> [!NOTE]
-> Lorsque votre application dépasse les niveaux de performances d'une ou plusieurs collections, les demandes sont limitées en fonction de chaque collection. Cela signifie que certaines demandes d'application peuvent réussir tandis que d'autres peuvent être limitées. Il est recommandé d’ajouter un petit nombre de nouvelles tentatives en cas de limitation, pour gérer les hausses du trafic des demandes.
-> 
-> 
+Vous n’avez rien à faire, DocumentDB se charge de la migration pour vous. Si vous avez une collection S1, S2 ou S3, votre collection actuelle sera migrée vers une collection à partition unique le 31 juillet 2017. 
 
-## <a name="working-with-performance-levels"></a>Utilisation des niveaux de performances
-Les collections DocumentDB vous permettent de regrouper vos données selon les modèles de requête et les besoins de performances de votre application. Avec l'indexation automatique et la prise en charge des requêtes dans DocumentDB, il est assez courant colocaliser des documents hétérogènes au sein de la même collection. Les points clés de la décision quant à l’utilisation de collections distinctes sont les suivants :
+<a name="collection-change"></a>
 
-* Requêtes - Une collection est l'étendue pour l'exécution des requêtes. Si vous avez besoin d'interroger un ensemble de documents, la colocalisation des documents dans une collection unique donne les modèles de lecture les plus efficaces.
-* Transactions : toutes les transactions sont limitées à une collection unique. Si vous avez des documents qui doivent être mis à jour au sein d’une seule procédure stockée ou d’un déclencheur, ils doivent être stockés dans la même collection. Plus précisément, une clé de partition dans une collection constitue la limite de transaction. Consultez [Partitionnement dans DocumentDB](documentdb-partition-data.md) pour plus de détails.
-* Isolation des performances : à une collection est associé un niveau de performances. Cela garantit que chaque collection a des performances prévisibles via des unités de demande réservées. Les données peuvent être affectées à différentes collections, avec des niveaux de performances différents, selon la fréquence des accès.
+## <a name="how-will-my-collection-change-after-the-migration"></a>Qu’est-ce qui va changer au niveau de ma collection suite à la migration ?
 
-> [!IMPORTANT]
-> Il est important de comprendre que vous serez facturé au tarif standard en fonction du nombre de collections créées par votre application.
-> 
-> 
+Si vous avez une collection S1, elle sera migrée vers une collection à partition unique dotée d’un débit de 400 RU/s, ce qui correspond au débit le plus bas disponible pour les collections à partition unique. Toutefois, le coût d’un débit de 400 RU/s dans une collection à partition unique est approximativement identique à celui que vous payez pour votre collection S1 dotée d’un débit de 250 RU/s : vous ne payez pas pour les 150 RU/s disponibles supplémentaires.
 
-Il est recommandé que votre application utilise un petit nombre de collections à moins que vos besoins en termes de stockage ou de débit ne soient importants. Vérifiez que vous avez bien compris les modèles d’application pour la création de collections. Vous pouvez choisir de réserver la création de la collection comme une action de gestion gérée en dehors de votre application. De même, l'ajustement du niveau de performances pour une collection modifiera le taux horaire de facturation de la collection. Vous devez surveiller les niveaux de performances d'une collection si votre application les ajuste de manière dynamique.
+Si vous avez une collection S2, elle sera migrée vers une collection à partition unique dotée d’un débit de 1 000 RU/s. Vous n’observerez aucun changement de niveau de débit.
 
-## <a name="a-idchanging-performance-levels-using-the-azure-portalachange-from-s1-s2-s3-to-user-defined-performance"></a><a id="changing-performance-levels-using-the-azure-portal"></a>Remplacer S1, S2, S3 par les performances définies par l’utilisateur
-Procédez comme suit pour passer de niveaux de débit prédéfinis à des niveaux de débit définis par l’utilisateur dans le portail Azure. Les niveaux de débit définis par l’utilisateur vous permettent d’adapter le débit à vos besoins. Et si vous utilisez encore un compte S1, vous pouvez augmenter le débit par défaut de 250 à 400 unités de requête/s en seulement quelques clics. Notez qu’après avoir déplacé une collection du niveau S1, S2 ou S3 vers le niveau Standard (défini par l’utilisateur), vous ne pourrez plus revenir à un niveau S1, S2 ou S3. Vous pouvez toutefois modifier le débit d’une collection Standard à tout moment.
+Si vous avez une collection S3, elle sera migrée vers une collection à partition unique dotée d’un débit de 2 500 RU/s. Vous n’observerez aucun changement de niveau de débit.
 
-Pour plus d’informations sur la modification de la tarification pour les débits définis par l’utilisateur ou prédéfinis, consultez l’article de blog [DocumentDB : tout ce que vous devez savoir sur l’utilisation des nouvelles options de tarification](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
+Dans chacun de ces cas, une fois la migration de votre collection effectuée, vous serez en mesure de personnaliser votre niveau de débit, ou de le mettre à l’échelle selon vos besoins afin de fournir un accès à faible latence à vos utilisateurs. Pour modifier le niveau de débit une fois votre collection migrée, il vous suffit d’ouvrir votre compte DocumentDB dans le portail Azure, puis de cliquer sur Mettre à l’échelle, de choisir votre collection et enfin d’ajuster le niveau du débit, comme illustré dans la capture d’écran suivante :
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
-> 
-> 
+![Mise à l’échelle du débit dans le portail Azure](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
+
+<a name="billing-change"></a>
+
+## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Qu’est-ce qui va changer au niveau de ma facturation suite à la migration vers des collections à partition unique ?
+
+Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 Go chacune, dans la région Est des États-Unis et que vous migrez ces 10 collections S1 vers 10 collections à partition unique dotées d’un débit de 400 RU/s (niveau minimal). Votre facture se présentera comme suit si vous conservez les 10 collections à partition unique pendant un mois complet :
+
+![Comparaison entre la tarification de 10 collections S1 et de 10 collections utilisant la tarification d’une collection à partition unique](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
+
+<a name="more-storage-needed"></a>
+
+## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?
+
+Que vous disposiez d’une collection avec un niveau de performance S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données DocumentDB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure DocumentDB](documentdb-partition-data.md). Pour plus d’informations sur la façon de migrer votre collection S1, S2, S3 ou à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition). 
+
+<a name="change-before"></a>
+
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>Puis-je modifier les niveaux de performances entre S1, S2 et S3 avant le 1er août 2017 ?
+
+Seuls les comptes existants avec des niveaux de performances S1, S2 et S3 seront en mesure de modifier et d’ajuster la hiérarchie des niveaux de performances via le portail ou par programme. À compter du 1er août 2017, les niveaux de performances S1, S2 et S3 ne seront plus disponibles. Si vous remplacez une collection S1, S2 ou S3 par une collection à partition unique, vous ne pouvez plus revenir aux niveaux de performances S1, S2 ou S3.
+
+<a name="when-migrated"></a>
+
+## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Comment serai-je informé de la migration de ma collection ?
+
+La migration aura lieu le 31 juillet 2017. Si vous avez une collection qui utilise les niveaux de performances S1, S2 ou S3, l’équipe DocumentDB vous contactera par e-mail avant de lancer la migration. Une fois la migration terminée, le 1er août 2017, le portail Azure indiquera que votre collection utilise la tarification Standard.
+
+![Confirmation de la migration de votre collection vers le niveau tarifaire Standard](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
+
+<a name="migrate-diy"></a>
+
+## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Comment procéder à la migration des niveaux de performances S1, S2 et S3 vers des collections à partition unique par moi-même ?
+
+Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers des collections à partition unique via le portail Azure ou par programme. Vous pouvez effectuer cette opération avant le 1er août pour tirer parti des options de débit flexibles disponibles pour les collections à partition unique. Sinon, nous nous chargerons de la migration de vos collections le 31 juillet 2017.
+
+**Migration vers des collections à partition unique à l’aide du portail Azure**
 
 1. Dans le [**Portail Azure**](https://portal.azure.com), cliquez sur **NoSQL (DocumentDB)**, puis sélectionnez le compte DocumentDB à modifier. 
  
@@ -99,20 +124,27 @@ Pour plus d’informations sur la modification de la tarification pour les débi
 
     ![Capture d’écran du panneau Paramètres montrant où modifier la valeur de débit](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-3. De retour dans le panneau **Mettre à l’échelle**, le **Niveau tarifaire** est défini sur **Standard** et la zone **Débit (UR/s)** est affichée avec une valeur par défaut de 400. Définissez le débit entre 400 et 10 000 [unités de requête](documentdb-request-units.md)/seconde (unités de requête/s). **L’Estimation de la facture mensuelle** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+3. De retour dans le panneau **Mettre à l’échelle**, le **Niveau tarifaire** est défini sur **Standard** et la zone **Débit (UR/s)** est affichée avec une valeur par défaut de 400. Définissez le débit entre 400 et 10 000 [unités de requête](documentdb-request-units.md)/seconde (unités de requête/s). **L’Estimation de la facture mensuelle** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. 
 
-    Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour créer une collection partitionnée, consultez [Créer une collection](documentdb-create-collection.md).
+    >[!IMPORTANT] 
+    > Une fois que vous enregistrez vos modifications et que vous passez au niveau tarifaire Standard, vous ne pouvez pas restaurer les niveaux de performances S1, S2 ou S3.
 
-> [!NOTE]
-> La modification des niveaux de performances d’une collection peut prendre jusqu’à 2 minutes.
-> 
-> 
+4. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
-## <a name="changing-performance-levels-using-the-net-sdk"></a>Modification des niveaux de performances à l’aide du Kit SDK .NET
-Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit de développement logiciel (SDK) .NET, visitez notre [didacticiel de mise en route](documentdb-get-started.md).
+    Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour migrer une collection à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition).
 
-Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités de demande par seconde :
+    > [!NOTE]
+    > Le passage du niveau S1, S2 ou S3 au niveau Standard peut prendre jusqu’à 2 minutes.
+    > 
+    > 
 
+**Migration vers des collections à partition unique à l’aide du Kit de développement logiciel (SDK) .NET**
+
+Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit de développement logiciel (SDK) .NET, consultez notre [didacticiel de mise en route](documentdb-get-started.md).
+
+Voici un extrait de code permettant de remplacer le débit de la collection par 5 000 unités de requête par seconde :
+    
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -124,20 +156,7 @@ Voici un extrait de code pour modifier le débit de l’offre sur 50 000 unités
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
-
-    // Set the throughput to S2
-    offer = new Offer(offer);
-    offer.OfferType = "S2";
-
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-
-
-
-> [!NOTE]
-> Les collections dotées de moins de 10 000 unités de demande par seconde peuvent être migrées entre les offres avec un débit défini par l’utilisateur et un débit prédéfini (S1, S2, S3) à tout moment. Les collections dotées de plus de 10 000 unités de demande par seconde ne peuvent pas être converties en niveaux de débit prédéfinis.
-> 
-> 
+```
 
 Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) pour afficher des exemples supplémentaires et en savoir plus sur nos méthodes d’offre :
 
@@ -146,42 +165,21 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.document
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a name="a-idchange-throughputachanging-the-throughput-of-a-collection"></a><a id="change-throughput"></a>Modification du débit d’une collection
-Si vous utilisez déjà les performances définies par l’utilisateur, vous pouvez modifier le débit de votre collection en procédant comme suit. Si vous avez besoin de passer d’un niveau de performance S1, S2 ou S3 (performances prédéfinies) aux performances définies par l’utilisateur, consultez [Remplacer S1, S2, S3 par les performances définies par l’utilisateur](#changing-performance-levels-using-the-azure-portal).
+<a name="ea-customer"></a>
 
-1. Dans le [**Portail Azure**](https://portal.azure.com), cliquez sur **NoSQL (DocumentDB)**, puis sélectionnez le compte DocumentDB à modifier.    
-2. Dans le menu de la ressource, sous **Collections**, cliquez sur **Mettre à l’échelle**, puis sélectionnez la collection à modifier dans la liste déroulante.
-3. Dans la zone **Débit (UR/s)**, tapez le nouveau niveau de débit. 
-   
-    **L’Estimation de la facture mensuelle** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?
 
-    Si vous n’êtes pas sûr de l’augmentation à appliquer au débit, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et [Calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
-
-## <a name="troubleshooting"></a>Résolution de problèmes
-
-Si vous ne voyez pas l’option permettant de modifier le niveau de performances et de choisir le niveau S1, S2 ou S3 dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Afficher tout** pour afficher les niveaux de performances Standard, S1, S2 et S3. Si vous utilisez le niveau tarifaire Standard, vous ne pouvez pas modifier le niveau entre S1, S2 et S3.
-
-![Capture d’écran du panneau Choisir votre niveau tarifaire avec l’option Afficher tout en surbrillance](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
-
-Après avoir transféré une collection du niveau S1, S2 ou S3 vers le niveau Standard, vous ne pouvez plus revenir au niveau S1, S2 ou S3.
+Les clients Contrat Entreprise bénéficieront d’une protection en matière de tarification jusqu’à la fin de leur contrat actuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
 
-* [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Modélisation des données dans DocumentDB](documentdb-modeling-data.md)
-* [Partitionnement des données dans DocumentDB](documentdb-partition-data.md)
-* [Unités de demande](http://go.microsoft.com/fwlink/?LinkId=735027)
-
-Pour en savoir plus sur DocumentDB, consultez la [documentation](https://azure.microsoft.com/documentation/services/documentdb/)Azure DocumentDB.
-
-Pour commencer avec le test des performances et de la mise à l’échelle avec DocumentDB, consultez [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md).
-
-[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
-[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
+1.  [Partitionnement des données dans DocumentDB](documentdb-partition-data.md). Découvrez la différence entre les collections à partition unique et les collections partitionnées et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+2.  [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
+3.  [Unités de requête](documentdb-request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
+4.  [Modélisation des données dans DocumentDB](documentdb-modeling-data.md). Apprenez à modéliser vos données pour DocumentDB.
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

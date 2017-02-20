@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: raprasa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
+ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
 
 
 ---
@@ -27,7 +27,7 @@ Azure DocumentDB sauvegarde automatiquement toutes vos données à intervalles r
 Cet article commence par un récapitulatif sur la redondance et la disponibilité des données dans DocumentDB et traite ensuite des sauvegardes. 
 
 ## <a name="high-availability-with-documentdb---a-recap"></a>Récapitulatif de la haute disponibilité avec DocumentDB
-DocumentDB est conçu pour être [globalement distribué](documentdb-distribute-data-globally.md) : il vous permet de mettre à l’échelle le débit dans plusieurs régions Azure, ainsi que le basculement indiqué par la stratégie et les API multihébergement transparentes. En tant que système de base de données offrant des [SLA de disponibilité à 99,99 %](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), toutes les écritures dans DocumentDB sont validées durablement sur des disques locaux par un quorum de réplicas au sein d’un centre de données local avant d’accuser réception au client. Notez que la haute disponibilité de DocumentDB s’appuie sur le stockage local et ne dépend d’aucune technologie de stockage externe. En outre, si votre compte de base de données est associé à plusieurs régions Azure, vos écritures sont également répliquées entre les autres régions. Pour mettre à l’échelle votre débit, et accéder aux données à une latence faible, vous pouvez avoir autant de régions lues associées à votre compte de base de données que vous le souhaitez. Dans chaque région de lecture, les données (répliquées) sont rendues persistantes durablement sur un jeu de réplicas.  
+DocumentDB est conçu pour être [globalement distribué](documentdb-distribute-data-globally.md) : il vous permet de mettre à l’échelle le débit dans plusieurs régions Azure, ainsi que le basculement indiqué par la stratégie et les API multihébergement transparentes. En tant que système de base de données offrant des [SLA de disponibilité à&99;,99 %](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), toutes les écritures dans DocumentDB sont validées durablement sur des disques locaux par un quorum de réplicas au sein d’un centre de données local avant d’accuser réception au client. Notez que la haute disponibilité de DocumentDB s’appuie sur le stockage local et ne dépend d’aucune technologie de stockage externe. En outre, si votre compte de base de données est associé à plusieurs régions Azure, vos écritures sont également répliquées entre les autres régions. Pour mettre à l’échelle votre débit, et accéder aux données à une latence faible, vous pouvez avoir autant de régions lues associées à votre compte de base de données que vous le souhaitez. Dans chaque région de lecture, les données (répliquées) sont rendues persistantes durablement sur un jeu de réplicas.  
 
 Comme illustré dans le diagramme suivant, une seule collection DocumentDB est [partitionnée horizontalement](documentdb-partition-data.md). Une « partition » est indiquée par un cercle dans le diagramme suivant, et chaque partition est hautement disponible via un jeu de réplicas. Il s’agit de la distribution locale au sein d’une seule région Azure (indiquée par l’axe des abscisses). En outre, chaque partition (avec son jeu de réplicas correspondant) est ensuite globalement distribuée dans plusieurs régions liées à votre compte de base de données (par exemple, dans cette illustration, les trois régions : États-Unis de l’Est, États-Unis de l’Ouest et Centre de l’Inde). Le « jeu de partitions » est une entité globalement distribuée comprenant plusieurs copies de vos données dans chaque région (indiquée par l’axe des ordonnées). Vous pouvez affecter la priorité aux régions associées à votre compte de base de données ; DocumentDB basculera en toute transparence à la région suivante en cas de sinistre. Vous pouvez également simuler le basculement manuellement pour tester la disponibilité de bout en bout de votre application.  
 
@@ -38,7 +38,7 @@ L’image suivante illustre le degré élevé de redondance avec DocumentDB.
 ![Degré élevé de redondance avec DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Sauvegardes complètes, automatiques, en ligne
-Oups, j’ai supprimé ma collection ou une base de données ! Avec DocumentDB, vos données, ainsi que les sauvegardes de vos données sont rendues hautement redondantes et résilientes aux sinistres régionaux. Actuellement, ces sauvegardes automatisées sont effectuées environ toutes les quatre heures. 
+Oups, j’ai supprimé ma collection ou une base de données ! Avec DocumentDB, vos données, ainsi que les sauvegardes de vos données sont rendues hautement redondantes et résilientes aux sinistres régionaux. Actuellement, ces sauvegardes automatisées sont effectuées environ toutes les quatre heures et les deux sauvegardes les plus récentes sont stockées en permanence. Si les données sont accidentellement supprimées ou endommagées, contactez le [support technique Azure](https://azure.microsoft.com/support/options/) dans les 8 heures. 
 
 Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de vos opérations de base de données. DocumentDB effectue la sauvegarde en arrière-plan sans consommer les RU approvisionnées ni affecter les performances et sans affecter la disponibilité de votre base de données NoSQL. 
 
@@ -62,6 +62,6 @@ Pour contacter le support technique Azure, [émettez un ticket à partir du Port
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
