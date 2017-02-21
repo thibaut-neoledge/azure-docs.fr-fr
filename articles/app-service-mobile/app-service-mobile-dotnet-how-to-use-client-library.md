@@ -1119,7 +1119,7 @@ public class MyHandler : DelegatingHandler
 [Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[l'UserId]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portail Azure]: https://portal.azure.com/
 [portail Azure Classic]: https://manage.windowsazure.com/
