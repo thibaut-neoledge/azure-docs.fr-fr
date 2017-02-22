@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2016
+ms.date: 02/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 2927b9de6a70668ffeac2005842214ad2406ddae
+ms.sourcegitcommit: 6a5724d4291a0b1878d528a59f693c046ba960f9
+ms.openlocfilehash: d7133180f4fc9263894c522fcaacaeea4a985847
 
 
 ---
@@ -53,7 +53,7 @@ Le tableau suivant répertorie les paramètres requis pour exécuter le script P
 | --- | --- | --- |
 | **$akvURL** |**L'URL du coffre de clés** |« https://contosokeyvault.vault.azure.net/ » |
 | **$spName** |**Nom du principal du service** |« fde2b411-33d5-4e11-af04eb07b669ccf2 » |
-| **$spSecret** |**Secret du principal du service** |« 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
+| **$spSecret** |**Secret du principal du service** |«&9;VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= » |
 | **$credName** |**Nom d’identification**: le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |« mycred1 » |
 | **$vmName** |**Nom de machine virtuelle**: le nom d’une machine virtuelle SQL créée précédemment. |« myvmname » |
 | **$serviceName** |**Nom du service**: le nom du service Cloud associé à la machine virtuelle SQL. |« mycloudservicename » |
@@ -71,7 +71,9 @@ L'applet de commande **New-AzureVMSqlServerKeyVaultCredentialConfig** crée un o
         $serviceName = "mycloudservicename"
 2. Utilisez ensuite le script suivant pour configurer et activer AKV Integration.
    
-     $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force   $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv   Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
 
 L'extension de l'Agent SQL IaaS met à jour la machine virtuelle SQL avec cette nouvelle configuration.
 
@@ -80,6 +82,6 @@ L'extension de l'Agent SQL IaaS met à jour la machine virtuelle SQL avec cette 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

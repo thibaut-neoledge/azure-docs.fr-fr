@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
+ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 
 
 ---
@@ -38,10 +38,10 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 | Media Encoder Premium Workflow |Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
 | Azure Media Indexer |Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés. |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse (version préliminaire) |Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Encodeur multimédia Azure |Amorti | |
-| Storage Decryption |Amorti | |
-| Azure Media Packager |Amorti | |
-| Azure Media Encryptor |Amorti | |
+| Encodeur multimédia Azure |Déconseillé | |
+| Storage Decryption |Déconseillé | |
+| Azure Media Packager |Déconseillé | |
+| Azure Media Encryptor |Déconseillé | |
 
 ## <a name="get-mediaprocessor"></a>Obtention de MediaProcessor
 > [!NOTE]
@@ -98,6 +98,6 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
