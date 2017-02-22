@@ -1,5 +1,5 @@
 ---
-title: Prise en charge du pare-feu dans DocumentDB | Microsoft Docs
+title: "Prise en charge du pare-feu Azure DocumentDB et contrôle d’accès IP | Microsoft Docs"
 description: "Découvrez comment utiliser les stratégies de contrôle d’accès IP pour la prise en charge du pare-feu dans les comptes de base de données Azure DocumentDB."
 keywords: "contrôle d’accès IP, prise en charge du pare-feu"
 services: documentdb
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/20/2016
 ms.author: ankshah; kraman
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb3c5c2adbaedc4bfb1e68f26b88079aeabe50f5
+ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
+ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
 
 
 ---
@@ -31,14 +31,14 @@ Par défaut, un compte de base de données DocumentDB est accessible depuis l’
 ![Diagramme illustrant le processus de connexion du contrôle d’accès basé sur IP](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## <a name="connections-from-cloud-services"></a>Connexions à partir de services cloud
-Dans Azure, les services cloud sont une méthode très courante d’hébergement de la logique de service de couche intermédiaire à l’aide de DocumentDB. Pour autoriser l’accès à un compte de base de données DocumentDB à partir d’un service cloud, l’adresse IP publique du service cloud doit être ajoutée à la liste d’adresses IP autorisées associées à votre compte de base de données DocumentDB en [contactant le support Azure](#configure-ip-policy).  Cela garantit que toutes les instances de rôle des services cloud ont accès à votre compte de base de données DocumentDB. Vous pouvez récupérer des adresses IP pour vos services cloud dans le portail Azure, comme illustré dans la capture d’écran suivante. 
+Dans Azure, les services cloud sont une méthode très courante d’hébergement de la logique de service de couche intermédiaire à l’aide de DocumentDB. Pour autoriser l’accès à un compte de base de données DocumentDB à partir d’un service cloud, l’adresse IP publique de ce dernier doit être ajoutée à la liste d’adresses IP autorisées de votre compte de base de données DocumentDB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy).  Cela garantit que toutes les instances de rôle des services cloud ont accès à votre compte de base de données DocumentDB. Vous pouvez récupérer des adresses IP pour vos services cloud dans le portail Azure, comme illustré dans la capture d’écran suivante.
 
 ![Capture d’écran illustrant l’adresse IP publique pour un service cloud affichée dans le portail Azure](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 Lorsque vous faites évoluer votre service cloud en ajoutant des instances de rôle supplémentaires, ces nouvelles instances auront automatiquement accès au compte de base de données DocumentDB, car ils font partie du même service cloud.
 
 ## <a name="connections-from-virtual-machines"></a>Connexions à partir de machines virtuelles
-Des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) peuvent également être utilisés pour héberger les services de couche intermédiaire à l’aide de DocumentDB.  Pour configurer le compte de base de données DocumentDB afin d’autoriser l’accès à partir de machines virtuelles, les adresses IP publiques de la machine virtuelle ou du jeu de mise à l’échelle de machine virtuelle doivent être configurées comme une adresse IP autorisée pour votre compte de base de données DocumentDB en [contactant le support Azure](#configure-ip-policy). Vous pouvez récupérer des adresses IP pour des machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante.
+Des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) peuvent également être utilisés pour héberger les services de couche intermédiaire à l’aide de DocumentDB.  Pour configurer le compte de base de données DocumentDB afin qu’il autorise l’accès à partir de machines virtuelles, les adresses IP publiques de la machine virtuelle ou du groupe de machines virtuelles identiques doivent figurer parmi les adresses IP autorisées de votre compte de base de données DocumentDB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy). Vous pouvez récupérer des adresses IP pour des machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante.
 
 ![Capture d’écran illustrant une adresse IP publique pour une machine virtuelle affichée dans le portail Azure](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
@@ -48,26 +48,10 @@ Lorsque vous ajoutez des instances de machine virtuelle supplémentaires au grou
 Lorsque vous accédez à un compte de base de données DocumentDB à partir d’un ordinateur sur Internet, l’adresse IP ou la plage d’adresses IP de l’ordinateur doit être ajoutée à la liste d’adresses IP autorisées pour le compte de base de données DocumentDB. 
 
 ## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> Configuration de la stratégie de contrôle d’accès IP
-Utilisez le portail Azure pour créer une demande auprès du [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) afin d’activer la stratégie de contrôle d’accès IP sur votre compte de base de données.
+La stratégie de contrôle d’accès IP peut être définie par programmation avec [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure PowerShell](documentdb-manage-account-with-powershell.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) en mettant à jour la propriété `ipRangeFilter`. Les plages/adresses IP doivent être séparées par des virgules et ne doivent pas contenir d’espaces. Exemple : « 13.91.6.132,13.91.6.1/24 ». Lors de la mise à jour de votre compte de base de données avec ces méthodes, veillez à renseigner toutes les propriétés afin d’éviter le rétablissement des paramètres par défaut.
 
-1. Dans le panneau [Aide + Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade),sélectionnez **Nouvelle demande de support**.
-2. Dans le panneau **Nouvelle demande de support**, cliquez sur **De base**.
-3. Dans le panneau **De base**, sélectionnez les éléments suivants :
-   * **Type de problème** : Quota
-   * **Abonnement** : l’abonnement associé au compte dans lequel ajouter la stratégie de contrôle d’accès IP.
-   * **Type de quota** : DocumentDB
-   * **Plan de support** : Support quota - Inclus.
-4. Dans le panneau **Problème**, procédez comme suit :
-   * **Gravité** : sélectionnez C - impact minimal
-   * **Détails** : copiez le texte suivant dans la zone, et indiquez les noms et adresses IP de votre compte : « Je souhaiterais activer la prise en charge du pare-feu pour mon compte de base de données DocumentDB. Compte de base de données : *indiquez les noms des comptes*. Adresses/Plages d’adresses IP autorisées : *indiquez l’adresse/la plage d’adresses IP au format CIDR, par exemple 13.91.6.132, 13.91.6.1/24*. »
-   * Cliquez sur **Next**. 
-5. Dans le panneau **Informations de contact**, renseignez vos coordonnées et cliquez sur **Créer**. 
-
-Une fois votre demande reçue, le contrôle d’accès IP doit être activé dans les 24 heures. Vous serez averti une fois la demande terminée.
-
-![Capture d’écran des panneaux Aide + Support](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
-
-![Capture d’écran du panneau Problème](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+> [!NOTE]
+> En activant une stratégie de contrôle d’accès IP pour votre compte de base de données DocumentDB, tous les accès à votre compte de base de données DocumentDB à partir d’ordinateurs ne figurant pas sur la liste de plages d’adresses IP autorisées sont bloqués. En vertu de ce modèle, la navigation dans le plan de données à partir du portail sera également bloquée pour assurer l’intégrité du contrôle d’accès.
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Dépannage de la stratégie de contrôle d’accès IP
 ### <a name="portal-operations"></a>Opérations du portail
@@ -82,6 +66,6 @@ Pour plus d’informations sur les conseils sur les performances relatives au r�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
