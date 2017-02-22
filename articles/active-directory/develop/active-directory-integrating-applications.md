@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2016
+ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 46629edd59fa51e127fe4a4b61ff7de753dd7e68
+ms.sourcegitcommit: b5dbb8c28bd6b2bdbb53939314348104bbbe4f34
+ms.openlocfilehash: f6ec7634a1d21c7205ac8ae7377a312ed386ee61
 
 
 ---
@@ -34,14 +34,15 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 
 Si vous créez une application web qui a simplement besoin de prendre en charge l’authentification des utilisateurs dans Azure AD, il vous suffit de suivre les instructions ci-dessous. Si votre application requiert des informations d’identification ou des autorisations pour accéder à une API web, ou de permettre aux utilisateurs d’autres locataires Azure AD d’y accéder, consultez la section [Mise à jour d’une application](#updating-an-application) pour continuer à configurer votre application.
 
-### <a name="to-register-a-new-application-in-the-azure-classic-portal"></a>Enregistrement d’une nouvelle application dans le portail Azure Classic
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien Ajouter une application. Cliquez sur le lien ou cliquez sur le bouton **Ajouter** dans la barre de commandes.
-4. Sur la page Que voulez-vous faire, cliquez sur le lien vers **Ajouter une application développée par mon organisation**.
-5. Sur la page Parlez-nous de votre application, vous devez spécifier un nom pour votre application et indiquer le type d'application que vous enregistrez avec Azure AD.  Vous pouvez choisir une application [web/cliente](active-directory-dev-glossary.md#client-application) / [ de ressource web/](active-directory-dev-glossary.md#resource-server) (peut également fonctionner comme les deux), ou une application [client native](active-directory-dev-glossary.md#native-client). Une fois l'opération terminée, cliquez sur la flèche dans le coin inférieur droit de la page.
-6. Sur la page des propriétés de l’application, indiquez l’URL d’authentification et l’URI ID d’application si vous inscrivez une application web ou simplement l’URI de redirection pour une application cliente native, puis cliquez sur la case à cocher dans le coin inférieur droit de la page.
-7. Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application. Selon que votre application est une application native ou web, vous verrez des options différentes d'ajout de fonctionnalités supplémentaires à votre application. Une fois votre application ajoutée, vous pouvez commencer la mise à jour de votre application pour permettre aux utilisateurs de se connecter, accéder à des API web dans d'autres applications ou configurer l'application mutualisée (ce qui permet à d'autres organisations d’accéder à votre application).
+### <a name="to-register-a-new-application-in-the-azure-portal"></a>Enregistrement d’une nouvelle application dans le portail Azure
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le volet de navigation de gauche, choisissez **Plus de services**, cliquez sur **Inscriptions d’application**, puis cliquez sur **Ajouter**.
+4. Suivez les invites et créez une application. Si vous souhaitez des exemples spécifiques pour les applications web ou natives, consultez les [Démarrages rapides](active-directory-developers-guide.md).
+  * Pour les applications web, indiquez l’**URL de connexion**, c’est-à-dire l’URL de base de votre application, à laquelle les utilisateurs peuvent se connecter, par exemple `http://localhost:12345`.
+<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+  * Pour les applications natives, indiquez un **URI de redirection**, qui sera utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique à votre application, par exemple, `http://MyFirstAADApp`
+5. Une fois l’inscription terminée, Azure AD affecte un identificateur client unique à votre application, l’ID d’application. Votre application a été ajoutée, et vous allez être redirigé vers la page de démarrage rapide pour votre application. Selon que votre application est une application native ou web, vous verrez des options différentes d'ajout de fonctionnalités supplémentaires à votre application. Une fois votre application ajoutée, vous pouvez commencer la mise à jour de votre application pour permettre aux utilisateurs de se connecter, accéder à des API web dans d'autres applications ou configurer l'application mutualisée (ce qui permet à d'autres organisations d’accéder à votre application).
 
 > [!NOTE]
 > Par défaut, l'inscription de l'application nouvellement créée est configurée pour autoriser les utilisateurs de votre répertoire à se connecter à votre application.
@@ -65,17 +66,24 @@ Pour plus d’informations sur l’infrastructure de consentement, consultez la 
 #### <a name="example-of-the-consent-experience"></a>Exemple d’expérience de consentement
 Les étapes suivantes vous montrent comment l’expérience de consentement fonctionne à la fois pour le développeur d'applications et pour l'utilisateur.
 
-1. Sur la page de configuration de votre application cliente web, dans le portail Azure Classic, définissez les autorisations demandées par votre application en utilisant les menus déroulants dans la commande Autorisations pour d’autres applications.
+1. À partir de la page de configuration de votre application cliente web dans le portail Azure, définissez les autorisations demandées par votre application à l’aide des menus disponibles dans la section Autorisations requises.
    
-    ![Autorisations pour d'autres applications](./media/active-directory-integrating-applications/permissions.png)
+    ![Autorisations pour d'autres applications](./media/active-directory-integrating-applications/requiredpermissions.png)
 2. Considérons que les autorisations de votre application ont été mises à jour, que l'application s'exécute et qu’un utilisateur s'apprête à l’utiliser pour la première fois. Si l'application n'a pas encore acquis de jeton d’accès ou d’actualisation, l'application a besoin d’accéder au point de terminaison de l'autorisation d'Azure AD pour obtenir un code d'autorisation qui peut servir à acquérir un nouveau jeton d’accès et d’actualisation.
 3. Si l'utilisateur n'est pas déjà authentifié, il sera invité à se connecter à Azure AD.
    
-    ![Connexion d’un utilisateur ou d’un administrateur à Azure AD](./media/active-directory-integrating-applications/useradminsignin.png)
-4. Une fois l'utilisateur connecté, Azure AD déterminera s’il est nécessaire d'afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application. Si l'autorisation n'a pas encore été accordée, Azure AD invitera l'utilisateur à fournir son consentement et affichera les autorisations dont il a besoin pour fonctionner. Le jeu d’autorisations qui s’affiche dans la boîte de dialogue du consentement est identique à ce qui a été sélectionné dans la commande Autorisations pour d’autres applications dans le portail Azure Classic.
+    ![Connexion d’un utilisateur ou d’un administrateur à Azure AD](./media/active-directory-integrating-applications/usersignin.png)
+4. Une fois l'utilisateur connecté, Azure AD déterminera s’il est nécessaire d'afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application. Si l'autorisation n'a pas encore été accordée, Azure AD invitera l'utilisateur à fournir son consentement et affichera les autorisations dont il a besoin pour fonctionner. Le jeu d’autorisations qui s’affiche dans la boîte de dialogue de consentement est identique à la sélection effectuée dans la section Autorisations déléguées du portail Azure.
    
-    ![Expérience de consentement de l'utilisateur](./media/active-directory-integrating-applications/userconsent.png)
+    ![Expérience de consentement de l'utilisateur](./media/active-directory-integrating-applications/consent.png)
 5. Une fois que l'utilisateur a donné son consentement, un code d'autorisation est retourné à votre application, qui peut être utilisé pour acquérir un jeton d'accès et un jeton d'actualisation. Pour plus d’informations sur ce flux, consultez la section [Application web vers API web](active-directory-authentication-scenarios.md#web-application-to-web-api) dans [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
+
+6. En tant qu’administrateur, vous pouvez également donner votre consentement pour les autorisations déléguées d’une application pour le compte de tous les utilisateurs de votre client. Cela évitera que la boîte de dialogue de consentement s’affiche pour chaque utilisateur du client. Vous pouvez le faire à partir de la page de votre application dans le [portail Azure](https://portal.azure.com). Dans le panneau **Paramètres** de votre application, cliquez sur **Autorisations requises**, puis sur le bouton **Accorder des autorisations**. 
+
+    ![Accorder des autorisations pour un consentement administrateur explicite](./media/active-directory-integrating-applications/grantpermissions.png)
+    
+> [!NOTE]
+> Pour les applications à page unique (SPA) qui utilisent ADAL.js, il est actuellement nécessaire d’accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. En effet, le jeton d’accès est requis sans invite de consentement, ce qui donnera lieu à un échec si le consentement n’est pas déjà accordé.   
 
 ### <a name="configuring-a-client-application-to-access-web-apis"></a>Configuration d’une application cliente pour accéder aux API web
 Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé symétrique. Cette section décrit les étapes de configuration requises pour fournir les informations d’identification de votre client à la clé secrète.
@@ -83,28 +91,30 @@ Une application cliente web/confidentielle doit établir des informations d’id
 De plus, avant qu’un client puisse accéder à une API web exposée par une application de ressource (API Graph Azure AD), l’infrastructure de consentement permet au client d’obtenir l’autorisation nécessaire, en fonction des autorisations demandées. Par défaut, toutes les applications peuvent choisir des autorisations d'Azure Active Directory (API Graph) et de l’API Azure Service Management, avec l'autorisation « Activer l'authentification et lire le profil de l’utilisateur » d’Azure AD déjà sélectionnée par défaut. Si votre application cliente est en cours d’enregistrement dans un locataire Azure AD Office 365, vous aurez également la possibilité de sélectionner les API web et les autorisations pour Exchange Online et SharePoint. Vous pouvez sélectionner deux [types d’autorisations](active-directory-dev-glossary.md#permissions) dans les listes déroulantes en regard de l’API web souhaitée :
 
 * Autorisations de l’application : votre application cliente doit accéder à l’API web directement en tant que telle (aucun contexte utilisateur). Ce type d'autorisation requiert le consentement de l'administrateur et n'est également pas disponible pour les applications clientes natives.
-* Autorisations déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation ne soit configurée comme nécessitant le consentement de l'administrateur.
-
-#### <a name="to-add-credentials-or-permissions-to-access-web-apis"></a>Pour ajouter des informations d’identification ou des autorisations pour accéder aux API web
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com)
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis sur l’application que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration. Cliquez sur le lien **Configurer** en haut de la page, qui vous dirigera vers la page de configuration de l’application.
-4. Pour ajouter une clé secrète aux informations d’identification de votre application web, accédez à la section « Clés ».  
-   
-   * Tout d’abord, cliquez sur la liste déroulante Sélectionner la durée et sélectionnez une durée de 1 ou 2 ans. 
-   * Ensuite, une nouvelle ligne, dont les dates Valid from (Valide à partir du) et Expires on (Expire le) sont renseignées, s’affiche.
-   * La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration (ci-dessous). N’oubliez pas de revenir à cette section et de la copier après l’avoir enregistrée afin de pouvoir l’utiliser dans votre application cliente lors de l’authentification au moment de l’exécution.
-5. Pour ajouter des autorisations d’accès aux API de ressource à partir de votre client, accédez à la section Autorisations pour d’autres applications. 
-   
-   * Tout d’abord, cliquez sur le bouton Ajouter l’application.
-   * Utilisez la liste déroulante Afficher pour sélectionner le type de ressources que vous souhaitez choisir.
-   * La première colonne vous permet de sélectionner les applications de ressources disponibles dans le répertoire qui expose une API web. Cliquez sur la ressource qui vous intéresse, puis sur la coche dans le coin inférieur droit.
-   * Une fois sélectionnée, la ressource est ajoutée à la liste Autorisations pour d’autres applications.
-   * Les listes déroulantes Autorisations de l'application et Autorisations déléguées, sélectionnez les autorisations souhaitées pour votre application cliente.
-6. Une fois la sélection effectuée, cliquez sur le bouton **Enregistrer** de la barre de commandes. Si vous avez spécifié une clé pour votre application, celle-ci est également générée après avoir cliqué sur Enregistrer.
+* Autorisations déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation ne soit configurée comme nécessitant le consentement de l'administrateur. 
 
 > [!NOTE]
-> Une fois que vous avez cliqué sur le bouton Enregistrer, les autorisations pour votre application dans votre répertoire sont automatiquement basées sur les Autorisations pour les autres applications que vous avez configurées.  Vous pouvez afficher ces autorisations de l'application dans l'onglet des propriétés de l'application.
+> L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client, comme c’était le cas dans le portail Azure Classic. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées, au moment de l’exécution, à moins que l’administrateur clique sur le bouton **Accorder des autorisations** dans la section **Autorisations requises** de la page de l’application dans le portail Azure. 
+
+#### <a name="to-add-credentials-or-permissions-to-access-web-apis"></a>Pour ajouter des informations d’identification ou des autorisations pour accéder aux API web
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Pour ajouter une clé secrète aux informations d’identification de votre application web, cliquez sur la section Clés dans le panneau Paramètres.  
+   
+   * Ajoutez une description pour votre clé et sélectionnez une durée de 1 ou 2 ans. 
+   * La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration. N’oubliez pas de revenir à cette section et de la copier après l’avoir enregistrée afin de pouvoir l’utiliser dans votre application cliente lors de l’authentification au moment de l’exécution.
+5. Pour ajouter des autorisations d’accès aux API de ressource à partir de votre client, cliquez sur la section Autorisations requises dans le panneau Paramètres. 
+   
+   * Tout d’abord, cliquez sur le bouton Ajouter.
+   * Cliquez sur Sélectionner une API pour sélectionner le type de ressources que vous souhaitez choisir.
+   * Parcourez la liste des API disponibles ou utilisez la zone de recherche pour sélectionner une des applications de ressources qui exposent une API web disponibles dans votre répertoire. Cliquez sur la ressource qui vous intéresse, puis sur **Sélectionner**.
+   * Une fois la sélection effectuée, vous pouvez accéder au menu **Sélectionner des autorisations**, qui permet de choisir les autorisations d’application et les autorisations déléguées pour votre application.
+   
+6. Lorsque vous avez terminé, cliquez sur le bouton **Terminé**.
+
+> [!NOTE]
+> Lorsque vous cliquez sur le bouton **Terminé**, les autorisations sont automatiquement définies pour l’application de votre répertoire en fonction des autorisations pour les autres applications que vous avez configurées.  Vous pouvez afficher ces autorisations d’application dans le panneau **Paramètres** de l’application.
 > 
 > 
 
@@ -114,11 +124,11 @@ Vous pouvez développer une API web et la mettre à disposition des applications
 La section suivante indique comment exposer les étendues d’accès en modifiant le manifeste de l’application de la ressource.
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>Ajout d’étendues d’accès à votre application de ressources
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis cliquez sur l’application de ressources que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration.
-4. Cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, puis sélectionnez **Télécharger le manifeste**.
-5. Ouvrez le fichier du manifeste de l'application JSON et remplacez le nœud « oauth2Permissions » par l'extrait de code JSON suivant. Cet extrait de code est un exemple montrant comment exposer une étendue appelée « emprunt d’identité », qui permet à un propriétaire de ressource d’attribuer à une application cliente un type d’accès délégué à une ressource. Veillez à modifier le texte et les valeurs selon votre propre application :
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Cliquez sur **Manifeste** dans la page de l’application pour ouvrir l’éditeur de manifeste en ligne. 
+5. Remplacez le nœud « oauth2Permissions » par l’extrait de code JSON suivant. Cet extrait de code est un exemple montrant comment exposer une étendue appelée « emprunt d’identité », qui permet à un propriétaire de ressource d’attribuer à une application cliente un type d’accès délégué à une ressource. Veillez à modifier le texte et les valeurs selon votre propre application :
    
         "oauth2Permissions": [
         {
@@ -139,13 +149,13 @@ La section suivante indique comment exposer les étendues d’accès en modifian
    > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Vous pouvez maintenant contrôler l'accès à l'API web à l'aide de la revendication d'étendue dans le jeton OAuth 2.0 JWT reçu.
    > 
    > 
-6. Enregistrez le fichier JSON mis à jour, puis chargez-le. Pour ce faire, cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, sélectionnez **Télécharger le manifeste**, accédez à votre fichier de manifeste mis à jour, puis sélectionnez-le. Une fois le fichier téléchargé, votre API web est configurée pour être utilisée par d'autres applications dans votre répertoire.
+6. Cliquez sur **Enregistrer** pour enregistrer le manifeste. Votre API web est maintenant configurée pour être utilisée par les autres applications de votre répertoire.
 
 #### <a name="to-verify-the-web-api-is-exposed-to-other-applications-in-your-directory"></a>Pour vérifier que l’API web est exposée à d’autres applications dans votre répertoire
-1. Dans le menu supérieur, cliquez sur **Applications**, sélectionnez l’application cliente dont vous souhaitez configurer l’accès à l’API web, puis cliquez sur **Configurer**.
-2. Faites défiler jusqu’à la section Autorisations pour d'autres applications. Cliquez sur la liste déroulante Sélectionner l'application : vous pourrez sélectionner l'API web pour laquelle vous avez exposé une autorisation. Dans la liste déroulante Autorisations déléguées, sélectionnez la nouvelle autorisation.
+1. Dans le menu supérieur, cliquez sur **Inscriptions des applications**, sélectionnez l’application cliente dont vous souhaitez configurer l’accès à l’API web, puis accédez au panneau Paramètres.
+2. Dans la section **Autorisations requises**, sélectionnez l’API web pour laquelle vous venez d’exposer une autorisation. Dans la liste déroulante Autorisations déléguées, sélectionnez la nouvelle autorisation.
 
-![Les autorisations de la liste des tâches sont affichées.](./media/active-directory-integrating-applications/listpermissions.png)
+![Les autorisations de la liste des tâches sont affichées.](./media/active-directory-integrating-applications/todolistpermissions.png)
 
 #### <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
 Le manifeste d’application sert de mécanisme de mise à jour de l’entité Application, qui définit tous les attributs de configuration d’identité d’une application Azure AD, y compris les étendues d’accès d’API dont il a été question ci-dessus. Pour plus d’informations sur l’entité Application, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Vous y trouverez des informations de référence complètes sur les membres de l’entité Application permettant de spécifier des autorisations pour votre API :  
@@ -177,7 +187,7 @@ Il est important de noter les différences entre une application à client uniqu
 * Une application mutualisée est prévue pour une utilisation dans plusieurs organisations. Il s’agit d’une application SaaS (software-as-a-service) web généralement écrite par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire via l’infrastructure de consentement Azure AD. Notez que toutes les applications clientes natives sont mutualisées par défaut lorsqu’elles sont installées sur l’appareil du propriétaire de la ressource. Pour plus d’informations sur l’infrastructure de consentement, consultez la section Vue d’ensemble de l’infrastructure de consentement ci-dessus.
 
 #### <a name="enabling-external-users-to-grant-your-application-access-to-their-resources"></a>Permettre aux utilisateurs externes d’accorder à votre application l’accès à leurs ressources
-Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure Classic.
+Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure.
 
 > [!NOTE]
 > Lorsque vous mutualisez une application, vous devez vous assurer que l’URI ID de votre application appartient à un domaine vérifié. En outre, l'URL de renvoi doit commencer par https://. Pour plus d’informations, voir [Objets principal du service et application](active-directory-application-objects.md).
@@ -186,11 +196,10 @@ Si vous écrivez une application que vous souhaitez proposer à vos clients ou �
 
 Pour autoriser les utilisateurs externes à accéder à votre application : 
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com)
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis sur l’application que vous souhaitez configurer. La page de démarrage rapide s’affiche avec les options de configuration.
-4. Développez la section **Configurer une application mutualisée** de la zone de démarrage rapide, puis cliquez sur le lien **Configurer maintenant** dans la section Activer l’accès. La page des propriétés de l'application s'affiche.
-5. Cliquez sur le bouton **Oui** en regard de L’application est mutualisée, puis cliquez sur le bouton **Enregistrer** dans la barre de commandes.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Dans le panneau Paramètres, cliquez sur **Propriétés** et basculez le commutateur **Mutualisé** sur **Oui**.
 
 Une fois que vous avez apporté les modifications ci-dessus, les utilisateurs et les administrateurs d’autres organisations pourront accorder à votre application l'accès à leur répertoire et à d'autres données.
 
@@ -207,85 +216,15 @@ Les applications à page unique (SPA) se composent généralement d’une partie
 Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applications. Vous pouvez activer un accord implicite OAuth 2.0 pour votre application en définissant la valeur `oauth2AllowImplicitFlow` dans son [manifeste d’application](active-directory-application-manifest.md) (fichier JSON représentant la configuration d’identité de votre application).
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Pour activer l’accord implicite OAuth 2.0
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com)
-2. Cliquez sur l’icône **Active Directory** dans le menu de gauche, puis cliquez sur l’annuaire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis sur l’application que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration.
-4. Cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, puis sélectionnez **Télécharger le manifeste**.
-   Ouvrez le fichier manifeste d’application JSON et affectez à « oauth2AllowImplicitFlow » la valeur « true ». La valeur par défaut est « false ».
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Dans la page de l’application, cliquez sur **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
+   Recherchez la valeur « oauth2AllowImplicitFlow » et définissez-la sur « true ». La valeur par défaut est « false ».
    
     `"oauth2AllowImplicitFlow": true,`
-5. Enregistrez le fichier JSON mis à jour, puis chargez-le. Pour ce faire, cliquez sur le bouton **Gérer le manifeste** dans la barre de commandes, sélectionnez **Télécharger le manifeste**, accédez à votre fichier de manifeste mis à jour, puis sélectionnez-le. Une fois le fichier téléchargé, votre API web est configurée pour utiliser l’accord implicite OAuth 2.0 pour authentifier les utilisateurs.
+5. Enregistrez le manifeste mis à jour. Une fois l’enregistrement effectué, votre API web est configurée pour utiliser l’accord implicite OAuth 2.0 pour authentifier les utilisateurs.
 
-### <a name="legacy-experiences-for-granting-access"></a>Expériences héritées pour accorder l'accès
-Cette section décrit l'expérience de consentement héritée avant le 12 mars 2014. Cette expérience est toujours prise en charge et est décrite ci-dessous. Avant la nouvelle fonctionnalité, vous pouviez accorder uniquement les autorisations suivantes :
-
-* Authentifier les utilisateurs à partir de leur organisation
-* Authentifier les utilisateurs et lire les données du répertoire de leur organisation (comme l'application uniquement)
-* Authentifier les utilisateurs et lire et écrire les données du répertoire de leur organisation (comme l'application uniquement)
-
-Vous pouvez suivre les étapes décrites dans la section [Développement d’applications web multi-locataires avec Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) pour octroyer l’accès à de nouvelles applications inscrites dans Azure AD. Il est important de noter que la nouvelle infrastructure de consentement prend en charge des applications beaucoup plus puissantes et permet également aux utilisateurs de donner leur consentement à ces applications, et non simplement aux administrateurs.
-
-#### <a name="building-the-link-that-grants-access-for-external-users-legacy"></a>Création du lien d’octroi de l’accès pour les utilisateurs externes (procédure héritée)
-Afin de permettre à des utilisateurs externes de s’inscrire à votre application avec leur compte professionnel, vous devez mettre à jour votre application de façon à ce qu’elle affiche un bouton établissant un lien vers la page d’Azure AD qui leur permet d'accorder l'accès. Pour des conseils de personnalisation concernant ce bouton de connexion, voir [Instructions de personnalisation pour les applications intégrées](active-directory-branding-guidelines.md) . Une fois que l'utilisateur a accordé ou refusé l'accès, la page d'octroi de l’accès d’Azure AD redirige le navigateur vers votre application avec une réponse. Pour plus d’informations sur les propriétés de l’application, voir [Objets principal du service et application](active-directory-application-objects.md).
-
-La page d’octroi de l’accès est créée par Azure AD, et vous trouverez un lien vers celle-ci sur la page de configuration de votre application dans le portail Azure Classic. Pour accéder à la page de configuration, cliquez sur le lien **Applications** dans le menu supérieur de votre locataire Azure AD, cliquez sur l’application que vous souhaitez configurer, puis cliquez sur **Configurer** dans le menu supérieur de la page de démarrage rapide.
-
-Le lien de votre application ressemble à ceci : `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. Le tableau suivant décrit les éléments du lien :
-
-| Paramètre | Description |
-| --- | --- |
-| ClientId |Obligatoire. L'ID de client que vous avez obtenu dans le cadre de l'ajout de votre application. |
-| RequestedPermissions |facultatif. Niveau d'accès que demande votre application, qui sera affiché à l'utilisateur accordant l'accès à votre application. S’il n’est pas spécifié, le niveau d'accès demandé sera par défaut l'authentification unique. Les autres options sont DirectoryReaders et DirectoryWriters. Pour plus d'informations sur ces niveaux d'accès, reportez-vous à la section Niveaux d'accès aux applications. |
-| ConsentReturnUrl |facultatif. L'URL à laquelle vous souhaitez que la réponse d’octroi de l’accès soit renvoyée. Cette valeur doit être codée URL et doit être sous le même domaine que l'URL de réponse configurée dans votre définition d'application. Si elle n’est pas fournie, la réponse d'octroi de l’accès sera redirigée vers l'URL de réponse que vous avez configurée. |
-
-Si vous spécifiez une ConsentReturnUrl distincte de l'URL de réponse, votre application pourra implémenter une logique distincte qui pourra traiter la réponse sur une URL distincte de l'URL de réponse (qui traite normalement les jetons SAML pour l’authentification). Vous pouvez également spécifier des paramètres supplémentaires dans l’URL codée ConsentReturnURL ; ils seront passés comme paramètres de la chaîne de requête à votre application lors de la redirection.  Ce mécanisme peut servir à conserver des informations supplémentaires ou à lier la demande d’octroi d’accès de votre application à la réponse d'Azure AD.
-
-#### <a name="grant-access-user-experience-and-response-legacy"></a>Expérience utilisateur et réponse liées à l’octroi de l’accès (procédure héritée)
-Les images suivantes illustrent ce à quoi l'utilisateur est confronté lorsqu’une application redirige vers le lien d’octroi d’accès.
-
-Si l'utilisateur n'est pas déjà connecté, il est invité à le faire :
-
-![Connectez-vous à AAD](./media/active-directory-integrating-applications/signintoaad.png)
-
-Une fois l'utilisateur authentifié, Azure AD redirige l'utilisateur vers la page d’octroi d'accès :
-
-![Accorder l'accès](./media/active-directory-integrating-applications/grantaccess.png)
-
-> [!NOTE]
-> Seul l'administrateur d'entreprise de l'organisation externe peut accorder l'accès à votre application. Si l'utilisateur n'est pas un administrateur d'entreprise, il aura la possibilité d’envoyer un courrier à l'administrateur de la société pour demander l’accès à cette application.
-> 
-> 
-
-Une fois que le client a accordé l'accès à votre application en cliquant sur Accorder l'accès, ou qu’il a refusé l’accès en cliquant sur Annuler, Azure AD envoie une réponse à la ConsentReturnUrl ou à l’URL de réponse que vous avez configurée. Cette réponse contient les paramètres suivants :
-
-| Paramètre | Description |
-| --- | --- |
-| TenantId |L’ID unique de l'organisation dans Azure AD qui a accordé l'accès à votre application. Ce paramètre est spécifié uniquement si le client a accordé l’accès. |
-| Consentement |La valeur est définie comme Accordé si l’accès a été accordé à l'application ou comme Refusé si la demande a été rejetée. |
-
-Des paramètres supplémentaires seront renvoyés à l'application s’ils ont été définis en tant que parties de l’URL codée ConsentReturnUrl. Voici un exemple de réponse à une demande d’octroi d’accès indiquant que l’application a été autorisée. Il inclut un ContextID fourni dans la demande d’octroi d’accès : `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
-
-> [!NOTE]
-> La réponse d'octroi de l'accès ne contiendra pas de jeton de sécurité pour l'utilisateur ; l'application doit connecter l'utilisateur séparément.
-> 
-> 
-
-Voici un exemple de réponse à une demande d’octroi d’accès refusée : `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
-
-#### <a name="rolling-app-keys-for-uninterrupted-access-to-the-graph-api-legacy"></a>Déploiement de clés d’application pour un accès ininterrompu à l’API graphique (procédure héritée)
-Pendant la durée de vie de votre application, vous devrez peut-être modifier les clés que vous utilisez lorsque vous faites appel à Azure AD pour acquérir un jeton d'accès afin d’appeler l'API Graph.  En général, la modification de clés se divise en deux catégories : substitution d'urgence là où votre clé a été compromise ou substitution lorsque votre clé actuelle est sur le point d'expirer. La procédure suivante doit être suivie pour fournir à votre application un accès ininterrompu pendant que vous actualisez vos clés (principalement dans le deuxième cas).
-
-1. Dans le portail Azure Classic, cliquez sur votre locataire de répertoire, cliquez sur **Applications** dans le menu supérieur, puis cliquez sur l’application que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration.
-2. Cliquez sur **Configurer** dans le menu supérieur pour afficher la liste des propriétés de votre application, et vous verrez la liste de vos clés.
-3. Sous Clés, cliquez sur la liste déroulante qui indique **Sélectionnez une durée** et choisissez 1 ou 2 ans, puis cliquez sur **Enregistrer** dans la barre de commandes. Cela génère une nouvelle clé de mot de passe pour votre application. Copiez cette nouvelle clé de mot de passe. À ce stade, l’ancienne et la nouvelle clés sont utilisables par votre application pour obtenir un jeton d'accès d'Azure AD.
-4. Revenez à votre application et mettez à jour la configuration pour commencer à utiliser la nouvelle clé de mot de passe. Pour obtenir un exemple de cas où cette mise à jour est nécessaire, voir [Utilisation de l’API Graph pour interroger Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) .
-5. Vous devez maintenant déployer cette modification dans votre environnement de production, en commençant par la vérifier sur un nœud de service, avant de la déployer sur le reste.
-6. Une fois la mise à jour terminée dans votre déploiement de production, vous pouvez revenir au portail Azure Classic et supprimer l’ancienne clé.
-
-#### <a name="changing-app-properties-after-enabling-access-legacy"></a>Modification des propriétés de l’application après l’activation de l’accès (procédure héritée)
-Une fois que vous avez activé l’accès des utilisateurs externes à votre application, vous pouvez toujours apporter des modifications aux propriétés de votre application dans le portail Azure Classic. Toutefois, les clients qui ont déjà accordé l’accès à votre application avant que vous ayez apporté des modifications à l’application ne verront pas ces modifications répercutées lors de l’affichage des détails sur votre application dans le portail Azure Classic. Une fois l'application accessible aux clients, vous devez être très prudent lorsque vous apportez certaines modifications. Par exemple, si vous mettez à jour l'URI ID de l'application, vos clients existants qui ont accordé l'accès avant cette modification ne pourront pas se connecter à votre application à l'aide de leur compte professionnel ou scolaire.
-
-Si vous apportez une modification aux RequestedPermissions pour demander un niveau d'accès supérieur, les clients existants utilisant la fonctionnalité de l'application qui tire maintenant parti des nouveaux appels de l'API avec ce niveau d'accès supérieur risquent d’obtenir une réponse Accès refusé de l'API Graph.  Votre application doit gérer ces situations et demander au client d'accorder l'accès à votre application avec la demande d’un niveau d'accès supérieur.
 
 ## <a name="removing-an-application"></a>Suppression d'une application
 Cette section décrit comment supprimer une application de votre locataire Azure AD.
@@ -294,24 +233,24 @@ Cette section décrit comment supprimer une application de votre locataire Azure
 Il s’agit des applications qui s’affichent sous le filtre « Applications que ma société possède » sur la page principale « Applications » de votre locataire Azure AD. En termes techniques, il s’agit des applications que vous avez inscrites soit manuellement au moyen du portail Azure Classic, soit par un programme par le biais de PowerShell ou de l’API Graph. Plus précisément, ces applications sont représentées dans votre locataire par des objets Application et Principal du service. Pour plus d’informations, consultez [Objets principal du service et application](active-directory-application-objects.md) .
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Pour supprimer une application à client unique de votre répertoire
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com)
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis sur l’application que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration.
-4. Cliquez sur le bouton **Supprimer** dans la barre de commandes.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Dans la page de l’application, cliquez sur **Supprimer**.
 5. Cliquez sur **Oui** dans le message de confirmation.
 
 #### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>Pour supprimer une application mutualisée de votre répertoire
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com)
-2. Cliquez sur l'icône d'Active Directory dans le menu de gauche, puis cliquez sur le répertoire souhaité.
-3. Dans le menu supérieur, cliquez sur **Applications**, puis sur l’application que vous souhaitez configurer. La page de démarrage rapide s'affiche avec l'authentification unique et d'autres informations de configuration.
-4. Dans la section L’application est mutualisée, cliquez sur **Non**. Cela convertit votre application en une application à client unique, mais l’application reste toujours dans les organisations qui ont déjà donné leur consentement.
-5. Cliquez sur le bouton **Supprimer** dans la barre de commandes.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Choisissez votre client Azure AD en sélectionnant votre compte dans le coin supérieur droit de la page.
+3. Dans le menu supérieur, choisissez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis sur l’application que vous souhaitez configurer. Vous accédez alors à la page Démarrage rapide de l’application, avec le panneau Paramètres de l’application ouvert.
+4. Dans le panneau Paramètres, cliquez sur **Propriétés** et basculez le commutateur **Mutualisé** sur **Non**. Cela convertit votre application en une application à client unique, mais l’application reste toujours dans les organisations qui ont déjà donné leur consentement.
+5. Dans la page de l’application, cliquez sur le bouton **Supprimer**.
 6. Cliquez sur **Oui** dans le message de confirmation.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Suppression d’une application mutualisée autorisée par une autre organisation
 Il s’agit d’un sous-ensemble des applications qui s’affichent sous le filtre « Applications que ma société utilise » sur la page principale « Applications » de votre locataire Azure AD, et en particulier celles qui ne figurent pas dans la liste « Applications que ma société possède ». En termes techniques, il s’agit d’applications mutualisées enregistrées pendant le processus de consentement. Ces applications sont représentées dans votre locataire par un objet Principal du service. Pour plus d’informations, consultez [Objets principal du service et application](active-directory-application-objects.md) .
 
-Afin de pouvoir supprimer l’accès d’une application mutualisée à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit avoir un abonnement Azure pour supprimer l’accès via le portail Azure Classic. Il vous suffit d’accéder à la page de configuration de l’application et de cliquer sur le bouton « Gérer l’accès » situé au bas de la page. L’administrateur de la société peut également utiliser la [Gestion d’Azure AD à l’aide de Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) pour supprimer l’accès.
+Afin de pouvoir supprimer l’accès d’une application mutualisée à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit posséder un abonnement Azure pour supprimer l’accès via le portail Azure. L’administrateur de la société peut également utiliser la [Gestion d’Azure AD à l’aide de Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) pour supprimer l’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez les [instructions de personnalisation pour applications intégrées](active-directory-branding-guidelines.md) afin d’obtenir des conseils sur l’aide visuelle pour votre application.
@@ -323,6 +262,6 @@ Afin de pouvoir supprimer l’accès d’une application mutualisée à votre r�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

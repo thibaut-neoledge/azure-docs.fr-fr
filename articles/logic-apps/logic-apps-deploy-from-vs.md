@@ -1,6 +1,6 @@
 ---
-title: "Déployer Azure Logic Apps dans Visual Studio | Microsoft Docs"
-description: "Créez un projet dans Visual Studio pour créer et déployer votre application logique."
+title: "Créer et déployer des applications logiques Azure dans Visual Studio | Microsoft Docs"
+description: "Créez des projets Visual Studio pour concevoir, développer et déployer des applications logiques dans Azure."
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,119 +12,202 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a9f786259676a1bc9aa616f2db2935dff45475e2
-ms.openlocfilehash: db818b2b76d3a8d8c3324c9556237139d319efb9
+ms.sourcegitcommit: bbee0bae5a20375f0de8adaedadd682dc051fb64
+ms.openlocfilehash: d1b0ca953e5ee40129f00b78ad1a46514270d448
 
 
 ---
-# <a name="build-and-deploy-logic-apps-in-visual-studio"></a>Créer et déployer des applications logiques dans Visual Studio
-Bien que le [Portail Azure](https://portal.azure.com/) vous offre un excellent moyen de concevoir et gérer vos applications logiques, vous pouvez également concevoir et déployer votre application logique à partir de Visual Studio.  Logic Apps s’accompagne d’une puissante suite d’outils Visual Studio qui vous permet de développer une application logique à l’aide du concepteur, de configurer des modèles de déploiement et d’automatisation et de déployer vos applications dans n’importe quel environnement.  
+# <a name="build-and-deploy-azure-logic-apps-in-visual-studio"></a>Créer et déployer des applications logiques Azure dans Visual Studio
+
+Bien que le [portail Azure](https://portal.azure.com/) constitue un excellent moyen pour concevoir et gérer les applications logiques, vous pouvez utiliser Visual Studio afin de créer et de déployer des applications logiques. Visual Studio met à votre disposition des outils riches vous permettant de créer des applications logiques à l’aide du Concepteur d’applications logiques, de configurer les modèles de déploiement et d’automatisation, et de déployer les applications sur n’importe quel environnement.
 
 ## <a name="installation-steps"></a>Procédure d’installation :
-Voici les étapes à suivre pour installer et configurer les outils Visual Studio pour Logic Apps.
+
+Pour installer et configurer les outils Visual Studio pour Azure Logic Apps, suivez ces étapes.
 
 ### <a name="prerequisites"></a>Composants requis
+
 * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Accès au web lors de l’utilisation du concepteur intégré
 
-### <a name="install-visual-studio-tools-for-logic-apps"></a>Installer les outils Visual Studio pour Logic Apps
-Une fois que les composants requis installés, 
+### <a name="install-visual-studio-tools-for-azure-logic-apps"></a>Installer les outils Visual Studio pour Azure Logic Apps
 
-1. Ouvrez le menu **Outils** de Visual Studio 2015 et cliquez sur **Extensions et mises à jour**
-2. Sélectionnez la catégorie **En ligne** pour effectuer une recherche en ligne
-3. Recherchez **Logic Apps** pour afficher les **outils Azure Logic Apps pour Visual Studio**
-4. Cliquez sur le bouton **Télécharger** pour télécharger et installer l’extension
-5. Redémarrez Visual Studio après l’installation
+Une fois les composants requis installés :
+
+1. Ouvrez Visual Studio 2015. Dans le menu **Outils**, sélectionnez **Extensions et mises à jour**.
+2. Développez la catégorie **En ligne** pour effectuer une recherche en ligne.
+3. Parcourez les résultats ou recherchez **Logic Apps** jusqu’à ce que vous trouviez **Outils Azure Logic Apps pour Visual Studio**.
+4. Pour télécharger et installer l’extension, cliquez sur **Télécharger**.
+5. Redémarrez Visual Studio après l’installation.
 
 > [!NOTE]
-> Vous pouvez également télécharger l’extension directement à partir de [ce lien](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)
-> 
-> 
+> Vous pouvez également télécharger des outils Azure Logic Apps pour Visual Studio directement à partir de la [Place de marché Visual Studio](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
 Une fois l’installation effectuée, vous pouvez utiliser le projet de groupe de ressources Azure avec le Concepteur d’applications logiques.
 
-## <a name="create-a-project"></a>Création d’un projet
-1. Accédez au menu **Fichier** et sélectionnez **Nouveau** >  **Projet** (ou accédez à **Ajouter**, puis sélectionnez **Nouveau projet** pour l’ajouter à une solution existante) :  ![menu Fichier](./media/logic-apps-deploy-from-vs/filemenu.png)
-2. Dans la boîte de dialogue, recherchez **Cloud**, puis sélectionnez **Groupe de ressources Azure**. Entrez un **Nom** puis cliquez sur **OK**.
+## <a name="create-your-project"></a>Créer votre projet
+
+1. Dans le menu **Fichier**, accédez à **Nouveau**, puis sélectionnez **Projet**. Ou pour ajouter votre projet à une solution existante, accédez à **Ajouter**, puis sélectionnez **Nouveau projet**.
+
+    ![Menu Fichier](./media/logic-apps-deploy-from-vs/filemenu.png)
+
+2. Dans la fenêtre **Nouveau projet**, recherchez **Cloud**, puis sélectionnez **Groupe de ressources Azure**. Nommez votre projet, puis cliquez sur **OK**.
+
     ![Ajouter un nouveau projet](./media/logic-apps-deploy-from-vs/addnewproject.png)
-3. Sélectionnez le modèle **Application logique** . Vous obtenez un modèle de déploiement d’application logique vide que vous pouvez utiliser comme point de départ.
-    ![Sélection du modèle Azure](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
-4. Une fois que vous avez sélectionné votre **modèle**, appuyez sur **OK**.
-   
-    Maintenant, votre projet d’application logique est ajouté à votre solution. Vous devez voir le fichier de déploiement dans l’Explorateur de solutions :  
-   
-    ![Déploiement](./media/logic-apps-deploy-from-vs/deployment.png)
 
-## <a name="using-the-logic-app-designer"></a>Utilisation du Concepteur d’applications logiques
-Une fois que vous disposez d’un projet de groupe de ressources Azure contenant une application logique, vous pouvez ouvrir le concepteur dans Visual Studio pour vous aider à créer le flux de travail.  Le concepteur utilise une connexion Internet pour interroger les connecteurs concernant les données et les propriétés disponibles (par exemple, si vous utilisez le connecteur Dynamics CRM Online, le concepteur interroge votre instance CRM pour répertorier les propriétés par défaut et personnalisées disponibles).
+3. Sélectionnez le modèle **Application logique**, qui crée un modèle vierge de déploiement d’application logique que vous pourrez utiliser. Après avoir sélectionné votre modèle, cliquez sur **OK**.
 
-1. Cliquez avec le bouton droit sur le fichier `<template>.json` et sélectionnez **Open with Logic App Designer (Ouvrir avec le Concepteur d’applications logiques)** (ou `Ctrl+L`)
-2. Choisissez l’abonnement, le groupe de ressources et l’emplacement du modèle de déploiement
-   * Il est important de noter que la conception d’une logique d’application créera des ressources **Connexion d’API** pour rechercher des propriétés lors de la conception.  Le groupe de ressources sélectionné est utilisé pour créer ces connexions au moment de la conception.  Vous pouvez afficher ou modifier les connexions d’API via le menu **Connexions d’API**du Portail Azure.
-   
-     ![Sélecteur d’abonnement](./media/logic-apps-deploy-from-vs/designer_picker.png)
-3. Le concepteur doit générer des résultats compte tenu de la définition du fichier `<template>.json` .
-4. Vous pouvez désormais créer et concevoir votre application logique. Toutes vos modifications sont mises à jour dans le modèle de déploiement.
-    ![Concepteur dans Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
+    ![Sélectionner le modèle Application logique](./media/logic-apps-deploy-from-vs/selectazuretemplate1.png)
 
-Les ressources `Microsoft.Web/connections` sont ajoutées à votre fichier de ressources pour toutes les connexions nécessaires au fonctionnement de l’application logique.  Ces propriétés de connexion peuvent être définies lors du déploiement et être gérées après le déploiement via le menu **Connexions d’API** du Portail Azure.
+    Vous avez ajouté votre projet d’application logique à votre solution. 
+    Votre fichier de déploiement doit apparaître dans l’Explorateur de solutions.
 
-### <a name="switching-to-the-json-code-view"></a>Basculer vers le mode Code JSON
-Vous pouvez sélectionner l’onglet **Mode Code** situé en bas du concepteur pour basculer vers la représentation JSON de l’application logique.  Pour revenir au code JSON de la ressource complète, cliquez sur le fichier `<template>.json` et sélectionnez **Ouvrir**.
+    ![Fichier de déploiement](./media/logic-apps-deploy-from-vs/deployment.png)
 
-### <a name="saving-the-logic-app"></a>Enregistrement de l’application logique
-Vous pouvez enregistrer l’application logique à tout moment à l’aide du bouton **Enregistrer** ou de la touche `Ctrl+S`.  Si votre application logique contient des erreurs au moment de l’enregistrement, celles-ci s’affichent dans la fenêtre **Sorties** de Visual Studio.
+## <a name="create-your-logic-app-in-logic-app-designer"></a>Créer votre application logique dans le Concepteur d’applications logiques
 
-## <a name="deploying-your-logic-app"></a>Déploiement de votre application logique
-Enfin, après avoir configuré votre application, vous pouvez procéder directement au déploiement depuis Visual Studio en quelques étapes. 
-
-1. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis accédez à **Déployer** > **Nouveau déploiement...**
-    ![Nouveau déploiement](./media/logic-apps-deploy-from-vs/newdeployment.png)
-2. Vous êtes invité à vous connecter à votre abonnement Azure. 
-3. Vous devez maintenant choisir les détails du groupe de ressources dans lequel vous souhaitez déployer l'application logique. 
-    ![Déploiement vers un groupe de ressources](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
-   
-   > [!NOTE]
-   > Veillez à sélectionner les fichiers de modèle et de paramètres correspondant le groupe de ressources (par exemple si vous procédez au déploiement dans un environnement de production, choisissez le fichier de paramètres de production). 
-   > 
-   > 
-4. Sélectionnez le bouton Déployer.
-5. L’état du déploiement s’affiche dans la fenêtre **Sortie** (vous devrez peut-être choisir **Approvisionnement Azure**. 
-    ![Sortie](./media/logic-apps-deploy-from-vs/output.png)
-
-À l’avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions. 
+Une fois que vous disposez d’un projet de groupe de ressources Azure contenant une application logique, vous pouvez ouvrir le Concepteur d’applications logiques dans Visual Studio pour créer votre flux de travail. 
 
 > [!NOTE]
-> Si vous modifiez directement la définition dans le Portail Azure, ces modifications sont remplacées pendant votre prochain déploiement à partir de Visual Studio.
-> 
-> 
+> Pour demander les propriétés et données disponibles aux connecteurs, le concepteur doit disposer d’une connexion à Internet. Par exemple, si vous utilisez le connecteur Dynamics CRM Online, le concepteur interroge votre instance CRM pour afficher les propriétés par défaut et personnalisées disponibles.
 
-## <a name="adding-a-logic-app-to-an-existing-resource-group-project"></a>Ajout d’une application logique à un projet de groupe de ressources existant
-Si vous disposez d’un projet de groupe de ressources, vous pouvez ajouter une application logique à celui-ci ou ajouter une autre application logique avec celle que vous avez déjà créée à l’aide de la fenêtre Structure JSON.
+1. Cliquez avec le bouton droit sur votre fichier `<template>.json` et sélectionnez **Open with Logic App Designer (Ouvrir avec le Concepteur d’applications logiques)**. (`Ctrl+L`)
+
+2. Choisissez votre abonnement Azure, le groupe de ressources et l’emplacement de votre modèle de déploiement.
+
+    > [!NOTE]
+    > La conception d’une application logique crée des ressources Connexion d’API pour rechercher des propriétés lors de la conception. Visual Studio utilise le groupe de ressources sélectionné pour créer ces connexions au moment de la conception. Pour afficher ou modifier les connexions d’API, accédez au portail Azure, et recherchez **Connexions d’API**.
+
+    ![Sélecteur d’abonnement](./media/logic-apps-deploy-from-vs/designer_picker.png)
+
+    Le concepteur utilise la définition du fichier `<template>.json` pour le rendu.
+
+4. Créez et concevez votre application logique. Votre modèle de déploiement est mis à jour avec vos modifications.
+
+    ![Concepteur d’applications logiques dans Visual Studio](./media/logic-apps-deploy-from-vs/designer_in_vs.png)
+
+Visual Studio ajoute des ressources `Microsoft.Web/connections` à votre fichier de ressources pour toutes les connexions nécessaires au fonctionnement de votre application logique. Ces propriétés de connexion peuvent être définies lors du déploiement et être gérées après le déploiement via le menu **Connexions d’API** du Portail Azure.
+
+### <a name="switch-to-json-code-view"></a>Basculer en mode code JSON
+
+Pour afficher la représentation JSON de votre application logique, sélectionnez l’onglet **Mode Code** situé en bas du concepteur.
+
+Pour revenir au code JSON de la ressource complète, cliquez sur le fichier `<template>.json` et sélectionnez **Ouvrir**.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Ajouter les références des ressources dépendantes aux modèles de déploiement Visual Studio
+
+Si vous souhaitez que votre application logique référence des ressources dépendantes, vous pouvez utiliser les [fonctions de modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), comme les paramètres, dans votre modèle de déploiement d’application logique. Par exemple, vous souhaiterez peut-être que votre application logique référence une fonction Azure ou un compte d’intégration que vous souhaitez déployer avec votre application logique. Suivez ces instructions pour utiliser les paramètres dans votre modèle de déploiement afin que le Concepteur d’applications logiques offre un rendu correct. 
+
+Vous pouvez utiliser les paramètres d’application logique dans ces types de déclencheurs et d’actions :
+
+*   Flux de travail enfant
+*   Conteneur de fonctions
+*   Appel APIM
+*   URL d’exécution de connexion d’API
+
+Et vous pouvez utiliser ces fonctions de modèle : liste ci-dessous, incluant paramètres, variables, resourceId, concat, etc. Par exemple, voici par quoi vous pouvez remplacer l’ID de ressource de fonction Azure :
+
+```
+"parameters":{
+    "functionName": {
+    "type":"string",
+    "minLength":1,
+    "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+Et où vous pouvez utiliser les paramètres :
+
+```
+"MyFunction": {
+        "type": "Function",
+        "inputs": {
+        "body":{},
+        "function":{
+        "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+
+> [!NOTE] 
+> Pour que le Concepteur d’applications logiques fonctionne lorsque vous utilisez des paramètres, vous devez fournir des valeurs par défaut, par exemple :
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+### <a name="save-your-logic-app"></a>Enregistrer votre application logique
+
+Pour enregistrer votre application logique à tout moment, accédez à **Fichier** > **Enregistrer**. (`Ctrl+S`) 
+
+Si votre application logique comporte des erreurs lors de son enregistrement, elles sont répertoriées dans la fenêtre **Sorties** de Visual Studio.
+
+## <a name="deploy-your-logic-app"></a>Déployer votre application logique
+
+Après avoir configuré votre application, vous pouvez procéder directement au déploiement depuis Visual Studio en quelques étapes. 
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Déployer** > **Nouveau déploiement...**
+
+    ![Nouveau déploiement](./media/logic-apps-deploy-from-vs/newdeployment.png)
+
+2. Lorsque vous y êtes invité, connectez-vous à votre abonnement Azure. 
+
+3. Vous devez alors sélectionner les informations du groupe de ressources dans lequel vous souhaitez déployer votre application logique. Quand vous avez terminé, sélectionnez **Déployer**.
+
+    > [!NOTE]
+    > Assurez-vous que vous sélectionnez le bon modèle et les paramètres adéquats pour le groupe de ressources. Par exemple, si vous souhaitez déployer dans un environnement de production, choisissez le fichier de paramètres de production.
+
+    ![Déploiement vers un groupe de ressources](./media/logic-apps-deploy-from-vs/deploytoresourcegroup.png)
+
+    L’état du déploiement s’affiche dans la fenêtre **Sortie**. 
+    Vous devrez peut-être sélectionner **Approvisionnement Azure** dans la liste **Afficher la sortie à partir de**.
+
+    ![Sortie d’état du déploiement](./media/logic-apps-deploy-from-vs/output.png)
+
+À l’avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions.
+
+> [!NOTE]
+> Si vous modifiez la définition directement dans le portail Azure, ces modifications seront remplacées lors de votre prochain déploiement à partir de Visual Studio. 
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Ajouter votre application logique à un projet de groupe de ressources existant
+
+Si vous disposez d’un projet de groupe de ressources existant, vous pouvez ajouter votre application logique à ce projet dans la fenêtre Structure JSON. Vous pouvez également ajouter une autre application logique en même temps que l’application que vous avez créée précédemment.
+
 1. Ouvrez le fichier `<template>.json` .
-2. Ouvrez la fenêtre Structure JSON.  La fenêtre Structure JSON se trouve sous **Affichage** > **Autres fenêtres** > **Structure JSON**.
-3. Pour ajouter une ressource au fichier modèle, cliquez sur le bouton Ajouter une ressource en haut de la fenêtre Structure JSON ou cliquez avec le bouton droit sur **Ressources** et sélectionnez **Ajouter une nouvelle ressource**.
 
-    ![Structure JSON](./media/logic-apps-deploy-from-vs/jsonoutline.png)
+2. Pour ouvrir la fenêtre Structure JSON, rendez-vous à **Affichage** > **Autres fenêtres** > **Structure JSON**.
+
+3. Pour ajouter une ressource au fichier de modèle, cliquez sur **Ajouter une ressource** en haut de la fenêtre Structure JSON. Ou, dans la fenêtre Structure JSON, cliquez avec le bouton droit sur **Ressources**, puis sélectionnez **Ajouter une nouvelle ressource**.
+
+    ![Fenêtre Structure JSON](./media/logic-apps-deploy-from-vs/jsonoutline.png)
     
-4. Dans la boîte de dialogue **Ajouter une ressource**, recherchez et sélectionnez **Application logique**, attribuez-lui un nom, puis sélectionnez **Ajouter**.
+4. Dans la boîte de dialogue **Ajouter une ressource**, recherchez et sélectionnez **Application logique**. Donnez un nom à votre application logique, puis choisissez **Ajouter**.
 
     ![Ajouter une ressource](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour vous familiariser avec les applications logiques, effectuez le didacticiel [Créer une application logique](logic-apps-create-a-logic-app.md) .  
+
+* Pour vous familiariser avec Azure Logic Apps, consultez ce didacticiel : [Créez votre première application logique](logic-apps-create-a-logic-app.md)
 * [Afficher des exemples et des scénarios courants](logic-apps-examples-and-scenarios.md)
-* [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* [Découvrez comment automatiser vos processus métiers avec Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
+* [Apprenez à intégrer vos systèmes avec Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

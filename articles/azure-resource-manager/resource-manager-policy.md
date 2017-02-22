@@ -1,9 +1,9 @@
 ---
-title: Azure Resource Manager Policy | Microsoft Docs
-description: "Décrit comment utiliser Azure Resource Manager Policy pour éviter les violations au niveau de différentes étendues comme l’abonnement, les groupes de ressources ou les ressources individuelles."
+title: "Stratégies de ressources Azure | Microsoft Docs"
+description: "Explique comment utiliser les stratégies d’Azure Resource Manager afin de garantir la définition de propriétés de ressource cohérentes pendant le déploiement. Les stratégies peuvent être appliquées au niveau de l’abonnement ou des groupes de ressources."
 services: azure-resource-manager
 documentationcenter: na
-author: ravbhatnagar
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.assetid: abde0f73-c0fe-4e6d-a1ee-32a6fce52a2d
@@ -12,62 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2016
-ms.author: gauravbh;tomfitz
+ms.date: 02/10/2017
+ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 223a890fd18405b2d1331e526403da89354a68f2
-ms.openlocfilehash: 467e9f4f7372c619f41bb64445784485de18a863
+ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
+ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
 
 
 ---
-# <a name="use-policy-to-manage-resources-and-control-access"></a>Utiliser le service Policy pour gérer les ressources et contrôler l’accès
-Azure Resource Manager vous permet de contrôler l’accès par le biais de stratégies personnalisées. Avec les stratégies, vous pouvez empêcher les utilisateurs de votre organisation de rompre les conventions qui sont nécessaires pour gérer les ressources de votre organisation. 
+# <a name="resource-policy-overview"></a>Vue d’ensemble des stratégies de ressources
+Les stratégies de ressources permettent d’établir des conventions pour les ressources de votre organisation. En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés, ou encore exiger que toutes les ressources présentent une balise spécifique. Toutes les ressources enfants héritent des stratégies. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle est applicable à toutes les ressources appartenant à ce groupe de ressources.
 
-Vous créez des définitions de stratégies qui décrivent les actions ou les ressources qui sont spécifiquement refusées. Vous affectez ces définitions de stratégies selon l'étendue souhaitée, au niveau de l'abonnement, du groupe de ressources ou d'une ressource individuelle. Toutes les ressources enfants héritent des stratégies. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle est applicable à toutes les ressources appartenant à ce groupe de ressources.
+Il y a deux concepts importants à comprendre concernant les stratégies :
 
-Dans cet article, nous expliquons la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrivons comment vous pouvez appliquer ces stratégies à différentes étendues.
+* Définition de stratégie : vous spécifiez à quel moment la stratégie est appliquée et l’action à exécuter.
+* Affectation de stratégie : vous appliquez la définition de stratégie à une étendue (abonnement ou groupe de ressources).
+
+Cette rubrique porte sur la définition de stratégie. Pour plus d’informations sur l’affectation de stratégie, consultez [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md).
+
+Azure fournit certaines définitions de stratégie intégrées qui peuvent réduire le nombre de stratégies à définir. Si une définition de stratégie intégrée fonctionne pour votre scénario, utilisez cette définition lors de l’affectation à une étendue.
+
+Les stratégies sont évaluées lors de la création et de la mise à jour des ressources (opérations PUT et PATCH).
+
+> [!NOTE]
+> Actuellement, la stratégie n'évalue pas les types de ressources qui ne prennent pas en charge les balises, le type et l'emplacement, par exemple, le type de ressource Microsoft.Resources/deployments. Cette prise en charge sera ajoutée prochainement. Pour éviter des problèmes de compatibilité descendante, vous devriez spécifier explicitement le type lors de la création de stratégies. Par exemple, une stratégie de balises sans spécification des types est appliquée à tous les types. Dans ce cas, le déploiement d’un modèle risque d’échouer s’il existe une ressource imbriquée ne prenant pas en charge les balises, et le type de ressource du déploiement sera ajouté à l’évaluation de la stratégie. 
+> 
+> 
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
-Il existe quelques différences importantes entre la stratégie et le contrôle d'accès en fonction du rôle, mais la première chose à comprendre est que les stratégies et le contrôle d'accès en fonction du rôle (RBAC) fonctionnent ensemble. Pour utiliser des stratégies, vous devez vous authentifier au moyen de RBAC. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus. 
+Il existe quelques différences importantes entre la stratégie et le contrôle d’accès en fonction du rôle (RBAC). RBAC porte sur les actions des **utilisateurs** dans différentes étendues. Par exemple, le rôle de contributeur vous est attribué pour un groupe de ressources dans l’étendue de votre choix, ce qui vous permet d’apporter des modifications à ce groupe de ressources. La stratégie se focalise sur les propriétés des **ressources** pendant le déploiement. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus. 
 
-Le contrôle d’accès en fonction du rôle (RBAC) porte principalement sur les actions qu’un **utilisateur** peut effectuer dans différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources. 
+Pour utiliser des stratégies, vous devez vous authentifier au moyen de RBAC. Plus précisément, votre compte a besoin de :
 
-La stratégie porte principalement sur les actions des **ressources** dans différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
+* l’autorisation `Microsoft.Authorization/policydefinitions/write` pour définir une stratégie ;
+* l’autorisation `Microsoft.Authorization/policyassignments/write` pour affecter une stratégie. 
 
-## <a name="common-scenarios"></a>Scénarios courants
-Un scénario courant consiste à rendre nécessaire l’utilisation de balises de service à des fins de facturation interne. Une organisation peut choisir de n’autoriser des opérations que si le centre de coût approprié est associé ; sinon, elle rejette la demande. Cette stratégie l’aide à facturer le centre de coût approprié pour les opérations effectuées.
-
-Dans un autre scénario courant, l’organisation peut souhaiter contrôler les emplacements où les ressources sont créées. Ou bien elle peut vouloir contrôler l’accès aux ressources en autorisant l’approvisionnement de certains types de ressources uniquement.
-
-De même, une organisation peut contrôler le catalogue de services ou appliquer les conventions d’affectation de noms souhaitées pour les ressources.
-
-À l’aide de stratégies, ces scénarios peuvent être facilement mis en œuvre.
+Ces autorisations ne sont pas incluses dans le rôle **Contributeur**.
 
 ## <a name="policy-definition-structure"></a>Structure de la définition de stratégie
-Une définition de stratégie est créée à l’aide de JSON. Elle se compose d’un ou plusieurs opérateurs logiques/conditions qui définissent les actions et d’un résultat qui indique ce qui se passe quand les conditions sont remplies. Le schéma est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
-L’exemple suivant montre une stratégie que vous pouvez utiliser pour limiter les emplacements où les ressources sont déployées :
+* parameters
+* le nom d’affichage
+* description
+* la règle de stratégie
+  * évaluation logique
+  * effet
+
+L’exemple suivant illustre une stratégie qui limite les emplacements où les ressources sont déployées :
 
 ```json
 {
   "properties": {
     "parameters": {
-      "listOfAllowedLocations": {
+      "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "An array of permitted locations for resources.",
+          "description": "The list of locations that can be specified when deploying resources",
           "strongType": "location",
-          "displayName": "List of locations"
+          "displayName": "Allowed locations"
         }
       }
     },
-    "displayName": "Geo-compliance policy template",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
           "field": "location",
-          "in": "[parameters('listOfAllowedLocations')]"
+          "in": "[parameters('allowedLocations')]"
         }
       },
       "then": {
@@ -78,507 +91,247 @@ L’exemple suivant montre une stratégie que vous pouvez utiliser pour limiter 
 }
 ```
 
-Essentiellement, une stratégie contient les sections suivantes :
-
-**Paramètres :** valeurs spécifiées lorsque la stratégie est affectée.
-
-**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d’un ensemble d’opérateurs logiques.
-
-**Effet :** résultat obtenu lorsque la condition est satisfaite ; refus ou audit. Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un événement d’audit si quelqu’un crée une machine virtuelle de grande taille. L’administrateur peut passer en revue les journaux ultérieurement.
-
-    {
-      "if" : {
-          <condition> | <logical operator>
-      },
-      "then" : {
-          "effect" : "deny | audit | append"
-      }
-    }
-
-## <a name="policy-evaluation"></a>Évaluation de la stratégie
-Les stratégies sont évaluées lors de la création des ressources. En cas de déploiement d’un modèle, les stratégies sont évaluées lors de la création de chaque ressource dans le modèle. 
-
-> [!NOTE]
-> Actuellement, la stratégie n'évalue pas les types de ressources qui ne prennent pas en charge les balises, le type et l'emplacement, par exemple, le type de ressource Microsoft.Resources/deployments. Cette prise en charge sera ajoutée prochainement. Pour éviter des problèmes de compatibilité descendante, vous devriez spécifier explicitement le type lors de la création de stratégies. Par exemple, une stratégie de balises sans spécification des types est appliquée à tous les types. Dans ce cas, le déploiement d’un modèle risque d’échouer s’il existe une ressource imbriquée ne prenant pas en charge les balises, et le type de ressource du déploiement sera ajouté à l’évaluation de la stratégie. 
-> 
-> 
-
 ## <a name="parameters"></a>Paramètres
-À partir de l’API version 2016-12-01, vous pouvez utiliser des paramètres dans votre définition de stratégie. Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Vous fournissez des valeurs aux paramètres lorsque vous affectez la stratégie.
+Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Vous définissez une stratégie pour une propriété de ressource (vous limitez par exemple les emplacements où les ressources peuvent être déployées) et incluez des paramètres dans la définition. Ensuite, vous réutilisez cette définition de stratégie pour différents scénarios en transmettant différentes valeurs (vous spécifiez par exemple un ensemble d’emplacements pour un abonnement) au moment de l’affectation de la stratégie.
 
 Vous déclarez des paramètres lorsque vous créez des définitions de stratégies.
 
-    "parameters": {
-      "listOfLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "An array of permitted locations for resources.",
-          "displayName": "List Of Locations"
-        }
-      }
+```json
+"parameters": {
+  "allowedLocations": {
+    "type": "array",
+    "metadata": {
+      "description": "The list of allowed locations for resources.",
+      "displayName": "Allowed locations"
     }
+  }
+}
+```
 
 Le type d’un paramètre peut être une chaîne ou un tableau. La propriété de métadonnées est utilisée pour des outils comme le Portail Azure pour afficher des informations conviviales. 
 
-Dans la règle de stratégie, vous pouvez référencer les paramètres comme dans les modèles. Par exemple : 
-        
-    { 
-        "field" : "location",
-        "in" : "[parameters(listOfLocations)]"
+Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante : 
+
+```json
+{ 
+    "field": "location",
+    "in": "[parameters('allowedLocations')]"
+}
+```
+
+## <a name="display-name-and-description"></a>Nom d’affichage et description
+
+Vous utilisez **displayName** et **description** pour distinguer la définition de stratégie et préciser le contexte d’utilisation.
+
+## <a name="policy-rule"></a>Règle de stratégie
+
+La règle de stratégie se compose de blocs **if** et **then**. Dans le bloc **if**, vous définissez une ou plusieurs conditions qui spécifient à quel moment la stratégie est mise en œuvre. Vous pouvez appliquer des opérateurs logiques à ces conditions pour définir avec précision le scénario d’une stratégie. Dans le bloc **then**, vous définissez l’effet qui se produit lorsque les conditions de **si** sont remplies.
+
+```json
+{
+  "if": {
+    <condition> | <logical operator>
+  },
+  "then": {
+    "effect": "deny | audit | append"
+  }
+}
+```
+
+### <a name="logical-operators"></a>Opérateurs logiques
+Les opérateurs logiques pris en charge sont les suivants :
+
+* `"not": {condition  or operator}`
+* `"allOf": [{condition or operator},{condition or operator}]`
+* `"anyOf": [{condition or operator},{condition or operator}]`
+
+La syntaxe **not** inverse le résultat de la condition. La syntaxe **allOf** (semblable à l’opération logique **And**) nécessite que toutes les conditions soient remplies. La syntaxe **anyOf** (semblable à l’opération logique **Of**) nécessite qu’au moins une des conditions soit remplie.
+
+Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une opération **not** imbriquée dans une opération **And**. 
+
+```json
+"if": {
+  "allOf": [
+    {
+      "not": {
+        "field": "tags",
+        "containsKey": "application"
+      }
+    },
+    {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
     }
+  ]
+},
+```
 
-## <a name="logical-operators"></a>Opérateurs logiques
-Les opérateurs logiques pris en charge avec la syntaxe sont les suivants :
+### <a name="conditions"></a>Conditions
+La condition évalue si un **champ** répond à certains critères. Les conditions prises en charge sont les suivantes :
 
-| Nom de l’opérateur | Syntaxe |
-|:--- |:--- |
-| not |« not » : {&lt;condition ou opérateur &gt;} |
-| and |« allOf » : [ {&lt;condition ou opérateur &gt;},{&lt;condition ou opérateur &gt;}] |
-| ou |« anyOf » : [ {&lt;condition ou opérateur &gt;},{&lt;condition ou opérateur &gt;}] |
+* `"equals": "value"`
+* `"like": "value"`
+* `"contains": "value"`
+* `"in": ["value1","value2"]`
+* `"containsKey": "keyName"`
+* `"exists": "bool"`
 
-Resource Manager vous permet de spécifier une logique complexe dans votre stratégie via des opérateurs imbriqués. Par exemple, vous pouvez refuser la création de ressources à un emplacement particulier pour un type de ressource spécifié. Voici un exemple d’opérateurs imbriqués.
-
-## <a name="conditions"></a>Conditions
-Une condition évalue si un **champ** ou une **source** répond à certains critères. Les noms et la syntaxe des conditions prises en charge sont les suivants :
-
-| Nom de la condition | Syntaxe |
-|:--- |:--- |
-| Égal à |« equals » : « &lt;valeur&gt; » |
-| Comme |« like » : « &lt;valeur&gt; » |
-| Contient |« contains » : « &lt;valeur&gt; » |
-| Dans |« in » : [ « &lt;valeur1&gt; », « &lt;valeur2&gt; » ] |
-| Contient clé |« containsKey » : « &lt;Nom de la clé&gt; » |
-| Exists |« exists » : « &lt;bool&gt; » |
+Lorsque vous utilisez la condition **like**, vous pouvez utiliser un caractère générique (*) dans la valeur.
 
 ### <a name="fields"></a>Champs
-Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource. Une source représente les caractéristiques de la requête elle-même. 
+Les conditions sont formées à partir de champs. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource.  
 
-Les sources et champs suivants sont pris en charge :
+Les champs suivants sont pris en charge :
 
-Champs : **name** (nom), **kind** (genre), **type**, **location** (emplacement), **tags** (balises), **tags.*** et **property alias** (alias de propriété). 
+* `name`
+* `kind`
+* `type`
+* `location`
+* `tags`
+* `tags.*` 
+* Alias de propriété
 
-### <a name="property-aliases"></a>Alias de propriété
-L’alias de propriété est un nom pouvant servir de définition de stratégie pour accéder aux propriétés propres au type de ressource, telles que les paramètres et les références (SKU). Il fonctionne sur toutes les versions d’API pour lesquelles la propriété existe. Vous pouvez récupérer les alias à l'aide de l'API REST (la prise en charge de Powershell sera ajoutée ultérieurement) :
+Les alias de propriété permettent d’accéder aux propriétés spécifiques d’un type de ressource. Les alias pris en charge sont les suivants :
 
-    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+* Microsoft.CDN/profiles/sku.name
+* Microsoft.Compute/virtualMachines/imageOffer
+* Microsoft.Compute/virtualMachines/imagePublisher
+* Microsoft.Compute/virtualMachines/sku.name
+* Microsoft.Compute/virtualMachines/imageSku 
+* Microsoft.Compute/virtualMachines/imageVersion
+* Microsoft.SQL/servers/databases/edition
+* Microsoft.SQL/servers/databases/elasticPoolName
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
+* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
+* Microsoft.SQL/servers/elasticPools/dtu
+* Microsoft.SQL/servers/elasticPools/edition
+* Microsoft.SQL/servers/version
+* Microsoft.Storage/storageAccounts/accessTier
+* Microsoft.Storage/storageAccounts/enableBlobEncryption
+* Microsoft.Storage/storageAccounts/sku.name
+* Microsoft.Web/serverFarms/sku.name
 
-L'exemple suivant montre une définition d’alias : Comme vous pouvez le voir, un alias définit des chemins dans différentes versions d'API, même en cas de changement de nom de propriété. 
+### <a name="effect"></a>Résultat
+La stratégie prend en charge trois types d’effet : `deny`, `audit` et `append`. 
 
-    "aliases": [
-        {
-          "name": "Microsoft.Storage/storageAccounts/sku.name",
-          "paths": [
-            {
-              "path": "properties.accountType",
-              "apiVersions": [
-                "2015-06-15",
-                "2015-05-01-preview"
-              ]
-            },
-            {
-              "path": "sku.name",
-              "apiVersions": [
-                "2016-01-01"
-              ]
-            }
-          ]
-        }
-    ]
-
-Actuellement, les alias pris en charge sont les suivants :
-
-| Nom d'alias | Description |
-| --- | --- |
-| {resourceType}/sku.name |Les types de ressources pris en charge sont les suivants : Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
-| {resourceType}/sku.family |Le type de ressource pris en charge est Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity |Le type de ressource pris en charge est Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher | |
-| Microsoft.Compute/virtualMachines/imageOffer | |
-| Microsoft.Compute/virtualMachines/imageSku | |
-| Microsoft.Compute/virtualMachines/imageVersion | |
-| Microsoft.Cache/Redis/enableNonSslPort | |
-| Microsoft.Cache/Redis/shardCount | |
-| Microsoft.SQL/servers/version | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
-| Microsoft.SQL/servers/databases/edition | |
-| Microsoft.SQL/servers/databases/elasticPoolName | |
-| Microsoft.SQL/servers/elasticPools/dtu | |
-| Microsoft.SQL/servers/elasticPools/edition | |
-
-
-## <a name="effect"></a>Résultat
-La stratégie prend en charge trois types d’effet : **deny**, **audit** et **append**. 
-
-* Deny génère un événement dans le journal d'audit et fait échouer la requête
-* Audit génère un événement dans le journal d'audit mais ne fait pas échouer la requête
-* Append ajoute l'ensemble des champs défini à la requête 
+* **deny** génère un événement dans le journal d’audit et fait échouer la requête.
+* **audit** génère un événement d’avertissement dans le journal d’audit, mais ne fait pas échouer la requête.
+* **append** ajoute l’ensemble de champs défini à la requête. 
 
 Pour **append**, vous devez fournir les détails suivants :
 
-    "effect": "append",
-    "details": [
-      {
-        "field": "field name",
-        "value": "value of the field"
-      }
-    ]
+```json
+"effect": "append",
+"details": [
+  {
+    "field": "field name",
+    "value": "value of the field"
+  }
+]
+```
 
 La valeur peut être une chaîne ou un objet au format JSON. 
 
+## <a name="policy-examples"></a>Exemples de stratégies
 
-## <a name="policy-definition-examples"></a>Exemples de définition de stratégie
-Maintenant, observons comment définir la stratégie pour obtenir les scénarios précédents.
+Les rubriques suivantes contiennent des exemples de stratégies :
 
-### <a name="chargeback-require-departmental-tags"></a>Facturation interne : exiger l’utilisation de balises de service
-La stratégie suivante refuse les demandes dépourvues de balise contenant la clé « costCenter ».
+* Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies for tags](resource-manager-policy-tags.md) (Appliquer des stratégies de ressources pour les balises).
+* Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies to storage accounts](resource-manager-policy-storage.md) (Appliquer des stratégies de ressources aux comptes de stockage).
+* Pour obtenir des exemples de stratégies de machine virtuelle, consultez [Apply resource policies to Linux VMs](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Linux) et [Apply resource policies to Windows VMs](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Windows).
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
+### <a name="allowed-resource-locations"></a>Emplacements de ressources autorisés
+Pour spécifier les emplacements autorisés, consultez l’exemple présenté dans la section [Structure de la définition de stratégie](#policy-definition-structure). Pour affecter cette définition de stratégie, utilisez la stratégie intégrée avec l’ID de ressource `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
+
+### <a name="not-allowed-resource-locations"></a>Emplacements de ressources non autorisés
+Pour spécifier les emplacements non autorisés, utilisez la définition de stratégie suivante :
+
+```json
+{
+  "properties": {
+    "parameters": {
+      "notAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that are not allowed when deploying resources",
+          "strongType": "location",
+          "displayName": "Not allowed locations"
         }
-      },
-      "then" : {
-        "effect" : "deny"
       }
-    }
-
-La stratégie suivante ajoute la balise costCenter, avec une valeur prédéfinie si aucune balise n’est présente. 
-
-    {
+    },
+    "displayName": "Not allowed locations",
+    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
+    "policyRule": {
       "if": {
-        "field": "tags",
-        "exists": "false"
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags",
-            "value": {"costCenter":"myDepartment" }
-          }
-        ]
-      }
-    }
-
-La stratégie suivante ajoute la balise costCenter, avec une valeur prédéfinie si la balise costCenter est absente, mais que d’autres balises sont présentes. 
-
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "tags",
-            "exists": "true"
-          },
-          {
-            "field": "tags.costCenter",
-            "exists": "false"
-          }
-        ]
-
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags.costCenter",
-            "value": "myDepartment"
-          }
-        ]
-      }
-    }
-
-
-### <a name="geo-compliance-ensure-resource-locations"></a>Conformité géographique : vérifier les emplacements des ressources
-L’exemple suivant illustre une stratégie qui refuse les demandes où l’emplacement n’est pas l’Europe du Nord ou l’Europe de l’Ouest.
-
-    {
-      "if" : {
-        "not" : {
-          "field" : "location",
-          "in" : ["northeurope" , "westeurope"]
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
-    }
-
-### <a name="service-curation-select-the-service-catalog"></a>Curation des services : sélectionner le catalogue de services
-L’exemple suivant illustre une stratégie qui n’autorise que les actions sur les services de type Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Le reste est refusé.
-
-    {
-      "if" : {
-        "not" : {
-          "anyOf" : [
-            {
-              "field" : "type",
-              "like" : "Microsoft.Resources/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Compute/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Storage/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Network/*"
-            }
-          ]
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
-    }
-
-### <a name="use-approved-skus"></a>Utilisation de références (SKU) approuvées
-L’exemple suivant illustre l’utilisation d’alias de propriété pour restreindre les références (SKU). Dans l’exemple, seule l’utilisation de Standard_LRS et Standard_GRS est approuvée pour les comptes de stockage.
-
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Storage/storageAccounts"
-          },
-          {
-            "not": {
-              "allof": [
-                {
-                  "field": "Microsoft.Storage/storageAccounts/sku.name",
-                  "in": ["Standard_LRS", "Standard_GRS"]
-                }
-              ]
-            }
-          }
-        ]
+        "field": "location",
+        "in": "[parameters('notAllowedLocations')]"
       },
       "then": {
         "effect": "deny"
       }
     }
+  }
+}
+```
 
+### <a name="allowed-resource-types"></a>Types de ressources autorisés
+L’exemple suivant illustre une stratégie qui autorise uniquement les déploiements pour les types de ressources Microsoft.Resources, Microsoft.Compute, Microsoft.Storage et Microsoft.Network. Tous les autres types de ressources sont refusés :
 
-### <a name="naming-convention"></a>Conventions d’affectation de noms
-L’exemple suivant illustre l’utilisation de caractères génériques, grâce à la condition « like ». La condition stipule que la demande est refusée si le nom ne correspond pas au modèle indiqué (namePrefix\*nameSuffix).
-
-    {
-      "if" : {
-        "not" : {
-          "field" : "name",
-          "like" : "namePrefix*nameSuffix"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
-    }
-
-### <a name="tag-requirement-just-for-storage-resources"></a>Spécification de balise uniquement pour les ressources de stockage
-L’exemple suivant montre comment imbriquer des opérateurs logiques pour requérir une balise d’application seulement pour les ressources de stockage.
-
-    {
-        "if": {
-            "allOf": [
-              {
-                "not": {
-                  "field": "tags",
-                  "containsKey": "application"
-                }
-              },
-              {
-                "field": "type",
-                "equals": "Microsoft.Storage/storageAccounts"
-              }
-            ]
+```json
+{
+  "if": {
+    "not": {
+      "anyOf": [
+        {
+          "field": "type",
+          "like": "Microsoft.Resources/*"
         },
-        "then": {
-            "effect": "audit"
-        }
-    }
-
-## <a name="create-and-assign-a-policy"></a>Création et attribution d’une stratégie
-L’application d’une stratégie nécessite la création d’une définition de stratégie et son application à une étendue. 
-
-### <a name="rest-api"></a>API REST
-Vous pouvez créer une stratégie avec l’ [API REST pour les définitions de stratégies](https://docs.microsoft.com/rest/api/resources/policydefinitions). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
-
-Pour créer une stratégie, exécutez :
-
-    PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
-
-Pour la version de l’API, utilisez *2016-04-01* ou *2016-12-01*. Incluez un texte de demande semblable à l’exemple suivant :
-
-    {
-      "properties": {
-        "parameters": {
-          "listOfAllowedLocations": {
-            "type": "array",
-            "metadata": {
-              "description": "An array of permitted locations for resources.",
-              "strongType": "location",
-              "displayName": "List Of Locations"
-            }
-          }
+        {
+          "field": "type",
+          "like": "Microsoft.Compute/*"
         },
-        "displayName": "Geo-compliance policy template",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
-        "policyRule": {
-          "if": {
-            "not": {
-              "field": "location",
-              "in": "[parameters('listOfAllowedLocations')]"
-            }
-          },
-          "then": {
-            "effect": "deny"
-          }
+        {
+          "field": "type",
+          "like": "Microsoft.Storage/*"
+        },
+        {
+          "field": "type",
+          "like": "Microsoft.Network/*"
         }
-      }
+      ]
     }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
-Vous pouvez appliquer la définition de stratégie à l’étendue souhaitée via l’ [API REST pour les affectations de stratégies](https://docs.microsoft.com/rest/api/resources/policyassignments). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
+### <a name="set-naming-convention"></a>Définir une convention d’affectation de noms
+L’exemple suivant illustre l’utilisation de caractères génériques, grâce à la condition **like**. La condition stipule que la demande est refusée si le nom ne correspond pas au modèle indiqué (namePrefix\*nameSuffix) :
 
-Pour créer une affectation de stratégie, exécutez :
-
-    PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
-
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2016-04-01* ou *2016-12-01* (pour les paramètres). 
-
-Avec un corps de demande semblable à l’exemple suivant :
-
-    {
-      "properties":{
-        "displayName":"West US only policy assignment on the subscription ",
-        "description":"Resources can only be provisioned in West US regions",
-        "parameters": {
-             "listOfAllowedLocations": ["West US", "West US2"]
-         },
-        "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-        "scope":"/subscriptions/########-####-####-####-############"
-      },
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "like": "namePrefix*nameSuffix"
     }
-
-### <a name="powershell"></a>PowerShell
-Vous pouvez créer une définition de stratégie à l’aide de l’applet de commande New-AzureRmPolicyDefinition. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
-
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{    
-      "if" : {
-        "not" : {
-          "field" : "location",
-          "in" : ["northeurope" , "westeurope"]
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
-    }'            
-
-Le résultat de l’exécution est stocké dans l’objet $policy et peut être utilisé ultérieurement lors de l’affectation de la stratégie. Pour le paramètre de stratégie, vous pouvez également utiliser le chemin d’accès au fichier .json contenant la stratégie au lieu de spécifier la stratégie en ligne.
-
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain     regions" -Policy "path-to-policy-json-on-disk"
-
-Vous pouvez appliquer la stratégie selon l’étendue de votre choix à l’aide de l’applet de commande New-AzureRmPolicyAssignment :
-
-    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
-
-Dans ce cas, $policy est l'objet de stratégie qui a été renvoyé suite à l'exécution de l'applet de commande New-AzureRmPolicyDefinition. L'étendue est ici le nom du groupe de ressources que vous spécifiez.
-
-Pour supprimer une affectation de stratégie, utilisez :
-
-    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
-
-Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l’aide des applets de commande Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition et Remove-AzureRmPolicyDefinition respectivement.
-
-De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l’aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
-
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
-Vous pouvez créer une définition de stratégie à l’aide de l’interface de ligne de commande Azure avec la commande de définition de stratégie. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
-
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-      "if" : {
-        "not" : {
-          "field" : "location",
-          "in" : ["northeurope" , "westeurope"]
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
-    }'    
-
-
-Il est possible de spécifier le chemin d’accès au fichier .json contenant la stratégie plutôt que la stratégie en ligne.
-
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-
-Vous pouvez appliquer la stratégie selon l’étendue de votre choix à l’aide de la commande d’affectation de stratégie :
-
-    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
-
-L'étendue est ici le nom du groupe de ressources que vous spécifiez. Si la valeur du paramètre policy-definition-id est inconnue, il est possible de l’obtenir grâce à l’interface de ligne de commande Azure : 
-
-    azure policy definition show <policy-name>
-
-Pour supprimer une affectation de stratégie, utilisez :
-
-    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
-
-Vous pouvez récupérer, modifier ou supprimer des définitions de stratégies par le biais des commandes d’affichage, de configuration et de suppression de définitions de stratégies respectivement.
-
-De même, vous pouvez obtenir, modifier ou supprimer des affectations de stratégies par le biais des commandes d’affichage et de suppression des affectations de stratégies respectivement.
-
-## <a name="policy-audit-events"></a>Événements d’audit de stratégie
-Après avoir appliqué votre stratégie, vous commencez à voir des événements liés à la stratégie. Vous pouvez accéder au portail ou utiliser PowerShell ou l’interface CLI Azure pour obtenir ces données. 
-
-### <a name="powershell"></a>PowerShell
-Pour afficher tous les événements liés au résultat « refus », vous pouvez utiliser la commande PowerShell suivante :
-
-    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
-
-Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande suivante :
-
-    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
-Pour afficher tous les événements d’un groupe de ressources liés au résultat « refus », vous pouvez utiliser la commande CLI suivante :
-
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
-
-Pour afficher tous les événements liés au résultat « audit », vous pouvez utiliser la commande CLI suivante :
-
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"
-
-## <a name="view-a-policy"></a>Affichage d’une stratégie
-Vous utilisez PowerShell, l’interface de ligne de commande Azure ou l’API REST pour afficher une stratégie. Vous devrez peut-être afficher une stratégie si un déploiement échoue et que vous souhaitez voir la règle qui a refusé le déploiement. Le message d’erreur inclut un ID pour la définition de stratégie.
-
-### <a name="powershell"></a>PowerShell
-Pour obtenir une stratégie, utilisez l’applet de commande suivante :
-
-    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}").Properties.policyRule | ConvertTo-Json
-
-Elle retourne le code JSON pour la définition de stratégie.
-
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
-Pour obtenir une stratégie, utilisez la commande suivante :
-
-    azure policy definition show {definition-name} --json
-
-### <a name="rest-api"></a>API REST
-Pour obtenir une stratégie, utilisez l’opération [Obtenir la définition de stratégie](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get).
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Après avoir défini une règle de stratégie, affectez-la à une étendue. Pour plus d’informations sur l’affectation de stratégie, consultez [Affecter et gérer les stratégies](resource-manager-policy-create-assign.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
+* Le schéma de stratégie est publié à l’adresse [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
