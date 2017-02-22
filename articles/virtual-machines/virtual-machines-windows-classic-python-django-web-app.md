@@ -1,5 +1,5 @@
 ---
-title: Application web Python avec Django | Microsoft Docs
+title: "Générer une application Django sur une machine virtuelle Azure | Microsoft Docs"
 description: "Ce didacticiel vous explique comment héberger un site web Django dans Azure avec une machine virtuelle Windows Server 2012 R2 Datacenter à l’aide du modèle de déploiement classique."
 services: virtual-machines-windows
 documentationcenter: python
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/04/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
+ms.sourcegitcommit: 52967959e60ac64f5af2ae044803aa7443c5830b
+ms.openlocfilehash: 3691a00dd9ce64b30435be98b3429627113128e3
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Pour obtenir un modèle Resource Manager afin de déployer Django, cliquez [ici](https://azure.microsoft.com/documentation/templates/django-app/).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour obtenir un modèle Resource Manager afin de déployer Django, cliquez [ici](https://azure.microsoft.com/documentation/templates/django-app/).
 
 Ce didacticiel explique comment héberger un site web Django dans Microsoft Azure en utilisant une machine virtuelle Windows Server. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce didacticiel, vous disposerez d’une application Django fonctionnelle dans le cloud.
 
@@ -65,7 +64,7 @@ Une capture d’écran de l’application terminée va s’afficher.
 ## <a id="setup"> </a>Installation de Python, Django et WFastCGI
 **Remarque :** pour le téléchargement à l’aide d’Internet Explorer, vous devrez peut-être configurer les paramètres IE ESC (Démarrer/Outils d’administration/Gestionnaire de serveur/Serveur local, puis cliquer sur **Configuration de sécurité renforcée d’Internet Explorer** et désactiver cette option).
 
-1. Installez la dernière version de Python 2.7 ou 3.4 depuis [python.org][python.org].
+1. Installez la dernière version de Python 2.7 ou 3.4 depuis [python.org][python.org].
 2. Installez les packages wfastcgi et django packages à l'aide de pip.
    
     Pour Python 2.7, utilisez la commande suivante.
@@ -126,7 +125,7 @@ Une capture d’écran de l’application terminée va s’afficher.
     Python 3,4 :
    
         c:\python34\scripts\wfastcgi-enable
-3. Créez un fichier web.config dans *C:\inetpub\wwwroot\helloworld*.  La valeur de l'attribut `scriptProcessor` doit correspondre à la sortie de l'étape précédente.  Consultez la page [wfastcgi][wfastcgi] sur PyPi pour en savoir plus sur les paramètres wfastcgi.
+3. Créez un fichier web.config dans *C:\inetpub\wwwroot\helloworld*.  La valeur de l'attribut `scriptProcessor` doit correspondre à la sortie de l'étape précédente.  Consultez la page sur [wfastcgi][wfastcgi] sur PyPi pour en savoir plus sur les paramètres wfastcgi.
    
     Python 2.7 :
    
@@ -177,6 +176,6 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Journaux, exceptions et diagnostics personnalisés pour ASP.NET dans Application Insights"
+title: "Journaux et diagnostics d’ADP.NET dans Azure Application Insights | Microsoft Docs"
 description: "Diagnostiquez les problèmes dans les applications web ASP.NET en recherchant les requêtes, les exceptions et les journaux générés avec Trace, NLog ou Log4Net."
 services: application-insights
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 04/08/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68d4b62b4915950dd18b6aa69b43043b4a90d9ff
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
 
 
 ---
 # <a name="logs-exceptions-and-custom-diagnostics-for-aspnet-in-application-insights"></a>Journaux, exceptions et diagnostics personnalisés pour ASP.NET dans Application Insights
-[Application Insights][start] inclut un puissant outil de [Recherche de diagnostic][diagnostic] qui vous permet d’explorer et d’examiner la télémétrie envoyée par le SDK Application Insights à partir de votre application. De nombreux événements tels que les affichages de pages utilisateur sont automatiquement envoyés par le kit de développement logiciel (SDK).
+[Application Insights][start] inclut un puissant outil, [Recherche de diagnostic][diagnostic], qui vous permet d’explorer et d’examiner la télémétrie envoyée par le kit de développement logiciel (SDK) Application Insights depuis votre application. De nombreux événements tels que les affichages de pages utilisateur sont automatiquement envoyés par le kit de développement logiciel (SDK).
 
 Vous pouvez également écrire du code pour envoyer des événements personnalisés, des rapports d’exception et des suivis. Et si vous utilisez déjà un framework de journalisation, tel que log4J, log4net, NLog, ou System.Diagnostics.Trace, vous pouvez capturer ces journaux et les inclure dans la recherche. Cela simplifie la corrélation des suivis des journaux avec les actions utilisateur, les exceptions et les autres événements.
 
 ## <a name="a-namesendabefore-you-write-custom-telemetry"></a><a name="send"></a>Avant d’écrire une télémétrie personnalisée
-Si vous ne l’avez pas encore fait, [configurez Application Insights pour votre projet][start].
+Si ce n’est déjà fait, [configurez Application Insights pour votre projet][start].
 
 Lorsque vous exécutez votre application, celle-ci envoie des données de télémétrie qui s’affichent dans Recherche de diagnostic, y compris des demandes reçues par le serveur, des affichages de pages consignées au niveau du client et des exceptions non interceptées.
 
@@ -41,7 +41,7 @@ Les informations varient selon le type d’application. Vous pouvez cliquer dans
 Si votre application envoie des données en grand nombre et si vous utilisez le Kit SDK Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 ## <a name="a-nameeventsacustom-events"></a><a name="events"></a>Événements personnalisés
-Les événements personnalisés apparaissent à la fois dans [Recherche de diagnostic][diagnostic] et [Metrics Explorer][métriques]. Vous pouvez les envoyer à partir d’appareils, de pages web et d’applications de serveur. Ils peuvent être utilisés à des fins de diagnostic et pour [comprendre les modèles d’utilisation][track].
+Les événements personnalisés apparaissent à la fois dans [Recherche de diagnostic][diagnostic] et [Metrics Explorer][metrics]. Vous pouvez les envoyer à partir d’appareils, de pages web et d’applications de serveur. Ils peuvent servir à des fins de diagnostic et à [comprendre les modèles d’utilisation][track].
 
 Un événement personnalisé a un nom et peut également comporter des propriétés que vous pouvez filtrer, ainsi que des mesures numériques.
 
@@ -96,7 +96,7 @@ Explorez un événement pour afficher ses propriétés détaillées.
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
 ## <a name="a-namepagesa-page-views"></a><a name="pages"></a> Affichages de pages
-La télémétrie d’affichage de page est envoyée par l’appel de trackPageView() dans [l’extrait de code JavaScript que vous insérez dans vos pages web][usage]. Son principal objectif est de contribuer au nombre d’affichages de pages que vous voyez sur la page de présentation.
+La télémétrie des affichages de pages est envoyée par l’appel trackPageView() dans l’[extrait de code JavaScript que vous insérez dans vos pages web][usage]. Son principal objectif est de contribuer au nombre d’affichages de pages que vous voyez sur la page de présentation.
 
 En général, il est appelé une fois dans chaque page HTML, mais vous pouvez insérer plusieurs appels. Par exemple, si vous disposez d’une application d’une seule page et que vous souhaitez enregistrer une nouvelle page chaque fois que l’utilisateur obtient plus de données.
 
@@ -217,9 +217,9 @@ Cliquez sur n’importe quel type d’exception pour voir les occurrences spéci
 Vous pouvez aussi ouvrir directement Recherche de diagnostic, filtrer sur les exceptions et choisir le type d’exception que vous souhaitez afficher.
 
 ### <a name="reporting-unhandled-exceptions"></a>Rapport des exceptions non traitées
-Application Insights signale les exceptions non traitées où il peut : sur des appareils, des [navigateurs web][usage] ou des serveurs web à l’aide de [Status Monitor][redfield] ou du [SDK Application Insights][greenbrown]. 
+Application Insights signale les exceptions non traitées où il peut : sur des appareils, des [navigateurs web][usage] ou des serveurs web à l’aide de [Status Monitor][redfield] du [kit de développement logiciel (SDK) Application Insights][greenbrown]. 
 
-Toutefois, il n’est pas toujours en mesure d’effectuer cette opération. Notamment, lorsque le .NET Framework intercepte les exceptions.  Pour vous assurer que d’afficher toutes les exceptions, vous devez développer un petit gestionnaire d’exceptions. La meilleure procédure à utiliser varie en fonction de la technologie. Voir [Données de télémétrie concernant les exceptions pour ASP.NET][exceptions] pour plus d’informations. 
+Toutefois, il n’est pas toujours en mesure d’effectuer cette opération. Notamment, lorsque le .NET Framework intercepte les exceptions.  Pour vous assurer que d’afficher toutes les exceptions, vous devez développer un petit gestionnaire d’exceptions. La meilleure procédure à utiliser varie en fonction de la technologie. Pour plus d’informations, consultez [Télémétrie des exceptions pour ASP.NET][exceptions]. 
 
 ### <a name="correlating-with-a-build"></a>Corrélation avec un build
 Au moment où vous lisez les journaux de diagnostic, il est probable que votre code source ait changé depuis le déploiement du code dynamique.
@@ -247,7 +247,7 @@ Dans l'initialiseur de l'application, par exemple Global.asax.cs :
     }
 
 ### <a name="a-namerequestsa-server-web-requests"></a><a name="requests"></a> Requêtes de serveur web
-Les données de télémétrie concernant les requêtes sont envoyées automatiquement quand vous [installez Status Monitor sur votre serveur web][redfield] ou quand vous [ajoutez Application Insights à votre projet web][greenbrown]. Elles sont également introduites dans les graphiques relatifs aux requêtes et aux temps de réponse dans Metrics Explorer et sur la page de présentation.
+Les données de télémétrie concernant les requêtes sont envoyées automatiquement lorsque vous [installez Status Monitor sur votre serveur web][redfield] ou lorsque vous [ajoutez Application Insights à votre projet web][greenbrown]. Elles sont également introduites dans les graphiques relatifs aux requêtes et aux temps de réponse dans Metrics Explorer et sur la page de présentation.
 
 Si vous souhaitez envoyer des événements supplémentaires, vous pouvez utiliser l’API TrackRequest().
 
@@ -273,7 +273,7 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
-[métriques]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
@@ -284,6 +284,6 @@ Si votre application envoie des données en grand nombre et si vous utilisez le 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

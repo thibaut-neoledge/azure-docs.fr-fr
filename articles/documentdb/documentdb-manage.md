@@ -1,30 +1,16 @@
 ---
-title: Performances et stockage de DocumentDB | Microsoft Docs
-description: "Obtenez plus d’informations sur le stockage de données et le stockage de documents dans DocumentDB, et découvrez comment faire évoluer DocumentDB pour répondre aux besoins de capacité de votre application."
-keywords: stockage de documents
-services: documentdb
-author: syamkmsft
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/18/2016
-ms.author: syamk
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 8a387dbb4ae5c8ce64c397441613d6d1fc3f08b1
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 27880401ccfca4c2c504eecc1aeb128d40c501a3
 
 
 ---
 # <a name="storage-and-predictable-performance-provisioning-in-documentdb"></a>Stockage et approvisionnement des performances prévisibles dans DocumentDB
 Azure DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et évolutif pour les documents JSON. Avec DocumentDB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin d'offrir une disponibilité, des performances et une protection des données optimales.  
 
-Vous pouvez prendre en main DocumentDB en [créant un compte de base de données](documentdb-create-account.md) et une [base de données DocumentDB](documentdb-create-database.md) via le [portail Azure](https://portal.azure.com/). Les bases de données DocumentDB sont proposées sous forme d’unités de stockage et de débit SSD. Ces unités de stockage sont configurées en [créant des collections de base de données](documentdb-create-collection.md) au sein de votre compte de base de données, chaque collection avec un débit réservé pouvant être mise à l’échelle vers le haut ou vers le bas à tout moment pour répondre aux besoins de votre application.
+Vous pouvez prendre en main DocumentDB en [créant un compte de base de données](documentdb-create-account.md), puis en créant une [collection et une base de données DocumentDB](documentdb-create-collection.md) via le [portail Azure](https://portal.azure.com/). Les bases de données DocumentDB sont proposées sous forme d’unités de stockage et de débit SSD. Ces unités de stockage sont configurées lorsque vous créez des collections de base de données, chaque collection avec un débit réservé pouvant être mise à l’échelle vers le haut ou vers le bas à tout moment pour répondre aux besoins de votre application.
 
 Si votre application dépasse le débit réservé d'une ou plusieurs collections, les demandes sont limitées en fonction de chaque collection. Cela signifie que certaines demandes d'application peuvent réussir tandis que d'autres peuvent être limitées.
 
@@ -79,7 +65,7 @@ Par exemple, voici un tableau qui indique le nombre d’unités de demande à fo
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Taille du document</strong></p></td>
+            <td valign="top"><p><strong>Taille des documents</strong></p></td>
             <td valign="top"><p><strong>Lectures par seconde</strong></p></td>
             <td valign="top"><p><strong>Écritures par seconde</strong></p></td>
             <td valign="top"><p><strong>Unités de demande</strong></p></td>
@@ -142,6 +128,6 @@ Pour obtenir des instructions sur la surveillance des niveaux de performances da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -273,6 +273,6 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
-ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
+ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
+ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
 
 
 ---
@@ -57,6 +57,15 @@ Ce mécanisme de communication présente plusieurs avantages par rapport à la m
   ![][2]
 
 Les sections qui suivent présentent le code de mise en œuvre de cette architecture.
+
+## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
+Avant de commencer à développer votre application Azure, procurez-vous les outils et configurez votre environnement de développement.
+
+1. Installez le kit de développement logiciel Microsoft Azure SDK pour .NET depuis la page [Obtenir les outils et le Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/).
+2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de Visual Studio. Les étapes de ce didacticiel utilisent Visual Studio 2015.
+3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
+4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
+5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio. Si Visual Studio n’est pas installé, le Kit de développement logiciel (SDK) installe Visual Studio Express gratuitement.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
 L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.

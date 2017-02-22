@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60d3225f276b54e08946744838a5028a02666149
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
 
 
 ---
@@ -78,10 +78,10 @@ Permet de définir des fonctions (SPROC) et des entités qui sont exposées via 
 > 
 
 ### <a name="edm---entry-data-model"></a>EDM (Entry Data Model)
-* Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+* Vue d’ensemble : [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
 
 [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-* Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+* Aperçu : [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
 
 [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
 * Types de données : [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
@@ -93,7 +93,7 @@ Le diagramme suivant présente un flux de gauche à droite détaillé depuis leq
   ![dessin](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
 ## <a name="csdl-basics"></a>Concepts de base du langage CSDL
-Un langage CSDL (Conceptual Schema Definition Language) est une spécification définissant la façon de décrire un service web ou un service de base de données dans un verbiage XML commun sur Azure Marketplace. Les données CSDL décrivent les éléments critiques qui **permettent la transmission de données à partir de la source de données à Azure Marketplace.**  Les éléments principaux sont décrits ici :
+Un langage CSDL (Conceptual Schema Definition Language) est une spécification définissant la façon de décrire un service web ou un service de base de données dans un verbiage XML commun sur Azure Marketplace. Les données CSDL décrivent les éléments critiques qui **permettent la transmission de données à partir de la source de données à Azure Marketplace.** Les éléments principaux sont décrits ici :
 
 * Des informations d’interface qui décrivent toutes les fonctions disponibles publiquement (nœud FunctionImport)
 * Des informations de type de données pour toutes les requêtes de messages (entrée) et réponses aux messages (sorties) (nœuds EntityContainer/EntitySet/EntityType)
@@ -321,6 +321,6 @@ L’exemple suivant établit une connexion à un service qui expose une table ou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

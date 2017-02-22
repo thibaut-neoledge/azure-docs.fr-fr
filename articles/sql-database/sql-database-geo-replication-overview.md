@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
 
 
 ---
@@ -26,30 +26,15 @@ La géo-réplication active permet de configurer jusqu'à quatre bases de donné
 
 > [!NOTE]
 > La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017 sera retiré le type secondaire non accessible en lecture et les bases de données non accessibles en lecture deviendront automatiquement des bases de données secondaires accessibles en lecture.
-> 
-> 
+>  
 
  Vous pouvez configurer la géo-réplication active à l’aide du [portail Azure](sql-database-geo-replication-portal.md), de [PowerShell](sql-database-geo-replication-powershell.md), de [Transact-SQL](sql-database-geo-replication-transact-sql.md) ou de [l’API REST - Créer ou mettre à jour la base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!div class="op_single_selector"]
-> * [Configuration : portail Azure](sql-database-geo-replication-portal.md)
-> * [Configuration : PowerShell](sql-database-geo-replication-powershell.md)
-> * [Configuration : T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Si, pour une raison quelconque, votre base de données primaire échoue ou doit simplement être mise hors connexion, vous pouvez effectuer un *basculement* vers l’une de vos bases de données secondaires. Lorsque le basculement est activé pour l’une des bases de données secondaires, toutes les autres bases de données secondaires sont automatiquement liées à la nouvelle base de données primaire.
 
 Vous pouvez basculer vers une base de données secondaire en utilisant le [portail Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [l’API REST - Basculement planifié](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) ou [l’API REST - Basculement non planifié](https://msdn.microsoft.com/library/azure/mt582027.aspx).
 
-> [!div class="op_single_selector"]
-> * [Basculement : portail](sql-database-geo-replication-failover-portal.md)
-> * [Basculement : PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [Basculement : T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
-
-Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
+Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
 La fonctionnalité de géo-réplication active implémente un mécanisme pour assurer la redondance de base de données dans une même région Microsoft Azure ou dans différentes régions (géo-redondance). La géoréplication active réplique de manière asynchrone les transactions validées à partir d’une base de données sur jusqu’à quatre copies de la base de données sur des serveurs différents à l’aide de l’isolement de capture instantanée à lecture validée (RCSI). Lorsque la géo-réplication active est configurée, une base de données secondaire est créée sur le serveur spécifié. La base de données d’origine devient la base de données primaire. La base de données primaire réplique de manière asynchrone les transactions validées sur chaque base de données secondaire. Seules les transactions complètes sont répliquées. À un moment donné, la base de données secondaire peut être légèrement en retard sur la base de données primaire, mais les données secondaire ne peuvent jamais contenir de transactions partielles. Vous trouverez les données d’objectif de point de récupération dans [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -149,6 +134,6 @@ Comme indiqué plus haut, la géo-réplication active peut aussi être gérée p
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

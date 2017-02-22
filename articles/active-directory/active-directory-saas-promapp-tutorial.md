@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
 
 
 ---
@@ -47,8 +47,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 * Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Promapp à partir de la galerie 
 2. Configuration et test de l’authentification unique Azure AD
@@ -107,17 +106,16 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Authentification unique Azure AD][8] 
    
-     a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre site Promapp (p. ex. *https://companyname.promapp.com/instancename*).
-
-     b. Cliquez sur **Suivant**.
+   1. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre site Promapp (p. ex. *https://companyname.promapp.com/instancename*).
+   2. Cliquez sur **Next**.
 
 1. Sur la page **Configurer l’authentification unique sur Promapp** , procédez comme suit :
    
     ![Authentification unique Azure AD][9] 
    
-    a. Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
+   1. Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
+   2. Cliquez sur **Suivant**.
    
-    b. Cliquez sur **Suivant**.
 2. Connectez-vous à votre site d’entreprise Promapp en tant qu’administrateur. 
 3. Dans le menu situé en haut, cliquez sur **Admin**. 
    
@@ -129,11 +127,9 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Authentification unique Azure AD][14] 
    
-    a. Dans le portail Azure Classic, dans la boîte de dialogue **Configurer l’authentification unique sur Promapp**, copiez **l’URL de connexion distante**, collez-la dans la zone de texte **URL de connexion d’authentification unique**, puis cliquez sur **Enregistrer**.
-   
-    b. Pour **Mode SSO (authentification unique)**, sélectionnez **Facultatif**, puis cliquez sur **Enregistrer**.
-   
-    c. Ouvrez le certificat téléchargé dans le Bloc-notes, copiez le contenu du certificat sans la première ligne (*-----BEGIN CERTIFICATE-----*) ni la dernière ligne (*-----END CERTIFICATE-----*), collez-le dans la zone de texte **Certificat x.509 d’authentification unique**, puis cliquez sur **Enregistrer**.
+   1. Dans le portail Azure Classic, dans la boîte de dialogue **Configurer l’authentification unique sur Promapp**, copiez **l’URL de connexion distante**, collez-la dans la zone de texte **URL de connexion d’authentification unique**, puis cliquez sur **Enregistrer**.
+   2. Pour **Mode SSO (authentification unique)**, sélectionnez **Facultatif**, puis cliquez sur **Enregistrer**.
+   3. Ouvrez le certificat téléchargé dans le Bloc-notes, copiez le contenu du certificat sans la première ligne (*-----BEGIN CERTIFICATE-----*) ni la dernière ligne (*-----END CERTIFICATE-----*), collez-le dans la zone de texte **Certificat x.509 d’authentification unique**, puis cliquez sur **Enregistrer**.
 6. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. 
    
     ![Authentification unique Azure AD][10]
@@ -162,23 +158,20 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png)  
    
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+   1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+   2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+   3. Cliquez sur **Next**.
    
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+   1. Dans la zone de texte **First Name**, tapez **Britta**.   
+   2. Dans la zone de texte **Last Name**, tapez **Simon**.
+   3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+   5. Cliquez sur **Suivant**.
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   e. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -186,9 +179,8 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) 
    
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+   1. Notez la valeur du **Nouveau mot de passe**.
+   2. Cliquez sur **Terminé**.   
 
 ### <a name="creating-a-promapp-test-user"></a>Création d’un utilisateur de test Promapp
 L’application Promapp prend en charge l’approvisionnement juste-à-temps.
@@ -259,6 +251,6 @@ Lorsque vous cliquez sur la vignette Promapp dans le volet d’accès, vous deve
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

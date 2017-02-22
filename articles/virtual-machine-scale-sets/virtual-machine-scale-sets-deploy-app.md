@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
+ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
 
 
 ---
@@ -51,13 +51,11 @@ Packer et Terraform prennent également en charge Azure Resource Manager ; par c
 Les machines virtuelles du groupe identique deviennent un support stable pour les conteneurs et nécessitent uniquement des mises à jour occasionnelles du système d’exploitation et de la sécurité. Comme indiqué précédemment, Azure Container Service est un bon exemple de création d’un service autour de cette approche.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Comment déployer une mise à jour du système d’exploitation sur plusieurs domaines de mise à jour ?
-Supposons que vous souhaitez mettre à jour votre image de système d’exploitation tout en maintenant le fonctionnement du groupe identique de machines virtuelles. Pour cela, il est possible de mettre à jour les images des machines virtuelles, une machine virtuelle à la fois. Vous pouvez le faire avec PowerShell ou l’interface de ligne de commande Azure. Il existe des commandes distinctes pour mettre à jour le modèle du groupe identique de machines virtuelles (la façon dont sa configuration est définie) et pour émettre des appels de « mise à niveau manuelle » sur des machines virtuelles données.
-
-[Voici](https://github.com/gbowerman/vmsstools) un exemple de script Python qui automatise le processus de mise à jour d’un groupe identique de machines virtuelles, un domaine de mise à jour à la fois. (Avertissement : il s’agit davantage d’une preuve de concept que d’une solution opérationnelle éprouvée ; il peut se révéler nécessaire de procéder à une vérification supplémentaire des erreurs.)
+Supposons que vous souhaitez mettre à jour votre image de système d’exploitation tout en maintenant le fonctionnement du groupe identique de machines virtuelles. Pour cela, il est possible de mettre à jour les images des machines virtuelles, une machine virtuelle à la fois. Vous pouvez le faire avec PowerShell ou l’interface de ligne de commande Azure. Il existe des commandes distinctes pour mettre à jour le modèle du groupe identique de machines virtuelles (la façon dont sa configuration est définie) et pour émettre des appels de « mise à niveau manuelle » sur des machines virtuelles données. Le document Azure [Mettre à jour un jeu de mise à l’échelle de machine virtuelle](./virtual-machine-scale-sets-upgrade-scale-set.md) fournit également plus d’informations sur les options disponibles pour effectuer des mises à niveau du système d’exploitation sur un jeu de mise à l’échelle de machine virtuelle.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

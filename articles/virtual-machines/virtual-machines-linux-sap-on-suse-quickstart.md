@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 04833ac3adae6ed7dd8c1c61c2ca5b63ea97660b
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
 
 
 ---
@@ -109,7 +109,7 @@ Pour créer des machines virtuelles SUSE, vous devez utiliser les fichiers de mo
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-Pour plus d’informations sur les fichiers de modèle JSON, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md) et [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/).
+Pour plus d’informations sur les fichiers de modèle JSON, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/).
 
 Pour plus d’informations sur l’interface de ligne de commande et sur Azure Resource Manager, consultez la rubrique [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
@@ -159,6 +159,6 @@ Il existe une restriction de prise en charge d’Oracle sur Linux dans les envir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

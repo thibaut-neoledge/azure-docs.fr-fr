@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2d8caf829d59262ab4802745e61fe6745376001a
+ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
+ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
 
 
 ---
@@ -210,8 +210,37 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
     Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier «`/boot/grub/menu.lst`».  Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans « /etc/default/grub ».
 
 
+## <a name="trimunmap-support"></a>Prise en charge de TRIM/UNMAP
+Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Ces opérations sont particulièrement utiles dans un stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Le fait d’ignorer des pages peut vous permettre de réaliser des économies si vous créez des fichiers volumineux, puis les supprimez.
+
+> [!NOTE]
+> RAID ne peut pas émettre de commandes Ignorer si la taille de segment de tableau est inférieure à la valeur par défaut (512 Ko). La raison en est que la granularité d’annulation de mappage sur l’ordinateur hôte est également de 512 Ko. Si vous avez modifié la taille de segment du tableau par l’intermédiaire du paramètre `--chunk=` de mdadm, les demandes TRIM ou d’annulation de mappage peuvent être ignorées par le noyau.
+
+Il existe deux façons d’activer la prise en charge de TRIM sur votre machine virtuelle Linux. Comme d’habitude, consultez votre distribution pour connaître l’approche recommandée :
+
+- Utilisez l’option de montage `discard` dans `/etc/fstab`, par exemple :
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- Dans certains cas, l’option `discard` peut avoir un impact sur la performance. Vous pouvez également exécuter la commande `fstrim` manuellement à partir de la ligne de commande ou l’ajouter à votre crontab pour l’exécuter régulièrement :
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

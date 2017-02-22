@@ -1,5 +1,5 @@
 ---
-title: "Instructions de configuration du tableau de bord Power BI pour le modèle de solution Vehicle Telemetry Analytics | Microsoft Docs"
+title: "Tableau de bord Power BI pour l’état des véhicules et les habitudes de conduite - Azure | Microsoft Docs"
 description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 66a2375d7560b41f0fddef3c8c32e41917eb1649
-ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
 
 
 ---
@@ -166,7 +166,7 @@ Cliquez sur ![Ajouter](./media/cortana-analytics-playbook-vehicle-telemetry-powe
 Sélectionnez le champ **vin** et définissez le type de visualisation sur **Carte**.  
     ![Connected Cars - Visualisation du numéro d’identification du véhicule sous forme de carte](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)  
 
-Le jeu de données contient un champ nommé « MaintenanceLabel ». Ce champ peut avoir une valeur de « 0 » ou « 1 ». Il est défini par le modèle Azure Machine Learning configuré dans le cadre de la solution et intégré avec la fonction temps réel. La valeur « 1 » indique un véhicule nécessitant une maintenance. 
+Le jeu de données contient un champ nommé « MaintenanceLabel ». Ce champ peut avoir une valeur de « 0 » ou « 1 ». Il est défini par le modèle Azure Machine Learning configuré dans le cadre de la solution et intégré avec la fonction temps réel. La valeur «&1; » indique un véhicule nécessitant une maintenance. 
 
 Pour ajouter le filtre **Page Level** (Niveau page) afin d’afficher les données relatives aux véhicules ayant besoin d’une intervention de maintenance : 
 
@@ -257,7 +257,7 @@ Renommez le **titre** du graphique **« Modèles de véhicules nécessitant une
 
 Cliquez sur la zone vide pour ajouter la nouvelle visualisation.
 
-Dans la section Visualisations, sélectionnez **Graphique à barres empilées 100 %**, puis faites glisser le champ **Ville** dans la zone **Axe** et les champs **Probabilité de maintenance** et **Probabilité de rappel** dans la zone **Valeur**.
+Dans la section Visualisations, sélectionnez **Graphique à barres empilées&100; %**, puis faites glisser le champ **Ville** dans la zone **Axe** et les champs **Probabilité de maintenance** et **Probabilité de rappel** dans la zone **Valeur**.
 
 ![Connected Cars - Ajouter une visualisation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
@@ -423,6 +423,6 @@ Félicitations ! Vous avez correctement créé les rapports et le tableau de bo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

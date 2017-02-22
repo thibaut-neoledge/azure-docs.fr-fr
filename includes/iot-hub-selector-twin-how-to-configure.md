@@ -18,7 +18,7 @@ Dans ce didacticiel, vous allez découvrir comment combiner les *propriétés so
 
 Dans ce didacticiel, le serveur principal de solution modifie la configuration de télémétrie d’un appareil cible. En conséquence, l’application d’appareil suit un processus à plusieurs étapes pour appliquer une mise à jour de configuration (nécessitant par exemple un redémarrage de module logiciel), ce que ce didacticiel simule avec un simple délai.
 
-Le serveur principal stocke la configuration dans les propriétés souhaitées des représentations d’appareil comme suit :
+Le serveur principal de la solution stocke la configuration dans les propriétés souhaitées du jumeau d’appareil comme suit :
 
         {
             ...
@@ -94,6 +94,6 @@ Ce didacticiel vous explique les procédures suivantes :
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

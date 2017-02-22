@@ -1,6 +1,6 @@
 ---
-title: Apprentissage du workflow PowerShell
-description: "Cet article est une rapide leçon expliquant aux auteurs familiarisés avec PowerShell les différences spécifiques entre PowerShell et un workflow PowerShell."
+title: "Découvrir le workflow PowerShell pour Azure Automation | Microsoft Docs"
+description: "Cet article est une rapide leçon expliquant aux auteurs familiarisés avec PowerShell les différences spécifiques entre PowerShell et un workflow PowerShell et les concepts applicables aux runbooks Automation."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: bwren
+ms.date: 01/23/2017
+ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
-ms.openlocfilehash: 3893d8508535ee605c3555d2ddf40d6f286d85fa
+ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
+ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
 
 
 ---
-# <a name="learning-windows-powershell-workflow"></a>Apprentissage du workflow Windows PowerShell
-Les Runbooks d'Azure Automation sont implémentés en tant que workflows Windows PowerShell.  Un workflow Windows PowerShell est similaire à un script Windows PowerShell, mais il présente des différences significatives qui peuvent être déconcertantes pour un nouvel utilisateur.  Cet article, destiné aux utilisateurs déjà familiarisés avec PowerShell, explique brièvement les concepts que vous devez maîtriser si vous convertissez un script PowerShell en un workflow PowerShell en vue d'une utilisation dans un Runbook.  
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation 
+Les Runbooks d'Azure Automation sont implémentés en tant que workflows Windows PowerShell.  Un workflow Windows PowerShell est similaire à un script Windows PowerShell, mais il présente des différences significatives qui peuvent être déconcertantes pour un nouvel utilisateur.  Bien que cet article soit destiné à vous aider à écrire des runbooks à l’aide de workflow PowerShell, nous vous recommandons d’écrire des runbooks à l’aide de PowerShell, sauf si vous avez besoin de points de contrôle.  Il existe plusieurs différences de syntaxe lors de la création de runbooks de workflow PowerShell et ces différences nécessitent un peu plus de travail pour l’écriture de workflows efficaces.  
 
 Un workflow est une séquence d'étapes liées et programmées qui permet d'effectuer des tâches longues ou nécessitant la coordination de plusieurs phases entre plusieurs appareils ou nœuds gérés. Les avantages d'un workflow par rapport à un script normal incluent la possibilité d'exécuter simultanément une action sur plusieurs appareils et de récupérer automatiquement après une défaillance. Un workflow Windows PowerShell est un script Windows PowerShell qui tire parti de Windows Workflow Foundation. Le workflow est écrit avec la syntaxe Windows PowerShell et lancé par Windows PowerShell, mais il est traité par Windows Workflow Foundation.
 
 Plus d'informations sur les rubriques de cet article, consultez [Présentation du workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
-
-## <a name="types-of-runbook"></a>Types de Runbook
-Il existe trois types de Runbook dans Azure Automation, *Flux de travail PowerShell*, *PowerShell* et *graphique*.  Vous définissez le type de Runbook lorsque vous créez le Runbook, et vous ne pouvez pas convertir un Runbook dans l'autre format une fois qu'il a été créé.
-
-Les Runbooks workflow PowerShell et PowerShell sont destinés aux utilisateurs qui préfèrent travailler directement avec le code PowerShell, soit à l'aide de l'éditeur de texte d'Azure Automation ou d'un éditeur en mode hors connexion comme PowerShell ISE. Vous devez comprendre les informations contenues dans cet article si vous créez un Runbook workflow PowerShell.
-
-Les Runbooks graphiques vous permettent de créer un Runbook à l'aide des mêmes activités et applets de commande, mais en utilisant une interface graphique qui masque la complexité du workflow PowerShell sous-jacent.  Les concepts développés dans cet article, tels que les points de contrôle et l'exécution en parallèle, s'appliquent toujours aux Runbooks graphiques, mais vous n'aurez pas à vous soucier de la syntaxe détaillée.
 
 ## <a name="basic-structure-of-a-workflow"></a>Structure de base d'un workflow
 La première étape de la conversion d'un script PowerShell en un workflow PowerShell consiste à y intégrer le mot clé **Workflow** .  Un workflow commence par le mot clé **Workflow** suivi du corps du script entre accolades. Le nom du workflow suit le mot clé **Workflow** , comme illustré dans la syntaxe suivante.
@@ -204,7 +197,6 @@ L'exemple suivant est similaire à l'exemple précédent concernant la copie de 
 > [!NOTE]
 > Nous vous déconseillons d'exécuter des Runbooks enfants en parallèle car les résultats obtenus ne sont pas fiables.  Parfois, la sortie du Runbook enfant n'apparaît pas, et les paramètres d'un Runbook enfant peuvent affecter les autres Runbooks enfants parallèles.
 >
->
 
 ## <a name="checkpoints"></a>points de contrôle
 Un *point de contrôle* est un instantané de l'état actuel du workflow qui inclut la valeur actuelle des variables et toute sortie générée à ce stade. Si un flux de travail se termine par erreur ou est suspendu, il démarrera à la prochaine exécution à partir de son dernier point de contrôle et non depuis le début du worfklow.  Vous pouvez définir un point de contrôle dans un workflow avec l'activité **Checkpoint-Workflow** .
@@ -271,6 +263,6 @@ Pour plus d'informations sur les points de contrôle, consultez [Ajout de points
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

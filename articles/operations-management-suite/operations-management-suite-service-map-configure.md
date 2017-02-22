@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
-ms.openlocfilehash: 94bf7729ceb55eaed5efc0290c1a34227888211f
+ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
+ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
 
 
 ---
@@ -75,7 +75,7 @@ Le pack d’administration se nomme Microsoft.IntelligencePacks.ApplicationDepen
 
 
 ## <a name="configuration"></a>Configuration
-En plus des ordinateurs Windows et Linux qui disposent d’un agent installé et connecté à OMS, le programme d’installation de l’agent de dépendances doit être téléchargé à partir de la solution Carte de service, puis installé comme racine ou admin sur chaque serveur géré.  Une fois que l’agent Carte de service est installé sur un serveur qui communique avec OMS, les mappages de dépendances Carte de service apparaissent dans un délai maximal de 10 minutes.  Si vous rencontrez des problèmes, envoyez un e-mail à l’adresse [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+En plus des ordinateurs Windows et Linux qui disposent d’un agent installé et connecté à OMS, le programme d’installation de l’agent de dépendances doit être téléchargé à partir de la solution Carte de service, puis installé comme racine ou admin sur chaque serveur géré.  Une fois que l’agent Carte de service est installé sur un serveur qui communique avec OMS, les mappages de dépendances Carte de service apparaissent dans un délai maximal de 10 minutes.
 
 
 ### <a name="migrating-from-bluestripe-factfinder"></a>Migration à partir de BlueStripe FactFinder
@@ -117,7 +117,7 @@ Utilisez les étapes suivantes pour installer l’agent de dépendances sur chaq
 3.  Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux. Sur les agents Linux, le répertoire des journaux est */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Désinstaller l’agent de dépendances sur Linux
-Pour désinstaller complètement l’agent de dépendances de Linux, vous devez supprimer l’agent lui-même et le serveur proxy qui est installé automatiquement avec lui.  Vous pouvez désinstaller les deux avec la commande ci-dessous :
+Pour désinstaller complètement l’agent de dépendances de Linux, vous devez supprimer l’agent lui-même et le connecteur qui est installé automatiquement avec lui.  Vous pouvez désinstaller les deux avec la commande ci-dessous :
 
     rpm -e dependency-agent dependency-agent-connector
 
@@ -227,7 +227,7 @@ L’agent de dépendance consomme généralement 0,1 % de la mémoire système 
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Les sections suivantes répertorient les systèmes d’exploitation pris en charge par l’agent de dépendances.   Les architectures 32 bits ne sont prises en charge par aucun système d’exploitation.
+Les sections suivantes répertorient les systèmes d’exploitation pris en charge par l’agent de dépendances.   Les architectures&32; bits ne sont prises en charge par aucun système d’exploitation.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -325,6 +325,6 @@ Pour plus d’informations sur l’utilisation et la collecte de données, consu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

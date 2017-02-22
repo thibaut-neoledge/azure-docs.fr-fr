@@ -3,7 +3,7 @@ title: Articles techniques concernant les machines virtuelles Windows | Microsof
 description: "Liste complète des articles de la documentation Microsoft Azure liée aux machines virtuelles Windows dans le modèle de déploiement Classic"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
+author: cynthn
 manager: timlt
 tags: azure-service-management
 editor: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
 
 
 ---
@@ -87,10 +87,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Extension de script personnalisé pour machines virtuelles Windows classiques](virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-[Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
 [Migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>Configuration
@@ -107,7 +103,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 [Comment configurer des points de terminaison sur une machine virtuelle Azure classique](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>Storage
-[À propos des disques et des VHD pour les machines virtuelles Azure](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[À propos des disques et des VHD pour les machines virtuelles Azure](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Attachement d’un disque de données à une machine virtuelle Windows classique](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -144,12 +140,12 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[SQL Server](./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="reference"></a>Référence
-[Commandes de l’interface de ligne de commande Azure en mode Service Management](../virtual-machines-command-line-tools.md)
+[Commandes de l’interface de ligne de commande Azure en mode Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 [API REST de gestion de service](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
@@ -170,6 +166,6 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

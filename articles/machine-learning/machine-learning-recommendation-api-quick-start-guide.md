@@ -1,5 +1,5 @@
 ---
-title: "Guide de démarrage rapide : API recommandations Machine Learning | Microsoft Docs"
+title: "Démarrage rapide : API Azure Machine Learning Recommendations (version 1)| Microsoft Docs"
 description: "Azure Machine Learning Recommendations - Guide de démarrage rapide"
 services: machine-learning
 documentationcenter: 
@@ -12,22 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/07/2017
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
-ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
+ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
 
 
 ---
-# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>Guide de démarrage rapide pour l'API de Machine Learning Recommendations
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api-version-1"></a>Guide de démarrage rapide pour l’API Machine Learning Recommendations (version 1)
+
 > [!NOTE]
-> Vous devez commencer à utiliser le Service cognitif de l’API Recommandations au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc.
+> Vous devez commencer à utiliser le [Service cognitif de l’API Recommandations](https://www.microsoft.com/cognitive-services/recommendations-api) au lieu de cette version. Le Service cognitif de l’API Recommandations remplacera ce service et toutes les nouvelles fonctionnalités y seront développées. Il propose de nouvelles fonctionnalités telles que la prise en charge du traitement par lot, un meilleur Explorateur d’API, une surface d’API plus propre, une expérience d’inscription/de facturation plus cohérente, etc.
+>
 > En savoir plus sur la [migration vers le nouveau Service cognitif](http://aka.ms/recomigrate)
 > 
 > 
 
-Ce document décrit comment intégrer votre service ou application pour utiliser Microsoft Azure Machine Learning Recommendations. Vous trouverez plus d'informations sur l'API Recommendations dans la [galerie](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+Ce document décrit comment intégrer votre service ou application pour utiliser Microsoft Azure Machine Learning Recommendations. Vous trouverez plus d’informations sur l’API Recommendations dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPIs/Recommendations-2).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -425,7 +427,7 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 * `feed/entry/content/properties/UserName` : nom de l'utilisateur.
 * `feed/entry/content/properties/ModelName` : nom du modèle.
 * `feed/entry/content/properties/ModelId` : identificateur unique du modèle.
-* `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (également appelée build active).
+* `feed/entry/content/properties/IsDeployed` : indique si la build est déployée (c’est-à-dire active).
 * `feed/entry/content/properties/BuildId` : identificateur unique de la build.
 * `feed/entry/content/properties/BuildType` : type de build.
 * `feed/entry/content/properties/Status` : état de la build. Celui-ci peut avoir l’une des valeurs suivantes : Error, Building, Queued, Canceling, Canceled, Success.
@@ -703,6 +705,6 @@ Ce document est fourni « en l'état ». Les informations et les points de vue
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -6,11 +6,11 @@ Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir l
 4. Sur la page **Protocole et ports**, sélectionnez **TCP** et tapez **59999** dans la zone **Ports locaux spécifiques**. Cliquez ensuite sur **Suivant**.
 5. Dans la page **Action**, sélectionnez **Autoriser la connexion** et cliquez sur **Suivant**.
 6. Dans la page **Profil**, acceptez les paramètres par défaut et cliquez sur **Suivant**.
-7. Sur la page **Nom**, spécifiez un nom pour la règle, comme **Port de la sonde d’écouteur AlwaysOn** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
-8. Répétez les étapes ci-dessus pour le port de l'écouteur du groupe de disponibilité (comme spécifié précédemment à l'aide du paramètre $EndpointPort du script), puis spécifiez un nom de règle approprié, tel que **Port de l'écouteur AlwaysOn**.
+7. Sur la page **Nom**, spécifiez un nom pour la règle, comme **Port de la sonde d’écouteur toujours actif** dans la zone de texte **Nom**, puis cliquez sur **Terminer**.
+8. Répétez les étapes ci-dessus pour le port de l'écouteur du groupe de disponibilité (comme spécifié précédemment à l'aide du paramètre $EndpointPort du script), puis spécifiez un nom de règle approprié, tel que **Port de l'écouteur toujours actif**.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

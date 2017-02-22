@@ -1,5 +1,5 @@
 ---
-title: "Obtenir les outils Azure pour votre Kit de démarrage Azure IoT (mac OS 10.10) | Microsoft Docs"
+title: "Connecter Intel Edison (C) à Azure IoT - Leçon 2 : Outils Azure (macOS) | Microsoft Docs"
 description: "Sur Mac OS, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 74aaf17819eea7fbda04f91a02ef77823342bc8b
-ms.openlocfilehash: d4be409e8718cd8cb5c867ee41ba8041490d9d0b
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: c79f1595c0e1359044c8c3ec3b6e8bc87f4aa4fa
 
 
 ---
@@ -84,6 +84,6 @@ Vous avez installé l’interface de ligne de commande Azure. La tâche suivante
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

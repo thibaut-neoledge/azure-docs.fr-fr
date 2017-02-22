@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 44980a015f74110442f8684479ab0c911f605e8d
-ms.openlocfilehash: e2f1024f428647c05fb0faced70e779acbd86489
+ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
+ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
 
 
 ---
@@ -66,19 +66,16 @@ Web Apps sur Linux est uniquement pris en charge dans les plans App Service déd
 
 Sous Linux, les applications web doivent être créées dans un groupe de ressources qui ne contient pas d’applications web non Linux dans la même région.
 
-En raison du manque de recyclage avec chevauchement des applications web, les clients sont susceptibles de rencontrer un bref temps d’arrêt en cas de redémarrage d’une application web.
-
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [Création d’applications Web dans App Service sur Linux](app-service-linux-how-to-create-a-web-app.md)
 * [Utilisation d’une image Docker personnalisée pour App Service sur Linux](app-service-linux-using-custom-docker-image.md)
 * [Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux](app-service-linux-using-nodejs-pm2.md)
-* [Utilisation de .NET Core dans Azure App Service Web Apps sur Linux](app-service-linux-intro.md)
+* [Utilisation de .NET Core dans Azure App Service Web Apps sur Linux](app-service-linux-using-dotnetcore.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

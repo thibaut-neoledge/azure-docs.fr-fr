@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
+ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-Dans Azure Container Service, Kubernetes nécessite un [principal du service Azure Active Directory](../active-directory/active-directory-application-objects.md) en tant que compte de service pour interagir avec des API Azure. Le principal du service est nécessaire pour gérer dynamiquement des ressources telles que des [itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) et [l’équilibrage de charge Azure](../load-balancer/load-balancer-overview.md) de couche 4.
+Dans Azure Container Service, Kubernetes nécessite un [principal du service Azure Active Directory](../active-directory/active-directory-application-objects.md) en tant que compte de service pour interagir avec des API Azure. Le principal du service est nécessaire pour gérer dynamiquement des ressources telles que des itinéraires définis par l’utilisateur et Azure Load Balancer de couche 4.
 
 Cet article explique les différentes options pour spécifier un principal du service pour votre cluster Kubernetes. Par exemple, si vous avez installé et configuré [Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2), vous pouvez exécuter la commande [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) pour créer le cluster Kubernetes et le principal du service en même temps.
 
@@ -41,7 +41,7 @@ Les éléments suivants sont la configuration requise du principal du service Az
 
 * **Étendue** : l’abonnement Azure dans lequel le cluster est déployé
 
-* **Rôle** - **Contributeur**
+* **Rôle** : **Collaborateur**
 
 * **Clé secrète client** : doit être un mot de passe. Actuellement, vous ne pouvez pas utiliser de principal du service configuré pour l’authentification par certificat.
 
@@ -56,30 +56,36 @@ Les éléments suivants sont la configuration requise du principal du service Az
 
 Fournissez **l’ID client** (souvent appelé `appId`, pour l’ID de l’application) et la **clé secrète client** (`password`) d’un principal du service existant en tant que paramètres lors de la création du cluster Kubernetes. Si vous utilisez un principal du service existant, assurez-vous qu’il répond aux spécifications de la section précédente. Si vous devez créer un principal du service, consultez la rubrique [Créer un principal du service](#create-a-service-principal-in-azure-active-directory) plus loin dans cet article.
 
-Vous pouvez spécifier ces paramètres lors du [déploiement du cluster Kubernetes](./container-service-deployment.md) à l’aide du portail, de l’interface de ligne de commande (CLI) Azure ou d’Azure PowerShell.
+Vous pouvez spécifier ces paramètres lors du [déploiement du cluster Kubernetes](./container-service-deployment.md) à l’aide du portail, de l’interface de ligne de commande (CLI) Azure 2.0 (Version préliminaire), d’Azure PowerShell ou d’autres méthodes.
 
 >[!TIP] 
 >Lorsque vous spécifiez **l’ID client**, veillez à utiliser l’`appId`, et non l’`ObjectId`, du principal du service.
 >
 
-L’exemple suivant montre une manière de transmettre les paramètres avec [l’interface de ligne de commande Azure](../xplat-cli-install.md) en [mode Resource Manager](../xplat-cli-connect.md). Cet exemple utilise le [modèle de démarrage rapide Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+L’exemple suivant montre une manière de transmettre les paramètres avec l’interface de ligne de commande (CLI) de la version préliminaire d’Azure 2.0 (consultez les [instructions d’installation et de configuration](/cli/azure/install-az-cli2)). Cet exemple utilise le [modèle de démarrage rapide Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Téléchargez](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) le fichier de paramètres du modèle azuredeploy.parameters.json à partir de GitHub.
+1. [Téléchargez](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) le fichier de paramètres de modèle `azuredeploy.parameters.json` à partir de GitHub.
 
 2. Pour spécifier le principal du service, entrez les valeurs pour `servicePrincipalClientId` et `servicePrincipalClientSecret` dans le fichier (vous devez également fournir vos propres valeurs pour `dnsNamePrefix` et `sshRSAPublicKey`. La clé en question est la clé publique SSH pour accéder au cluster). Enregistrez le fichier .
 
     ![Transmettez les paramètres du principal du service](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Exécutez la commande suivante à l’aide du paramètre `-e` pour définir le chemin d’accès au fichier azuredeploy.parameters.json. Cette commande déploie le cluster dans un groupe de ressources existant appelé `myResourceGroup`.
+3. Exécutez la commande suivante à l’aide de `--parameters` pour définir le chemin d’accès au fichier azuredeploy.parameters.json. Cette commande déploie le cluster dans un groupe de ressources que vous créez appelé `myResourceGroup` dans la région États-Unis de l’Ouest.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Option 2 : générez le principal du service lors de la création du cluster avec la version préliminaire d’Azure CLI 2.0
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Option 2 : générez le principal du service lors de la création du cluster avec la CLI d’Azure 2.0 (Version préliminaire)
 
-Si vous avez installé et configuré [l’Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2), vous pouvez exécuter la commande [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) pour [créer le cluster](./container-service-create-acs-cluster-cli.md).
+Si vous avez installé et configuré [la CLI d’Azure 2.0 (Version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2), vous pouvez exécuter la commande [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) pour [créer le cluster](./container-service-create-acs-cluster-cli.md).
 
 Comme avec d’autres options de création de clusters Kubernetes, vous pouvez spécifier des paramètres pour un principal du service existant lorsque vous exécutez `az acs create`. Toutefois, lorsque vous omettez ces paramètres, Azure Container Service crée un principal du service automatiquement. Cette procédure est réalisée en toute transparence au cours du déploiement. 
 
@@ -93,16 +99,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Si vous souhaitez créer un principal du service dans Azure Active Directory à utiliser dans votre cluster Kubernetes, Azure propose plusieurs méthodes. 
 
-L’exemple de commande suivant vous montre comment procéder avec [l’Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2). Vous pouvez également créer un principal du service à l’aide de [l’interface de ligne de commande Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [d’Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) ou du [portail classique](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+L’exemple de commande suivant vous montre comment procéder avec [l’Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2). Vous pouvez également créer un principal du service à l’aide d’[Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), du [portail classique](../azure-resource-manager/resource-group-create-service-principal-portal.md) ou d’autres méthodes.
 
 > [!IMPORTANT]
 > Tenez bien compte de la configuration requise pour le principal du service présentée plus haut dans cet article.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +122,7 @@ L’opération renvoie un résultat semblable à celui-ci (illustré ici de mani
 
 Confirmez votre principal du service en ouvrant un nouveau shell et exécutez les commandes suivantes en remplaçant `appId`, `password` et `tenant` :
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -137,6 +143,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

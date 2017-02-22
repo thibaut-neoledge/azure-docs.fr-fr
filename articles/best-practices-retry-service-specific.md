@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
+ms.sourcegitcommit: e7f09966e2b15735081cf2ac4d244a7ae8b92df8
+ms.openlocfilehash: 397bbc7d556338ff347d59d000fe7442acda560a
 
 
 ---
@@ -1084,7 +1084,7 @@ Le bloc applicatif de gestion des erreurs temporaires comporte les stratégies p
 
 | **Stratégie** | **Paramètre** | **Valeur par défaut** | **Signification** |
 | --- | --- | --- | --- |
-| **Exponentielle** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 seconde<br /><br />30 secondes<br /><br />10 secondes<br /><br />true |Nombre de nouvelles tentatives.<br />Durée de temporisation minimale. La valeur supérieure ou la temporisation calculée sera utilisée comme délai entre deux tentatives.<br />Durée de temporisation minimale. La valeur inférieure ou la temporisation calculée sera utilisée comme le délai entre deux tentatives.<br />La valeur utilisée pour calculer un delta aléatoire pour le délai exponentiel entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
+| **Exponentielle** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 seconde<br /><br />30 secondes<br /><br />10 secondes<br /><br />true |Nombre de nouvelles tentatives.<br />Durée de temporisation maximale. La valeur supérieure ou la temporisation calculée sera utilisée comme délai entre deux tentatives.<br />Durée de temporisation minimale. La valeur inférieure ou la temporisation calculée sera utilisée comme le délai entre deux tentatives.<br />La valeur utilisée pour calculer un delta aléatoire pour le délai exponentiel entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 | **Incrémentielle** |retryCount<br />initialInterval<br />incrément<br /><br />fastFirstRetry<br /> |10<br />1 seconde<br />1 seconde<br /><br />true |Nombre de nouvelles tentatives.<br />L’intervalle initial qui s’applique à la première nouvelle tentative.<br />La valeur temporelle incrémentielle utilisée pour calculer le délai progressif entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 | **Linéaire (intervalle fixe)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 seconde<br />true |Nombre de nouvelles tentatives.<br />Le délai entre les tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 
@@ -1101,6 +1101,6 @@ Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erre
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

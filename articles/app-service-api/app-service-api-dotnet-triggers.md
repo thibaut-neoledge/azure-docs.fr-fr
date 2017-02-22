@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3970e39dab23f65c623e134d9e38df9831b37f8
+ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
+ms.openlocfilehash: cf020b0f5f14d73635cf44e0157b53b35eb00d60
 
 
 ---
 # <a name="azure-app-service-api-app-triggers"></a>Déclencheurs des applications API Azure App Service
 > [!NOTE]
 > Cette version de l’article s’applique à la version du schéma 2014-12-01-preview API Apps.
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Vue d'ensemble
 Cet article explique comment implémenter des déclencheurs d'application API et comment les utiliser à partir d'une application logique.
 
-Tous les extraits de code de cette rubrique sont copiés depuis l’ [exemple de code de l’application API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802). 
+Tous les extraits de code de cette rubrique sont copiés depuis l’ [exemple de code de l’application API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Notez que vous devez télécharger le package NuGet suivant pour que le code de cet article puisse être généré et s'exécuter : [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>Que sont les déclencheurs des applications API ?
-C'est un scénario courant pour une application API que de déclencher un événement, afin que les clients de l'application API puissent effectuer les actions appropriées en réponse à l'événement. Le mécanisme basé sur l'API REST qui prend en charge ce scénario est appelé un déclencheur d'application API. 
+C'est un scénario courant pour une application API que de déclencher un événement, afin que les clients de l'application API puissent effectuer les actions appropriées en réponse à l'événement. Le mécanisme basé sur l'API REST qui prend en charge ce scénario est appelé un déclencheur d'application API.
 
-Par exemple, supposons que votre code client utilise l' [application API du connecteur Twitter](../app-service-logic/app-service-logic-connector-twitter.md) et que votre code doit exécuter une action basée sur les nouveaux tweets contenant des mots spécifiques. Dans ce cas, vous pouvez définir un déclencheur d’émission ou de collecte pour répondre facilement à ce besoin.
+Par exemple, supposons que votre code client utilise l' [application API du connecteur Twitter](../connectors/connectors-create-api-twitter.md) et que votre code doit exécuter une action basée sur les nouveaux tweets contenant des mots spécifiques. Dans ce cas, vous pouvez définir un déclencheur d’émission ou de collecte pour répondre facilement à ce besoin.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Déclencheur d'interrogation et déclencheur d'émission
 Deux types de déclencheurs sont actuellement pris en charge :
 
-* Déclencheur d'interrogation : le client collecte auprès de l'application API les notifications de déclenchement d'un événement. 
-* Déclencheur d'émission : le client est notifié par l'application API quand un événement est déclenché. 
+* Déclencheur d'interrogation : le client collecte auprès de l'application API les notifications de déclenchement d'un événement.
+* Déclencheur d'émission : le client est notifié par l'application API quand un événement est déclenché.
 
 ### <a name="poll-trigger"></a>Déclencheur d'interrogation :
-Un déclencheur d'interrogation est implémenté sous la forme d'une API REST normale et il attend que ses clients (comme une application Logic) l'interrogent pour obtenir une notification. Alors que le client est susceptible de gérer les états, le déclencheur d'interrogation lui-même est sans état. 
+Un déclencheur d'interrogation est implémenté sous la forme d'une API REST normale et il attend que ses clients (comme une application Logic) l'interrogent pour obtenir une notification. Alors que le client est susceptible de gérer les états, le déclencheur d'interrogation lui-même est sans état.
 
 Les informations suivantes concernant les paquets de demande et de réponse montrent certains aspects essentiels du contrat du déclencheur d'interrogation :
 
@@ -302,7 +302,7 @@ Pour les métadonnées statiques, vous pouvez modifier directement le fichier */
 
 Pour les applications API utilisant des métadonnées dynamiques, vous pouvez modifier le fichier SwaggerConfig.cs pour y ajouter un filtre d'opération qui peut ajouter ces extensions.
 
-    GlobalConfiguration.Configuration 
+    GlobalConfiguration.Configuration
         .EnableSwagger(c =>
             {
                 ...
@@ -343,7 +343,6 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

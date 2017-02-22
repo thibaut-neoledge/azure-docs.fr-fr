@@ -13,31 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a35bc89044ebe8ea8e4a0e4a883c30fb8e8d879a
 
 
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
 Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez : 
 
-* télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.  
-* accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data]. 
-* utiliser les données d’une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**. 
+* télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail
+* accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Importer des données][import-data] 
+* utiliser les données d’une autre **expérience** Azure Machine Learning enregistrée en tant que jeu de données
+* utiliser les données depuis une **base de données SQL Server** locale
+
+Chacune de ces options est décrite dans l’une des rubriques du menu ci-dessous. Ces rubriques montrent comment importer des données à partir de différentes sources afin de les utiliser dans Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Chacune de ces options est décrite dans une des rubriques du menu ci-dessus. Cette rubrique vous montre comment importer des données à partir de différentes sources afin de les utiliser dans Machine Learning Studio. 
-
 > [!NOTE]
-> Un certain nombre d'exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser à cet effet. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
+> Un certain nombre d’exemples de jeux de données sont disponibles dans Machine Learning Studio et vous pouvez les utiliser comme données de formation. Pour plus d’informations, consultez [Utilisation des exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md).
 > 
 > 
 
-Cette rubrique d'introduction montre également comment préparer des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge. 
+Cette rubrique d’introduction traite également de la préparation des données afin de les utiliser dans Machine Learning Studio, et décrit les formats et les types de données pris en charge. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
@@ -50,7 +51,7 @@ Il est préférable que vos données soient relativement nettoyées. Autrement d
 
 Toutefois, des modules de Machine Learning Studio permettent d’effectuer certaines manipulations de données dans votre expérience. En fonction des algorithmes d’apprentissage automatique que vous allez utiliser, vous devrez décider comment gérer les problèmes structurels des données tels que des valeurs manquantes et des données fragmentées. Certains modules existent pour vous aider à régler ces problèmes. Rechercher dans la section **Transformation des données** de la palette des modules ceux qui exécutent ces fonctions.
 
-À tout moment dans votre expérience, vous pouvez voir ou télécharger les données qui sont générées par un module en cliquant avec le bouton droit sur le port de sortie. En fonction du module, différentes options de téléchargement sont disponibles. Vous pouvez également afficher les données dans votre navigateur web dans Machine Learning Studio.
+À tout moment dans votre expérience, vous pouvez voir ou télécharger les données qui sont générées par un module en cliquant sur le port de sortie. En fonction du module, différentes options de téléchargement sont disponibles. Vous pouvez également afficher les données dans votre navigateur web dans Machine Learning Studio.
 
 ## <a name="data-formats-and-data-types-supported"></a>Formats et types de données pris en charge
 Vous pouvez importer un certain nombre de types de données dans votre expérience, selon le mécanisme que vous utilisez pour importer les données et l’emplacement d’où elles proviennent :
@@ -97,6 +98,6 @@ Recherchez dans la section **Conversion des formats de données** de la palette 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

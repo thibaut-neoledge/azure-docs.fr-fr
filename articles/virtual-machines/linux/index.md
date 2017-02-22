@@ -1,20 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation sur les machines virtuelles Linux Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment créer une machine virtuelle à l’aide de la distribution Linux de votre choix. Des documents présentent différentes façons de créer des modèles de machine virtuelle."
-title: "Machines virtuelles Azure pour documentation Linux, didacticiels et référence API | Microsoft Docs"
-services: virtual-machines-linux
+services: virtual-machines\linux
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
-ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
+ms.sourcegitcommit: 4736be260d3fa0ed7ec402959fd53604f55aceca
+ms.openlocfilehash: 8f0236c8ed237c473ee900feb68a3f86a6165106
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Documentation Machine virtuelle Linux
@@ -146,6 +146,6 @@ Découvrez comment exécuter des machines virtuelles sur Azure à l’aide de la
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

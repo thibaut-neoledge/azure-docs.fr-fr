@@ -17,8 +17,8 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 03d93ac0416a947d43dca66297588c4c5b656a1d
-ms.openlocfilehash: 18ea4ab3ab6b82fd43ee290ece790d61cabf16a4
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
 
 
 ---
@@ -162,12 +162,12 @@ Pour vous déconnecter, utilisez la commande suivante :
 Si les abonnements associés au compte sont authentifiés uniquement avec Active Directory, la déconnexion supprime les informations d’abonnement du profil local. Toutefois, si un fichier de paramètres de publication a également été importé pour les abonnements, la déconnexion supprime uniquement les informations Active Directory associées du profil local.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez les pages [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management](virtual-machines-command-line-tools.md).
+* Pour utiliser les commandes de l’interface de ligne de commande Azure, consultez les pages [Commandes de l’interface de ligne de commande Azure en mode Resource Manager](virtual-machines/azure-cli-arm-commands.md) et [Commandes de l’interface de ligne de commande Azure en mode Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
 * Si vous rencontrez des problèmes lors de l’utilisation d’Azure ou de l’interface de ligne de commande Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

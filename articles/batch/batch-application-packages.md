@@ -1,5 +1,5 @@
 ---
-title: "Installation et gestion facilitées des applications dans Azure Batch | Microsoft Docs"
+title: "Installer des packages d’applications sur des nœuds de calcul - Azure Batch | Microsoft Docs"
 description: "Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/21/2016
+ms.date: 01/30/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
+ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
+ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
 
 
 ---
@@ -60,7 +60,7 @@ Vous pouvez spécifier les packages d’applications au niveau du pool et des t�
     Les packages d’application de pool sont appropriés lorsque tous les nœuds dans un pool exécutent les tâches d’un travail. Vous pouvez spécifier un ou plusieurs packages d’application lorsque vous créez un pool, et vous pouvez ajouter ou mettre à jour les packages d’un pool existant. Si vous mettez à jour les packages d’application d’un pool existant, vous devez redémarrer ses nœuds pour installer le nouveau package.
 * **Les packages d’application de tâche** sont déployés uniquement sur un nœud de calcul programmé pour exécuter une tâche, juste avant d’exécuter la ligne de commande de la tâche. Si le package d’application spécifié et la version sont déjà sur le nœud, il n’est pas redéployé et le package existant est utilisé.
   
-    Les packages d’application de tâche sont utiles dans les environnements de pool partagé, où différentes travaux sont exécutés sur un même pool et le pool n’est pas supprimé lorsqu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’applications au niveau des tâches peuvent réduire le transfert de données, votre application n’étant déployée que sur les nœuds exécutant les tâches.
+    Les packages d’application de tâche sont utiles dans les environnements de pool partagé, où différents travaux sont exécutés sur un même pool et le pool n’est pas supprimé lorsqu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’applications au niveau des tâches peuvent réduire le transfert de données, votre application n’étant déployée que sur les nœuds exécutant les tâches.
   
     Les autres scénarios pouvant tirer parti des packages d’application de tâche sont les travaux utilisant une application particulièrement importante, mais uniquement pour un petit nombre de tâches. Par exemple, une étape de prétraitement ou une tâche de fusion, où l’application de prétraitement ou de fusion est lourde.
 
@@ -251,7 +251,9 @@ Les packages que vous avez spécifiés pour un pool ou une tâche sont télécha
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-Si vous spécifiez une version par défaut pour une application, vous pouvez omettre le suffixe de version. Par exemple, si vous définissez « 2.7 » comme version par défaut pour l’application *blender*, vos tâches peuvent référencer la variable d’environnement suivante et exécuter la version 2.7 :
+Lorsque vous téléchargez un package d’application, vous pouvez spécifier une version par défaut à déployer sur vos nœuds de calcul. Si vous avez spécifié une version par défaut pour une application, vous pouvez omettre le suffixe de version lorsque vous faites référence à l’application. Vous pouvez spécifier la version d’application par défaut sur le portail Azure, sur le panneau Applications, tel qu’illustré dans la section [Téléchargement et gestion des applications](#upload-and-manage-applications).
+
+Par exemple, si vous définissez « 2.7 » comme version par défaut pour l’application *blender*, vos tâches peuvent référencer la variable d’environnement suivante et exécuter la version 2.7 :
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -349,6 +351,6 @@ Grâce aux packages d’application, vous pouvez aider vos clients à sélection
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

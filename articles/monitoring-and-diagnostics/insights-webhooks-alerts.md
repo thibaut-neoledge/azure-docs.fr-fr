@@ -2,7 +2,7 @@
 title: "Configurer des webhooks sur des alertes de métrique Azure | Microsoft Docs"
 description: "Rediriger des alertes Azure vers d’autres systèmes non-Azure"
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
 
 
 ---
@@ -36,7 +36,7 @@ Vous pouvez également configurer une alerte à publier vers un URI de webhook �
 Le webhook peut s’authentifier à l’aide de l’une des méthodes suivantes :
 
 1. **Autorisation par jeton** : l’URI du webhook est enregistré avec un ID de jeton, par ex. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorisation de base** : l’URI du webhook est enregistré avec un nom d’utilisateur et un mot de passe, par ex. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **Autorisation de base par mot de passe** : l’URI du webhook est enregistré avec un nom d’utilisateur et un mot de passe, par ex. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes basées sur des métriques.
@@ -103,8 +103,8 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 > [!NOTE]
 > Le champ properties est uniquement définissable à l’aide de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les alertes Azure et sur les webhooks par le biais de la vidéo décrivant [l’intégration d’alertes Azure à PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
@@ -115,7 +115,6 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

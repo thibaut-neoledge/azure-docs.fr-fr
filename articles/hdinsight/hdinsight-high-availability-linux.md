@@ -1,5 +1,5 @@
 ---
-title: "Fonctionnalités de haute disponibilité de HDInsight sous Linux (Hadoop) | Microsoft Docs"
+title: "Fonctionnalités de haute disponibilité de HDInsight (Hadoop) | Microsoft Docs"
 description: "Découvrez comment les clusters HDInsight Linux améliorent la fiabilité et la disponibilité en utilisant un nœud principal supplémentaire. Vous allez apprendre dans quelle mesure les services Hadoop tels qu’Ambari et Hive sont concernés, et comment se connecter à chaque nœud principal à l’aide de SSH."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6709e134242f80bfaf74671b3d6d37b6a1eb0c6a
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
+
 Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en distribuant des copies redondantes des services et des données aux différents nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster.
 
-Pour éviter ce problème, les clusters HDInsight Linux sur Azure fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Hadoop en cours d’exécution.
+Pour éviter ce problème, les clusters HDInsight Azure fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Hadoop en cours d’exécution.
 
-> [!NOTE]
-> Les étapes de ce document sont spécifiques aux clusters HDInsight sous Linux. Si vous utilisez un cluster Windows, consultez [Disponibilité et fiabilité des clusters Hadoop Windows dans HDInsight](hdinsight-high-availability.md) pour plus d'informations spécifiques Windows.
-> 
-> 
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="understanding-the-nodes"></a>Vue d’ensemble des nœuds
 Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines virtuelles Azure. En cas de défaillance d’un nœud, ce dernier est mis hors connexion, et un autre nœud est créé pour remplacer le nœud défaillant. Pendant que le nœud se trouve à l’état hors connexion, un autre nœud du même type est utilisé jusqu’à ce que le nouveau nœud soit mis en ligne.
@@ -187,14 +186,10 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 
 > [!NOTE]
 > Il existe également des interfaces graphiques qui vous permettent de visualiser le système de fichiers lorsque vous êtes connecté à l’aide du protocole SFTP. Par exemple, [MobaXTerm](http://mobaxterm.mobatek.net/) vous offre la possibilité de parcourir le système de fichiers au moyen d’une interface semblable à l’Explorateur Windows.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
 > L'accès aux fichiers journaux via Ambari nécessite un tunnel SSH, les sites web pour les services individuels ne sont pas exposés publiquement sur Internet. Pour des informations sur l'utilisation d'un tunnel SSH, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
 
 À partir de l'interface utilisateur Web d'Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN) et utilisez **Liens rapides** pour sélectionner le nœud principal dont vous voulez afficher les journaux.
 
@@ -203,7 +198,7 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 La taille d’un nœud est uniquement sélectionnable lors de la création du cluster. Vous trouverez une liste des différentes tailles de machines virtuelles disponibles pour HDInsight, y compris le noyau, la mémoire et le stockage local pour chacune, sur la [page Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l’aide du [portail Azure][preview-portal], d’[Azure PowerShell][azure-powershell] et de l’[interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l’aide du [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et l’[interface de ligne de commande Azure][azure-cli] :
 
 * **Portail Azure**: lorsque vous créez un cluster, vous avez la possibilité de définir la taille (niveau tarifaire) des nœuds principaux, des nœuds de travail et (s’ils sont utilisés par le type de cluster) des nœuds ZooKeeper pour le cluster :
   
@@ -216,16 +211,16 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 
 * [Référence REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installation et configuration Azure CLI](../xplat-cli-install.md)
-* [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md)
+* [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Gestion de HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

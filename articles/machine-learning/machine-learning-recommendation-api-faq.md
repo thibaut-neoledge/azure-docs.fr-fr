@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
+ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
+ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
 
 
 ---
@@ -107,9 +107,9 @@ Tester Recommendations est relativement simple. La version actuelle de l’API n
 
 **Quelles sont les conditions requises pour configurer Recommendations ?**
 
-Recommendations requiert que vous disposiez d’un journal des choix de l’utilisateur, car il est lié à votre catalogue. Si vous ne possédez pas ce type de journal mais que vous disposez d’un site Web à destination des clients, Recommendations peut collecter l’activité des utilisateurs pour vous. 
+Recommendations requiert que vous disposiez d’un journal des choix de l’utilisateur, car il est lié à votre catalogue. Si vous ne possédez pas ce type de journal mais que vous disposez d’un site web à destination des clients, Recommendations peut collecter l’activité des utilisateurs pour vous. 
 
-Recommendations nécessite également un catalogue de vos produits ou services. Si vous n’avez pas le catalogue, Recommendations peut utiliser les données d’utilisation clients réelles et créer un catalogue. Un catalogue « implicite » n'inclut pas les éléments qui n'ont pas été « signalés » comme faisant partie des transactions utilisateur.
+Recommendations nécessite également un catalogue de vos produits ou services. Si vous n’avez pas le catalogue, Recommendations peut utiliser les données réelles d’utilisation de clients et créer un catalogue. Un catalogue implicite n’inclut pas les éléments qui n’ont pas été signalés comme faisant partie des transactions utilisateur.
 
 **Comment configurer Recommendations pour la première fois ?**
 
@@ -140,6 +140,6 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
 
 
 ---
@@ -28,6 +28,9 @@ Pour atteindre cet objectif, vous pouvez :
 * Encoder votre flux dans un flux vidéo multidébit (débit binaire adaptatif). La qualité et les conditions du réseau sont ainsi prises en charge.
 * Utiliser [l’empaquetage dynamique](media-services-dynamic-packaging-overview.md) de Microsoft Azure Media Services pour empaqueter de nouveau votre flux dans différents protocoles dynamiquement. La diffusion en continu sur différents appareils est ainsi prise en charge. Media Services prend en charge la distribution des technologies de streaming à débit adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming et MPEG-DASH.
 
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+
 Cet article offre une vue d’ensemble sur des concepts importants de la distribution de contenu.
 
 Pour vérifier les problèmes connus, consultez [Problèmes connus](media-services-deliver-content-overview.md#known-issues).
@@ -35,14 +38,11 @@ Pour vérifier les problèmes connus, consultez [Problèmes connus](media-servic
 ## <a name="dynamic-packaging"></a>l’empaquetage dynamique
 Avec l’empaquetage dynamique fourni par Media Services, vous pouvez distribuer votre contenu encodé en MP4 à débit binaire adaptatif ou Smooth Streaming dans un format de diffusion continue pris en charge par Media Services (MPEG-DASH, HLS, Smooth Streaming) sans avoir à recréer de nouveaux packages dans ces formats. Nous vous recommandons de distribuer votre contenu avec l’empaquetage dynamique.
 
-Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
-
-* encoder votre fichier mezzanine (source) en un ensemble de fichiers MP4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif ;
-* obtenir au moins une unité de streaming à la demande pour le point de terminaison de streaming à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-portal-manage-streaming-endpoints.md).
+Pour tirer parti de l’empaquetage dynamique, vous devez encoder votre fichier mezzanine (source) en un ensemble de fichiers MP4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.
 
 Avec l’empaquetage dynamique, vous stockez et payez les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée à vos demandes.
 
-En plus de donner accès aux fonctionnalités d’empaquetage dynamique, les unités réservées de streaming à la demande vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbit/s. Par défaut, le streaming à la demande est configuré dans un modèle d’instance partagée, pour lequel les ressources du serveur (par exemple, calcul ou capacité de sortie) sont partagées avec tous les autres utilisateurs. Vous pouvez améliorer la vitesse de streaming à la demande en achetant des unités réservées de streaming à la demande.
+L’empaquetage dynamique est disponible pour les points de terminaison de streaming Standard et Premium. 
 
 Pour plus d’informations, consultez [Empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
@@ -66,7 +66,7 @@ Les localisateurs ont une date d’expiration. Le portail Azure définit une dat
 > 
 > 
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Pour mettre à jour la date d’expiration d’un localisateur, utilisez les API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
 
 Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Vous pouvez accorder différents droits d’accès aux utilisateurs en utilisant les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez la page [Sécurisation des médias](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
@@ -78,9 +78,9 @@ Les technologies à débit adaptatif permettent aux applications de lecteur vid�
 Pour fournir aux utilisateurs des URL de diffusion en continu, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia qui contient le contenu que vous souhaitez diffuser. Toutefois, pour pouvoir diffuser ce contenu vous devez modifier ce chemin d’accès. Pour construire une URL complète vers le fichier manifeste de diffusion en continu, vous devez concaténer la valeur de chemin d’accès du localisateur et le nom du fichier manifeste (nom_fichier.ism). Ensuite, ajoutez **/Manifest** et un format approprié (si nécessaire) au chemin d’accès du localisateur.
 
 > [!NOTE]
-> Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS.
+> Vous pouvez aussi diffuser votre contenu via une connexion SSL. Pour ce faire, assurez-vous que votre URL de diffusion commence par HTTPS. Notez qu’actuellement AMS ne prend pas en charge SSL avec les domaines personnalisés.  
 > 
-> 
+
 
 Vous ne pouvez transmettre en continu avec le protocole SSL que si le point de terminaison de streaming à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de diffusion sont basées sur des points de terminaison créés après le 10 septembre 2014, l’URL contient « streaming.mediaservices.windows.net ». Les URL de diffusion qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole SSL. Si votre URL suit l’ancien format et que vous souhaitez être en mesure de diffuser via le protocole SSL, créez un point de terminaison. Utilisez des URL basées sur le nouveau point de terminaison de streaming pour diffuser votre contenu avec le protocole SSL.
 
@@ -143,7 +143,11 @@ Les considérations suivantes s'appliquent :
 * Si le téléchargement n’est pas terminé au bout de 12 heures, il échoue.
 
 ## <a name="streaming-endpoints"></a>Points de terminaison de streaming
-Un point de terminaison de streaming représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) en vue de sa redistribution. Le flux sortant d’un service de point de terminaison de streaming peut être un flux dynamique ou une ressource de vidéo à la demande dans votre compte Media Services. Vous pouvez également contrôler la capacité du service de point de terminaison de streaming afin de gérer les besoins croissants en matière de bande passante en ajustant les unités réservées de diffusion en continu. Vous devez allouer au moins une unité réservée pour les applications au sein d’un environnement de production. Pour plus d’informations, consultez [Mise à l’échelle d’un service de média](media-services-portal-manage-streaming-endpoints.md).
+
+Un point de terminaison de streaming représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) en vue de sa redistribution. Le flux sortant d’un service de point de terminaison de streaming peut être un flux dynamique ou une ressource de vidéo à la demande dans votre compte Media Services. Il existe deux types de points de terminaison de streaming : **Standard** et **Premium**. Pour plus d’informations, consultez [Vue d’ensemble des points de terminaison de streaming](media-services-streaming-endpoints-overview.md).
+
+>[!NOTE]
+>Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 ## <a name="known-issues"></a>Problèmes connus
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifications apportées à la version du manifeste Smooth Streaming
@@ -184,6 +188,6 @@ Certains clients Smooth Streaming hérités peuvent ne pas prendre en charge les
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

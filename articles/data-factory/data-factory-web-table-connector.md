@@ -1,6 +1,6 @@
 ---
-title: "Déplacer des données à partir d’une table web | Microsoft Docs"
-description: "Découvrez comment transférer des données à partir d’une table locale dans une page web à l’aide d’Azure Data Factory."
+title: "Déplacer des données depuis Table web à l’aide d’Azure Data Factory | Microsoft Docs"
+description: "Découvrez comment transférer des données à partir d’une table dans une page web à l’aide d’Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 4adfd82a0dea0aa46607b3cc528c922cd46ab7d5
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
 
 
 ---
@@ -299,6 +299,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

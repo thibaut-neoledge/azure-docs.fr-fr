@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/11/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 50ba1caa406ab168acf08506a92c67250397a1e9
 
 
 ---
@@ -47,7 +47,7 @@ Les différences entre l'installation d'un contrôleur de domaine dans Azure ou 
 ## <a name="create-an-azure-virtual-network"></a>Création d'un réseau virtuel Azure
 1. Connectez-vous à la version classique du portail Azure.
 2. Créez un réseau virtuel. Cliquez sur **Réseaux** > **Create a virtual network**. Utilisez les valeurs du tableau suivant pour compléter l'Assistant.
-   
+
    | Sur cette page de l'Assistant... | Spécifiez les valeurs suivantes |
    | --- | --- |
    |  **Détails du réseau virtuel** |<p>Nom : entrez le nom du réseau virtuel</p><p>Région : sélectionnez la région la plus proche</p> |
@@ -60,7 +60,7 @@ Répétez les étapes suivantes pour créer des machines virtuelles pour héberg
 Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. Dans le Portail Azure Classique, cliquez sur **Nouveau** > **Compute** > **Machine virtuelle** > **Depuis la galerie**. Utilisez les valeurs suivantes pour terminer l'Assistant. Acceptez la valeur par défaut d'un paramètre, sauf si une autre valeur est suggérée ou requise.
-   
+
    | Sur cette page de l'Assistant... | Spécifiez les valeurs suivantes |
    | --- | --- |
    |  **Choix d’une image** |Windows Server 2012 R2 Datacenter |
@@ -69,9 +69,9 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
    |  **Configuration de la machine virtuelle** |<p>Sélectionnez <b>Installer l'agent de la machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p> |
 2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Pour ces étapes, consultez [Association d'un disque de données à une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 3. Après votre première connexion à la machine virtuelle, ouvrez **Gestionnaire de serveur** > **Services de fichiers et de stockage** pour créer un volume sur ce disque à l'aide de NTFS.
-4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](../powershell-install-configure.md) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
-   
-    'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 Set-AzureStaticVNetIP -IPAddress 10.0.0.4 Update-AzureVM
+4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azureps-cmdlets-docs) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
+
+    `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
 Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](../virtual-network/virtual-networks-reserved-private-ip.md).
 
@@ -92,7 +92,7 @@ Lorsque l'installation du contrôleur de domaine est terminée, connectez-vous �
 
 ## <a name="create-vms-for-domain-members"></a>Création de machines virtuelles pour les membres du domaine
 1. Répétez les étapes suivantes pour créer des machines virtuelles exécutables en tant que serveurs d’applications. Acceptez la valeur par défaut d'un paramètre, sauf si une autre valeur est suggérée ou requise.
-   
+
    | Sur cette page de l'Assistant... | Spécifiez les valeurs suivantes |
    | --- | --- |
    |  **Choix d’une image** |Windows Server 2012 R2 Datacenter |
@@ -113,7 +113,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 * [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
-* [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+* [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 * [Guide de référence des cmdlets Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 * [Définition de l'adresse IP statique d'une machine virtuelle Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
@@ -126,6 +126,6 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Afin de transmettre des documents à l’index à l’aide du Kit de développem
 2. Créer un `IndexBatch` contenant les documents à ajouter, à modifier ou à supprimer.
 3. Appeler la méthode `Documents.Index` de votre `SearchIndexClient` pour envoyer `IndexBatch` à votre index de recherche.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Créer une instance de la classe SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Créer une instance de la classe SearchIndexClient
 Pour importer des données dans l’index à l’aide du Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchIndexClient` . Vous pouvez construire cette instance vous-même, mais la procédure est plus facile si vous avez déjà une instance `SearchServiceClient` pour appeler sa méthode `Indexes.GetClient`. Par exemple, voici comment vous obtenez un `SearchIndexClient` pour l’index nommé « hotels » d’un `SearchServiceClient` nommé `serviceClient` :
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` a une propriété `Documents`. Cette propriété fournit toutes les méthodes dont vous avez besoin pour ajouter, modifier, supprimer ou interroger des documents dans l’index.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Déterminer l’action d’indexation à utiliser
+## <a name="decide-which-indexing-action-to-use"></a>Déterminer l’action d’indexation à utiliser
 Pour importer des données à l’aide du Kit de développement logiciel (SDK) .NET, vous devez empaqueter vos données dans un objet `IndexBatch` . Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Azure Search les actions à effectuer sur ce document (téléchargement, fusion, suppression, etc.). Selon le type d’action que vous allez choisir, seuls certains champs doivent être inclus dans chaque document :
 
 | Action | Description | Champs requis pour chaque document | Remarques |
@@ -67,7 +67,7 @@ Pour importer des données à l’aide du Kit de développement logiciel (SDK) .
 
 Vous pouvez spécifier quelle action vous souhaitez utiliser avec les différentes méthodes statiques des classes `IndexBatch` et `IndexAction`, comme indiqué dans la section suivante.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Construire votre IndexBatch
+## <a name="construct-your-indexbatch"></a>Construire votre IndexBatch
 Maintenant que vous connaissez les actions à effectuer sur vos documents, vous êtes prêt à construire `IndexBatch`. L’exemple ci-dessous montre comment créer un lot avec différentes actions. Notez que notre exemple utilise une classe personnalisée appelée `Hotel` qui est mappée à un document dans l’index « hotels ».
 
 ```csharp
@@ -130,7 +130,7 @@ Notez également que chaque requête d’indexation ne peut contenir que 1 000�
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Importer les données dans l’index
+## <a name="import-data-to-the-index"></a>Importer les données dans l’index
 Maintenant qu’un objet `IndexBatch` a été initialisé, vous pouvez l’envoyer à l’index en appelant `Documents.Index` sur votre objet `SearchIndexClient`. L’exemple suivant illustre l’appel à `Index`, ainsi que des étapes supplémentaires que vous devez effectuer :
 
 ```csharp
@@ -234,12 +234,12 @@ Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario 
 
 Pour cette raison, nous vous recommandons d'utiliser des types pour lesquels la valeur null est autorisée en tant que meilleure pratique.
 
-## <a name="next"></a>Suivant
+## <a name="next-steps"></a>Étapes suivantes
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md) .
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

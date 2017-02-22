@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af430daa609f1838c640949f535f1d84cbe5f13
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 36cc4206b81312f8f4ff287cd36d9dba56611fde
 
 
 ---
@@ -61,19 +61,25 @@ Pour configurer l’intégration de Trello avec Azure AD, vous devez ajouter Tr
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications][2]
+
 4. Cliquez sur **Ajouter** en bas de la page.
    
     ![Applications][3]
+
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
     ![Applications][4]
+
 6. Dans la zone de recherche, tapez **Trello**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_01.png)
+
 7. Dans le volet des résultats, sélectionnez **Trello**, puis cliquez sur **Terminer** pour ajouter l’application.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_02.png)
@@ -102,6 +108,7 @@ L’application Trello s’attend à ce que les assertions SAML contiennent des 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **Trello**, dans le menu situé en haut, cliquez sur **Attributs**.
    
     ![Configurer l’authentification unique][5]
+
 2. Dans la boîte de dialogue **Attributs du jeton SAML** , pour chaque ligne indiquée dans le tableau ci-dessous, procédez comme suit :
 
     | Nom de l'attribut | Valeur de l’attribut |
@@ -123,12 +130,15 @@ L’application Trello s’attend à ce que les assertions SAML contiennent des 
 1. Dans le menu situé en haut, cliquez sur **Démarrage rapide**.
    
     ![Configurer l’authentification unique][6]
+
 2. Dans le portail Azure Classic, dans la page d’intégration d’applications **Trello**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][7] 
+
 3. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Trello**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-trello-tutorial/tutorial_trello_06.png)
+
 4. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous voulez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-trello-tutorial/tutorial_trello_07.png)
@@ -137,10 +147,10 @@ L’application Trello s’attend à ce que les assertions SAML contiennent des 
 
     b. Cliquez sur **Suivant**.
 
-> [!NOTE]
-> Vous devez obtenir le champ de données dynamiques **\<enterprise\>** de Trello. Si vous n’avez pas la valeur de ce champ, contactez l’équipe de support de Trello à l’adresse <mailto:support@trello.com> pour obtenir le champ de données dynamiques pour votre entreprise.
-> 
-> 
+    > [!NOTE]
+    > Vous devez obtenir le champ de données dynamiques **\<enterprise\>** de Trello. Si vous n’avez pas la valeur de ce champ, contactez l’équipe de support de Trello à l’adresse <mailto:support@trello.com> pour obtenir le champ de données dynamiques pour votre entreprise.
+    > 
+    > 
 
 1. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur de service** dans la page de boîte de dialogue **Configurer les paramètres d’application**, cliquez sur **Affichez les paramètres avancés (facultatif)** et saisissez **l’URL de connexion** :
    
@@ -149,13 +159,16 @@ L’application Trello s’attend à ce que les assertions SAML contiennent des 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://trello.com/auth/saml/consume/<enterprise>`
    
     b. Cliquez sur **Suivant**
+
 2. Dans la page **Configurer l’authentification unique sur Trello**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-trello-tutorial/tutorial_trello_09.png)
+
 3. Pour obtenir l’authentification unique configurée pour votre application, accédez à la page [Configuration de l’authentification unique d’entreprise Trello](https://trello.com/sso-configuration) pour envoyer à l’équipe Trello l’URL de connexion et joignez le certificat téléchargé.
 4. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
+
 5. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
@@ -170,13 +183,17 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_09.png) 
+
 2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+
 3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
+
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
+
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_05.png) 
@@ -186,22 +203,25 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
     c. Cliquez sur **Next**.
+
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+    a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Next**.
+    e. Cliquez sur **Next**.
+
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_07.png) 
+
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_08.png) 
@@ -223,12 +243,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
    
     ![Affecter des utilisateurs][201] 
+
 2. Dans la liste des applications, sélectionnez **Trello**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-trello-tutorial/tutorial_trello_10.png) 
+
 3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Affecter des utilisateurs][203] 
+
 4. Dans la liste Tous les utilisateurs, sélectionnez **Britta Simon**.
 5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
    
@@ -266,6 +289,6 @@ Lorsque vous cliquez sur la mosaïque Trello dans le volet d'accès, vous devez 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,4 +1,4 @@
-Pour vous connecter à une instance Cache Redis Azure, vos clients de cache ont besoin du nom d’hôte, des ports et des clés du cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Pour récupérer ces éléments, [naviguez](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) vers votre cache dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Paramètres** ou **Tous les paramètres**. 
+Pour vous connecter à une instance Cache Redis Azure, vos clients de cache ont besoin du nom d’hôte, des ports et des clés du cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Pour récupérer ces éléments, [accédez](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) à votre cache dans le [portail Azure](https://portal.azure.com), puis cliquez sur l’élément souhaité dans le menu **Ressource**. 
 
 ![Paramètres du cache Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ Pour récupérer les clés d’accès, cliquez sur **Clés d’accès**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

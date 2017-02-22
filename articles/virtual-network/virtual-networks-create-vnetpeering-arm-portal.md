@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ae62a2e657e3b20e258b5afaa1d03b6825e8019
-ms.openlocfilehash: e40af1e363f7add88ead6e552290926abe4db328
+ms.sourcegitcommit: ed7c37ee5482b3ec91489b7aba9b5a9d5df5c97e
+ms.openlocfilehash: 06130f18bad86dbbe009548ac95ac0e6c4953db2
 
 
 ---
@@ -82,8 +82,7 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 4. Dans le panneau Ajouter un accès ajouter, cliquez sur Sélectionner un rôle et choisissez Collaborateur de réseau. Cliquez sur Ajouter des utilisateurs, tapez le nom de connexion de l’utilisateur B, puis cliquez sur OK.
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    Il ne s’agit pas d’une obligation : l’homologation peut être établie si des utilisateurs ont effectué des demandes d’homologation individuelles pour leurs réseaux respectifs, à condition que les demandes correspondent. L’ajout de l’utilisateur privilégié de l’autre réseau virtuel en tant qu’utilisateur du réseau virtuel local facilite la configuration dans le portail.
+
 5. Ensuite, connectez-vous au portail Azure avec le compte de l’utilisateur B, qui est l’utilisateur privilégié de l’abonnement B. Répétez les étapes ci-dessus pour ajouter l’utilisateur A en tant que Collaborateur de réseau.
    
     ![RBAC 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -138,6 +137,6 @@ Chaque lien de l’homologation de réseaux virtuels présente plusieurs des pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

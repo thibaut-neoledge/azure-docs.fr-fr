@@ -1,5 +1,5 @@
 ---
-title: Sauvegardes de SQL Data Warehouse | Microsoft Docs
+title: "Sauvegardes Azure SQL Data Warehouse - instantanés, géoredondant | Microsoft Docs"
 description: "Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique."
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
-ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
 
 
 ---
@@ -116,6 +116,6 @@ La principale utilisation des sauvegardes SQL Data Warehouse est de restaurer l�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

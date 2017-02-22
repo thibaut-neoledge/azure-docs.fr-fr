@@ -1,5 +1,5 @@
 ---
-title: Alertes dans Log Analytics | Microsoft Docs
+title: "Création d’alertes dans OMS Log Analytics | Microsoft Docs"
 description: "Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit comment créer une règle d’alerte et détaille les différentes actions qu’elle peut engager."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/25/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+ms.sourcegitcommit: 9fe104a1ea26afa2817aedaa8ed77d042404cda6
+ms.openlocfilehash: 9a62ed7540de05b1db7610e12f2671d33fc8049d
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
 Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS.  Les règles d’alerte exécutent automatiquement des recherches de journal selon une planification et créent un enregistrement d’alerte si les résultats satisfont à des critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
 
 ![Alertes Log Analytics](media/log-analytics-alerts/overview.png)
+
+>[!NOTE]
+> Pour plus d’informations sur les règles d’alerte relatives aux mesures métriques qui sont actuellement en version préliminaire publique, consultez [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nouveau type de règle d’alerte pour les mesures métriques en version préliminaire publique).
 
 ## <a name="creating-an-alert-rule"></a>Création d’une règle d’alerte
 Pour créer une règle d’alerte, vous commencez par créer une recherche de journal pour les enregistrements qui doivent appeler l’alerte.  Vous pouvez ensuite utiliser le bouton **Alerte** pour créer et configurer la règle d’alerte.
@@ -43,7 +46,7 @@ Pour créer une règle d’alerte, vous commencez par créer une recherche de jo
 | Nom |Nom unique identifiant la règle d’alerte. |
 | Niveau de gravité |Gravité de l’alerte créée par cette règle. |
 | Requête de recherche |Sélectionnez **Utiliser la requête de recherche actuelle** pour utiliser la requête actuelle ou sélectionnez une recherche enregistrée dans la liste.  La syntaxe de la requête est fournie dans la zone de texte, où vous pouvez la modifier si nécessaire. |
-| Fenêtre de temps |Spécifie l’intervalle de temps pour la requête.  La requête retourne uniquement les enregistrements qui ont été créés dans cette plage de l’heure actuelle.  Cela peut être toute valeur comprise entre 5 minutes et 24 heures.  La valeur doit être supérieure ou égale à la fréquence de l’alerte.  <br><br>  Par exemple, si la fenêtre de temps est définie sur 60 minutes et que la requête est exécutée à 1h15, seuls les enregistrements créés entre 12h15 et 1h15 apparaissent. |
+| Fenêtre de temps |Spécifie l’intervalle de temps pour la requête.  La requête retourne uniquement les enregistrements qui ont été créés dans cette plage de l’heure actuelle.  Cela peut être toute valeur comprise entre 5 minutes et 24 heures.  La valeur doit être supérieure ou égale à la fréquence de l’alerte.  <br><br> Par exemple, si la fenêtre de temps est définie sur 60 minutes et que la requête est exécutée à 1h15, seuls les enregistrements créés entre 12h15 et 1h15 apparaissent. |
 | **Planification** | |
 | Seuil |Critère déterminant la création d’une alerte.  Une alerte est créée si le nombre d’enregistrements retournés par la requête satisfait à ce critère. |
 | Fréquence des alertes |Spécifie la fréquence à laquelle la requête doit être exécutée.  Peut être toute valeur comprise entre 5 minutes et 24 heures.  La valeur doit être égale ou inférieure à la fenêtre de temps. |
@@ -60,6 +63,7 @@ Pour créer une règle d’alerte, vous commencez par créer une recherche de jo
 | Sélectionner un runbook |Sélectionnez le runbook à démarrer parmi les runbooks disponibles dans le compte Automation configuré dans votre solution Automation. |
 | Exécuter sur |Sélectionnez **Azure** pour exécuter le runbook dans le cloud Azure.  Sélectionnez **Worker hybride** pour exécuter le runbook sur un [Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md) dans votre environnement local. |
 
+
 ## <a name="manage-alert-rules"></a>Gérer les règles d’alerte
 Vous pouvez obtenir la liste de toutes les règles d’alerte dans le menu **Alertes** des **Paramètres** Log Analytics.  
 
@@ -74,7 +78,11 @@ Vous pouvez effectuer plusieurs actions à partir de cette vue.
 * Modifiez une règle d’alerte en cliquant sur l’icône en forme de crayon en regard de celle-ci.
 * Supprimez une règle d’alerte en cliquant sur l’icône **X** en regard de celle-ci. 
 
-## <a name="setting-time-windows"></a>Définition des fenêtres de temps
+## <a name="setting-time-windows-and-thresholds"></a>Définition des seuils et fenêtres de temps
+
+>[!NOTE]
+> Pour plus d’informations sur les règles d’alerte relatives aux mesures métriques qui sont actuellement en version préliminaire publique, consultez [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/) (Nouveau type de règle d’alerte pour les mesures métriques en version préliminaire publique).
+ 
 ### <a name="event-alerts"></a>Alertes d’événement
 Les événements incluent les sources de données telles que les journaux des événements Windows, Syslog et les journaux personnalisés.  Vous pouvez créer une alerte quand un événement d’erreur particulier est créé, ou quand plusieurs événements d’erreur sont créés dans une fenêtre de temps spécifique.
 
@@ -82,14 +90,18 @@ Pour associer une alerte à un seul événement, définissez le nombre de résul
 
 Certaines applications peuvent consigner une erreur occasionnelle qui ne doit pas nécessairement déclencher une alerte.  Par exemple, l’application peut recommencer le processus à l’origine de l’événement d’erreur et voir sa nouvelle tentative couronnée de succès.  Dans ce cas, la création de l’alerte ne se justifie que si plusieurs événements sont créés dans une fenêtre de temps spécifique.  
 
-Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.  Par exemple, un processus peut enregistrer des événements réguliers pour indiquer qu’il fonctionne correctement.  S’il ne consigne pas un de ces événements dans une fenêtre de temps spécifique, une alerte doit être créée.  Dans ce cas, vous devez définir le seuil sur *Inférieur à 1*.
+Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.  Par exemple, un processus peut enregistrer des événements réguliers pour indiquer qu’il fonctionne correctement.  S’il ne consigne pas un de ces événements dans une fenêtre de temps spécifique, une alerte doit être créée.  Dans ce cas, vous devez définir le seuil sur **Inférieur à 1**.
 
 ### <a name="performance-alerts"></a>Alertes de performances
-[données de performances](log-analytics-data-sources-performance-counters.md) sont stockées sous la forme d’enregistrements dans le référentiel OMS.  La valeur de chaque enregistrement est la moyenne mesurée au cours des 30 minutes précédentes.  Si vous souhaitez être averti quand un compteur de performances dépasse un seuil spécifique, ce seuil doit être inclus dans la requête.
+[données de performances](log-analytics-data-sources-performance-counters.md) sont stockées sous la forme d’enregistrements dans le référentiel OMS.  Si vous souhaitez être averti quand un compteur de performances dépasse un seuil spécifique, ce seuil doit être inclus dans la requête.
 
-Par exemple, pour être averti quand le processeur s’exécute à plus de 90 % de ses capacités pendant 30 minutes, utilisez une requête comme *Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90* et définissez le seuil de la règle d’alerte sur *Supérieur à 0*.  
+Par exemple, pour être averti quand le processeur s’exécute à plus de 90 % de ses capacités, utilisez une requête comme la suivante et définissez le seuil de la règle d’alerte sur **Supérieur à 0**.
 
- Étant donné que les [enregistrements de performances](log-analytics-data-sources-performance-counters.md) sont agrégés toutes les 30 minutes, quelle que soit la fréquence à laquelle vous collectez chaque compteur, une fenêtre de temps inférieure à 30 minutes peut ne retourner aucun enregistrement.  En définissant la fenêtre de temps sur 30 minutes, vous avez la certitude d’obtenir un enregistrement unique pour chaque source connectée qui représente la moyenne sur cette période.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+
+Pour être averti lorsque la moyenne d’exécution du processeur dépasse 90 % de ses capacités pendant dans une fenêtre de temps spécifique, utilisez une requête comme la suivante avec la [commande measure](log-analytics-search-reference.md#commands) et définissez le seuil de la règle d’alerte sur **Supérieur à 0**. 
+
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 ## <a name="alert-actions"></a>Actions d’alerte
 Outre créer un enregistrement d’alerte, vous pouvez configurer la règle d’alerte pour qu’elle exécute automatiquement une ou plusieurs actions.  Les actions peuvent de façon proactive vous avertir de l’alerte ou appeler un processus qui essaie de corriger le problème détecté.  Les sections suivantes décrivent les actions actuellement disponibles.
@@ -212,6 +224,6 @@ Il existe d’autres genres d’enregistrements d’alerte créés par la [solut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

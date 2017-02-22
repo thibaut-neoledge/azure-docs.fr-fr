@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 32f69c4bcfdeb5dbbbc41deb6d98b2e97e9a095f
-ms.openlocfilehash: 00eae18ab35a2e060782db0b8ec555c2855e82aa
+ms.sourcegitcommit: d95d42592e1102d635e5eaad473196c4fa461136
+ms.openlocfilehash: e633562e35276b2d0c6dd19ada5a17bae7b1b0b6
 
 
 ---
@@ -26,9 +26,9 @@ Cet article explique comment utiliser l’activité de copie d’une fabrique de
 > [!NOTE]
 > Créez un compte Azure Data Lake Store avant de créer un pipeline avec l’activité de copie pour déplacer des données vers/depuis Azure Data Lake Store. Pour plus d’informations sur Azure Data Lake Store, consultez [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 >
-> Consultez le [didacticiel Concevez votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de création d'une fabrique de données, de services liés, de jeux de données et d'un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor ou Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
->
->
+
+## <a name="supported-authentication-types"></a>Types d’authentification pris en charge
+Le connecteur Azure Data Lake Store prend en charge l’authentification d’un **principal du service** et des **informations d’identification utilisateur**. Il est recommandé d’utiliser le premier, notamment pour la copie de données planifiée afin d’éviter le comportement d’expiration du jeton lié au dernier type. Consultez la section [Propriétés de service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) qui comporte les détails de configuration.
 
 ## <a name="copy-data-wizard"></a>Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données vers/depuis Azure Data Lake Store consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -69,28 +69,18 @@ L’exemple copie des données de série horaire depuis un stockage d’objets b
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
         }
     }
 }
 ```
 
-### <a name="to-create-azure-data-lake-linked-service-using-data-factory-editor"></a>Pour créer un service lié Azure Data Lake lié à l’aide de Data Factory Editor
-La procédure qui suit décrit les étapes nécessaires à la création d’un service lié Azure Data Lake Store à l’aide de Data Factory Editor.
-
-1. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et sélectionnez **Azure Data Lake Store**.
-2. Dans l’éditeur JSON, pour la propriété **dataLakeStoreUri** , saisissez l’URI correspondant au lac de données.
-3. Cliquez sur le bouton **Autoriser** de la barre de commandes. Une fenêtre contextuelle doit apparaître.
-
-    ![Bouton Autoriser](./media/data-factory-azure-data-lake-connector/authorize-button.png)
-4. Utilisez vos informations d’identification pour vous connecter et la propriété **autorisation** de JSON doit se voir affecter une valeur maintenant.
-5. (facultatif) Spécifiez les valeurs des paramètres facultatifs tels que **accountName**, **subscriptionID** et **resourceGroupName** dans JSON (ou) supprimer ces propriétés à partir de JSON.
-6. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
-
-> [!IMPORTANT]
-> Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. **Accordez une nouvelle autorisation** à l’aide du bouton **Autoriser** à **l’expiration du jeton**, puis redéployer le service lié. Pour plus d’informations, consultez la section [Service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) .
->
+> [!NOTE]
+> Consultez la section [Propriétés de service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) qui comporte les détails de configuration.
 >
 
 **Jeu de données d'entrée d'objet Blob Azure :**
@@ -208,9 +198,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
                 ],
                 "typeProperties": {
                     "source": {
-                        "type": "BlobSource",
-                        "treatEmptyAsNull": true,
-                        "blobColumnSeparators": ","
+                        "type": "BlobSource"
                       },
                       "sink": {
                         "type": "AzureDataLakeStoreSink"
@@ -252,16 +240,16 @@ L’exemple copie des données appartenant à une série horaire depuis un magas
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
         }
     }
 }
 ```
 
 > [!NOTE]
-> Consultez les étapes de l’exemple précédent pour obtenir l’URL d’autorisation.  
->
+> Consultez la section [Propriétés de service lié Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) qui comporte les détails de configuration.
 >
 
 **Service lié Azure Storage :**
@@ -371,6 +359,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
   }
 }
 ```
+
 **Pipeline avec l'activité de copie :**
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition JSON du pipeline, le type **source** est défini sur **AzureDataLakeStoreSource** et le type **sink** est défini sur **BlobSink**.
@@ -422,19 +411,72 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 ```
 
 ## <a name="azure-data-lake-store-linked-service-properties"></a>Propriétés de service lié Azure Data Lake Store
-Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide d'un service lié Azure Storage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
+Le tableau suivant fournit la description des éléments JSON spécifiques au service lié à Azure Data Lake Store. Vous pouvez choisir l’authentification d’un **principal du service** et des **informations d’identification utilisateur**.
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type |La propriété type doit être définie sur : **AzureDataLakeStore** |Oui |
-| dataLakeStoreUri |Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 |Oui |
-| autorisation |Cliquez sur le bouton **Autoriser** dans **Data Factory Editor** et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. |Oui |
-| sessionId |ID de session OAuth issu de la session d’autorisation oauth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. |Oui |
-| accountName |Nom du compte de lac de données |Non |
-| subscriptionId |ID d’abonnement Azure. |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
-| resourceGroupName |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
+| type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
+| dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : **https://[accountname].azuredatalakestore.net/webhdfs/v1** ou **adl://[accountname].azuredatalakestore.net/**. | Oui |
+| subscriptionId | ID d’abonnement Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
+| resourceGroupName | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 
-## <a name="token-expiration"></a>Expiration du jeton
+### <a name="using-service-principal-authentication-recommended"></a>Authentification d’un principal du service (recommandée)
+Pour utiliser l’authentification d’un principal du service, vous devez commencer par inscrire une entité d’application dans Azure Active Directory (AAD) et lui accorder l’accès dans Data Lake Store. Ensuite, vous pouvez spécifier les propriétés ci-dessous dans Azure Data Factory avec l’ID d’application, la clé d’application et les informations de locataire correspondantes pour copier des données depuis/vers Data Lake Store. Reportez-vous à [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) portant sur la configuration et la récupération des informations requises.
+
+>[!NOTE]
+>Si vous venez de créer un principal du service à partir d’AAD, l’opération peut prendre quelques minutes. Si une erreur s’affiche dans l’assistant de copie ou dans les détails de l’exécution de la copie indiquant « The credentials provided are invalid » (Les informations d’identification fournies ne sont pas valides), attendez quelques instants et réessayez.
+>
+
+| Propriété | Description | Requis |
+|:--- |:--- |:--- |
+| servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. | Oui |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
+
+**Exemple : utilisation de l’authentification d’un principal du service**
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        }
+    }
+}
+```
+
+### <a name="using-user-credential-authentication"></a>Utilisation de l’authentification des informations d’identification utilisateur
+Vous pouvez également utiliser l’authentification des informations d’identification utilisateur pour la copie depuis/vers Data Lake Store en spécifiant les propriétés ci-dessous.
+
+| Propriété | Description | Requis |
+|:--- |:--- |:--- |
+| autorisation | Cliquez sur le bouton **Autoriser** dans **Data Factory Editor** et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
+| sessionId | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |
+
+**Exemple : utilisation de l’authentification des informations d’identification utilisateur**
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+            "sessionId": "<session ID>",
+            "authorization": "<authorization URL>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        }
+    }
+}
+```
+
+#### <a name="token-expiration"></a>Expiration du jeton
 Le code d’autorisation que vous générez à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à **l’expiration du jeton** d’authentification : « Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
 | Type d’utilisateur | Expire après |
@@ -446,7 +488,7 @@ Si vous modifiez votre mot de passe avant cette date d’expiration du jeton, le
 
 Pour éviter ou résoudre cette erreur, accordez une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de **l’expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante :
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme
+#### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -485,7 +527,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | fileName |Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la propriété partitionedBy](#using-partitionedby-property) pour obtenir plus d’informations et des exemples. |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
 
 ### <a name="using-partitionedby-property"></a>Utilisation de la propriété partitionedBy
 Vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy** , les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -552,6 +594,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

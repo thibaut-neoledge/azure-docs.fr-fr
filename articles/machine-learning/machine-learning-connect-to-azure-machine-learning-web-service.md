@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56bee9c0a2da3e522290c2274b6d0301defe3f71
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 
 
 ---
@@ -44,7 +44,7 @@ Pour plus d’informations sur les services web Machine Learning, consultez [Dé
 ## <a name="get-an-azure-machine-learning-authorization-key"></a>Obtenir une clé d’autorisation Microsoft Azure Machine Learning
 Quand vous déployez votre expérimentation, les clés API sont générées pour le service web. Vous pouvez récupérer les clés de plusieurs emplacements.
 
-## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>À partir du portail des services web Microsoft Azure Machine Learning
+### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>À partir du portail des services web Microsoft Azure Machine Learning
 Connectez-vous au [portail des services web Microsoft Azure Machine Learning](https://services.azureml.net).
 
 Pour récupérer la clé API pour un nouveau service web Machine Learning :
@@ -62,14 +62,14 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 4. Cliquez sur **Consommer**dans le menu du haut.
 5. Copiez et enregistrez la **clé primaire**.
 
-## <a name="classic-web-service"></a>Service web classique
- Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio ou du portail Azure.
+### <a name="classic-web-service"></a>Service web classique
+ Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio ou du portail Azure Classic.
 
-### <a name="machine-learning-studio"></a>Machine Learning Studio
+#### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. Dans Machine Learning Studio, cliquez sur l’option **SERVICES WEB** figurant sur la gauche.
 2. Cliquez sur un service web. La **clé API** figure sur l’onglet **TABLEAU DE BORD**.
 
-### <a name="azure-portal"></a>Portail Azure
+#### <a name="azure-classic-portal"></a>Portail Azure Classic
 1. Cliquez sur l’option **MACHINE LEARNING** figurant sur la gauche.
 2. Cliquez sur l’espace de travail dans lequel se trouve votre service web.
 3. Cliquez sur **SERVICES WEB**.
@@ -127,6 +127,6 @@ Pour vous connecter à un service web Machine Learning, utilisez la bibliothèqu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

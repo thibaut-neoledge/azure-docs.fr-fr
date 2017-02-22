@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’outils de BI avec Apache Spark sur HDInsight | Microsoft Docs"
+title: "Utiliser les outils de BI avec Apache Spark sur Azure HDInsight | Microsoft Docs"
 description: "Des instructions pas à pas expliquent comment utiliser des blocs-notes avec Apache Spark pour créer des schémas basés sur les données brutes, comment les enregistrer dans des tables Hive, et comment utiliser des outils décisionnels dans la table Hive pour analyser les données."
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1eaa7e4ec8681c0494c16ce5ebe27c6b00c40641
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
 
 ---
-# <a name="use-bi-tools-with-apache-spark-cluster-on-hdinsight-linux"></a>Utilisation d’outils de BI avec un cluster Apache Spark sur HDInsight Linux
+# <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser les outils de BI avec un cluster Apache Spark sur Azure HDInsight
+
 Découvrez comment utiliser Apache Spark dans Azure HDInsight pour effectuer l’opération suivante :
 
 * Prendre un exemple de données brutes et l’enregistrer dans une table Hive
 * Utilisez des outils décisionnels tels que Power BI et Tableau pour analyser et visualiser les données.
-
-> [!NOTE]
-> Ce didacticiel s'applique uniquement aux clusters Spark 1.5.2 créés dans Azure HDInsight.
->
->
 
 Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour effectuer le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Use BI tools with Apache Spark on HDInsight.ipynb** sous le dossier **Python**.
 
@@ -39,7 +35,7 @@ Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un c
 Vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Créer des clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Un ordinateur équipé du pilote ODBC de Microsoft Spark (permet à Spark sur HDInsight de fonctionner avec Tableau). Pour installer le pilote, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=616229).
 * Des outils décisionnels tels que [Power BI](http://www.powerbi.com/) ou [Tableau Desktop](http://www.tableau.com/products/desktop). Vous pouvez obtenir un abonnement gratuit à la version préliminaire de Power BI à l’adresse [http://www.powerbi.com/](http://www.powerbi.com/).
 
@@ -59,10 +55,10 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
    >
 3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
 4. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
 
-    ![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Donnez un nom au bloc-notes](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Donnez un nom au bloc-notes")
 5. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
 
         from pyspark.sql import *
@@ -86,7 +82,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Vérifiez que la table a bien été créée. Vous pouvez utiliser `%%sql` pour exécuter directement des interrogations Hive. Pour plus d’informations sur la méthode magique `%%sql` , ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Vérifiez que la table a bien été créée. Vous pouvez utiliser `%%sql` pour exécuter directement des interrogations Hive. Pour plus d’informations sur la méthode magique `%%sql` , ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES
@@ -115,19 +111,19 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 1. Connectez-vous à [Power BI](http://www.powerbi.com/).
 2. Dans l’écran d’accueil, cliquez sur **Bases de données et autres**.
 
-    ![Injecter des données dans Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Get data into Power BI")
+    ![Obtenir des données dans Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Obtenir des données dans Power BI")
 3. Dans l’écran suivant, cliquez sur **Spark sur HDInsight**, puis sur **Se connecter**. Lorsque vous y êtes invité, entrez l’URL du cluster (`mysparkcluster.azurehdinsight.net`) et les informations d’identification pour la connexion au cluster.
 
     Une fois la connexion établie, Power BI commence à importer les données du cluster Spark sur HDInsight.
 4. Power BI importe les données et ajoute un nouveau jeu de données Spark sous l’en-tête **Jeux de données** . Cliquez sur le jeu de données pour ouvrir une nouvelle feuille de calcul afin de visualiser les données. Vous pouvez également enregistrer la feuille de calcul en tant que rapport. Pour enregistrer une feuille de calcul, dans le menu **Fichier**, cliquez sur **Enregistrer**.
 
-    ![Vignette Spark dans le tableau de bord Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Spark tile on Power BI dashboard")
+    ![Vignette Spark sur le tableau de bord Power BI](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Vignette Spark sur le tableau de bord Power BI")
 5. Notez que la liste **Champs** sur la droite répertorie la table **hvac** créée précédemment. Développez la table pour en afficher les champs, comme vous les avez définis précédemment dans le bloc-notes.
 
-      ![Répertorier les tables Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "List Hive tables")
+      ![Répertorier les tables Hive](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Répertorier les tables Hive")
 6. Générez une visualisation pour afficher l’écart entre la température cible et la température réelle de chaque bâtiment. Sélectionnez **Graphique en aires** (affiché en rouge) pour visualiser vos données. Pour définir l’axe, effectuez un glisser-déplacer du champ **BuildingID** situé sous **Axe** et des champs **ActualTemp**/**TargetTemp** situés sous **Valeur**.
 
-    ![Créer des visualisations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Create visualizations")
+    ![Créer des visualisations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "Créer des visualisations")
 7. Par défaut, la visualisation affiche la somme des valeurs des champs **ActualTemp** et **TargetTemp**. Pour les deux champs, sélectionnez **Moyenne** dans la liste déroulante afin d’obtenir la moyenne des températures réelles et cibles des deux bâtiments.
 
     ![Créer des visualisations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
@@ -139,34 +135,40 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
    Vous pouvez ajouter autant de visualisations que vous le souhaitez pour un même jeu de données et les épingler au tableau de bord pour obtenir un instantané de vos données. En outre, les clusters Spark sur HDInsight sont connectés directement à Power BI. En d’autres termes, Power BI dispose toujours des données les plus récentes de votre cluster. Vous n’avez donc pas besoin de planifier des actualisations du jeu de données.
 
 ## <a name="a-nametableauause-tableau-desktop-to-analyze-data-in-the-hive-table"></a><a name="tableau"></a>Utiliser Tableau Desktop pour analyser les données de la table Hive
+
+> [!NOTE]
+> Cette section s’applique uniquement aux clusters Spark 1.5.2 créés dans Azure HDInsight.
+>
+>
+
 1. Lancez Tableau Desktop. Dans le volet gauche, dans la liste de serveurs auxquels se connecter, cliquez sur **Spark SQL**. Si Spark SQL n’est pas répertorié par défaut dans le volet gauche, cliquez sur **Autres serveurs**pour l’afficher.
 2. Dans la boîte de dialogue de connexion à Spark SQL, entrez les valeurs indiquées ci-dessous, puis cliquez sur **OK**.
 
-    ![Se connecter à un cluster Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Connect to a Spark cluster")
+    ![Se connecter à un cluster Spark](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Se connecter à un cluster Spark")
 
     La liste déroulante d’authentification contient l’option **Windows Microsoft Azure HDInsight Service** uniquement si vous avez installé le [Pilote ODBC de Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) sur l’ordinateur.
 3. Dans l’écran suivant, dans la liste déroulante **Schéma**, cliquez sur l’icône **Rechercher**, puis sur **default**.
 
-    ![Rechercher un schéma](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Find schema")
+    ![Rechercher un schéma](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "Rechercher un schéma")
 4. Pour le champ **Table**, cliquez de nouveau sur l’icône **Rechercher** pour dresser la liste de toutes les tables Hive disponibles dans le cluster. La table **hvac** créée précédemment à l’aide du bloc-notes doit être indiquée.
 
-    ![Rechercher des tables](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Find tables")
+    ![Rechercher des tables](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "Rechercher des tables")
 5. Effectuez un glisser-déplacer de la table vers la zone supérieure située à droite. Tableau importe les données et affiche le schéma mis en exergue par l’encadré rouge.
 
-    ![Ajouter des tables à Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Add tables to Tableau")
+    ![Ajouter des tables à Tableau](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Ajouter des tables à Tableau")
 6. Cliquez sur l’onglet **Sheet1** en bas à gauche. Réalisez une visualisation qui affiche la moyenne des températures cibles et réelles de tous les bâtiments à chaque date. Faites glisser **Date** et **Building ID** vers **Columns** et **Actual Temp**/**Target Temp** vers **Rows**. Sous **Marks**, sélectionnez **Area** pour utiliser une visualisation par carte des zones.
 
-     ![Ajouter des champs pour la visualisation](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Add fields for visualization")
+     ![Ajouter des champs pour la visualisation](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "Ajouter des champs pour la visualisation")
 7. Par défaut, les champs de température sont affichés en tant qu’agrégat. Si vous préférez afficher les températures moyennes, vous pouvez le faire à partir de la liste déroulante, comme indiqué ci-dessous.
 
-    ![Prendre la moyenne des températures](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Take average of temperature")
+    ![Prendre la moyenne des températures](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "Prendre la moyenne des températures")
 8. Vous pouvez également superposer les cartes des températures pour mieux comprendre la différence entre les températures cibles et réelles. Déplacez la souris vers le coin de la carte inférieure jusqu’à ce qu’une poignée s’affiche dans un cercle rouge. Faites glisser la carte vers l’autre carte située au-dessus, puis relâchez la souris lorsque la poignée s’affiche dans un rectangle rouge.
 
-    ![Fusionner des cartes](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Merge maps")
+    ![Fusionner des cartes](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "Fusionner des cartes")
 
      La visualisation des données doit changer comme suit :
 
-    ![Visualisation](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Visualization")
+    ![Visualisation](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "Visualisation")
 9. Cliquez sur **Save** pour enregistrer la feuille de calcul. Vous pouvez créer des tableaux de bord et leur ajouter une ou plusieurs feuilles.
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
@@ -207,6 +209,6 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

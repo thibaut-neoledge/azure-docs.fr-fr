@@ -4,18 +4,19 @@ description: "comment utiliser des requêtes entre plusieurs bases de données"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: SilviaDoomra
+author: ddove
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: SilviaDoomra
+ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 3e92315dc7bea2953cb62b6e7a7e593c15e1600c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 
 
 ---
@@ -138,6 +139,6 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

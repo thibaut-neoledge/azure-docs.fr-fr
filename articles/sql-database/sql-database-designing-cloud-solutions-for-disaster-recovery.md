@@ -1,6 +1,6 @@
 ---
-title: "Solutions de récupération d’urgence cloud - Géo-réplication active des bases de données SQL | Microsoft Docs"
-description: "Apprenez à concevoir des solutions de récupération d’urgence cloud pour la planification de la continuité des activités à l’aide de la géo-réplication pour la sauvegarde de données d’application avec Azure SQL Database."
+title: "Conception d’application de récupération d’urgence - Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment concevoir une application pour la récupération d’urgence à l’aide de la géoréplication dans Azure SQL Database."
 keywords: "récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Concevoir une application pour la récupération d’urgence cloud à l’aide de la géo-réplication active dans une base de données SQL
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Conception d’application pour la récupération d’urgence cloud à l’aide de la géoréplication active dans SQL Database
 > [!NOTE]
 > La [géo-réplication active](sql-database-geo-replication-overview.md) est désormais disponible pour toutes les bases de données de tous les niveaux.
 >
@@ -187,6 +187,6 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

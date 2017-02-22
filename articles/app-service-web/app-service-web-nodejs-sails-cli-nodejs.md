@@ -261,6 +261,6 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

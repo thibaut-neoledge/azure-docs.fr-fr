@@ -1,13 +1,25 @@
 ---
+title: "Documentation Azure Insights Gateway - Didacticiels, informations de référence sur les API | Microsoft Docs"
+description: "Découvrez comment utiliser Application Insights, un service de gestion extensible des performances des applications pour détecter, trier et diagnostiquer les problèmes des applications et des services web."
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Documentation Application Insights
 
-Application Insights est un service de gestion des performances des applications (APM) extensible destiné aux développeurs web. Utilisez-le pour analyser votre application web en direct. Ce service détecte automatiquement les problèmes de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plates-formes, notamment .NET, Node.js et J2EE, hébergées sur site ou dans le cloud. En outre, ce service s’intègre à votre processus devOps et offre des points de connexion vers un large éventail d’autres outils.
+Découvrez comment utiliser Application Insights, un service de gestion extensible des performances des applications destiné aux développeurs web. Des didacticiels, des références d’API et d’autres documents vous montrent comment détecter, trier et diagnostiquer les problèmes des applications et services web.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -151,16 +163,10 @@ Application Insights est un service de gestion des performances des application
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Application Insights </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Stockage sur disque 
+### [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Attacher un disque géré à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Ajouter un disque géré à une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Procédure
 ## [Créer un compte de stockage](storage-create-storage-account.md)
 ## Utiliser des objets blob
@@ -62,13 +70,21 @@
 ### [Vue d’ensemble](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Dépanner Sauvegarde Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Utiliser des disques de machines virtuelles
+## Utiliser des disques
+### [Disques et disques durs virtuels pour les machines virtuelles Windows](storage-about-disks-and-vhds-windows.md)
+### [Disques et disques durs virtuels pour les machines virtuelles Linux](storage-about-disks-and-vhds-linux.md)
+### [Vue d’ensemble d’Azure Managed Disks](storage-managed-disks-overview.md)
+### [Migrer des machines virtuelles Azure vers Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrer d’AWS et d’autres plates-formes vers Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Forum aux Questions sur les disques de machine virtuelle Azure IaaS](storage-faq-for-disks.md)
 ### Stockage Premium
-#### [Stockage hautes performances pour les charges de travail de machine virtuelle](storage-premium-storage.md)
-#### [Migrer vers le stockage Premium](storage-migration-to-premium-storage.md)
+#### [Stockage Premium hautes performances pour les disques de machine virtuelle](storage-premium-storage.md)
 #### [Conception pour de hautes performances](storage-premium-storage-performance.md)
 ### Stockage standard
-#### [Sauvegarder les disques avec des instantanés incrémentiels](storage-incremental-snapshots.md)
+#### [Stockage standard économique et disques de machine virtuelle gérés et non gérés](storage-standard-storage.md)
+### Utilisation de disques non gérés
+#### [Migrer vers le stockage Premium](storage-migration-to-premium-storage.md)
+#### [Sauvegarder les disques de machine virtuelle non gérés avec des instantanés incrémentiels](storage-incremental-snapshots.md)
 ## Planifier et concevoir
 ### [Réplication](storage-redundancy.md)
 ### [Cibles de performance et d’évolutivité](storage-scalability-targets.md)
@@ -155,12 +171,12 @@
 ### [Gestionnaire de ressources](/dotnet/api/microsoft.azure.management.storage)
 ### [Déplacement des données](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Objets blob, files d’attente, tables et fichiers](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
 ### [Objets blob, files d’attente, tables et fichiers](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

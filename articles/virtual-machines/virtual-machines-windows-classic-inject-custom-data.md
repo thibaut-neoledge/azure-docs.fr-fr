@@ -1,5 +1,5 @@
 ---
-title: "Injection de données personnalisées dans des machines virtuelles | Microsoft Docs"
+title: "Injecter des données dans des machines virtuelles Windows sur Azure | Microsoft Docs"
 description: "Cette rubrique explique comment injecter des données personnalisées dans une machine virtuelle Azure lors de la création de l’instance, et comment localiser les données personnalisées dans Windows ou Linux."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,21 +16,20 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 35c52c7679559cc59e54667e8c15eacfa42cd7ca
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 1732d6126edad7125a3f67c6d6af068422aa9d1f
 
 
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>Injection de données personnalisées dans une machine virtuelle Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le modèle Resource Manager, suivez [ce lien](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur l’utilisation de l’extension de script personnalisé avec le modèle Resource Manager, suivez [ce lien](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

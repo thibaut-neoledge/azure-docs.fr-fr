@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49a8d812924a421d131497b9f275525202f94a43
@@ -239,6 +239,6 @@ Lorsque vous cliquez sur la mosaïque Beeline dans le volet d’accès, vous dev
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

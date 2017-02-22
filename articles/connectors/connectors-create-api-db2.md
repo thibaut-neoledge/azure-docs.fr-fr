@@ -414,6 +414,6 @@ Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ain
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

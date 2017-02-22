@@ -1,5 +1,5 @@
 ---
-title: "Solutions de récupération d’urgence cloud - Géo-réplication active des bases de données SQL | Microsoft Docs"
+title: "Déploiement des mises à niveau d’applications - Azure SQL Database | Microsoft Docs"
 description: "Découvrez comment utiliser la géo-réplication de la base de données SQL pour prendre en charge les mises à niveau en ligne de votre application cloud."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
+ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
+ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 > 
 > 
 
-Découvrez comment utiliser la [géoréplication](sql-database-geo-replication-overview.md) dans la base de données SQL pour activer les mises à niveau propagées de votre application cloud. Une mise à niveau est une opération qui entraîne une interruption de service ; il est donc recommandé de l’intégrer à votre conception et à votre planification de la continuité des activités. Dans cet article, nous allons examiner deux méthodes différentes permettant d’orchestrer le processus de mise à niveau propagée, avant de présenter les avantages et inconvénients de chaque option. Dans le cadre de cet article, nous allons utiliser une application simple sous la forme d’un site web utilisant une base de données autonome comme couche de données. Notre objectif est de mettre à niveau la version 1 de l’application vers la version 2 sans affecter lourdement l’expérience utilisateur. 
+Découvrez comment utiliser la [géoréplication](sql-database-geo-replication-overview.md) dans la base de données SQL pour activer les mises à niveau propagées de votre application cloud. Une mise à niveau est une opération qui entraîne une interruption de service ; il est donc recommandé de l’intégrer à votre conception et à votre planification de la continuité des activités. Dans cet article, nous allons examiner deux méthodes différentes permettant d’orchestrer le processus de mise à niveau propagée, avant de présenter les avantages et inconvénients de chaque option. Dans le cadre de cet article, nous allons utiliser une application simple sous la forme d’un site web utilisant une base de données unique comme couche de données. Notre objectif est de mettre à niveau la version 1 de l’application vers la version 2 sans affecter lourdement l’expérience utilisateur. 
 
 Lorsque vous évaluez les options de mise à niveau, vous devez tenir compte des facteurs suivants :
 
@@ -155,6 +155,6 @@ Les pages suivantes contiennent des informations sur les opérations spécifique
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

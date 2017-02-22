@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -118,7 +118,7 @@ Le message contient un objet JSON nommé « accepter », qui définit les prop
 * **connectHeaders** : tous les en-têtes HTTP qui ont été fournis au point de terminaison Relay par l’expéditeur, dont également les en-têtes Sec-WebSocket-Protocol et Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Accepter le message
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ Lorsque le jeton de l’écouteur est sur le point d’expirer, celui-ci peut le
 * **token** : jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’écoute**.
 
 #### <a name="renewtoken-message"></a>renewToken Message
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -231,7 +231,7 @@ Voici les options de paramètres des chaînes de requête :
 
 | Paramètre | Requis ? | Description |
 | --- | --- | --- |
-| sb-hc-action |Oui |Pour le rôle d’écouteur, le paramètre doit être `action=connect`. |
+| sb-hc-action |Oui |Pour le rôle de l’expéditeur, le paramètre doit être `action=connect`. |
 | {chemin} |Oui |(voir le paragraphe suivant) |
 | sb-hc-token |Oui\* |L’écouteur doit fournir un jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’envoi**. |
 | sb-hc-id |Non |ID facultatif qui permet le suivi de diagnostic de bout en bout et est accessible à l’écouteur pendant la liaison d’acceptation. |
@@ -271,6 +271,6 @@ Si la connexion du socket web est intentionnellement arrêtée par le service ap
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

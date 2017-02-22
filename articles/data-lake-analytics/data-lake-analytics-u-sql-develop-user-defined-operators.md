@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 88a00c2b0a5aac85bbcaef5b21b10f44121c7d38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
 
 
 ---
-# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics
+# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Développez des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics
 Apprenez à développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Data Lake Analytics. Vous allez développer un opérateur personnalisé pour convertir des noms de pays.
+
+Pour obtenir des instructions concernant le développement des assemblys à usage général pour U-SQL, consultez [Développement d’assemblys U-SQL pour les travaux Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
 
 ## <a name="prerequisites"></a>Composants requis
 * Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++.
 * Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure.  Installez-le avec Web Platform Installer.
-* Un compte Data Lake Analytics.  Consulter [Prise en main des analyses Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
+* Un compte Data Lake Analytics.  Consultez l’article [Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure](data-lake-analytics-get-started-portal.md).
 * Parcourez le didacticiel [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md) .
 * Connexion à Azure.
 * Téléchargez la source de données, consultez [Prise en main d’Azure Data Lake Analytics avec U-SQL Studio](data-lake-analytics-u-sql-get-started.md). 
 
-## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Définir et utiliser un opérateur défini par l’utilisateur en U-SQL
+## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Définir et utiliser un opérateur défini par l’utilisateur dans U-SQL
 **Pour créer et soumettre un travail U-SQL**
 
 1. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
@@ -126,8 +128,8 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
         OUTPUT @drivers_CountryName
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**.
-8. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
+7. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**.
+8. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
 9. Si vous ne vous êtes pas connecté à votre abonnement Azure, vous serez invité à entrer vos informations d’identification de compte Azure.
 10. Cliquez sur **Envoyer**. Les résultats de l’envoi et le lien vers le travail sont disponibles dans la fenêtre Résultats quand l’envoi est terminé.
 11. Vous devez cliquer sur le bouton Actualiser pour afficher le dernier état du travail et actualiser l’écran.
@@ -144,6 +146,6 @@ Apprenez à développer des opérateurs définis par l’utilisateur pour les ut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

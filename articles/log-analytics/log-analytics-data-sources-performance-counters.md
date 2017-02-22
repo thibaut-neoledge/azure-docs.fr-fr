@@ -1,10 +1,10 @@
 ---
-title: Compteurs de performances Windows et Linux dans Log Analytics | Microsoft Docs
+title: Collecter et analyser les compteurs de performances dans Log Analytics | Microsoft Docs
 description: "Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans le référentiel OMS et comment les analyser dans le portail OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b4d326064059b42cf2bf059184066c9acb4dcfd0
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
 
 
 ---
@@ -63,7 +63,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 | CounterValue |Valeur numérique du compteur. |
 | InstanceName |Nom de l’instance de l’événement.  Vide si aucune instance. |
 | ObjectName |Nom de l’objet de performance. |
-| SourceSystem |Type d’agent sur lequel les données ont été collectées. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br>  Linux – Tous les agents Linux  <br>  AzureStorage – Diagnostics Azure |
+| SourceSystem |Type d’agent sur lequel les données ont été collectées. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br> Linux – Tous les agents Linux  <br> AzureStorage – Diagnostics Azure |
 | TimeGenerated |Date et heure d’échantillonnage des données. |
 
 ## <a name="sizing-estimates"></a>Tailles estimées
@@ -105,6 +105,6 @@ Pour agréger des données de performances dans une recherche de journal, voir [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

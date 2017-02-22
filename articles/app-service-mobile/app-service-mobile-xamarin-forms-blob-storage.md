@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9dea1f48904a0d505f95636f178b24f8a6e174a7
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c8568846837f404eee0293be284c70bd27f06380
 
 
 ---
@@ -37,7 +37,7 @@ Dans ce didacticiel, vous allez créer un compte de stockage et ajouter une cha�
 * Effectuez le didacticiel [Créer une application Xamarin.Forms] qui répertorie les autres composants requis. Cet article utilise l’application exécutée à partir de ce didacticiel.
 
 > [!NOTE]
-> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://azure.microsoft.com/try/app-service/mobile/). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 > 
 > 
 
@@ -663,7 +663,7 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
   
       + `IFileSyncHandler.ProcessFileSynchronizationAction` est appelé dans le cadre du flux de synchronisation des fichiers. Une référence de fichier et une valeur d’énumération FileSynchronizationAction sont fournies afin de vous aider à déterminer la manière dont votre application doit gérer cet événement (par exemple, télécharger automatiquement un fichier lors de sa création ou de sa mise à jour, ou supprimer un fichier du périphérique local lorsque ce fichier est supprimé sur le serveur).
 * Un `MobileServiceFile` peut être utilisé en mode en ligne ou hors connexion, en utilisant respectivement `IMobileServiceTable` ou `IMobileServiceSyncTable`. Dans le scénario hors connexion, le chargement se produit lorsque l’application appelle `PushFileChangesAsync`. Cette action lance le traitement de la file d’attente des opérations hors connexion ; pour chaque opération de fichier, le Kit de développement logiciel (SDK) du client Azure Mobile appelle la méthode `GetDataSource` sur l’instance `IFileSyncHandler` pour récupérer le contenu du fichier en vue du chargement.
-* Pour récupérer les fichiers d’un élément, appelez l’instance ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>`. Cette méthode retourne une liste des fichiers associés à l’élément de données fourni. Remarque : il s’agit d’une opération *locale* qui renvoie les fichiers en fonction de l’état de l’objet lors de sa dernière synchronisation. Pour obtenir une liste à jour des fichiers du serveur, vous devez d’abord lancer une opération de synchronisation.
+* Pour récupérer les fichiers d’un élément, appelez la méthode `GetFilesAsync` sur l’instance `IMobileServiceTable<T>` ou `IMobileServiceSyncTable<T>`. Cette méthode retourne une liste des fichiers associés à l’élément de données fourni. Remarque : il s’agit d’une opération *locale* qui renvoie les fichiers en fonction de l’état de l’objet lors de sa dernière synchronisation. Pour obtenir une liste à jour des fichiers du serveur, vous devez d’abord lancer une opération de synchronisation.
   
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 * La fonctionnalité de synchronisation de fichiers utilise les notifications de modification d’enregistrements dans le magasin local afin de récupérer les enregistrements que le client a reçus dans le cadre d’une opération d’envoi ou d’extraction. Pour cela, il suffit d’activer les notifications locales et serveur pour le contexte de synchronisation à l’aide du paramètre `StoreTrackingOptions` . 
@@ -680,7 +680,7 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 
 <!-- URLs. -->
 
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 [Créer une application Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
@@ -691,6 +691,6 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

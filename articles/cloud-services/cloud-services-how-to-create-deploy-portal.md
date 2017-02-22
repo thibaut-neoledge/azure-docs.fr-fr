@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f57bdd0c1d8efc37b90430f829184eb3c44aede5
-ms.openlocfilehash: ea31150ef186c9bcd8c943e39a7cb51559e94bd2
+ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
+ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
 
 
 ---
@@ -40,11 +40,11 @@ Cet article explique comment utiliser la méthode Quick Create pour créer un se
 Trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
 
 * **Définition de service**  
-   Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
+  Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
 * **Configuration de service**  
-   Le fichier de configuration de service cloud (.cscfg) contient les paramètres de configuration du service cloud et des différents rôles, notamment le nombre d’instances de rôle.
+  Le fichier de configuration de service cloud (.cscfg) contient les paramètres de configuration du service cloud et des différents rôles, notamment le nombre d’instances de rôle.
 * **Package de service**  
-   Le package de service (.cspkg) contient le code d’application, les configurations et le fichier de définition de service.
+  Le package de service (.cspkg) contient le code d’application, les configurations et le fichier de définition de service.
 
 Pour plus d’informations sur ces composants et sur la création d’un package, cliquez [ici](cloud-services-model-and-package.md).
 
@@ -66,7 +66,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 
 ## <a name="create-and-deploy"></a>Création et déploiement
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Nouveau > Machines virtuelles**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
+2. Cliquez sur **Nouveau >Calculer**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. En bas de la page d’informations qui s’affiche, cliquez sur **Créer**.
@@ -76,7 +76,7 @@ Pour créer un service cloud avec des déploiements de rôles web ou de rôles d
 7. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires. Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
 
     > [!IMPORTANT]
-    > Les services cloud peuvent uniquement être associés à des [comptes de stockage classiques](../resource-manager-deployment-model.md). Si vous voyez un message indiquant qu’aucun compte de stockage n’a été trouvé pour votre abonnement et votre emplacement, assurez-vous que vous avez créé un compte de stockage classique pour votre service cloud à cet emplacement.
+    > Les services cloud peuvent uniquement être associés à des [comptes de stockage classiques](../azure-resource-manager/resource-manager-deployment-model.md). Si vous voyez un message indiquant qu’aucun compte de stockage n’a été trouvé pour votre abonnement et votre emplacement, assurez-vous que vous avez créé un compte de stockage classique pour votre service cloud à cet emplacement.
 
 8. Vérifiez que l’option **Démarrer le déploiement** est sélectionnée.
 9. Cliquez sur **OK** pour fermer le panneau **Télécharger un package**.
@@ -111,6 +111,6 @@ Si votre package de déploiement a été [configuré pour utiliser des certifica
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

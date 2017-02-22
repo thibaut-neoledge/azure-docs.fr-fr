@@ -1,79 +1,12 @@
 ---
-title: "Prise en main d’Event Hubs avec C et Apache Storm | Microsoft Docs"
-description: "Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir dans un cluster Apache Storm."
-services: event-hubs
-documentationcenter: 
-author: jtaubensee
-manager: timlt
-editor: 
-ms.assetid: 3b15825e-c53c-471b-870c-686bff46885a
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: c
-ms.devlang: java
-ms.topic: article
-ms.date: 11/30/2016
-ms.author: jotaub;sethm
+redirect_url: /azure/event-hubs/event-hubs-c-getstarted-send
 translationtype: Human Translation
-ms.sourcegitcommit: 33a960ae39ab8fa89126201fd67f13e5536413ef
-ms.openlocfilehash: 7bad4df26d10ba8edae311b41d0c07be2db374f4
-
+ms.sourcegitcommit: 4ba8c859940f315c347cadcc6f6cb36f61cae841
+ms.openlocfilehash: 425cdfd4347079cc26fd131c086e3ae57e08b2ec
 
 ---
-# <a name="get-started-with-event-hubs"></a>Prise en main des hubs d’événements
-[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
-
-## <a name="introduction"></a>Introduction
-Les hubs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des hubs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
-
-Pour plus d'informations, consultez [Vue d'ensemble des hubs d'événements].
-
-Dans ce didacticiel, vous allez apprendre comment procéder à la réception des messages dans un hub d'événements à l'aide d'une application console en C# et à les récupérer en parallèle à l'aide d'Apache Storm.
-
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
-
-* Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC se trouve sur une [machine virtuelle Linux Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dotée du système d’exploitation Ubuntu 14.04. Vous trouverez des instructions pour d’autres environnements en consultant les liens externes.
-* Un environnement de développement Java configuré pour exécuter [Maven](http://maven.apache.org/). Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
-
-## <a name="run-the-applications"></a>Exécution des applications
-Vous êtes maintenant prêt à exécuter les applications.
-
-1. Exécutez la classe **LogTopology** dans Eclipse, puis attendez qu’elle démarre les récepteurs pour toutes les partitions.
-2. Exécutez le programme **Expéditeur**. Les événements s’affichent dans la fenêtre de réception.
-   
-   ![][23]
-
-> [!NOTE]
-> Dans le cadre de ce didacticiel, utilisez exclusivement Storm en mode local destiné au développement. Pour plus d’informations sur les déploiements et les modèles Storm, voir la [Présentation de Storm HDInsight] et la documentation [Apache Storm] officielle.
-
-## <a name="next-steps"></a>Étapes suivantes
-Les ressources suivantes sont disponibles pour les applications de développement intégrant des hubs d’événements et Storm.
-
-* [Analyse des données de capteur avec Storm et HDInsight][Analyzing sensor data with Storm and HDInsight] est un didacticiel présentant un scénario complet qui tire parti d’Event Hubs, de Storm et de HBase pour ingérer des données de capteur dans un cluster Hadoop.
-* [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
-
-<!-- Images. -->
-[23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
-
-<!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d'ensemble des hubs d'événements]: event-hubs-overview.md
-
-[Apache Storm]: https://storm.incubator.apache.org
-[Présentation de Storm HDInsight]: ../hdinsight/hdinsight-storm-overview.md
-[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

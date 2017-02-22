@@ -3,8 +3,8 @@ title: "Déployer le service StorSimple Manager | Microsoft Docs"
 description: "Explique comment créer et supprimer le service StorSimple Manager dans le portail Azure Classic et décrit comment gérer la clé d’inscription du service."
 services: storsimple
 documentationcenter: 
-author: SharS
-manager: carmonm
+author: alkohli
+manager: byronr
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
-ms.author: v-sharos
+ms.date: 12/05/2016
+ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 51c414bacb825dd51bcd76a06e1f9e0f0c001b93
+ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
+ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
 
 
 ---
@@ -51,6 +51,9 @@ Vous pouvez également choisir de générer un compte de stockage par défaut lo
 
 Un seul service peut gérer plusieurs appareils. Cependant, un appareil ne peut pas couvrir plusieurs services. Une grande entreprise peut avoir plusieurs instances de service pour utiliser différents abonnements, organisations ou même emplacements de déploiement. Veuillez noter que vous devez créer des instances distinctes du service StorSimple Manager pour gérer les appareils de la gamme StorSimple 8000 et les tableaux virtuels StorSimple.
 
+> [!IMPORTANT] 
+> Si vous disposez d’un service non utilisé (aucune opération d’appareil n’a été réalisée sur cette ressource) créé avant août 2016, celui-ci ne peut pas être géré via le portail Azure ou le portail Azure Classic. Nous vous recommandons de créer un nouveau service dans le portail Azure.
+
 Procédez comme suit pour créer un service.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -58,7 +61,8 @@ Procédez comme suit pour créer un service.
 ## <a name="delete-a-service"></a>Supprimer un service
 Avant de supprimer un service, assurez-vous qu’aucun appareil connecté ne l’utilise. Si le service est en cours d’utilisation, désactivez les appareils connectés. L’opération de désactivation rompt la connexion entre l’appareil et le service, mais conserve les données de l’appareil dans le cloud.
 
-[AZURE.IMPORTANT] Après qu’un service a été supprimé, l’opération ne peut pas être annulée. Un appareil qui utilisait le service doit être réinitialisé aux paramètres d’usine avant de pouvoir être utilisé avec un autre service. Dans ce scénario, les données locales de l’appareil, ainsi que la configuration, seront perdues.
+> [!IMPORTANT] 
+> Après qu’un service a été supprimé, l’opération ne peut pas être annulée. Un appareil qui utilisait le service doit être réinitialisé aux paramètres d’usine avant de pouvoir être utilisé avec un autre service. Dans ce scénario, les données locales de l’appareil, ainsi que la configuration, seront perdues.
 
 Pour supprimer un service, procédez comme suit.
 
@@ -89,15 +93,15 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 3. Un message de confirmation s’affiche. Cliquez sur **OK** pour poursuivre la régénération.
 4. Une nouvelle clé d’inscription du service s’affiche.
 5. Copiez cette clé et sauvegardez-la pour enregistrer tout nouvel appareil auprès de ce service.
-6. Cliquez sur l’icône de coche  ![Icône en forme de coche](./media/storsimple-manage-service/HCS_CheckIcon.png)  pour fermer cette boîte de dialogue.
+6. Cliquez sur l’icône de coche  ![Icône en forme de coche](./media/storsimple-manage-service/HCS_CheckIcon.png) pour fermer cette boîte de dialogue.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur le [processus de déploiement StorSimple](storsimple-deployment-walkthrough.md).
+* En savoir plus sur le [processus de déploiement StorSimple](storsimple-deployment-walkthrough-u2.md).
 * En savoir plus sur la [gestion de votre compte de stockage StorSimple](storsimple-manage-storage-accounts.md).
 * En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

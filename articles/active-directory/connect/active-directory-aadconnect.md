@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : intégration de vos identités locales avec Azure Active Directory. | Microsoft Docs"
+title: "Connectez Active Directory à Azure Active Directory. | Microsoft Docs"
 description: "Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune pour les applications Office 365, Azure et SaaS intégrées à Azure AD."
 keywords: "introduction à Azure AD Connect, présentation d’Azure AD Connect, qu’est-ce qu’Azure AD Connect, installation d’active directory"
 services: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/13/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 1d79c703133ce568c3d87821364af2fac7686bff
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
 
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Intégration de vos identités locales avec Azure Active Directory
+# <a name="connect-active-directory-with-azure-active-directory"></a>Connectez Active Directory à Azure Active Directory.
 Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Cette rubrique vous guide dans les étapes de planification, de déploiement et opérationnelles. Elle comporte un ensemble de liens vers les rubriques associées à cette zone.
 
 > [!IMPORTANT]
@@ -150,7 +150,7 @@ Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatique
 
 **Ressources supplémentaires**
 
-Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans le cloud.
+Présentation d’Ignite 2015 sur l’extension de vos répertoires locaux dans le cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
@@ -159,6 +159,6 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

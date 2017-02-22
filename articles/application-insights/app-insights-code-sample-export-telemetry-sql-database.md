@@ -1,5 +1,5 @@
 ---
-title: "Exemple de code : analyser les données exportées depuis Application Insights | Microsoft Docs"
+title: "Exemple : analyser les données exportées depuis Azure Application Insights | Microsoft Docs"
 description: "Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue. Enregistrez les données dans SQL."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: fedd078402bbd220bce9b71cd035508d46f92f82
 
 
 ---
 # <a name="code-sample-parse-data-exported-from-application-insights"></a>Exemple de code : analyser les données exportées depuis Application Insights
-Cet article explique comment écrire du code pour traiter les données exportées depuis [Azure Application Insights][start] à l’aide de l'[exportation continue][export]. Cette fonctionnalité permet de déplacer vos données de télémétrie vers un stockage Azure au format JSON et nécessite l’écriture de code pour analyser les objets JSON et créer des lignes dans une table de base de données.
+Cet article explique comment écrire du code pour traiter les données exportées depuis [Azure Application Insights][start] à l’aide de l’[exportation continue][export]. Cette fonctionnalité permet de déplacer vos données de télémétrie vers un stockage Azure au format JSON et nécessite l’écriture de code pour analyser les objets JSON et créer des lignes dans une table de base de données.
 
 À titre d'exemple, nous allons écrire du code pour déplacer vos données de télémétrie d'Application Insights vers une base de données SQL.
 
@@ -37,7 +37,7 @@ Si vous n’avez pas encore commencé à surveiller votre application web avec A
 ## <a name="create-storage-in-azure"></a>Création d’un stockage dans Azure
 Les données d'Application Insights sont toujours exportées vers un compte de stockage Azure au format JSON. C'est à partir de ce système de stockage que votre code lit les données.
 
-1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure][portal].
+1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure][portal].
    
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 2. Créez un conteneur.
@@ -74,7 +74,7 @@ Les événements sont écrits dans des fichiers blob au format JSON. Chaque fich
 ## <a name="create-an-azure-sql-database"></a>Création d’une base de données SQL Azure
 Pour cet exemple, nous allons écrire du code pour envoyer les données vers une base de données.
 
-Une fois encore, à partir de votre abonnement dans le [portail Azure][portal], créez la base de données (et un nouveau serveur le cas échéant) dans laquelle vous allez écrire les données.
+Là encore, à partir de votre abonnement dans le [portail Azure][portal], créez la base de données (et un serveur si ce n’est déjà fait) dans laquelle vous allez écrire les données.
 
 ![Nouveau, Données, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
@@ -501,6 +501,6 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

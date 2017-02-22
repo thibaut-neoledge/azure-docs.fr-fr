@@ -109,6 +109,6 @@ Cet article fournit une vue d’ensemble des détails au niveau de l’implémen
 [lnk-blob]: https://azure.microsoft.com/services/storage/
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

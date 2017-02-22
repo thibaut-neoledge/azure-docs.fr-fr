@@ -1,10 +1,10 @@
 ---
-title: "Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure Classic | Microsoft Docs"
+title: "Créer un équilibrage de charge accessible sur Internet à l’aide du Portail Azure Classic | Microsoft Docs"
 description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail Azure Classic."
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
-ms.openlocfilehash: bf71746d3c23fd69902f1a7af6cbab2ad1a65df4
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
 
 ---
 
@@ -70,6 +70,6 @@ Pour les machines virtuelles supplémentaires dans le jeu d’équilibrage de la
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "StorSimple Device Manager - Créer un ticket de support pour Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit la fonctionnalité de diagnostic de StorSimple Device Manager et explique comment l’utiliser pour résoudre les problèmes de votre StorSimple Virtual Array."
+title: "Enregistrer un ticket de support à l’aide de StorSimple Device Manager | Microsoft Docs"
+description: "Décrit la fonctionnalité de diagnostic de StorSimple Device Manager et explique comment l’utiliser pour résoudre les problèmes de votre instance StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: adf6454fef9cfdea60241909453266c79416ac4e
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour créer une demande de support pour le StorSimple Virtual Array
@@ -70,6 +70,6 @@ Découvrez comment [diagnostiquer et résoudre les problèmes liés à votre Sto
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

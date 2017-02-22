@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d40304cd4f7ede4e37d32f66330ac712d325f898
-ms.openlocfilehash: ea7d8acec83103c981bad279507dd7ead5f72370
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: ea7d8acec83103c981bad279507dd7ead5f72370
 ## <a name="overview"></a>Vue d'ensemble
 Azure Functions est une expérience de calcul à la demande pilotée par les événements, qui étend la plateforme d’application Azure existante avec des capacités d’implémenter du code déclenché par des événements se produisant dans d’autres services Azure, dans les produits SaaS et dans les systèmes locaux. Avec Azure Functions, vos applications sont mises à l’échelle à la demande, et vous payez uniquement pour les ressources que vous utilisez. Azure Functions vous permet de créer des unités de code planifiées ou déclenchées, et de les implémenter dans divers langages de programmation. Pour en savoir plus sur Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
-Cette rubrique vous montre comment utiliser le démarrage rapide d’Azure Functions dans le portail pour créer une fonction Node.js « Hello World » simple, appelée par un déclencheur HTTP. Vous pouvez également regarder une courte vidéo décrivant comment effectuer ces étapes dans le portail.
+Cette rubrique vous montre comment utiliser le démarrage rapide d’Azure Functions dans le portail pour créer une fonction JavaScript « Hello World » simple, appelée par un déclencheur HTTP. Vous pouvez également regarder une courte vidéo décrivant comment effectuer ces étapes dans le portail.
 
 ## <a name="watch-the-video"></a>Regarder la vidéo
 La vidéo suivante montre comment effectuer les étapes de base de ce didacticiel. 
@@ -40,43 +40,23 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 
 1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.
-2. Dans **Nom**, indiquez le nom unique de votre nouvelle fonction ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + commencer**. 
-3. Dans l’onglet **Démarrage rapide**, cliquez sur **WebHook + API** et **JavaScript**, puis cliquez sur **Créer une fonction**. Une fonction Node.js prédéfinie est créée. 
+2. Dans **Nom**, indiquez le nom unique de votre nouvelle fonction ou acceptez le nom généré automatiquement, sélectionnez votre **Région**, puis cliquez sur **Créer + commencer**. Notez que vous devez entrer un nom valide, qui peut seulement contenir des lettres, des chiffres et des traits d’union. Le trait de soulignement (**_**) n’est pas un caractère autorisé.
+3. Dans l’onglet **Démarrage rapide**, cliquez sur **WebHook + API** et **JavaScript**, puis cliquez sur **Créer une fonction**. Une fonction JavaScript prédéfinie est créée. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 4. (Facultatif) À ce stade du démarrage rapide, vous pouvez suivre une visite rapide des fonctionnalités Azure Functions dans le portail. Après avoir terminé ou ignoré la visite, vous pouvez tester votre nouvelle fonction à l’aide du déclencheur HTTP.
 
 ## <a name="test-the-function"></a>Tester la fonction
-Comme les démarrages rapides Azure Functions contiennent du code fonctionnel, vous pouvez tester votre nouvelle fonction immédiatement.
-
-1. Dans l’onglet **Développer**, examinez la fenêtre **Code** et notez que ce code Node.js attend une requête HTTP avec un *nom* transmis dans le corps du message ou dans une chaîne de requête. Lorsque la fonction s’exécute, cette valeur est renvoyée dans le message de réponse.
-   
-2. Cliquez sur **Tester** pour afficher le volet de requête HTTP de test intégré pour la fonction.
- 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
-
-2. Dans la zone de texte **Corps de la demande**, remplacez la valeur de la propriété *name* par votre nom, puis cliquez sur **Exécuter**. Vous voyez que l’exécution est déclenchée par une requête HTTP de test, que des informations sont écrites dans les journaux de diffusion en continu, et que la réponse « Hello » s’affiche dans la **Sortie**.
- 
-3. Pour déclencher l’exécution de la même fonction à partir d’une autre fenêtre ou d’un autre onglet de navigateur, copiez la valeur **URL de la fonction** de l’onglet **Développer** et collez-la dans la barre d’adresse d’un navigateur. Puis ajoutez la valeur de chaîne de requête `&name=yourname` à l’URL et appuyez sur Entrée. Les mêmes informations sont écrites dans les journaux et le navigateur affiche la réponse « Hello » comme avant.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce démarrage rapide présente une exécution simple d’une fonction de base déclenchée par HTTP. Pour plus d’informations sur l’utilisation d’Azure Functions dans vos applications, consultez les rubriques suivantes :
-
-* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
-* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
-* [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.
-* [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-  Présente les plans de service disponibles dans Azure Functions, dont le plan de service dynamique, et explique comment choisir le plan adapté à vos besoins. 
-* [Qu'est-ce qu'Azure App Service ?](../app-service/app-service-value-prop-what-is.md)  
-   Azure Functions utilise la plateforme Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

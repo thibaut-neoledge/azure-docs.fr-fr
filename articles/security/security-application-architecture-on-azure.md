@@ -1,6 +1,6 @@
 ---
-title: "Architecture d’application sur Azure | Microsoft Docs"
-description: " Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et l’implémentation. "
+title: "Intégrer la sécurité dans vos conceptions architecturales Azure | Microsoft Docs"
+description: " Cet article vous aidera à comprendre l’architecture des services et des applications sur Azure, afin de faciliter l’intégration de la sécurité dans la conception et la mise en œuvre.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5006e7dc237c53cd4b74ca08ea54ca6c999ebefe
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
 
 
 ---
@@ -28,7 +28,7 @@ Les éléments suivants sont conçus pour vous aider dans vos recherches et conc
 * Éléments d’infographie relatifs à l’architecture
 * Plans d’architecture
 * Jeu de symboles Cloud et Enterprise
-* Modèle 3D Blueprint Visio
+* Modèle&3;D Blueprint Visio
 
 ## <a name="architectural-infographics"></a>Éléments d’infographie relatifs à l’architecture
 Microsoft publie plusieurs affiches/éléments d’infographie relatifs à l’architecture. À savoir :
@@ -47,7 +47,7 @@ Chaque plan inclut les éléments suivants :
 ## <a name="cloud-and-enterprise-symbol-set"></a>Jeu de symboles Cloud et Enterprise
 [Visionnez la vidéo de formation sur Visio et les symboles](http://aka.ms/CnESymbolsVideo), puis [téléchargez le jeu de symboles Cloud et Enterprise](http://aka.ms/CnESymbols) pour créer des documents techniques qui décrivent Azure, Windows Server, SQL Server, etc. Vous pouvez utiliser les symboles dans les diagrammes d’architecture, les supports de formation, les présentations, les fiches techniques, les infographies, les livres blancs et même les ouvrages tiers si le livre est destiné à former des personnes à l’utilisation des produits Microsoft. Toutefois, ils ne sont pas destinés à être utilisés dans les interfaces utilisateur.
 
-## <a name="3d-blueprint-visio-template"></a>Modèle 3D Blueprint Visio
+## <a name="3d-blueprint-visio-template"></a>Modèle&3;D Blueprint Visio
 Les versions 3D des [plans d'architecture Microsoft](http://aka.ms/azblueprints) ont initialement été créées avec un outil autre que Microsoft. Un nouveau modèle Visio 2013 (et versions ultérieures) a été publié le 5 août 2015 dans le cadre d’un [cours de certification d’architecture Microsoft distribué sur EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
 
 Le modèle est également disponible en dehors du cours.
@@ -58,6 +58,6 @@ Le modèle est également disponible en dehors du cours.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

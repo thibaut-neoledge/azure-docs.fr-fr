@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3766215c00da9d055a1efb4b534f7522f9ded25
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
 
 
 ---
@@ -114,7 +114,7 @@ Commencez par créer la structure de répertoires, comme décrit dans la section
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires code et config. Vous pouvez également créer d’autres répertoires ou sous-répertoires dans les répertoires code ou config.
 
-Service Fabric crée une copie xcopy du contenu du répertoire racine de l’application. Par conséquent, il n’existe aucune structure prédéfinie à utiliser, autre que la création des deux principaux répertoires code et paramètres. (Vous pouvez choisir des noms différents si vous le souhaitez. Pour plus d’informations, consultez la section suivante.)
+Service Fabric crée une `xcopy` du contenu du répertoire racine de l’application. Par conséquent, il n’existe aucune structure prédéfinie à utiliser, autre que la création des deux principaux répertoires code et paramètres. (Vous pouvez choisir des noms différents si vous le souhaitez. Pour plus d’informations, consultez la section suivante.)
 
 > [!NOTE]
 > Veillez à bien inclure la totalité des fichiers et dépendances nécessaires à l’application. Service Fabric copie le contenu du package d’application sur tous les nœuds du cluster dans lequel les services de l’application seront déployés. Le package doit contenir l’ensemble du code nécessaire à l’exécution de l’application. Ne supposez pas que les dépendances sont déjà installées.
@@ -320,6 +320,16 @@ Si vous accédez au répertoire à l’aide de l’Explorateur de serveurs, vous
 
 ![Emplacement du journal](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Création d’un exécutable invité au moyen de Yeoman pour Service Fabric sur Linux
+
+La procédure de création et de déploiement d'un exécutable invité sur Linux est identique au déploiement d’une application csharp ou java. 
+
+1. Saisissez `yo azuresfguest` dans un terminal.
+2. Donnez un nom à votre application.
+3. Choisissez le type de votre premier service et nommez-le. Choisissez **Guest Binary** pour un exécutable invité (et **Guest Container** pour un conteneur) et fournissez les détails, notamment le chemin de l'exécutable et les paramètres avec lesquels il doit être appelé.
+
+Yeoman aura créé un package d’application avec l’application et les fichiers manifeste appropriés ainsi que les scripts d'installation et de désinstallation.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Consultez les articles suivants pour obtenir des informations supplémentaires et connaître les tâches connexes.
 
@@ -330,6 +340,6 @@ Dans cet article, vous avez appris à empaqueter un exécutable invité et à le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

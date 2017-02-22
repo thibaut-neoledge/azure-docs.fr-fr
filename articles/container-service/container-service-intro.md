@@ -1,5 +1,5 @@
 ---
-title: "Présentation d’Azure Container Service | Microsoft Docs"
+title: "Cluster de conteneur Docker dans le cloud Azure | Microsoft Docs"
 description: "Azure Container Service offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur."
 services: container-service
 documentationcenter: 
@@ -11,14 +11,14 @@ keywords: Docker, conteneurs, micro-services, Mesos, Azure
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 3edc4bf663244805fc184d9598621b3fbca72d5d
-ms.openlocfilehash: 430f895a783cbbe6b7454ccd24c2dd8d99f6228b
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
 
 
 ---
@@ -27,7 +27,11 @@ Azure Container Service simplifie la création, la configuration et la gestion d
 
 ![Azure Container Service offre un moyen de gérer les applications en conteneur sur plusieurs hôtes dans Azure.](./media/acs-intro/acs-cluster-new.png)
 
-Azure Container Service utilise le format de conteneur Docker pour assurer la portabilité complète de vos conteneurs d’application. Par ailleurs, il prend en charge votre choix d’utiliser Marathon et DC/OS ou Docker Swarm ou Kubernetes de sorte que vous puissiez mettre à l’échelle ces applications pour des milliers, voire des dizaines de milliers de conteneurs.
+Azure Container Service utilise le format de conteneur Docker pour assurer la portabilité complète de vos conteneurs d’application. Par ailleurs, il prend en charge votre choix d’utiliser Marathon et DC/OS, Docker Swarm ou Kubernetes pour vous permettre de mettre à l’échelle ces applications pour des milliers, voire des dizaines de milliers de conteneurs.
+
+>[!NOTE]
+> La prise en charge de Kubernetes dans l’Azure Container Service est actuellement en version préliminaire.
+>
 
 En utilisant Azure Container Service, vous pouvez tirer parti des fonctionnalités d’entreprise d’Azure tout en conservant la portabilité des applications, notamment au niveau des couches d’orchestration.
 
@@ -35,10 +39,10 @@ En utilisant Azure Container Service, vous pouvez tirer parti des fonctionnalit�
 L’objectif d’Azure Container Service est de proposer un environnement d’hébergement de conteneurs basé sur des outils et des technologies open source déjà bien connus de nos clients. À cette fin, nous exposons les points de terminaison des API standard pour l’orchestrateur de votre choix (DC/OS ou Docker Swarm ou Kubernetes). Vous pouvez alors exploiter n’importe quel logiciel capable de communiquer avec ces points de terminaison. Par exemple, dans le cas du point de terminaison Docker Swarm, vous pouvez choisir d’utiliser l’interface de ligne de commande Docker. Pour DC/OS, vous pouvez choisir d’utiliser l’interface CLI DC/OS. Pour Kubernetes, vous pouvez choisir d’utiliser kubectl.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Création d’un cluster Docker en utilisant Azure Container Service
-Pour commencer à utiliser Azure Container Service, vous déployez un cluster Azure Container Service via le portail (recherchez « Azure Container Service »), à l’aide d’un modèle Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) ou [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou à l’aide de la [CLI](/documentation/articles/xplat-cli-install/). Les modèles de démarrage rapide fournis peuvent être modifiés pour inclure une configuration Azure supplémentaire ou avancée. Pour plus d’informations sur le déploiement d’un cluster Azure Container Service, consultez [Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
+Pour commencer à utiliser Azure Container Service, vous déployez un cluster Azure Container Service via le portail (recherchez « Azure Container Service »), à l’aide d’un modèle Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) ou [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou à l’aide de la [CLI](/articles/xplat-cli-install.md). Les modèles de démarrage rapide fournis peuvent être modifiés pour inclure une configuration Azure supplémentaire ou avancée. Pour plus d’informations sur le déploiement d’un cluster Azure Container Service, consultez [Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Déploiement d’une application
-Le service de conteneur Azure propose le choix entre Docker Swarm et DC/OS ou Kubernetes pour l'orchestration. Le déploiement de votre application dépend de votre choix en termes d’orchestrateur.
+Le service de conteneur Azure propose le choix entre Docker Swarm et DC/OS ou Kubernetes pour l’orchestration. Le déploiement de votre application dépend de votre choix en termes d’orchestrateur.
 
 ### <a name="using-dcos"></a>Utilisation de DC/OS
 DC/OS est un système d’exploitation distribué basé sur le noyau de systèmes distribués Apache Mesos. Hébergé par l’Apache Software Foundation, Apache Mesos répertorie certains des [plus grands noms des technologies de l’information](http://mesos.apache.org/documentation/latest/powered-by-mesos/) en tant qu’utilisateurs et contributeurs.
@@ -88,8 +92,8 @@ Il possède un jeu complet de fonctionnalités, notamment :
 * Détection de service et équilibrage de charge
 * Secrets et gestion de la configuration
 * API basée sur les déploiements et restaurations automatisés
-* Réparation spontanée 
-* et plus encore...
+* Réparation spontanée
+* et plus encore.
 
 
 
@@ -97,18 +101,17 @@ Il possède un jeu complet de fonctionnalités, notamment :
 Prise en main d’Azure Container Service (101) :  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Création d’applications à l’aide du service de conteneur Azure (Build 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Qu’est-ce que Relay ?](relay-what-is-it.md)
+## [Qu’est-ce que Relay ?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)
 
 # Prise en main

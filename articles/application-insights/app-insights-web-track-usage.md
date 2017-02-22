@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 1480c67792dc0ef6d2742b5b7f1c13e81cefbc1c
+ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
+ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
 
 
 ---
@@ -25,7 +25,7 @@ Le fait de savoir comment les personnes utilisent votre application vous permet 
 Azure Application Insights offre deux niveaux de suivi de l'utilisation :
 
 * **Données sur les utilisateurs, les sessions et les pages consultées** - fournies dès le départ.  
-* **Télémétrie personnalisée** - Vous [écrivez un code][api] pour suivre vos utilisateurs via l'expérience utilisateur de votre application. 
+* **Télémétrie personnalisée** - Vous [écrivez du code][api] pour suivre vos utilisateurs via l’expérience utilisateur de votre application. 
 
 ## <a name="setting-up"></a>Configuration
 Ouvrez une ressource Application Insights dans le [portail Azure](https://portal.azure.com), un clic sur la page vide du navigateur charge un graphique. Suivez les instructions d'installation.
@@ -33,7 +33,7 @@ Ouvrez une ressource Application Insights dans le [portail Azure](https://portal
 [En savoir plus](app-insights-javascript.md) 
 
 ## <a name="how-popular-is-my-web-application"></a>Quel est le niveau de popularité de mon application web ?
-Connectez-vous au [portail Azure][portal] et accédez à votre ressource d’application, puis cliquez sur Utilisation :
+Connectez-vous au [portail Azure][portal], accédez à votre ressource d’application, puis cliquez sur Utilisation :
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
@@ -58,9 +58,9 @@ Une session est un concept fondamental dans Application Insights, qui s'efforce 
 
 Les informations contextuelles sont collectées pour chaque session, par exemple les caractéristiques du périphérique, la situation géographique, le système d'exploitation, etc.
 
-Si vous instrumentalisez à la fois le client et le serveur ([ASP.NET][greenbrown] ou [J2EE][java]), les Kits de développement logiciel propageront l'ID de session entre le client et le serveur afin que les événements des deux côtés puissent être liés.
+Si vous instrumentalisez à la fois le client et le serveur ([ASP.NET][greenbrown] ou [J2EE][java]), les SDK propageront l’ID de session entre le client et le serveur afin que les événements des deux côtés puissent être liés.
 
-Lors du [diagnostic des problèmes][diagnostic], vous pouvez trouver toutes les données de télémétrie liées à la session dans laquelle un problème s'est produit, y compris l’ensemble des demandes, événements, exceptions ou traces qui ont été enregistrés.
+Lors du [diagnostic de problèmes][diagnostic], vous pouvez trouver toutes les données de télémétrie liées à la session dans laquelle un problème s’est produit, y compris l’ensemble des demandes, événements, exceptions ou traces qui ont été enregistrés.
 
 Les sessions fournissent une bonne indication de la popularité des contextes, par exemple le périphérique, le système d'exploitation ou l’emplacement. En affichant le nombre de sessions regroupées par périphérique, par exemple, vous obtenez un nombre plus précis de la fréquence à laquelle ce périphérique est utilisé avec votre application, plutôt qu’en comptant le nombre de pages affichées. C’est une méthode efficace pour trier les éventuels problèmes spécifiques à un périphérique.
 
@@ -75,11 +75,12 @@ Vous pouvez changer ces valeurs par défaut en modifiant l'extrait de code :
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : la durée, en millisecondes, avant expiration de la session en raison de l'inactivité de l'utilisateur. Par défaut : 30 minutes.
 * `sessionExpirationMs` : la longueur maximale d'une session, en millisecondes. Si l'utilisateur reste actif après ce délai, une autre session est comptée. Par défaut : 24 heures.
 
-La **durée de la session** est une [mesure][metrics] qui enregistre l'intervalle de temps entre le premier et le dernier élément de télémétrie de la session. (Elle n'inclut pas le délai d'expiration).
+La **durée de la session** est une [métrique][metrics] qui enregistre l’intervalle de temps entre le premier et le dernier élément de télémétrie de la session. (Elle n'inclut pas le délai d'expiration).
 
 **nombre de sessions** d’un certain intervalle est défini comme le nombre de sessions uniques avec une certaine activité pendant cet intervalle. Lorsque vous examinez une longue période comme le nombre de sessions quotidiennes de la semaine dernière, cette valeur équivaut généralement au nombre total de sessions. 
 
@@ -115,7 +116,7 @@ Le trafic synthétique inclut les requêtes des tests de disponibilité et de ch
 
 Application Insights essaie de déterminer et de classer automatiquement le trafic synthétique afin de le marquer de manière appropriée. Dans la plupart des cas, le trafic synthétique n'appelle pas le SDK JavaScript afin que cette activité soit exclue du calcul du nombre d’utilisateurs et de sessions. 
 
-Toutefois, pour les [tests web][availability] Application Insights, l'ID d'utilisateur est automatiquement défini en fonction de l’emplacement POP, et un ID de session est défini en fonction de l’ID d’exécution des tests. Dans les rapports par défaut, le trafic synthétique est filtré et exclut ces utilisateurs et sessions. Mais lorsque le trafic synthétique est inclus, il peut provoquer une légère augmentation du nombre global d’utilisateurs et de sessions.
+Toutefois, pour les [tests web][availability] Application Insights, l’ID d’utilisateur est automatiquement défini en fonction de l’emplacement POP, et un ID de session est défini en fonction de l’ID d’exécution des tests. Dans les rapports par défaut, le trafic synthétique est filtré et exclut ces utilisateurs et sessions. Mais lorsque le trafic synthétique est inclus, il peut provoquer une légère augmentation du nombre global d’utilisateurs et de sessions.
 
 ## <a name="page-usage"></a>Utilisation des pages
 Cliquez sur le graphique des affichages de pages pour obtenir une version plus détaillée avec une répartition des pages les plus populaires :
@@ -313,11 +314,11 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 * Parlez à vos utilisateurs ! L'analyse en soi n'est pas suffisante, mais elle vient compléter une bonne relation client.
 
 ## <a name="references"></a>Références
-* [Utilisation de l’API : vue d’ensemble][api]
+* [Utilisation de l’API : vue d’ensemble][api]
 * [Référence de l’API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="video"></a>Vidéo
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
+> [VIDÉO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
 > 
 > 
 
@@ -337,6 +338,6 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

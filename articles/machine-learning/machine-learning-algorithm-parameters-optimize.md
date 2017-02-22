@@ -1,5 +1,5 @@
 ---
-title: "Sélection des paramètres permettant d’optimiser des algorithmes dans Microsoft Azure Machine Learning | Microsoft Docs"
+title: Optimiser les algorithmes dans Azure Machine Learning | Microsoft Docs
 description: "Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Microsoft Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: b3be7f31ac31c656744fb809e3972af0ac4ad4f1
 
 
 ---
@@ -48,7 +48,7 @@ L’ensemble de paramètres peut être défini lors de l’étape d’initialisa
 ![Arbre de décision optimisé à deux classes, plage de paramètres](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Définir les plis de validation croisée
-Le module [Partition and Sample][partition-and-sample] peut être utilisé pour affecter des plis aux données de manière aléatoire. Dans l’exemple de configuration suivant pour ce module, nous allons définir cinq plis et affecter au hasard le nombre de plis aux exemples d’instances.
+Le module [Partition et échantillon][partition-and-sample] peut être utilisé pour affecter des plis aux données, de manière aléatoire. Dans l’exemple de configuration suivant pour ce module, nous allons définir cinq plis et affecter au hasard le nombre de plis aux exemples d’instances.
 
 ![Partition et échantillon](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
@@ -79,6 +79,6 @@ Vous pouvez voir les paramètres exacts choisis en visualisant le port de sortie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

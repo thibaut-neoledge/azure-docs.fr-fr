@@ -1,5 +1,5 @@
 
-1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Se connecter à Azure à partir de l’interface de ligne de commande (CLI) Azure](../articles/xplat-cli-connect.md).
+1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure 1.0](../articles/xplat-cli-connect.md).
 
 2. Vérifiez que vous êtes dans le mode de déploiement Classic comme suit :
 
@@ -52,10 +52,10 @@
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface de ligne de commande (CLI) Azure, voir [Utilisation de l’interface de ligne de commande (CLI) Azure avec l’API de déploiement Classic](../articles/virtual-machines-command-line-tools.md).
+Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface Azure CLI 1.0, voir [Utilisation de l’interface de ligne de commande (CLI) Azure 1.0 avec l’API de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

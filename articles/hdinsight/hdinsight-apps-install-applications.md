@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Installer des applications HDInsight
 Une application HDInsight est une application que les utilisateurs peuvent installer sur un cluster HDInsight sous Linux. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Dans cet article, vous allez apprendre à installer une application publiée. Pour installer votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md). 
 
-Actuellement, il existe une application publiée :
+Actuellement, il existe trois applications publiées :
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) offre aux analystes une manière interactive de détecter, analyser et visualiser les résultats sur Big Data. Extrayez facilement des sources de données supplémentaires pour découvrir de nouvelles relations et obtenir les réponses dont vous avez besoin rapidement.
+* **Streamsets Data Collector for HDnsight** fournit un environnement de développement intégré complet qui prend en charge la conception, le test, le déploiement et la gestion des pipelines d’ingestion universels qui maillent les flux et groupent les données, tout en incluant diverses transformations intégrées au flux, sans aucune écriture de code personnalisé. 
+* **Cask CDAP 3.5 for HDInsight** fournit la première plateforme intégrée d’intégration dédiée au Big Data, qui réduit de 80 % le délai de production des applications et des lacs de données. Cette application prend uniquement en charge les clusters Standard HBase 3.4.
 
-> [!NOTE]
-> Datameer est actuellement pris en charge uniquement dans les clusters Azure HDInsight version 3.2.
-> 
-> 
 
 Les instructions fournies dans cet article utilisent le portail Azure. Vous pouvez également exporter le modèle Azure Resource Manager à partir du portail ou obtenir une copie de ce modèle auprès des fournisseurs et utiliser Azure PowerShell et l’interface de ligne de commande Azure pour déployer le modèle.  Consultez [Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Resource Manager | Microsoft Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,14 +44,14 @@ La procédure suivante montre comment installer des applications HDInsight dans 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Clusters HDInsight** dans le menu de gauche.  Si vous ne le voyez pas, cliquez sur **Parcourir**, puis sur **Clusters HDInsight**.
 3. Cliquez sur un cluster HDInsight.  Si vous ne disposez pas d’un tel cluster, vous devez d’abord en créer un.  Consultez la page [Créer des clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Dans le panneau **Paramètres**, cliquez sur **Applications** sous la catégorie **Général**. Le panneau **Applications installées** répertorie toutes les applications installées. 
+4. Cliquez sur **Applications**, sous la catégorie **Configurations**. S’il en existe, vous pouvez consulter une liste des applications installées.
    
     ![applications HDInsight - menu du portail](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Cliquez sur **Ajouter** dans le menu du panneau. 
    
     ![applications hdinsight - applications installées](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
-    Une liste des applications HDInsight existantes doit s’afficher.
+    Une liste des applications HDInsight existantes s’affiche.
    
     ![applications hdinsight - applications disponibles](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Cliquez sur une des applications, acceptez les conditions juridiques, puis cliquez sur **Sélectionner**.
@@ -120,6 +118,6 @@ Consultez [Dépanner l’installation](hdinsight-apps-install-custom-application
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

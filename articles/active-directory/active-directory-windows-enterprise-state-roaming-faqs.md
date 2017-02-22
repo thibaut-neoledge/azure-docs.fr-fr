@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: f5b9a4d83e21dfefc12ea2931702a9dce3f03016
-ms.openlocfilehash: bd4352cd6f8a909d518b0c5527d6c0e63e4bad51
+ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
+ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
 
 
 ---
@@ -120,23 +120,17 @@ Enterprise State Roaming est pris en charge sur les SKU client Windows 10, mais 
 Si votre organisation utilise déjà l’itinérance dans Windows 10 avec l’abonnement gratuit à Azure RMS en utilisation limitée, acheter un abonnement payant à Azure RMS n’aura aucun impact sur les fonctionnalités de l’itinérance, et votre administrateur informatique n’aura pas besoin de modifier la configuration.
 
 ## <a name="known-issues"></a>Problèmes connus
-* Si vous essayez de vous connecter à votre appareil Windows à l’aide d’une carte à puce physique ou virtuelle, la synchronisation des paramètres cessera de fonctionner. Les mises à jour futures de Windows 10 résoudront peut-être ce problème.
-* Vous devez installer la mise à jour cumulative de juillet pour Windows 10 (build 10586.494 ou version ultérieure) pour bénéficier de la synchronisation des favoris Internet Explorer.
-* Les données protégées par la Protection des informations Windows ne sont pas synchronisées via Enterprise State Roaming. En outre, les machines sur lesquelles la Protection des informations Windows est activée ne peuvent pas voir leurs thèmes synchronisés.
-* Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur Azure (MFA) est configurée.
-
-  * Si votre appareil est configuré pour requérir [l’authentification multifacteur](../multi-factor-authentication/multi-factor-authentication.md) sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
-  * La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire.  Veillez à vous déconnecter et à vous connecter en utilisant le code confidentiel [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
-* Si un ordinateur est joint au domaine avec l’inscription automatique aux appareils Azure Active Directory, la synchronisation peut échouer si l’ordinateur est hors site pendant de longues périodes et que l’authentification de domaine ne peut pas s’exécuter. Pour résoudre ce problème, connectez l’ordinateur à un réseau d’entreprise afin que la synchronisation puisse reprendre.
+Pour obtenir la liste des problèmes connus, consultez la documentation indiquée dans la section [Résolution des problèmes](active-directory-windows-enterprise-state-roaming-troubleshooting.md). 
 
 ## <a name="related-topics"></a>Rubriques connexes
 * [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Activer Enterprise State Roaming dans Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

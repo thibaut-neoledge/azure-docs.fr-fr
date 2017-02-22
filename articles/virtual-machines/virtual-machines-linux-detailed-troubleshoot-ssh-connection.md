@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/01/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 9333062851e070a93afc6935e58594711b741f48
+ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
+ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
 
 
 ---
@@ -36,13 +36,14 @@ Tout d’abord, vérifiez l’état de la machine virtuelle sur le portail.
 
 Dans le [portail Azure](https://portal.azure.com):
 
-1. Pour les machines virtuelles créées avec le modèle de déploiement Classic, sélectionnez **Parcourir** > **Machines virtuelles (classiques)** > *Nom de la machine virtuelle*.
+1. Pour les machines virtuelles créées avec le modèle de déploiement Resource Manager, sélectionnez **Machines virtuelles** > *Nom de la machine virtuelle*.
    
     OU
    
-    Pour les machines virtuelles créées avec le modèle de déploiement Resource Manager, sélectionnez **Parcourir** > **Machines virtuelles** > *Nom de la machine virtuelle*.
+    Pour les machines virtuelles créées avec le modèle de déploiement Classic, sélectionnez **Machines virtuelles (classiques)** > *Nom de la machine virtuelle*.
    
     Le volet d’état de la machine virtuelle doit afficher **En cours d’exécution**. Faites défiler vers le bas pour voir l’activité récente des ressources de calcul, de stockage et réseau.
+
 2. Sélectionnez **Paramètres** pour examiner les points de terminaison, les adresses IP et les autres paramètres.
    
     Pour identifier les points de terminaison dans les machines virtuelles créées à l’aide de Resource Manager, vérifiez qu’un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) a été défini. Vérifiez également que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
@@ -59,7 +60,7 @@ Pour vérifier la connectivité réseau, contrôlez les points de terminaison co
 Une fois ces étapes effectuées, essayez à nouveau la connexion SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Découvrir la source du problème
-Le client SSH sur votre ordinateur n’a peut-être pas pu accéder au service SSH sur la machine virtuelle Azure en raison de problèmes ou de mauvaises configurations :
+Le client SSH sur votre ordinateur n’a peut-être pas pu accéder au service SSH sur la machine virtuelle Azure en raison de problèmes ou de mauvaises configurations dans les domaines suivants :
 
 * [Ordinateur client SSH](#source-1-ssh-client-computer)
 * [Appareil du périmètre de l’organisation](#source-2-organization-edge-device)
@@ -72,7 +73,7 @@ Pour vérifier que votre ordinateur n’est pas la source du problème, vérifie
 
 ![Diagramme qui indique les composants de l’ordinateur client SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
-Si la connexion échoue, recherchez sur votre ordinateur :
+Si la connexion échoue, recherchez les problèmes suivants sur votre ordinateur :
 
 * un paramètre de pare-feu local qui bloque le trafic SSH entrant ou sortant (TCP 22) ;
 * un logiciel de proxy client installé localement qui empêche les connexions SSH ;
@@ -106,8 +107,6 @@ Contactez votre administrateur réseau pour corriger les paramètres de vos appa
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>Source 3 : Point de terminaison de service cloud et liste de contrôle d’accès
 > [!NOTE]
 > Cette source ne s’applique qu’aux machines virtuelles créées à l’aide du modèle de déploiement Classic. Pour les machines virtuelles créées à l’aide de Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#nsg).
-> 
-> 
 
 Pour éliminer le point de terminaison du service cloud et la liste de contrôle d’accès comme source du problème, vérifiez qu’une autre machine virtuelle Azure dans le même réseau virtuel peut établir des connexions SSH à votre machine virtuelle.
 
@@ -115,10 +114,10 @@ Pour éliminer le point de terminaison du service cloud et la liste de contrôle
 
 Si le réseau virtuel ne contient pas une autre machine virtuelle, vous pouvez facilement en créer une. Pour plus d’informations, consultez [Création d’une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
 
-Si vous pouvez créer une connexion SSH avec une machine virtuelle dans le même réseau virtuel, vérifiez :
+Si vous pouvez créer une connexion SSH avec une machine virtuelle dans le même réseau virtuel, vérifiez les éléments suivants :
 
-* **la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ;** le port TCP privé du point de terminaison doit correspondre au port TCP écouté par le service SSH de la machine virtuelle. (Par défaut, il s’agit du port 22.) Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, vérifiez le numéro de port TCP SSH dans le Portail Azure en sélectionnant **Parcourir** > **Machines virtuelles (v2)** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
-* **La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible.**  Une liste de contrôle d’accès vous permet de spécifier le trafic Internet entrant autorisé ou interdit, en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Consultez vos listes de contrôle d’accès et vérifiez que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur de périmètre est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../virtual-network/virtual-networks-acl.md).
+* **la configuration du point de terminaison pour le trafic SSH sur la machine virtuelle cible ;** le port TCP privé du point de terminaison doit correspondre au port TCP écouté par le service SSH de la machine virtuelle. (Par défaut, il s’agit du port 22.) Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, vérifiez le numéro de port TCP SSH dans le Portail Azure en sélectionnant **Machines virtuelles** > *Nom de la machine virtuelle* > **Paramètres** > **Points de terminaison**.
+* **La liste de contrôle d’accès du point de terminaison du trafic SSH sur la machine virtuelle cible.** Une liste de contrôle d’accès vous permet de spécifier le trafic Internet entrant autorisé ou interdit, en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic SSH entrant d’accéder au point de terminaison. Consultez vos listes de contrôle d’accès et vérifiez que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur de périmètre est autorisé. Pour plus d'informations, consultez [À propos des listes de contrôle d'accès (ACL) réseau](../virtual-network/virtual-networks-acl.md).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel, créez-en un autre et spécifiez le nom SSH (port TCP 22 comme port public et privé). Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle dans Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -138,7 +137,7 @@ Si ce n’est déjà fait, suivez les instructions permettant de [réinitialiser
 Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si l’échec se reproduit, l’une des raisons suivantes en est peut-être la cause :
 
 * Le service SSH n’est pas en cours d’exécution sur la machine virtuelle cible.
-* Le service SSH n’est pas à l’écoute sur le port TCP 22. Pour tester cela, installez un client telnet sur votre ordinateur local et exécutez « telnet *NomServiceCloud*.cloudapp.net 22 ». Ceci permet de déterminer si la machine virtuelle autorise les communications entrantes et sortantes avec le point de terminaison SSH.
+* Le service SSH n’est pas à l’écoute sur le port TCP 22. Pour effectuer un test, installez un client telnet sur votre ordinateur local et exécutez « telnet *NomServiceCloud*.cloudapp.net 22 ». Cette étape détermine si la machine virtuelle autorise les communications entrantes et sortantes avec le point de terminaison SSH.
 * Le pare-feu local sur la machine virtuelle cible a des règles qui empêchent le trafic SSH entrant ou sortant.
 * Un logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle Azure empêche les connexions SSH.
 
@@ -148,6 +147,6 @@ Pour plus d’informations sur la résolution des problèmes d’accès aux appl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

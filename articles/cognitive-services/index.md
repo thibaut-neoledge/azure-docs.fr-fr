@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Cognitive Services - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment ajouter des fonctionnalités d’intelligence à vos applications, telles que la recherche visuelle, la dictée et l’analyse du langage. Obtenez des guides de démarrage rapide et des références d’API."
+services: cognitive-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
-ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentation Cognitive Services
@@ -89,7 +100,7 @@ Découvrez comment activer des interactions naturelles et contextuelles dans vos
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Référence sur les API REST</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -97,16 +108,10 @@ Découvrez comment activer des interactions naturelles et contextuelles dans vos
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Cognitive Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

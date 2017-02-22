@@ -8,6 +8,7 @@ author: ddove
 editor: 
 ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 41be0faae6e54a7772d97b75923647283c6a7f22
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 509a77a5059a39f964a1d89099998a07fd2cbfd5
 
 
 ---
@@ -46,10 +47,10 @@ Pour installer la bibliothèque, accédez à [Microsoft.Azure.SqlDatabase.Elasti
 ## <a name="client-capabilities"></a>Fonctionnalités du client
 La montée en charge des applications à l’aide du *partitionnement* présente des défis pour le développeur, ainsi que pour l’administrateur. La bibliothèque cliente simplifie les tâches de gestion en fournissant des outils qui permettent à la fois aux développeurs et administrateurs de gérer des bases de données avec montée en charge. Dans un exemple classique, il existe plusieurs bases de données, nommées « partitions », à gérer. Les clients sont colocalisés dans la même base de données et il y a une base de données par client (schéma à locataire unique). La bibliothèque cliente comprend ces fonctionnalités :
 
-1. **Gestion des cartes de partitions**: une base de données spéciale appelée « gestionnaire des cartes de partitions » est créée. La gestion des cartes de partitions est la capacité d’une application à gérer les métadonnées sur ses partitions. Les développeurs peuvent utiliser cette fonctionnalité pour enregistrer des bases de données, décrire les mappages de clés de partitionnement individuelles ou de plages de clés pour ces bases de données et gérer ces métadonnées en même temps que le nombre et la composition des bases de données évoluent en fonction des changements de capacités. Sans la bibliothèque cliente de base de données élastique, vous passeriez beaucoup de temps à écrire le code de gestion lors de l'implémentation du partitionnement. Pour plus d'informations, consultez [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
+- **Gestion des cartes de partitions**: une base de données spéciale appelée « gestionnaire des cartes de partitions » est créée. La gestion des cartes de partitions est la capacité d’une application à gérer les métadonnées sur ses partitions. Les développeurs peuvent utiliser cette fonctionnalité pour enregistrer des bases de données, décrire les mappages de clés de partitionnement individuelles ou de plages de clés pour ces bases de données et gérer ces métadonnées en même temps que le nombre et la composition des bases de données évoluent en fonction des changements de capacités. Sans la bibliothèque cliente de base de données élastique, vous passeriez beaucoup de temps à écrire le code de gestion lors de l'implémentation du partitionnement. Pour plus d'informations, consultez [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 
-* **Routage dépendant des données**: imaginez une requête arrivant dans l'application. Selon la valeur de la clé de partitionnement de la demande, l'application doit déterminer la base de données correcte en fonction de la valeur de clé. Elle ouvre ensuite une connexion à la base de données pour traiter la demande. Le routage dépendant des données fournit la possibilité d'ouvrir des connexions avec un seul appel simple de la carte de partitions de l'application. Le routage dépendant des données est un autre aspect du code d’infrastructure qui est maintenant couvert par les fonctionnalités de la bibliothèque cliente de base de données élastique. Pour plus d'informations, consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
-* **Requêtes sur plusieurs partitions**: l'interrogation de plusieurs partitions fonctionne lorsqu'une demande implique plusieurs (ou toutes les) partitions. Une requête sur plusieurs partitions exécute le même code T-SQL sur toutes les partitions ou un ensemble de partitions. Les résultats provenant des partitions participantes sont fusionnés en un résultat global défini à l'aide de la sémantique UNION ALL. La fonctionnalité, telle qu’exposée via la bibliothèque cliente, gère de nombreuses tâches, notamment : la gestion des connexions, la gestion des threads, la gestion des erreurs et le traitement des résultats intermédiaires. Les requêtes sur plusieurs partitions peuvent interroger des centaines de partitions. Pour plus d'informations, consultez [Requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
+- **Routage dépendant des données**: imaginez une requête arrivant dans l'application. Selon la valeur de la clé de partitionnement de la demande, l'application doit déterminer la base de données correcte en fonction de la valeur de clé. Elle ouvre ensuite une connexion à la base de données pour traiter la demande. Le routage dépendant des données fournit la possibilité d'ouvrir des connexions avec un seul appel simple de la carte de partitions de l'application. Le routage dépendant des données est un autre aspect du code d’infrastructure qui est maintenant couvert par les fonctionnalités de la bibliothèque cliente de base de données élastique. Pour plus d'informations, consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
+- **Requêtes sur plusieurs partitions**: l'interrogation de plusieurs partitions fonctionne lorsqu'une demande implique plusieurs (ou toutes les) partitions. Une requête sur plusieurs partitions exécute le même code T-SQL sur toutes les partitions ou un ensemble de partitions. Les résultats provenant des partitions participantes sont fusionnés en un résultat global défini à l'aide de la sémantique UNION ALL. La fonctionnalité, telle qu’exposée via la bibliothèque cliente, gère de nombreuses tâches, notamment : la gestion des connexions, la gestion des threads, la gestion des erreurs et le traitement des résultats intermédiaires. Les requêtes sur plusieurs partitions peuvent interroger des centaines de partitions. Pour plus d'informations, consultez [Requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
 
 De manière générale, les clients utilisant les outils de base de données élastique peuvent s’attendre à obtenir toutes les fonctionnalités T-SQL lors de l’envoi d’opérations de partitions locales, à la différence des opérations entre plusieurs partitions qui ont leur propre sémantique.
 
@@ -75,6 +76,6 @@ La bibliothèque est disponible en tant que logiciel open source sur [GitHub](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
 
 
 ---
@@ -65,7 +65,7 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 7. Cliquez sur **Achat** pour installer la solution.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Déployer un modèle Azure Resource Manager
-Les solutions que vous obtenez dans la communauté ou que vous [créez vous-même](#creating-a-solution) sont implémentées comme modèle Resource Manager ; vous pouvez utiliser toutes les méthodes standards de [déploiement d’un modèle](../resource-group-template-deploy-portal.md).  Notez que vous devez créer et lier [l’espace de travail OMS et le compte Automation](#oms-workspace-and-automation-account) avant d’installer la solution.
+Les solutions que vous obtenez dans la communauté ou que vous [créez vous-même](#creating-a-solution) sont implémentées comme modèle Resource Manager ; vous pouvez utiliser toutes les méthodes standards de [déploiement d’un modèle](../azure-resource-manager/resource-group-template-deploy-portal.md).  Notez que vous devez créer et lier [l’espace de travail OMS et le compte Automation](#oms-workspace-and-automation-account) avant d’installer la solution.
 
 ## <a name="oms-workspace-and-automation-account"></a>Espace de travail OMS et compte Automation
 La plupart des solutions de gestion nécessitent un [espace de travail OMS](../log-analytics/log-analytics-manage-access.md) qui contient les vues et un [compte Automation](../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
@@ -116,6 +116,6 @@ Une aide complète à la création de solutions de gestion est disponible dans [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

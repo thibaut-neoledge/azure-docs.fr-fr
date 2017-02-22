@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Téléchargement de fichiers | Microsoft Docs"
-description: "Guide du développeur Azure IoT Hub - Téléchargement de fichiers d’un appareil vers IoT Hub"
+title: "Présentation du chargement des fichiers d’Azure IoT Hub | Microsoft Docs"
+description: "Guide du développeur - utilisez la fonctionnalité de chargement de fichier de IoT Hub pour gérer le chargement de fichiers depuis un appareil vers un conteneur d’objets blob de stockage Azure."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 69c541a7884d84d1b72c95225e2ad53f666d73af
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: c56a568fa003ec45e92279e070e6309763071827
 
 
 ---
-# <a name="upload-files-from-a-device"></a>Charger des fichiers à partir d’un appareil
+# <a name="file-uploads-with-iot-hub"></a>Chargements de fichiers avec IoT Hub
 ## <a name="overview"></a>Vue d'ensemble
 Comme nous l’avons expliqué dans la section [Points de terminaison IoT Hub][lnk-endpoints], les appareils peuvent initier des chargements de fichiers en envoyant une notification par le biais d’un point de terminaison côté appareil (**/devices/{deviceId}/files**).  Lorsqu’un appareil indique à IoT Hub la fin d’un téléchargement, IoT Hub génère des notifications de téléchargement de fichier, que vous pouvez recevoir via un point de terminaison côté service (**/messages/servicebound/filenotifications**) sous la forme de messages.
 
@@ -36,7 +36,7 @@ Utilisez le chargement des fichiers pour envoyer des fichiers multimédias et de
 Reportez-vous à [l’aide sur la communication appareil-à-cloud][lnk-d2c-guidance] en cas de doute entre l’utilisation des propriétés signalées, des messages appareil-à-cloud ou du chargement de fichiers.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Association d’un compte Azure Storage à IoT Hub
-Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Azure Storage à IoT Hub. Pour ce faire, vous pouvez soit utiliser le [Portail Azure][lnk-management-portal], soit exécuter un programme par le biais de [l’API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis]. Une fois que vous avez associé un compte Azure Storage à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier initie une demande de téléchargement de fichier.
+Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Azure Storage à IoT Hub. Vous pouvez terminer ce travail en utilisant le [Portail Azure][lnk-management-portal], ou en exécutant un programme par le biais de [l’API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis]. Une fois que vous avez associé un compte Azure Storage à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier initie une demande de téléchargement de fichier.
 
 > [!NOTE]
 > Les [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] gèrent automatiquement la récupération de l’URI SAP, le chargement du fichier et l’envoi d’une notification à IoT Hub pour l’informer de la fin du chargement.
@@ -52,7 +52,7 @@ IoT Hub a un point de terminaison spécifique aux appareils pour demander une UR
 }
 ```
 
-IoT Hub renvoie ce qui suit. L’appareil l’utilise pour télécharger le fichier :
+IoT Hub renvoie les données suivantes. L’appareil l’utilise pour télécharger le fichier :
 
 ```
 {
@@ -66,7 +66,7 @@ IoT Hub renvoie ce qui suit. L’appareil l’utilise pour télécharger le fich
 
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Déconseillé : initialiser un téléchargement de fichier avec une commande GET
 > [!NOTE]
-> Cette section décrit les fonctionnalités déconseillées pour la réception d’une URI SAS d’IoT Hub. Utilisez la méthode POST décrite ci-dessus.
+> Cette section décrit les fonctionnalités déconseillées pour la réception d’une URI SAS d’IoT Hub. Vous devez utiliser la méthode POST décrite précédemment.
 > 
 > 
 
@@ -84,7 +84,7 @@ L’appareil est chargé de télécharger le fichier vers le stockage à l’aid
 }
 ```
 
-La valeur de `isSuccess` est une valeur booléenne indiquant si le fichier a été téléchargé avec succès ou non. Le code d’état de `statusCode` est l’état pour le téléchargement du fichier vers le stockage et `statusDescription` correspond à `statusCode`.
+La valeur de `isSuccess` est une valeur booléenne indiquant si le fichier a été téléchargé avec succès. Le code d’état de `statusCode` est l’état pour le téléchargement du fichier vers le stockage et `statusDescription` correspond à `statusCode`.
 
 ## <a name="reference-topics"></a>Rubriques de référence :
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur le téléchargement de fichiers depuis un appareil.
@@ -103,7 +103,7 @@ Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fo
 | LastUpdatedTime |Horodatage indiquant la date et l’heure de dernière mise à jour du fichier. |
 | BlobSizeInBytes |Taille du fichier téléchargé. |
 
-**Exemple**. Voici un exemple de corps de message de notification de téléchargement de fichier.
+**Exemple**. Voici un exemple illustrant le corps de message de notification de téléchargement de fichier.
 
 ```
 {
@@ -127,7 +127,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour les notificati
 | **fileNotifications.maxDeliveryCount** |Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. |1 à 100. Par défaut : 100. |
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
-Autres rubriques de référence dans le Guide du développeur :
+Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
@@ -136,7 +136,7 @@ Autres rubriques de référence dans le Guide du développeur :
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous savez comment télécharger des fichiers d’appareils utilisant IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur :
+À présent que vous savez comment télécharger des fichiers depuis des appareils avec IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT :
 
 * [Gérer les identités des appareils dans IoT Hub][lnk-devguide-identities]
 * [Contrôler l’accès à IoT Hub][lnk-devguide-security]
@@ -171,6 +171,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Surveillance de l’intégrité de la sécurité dans Azure Security Center | Microsoft Docs"
+title: "Surveillance de la sécurité dans Azure Security Center | Microsoft Docs"
 description: "Cet article a pour but de vous aider à vous familiariser avec les fonctionnalités de surveillance d’Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -26,7 +26,7 @@ Cet article a pour but de vous aider à utiliser les fonctionnalités de surveil
 ## <a name="what-is-security-health-monitoring"></a>Qu’est-ce que la surveillance de l’intégrité de la sécurité ?
 Nous pensons souvent que la surveillance consiste à veiller et à attendre qu’un événement se produise pour y répondre. Ici, la surveillance de la sécurité fait référence à une stratégie proactive qui audite vos ressources afin d’identifier les systèmes qui ne répondent pas aux normes organisationnelles ou aux meilleures pratiques.
 
-## <a name="monitoring-security-health"></a>Surveillance de l'intégrité de la sécurité
+## <a name="monitoring-security-health"></a>Surveillance de l’intégrité de la sécurité
 Une fois que vous avez activé les [stratégies de sécurité](security-center-policies.md) pour les ressources d’un abonnement, Azure Security Center analyse la sécurité de vos ressources afin d’identifier les vulnérabilités potentielles. Les informations sur la configuration du réseau sont instantanément disponibles. L’affichage des informations concernant la configuration des machines virtuelles (telles que l’état des mises à jour de sécurité ou la configuration du système d’exploitation) peut prendre une heure ou plus. Vous pouvez visualiser l’état de sécurité de vos ressources et les problèmes éventuels dans le panneau **Intégrité de la sécurité des ressources**. Vous pouvez également afficher une liste de ces problèmes dans le panneau **Recommandations** .
 
 Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
@@ -49,7 +49,7 @@ Quand vous cliquez sur **Machines virtuelles** dans la mosaïque **Intégrité d
 Dans chaque section, vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème. Les sections suivantes explique ces points plus en détail.
 
 #### <a name="monitoring-recommendations"></a>Recommandations concernant la surveillance
-Cette section indique la quantité totale de machines virtuelles qui ont été initialisées pour la collecte des données et leur état actuel. Une fois la collecte des données initialisée sur toutes les machines virtuelles, cette dernière est prête à recevoir les stratégies de sécurité d’Azure Security Center. Lorsque vous cliquez sur cette entrée, le panneau **État de l'installation de la collecte de données** s’affiche et vous permet de voir le nom des machines virtuelles et l’état actuel de la collecte de données dans la colonne **ÉTAT D’INSTALLATION**, comme illustré dans la capture d’écran suivante.
+Cette section indique la quantité totale de machines virtuelles qui ont été initialisées pour la collecte des données et leur état actuel. Une fois la collecte des données initialisée sur toutes les machines virtuelles, cette dernière est prête à recevoir les stratégies de sécurité d’Azure Security Center. Lorsque vous cliquez sur cette entrée, le panneau **État de l’installation de la collecte de données** s’affiche et vous permet de voir le nom des machines virtuelles et l’état actuel de la collecte de données dans la colonne **ÉTAT D’INSTALLATION**, comme illustré dans la capture d’écran suivante.
 
 ![État de l’initialisation des machines virtuelles](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
 
@@ -60,8 +60,8 @@ Cette section contient une série de [recommandations pour chaque machine virtue
 
 > [!NOTE]
 > Seules les machines virtuelles ayant au moins un point de terminaison public sont affichées dans le panneau **Intégrité de mise en réseau** dans la liste **Topologie du réseau**.
-> 
-> 
+>
+>
 
 Chaque recommandation dispose d’un ensemble d’actions pouvant être effectuées après avoir cliqué dessus. Par exemple, si vous cliquez sur **Mises à jour système manquantes**, le panneau **Mises à jour système manquantes** s’ouvre. Ce dernier répertorie les machines virtuelles auxquelles il manque des correctifs ainsi que le niveau de gravité de la mise à jour manquante, comme illustré dans la capture d’écran suivante.
 
@@ -87,8 +87,8 @@ Pour afficher des informations détaillées sur les recommandations, cliquez sur
 
 > [!NOTE]
 > Les recommandations de sécurité de ce panneau sont les mêmes que celles figurant dans le panneau **Recommandations**. Pour plus d’informations sur la résolution des recommandations, consultez l’article [Implémentation des recommandations de sécurité dans le Centre de sécurité Azure](security-center-recommendations.md). Cela s’applique non seulement aux machines virtuelles, mais aussi à toutes les ressources qui sont disponibles dans la mosaïque **Intégrité des ressources**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Section Machines virtuelles
 La section Machines virtuelles vous fournit un aperçu de toutes les machines virtuelles et des recommandations. Chaque colonne représente un ensemble de recommandations, comme illustré dans la capture d’écran suivante :
@@ -217,7 +217,6 @@ Dans cet article, vous avez vu comment utiliser les fonctionnalités de surveill
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

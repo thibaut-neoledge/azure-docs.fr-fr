@@ -1,121 +1,180 @@
 ---
-title: "Ajouter le connecteur Dynamics CRM Online à vos applications logiques | Microsoft Docs"
-description: "Créez des applications logiques avec Azure App Service. Le fournisseur de connexion Dynamics CRM Online fournit une API permettant de travailler avec les entités sur Dynamics CRM Online."
+title: "Ajouter le connecteur Dynamics 365 (Online) à vos applications Azure Logic Apps | Microsoft Docs"
+description: "Créez des applications logiques avec Azure App Service. Le fournisseur de connexion Dynamics 365 (Online) fournit une API permettant de travailler avec les entités sur Dynamics 365 (Online)."
 services: logic-apps
+cloud: Azure Stack
 documentationcenter: 
-author: MandiOhlinger
+author: Mattp123
 manager: anneta
-editor: 
-tags: connectors
 ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
 ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 11/07/2016
-ms.author: mandia
+ms.date: 02/10/2017
+ms.author: matp
 translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: a1ea6c09621aeeb1e98bbbf5edf1d5deb5e4b721
+ms.sourcegitcommit: fa426f474f4efd4023da5dfd9954dacf96f635ab
+ms.openlocfilehash: 99d5379ad1e6965dd9ed88de456cc850d7e40d5a
 
 
 ---
-# <a name="get-started-with-the-dynamics-crm-online-connector"></a>Prise en main du connecteur Dynamics CRM Online
-Connectez-vous à Dynamics CRM Online pour créer un enregistrement, mettre à jour un élément et bien plus encore. Avec CRM Online, vous pouvez effectuer les opérations suivantes :
+# <a name="create-a-logic-app-with-the-dynamics-365-connector"></a>Créer une application logique avec le connecteur Dynamics 365
 
-* Créer votre flux d’activité en fonction des données que vous obtenez de CRM Online. 
-* Utiliser des actions pour supprimer un enregistrement, obtenir des entités et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un élément est mis à jour dans CRM, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+Avec les applications Logic Apps, vous pouvez vous connecter à Dynamics 365 (Online) et créer des flux d’activité utiles qui génèrent de nouveaux enregistrements, mettent à jour les éléments ou renvoient une liste d’enregistrements. Avec le connecteur Dynamics 365, vous pouvez effectuer les opérations suivantes :
 
-Cette rubrique décrit comment utiliser le connecteur Dynamics CRM Online dans une application logique et répertorie également les déclencheurs et les actions.
+* Créer votre flux d’activité en fonction des données que vous obtenez de Dynamics 365 (Online).
+* Utiliser les actions qui obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un élément est mis à jour dans Dynamics 365 (Online), vous pouvez envoyer un courrier électronique à l’aide d’Office 365.
 
-> [!NOTE]
-> Cette version de l’article s’applique à la disponibilité générale des applications logiques.
-> 
-> 
+Cette rubrique vous explique comment créer une application logique qui génère une tâche dans Dynamics 365 lorsqu’un prospect est créé dans Dynamics 365.
 
-Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-what-are-logic-apps.md) et [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+## <a name="prerequisites"></a>Composants requis
+* Un compte Azure.
+* Un compte Dynamics 365 (Online).
 
-## <a name="connect-to-dynamics-crm-online"></a>Se connecter à Dynamics CRM Online
-Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Dynamics, vous devez disposer d’une *connexion* Dynamics CRM Online. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans Dynamics, entrez les informations d’identification à votre compte Dynamics CRM Online pour créer la connexion.
+## <a name="walkthrough-create-a-task-whenever-a-new-lead-is-created-in-dynamics-365"></a>Procédure pas à pas : Créer une tâche lorsqu’un prospect est créé dans Dynamics 365
+1.    [Connectez-vous à Azure](https://portal.azure.com).
+2.    Saisissez *Logic Apps* dans la zone de **recherche**, puis appuyez sur ENTRÉE.
+3.    Dans la zone de service d’application logique, cliquez sur **Ajouter**.
 
-### <a name="create-the-connection"></a>Créer la connexion
-> [!INCLUDE [Steps to create a connection to Dynamics CRM Online Connection Provider](../../includes/connectors-create-api-crmonline.md)]
-> 
-> 
+  ![LogicApp - Ajouter](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-## <a name="use-a-trigger"></a>Utilisation d’un déclencheur
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Les déclencheurs « interrogent » le service à l’intervalle et à la fréquence de votre choix. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+4.    Renseignez les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement** pour créer l’objet d’application logique, puis cliquez sur **Créer**.
 
-1. Dans l’application logique, saisissez « dynamics » pour obtenir la liste des déclencheurs :  
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. Sélectionnez **Dynamics CRM Online - Lorsqu’un enregistrement est créé**. Si une connexion existe déjà, sélectionnez une organisation et une entité dans la liste déroulante.
-   
-    ![](./media/connectors-create-api-crmonline/select-organization.png)
-   
-    Si vous êtes invité à vous connecter, entrez les informations de connexion pour créer la connexion. La section [Créer la connexion](connectors-create-api-crmonline.md#create-the-connection) figurant dans cette rubrique répertorie les étapes. 
-   
-   > [!NOTE]
-   > Dans cet exemple, l’application logique s’exécute lorsqu’un enregistrement est créé. Pour consulter les résultats de ce déclencheur, ajoutez une autre action qui vous envoie un courrier électronique. Par exemple, ajoutez l’action Office 365 *Envoyer un courrier électronique* qui vous avertit par e-mail lorsqu’un enregistrement est ajouté. 
-   > 
-   > 
-3. Sélectionnez le bouton **Modifier**, puis renseignez les valeurs **Fréquence** et **Intervalle**. Par exemple, si vous souhaitez que le déclencheur interroge le service toutes les 15 minutes, définissez le champ **Fréquence** sur **Minute**, et le champ **Intervalle** sur **15**. 
-   
-    ![](./media/connectors-create-api-crmonline/edit-properties.png)
-4. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+5.    Sélectionnez la nouvelle application logique. Lorsque vous recevez la notification **Déploiement réussi**, cliquez sur **Actualiser**.
 
-## <a name="use-an-action"></a>Utilisation d’une action
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+6.    Sous Outils de développement, cliquez sur **Concepteur d’application logique**, puis cliquez sur **LogicApp vide** dans la liste des modèles disponibles.
 
-1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
-   
-    ![](./media/connectors-create-api-crmonline/add-action.png)
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de texte, saisissez « dynamics » pour obtenir la liste de toutes les actions disponibles.
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-actions.png)
-4. Dans notre exemple, choisissez **Dynamics CRM Online - Mettre à jour un enregistrement**. Si une connexion existe déjà, choisissez le **Nom de l’organisation**, le **Nom de l’entité** et d’autres propriétés :  
-   
-    ![](./media/connectors-create-api-crmonline/sample-action.png)
-   
-    Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-crmonline.md#create-the-connection) dans cette rubrique décrit ces propriétés. 
-   
-   > [!NOTE]
-   > Dans cet exemple, nous mettons à jour un enregistrement existant dans CRM Online. Vous pouvez utiliser la sortie d’un autre déclencheur pour mettre à jour l’enregistrement. Par exemple, ajoutez le déclencheur SharePoint *Lorsqu’un élément existant est modifié*. Ensuite, ajoutez l’action CRM Online *Mettre à jour un enregistrement* qui utilise les champs SharePoint pour mettre à jour l’enregistrement existant dans CRM Online. 
-   > 
-   > 
-5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+7.    Saisissez *Dynamics 365*. Plusieurs déclencheurs Dynamics 365 se trouvent dans la liste, cliquez sur **Dynamics 365 – L’enregistrement est créé**.
+
+8.    Si vous êtes invité à vous connecter à Dynamics 365, faites-le maintenant.
+
+9.    Entrez les informations suivantes dans les détails du déclencheur.
+
+  * **Nom de l’organisation**. Sélectionnez l’instance de Dynamics 365 que l’application logique doit écouter.
+
+  * **Nom de l’entité**. Sélectionnez l’entité que vous souhaitez écouter, qui se comportera comme un déclencheur pour lancer l’application logique. Dans cette procédure pas à pas, **Prospects** est sélectionné.
+
+  * **How often do you want to check for items?** (À quelle fréquence souhaitez-vous rechercher des éléments ?) Ces valeurs définissent la fréquence à laquelle l’application logique recherche des mises à jour pour le déclencheur. Le paramètre par défaut consiste à rechercher des mises à jour toutes les trois minutes.
+
+    * **Fréquence**. Sélectionnez les secondes, les minutes, les heures ou les jours.
+
+    * **Intervalle**. Entrez un chiffre qui indique le nombre de secondes, de minutes, d’heures ou de jours avant la recherche suivante.
+
+    ![Application logique - Détails sur le déclencheur](./media/connectors-create-api-crmonline/trigger-details.png)
+
+10.    Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
+
+11.    Saisissez *Dynamics 365* et dans la liste, cliquez sur **Dynamics 365 – Créer un enregistrement**.
+
+12.    Entrez les informations ci-après.
+  * **Nom de l’organisation**. Sélectionnez l’instance de Dynamics 365 dans laquelle vous souhaitez que le flux crée l’enregistrement. Notez qu’il ne s’agit pas nécessairement de la même instance que celle depuis laquelle l’évènement est déclenché.
+  * **Nom de l’entité**. Sélectionnez l’entité dans laquelle vous souhaitez créer un enregistrement lorsque l’événement est déclenché. Dans cette procédure pas à pas, **Tâches** est sélectionné.
+
+13.    Une zone Objet apparaît. Lorsque vous cliquez dans la zone, un volet de contenu dynamique s’affiche et vous pouvez sélectionner l’un des champs suivants.
+  * **Nom**. Sélectionner ce champ permettra d’insérer le nom du prospect dans le champ Objet de la tâche, lorsque l’enregistrement de la tâche est créé.
+  * **Rubrique**. Sélectionner ce champ permettra d’insérer le champ Rubrique pour le prospect dans le champ Objet de la tâche, lorsque l’enregistrement de la tâche est créé.
+Cliquez sur **Rubrique** pour l’ajouter à la zone **Objet**.
+
+  ![Application logique - Détails Créer un enregistrement](./media/connectors-create-api-crmonline/create-record-details.png)
+
+14.    Cliquez sur **Enregistrer** dans la barre d’outils du Concepteur d’application logique.
+
+  ![Barre d’outils du Concepteur d’application logique - Enregistrer](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+
+15.    Pour démarrer l’application logique, cliquez sur **Exécuter**.
+
+  ![Barre d’outils du Concepteur d’application logique - Enregistrer](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+
+16. Créez maintenant un enregistrement de prospect dans Dynamics 365 pour les ventes et observez votre flux en action !
+
+## <a name="using-advanced-options"></a>Utilisation des options avancées
+Lorsque vous ajoutez une étape à une application logique, cliquer sur **Afficher les options avancées** vous permet de contrôler comment les données sont filtrées pour l’étape en ajoutant un filtre ou une requête de tri.
+
+Par exemple, vous pouvez utiliser une requête de filtre pour récupérer uniquement les comptes actifs et trier par nom du compte. Pour ce faire, entrez la requête de filtre OData **statuscode eq 1** et sélectionnez **Nom de compte** à partir du volet de contenu dynamique. Plus d’informations : [MSDN : $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) et [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+
+  ![LogicApp - Options avancées](./media/connectors-create-api-crmonline/advanced-options.png)
+
+### <a name="best-practices-when-using-advanced-options"></a>Meilleures pratiques lors de l’utilisation des options avancées
+Notez que lorsque vous ajoutez une valeur à un champ, vous devez faire correspondre le type de champ si vous saisissez une valeur ou le sélectionner dans le contenu dynamique qui est affiché.
+
+Type de champ  |Utilisation  |Comment y accéder  |Nom  |Type de données  
+---------|---------|---------|---------|---------
+Champs de texte|Les champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui est un champ de type texte. Exemples : Catégorie et Sous-catégorie.|Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |category |Ligne de texte unique.       
+Champs de type entier | Certains champs nécessitent un entier ou un contenu dynamique qui est un champ de type entier. Exemples : Pourcentage achevé et Durée. |Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |percentcomplete |Nombre entier         
+Champs de date | Certains champs nécessitent qu’une date soit saisie au format mm/jj/aaaa ou un contenu dynamique qui est un champ de type date. Exemples : Créé le, Date de début, Début réel, Dernière durée de suspension, Fin réelle et Date d’échéance. | Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |createdon |Date et heure         
+Champs qui nécessitent à la fois un ID d’enregistrement et un type de recherche |Certains champs qui font référence à un autre enregistrement d’entité nécessitent l’ID d’enregistrement et le type de recherche. |Paramètres > Personnalisations > Personnaliser le système > Entités > Compte > Champs  | accountid   | Clé primaire
+
+### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Exemples de champs supplémentaires nécessitant un ID d’enregistrement et un type de recherche
+Pour compléter le tableau précédent, voici des exemples de champs supplémentaires qui ne fonctionnent pas avec les valeurs sélectionnées dans la liste de contenu dynamique. À la place, ces champs nécessitent un ID d’enregistrement et un type de recherche saisis dans les champs de PowerApps.  
+*  Propriétaire et Type de propriétaire. Le champ Propriétaire doit être un ID d’enregistrement d’utilisateur ou d’équipe valide. Le champ Type de propriétaire doit être **systemusers** ou **équipes**.
+* Client et Type de client. Le champ Client doit être un ID d’enregistrement de compte ou de contact valide. Le champ Type de propriétaire doit être **comptes** ou **contacts**.
+* Concernant et Type Concernant. Le champ Concernant doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. Le champ Type Concernant doit être le type de recherche pour l’enregistrement, tel que **comptes** ou **contacts**.
+
+L’exemple d’action de création de tâche suivant ajoute un enregistrement de compte qui correspond à l’ID d’enregistrement en l’ajoutant au champ Concernant de la tâche.
+
+  ![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid-type-account.png)
+
+Cet exemple affecte également la tâche à un utilisateur spécifique en fonction de l’ID d’enregistrement d’utilisateur.
+  ![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid-type-user.png)
+
+Pour rechercher un ID d’enregistrement, consultez la section *Recherche de l’ID d’enregistrement* ci-dessous.
+
+## <a name="find-the-record-id"></a>Recherche de l’ID d’enregistrement
+1. Ouvrez un enregistrement, comme un enregistrement de compte.
+
+2. Dans la barre d’outils d’actions, cliquez sur **Ouvrir dans une nouvelle fenêtre** ![enregistrement - fenêtre indépendante](./media/connectors-create-api-crmonline/popout-record.png).
+Vous pouvez également cliquer sur **ENVOYER UN LIEN PAR COURRIER ÉLECTRONIQUE** dans la barre d’outils d’actions pour copier l’URL complète dans votre programme de messagerie par défaut.
+
+3. L’ID d’enregistrement est affiché entre les caractères d’encodage %7b et %7d de l’URL.
+
+  ![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid.png)
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+Pour résoudre les problèmes qui peuvent se produire lors d’une étape dans une application logique, affichez les détails de l’état de l’événement.
+
+1. Dans la zone des applications logiques, cliquez sur votre application logique, puis sur **Vue d’ensemble**. La zone Résumé s’affiche et indique l’état d’exécution de l’application logique. En cas de problèmes lors des exécutions, cliquez sur l’événement ayant rencontré des problèmes pour lequel vous souhaitez avoir plus d’informations.
+
+  ![LogicApp - Résoudre les problèmes - Étape 1](./media/connectors-create-api-crmonline/tshoot1.png)
+
+2. Cliquez sur l’étape lors de laquelle des problèmes se sont présentés pour la développer.
+
+  ![LogicApp - Résoudre les problèmes - Étape 2](./media/connectors-create-api-crmonline/tshoot2.png)
+
+3. Les détails de l’étape s’affichent et peuvent aider à résoudre la cause du problème.
+
+    ![LogicApp - Résoudre les problèmes - Étape 2](./media/connectors-create-api-crmonline/tshoot3.png)
+
+Pour plus d’informations sur la résolution des problèmes relatifs aux applications logiques, consultez [Diagnostic des échecs d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md).
 
 ## <a name="technical-details"></a>Détails techniques
 ## <a name="triggers"></a>Déclencheurs
 | Déclencheur | Description |
 | --- | --- |
-| [Lorsqu’un enregistrement est créé](connectors-create-api-crmonline.md#when-a-record-is-created) |Déclenche un flux quand un objet est créé dans CRM. |
-| [Lorsqu’un enregistrement est mis à jour](connectors-create-api-crmonline.md#when-a-record-is-updated) |Déclenche un flux quand un objet est modifié dans CRM. |
-| [Lorsqu’un enregistrement est supprimé](connectors-create-api-crmonline.md#when-a-record-is-deleted) |Déclenche un flux quand un objet est supprimé dans CRM. |
+| Lorsqu’un enregistrement est créé |Déclenche un flux quand un objet est créé dans Dynamics 365. |
+| Lorsqu’un enregistrement est mis à jour |Déclenche un flux quand un objet est modifié dans Dynamics 365. |
+| Lorsqu’un enregistrement est supprimé |Déclenche un flux quand un objet est supprimé dans Dynamics 365. |
 
 ## <a name="actions"></a>Actions
 | Action | Description |
 | --- | --- |
-| [Répertorier les enregistrements](connectors-create-api-crmonline.md#list-records) |Cette opération récupère les enregistrements d’une entité. |
-| [Créer un enregistrement](connectors-create-api-crmonline.md#create-a-new-record) |Cette opération crée un enregistrement pour une entité. |
-| [Obtenir l’enregistrement](connectors-create-api-crmonline.md#get-record) |Cette opération récupère l’enregistrement spécifié pour une entité. |
-| [Supprimer un enregistrement](connectors-create-api-crmonline.md#delete-a-record) |Cette opération supprime un enregistrement à partir d’une collection d’entités. |
-| [Mettre à jour un enregistrement](connectors-create-api-crmonline.md#update-a-record) |Cette opération met à jour un enregistrement existant pour une entité. |
+| Répertorier les enregistrements |Cette opération récupère les enregistrements d’une entité. |
+| Créer un enregistrement |Cette opération crée un enregistrement pour une entité. |
+| Obtenir l’enregistrement |Cette opération récupère l’enregistrement spécifié pour une entité. |
+| Supprimer un enregistrement |Cette opération supprime un enregistrement à partir d’une collection d’entités. |
+| Mise à jour d’un enregistrement |Cette opération met à jour un enregistrement existant pour une entité. |
 
 ### <a name="trigger-and-action-details"></a>Détail des déclencheurs et des actions
 Dans cette section, consultez les détails relatifs à chacun des déclencheurs et actions, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
 
 #### <a name="when-a-record-is-created"></a>Lorsqu’un enregistrement est créé
-Déclenche un flux quand un objet est créé dans CRM. 
+Déclenche un flux quand un objet est créé dans Dynamics 365.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (par défaut : 256) |
 | $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
 
@@ -129,16 +188,12 @@ ItemsList
 | value |array |
 
 #### <a name="when-a-record-is-updated"></a>Lorsqu’un enregistrement est mis à jour
-Déclenche un flux quand un objet est modifié dans CRM. 
+Déclenche un flux quand un objet est modifié dans Dynamics 365.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (par défaut : 256) |
-| $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
 
 Un astérisque (*) signifie que la propriété est requise.
 
@@ -150,16 +205,13 @@ ItemsList
 | value |array |
 
 #### <a name="when-a-record-is-deleted"></a>Lorsqu’un enregistrement est supprimé
-Déclenche un flux quand un objet est supprimé dans CRM. 
+Déclenche un flux quand un objet est supprimé dans Dynamics 365.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (par défaut : 256) |
-| $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
+
 
 Un astérisque (*) signifie que la propriété est requise.
 
@@ -171,14 +223,12 @@ ItemsList
 | value |array |
 
 #### <a name="list-records"></a>Répertorier les enregistrements
-Cette opération récupère les enregistrements d’une entité. 
+Cette opération récupère les enregistrements d’une entité.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
-| $skip |Nombre à ignorer |Nombre d’entrées à ignorer (valeur par défaut : 0) |
-| $top |Nombre maximal à récupérer |Nombre maximal d’entrées à récupérer (par défaut : 256) |
 | $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
 | $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
 
@@ -192,11 +242,11 @@ ItemsList
 | value |array |
 
 #### <a name="create-a-new-record"></a>Créer un enregistrement
-Cette opération crée un enregistrement pour une entité. 
+Cette opération crée un enregistrement pour une entité.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
 
 Un astérisque (*) signifie que la propriété est requise.
@@ -205,11 +255,11 @@ Un astérisque (*) signifie que la propriété est requise.
 Aucune.
 
 #### <a name="get-record"></a>Obtenir l’enregistrement
-Cette opération récupère l’enregistrement spécifié pour une entité. 
+Cette opération récupère l’enregistrement spécifié pour une entité.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
 | id* |Identificateur d’élément |Indiquez l’identificateur de l’enregistrement |
 
@@ -219,22 +269,22 @@ Un astérisque (*) signifie que la propriété est requise.
 Aucune.
 
 #### <a name="delete-a-record"></a>Supprimer un enregistrement
-Cette opération supprime un enregistrement à partir d’une collection d’entités. 
+Cette opération supprime un enregistrement à partir d’une collection d’entités.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
 | id* |Identificateur d’élément |Indiquez l’identificateur de l’enregistrement |
 
 Un astérisque (*) signifie que la propriété est requise.
 
 #### <a name="update-a-record"></a>Mise à jour d’un enregistrement
-Cette opération met à jour un enregistrement existant pour une entité. 
+Cette opération met à jour un enregistrement existant pour une entité.
 
 | Nom de la propriété | Nom complet | Description |
 | --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation CRM, comme Contoso |
+| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
 | table* |Nom de l’entité |Nom de l’entité |
 | id* |Identificateur de l’enregistrement |Indiquez l’identificateur de l’enregistrement |
 
@@ -244,7 +294,7 @@ Un astérisque (*) signifie que la propriété est requise.
 Aucune.
 
 ## <a name="http-responses"></a>Réponses HTTP
-Les actions et déclencheurs peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants : 
+Les actions et déclencheurs peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
 
 | Name | Description |
 | --- | --- |
@@ -258,8 +308,7 @@ Les actions et déclencheurs peuvent renvoyer un ou plusieurs des codes d’éta
 | default |L’opération a échoué. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
-
+Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
 
 
 ---
@@ -36,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 
 ## <a name="install-azure-powershell-10-or-greater"></a>Installer Azure PowerShell 1.0 ou versions ultérieures
-Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ## <a name="manage-accounts"></a>Gérer les comptes
 Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez pas pour un compte Analytics lorsque celui-ci n'exécute aucun travail.  Vous payez uniquement lorsqu'il exécute un travail.  Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).  
@@ -319,7 +319,7 @@ Le groupe ARM peut cependant se trouver dans un autre centre de données.
 * [Surveiller et résoudre les problèmes des tâches d’analyse Azure Data Lake à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="appendix-a---data-lake-analytics-arm-template"></a>Annexe A - Modèle ARM Data Lake Analytics
-Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake Analytics et son compte Data Lake Store dépendant.  Enregistrez-le dans un fichier json, puis utilisez le script PowerShell pour appeler le modèle. Pour plus d’informations, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](../resource-group-template-deploy.md#deploy-with-powershell) et [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake Analytics et son compte Data Lake Store dépendant.  Enregistrez-le dans un fichier json, puis utilisez le script PowerShell pour appeler le modèle. Pour plus d’informations, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) et [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -377,6 +377,6 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

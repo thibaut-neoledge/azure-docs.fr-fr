@@ -6,6 +6,6 @@ Vous pouvez également créer un compte de stockage Azure à l’aide [d’Azure
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

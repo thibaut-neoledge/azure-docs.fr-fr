@@ -1,5 +1,5 @@
 ---
-title: Redimensionner une machine virtuelle Windows classique | Microsoft Docs
+title: "Redimensionner une machine virtuelle Windows dans le modèle de déploiement Classic - Azure | Microsoft Docs"
 description: "Redimensionnez une machine virtuelle Windows créée avec le modèle de déploiement classique à l’aide d’Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 9e874689e15fa1cd289a01c7781e3c9d1ad7ac67
+ms.sourcegitcommit: 3352e5d17777a213a91911440274419f2058940b
+ms.openlocfilehash: 381cf34b9e65a46a8033880a95e94446bd01edf1
 
 
 ---
@@ -72,6 +72,6 @@ Vous trouverez [ici](https://github.com/Azure/azure-vm-scripts) un exemple de sc
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

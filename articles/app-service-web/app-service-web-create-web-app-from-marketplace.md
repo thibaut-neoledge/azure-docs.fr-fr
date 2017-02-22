@@ -168,6 +168,6 @@ Pour plus d’informations sur le développement d’applications web WordPress 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

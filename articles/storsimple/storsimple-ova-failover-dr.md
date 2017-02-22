@@ -1,5 +1,5 @@
 ---
-title: "Basculement d&quot;appareil et  récupération d&quot;urgence pour votre StorSimple Virtual Array"
+title: "Basculement d’appareil et récupération d’urgence pour StorSimple Virtual Array | Microsoft Docs"
 description: En savoir plus sur le basculement de votre StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -125,7 +125,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 Cette vidéo montre comment vous pouvez basculer un appareil virtuel local StorSimple vers un autre appareil virtuel.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -153,6 +153,6 @@ En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’in
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -90,12 +90,12 @@ Si vous êtes un développeur tentant d’analyser les données d’annotation J
 
 ### <a name="set-up-the-tool"></a>Configuration de l’outil
 
-1.  Téléchargez et générez la solution complète. 
+1.    Téléchargez et générez la solution complète. 
 
     ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Téléchargez FFMPEG [ici](https://ffmpeg.org/download.html). Ce projet a été développé à l’origine avec la version be1d324 (04-10-2016) avec une liaison statique. 
-3.  Copiez ffmpeg.exe et ffprobe.exe dans le même dossier de sortie en tant que AzureMediaRedactor.exe. 
+2.    Téléchargez FFMPEG [ici](https://ffmpeg.org/download.html). Ce projet a été développé à l’origine avec la version be1d324 (04-10-2016) avec une liaison statique. 
+3.    Copiez ffmpeg.exe et ffprobe.exe dans le même dossier de sortie en tant que AzureMediaRedactor.exe. 
 
     ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +113,9 @@ Si vous êtes un développeur tentant d’analyser les données d’annotation J
     
     ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Le champ de texte en bas est mis à jour avec les ID de face. Créez un fichier appelé « idlist.txt » avec ces ID sous forme de liste délimitée par un saut de ligne. 
-6.  Chargez ce fichier dans la ressource de sortie de l’étape 1. Chargez la vidéo d’origine également dans cette ressource et définissez-la en tant que ressource principale. 
-7.  Lancez le travail de rédaction sur cette ressource avec le mode « Rédaction » pour obtenir la vidéo rédigée finale. 
+5.    Le champ de texte en bas est mis à jour avec les ID de face. Créez un fichier appelé « idlist.txt » avec ces ID sous forme de liste délimitée par un saut de ligne. 
+6.    Chargez ce fichier dans la ressource de sortie de l’étape 1. Chargez la vidéo d’origine également dans cette ressource et définissez-la en tant que ressource principale. 
+7.    Lancez le travail de rédaction sur cette ressource avec le mode « Rédaction » pour obtenir la vidéo rédigée finale. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
@@ -132,6 +132,6 @@ Si vous êtes un développeur tentant d’analyser les données d’annotation J
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

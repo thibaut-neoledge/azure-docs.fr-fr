@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du port
 > 
 
 ## <a name="change-headers-styling"> </a>Modification du style des en-têtes
-Les couleurs, polices, tailles, espacements et autres éléments liés au style de chaque page sur le portail sont définis par des règles de style. Pour modifier les styles, cliquez sur **Apparence** dans le menu **Portail des développeurs** du portail des éditeurs, puis cliquez sur **Commencer la personnalisation** pour activer l’éditeur de style.
+Les couleurs, polices, tailles, espacements et autres éléments liés au style de chaque page sur le portail sont définis par des règles de style. Pour modifier les styles, accédez au **portail des développeurs**, ouvrez la barre d’outils de personnalisation sur la gauche en vous positionnant sur l’icône de personnalisation, puis sélectionnez « styles » dans la barre d’outils.
 
-Votre navigateur bascule vers une page masquée du portail des développeurs, contenant des échantillons de contenu, avec des exemples de toutes les règles de style utilisées sur le site. Pour ouvrir l'éditeur de style, déplacez votre curseur sur la fine ligne verticale grise sur la partie la plus à gauche de la page. La barre d'outils de l'éditeur doit s'afficher.
+![Bouton de la barre d’outils de personnalisation][api-management-customization-toolbar-button]
+
+Il existe principalement deux méthodes pour modifier les règles de style : vous pouvez parcourir la liste de toutes les règles de style utilisées, sachant qu’elle s’affiche par défaut, puis modifier un style selon vos besoins, ou vous pouvez choisir **Select an element on the page** (Sélectionner un élément sur la page), puis cliquez n’importe où sur la page pour afficher uniquement les styles de cet élément.
+
+Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Select an element on the page** (Sélectionner un élément sur la page) dans la barre d’outils de l’éditeur de style. 
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-Il existe deux modes principaux de règles de style d’édition : **Modifier toutes les règles** affiche la liste de tous les styles utilisés ; **Choisir élément** vous permet de sélectionner un élément dans la page sur laquelle vous vous trouvez et affiche des styles uniquement pour cet élément.
-
-Dans cette section, nous souhaitons modifier le style des en-têtes uniquement. Cliquez sur l’option **Choisir élément** dans la barre d’outils de l’éditeur de style, puis cliquez sur **Sélectionner un élément à personnaliser**. Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style.
-
-Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d'en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec des alternatives est en @headings-font-family.
+Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Passez la souris sur le texte représentant le nom de la société dans l’en-tête (« Portail des développeurs Fabrikam », si vous avez suivi les instructions de la section précédente), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style. Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d’en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec d’autres options est en @headings-font-family.
 
 > Si vous connaissez [l'amorçage][bootstrap], ces règles sont en fait des [variables LESS][LESS variables] dans le thème d'amorçage utilisé par le portail des développeurs.
 > 
@@ -63,7 +63,7 @@ Modifions la couleur du texte d'en-tête. Sélectionnez l’entrée dans le cham
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
-Quand vous avez terminé d’apporter des modifications aux styles de l’élément sélectionné, cliquez sur **Aperçu des modifications** pour afficher les résultats à l’écran. Pour l’instant, ils ne sont visibles que pour les administrateurs. Pour rendre ces modifications visibles pour tout le monde, cliquez sur le bouton **Publier** dans l’éditeur de style et confirmez les modifications.
+Un aperçu des modifications apportées est disponible en temps réel. Toutefois, seuls les administrateurs y ont accès. Pour rendre ces modifications visibles pour tout le monde, cliquez sur le bouton **Publier** dans l’éditeur de style et confirmez les modifications.
 
 ![Publish menu][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

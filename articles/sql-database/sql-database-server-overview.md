@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
+ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
+ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 Cette rubrique comporte des considérations et instructions relatives à l’utilisation des serveurs logiques SQL Azure. Pour plus d’informations sur les bases de données SQL Azure, consultez [Bases de données SQL](sql-database-overview.md).
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Qu’est-ce qu’un serveur logique Azure SQL Database ?
-Un serveur logique Azure SQL Database agit comme un point d’administration central pour plusieurs bases de données. Dans SQL Database, un serveur est une construction logique distincte d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport à leurs serveurs logiques et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance. Pour plus d’informations sur les serveurs logiques SQL Azure, consultez [Serveurs logiques](sql-database-server-overview.md). 
+Un serveur logique Azure SQL Database agit comme un point d’administration central pour plusieurs bases de données. Dans SQL Database, un serveur est une construction logique distincte d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport à leurs serveurs logiques et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance.  
 
 Un serveur logique de base de données Azure :
 
@@ -85,6 +85,6 @@ Vous pouvez gérer les serveurs logiques Azure SQL Database à l’aide de plusi
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

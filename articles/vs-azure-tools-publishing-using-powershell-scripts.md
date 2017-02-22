@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0b399c9464e5436f2ac0178eb4cbc5dc3778347e
+ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
+ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
 
 
 ---
@@ -30,7 +30,7 @@ Lorsque vous créez une application web dans Visual Studio, vous pouvez génér
 
 Vous n’avez pas besoin du kit de développement logiciel (SDK) Azure pour générer les scripts pour les projets web. Cette fonctionnalité s’adresse aux projets web, et non aux rôles web dans les services cloud.
 
-* Azure PowerShell 0.7.4 ou version ultérieure. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) .
+* Azure PowerShell 0.7.4 ou version ultérieure. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) ou version ultérieure.
 
 ## <a name="additional-tools"></a>Outils supplémentaires
@@ -46,100 +46,95 @@ Visual Studio génère un dossier au niveau solution appelé **PublishScripts**
 Le script de publication contient des étapes de publication spécifiques pour le déploiement sur un site web ou une machine virtuelle. Visual Studio propose la coloration de syntaxe pour le développement de Windows PowerShell. Vous pouvez bénéficier d’une aide sur les fonctions et modifier librement les fonctions dans le script en fonction de l’évolution de vos besoins.
 
 ### <a name="windows-powershell-module"></a>Module Windows PowerShell
-Le module Windows PowerShell généré par Visual Studio contient des fonctions que le script de publication utilise. Ce sont des fonctions Azure PowerShell et elles ne sont pas destinées à être modifiées. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) .
+Le module Windows PowerShell généré par Visual Studio contient des fonctions que le script de publication utilise. Ce sont des fonctions Azure PowerShell et elles ne sont pas destinées à être modifiées. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ### <a name="json-configuration-file"></a>Fichier de configuration JSON
 Le fichier JSON est créé dans le dossier **Configurations** et contient des données de configuration qui spécifient exactement les ressources à déployer sur Azure. Le nom du fichier généré par Visual Studio est projet-nom-WAWS-dev.json, si vous avez créé un site web, ou projet-nom-VM-dev.json, si vous avez créé une machine virtuelle. Voici un exemple de fichier de configuration JSON généré lorsque vous créez un site web. La plupart des valeurs sont explicites. Le nom du site web est généré par Azure ; il peut donc ne pas correspondre au nom de votre projet.
 
-```
+```json
 {
-"environmentSettings": {
-"webSite": {
-"name": "WebApplication26632",
-"location": "West US"
-},
-"databases": [
-{
-"connectionStringName": "DefaultConnection",
-"databaseName": "WebApplication26632_db",
-"serverName": "YourDatabaseServerName",
-"user": "sqluser2",
-"password": "",
-"edition": "",
-"size": "",
-"collation": "",
-"location": "West US"
-}
-]
-}
+    "environmentSettings": {
+        "webSite": {
+            "name": "WebApplication26632",
+            "location": "West US"
+        },
+        "databases": [{
+            "connectionStringName": "DefaultConnection",
+            "databaseName": "WebApplication26632_db",
+            "serverName": "YourDatabaseServerName",
+            "user": "sqluser2",
+            "password": "",
+            "edition": "",
+            "size": "",
+            "collation": "",
+            "location": "West US"
+        }]
+    }
 }
 ```
 Lorsque vous créez une machine virtuelle, le fichier de configuration JSON ressemble à ce qui suit. Notez qu’un service cloud est créé comme un conteneur pour la machine virtuelle. La machine virtuelle contient les points de terminaison habituels pour l’accès web via HTTP et HTTPS, ainsi que les points de terminaison pour Web Deploy, ce qui vous permet de publier sur le site web à partir de votre ordinateur local, de la connexion Bureau à distance et de Windows PowerShell.
 
-```
+```json
 {
-"environmentSettings": {
-"cloudService": {
-"name": "myusernamevm1",
-"affinityGroup": "",
-"location": "West US",
-"virtualNetwork": "",
-"subnet": "",
-"availabilitySet": "",
-"virtualMachine": {
-"name": "myusernamevm1",
-"vhdImage": "a699494373c04fc0bc8f2bb1389d6106__Win2K8R2SP1-Datacenter-201403.01-en.us-127GB.vhd",
-"size": "Small",
-"user": "vmuser1",
-"password": "",
-"enableWebDeployExtension": true,
-"endpoints": [
-{
-"name": "Http",
-"protocol": "TCP",
-"publicPort": "80",
-"privatePort": "80"
-},
-{
-"name": "Https",
-"protocol": "TCP",
-"publicPort": "443",
-"privatePort": "443"
-},
-{
-"name": "WebDeploy",
-"protocol": "TCP",
-"publicPort": "8172",
-"privatePort": "8172"
-},
-{
-"name": "Remote Desktop",
-"protocol": "TCP",
-"publicPort": "3389",
-"privatePort": "3389"
-},
-{
-"name": "Powershell",
-"protocol": "TCP",
-"publicPort": "5986",
-"privatePort": "5986"
-}
-]
-}
-},
-"databases": [
-{
-"connectionStringName": "",
-"databaseName": "",
-"serverName": "",
-"user": "",
-"password": ""
-}
-],
-"webDeployParameters": {
-"iisWebApplicationName": "Default Web Site"
-}
-}
+    "environmentSettings": {
+        "cloudService": {
+            "name": "myusernamevm1",
+            "affinityGroup": "",
+            "location": "West US",
+            "virtualNetwork": "",
+            "subnet": "",
+            "availabilitySet": "",
+            "virtualMachine": {
+                "name": "myusernamevm1",
+                "vhdImage": "a699494373c04fc0bc8f2bb1389d6106__Win2K8R2SP1-Datacenter-201403.01-en.us-127GB.vhd",
+                "size": "Small",
+                "user": "vmuser1",
+                "password": "",
+                "enableWebDeployExtension": true,
+                "endpoints": [{
+                        "name": "Http",
+                        "protocol": "TCP",
+                        "publicPort": "80",
+                        "privatePort": "80"
+                    },
+                    {
+                        "name": "Https",
+                        "protocol": "TCP",
+                        "publicPort": "443",
+                        "privatePort": "443"
+                    },
+                    {
+                        "name": "WebDeploy",
+                        "protocol": "TCP",
+                        "publicPort": "8172",
+                        "privatePort": "8172"
+                    },
+                    {
+                        "name": "Remote Desktop",
+                        "protocol": "TCP",
+                        "publicPort": "3389",
+                        "privatePort": "3389"
+                    },
+                    {
+                        "name": "Powershell",
+                        "protocol": "TCP",
+                        "publicPort": "5986",
+                        "privatePort": "5986"
+                    }
+                ]
+            }
+        },
+        "databases": [{
+            "connectionStringName": "",
+            "databaseName": "",
+            "serverName": "",
+            "user": "",
+            "password": ""
+        }],
+        "webDeployParameters": {
+            "iisWebApplicationName": "Default Web Site"
+        }
+    }
 }
 ```
 
@@ -160,44 +155,50 @@ Pour plus d’informations, consultez [Comment : créer un package de déploiem
 1. Dans l’**Explorateur de solutions**, ouvrez le menu contextuel du script, puis choisissez **Ouvrir avec PowerShell ISE**.
 2. S’il s’agit de la première fois que vous exécutez des scripts Windows PowerShell sur cet ordinateur, ouvrez une fenêtre d’invite de commandes avec des privilèges d’administrateur et tapez la commande suivante :
 
-`Set-ExecutionPolicy RemoteSigned`
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned
+    ```
 
-1. Connectez-vous à Azure en utilisant la commande suivante.
+3. Connectez-vous à Azure en utilisant la commande suivante.
 
-`Add-AzureAccount`
+    ```powershell
+    Add-AzureAccount
+    ```
 
-Lorsque vous y êtes invité, indiquez votre nom d’utilisateur et votre mot de passe.
+    Lorsque vous y êtes invité, indiquez votre nom d’utilisateur et votre mot de passe.
 
-Notez que lorsque vous automatisez le script, cette méthode de renseignement des informations d’identification Azure ne fonctionne pas. À la place, vous devez utiliser le fichier .publishsettings pour fournir des informations d’identification. Une fois seulement, vous utilisez la commande **Get-AzurePublishSettingsFile** pour télécharger le fichier à partir d’Azure. Ensuite, vous utilisez **Import-AzurePublishSettingsFile** pour importer le fichier. Pour des instructions détaillées, consultez [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+    Notez que lorsque vous automatisez le script, cette méthode de renseignement des informations d’identification Azure ne fonctionne pas. À la place, vous devez utiliser le fichier .publishsettings pour fournir des informations d’identification. Une fois seulement, vous utilisez la commande **Get-AzurePublishSettingsFile** pour télécharger le fichier à partir d’Azure. Ensuite, vous utilisez **Import-AzurePublishSettingsFile** pour importer le fichier. Pour des instructions détaillées, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-1. (Facultatif) Si vous souhaitez créer des ressources Azure telles que la machine virtuelle, la base de données et le site web sans publier votre application web, utilisez la commande **Publish-WebApplication.ps1** avec l’argument **-Configuration** défini dans le fichier de configuration JSON. Cette ligne de commande utilise le fichier de configuration JSON pour déterminer les ressources à créer. Étant donné qu’elle utilise les paramètres par défaut pour les autres arguments de ligne de commande, elle crée les ressources, mais ne publie pas votre application web. L’option –Verbose vous donne plus d’informations sur ce qui se passe.
+4. (Facultatif) Si vous souhaitez créer des ressources Azure telles que la machine virtuelle, la base de données et le site web sans publier votre application web, utilisez la commande **Publish-WebApplication.ps1** avec l’argument **-Configuration** défini dans le fichier de configuration JSON. Cette ligne de commande utilise le fichier de configuration JSON pour déterminer les ressources à créer. Étant donné qu’elle utilise les paramètres par défaut pour les autres arguments de ligne de commande, elle crée les ressources, mais ne publie pas votre application web. L’option –Verbose vous donne plus d’informations sur ce qui se passe.
 
-`Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json`
+    ```powershell
+    Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json
+    ```
 
-1. Utilisez la commande **Publish-WebApplication.ps1** comme indiqué dans l’un des exemples suivants pour appeler le script et publier votre application web. Si vous souhaitez remplacer les paramètres par défaut de tout autre argument, comme le nom de l’abonnement, le nom du package de publication, les informations d’identification de la machine virtuelle ou les informations d’identification du serveur de base de données, vous pouvez spécifier ces paramètres. Utilisez l’option **–Verbose** pour afficher plus d’informations sur la progression du processus de publication.
+5. Utilisez la commande **Publish-WebApplication.ps1** comme indiqué dans l’un des exemples suivants pour appeler le script et publier votre application web. Si vous souhaitez remplacer les paramètres par défaut de tout autre argument, comme le nom de l’abonnement, le nom du package de publication, les informations d’identification de la machine virtuelle ou les informations d’identification du serveur de base de données, vous pouvez spécifier ces paramètres. Utilisez l’option **–Verbose** pour afficher plus d’informations sur la progression du processus de publication.
 
-```
-Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
-–SubscriptionName Contoso `
--WebDeployPackage C:\Documents\Azure\ADWebApp.zip `
--DatabaseServerPassword @{Name="dbServerName";Password="adminPassword"} `
--Verbose
-```
+    ```powershell
+    Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
+    –SubscriptionName Contoso `
+    -WebDeployPackage C:\Documents\Azure\ADWebApp.zip `
+    -DatabaseServerPassword @{Name="dbServerName";Password="adminPassword"} `
+    -Verbose
+    ```
 
-Si vous créez une machine virtuelle, la commande ressemble à ce qui suit. Cet exemple montre également comment spécifier les informations d’identification pour plusieurs bases de données. Pour les machines virtuelles créées par ces scripts, le certificat SSL n’est pas d’une autorité racine de confiance. Par conséquent, vous devez utiliser l’option **–AllowUntrusted** .
+    Si vous créez une machine virtuelle, la commande ressemble à ce qui suit. Cet exemple montre également comment spécifier les informations d’identification pour plusieurs bases de données. Pour les machines virtuelles créées par ces scripts, le certificat SSL n’est pas d’une autorité racine de confiance. Par conséquent, vous devez utiliser l’option **–AllowUntrusted** .
 
-```
-Publish-WebApplication.ps1 `
--Configuration C:\Path\ADVM-VM-test.json `
--SubscriptionName Contoso `
--WebDeployPackage C:\Path\ADVM.zip `
--AllowUntrusted `
--VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
--DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
--Verbose
-```
+    ```powershell
+    Publish-WebApplication.ps1 `
+    -Configuration C:\Path\ADVM-VM-test.json `
+    -SubscriptionName Contoso `
+    -WebDeployPackage C:\Path\ADVM.zip `
+    -AllowUntrusted `
+    -VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
+    -DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
+    -Verbose
+    ```
 
-Le script peut créer des bases de données, mais il ne crée pas de serveurs de base de données. Si vous souhaitez créer un serveur de base de données, vous pouvez utiliser la fonction **New-AzureSqlDatabaseServer** du module Azure.
+    Le script peut créer des bases de données, mais il ne crée pas de serveurs de base de données. Si vous souhaitez créer un serveur de base de données, vous pouvez utiliser la fonction **New-AzureSqlDatabaseServer** du module Azure.
 
 ## <a name="customizing-and-extending-the-publish-scripts"></a>Personnalisation et extension des scripts de publication
 Vous pouvez personnaliser le script de publication et le fichier de configuration JSON. Les fonctions dans le module Windows PowerShell **AzureWebAppPublishModule.psm1** ne sont pas destinées à être modifiées. Si vous souhaitez simplement spécifier une autre base de données ou modifier certaines propriétés de la machine virtuelle, modifiez le fichier de configuration JSON. Si vous souhaitez étendre la fonctionnalité de script pour automatiser la création et le test de votre projet, vous pouvez implémenter les stubs de fonction dans **Publish-WebApplication.ps1**.
@@ -207,55 +208,59 @@ Pour automatiser la création de votre projet, ajoutez le code appelant MSBuild 
 ### <a name="to-automate-building-your-project"></a>Pour automatiser la création de votre projet
 1. Ajoutez le paramètre `$ProjectFile` dans la section des paramètres globaux.
 
-```
-[Parameter(Mandatory = $false)]
-  [ValidateScript({Test-Path $_ -PathType Leaf})]
-  [String]
-  $ProjectFile,
-```
+    ```powershell
+    [Parameter(Mandatory = $false)]
+    [ValidateScript({Test-Path $_ -PathType Leaf})]
+    [String]
+    $ProjectFile,
+    ```
 
-1. Copiez la fonction `Get-MSBuildCmd` dans votre fichier de script.
+2. Copiez la fonction `Get-MSBuildCmd` dans votre fichier de script.
 
-```
-function Get-MSBuildCmd
-{
-        process
-{
+    ```powershell
+    function Get-MSBuildCmd
+    {
+            process
+    {
 
-             $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
-                                   Sort-Object {[double]$_.PSChildName} -Descending |
-                                   Select-Object -First 1 |
-                                   Get-ItemProperty -Name MSBuildToolsPath |
-                                   Select -ExpandProperty MSBuildToolsPath
+                $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
+                                    Sort-Object {[double]$_.PSChildName} -Descending |
+                                    Select-Object -First 1 |
+                                    Get-ItemProperty -Name MSBuildToolsPath |
+                                    Select -ExpandProperty MSBuildToolsPath
 
-            $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
+                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
 
-        return Get-Item $path
+            return Get-Item $path
+        }
     }
-}
-```
+    ```
 
-1. Remplacez `New-WebDeployPackage` avec le code suivant et remplacez les espaces réservés dans la ligne créant `$msbuildCmd`. Ce code est destiné à Visual Studio 2015. Si vous utilisez Visual Studio 2013, remplacez la propriété **VisualStudioVersion** par une valeur inférieure à `12.0`.
+3. Remplacez `New-WebDeployPackage` avec le code suivant et remplacez les espaces réservés dans la ligne créant `$msbuildCmd`. Ce code est destiné à Visual Studio 2015. Si vous utilisez Visual Studio 2013, remplacez la propriété **VisualStudioVersion** par une valeur inférieure à `12.0`.
 
-```
-function New-WebDeployPackage
-{
-    #Write a function to build and package your web application
+    ```powershell
+    function New-WebDeployPackage
+    {
+        #Write a function to build and package your web application
+    ```
 
-#To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
+    Pour générer votre application web, utilisez MsBuild.exe. Pour obtenir de l’aide, reportez-vous à la section Référence de ligne de commande MSBuild à l’adresse : [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
-Write-VerboseWithTime 'Build-WebDeployPackage: Start'
+    ```powershell
+    Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-$msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
-Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
+    Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
+    ```
 
-#Start execution of the build command
+### <a name="start-execution-of-the-build-command"></a>Démarrez l’exécution de la commande build
+
+```powershell
 $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowStyle Normal -Wait -PassThru
 
-if ($job.ExitCode -ne 0)
-{
-throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
+if ($job.ExitCode -ne 0) {
+    throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
 }
 
 #Obtain the project name
@@ -263,7 +268,6 @@ $projectName = (Get-Item $ProjectFile).BaseName
 
 #Construct the path to web deploy zip package
 $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
-
 
 #Get the full path for the web deploy zip package. This is required for MSDeploy to work
 $WebDeployPackage = Resolve-Path –LiteralPath $DeployPackageDir
@@ -276,24 +280,24 @@ return $WebDeployPackage
 
 1. Appelez la fonction `New-WebDeployPackage` avant cette ligne : `$Config = Read-ConfigFile $Configuration` pour les applications web ou `$Config = Read-ConfigFile $Configuration -HasWebDeployPackage:([Bool]$WebDeployPackage)` pour les machines virtuelles.
 
-```
-if($ProjectFile)
-{
-$WebDeployPackage = New-WebDeployPackage
-}
-```
+    ```powershell
+    if($ProjectFile)
+    {
+    $WebDeployPackage = New-WebDeployPackage
+    }
+    ```
 
-1. Appelez le script personnalisé à partir de la ligne de commande à l’aide de la transmission de l’argument `$Project`, comme dans la ligne de commande en exemple suivante.
+2. Appelez le script personnalisé à partir de la ligne de commande à l’aide de la transmission de l’argument `$Project`, comme dans la ligne de commande en exemple suivante.
 
-```
-.\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
--ProjectFile ..\WebApplication5\WebApplication5.csproj `
--VMPassword @{Name="VMUser";Password="Test.123"} `
--AllowUntrusted `
--Verbose
-```
+    ```powershell
+    .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
+    -ProjectFile ..\WebApplication5\WebApplication5.csproj `
+    -VMPassword @{Name="VMUser";Password="Test.123"} `
+    -AllowUntrusted `
+    -Verbose
+    ```
 
-Pour automatiser le test de votre application, ajoutez le code à `Test-WebApplication`. Veillez à supprimer les marques de commentaire des lignes dans **Publish-WebApplication.ps1** où ces fonctions sont appelées. Si vous ne fournissez pas d’implémentation, vous pouvez créer votre projet manuellement avec Visual Studio, puis exécuter le script de publication pour publier dans Azure.
+    Pour automatiser le test de votre application, ajoutez le code à `Test-WebApplication`. Veillez à supprimer les marques de commentaire des lignes dans **Publish-WebApplication.ps1** où ces fonctions sont appelées. Si vous ne fournissez pas d’implémentation, vous pouvez créer votre projet manuellement avec Visual Studio, puis exécuter le script de publication pour publier dans Azure.
 
 ## <a name="publishing-function-summary"></a>Résumé de la fonction de publication
 Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invite de commande Windows PowerShell, utilisez la commande `Get-Help function-name`. L’aide inclut de l’aide sur les paramètres et des exemples. Le même texte d’aide figure également dans les fichiers source du script, **AzureWebAppPublishModule.psm1** et **Publish-WebApplication.ps1**. Le script et l’aide sont localisés dans votre langue Visual Studio.
@@ -342,7 +346,6 @@ Pour en savoir plus sur l’écriture de scripts PowerShell lisez [Écriture de 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

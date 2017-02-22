@@ -1,6 +1,6 @@
 ---
-title: "Schéma de suivi AS2 | Microsoft Docs"
-description: "En savoir plus sur le schéma de suivi AS2"
+title: "Schémas de suivi AS2 pour la surveillance B2B - Azure Logic Apps | Microsoft Docs"
+description: "Utilisez des schémas de suivi AS2 pour surveiller les messages B2B des transactions de votre compte d’intégration Azure."
 author: padmavc
 manager: anneta
 editor: 
@@ -12,11 +12,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 5c9fdb5e913199b9a52a8839cbe9a1da7d1acc84
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: b78c42b14005b9bcedbc29216541495fd19c64a5
 
 
 ---
@@ -139,6 +139,6 @@ Vous pouvez utiliser ces schémas de suivi AS2 dans votre compte d’intégratio
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

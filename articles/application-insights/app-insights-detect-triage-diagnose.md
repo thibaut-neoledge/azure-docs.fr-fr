@@ -1,5 +1,5 @@
 ---
-title: "Détecter, trier et diagnostiquer"
+title: "Détecter et diagnostiquer les problèmes des applications web - Azure Application Insights | Microsoft Docs"
 description: "Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications"
 author: alancameronwills
 services: application-insights
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 9589adad2f8f227043b2c8f864a48d1c9ba43732
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
 
 
 ---
@@ -69,7 +69,7 @@ Dans la page Vue d’ensemble d’Application Insights, un graphique montre une
 
 Le temps de chargement de la page du navigateur provient de la télémétrie envoyée directement depuis vos pages web. Le temps de réponse du serveur, le nombre de demandes au serveur et le nombre de demandes ayant échoué sont mesurés dans le serveur web puis envoyés à Application Insights à partir de là.
 
-Marcela est légèrement préoccupée par le graphique de réponse du serveur, qui affiche la durée moyenne entre le moment où le serveur reçoit une demande HTTP depuis le navigateur d’un utilisateur et le moment où il renvoie la réponse. Il n’est pas rare de voir une variation dans ce graphique, car la charge sur le système varie. Mais, dans ce cas, il semble y avoir une corrélation entre une légère augmentation du nombre de demandes et une augmentation conséquente du temps de réponse. Cela peut indiquer que le système a atteint ses limites de fonctionnement. 
+Marcela est légèrement préoccupée par le graphique de réponse du serveur, qui affiche la durée moyenne entre le moment où le serveur reçoit une demande HTTP depuis le navigateur d’un utilisateur et le moment où il renvoie la réponse. Il n’est pas rare de voir une variation dans ce graphique, car la charge sur le système varie. Mais, dans ce cas, il semble y avoir une corrélation entre une légère augmentation du nombre de demandes et une augmentation conséquente du temps de réponse. Cela peut indiquer que le système a atteint ses limites de fonctionnement.
 
 Elle ouvre les graphiques Serveurs (Serveurs)  :
 
@@ -91,7 +91,7 @@ Le jour suivant, un message électronique d’alerte est généré depuis Applic
 
 Les demandes ayant échoué sont celles dans lesquelles les utilisateurs ont vu une erreur, généralement suite à une exception levée dans le code. Peut-être ont-ils vu un message indiquant « Nous ne pouvons pas mettre à jour vos informations maintenant » ou, dans le pire des cas, le vidage de la pile sur l'écran de l'utilisateur, via le serveur web.
 
-Cette alerte est une surprise, car, au dernier contrôle, le nombre de demandes ayant échoué était relativement peu élevé. Un petit nombre d’échecs est à prévoir dans un serveur très sollicité. 
+Cette alerte est une surprise, car, au dernier contrôle, le nombre de demandes ayant échoué était relativement peu élevé. Un petit nombre d’échecs est à prévoir dans un serveur très sollicité.
 
 Mais elle est également un peu surprise de ne pas avoir eu à configurer cette alerte. En fait, Détection intelligente est fourni automatiquement avec Application Insights. Il s’ajuste automatiquement au schéma d’échec habituel de votre application et « s’habitue » aux échecs sur une page spécifique, ou en cas de charge élevée ou liée à d’autres mesures. Il génère l’alarme uniquement si l’augmentation dépasse la mesure attendue.
 
@@ -101,16 +101,16 @@ Il s’agit d’un e-mail très utile. Il ne génère pas seulement une alarme 
 
 Il indique le nombre de clients, les pages web ou des opérations affectés. Marcela peut décider si l’ensemble de l’équipe doit travailler à « éteindre l’incendie » ou si l’alerte peut être ignorée jusqu’à la semaine prochaine.
 
-L’e-mail indique également qu’une exception particulière s’est produite et, ce qui est encore plus intéressant, que la défaillance est associée à des appels d’une base de données spécifique ayant échoué. Ceci explique pourquoi l’erreur est apparue soudainement alors que l’équipe de Marcela n’a pas déployé de mises à jour récemment. 
+L’e-mail indique également qu’une exception particulière s’est produite et, ce qui est encore plus intéressant, que la défaillance est associée à des appels d’une base de données spécifique ayant échoué. Ceci explique pourquoi l’erreur est apparue soudainement alors que l’équipe de Marcela n’a pas déployé de mises à jour récemment.
 
 Elle interroge le responsable de l’équipe en charge de la base de données. Oui, ils publié un correctif il y a moins d’une demi-heure. Il se peut donc qu’une modification mineure du schéma se soit produite...
 
-Par conséquent, le problème est en cours de résolution, même avant l’examen des journaux et dans les 15 minutes suivant son apparition. Toutefois, Marcela clique sur le lien pour ouvrir Application Insights. Il s’ouvre directement sur une demande ayant échoué, et elle peut voir l’appel de base de données ayant échoué dans la liste d’appels de dépendance associée. 
+Par conséquent, le problème est en cours de résolution, même avant l’examen des journaux et dans les 15 minutes suivant son apparition. Toutefois, Marcela clique sur le lien pour ouvrir Application Insights. Il s’ouvre directement sur une demande ayant échoué, et elle peut voir l’appel de base de données ayant échoué dans la liste d’appels de dépendance associée.
 
 ![Suivi des demandes ayant échoué](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detecting-exceptions"></a>Détection des exceptions
-Après quelques configurations, les [exceptions](app-insights-asp-net-exceptions.md) sont signalées automatiquement à Application Insights. Elles peuvent également être capturées explicitement en insérant des appels à [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) dans le code :  
+Après quelques configurations, les [exceptions](app-insights-asp-net-exceptions.md) sont signalées automatiquement à Application Insights. Elles peuvent également être capturées explicitement en insérant des appels à [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) dans le code :  
 
     var telemetry = new TelemetryClient();
     ...
@@ -191,17 +191,17 @@ Quelle est l'importance du scénario bloqué ? S'agit-il d'un problème fonctio
 ## <a name="diagnosis"></a>Diagnostic
 Le diagnostic n'est pas tout à fait la même chose que le débogage. Avant de commencer le suivi via le code, vous devez avoir une idée du pourquoi, du quand et du où le problème se produit.
 
-**Quand cela se produit-il ?**  La vue historique fournie par les graphiques des événements et des mesures facilite la mise en corrélation des effets avec les causes possibles. S'il y a des pics intermittents dans les temps de réponse ou les taux d'exceptions, examinez le nombre de demandes : si elle augmente en même temps, il peut s'agir d'un problème de ressources. Est-il nécessaire d'allouer davantage de processeur ou de mémoire ? Ou s'agit-il d'une dépendance qui ne peut pas gérer la charge ?
+**Quand cela se produit-il ?** La vue historique fournie par les graphiques des événements et des mesures facilite la mise en corrélation des effets avec les causes possibles. S'il y a des pics intermittents dans les temps de réponse ou les taux d'exceptions, examinez le nombre de demandes : si elle augmente en même temps, il peut s'agir d'un problème de ressources. Est-il nécessaire d'allouer davantage de processeur ou de mémoire ? Ou s'agit-il d'une dépendance qui ne peut pas gérer la charge ?
 
-**Le problème vient-il de nous ?**   Si vous constatez une chute soudaine des performances d'un type de demande particulier, par exemple lorsque le client souhaite obtenir un relevé de compte, il est possible que le problème vienne d'un sous-système externe plutôt que de votre application web. Dans Metrics Explorer, sélectionnez les taux d'échec de dépendance et les taux de durée de la dépendance et consultez leur historique sur quelques heures ou jours avec en tête le problème que vous avez détecté. S'il y a une corrélation dans les changements, un sous-système externe peut être à l'origine du problème.  
+**Le problème vient-il de nous ?**  Si vous constatez une chute soudaine des performances d'un type de demande particulier, par exemple lorsque le client souhaite obtenir un relevé de compte, il est possible que le problème vienne d'un sous-système externe plutôt que de votre application web. Dans Metrics Explorer, sélectionnez les taux d'échec de dépendance et les taux de durée de la dépendance et consultez leur historique sur quelques heures ou jours avec en tête le problème que vous avez détecté. S'il y a une corrélation dans les changements, un sous-système externe peut être à l'origine du problème.  
 
 ![Graphiques des échecs des dépendances et durée des appels aux dépendances](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Certains problèmes de dépendances lentes sont dus à des problèmes de géolocalisation. La banque Fabrikam utilise des machines virtuelles Azure et l'équipe a découvert que leur serveur web et le compte de ce serveur avaient été placés par inadvertance dans des pays différents. La migration d'un de ces deux éléments a apporté des améliorations considérables.
 
-**Qu'avons-nous fait ?**  Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème.
+**Qu'avons-nous fait ?** Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème.
 
-**Que se passe-t-il ?**  Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().  
+**Que se passe-t-il ?** Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().  
 
 Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace() à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
 
@@ -231,10 +231,6 @@ Vous pouvez commencer de plusieurs façons, selon les caractéristiques de votre
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

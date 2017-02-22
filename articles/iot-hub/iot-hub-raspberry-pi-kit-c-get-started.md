@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec Raspberry Pi 3 | Microsoft Docs"
+title: "Connecter Raspberry Pi (C) à Azure IoT - Leçon 1 : Prise en main | Microsoft Docs"
 description: "Bien démarrer avec Raspberry Pi 3, création de votre Azure IoT Hub et connexion de Pi à IoT Hub."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7647d89a6cf3c962bd4a6986e521cade3fd838
-ms.openlocfilehash: da2f32eb91dc8a2e10a3d76741d892b3c355ea1e
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 58398a8963ca834ed04d50a4715b29cbd3200b53
 
 
 ---
@@ -80,7 +80,7 @@ Accédez à [Création de votre IoT Hub et inscription de Raspberry Pi 3](iot-hu
 
 Dans cette leçon, vous envoyez des messages à partir de Pi à votre IoT Hub. Vous créez également une application de fonction Azure qui récupère les messages entrants à partir de votre IoT Hub et les écrit dans le Stockage Table Azure.
 
-Avant de commencer cette leçon, terminez la leçon 1 et la leçon 2.
+Avant de commencer cette leçon, terminez les leçons 1 et 2.
 
 ### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Création d’une application de fonction Azure et d’un compte de stockage Azure
 Utilisez un modèle Azure Resource Manager pour créer une application de fonction Azure et un compte de stockage Azure.
@@ -108,7 +108,7 @@ Accédez à [Lecture des messages conservés dans le stockage Azure](iot-hub-ras
 
 Cette leçon vous montre comment envoyer des messages à partir de votre Azure IoT Hub vers Raspberry Pi 3. Les messages contrôlent le comportement activé/désactivé de la LED qui est connectée à Pi. Un exemple d’application est préparé pour vous aider à exécuter cette tâche.
 
-Avant de commencer cette leçon, terminez la leçon 1, la leçon 2 et la leçon 3.
+Avant de commencer cette leçon, terminez les leçons 1, 2 et 3.
 
 ### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>Exécution de l’exemple d’application pour recevoir des messages cloud-à-appareil
 L’exemple d’application dans la leçon 4 s’exécute sur Pi et surveille les messages entrants à partir de votre IoT Hub. Une nouvelle tâche gulp envoie des messages à Pi à partir de votre IoT Hub pour faire clignoter la LED.
@@ -129,6 +129,6 @@ Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -6,18 +6,17 @@ keywords: "accès conditionnel en fonction de l’appareil, inscription de l’a
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 81dcda2e11ff98f7f21495a83043a546786979c7
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Si votre appareil exécute l’une des plate-formes suivantes, recherchez dans l
 ### <a name="device-is-not-registered"></a>L’appareil n’est pas inscrit
 Si votre appareil n’est pas inscrit avec Azure AD et que votre application est protégée à l’aide d’une stratégie basée sur l’appareil, une page présentant les messages d’erreur suivants peut s’afficher :
 
-![Messages d’accès refusé aux appareils non enregistrés](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Messages d’accès refusé aux appareils non enregistrés](./media/active-directory-conditional-access-device-remediation/01.png "Scénario")
 
 Si votre appareil appartient à un domaine lié à Active Directory dans votre organisation, procédez comme suit :
 
@@ -122,7 +121,7 @@ L’accès peut vous être refusé si vous tentez d’accéder à une applicatio
 
 Vous verrez une page d’erreur semblable à celle-ci :
 
-![Messages d’accès refusé aux navigateurs non pris en charge](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Messages d’accès refusé aux navigateurs non pris en charge](./media/active-directory-conditional-access-device-remediation/02.png "Scénario")
 
 La seule possibilité consiste à utiliser un navigateur pris en charge par l’application sur la plateforme de votre appareil.
 
@@ -132,6 +131,6 @@ La seule possibilité consiste à utiliser un navigateur pris en charge par l’
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

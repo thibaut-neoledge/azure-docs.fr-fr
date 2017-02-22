@@ -1,5 +1,5 @@
 ---
-title: "Présentation d’Azure Container Registry | Microsoft Docs"
+title: "Registre de conteneur Docker privé dans Azure | Microsoft Docs"
 description: "Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud."
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 597d27932e1faf82498d5a9eb458a08a4b72a1d1
-ms.openlocfilehash: dadb65611489bf57781e223290c13bb52d59a944
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>Qu’est-ce qu’Azure Container Registry ?
@@ -66,10 +66,11 @@ Les développeurs peuvent également effectuer un push vers un registre de conte
 * [Créer un registre de conteneur à l’aide du portail Azure](container-registry-get-started-portal.md)
 * [Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md)
 * [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
-* Si vous souhaitez un registre privé Docker dans Azure (sans les points de terminaison publics), consultez [Déploiement de votre propre registre Docker privé sur Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
+* Pour générer une intégration continue et un workflow de déploiement à l’aide de Visual Studio Team Services, Azure Container Service et Azure Container Registry, consultez [ce didacticiel](../container-service/container-service-setup-ci-cd.md).
+* Si vous souhaitez configurer votre propre registre privé Docker dans Azure (sans les points de terminaison publics), consultez [Déploiement de votre propre registre Docker privé sur Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

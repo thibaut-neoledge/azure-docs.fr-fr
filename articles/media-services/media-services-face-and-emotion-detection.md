@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
-ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -72,7 +72,7 @@ La détection et le suivi des visages JSON incluent les attributs suivants :
 Face Detector utilise des techniques de fragmentation (où les métadonnées peuvent être divisées en segments temporels, et vous téléchargez uniquement ce dont vous avez besoin) et de segmentation (où les événements sont fractionnés s’ils sont trop larges). Des calculs simples peuvent vous aider à transformer les données. Par exemple, si un événement a démarré à 6 300 (cycles), avec une échelle de temps de 2 997 (cycles par seconde) et si la fréquence d’images est de 29,97 (images par seconde), alors :
 
 * Démarrage/Échelle de temps = 2,1 secondes
-* Secondes x (fréquence d’images/échelle de temps) = 63 images
+* Secondes x fréquence d'images = 63 images
 
 ## <a name="face-detection-input-and-output-example"></a>Exemple d’entrée et de sortie de détection faciale
 ### <a name="input-video"></a>Vidéo d’entrée
@@ -81,7 +81,18 @@ Face Detector utilise des techniques de fragmentation (où les métadonnées peu
 ### <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vous devez spécifier une présélection de configuration. La présélection de configuration suivante est uniquement valable pour la détection faciale.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0"
+      "options":{
+          "TrackingMode": "Faster"
+      }
+    }
+
+#### <a name="attribute-descriptions"></a>Descriptions des attributs
+| Nom de l’attribut | Description |
+| --- | --- |
+| Mode |Faster : traitement plus rapide, mais moins précis (par défaut). <br/>Quality : améliore la précision du suivi, mais prend plus de temps. |
+
 
 ### <a name="json-output"></a>Sortie JSON
 L’exemple suivant de sortie JSON a été tronqué.
@@ -153,17 +164,17 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
 | Nom de l’attribut | Description |
 | --- | --- |
-| Mode |Faces : détection faciale uniquement  <br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
+| Mode |Faces : détection faciale uniquement.<br/>PerFaceEmotion : retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
 | AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
 | AggregateEmotionIntervalMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits. |
 
 #### <a name="aggregate-defaults"></a>Valeurs d'agrégation par défaut
 Les valeurs ci-dessous sont des valeurs recommandées pour les paramètres de fenêtre et d’intervalle d’agrégation. La valeur AggregateEmotionWindowMs doit être supérieure à AggregateEmotionIntervalMs.
 
-| Valeur(s) par défaut | Valeur(s) max | Valeur(s) min |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |
-| AggregateEmotionIntervalMs |0.5 |1 |
+|| Valeur(s) par défaut | Valeur(s) min | Valeur(s) max |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0.5 |2 |0,25|
+| AggregateEmotionIntervalMs |0.5 |1 |0,25|
 
 ### <a name="json-output"></a>Sortie JSON
 Sortie JSON pour l’émotion agrégée (tronquée) :
@@ -330,7 +341,7 @@ Sortie JSON pour l’émotion agrégée (tronquée) :
 Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
-2. Créer un travail avec une tâche de détection faciale basée sur un fichier de configuration qui contient la présélection JSON suivante : 
+2. Créer un travail avec une tâche de détection faciale basée sur un fichier de configuration qui contient la présélection JSON suivante. 
    
         {
             "version": "1.0"
@@ -514,6 +525,6 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

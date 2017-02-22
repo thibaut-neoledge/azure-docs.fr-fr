@@ -1,5 +1,5 @@
 ---
-title: 'Azure MFA : cloud ou serveur | Microsoft Docs'
+title: Choisir entre un cloud ou un serveur Azure MFA | Microsoft Docs
 description: "Choisissez la solution de sécurité d’authentification multifacteur la plus appropriée pour vous en définissant les éléments à protéger et l’emplacement des utilisateurs.  Choisissez ensuite le cloud, le serveur MFA ou AD FS."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Afin de déterminer la solution de vérification en deux étapes appropriée, no
 | --- |:---:|:---:|
 | Applications Microsoft internes |● |● |
 | Applications SaaS dans la galerie d’applications |● |● |
-| Applications IIS publiées via le proxy d'application Azure AD |● |● |
+| Applications Web publiées via le proxy d’application Azure AD |● |● |
 | Applications IIS non publiées via le proxy d'application Azure AD | |● |
 | Accès à distance comme VPN, RDG | |● |
 
@@ -62,8 +62,8 @@ Le tableau suivant présente une comparaison des fonctionnalités disponibles de
 | SMS unidirectionnel comme second facteur | ● | ● |
 | SMS bidirectionnel comme second facteur | | ● |
 | Jetons matériels comme second facteur | | ● |
-| Mots de passe d'application pour les clients qui ne prennent pas en charge MFA | ● | |
-| Contrôle d'administration sur les méthodes d'authentification | | ● |
+| Mots de passe d’application pour les clients Office 365 qui ne prennent pas en charge MFA | ● | |
+| Contrôle d'administration sur les méthodes d'authentification | ● | ● |
 | Mode du code PIN | | ● |
 | Alerte de fraude |● | ● |
 | Rapports MFA |● | ● |
@@ -73,7 +73,7 @@ Le tableau suivant présente une comparaison des fonctionnalités disponibles de
 | Adresses IP approuvées | ● | ● |
 | Mémoriser MFA pour les appareils fiables | ● | |
 | Accès conditionnel | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l'icône qui représente votre scénario !**
 
@@ -87,6 +87,6 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

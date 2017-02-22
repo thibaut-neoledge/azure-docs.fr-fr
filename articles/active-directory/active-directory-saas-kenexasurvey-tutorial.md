@@ -264,6 +264,6 @@ Lorsque vous cliquez sur la vignette IBM Kenexa Survey Enterprise dans le volet 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

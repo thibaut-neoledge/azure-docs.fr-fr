@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentation Azure DocumentDB - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser DocumentDB, un service de bases de données de documents NoSQL sans schéma. Des didacticiels illustrent l’intégration à des applications et l’utilisation de requêtes SQL sur des documents JSON."
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
-ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Documentation DocumentDB
 
 Découvrez comment utiliser DocumentDB dans des applications hautes performances pour le web, les mobiles, les jeux et l’Internet des objets (IoT). Des didacticiels et des documents vous montrent comment stocker des données JSON et effectuer des requêtes SQL sur un schéma flexible dans ce service de base de données NoSQL.
@@ -188,7 +200,7 @@ Découvrez comment utiliser DocumentDB dans des applications hautes performances
                         <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
-                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.JS</a></p>
                         <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
                     </div>
                 </div>
@@ -210,18 +222,10 @@ Découvrez comment utiliser DocumentDB dans des applications hautes performances
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

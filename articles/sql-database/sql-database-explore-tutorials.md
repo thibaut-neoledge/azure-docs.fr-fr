@@ -52,7 +52,7 @@ Dans le didacticiel ci-après, vous restaurez une version antérieure d’une ba
 
 | Didacticiel | Description |
 | --- | --- | --- |
-| [Get Started with Backup and Restore for Data Protection and Recovery (Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données)](sql-database-get-started-backup-recovery.md) | Dans le didacticiel ci-après, vous utilisez le Portail Azure pour restaurer une version antérieure d’une base de données, configurer une rétention de sauvegarde à long terme et restaurer une base de données à partir du coffre Azure Recovery Services. |
+| [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md) | Dans le didacticiel ci-après, vous utilisez le Portail Azure pour restaurer une version antérieure d’une base de données, configurer une rétention de sauvegarde à long terme et restaurer une base de données à partir du coffre Azure Recovery Services. |
 
 
 ## <a name="elastic-pools"></a>Pools élastiques

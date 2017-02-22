@@ -3,7 +3,7 @@ title: "Mise à l’échelle automatique et groupes identiques de machines virtu
 description: "En savoir plus sur l’utilisation des ressources de diagnostic et de mise à l’échelle pour mettre à l’échelle automatiquement des machines virtuelles dans un groupe identique."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ff6a29db5450a78840f27cb69abc726a147406a1
-ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
+ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
+ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
 
 
 ---
@@ -29,7 +29,7 @@ La mise à l’échelle automatique est un processus automatisé qui allège les
 Configurez la mise à l’échelle automatique dans un jeu de mise à l’échelle à l’aide d’un modèle Azure Resource Manager, d’Azure PowerShell ou de l’interface CLI Azure ou du portail Azure.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configurer la mise à l’échelle à l’aide de modèles Resource Manager
-Au lieu de déployer et de gérer chaque ressource de votre application séparément, utilisez un modèle qui déploie toutes les ressources en une seule opération coordonnée. Dans le modèle, les ressources d’application sont définies et les paramètres de déploiement sont spécifiés pour différents environnements. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour en savoir plus, voir [Créer des modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Au lieu de déployer et de gérer chaque ressource de votre application séparément, utilisez un modèle qui déploie toutes les ressources en une seule opération coordonnée. Dans le modèle, les ressources d’application sont définies et les paramètres de déploiement sont spécifiés pour différents environnements. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour en savoir plus, voir [Créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Dans le modèle, vous indiquez l’élément de capacité :
 
@@ -224,6 +224,6 @@ Pour voir un exemple d’utilisation du portail Azure pour configurer la mise à
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

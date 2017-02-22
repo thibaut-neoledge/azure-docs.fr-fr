@@ -1,5 +1,5 @@
 ---
-title: "Installation de MongoDB sur une machine virtuelle Windows | Microsoft Docs"
+title: Installation de MongoDB sur une machine virtuelle Windows dans Azure | Microsoft Docs
 description: "Apprenez à installer MongoDB sur une machine virtuelle Azure créée avec le modèle de déploiement classique exécutant Windows Server."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f198d295272c8c860bc455cfa300cad3ff375c5d
-ms.openlocfilehash: cb618cbc47748a002351caa3a5935c9824c2bc32
+ms.sourcegitcommit: 015b152b2e807de6ad92d141d3c8bad6bb8d8eba
+ms.openlocfilehash: e070a2eac2bb356ad8544ec107cab230f8e3637c
 
 
 ---
-# <a name="install-mongodb-on-a-windows-vm"></a>Installation de MongoDB sur une machine virtuelle Windows
+# <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Installation de MongoDB sur une machine virtuelle Windows dans Azure
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour installer et configurer MongoDB à l’aide du modèle de déploiement Resource Manager, consultez [cet article](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -56,6 +56,6 @@ Ce didacticiel vous a montré comment créer une machine virtuelle exécutant Wi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

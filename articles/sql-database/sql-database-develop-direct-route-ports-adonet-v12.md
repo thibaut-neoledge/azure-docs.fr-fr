@@ -16,25 +16,16 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa3f1215c809fe2b45293c56cdca4496fa352afb
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
 
 
 ---
-# <a name="ports-beyond-1433-for-adonet-45-and-sql-database-v12"></a>Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database V12
-Cette rubrique décrit les modifications qu’apporte la base de données SQL Azure V12 au comportement de connexion des clients qui utilisent ADO.NET version 4.5 ou ultérieure.
+# <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
+Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure.
 
-## <a name="v11-of-sql-database-port-1433"></a>V11 de SQL Database : port 1433
-Quand votre programme client utilise ADO.NET 4.5 pour se connecter à SQL Database V11 et l’utiliser pour exécuter des requêtes, la séquence interne est la suivante :
-
-1. ADO.NET tente de se connecter à SQL Database.
-2. ADO.NET utilise le port 1433 pour appeler un module d’intergiciel (middleware), puis l’intergiciel se connecte à SQL Database.
-3. SQL Database envoie sa réponse à l’intergiciel, qui la transmet à ADO.NET sur le port 1433.
-
-**Terminologie :** dans la séquence précédente, ADO.NET interagit avec la base de données SQL en utilisant l’ *itinéraire de proxy*. Si aucun intergiciel n’était impliqué, c’est *l’itinéraire direct* qui serait utilisé.
-
-## <a name="v12-of-sql-database-outside-vs-inside"></a>V12 de SQL Database : exécution externe ou exécution interne
-Pour les connexions à V12, nous devons déterminer si le programme client s’exécute *à l’extérieur* ou *à l’intérieur* de la limite du cloud Azure. Les sous-sections suivantes abordent deux scénarios courants.
+## <a name="outside-vs-inside"></a>À l’extérieur et à l’intérieur
+Pour les connexions à Azure SQL Database, nous devons d’abord déterminer si le programme client s’exécute *à l’extérieur* ou *à l’intérieur* de la limite du cloud Azure. Les sous-sections suivantes abordent deux scénarios courants.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*À l’extérieur :* le client s’exécute sur votre ordinateur de bureau
 Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bureau qui héberge votre application cliente SQL Database.
@@ -64,11 +55,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * ADO.NET 4.0 prend en charge le protocole TDS 7.3, mais pas la version 7.4.
 * Les versions d’ADO.NET 4.5 et ultérieures prennent en charge le protocole TDS 7.4.
 
-#### <a name="sql-database-v11-and-v12"></a>SQL Database V11 et SQL Database V12
-Les différences entre les bases de données SQL V11 et V12 pour la connexion cliente sont soulignées dans cette rubrique.
-
-*Remarque :* l’instruction Transact-SQL `SELECT @@version;` retourne une valeur qui commence par un nombre tel que « 11. » ou « 12. », ce qui correspond aux noms V11 et V12 de nos versions de la base de données SQL.
-
 ## <a name="related-links"></a>Liens connexes
 * ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 * ADO.NET 4.5 a été publié le 15 août 2012. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
@@ -82,6 +68,6 @@ Les différences entre les bases de données SQL V11 et V12 pour la connexion cl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: ab8e5861dd7214dab41024e7048b739c072d3f64
-ms.openlocfilehash: 52a431c2af8b670fc4e4babb0a0d077051a46f54
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Présentation de l’apprentissage automatique dans le cloud
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Présentation d’Azure Machine Leaning dans le cloud
 ## <a name="what-is-machine-learning"></a>L’apprentissage automatique - De quoi s’agit-il ?
 L’apprentissage automatique (Machine Learning) utilise des ordinateurs pour exécuter des modèles prédictifs qui apprennent à partir de données existantes afin de prévoir les tendances, résultats et comportements futurs.  
 
@@ -37,8 +37,6 @@ Vous pouvez exploiter une bibliothèque d’algorithmes prêts à l’emploi, le
 ![L’apprentissage automatique - De quoi s’agit-il ? Flux de travail de base pour configurer l'analyse prédictive dans Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning fournit non seulement des outils pour modéliser des analyses prédictives, mais également un service entièrement pris en charge, que vous pouvez utiliser pour déployer vos modèles prédictifs sous la forme de services web prêts à l’emploi.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-predictive-analytics"></a>Qu’est-ce qu’une analyse prédictive ?
 L’analyse prédictive utilise des formules mathématiques, appelées algorithmes, qui analysent les données historiques ou actuelles afin d’identifier des schémas ou des tendances permettant de prévoir des événements futurs.
@@ -60,7 +58,7 @@ Dans [Machine Learning Studio](machine-learning-what-is-ml-studio.md), vous pouv
 Les didacticiels suivants vous montrent comment faire fonctionner vos modèles d’analyse prédictive :
 
  * [Déployez des services web](machine-learning-publish-a-machine-learning-web-service.md)
- * [Formez et reformez des modèles via les API](machine-learning-retrain-models-programmatically.md)
+ * [Reformez des modèles via les API](machine-learning-retrain-models-programmatically.md)
  * [Gérez les points de terminaison des services web](machine-learning-create-endpoint.md)
  * [Mettez à l’échelle un service web](machine-learning-scaling-webservice.md)
  * [Utilisez des services web](machine-learning-consume-web-services.md)
@@ -69,7 +67,10 @@ Les didacticiels suivants vous montrent comment faire fonctionner vos modèles d
 Les termes de l’apprentissage automatique peuvent prêter à confusion. Vous trouverez ici la définition des termes clés pour vous aider. Utilisez les commentaires suivants pour nous indiquer ceux dont vous souhaiteriez lire la définition.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Exploration des données, analyse descriptive et analyse prédictive
-**exploration des données** désigne le processus de collecte des informations sur un jeu volumineux de données, souvent non structurées, afin d’y trouver des caractéristiques utiles pour une analyse ciblée. **Data mining** fait référence à l'exploration automatisée des données.
+
+**exploration des données** désigne le processus de collecte des informations sur un jeu volumineux de données, souvent non structurées, afin d’y trouver des caractéristiques utiles pour une analyse ciblée.
+
+**Data mining** fait référence à l'exploration automatisée des données.
 
 **analyse descriptive** est le processus d'analyse d'un jeu de données afin de synthétiser ce qui s'est passé. La majeure partie des analyses commerciales, comme les rapports de ventes, les mesures du web et l’analyse de réseaux sociaux, est descriptive.
 
@@ -114,6 +115,6 @@ Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

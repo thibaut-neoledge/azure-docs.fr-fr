@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6765ddb2158827c516cec534dc7c1fae25ee4682
+ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
+ms.openlocfilehash: d0488999f55b7ccc393f4852f22c6adf4a031b1f
 
 
 ---
@@ -28,7 +28,7 @@ Ceci est un guide pour apprendre à migrer des applications à partir des servic
 ## <a name="applications-and-infrastructure"></a>Applications et infrastructure
 L’une des principales différences entre les services cloud et Service Fabric est la relation entre les machines virtuelles, les charges de travail et les applications. Une charge de travail correspond au code que vous écrivez pour effectuer une tâche spécifique ou fournir un service.
 
-* **Les services cloud visent à déployer des applications en tant que machines virtuelles.**  Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
+* **Les services cloud visent à déployer des applications en tant que machines virtuelles.** Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
 
 ![Topologie et applications de service cloud][1]
 
@@ -106,6 +106,6 @@ Le moyen le plus simple de migrer des services cloud vers Service Fabric est de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

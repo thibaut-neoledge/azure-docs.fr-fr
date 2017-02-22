@@ -26,7 +26,8 @@
 
 ## Procédures
 ### [Gérer via le portail Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Installer la dernière mise à jour](storsimple-virtual-array-install-update.md)
+#### [Installer la dernière mise à jour](storsimple-virtual-array-install-update-04.md)
+##### [Installer Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Créer et gérer les sauvegardes](storsimple-virtual-array-backup.md)
 #### [Cloner à partir de sauvegardes](storsimple-virtual-array-clone.md)
 #### [Basculement et récupération d’urgence](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [Gestion des travaux](storsimple-virtual-array-manage-jobs.md)
 #### [Modifier le mot de passe d’un appareil](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configurer MPIO sur un hôte Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnostiquer et résoudre les problèmes](storsimple-virtual-array-diagnose-problems.md)
+#### [Créer une demande de support](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Gérer par le biais du portail Azure Classic](storsimple-ova-manager-service-administration.md)
 #### [Installer la dernière mise à jour](storsimple-ova-install-update-01.md)
@@ -56,7 +59,8 @@
 ### [Configurer via l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md)
 
 ## Notes de publication
-### [Update 0.3 - en cours](storsimple-ova-update-03-release-notes.md)
+### [Update 0.4 - en cours](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 et 0.1](storsimple-ova-update-01-release-notes.md)
 
 # Gamme StorSimple 8000
@@ -150,6 +154,7 @@
 ### Surveiller
 #### [Utilisation du tableau de bord des services](storsimple-service-dashboard.md)
 #### [Utilisation du tableau de bord d’un appareil](storsimple-device-dashboard.md)
+#### [Utilisation des graphiques de surveillance](storsimple-monitor-device.md)
 #### [Utilisation des alertes de service](storsimple-manage-alerts.md)
 #### [Utilisation de l’état du matériel](storsimple-monitor-hardware-status.md)
 #### [Utilisation des LED de surveillance](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [À partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Mettre à jour
+#### [Installer Update 4](storsimple-install-update-4.md)
 #### [Installer Update 3](storsimple-install-update-3.md)
 #### [Installer Update 2.2](storsimple-install-update-21.md)
 #### [Installer Update 2](storsimple-install-update-2.md)
@@ -179,6 +185,7 @@
 #### [Mettre à jour votre appareil](storsimple-update-device.md)
 
 ## Notes de publication
+### [Update 4 - en cours](storsimple-update4-release-notes.md)
 ### [Update 3 - en cours](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
@@ -203,6 +210,18 @@
 ## Procédures
 ### [Utiliser .NET pour transformer les données](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple pour les partenaires
+## Vue d'ensemble
+### [Quelle est la solution ?](storsimple-partner-csp-overview.md)
+
+## Prise en main
+### [Déployer Virtual Array pour les fournisseurs de solutions Cloud](storsimple-partner-csp-deploy.md)
+
+## Notes de publication
+### [Notes de publication de StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Notes de publication pour les fournisseurs de solutions Cloud](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple pour les fournisseurs de solutions Cloud : Forum Aux Questions](storsimple-partner-csp-faq.md)
+
 # Rubriques connexes
 ## [Gamme StorSimple 5000-7000](http://onlinehelp.storsimple.com)
 
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

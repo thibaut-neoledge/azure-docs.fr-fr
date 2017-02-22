@@ -1,5 +1,5 @@
 ---
-title: "Assistant Data Factory Copy | Microsoft Docs"
+title: "Copier facilement des données avec l’Assistant de copie - Azure | Microsoft Docs"
 description: "Découvrez comment utiliser l’Assistant Data Factory Copy pour copier des données à partir de sources de données prises en charge dans des récepteurs."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdd816303cb971403eaa074d0fe8a46f11017a42
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 0fc9eb7869ebe7316e4aed0d561638a05bc9a91c
 
 
 ---
-# <a name="data-factory-copy-wizard"></a>Assistant Data Factory Copy
+# <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copier ou déplacer facilement des données avec l’Assistant de copie Azure Data Factory
 L’Assistant Azure Data Factory Copy doit faciliter le processus de réception des données, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout. Lorsque vous passez par l’Assistant Azure Data Factory Copy, il est inutile de comprendre les définitions JSON pour les services liés, les jeux de données et les pipelines. Toutefois, une fois que vous avez effectué toutes les étapes de l’Assistant, l’Assistant crée automatiquement un pipeline pour copier les données de la source de données sélectionnée vers la destination sélectionnée. En outre, l’Assistant Azure Data Factory Copy vous permet de valider les données reçues au moment de la création, ce qui vous permet de gagner beaucoup de temps, en particulier lorsque vous recevez des données pour la première fois de la source de données. Pour lancer l’Assistant Data Factory Copy, cliquez sur la mosaïque **Copier les données** sur la page d’accueil de votre fabrique de données.
 
 ![Assistant de copie](./media/data-factory-copy-wizard/copy-data-wizard.png)
@@ -93,6 +93,6 @@ Pour découvrir une procédure pas à pas rapide sur l’utilisation de l’Assi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

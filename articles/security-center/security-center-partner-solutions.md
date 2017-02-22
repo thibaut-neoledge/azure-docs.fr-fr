@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a3d7254fded543fa12b6e82cd50ece8260858955
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
 
 
 ---
@@ -25,11 +25,12 @@ Ce document explique comment surveiller l’état d’intégrité de vos solutio
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="monitoring-partner-solutions"></a>Surveillance des solutions de partenaire
 La mosaïque **Solutions de partenaire** du panneau **Security Center** vous permet de surveiller en un clin d’œil l’intégrité de vos solutions de partenaire intégrées à votre abonnement Azure.
+
 ![Mosaïque Solutions de partenaire][1]
 
 La mosaïque **Solutions de partenaire** affiche le nombre de solutions de partenaire et un récapitulatif de l’état de ces solutions.
@@ -43,15 +44,19 @@ L’ **ÉTAT** d’une solution de partenaire peut être :
 * Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci vient d’être connectée et est en cours de déploiement).
 
 Si aucune solution n’est intégrée à votre abonnement, la mosaïque indique qu’il n’y a aucune solution. Le fait de sélectionner la mosaïque **Solutions de partenaire** vous permet d’ouvrir le panneau **Recommandations** pour déployer des solutions de sécurité de partenaire.
+
 ![Aucune solution de partenaire][2]
 
 Pour afficher l’intégrité de vos solutions de partenaire :
 
 1. Sélectionnez la vignette **Solutions de partenaires** . Un panneau vous présente la liste de vos solutions de partenaires connectées au Centre de sécurité.
-   ![Solutions de partenaire][3]
+
+   ![Solutions de partenaires][3]
 2. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **F5-WAF2** .  Un panneau s'ouvre et affiche l'état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
+
    ![Détail de la solution partenaire][4]
 3. Revenez au panneau **F5-WAF2** et sélectionnez **Associer**. Le panneau **Associer les applications** s’ouvre. Il vous permet de connecter des ressources à la solution de partenaire.
+
    ![Associer des ressources à la solution de partenaire][5]
 
 ## <a name="see-also"></a>Voir aussi
@@ -73,6 +78,6 @@ Ce document vous a présenté la mosaïque **Solutions de partenaire** du Centre
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
 
 
 ---
@@ -26,20 +26,20 @@ Cet article explique comment modifier les paramètres d’un groupe dans la vers
 ## <a name="how-do-i-find-and-change-the-settings"></a>Comment rechercher et modifier les paramètres ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
-   
+
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
 5. Dans le panneau **Groupe - *NomGroupe***, sélectionnez **Propriétés**.
-   
+
    ![Ouverture du panneau Propriétés](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Lorsque vous avez terminé la modification des propriétés du groupe, sélectionnez **Enregistrer**.    
-   
+
    ![Enregistrement des modifications de propriétés](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="additional-information"></a>Informations supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
@@ -50,7 +50,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

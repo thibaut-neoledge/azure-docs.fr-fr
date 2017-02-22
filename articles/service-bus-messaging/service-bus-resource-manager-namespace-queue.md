@@ -1,5 +1,5 @@
 ---
-title: "Créer un espace de noms Service Bus avec une file d’attente à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+title: "Créer un espace de noms et une file d’attente Azure Service Bus à l’aide d’un modèle | Microsoft Docs"
 description: "Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
 
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus et une file d’attente. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour plus d’informations sur la création de modèles, consultez l’article [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Pour le modèle complet, consultez le [modèle d'espace de noms et de file d’attente Service Bus][modèle d'espace de noms et de file d’attente Service Bus] sur GitHub.
+Pour obtenir le modèle complet, consultez le [modèle d’espace de noms et de file d’attente Service Bus][Service Bus namespace and queue template] sur GitHub.
 
 > [!NOTE]
 > Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
@@ -35,7 +35,7 @@ Pour le modèle complet, consultez le [modèle d'espace de noms et de file d’a
 > * [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure].
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
@@ -56,7 +56,7 @@ Le modèle définit les paramètres suivants.
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nom de l’espace de noms Service Bus à créer.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -68,7 +68,7 @@ Nom de l’espace de noms Service Bus à créer.
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
 Nom de la file d’attente créée dans l’espace de noms Service Bus.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -77,7 +77,7 @@ Nom de la file d’attente créée dans l’espace de noms Service Bus.
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La version de l’API Service Bus du modèle.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -86,7 +86,7 @@ La version de l’API Service Bus du modèle.
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 Crée un espace de noms Service Bus standard de type **Messagerie**, avec une file d’attente.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -115,12 +115,14 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec une fi
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-```
+
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
@@ -130,17 +132,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Maintenant que vous avez créé et déployé des ressources à l’aide d’Azure Resource Manager, découvrez comment gérer ces ressources en consultant les articles suivants :
 
 * [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-[modèle d'espace de noms et de file d’attente Service Bus]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-[modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[En savoir plus sur les files d’attente Service Bus]: service-bus-queues-topics-subscriptions.md
-[Utilisation d’Azure PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

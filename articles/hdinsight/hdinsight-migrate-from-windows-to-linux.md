@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: ae954da8c71e6fcc67941919851ea67b825c54d0
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
 
 
 ---
@@ -92,7 +92,7 @@ Le tableau suivant fournit des conseils sur la migration des composants côté s
 | --- | --- |
 | **PowerShell** (scripts côté serveur, notamment les actions de script utilisées lors de la création du cluster) |Réécrivez-les en tant que scripts Bash. En ce qui concerne les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) et [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Interface de ligne de commande Azure** (scripts côté serveur) |Même si l’interface de ligne de commande Azure est disponible sous Linux, elle n’est pas préinstallée sur les nœuds principaux du cluster HDInsight. Si vous en avez besoin pour les scripts côté serveur, consultez [Installer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour plus d’informations sur l’installation sur les plateformes Linux. |
-| **Composants .NET** |.NET n’est pas intégralement pris en charge sur les clusters HDInsight Linux. Les clusters Storm sur HDInsight basés sur Linux créés après le 28/10/2017 prennent en charge les topologies Storm C# à l’aide de l’infrastructure SCP.NET. Une prise en charge supplémentaire pour .NET sera ajouté dans les mises à jour ultérieures. |
+| **Composants .NET** |.NET n’est pas intégralement pris en charge sur tous les types de clusters HDInsight Linux. Les clusters Storm sur HDInsight basés sur Linux créés après le 28/10/2016 prennent en charge les topologies Storm C# à l’aide de l’infrastructure SCP.NET. Une prise en charge supplémentaire pour .NET sera ajouté dans les mises à jour ultérieures. |
 | **Composants Win32 ou autre technologie propre à Windows** |Les conseils varient selon le composant ou la technologie ; vous pouvez trouver une version compatible avec Linux ou être amené à trouver une autre solution ou réécrire ce composant. |
 
 ## <a name="cluster-creation"></a>Création du cluster
@@ -222,6 +222,6 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

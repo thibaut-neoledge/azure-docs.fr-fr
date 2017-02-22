@@ -1,6 +1,6 @@
 ---
-title: "Dépannage de la sauvegarde de machine virtuelle Azure | Microsoft Docs"
-description: "Dépannage de la sauvegarde et de la restauration de machines virtuelles Azure"
+title: "Résoudre les erreurs de sauvegarde Azure dans le portail Classic | Microsoft Docs"
+description: "Dépannez la sauvegarde et la restauration Azure de machines virtuelles Azure dans le portail Classic."
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: trinadhk;jimpark;
+ms.date: 1/23/2017
+ms.author: trinadhk;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e2c22d2833a7905ba6001178be8709ec81c26000
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 2149407ff4e04f6a52a45c419382617810a63633
 
 
 ---
@@ -39,7 +39,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | S’inscrire |Le nombre de disques de données attachés à la machine virtuelle a dépassé la limite autorisée : Détachez des disques de données de cette machine virtuelle et recommencez l’opération La sauvegarde Azure prend en charge jusqu’à 16 disques de données rattachés à une machine virtuelle Azure à des fins de sauvegarde. |Aucun |
-| S’inscrire |Microsoft Azure Backup a rencontré une erreur interne. Veuillez patienter quelques minutes et réessayez l’opération. Si le problème persiste, contactez le support technique Microsoft. |Cette erreur peut être due à l’absence de prise en charge de l’une des configurations de machine virtuelle sur LRS Premium. <br>  Les machines virtuelles de stockage Premium peuvent être sauvegardées à l’aide du coffre Recovery Services. [En savoir plus](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
+| S’inscrire |Microsoft Azure Backup a rencontré une erreur interne. Veuillez patienter quelques minutes et réessayez l’opération. Si le problème persiste, contactez le support technique Microsoft. |Cette erreur peut être due à l’absence de prise en charge de l’une des configurations de machine virtuelle sur LRS Premium. <br> Les machines virtuelles de stockage Premium peuvent être sauvegardées à l’aide du coffre Recovery Services. [En savoir plus](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
 | S’inscrire |Échec de l’inscription avec un délai d’expiration de l’opération Installer l’agent |Vérifiez si la version de système d’exploitation de la machine virtuelle est prise en charge. |
 | S’inscrire |Échec de l’exécution de la commande - Une autre opération est en cours sur cet élément Attendez que l’opération précédente aboutisse |Aucun |
 | S’inscrire |Les machines virtuelles dotées de disques durs virtuels stockés sur le stockage Premium ne sont pas prises en charge par la sauvegarde |Aucun |
@@ -48,7 +48,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 ## <a name="backup"></a>Sauvegarde
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Sauvegarde |Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané. La sous-tâche de machine virtuelle de capture instantanée a expiré. Consultez le guide de dépannage pour connaître la procédure de résolution de ce problème. |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. En savoir plus sur le [débogage des problèmes d’instantanés de machines virtuelles](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br>  Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect » |
+| Sauvegarde |Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané. La sous-tâche de machine virtuelle de capture instantanée a expiré. Consultez le guide de dépannage pour connaître la procédure de résolution de ce problème. |Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. En savoir plus sur le [débogage des problèmes d’instantanés de machines virtuelles](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Si l’agent de machine virtuelle n’est pas à l’origine des problèmes, redémarrez la machine virtuelle. Il arrive que l’état incorrect d’une machine virtuelle provoque des problèmes et le redémarrage de la machine virtuelle réinitialise cet « état incorrect » |
 | Sauvegarde |Échec de l’opération de sauvegarde avec une erreur interne - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. |Veuillez vérifier s’il existe un problème temporaire d’accès au stockage de la machine virtuelle. Vérifiez [l’état Azure](https://azure.microsoft.com/en-us/status/) pour voir si des problèmes relatifs au calcul/stockage/réseau dans la région persistent. Veuillez réessayer pour savoir si le problème post-sauvegarde est résolu. |
 | Sauvegarde |Impossible d’effectuer l’opération car la machine virtuelle n’existe plus. |Impossible d’effectuer la sauvegarde car la machine virtuelle configurée pour la sauvegarde a été supprimée. Arrêtez les autres sauvegardes en accédant à la vue Éléments protégés, sélectionnez l’élément protégé, puis cliquez sur Arrêter la protection. Vous pouvez conserver les données en sélectionnant l’option Conserver les données de sauvegarde. Vous pouvez réactiver ultérieurement la protection de cette machine virtuelle en cliquant sur Configurer la protection dans la vue des éléments protégés. |
 | Sauvegarde |Échec de l’installation de l’extension Azure Recovery Services sur l’élément sélectionné - L’agent VM est un composant requis pour l’extension Azure Recovery Services. Installez d’abord l’agent Azure VM, puis recommencez l’opération d’inscription. |<ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> [En savoir plus](#validating-vm-agent-installation) sur l’installation de l’agent de machine virtuelle et la validation de cette opération. |
@@ -70,8 +70,8 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure
 ## <a name="restore"></a>Restauration
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Restauration |Échec de la restauration avec une erreur interne du cloud |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une adresse IP réservée, et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles avec configuration d’un équilibreur de charge (internes et externes)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs cartes réseau<br>Sélectionnez un service cloud dans l’IU ou consultez les [considérations relatives à la restauration](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) pour les machines virtuelles affichant des configurations de réseau spéciales</ol> |
-| Restore  |Le nom DNS sélectionné est déjà utilisé. Veuillez spécifier un autre nom DNS et réessayez. |Le nom DNS fait référence au nom du service cloud (se termine généralement par .cloudapp.net). Il doit être unique. Si vous rencontrez cette erreur, vous devez choisir un autre nom de machine virtuelle pendant la restauration. <br><br>  Cette erreur ne s’affiche que pour les utilisateurs du portail Azure. L’opération de restauration via PowerShell se déroule correctement, car elle ne fait que restaurer les disques et ne crée pas de machine virtuelle. L’erreur se rencontre lorsque la machine virtuelle est explicitement créée par vos soins après l’opération de restauration du disque. |
+| Restauration |Échec de la restauration avec une erreur interne du cloud |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une adresse IP réservée, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles avec configuration d’un équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs NIC<br>Sélectionnez un service cloud dans l’IU ou consultez les [considérations relatives à la restauration](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) des machines virtuelles affichant des configurations de réseau spéciales</ol> |
+| Restauration |Le nom DNS sélectionné est déjà utilisé. Veuillez spécifier un autre nom DNS et réessayez. |Le nom DNS fait référence au nom du service cloud (se termine généralement par .cloudapp.net). Il doit être unique. Si vous rencontrez cette erreur, vous devez choisir un autre nom de machine virtuelle pendant la restauration. <br><br> Cette erreur ne s’affiche que pour les utilisateurs du portail Azure. L’opération de restauration via PowerShell se déroule correctement, car elle ne fait que restaurer les disques et ne crée pas de machine virtuelle. L’erreur se rencontre lorsque la machine virtuelle est explicitement créée par vos soins après l’opération de restauration du disque. |
 | Restauration |La configuration de réseau virtuel spécifiée n’est pas correcte. Veuillez indiquer une autre configuration de réseau virtuel et réessayez. |Aucun |
 | Restauration |Le service cloud spécifié utilise une adresse IP réservée, ce qui ne correspond pas à la configuration de machine virtuelle en cours de restauration. Veuillez spécifier un autre service cloud n’utilisant pas l’adresse IP réservée ou choisir un autre point de restauration. |Aucun |
 | Restauration |Le service cloud a atteint la limite du nombre de points de terminaison d’entrée. Recommencez l’opération en spécifiant un autre service cloud ou en utilisant un point de terminaison existant. |Aucun |
@@ -117,6 +117,6 @@ Pour vérifier la version de l’agent de machine virtuelle sur les machines vir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec PowerShell
-> [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 Cet article vous montre comment lancer un basculement planifié ou non planifié pour une base de données SQL avec PowerShell. Pour configurer la géoréplication, consultez [Configurer la géoréplication pour Base de données SQL Azure](sql-database-geo-replication-powershell.md).
 
@@ -45,7 +39,7 @@ Cette applet de commande sera renvoyée lorsque le processus de basculement de l
 
 La commande suivante bascule les rôles de la base de données nommée « mydb » sur le serveur « srv2 » sous le groupe de ressources « rg2 » vers la base de données primaire. La base de données primaire d’origine à laquelle « db2 » a été connectée bascule sur la base de données secondaire une fois que les deux bases de données sont entièrement synchronisées.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -55,7 +49,7 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Toute l’opération devrait prendre moins d’une minute pour se terminer dans des circonstances normales
-Vous pouvez utiliser l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec les paramètres **–Failover** et **-AllowDataLoss** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière non planifiée, forçant ainsi la rétrogradation de la base de données primaire existante en base de données secondaire quand la base de données primaire n’est plus disponible.
+Vous pouvez utiliser l’applet de commande **Set-AzureRmSqlDatabaseSecondary** avec les paramètres **-Failover** et **-AllowDataLoss** pour promouvoir une base de données secondaire afin qu’elle devienne la nouvelle base de données primaire de manière non planifiée, forçant ainsi la rétrogradation de la base de données primaire existante en base de données secondaire quand la base de données primaire n’est plus disponible.
 
 Cette fonctionnalité est conçue pour la récupération d’urgence lorsque la restauration de la disponibilité de la base de données est essentielle et une perte de données est acceptable. Lorsque le basculement forcé est appelé, la base de données secondaire devient la base de données primaire immédiatement et commence à accepter des transactions d’écriture. Dès que la base de données primaire d’origine est en mesure de se reconnecter à la nouvelle base de données primaire après l’opération de basculement forcé, une sauvegarde incrémentielle est effectuée sur la base de données primaire d’origine et l’ancienne base de données primaire est transformée en base de données secondaire de la nouvelle base de données primaire. Par conséquent, il s’agit simplement d’un réplica de la nouvelle base de données primaire.
 
@@ -70,8 +64,8 @@ Si la base de données primaire compte plusieurs bases de données secondaires, 
 
 La commande suivante bascule les rôles de la base de données nommée « mydb » vers la base de données primaire si le serveur principal n’est pas disponible. La base de données d’origine à laquelle « mydb » était connectée va basculer sur la base de données secondaire une fois qu’elle est revenue est en ligne. À ce stade, la synchronisation peut entraîner une perte de données.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
+    $database | Set-AzureRmSqlDatabaseSecondary -Failover -AllowDataLoss
 
 
 
@@ -87,6 +81,6 @@ La commande suivante bascule les rôles de la base de données nommée « mydb�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

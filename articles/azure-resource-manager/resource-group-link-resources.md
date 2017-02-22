@@ -1,5 +1,5 @@
 ---
-title: Liaison des ressources dans Azure Resource Manager | Microsoft Docs
+title: Relier des ressources connexes dans les solutions Azure | Microsoft Docs
 description: "Liez différentes ressources dans différents groupes de ressources dans Azure Resource Manager."
 services: azure-resource-manager
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 87d19e4680a6da6be6da55eeab80ee7739361f8c
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2750e971ae281e498e9c505e1cd2790cefbfbc78
 
 
 ---
-# <a name="linking-resources-in-azure-resource-manager"></a>Liaison des ressources dans Azure Resource Manager
+# <a name="link-related-resources-from-different-resource-groups"></a>Relier des ressources connexes de différents groupes de ressources
 Au cours du déploiement, vous pouvez marquer une ressource comme dépendante d’une autre ressource, mais ce cycle de vie se termine au moment du déploiement. Après le déploiement, il n’existe aucune relation identifiée entre les ressources dépendantes. Resource Manager fournit une fonctionnalité appelée « liaison des ressources », qui permet d’établir des relations persistantes entre les ressources.
 
 Avec les liaisons vers les ressources, vous pouvez renseigner les relations qui s’étendent sur des groupes de ressources. Par exemple, il est courant qu’une base de données avec son propre cycle de vie réside dans un groupe de ressources, tandis qu’une application avec un autre cycle de vie réside dans un autre groupe de ressources. L’application se connecte à la base de données, vous devez donc marquer une liaison entre l’application et la base de données. 
@@ -76,6 +76,6 @@ Pour consulter d’autres exemples traitant notamment de la récupération d’i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

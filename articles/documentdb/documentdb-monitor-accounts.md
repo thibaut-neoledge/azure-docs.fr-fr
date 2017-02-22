@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ea24ad915b3d6f5180182a454c03edc578f7b761
-ms.openlocfilehash: 3751d1a24684bbf9b7230eb3ab4827ee2ba52379
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
 
 
 ---
@@ -122,11 +122,11 @@ Si vos mosaïques d’analyse affichent le message **Aucune donnée disponible**
    ![Capture d'écran de la mosaïque indiquant le nombre total de requêtes, mis à jour pour la dernière heure](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
+Pour en savoir plus sur la planification de la capacité de DocumentDB, consultez le [calculateur DocumentDB Capacity Planner](https://www.documentdb.com/capacityplanner).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

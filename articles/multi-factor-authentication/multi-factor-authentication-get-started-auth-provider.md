@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ La vérification en deux étapes est disponible par défaut pour les administrat
 
 > [!NOTE]
 > Un fournisseur d’authentification multifacteur Azure permet de tirer parti des fonctionnalités fournies par la version complète de l’authentification multifacteur Azure. Il s’adresse aux utilisateurs **qui ne possèdent pas de licences via l’authentification multifacteur Azure (MFA), Azure AD Premium ou EMS**.  L’authentification multifacteur Azure, Azure AD Premium et EMS incluent la version complète de l’authentification Multifacteur Azure par défaut.  Vous n’avez pas besoin d’un fournisseur d’authentification multifacteur Azure si vous possédez des licences.
-> 
-> 
 
 Il sera en revanche nécessaire si vous souhaitez télécharger le Kit de développement logiciel (SDK).
 
 > [!IMPORTANT]
 > Pour télécharger le Kit de développement logiciel (SDK), créez un fournisseur d’authentification multifacteur Azure, même si vous disposez de licences EMS, AAD Premium ou Azure MFA.  Si vous créez un fournisseur d’authentification multifacteur Azure à cet effet et que vous avez déjà des licences, veillez à créer le fournisseur avec le modèle **Par utilisateur activé**. Ensuite, liez le fournisseur au répertoire qui contient les licences de l’authentification multifacteur Azure, Azure AD Premium ou EMS.  Cela garantit que vous n’êtes facturé que si vous avez plus d’utilisateurs uniques utilisant le Kit de développement logiciel (SDK) que de licences possédées.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Pour créer un fournisseur Multi-Factor Auth
+## <a name="create-a-multi-factor-auth-provider"></a>Créer un fournisseur Multi-Factor Authentication
 Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth.
 
 1. Connectez-vous en tant qu’administrateur au [portail Azure Classic](https://manage.windowsazure.com).
@@ -64,6 +60,6 @@ Suivez les étapes ci-dessous pour créer un fournisseur Azure Multi-Factor Auth
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Modifier le comportement du clignotement de la LED avec des messages à partir d’Azure IoT Hub | Microsoft Docs"
+title: "Connecter Intel Edison (Node) à Azure IoT - Leçon 4 : Faire clignoter la LED | Microsoft Docs"
 description: "Personnalisez les messages pour modifier le comportement activé/désactivé de la LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1e892cee7b977c03b2539a6495b868cd8ab83748
-ms.openlocfilehash: 69cfb48789ef72d6594bd3db68170f83c9d171b0
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 9a2c6dfe5d85a4da9714f9b8942cb2baf1a98466
 
 
 ---
@@ -110,6 +110,6 @@ Cette section facultative montre comment personnaliser les messages de sorte que
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: f6208195fb998d5cb3ca00fa684f814971083cad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626db03a7b858d060b01332a67f0b491066a6625
 
 
 ---
@@ -38,7 +38,7 @@ Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modif
 * Annonce Web : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage Web.
 
 ### <a name="see-also"></a>Voir aussi
-* [Reach - Procédures - Annonces][Lien 3] 
+* [Reach - Procédures - Annonces][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>À propos des annonces d'affichage Web :
 Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet.
@@ -110,16 +110,16 @@ Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'ide
 Remplissez le titre, le contenu et le texte des boutons de votre annonce. Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience peut se baser sur les commentaires déterminant si la campagne a été envoyée par notification Push, si elle a obtenu une réponse, si elle a été activée ou quittée.
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Lien 28]
+* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
 ## <a name="content-of-polls"></a>Contenu des sondages
 ![Reach-Content2][31] 
 
- Remplissez le titre, la description et le texte des boutons de votre annonce. Ajoutez ensuite des questions et des choix de réponse pour ces questions.
+Remplissez le titre, la description et le texte des boutons de votre annonce. Ajoutez ensuite des questions et des choix de réponse pour ces questions.
 Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience est déterminé selon que la campagne est issue d'une transmission de type push, qu'elle a obtenu une réponse, qu'elle a été activée ou quittée. Le ciblage de l'audience peut également se baser sur les commentaires de réponse du sondage pour lequel la question à choix multiple est utilisée comme critère.
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Lien 28]
+* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Contenu des Push de données
 ![Reach-Content3][32] 
@@ -135,7 +135,7 @@ Vous pouvez cibler une audience pour une future campagne suivant les commentaire
 * Vous pouvez cibler une audience pour une future campagne suivant les commentaires Reach indiquant la façon dont les utilisateurs ont répondu à cette campagne. Le ciblage de l'audience est déterminé selon que la campagne est issue d'une transmission de type push, qu'elle a obtenu une réponse, qu'elle a été activée ou quittée.
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Lien 28]
+* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Contenu des vignettes (Windows Phone uniquement)
 ![Reach-Content4][33]
@@ -145,7 +145,7 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 Un Push de vignette est la version du service de notifications Push de Microsoft (MPNS) d'un Push natif pour Windows Phone. Ce type de Push de vignette est le seul type de push qui n'a pas de réponse. L'audience des futures campagnes ne peut donc pas être déterminée en fonction des résultats d'une campagne de Push de vignette. 
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur les API- API Reach - Push natif][Lien 4]
+* [Documentation sur les API - API Reach - Push natif][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -208,39 +208,39 @@ Un Push de vignette est la version du service de notifications Push de Microsoft
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Lien 1]: mobile-engagement-user-interface.md
-[Lien 2]: mobile-engagement-troubleshooting-guide.md
-[Lien 3]: mobile-engagement-how-tos.md
-[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Lien 7]: https://account.windowsazure.com/PreviewFeatures
-[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Lien 12]: mobile-engagement-user-interface-navigation.md
-[Lien 13]: mobile-engagement-user-interface-home.md
-[Lien 14]: mobile-engagement-user-interface-my-account.md
-[Lien 15]: mobile-engagement-user-interface-analytics.md
-[Lien 16]: mobile-engagement-user-interface-monitor.md
-[Lien 17]: mobile-engagement-user-interface-reach.md
-[Lien 18]: mobile-engagement-user-interface-segments.md
-[Lien 19]: mobile-engagement-user-interface-dashboard.md
-[Lien 20]: mobile-engagement-user-interface-settings.md
-[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
-[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Lien 27]: mobile-engagement-user-interface-reach-campaign.md
-[Lien 28]: mobile-engagement-user-interface-reach-criterion.md
-[Lien 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

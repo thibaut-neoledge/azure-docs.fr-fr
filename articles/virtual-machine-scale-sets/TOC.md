@@ -16,6 +16,10 @@
 ### [Groupe de machines virtuelles identiques Linux avec mise à l’échelle automatique](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Groupe de machines virtuelles identiques Windows avec mise à l’échelle automatique](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
+### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)
+### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
+### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 ## Gérer
 ### [Groupe de machines virtuelles identiques Windows avec PowerShell](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +28,7 @@
 ### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Groupes de machines virtuelles identiques et configuration d’état souhaité](virtual-machine-scale-sets-dsc.md)
+### [Convertir un modèle en disques gérés](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Résolution des problèmes
 ### [Mise à l’échelle automatique](virtual-machine-scale-sets-troubleshoot.md)
@@ -40,6 +45,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

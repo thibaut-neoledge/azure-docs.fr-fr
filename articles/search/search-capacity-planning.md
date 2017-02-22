@@ -1,6 +1,6 @@
 ---
-title: "Mise à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search | Microsoft Docs"
-description: "La planification des capacités dans Azure Search est fondée sur des combinaisons de ressources informatiques de type partition et réplica, chaque ressource étant facturée en unités de recherche facturables."
+title: "Planification des capacités de Recherche Azure | Microsoft Docs"
+description: "Ajustez les ressources informatiques des partitions et des réplicas dans Recherche Azure, où chaque ressource est facturée en unités de recherche facturables."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc643a4c852b723d030212f01e6ff475c76e1a4
-ms.openlocfilehash: 8fb3011d755dd0330e71005de4df52f59e1f7b95
+ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
+ms.openlocfilehash: c3f547fade400ba35619217dac503ab7ea2fbb40
 
 ---
 
@@ -91,7 +91,7 @@ Les applications de recherche nécessitant une actualisation des données en tem
 Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, peut-être constaterez-vous que chaque augmentation incrémentielle des partitions nécessite une augmentation plus faible mais proportionnelle des réplicas. La complexité et le volume de vos requêtes auront une incidence sur la vitesse d’exécution des requêtes.
 
 ## <a name="basic-tier-partition-and-replica-combinations"></a>Niveau de base : combinaisons de partitions et de réplicas
-Un service basique peut avoir exactement une partition et jusqu’à trois réplicas, pour une limite maximale de trois unités de recherche. Les seules ressources ajustables sont les réplicas. Vous devez disposer d’au moins 2 réplicas pour la haute disponibilité sur des requêtes.
+Un service basique peut avoir exactement une partition et jusqu’à trois réplicas, pour une limite maximale de trois unités de recherche. Les seules ressources ajustables sont les réplicas. Vous devez disposer d’au moins&2; réplicas pour la haute disponibilité sur des requêtes.
 
 <a id="chart"></a>
 
@@ -122,6 +122,6 @@ Le coût par SU est déterminé par le niveau, avec un taux de facturation infé
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

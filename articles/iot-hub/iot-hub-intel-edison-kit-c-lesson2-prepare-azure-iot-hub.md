@@ -1,5 +1,5 @@
 ---
-title: "Créer votre Azure IoT Hub et inscrire Intel Edison | Microsoft Docs"
+title: "Connecter Intel Edison (C) à Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
 description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscrivez Edison dans Azure IoT Hub à l’aide de l’interface de ligne de commande Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: eed6c2b652df689732138fc9ce792728d7752f23
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 9eebae32bf469e0744855ed9f98306bd36eb9671
 
 
 ---
@@ -105,6 +105,6 @@ Vous avez créé un IoT Hub et enregistré Edison sous une identité d’apparei
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

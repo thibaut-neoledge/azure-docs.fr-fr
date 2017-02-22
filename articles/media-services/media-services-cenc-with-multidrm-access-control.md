@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
 
 
 ---
@@ -296,15 +296,15 @@ Que se passe-t-il si la substitution de la clé a lieu après qu’AAD ait gén�
 Une clé pouvant être substituée à tout moment, il y a toujours plusieurs clés publiques valides disponibles dans le document de métadonnées de la fédération. La distribution de licence Azure Media Services peut utiliser une des clés spécifiées dans le document, car une clé peut être substituée rapidement et une autre prise en remplacement, et ainsi de suite.
 
 ### <a name="where-is-the-access-token"></a>Où se trouve le jeton d’accès ?
-Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api), le flux d’authentification est comme ci-dessous :
+Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), le flux d’authentification est comme ci-dessous :
 
-1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section [Navigateur web vers application web](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application)ci-dessus).
+1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section [Navigateur web vers application web](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)ci-dessus).
 2. Le point de terminaison d’autorisation Azure AD redirige l’agent utilisateur vers l’application cliente avec un code d’autorisation. L’agent utilisateur renvoie le code d’autorisation à l’URI de l’application cliente.
 3. L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et  l’URI ID d’application de l’API web. Il présente le code d’autorisation permettra de prouver que l’utilisateur a donné son consentement.
 4. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
 5. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « porteur » dans l’en-tête d’autorisation de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
-Dans ce flux « Identité de l’application », l’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ». Le [diagramme sur cette page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) explique comment le flux relatif au code d’autorisation fonctionne.
+Dans ce flux « Identité de l’application », l’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ». Le [diagramme sur cette page](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) explique comment le flux relatif au code d’autorisation fonctionne.
 
 Dans l’acquisition de licence avec restriction de jeton, nous suivons le même modèle de sous-système approuvé. Et le service de distribution de licences dans Azure Media Services est une ressource API web, la « Ressource backend » a besoin d’un accès. Où se trouve le jeton d’accès ?
 
@@ -458,6 +458,6 @@ Dans ce document, nous avons abordé les sujets des DRM natives multiples, et un
  
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

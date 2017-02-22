@@ -1,5 +1,5 @@
 ---
-title: "Créer votre première application Service Fabric dans Visual Studio | Microsoft Docs"
+title: "Créer votre première application de microservices Azure | Microsoft Docs"
 description: "Créer, déployer et déboguer une application Service Fabric à l’aide de Visual Studio"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
 
 
 ---
@@ -36,14 +36,14 @@ Avant de commencer, assurez-vous que vous avez bien [configuré votre environnem
 ## <a name="video-walkthrough"></a>Vidéo de procédure pas à pas
 La vidéo suivante vous guide à travers les étapes de ce didacticiel :
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
-## <a name="create-the-application"></a>Création de l'application
+## <a name="create-the-application"></a>Création de l’application
 Une application Service Fabric peut contenir un ou plusieurs services, chacun ayant un rôle précis pour la fourniture de la fonctionnalité d’application. Créez un projet d’application, en même temps que votre premier projet de service, à l’aide de l’Assistant Nouveau projet. Vous pourrez également ajouter d’autres services par la suite si vous le souhaitez.
 
-1. Lancez Visual Studio en tant qu'administrateur.
+1. Lancez Visual Studio en tant qu’administrateur.
 2. Cliquez sur **Fichier > Nouveau projet > Cloud > Application Service Fabric**.
 3. Nommez l’application, puis cliquez sur **OK**.
    
@@ -153,6 +153,6 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

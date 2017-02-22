@@ -4,7 +4,7 @@ description: "Ce guide fournit un didacticiel de base qui décrit comment utilis
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
@@ -12,44 +12,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+ms.sourcegitcommit: b12f823d723b013755fc868b883faefa2072eb75
+ms.openlocfilehash: 9b21fed003f96dbf7ebd72d6f46fff91acbf039e
 
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de recherche de journal Log Analytics
-Ce guide fournit un didacticiel de base qui décrit comment utiliser l’API REST de recherche Log Analytics dans Operations Management Suite (OMS). Il propose aussi des exemples qui vous permettent de découvrir comment utiliser les commandes. Certains exemples de cet article font référence à Operational Insights, qui est le nom de la version précédente de Log Analytics.
+Ce guide fournit un didacticiel de base, y compris des exemples, sur la façon dont vous pouvez utiliser l’API REST de recherche de journal Log Analytics. Log Analytics fait partie d'Operations Management Suite (OMS).
+
+> [!NOTE]
+> Avant, Log Analytics s’appelait Operational Insights, ce qui explique pourquoi ce nom est présent dans le fournisseur de ressources.
+>
+>
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Vue d’ensemble de l’API REST de recherche de journal
-L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API Azure Resource Manager. Vous trouverez, dans ce document, des exemples qui vous indiqueront comment accéder à l'API via l’ [ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Une autre option consiste à utiliser le module Azure PowerShell pour OperationalInsights qui inclut des applets de commande pour accéder à la recherche. Grâce à ces outils, vous pouvez utiliser l'API RESTful Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
+L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API Azure Resource Manager. Cet article fournit des exemples qui vous indiqueront comment accéder à l'API via [ARMClient](https://github.com/projectkudu/ARMClient), un outil de ligne de commande open source qui simplifie l'appel de l'API du Gestionnaire de ressources Azure. L'utilisation d’ARMClient est une des nombreuses options vous permettant d’accéder à l'API de recherche de journal de Log Analytics. Une autre option consiste à utiliser le module Azure PowerShell pour OperationalInsights qui inclut des applets de commande pour accéder à la recherche. Grâce à ces outils, vous pouvez utiliser l'API Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produit des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
-Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque pour .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) et une [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Pour en savoir plus, consultez les pages web connexes.
+Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque pour .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) et l'[API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Pour en savoir plus, consultez les pages web connexes.
+
+> [!NOTE]
+> Si vous utilisez une commande d’agrégation comme `|measure count()` ou `distinct`, chaque appel à la recherche peut retourner jusqu'à 500 000 enregistrements. Les recherches qui n’incluent pas une commande d’agrégation renvoient jusqu'à 5 000 enregistrements.
+>
+>
 
 ## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Didacticiel de base sur l’API de recherche de journal de Log Analytics
-### <a name="to-use-the-arm-client"></a>Pour utiliser le client ARM
+### <a name="to-use-armclient"></a>Pour utiliser ARMClient
 1. Installez [Chocolatey](https://chocolatey.org/)(gestionnaire de packages open source pour Windows). Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur, puis exécutez la commande suivante :
-   
+
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 2. Installez ARMClient en exécutant la commande suivante :
-   
+
     ```
     choco install armclient
     ```
 
-### <a name="to-perform-a-simple-search-using-the-armclient"></a>Pour effectuer une simple recherche à l'aide d’ARMClient
-1. Connectez-vous à votre compte Microsoft ou OrgID :
-   
+### <a name="to-perform-a-search-using-armclient"></a>Pour effectuer une recherche à l’aide d’ARMClient
+1. Connectez-vous à l’aide de votre compte Microsoft, ou de votre compte professionnel ou scolaire :
+
     ```
     armclient login
     ```
-   
+
     Une connexion réussie répertorie tous les abonnements associés au compte spécifique :
-   
+
     ```
     PS C:\Users\SampleUserName> armclient login
     Welcome YourEmail@ORG.com (Tenant: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz)
@@ -60,13 +70,13 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 2. Obtenez les espaces de travail Operations Management Suite :
-   
+
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
-   
+
     Un appel Get réussi affiche tous les espaces de travail liés à l’abonnement :
-   
+
     ```
     {
     "value": [
@@ -84,12 +94,12 @@ Le Gestionnaire de ressources Azure peut être utilisé via une [Bibliothèque p
     }
     ```
 3. Créez votre variable de recherche :
-   
+
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Lancez une recherche à l’aide de votre nouvelle variable de recherche :
-   
+
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
@@ -191,11 +201,11 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 ```
 
 > [!NOTE]
-> Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et HTTP Gone est retourné. Si la demande de recherche initiale a retourné immédiatement un état « Succès », le résultat n’est pas ajouté au cache, ce qui signifie que cette API retourne HTTP Gone si elle est interrogée. Le contenu d’un résultat HTTP 200 est présenté dans le même format que la demande de recherche initiale. Toutefois, les valeurs sont mises à jour.
-> 
-> 
+> Si la recherche renvoie un état « En attente », une interrogation des résultats mis à jour peut alors être réalisée via cette API. Après 6 minutes, le résultat de la recherche est supprimé du cache et HTTP Gone est retourné. Si la demande de recherche initiale retourne immédiatement un état « Succès », les résultats ne sont pas ajoutés au cache, ce qui signifie que cette API retourne HTTP Gone si elle est interrogée. Le contenu d’un résultat HTTP 200 est présenté dans le même format que la demande de recherche initiale. Toutefois, les valeurs sont mises à jour.
+>
+>
 
-### <a name="saved-searches---rest-only"></a>Recherches enregistrées - REST uniquement
+### <a name="saved-searches"></a>Recherches enregistrées
 **Demander la liste des recherches enregistrées :**
 
 ```
@@ -213,13 +223,13 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 | ID |Identificateur unique. |
 | Etag |**Requis pour le correctif**. Mis à jour par le serveur à chaque écriture. La valeur doit être égale à la valeur actuelle stockée ou '*' pour mettre à jour. 409 retourné pour les valeurs anciennes ou non valides. |
 | properties.query |**Requis**. Requête de la recherche. |
-| properties.displayName |**Requis**. Nom d'affichage de la requête défini par l'utilisateur. S'il est modélisé en tant que ressource Azure, il s'agit d'une balise. |
-| properties.category |**Requis**. Catégorie de la requête définie par l'utilisateur. Si elle est modélisée en tant que ressource Azure, il s'agit d'une balise. |
+| properties.displayName |**Requis**. Nom d'affichage de la requête défini par l'utilisateur. |
+| properties.category |**Requis**. Catégorie de la requête définie par l'utilisateur. |
 
 > [!NOTE]
-> Actuellement, l'API de recherche Log Analytics retourne des recherches enregistrées créées par l'utilisateur lorsqu'elle est interrogée concernant les recherches enregistrées dans un espace de travail. Pour le moment, l'API ne retourne pas de recherches enregistrées fournies par les solutions. Cette fonctionnalité sera ajoutée à une date ultérieure.
-> 
-> 
+> Actuellement, l'API de recherche Log Analytics retourne des recherches enregistrées créées par l'utilisateur lorsqu'elle est interrogée concernant les recherches enregistrées dans un espace de travail. L'API ne retourne pas de recherches enregistrées fournies par les solutions.
+>
+>
 
 ### <a name="create-saved-searches"></a>Créer des recherches enregistrées
 **Requête :**
@@ -245,7 +255,7 @@ Le tableau suivant décrit les propriétés qui sont disponibles
 ```
 
 ### <a name="metadata---json-only"></a>Métadonnées - JSON uniquement
-Voici un moyen d'afficher les champs pour tous les types de journaux pour les données collectées dans votre espace de travail. Par exemple, si vous voulez savoir si le type Événement possède un champ nommé Ordinateur, ceci constitue une méthode de recherche et de confirmation.
+Voici un moyen d'afficher les champs pour tous les types de journaux pour les données collectées dans votre espace de travail. Par exemple, si vous voulez savoir si le type Événement possède un champ nommé Ordinateur, ceci constitue une méthode de vérification.
 
 **Requête de champs :**
 
@@ -302,7 +312,7 @@ Les informations suivantes décrivent les paramètres facultatifs disponibles.
 Le paramètre « Highlight » est un paramètre facultatif que vous pouvez utiliser pour demander au sous-système de recherche d'inclure un jeu de marqueurs dans sa réponse.
 
 Ces marqueurs indiquent le début et la fin du texte mis en surbrillance qui correspond aux critères fournis dans votre requête de recherche.
-Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés par la recherche pour encapsuler le terme en surbrillance.
+Vous pouvez spécifier les marqueurs de début et de fin qui sont utilisés par la recherche pour encapsuler le terme en surbrillance.
 
 **Exemple de requête de recherche**
 
@@ -345,13 +355,14 @@ Vous pouvez spécifier les marqueurs de début et de fin qui seront utilisés pa
     }
 ```
 
-Notez que le résultat ci-dessus contient un message d'erreur qui a été préfixé et ajouté.
+Notez que le résultat précédent contient un message d'erreur qui a été préfixé et ajouté.
 
 ## <a name="computer-groups"></a>Groupes d’ordinateurs
 Les groupes d'ordinateurs sont des recherches spéciales enregistrées qui retournent un ensemble d'ordinateurs.  Vous pouvez utiliser un groupe d'ordinateurs dans d'autres requêtes pour limiter les résultats aux ordinateurs du groupe.  Un groupe d'ordinateurs est implémenté comme une recherche enregistrée avec une balise Group dont la valeur est Computer.
 
 Voici un exemple de réponse pour un groupe d'ordinateurs.
 
+```
     "etag": "W/\"datetime'2016-04-01T13%3A38%3A04.7763203Z'\"",
     "properties": {
         "Category": "My Computer Groups",
@@ -363,21 +374,23 @@ Voici un exemple de réponse pour un groupe d'ordinateurs.
           }],
     "Version": 1
     }
+```
 
 ### <a name="retrieving-computer-groups"></a>Récupération de groupes d'ordinateurs
-Utilisez la méthode Get avec l'ID de groupe pour récupérer un groupe d'ordinateurs.
+pour récupérer un groupe d'ordinateurs, utilisez la méthode Get avec l'ID de groupe.
 
 ```
 armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Group ID}`?api-version=2015-03-20
 ```
 
 ### <a name="creating-or-updating-a-computer-group"></a>Création ou mise à jour d'un groupe d'ordinateurs
-Utilisez la méthode Put avec un ID de recherche enregistrée unique pour créer un groupe d'ordinateurs. Si vous utilisez un ID de groupe d’ordinateurs existant, celui-ci sera modifié. Lorsque vous créez un groupe d'ordinateurs dans la console OMS, l'ID est créé à partir du groupe et du nom.
+Pour créer un groupe d'ordinateurs, utilisez la méthode Put avec un ID de recherche enregistrée unique. Si vous utilisez un ID de groupe d’ordinateurs existant, celui-ci est modifié. Lorsque vous créez un groupe d'ordinateurs dans le portail Log Analytics, l'ID est créé à partir du groupe et du nom.
 
-La requête utilisée pour la définition du groupe doit retourner un ensemble d'ordinateurs pour que le groupe fonctionne correctement.  Il est recommandé de terminer la requête par *| Distinct Computer* pour s’assurer que les données correctes sont retournées.
+La requête utilisée pour la définition du groupe doit retourner un ensemble d'ordinateurs pour que le groupe fonctionne correctement.  Il est recommandé de terminer la requête par `| Distinct Computer` pour s’assurer que les données correctes sont retournées.
 
 La définition de la recherche enregistrée doit inclure une balise nommée Group avec une valeur Computer pour que la recherche soit classée comme un groupe d'ordinateurs.
 
+```
     $etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
     $groupName="My Computer Group"
     $groupQuery = "Computer=srv* | Distinct Computer"
@@ -387,9 +400,10 @@ La définition de la recherche enregistrée doit inclure une balise nommée Grou
     $groupJson = "{'etag': 'W/`"datetime\'" + $etag + "\'`"', 'properties': { 'Category': '" + $groupCategory + "', 'DisplayName':'"  + $groupName + "', 'Query':'" + $groupQuery + "', 'Tags': [{'Name': 'Group', 'Value': 'Computer'}], 'Version':'1'  }"
 
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20 $groupJson
+```
 
 ### <a name="deleting-computer-groups"></a>Suppression de groupes d'ordinateurs
-Utilisez la méthode Delete avec l'ID de groupe pour supprimer un groupe d'ordinateurs.
+Pour supprimer un groupe d'ordinateurs, utilisez la méthode Delete avec l'ID de groupe.
 
 ```
 armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20
@@ -401,7 +415,6 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ac264d48db224fb1a14c2ea4a23ddb11f767efda
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 66b61e4619518619aac644f6833c597cb9a7408e
 
 
 ---
@@ -38,13 +38,13 @@ La galerie contient une grande variété d’**[expériences](https://gallery.co
  La page **[Expériences](https://gallery.cortanaintelligence.com/experiments)**
  affiche une liste des expériences les plus récentes et les plus populaires.
 Cliquez sur **Afficher tout** pour afficher toutes les expériences.
-À partir de cette page, vous pouvez parcourir toutes les expériences de la Galerie, ou vous pouvez effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
+Sur cette page, vous pouvez parcourir toutes les expériences de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
  Cliquez sur n’importe quelle expérience pour ouvrir la page des détails de l’expérience et lire des informations sur ce que fait l’expérience. Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers l’expérience pour inviter d’autres utilisateurs à afficher la page.
 
-![Partager cet élément avec des amis](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Ajouter vos propres commentaires](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Ajouter vos propres commentaires](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Télécharger
 Vous pouvez télécharger une copie de n’importe quelle expérience à partir de la galerie vers votre espace de travail Studio, puis modifier votre copie pour créer vos propres solutions.
@@ -59,7 +59,7 @@ Pour télécharger une copie d’une expérience à partir de la galerie :
 1. Ouvrez la page de détails de l’expérience dans la galerie
 2. Cliquez sur **Ouvrir dans Studio**
    
-    ![Ouvrez l’expérience à partir de la galerie](media\\machine-learning-gallery-experiments\\open-experiment-from-gallery.png)
+    ![Ouvrez l’expérience à partir de la galerie](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
 Lorsque vous cliquez sur **Ouvrir dans Studio**, l’expérience est chargée et ouverte dans votre espace de travail Machine Learning Studio (si vous n'êtes pas déjà connecté à Studio, vous serez invité(e) à vous connecter avec votre compte Microsoft préalablement à la copie de l’expérience sur votre espace de travail).
 
@@ -70,11 +70,11 @@ Vous pouvez également ouvrir les mêmes exemples d’expériences lorsque vous 
 2. Sélectionnez **Expérience** - vous pouvez choisir parmi une liste d’expériences de la galerie fournies par Microsoft, ou trouver une expérience spécifique à l’aide de la zone de recherche
 3. Placez votre curseur sur une expérience et sélectionnez **Ouvrir dans Studio** -l’expérience est alors copiée et ouverte dans votre espace de travail (pour en savoir plus sur l’expérience, sélectionnez **View in Gallery** (Afficher dans la galerie) afin d’accéder à la page de détails de l’expérience dans la galerie)
    
-    ![Ouvrez une expérience de galerie dans Machine Learning Studio](media\\machine-learning-gallery-experiments\\open-experiment-from-studio.png)
+    ![Ouvrez une expérience de galerie dans Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
 Vous pouvez désormais personnaliser, itérer et déployer cette expérience comme n’importe quelle autre expérience que vous créez dans Machine Learning Studio.
 
-![Expérience ouverte dans Studio](media\\machine-learning-gallery-experiments\\experiment-open-in-studio.png)
+![Expérience ouverte dans Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>Participez
 Lorsque vous vous connectez à la galerie, vous devenez membre de la communauté de la galerie. Cela vous permet de partager vos propres expériences afin que les autres utilisateurs puissent, à leur tour, bénéficier des solutions que vous avez découvertes.
@@ -86,10 +86,10 @@ Suivez les étapes suivantes pour apporter votre contribution en partageant une 
 2. Créez votre expérience et exécutez-la.
 3. Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur **Publier dans la galerie** sous le canevas de l’expérience.
    
-    ![Cliquez sur « Publier dans la galerie »](media\\machine-learning-gallery-experiments\\publish-experiment-to-gallery.png)
+    ![Cliquez sur « Publier dans la galerie »](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
 4. Remplissez les champs de titre et de balises. Faites en sorte qu’ils soient descriptifs et qu’ils mettent en avant les techniques utilisées ou le problème réel à résoudre, par exemple « Classification binaire : analyse des sentiments Twitter ».
    
-    ![Remplir les champs de titre et de balises lors de la publication](media\\machine-learning-gallery-experiments\\experiment-description.png)
+    ![Remplir les champs de titre et de balises lors de la publication](media/machine-learning-gallery-experiments/experiment-description.png)
 5. Résumez ce qu’aborde votre contenu. Décrivez brièvement le problème à résoudre et l’approche adoptée.
 6. Utilisez la zone de description détaillée pour parcourir les différentes parties de votre expérience. Certaines rubriques utiles à inclure ici sont :
    
@@ -103,7 +103,7 @@ Suivez les étapes suivantes pour apporter votre contribution en partageant une 
      </br>
      Vous pouvez utiliser Markdown pour formater des éléments si nécessaire. Cliquez sur l’icône d’**aperçu** pour avoir une idée du rendu final.
      </br>
-     ![Cliquez sur « Aperçu » pour voir à quoi ressemblera votre texte](media\\machine-learning-gallery-experiments\\preview-markdown-text.png)
+     ![Cliquez sur « Aperçu » pour voir à quoi ressemblera votre texte](media/machine-learning-gallery-experiments/preview-markdown-text.png)
      
      <!-- -->
      > [!TIP]
@@ -112,10 +112,10 @@ Suivez les étapes suivantes pour apporter votre contribution en partageant une 
      > 
 7. Téléchargez une miniature pour votre élément de la galerie. Elle apparaîtra en haut de la page de l’élément et dans la vignette de l’élément lorsque vous parcourrez la galerie. Vous pouvez choisir une image à partir de votre ordinateur ou sélectionner une des images du stock.
     </br>
-    ![Téléchargez ou sélectionnez une image pour la galerie](media\\machine-learning-gallery-experiments\\select-gallery-image.png)
+    ![Téléchargez ou sélectionnez une image pour la galerie](media/machine-learning-gallery-experiments/select-gallery-image.png)
 8. Choisissez de publier votre contenu publiquement ou uniquement pour certaines personnes avec le lien.
    
-    ![Choisissez si vous souhaitez publier publiquement ou en tant que contenu non répertorié](media\\machine-learning-gallery-experiments\\choose-public-or-unlisted.png)
+    ![Choisissez si vous souhaitez publier publiquement ou en tant que contenu non répertorié](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
    
     <!-- -->
    
@@ -125,7 +125,7 @@ Suivez les étapes suivantes pour apporter votre contribution en partageant une 
    > 
 9. Cliquez sur la coche **OK** pour publier l’expérience dans la galerie.
    
-    ![Cliquez sur la coche OK pour publier l’expérience](media\\machine-learning-gallery-experiments\\ok-checkmark.png)
+    ![Cliquez sur la coche OK pour publier l’expérience](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
 Consultez la section ci-dessous, **Suggestions relatives à la publication et à une documentation de qualité**, pour obtenir des conseils sur la publication d’une expérience dans la galerie.
 
@@ -135,7 +135,7 @@ Vous pouvez désormais voir votre expérience dans la galerie et partager le lie
 
 Pour afficher la liste de vos contributions, cliquez sur votre image dans le coin supérieur droit de n’importe quelle page de la galerie, puis sur votre nom pour ouvrir la page de votre compte.
 
-![Cliquez sur le nom de votre compte](media\\machine-learning-gallery-experiments\\click-account-name.png)
+![Cliquez sur le nom de votre compte](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>Mettre à jour votre expérience
 Si vous devez apporter des modifications au flux de travail (modules, paramètres, etc.) dans une expérience que vous avez publié dans la galerie, revenez à l’expérience dans Machine Learning Studio, apportez vos modifications publiez-la à nouveau. Votre expérience publiée existante sera mise à jour.
@@ -154,22 +154,22 @@ Ces modifications peuvent être effectuées à partir de la page de détails de 
 #### <a name="from-your-experiments-details-page"></a>À partir de la page de détails de votre expérience
 À partir de la page de détails de l’expérience, cliquez sur « Modifier » pour modifier les détails de votre expérience.
 
-![Cliquez sur « Modifier » pour modifier votre expérience](media\\machine-learning-gallery-experiments\\edit-button.png)
+![Cliquez sur « Modifier » pour modifier votre expérience](media/machine-learning-gallery-experiments/edit-button.png)
 
 Les détails de page passe en mode édition, et vous pouvez cliquer sur « Modifier » située en regard du nom, du résumé, des balises et des autres caractéristiques de l’expérience pour y apporter des modifications. Lorsque vous avez terminé vos modifications, cliquez sur « Terminé ».
 
-![Cliquez sur « Modifier » pour modifier les détails, puis sur « Terminé » lorsque vous avez fini](media\\machine-learning-gallery-experiments\\edit-details-page.png)
+![Cliquez sur « Modifier » pour modifier les détails, puis sur « Terminé » lorsque vous avez fini](media/machine-learning-gallery-experiments/edit-details-page.png)
 
 Vous pouvez également sélectionner l’icône des paramètres pour modifier la visibilité de l’expérience (publique ou non répertoriée), ou vous pouvez supprimer l’expérience de la galerie.
 
-![Cliquez sur paramètres pour modifier la visibilité ou supprimer l’expérience](media\\machine-learning-gallery-experiments\\settings-button.png)
+![Cliquez sur paramètres pour modifier la visibilité ou supprimer l’expérience](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>À partir de votre page de profil
 À partir de votre page de profil, vous pouvez cliquez sur la flèche vers le bas sur l’expérience et sélectionner « Modifier ». Vous accéderez alors à la page de détails de votre expérience en mode édition. Lorsque vous avez terminé vos modifications, cliquez sur « Terminé ».
 
 Vous pouvez également cliquer sur « Supprimer » pour supprimer l’expérience de la galerie.
 
-![Cliquez sur « Modifier » ou « Supprimer »](media\\machine-learning-gallery-experiments\\edit-delete-buttons.png)
+![Cliquez sur « Modifier » ou « Supprimer »](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
 ### <a name="suggestions-for-publishing-and-for-quality-documentation"></a>Suggestions relatives à la publication et à une documentation de qualité
 * Même si vous supposez que le lecteur est déjà familier avec la science des données, il est toujours utile de simplifier votre langage et d’expliquer les choses en détail lorsque cela est possible.
@@ -202,6 +202,6 @@ Après avoir entré une balise, appuyez sur la touche Tab pour entrer une autre 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: 83d39eb288a3dcda45ab178f5f65de441c2fd5a3
+ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
+ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
 
 
 ---
@@ -161,7 +161,7 @@ Autres exemples :
 [Référence sur les dates et les heures](app-insights-analytics-reference.md#date-and-time).
 
 
-## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>[Project](app-insights-analytics-reference.md#project-operator): sélectionner, renommer et calculer des colonnes
+## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>[Projet](app-insights-analytics-reference.md#project-operator) : sélectionnez, renommez et calculez des colonnes
 Utilisez [`project`](app-insights-analytics-reference.md#project-operator) pour choisir uniquement les colonnes qui vous intéressent :
 
 ```AIQL
@@ -235,7 +235,7 @@ Nous pouvons également regrouper les résultats par heure :
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes, et `bin` (qui représente simplement la fonction `floor` habituelle d’arrondi à la valeur inférieure) est le plus simple moyen d’y parvenir.
+Notez que nous utilisons la fonction `bin` (également appelée `floor`). Si nous avions simplement utilisé `by timestamp`, chaque ligne d’entrée apparaîtrait dans un groupe individuel. Pour des valeurs scalaires continues telles que des heures ou des nombres, nous devons diviser la plage continue en un nombre gérable de valeurs discrètes. `bin` (qui représente simplement la fonction `floor` habituelle d’arrondi à la valeur inférieure) est le plus simple moyen d’y parvenir.
 
 Nous pouvons utiliser la même technique pour réduire les plages de chaînes :
 
@@ -292,7 +292,7 @@ Sélectionnez l’option d’affichage graphique :
 ![Graphique temporel](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Séries multiples
-Plusieurs expressions de `summarize` crée plusieurs colonnes.
+La présence de plusieurs expressions dans la clause `summarize` crée plusieurs colonnes.
 
 Plusieurs expressions de la clause `by` créent plusieurs lignes, une pour chaque combinaison de valeurs.
 
@@ -334,7 +334,7 @@ Si vous tracez un tableau comportant plusieurs colonnes numériques, en plus du 
 
 ![Segmenter un tableau d’analyse](./media/app-insights-analytics-tour/110.png)
 
-Vous devez sélectionner Ne pas fractionner avant de pouvoir sélectionner plusieurs colonnes numériques. Vous ne pouvez fractionner par colonne de chaîne tout en affichant plusieurs colonnes numériques.
+Vous devez sélectionner **Ne pas fractionner** avant de pouvoir sélectionner plusieurs colonnes numériques. Vous ne pouvez fractionner par colonne de chaîne tout en affichant plusieurs colonnes numériques.
 
 ## <a name="daily-average-cycle"></a>Cycle moyen quotidien
 Dans quelle mesure l’utilisation varie-t-elle dans un jour moyen ?
@@ -459,7 +459,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 Dans les mêmes clauses, nous renommons la colonne timestamp.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): affecter un résultat à une variable
-Utilisez *let* pour séparer les parties de l’expression précédente. Les résultats sont identiques :
+Utilisez `let` pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
 ```AIQL
 
@@ -471,7 +471,7 @@ Utilisez *let* pour séparer les parties de l’expression précédente. Les ré
     | take 30
 ```
 
-> Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de l’expression. Exécutez-la en totalité.
+> Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de la requête. Exécutez-la en totalité.
 >
 >
 
@@ -491,7 +491,7 @@ Utilisez *Let* pour définir une fonction :
 ```
 
 ## <a name="accessing-nested-objects"></a>Accès à des objets imbriqués
-Les objets imbriqués sont faciles d’accès. Par exemple, dans le flux d’exceptions, vous verrez des objets structurés comme suit :
+Les objets imbriqués sont faciles d’accès. Par exemple, dans le flux d’exceptions, vous pouvez voir des objets structurés comme suit :
 
 ![result](./media/app-insights-analytics-tour/520.png)
 
@@ -543,11 +543,11 @@ Pour vérifier si une dimension personnalisée est d’un type particulier :
 Vous pouvez épingler vos résultats à un tableau de bord afin de rassembler tous vos tableaux et graphiques les plus importants.
 
 * [Tableau de bord partagé Azure](app-insights-dashboards.md#share-dashboards) : cliquez sur l’icône d’épingle. Avant cela, vous devez disposer d’un tableau de bord partagé. Dans le portail Azure, ouvrez ou créez un tableau de bord et cliquez sur Partager.
-* [Tableau de bord Power BI](app-insights-export-power-bi.md) : cliquez sur Exporter, Requête Power BI. L’avantage de cette solution est que vous pouvez afficher votre requête avec d’autres résultats issus d’un très large éventail de sources.
+* [Tableau de bord Power BI](app-insights-export-power-bi.md) : cliquez sur Exporter, Requête Power BI. L’avantage de cette solution est que vous pouvez afficher votre requête avec d’autres résultats issus d’un large éventail de sources.
 
 ## <a name="combine-with-imported-data"></a>Combiner avec des données importées
 
-Les rapports d’analyse sont du plus bel effet sur le tableau de bord mais il peut arriver que vous souhaitiez convertir les données dans un format plus digeste. Par exemple, supposons que vos utilisateurs authentifiés sont identifiés dans les données de télémétrie par un alias. Vous souhaitez afficher leurs vrais noms dans vos résultats. Pour cela, vous avez simplement besoin d’un fichier CSV qui fait correspondre les alias aux véritables noms. 
+Les rapports d’analyse sont du plus bel effet sur le tableau de bord mais il peut arriver que vous souhaitiez convertir les données dans un format plus digeste. Par exemple, supposons que vos utilisateurs authentifiés sont identifiés dans les données de télémétrie par un alias. Vous souhaitez afficher leurs vrais noms dans vos résultats. Pour cela, vous avez besoin d’un fichier CSV qui fait correspondre les alias aux véritables noms. 
 
 Vous pouvez importer un fichier de données et l’utiliser comme une table standard (requêtes, exceptions et ainsi de suite). Interrogez-la individuellement ou joignez-la à d’autres tables. Par exemple, si vous disposez d’une table nommée usermap et qu’elle contient des colonnes `realName` et `userId`, vous pouvez l’utiliser pour traduire le champ `user_AuthenticatedId` dans les données de télémétrie de la requête :
 
@@ -562,7 +562,9 @@ Vous pouvez importer un fichier de données et l’utiliser comme une table stan
     | summarize count() by realName
 ```
 
-Pour importer une table, ouvrez **Paramètres**, **Sources de données** et suivez les instructions pour ajouter une source. Cette définition permet de charger des tables.
+Pour importer une table, dans le panneau Schéma, sous **Autres sources de données**, suivez les instructions pour ajouter une nouvelle source de données en téléchargeant un échantillon de vos données. Vous pouvez utiliser cette définition permet de charger des tables. 
+
+La fonctionnalité d’importation est actuellement en version préliminaire, vous verrez donc initialement un lien « Nous contacter » sous « Autres sources de données ». Utilisez-le pour vous inscrire au programme d’évaluation, et le lien sera alors remplacé par un bouton « Ajouter une nouvelle source de données ». 
 
 
 ## <a name="tables"></a>Tables
@@ -681,6 +683,6 @@ Contient les données de télémétrie envoyées par votre application à l’ai
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ca1b2a7435d4ae72cab85c5f0aea5466a95f2bba
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: fe040c6d799c8b1a19d8329b6e4aebefcbae6190
 
 
 ---
@@ -94,7 +94,7 @@ Pour configurer et tester l’authentification unique Azure AD avec HR2day by M
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur test HR2day by Merces](#creating-a-hr2day-by-merces-test-user)** : pour avoir un équivalent de Britta Simon dans HR2day lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur HR2day by Merces avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
@@ -203,7 +203,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    c. Cliquez sur **Next**.
 
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
@@ -217,7 +217,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-    e. Cliquez sur **Suivant**.
+    e. Cliquez sur **Next**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
@@ -292,6 +292,6 @@ Lorsque vous cliquez sur la vignette HR2day by Merces dans le volet d’accès, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

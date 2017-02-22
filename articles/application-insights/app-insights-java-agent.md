@@ -1,6 +1,6 @@
 ---
-title: "Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java"
-description: "Surveillance étendue de votre site web Java avec Application Insights"
+title: Surveillance des performances des applications web Java dans Azure Application Insights | Microsoft Docs
+description: "Surveillance étendue des performances et de l’utilisation de votre site web Java avec Application Insights."
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
 
 
-Si vous avez [instrumenté votre application web Java avec Application Insights][Java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
+Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans pour autant modifier le code :
 
 * **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
   * **Appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring).
@@ -31,7 +31,7 @@ Si vous avez [instrumenté votre application web Java avec Application Insights
 * **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
 * **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
-Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK)][Java] Application Insights. 
+Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installer l’agent Application Insights pour Java
 1. [Téléchargez l'agent](https://aka.ms/aijavasdk) sur la machine exécutant votre serveur Java.
@@ -91,9 +91,9 @@ Vous devez activer l’exception de rapports et le minutage pour les méthodes i
 Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExceptions` sur false.
 
 ## <a name="view-the-data"></a>Visualiser les données
-Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette Performances][métriques].
+Dans la ressource Application Insights, les temps d’exécution cumulés de la méthode et de la dépendance distante apparaissent [dans la vignette Performances][metrics].
 
-Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic].
+Pour rechercher des instances de dépendance et d’exception ainsi que des rapports de méthode, ouvrez [Rechercher][diagnostic].
 
 [En savoir plus sur le diagnostic des problèmes de dépendance](app-insights-asp-net-dependencies.md#diagnosis).
 
@@ -108,13 +108,13 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[Java]: app-insights-java-get-started.md
+[java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métriques]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

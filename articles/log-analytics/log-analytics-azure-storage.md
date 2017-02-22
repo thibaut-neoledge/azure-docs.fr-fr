@@ -1,10 +1,10 @@
 ---
-title: "Présentation de la collecte de données de stockage Azure dans Log Analytics | Microsoft Docs"
-description: "Les ressources Azure peuvent écrire des journaux et des métriques dans un compte de stockage Azure, souvent en utilisant des diagnostics Azure. Log Analytics peut indexer ces données et les rendre détectables."
+title: "Collecte des journaux et des métriques pour les services Azure dans Log Analytics | Microsoft Docs"
+description: "Configuration des diagnostics sur les ressources Azure pour écrire des journaux et métriques dans Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
@@ -12,73 +12,146 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/10/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a160030ab51799199fc6df08133f811d4987feb
+ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
+ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
 
 
 ---
-# <a name="collecting-azure-storage-data-in-log-analytics-overview"></a>Présentation de la collecte de données de stockage Azure dans Log Analytics
-De nombreuses ressources Azure peuvent écrire des journaux et des métriques dans un compte de stockage Azure. Log Analytics peut utiliser ces données et faciliter l’analyse de vos ressources Azure.
+# <a name="collecting-logs-and-metrics-for-azure-services-in-log-analytics"></a>Collecte des journaux et des mesures pour les services Azure dans Log Analytics
 
-Pour écrire dans Stockage Azure, une ressource peut utiliser les diagnostics Azure, ou avoir sa propre manière d’écrire des données. Ces données peuvent être écrites sous différents formats dans l’un des emplacements suivants :
+Il existe quatre façons différentes de collecter des journaux et des métriques pour les services Azure :
 
-* Table Azure
-* Objet blob Azure
-* Event Hub
+1. Diagnostics Azure directement dans Log Analytics (*Diagnostics* dans le tableau suivant)
+2. Diagnostics Azure vers stockage Azure, puis vers Log Analytics (*Stockage* dans le tableau suivant)
+3. Connecteurs pour les services Azure (*Connecteurs* dans le tableau suivant)
+4. Des scripts pour collecter puis publier les données dans Log Analytics (vide dans le tableau suivant et pour les services qui ne sont pas répertoriés)
 
-Log Analytics prend en charge les services Azure qui écrivent des données en utilisant des [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). De plus, Log Analytics prend en charge d’autres services qui génèrent des journaux et des métriques dans différents formats et emplacements.  
+
+| Service                 | Type de ressource                           | Journaux        | Mesures     | Solution |
+| --- | --- | --- | --- | --- |
+| Passerelles d’application    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Networking Analytics (version préliminaire)](log-analytics-azure-networking-analytics.md) |
+| API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
+| Application Insights    |                                         | Connecteur   | Connecteur   | [Connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (version préliminaire) |
+| Comptes Automation     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [Plus d’informations](../automation/automation-manage-send-joblogs-log-analytics.md)|
+| Comptes Batch          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
+| Services cloud classiques  |                                         | Storage     |             | [Plus d’informations](log-analytics-azure-storage-iis-table.md) |
+| Cognitive services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
+| Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
+| Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
+| Espace de noms Event Hub     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
+| IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics (version préliminaire)](log-analytics-azure-key-vault.md) |
+| Équilibreurs de charge          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
+| Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
+| Groupes de sécurité réseau | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Networking Analytics (version préliminaire)](log-analytics-azure-networking-analytics.md) |
+| Services de recherche         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
+| Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
+| Machines virtuelles        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
+| Groupes de machines virtuelles identiques | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
+| Batteries de serveurs web        | Microsoft.Web/serverfarms               |             | Diagnostics | |
+| Sites web               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [Plus d’informations](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring) |
+
+
+> [!NOTE]
+> Pour l’analyse des machines virtuelles (Linux et Windows), nous vous recommandons d’installer l’[extension de machine virtuelle Log Analytics](log-analytics-azure-vm-extension.md). L’agent vous fournit les informations collectées à partir de vos machines virtuelles. Vous pouvez également utiliser l’extension pour les jeux de mise à l’échelle de machine virtuelle.
+>
+>
+
+## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnostics Azure directement dans Log Analytics
+De nombreuses ressources Azure sont en mesure d’écrire des journaux de diagnostic et métriques directement dans Log Analytics, et il s’agit du moyen recommandé de collecter les données à analyser. Lorsque vous utilisez les diagnostics Azure, les données sont écrites immédiatement dans Log Analytics, et il est inutile d’écrire les données dans le stockage avant.
+
+Mes ressources Azure qui prennent en charge [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) peuvent envoyer leurs journaux et métriques directement vers Log Analytics.
+
+* Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Pour plus d’informations sur les journaux disponibles, voir [Schéma et services pris en charge pour les journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+
+### <a name="enable-diagnostics-with-powershell"></a>Activer les diagnostics avec PowerShell
+Vous devez disposer de la version de novembre 2016 (v2.3.0) ou d’une version ultérieure d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+
+L’exemple PowerShell suivant montre comment utiliser [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) pour activer les diagnostics sur un groupe de sécurité réseau. La même approche fonctionne pour toutes les ressources prises en charge : définissez `$resourceId` sur l’ID de la ressource pour laquelle vous souhaitez activer les diagnostics.
+
+```powershell
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
+
+Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
+### <a name="enable-diagnostics-with-resource-manager-templates"></a>Activer les diagnostics avec des modèles Resource Manager
+
+Pour activer les diagnostics sur une ressource lors de sa création, et envoyer les diagnostics vers votre espace de travail Log Analytics, vous pouvez utiliser un modèle semblable à celui ci-dessous. Cet exemple est destiné à un compte Automation, mais fonctionne pour tous les types de ressources pris en charge.
+
+```json
+        {
+            "type": "Microsoft.Automation/automationAccounts/providers/diagnosticSettings",
+            "name": "[concat(parameters('omsAutomationAccountName'), '/', 'Microsoft.Insights/service')]",
+            "apiVersion": "2015-07-01",
+            "dependsOn": [
+                "[concat('Microsoft.Automation/automationAccounts/', parameters('omsAutomationAccountName'))]",
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspaceName'))]"
+            ],
+            "properties": {
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('omsWorkspaceName'))]",
+                "logs": [
+                    {
+                        "category": "JobLogs",
+                        "enabled": true
+                    },
+                    {
+                        "category": "JobStreams",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+```
+
+
+## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Diagnostics Azure vers stockage, puis vers Log Analytics
+
+Pour la collecte des journaux sur certaines ressources, il est possible d’envoyer les journaux vers le stockage Azure, puis de configurer Log Analytics pour lire les journaux depuis le stockage.
+
+Log Analytics peut utiliser cette approche pour collecter des diagnostics à partir du stockage Azure pour les journaux et les ressources qui suivent :
+
+| Ressource | Journaux |
+| --- | --- |
+| Service Fabric |ETWEvent <br> Événement opérationnel <br> Événement Reliable Actor <br> Événement de service fiable |
+| Machines virtuelles |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
+| Rôles web <br> Rôles de travail |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
 
 > [!NOTE]
 > Vous êtes facturé aux tarifs de données Azure normaux pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage et lorsque Log Analytics lit les données de votre compte de stockage.
-> 
-> 
+>
+>
 
-![Diagramme du stockage Azure](media/log-analytics-azure-storage/azure-storage-diagram.png)
+Consultez la page [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) pour en savoir plus sur la façon dont Log Analytics peut collecter ces journaux.
 
-## <a name="supported-azure-resources"></a>Ressources Azure prises en charge
-Log Analytics peut collecter des données pour les ressources Azure suivantes :
+## <a name="connectors-for-azure-services"></a>Connecteurs pour les services Azure
 
-| Type de ressource | Journaux (catégories de diagnostic) | Solution Log Analytics |
-| --- | --- | --- |
-| Application Insights |Availability <br> Événements personnalisés <br> Exceptions <br> Requêtes <br> |Application Insights (version préliminaire) |
-| Automatisation <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (version préliminaire) |
-| Key Vault <br> Microsoft.KeyVault/vaults |AuditEvent |KeyVault (version préliminaire) |
-| Application Gateway <br> Microsoft.Network/ApplicationGateways |ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog |AzureNetworking (version préliminaire) |
-| Groupe de sécurité réseau <br> Microsoft.Network/NetworkSecurityGroups |NetworkSecurityGroupEvent <br> NetworkSecurityGroupRuleCounter |AzureNetworking (version préliminaire) |
-| Service Fabric |ETWEvent <br> Événement opérationnel <br> Événement Reliable Actor <br> Événement de service fiable |ServiceFabric (version préliminaire) |
-| Machines virtuelles |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |*Aucune* |
-| Rôles web <br> Rôles de travail |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |*Aucune* |
+Il existe un connecteur pour Application Insights qui permet aux données collectées par Application Insights d’être envoyées vers Log Analytics.
 
-> [!NOTE]
-> Pour l’analyse des machines virtuelles (Linux et Windows), nous vous recommandons d’installer l’[extension de machine virtuelle Log Analytics](log-analytics-azure-vm-extension.md). L’agent fournit des informations sur vos machines virtuelles, plus approfondies que si vous utilisez les diagnostics écrits dans le stockage.
-> 
-> 
+En savoir plus sur le [connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-Vous pouvez nous aider à hiérarchiser d’autres journaux devant être analysés par OMS en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
+## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Scripts pour collecter et publier des données sur Log Analytics
 
-* Voir [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](log-analytics-azure-storage-json.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux des services Azure qui prennent en charge les [journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) :
-  * coffre de clés Azure
-  * Azure Automation
-  * Application Gateway
-  * groupes de sécurité réseau ;
-* Voir [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) pour en savoir plus sur la manière dont Log Analytics peut lire les journaux pour les services Azure qui écrivent des diagnostics dans le Stockage Table ou des journaux IIS écrits dans le Stockage Blob, notamment :
-  * Service Fabric
-  * Rôles web
-  * Rôles de travail
-  * Machines virtuelles
+Pour les services Azure qui ne fournissent pas de moyen direct d’envoyer les journaux et métriques vers Log Analytics, vous pouvez utiliser un script Azure Automation pour les collecter. Le script peut alors envoyer les données vers Log Analytics à l’aide de [l’API de collecte de données](log-analytics-data-collector-api.md)
+
+La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) pour collecter des données à partir des services et en les envoyer à Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Analyser les journaux de diagnostic Azure à l’aide de Log Analytics](log-analytics-azure-storage-json.md) pour lire les journaux des services Azure qui écrivent des diagnostics dans le Stockage Blob au format JSON.
+
 * [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) afin de lire les journaux pour les services Azure qui écrivent des diagnostics dans Stockage Table ou les journaux IIS écrits dans le Stockage Blob.
 * [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

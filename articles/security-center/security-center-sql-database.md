@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ En plus de vous aider à protéger vos ressources SQL Database, Security Center 
 ## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Le niveau Gratuit de Security Center est activé avec votre abonnement. Pour plus d’informations sur les niveaux Gratuit et Standard de Security Center, consultez [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-Le Centre de sécurité prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md). La FAQ de Security Center fournit des informations sur la [gestion des autorisations dans Security Center](security-center-faq.md#how-are-permissions-handled-in-azure-security-center).
+Le Centre de sécurité prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md). La FAQ de Security Center fournit des informations sur la [gestion des autorisations dans Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Accéder au Centre de sécurité
 Le Centre de sécurité est accessible à partir du [portail Azure](https://azure.microsoft.com/features/azure-portal/). [Connectez-vous au portail](https://portal.azure.com/) et sélectionnez **l’option Security Center**.
@@ -118,6 +118,6 @@ Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

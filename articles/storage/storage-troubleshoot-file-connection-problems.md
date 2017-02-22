@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: afce238686f5b35a094f0792f8197b686d317fa5
-ms.openlocfilehash: b75e80b66e00be0022102c06113eb414f5b4b6e9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
 
 
 ---
@@ -103,7 +103,7 @@ Ne créez ni n’ouvrez jamais un fichier d’E/S mises en cache qui demande un 
 
 <a id="error53"></a>
 
-## <a name="error-53-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>« Erreur 53 » lorsque vous essayez de monter ou de démonter un partage Azure Files
+## <a name="error-53-or-error-67-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>« Erreur 53 » ou « Erreur 67 » lorsque vous essayez de monter ou de démonter un partage Azure File
 Ce problème peut être provoqué par les conditions suivantes :
 
 ### <a name="cause-1"></a>Cause 1
@@ -113,7 +113,7 @@ Ce problème peut être provoqué par les conditions suivantes :
 Se connecter à partir d’un client qui répond aux exigences de Windows 8, Windows Server 2012 ou les versions ultérieures, ou qui se connecte à partir d’une machine virtuelle se trouvant sur le même centre de données que le compte de stockage Azure utilisé pour le partage Azure Files.
 
 ### <a name="cause-2"></a>Cause 2
-« Erreur système 53 » lorsque vous montez un partage Azure Files peut se produire si les communications sortantes du port 445 vers le centre de données Azure Files sont bloquées. Cliquez [ici](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445.
+Le message « Erreur système 53 » ou « Erreur système 67 » lorsque vous montez un partage Azure Files peut apparaître si les communications sortantes du port 445 vers le centre de données Azure Files sont bloquées. Cliquez [ici](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445.
 
 Comcast et certaines entreprises informatiques bloquent ce port. Pour comprendre s’il s’agit de la raison pour laquelle le message « Erreur système 53 » s’affiche, vous pouvez utiliser Portqry pour interroger le point de terminaison TCP:445. Si le point de terminaison TCP:445 est affiché comme filtré, le port TCP est bloqué. Voici un exemple de requête :
 
@@ -242,6 +242,6 @@ Si l’option **serverino** n’est pas présente, démontez, puis remontez Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

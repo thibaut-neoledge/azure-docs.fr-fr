@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT device SDK pour C - IoTHubClient | Microsoft Docs"
-description: "Plus d’informations sur la bibliothèque IoTHubClient dans le kit de développement logiciel (SDK) d’appareil Azure IoT pour C."
+description: "Guide d’utilisation de la bibliothèque IoTHubClient dans Azure IoT device SDK pour C et de création d’applications d’appareil qui communiquent avec un IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 4ab5a1a25b009cef3cf85bdb773e7b3ecd119b89
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
 
 
 ---
-# <a name="microsoft-azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour C : en savoir plus sur IoTHubClient
-Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Microsoft Azure IoT (Azure IoT device SDK) pour C**. Cet article explique qu’il existe deux couches architecturales dans le Kit de développement logiciel (SDK). À la base se trouve la bibliothèque **IoTHubClient** qui gère directement la communication avec IoT Hub. Il existe également la bibliothèque **sérialiseur** , qui s’ajoute à cette dernière pour fournir des services de sérialisation. Dans cet article, vous trouverez des informations supplémentaires sur la bibliothèque **IoTHubClient** .
+# <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Kit de développement logiciel d’appareil Azure IoT pour C : en savoir plus sur IoTHubClient
+Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Cet article explique qu’il existe deux couches architecturales dans le Kit de développement logiciel (SDK). À la base se trouve la bibliothèque **IoTHubClient** qui gère directement la communication avec IoT Hub. Il existe également la bibliothèque **sérialiseur** , qui s’ajoute à cette dernière pour fournir des services de sérialisation. Dans cet article, vous trouverez des informations supplémentaires sur la bibliothèque **IoTHubClient** .
 
 L’article précédent explique comment utiliser la bibliothèque **IoTHubClient** pour envoyer des événements à IoT Hub et recevoir des messages. Cet article approfondit le sujet en expliquant comment gérer de manière plus précise le *moment* de l’envoi ou de la réception des données, en vous présentant les **API de niveau inférieur**. Nous expliquerons également comment associer des propriétés à des événements (et les récupérer à partir de messages) en utilisant des fonctions de gestion de propriété de la bibliothèque **IoTHubClient** . Enfin, nous fournirons des explications supplémentaires sur les différentes façons de gérer les messages reçus d’IoT Hub.
 
@@ -29,7 +29,7 @@ Cet article conclut en abordant des sujets divers, notamment les informations d�
 
 Nous allons utiliser les exemples du Kit de développement logiciel (SDK) **IoTHubClient** pour illustrer ces rubriques. Si vous souhaitez assurer le suivi, consultez les applications **iothub\_client\_sample\_http** et **iothub\_client\_sample\_amqp** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C. Les détails décrits dans les sections suivantes sont illustrés dans ces exemples.
 
-Vous trouverez **Azure IoT device SDK pour C** dans le référentiel GitHub [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Vous pouvez consulter les détails de l’API dans [Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-lower-level-apis"></a>API de niveau inférieur
 L’article précédent traitait du fonctionnement de base **d’IotHubClient** dans le contexte de l’application **iothub\_client\_sample\_amqp**. Par exemple, il expliquait comment initialiser la bibliothèque à l’aide de ce code.
@@ -225,7 +225,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Les arguments de **IoTHubClient\_CreateFromConnectionString** correspondent à la chaîne de connexion de notre appareil et un paramètre indique le protocole que nous allons utiliser pour communiquer avec IoT Hub. Le format de la chaîne de connexion se présente comme suit :
+Les arguments de **IoTHubClient\_CreateFromConnectionString** correspondent à la chaîne de connexion de l’appareil et un paramètre indique le protocole que nous allons utiliser pour communiquer avec IoT Hub. Le format de la chaîne de connexion de l’appareil se présente comme suit :
 
 ```
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
@@ -233,7 +233,7 @@ HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSK
 
 Il existe ici quatre éléments d’information : le nom IoT Hub, le suffixe IoT Hub, l’ID d’appareil et la clé d’accès partagé. Vous obtenez le nom de domaine complet (FQDN) d’un IoT Hub lorsque vous créez une instance d’IoT Hub dans le portail Azure. Vous obtenez ainsi le nom d’IoT Hub (la première partie du nom de domaine complet) et le suffixe d’IoT Hub (le reste du nom de domaine complet). L’ID d’appareil et la clé d’accès partagé vous sont fournis lorsque vous inscrivez votre appareil avec IoT Hub (comme le décrit [l’article précédent](iot-hub-device-sdk-c-intro.md)).
 
-**IoTHubClient\_CreateFromConnectionString** vous propose une façon d’initialiser la bibliothèque. Vous pouvez également créer un élément **IOTHUB\_CLIENT\_HANDLE** à l’aide de ces paramètres individuels plutôt que de la chaîne de connexion. Vous pouvez y parvenir avec le code suivant :
+**IoTHubClient\_CreateFromConnectionString** vous propose une façon d’initialiser la bibliothèque. Vous pouvez également créer un élément **IOTHUB\_CLIENT\_HANDLE** à l’aide de ces paramètres individuels plutôt que de la chaîne de connexion de l’appareil. Vous pouvez y parvenir avec le code suivant :
 
 ```
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -247,7 +247,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 Il effectue la même opération que **IoTHubClient\_CreateFromConnectionString**.
 
-Il semble évident que vous préférerez utiliser **IoTHubClient\_CreateFromConnectionString** plutôt que la méthode d’initialisation plus détaillée. Cependant, gardez à l’esprit que lorsque vous enregistrez un appareil dans IoT Hub, vous obtenez un ID d’appareil et une clé d’appareil (pas une chaîne de connexion). L’outil du Kit de développement logiciel (SDK) **Gestionnaire de périphériques** présenté dans [l’article précédent](iot-hub-device-sdk-c-intro.md) utilise des bibliothèques du **Kit de développement logiciel (SDK) de service Azure IoT** pour créer la chaîne de connexion à partir de l’ID d’appareil, de la clé d’appareil et du nom d’hôte IoT Hub. Ainsi, il peut être préférable d’appeler **IoTHubClient\_LL\_Create**, car cela vous évite de générer une chaîne de connexion. Utilisez la méthode adéquate.
+Il semble évident que vous préférerez utiliser **IoTHubClient\_CreateFromConnectionString** plutôt que la méthode d’initialisation plus détaillée. Cependant, gardez à l’esprit que lorsque vous enregistrez un appareil dans IoT Hub, vous obtenez un ID d’appareil et une clé d’appareil (pas une chaîne de connexion). L’outil du Kit de développement logiciel (SDK) *Explorateur d’appareils* présenté dans [l’article précédent](iot-hub-device-sdk-c-intro.md) utilise des bibliothèques du **Kit de développement logiciel (SDK) de service Azure IoT** pour créer la chaîne de connexion à l’appareil à partir de l’ID d’appareil, de la clé d’appareil et du nom d’hôte IoT Hub. Ainsi, il peut être préférable d’appeler **IoTHubClient\_LL\_Create**, car cela vous évite de générer une chaîne de connexion. Utilisez la méthode adéquate.
 
 ## <a name="configuration-options"></a>Options de configuration
 Jusqu’ici, tout ce qui est décrit dans la façon dont la bibliothèque **IoTHubClient** fonctionne reflète son comportement par défaut. Cependant, vous pouvez définir quelques options que vous pouvez définir pour modifier le fonctionnement de la bibliothèque. Vous pouvez procéder en exploitant l’API **IoTHubClient\_LL\_SetOption**. Examinez cet exemple :
@@ -279,6 +279,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

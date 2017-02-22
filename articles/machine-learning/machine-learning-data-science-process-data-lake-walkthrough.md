@@ -1,5 +1,5 @@
 ---
-title: "Science des données évolutive dans Azure Data Lake : une procédure de bout en bout | Microsoft Docs"
+title: "Science des données scalable avec Azure Data Lake : procédure complète | Microsoft Docs"
 description: "Comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de donnés et de classification binaire sur un jeu de données."
 services: machine-learning
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c625752b40cffd0e7f791bd3a360f4bfb4622e7
+ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
+ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
 
 ---
-# <a name="scalable-data-science-in-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données évolutive dans Azure Data Lake :  une procédure de bout en bout
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données scalable avec Azure Data Lake : procédure complète
 Cette procédure de bout en bout montre comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de données et de classification binaire sur un échantillon de jeu de données NYC taxi trip and fare afin de prédire si le pourboire est compris dans le prix du billet. Elle vous guide tout au long du [processus de science des données pour les équipes](http://aka.ms/datascienceprocess)de bout en bout, depuis l’acquisition de données à l’apprentissage du modèle et au déploiement d’un service web qui publie le modèle.
 
-### <a name="azure-data-lake-analytics"></a>Service Analytique Azure Data Lake
-Le [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) dispose de toutes les fonctionnalités requises pour faciliter le travail des scientifiques de données relatif au stockage des données de toute taille, forme et vitesse et à la réalisation du traitement des données, d’analyses avancées et de modélisation de l’apprentissage automatique de manière hautement évolutive et à moindre coût.   Le paiement s’effectue par travail effectué, seulement lorsque les données sont réellement en cours de traitement. Azure Data Lake Analytics inclut U-SQL, un langage mêlant la nature déclarative du langage SQL à la puissance expressive de C# pour offrir une capacité de requête distribuée évolutive. Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d’intégrer une logique personnalisée et des fonctions définies par l’utilisateur (UDF), et a l’extensibilité nécessaire pour permettre un contrôle précis de l’exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, consultez [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
+[Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) dispose de toutes les fonctionnalités requises pour faciliter le travail des scientifiques de données relatif au stockage des données de toute taille, forme et vitesse et à la réalisation du traitement des données, d’analyses avancées et de modélisation de l’apprentissage automatique de manière hautement évolutive et à moindre coût.   Le paiement s’effectue par travail effectué, seulement lorsque les données sont réellement en cours de traitement. Azure Data Lake Analytics inclut U-SQL, un langage mêlant la nature déclarative du langage SQL à la puissance expressive de C# pour offrir une capacité de requête distribuée évolutive. Elle vous permet de traiter des données non structurées en appliquant des schémas lors de la lecture et d’intégrer une logique personnalisée et des fonctions définies par l’utilisateur (UDF), et a l’extensibilité nécessaire pour permettre un contrôle précis de l’exécution à grande échelle. Pour en savoir plus sur la philosophie de conception sous-jacente à U-SQL, consultez [Billet de blog Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Il est également un composant essentiel de Cortana Analytics Suite et fonctionne avec Azure SQL Data Warehouse, Power BI et Data Factory. Cela vous offre une plateforme d’analyse avancée et de Big Data cloud complète.
 
@@ -53,14 +53,6 @@ Avant de commencer ces rubriques, vous devez disposer des éléments suivants :
 > 
 > 
 
-* Inscription à la version préliminaire d’Azure Data Lake
-
-> [!NOTE]
-> Vous devez obtenir l’autorisation d’utiliser Azure Data Lake Store (ADLS) et Azure Data Lake Analytics (ADLA) dans la mesure où ces services sont en version préliminaire. Vous serez invité à vous inscrire lors de la création de votre premier ADLS ou ADLA. Pour ce faire, cliquez sur **S’inscrire à la version préliminaire**, lisez le contrat, puis cliquez sur **OK**. Voici, par exemple, la page d’inscription à ADLS :
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Préparer l’environnement de science des données pour Azure Data Lake
 Pour préparer l’environnement de science des données pour cette procédure pas à pas, créez les ressources suivantes :
@@ -72,13 +64,15 @@ Pour préparer l’environnement de science des données pour cette procédure p
 * Outils Azure Data Lake pour Visual Studio (Recommandé)
 
 Cette section fournit des instructions sur la création de chacune de ces ressources. Si vous choisissez d’utiliser des tables Hive avec Azure Machine Learning, plutôt que Python, pour générer un modèle, vous devez également configurer un cluster HDInsight (Hadoop). Cette autre procédure est décrite dans la section correspondante ci-dessous.
-<br/>
 
-> AZURE.REMARQUE Le **Azure Data Lake Store** peut être créé séparément ou bien à la création de **Azure Data Lake Analytics** comme stockage par défaut. Il est fait référence à des instructions pour la création distincte de chacune des ressources ci-dessous. Toutefois, il n’est pas nécessaire de créer séparément le compte de stockage Data Lake.
-> <br/>
+
+> [!NOTE]
+> **Azure Data Lake Store** peut être créé séparément ou au moment de la création d’**Azure Data Lake Analytics** comme stockage par défaut. Vous trouverez des références à des instructions sur la création de chacune des ressources ci-dessous. Toutefois, il n’est pas nécessaire de créer séparément le compte de stockage Data Lake.
+>
 > 
-> ### <a name="create-an-azure-data-lake-store"></a>Créer un Azure Data Lake Store
-> 
+
+### <a name="create-an-azure-data-lake-store"></a>Créer un Azure Data Lake Store
+
 
 Créez un ADLS à partir du [Portail Azure](http://portal.azure.com). Pour en savoir plus, consultez [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à définir l’identité AAD de cluster dans le panneau **DataSource** de **Configuration facultative** décrit ici. 
 
@@ -695,6 +689,6 @@ Le parcours d’apprentissage du [processus TDSP (Team Data Science Process)](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

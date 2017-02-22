@@ -1,6 +1,6 @@
 ---
 title: "Stratégies et restrictions de mot de passe dans Azure Active Directory | Microsoft Docs"
-description: "Décrit les stratégies s’appliquant dans Azure Active Directory, notamment les caractères autorisés, la longueur et l&quot;expiration des mots de passe"
+description: "Décrit les stratégies s&quot;appliquant dans Azure Active Directory, notamment les caractères autorisés, la longueur et l&quot;expiration des mots de passe"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
 
 
 ---
@@ -25,8 +25,8 @@ Cet article décrit les stratégies de mot de passe et les exigences en matière
 
 > [!IMPORTANT]
 > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Stratégies UserPrincipalName s'appliquant à tous les comptes d'utilisateur
 Chaque compte d’utilisateur devant se connecter au système d’authentification Azure AD doit être doté d’une valeur d’attribut unique de nom d’utilisateur principal (UPN) associée à ce compte. Le tableau suivant décrit les stratégies qui s’appliquent aux comptes d’utilisateurs Active Directory sur site (synchronisés sur le cloud) et aux comptes d’utilisateurs uniquement dans le cloud.
@@ -66,7 +66,6 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe disponi
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

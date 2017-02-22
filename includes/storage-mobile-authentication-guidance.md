@@ -7,7 +7,8 @@ Il existe deux manières d’authentifier votre application pour accéder aux se
 ### <a name="shared-key"></a>Clé partagée
 L’authentification par clé partagée signifie que votre application utilisera votre nom de compte et votre clé de compte pour accéder aux services de stockage. Afin de vous montrer rapidement comment utiliser cette bibliothèque, nous allons utiliser l’authentification par clé partagée dans cet article de prise en main.
 
-> [AZURE.WARNING (Utilisez uniquement l’authentification par clé partagée à des fins de test.) ] Votre nom de compte et votre clé de compte, qui donnent un accès complet en lecture/écriture au compte de stockage associé, seront distribués à chaque personne qui télécharge votre application. Ce n’est **pas** une bonne pratique car votre clé risque d’être compromise par des clients non approuvés.
+> [!WARNING] 
+> **Utilisez uniquement l’authentification par clé partagée à des fins de test !** Votre nom de compte et votre clé de compte, qui donnent un accès complet en lecture/écriture au compte de stockage associé, seront distribués à chaque personne qui télécharge votre application. Ce n’est **pas** une bonne pratique car votre clé risque d’être compromise par des clients non approuvés.
 > 
 > 
 
@@ -39,6 +40,6 @@ Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

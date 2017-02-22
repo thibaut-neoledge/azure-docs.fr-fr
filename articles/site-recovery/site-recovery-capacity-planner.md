@@ -1,6 +1,6 @@
 ---
-title: "Planification de la capacité pour la protection des machines virtuelles et des serveurs physiques dans Azure Site Recovery | Microsoft Docs"
-description: "Planification de la capacité de réplication pour Azure Site Recovery"
+title: "Estimer la capacité de réplication dans Azure | Microsoft Docs"
+description: "Utiliser cet article pour estimer la capacité en cas de réplication avec Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 8fca992488746bc50a7342644de62b862a9aaea7
-ms.openlocfilehash: a427969378d2454246217d48bafe6f360e93df0f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
 
 
 ---
@@ -65,7 +65,7 @@ Vous pouvez exécuter l’outil de deux manières :
    * **Nombre de disques blob requis** donne le nombre de disques qui seront créés sur le stockage Azure.
    * **Nombre de comptes de stockage premium requis** fournit le nombre total de comptes de stockage premium nécessaire pour protéger les machines virtuelles. Une machine virtuelle source avec une valeur d’E/S par seconde élevée (supérieure à 20 000) a besoin d’un compte de stockage Premium. Un compte de stockage premium peut contenir jusqu’à 80 000 E/S par seconde.
    * **Nombre d’E/S par seconde sur les comptes de stockage premium** est calculé sur la base d’une taille d’unité d’E/S par seconde de 256K sur l’ensemble des comptes de stockage premium.  Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machines virtuelles source et du taux de changement de données par jour. Concernant le Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées sur des machines virtuelles Azure premium (séries DS et GS) et du taux de modification des données sur ces dernières.
-   * Le **nombre de serveurs de configuration requis** indique le nombre de serveurs de configuration requis pour le déploiement. 
+   * Le **nombre de serveurs de configuration requis** indique le nombre de serveurs de configuration requis pour le déploiement.
    * Le **nombre de serveurs de traitement supplémentaires requis** indique si des serveurs de traitement supplémentaires sont nécessaires en plus du serveur de traitement qui est exécuté sur le serveur de configuration par défaut.
    * **100 % de stockage supplémentaire sur la source** indique si un stockage supplémentaire est nécessaire dans l’emplacement source.
 
@@ -117,7 +117,7 @@ Exemple : pour les six machines virtuelles avec les valeurs indiquées dans le 
 
     > [!NOTE]
     > Le nombre d’E/S par seconde sur les comptes de stockage standard et Premium est calculé au niveau de la machine virtuelle et non à celui du disque. Une machine virtuelle standard peut gérer jusqu’à 500 E/S par seconde par disque. Si le nombre d’E/S par seconde pour un disque est supérieur à 500, le stockage Premium est nécessaire. Toutefois, si le nombre d’E/S par seconde pour un disque est supérieur à 500, mais que le nombre d’E/S par seconde pour l’ensemble des disques de machine virtuelle ne dépasse pas les limites établies pour les machines virtuelles Azure standard (taille de machine virtuelle, nombre de disques, nombre d’adaptateurs, processeur, mémoire), le planificateur choisit une machine virtuelle standard et non une machine virtuelle des séries DS ou GS. Vous devez mettre à jour manuellement la cellule Mapping Azure size avec la machine virtuelle de série DS ou GS appropriée.
-   
+
 
 1. Une fois tous les détails fournis, cliquez sur **Submit data to the planner tool** (Envoyer des données à l’outil Planificateur) pour ouvrir **Capacity Planner**. Les charges de travail sont mises en surbrillance, afin d’indiquer si elles sont éligibles ou non à la protection.
 
@@ -129,6 +129,6 @@ Exemple : pour les six machines virtuelles avec les valeurs indiquées dans le 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

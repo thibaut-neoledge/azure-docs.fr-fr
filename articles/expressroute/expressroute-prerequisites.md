@@ -1,10 +1,10 @@
 ---
-title: "Configuration requise pour l’adoption du service ExpressRoute | Microsoft Docs"
+title: "Configuration requise pour l’adoption d’Azure ExpressRoute | Microsoft Docs"
 description: "Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
-ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
 
 
 ---
@@ -68,6 +68,6 @@ Si vous prévoyez d’activer CRM Online sur ExpressRoute, consultez les docume
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

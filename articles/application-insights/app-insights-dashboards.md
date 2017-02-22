@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 369feec4d8d5234ffcde9d4f75811f3847d88834
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 
 ---
@@ -31,7 +31,7 @@ Le panneau de vue d’ensemble (page) de votre application affiche un résumé d
 
 ![Procédures principales d'affichage de vos données de télémétrie](./media/app-insights-dashboards/010-oview.png)
 
-Vous pouvez personnaliser tous les autres graphiques et les intégrer à un tableau de bord. De cette façon, vous pouvez rassembler les principaux graphiques issus de différentes applications.
+Vous pouvez personnaliser tous les graphiques et grilles et les intégrer à un tableau de bord. De cette façon, vous pouvez regrouper les données de télémétrie clés issues de différentes applications sur un tableau de bord central.
 
 ## <a name="dashboards"></a>Tableaux de bord
 La première chose que vous voyez après vous être connecté au [portail Microsoft Azure](https://portal.azure.com) est un tableau de bord. Celui-ci vous permet de rassembler les graphiques les plus importants pour vous pour toutes vos ressources Azure, notamment les données de télémétrie d’[Azure Application Insights](app-insights-overview.md).
@@ -114,13 +114,13 @@ Le panneau de vue d’ensemble constitue une passerelle permettant d’accéder 
 * **Vue d’ensemble** : revenez au panneau de vue d’ensemble de l’application.
 * **Journal d’activité** : alertes et événements d’administration Azure.
 * [**Contrôle d’accès**](app-insights-resources-roles-access-control.md) : donnez accès aux membres de l’équipe et à d’autres utilisateurs.
-* [**Balises**](../resource-group-using-tags.md) : utilisez des balises pour regrouper votre application avec d’autres utilisateurs.
+* [**Balises**](../azure-resource-manager/resource-group-using-tags.md) : utilisez des balises pour regrouper votre application avec d’autres utilisateurs.
 
 EXAMINER
 
 * [**Plan de l’application**](app-insights-app-map.md) : plan actif présentant les composants de votre application, dérivé des informations de dépendance.
-* [**Diagnostics proactifs**](app-insights-proactive-diagnostics.md) : consultez les récentes alertes sur les performances.
-* [**Flux en direct**](app-insights-metrics-explorer.md#live-metrics-stream) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
+* [**Détection intelligente**](app-insights-proactive-diagnostics.md) : consultez les récentes alertes sur les performances.
+* [**Flux en direct**](app-insights-live-stream.md) pour un ensemble de mesures quasi instantanées, ce qui est utile lors du déploiement d’une nouvelle version ou du débogage.
 * [**Tests de disponibilité/web**](app-insights-monitor-web-app-availability.md) : envoyez des demandes régulières à votre site à partir de votre application web dans le monde entier.*
 * [**Échecs, Performances**](app-insights-web-monitor-performance.md) : exceptions, taux d’échec et temps de réponse des demandes adressées à votre application et des demandes de votre application à destination des [dépendances](app-insights-asp-net-dependencies.md).
 * [**Performances**](app-insights-web-monitor-performance.md) : temps de réponse, temps de réponse de dépendance.
@@ -141,7 +141,7 @@ CONFIGURER
 
 PARAMÈTRES
 
-* [**Verrous**](../resource-group-lock-resources.md) : verrouillez les ressources Azure.
+* [**Verrous**](../azure-resource-manager/resource-group-lock-resources.md) : verrouillez les ressources Azure.
 * [**Script d’automatisation**](app-insights-powershell.md) : exportez une définition de la ressource Azure afin de l’utiliser comme modèle pour créer d’autres ressources.
 
 SUPPORT
@@ -157,6 +157,6 @@ SUPPORT
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

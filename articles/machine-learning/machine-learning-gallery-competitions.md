@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 
 ---
@@ -34,7 +34,7 @@ Les **[Concours](https://gallery.cortanaintelligence.com/competitions)** offrent
  La page **[Competitions (Concours)](https://gallery.cortanaintelligence.com/competitions)**
  affiche une liste des concours les plus populaires.
 Cliquez sur **Afficher tout** pour afficher tous les concours.
-À partir de cette page, vous pouvez parcourir tous les concours de la Galerie, ou vous pouvez effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
+Sur cette page, vous pouvez parcourir tous les concours de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
  Cliquez sur n’importe quel concours pour ouvrir sa page détaillée et lire des informations supplémentaires. Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers le concours pour inviter d’autres utilisateurs à afficher la page.
 
@@ -58,6 +58,6 @@ Si le concours est terminé, son état sur la page détaillée est défini sur *
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

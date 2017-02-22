@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f7735767b6655046b354d2a782b2730f117976
+ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
+ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
 
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
-Un cluster Service Fabric est une ressource que vous possédez. Les clusters doivent toujours être sécurisés pour empêcher les utilisateurs non autorisés de se connecter à votre cluster, surtout quand des charges de travail sont en cours d’exécution sur ce dernier. Bien qu’il soit possible de créer un cluster non sécurisé, cela permettrait à tout utilisateur anonyme de s’y connecter si les points de terminaison de gestion sur l’Internet public. 
+Un cluster Service Fabric est une ressource que vous possédez. Les clusters doivent être sécurisés pour empêcher les utilisateurs non autorisés de se connecter à votre cluster, surtout quand des charges de travail sont en cours d’exécution sur ce dernier. Bien qu’il soit possible de créer un cluster non sécurisé, cela permet à tout utilisateur anonyme de s’y connecter si les points de terminaison de gestion sur l’Internet public. 
 
 Cet article fournit une vue d’ensemble des scénarios de sécurité pour les clusters autonomes ou s’exécutant sur Azure, et des différentes technologies utilisées pour implémenter ces scénarios. Les scénarios de sécurité des clusters sont les suivants :
 
@@ -109,14 +109,18 @@ Les certificats clients ne sont généralement pas émis par une autorité de ce
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article fournit des informations conceptuelles sur la sécurité des clusters. Ensuite, [créez un cluster dans Azure à l’aide d’un modèle Resource Manager](service-fabric-cluster-creation-via-arm.md) ou par le biais du [portail Azure](service-fabric-cluster-creation-via-portal.md).
+Cet article fournit des informations conceptuelles sur la sécurité des clusters. Ensuite,
+
+
+1.  [créez un cluster dans Azure à l’aide d’un modèle Resource Manager](service-fabric-cluster-creation-via-arm.md) 
+2.  [Portail Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
-[Nœud à nœud]: ./media/service-fabric-cluster-security/node-to-node.png
-[Client à nœud]: ./media/service-fabric-cluster-security/client-to-node.png
+[Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
+[Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

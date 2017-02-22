@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
+ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
 
 
 ---
@@ -177,7 +177,7 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 1. Dans HPC Cluster Manager, sous **Gestion des nœuds** (ou **Gestion des ressources** dans les versions récentes de HPC Pack), dans le volet **Actions**, cliquez sur **Ajouter un nœud**.
    
     ![Add Node][add_node1]
-2. Dans l’Assistant Ajouter un nœud, sur la page **Sélectionner une méthode de déploiement**, cliquez sur **Ajouter des nœuds Azure**, puis sur **Suivant**.
+2. Dans l’Assistant Ajouter un nœud, sur la page **Sélectionner une méthode de déploiement**, cliquez sur **Ajouter des nœuds Windows Azure**, puis sur **Suivant**.
    
     ![Ajouter un nœud Azure][add_node1_1]
 3. Sur la page **Spécifier les nouveaux nœuds**, sélectionnez le modèle de nœud Azure créé précédemment (par défaut, son nom est **Default AzureNode Template**). Spécifiez ensuite **2** nœuds de taille **Petite**, puis cliquez sur **Suivant**.
@@ -197,7 +197,7 @@ Lorsque vous souhaitez utiliser les ressources de cluster dans Azure, utilisez H
 1. Dans HPC Cluster Manager, sous **Gestion des nœuds** (ou **Gestion des ressources** dans les versions récentes de HPC Pack), cliquez sur un ou plusieurs nœuds, puis dans le volet **Actions**, cliquez sur **Démarrer**.
    
    ![Démarrer les nœuds][add_node4]
-2. Dans la boîte de dialogue **Démarrer les nœuds Azure**, cliquez sur **Démarrer**.
+2. Dans la boîte de dialogue **Arrêter les nœuds Windows Azure**, cliquez sur **Démarrer**.
    
     ![Démarrer les nœuds][add_node5]
    
@@ -250,7 +250,7 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 1. Dans HPC Cluster Manager, sous **Gestion des nœuds** (ou **Gestion des ressources** dans les versions récentes de HPC Pack), sélectionnez les deux nœuds Azure. Ensuite, dans le volet **Actions**, cliquez sur **Arrêter**.
    
     ![Arrêter les nœuds][stop_node1]
-2. Dans la boîte de dialogue **Arrêter les nœuds Azure**, cliquez sur **Arrêter**.
+2. Dans la boîte de dialogue **Arrêter les nœuds Windows Azure**, cliquez sur **Arrêter**.
    
     ![Arrêter les nœuds][stop_node2]
 3. Le nœud passe à l'état **Stopping** . Après quelques minutes, HPC Cluster Manager signale les nœuds comme **Not-Deployed**.
@@ -268,7 +268,7 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 * Pour accéder à d’autres méthodes de création d’un cluster HPC Pack dans Azure, notamment avec des modèles Azure Resource Manager, consultez [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Consultez [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) (Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance) pour en savoir plus sur la gamme de solutions cloud Big Compute et HPC dans Azure).
 
-[Vue d’ensemble]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +307,6 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

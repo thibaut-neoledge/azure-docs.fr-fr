@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e5703e7aa26af81a0bf76ec393f124ddc80bf43c
-ms.openlocfilehash: 76adad7bc7f195b04601368fb715e34f5d3d7782
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
 
 
 ---
@@ -43,8 +43,8 @@ Le tableau ci-dessous répertorie les noms et les descriptions des propriétés 
 <table>
 <tbody>
 <tr>
-<td><B>Nom de la propriété</B></td>
-<td><B>Description</B></td>
+<td><B>NOM DE LA PROPRIÉTÉ</B></td>
+<td><B>DESCRIPTION</B></td>
 </tr>
 <tr>
 <td>Alias de sortie</td>
@@ -212,6 +212,37 @@ Pour une vue d’ensemble de la configuration d’un tableau de bord et d’une 
 > 
 > 
 
+### <a name="schema-creation"></a>Création d’un schéma
+Azure Stream Analytics crée un jeu de données et une table Power BI au nom de l’utilisateur s’il n’en existe pas encore. Dans tous les autres cas, la table est mise à jour avec les nouvelles valeurs. Actuellement, une seule table peut exister dans un jeu de données.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversion de types de données d’ASA vers Power BI
+Azure Stream Analytics met à jour le modèle de données dynamiquement lors de l’exécution si le schéma de sortie est modifié. L’intégralité des modifications de nom de colonne, modifications de type de colonne et ajouts ou suppressions de colonnes sont suivis.
+
+Ce tableau décrit les conversions de types de données des [types de données Steam Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) vers les [types Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) de Power Bi si un jeu de données et une table POWER BI n’existent pas.
+
+
+De Stream Analytics | Vers Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | String
+datetime | DateTime
+float | Double
+Tableau d’enregistrements | Type chaîne, valeur constante « IRecord » ou « IArray »
+
+### <a name="schema-update"></a>Mise à jour d’un schéma
+Steam Analytics déduit le schéma de modèle de données sur la base du premier ensemble d’événements de la sortie. Plus tard, si nécessaire, le schéma de modèle de données est mis à jour pour prendre en compte les événements entrants qui ne correspondent pas au schéma d’origine.
+
+La requête `SELECT *` doit être évitée pour empêcher la mise à jour dynamique du schéma entre les lignes. En plus de l’impact potentiel sur les performances, le temps nécessaire pour les résultats devient impossible à déterminer. Les champs exacts qui doivent être présentés dans le tableau de bord Power BI doivent être sélectionnés. En outre, les valeurs de données doivent être compatibles avec le type de données choisi.
+
+
+Précédent/Actuel | Int64 | String | DateTime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | Chaîne | Chaîne | Chaîne |  | String | 
+DateTime | String | String |  DateTime | String
+
+
 ### <a name="renew-power-bi-authorization"></a>Renouvellement de l’autorisation Power BI
 Vous devrez authentifier de nouveau votre compte Power BI si son mot de passe a été modifié depuis la création ou la dernière authentification de votre tâche. Si Multi-Factor Authentication (MFA) est configuré sur votre client Azure Active Directory (AAD), vous devrez également renouveler l’autorisation Power BI toutes les 2 semaines. Un symptôme de ce problème est l’absence de sortie de la tâche et une « erreur d’authentification de l’utilisateur » dans les journaux des opérations :
 
@@ -272,40 +303,17 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 ## <a name="documentdb"></a>Base de données de documents
 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
 
-Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
+La liste ci-dessous présente les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>Nom de la propriété</td>
-<td>DESCRIPTION</td>
-</tr>
-<tr>
-<td>Nom du compte</td>
-<td>Nom du compte DocumentDB.  Cela peut également être le point de terminaison du compte.</td>
-</tr>
-<tr>
-<td>Clé du compte</td>
-<td>Clé d’accès partagé du compte DocumentDB.</td>
-</tr>
-<tr>
-<td>Base de données</td>
-<td>Nom de la base de données DocumentDB.</td>
-</tr>
-<tr>
-<td>Modèle de nom de collection</td>
-<td>Modèle de nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0.<BR>Par exemple, Voici les entrées valides :<BR>MyCollection{partition}<BR>MyCollection<BR>Notez que les collections doivent exister avant que le travail d’analyse de flux de données soit démarré et ne sont pas créées automatiquement.</td>
-</tr>
-<tr>
-<td>Partition Key</td>
-<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections.</td>
-</tr>
-<tr>
-<td>ID du document</td>
-<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.</td>
-</tr>
-</tbody>
-</table>
+* **Alias de sortie** : alias faisant référence à cette sortie dans votre requête ASA  
+* **Nom du compte** : nom ou URI du point de terminaison du compte DocumentDB.  
+* **Clé du compte** : clé d’accès partagé du compte DocumentDB.  
+* **Base de données** : nom de la base de données DocumentDB.  
+* **Modèle de nom de collection** : modèle ou nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à 0. Voici des exemples d’entrées valides :  
+  1\) MyCollection : il doit exister une collection nommée « MyCollection ».  
+  2\) MyCollection{partition} : vous devez créer les collections « MyCollection0 », « MyCollection1 », « MyCollection2 », etc.  
+* **Clé de partition** : facultative. Nécessaire uniquement si vous utilisez un jeton {partition} dans votre modèle de nom de collection. Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
+* **ID de document** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
@@ -329,6 +337,6 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

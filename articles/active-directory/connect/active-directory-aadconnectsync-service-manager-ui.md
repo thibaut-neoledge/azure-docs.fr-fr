@@ -12,18 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 9665a1bae782f4f77e28449cbdc7cbebdb780b3f
+ms.sourcegitcommit: 898b3d317aac7c1a3e5593e8c5ab5aaedee179e1
+ms.openlocfilehash: 06e738c2d81665baa4e21a574cdbd2997a17ff73
 
 
 ---
 # <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Synchronisation d’Azure AD Connect : Synchronization Service Manager
-| [Opérations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connecteurs](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
-|  | | | |
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -35,13 +32,12 @@ Vous démarrez l’interface utilisateur de **Synchronization Service Manager** 
 Cliquez sur les liens en haut de cette rubrique pour en savoir plus sur les différents onglets de l’interface utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur la configuration d’ [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) .
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

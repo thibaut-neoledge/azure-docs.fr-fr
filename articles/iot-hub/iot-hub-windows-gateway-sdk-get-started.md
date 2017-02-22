@@ -1,6 +1,6 @@
 ---
-title: "Bien démarrer avec le SDK de la passerelle IoT Hub | Microsoft Docs"
-description: "Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT sous Windows pour illustrer les concepts clés que vous devez comprendre lorsque vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT."
+title: "Prise en main du kit de développement logiciel (SDK) de la passerelle Azure IoT (Windows) | Microsoft Docs"
+description: "Comment créer une passerelle sur une machine Windows et en savoir plus sur les concepts clés dans le kit de développement logiciel (SDK) de passerelles IoT Azure, comme les modules et les fichiers de configuration JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
-ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 3d9997655e19ba800bf3462d5ebd3f7c7210271f
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>Kit de développement logiciel (SDK) de passerelle Azure IoT - Bien démarrer avec Windows
+# <a name="get-started-with-the-azure-iot-gateway-sdk-windows"></a>Prise en main du kit de développement logiciel (SDK) de la passerelle Azure IoT (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Comment créer l'exemple
@@ -28,7 +28,7 @@ Avant de commencer, vous devez [configurer votre environnement de développement
 
 1. Ouvrez une **invite de commandes Développeur pour VS2015** .
 2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
-3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio, génère la solution, puis exécute les tests. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**.
+3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio et génère la solution. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**. Des paramètres supplémentaires peuvent être accordés au script pour générer et exécuter des tests unitaires et de bout en bout. Ces paramètres sont **--run-unittests** et **--run-e2e-tests**, respectivement. 
 
 ## <a name="how-to-run-the-sample"></a>Comment exécuter l’exemple
 1. Le script **build.cmd** crée un dossier appelé **build** dans votre copie locale du référentiel. Ce dossier contient les deux modules utilisés dans cet exemple.
@@ -86,6 +86,6 @@ Avant de commencer, vous devez [configurer votre environnement de développement
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

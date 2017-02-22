@@ -1,5 +1,5 @@
 ---
-title: "Prise en main des fonctionnalités de sauvegarde et de restauration des bases de données SQL Azure pour la protection et la récupération des données à l’aide de Microsoft Azure PowerShell | Microsoft Docs"
+title: "PowerShell : sauvegarder et restaurer une base de données Azure SQL Database | Microsoft Docs"
 description: "Ce didacticiel explique comment restaurer une version antérieure d’une base de données à partir de sauvegardes automatisées, comment stocker des sauvegardes automatisées dans le coffre Azure Recovery Services et comment restaurer des bases de données à partir du coffre Azure Recovery Services à l’aide de PowerShell."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: d026933869d98c469855e02a6906ed74f8ee03a3
+ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données à l’aide de PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Didacticiel : sauvegarder et restaurer une base de données Azure SQL Database à l’aide de PowerShell
 
-Ce didacticiel de mise en route vous explique comment utiliser Azure PowerShell pour effectuer les opérations suivantes :
+Ce didacticiel vous montre comment utiliser Azure PowerShell pour effectuer les opérations suivantes :
 
 - Visualiser les sauvegardes existantes d’une base de données
 - Restaurer une version antérieure d’une base de données
@@ -57,7 +57,7 @@ Dans cette section du didacticiel, vous visualisez les informations relatives au
 
 Vous pouvez restaurer une base de données à n’importe quel point dans le temps entre le point de restauration le plus ancien et la dernière sauvegarde disponible (6 minutes avant l’heure actuelle). 
 
-L’extrait de code suivant utilise l’applet de commande [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) pour obtenir le point de restauration le plus ancien de la base de données à restaurer. L’heure renvoyée est l’heure UTC, mais les extraits de code suivants indiquent comment utiliser l’heure locale. Le dernier point de restauration disponible d’une base de données active correspond généralement à un intervalle de 6 minutes avant l’heure actuelle. Ainsi, le dernier point de restauration est généralement défini sur l’heure actuelle moins six minutes. 
+L’extrait de code suivant utilise l’applet de commande [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) pour obtenir le point de restauration le plus ancien de la base de données à restaurer. L’heure renvoyée est l’heure UTC, mais les extraits de code suivants indiquent comment utiliser l’heure locale. Le dernier point de restauration disponible d’une base de données active correspond généralement à un intervalle de&6; minutes avant l’heure actuelle. Ainsi, le dernier point de restauration est généralement défini sur l’heure actuelle moins six minutes. 
 
 ```
 # Get available restore points
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Pour plus d’informations sur la restauration à partir de sauvegardes, consultez l’article concernant la [restauration à l’aide de sauvegardes](sql-database-recovery-using-backups.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

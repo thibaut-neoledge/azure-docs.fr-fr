@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’Apache Spark pour créer des applications de machine learning sur HDInsight | Microsoft Docs"
-description: "Instructions pas à pas sur l’utilisation de blocs-notes avec Apache Spark pour créer des applications d’apprentissage automatique"
+title: "Utiliser la bibliothèque MLlib dans Spark pour créer des applications d’apprentissage automatique sur Azure HDInsight | Microsoft Docs"
+description: "Instructions pas à pas sur l’utilisation de la bibliothèque MLlib dans Apache Spark pour créer des applications d’apprentissage automatique"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 4c07f5857a2dff149faaa0086eb8c54ee291d7bc
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: d39f9b4f55f93745afea48a4b581d76e57a824c3
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight-linux"></a>Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec Apache Spark sur HDInsight Linux
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec un cluster Apache Spark sur HDInsight
+
 > [!TIP]
 > Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour lire le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Spark Machine Learning - Analyse prédictive des données d’inspections alimentaires MLLib.ipynb** dans le dossier **Python**.
 >
@@ -62,10 +63,10 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
    >
 1. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
 1. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
 
-    ![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Donnez un nom au bloc-notes](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Donnez un nom au bloc-notes")
 1. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer à créer votre application d'apprentissage automatique en important les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
 
         from pyspark.ml import Pipeline
@@ -178,9 +179,9 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
     Un résultat similaire à ce qui suit s’affiche normalement :
 
-    ![Sortie de requête SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
+    ![Résultat de la requête SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Résultat de la requête SQL")
 
-    Pour plus d’informations sur la méthode magique `%%sql` , ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+    Pour plus d’informations sur la méthode magique `%%sql` , ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 1. Vous pouvez également utiliser Matplotlib, une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **countResultsdf** conservé localement, l’extrait de code doit commencer par la commande magique `%%local`. Cela garantit l’exécution locale du code sur le serveur Jupyter.
 
         %%local
@@ -295,7 +296,7 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
         There were 9315 inspections and there were 8087 successful predictions
         This is a 86.8169618894% success rate
 
-    À l’aide de la régression logistique, Spark fournit un modèle précis de la relation entre les descriptions des violations en anglais et indique si une entreprise données échoue ou réussit l’inspection alimentaire.
+    À l’aide de la régression logistique, Spark fournit un modèle précis de la relation entre les descriptions des violations en anglais et indique si une entreprise donnée échoue ou réussit l’inspection alimentaire.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Créer une représentation visuelle de la prédiction
 Nous pouvons désormais créer une visualisation finale pour nous aider à examiner les résultats de ce test.
@@ -361,6 +362,6 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

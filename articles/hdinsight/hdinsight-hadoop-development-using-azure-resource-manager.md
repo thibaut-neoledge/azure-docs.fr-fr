@@ -1,5 +1,5 @@
 ---
-title: "Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight | Microsoft Docs"
+title: "Migrer vers les outils de développement Azure Resource Manager pour HDInsight | Microsoft Docs"
 description: "Procédure de migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight"
 services: hdinsight
 editor: cgronlun
@@ -12,15 +12,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed11d7883de119f18491faa4080c0758bf8d6d02
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
 
 
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
+
 HDInsight déconseille les outils Azure Service Manager (ASM) pour HDInsight. Si vous avez utilisé Azure PowerShell, l’interface de ligne de commande Azure ou le SDK .NET HDInsight pour travailler avec les clusters HDInsight, nous vous invitons désormais à utiliser les versions Azure Resource Manager (ARM) de PowerShell, de l’interface de ligne de commande et du SDK .NET. Cet article fournit des repères sur la façon de migrer vers la nouvelle approche ARM. Cet article souligne également, le cas échéant, les différences entre les approches ASM et ARM pour HDInsight.
 
 > [!IMPORTANT]
@@ -48,8 +49,6 @@ Les nouvelles commandes disponibles avec Azure Resource Manager sont :
 * `azure hdinsight cluster resize` -modifie de manière dynamique le nombre de nœuds worker dans le cluster
 * `azure hdinsight cluster enable-http-access` - active l’accès HTTPs au cluster (activé par défaut)
 * `azure hdinsight cluster disable-http-access` - désactive l’accès HTTPs au cluster
-* `azure hdinsight-enable-rdp-access` - active le protocole RDP (Remote Desktop Protocol) sur un cluster HDInsight Windows
-* `azure hdinsight-disable-rdp-access` - désactive le protocole RDP (Remote Desktop Protocol) sur un cluster HDInsight Windows
 * `azure hdinsight script-action` - fournit des commandes pour créer/gérer des actions de script sur un cluster
 * `azure hdinsight config` - fournit des commandes pour créer un fichier de configuration qui peut être utilisé avec la commande `hdinsight cluster create` pour fournir des informations de configuration.
 
@@ -95,7 +94,7 @@ Les applets de commande Azure PowerShell ARM peuvent être installées côte à 
 
 Avant de pouvoir utiliser les applets de commande HDInsight, vous devez vous connecter à votre compte Azure et créer un nouveau groupe de ressources :
 
-* Login-AzureRmAccount ou [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+* Login-AzureRmAccount ou [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Applets de commande renommées
@@ -324,7 +323,7 @@ Vous trouverez ci-dessous des exemples de la façon dont une opération est effe
                 Location = "West US",
                 ClusterType = "Hadoop",
                 Version = "3.1",
-                OSType = OSType.Windows,
+                OSType = OSType.Linux,
                 DefaultStorageAccountName = "mystorage.blob.core.windows.net",
                 DefaultStorageAccountKey =
                     "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
@@ -366,6 +365,6 @@ Vous trouverez ci-dessous des exemples de la façon dont une opération est effe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

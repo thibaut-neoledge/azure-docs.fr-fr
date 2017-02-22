@@ -1,6 +1,6 @@
 ---
-title: "Autoriser l’accès public à une application ACS | Microsoft Docs"
-description: "Comment autoriser l’accès public à une application Azure Container Service."
+title: "Autoriser l’accès à l’application de conteneurs DC/OS Azure | Microsoft Docs"
+description: "Comment autoriser l’accès public aux conteneurs DC/OS dans Azure Container Service."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: b432755bdae235228a9b677783a8cad94142b6ca
 
 
 ---
@@ -91,6 +91,6 @@ En savoir plus sur la [gestion de vos conteneurs DC/OS](container-service-mesos-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

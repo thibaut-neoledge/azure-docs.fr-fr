@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/01/2016
+ms.date: 1/31/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46a27d34778b20ba23f406e58189f623e70a5941
+ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
+ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
 
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
-Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous aideront à planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Paramètres de mise à jour du SE invité Azure], il n’est pas indispensable que vous lisiez cette page.
+Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous aideront à planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
 
 > [!IMPORTANT]
 > Le contenu de cette page s’applique aux rôles web et de travail Cloud Services, qui s’exécutent sur un SE invité. Il **ne s’applique pas** aux machines virtuelles IaaS. 
@@ -31,13 +31,22 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 <!-- -->
 
 > [!TIP]
-> Abonnez-vous au [Flux RSS de mise à jour du SE invité][rss] pour recevoir en temps voulu les notifications relatives à toutes les modifications de SE invités.
+> Abonnez-vous au [Flux RSS de mise à jour du SE][rss] invité pour recevoir en temps voulu les notifications relatives à toutes les modifications de SE invités.
 > 
 > 
 
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="january-10-2017"></a>**10 janvier 2017**
+Le SE invité de janvier contient des correctifs qui affectent uniquement la famille de SE 2 (Windows Server 2008 R2). Nous n’avons donc publié que l’image de la famille de SE 2 (WA-GUEST-OS-2.59_201701-01) pour ce mois. Pour toutes les autres familles de SE, le SE de décembre (201612-01) reste la version la plus à jour.
+
+###### <a name="december-14-2016"></a>**14 décembre 2016**
+Le déploiement du SE invité du mois de décembre commence le 14 décembre 2016, et devrait être publié le 13 janvier 2017.
+
+###### <a name="november-20-2016"></a>**20 novembre 2016**
+Le déploiement du SE invité du mois de novembre commence le 8 novembre 2016, et devrait être publié le 8 décembre 2016.
+
 ###### <a name="october-23-2016"></a>**23 octobre 2016**
 Windows Server 2016 sera publié en tant que famille du système d’exploitation 5 le 1er novembre 2016, avec prise en charge de .NET 4.6.
 
@@ -78,13 +87,16 @@ Le déploiement du système d’exploitation invité de 201511-02 de novembre a 
 Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Les dates précédées de * sont susceptibles de changer.
+> Les dates précédées de * sont susceptibles de changer. 
 > 
-> 
+> Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
+>
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.2_201610-02 |1er novembre 2016 |30 janvier 2017 |TBD |
+| WA-GUEST-OS-5.4_201612-01 |10 janvier 2017 |Post 5.6 |TBD | 
+| WA-GUEST-OS-5.3_201611-01 |14 décembre 2016 |Post 5.5 |TBD |
+| WA-GUEST-OS-5.2_201610-02 |1er novembre 2016 |Post 5.4 |TBD |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
@@ -98,25 +110,19 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.36_201609-01 |13 octobre 2016 |Publication 4.38 |TBD |
-| WA-GUEST-OS-4.35_201608-01 |13 septembre 2016 |Publ 4.37 |TBD |
-| WA-GUEST-OS-4.34_201607-01 |8 août 2016 |Publication 4.36 |TBD |
-| WA-GUEST-OS-4.33_201606-01 |13 juillet 2016 |13 octobre 2016 |TBD |
-| WA-GUEST-OS-4.32_201605-01 |10 juin 2016 |8 septembre 2016 |TBD |
-| WA-GUEST-OS-4.31_201604-01 |2 mai 2016 |13 août 2016 |TBD |
-| WA-GUEST-OS-4.30_201603-01 |7 avril 2016 |10 juillet 2016 |TBD |
-| WA-GUEST-OS-4.29_201602-02 |12 mars 2016 |2 juin 2016 |TBD |
-| WA-GUEST-OS-4.28_201601-01 |12 février 2016 |7 mai 2016 |TBD |
-| WA-GUEST-OS-4.27_201512-01 |12 janvier 2016 |12 avril 2016 |TBD |
-| ~~WA-GUEST-OS-4.26_201511-02~~ |4 janvier 2016 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-4.26_201511-01~~ |10 décembre 2015 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-4.25_201510-01~~ |6 novembre 2015 |12 février 2016 |TBD |
-| ~~WA-GUEST-OS-4.24_201509-01~~ |1er octobre 2015 |10 janvier 2016 |TBD |
-| ~~WA-GUEST-OS-4.23_201508-02~~ |9 septembre 2015 |6 décembre 2015 |TBD |
-| ~~WA-GUEST-OS-4.22_201507-02~~ |7 août 2015 |1 novembre 2015 |TBD |
-| ~~WA-GUEST-OS-4.21_201506-01~~ |9 juillet 2015 |9 octobre 2015 |TBD |
-| ~~WA-GUEST-OS-4.20_201505-02~~ |12 juin 2015 |7 septembre 2015 |TBD |
-| ~~WA-GUEST-OS-4.19_201504-01~~ |17 avril 2015 |9 août 2015 |TBD |
+| WA-GUEST-OS-4.39_201612-01 |10 janvier 2017 |Post 4.41 |TBD |
+| WA-GUEST-OS-4.38_201611-01 |14 décembre 2016 |Post 4.40 |TBD |
+| WA-GUEST-OS-4.37_201610-02 |16 novembre 2016 |Post 4.39 |TBD |
+|~~WA-GUEST-OS-4.36_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
+|~~WA-GUEST-OS-4.35_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
+|~~WA-GUEST-OS-4.34_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
+|~~WA-GUEST-OS-4.33_201606-01~~ |13 juillet 2016 |13 octobre 2016 |TBD |
+|~~WA-GUEST-OS-4.32_201605-01~~ |10 juin 2016 |8 septembre 2016 |TBD |
+|~~WA-GUEST-OS-4.31_201604-01~~ |2 mai 2016 |13 août 2016 |TBD |
+|~~WA-GUEST-OS-4.30_201603-01~~ |7 avril 2016 |10 juillet 2016 |TBD |
+|~~WA-GUEST-OS-4.29_201602-02~~ |12 mars 2016 |2 juin 2016 |TBD |
+|~~WA-GUEST-OS-4.28_201601-01~~ |12 février 2016 |7 mai 2016 |TBD |
+|~~WA-GUEST-OS-4.27_201512-01~~ |12 janvier 2016 |12 avril 2016 |TBD |
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
@@ -130,25 +136,19 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.43_201609-01 |13 octobre 2016 |Publication 3.45 |TBD |
-| WA-GUEST-OS-3.42_201608-01 |13 septembre 2016 |Publ 3.44 |TBD |
-| WA-GUEST-OS-3.41_201607-01 |8 août 2016 |Publication 3.43 |TBD |
-| WA-GUEST-OS-3.40_201606-01 |13 juillet 2016 |13 octobre 2016 |TBD |
-| WA-GUEST-OS-3.39_201605-01 |10 juin 2016 |8 septembre 2016 |TBD |
-| WA-GUEST-OS-3.38_201604-01 |2 mai 2016 |13 août 2016 |TBD |
-| WA-GUEST-OS-3.37_201603-01 |7 avril 2016 |10 juillet 2016 |TBD |
-| WA-GUEST-OS-3.36_201602-02 |12 mars 2016 |2 juin 2016 |TBD |
-| WA-GUEST-OS-3.35_201601-01 |12 février 2016 |7 mai 2016 |TBD |
-| WA-GUEST-OS-3.34_201512-01 |12 janvier 2016 |12 avril 2016 |TBD |
-| ~~WA-GUEST-OS-3.33_201511-02~~ |4 janvier 2016 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-3.33_201511-01~~ |10 décembre 2015 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-3.32_201510-01~~ |6 novembre 2015 |12 février 2016 |TBD |
-| ~~WA-GUEST-OS-3.31_201509-01~~ |1er octobre 2015 |10 janvier 2016 |TBD |
-| ~~WA-GUEST-OS-3.30_201508-02~~ |9 septembre 2015 |6 décembre 2015 |TBD |
-| ~~WA-GUEST-OS-3.29_201507-02~~ |7 août 2015 |1 novembre 2015 |TBD |
-| ~~WA-GUEST-OS-3.28_201506-01~~ |9 juillet 2015 |9 octobre 2015 |TBD |
-| ~~WA-GUEST-OS-3.27_201505-02~~ |12 juin 2015 |7 septembre 2015 |TBD |
-| ~~WA-GUEST-OS-3.26_201504-01~~ |17 avril 2015 |9 août 2015 |TBD |
+| WA-GUEST-OS-3.46_201612-01 |10 janvier 2017 |Post 3.48 |TBD |
+| WA-GUEST-OS-3.45_201611-01 |14 décembre 2016 |Post 3.47 |TBD |
+| WA-GUEST-OS-3.44_201610-01 |16 novembre 2016 |Post 3.46 |TBD |
+| ~~WA-GUEST-OS-3.43_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
+| ~~WA-GUEST-OS-3.42_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
+| ~~WA-GUEST-OS-3.41_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
+| ~~WA-GUEST-OS-3.40_201606-01~~ |13 juillet 2016 |13 octobre 2016 |TBD |
+| ~~WA-GUEST-OS-3.39_201605-01~~ |10 juin 2016 |8 septembre 2016 |TBD |
+| ~~WA-GUEST-OS-3.38_201604-01~~ |2 mai 2016 |13 août 2016 |TBD |
+| ~~WA-GUEST-OS-3.37_201603-01~~ |7 avril 2016 |10 juillet 2016 |TBD |
+| ~~WA-GUEST-OS-3.36_201602-02~~ |12 mars 2016 |2 juin 2016 |TBD |
+| ~~WA-GUEST-OS-3.35_201601-01~~ |12 février 2016 |7 mai 2016 |TBD |
+| ~~WA-GUEST-OS-3.34_201512-01~~ |12 janvier 2016 |12 avril 2016 |TBD |
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
@@ -162,31 +162,26 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.55_201609-01 |13 octobre 2016 |Publication 2.57 |TBD |
-| WA-GUEST-OS-2.54_201608-01 |13 septembre 2016 |Publ 2.56 |TBD |
-| WA-GUEST-OS-2.53_201607-01 |8 août 2016 |Publication 2.55 |TBD |
-| WA-GUEST-OS-2.52_201606-01 |13 juillet 2016 |13 octobre 2016 |TBD |
-| WA-GUEST-OS-2.51_201605-01 |10 juin 2016 |8 septembre 2016 |TBD |
-| WA-GUEST-OS-2.50_201604-01 |2 mai 2016 |13 août 2016 |TBD |
-| WA-GUEST-OS-2.49_201603-01 |7 avril 2016 |10 juillet 2016 |TBD |
-| WA-GUEST-OS-2.48_201602-02 |12 mars 2016 |2 juin 2016 |TBD |
-| WA-GUEST-OS-2.47_201601-01 |12 février 2016 |7 mai 2016 |TBD |
-| WA-GUEST-OS-2.46_201512-01 |12 janvier 2016 |12 avril 2016 |TBD |
-| ~~WA-GUEST-OS-2.45_201511-02~~ |4 janvier 2016 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-2.45_201511-01~~ |10 décembre 2015 |12 mars 2016 |TBD |
-| ~~WA-GUEST-OS-2.44_201510-01~~ |6 novembre 2015 |12 février 2016 |TBD |
-| ~~WA-GUEST-OS-2.43_201509-01~~ |1er octobre 2015 |10 janvier 2016 |TBD |
-| ~~WA-GUEST-OS-2.42_201508-02~~ |9 septembre 2015 |6 décembre 2015 |TBD |
-| ~~WA-GUEST-OS-2.41_201507-02~~ |7 août 2015 |1 novembre 2015 |TBD |
-| ~~WA-GUEST-OS-2.40_201506-01~~ |9 juillet 2015 |9 octobre 2015 |TBD |
-| ~~WA-GUEST-OS-2.39_201505-02~~ |12 juin 2015 |7 septembre 2015 |TBD |
-| ~~WA-GUEST-OS-2.38_201504-01~~ |17 avril 2015 |9 août 2015 |TBD |
+| WA-GUEST-OS-2.59_201701-01 |10 janvier 2017 |Post 2.61 |TBD |
+| WA-GUEST-OS-2.58_201612-01 |10 janvier 2017 |Post 2.60 |TBD |
+| WA-GUEST-OS-2.57_201611-01 |14 décembre 2016 |Post 2.59 |TBD |
+| WA-GUEST-OS-2.56_201610-01 |16 novembre 2016 |10 février 2017 |TBD |
+|~~WA-GUEST-OS-2.55_201609-01~~ |13 octobre 2016 |14 janvier 2017 |TBD |
+|~~WA-GUEST-OS-2.54_201608-01~~ |13 septembre 2016 |16 décembre 2016 |TBD |
+|~~WA-GUEST-OS-2.53_201607-01~~ |8 août 2016 |13 novembre 2016 |TBD |
+|~~WA-GUEST-OS-2.52_201606-01~~ |13 juillet 2016 |13 octobre 2016 |TBD |
+|~~WA-GUEST-OS-2.51_201605-01~~ |10 juin 2016 |8 septembre 2016 |TBD |
+|~~WA-GUEST-OS-2.50_201604-01~~ |2 mai 2016 |13 août 2016 |TBD |
+|~~WA-GUEST-OS-2.49_201603-01~~ |7 avril 2016 |10 juillet 2016 |TBD |
+|~~WA-GUEST-OS-2.48_201602-02~~|12 mars 2016 |2 juin 2016 |TBD |
+|~~WA-GUEST-OS-2.47_201601-01~~|12 février 2016 |7 mai 2016 |TBD |
+|~~WA-GUEST-OS-2.46_201512-01~~|12 janvier 2016 |12 avril 2016 |TBD |
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
 
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
-La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Microsoft Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent. 
+La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent. 
 
 | Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
 | --- | --- |
@@ -207,13 +202,13 @@ Après la date **d’expiration** du SE invité, tous les services cloud qui uti
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication. 
 
 * **Guest OS family**  
-   Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
+  Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
 * **Version de SE invité**  
   Correspond à l’image de la famille de SE invité et aux correctifs [Microsoft Security Response Center (MSRC)][msrc] appropriés qui sont disponibles à la date de production de la nouvelle version du SE invité. Il est possible que les correctifs ne soient pas tous inclus. 
   
     Les numéros commencent à 0 et augmentent de 1 chaque fois qu’un nouvel ensemble de mises à jour est ajouté. Les zéros à droite sont uniquement affichés s’ils sont importants. Autrement dit, la version 2.10 est une version différente, bien plus récente, que la version 2.1.
 * **Publication de SE invité**  
-   Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure Classic permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue. 
+  Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure Classic permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue. 
 
 Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 
@@ -237,8 +232,8 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
-[Installer .NET sur un rôle de service cloud]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Paramètres de mise à jour du SE invité Azure]: cloud-services-how-to-configure.md
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -260,6 +255,6 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

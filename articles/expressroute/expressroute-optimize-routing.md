@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/27/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+ms.sourcegitcommit: 1b26e82f862a3b2149024d863b907899e14e7d86
+ms.openlocfilehash: 404929cf0def75d92d8bb6de8b41be3aecced458
 
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optimiser le routage ExpressRoute
 En présence de plusieurs circuits ExpressRoute, vous pouvez vous connecter à Microsoft par le biais de plusieurs chemins d’accès. Par conséquent, le routage pourrait ne pas être optimal. Autrement dit, votre trafic peut emprunter un chemin d’accès plus long pour atteindre Microsoft ; Microsoft peut faire de même pour atteindre votre réseau. Plus le chemin d’accès réseau est long, plus la latence est élevée. La latence a un impact direct sur les performances d’application ainsi que sur l’expérience utilisateur. Cet article aborde ce problème et explique comment optimiser le routage à l’aide des technologies de routage standard.
 
-## <a name="suboptimal-routing-case-1"></a>Cas 1 de routage non optimal
+## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Routage non optimal entre le client et Microsoft
 Voici un exemple de problème de routage. Imaginez que vous disposez de deux bureaux aux États-Unis, un à Los Angeles et un à New York. Vos bureaux sont connectés sur un réseau étendu (WAN), qui peut être votre propre réseau principal ou le VPN IP de votre fournisseur de services. Vous avez deux circuits ExpressRoute également connectés sur le réseau étendu, l’un dans l’Ouest des États-Unis et l’autre dans l’Est. Vous avez bien évidemment deux chemins d’accès pour vous connecter au réseau Microsoft. Imaginez à présent que vous déployiez un service Azure (par exemple, Azure App Service) dans l’Ouest et dans l’Est des États-Unis. Vous avez pour objectif de connecter vos utilisateurs de Los Angeles à Azure dans l’Ouest des États-Unis et les utilisateurs de New York à Azure dans l’Est des États-Unis, car selon votre administrateur de service, les utilisateurs de chaque bureau doivent accéder aux services Azure les plus proches pour une expérience optimale. Malheureusement, le plan fonctionne bien pour les utilisateurs de la côte Est, mais pas pour ceux de la côte Ouest. La cause du problème est la suivante. Sur chaque circuit ExpressRoute, nous publions le préfixe pour Azure dans l’Est des États-Unis (23.100.0.0/16) et dans l’Ouest des États-Unis (13.100.0.0/16). Si vous ne savez pas à quelle région correspond chaque préfixe, vous ne pourrez pas le traiter différemment. Votre réseau WAN peut penser que les deux préfixes sont plus proches de l’Est que de l’Ouest des États-Unis et donc router les utilisateurs des deux bureaux vers le circuit ExpressRoute dans l’Est des États-Unis. Au final, vous risquez d’avoir des utilisateurs mécontents dans vos bureaux de Los Angeles.
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>Solution : utilisez des communautés BGP
-Pour optimiser le routage pour les utilisateurs des deux bureaux, vous devez savoir faire la différence entre le préfixe Azure de l’Est et le préfixe Azure de l’Ouest. Nous encodons ces informations à l’aide des [valeurs de communauté BGP](expressroute-routing.md). Nous avons affecté une valeur de Communauté BGP unique à chaque région Azure, par exemple : « 12076:51004 » pour l’Est des États-Unis et « 12076:51006 » pour l’Ouest des États-Unis. À présent que vous savez à quelles régions Azure correspondent les préfixes, vous pouvez configurer les préférences de circuit ExpressRoute. Étant donné que nous utilisons le protocole BGP pour échanger des informations de routage, vous pouvez utiliser les préférences locales du protocole BGP pour influencer le routage. Dans notre exemple, vous pouvez affecter, dans l’Ouest des États-Unis, une valeur de préférence locale supérieure à celle de l’Est des États-Unis (13.100.0.0/16) et vice-versa dans l’Est des États-Unis (23.100.0.0/16). Cette configuration permet de garantir que, lorsque les deux chemins d’accès à Microsoft sont disponibles, vos utilisateurs de Los Angeles prendront le circuit ExpressRoute dans l’Ouest des États-Unis pour se connecter à Azure dans cette région, tandis que vos utilisateurs de New York prendront le circuit ExpressRoute de l’Est des États-Unis vers Azure dans cette région. Le routage est optimisé des deux côtés. 
+Pour optimiser le routage pour les utilisateurs des deux bureaux, vous devez savoir faire la différence entre le préfixe Azure de l’Est et le préfixe Azure de l’Ouest. Nous encodons ces informations à l’aide des [valeurs de communauté BGP](expressroute-routing.md). Nous avons affecté une valeur de Communauté BGP unique à chaque région Azure, par exemple : «&12076;:51004 » pour l’Est des États-Unis et «&12076;:51006 » pour l’Ouest des États-Unis. À présent que vous savez à quelles régions Azure correspondent les préfixes, vous pouvez configurer les préférences de circuit ExpressRoute. Étant donné que nous utilisons le protocole BGP pour échanger des informations de routage, vous pouvez utiliser les préférences locales du protocole BGP pour influencer le routage. Dans notre exemple, vous pouvez affecter, dans l’Ouest des États-Unis, une valeur de préférence locale supérieure à celle de l’Est des États-Unis (13.100.0.0/16) et vice-versa dans l’Est des États-Unis (23.100.0.0/16). Cette configuration permet de garantir que, lorsque les deux chemins d’accès à Microsoft sont disponibles, vos utilisateurs de Los Angeles prendront le circuit ExpressRoute dans l’Ouest des États-Unis pour se connecter à Azure dans cette région, tandis que vos utilisateurs de New York prendront le circuit ExpressRoute de l’Est des États-Unis vers Azure dans cette région. Le routage est optimisé des deux côtés. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
-## <a name="suboptimal-routing-case-2"></a>Cas 2 de routage non optimal
+## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Routage non optimal entre Microsoft et le client
 Voici un autre exemple dans lequel les connexions en provenance de Microsoft prennent un chemin plus long pour atteindre votre réseau. Dans ce cas, vous utilisez des serveurs Exchange locaux et Exchange Online dans un [environnement hybride](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Vos bureaux sont connectés à un réseau étendu. Vous publiez vers Microsoft les préfixes des serveurs locaux de vos deux bureaux par le biais des deux circuits ExpressRoute. Dans certains cas, tels que la migration de boîte aux lettres, Exchange Online lance les connexions aux serveurs locaux. Malheureusement, la connexion à votre bureau de Los Angeles est routée au circuit ExpressRoute de l’Est des États-Unis, puis retraverse l’ensemble du pays avant d’atteindre la côte ouest. L’origine du problème est similaire au premier cas. En l’absence d’indicateur, le réseau Microsoft ne peut pas déterminer quel préfixe est le plus proche de la côte Ouest et de la côte Est. Malheureusement, il choisit le mauvais chemin vers votre bureau de Los Angeles.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
@@ -58,6 +58,6 @@ La deuxième solution est de continuer à publier les deux préfixes sur les deu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

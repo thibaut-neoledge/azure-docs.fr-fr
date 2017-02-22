@@ -247,6 +247,6 @@ Lorsque vous cliquez sur la vignette Birst Agile Business Analytics dans le vole
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

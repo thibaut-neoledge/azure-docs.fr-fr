@@ -1,5 +1,5 @@
 ---
-title: "StorSimple Device Manager - Gérer des partages sur votre instance Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Gérer des partages StorSimple Virtual Array | Microsoft Docs"
 description: "Décrit le service StorSimple Device Manager et vous explique comment l’utiliser pour gérer des partages sur votre instance StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 90b932453c83d15e7e33eb0653f0f7ceaf7eeff4
+ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
+ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer des partages sur l’instance StorSimple Virtual Array
@@ -74,9 +74,9 @@ Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes 
 
 1. À partir du panneau de synthèse du service StorSimple, cliquez sur **+ Ajouter un partage** dans la barre de commandes. Le panneau **Ajouter un partage** s’ouvre.
 
-![Ajouter un partage](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Ajouter un partage](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. Dans le panneau **Ajouter un partage**, procédez comme suit :
+2. Dans le panneau **Ajouter un partage**, procédez comme suit :
    
     1. Dans le champ **Nom du partage**, entrez un nom unique pour votre partage. Le nom doit être une chaîne contenant entre 3 et 127 caractères.
 
@@ -87,8 +87,8 @@ Suivez les instructions de ce didacticiel pour effectuer les tâches suivantes 
     4. Dans le champ **Capacité**, spécifiez la taille du partage. Un partage hiérarchisé doit être compris entre 500 Go et 20 To, tandis qu’un partage attaché doit être compris entre 50 Go et 2 To.
 
     5. Dans le champ **Affecter une autorisation d’accès total par défaut**, attribuez les autorisations à l’utilisateur ou au groupe qui doivent accéder à ce partage. Spécifiez le nom de l’utilisateur ou du groupe d’utilisateurs au format _john@contoso.com_. Nous vous recommandons d'utiliser un groupe d'utilisateurs (plutôt qu'un seul utilisateur) lorsque vous accordez des privilèges d'administrateur pour accéder à ces partages. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers par la suite pour modifier ces autorisations.
-2. Lorsque vous avez terminé de configurer votre partage, cliquez sur **Créer**. Un partage est créé avec les paramètres spécifiés ; une notification s’affiche. Par défaut, la sauvegarde est activée pour le partage.
-3. Pour vérifier que le partage a été créé, accédez au panneau **Partages**. Le partage devrait y apparaître.
+3. Lorsque vous avez terminé de configurer votre partage, cliquez sur **Créer**. Un partage est créé avec les paramètres spécifiés ; une notification s’affiche. Par défaut, la sauvegarde est activée pour le partage.
+4. Pour vérifier que le partage a été créé, accédez au panneau **Partages**. Le partage devrait y apparaître.
    
     ![Le partage stimule la réussite.](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
@@ -146,6 +146,6 @@ Découvrez comment [cloner un partage StorSimple](storsimple-virtual-array-clone
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

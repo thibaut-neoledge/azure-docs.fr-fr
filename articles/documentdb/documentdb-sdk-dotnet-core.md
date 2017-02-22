@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/12/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 8222574f5cb4c79390fa68f61bcda9f943384c49
-ms.openlocfilehash: 1f18b90df96d91f8897c6b5570341a3c3459594a
+ms.sourcegitcommit: 855fd05d9addc2e57568067e4d434836ceeed570
+ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 
 
 ---
@@ -51,6 +51,15 @@ ms.openlocfilehash: 1f18b90df96d91f8897c6b5570341a3c3459594a
 
 ## <a name="release-notes"></a>Notes de publication
 
+Le Kit de développement logiciel (SDK) .NET Core de DocumentDB offre les mêmes fonctionnalités que la dernière version du [SDK .NET de DocumentDB](documentdb-sdk-dotnet.md).
+
+> [!NOTE] 
+> Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Pour obtenir une version préliminaire du Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP, envoyez un e-mail à l’adresse [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
+
+Le SDK .NET Core de DocumentDB vous permet de créer rapidement des applications multiplateformes [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) à exécuter sur Windows, Mac et Linux. La dernière version du SDK .NET Core de DocumentDB est entièrement compatible avec [Xamarin](https://www.xamarin.com) et peut être utilisée pour créer des applications qui ciblent iOS, Android et Mono (Linux).  
+
 ### <a name="a-name010-preview010-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentdbcore010-preview"></a><a name="0.1.0-preview"/>[0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0-preview)
 
 Le Kit de développement Logiciel (SDK) .NET Core de DocumentDB en version préliminaire vous permet de créer rapidement des applications multiplateformes [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) à exécuter sur Windows, Mac et Linux.
@@ -61,13 +70,14 @@ Le Kit de développement Logiciel (SDK) .NET Core de DocumentDB en version prél
 * [Collections partitionnées](documentdb-partition-data.md). 
 * [Comptes de base de données multirégions et géoréplication](documentdb-distribute-data-globally.md).
 
-Si vous avez des questions liées à ce Kit de développement Logiciel (SDK), publiez sur [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [forums MSDN](http://go.microsoft.com/fwlink/?LinkId=631655), ou envoyez un courrier électronique à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Ou déposez une question dans le [Référentiel Github](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou envoyez une demande sur le [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |--- |
+| [1.0.0](#1.0.0) |21 décembre 2016 |--- |
+| [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
@@ -75,6 +85,6 @@ Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azur
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

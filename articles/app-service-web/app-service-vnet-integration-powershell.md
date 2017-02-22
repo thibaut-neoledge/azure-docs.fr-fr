@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b0dcf833981364abfbc77d0cd6dfde8beb081b7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
 
 
 ---
@@ -119,7 +119,7 @@ La première étape consiste à générer le fichier .cer. La deuxième étape e
 
 Le certificat se trouve dans l’emplacement spécifié avec **$Configuration.GeneratedCertificatePath**
 
-Pour télécharger le certificat manuellement, utilisez le nouveau [portail Azure][azureportal] et accédez à **Réseau virtuel (classique)** > **Connexions VPN** > **Point à site** > **Gérer les certificats**. À partir de là, téléchargez votre certificat.
+Pour télécharger le certificat manuellement, utilisez le [portail Azure][azureportal] et accédez à **Réseau virtuel (classique)** > **Connexions VPN** > **Point à site** > **Gérer les certificats**. À partir de là, téléchargez votre certificat.
 
 ##### <a name="get-the-point-to-site-package"></a>Obtenir le package de point à site
 L’étape suivante de la configuration d’une connexion de réseau virtuel sur une application web consiste à obtenir le package de point à site et à le fournir à votre application web.
@@ -706,6 +706,6 @@ Bien que le script indique la suppression, il ne supprime pas le réseau virtuel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,6 @@
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
+| Comptes Batch par région et par abonnement |3 |50 |
 | Cœurs par compte Batch |20 |N/A<sup>1</sup> |
 | Travaux et planifications de travaux<sup>2</sup> par compte Batch |20 |10 000 |
 | Pools par compte Batch |20 |5 000 |
@@ -9,7 +10,6 @@
 <sup>2</sup>Inclut des travaux actifs à exécution unique et des planifications de travaux actives. Les travaux terminés et les planifications de travaux ne sont pas limités.
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
+ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
 
 
 ---
@@ -27,21 +27,21 @@ Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les
 Security Center est proposé en deux niveaux :
 
 * Le **niveau Gratuit** est automatiquement activé dans tous les abonnements Azure. Le niveau Gratuit vous permet de voir l’état de sécurité de vos ressources Azure, vos stratégies de sécurité de base, vos recommandations de sécurité, ainsi que l’intégration des produits et services de partenaires.
-* Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports d’évaluation des menaces. Une **évaluation gratuite de 90 jours** est disponible pour le niveau Standard.
+* Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports d’évaluation des menaces. Une **évaluation gratuite de&90; jours** est disponible pour le niveau Standard.
 
 Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 > [!NOTE]
 > Security Center utilise le stockage Azure pour enregistrer les données de sécurité générées à partir de vos nœuds protégés. Les coûts associés à ce stockage ne sont pas inclus dans le prix du service. Ils sont facturés séparément au [tarif normal du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Les frais de stockage s’appliquent également pendant la période d’évaluation.
-> 
-> 
+>
+>
 
 ## <a name="try-standard-free-for-90-days"></a>Essayez gratuitement la version Standard pendant 90 jours
 Une évaluation gratuite de 90 jours est disponible pour le niveau Standard. Pour obtenir la version d’évaluation gratuite du niveau Standard, sélectionnez la mosaïque **Stratégie** dans le panneau **Security Center**. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard – Essai gratuit**.
 
 ![Essai gratuit][1]
 
-Une fois les 90 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
+Une fois les 90 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
 ## <a name="upgrade-to-standard"></a>Mise à niveau vers le niveau Standard
 Passez au niveau Standard pour bénéficier d’une détection avancée des menaces. Pour passer au niveau Standard, sélectionnez la mosaïque **Stratégie** dans le panneau **Security Center**. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
@@ -86,6 +86,6 @@ Pour vérifier que la collecte des données est activée, sélectionnez la mosa�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

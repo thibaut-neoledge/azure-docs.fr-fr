@@ -1,5 +1,5 @@
 ---
-title: "Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+title: "Ajouter la surveillance et les diagnostics à une machine virtuelle Azure | Microsoft Docs"
 description: "Utilisez un modèle Azure Resource Manager pour créer une machine virtuelle Windows avec l’extension Diagnostics Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 1/23/2017
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1eb9355b8cdb500224809ab0bd32885358983c23
+ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
+ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
 
 
 ---
@@ -166,11 +166,11 @@ Chaque table WADMetrics contient les colonnes suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Déployer le modèle Resource Manager à l’aide d’[Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou de la [ligne de commande Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* En savoir plus sur la [création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
+* En savoir plus sur la [création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

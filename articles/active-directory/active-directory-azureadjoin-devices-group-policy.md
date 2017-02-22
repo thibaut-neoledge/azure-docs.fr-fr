@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
+ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
 
 
 ---
@@ -54,85 +54,8 @@ Pour permettre un accès conditionnel, vous pouvez créer des paramètres de str
 * Version 1509 de System Center Configuration Manager pour l’évaluation technique de scénarios Passport
 
 ## <a name="deployment-instructions"></a>Instructions de déploiement
-### <a name="step-1-deploy-azure-active-directory-connect"></a>Étape 1 : déploiement d'Azure Active Directory Connect
-Azure AD Connect vous permettra de configurer les ordinateurs locaux en tant qu’objets Appareil dans le cloud. Pour déployer Azure AD Connect, consultez la section « Installer Azure AD Connect » de l’article [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
-* Si vous avez effectué une [installation personnalisée pour Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md) (pas l’installation Express), suivez la procédure **Créer un point de connexion de service dans Active Directory local**, plus loin dans cette étape.
-* Si vous avez une configuration fédérée avec Azure AD avant l’installation d’Azure AD Connect (par exemple, si vous avez préalablement déployé des services de fédération Active Directory (AD FS)), suivez la procédure **Configurer les règles de revendication AD FS** , plus loin dans cette étape.
-
-#### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>Créer un point de connexion de service dans Active Directory local
-Les appareils joints au domaine utiliseront le point de connexion de service pour découvrir des informations de locataire Azure AD au moment de l’inscription automatique auprès du service d’inscription pour appareils Azure.
-
-Sur le serveur Azure AD Connect, exécutez les commandes PowerShell suivantes :
-
-    Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
-
-    $aadAdminCred = Get-Credential;
-
-    Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
-
-
-Quand vous exécutez l’applet de commande $aadAdminCred = Get-Credential, utilisez le format *user@example.com* pour le nom d’utilisateur des informations d’identification entrées lorsque la fenêtre contextuelle Get-Credential s’affiche.
-
-Quand vous exécutez l’applet de commande Initialize-ADSyncDomainJoinedComputerSync..., remplacez [*nom de compte de connecteur*] par le compte de domaine utilisé comme compte de connecteur Active Directory.
-
-#### <a name="configure-ad-fs-claim-rules"></a>Configurer les règles de revendication AD FS
-La configuration des règles de revendication AD FS permet l’inscription instantanée d’un ordinateur auprès du service d’inscription pour appareils Azure en permettant aux ordinateurs de procéder à l’authentification avec Kerberos/NTLM via AD FS. Sans cette étape, les ordinateurs atteignent Azure AD de manière différée (en fonction des heures de synchronisation d’Azure AD Connect).
-
-> [!NOTE]
-> Si vous n’avez pas AD FS en tant que serveur de fédération local, suivez les instructions de votre fournisseur pour créer les règles de revendication.
-> 
-> 
-
-Sur le serveur AD FS (ou sur une session connectée au serveur AD FS), exécutez les commandes PowerShell suivantes :
-
-      <#----------------------------------------------------------------------
-     |   Modify the Azure AD Relying Party to include the claims needed
-     |   for DomainJoin++. The rules include:
-     |   -ObjectGuid
-     |   -AccountType
-     |   -ObjectSid
-     +---------------------------------------------------------------------#>
-
-    $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules
-
-    $rule1 = '@RuleName = "Issue object GUID"
-          c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
-          c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);'
-
-    $rule2 = '@RuleName = "Issue account type for domain joined computers"
-          c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");'
-
-    $rule3 = '@RuleName = "Pass through primary SID"
-          c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
-          c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
-          => issue(claim = c2);'
-
-    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3
-
-    $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules
-
-    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
-
-> [!NOTE]
-> Les ordinateurs Windows 10 procèdent à l’authentification à l’aide de l’authentification intégrée de Windows vers un point de terminaison WS-Trust actif hébergé par AD FS. Vérifiez que ce point de terminaison est activé. Si vous utilisez le proxy d’authentification web, vérifiez également que ce point de terminaison est publié via le proxy. Pour ce faire, vérifiez que adfs/services/trust/13/windowstransport Il doit être affiché comme activé dans la console de gestion AD FS sous **Service** > **Points de terminaison**.
-> 
-> 
-
-### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Étape 2 : configuration de l'inscription automatique des appareils via la stratégie de groupe dans Active Directory
-Vous pouvez utiliser une stratégie de groupe dans Active Directory pour configurer vos appareils Windows 10 joints au domaine de manière qu’ils s’inscrivent automatiquement auprès d’Azure AD.
-
-> [!NOTE]
-> Pour les dernières informations sur la configuration de l’inscription automatique des appareils, consultez [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
-> 
-> Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous exécutez l’outil de stratégie de groupe à partir d’un ordinateur Windows 10, la stratégie s’affiche en tant que : <br>
-> **Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils**<br>
-> La stratégie est à l’emplacement suivant :<br>
-> ***Configuration de l’ordinateur/Stratégies/Modèles administratifs/Composants Windows/Enregistrement d’appareils***
-> 
-> 
+Pour effectuer le déploiement, procédez comme indiqué dans [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="additional-information"></a>Informations supplémentaires
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -144,6 +67,6 @@ Vous pouvez utiliser une stratégie de groupe dans Active Directory pour configu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

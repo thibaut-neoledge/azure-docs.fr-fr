@@ -1,6 +1,6 @@
 ---
-title: "Protéger les serveurs dans Azure à l’aide d’Azure PowerShell avec Azure Resource Manager | Microsoft Docs"
-description: "Automatiser la protection des serveurs dans Azure avec Azure Site Recovery à l’aide de PowerShell et d’Azure Resource Manager."
+title: "Répliquer des machines virtuelles Hyper-V avec PowerShell et Azure Resource Manager | Microsoft Docs"
+description: "Automatisez la réplication de machines virtuelles Hyper-V sur Azure avec Azure Site Recovery à l’aide de PowerShell et d’Azure Resource Manager."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 555f61f76a8d6f1564e7ca736bcdd0dec7d594df
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
 
 
 ---
@@ -62,7 +62,7 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 * Un hôte Hyper-V exécuté sous Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 et hébergeant une ou plusieurs machines virtuelles.
 * Des serveurs Hyper-V connectés à Internet, directement ou via un proxy.
-* Les machines virtuelles à protéger doivent répondre à la [configuration requise pour les machines virtuelles](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Les machines virtuelles à protéger doivent répondre à la [configuration requise pour les machines virtuelles](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demandera les informations d’identification de votre compte.
@@ -247,6 +247,6 @@ Cet article explique comment utiliser Azure PowerShell avec Azure Resource Manag
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Planification d’une maintenance planifiée pour les machines virtuelles Azure | Microsoft Docs"
+title: Comment planifier la maintenance pour les machines virtuelles Windows dans Azure | Microsoft Docs
 description: "Découvrez comment prévoir une maintenance planifiée sur des machines virtuelles Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,21 +16,20 @@ ms.topic: article
 ms.date: 02/13/2016
 ms.author: igalf
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0aca53a5669b3a03370afc5ee7ba012e06e2695c
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 3c2ed5d8921df70dda2d43be599d018af81d4f64
 
 
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Planification d’une maintenance planifiée sur des machines virtuelles Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Pour plus d’informations sur la maintenance planifiée du modèle Resource Manager, suivez [ce lien](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur la maintenance planifiée du modèle Resource Manager, suivez [ce lien](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

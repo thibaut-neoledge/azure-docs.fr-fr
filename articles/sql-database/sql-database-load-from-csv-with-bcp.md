@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
+ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
+ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
 
 
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Charger des données à partir d’un fichier CSV dans Azure SQL Data Warehouse (fichiers plats)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données à partir d’un fichier CSV une base de données SQL Azure (fichiers plats)
 Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des données à partir d’un fichier CSV dans la base de données SQL Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -121,6 +121,6 @@ Pour migrer une base de données SQL Server, consultez [Migration de base de don
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

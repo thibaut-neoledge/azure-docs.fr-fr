@@ -1,5 +1,5 @@
 ---
-title: "Modifier le mot de passe administrateur de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array | Microsoft Docs"
 description: "Explique comment utiliser le portail Azure ou l’interface utilisateur web de StorSimple Virtual Array pour modifier le mot de passe administrateur de l’appareil."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 4645ec88f804908916f7cf9b090376753c089119
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 2ff0b7796b8e31cc3b26a951647bb483fd131c14
 
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password"></a>Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array
@@ -80,6 +80,6 @@ Découvrez comment [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

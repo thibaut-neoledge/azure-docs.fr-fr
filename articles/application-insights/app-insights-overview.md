@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: c719a82e6c2ae46080811190f9ca7783414f38f4
+ms.sourcegitcommit: 3e9476f8edc4186af026495bc575b8203c35c619
+ms.openlocfilehash: b01de7724ec116e5e27369f7c0f852f82ab0348b
 
 
 ---
@@ -86,11 +86,11 @@ Application Insights est un des nombreux services hébergés dans Microsoft Azur
 
 Il existe plusieurs façons de démarrer avec Application Insights. Commencez par la méthode qui vous convient le mieux. Vous pourrez ajouter les autres par la suite.
 
-* **Au moment de l’exécution : instrumentez votre application web sur le serveur.**  Permet d’éviter toute mise à jour du code. Vous avez besoin de l’accès administrateur à votre serveur.
+* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Permet d’éviter toute mise à jour du code. Vous avez besoin de l’accès administrateur à votre serveur.
   * [**IIS local ou sur une machine virtuelle**](app-insights-monitor-performance-live-website-now.md)
   * [**Application web ou machine virtuelle Azure**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
-* **Au moment du développement : ajoutez Application Insights à votre code.**  Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
+* **Au moment du développement : ajoutez Application Insights à votre code.** Vous permet d’écrire des données de télémétrie personnalisées et d’instrumenter le serveur principal et les applications de bureau.
   * [Visual Studio](app-insights-asp-net.md) 2013 Update 2 ou version ultérieure.
   * Java dans [Eclipse](app-insights-java-eclipse.md) ou [autres outils](app-insights-java-get-started.md)
   * [Node.JS](app-insights-nodejs.md)
@@ -264,7 +264,7 @@ Live Metrics Stream indique les mesures de votre application à ce moment préci
 Contrairement à Metrics Explorer, Live Metrics Stream affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
 
 ### <a name="annotations"></a>Annotations
-[annotations de version](app-insights-annotations.md) sur les graphiques de mesures montrent les endroits où vous avez déployé une nouvelle édition. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées de manière automatique par le [système de génération Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) et vous pouvez aussi les [créer à partir de PowerShell](#create-annotations-from-powershell).
+[annotations de version](app-insights-annotations.md) sur les graphiques de mesures montrent les endroits où vous avez déployé une nouvelle édition. Elles vous permettent de mieux voir l’effet de vos modifications sur les performances de votre application. Elles peuvent être créées automatiquement par le [système de génération Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) ou par des déploiements web à partir de Visual Studio. Vous pouvez également [les créer à partir de PowerShell](#create-annotations-from-powershell).
 
 ![Exemples d’annotations avec corrélation visible avec le délai de réponse de serveur](./media/app-insights-overview/00.png)
 
@@ -369,6 +369,6 @@ Prise en main pendant le développement avec :
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

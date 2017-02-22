@@ -1,5 +1,5 @@
 ---
-title: Surveiller un cluster DC/OS Azure Container Service avec Dynatrace | Microsoft Docs
+title: Surveiller le cluster DC/OS Azure - Dynatrace | Microsoft Docs
 description: "Surveillez un cluster DC/OS Azure Container Service avec Dynatrace. Déployez Dynatrace OneAgent à l’aide du tableau de bord DC/OS."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 96d35fbc4a8dfb620a2cfe67df449134d2f1e542
-ms.openlocfilehash: 48bb16972f2e846997e081e702ffbce57736c484
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 8878baa230bc8e91f814fd97fdc852c76b17e823
 
 
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-dynatrace-saasmanaged"></a>Surveiller un cluster Azure Container Service avec Dynatrace SaaS/Managé
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Surveiller un cluster DC/OS Azure Container Service avec Dynatrace SaaS/Managed
 Dans cet article, nous vous montrons comment déployer [Dynatrace](https://www.dynatrace.com/) OneAgent pour surveiller tous les nœuds d’agents de votre cluster Azure Container Service. Vous avez besoin d’un compte Dynatrace SaaS/Managé pour cette configuration. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managé
@@ -63,6 +63,6 @@ Ces étapes vous expliquent comment configurer et déployer des applications Dyn
 Une fois que vous avez installé le package, revenez au tableau de bord Dynatrace. Vous pouvez explorer les différentes métriques d’utilisation des conteneurs de votre cluster. 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

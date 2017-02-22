@@ -1,5 +1,5 @@
 ---
-title: "Filtres IP d’Azure Hub IoT | Microsoft Docs"
+title: "Filtres de connexion IP d’Azure Hub IoT | Microsoft Docs"
 description: "Utilisation de filtres IP pour bloquer les connexions à partir d’adresses IP spécifiques pour votre Azure IoT Hub. Vous pouvez bloquer les connexions à partir d’adresses IP individuelles ou de plages d’adresses IP."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 784454c3bc0500ac0896177e843b3c194341cdd1
+ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
+ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
 
 
 ---
@@ -61,6 +61,9 @@ L’option **Ajouter** est désactivée lorsque vous atteignez le nombre maximal
 
 Vous pouvez modifier une règle existante en double-cliquant sur la ligne qui contient la règle.
 
+> [!NOTE]
+> Le rejet d’adresses IP est de nature à empêcher d’autres services Azure (comme Azure Stream Analytics, Azure Virtual Machines ou l’Explorateur d’appareils dans le portail) d’interagir avec IoT Hub.
+
 ## <a name="delete-an-ip-filter-rule"></a>Suppression d’une règle de filtre IP
 
 Pour supprimer une règle de filtre IP, sélectionnez une ou plusieurs règles dans la grille et cliquez sur **Supprimer**.
@@ -71,7 +74,7 @@ Pour supprimer une règle de filtre IP, sélectionnez une ou plusieurs règles d
 
 Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
-Par exemple, si vous souhaitez accepter les adresses dans la plage 192.168.100.0/22 et rejeter tout le reste, la première règle de la grille doit accepter la plage d’adresses 192.168.100.0/22. La règle suivante doit rejeter toutes les adresses à l’aide de la plage 0.0.0.0/0. Si vous ajoutez une dernière règle qui rejette la plage 0.0.0.0/0, vous modifiez le comportement par défaut par une action d’approbation.
+Par exemple, si vous souhaitez accepter les adresses dans la plage 192.168.100.0/22 et rejeter tout le reste, la première règle de la grille doit accepter la plage d’adresses 192.168.100.0/22. La règle suivante doit rejeter toutes les adresses à l’aide de la plage 0.0.0.0/0.
 
 Vous pouvez modifier l’ordre de vos règles de filtre IP dans la grille en cliquant sur les trois points verticaux au début d’une ligne et en effectuant un glisser-déplacer.
 
@@ -103,6 +106,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

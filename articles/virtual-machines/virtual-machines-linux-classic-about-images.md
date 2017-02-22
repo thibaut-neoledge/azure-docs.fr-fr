@@ -1,5 +1,5 @@
 ---
-title: "À propos des images Linux pour les machines virtuelles | Microsoft Docs"
+title: "À propos des images de machine virtuelle Linux dans Azure | Microsoft Docs"
 description: En savoir plus sur l&quot;utilisation des images Linux avec des machines virtuelles dans Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: a6c0a7cc820ed286b100708eae27f6a8ca678d75
+ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
+ms.openlocfilehash: 480211dd13ddc6af348f4179a3c36fd62d7374fc
 
 
 ---
@@ -38,6 +38,6 @@ Vous pouvez également [charger votre propre image](virtual-machines-linux-class
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

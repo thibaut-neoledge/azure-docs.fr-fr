@@ -1,5 +1,5 @@
 ---
-title: "Configurer les paramètres de pare-feu et de proxy dans Log Analytics | Microsoft Docs"
+title: "Configurer les paramètres de pare-feu et de proxy dans Azure Log Analytics | Microsoft Docs"
 description: "Configurez les paramètres de pare-feu et de proxy lorsque vos agents ou services OMS doivent utiliser des ports spécifiques."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Configurer les paramètres de pare-feu et de proxy dans Log Analytics
-Les actions nécessaires pour configurer les paramètres de proxy et de pare-feu pour Log Analytics dans OMS diffèrent selon que vous utilisez Operations Manager et ses agents ou des agents Microsoft Monitoring Agent qui se connectent directement aux serveurs. Consultez les sections suivantes en fonction du type d'agent que vous utilisez.
+Les actions requises pour configurer les paramètres de pare-feu et de proxy diffèrent selon le type d’agents utilisé. Consultez les sections suivantes en fonction du type d'agent que vous utilisez.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Configurer les paramètres de pare-feu et de proxy avec Microsoft Monitoring Agent
+## <a name="settings-for-the-oms-gateway"></a>Paramètres pour la passerelle OMS
+
+Si vos agents n’ont pas accès à Internet, ils peuvent envoyer à la place leurs données à la passerelle OMS à l’aide de vos propres ressources réseau. La passerelle collecte les données et les envoie au service OMS en leur nom.
+
+Configurez les agents qui communiquent avec la passerelle OMS en utilisant son nom de domaine complet et son numéro de port personnalisé.
+
+La passerelle OMS doit avoir accès à Internet. Utilisez les mêmes paramètres de serveur proxy ou de pare-feu pour la passerelle OMS que pour le type d’agents utilisé. Pour plus d’informations sur la passerelle OMS, consultez [Connecter des ordinateurs et appareils à OMS à l’aide de la passerelle OMS](log-analytics-oms-gateway.md).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Configurer les paramètres avec Microsoft Monitoring Agent
 Pour que Microsoft Monitoring Agent se connecte au service OMS et s'enregistre auprès du service, il doit avoir accès au numéro de port de vos domaines et aux URL. Si vous utilisez un serveur proxy pour la communication entre l'agent et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l'accès à Internet, vous devez configurer votre pare-feu pour autoriser l'accès à OMS. Les tableaux suivants répertorient les ports dont OMS a besoin.
 
 | **Ressource de l'agent** | **Ports** | **Ignorer l’inspection HTTPS** |
@@ -71,7 +79,7 @@ Copiez l'exemple suivant, mettez-le à jour avec les informations spécifiques �
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Configurer les paramètres de pare-feu et de proxy avec Operations Manager
+## <a name="configure-settings-with-operations-manager"></a>Configurer les paramètres avec Operations Manager
 Pour qu'un groupe d'administration Operations Manager se connecte au service OMS et s'y inscrive, il doit avoir accès aux numéros de ports de vos domaines et aux URL. Si vous utilisez un serveur proxy pour la communication entre le serveur d'administration Operations Manager et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l'accès à Internet, vous devez configurer votre pare-feu pour autoriser l'accès à OMS. Même si aucun serveur d’administration Operations Manager n’est placé derrière un serveur proxy, ses agents peuvent l’être. Dans ce cas, le serveur proxy devrait être configuré de la même manière que les agents afin d’activer et de permettre l’envoi des données de la solution Sécurité et gestion du journal au service web OMS.
 
 Pour que les agents Operations Manager puissent communiquer avec le service OMS, votre infrastructure Operations Manager (y compris les agents) doit disposer des paramètres appropriés pour le proxy et la version. Le paramètre de proxy d'agents est spécifié dans la console Operations Manager. La version devrait être une des versions suivantes :
@@ -180,6 +188,6 @@ Vous pouvez également rechercher les packs d’administration OMS en utilisant 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

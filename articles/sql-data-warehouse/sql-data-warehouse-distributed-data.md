@@ -1,5 +1,5 @@
 ---
-title: "Données et tables distribuées pour les systèmes de traitement massivement parallèle (MPP) de SQL Data Warehouse et Parallel Data Warehouse | Documents Microsoft"
+title: "Fonctionnement des données distribuées dans Azure SQL Data Warehouse | Microsoft Docs"
 description: "Découvrez le mode de distribution des données pour le traitement massivement parallèle (MPP) ainsi que les options de distribution des tables dans Azure SQL Data Warehouse et Parallel Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1090c2156df11adc6f18dffe00a9d37921c0a3a3
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
 
 
 ---
@@ -38,7 +38,7 @@ Le schéma suivant illustre comment une table complète (non distribuée) est st
 
 Les critères de performances, comme la distinction, l’inclinaison de données et les types de requête exécutés sur le système, conditionne le choix de la colonne de distribution.
 
-![Table distribuée](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
+![Table distribuée](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Table distribuée")  
 
 * Chaque ligne appartient à une distribution.  
 * Un algorithme de hachage déterministe attribue chaque ligne à une distribution.  
@@ -69,7 +69,7 @@ Outre l’utilisation des tables distribuées, Parallel Data Warehouse permet de
 
 Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. La table répliquée est stockée sur tous les disques alloués au nœud de calcul. Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
 
-![Table répliquée](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Table répliquée](media/sql-data-warehouse-distributed-data/replicated-table.png "Table répliquée") 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour utiliser efficacement les tables distribuées, consultez [Distributing tables in SQL Data Warehouse (Distribution de tables dans SQL Data Warehouse)](sql-data-warehouse-tables-distribute.md).  
@@ -77,6 +77,6 @@ Pour utiliser efficacement les tables distribuées, consultez [Distributing tabl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

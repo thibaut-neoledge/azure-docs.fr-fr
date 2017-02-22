@@ -22,6 +22,6 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

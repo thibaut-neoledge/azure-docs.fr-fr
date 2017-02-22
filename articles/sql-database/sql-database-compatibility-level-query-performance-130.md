@@ -1,6 +1,6 @@
 ---
-title: "Niveau de compatibilité, comment l’évaluer | Microsoft Docs"
-description: "Procédure et outils pour déterminer le niveau de compatibilité adapté à votre base de données sur Base de données SQL Azure ou Microsoft SQL Server"
+title: "Niveau 130 de compatibilité de la base de données - Azure SQL Database | Microsoft Docs"
+description: "Dans cet article, nous explorons les avantages liés à l’exécution d’une base de données SQL Azure au niveau de compatibilité 130 et tirons parti de nouvelles fonctionnalités comme l’optimiseur de requête et le processeur de requêtes. Nous abordons aussi les éventuels effets secondaires sur les performances des requêtes pour les applications SQL existantes."
 services: sql-database
 documentationcenter: 
 author: alainlissoir
@@ -16,15 +16,17 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b778a822e49acbbae4bc9e109b673c10ccc01ae2
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
 
 
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Amélioration des performances des requêtes avec le niveau de compatibilité 130 dans Base de données SQL Azure
 Base de données SQL Azure exécute en toute transparence des centaines de milliers de bases de données à différents niveaux de compatibilité, en conservant et en garantissant la compatibilité ascendante avec la version correspondante de Microsoft SQL Server pour tous ses clients.
 
-Par conséquent, rien n’empêche les utilisateurs qui mettent les bases de données au dernier niveau de compatibilité, de tirer parti des nouvelles fonctionnalités d’optimiseur de requête et de processeur de requête. À titre de rappel historique, la correspondance entre les versions de SQL et les niveaux de compatibilité par défaut est la suivante :
+Dans cet article, nous explorons les avantages liés à l’exécution d’une base de données SQL Azure au niveau de compatibilité 130 et tirons parti de nouvelles fonctionnalités comme l’optimiseur de requête et le processeur de requêtes. Nous abordons aussi les éventuels effets secondaires sur les performances des requêtes pour les applications SQL existantes.
+
+À titre de rappel historique, la correspondance entre les versions de SQL et les niveaux de compatibilité par défaut est la suivante :
 
 * 100 : dans SQL Server 2008 et Base de données SQL Azure V11.
 * 110 : dans SQL Server 2012 et Base de données SQL Azure V11.
@@ -34,11 +36,8 @@ Par conséquent, rien n’empêche les utilisateurs qui mettent les bases de don
 > [!IMPORTANT]
 > Dès la **mi-juin 2016**, dans Azure SQL Database, le niveau de compatibilité par défaut sera de 130 au lieu de 120 pour les bases de données **nouvellement créées**.
 > 
-> Les bases de données créées avant mi-juin 2016 ne sont *pas* concernées et conservent leur niveau de compatibilité actuel (100, 110 ou 120). Les bases de données qui sont migrées de Base de données SQL Azure V11 vers Base de données SQL Azure V12 ne changent pas non plus de niveau de compatibilité.
+> Les bases de données créées avant mi-juin 2016 ne sont *pas* concernées et conservent leur niveau de compatibilité actuel (100, 110 ou 120). Les bases de données qui sont migrées à partir d’Azure SQL Database V11 vers V12 ont un niveau de compatibilité de 100 ou 110. 
 > 
-> 
-
-Dans cet article, nous détaillons les avantages du niveau de compatibilité 130 et expliquons comment tirer parti de ces avantages. Nous abordons les éventuels effets secondaires sur les performances des requêtes pour les applications SQL existantes.
 
 ## <a name="about-compatibility-level-130"></a>À propos du niveau de compatibilité 130
 Tout d’abord, pour connaître le niveau de compatibilité actuel de votre base de données, exécutez l’instruction Transact-SQL suivante.
@@ -151,7 +150,7 @@ En demandant le plan de requête actuel et en examinant sa représentation sous 
 ![La figure 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
 
 ## <a name="serial-batch-mode"></a>Mode Batch SÉRIE
-Dans le niveau de compatibilité 130, le traitement des lignes de données s’effectue en mode batch. Tout d’abord, les opérations en mode batch ne sont disponibles que si vous avez un index columnstore. Ensuite, un batch qui représente 900 lignes environ utilise une logique de code optimisée pour un processeur multicœur et un débit de mémoire supérieur. Dans la mesure du possible, il exploite directement les données compressées de l’index columnstore. C’est ainsi que SQL Server 2016 peut traiter environ 900 lignes à la fois, au lieu de 1 ligne à la fois. Par conséquent, le temps système de l’opération est maintenant partagé par l’ensemble du batch, ce qui réduit le coût global par ligne. Cette quantité partagée d’opérations, combinée avec la compression des index columnstore, réduit la latence inhérente d’une opération SELECT en mode batch. Pour en savoir plus sur l’index columnstore et le mode batch, consultez [Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
+Dans le niveau de compatibilité 130, le traitement des lignes de données s’effectue en mode batch. Tout d’abord, les opérations en mode batch ne sont disponibles que si vous avez un index columnstore. Ensuite, un batch qui représente&900; lignes environ utilise une logique de code optimisée pour un processeur multicœur et un débit de mémoire supérieur. Dans la mesure du possible, il exploite directement les données compressées de l’index columnstore. C’est ainsi que SQL Server 2016 peut traiter environ 900 lignes à la fois, au lieu de 1 ligne à la fois. Par conséquent, le temps système de l’opération est maintenant partagé par l’ensemble du batch, ce qui réduit le coût global par ligne. Cette quantité partagée d’opérations, combinée avec la compression des index columnstore, réduit la latence inhérente d’une opération SELECT en mode batch. Pour en savoir plus sur l’index columnstore et le mode batch, consultez [Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ```
 -- Serial batch mode execution
@@ -405,7 +404,7 @@ Comme vous le voyez, le nombre de lignes estimé est de 202 877, une valeur plus
 
 En réalité, le jeu de résultats contient 200 704 lignes. Mais tout dépend de la fréquence selon laquelle vous avez exécuté les requêtes des exemples précédents. Surtout, comme le TSQL utilise l’instruction RAND(), les valeurs réelles renvoyées peuvent varier d’une exécution à l’autre. Par conséquent, dans cet exemple, la nouvelle estimation de la cardinalité est plus précise dans le nombre de lignes calculé, car 202 877 est beaucoup plus proche de 200 704 que 194 284. Enfin, si vous modifiez des prédicats de la clause WHERE en incluant un signe d’égalité (au lieu de « > » par exemple), les estimations entre l’ancienne et nouvelle fonction de cardinalité peuvent diverger encore davantage, selon le nombre de correspondances obtenues.
 
-En l’occurrence, une estimation inférieure de 6 000 lignes par rapport au nombre réel ne représente pas une grande quantité de données dans certaines situations. Maintenant, transposez ce cas de figure à des millions de lignes entre plusieurs tables, avec des requêtes plus complexes. L’estimation peut parfois être inférieure de plusieurs millions de lignes, entraînant le choix d’un mauvais plan d’exécution ou exigeant des allocations de mémoire insuffisantes à l’origine d’une saturation de TempDB et d’une augmentation importante des E/S.
+En l’occurrence, une estimation inférieure de&6;&000; lignes par rapport au nombre réel ne représente pas une grande quantité de données dans certaines situations. Maintenant, transposez ce cas de figure à des millions de lignes entre plusieurs tables, avec des requêtes plus complexes. L’estimation peut parfois être inférieure de plusieurs millions de lignes, entraînant le choix d’un mauvais plan d’exécution ou exigeant des allocations de mémoire insuffisantes à l’origine d’une saturation de TempDB et d’une augmentation importante des E/S.
 
 Si vous en avez la possibilité, testez cette comparaison sur vos requêtes et vos jeux de données, et voyez dans quelle mesure les estimations (anciennes et nouvelles) sont affectées. Parfois, le nombre obtenu peut être très inférieur à la réalité ou beaucoup plus proche du nombre renvoyé dans le résultat. Tout cela dépend de la forme de vos requêtes, des caractéristiques de la base de données SQL Azure, de la nature et de la taille de vos jeux de données, ainsi que des statistiques disponibles sur ces derniers. Si vous venez de créer votre instance de Base de données SQL Azure, l’optimiseur de requête doit partir de zéro et ne peut pas réutiliser les statistiques des exécutions précédentes. Les estimations sont donc très contextuelles et souvent propres à chaque serveur et chaque application. C’est un aspect important à prendre en compte.
 
@@ -462,6 +461,6 @@ genemi = MightyPen , 2016-05-20  Friday  17:00pm
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

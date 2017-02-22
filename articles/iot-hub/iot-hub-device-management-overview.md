@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/03/2016
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 91dcace2d74d44a5d2ab3b9a1352b2fa052ddc44
+ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
+ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 91dcace2d74d44a5d2ab3b9a1352b2fa052ddc44
 ## <a name="introduction"></a>Introduction
 Azure IoT Hub fournit les fonctionnalités et un modèle d’extensibilité qui permettent aux développeurs d’appareils et de serveur principal de créer des solutions robustes de gestion des appareils. Les appareils englobent les capteurs de contraintes et les microcontrôleurs à un seul objectif, les passerelles puissantes qui acheminent les communications pour les groupes d’appareils.  En outre, les cas d’utilisation et la configuration requise pour les opérateurs IoT varient considérablement entre les industries.  Malgré cette variation, la gestion des appareils avec IoT Hub fournit les fonctionnalités, les modèles et les bibliothèques de code pour répondre aux besoins d’un ensemble varié d’appareils et d’utilisateurs finaux.
 
-Une composante essentielle de la création d’une solution IoT d’entreprise efficace consiste à fournir une stratégie portant sur la manière dont les opérateurs assurent la gestion continue de leur collection d’appareils. Les opérateurs IoT ont besoin d’outils et d’applications à la fois simples et fiables qui leur permettent de se concentrer sur les aspects plus stratégiques de leur travail. Cet article fournit :
+Une composante essentielle de la création d’une solution IoT d’entreprise efficace consiste à fournir une stratégie portant sur la manière dont les opérateurs assurent la gestion continue de leur collection d’appareils. Les opérateurs IoT ont besoin d’outils et d’applications à la fois simples et fiables qui leur permettent de se concentrer sur les aspects plus stratégiques de leur travail. Cet article fournit :
 
 * Une brève vue d’ensemble de l’approche de gestion des appareils Azure IoT Hub.
 * Une description des principes courants de gestion des appareils.
@@ -112,6 +112,6 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils dan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

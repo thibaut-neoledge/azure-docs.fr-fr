@@ -1,10 +1,10 @@
 ---
-title: "Créer et modifier un circuit ExpressRoute à l’aide de Resource Manager et de PowerShell | Microsoft Docs"
+title: "Créer et modifier un circuit ExpressRoute avec PowerShell et Azure Resource Manager | Microsoft Docs"
 description: "Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
+ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
+ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classique](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Cet article explique comment créer un circuit ExpressRoute à l’aide des applets de commande Windows PowerShell et du modèle de déploiement Azure Resource Manager. Cet article vous montrera également comment vérifier l’état du circuit, le mettre à jour, le supprimer et annuler son approvisionnement.
 
@@ -38,6 +39,7 @@ Cet article explique comment créer un circuit ExpressRoute à l’aide des appl
 ## <a name="before-you-begin"></a>Avant de commencer
 * Procurez-vous la dernière version des modules Azure PowerShell (au moins la version 1.0). Pour connaître les étapes de configuration de votre ordinateur afin d’utiliser les modules Azure PowerShell, suivez les instructions de [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
+
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Création et approvisionnement d’un circuit ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
@@ -376,6 +378,7 @@ Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suiva
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 * [Créer et modifier le routage le routage pour votre circuit ExpressRoute](expressroute-howto-routing-arm.md)
@@ -384,6 +387,6 @@ Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

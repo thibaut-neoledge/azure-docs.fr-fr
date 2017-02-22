@@ -1,6 +1,6 @@
 ---
 title: "Portail Azure : Règles de pare-feu au niveau du serveur Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment configurer des règles de pare-feu au niveau du serveur pour les adresses IP qui accèdent au serveur SQL Azure à l’aide du portail Azure."
+description: "Découvrez comment configurer des règles de pare-feu au niveau du serveur pour les adresses IP qui accèdent au serveur SQL Azure à l’aide du portail Azure."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-firewall-configure.md)
-> * [Portail Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API REST](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur SQL Database à partir d’une adresse IP spécifiée ou d’une plage d’adresses IP. Vous pouvez également utiliser des règles de pare-feu pour les utilisateurs quand plusieurs bases de données ont les mêmes exigences d’accès et que vous ne souhaitez pas les configurer une à une. Microsoft recommande d’utiliser, dans la mesure du possible, des règles de pare-feu au niveau de la base de données pour améliorer la sécurité et renforcer la portabilité de la base de données. Pour une vue d’ensemble des pare-feu SQL Database, consultez [Vue d’ensemble des règles de pare-feu de SQL Database](sql-database-firewall-configure.md).
 
@@ -50,8 +43,8 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour trouver un didacticiel de prise en main, consultez [Didacticiel sur la base de données SQL : création d’un serveur, d’une règle de pare-feu de niveau serveur, d’un exemple de base de données, d’une règle de pare-feu de niveau base de données et connexion à SQL Server](sql-database-get-started.md).
-- Pour trouver un didacticiel de prise en main de la sécurité, consultez [Prise en main de la sécurité](sql-database-control-access-sql-authentication-get-started.md)
+- Pour découvrir comment approvisionner un serveur et s’y connecter à l’aide de pare-feu de niveau serveur, consultez le [didacticiel : Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md).
+- Pour découvrir un didacticiel portant sur l’authentification SQL Server et les pare-feu de niveau base de données, voir [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md).
 - Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Pour comprendre comment créer des utilisateurs supplémentaires pouvant se connecter aux bases de données, consultez [Authentification et autorisation de base de données SQL : octroi de l’accès](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +57,6 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

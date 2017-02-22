@@ -1,5 +1,5 @@
 ---
-title: "Procédure de diffusion en continu avec des encodeurs en local à l’aide du portail Azure | Microsoft Docs"
+title: "Diffusion en continu avec des encodeurs en local à l’aide du portail Azure | Microsoft Docs"
 description: "Ce didacticiel vous guide tout au long des étapes de création d’un canal configuré pour une livraison directe."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: a00a75c6f4f45827a6e2ad22b96febc807590e57
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 
 ---
@@ -33,7 +33,7 @@ Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Az
 ## <a name="prerequisites"></a>Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel :
 
-* Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Une webcam. Par exemple, un [encodeur Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -157,6 +157,6 @@ Consultez les parcours d’apprentissage de Media Services.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

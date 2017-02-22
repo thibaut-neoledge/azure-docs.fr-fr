@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | internal.data.id |string | |
 
 ## <a name="events"></a>Événements
-Événements personnalisés générés par [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Événements personnalisés générés par [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ Signale des [exceptions](app-insights-asp-net-exceptions.md) sur le serveur et d
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Messages de suivi
-Envoyé par [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et par les [adaptateurs de journalisation](app-insights-asp-net-trace-logs.md).
+Envoyé par [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) et par les [adaptateurs de journalisation](app-insights-asp-net-trace-logs.md).
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] urlData.host |string |Longueur maximale 200 |
 
 ## <a name="requests"></a>Demandes
-Envoyées par [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
+Envoyées par [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
 
 | Chemin | Type | Remarques |
 | --- | --- | --- |
@@ -284,7 +284,7 @@ Consigne les [tests web de disponibilité](app-insights-monitor-web-app-availabi
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
-| availability [0] durationMetric.value |number |Durée du test. 1e7 = 1s |
+| availability [0] durationMetric.value |number |Durée du test. 1e7 =&1;s |
 | availability [0] message |string |Diagnostic de défaillance |
 | availability [0] result |string |Réussite/Échec |
 | availability [0] runLocation |string |Source géographique de la requête HTTP |
@@ -354,6 +354,6 @@ Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

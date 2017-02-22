@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Sauvegarde Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Utilisez la documentation Sauvegarde pour apprendre à effectuer des sauvegardes dans le cloud. Consultez les didacticiels et vidéos sur la sauvegarde d’applications, de serveurs Windows et de machines virtuelles Azure."
+services: backup
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
-ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Documentation Sauvegarde
@@ -133,16 +144,10 @@ Découvrez comment utiliser Azure Backup dans le cloud pour protéger les donné
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Sauvegarde Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

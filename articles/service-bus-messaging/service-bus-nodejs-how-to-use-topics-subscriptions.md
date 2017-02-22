@@ -1,5 +1,5 @@
 ---
-title: Utilisation des rubriques Service Bus avec Node.js | Microsoft Docs
+title: Utilisation des rubriques et abonnements Azure Service Bus avec Node.js | Microsoft Docs
 description: "Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure à partir d’une application Node.js."
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+ms.sourcegitcommit: 56094202673416320e5a8801ee2275881ccfc8fb
+ms.openlocfilehash: 4e28b47a1ce1a3bf69a57382a5ec6c2a8a161efe
 
 
 ---
@@ -28,7 +28,7 @@ Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus de
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez [Création et déploiement d’une application Node.js dans un site web Azure], [Service cloud Node.js][Service cloud Node.js] avec Windows PowerShell ou Site web avec WebMatrix.
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d’une application Node.js dans un site web Azure], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou Site Web avec WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Pour utiliser Service Bus, téléchargez le package Azure Node.js. Ce dernier inclut des bibliothèques permettant de communiquer avec les services REST de Service Bus.
@@ -55,27 +55,27 @@ Pour utiliser Service Bus, téléchargez le package Azure Node.js. Ce dernier in
 ### <a name="import-the-module"></a>Importation du module
 À l’aide d’un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l’application :
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
 Le module Azure lit les variables d’environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires pour se connecter à Service Bus. Si ces variables d’environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l’appel de **createServiceBusService**.
 
-Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Service cloud Node.js avec stockage].
+Pour consulter un exemple de paramétrage de variables d’environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
 
-Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic][portail Azure Classic] pour un site web Azure, consultez [Application web Node.js avec stockage][Application web Node.js avec stockage].
+Pour un exemple de configuration des variables d’environnement dans le [portail Azure Classic][Azure classic portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js** , après l'instruction relative à l'importation du module Azure :
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 En appelant **createTopicIfNotExists** dans l’objet **ServiceBusService**, la rubrique spécifiée est renvoyée (si elle existe) ou une nouvelle rubrique comportant le nom spécifié est créée. Le code suivant utilise **createTopicIfNotExists** pour créer la rubrique intitulée « MyTopic » ou pour s’y connecter :
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -86,7 +86,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 
 **createServiceBusService** prend également en charge des options supplémentaires permettant de remplacer des paramètres de rubrique par défaut, comme la durée de vie de message ou la taille de rubrique maximale. L’exemple suivant définit la taille maximale de la rubrique sur 5 Go et la durée de vie de message sur 1 minute :
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -102,13 +102,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ### <a name="filters"></a>Filtres
 Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées par le biais de **ServiceBusService**. Il peut s’agir d’opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Après le prétraitement des options de la requête, la méthode appelle `next` en passant un rappel avec la signature suivante :
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -116,8 +116,10 @@ Dans ce rappel, et après le traitement de **returnObject** (la réponse de la r
 
 Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **ServiceBusService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
 
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## <a name="create-subscriptions"></a>Création d’abonnements
 Les abonnements de rubrique sont également créés à l’aide de l’objet **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
@@ -130,7 +132,7 @@ Les abonnements de rubrique sont également créés à l’aide de l’objet **S
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n’est spécifié lors de la création d’un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement « AllMessages » qui est créé utilise le filtre par défaut **MatchAll**.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -152,7 +154,7 @@ Il est possible d’ajouter des filtres à un abonnement en utilisant la méthod
 
 Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -187,7 +189,7 @@ var rule={
 
 De même, l’exemple suivant crée l’abonnement `LowMessages` avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété **messagenumber** a une valeur inférieure ou égale à 3 :
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -229,7 +231,7 @@ Les objets **BrokeredMessage** possèdent un ensemble de propriétés standard (
 
 L’exemple suivant montre comment envoyer cinq messages de test à la rubrique MyTopic. Notez que la valeur de la propriété **messagenumber** de chaque message varie au niveau de l’itération de la boucle (détermine les abonnements qui le reçoivent) :
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -260,7 +262,7 @@ Dès lors que l’application a terminé le traitement du message (ou qu’elle 
 
 L’exemple suivant montre comment des messages peuvent être reçus et traités à l’aide de **receiveSubscriptionMessage**. Dans l’exemple, le message est d’abord réceptionné, puis supprimé de l’abonnement « LowMessages ». Un message envoyé par l’abonnement « HighMessages » est ensuite réceptionné en définissant **isPeekLock** sur true. La suppression du message s’effectue ensuite à l’aide de **deleteMessage** :
 
-```
+```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -289,42 +291,46 @@ De même, il faut savoir qu’un message verrouillé dans un abonnement est asso
 Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode **deleteMessage**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure Classic][portail Azure Classic] ou par programme.
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure Classic][Azure classic portal] ou par programme.
 L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 La suppression d’une rubrique a également pour effet de supprimer les abonnements inscrits au niveau de la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante. L’exemple suivant montre comment supprimer l’abonnement `HighMessages` de la rubrique `MyTopic` :
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.
 
-* Consultez [Files d’attente, rubriques et abonnements.][Files d’attente, rubriques et abonnements.].
+* Consultez [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions].
 * Référence d’API pour [SqlFilter][SqlFilter].
-* Consultez le référentiel [SDK Azure pour Node][SDK Azure pour Node] sur GitHub.
+* Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Azure SDK for Node] sur GitHub.
 
-[SDK Azure pour Node]: https://github.com/Azure/azure-sdk-for-node
-[portail Azure Classic]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Files d’attente, rubriques et abonnements.]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-[Service cloud Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: https://manage.windowsazure.com
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Création et déploiement d’une application Node.js dans un site web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Service cloud Node.js avec stockage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Application web Node.js avec stockage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

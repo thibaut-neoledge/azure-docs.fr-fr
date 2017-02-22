@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Par exemple, un utilisateur titulaire d’un compte Microsoft se connecte au por
 
 > [!NOTE]
 > Pour vous connecter au portail Azure Classic, msmith@hotmail.com doit disposer d’un abonnement Azure. Le compte doit être un administrateur de services fédérés ou un coadministrateur de l'abonnement.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme
 
 > [!NOTE]
 > Ces étapes ne peuvent être effectuées que lorsqu’un utilisateur est connecté via un compte Microsoft. Lorsque l’utilisateur est connecté avec un  compte professionnel ou scolaire, l’option **Utiliser un répertoire existant** n’est pas disponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
-> 
-> 
+>
+>
 
 1. Connectez-vous au portail Azure Classic à l’aide de votre compte Microsoft.
 2. Cliquez sur **Nouveau** > **App Services** > **Active Directory** > **Répertoire** > **Création personnalisée**.
@@ -116,7 +116,7 @@ Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme
 7. Reconnectez-vous au portail Azure Classic à l’aide de votre compte Microsoft. Les répertoires apparaîtront dans l'extension Active Directory.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+* Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
 * Pour plus d’informations sur l’attribution des rôles dans Azure AD, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md)
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
@@ -128,6 +128,6 @@ Pour gérer les deux répertoires dans le portail Azure Classic, procédez comme
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

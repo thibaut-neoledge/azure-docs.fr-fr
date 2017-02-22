@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 114368ffdf8637a229bd0dfc61c0d568d348e8ee
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
 
 
 ---
@@ -64,6 +64,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Création de clusters Hadoop basés sur Windows dans HDInsight à l&quot;aide d&quot;Azure PowerShell | Microsoft Docs"
-description: "Apprenez à créer des clusters pour Azure HDInsight à l&quot;aide d&quot;Azure PowerShell."
+title: "Créer un cluster Azure HDInsight Windows (Hadoop) à l’aide de PowerShell | Microsoft Docs"
+description: "Apprenez à créer des clusters Hadoop Windows dans HDInsight à l’aide d’Azure PowerShell."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: a71718eabc3863e4e78619a2f1ceb174c7c0f058
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9870b61eb00cee169973ae7c09b0c4886cd2db53
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-powershell"></a>Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide d'Azure PowerShell
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Apprenez à créer des clusters HDInsight à l'aide d'Azure PowerShell. Azure PowerShell est un module fournissant des applets de commande pour gérer Azure avec Windows PowerShell. Pour accéder à d'autres outils et fonctions de création de clusters, cliquez sur l'onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
+Apprenez à créer des clusters Hadoop Windows dans HDInsight à l’aide d’Azure PowerShell. 
+
+Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la création de clusters Linux, consultez [Création de clusters Hadoop dans HDInsight à l’aide d’Azure PowerShell.](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Configuration requise :
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -131,8 +137,8 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
-## <a name="create-clusters-using-resource-management-template"></a>Créez des clusters à l’aide du modèle Resource Management
-Vous pouvez utiliser Azure PowerShell pour déployer un modèle Azure Resource Management qui crée un cluster HDInsight.  Consultez [Appel de modèles à l’aide d’Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
+## <a name="create-clusters-using-resource-manager-template"></a>Créer des clusters à l’aide d’un modèle Resource Manager
+Vous pouvez utiliser Azure PowerShell pour déployer un modèle Azure Resource Manager qui crée un cluster HDInsight.  Consultez [Appel de modèles à l’aide d’Azure PowerShell](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-powershell).
 
 ## <a name="customize-clusters"></a>Personnalisation des clusters
 * Consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
@@ -155,6 +161,6 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

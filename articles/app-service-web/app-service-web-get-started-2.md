@@ -1,5 +1,5 @@
 ---
-title: "Ajouter des fonctionnalités à votre première application web"
+title: "Ajouter des fonctionnalités à votre première application web | Microsoft Docs"
 description: "Ajouter des fonctionnalités intéressantes à votre application web en quelques minutes."
 services: app-service\web
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Ajouter des fonctionnalités à votre première application web
-Dans [Déployer votre première application web dans Azure en 5 minutes](app-service-web-get-started-cli-nodejs.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
+Dans [Déployer votre première application web dans Azure en&5; minutes](app-service-web-get-started-cli-nodejs.md), vous avez déployé un exemple d’application web vers [Azure App Service](../app-service/app-service-value-prop-what-is.md). Cet article vous montrera comment ajouter des fonctionnalités exceptionnelles à votre application web déployée. En quelques minutes, vous allez :
 
 * appliquer l’authentification aux utilisateurs ;
 * mettre automatiquement à l’échelle votre application ;
@@ -52,9 +52,9 @@ Les trois activités dans ce didacticiel ne sont que quelques exemples des nombr
     Une fois que la modification a réussi, la cloche de notification devient verte, et un message positif s’affiche.
 6. Revenez au panneau du portail de votre application, puis cliquez sur le lien **URL** (ou sur **Parcourir** dans la barre de menus). Le lien est une adresse HTTP.  
     ![Authentification - accéder à l’URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
-     Lorsque celle-ci ouvre l’application dans un nouvel onglet, la zone URL effectue plusieurs redirections avant d’ouvrir votre application avec une adresse HTTPS. Vous pouvez voir que vous êtes déjà connecté à votre abonnement Azure, et automatiquement authentifié dans l’application.  
+    Lorsque celle-ci ouvre l’application dans un nouvel onglet, la zone URL effectue plusieurs redirections avant d’ouvrir votre application avec une adresse HTTPS. Vous pouvez voir que vous êtes déjà connecté à votre abonnement Azure, et automatiquement authentifié dans l’application.  
     ![Authentification - connecté](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-     Par conséquent, si vous ouvrez une session non authentifiée dans un autre navigateur, un écran de connexion s’affiche lorsque vous accédez à la même URL.  
+    Par conséquent, si vous ouvrez une session non authentifiée dans un autre navigateur, un écran de connexion s’affiche lorsque vous accédez à la même URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Si vous n’avez jamais utilisé Azure Active Directory, le répertoire par défaut peut ne pas contenir d’utilisateurs Azure AD. Dans ce cas, le seul compte ici est probablement le compte Microsoft avec votre abonnement Azure. C’est pour cette raison que vous avez été automatiquement connecté à l’application dans le même navigateur plus tôt.
    Vous pouvez utiliser ce même compte Microsoft pour vous connecter sur cette page de connexion.
@@ -157,6 +157,6 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

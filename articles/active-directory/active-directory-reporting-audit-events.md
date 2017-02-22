@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
 
 
 ---
@@ -44,8 +44,6 @@ Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier le
 | Ajouter un groupe |Création d’un groupe dans l’annuaire. |
 | Mettre à jour un groupe |Mise à jour d’un groupe dans l’annuaire. Pour savoir quelles propriétés de groupe ont été mises à jour, reportez-vous à [Propriétés de groupe auditées](#update-group-attributes) dans la section ci-dessous. |
 | Supprimer un groupe |Suppression d’un groupe de l’annuaire. |
-| Ajouter un membre à un groupe |Ajout d’un membre à un groupe dans l’annuaire. |
-| Supprimer un membre d’un groupe |Suppression d’un membre d’un groupe dans l’annuaire. |
 | CreateGroupSettings |Création de paramètres de groupe. |
 | UpdateGroupSettings |Mise à jour de paramètres de groupe. Pour savoir quels paramètres de groupe ont été mis à jour, reportez-vous à [Propriétés de groupe auditées](#update-group-attributes) dans la section ci-dessous. |
 | DeleteGroupSettings |Suppression de paramètres de groupe. |
@@ -63,21 +61,6 @@ Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier le
 | Ajouter l'entrée de délégation |Création d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) dans l’annuaire. |
 | Définir l'entrée de délégation |Mise à jour d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) dans l’annuaire. |
 | Supprimer l'entrée de délégation |Suppression d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) dans l’annuaire. |
-| **Événements liés aux rôles** | |
-| Ajouter un membre au rôle |Ajout d'un utilisateur à un rôle de répertoire |
-| Supprimer un membre du rôle |Suppression d'un utilisateur d'un rôle de répertoire |
-| Définir les informations de contact d'entreprise |Définition des préférences de contact au niveau de l'entreprise Cela inclut les adresses de messagerie pour le marketing, ainsi que les notifications techniques à propos de Microsoft Online Services. |
-| Ajouter l'entrée de délégation |Création d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire. |
-| Définir l'entrée de délégation |Mise à jour d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire. |
-| Supprimer l'entrée de délégation |Suppression d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire. |
-| AddSevicePrincipalOwner |Ajout d’un propriétaire à un principal du service. |
-| RemoveSevicePrincipalOwner |Suppression d’un propriétaire de principal du service. |
-| AddApplication |Ajout d’une application. |
-| UpdateApplication |Mise à jour d’une application. Pour savoir quels paramètres d’application ont été mis à jour, reportez-vous à [Propriétés de groupe auditées](#update-application-attributes) dans la section ci-dessous. |
-| DeleteApplication |Suppression d’une application. |
-| RestoreApplication |Restauration d’une application. |
-| AddApplicationOwner |Ajout d’un propriétaire à une application. |
-| RemoveApplicationOwner |Suppression d’un propriétaire d’application. |
 | **Événements liés aux rôles** | |
 | Ajouter un membre au rôle |Ajout d'un utilisateur à un rôle de répertoire |
 | Supprimer un membre du rôle |Suppression d'un utilisateur d'un rôle de répertoire |
@@ -346,6 +329,6 @@ Les enregistrements d'audit sont un contrôle requis pour de nombreuses régleme
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

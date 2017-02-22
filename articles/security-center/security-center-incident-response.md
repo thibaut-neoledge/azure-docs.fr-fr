@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’Azure Security Center pour la réponse aux incidents | Microsoft Docs"
+title: "Répondre aux incidents de sécurité avec Azure Security Center | Microsoft Docs"
 description: "Ce document explique comment utiliser Azure Security Center dans un scénario de réponse aux incidents."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -78,13 +78,13 @@ Judy s’est connectée au portail Azure et se trouve dans la console Azure Secu
 
 1. Cliquer sur la mosaïque **Alertes de sécurité** et accédez au panneau **Alertes de sécurité**.
     ![Panneau Alertes de sécurité](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > Pour les besoins de ce scénario, Judy va procéder à une évaluation de l’alerte d’activité SQL malveillante signalée dans la figure précédente.
-   > 
-   > 
+   >
+   >
 2. Cliquer sur l’alerte **Malicious SQL activity** (Activité SQL malveillante) et examiner les ressources attaquées dans le panneau **Malicious SQL Activity** (Activité SQL malveillante) :  ![Détails de l’incident](./media/security-center-incident-response/security-center-incident-response-fig5.png)
-   
+
     Dans ce panneau, Judy peut prendre connaissance des ressources attaquées, du nombre de fois que cette attaque s’est produite et de l’heure à laquelle elle a été détectée.
 3. Cliquer sur la **ressource attaquée** pour obtenir des informations supplémentaires sur cette attaque.
 
@@ -103,7 +103,6 @@ La mise en place d’une équipe avant la survenue d’un incident est très imp
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

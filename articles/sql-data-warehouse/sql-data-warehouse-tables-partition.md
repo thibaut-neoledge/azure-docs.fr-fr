@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0aad3cb34a3a2656b2aabce9b88d2a0cd275a62b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0d2ff3ce90c355ba63f3fb66982baa621091ae6e
 
 
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionnement de tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Vue d'ensemble][Vue d'ensemble]
-> * [Types de données][Types de données]
-> * [Distribuer][Distribuer]
+> * [Vue d’ensemble][Overview]
+> * [Types de données][Data Types]
+> * [Distribuer][Distribute]
 > * [Index][Index]
 > * [Partition][Partition]
-> * [Statistiques][Statistiques]
-> * [Temporaire][Temporaire]
+> * [Statistiques][Statistics]
+> * [Temporaire][Temporary]
 > 
 > 
 
@@ -51,9 +51,9 @@ Tandis que le partitionnement peut être utilisé pour améliorer les performanc
 Lorsque vous créez le partitionnement sur des tables **columnstore en cluster** , il est important de prendre en compte le nombre de lignes qui arrivera dans chaque partition.  Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire.  Avant la création des partitions, SQL Data Warehouse divise déjà chaque table en 60 bases de données distribuées.  Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan.  Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné que SQL Data Warehouse comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis.  Si une table contient beaucoup moins de lignes que le nombre minimum de lignes recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition.  Consultez également l’article sur [l’indexation][Index] qui comporte les requêtes pouvant être exécutées sur SQL Data Warehouse afin d’évaluer la qualité des index columnstore en cluster.
 
 ## <a name="syntax-difference-from-sql-server"></a>Différence de syntaxe à partir de SQL Server
-SQL Data Warehouse présente une définition simplifiée de partitions qui diffère légèrement de celle de SQL Server.  Les fonctions et les schémas de partitionnement ne sont pas utilisés dans SQL Data Warehouse, car ils se trouvent dans SQL Server.  À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite.  Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes.  SQL Server et SQL Data Warehouse prennent en charge une colonne de partition par table, qui peut être une partition par plage.  Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés][Tables et index partitionnés].
+SQL Data Warehouse présente une définition simplifiée de partitions qui diffère légèrement de celle de SQL Server.  Les fonctions et les schémas de partitionnement ne sont pas utilisés dans SQL Data Warehouse, car ils se trouvent dans SQL Server.  À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite.  Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes.  SQL Server et SQL Data Warehouse prennent en charge une colonne de partition par table, qui peut être une partition par plage.  Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés][Partitioned Tables and Indexes].
 
-Dans l’exemple ci-dessous d’une instruction [CREATE TABLE][CREATE TABLE] partitionnée par SQL Data Warehouse, la table FactInternetSales est partitionnée sur la colonne OrderDateKey :
+Exemple ci-dessous d’une instruction [CREATE TABLE][CREATE TABLE] partitionnée par SQL Data Warehouse, partitions de la table FactInternetSales sur la colonne OrderDateKey :
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -82,8 +82,8 @@ WITH
 ## <a name="migrating-partitioning-from-sql-server"></a>Migration du partitionnement dans SQL Server
 Pour migrer les définitions des partitions SQL Server vers SQL Data Warehouse, procédez simplement comme suit :
 
-* Supprimez le [schéma de partition][schéma de partition] SQL Server.
-* Ajoutez la définition de la [fonction de partition][fonction de partition] à votre instruction CREATE TABLE.
+* Supprimez le [schéma de partition][partition scheme] SQL Server.
+* Ajoutez la définition de la [fonction de partition][partition function] à votre instruction CREATE TABLE.
 
 Si vous migrez une table partitionnée à partir d’une instance SQL Server, le SQL ci-dessous peut vous aider à interroger le nombre de lignes se trouvant dans chaque partition.  N’oubliez pas que si la même granularité de partitionnement est utilisée sur SQL Data Warehouse, le nombre de lignes par partition diminue d’un facteur de 60.  
 
@@ -122,7 +122,7 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>Gestion des charges de travail
-Dernier facteur à prendre en compte en ce qui concerne les partitions de tables, la [workload management][workload management].  La gestion des charges de travail dans SQL Data Warehouse consiste essentiellement en la gestion de mémoire et d’accès concurrentiel.  Dans SQL Data Warehouse, la quantité de mémoire maximale allouée à chaque distribution lors de l’exécution des requêtes est définie par les classes de ressources.  Dans l’idéal, vos partitions seront dimensionnées en tenant compte d’autres facteurs tels que les besoins en mémoire pour la création d’index columnstore en cluster.  Les index columnstore en cluster présentent des avantages non négligeables lorsque davantage de mémoire leur est allouée.  Vous devez donc vous assurer que la mémoire disponible pour une reconstruction d’index de partition est suffisante. Pour augmenter la quantité de mémoire disponible pour votre requête, vous devez passer du rôle par défaut, smallrc, à d’autres rôles, par exemple, largerc.
+Dernier facteur à prendre en compte en ce qui concerne les partitions de tables : la [gestion des charges de travail][workload management].  La gestion des charges de travail dans SQL Data Warehouse consiste essentiellement en la gestion de mémoire et d’accès concurrentiel.  Dans SQL Data Warehouse, la quantité de mémoire maximale allouée à chaque distribution lors de l’exécution des requêtes est définie par les classes de ressources.  Dans l’idéal, vos partitions seront dimensionnées en tenant compte d’autres facteurs tels que les besoins en mémoire pour la création d’index columnstore en cluster.  Les index columnstore en cluster présentent des avantages non négligeables lorsque davantage de mémoire leur est allouée.  Vous devez donc vous assurer que la mémoire disponible pour une reconstruction d’index de partition est suffisante. Pour augmenter la quantité de mémoire disponible pour votre requête, vous devez passer du rôle par défaut, smallrc, à d’autres rôles, par exemple, largerc.
 
 Si vous voulez obtenir des informations sur l’allocation de la mémoire pour chaque distribution, interrogez les vues de gestion dynamique du gouverneur de ressources. En réalité, votre allocation de mémoire sera inférieure aux nombres indiqués ci-dessous. Toutefois, cette figure peut vous aider à dimensionner vos partitions lors d’opérations de gestion des données.  Évitez de dimensionner vos partitions en affectant une taille supérieure à la mémoire octroyée que fournit la classe de ressources de très grande taille. Si la taille de vos partitions dépasse cette valeur, vous risquez de solliciter la mémoire de manière trop intensive, ce qui peut nuire à l’efficacité de la compression.
 
@@ -184,7 +184,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, consultez [Statistiques][Statistiques].
+> En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, consultez la rubrique [Statistiques][statistics].
 > 
 > 
 
@@ -349,33 +349,33 @@ DROP TABLE #partitions;
 Grâce à cette méthode, le code faisant l’objet d’un contrôle de code source reste statique. Quant aux valeurs limites du partitionnement, elles peuvent rester dynamiques et continuer à évoluer au fil du temps.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les articles [Table Overview][Vue d'ensemble] (Vue d’ensemble des tables),[Table Data Types][Types de données] (Types de données de table), [Distributing a Table][Distribuer] (Distribution d’une table), [Indexing a Table][Index] (Indexation d’une table), [Maintaining Table Statistics][Statistiques] (Maintenance des statistiques de table) et [Temporary Tables][Temporaire] (Tables temporaires).  Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].
+Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Overview], [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Maintenance des statistiques de table][Statistics] et [Tables temporaires][Temporary].  Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d'ensemble]: ./sql-data-warehouse-tables-overview.md
-[Types de données]: ./sql-data-warehouse-tables-data-types.md
-[Distribuer]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiques]: ./sql-data-warehouse-tables-statistics.md
-[Temporaire]: ./sql-data-warehouse-tables-temporary.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
-[Tables et index partitionnés]: https://msdn.microsoft.com/library/ms190787.aspx
+[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
 [ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[fonction de partition]: https://msdn.microsoft.com/library/ms187802.aspx
-[schéma de partition]: https://msdn.microsoft.com/library/ms179854.aspx
+[partition function]: https://msdn.microsoft.com/library/ms187802.aspx
+[partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
 
 
 <!-- Other web references -->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
+ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
 
 
 ---
@@ -119,7 +119,7 @@ Cette commande PowerShell crée une machine virtuelle pour un serveur métier qu
 
 * utilise l'image Windows Server 2012 R2 Datacenter
 * est une machine virtuelle très petite
-* a le nom contoso-test
+* porte le nom Contoso100-test
 * est automatiquement joint au domaine géré contoso100
 * est ajouté au même réseau virtuel en tant que le domaine géré.
 

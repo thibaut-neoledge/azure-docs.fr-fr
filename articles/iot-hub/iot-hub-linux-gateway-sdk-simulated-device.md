@@ -1,6 +1,6 @@
 ---
-title: "Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT | Microsoft Docs"
-description: "Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT sous Linux pour illustrer l’envoi de données de télémétrie à partir d’un appareil simulé à l’aide du Kit de développement logiciel (SDK) de passerelle Azure IoT."
+title: "Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle Azure IoT (Linux) | Microsoft Docs"
+description: "Comment utiliser le Kit de développement logiciel (SDK) de la passerelle Azure IoT sous Linux pour créer un appareil simulé qui envoie les données de télémétrie à un IoT Hub via une passerelle."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2e814559282de3e5409e3215d824e1309debe5a
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>Kit de développement logiciel (SDK) de la passerelle Azure IoT – envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>Utilisation du kit de développement logiciel (SDK) de la passerelle Azure IoT pour envoyer des messages appareil-à-cloud avec un appareil simulé (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
@@ -34,7 +34,7 @@ Pour créer l'exemple :
 
 1. Ouvrez un interpréteur de commandes.
 2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
-3. Exécutez le script **tools/build.sh** . Ce script utilise l’utilitaire **cmake** pour créer un dossier appelé **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** et pour générer un makefile. Le script crée ensuite la solution puis exécute les tests.
+3. Exécutez le script **tools/build.sh --skip-unittests**. Ce script utilise l’utilitaire **cmake** pour créer un dossier appelé **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** et pour générer un makefile. Le script crée ensuite la solution et ignore les tests unitaires. Supprimez le paramètre **--skip-unittests** si vous souhaitez générer et exécuter les tests unitaires. 
 
 > [!NOTE]
 > Chaque fois que vous exécutez le script **build.sh**, celui-ci supprime et recrée le dossier **build** dans le dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
@@ -152,11 +152,11 @@ Enregistrez les modifications apportées au fichier de configuration.
 
 Pour exécuter l'exemple :
 
-1. Dans votre interpréteur de commandes, accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
+1. Dans votre interpréteur de commandes, accédez au dossier **azure-iot-gateway-sdk/build** .
 2. Exécutez la commande suivante :
    
     ```
-    ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
+    ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
 3. Vous pouvez utiliser l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour analyser les messages qu’IoT Hub reçoit de la passerelle.
 
@@ -168,7 +168,7 @@ Si vous souhaitez approfondir vos connaissances sur le Kit de développement log
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
+* [Guide du développeur IoT Hub][lnk-devguide]
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 <!-- Links -->
@@ -185,6 +185,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

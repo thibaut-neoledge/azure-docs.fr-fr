@@ -1,6 +1,6 @@
 ---
 title: "Script PowerShell pour déployer des clusters Windows HPC | Microsoft Docs"
-description: "Exécuter un script PowerShell pour déployer un cluster HPC Pack Windows sur les machines virtuelles Azure"
+description: "Exécuter un script PowerShell pour déployer un cluster Windows HPC Pack 2012 R2 sur les machines virtuelles Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 07/07/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 84a18dbe0f6f588c6ace16dda2b84a8aaa056b97
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 6c38e460f9194f0becba46cbdfd85075de00e27d
 
 
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Créer un cluster de calcul haute performance (HPC) Windows avec le script de déploiement du HPC Pack IaaS
-Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC complet pour les charges de travail Windows sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de ressources de calcul Windows supplémentaires que vous spécifiez. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Linux, consultez [Créer un cluster HPC Linux avec le script de déploiement du HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Vous pouvez également utiliser un modèle Azure Resource Manager pour déployer un cluster HPC Pack. Pour obtenir des exemples, consultez [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) et [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC Pack 2012 R2 complet pour les charges de travail Windows sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de ressources de calcul Windows supplémentaires que vous spécifiez. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Linux, consultez [Créer un cluster HPC Linux avec le script de déploiement du HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Vous pouvez également utiliser un modèle Azure Resource Manager pour déployer un cluster HPC Pack. Pour obtenir des exemples, consultez [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) et [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Le script PowerShell décrit dans cet article crée un cluster Microsoft HPC Pack 2012 R2 dans Azure à l’aide du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> En outre, le script décrit dans cet article ne prend pas en charge HPC Pack 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -35,7 +36,7 @@ Dans les exemples suivants, utilisez vos propres valeurs pour votre ID ou nom d�
 ### <a name="example-1"></a>Exemple 1
 Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un nœud principal avec des bases de données locales et cinq nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Tous les services cloud sont créés directement dans l’emplacement « États-Unis de l’Ouest ». Le nœud principal agit en tant que contrôleur de domaine de la forêt de domaines.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -73,7 +74,7 @@ Le fichier de configuration suivant déploie un cluster HPC Pack qui possède un
 Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster possède 1 nœud principal avec des bases de données locales et 12 nœuds de calcul avec l’extension de machine virtuelle BGInfo appliquée.
 L’installation automatique des mises à jour Windows est désactivée pour toutes les machines virtuelles dans la forêt de domaines. Tous les services cloud sont créés directement dans l’emplacement East Asia. Les nœuds de calcul sont créés dans trois services cloud et trois comptes de stockage (c’est-à-dire, *MyHPCCN-0001* à *MyHPCCN-0005* dans *MyHPCCNService01* et *mycnstorage01* ; *MyHPCCN-0006* à *MyHPCCN0010* dans *MyHPCCNService02* et *mycnstorage02* ; et *MyHPCCN-0011* à *MyHPCCN-0012* dans *MyHPCCNService03* et *mycnstorage03*). Les nœuds de calcul sont créés à partir d’une image privée existante capturée depuis un nœud de calcul. Le service d’agrandissement et de réduction automatiques est activé avec des intervalles d’agrandissement et de réduction par défaut.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -134,9 +135,9 @@ L’installation automatique des mises à jour Windows est désactivée pour tou
 ```
 
 ### <a name="example-3"></a>Exemple 3
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient un nœud principal, un serveur de base de données avec un disque de données de 500 Go, 2 nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et cinq nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster contient un nœud principal, un serveur de base de données avec un disque de données de 500 Go, deux nœuds de répartiteur exécutant le système d’exploitation Windows Server 2012 R2 et cinq nœuds de calcul exécutant le système d’exploitation Windows Server 2012 R2. Le service cloud MyHPCCNService est créé dans le groupe d’affinités *MyIBAffinityGroup*. Les autres services cloud sont créés dans le groupe d’affinités *MyAffinityGroup*. L’API REST du planificateur de travaux HPC et le portail web HPC sont activés sur le nœud principal.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -189,9 +190,9 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 
 ### <a name="example-4"></a>Exemple 4
-Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster présente 2 nœuds principaux avec des bases de données locales, 2 modèles de nœud Azure sont créés et 3 nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure *AzureTemplate1*. Un fichier de script s’exécute sur le nœud principal après la configuration de ce dernier.
+Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt de domaines existante. Le cluster présente&2; nœuds principaux avec des bases de données locales,&2; modèles de nœud Azure sont créés et&3; nœuds Azure de taille moyenne sont créés pour le modèle de nœud Azure *AzureTemplate1*. Un fichier de script s’exécute sur le nœud principal après la configuration de ce dernier.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -275,6 +276,6 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

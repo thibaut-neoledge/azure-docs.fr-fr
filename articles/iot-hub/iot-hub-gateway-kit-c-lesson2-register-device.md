@@ -1,5 +1,5 @@
 ---
-title: "Créer un Azure IoT Hub et inscrire votre appareil | Microsoft Docs"
+title: "Appareil SensorTag et passerelle Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: 4b878ebe3222c4ab1c41051c659ba8333bf94c32
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
 
 
 ---
@@ -36,9 +36,9 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 ## <a name="what-you-will-learn"></a>Contenu
 
-Dans cette leçon, vous allez apprendre :
+Dans cette leçon, vous allez apprendre ce qui suit :
 
-- l’utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub ;
+- Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
 - l’inscription d’un appareil dans un IoT Hub.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
@@ -108,6 +108,6 @@ Vous avez créé un IoT Hub et inscrit votre appareil logique sous une identité
 [Configurer et exécuter l’exemple d’application BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

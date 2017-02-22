@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: 62358ef4d02515a2625fb5f78421f71e581944e9
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
 
 
 ---
@@ -32,12 +32,13 @@ Si vous avez déjà déployé la gestion des mots de passe ou si vous souhaitez 
   * [Fonctionnement de l’écriture différée de mot de passe](#how-password-writeback-works)
   * [Scénarios pris en charge par l’écriture différée de mot de passe](#scenarios-supported-for-password-writeback)
   * [Modèle de sécurité de l’écriture différée de mot de passe](#password-writeback-security-model)
+  * [Utilisation de la bande passante de l’écriture différée du mot de passe](#password-writeback-bandwidth-usage)
 * [**Fonctionnement du portail de réinitialisation de mot de passe**](#how-does-the-password-reset-portal-work)
   * [Données utilisées par la réinitialisation de mot de passe](#what-data-is-used-by-password-reset)
   * [Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs](#how-to-access-password-reset-data-for-your-users)
 
 ## <a name="password-writeback-overview"></a>Vue d’ensemble de l’écriture différée de mot de passe
-L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](active-directory-aadconnect.md) qui peut être activé et utilisé par les abonnés actifs d’Azure Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](connect/active-directory-aadconnect.md) qui peut être activé et utilisé par les abonnés actifs d’Azure Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 L’écriture différée de mot de passe vous permet de configurer votre client cloud pour l’écriture différée des mots de passe vers l’environnement Active Directory local.  Cela vous évite d’avoir à configurer et à gérer une solution de réinitialisation de mot de passe libre-service locale complexe en offrant à vos utilisateurs un moyen pratique via le cloud de réinitialiser leurs mots de passe locaux, où qu’ils se trouvent.  Voici certaines fonctionnalités importantes de l’écriture différée de mot de passe :
 
@@ -75,7 +76,7 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 10. Si l’opération de définition du mot de passe échoue, nous renvoyons l’erreur à l’utilisateur et le laissons réessayer.  L’opération peut échouer parce que le service est arrêté, parce que le mot de passe qu’il a sélectionné ne remplit pas les critères des stratégies de l’organisation, parce que nous n’avons pas trouvé l’utilisateur dans l’annuaire Active Directory local ou pour différentes autres raisons.  Nous avons un message spécifique pour la plupart de ces cas de figure et nous indiquons à l’utilisateur ce qu’il peut faire pour résoudre le problème.
 
 ### <a name="scenarios-supported-for-password-writeback"></a>Scénarios pris en charge par l’écriture différée de mot de passe
-Le tableau ci-dessous décrit les scénarios pris en charge pour les différentes versions de nos fonctions de synchronisation.  En général, nous vous recommandons vivement d’installer la dernière version d’ [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) si vous souhaitez utiliser l’écriture différée de mot de passe.
+Le tableau ci-dessous décrit les scénarios pris en charge pour les différentes versions de nos fonctions de synchronisation.  En général, nous vous recommandons vivement d’installer la dernière version d’ [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si vous souhaitez utiliser l’écriture différée de mot de passe.
 
   ![][002]
 
@@ -86,6 +87,21 @@ L’écriture différée des mots de passe est un service hautement sécurisé e
 * **Clé de chiffrement de mot de passe forte et verrouillée** : une fois le relais Service Bus créé, nous créons une paire de clés asymétriques forte qui nous permet de chiffrer le mot de passe lorsqu’il arrive sur le réseau.  Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, qui est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
 * **Sécurité de couche de transport (TLS) standard** : lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, nous prenons le mot de passe et nous le chiffrons avec votre clé publique.  Ensuite, nous insérons cela dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré à l’aide de certificats SSL Microsoft.  Une fois ce message arrivé dans Service Bus, votre agent local sort de veille, s’authentifie auprès de Service Bus à l’aide du mot de passe fort généré précédemment, récupère le message chiffré, le déchiffre à l’aide de la clé privée que nous avons générée et essaie ensuite de définir le mot de passe via l’API SetPassword AD DS.  C’est cette étape qui nous permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique, filtres, etc.) dans le cloud.
 * **Stratégies d’expiration de message** : pour finir, si pour une raison quelconque le message reste dans Service Bus car votre service local est arrêté, le message est supprimé après quelques minutes, afin d’accroître encore davantage la sécurité.
+
+### <a name="password-writeback-bandwidth-usage"></a>Utilisation de la bande passante de l’écriture différée du mot de passe
+
+L’écriture différée du mot de passe est un service de bande passante très basse qui renvoie des demandes à l’agent local uniquement dans les circonstances suivantes :
+
+1. Deux messages envoyés lors de l’activation ou de la désactivation de la fonction via Azure AD Connect.
+2. Un message est envoyé une fois toutes les 5 minutes comme une pulsation du service tant que le service est en cours d’exécution.
+3. Deux messages sont envoyés chaque fois qu’un nouveau mot de passe est envoyé : un message en tant que demande pour effectuer l’opération, et un autre message qui contient le résultat de l’opération. Ces messages sont envoyés dans les circonstances suivantes.
+4. Chaque fois qu’un nouveau mot de passe est soumis pendant une réinitialisation de mot de passe libre-service par l’utilisateur.
+5. Chaque fois qu’un nouveau mot de passe est soumis pendant une opération de modification de mot de passe par l’utilisateur.
+6. Chaque fois qu’un nouveau mot de passe est soumis au cours d’une réinitialisation de mot de passe utilisateur initiée par un administrateur (depuis les portails d’administration Azure uniquement)
+
+#### <a name="message-size-and-bandwidth-considerations"></a>Considérations relatives à la taille des messages et à la bande passante
+
+La taille de chacun des messages décrits ci-dessus est généralement inférieure à 1 Ko, ce qui signifie que, même sous des charges extrêmes, le service de l’écriture différée du mot de passe lui-même utilise au maximum quelques kilobits par seconde de bande passante. Étant donné que chaque message est envoyé en temps réel, uniquement lorsqu’une opération de mise à jour du mot de passe le requiert, et étant donné que le message est très petit, l’utilisation de la bande passante de la fonctionnalité d’écriture différée est effectivement trop petite pour produire un impact mesurable réel.
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Fonctionnement du portail de réinitialisation de mot de passe
 Quand un utilisateur accède au portail de réinitialisation de mot de passe, un flux de travail est lancé pour déterminer si ce compte d’utilisateur est valide, l’organisation à laquelle cet utilisateur appartient, où est géré le mot de passe de cet utilisateur et si l’utilisateur dispose d’une licence pour utiliser la fonctionnalité.  Lisez les étapes ci-dessous pour en savoir plus sur la logique sous-jacente à la page de réinitialisation de mot de passe.
@@ -391,6 +407,6 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

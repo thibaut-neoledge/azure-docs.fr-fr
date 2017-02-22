@@ -1,6 +1,6 @@
 ---
-title: Docker et Compose sur une machine virtuelle | Microsoft Docs
-description: "Brève introduction à l’utilisation de Compose et Docker sur des machines virtuelles Linux dans Azure"
+title: Utilisation de Docker Compose sur une machine virtuelle Linux dans Azure | Microsoft Docs
+description: "Procédure d’utilisation de Docker et Compose sur des machines virtuelles Linux dans Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 6433922d1acfad4e84f57a51d6ebb5b6fdea31b1
+ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
+ms.openlocfilehash: 06ad7f9267f24ee1f2fe417ad4aa0bf1096832d6
 
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure
-Découvrez comment prendre en main Docker et [Compose](http://github.com/docker/compose) pour définir et exécuter une application complexe sur une machine virtuelle Linux dans Azure. Avec Compose, un fichier texte simple vous permet de définir une application composée de plusieurs conteneurs Docker. Vous faites ensuite tourner votre application dans une seule commande qui fait tout pour déployer votre environnement défini. 
-
-À titre d’exemple, cet article vous explique comment configurer rapidement un blog WordPress avec une base de données SQL MariaDB de type backend sur une machine virtuelle Ubuntu. Vous pouvez également utiliser Compose pour configurer des applications plus complexes.
+Avec [Compose](http://github.com/docker/compose), un fichier texte simple vous permet de définir une application composée de plusieurs conteneurs Docker. Vous faites ensuite tourner votre application dans une seule commande qui fait tout pour déployer votre environnement défini. À titre d’exemple, cet article vous explique comment configurer rapidement un blog WordPress avec une base de données SQL MariaDB de type backend sur une machine virtuelle Ubuntu. Vous pouvez également utiliser Compose pour configurer des applications plus complexes.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Étape 1 : Configurer une machine virtuelle Linux en tant qu’hôte Docker
 La Place de marché Azure propose différentes procédures Azure et des images ou des modèles Resource Manager disponibles pour la création d’une machine virtuelle Linux et sa configuration en tant qu’hôte Docker. Par exemple, la page [Utilisation de l’extension de machine virtuelle Docker pour déployer votre environnement](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) contient une procédure rapide relative à la création d’une machine virtuelle Ubuntu avec l’extension de machine virtuelle Docker à l’aide d’un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-Si vous utilisez l’extension de machine virtuelle Docker, votre machine virtuelle est automatiquement configurée en tant que hôte Docker et Compose est déjà installé. L’exemple de cet article montre comment utiliser [l’interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) en mode Ressource Manager pour créer la machine virtuelle.
+Si vous utilisez l’extension de machine virtuelle Docker, votre machine virtuelle est automatiquement configurée en tant que hôte Docker et Compose est déjà installé. L’exemple de cet article vous montre comment utiliser [l’interface de ligne de commande Azure 1.0](../xplat-cli-install.md) en mode Resource Manager pour créer la machine virtuelle.
 
 La commande de base issue du document précédent crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine Virtuelle avec l’extension Azure Docker VM installée :
 
@@ -37,6 +35,14 @@ La commande de base issue du document précédent crée un groupe de ressources 
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
+
+L’interface de ligne de commande Azure vous renvoie à l’invite après quelques secondes, mais l’hôte Docker est toujours en cours de création et de configuration. Le déploiement prend quelques minutes. Vous pouvez afficher des détails sur l’état de l’hôte Docker à l’aide de la commande `azure vm show`. L’exemple suivant vérifie l’état de la machine virtuelle nommée `myDockerVM` (nom par défaut extrait du modèle - ne pas modifier ce nom) dans le groupe de ressources nommé `myResourceGroup`. Entrez le nom du groupe de ressources que vous avez créé à l’étape précédente :+
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
+Vers le haut de la sortie, vous voyez le `ProvisioningState` de la machine virtuelle. Lorsque `Succeeded`s’affiche, le déploiement est terminé et vous pouvez vous connecter par SSH à la machine virtuelle.
 
 ## <a name="step-2-verify-that-compose-is-installed"></a>Étape 2: vérifier que Compose est installé
 Une fois le déploiement terminé, utilisez SSH pour votre nouvel hôte Docker en utilisant le nom DNS fourni pendant le déploiement. Vous pouvez utiliser `azure vm show -g myDockerResourceGroup -n myDockerVM` pour afficher les détails de votre machine virtuelle, y compris le nom DNS.
@@ -51,8 +57,7 @@ La sortie doit être similaire à `docker-compose 1.6.2, build 4d72027`.
 
 > [!TIP]
 > Si vous avez utilisé une autre méthode pour créer un hôte Docker et devez installer Compose vous-même, consultez la [Documentation Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
-> 
-> 
+
 
 ## <a name="step-3-create-a-docker-composeyml-configuration-file"></a>Étape 3 : Créer un fichier de configuration docker-compose.yml
 À présent, créez un fichier `docker-compose.yml` , qui est simplement un fichier texte de configuration, pour définir les conteneurs Docker s’exécutant sur la machine virtuelle. Le fichier indique l’image à exécuter sur chaque conteneur (il peut également s’agir d’un build d’un fichier Dockerfile), les variables d’environnement et les dépendances nécessaires, les ports et les liens entre les conteneurs. Pour plus d’informations sur la syntaxe du fichier yml, consultez [Référence du fichier Compose](http://docs.docker.com/compose/yml/).
@@ -90,7 +95,6 @@ Dans le même répertoire que votre fichier `docker-compose.yml`, exécutez la c
 
 ```bash
 docker-compose up -d
-
 ```
 
 Cette action démarre les conteneurs Docker spécifiés dans `docker-compose.yml`. L’exécution de cette étape peut prendre une minute ou deux. Vous voyez une sortie similaire à l’exemple suivant :
@@ -103,8 +107,7 @@ Creating wordpress_wordpress_1...
 
 > [!NOTE]
 > Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
-> 
-> 
+
 
 Pour vérifier que les contrôleurs sont en cours d’exécution, tapez `docker-compose ps`. Le résultat suivant doit s’afficher :
 
@@ -134,6 +137,6 @@ Vous pouvez maintenant vous connecter directement à WordPress sur la machine vi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

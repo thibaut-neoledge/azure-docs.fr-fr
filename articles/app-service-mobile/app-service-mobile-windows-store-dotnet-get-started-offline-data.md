@@ -34,7 +34,7 @@ Pour plus d’informations sur la fonctionnalité de synchronisation hors connex
 Ce didacticiel nécessite les prérequis suivants :
 
 * Visual Studio 2013 s’exécutant sous Windows 8.1 ou version ultérieure.
-* finalisation de [Créer une application Windows][create a windows app].
+* finalisation de [Créer une application Windows][Créer une application Windows].
 * [Azure Mobile Services SQLite Store][NuGet du magasin SDLite]
 * [SQLite pour développement sur plateforme Windows universelle](http://www.sqlite.org/downloads)
 
@@ -107,7 +107,7 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 
 <!-- URLs. -->
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Créer une application Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite pour Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite pour Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921

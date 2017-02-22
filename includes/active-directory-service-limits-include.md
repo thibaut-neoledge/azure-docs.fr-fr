@@ -8,10 +8,10 @@ Présentation des contraintes d'utilisation et autres limites de service pour le
 | Applications |10 utilisateurs au maximum peuvent être propriétaires d'une seule application. |
 | Groupes |<ul><li>10 utilisateurs au maximum peuvent être propriétaires d'un seul groupe.</li><li>Un nombre quelconque d'objets peuvent être membre d'un groupe unique dans Azure Active Directory.</li><li>Le nombre de membres dans un groupe, que vous pouvez synchroniser à partir de votre annuaire Active Directory local vers Azure Active Directory est limité à 15 000, avec Azure Active Directory Synchronization (DirSync).</li><li>Le nombre de membres dans un groupe, que vous pouvez synchroniser à partir de votre annuaire Active Directory local vers Azure Active Directory à l’aide d’Azure AD Connect, est limité à 50 000.</li></ul> |
 | Volet d'accès |<ul><li>Le nombre d’applications affichables dans le Panneau d’accès par utilisateur final pour les abonnés à Azure Active Directory Premium ou Enterprise Mobility Suite est illimité.</li><li>Un maximum de 10 vignettes d’application (exemples : Box, Salesforce, ou Dropbox) peuvent être consultées dans le Panneau d’accès pour chaque utilisateur disposant d’une licence de l’édition gratuite ou de base d’Azure Active Directory. Cette limite ne s'applique pas aux comptes d'administrateur.</li></ul> |
-| Rapports |1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées. |
+| Rapports | 1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées. |
+| Unités administratives | Un objet peut faire partie de 30 unités administratives maximum. |
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

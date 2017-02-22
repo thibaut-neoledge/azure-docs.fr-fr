@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/11/2017
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: dbaa242b8969ad04c92e7a527f4cd585bc3763cb
-ms.openlocfilehash: bb2ae9d94a8f1e02a81ff46bdc29e6f9787ebf31
+ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
+ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
 
 
 ---
@@ -35,14 +35,16 @@ Les questions/réponses sont organisées en plusieurs catégories :
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Questions sur la création d’un volume épinglé localement
 **Q.** Quelle est la taille maximale des volumes épinglés localement que je peux créer sur les appareils de la gamme 8000 ?
 
-**R** Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To ou des volumes hiérarchisés d’une taille maximale de 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 22,5 To ou des volumes hiérarchisés d’une taille maximale de 500 To.
+**R.** Sur les appareils exécutant la gamme StorSimple 8000 Update 3.0, vous pouvez approvisionner des volumes épinglés localement jusqu'à 8,5 To ou des volumes hiérarchisés jusqu'à 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 22,5 To ou des volumes hiérarchisés d’une taille maximale de 500 To.    
+Sur les appareils exécutant la gamme StorSimple 8000 Update 2.x, vous pouvez approvisionner des volumes épinglés localement jusqu'à 8 To ou des volumes à hiérarchisés jusqu'à 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez configurer des volumes épinglés localement d’une taille maximale de 20 To ou des volumes à plusieurs niveaux d’une taille maximale de 500 To.   
 
-**Q.** J’ai récemment mis à niveau mon appareil 8100 vers Update 2 et, lorsque j’essaie de créer un volume épinglé localement, la taille maximale disponible est de seulement 6 To, au lieu de 8,5 To. Pourquoi ne puis-je pas créer un volume de 8,5 To ?
+**Q.** J’ai récemment mis à niveau mon appareil 8100 vers Update 2.0 et, lorsque j’essaie de créer un volume épinglé localement, la taille maximale disponible est de seulement 6 To, au lieu de 8 To. Pourquoi ne puis-je pas créer un volume de 8 To ?
 
-**R** Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To OU des volumes hiérarchisés d’une taille maximale de 200 To sur l’appareil 8100. Si votre appareil dispose déjà de volumes à plusieurs niveaux, l’espace disponible pour la création d’un volume épinglé localement sera proportionnellement inférieur à cette limite maximale. Par exemple, si 100 To de volumes hiérarchisés ont déjà été approvisionnés sur votre appareil 8100 (ce qui représente la moitié de la capacité hiérarchisée), la taille maximale du volume épinglé localement que vous pouvez créer sur l’appareil 8100 est ramenée à 4 To (soit à peu près la moitié de la valeur maximale de la capacité pour les volumes épinglés localement).
+**R.** Si votre appareil exécute la version Update 2.0, vous pouvez approvisionner des volumes épinglés localement jusqu'à 8 To ou des volumes hiérarchisés jusqu'à 200 To sur l’appareil 8100. Si votre appareil dispose déjà de volumes à plusieurs niveaux, l’espace disponible pour la création d’un volume épinglé localement sera proportionnellement inférieur à cette limite maximale. Par exemple, si 100 To de volumes hiérarchisés ont déjà été approvisionnés sur votre appareil 8100 (ce qui représente la moitié de la capacité hiérarchisée), la taille maximale du volume épinglé localement que vous pouvez créer sur l’appareil 8100 est ramenée à 4 To (soit à peu près la moitié de la valeur maximale de la capacité pour les volumes épinglés localement).
 
-Dans la mesure où une partie de l’espace local de l’appareil est utilisée pour héberger la plage de travail de volumes hiérarchisés, l’espace disponible pour la création d’un volume épinglé localement est réduit si l’appareil dispose de volumes hiérarchisés. À l’inverse, la création d’un volume épinglé localement réduit proportionnellement l’espace disponible pour les volumes hiérarchisés. Le tableau suivant résume la capacité disponible pour les volumes à plusieurs niveaux sur les appareils 8100 et 8600 lorsque des volumes épinglés localement ont été créés.
+Dans la mesure où une partie de l’espace local de l’appareil est utilisée pour héberger la plage de travail de volumes hiérarchisés, l’espace disponible pour la création d’un volume épinglé localement est réduit si l’appareil dispose de volumes hiérarchisés. À l’inverse, la création d’un volume épinglé localement réduit proportionnellement l’espace disponible pour les volumes hiérarchisés. Les tableaux suivants résument la capacité disponible pour les volumes à plusieurs niveaux sur les appareils 8100 et 8600 lorsque des volumes épinglés localement ont été créés.
 
+####<a name="update-30"></a>Update 3.0 
 | Capacité configurée pour les volumes épinglés localement | Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8100 | Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8600 |
 | --- | --- | --- |
 | 0 |200 To |500 To |
@@ -52,6 +54,17 @@ Dans la mesure où une partie de l’espace local de l’appareil est utilisée 
 | 10 To |N/D |277,8 To |
 | 15 To |N/D |166,7 To |
 | 22,5 To |N/D |0 To |
+
+####<a name="update-2x"></a>Update 2.x  
+ | Capacité configurée pour les volumes épinglés localement | Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8100 | Capacité disponible pour la configuration pour des volumes à plusieurs niveaux - 8600 |  
+ | --- | --- | --- |  
+ | 0 |200 To |500 To |  
+ | 1 To |25 To |475 To |  
+ | 4 To |100 To |400 To |  
+ | 8 To |0 To |300 To |  
+ | 10 To |N/D |250 To |  
+ | 15 To |N/D |125 To |  
+ | 20 To |N/D |0 To |   
 
 **Q.** Pourquoi la création d’un volume épinglé localement est-elle une opération longue ? 
 
@@ -205,6 +218,6 @@ Plus d’informations sur [le basculement et la récupération d’urgence de vo
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentation Azure IoT Hub - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Didacticiels, références d’API, vidéos et autres documents."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: 7d0766cfafb471898cb1463df27075516af5e8e8
+ms.openlocfilehash: 779159765c2b8c117e7a950aef541bdfb045be26
 
 ---
+
 #<a name="iot-hub-documentation"></a>Documentation IoT Hub
 
 Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des milliards de ressources IoT (Internet of Things, Internet des objets). Les didacticiels, références d’API, vidéos et autres documents vous aident à déployer une communication fiable et bidirectionnelle entre des appareils IoT et une solution back-end. 
@@ -157,6 +169,6 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

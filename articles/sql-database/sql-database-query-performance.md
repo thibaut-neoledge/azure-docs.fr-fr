@@ -1,5 +1,5 @@
 ---
-title: "Query Performance Insight pour base de données SQL Azure"
+title: "Analyse des performances des données pour Azure SQL Database | Microsoft Docs"
 description: "La surveillance des performances des requêtes identifie les requêtes consommant le plus d’UC pour une base de données SQL Azure."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5031cefe906f01e14e0155a975dd7996ba70522d
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ La gestion et le réglage des performances des bases de données relationnelles 
 
 
 ## <a name="prerequisites"></a>Composants requis
-* Query Performance Insight est uniquement disponible avec la base de données SQL Azure V12.
 * Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
 ## <a name="permissions"></a>Autorisations
@@ -72,7 +71,7 @@ Dans le [portail](http://portal.azure.com) , procédez comme suit :
    
     Le tableau du bas contient des informations agrégées concernant les requêtes visibles.
    
-   * ID de requête – identificateur unique de la requête dans la base de données.
+   * ID de requête : identificateur unique de la requête dans la base de données.
    * UC par requête pendant l’intervalle observable (dépend de la fonction d’agrégation).
    * Durée par requête (dépend de la fonction d’agrégation).
    * Nombre total d’exécutions pour une requête particulière.
@@ -172,7 +171,7 @@ Le deuxième cas se produit lorsque le magasin de requêtes est désactivé ou s
 ### <a name="recommended-retention-and-capture-policy"></a>Stratégie de rétention et de capture recommandée
 Il existe deux types de stratégies de rétention :
 
-* Basée sur la taille : si la valeur AUTO est définie, les données sont automatiquement supprimées quand la taille maximale est proche.
+* Basée sur la taille : si la valeur AUTO est définie, les données sont automatiquement supprimées quand la taille maximale est proche.
 * Basée sur le temps : la période par défaut est de 30 jours. Ainsi, si le magasin de requêtes manque d’espace, il supprimera les informations liées aux requêtes âgées de plus de 30 jours.
 
 La stratégie de capture peut avoir les valeurs suivantes :
@@ -229,6 +228,6 @@ Pour obtenir d’autres recommandations concernant l’amélioration des perform
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

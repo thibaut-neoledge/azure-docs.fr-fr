@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Pour générer une application acceptant l’inscription et la connexion des con
 ## <a name="navigate-to-the-b2c-features-blade"></a>Accéder au panneau de fonctionnalités B2C
 Si le panneau de fonctionnalités B2C est épinglé à votre Tableau d’accueil, vous pouvez le voir dès que vous vous connectez au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur général du client B2C.
 
-Vous pouvez également accéder au panneau en cliquant sur **Parcourir**, puis sur **Azure AD B2C** dans le panneau de navigation à gauche du [Portail Azure](https://portal.azure.com/).
+Vous pouvez également accéder au panneau en cliquant sur **Plus de services**, puis en recherchant **Azure AD B2C** dans le panneau de navigation à gauche du [Portail Azure](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.  Vous pouvez basculer vers votre client B2C en utilisant le sélecteur de client dans le coin supérieur droit du Portail Azure.
@@ -40,7 +40,7 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir**, puis s
 1. Dans le panneau de fonctionnalités B2C du Portail Azure, cliquez sur **Applications**.
 2. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 3. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, entrez « Application B2C Contoso ».
-4. Si vous écrivez une application basée sur le web, positionnez le commutateur **Inclure l'application web/API web** sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44321/`. Si votre application web appelle également certaines API web sécurisées par Azure AD B2C, vous voudrez également créer une **Clé secrète d’application** en cliquant sur le bouton **Générer une clé**.
+4. Si vous écrivez une application basée sur le web, positionnez le commutateur **Inclure l'application web/API web** sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44316/`. Si votre application web appelle également certaines API web sécurisées par Azure AD B2C, vous voudrez également créer une **Clé secrète d’application** en cliquant sur le bouton **Générer une clé**.
    
    > [!NOTE]
    > Une **Clé secrète d’application** est une information d’identification de sécurité importante, qui doit être correctement sécurisée.
@@ -63,6 +63,6 @@ Vous pouvez également accéder au panneau en cliquant sur **Parcourir**, puis s
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

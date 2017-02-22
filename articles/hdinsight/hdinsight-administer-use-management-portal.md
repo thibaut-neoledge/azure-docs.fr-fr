@@ -1,5 +1,5 @@
 ---
-title: Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure | Microsoft Docs
+title: "Gérer des clusters Hadoop Windows dans HDInsight au moyen du portail Azure | Microsoft Docs"
 description: "Découvrez la façon d&quot;administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop."
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
+ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
 
 
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Hadoop Windows dans HDInsight à l'aide du portail Azure
 
-Le [portail Azure][azure-portal] vous permet de créer des clusters Hadoop dans Azure HDInsight, de modifier le mot de passe utilisateur Hadoop et d’activer le protocole RDP (Remote Desktop Protocol) afin d’accéder à la console de commandes Hadoop sur le cluster.
+Le [portail Azure][azure-portal] vous permet de créer des clusters Hadoop Windows dans Azure HDInsight, de modifier le mot de passe utilisateur Hadoop et d’activer le protocole RDP (Remote Desktop Protocol) afin d’accéder à la console de commandes Hadoop sur le cluster.
 
-Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la gestion des clusters basés sur Linux, cliquez sur le sélecteur de tabulations ci-dessus.
+Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la gestion des clusters basés sur Linux, voir [Gérer des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md).
 
-Cliquez sur le sélecteur de tabulations pour obtenir des informations sur la création de clusters Hadoop dans HDInsight à l’aide d’autres outils.
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-**Configuration requise**
+
+## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -64,7 +65,7 @@ HDInsight fonctionne avec un large éventail de composants Hadoop. Pour obtenir 
   > [!NOTE]
   > En cas de problèmes lors du déploiement ou de l’appel des fichiers JAR sur les clusters HDInsight, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
   >
-  > Cascading n'est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight.](hdinsight-component-versioning.md).
+  > Cascading n'est pas pris en charge par HDInsight et ne peut pas bénéficier du support Microsoft. Pour obtenir la liste des composants pris en charge, consultez la rubrique [Nouveautés des versions de cluster fournies par HDInsight](hdinsight-component-versioning.md).
   >
   >
 
@@ -92,7 +93,7 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
      > Ce paramètre affecte *uniquement* les autorisations d’accès à ce cluster dans le portail Azure et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
      >
      >
-   * **Balises (![icône balise](./media/hdinsight-administer-use-portal-linux/tags.png))** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+   * **Balises (![icône balise](./media/hdinsight-administer-use-portal-linux/tags.png))** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
    * **Vues Ambari** : liens vers Ambari Web.
 
      > [!IMPORTANT]
@@ -102,10 +103,10 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
 
      **Utilisation**:
 
-     ![utilisation de cluster hdinsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-5. Cliquez sur **Paramètres**.
+     ![utilisation de cluster HDInsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+5. Cliquez sur **Settings**.
 
-    ![utilisation de cluster hdinsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![utilisation de cluster HDInsight du portail Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Propriétés**: affichez les propriétés du cluster
    * **Identité AAS de cluster**:
@@ -122,7 +123,7 @@ L’installation de logiciels personnalisés sur le cluster à l’aide d’une 
      >
 6. Cliquez sur **Propriétés**:
 
-    Les propriétés sont les suivantes :
+    La section des propriétés comprend les éléments suivants :
 
    * **Nom d’hôte**: nom du Cluster.
    * **URL de cluster**.
@@ -188,10 +189,10 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurez la topologie « mytopology » pour utiliser 5 processus de travail,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>le spout « blue-spout » pour utiliser 3 exécuteurs et
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>le bolt « yellow-bolt » pour utiliser 10 exécuteurs
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Pour mettre à l’échelle des clusters**
 
@@ -269,7 +270,6 @@ Voir [Énumération et affichage des clusters](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Ouvrir la console de requête HDInsight
 La console de la requête HDInsight inclut les fonctionnalités suivantes :
 
-* **Galerie de prise en main**: pour utiliser la galerie, voir [Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 * **Éditeur Hive**: interface web GUI pour l’envoi de tâches Hive.  Voir [Exécution de requêtes Hive à l’aide de la console de requêtes](hdinsight-hadoop-use-hive-query-console.md).
 
     ![éditeur hive de portail HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
@@ -327,7 +327,7 @@ Les informations d’identification du cluster fournies lors de sa création don
 3. Cliquez sur **Paramètres** dans le menu supérieur, puis sur **Bureau à distance**.
 4. Renseignez les champs **Expiration**, **Nom d’utilisateur de bureau à distance** et **Mot de passe de bureau à distance**, puis cliquez sur **Activer**.
 
-    ![hdinsight activer désactiver configurer Bureau à distance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight activer désactiver configurer Bureau à distance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     La valeur par défaut pour le champ Expiration est d’une semaine.
 
@@ -379,6 +379,6 @@ Dans cet article, vous avez appris à créer un cluster HDInsight à l’aide du
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

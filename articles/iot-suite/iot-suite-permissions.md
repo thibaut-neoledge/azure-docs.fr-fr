@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61985bf2e112fe7b0a46ece07fd56eb14ccc3d45
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d06ec1c7a643c92fd11b532abc26fb1597d969f5
 
 
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorisations sur le site azureiotsuite.com
 ## <a name="what-happens-when-you-sign-in"></a>Que se passe-t-il lorsque vous vous connectez ?
-Lorsque vous vous connectez pour la première fois à [azureiotsuite.com][lnk-azureiotsuite], le site détermine vos niveaux d’autorisation en fonction du client Azure Active Directory (AAD) et de l’abonnement Azure sélectionnés.
+Lorsque vous vous connectez pour la première fois à [azureiotsuite.com][lnk-azureiotsuite], le site détermine vos niveaux d’autorisation en fonction du client Azure Active Directory (AAD) et de l’abonnement Azure sélectionné.
 
 1. Le site commence par rechercher dans Azure les clients AAD auxquels vous appartenez afin de remplir la liste des clients qui apparaît en regard de votre nom d’utilisateur connecté. À ce stade, le site peut obtenir des jetons d’utilisateur pour un seul client. Par conséquent, lorsque vous basculez sur un autre client en utilisant la liste déroulante dans le coin supérieur droit, le site vous reconnecte à ce client pour obtenir les jetons pour ce client.
 2. Ensuite, le site détecte à partir d’Azure, les abonnements que vous avez associés au client sélectionné. Vous pouvez voir les abonnements disponibles lorsque vous créez une nouvelle solution préconfigurée.
@@ -34,23 +34,23 @@ Les sections suivantes décrivent les rôles qui contrôlent l’accès aux solu
 ## <a name="aad-roles"></a>Rôles AAD
 Les rôles AAD contrôlent la possibilité d’approvisionnement de solutions préconfigurées et gèrent les utilisateurs dans une solution préconfigurée.
 
-Vous trouverez d’autres informations sur les rôles d’administrateur dans AAD dans [Attribution des rôles d’administrateur dans Azure AD][lnk-aad-admin], mais cet article se concentre essentiellement sur l’**administrateur général** et les rôles **utilisateur/membre de domaine** utilisés par les solutions préconfigurées.
+Vous trouverez d’autres informations sur les rôles d’administrateur dans AAD dans [Attribution des rôles d’administrateur dans Azure AD][lnk-aad-admin], mais cet article se concentre essentiellement sur **l’administrateur général** et les rôles **utilisateur/membre de domaine** utilisés par les solutions préconfigurées.
 
-**Administrateur général :** il peut y avoir de nombreux administrateurs généraux par client AAD. Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur. L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle d’ **ADMINISTRATEUR** de l’application au sein de leur client AAD. Toutefois, si un autre utilisateur du même client AAD crée une application, le rôle attribué par défaut à l’administrateur général par défaut **LECTURE SEULE IMPLICITE**. Les administrateurs généraux peuvent attribuer des rôles aux applications utilisant le [portail Azure Classic][portail classique d’un lien].
+**Administrateur général :** il peut y avoir de nombreux administrateurs généraux par client AAD. Lorsque vous créez un client AAD, vous en devenez par défaut l’administrateur. L’administrateur général peut approvisionner une solution préconfigurée et se voir attribuer le rôle d’ **ADMINISTRATEUR** de l’application au sein de leur client AAD. Toutefois, si un autre utilisateur du même client AAD crée une application, le rôle attribué par défaut à l’administrateur général par défaut **LECTURE SEULE IMPLICITE**. Les administrateurs généraux peuvent attribuer des rôles aux applications utilisant le [portail Azure Classic][lnk-classic-portal].
 
-**Utilisateur/membre de domaine :** pour chaque client AAD, il peut y avoir de nombreux utilisateurs/membres. Un utilisateur de domaine peut déployer une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Le rôle par défaut qui lui est attribué pour l’application qu’il déploie est **ADMINISTRATEUR**. Il peut créer une application à l’aide du script build.cmd dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo], mais le rôle qui lui est attribué par défaut est **IMPLICIT READONLY** (LECTURE SEULE IMPLICITE), car il n’est pas autorisé à attribuer des rôles. Si un autre utilisateur du client AAD crée une application, ils se voient affecter le rôle **LECTURE SEULE IMPLICITE** par défaut pour cette application. Ils n’ont pas la possibilité d’attribuer des rôles aux applications ; par conséquent, ils ne peuvent pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application même s’ils l’ont approvisionnée.
+**Utilisateur/membre de domaine :** pour chaque client AAD, il peut y avoir de nombreux utilisateurs/membres. Un utilisateur de domaine peut approvisionner une solution préconfigurée via le site [azureiotsuite.com][lnk-azureiotsuite]. Le rôle par défaut qui lui est attribué pour l’application qu’il déploie est **ADMINISTRATEUR**. Les utilisateurs peuvent créer une application à l’aide du script build.cmd dans le référentiel [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo], mais le rôle qu’ils reçoivent par défaut est **LECTURE SEULE IMPLICITE**, car ils n’ont pas l’autorisation d’attribuer des rôles. Si un autre utilisateur du client AAD crée une application, ils se voient affecter le rôle **LECTURE SEULE IMPLICITE** par défaut pour cette application. Ils n’ont pas la possibilité d’attribuer des rôles aux applications ; par conséquent, ils ne peuvent pas ajouter des utilisateurs ou des rôles pour les utilisateurs d’une application même s’ils l’ont approvisionnée.
 
 **Utilisateur invité/Invité :** il peut y avoir de nombreux utilisateurs invités/invités par le client AAD. Les utilisateurs invités disposent d’un ensemble limité de droits au sein du client AAD. Par conséquent, les utilisateurs invités ne peuvent pas approvisionner une solution préconfigurée dans le client AAD.
 
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Créer ou modifier des utilisateurs dans Azure AD][lnk-create-edit-users]
-* [Attribuer des rôles d’application dans AAD][lnk-assign-app-roles]
+* [Création ou modification des utilisateurs dans Azure AD][lnk-create-edit-users]
+* [Attribution de rôles d’application dans AAD][lnk-assign-app-roles]
 
 ## <a name="azure-subscription-administrator-roles"></a>Rôles de l’administrateur d’abonnement Azure
 Les rôles d’administration Azure permettent de contrôler la fonctionnalité de mappage d’un abonnement Azure sur un client AD.
 
-Pour plus d’informations sur les rôles de co-administrateur, d’administrateur de service et d’administrateur de compte, voir [Comment ajouter ou modifier un coadministrateur, un administrateur de service et un administrateur de compte][lnk-admin-roles].
+Vous trouverez d’autres informations sur les rôles de co-administrateur et d’administrateur de compte dans l’article [Comment ajouter ou modifier un coadministrateur, un administrateur de service et un administrateur de compte][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Rôles d’application
 Les rôles d’application contrôlent l’accès aux périphériques de votre solution préconfigurée.
@@ -66,7 +66,7 @@ Vous pouvez utiliser la procédure suivante pour définir un utilisateur dans Ac
 
 Vous devez être un administrateur général AAD pour modifier les rôles d’un utilisateur :
 
-1. Accédez au [portail Azure Classic][portail classique d’un lien].
+1. Connectez-vous au [Portail Azure Classic][lnk-classic-portal].
 2. Sélectionnez **Active Directory**.
 3. Cliquez sur le nom de votre client AAD (il s’agit du répertoire que vous avez choisi sur Azureiotsuite.com lorsque vous avez approvisionné votre solution).
 4. Cliquez sur **Applications**.
@@ -77,7 +77,7 @@ Vous devez être un administrateur général AAD pour modifier les rôles d’un
 
 ## <a name="faq"></a>Forum Aux Questions
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-do-this"></a>Je suis un administrateur de service et je souhaite modifier le mappage d’annuaire entre mon abonnement et un client AAD spécifique. Comment faire ?
-1. Accédez au [portail Azure Classic][portail classique d’un lien], puis cliquez sur **Paramètres** dans la liste des services sur le côté gauche.
+1. Accédez au [portail Azure Classic][lnk-classic-portal] et cliquez sur **Paramètres** dans la liste des services sur le côté gauche.
 2. Sélectionnez l’abonnement dont vous souhaitez modifier le mappage d’annuaire.
 3. Cliquez sur **Modifier l’annuaire**.
 4. Sélectionnez l’ **annuaire** que vous souhaitez utiliser dans la liste déroulante. Cliquez sur la flèche Suivant.
@@ -89,7 +89,7 @@ Demandez à un administrateur général de vous attribuer le rôle d’administr
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Comment puis-je activer le client AAD auquel la solution préconfigurée de contrôle à distance et l’application sont affectées ?
 Vous pouvez exécuter un déploiement cloud à partir de <https://github.com/Azure/azure-iot-remote-monitoring>, puis redéployer avec un client AAD nouvellement créé. Comme vous êtes administrateur général par défaut, lorsque vous créez un nouvel utilisateur AAD, vous avez un accès pour ajouter des utilisateurs et affecter des rôles à ces utilisateurs.
 
-1. Créez un annuaire AAD dans le [Portail de gestion Azure][portail classique d’un lien].
+1. Créer un annuaire AAD dans le [portail de gestion Azure][lnk-classic-portal].
 2. Accédez à <https://github.com/Azure/azure-iot-remote-monitoring>.
 3. Exécutez `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (par exemple, `build.cmd cloud debug myRMSolution`)
 4. Lorsque vous y êtes invité, définissez le **tenantid** du client que vous venez de créer et non celui du client précédent.
@@ -120,7 +120,7 @@ Pour poursuivre votre formation concernant IoT Suite, découvrez comment [person
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
-[portail classique d’un lien]: https://manage.windowsazure.com/
+[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
 [lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
@@ -131,6 +131,6 @@ Pour poursuivre votre formation concernant IoT Suite, découvrez comment [person
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

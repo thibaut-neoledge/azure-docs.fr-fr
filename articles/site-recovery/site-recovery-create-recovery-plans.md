@@ -1,6 +1,6 @@
 ---
-title: "Créer des plans de récupération | Documents Microsoft"
-description: "Créez des plans de récupération à l’aide d’Azure Site Recovery pour basculer et récupérer des groupes de machines virtuelles et de serveurs physiques."
+title: "Création de plans de récupération pour le basculement et la récupération dans Azure Site Recovery | Microsoft Docs"
+description: "Explique comment créer et personnaliser des plans de récupération en vue de basculer et récupérer des machines virtuelles et des serveurs physiques dans Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,110 +12,101 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 02/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cc2aa0ade25417a1e2a8fb96fc3a059349afa99
+ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
+ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
 
 
 ---
 # <a name="create-recovery-plans"></a>Créer des plans de récupération
-Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour obtenir un aperçu rapide, consultez [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
 
-## <a name="overview"></a>Vue d'ensemble
-Cet article fournit des informations sur la création et la personnalisation des plans de récupération. 
 
-Les plans de récupération comprennent un ou plusieurs groupes ordonnés présentant des machines virtuelles ou des serveurs physiques qui doivent être basculés en même temps. Les plans de récupération exécutent les actions suivantes :
+Cet article fournit des informations sur la création et la personnalisation des plans de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-* Ils définissent les groupes de machines qui basculent, puis démarrent ensemble.
-* Ils modélisent les dépendances entre les machines, en les rassemblant au sein d’un groupe de plan de récupération. Par exemple, si vous souhaitez basculer et afficher une application spécifique, il vous faut regrouper les machines virtuelles dédiées dans un même groupe de plan de récupération.
-* Ils automatisent et étendent le basculement. Vous pouvez exécuter un basculement test, planifié ou non planifié sur un plan de récupération. Il est possible de personnaliser les plans de récupération avec des scripts, Microsoft Azure Automation ou des actions manuelles.
+Publiez des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-Les plans de récupération sont affichés sous l’onglet **Plans de récupération** du portail Azure Site Recovery.
+ Les plans de récupération exécutent les actions suivantes :
 
-Envoyez vos commentaires ou vos questions au bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+* Ils définissent les groupes de machines qui basculent ensemble, puis démarrent ensemble.
+* Ils modélisent les dépendances entre les machines, en les rassemblant au sein d’un groupe de plan de récupération. Par exemple, pour basculer et afficher une application spécifique, vous devez regrouper toutes les machines virtuelles pour cette application dans un même groupe de plan de récupération.
+* Basculez. Vous pouvez exécuter un basculement test, planifié ou non planifié sur un plan de récupération.
 
-## <a name="before-you-start"></a>Avant de commencer
-Notez les points suivants :
-
-* Un plan de récupération ne peut pas comprendre à la fois des machines virtuelles avec une seule carte réseau et des machines virtuelles avec plusieurs cartes réseau. Azure Cloud Service n’autorise pas la récupération simultanée de ces différents types de machines de virtuelles.
-* Vous pouvez étendre vos plans de récupération à l’aide de scripts et d’actions manuelles. Notez les points suivants :
-  
-  * Écrivez des scripts à l’aide de Windows PowerShell.
-  * Veillez à utiliser des blocs try-catch dans vos scripts, ceci pour garantir le traitement approprié des exceptions. Si le script comporte une exception, son exécution s’interrompt et la tâche est mise en échec.  Si une erreur se produit, aucune des éventuelles portions restantes du script ne s’exécute. Si cela se produit lorsque vous exécutez un basculement non planifié, le plan de récupération se poursuit. Si cela se produit lorsque vous exécutez un basculement planifié, le plan de récupération s’arrête. Le cas échéant, corrigez le script, vérifiez sa bonne exécution, puis exécutez de nouveau le plan de récupération.
-  * La commande Write-Host, qui ne fonctionne pas dans un script de plan de récupération, entraîne la mise en échec du script. Pour créer une sortie, générez un script de proxy exécutant votre script principal, et assurez-vous que l’ensemble des sorties soient extraites à l’aide de la commande >>.
-  * Le script expire si aucune sortie n’est produite dans les 600 secondes.
-  * Si des éléments sont écrits sur STDERR, le script est classé comme mis en échec. Ces informations s’affichent dans les détails d’exécution du script.
-  * Si vous utilisez VMM dans votre déploiement, notez ce qui suit :
-    
-    * Les scripts d’un plan de récupération s’exécutent dans le contexte d’un compte de service VMM. Assurez-vous que ce compte dispose des autorisations en lecture sur le partage distant sur lequel se trouve le script, et testez l’exécution du script au niveau de privilège du compte de service VMM.
-    * Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module VMM Windows PowerShell est installé lors du montage de la console VMM. Pour charger le module VMM dans votre script, exécutez la commande suivante dans le script : Import-Module -Name virtualmachinemanager. [Obtenir des détails](hhttps://technet.microsoft.com/library/hh875013.aspx).
-    * Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
-    * Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary), configurez le partage comme suit (en utilisant \\libserver2.contoso.com\share\ comme exemple) :
-      * Ouvrez l’Éditeur du Registre, puis accédez à HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration.
-      * Remplacez la valeur de ScriptLibraryPath par \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage.
-      * Assurez-vous de tester le script avec un compte utilisateur possédant les autorisations du compte de service VMM, ceci pour garantir que les scripts évalués de manière isolée s’exécutent comme dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
-        * Ouvrez la console Windows PowerShell 64 bits à l’aide des privilèges élevés.
-        * Entrez : **Set-executionpolicy bypass**. [Obtenir des détails](https://technet.microsoft.com/library/ee176961.aspx).
 
 ## <a name="create-a-recovery-plan"></a>Créer un plan de récupération
-La méthode de création du plan de récupération dépend de votre déploiement Azure Site Recovery.
-
-* **Réplication des machines virtuelles VMware et des serveurs physiques**: créez un plan, puis ajoutez à un plan de récupération des groupes de réplication contenant des machines virtuelles et des serveurs physiques.
-* **Réplication de machines virtuelles Hyper-V (issues d’un cloud VMM)**: créez un plan, puis ajoutez des machines virtuelles Hyper-V protégées issues d’un cloud VMM à un plan de récupération.
-* **Réplication de machines virtuelles Hyper-V (non issues d’un cloud VMM)**: créez un plan, puis ajoutez des machines virtuelles Hyper-V protégées issues d’un groupe de protection à un plan de récupération.
-* **Réplication SAN**: créez un plan, puis ajoutez un groupe de réplication contenant des machines virtuelles au plan de récupération. Ici, vous sélectionnez un groupe de réplication plutôt que des machines virtuelles, dans la mesure où l’ensemble des machines virtuelles d’un groupe doivent basculer ensemble (la couche de stockage est basculée en premier lieu).
-
-Pour créer un plan de récupération, procédez comme suit :
 
 1. Cliquez sur l’onglet **Plans de récupération** > **Créer un plan de récupération**.
-   Spécifiez un nom pour le plan de récupération, puis définissez une source et une cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source.
-   
-   * Si vous exécutez une réplication de VMM vers VMM, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Cliquez sur **Hyper-V** afin d’afficher les clouds qui sont configurés pour l’utilisation de Réplica Hyper-V. 
-   * Si vous exécutez une réplication de VMM vers VMM à l’aide d’un réseau SAN, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Pour afficher les clouds configurés pour la réplication SAN, cliquez sur **SAN** .
-   * Si vous exécutez une réplication de VMM vers Azure, sélectionnez **Type de source** > **VMM**.  Sélectionnez le serveur VMM source et **Azure** en tant que cible.
-   * Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez **Type de source** > **Site Hyper-V**. Sélectionnez le site en tant que source et **Azure **en tant que cible.
-   * Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
-2. Dans **Sélectionner les machines virtuelles** , sélectionnez les machines virtuelles (ou le groupe de réplication) que vous voulez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
+   Spécifiez un nom pour le plan de récupération, puis définissez une source et une cible. Le basculement et la récupération doivent être activés sur les machines virtuelles de l’emplacement source.
 
-## <a name="customize-recovery-plans"></a>Personnaliser des plans de récupération
-Une fois que vous avez ajouté les machines virtuelles protégées ou les groupes de réplication au groupe par défaut du plan de récupération et créé le plan, vous pouvez le personnaliser :
+    - Pour la réplication de VMM vers VMM, sélectionnez **Type de source** > **VMM**, puis les serveurs VMM source et cible. Cliquez sur **Hyper-V** pour afficher les clouds protégés.
+    - Pour une réplication de VMM vers Azure, sélectionnez **Type de source** > **VMM**.  Sélectionnez le serveur VMM source et **Azure** en tant que cible.
+    - Pour la réplication d’Hyper-V vers Azure (sans VMM), sélectionnez **Type de source** > **Site Hyper-V**. Sélectionnez le site en tant que source et **Azure** en tant que cible.
+    - Pour une réplication de machine virtuelle VMware ou de serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
+2. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous voulez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
 
-* **Ajouter des groupes**: il est possible d’ajouter des groupes supplémentaires au plan de récupération. Les groupes sont numérotés dans l’ordre dans lequel vous les ajouter. Vous pouvez ajouter jusqu’à sept groupes. Une fois que vous les avez ajoutés, vous pouvez y intégrer davantage de machines ou de groupes de réplication. Notez que les machines virtuelles et les groupes de réplication peuvent être incorporés au sein d’un seul plan de récupération.
-* **Ajouter un script **: vous pouvez ajouter des scripts avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous associez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 sera créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Notez que pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
-* **Ajouter une action manuelle**: il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il est arrêté au point d’insertion de l’action manuelle, et une boîte de dialogue vous invite à confirmer la bonne réalisation de l’action manuelle.
+## <a name="customize-and-extend-recovery-plans"></a>Personnaliser et étendre les plans de récupération
 
-## <a name="extend-recovery-plans-with-scripts"></a>Étendre des plans de récupération avec des scripts
-Vous pouvez ajouter un script à votre plan de récupération :
+Vous pouvez personnaliser et étendre les plans de récupération :
 
-* Si vous possédez un site source VMM, livre à vous de créer un script sur le serveur VMM, et de l’inclure dans votre plan de récupération.
-* Si vous exécutez une réplication vers Microsoft Azure, vous pouvez intégrer les Runbooks Azure Automation dans votre plan de récupération.
+- **Ajouter de nouveaux groupes** : ajouter des groupes de plan de récupération supplémentaires (jusqu’à sept) au groupe par défaut, puis ajouter des ordinateurs ou groupes de réplication supplémentaires à ces groupes de plan de récupération. Les groupes sont numérotés dans l’ordre dans lequel vous les ajoutez. Vous ne pouvez inclure une machine virtuelle ou un groupe de réplication qu’au sein d’un seul plan de récupération.
+- **Ajouter une action manuelle**: il est possible d’ajouter des actions manuelles qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque le plan de récupération s’exécute, il s’arrête au point où vous avez inséré l’action manuelle. Une boîte de dialogue vous invite à spécifier que l’action manuelle est terminée.
+- **Ajouter un script** : vous pouvez ajouter des scripts qui s’exécutent avant ou après un groupe de plan de récupération. Lorsque vous ajoutez un script, vous ajoutez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du Groupe 1 est créé avec le nom : Groupe 1 : Étapes préliminaires. L’ensemble des étapes préliminaires seront répertoriées dans cet ensemble. Pour ajouter un script sur le site principal, vous devez disposer d’un serveur VMM déployé.
+- **Ajouter des runbooks Azure** : vous pouvez étendre des plans de récupération avec des runbooks Azure. Par exemple, pour automatiser des tâches ou pour créer une récupération en une seule étape. [Plus d’informations](site-recovery-runbook-automation.md)
 
-### <a name="create-a-vmm-script"></a>Créer un script VMM
-Créez le script comme suit :
+## <a name="add-scripts"></a>Ajouter des scripts
 
-1. Créez un dossier dans le partage de bibliothèque, par exemple \<VMMServerName>\MSSCVMMLibrary\RPScripts. Placez-le dans les serveurs VMM source et cibles.
+Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération.
+
+ - Veillez à utiliser des blocs try-catch dans vos scripts, ceci pour garantir le traitement approprié des exceptions.
+    - Si le script comporte une exception, son exécution s’interrompt et la tâche est mise en échec.
+    - Si une erreur se produit, aucune des portions restantes du script ne s’exécute.
+    - Si une erreur se produit lorsque vous exécutez un basculement non planifié, le plan de récupération se poursuit.
+    - Si une erreur se produit lorsque vous exécutez un basculement planifié, le plan de récupération s’arrête. Vous devez corriger le script, vérifier sa bonne exécution, puis exécuter de nouveau le plan de récupération.
+- La commande Write-Host, qui ne fonctionne pas dans un script de plan de récupération, entraîne la mise en échec du script. Pour créer une sortie, générez un script de proxy exécutant votre script principal. Assurez-vous que l’ensemble des sorties sont extraites à l’aide de la commande >>.
+  * Le script expire si aucune sortie n’est produite dans les 600 secondes.
+  * Si des éléments sont écrits sur STDERR, le script est classé comme mis en échec. Ces informations s’affichent dans les détails d’exécution du script.
+
+Si vous utilisez VMM dans votre déploiement :
+
+* Les scripts d’un plan de récupération s’exécutent dans le contexte d’un compte de service VMM. Assurez-vous que ce compte dispose des autorisations en lecture pour le partage distant sur lequel se trouve le script. Testez l’exécution du script au niveau de privilège du compte de service VMM.
+* Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module est installé lors du montage de la console VMM. Il peut être chargé dans votre script à l’aide de la commande de script suivante : 
+   - Import-Module -Name virtualmachinemanager. [Plus d’informations](https://technet.microsoft.com/library/hh875013.aspx)
+* Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
+    * Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary), configurez le partage comme suit (en utilisant \\libserver2.contoso.com\share\ comme exemple) :
+      * Ouvrez l’Éditeur du Registre, puis accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
+      * Remplacez la valeur de **ScriptLibraryPath** par \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage.
+      * Veillez à tester le script avec un compte d’utilisateur qui dispose des mêmes autorisations que le compte de service VMM. Cela permet de vérifier que les scripts testés autonomes s’exécuteront de la même manière dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
+        * Ouvrez la console Windows PowerShell 64 bits à l’aide des privilèges élevés.
+        * Entrez : **Set-executionpolicy bypass**. [Plus d’informations](https://technet.microsoft.com/library/ee176961.aspx)
+
+## <a name="add-a-script-or-manual-action-to-a-plan"></a>Ajouter un script ou une action manuelle à un plan
+
+Vous pouvez ajouter un script au groupe de plan de récupération par défaut après y avoir ajouté des machines virtuelles ou des groupes de réplication et après avoir créé le plan.
+
+1. Ouvrez le plan de récupération.
+2. Cliquez sur un élément de la liste **Étape,** puis cliquez sur **Script** ou sur **Action manuelle**.
+3. Indiquez si vous souhaitez ajouter le script ou l’action avant ou après l’élément sélectionné. Utilisez les boutons de **Déplacement vers le haut** et de **Déplacement vers le bas** pour faire monter ou descendre le script.
+4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**. Dans **Chemin d’accès du script**, tapez le chemin d’accès relatif au partage. Dans l’exemple VMM ci-dessous, spécifiez le chemin d’accès : **\RPScripts\RPScript.PS1**.
+5. Si vous ajoutez un Runbook Azure Automation, spécifiez le compte Azure Automation dans lequel se trouve le runbook, puis sélectionnez le script runbook Azure approprié.
+6. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
+
+
+### <a name="vmm-script"></a>Script VMM
+
+Si vous possédez un site source VMM, libre à vous de créer un script sur le serveur VMM, et de l’inclure dans votre plan de récupération.
+
+1. Créez un dossier dans le partage de bibliothèque. Par exemple, \<VMMServerName>\MSSCVMMLibrary\RPScripts. Placez-le dans les serveurs VMM source et cibles.
 2. Créez le script (par exemple RPScript), et vérifiez son bon fonctionnement.
 3. Placez le script à l’emplacement \<VMMServerName>\MSSCVMMLibrary sur les serveurs VMM source et cible.
 
-### <a name="create-an-azure-automation-runbook"></a>Créer un Runbook Azure Automation
-Pour étendre votre plan de récupération, exécutez un Runbook Automation Plan pendant le plan. [En savoir plus](site-recovery-runbook-automation.md).
-
-### <a name="add-custom-settings-to-a-recovery-plan"></a>Ajouter des paramètres personnalisés à un plan de récupération
-1. Ouvrez le plan de récupération que vous souhaitez personnaliser.
-2. Cliquez pour ajouter une machine virtuelle ou un groupe.
-3. Pour ajouter un script ou une action manuelle, cliquez sur un élément de la liste **Étape,** puis cliquez sur **Script** ou sur **Action manuelle**. Indiquez si vous souhaitez ajouter le script ou l’action avant ou après l’élément sélectionné. Utilisez les boutons de commande de **Déplacement vers le haut** et de **Déplacement vers le bas** pour faire monter ou descendre le script.
-4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \\<VMMServerName>\MSSCVMMLibrary\RPScripts, définissez le chemin d’accès : \RPScripts\RPScript.PS1.
-5. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
-6. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez exécuter différents types de basculements de plan de récupération, notamment des basculements tests pour vérifier votre environnement, des basculements planifiés et des basculements non planifiés. [En savoir plus](site-recovery-failover.md).
+
+[En savoir plus](site-recovery-failover.md) sur l’exécution des basculements.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

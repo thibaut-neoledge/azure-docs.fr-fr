@@ -16,22 +16,22 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12f8fa60fd5da8dcb7ce8f429f6bc47595a0f9d6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
 
 
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Didacticiel : Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite
 La solution préconfigurée de surveillance à distance [Microsoft Azure IoT Suite][lnk-internetofthings] est un excellent moyen de commencer rapidement avec un ensemble de fonctionnalités de bout en bout illustrant une solution IoT. Ce didacticiel vous familiarise avec l’ajout de Logic App à votre solution préconfigurée de surveillance à distance Microsoft Azure IoT Suite. Ces étapes montrent comment tirer davantage parti de votre solution IoT en la connectant à un processus d’entreprise.
 
-*Si vous recherchez une procédure d’approvisionnement pour une solution préconfigurée de surveillance à distance, consultez [Didacticiel : prise en main des solutions préconfigurées IoT][lnk-getstarted].*
+*Si vous recherchez une procédure d’approvisionnement d’une solution préconfigurée de surveillance à distance, consultez [Didacticiel : prise en main des solutions préconfigurées IoT][lnk-getstarted].*
 
 Avant de commencer ce didacticiel, vous devez :
 
 * Configurer la solution préconfigurée de surveillance à distance dans votre abonnement Azure.
 * Créez un compte SendGrid pour pouvoir envoyer un courrier électronique qui déclenche le processus d’entreprise. Vous pouvez vous inscrire à un compte d’évaluation gratuit sur [SendGrid](https://sendgrid.com/) en cliquant sur **Essai gratuit**. Une fois que vous avez enregistré votre compte d’évaluation gratuite, vous devez créer une [clé d’API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) dans SendGrid qui accorde les autorisations d’envoi de courrier. Cette clé d’API vous sera nécessaire ultérieurement dans le didacticiel.
 
-En supposant que vous avez déjà approvisionné votre solution préconfigurée de surveillance à distance, accédez au groupe de ressources de cette solution sur le [portail Azure][lnk-azureportal]. Le groupe de ressources a le même nom que celui de la solution choisi lorsque vous avez configuré votre solution de surveillance à distance. Dans le groupe de ressources, vous pouvez voir toutes les ressources Azure approvisionnées pour votre solution (à l’exception de l’application Azure Active Directory que vous pouvez trouver dans le portail Azure Classic). La capture d’écran suivante montre un exemple de panneau **Groupe de ressources** pour une solution préconfigurée de surveillance à distance :
+En supposant que vous avez déjà approvisionné votre solution préconfigurée de surveillance à distance, accédez au groupe de ressources de cette solution dans le [portail Azure][lnk-azureportal]. Le groupe de ressources a le même nom que celui de la solution choisi lorsque vous avez configuré votre solution de surveillance à distance. Dans le groupe de ressources, vous pouvez voir toutes les ressources Azure approvisionnées pour votre solution (à l’exception de l’application Azure Active Directory que vous pouvez trouver dans le portail Azure Classic). La capture d’écran suivante montre un exemple de panneau **Groupe de ressources** pour une solution préconfigurée de surveillance à distance :
 
 ![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)
 
@@ -104,7 +104,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
 ## <a name="set-up-the-eventprocessor-web-job"></a>Configurer la tâche webEventProcessor
 Dans cette section, vous connectez votre solution préconfigurée à l’application logique que vous avez créée. Pour effectuer cette tâche, vous ajoutez l’URL permettant de déclencher l’application logique à l’action qui se déclenche lorsqu’une valeur de capteur d’appareil dépasse un certain seuil.
 
-1. Utilisez votre client Git pour cloner la dernière version du [référentiel GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Par exemple :
+1. Utilisez votre client git pour cloner la dernière version du [référentiel github azure-iot-remote-monitoring][lnk-rmgithub]. Par exemple :
    
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
@@ -126,7 +126,7 @@ Dans cette section, vous connectez votre solution préconfigurée à l’applica
 Dans cette section, vous déployez votre version mise à jour de la solution de surveillance à distance pour remplacer la version en cours d’exécution dans Azure.
 
 1. Suivez les instructions [de configuration du développement][lnk-devsetup] pour configurer votre environnement en vue du déploiement.
-2. Pour mener à bien un déploiement local, suivez les instructions de [déploiement local][lnk-localdeploy].
+2. Pour déployer en local, suivez les instructions de [déploiement local][lnk-localdeploy].
 3. Pour effectuer un déploiement sur le cloud et mettre à jour votre déploiement cloud existant, suivez les instructions relatives au [déploiement cloud][lnk-clouddeploy]. Utilisez le nom de votre déploiement d’origine comme nom de déploiement. Par exemple, si le déploiement d’origine s’appelle **demologicapp**, utilisez la commande suivante :
    
    ``
@@ -172,6 +172,6 @@ Maintenant que vous avez utilisé une application logique pour connecter la solu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

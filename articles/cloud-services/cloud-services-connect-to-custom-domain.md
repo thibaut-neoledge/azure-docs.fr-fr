@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 5fc94be5e7be09432d735e1cf1293a4e65cbe99e
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
 
 
 ---
@@ -25,12 +25,12 @@ Nous allons tout d’abord définir un réseau virtuel (VNet) dans Azure. Nous a
 
 Avant de commencer, quelques aspects à prendre en compte :
 
-1. Ce didacticiel utilise Powershell. Par conséquent, vérifiez qu’Azure Powershell est installé et prêt à l’emploi. Pour obtenir de l’aide sur la configuration d’Azure Powershell, consultez l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+1. Ce didacticiel utilise Powershell. Par conséquent, vérifiez qu’Azure Powershell est installé et prêt à l’emploi. Pour obtenir de l’aide sur la configuration d’Azure Powershell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Vos instances de contrôleur de domaine AD et de rôle web/de travail doivent se trouver dans le réseau virtuel.
 
 Suivez ce guide pas à pas et, si vous rencontrez des problèmes, laissez-nous un commentaire ci-dessous. Nous reviendrons vers vous (oui, nous lisons les commentaires).
 
-1. Le réseau qui est référencé par le service cloud <mark>doit être</mark> un **réseau virtuel classique**.
+Le réseau qui est référencé par le service cloud doit être un **réseau virtuel classique**.
 
 ## <a name="create-a-virtual-network"></a>Création d'un réseau virtuel
 Vous pouvez créer un réseau virtuel dans Azure via le portail Azure Classic ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l’aide du portail Azure Classic, consultez l’article [Création d’un réseau virtuel](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
@@ -158,6 +158,6 @@ help New-AzureServiceADDomainExtensionConfig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

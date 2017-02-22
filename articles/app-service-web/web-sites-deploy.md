@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/05/2017
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 471bb707a3126eabb82e060a614beb87b95dfd72
-ms.openlocfilehash: fca6ff6c97c70422a1e90f3861f4be24786c844c
+ms.sourcegitcommit: 283b1cfda82b4f96ad5148c522a4c9833cb4c381
+ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 
 
 ---
@@ -26,10 +26,10 @@ Cet article vous aidera à déterminer la meilleure solution pour déployer les 
 ## <a name="a-nameoverviewaazure-app-service-deployment-overview"></a><a name="overview"></a>Vue d’ensemble du déploiement d’Azure App Service
 Azure App Service gère l'infrastructure d'application pour vous (ASP.NET, PHP, Node.js, etc.). Certaines infrastructures sont activées par défaut tandis que d’autres, comme Java et Python, peuvent nécessiter une simple configuration avec coche pour l’activer. En outre, vous pouvez personnaliser votre infrastructure d’application, notamment la version de PHP ou le nombre de bits de votre runtime. Pour plus d’informations, consultez [Configurer votre application dans Azure App Service](web-sites-configure.md).
 
-Comme vous n’avez pas à vous soucier du serveur web ou de l’infrastructure d’application, le déploiement de votre application sur App Service consiste à déployer votre code, les fichiers binaires, les fichiers de contenu et leur structure de répertoire respective sur l’annuaire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou le répertoire **/site/wwwroot/App_Data/Jobs/** pour les tâches web). App Service prend en charge les options de déploiement suivantes : 
+Comme vous n’avez pas à vous soucier du serveur web ou de l’infrastructure d’application, le déploiement de votre application sur App Service consiste à déployer votre code, les fichiers binaires, les fichiers de contenu et leur structure de répertoire respective sur l’annuaire [**/site/wwwroot** dans Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (ou le répertoire **/site/wwwroot/App_Data/Jobs/** pour les tâches web). App Service prend en charge trois processus de déploiement distincts. Toutes les méthodes de déploiement décrites dans cet article utilisent l’un des processus suivants : 
 
 * [FTP ou FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol) : utilisez votre outil compatible FTP ou FTPS favori pour déplacer vos fichiers vers Azure, de [FileZilla](https://filezilla-project.org) à des IDE complets comme [NetBeans](https://netbeans.org). Il s’agit d’un processus de téléchargement de fichier au sens strict. Aucun service supplémentaire n’est fourni par le Service d’application, notamment le contrôle de version, la gestion de structure de fichiers, etc. 
-* [Kudu (Git/Mercurial ou OneDrive/Dropbox))](https://github.com/projectkudu/kudu/wiki/Deployment) : utilisez le [moteur de déploiement](https://github.com/projectkudu/kudu/wiki) dans App Service. Placez votre code directement dans Kudu depuis n’importe quel référentiel. Kudu offre également des services ajoutés à chaque fois que le code lui est transmis, notamment la gestion de version, la restauration de package, MSBuild et des [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) pour un déploiement continu et d’autres tâches Automation. Le moteur de déploiement Kudu prend en charge 3 différents types de sources de déploiement :   
+* [Kudu (Git/Mercurial ou OneDrive/Dropbox))](https://github.com/projectkudu/kudu/wiki/Deployment) : Kudu est le [moteur de déploiement](https://github.com/projectkudu/kudu/wiki) dans App Service. Placez votre code directement dans Kudu depuis n’importe quel référentiel. Kudu offre également des services ajoutés à chaque fois que le code lui est transmis, notamment la gestion de version, la restauration de package, MSBuild et des [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) pour un déploiement continu et d’autres tâches Automation. Le moteur de déploiement Kudu prend en charge 3 différents types de sources de déploiement :   
   
   * Synchronisation de contenu depuis OneDrive et Dropbox   
   * Déploiement continu basé sur référentiel avec synchronisation automatique à partir de GitHub, Bitbucket et Visual Studio Team Services  
@@ -39,11 +39,11 @@ Comme vous n’avez pas à vous soucier du serveur web ou de l’infrastructure 
 Les outils de développement web populaires prennent en charge un ou plusieurs de ces processus de déploiement. L’outil que vous choisissez détermine les processus de déploiement que vous pouvez exploiter, la fonctionnalité DevOps réelle à votre disposition dépend de la combinaison du processus de déploiement et les outils spécifiques que vous choisissez. Par exemple, si vous effectuez le déploiement Web à partir de [Visual Studio avec Azure SDK](#vspros), même si vous n’obtenez pas d’automatisation de la part de Kudu, vous obtenez une restauration de package et l’automatisation MSBuild dans Visual Studio. 
 
 > [!NOTE]
-> Ces processus de déploiement [n’approvisionnent pas réellement les ressources Azure](../resource-group-template-deploy-portal.md) dont votre application peut avoir besoin. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate) .
+> Ces processus de déploiement [n’approvisionnent pas réellement les ressources Azure](../azure-resource-manager/resource-group-template-deploy-portal.md) dont votre application peut avoir besoin. Toutefois, la plupart des articles sur les procédures montrent comment approvisionner l’application ET déployer votre code dessus de bout en bout. Vous trouverez également des options supplémentaires pour l’approvisionnement des ressources Azure dans la section [Automatiser le déploiement à l’aide des outils de ligne de commande](#automate) .
 > 
 > 
 
-## <a name="a-nameftpadeploy-via-ftp-by-copying-files-to-azure-manually"></a><a name="ftp"></a>Déploiement via FTP par copie manuelle des fichiers dans Azure
+## <a name="a-nameftpadeploy-manually-by-uploading-files-with-ftp"></a><a name="ftp"></a>Déployer manuellement en chargeant des fichiers avec FTP
 Si vous êtes habitué à copier manuellement votre contenu web sur un serveur web, vous pouvez utiliser un utilitaire [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers, notamment l’Explorateur Windows ou [FileZilla](https://filezilla-project.org/).
 
 Les avantages de la copie manuelle de fichiers sont :
@@ -59,7 +59,10 @@ Les inconvénients de la copie manuelle de fichiers sont :
 * Aucun historique de déploiement intégré pour résoudre les problèmes de déploiement.
 * Des délais de déploiement potentiellement plus longs car de nombreux outils FTP ne sont pas dotés de la copie différentielle, et se contentent de copier tous les fichiers.  
 
-### <a name="a-namehowtoftpahow-to-deploy-by-copying-files-to-azure-manually"></a><a name="howtoftp"></a>Comment assurer le déploiement par copie manuelle des fichiers dans Azure
+### <a name="a-namehowtoftpahow-to-upload-files-with-ftp"></a><a name="howtoftp"></a>Comment charger des fichiers avec FTP
+Le [Portail Azure](https://portal.azure.com) vous permet d’obtenir toutes les informations nécessaires pour vous connecter aux répertoires de votre application à l’aide de FTP ou de FTPS.
+
+* [Déployer votre application dans Azure App Service avec FTP](app-service-deploy-ftp.md)
 
 ## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Déploiement par synchronisation avec un dossier cloud
 Une bonne alternative à la [copie manuelle de fichiers](#ftp) consiste à synchroniser les fichiers et les dossiers avec App Service en utilisant un service de stockage hébergé sur le cloud comme OneDrive et Dropbox. La synchronisation avec un dossier de cloud utilise le processus de Kudu pour le déploiement (voir [Vue d’ensemble du processus de déploiement](#overview)).
@@ -90,7 +93,7 @@ Les avantages du déploiement à partir d’un système de contrôle source sont
 * Le déploiement de branche spécifique permet de déployer différentes branches à différents [emplacements](web-sites-staged-publishing.md).
 * Toutes les fonctionnalités du moteur de déploiement Kudu sont disponibles (par exemple, le contrôle de version de déploiement, la restauration, la restauration de package, l’automatisation).
 
-Inconvénient du déploiement à partir d’un service de contrôle de source de cloud :
+L’inconvénient du déploiement à partir d’un service de contrôle de source de cloud est :
 
 * Implique une certaine connaissance du service SCM respectif.
 
@@ -98,6 +101,8 @@ Inconvénient du déploiement à partir d’un service de contrôle de source de
 Dans le [portail Azure](https://portal.azure.com), vous pouvez configurer un déploiement continu à partir de GitHub, Bitbucket et Visual Studio Team Services.
 
 * [Déploiement continu vers Azure App Service](app-service-continuous-deployment.md). 
+
+Pour savoir comment configurer manuellement le déploiement continu à partir d’un référentiel cloud non répertorié par le portail Azure (tel que [GitLab](https://gitlab.com/)), consultez la rubrique sur la[configuration manuelle du déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="a-namelocalgitdeploymentadeploy-from-local-git"></a><a name="localgitdeployment"></a>Déployer à partir de Git local
 Si votre équipe de développement utilise un service de gestion du code source local (SCM) basé sur Git, vous pouvez le configurer comme une source de déploiement pour App Service. 
@@ -155,58 +160,21 @@ Microsoft permet de déployer des applications web sur Azure directement à part
 * [Créer une application web « Hello World » pour Azure dans IntelliJ](app-service-web-intellij-create-hello-world-web-app.md). Ce didacticiel vous montre comment utiliser le Kit de ressources Azure pour Eclipse pour créer une application web Hello World pour Azure.
 
 ## <a name="a-nameautomateaautomate-deployment-by-using-command-line-tools"></a><a name="automate"></a>Automatiser le déploiement à l’aide d’outils en ligne de commande
-* [Automatiser le déploiement avec MSBuild](#msbuild)
-* [Copier des fichiers avec des scripts et des outils FTP](#ftp)
-* [Automatiser le déploiement avec Windows PowerShell](#powershell)
-* [Automatiser le déploiement avec l’API de gestion .NET](#api)
-* [Déploiement à partir de l’interface de ligne de commande Azure](#cli)
-* [Déploiement à partir de la ligne de commande Web Deploy](#webdeploy)
-* [Utilisation des scripts de commandes FTP](http://support.microsoft.com/kb/96269).
+Si vous préférez utiliser le terminal de ligne de commande comme environnement de développement, vous pouvez exécuter des tâches de déploiement pour votre application App Service en utilisant des outils de ligne de commande. 
 
-Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+Les avantages du déploiement à l’aide d’outils en ligne de commande sont :
 
-### <a name="a-namemsbuildaautomate-deployment-with-msbuild"></a><a name="msbuild"></a>Automatiser le déploiement avec MSBuild
-Si vous utilisez l’[IDE Visual Studio](#vs) pour le développement, vous pouvez utiliser [MSBuild](http://msbuildbook.com/) pour automatiser tout ce que vous pouvez faire dans votre IDE. Vous pouvez configurer MSBuild pour utiliser [Web Deploy](#webdeploy) ou [FTP/FTPS](#ftp) pour copier vos fichiers. Web Deploy peut également automatiser de nombreuses autres tâches de déploiement, comme le déploiement des bases de données.
+* L’utilisation de scénarios de déploiement sur la base d’un script.
+* L’intégration de l’approvisionnement des ressources Azure et du déploiement de code.
+* Le déploiement du déploiement Azure dans des scripts d’intégration en continu existants.
 
-Pour plus d'informations sur le déploiement en ligne de commande avec MSBuild, consultez les ressources suivantes :
+Les inconvénients du déploiement à l’aide d’outils en ligne de commande sont :
 
-* [Déploiement Web ASP.NET en utilisant Visual Studio : déploiement en ligne de commande](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)(en anglais). Une série d'une dizaine de didacticiels sur le déploiement dans Azure avec Visual Studio. Montre comment utiliser la ligne de commande pour le déploiement après la configuration de profils de publication dans Visual Studio.
-* [Présentation de Microsoft Build Engine : utilisation de MSBuild et Team Foundation Build](http://msbuildbook.com/). Manuel comportant des chapitres sur l'utilisation de MSBuild pour le déploiement.
+* Une difficulté accrue pour les développeurs qui préfèrent l’interface utilisateur graphique.
 
-### <a name="a-namepowershellaautomate-deployment-with-windows-powershell"></a><a name="powershell"></a>Automatiser le déploiement avec Windows PowerShell
-Vous pouvez utiliser des fonctions de déploiement MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
+### <a name="a-nameautomatehowahow-to-automate-deployment-with-command-line-tools"></a><a name="automatehow"></a>Comment automatiser le déploiement avec des outils en ligne de commande
 
-Pour plus d’informations, consultez les ressources suivantes :
-
-* [Déployer une application Web liée à un référentiel GitHub](app-service-web-arm-from-github-provision.md)
-* [Mettre en service une application Web avec une base de données SQL](app-service-web-arm-with-sql-database-provision.md)
-* [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-deploy-complex-application-predictably.md)
-* [Tout automatiser (développement d'applications de cloud concrètes avec Azure)](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Chapitre d'un livre électronique expliquant comment l'exemple d'application contenu dans le livre utilise des scripts Windows PowerShell pour créer un environnement de test Azure et y procéder à un déploiement. Consultez la section [Ressources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) pour obtenir des liens vers une documentation Azure PowerShell supplémentaire.
-* [Utilisation des scripts Windows PowerShell pour la publication dans des environnements de développement et de test](../vs-azure-tools-publishing-using-powershell-scripts.md). Explique comment utiliser les scripts Windows PowerShell générés par Visual Studio.
-
-### <a name="a-nameapiaautomate-deployment-with-net-management-api"></a><a name="api"></a>Automatiser le déploiement avec l’API de gestion .NET
-Vous pouvez écrire un code C# pour utiliser des fonctions MSBuild ou FTP pour vos déploiements. Ce faisant, vous pouvez accéder à l'API REST de gestion Azure pour utiliser des fonctions de gestion de site.
-
-Pour plus d'informations, consultez les ressources suivantes :
-
-* [Tout automatiser avec les bibliothèques de gestion Azure et .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Présente l’API de gestion .NET et fournit des liens vers d’autres documentations.
-
-### <a name="a-namecliadeploy-from-azure-command-line-interface-azure-cli"></a><a name="cli"></a>Déploiement à partir de l’interface de ligne de commande Azure
-Vous pouvez utiliser la ligne de commande avec des ordinateurs Windows, Mac ou Linux pour vos déploiements en utilisant le FTP. Ce faisant, vous pouvez également accéder à l'API de gestion REST Azure en utilisant l'interface en ligne de commande interplateforme.
-
-Pour plus d'informations, consultez les ressources suivantes :
-
-* [Outils en ligne de commande Azure](https://azure.microsoft.com/downloads/). Page du portail Azure.com qui fournit des informations sur les outils en ligne de commande.
-
-### <a name="a-namewebdeployadeploy-from-web-deploy-command-line"></a><a name="webdeploy"></a>Déploiement à partir de la ligne de commande Web Deploy
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) est un logiciel Microsoft pour le déploiement dans IIS qui fournit des fonctionnalités de synchronisation des fichiers intelligentes et effectue ou coordonne également de nombreuses autres tâches liées au déploiement qui ne peuvent pas être automatisées lorsque vous utilisez le FTP. Par exemple, Web Deploy peut déployer une nouvelle base de données ou mettre à jour une base de données existante avec votre application web. Web Deploy peut également réduire le délai de mise à jour d'un site existant, en copiant uniquement les fichiers modifiés. Microsoft Visual Studio et Team Foundation Server prennent en charge le logiciel Web Deploy intégré, mais vous pouvez également utiliser Web Deploy directement depuis la ligne de commande pour automatiser le déploiement. Les commandes Web Deploy sont très efficaces, mais leur apprentissage peut être long.
-
-Pour plus d'informations, consultez les ressources suivantes :
-
-* [Web Apps en toute simplicité : déploiement](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/)(en anglais). Blog de David Ebbo sur un outil, qu’il a conçu pour faciliter l’utilisation de Web Deploy.
-* [Outils de déploiement Web](http://technet.microsoft.com/library/dd568996). Documentation officielle sur le site Microsoft TechNet. Ancien, mais constitue un bon point de départ.
-* [Utilisation de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentation officielle sur le site Microsoft IIS.NET. Également ancien, mais constitue un bon point de départ.
-* [Déploiement Web ASP.NET en utilisant Visual Studio : déploiement en ligne de commande](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)(en anglais). MSBuild est le moteur de génération utilisé par Visual Studio, mais il peut aussi être utilisé à partir de la ligne de commande pour déployer des applications web dans Web Apps. Ce didacticiel fait partie d'une série traitant principalement des déploiements Visual Studio.
+Consultez la page [Automatiser le déploiement de votre application Azure avec les outils en ligne de commande](app-service-deploy-command-line.md) pour obtenir la liste des outils en ligne de commande et des liens vers des didacticiels. 
 
 ## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Étapes suivantes
 Dans certains cas, vous souhaiterez probablement pouvoir basculer facilement entre une version intermédiaire et de production de votre application. Pour plus d’informations, consultez [Configurer des environnements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
@@ -215,17 +183,9 @@ Posséder un programme de sauvegarde et de restauration établi représente une 
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure afin de gérer l’accès au déploiement App Service, consultez [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/)(RBAC et publication Web Apps).
 
-<a name="see-also"></a>
-
-## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
-
-<!-- URL List -->
-
-[Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

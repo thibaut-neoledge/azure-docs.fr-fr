@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: ebee9b7d45cae0259968313b0908be148f47d6b3
 
 
 ---
@@ -38,7 +38,7 @@ Ces ressources incluent des expériences, des modules personnalisés, des API, d
 
  Chaque page de secteur affiche une liste des éléments de Galerie les plus populaires pour ce secteur.
 Cliquez sur **Afficher tout** pour afficher toutes les ressources spécifiques au secteur dans la galerie.
-À partir de cette page, vous pouvez parcourir toutes les ressources de la Galerie, ou vous pouvez effectuer des recherches en sélectionnant des critères de filtre sur la gauche de la page, puis en saisissant les termes de recherche en haut.
+Sur cette page, vous pouvez parcourir toutes les ressources de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
 ![Partager cet élément avec des amis](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
@@ -53,6 +53,6 @@ Cliquez sur **Afficher tout** pour afficher toutes les ressources spécifiques a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

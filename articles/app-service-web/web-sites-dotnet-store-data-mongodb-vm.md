@@ -16,29 +16,29 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c5ce6c8024026e8fb88a2c6e8e5475c8aba7aa30
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5ce82ddd2f58fed338bd061fa963978aa63e5fdc
 
 
 ---
 # <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>Création d’une application Web Azure se connectant à MongoDB exécuté sur une machine virtuelle
-Git vous permet de déployer une application ASP.NET sur Azure App Service Web Apps. Ce didacticiel vous apprend à créer une simple application frontale de liste de tâches ASP.NET MVC se connectant à une base de données MongoDB exécutée sur une machine virtuelle dans Azure.  [MongoDB][MongoDB] est une base de données NoSQL libre qui offre des performances élevées. Après avoir exécuté et testé l’application ASP.NET sur votre ordinateur de développement, vous téléchargerez l’application vers App Service Web Apps à l’aide de Git.
+Git vous permet de déployer une application ASP.NET sur Azure App Service Web Apps. Ce didacticiel vous apprend à créer une simple application frontale de liste de tâches ASP.NET MVC se connectant à une base de données MongoDB exécutée sur une machine virtuelle dans Azure.  [MongoDB][MongoDB] est une base de données NoSQL open-source qui offre des performances élevées. Après avoir exécuté et testé l’application ASP.NET sur votre ordinateur de développement, vous téléchargerez l’application vers App Service Web Apps à l’aide de Git.
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
 ## <a name="background-knowledge"></a>Connaissances générales
 Dans le cadre de ce didacticiel, la connaissance des éléments suivants est utile, mais pas obligatoire :
 
-* Pilote C# pour MongoDB Pour plus d’informations sur le développement d’applications C# sur MongoDB, reportez-vous au [CSharp Language Center][MongoC#LangCenter]. 
+* Pilote C# pour MongoDB Pour plus d’informations sur le développement d’applications C# sur MongoDB, reportez-vous au [CSharp Language Center][MongoC#LangCenter] de MongoDB. 
 * Infrastructure de développement d'applications Web ASP .NET Pour plus d’informations, consultez le [site web ASP.net][ASP.NET].
 * Infrastructure de développement d'applications Web ASP .NET MVC Pour plus d’informations, consultez le [site web ASP.NET MVC][MVCWebSite].
 * Azure. Pour commencer, lisez les informations relatives à [Azure][WindowsAzure].
 
 ## <a name="prerequisites"></a>Composants requis
-* [Visual Studio Express 2013 pour le Web ou ][VSEWeb] ou [Visual Studio 2013][VSUlt]
+* [Visual Studio Express 2013 pour le web][VSEWeb] ou [Visual Studio 2013][VSUlt]
 * [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 * Un abonnement Microsoft Azure actif
 
@@ -413,7 +413,7 @@ Dans l' **Explorateur de solutions**, ouvrez le fichier *DAL/Dal.cs* . Recherche
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-Remplacez `<vm-dns-name>` par le nom DNS de la machine virtuelle exécutant MongoDB, que vous avez créée à l’étape [Création d’une machine virtuelle et installation de MongoDB][Création d’une machine virtuelle et installation de MongoDB] de ce didacticiel.  Pour rechercher le nom DNS de votre machine virtuelle, accédez au portail Azure, sélectionnez **Machines virtuelles** et recherchez **Nom DNS**.
+Remplacez `<vm-dns-name>` par le nom DNS de la machine virtuelle exécutant MongoDB, que vous avez créée à l’étape [Création d’une machine virtuelle et installation de MongoDB][Create a virtual machine and install MongoDB] de ce didacticiel.  Pour rechercher le nom DNS de votre machine virtuelle, accédez au portail Azure, sélectionnez **Machines virtuelles** et recherchez **Nom DNS**.
 
 Si le nom DNS de la machine virtuelle correspond à « testlinuxvm.cloudapp.net » et que MongoDB écoute sur le port par défaut 27017, la ligne de code de la chaîne de connexion se présente comme suit :
 
@@ -423,7 +423,7 @@ Si le point de terminaison de la machine virtuelle spécifie un port externe dif
 
      private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-Pour plus d’informations sur les chaînes de connexion MongoDB, consultez la rubrique [Connexions][MongoConnectionStrings].
+Pour plus d’informations sur les chaînes de connexion MongoDB, consultez la rubrique [Connections][MongoConnectionStrings].
 
 ## <a name="test-the-local-deployment"></a>Test du déploiement local
 Pour exécuter l’application sur votre ordinateur de développement, sélectionnez **Démarrer le débogage** dans le menu **Déboguer** ou appuyez sur **F5**. IIS Express démarre et un navigateur s'ouvre et lance la page d'accueil de l'application.  Vous pouvez ajouter une nouvelle tâche qui sera ajoutée à la base de données MongoDB exécutée sur votre machine virtuelle dans Azure.
@@ -445,7 +445,7 @@ Vous avez déployé votre application ASP.NET sur Azure App Service Web Apps
 2. Cliquez sur **Applications Web**. 
 3. Sélectionnez votre application Web dans la liste **Applications Web** .
 
-Pour plus d’informations sur le développement d’applications C# sur MongoDB, reportez-vous au [CSharp Language Center][MongoC#LangCenter]. 
+Pour plus d’informations sur le développement d’applications C# sur MongoDB, reportez-vous à [CSharp Language Center][MongoC#LangCenter]. 
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -478,17 +478,17 @@ Pour plus d’informations sur le développement d’applications C# sur MongoDB
 [WAWSCreateWebSite]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png
 [WAWSDashboardMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png
 [Image9]: ./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png
-[image10]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
-[image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
+[Image10]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
+[Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
 
 <!-- TOC BOOKMARKS -->
-[Création d’une machine virtuelle et installation de MongoDB]: #virtualmachine
-[Création et exécution de l’application My Task List ASP.NET sur votre ordinateur de développement]: #createapp
-[Création d’un site web Azure]: #createwebsite
-[Déploiement de l’application ASP.NET sur le site web à l’aide de Git]: #deployapp
+[Create a virtual machine and install MongoDB]: #virtualmachine
+[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create an Azure web site]: #createwebsite
+[Deploy the ASP.NET application to the web site using Git]: #deployapp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery | Documents Microsoft"
+title: "Répliquer des serveurs physiques et des machines virtuelles VMware sur Azure dans le portail Classic | Microsoft Docs"
 description: "Cet article décrit comment déployer Azure Site Recovery pour orchestrer la réplication, le basculement et la récupération de machines virtuelles VMware ou des serveurs physiques Windows/Linux locaux vers Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 70ccb773b70f1b58f039ea5f4aca488d91fa3dad
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: e794f44cbf0b5e76c8a67e6e63129efb12090df8
 
 
 ---
@@ -250,7 +250,7 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 >
 
 
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. Sur la page **Démarrage rapide** , téléchargez le fichier d’installation unifiée sur le serveur.
@@ -296,7 +296,7 @@ Si vous souhaitez répliquer des machines VMware virtuelles, installez les compo
 3. Dans **Emplacement d’installation**, sélectionnez l’emplacement où vous voulez installer les fichiers binaires et stocker le cache. Vous pouvez sélectionner un lecteur qui dispose d’au moins 5 Go de stockage disponible. Toutefois, nous vous recommandons d’utiliser un lecteur de cache présentant au moins 600 Go d’espace disponible.
 
    ![Emplacement d’installation](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
-4. Dans **Sélection du réseau** , spécifiez l’écouteur (carte réseau et port SSL) sur lequel le serveur de configuration envoie et reçoit les données de réplication. Vous pouvez modifier la valeur par défaut du port (9443). En plus de ce port, le port 443 sera utilisé par un serveur web qui gère les opérations de réplication. Le port 443 ne doit pas être utilisé pour la réception du trafic de réplication.
+4. Dans **Sélection du réseau** , spécifiez l’écouteur (carte réseau et port SSL) sur lequel le serveur de configuration envoie et reçoit les données de réplication. Vous pouvez modifier la valeur par défaut du port (9443). En plus de ce port, le port 443 sera utilisé par un serveur web qui gère les opérations de réplication. Le port&443; ne doit pas être utilisé pour la réception du trafic de réplication.
 
     ![Sélection du réseau](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
@@ -335,7 +335,7 @@ Où :
 * /ProxySettingsFilePath. facultatif. Spécifie les paramètres pour un proxy personnalisé (proxy par défaut sur le serveur qui requiert l’authentification ou proxy personnalisé)
 
 ## <a name="step-6-set-up-credentials-for-the-vcenter-server"></a>Étape 6 : Configurer des informations d’identification pour le serveur vCenter
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ Si vous répliquez des machines virtuelles VMware, vous devez ajouter un serveur
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## <a name="step-8-create-a-protection-group"></a>Étape 8 : Créer un groupe de protection
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -589,7 +589,7 @@ Vous pouvez aussi contrôler l’état de la protection dans la zone **Élément
      * Si la carte réseau de l’ordinateur source est configurée pour utiliser une adresse IP statique, vous pouvez spécifier une adresse IP statique pour la machine virtuelle Azure. Si vous ne fournissez pas d’adresse IP statique, alors n’importe quelle adresse IP disponible sera allouée. Si l’adresse IP cible est spécifiée, mais qu’elle est déjà utilisée par une autre machine virtuelle dans Azure, le basculement échoue. Si la carte réseau de l’ordinateur source est configurée pour utiliser le protocole DHCP, vous aurez une configuration DHCP pour Azure.
 
 ## <a name="step-12-create-a-recovery-plan-and-run-a-failover"></a>Étape 12 : Créer un plan de récupération et exécuter le basculement.
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 
@@ -722,6 +722,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 
 
 ---
@@ -27,7 +27,7 @@ Découvrez comment créer un modèle de régression simple pour prédire le prix
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ Nous dessinons ensuite un axe vertical pour représenter le prix et le connecter
 
 Maintenant , nous allons utiliser ces données et les transformer en un *nuage de points*. Il s’agit d’un excellent moyen de visualiser des jeux de données numériques.
 
-Pour le premier point de données, nous visualisons une ligne verticale à 1,01 carat. Puis nous visualisons une ligne horizontale à 7 366 $. Nous dessinons un point à l’endroit où elles se rencontrent. Il représente le premier diamant.
+Pour le premier point de données, nous visualisons une ligne verticale à 1,01 carat. Puis nous visualisons une ligne horizontale à&7;&366; $. Nous dessinons un point à l’endroit où elles se rencontrent. Il représente le premier diamant.
 
 Ensuite, nous procédons de la même manière avec chaque diamant de la liste. Lorsque nous en avons terminé, voici ce que nous obtenons : un ensemble de points représentant chacun un diamant.
 
@@ -136,6 +136,6 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

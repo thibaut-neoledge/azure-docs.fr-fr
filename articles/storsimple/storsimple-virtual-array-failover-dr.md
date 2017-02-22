@@ -1,5 +1,5 @@
 ---
-title: "Basculement d’appareil et récupération d’urgence pour Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
+title: "Basculement d’appareil et récupération d’urgence pour StorSimple Virtual Array | Microsoft Docs"
 description: En savoir plus sur le basculement de votre StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 34de93b8133649aaedc3cb89a8cd478eda92c7aa
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Basculement d'appareil et  récupération d'urgence pour votre StorSimple Virtual Array
@@ -76,7 +76,7 @@ Avant le début de la récupération d’urgence, l’appareil effectue des vér
   
   * d’un serveur iSCSI
   * Validité du nom IQN (moins de 220 caractères)
-  * Validité des mots de passe CHAP (12 à 16 caractères)
+  * Validité des mots de passe CHAP (12 à&16; caractères)
 
 Si l’une des vérifications préalables ci-dessus échoue, vous ne pouvez pas procéder à la récupération d’urgence. Vous devez résoudre ces problèmes, puis réessayer d’exécuter la récupération d’urgence.
 
@@ -182,6 +182,6 @@ En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’in
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

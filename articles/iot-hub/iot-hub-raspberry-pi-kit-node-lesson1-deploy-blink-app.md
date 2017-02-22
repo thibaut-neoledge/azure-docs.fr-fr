@@ -1,5 +1,7 @@
 ---
-title: "Création et déploiement de l’application de clignotement | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 1 : Déployer une application | Microsoft Docs"
 description: "Clonez l’exemple d’application Node.js à partir de GitHub et utilisez gulp pour déployer cette application sur votre carte Raspberry Pi 3. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -124,7 +126,7 @@ Procédez comme suit pour configurer la connexion de l’appareil :
 Félicitations ! Vous avez créé le premier exemple d’application pour Pi.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
-### <a name="install-nodejs-and--on-pi"></a>Installation de Node.js et NPM sur Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Installez Node.js et NPM sur Pi
 Installez Node.js et NPM sur Pi en exécutant la commande suivante :
 
 ```bash
@@ -153,6 +155,6 @@ Vous avez installé les outils nécessaires pour travailler avec Pi et déployé
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

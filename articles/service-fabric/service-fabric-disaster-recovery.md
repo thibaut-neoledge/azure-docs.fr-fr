@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/29/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3e8fe622bdd6ecba01bc08b26a243c592c3c8b
+ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
+ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
 
 
 ---
@@ -41,7 +41,7 @@ Vous pouvez visualiser la disposition de votre cluster dans les domaines d’err
 > 
 
 ### <a name="geographic-distribution"></a>Répartition géographique
-Il existe actuellement [26 régions Azure dans le monde][azure-regions], et plusieurs autres sont annoncées. Une région peut contenir un ou plusieurs centres de données physiques en fonction de la demande et de la disponibilité des emplacements appropriés (entre autres facteurs). Notez toutefois que même dans les régions qui comptent plusieurs centres de données physiques, il n’existe aucune garantie que les machines virtuelles de votre cluster soient réparties uniformément parmi ces emplacements physiques. En effet, actuellement, toutes les machines virtuelles d’un cluster donné sont approvisionnées sur un site physique unique.
+Il existe actuellement [30 régions Azure dans le monde][azure-regions], et plusieurs autres sont annoncées. Une région peut contenir un ou plusieurs centres de données physiques en fonction de la demande et de la disponibilité des emplacements appropriés (entre autres facteurs). Notez toutefois que même dans les régions qui comptent plusieurs centres de données physiques, il n’existe aucune garantie que les machines virtuelles de votre cluster soient réparties uniformément parmi ces emplacements physiques. En effet, actuellement, toutes les machines virtuelles d’un cluster donné sont approvisionnées sur un site physique unique.
 
 ## <a name="dealing-with-failures"></a>Gestion des défaillances
 Plusieurs types de défaillances peuvent avoir un impact sur votre cluster, chacune avec sa propre atténuation. Nous allons les examiner par ordre de probabilité.
@@ -55,7 +55,7 @@ Même si les domaines d’erreur réduisent considérablement les risques de dé
 En règle générale, tant que la majorité des nœuds restent disponibles, le cluster continue à fonctionner. Sa capacité est toutefois inférieure, car les réplicas avec état sont regroupés dans un plus petit groupe de machines et moins d’instances sans état sont disponibles pour répartir la charge.
 
 #### <a name="quorum-loss"></a>Perte de quorum
-Si une majorité des réplicas de la partition d’un service avec état tombe en panne, cette partition bascule dans un état appelé « perte de quorum ». À ce stade, Service Fabric cesse d’autoriser les écritures sur cette partition pour s’assurer que son état reste cohérent et fiable. En effet, nous choisissons d’accepter une période d’indisponibilité pour nous assurer que les clients ne sont pas informés que leurs données ont été enregistrées alors qu’elles ne l’ont pas été. Notez que si vous avez choisi d’autoriser les lectures à partir des réplicas secondaires pour ce service avec état, vous pouvez continuer à effectuer ces opérations de lecture dans cet état. Une partition reste à l’état de perte de quorum jusqu’à ce qu’un nombre suffisant de réplicas soient restaurés ou que l’administrateur du cluster force le système à continuer à l’aide de [l’API Repair-ServiceFabricPartition][repair-partition-ps].
+Si une majorité des réplicas de la partition d’un service avec état tombe en panne, cette partition bascule dans un état appelé « perte de quorum ». À ce stade, Service Fabric cesse d’autoriser les écritures sur cette partition pour s’assurer que son état reste cohérent et fiable. En effet, nous choisissons d’accepter une période d’indisponibilité pour nous assurer que les clients ne sont pas informés que leurs données ont été enregistrées alors qu’elles ne l’ont pas été. Notez que si vous avez choisi d’autoriser les lectures à partir des réplicas secondaires pour ce service avec état, vous pouvez continuer à effectuer ces opérations de lecture dans cet état. Une partition reste à l’état de perte de quorum jusqu’à ce qu’un nombre suffisant de réplicas soient restaurés ou que l’administrateur du cluster force le système à continuer à l’aide de l’[API Repair-ServiceFabricPartition][repair-partition-ps].
 
 > [!WARNING]
 > Si vous effectuez une action de réparation quand le réplica principal est hors service, des données sont perdues.
@@ -109,6 +109,6 @@ Parmi les causes de perte de données, les erreurs de code dans les services, le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

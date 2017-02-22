@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Création de rapports Azure Active Directory - version préliminaire
-> [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-reporting-azure-portal.md)
-> * [Portail Azure Classic](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
@@ -113,7 +109,7 @@ La méthode de recherche vous permet de centrer les connexions sur des **utilisa
 
 ![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## <a name="audit-logs"></a>Activités du système
+## <a name="audit-logs"></a>Journaux d’audit
 Les journaux d’audit dans Azure Active Directory fournissent des enregistrements des activités du système pour la conformité.
 
 Dans le portail Azure, les activités connexes à l’audit portent sur trois catégories principales :
@@ -126,15 +122,15 @@ Pour obtenir une liste complète des activités de rapport d’audit, consultez 
 
 Les **Journaux d’audit** dans la section **Activité** **d’Azure Active Directory** constituent votre point d’entrée pour toutes les données d’audit.
 
-![Audit](./media/active-directory-reporting-azure-portal/61.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/61.png "Audit")
 
 Un journal d’audit comporte un affichage de liste qui montre les acteurs (qui), les activités (quoi) et les cibles.
 
-![Audit](./media/active-directory-reporting-azure-portal/345.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/345.png "Audit")
 
 En cliquant sur un élément dans l’affichage de liste, vous pouvez obtenir plus d’informations sur cet élément.
 
-![Audit](./media/active-directory-reporting-azure-portal/873.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/873.png "Audit")
 
 ### <a name="users-and-groups-audit-logs"></a>Journaux d’audit des utilisateurs et des groupes
 Les rapports d’audit basés sur les utilisateurs et les groupes vous permettent d’obtenir des réponses aux questions telles que :
@@ -150,7 +146,7 @@ Les rapports d’audit basés sur les utilisateurs et les groupes vous permetten
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs et aux groupes, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de **Utilisateurs et groupes**.
 
-![Audit](./media/active-directory-reporting-azure-portal/93.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/93.png "Audit")
 
 ### <a name="application-audit-logs"></a>Journaux d’audit des applications
 Les rapports d’audit basés sur les applications vous permettent d’obtenir des réponses aux questions telles que :
@@ -163,7 +159,7 @@ Les rapports d’audit basés sur les applications vous permettent d’obtenir d
 
 Si vous souhaitez simplement consulter les données d’audit connexes aux applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de **Applications d’entreprise**.
 
-![Audit](./media/active-directory-reporting-azure-portal/134.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/134.png "Audit")
 
 ### <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
 Vous pouvez filtrer les connexions pour limiter la quantité de données affichées en utilisant les champs suivants :
@@ -173,7 +169,7 @@ Vous pouvez filtrer les connexions pour limiter la quantité de données affich�
 * Type d’activité
 * Activité
 
-![Audit](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/356.png "Audit")
 
 Le contenu de la liste **Type d’activité** est lié à votre point d’entrée pour ce panneau.  
 Si votre point d’entrée est Azure Active Directory, cette liste contient tous les types d’activités possibles :
@@ -186,16 +182,16 @@ Si votre point d’entrée est Azure Active Directory, cette liste contient tous
 * Stratégie
 * Autres
 
-![Audit](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/825.png "Audit")
 
 Les activités répertoriées sont limitées par type d’activité.
 Par exemple, si vous avez **groupe** sélectionné comme **Type d’activité**, la liste **Activité** contient uniquement le groupe des activités associées.   
 
-![Audit](./media/active-directory-reporting-azure-portal/654.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/654.png "Audit")
 
 Une autre méthode de filtrage des entrées d’un journal d’audit consiste à rechercher des entrées spécifiques.
 
-![Audit](./media/active-directory-reporting-azure-portal/237.png "Auditing")
+![Audit](./media/active-directory-reporting-azure-portal/237.png "Audit")
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
@@ -203,6 +199,6 @@ Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-rep
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

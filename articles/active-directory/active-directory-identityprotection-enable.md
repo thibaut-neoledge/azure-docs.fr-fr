@@ -6,18 +6,17 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7321e73bf30e8cba5a7a61a6705d285617f70122
+ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
+ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
 
 
 ---
@@ -32,16 +31,16 @@ Cette rubrique explique comment activer Azure Active Directory Identity Protecti
 1. [Connectez-vous](https://ms.portal.azure.com/) à votre portail Azure en tant qu’administrateur global. 
 2. Dans le portail Azure, cliquez sur **Marketplace**.
    
-    ![Créer](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![Créer](./media/active-directory-identityprotection-enable/01.png "créer")
 3. Dans la liste des applications, cliquez sur **Sécurité + Identité**.
    
-    ![Créer](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![Créer](./media/active-directory-identityprotection-enable/02.png "créer")
 4. Cliquez sur **Azure AD Identity Protection**.
    
-    ![Créer](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![Créer](./media/active-directory-identityprotection-enable/03.png "créer")
 5. Dans le panneau **d’Azure AD Identity Protection**, cliquez sur **Créer**.
    
-    ![Créer](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Créer](./media/active-directory-identityprotection-enable/04.png "créer")
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
@@ -49,6 +48,6 @@ Cette rubrique explique comment activer Azure Active Directory Identity Protecti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

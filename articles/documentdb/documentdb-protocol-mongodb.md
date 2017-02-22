@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/16/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0703fa4f4d3eb9f23aa9b3c0b90267fac9557f13
-ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
+ms.sourcegitcommit: 2de367287a4bee05694070dbeeb4d4a458d47f11
+ms.openlocfilehash: 38d811a7a08a6f8a6dd07a29e9a49bb34810ee91
 
 
 ---
@@ -33,6 +33,12 @@ Les bases de données DocumentDB peuvent désormais être utilisées comme magas
 **Qualité professionnelle** : DocumentDB prend en charge plusieurs réplicas locaux pour fournir une disponibilité de 99,99 % et une protection des données en cas de défaillances locales et régionales. DocumentDB offre des [certifications de conformité](https://www.microsoft.com/trustcenter) et des fonctionnalités de sécurité de qualité professionnelle. 
 
 **Compatibilité avec MongoDB** : la prise en charge du protocole DocumentDB pour MongoDB est conçue pour assurer la compatibilité avec MongoDB. Vous pouvez utiliser votre code, vos applications, vos pilotes et vos outils existants pour travailler avec DocumentDB. 
+
+En savoir plus dans cette vidéo Azure Friday avec Scott Hanselman et Kirill Gavrylyuk, responsable principal de l’ingénierie DocumentDB.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> 
+
 
 ## <a name="how-to-get-started"></a>Pour commencer
 Créez un compte DocumentDB avec prise en charge du protocole pour MongoDB dans le [portail Azure](https://portal.azure.com), puis permutez la connexion vers votre nouveau compte. 
@@ -50,6 +56,6 @@ Pour plus des instructions plus détaillées, suivez [Créer un compte](document
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

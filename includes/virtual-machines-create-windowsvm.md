@@ -8,7 +8,7 @@
    
    * **nom de la machine virtuelle** peut contenir uniquement des lettres, des chiffres et des traits d'union. Il doit commencer par une lettre et se terminer par une lettre ou un chiffre.
    * **Nouveau nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Le mot de passe doit compter 8 à 123 caractères et au moins trois des types de caractère suivants : un caractère minuscule, un caractère majuscule, un chiffre et un caractère spécial. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter et vous identifier sur la machine virtuelle**.
-   * La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour plus d’informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 6. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Voici quelques conseils :
    
    * Le **Nom du cloud Service DNS** est le nom DNS global qui devient un élément de l'URI utilisé pour contacter la machine virtuelle. Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Les services cloud sont importants pour les scénarios utilisant [plusieurs machines virtuelles](../articles/virtual-machines/virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -27,6 +27,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

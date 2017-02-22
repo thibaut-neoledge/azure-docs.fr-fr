@@ -1,5 +1,5 @@
 ---
-title: "Scénarios du processus de science des données Azure en action dans Azure Machine Learning | Microsoft Docs"
+title: "Identifier des scénarios d’analyses avancées pour Azure Machine Learning | Microsoft Docs"
 description: "Sélectionnez les scénarios appropriés pour l’analyse prédictive avancée à l’aide du processus TDSP (Team Data Science Process)."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cadfc4e94e425abf2b6b2268fe3478e92ef47f
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
 
 
 ---
@@ -194,7 +194,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 2. Dans l’Explorateur Windows ou l’invite de commandes Windows, copiez les fichiers de la base de données détachée et les fichiers journaux à l’emplacement cible sur la machine virtuelle SQL Server dans Azure.
 3. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez la rubrique [Attacher une base de données](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
-[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)]](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
+[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
 ## <a name="a-namelargedbtohiveascenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Scénario \#7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
 ![Données volumineuses (« Big Data ») dans la base de données Hive cible locale][9]
@@ -268,6 +268,6 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

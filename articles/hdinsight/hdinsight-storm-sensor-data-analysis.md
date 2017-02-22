@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: b19e8b8e6f90ad502799fafd70ad6838d6e6ba4d
+ms.openlocfilehash: 215698f2089934eac549e36644f0bfd4247fe2b9
 
 
 ---
@@ -27,8 +27,8 @@ Le modèle Azure Resource Manager utilisé dans ce document montre comment crée
 
 > [!NOTE]
 > Les informations contenues dans ce document et l’exemple fourni ont été testés à l’aide de versions de cluster HDInsight sous Linux 3.3 et 3.4.
-> 
-> 
+>
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -95,7 +95,7 @@ Voici un schéma de cette solution :
 > [!NOTE]
 > Il s'agit d'un affichage très simplifié de la topologie. Au moment de l'exécution, une instance de chaque composant est créée pour chaque partition pour le hub d'événements en cours de lecture. Ces instances sont réparties entre les nœuds du cluster et les données sont acheminées entre eux comme suit :
 > 
-> * Les données du spout vers l'analyseur sont disposent d’un équilibrage de charges.
+> * Les données du spout vers l'analyseur disposent d’un équilibrage de charges.
 > * Les données de l’analyseur vers le tableau de bord et HBase sont regroupées par ID de périphérique afin que les messages issus du même périphérique passent toujours par le même composant.
 > 
 > 
@@ -224,8 +224,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
    
    > [!NOTE]
    > Cet exemple suppose que vous avez utilisé **sensordata** comme nom pour votre concentrateur d’événements, et **devices** comme nom pour la stratégie qui possède une revendication **Send**.
-   > 
-   > 
+
 3. Utilisez la commande suivante pour insérer de nouvelles entrées dans le hub d'événements :
    
         node app.js
@@ -272,7 +271,7 @@ Avant de tester, vous devez lancer le tableau de bord pour afficher la sortie de
 3. Après avoir vérifié que cela fonctionne, arrêtez la topologie en tapant Ctrl + C. Vous pouvez également utiliser Ctrl+C pour arrêter le serveur web local.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Créer un cluster Storm et HBase
-Pour exécuter la topologie sur HDInsight et activer le bolt HBase, vous devez créer un cluster Storm et un cluster HBase. Les étapes décrites dans cette section utilisent un [modèle Azure Resource Manager](../resource-group-template-deploy.md) pour créer un réseau virtuel Azure et des clusters Storm et HBase sur le réseau virtuel. Le modèle crée également une application web Azure et déploie une copie du tableau de bord dans celle-ci.
+Pour exécuter la topologie sur HDInsight et activer le bolt HBase, vous devez créer un cluster Storm et un cluster HBase. Les étapes décrites dans cette section utilisent un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) pour créer un réseau virtuel Azure et des clusters Storm et HBase sur le réseau virtuel. Le modèle crée également une application web Azure et déploie une copie du tableau de bord dans celle-ci.
 
 > [!NOTE]
 > Un réseau virtuel est utilisé afin que la topologie en cours d’exécution sur le cluster Storm puisse communiquer directement avec le cluster HBase à l’aide de l’API Java HBase.
@@ -283,7 +282,7 @@ Le modèle Resource Manager utilisé dans ce document se trouve dans un conteneu
 
 1. Cliquez sur le bouton suivant pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. À partir du panneau **Paramètres** , saisissez les informations suivantes :
    
     ![Paramètres HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -345,12 +344,11 @@ Afin de stocker des données dans HBase, nous devons tout d’abord créer une t
         exit
 
 ## <a name="configure-the-hbase-bolt"></a>Configuration du bolt HBase
-Pour écrire dans HBase à partir du cluster Storm , vous devez fournir le bolt HBase avec les détails de configuration de votre cluster HBase. Pour ce faire, le moyen le plus simple consiste à télécharger le fichier **hbase-site.XML** depuis le cluster et à l’inclure dans votre projet. Vous devez également supprimer les commentaires de plusieurs dépendances dans le fichier **pom.xml** , qui chargent le composant storm-hbase et les dépendances requises.
+
+Pour écrire dans HBase à partir du cluster Storm , vous devez fournir le bolt HBase avec les détails de configuration de votre cluster HBase. Pour ce faire, le moyen le plus simple consiste à télécharger le fichier **hbase-site.XML** depuis le cluster et à l’inclure dans votre projet. 
 
 > [!IMPORTANT]
 > Vous devez aussi télécharger le fichier storm-hbase.jar fourni sur votre cluster Storm sur HDInsight 3.3 ou 3.4 ; cette version est compilée pour fonctionner avec HBase 1.1.x, utilisé pour les clusters HBase sur HDInsight 3.3 et 3.4. Si vous utilisez un composant storm-hbase à partir d’un autre emplacement, il peut être compilé avec une version antérieure de HBase.
-> 
-> 
 
 ### <a name="download-the-hbase-sitexml"></a>Télécharger le fichier hbase-site.xml
 À partir d’une invite de commande, utilisez SCP pour télécharger le fichier **hbase-site.XML** depuis le cluster. Dans l’exemple suivant, remplacez **USERNAME** par l’utilisateur SSH fourni lors de la création du cluster et **BASENAME** par le nom de base que vous avez fourni précédemment. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH. Remplacez `/path/to/TemperatureMonitor/resources/hbase-site.xml` par le chemin d’accès à ce fichier dans le projet TemperatureMonitor.
@@ -373,33 +371,18 @@ Cela télécharge le fichier **hbase-site.XML** vers chemin d’accès spécifi�
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### <a name="enable-the-storm-hbase-component-in-the-project"></a>Activer le composant storm-hbase dans le projet
-1. Ouvrez le fichier **TemperatureMonitor/pom.xml** et supprimez les lignes suivantes :
-   
-        <!-- uncomment this section to enable the hbase-bolt
-        end comment for hbase-bolt section -->
-   
-   > [!IMPORTANT]
-   > Supprimez uniquement ces deux lignes ; ne supprimez pas les lignes comprises entre ces dernières.
-   > 
-   > 
-   
-    Cela permet d’activer plusieurs composants nécessaires à la communication avec HBase à l’aide du bolt hbase.
-2. Recherchez les lignes suivantes, puis remplacez **####** par le numéro de version du fichier storm-hbase que vous avez téléchargé précédemment.
-   
+3. Dans le fichier __pom.xml__, recherchez la section de dépendance pour __storm-hbase__. Supprimez les marques de commentaires de la dépendance en supprimant `<!--` et `-->` entourant la dépendance. Modifiez également l’entrée `<version></version>` pour faire correspondre le ### utilisé dans les étapes précédentes. L’entrée ressemblera à l’exemple suivant :
+
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-hbase</artifactId>
-            <version>####</version>
+            <version>0.10.0.2.4.2.4-5</version>
         </dependency>
-   
-   > [!IMPORTANT]
-   > Le numéro de version doit correspondre à la version que vous avez utilisée lors de l’installation du composant dans le référentiel Maven local, car Maven utilise ces informations pour charger le composant lors de la génération du projet.
-   > 
-   > 
-3. Enregistrez le fichier **pom.xml** .
+
+   Enregistrez le fichier après avoir apporté les modifications.
 
 ## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Génération, mise en package et déploiement de la solution vers HDInsight
+
 Dans votre environnement de développement, suivez les étapes ci-dessous pour déployer la topologie Storm vers le cluster Storm.
 
 1. Depuis le répertoire **TemperatureMonitor** , utilisez la commande suivante pour exécuter une nouvelle version et créer un package JAR à partir de votre projet :
@@ -409,7 +392,7 @@ Dans votre environnement de développement, suivez les étapes ci-dessous pour d
     Ceci va créer un fichier nommé **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** de votre projet.
 2. Utilisez SCP pour télécharger le fichier **TemperatureMonitor-1.0-SNAPSHOT.jar** vers votre cluster Storm. Dans l’exemple suivant, remplacez **USERNAME** par l’utilisateur SSH fourni lors de la création du cluster et **BASENAME** par le nom de base que vous avez fourni précédemment. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
    
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
+        scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
    
    > [!NOTE]
    > Le téléchargement du fichier peut prendre plusieurs minutes en raison de sa taille.
@@ -499,6 +482,6 @@ Vous savez désormais utiliser Storm pour lire des données à partir d’Event 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

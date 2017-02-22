@@ -1,5 +1,5 @@
 ---
-title: "Charge de travail de l’entrepôt de données"
+title: "Opérations Azure SQL Data Warehouse | Microsoft Docs"
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ Un des moyens de rendre les données disponibles pour les rapports et l’analys
 * Pour l’analyse, vous pouvez générer un cube d’analyse sur l’entrepôt de données puis exécuter l’analyse dans l’entrepôt de données, ou procéder au pré-traitement des données avant de les exporter vers le serveur d’analyse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][créer rapidement un SQL Data Warehouse] et [charger des exemples de données][charger des exemples de données].
+À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][create a SQL Data Warehouse] et [charger des exemples de données][load sample data].
 
 <!--Image references-->
 
 <!--Article references-->
-[charger des exemples de données]: ./sql-data-warehouse-load-sample-databases.md
-[créer rapidement un SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ Un des moyens de rendre les données disponibles pour les rapports et l’analys
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

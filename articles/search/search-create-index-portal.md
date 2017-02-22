@@ -11,11 +11,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/13/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d468d0cb2cf76bb90e73d3fef3f6a8c14d1850
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: cc439b5da8753b41f8d65781c567b4808f385078
 
 
 ---
@@ -32,11 +32,11 @@ Cet article vous explique comment créer un [index](search-what-is-an-index.md) 
 
 Avant de suivre ce guide et de passer à la création d’un index, vous devez avoir déjà [créé un service Azure Search](search-create-service-portal.md).
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Accéder au panneau Azure Search
+## <a name="go-to-your-azure-search-blade"></a>Accéder au panneau Azure Search
 1. Cliquez sur « Toutes les ressources » dans le menu de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Sélectionnez votre service Azure Search.
 
-## <a name="ii-add-and-name-your-index"></a>II. Ajouter et nommer l’index
+## <a name="add-and-name-your-index"></a>Ajouter et nommer l’index
 1. Cliquez sur le bouton « Ajouter un index ».
 2. Nommez votre index Azure Search. Puisque nous créons un index pour rechercher des hôtels dans ce guide, nous avons nommé notre index « hotels ».
    * Le nom de l’index doit commencer par une lettre et contenir uniquement des lettres minuscules, des chiffres ou des tirets (« - »).
@@ -45,7 +45,7 @@ Avant de suivre ce guide et de passer à la création d’un index, vous devez a
 
 ![](./media/search-create-index-portal/add-index.png)
 
-## <a name="iii-create-and-define-the-fields-of-your-index"></a>III. Créer et définir les champs de l’index
+## <a name="create-and-define-the-fields-of-your-index"></a>Créer et définir les champs de l’index
 1. Lorsque vous sélectionnez l’entrée « Champs », un nouveau panneau s’ouvre avec un formulaire qui vous permet d’entrer la définition de votre index.
 2. Ajoutez des champs à l’index à l’aide du formulaire.
    
@@ -62,12 +62,12 @@ Dans les captures d’écran ci-dessous, vous pouvez voir comment nous avons nom
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next"></a>Suivant
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

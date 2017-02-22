@@ -345,6 +345,6 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

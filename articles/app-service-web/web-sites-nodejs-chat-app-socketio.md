@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 81398cf3cc134ccd451a7173613c595f61cd2c23
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
 
 
 ---
@@ -283,10 +283,10 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [page de tarification de Web Apps]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Installation et configuration de l’interface de ligne de commande Azure]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../xplat-cli-install.md
 [Azure App Service et les services Azure existants]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centre pour développeurs Node.js]: /develop/nodejs/
-[Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Essayer App Service]: https://azure.microsoft.com/try/app-service/
 [Affinité d'instance dans Sites Web Azure]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Création d'un cache dans le cache Azure Redis]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
@@ -302,6 +302,6 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

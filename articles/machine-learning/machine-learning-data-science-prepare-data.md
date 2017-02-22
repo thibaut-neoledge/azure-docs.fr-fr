@@ -1,5 +1,5 @@
 ---
-title: "Tâches de préparation des données pour l&quot;apprentissage automatique amélioré | Microsoft Docs"
+title: "Nettoyer et préparer des données pour Azure Machine Learning | Microsoft Docs"
 description: "Prétraitez et nettoyez les données afin de les préparer pour l&quot;apprentissage automatique."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ffbee64cd43e0b5da09595638df771629daca38
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
 
 
 ---
@@ -106,6 +106,6 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

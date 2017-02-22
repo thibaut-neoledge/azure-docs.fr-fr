@@ -54,6 +54,6 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

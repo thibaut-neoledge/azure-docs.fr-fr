@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93cfd92687fdcad3f1f593a5c5c098850af4762f
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 134239990df959fe2657340eca4f2a8bf646a7b0
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Créer une application web PHP-MySQL dans Azure App Service et la déployer à l’aide de FTP
-Ce didacticiel vous indique comment créer une application web PHP-MySQL et comment la déployer à l’aide de FTP. Il part du principe que vous avez installé [PHP][install-php], [MySQL][install-mysql], un serveur web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+Ce didacticiel vous indique comment créer une application web PHP-MySQL et comment la déployer à l’aide de FTP. Il part du principe que vous avez installé [PHP][install-php], [MySQL][install-mysql], un serveur Web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -33,7 +33,7 @@ En suivant ce didacticiel, vous allez générer une application web d’inscript
 ![Site Web PHP Azure][running-app]
 
 > [!NOTE]
-> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement. 
+> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte, accédez au site [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise, et vous ne prenez aucun engagement. 
 > 
 > 
 
@@ -67,7 +67,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 * **index.php**: affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 * **createtable.php**: crée la table MySQL de l’application. Ce fichier sera utilisé une seule fois.
 
-Pour générer et exécuter l’application localement, suivez la procédure ci-après. Notez que ces étapes partent du principe que PHP, MySQL et un serveur web sont configurés sur votre ordinateur local et que vous avez activé l’[extension PDO pour MySQL][pdo-mysql].
+Pour générer et exécuter l’application localement, suivez la procédure ci-après. Notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont installés sur votre ordinateur local et que vous avez activé l’[extension PDO pour MySQL][pdo-mysql].
 
 1. Créez une base de données MySQL nommée `registration`. Pour cela, utilisez l'invite de commandes MySQL avec cette commande :
    
@@ -102,7 +102,7 @@ Pour générer et exécuter l’application localement, suivez la procédure ci-
    > Vous devrez mettre à jour les valeurs des champs <code>$user</code> et <code>$pwd</code> avec votre nom d’utilisateur et votre mot de passe MySQL locaux.
    > 
    > 
-4. Ouvrez un navigateur web et accédez à [http://localhost/registration/createtable.php][localhost-createtable]. La table `registration_tbl` est créée dans la base de données.
+4. Ouvrez un navigateur Web et accédez à [http://localhost/registration/createtable.php][localhost-createtable]. La table `registration_tbl` est créée dans la base de données.
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un IDE et ajoutez les codes HTML et CSS de base pour la page (le code PHP sera ajouté plus tard).
    
         <html>
@@ -197,7 +197,7 @@ Pour générer et exécuter l’application localement, suivez la procédure ci-
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Vous pouvez à présent accéder à [http://localhost/registration/index.php][localhost-index] pour tester l’application.
+Vous pouvez maintenant accéder à [http://localhost/registration/index.php][localhost-index] pour tester l’application.
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>Obtention des informations de connexion MySQL et FTP
 Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps, vous devez disposer des informations de connexion. Pour obtenir vos informations de connexion MySQL, procédez comme suit :
@@ -276,6 +276,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

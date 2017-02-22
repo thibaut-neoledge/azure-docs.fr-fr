@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1b1da346a253443c0b5eaf6f8a9a5a399923e760
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
-Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l’outil en ligne de commande MySQL (avec [MySQL][install-mysql]) et[Git][install-git] installé sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l’outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]), et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -35,7 +35,7 @@ En suivant ce didacticiel, vous allez générer une application web d’inscript
 ![Site Web PHP Azure][running-app]
 
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
-Ce didacticiel repose sur l’hypothèse que votre ordinateur est équipé de [PHP][install-php], de l’outil en ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et de [Git][install-git].
+Ce didacticiel part du principe que [PHP][install-php], l’outil de ligne de commande MySQL (qui fait partie de [MySQL][install-mysql]) et [Git][install-git] sont installés sur votre ordinateur.
 
 <a id="create-web-site-and-set-up-git"></a>
 
@@ -86,7 +86,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 
 * **index.php**: affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 
-Pour générer et exécuter l'application en local, procédez comme suit : Notez que ces étapes partent du principe que PHP et l’outil en ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre ordinateur local et que vous avez activé l’[extension PDO pour MySQL][pdo-mysql].
+Pour générer et exécuter l'application en local, procédez comme suit : Notez que ces étapes partent du principe que PHP et l’outil de ligne de commande MySQL (inclus dans MySQL) sont installés sur votre ordinateur local, et que vous avez activé l’[extension PDO pour MySQL][pdo-mysql].
 
 1. Connectez-vous au serveur MySQL distant en utilisant les valeurs `Data Source`, `User Id`, `Password` et `Database` récupérées précédemment :
    
@@ -234,7 +234,7 @@ Pour publier les modifications apportées à votre application, procédez comme 
     ![Site Web PHP Azure][running-app]
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -299,6 +299,6 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

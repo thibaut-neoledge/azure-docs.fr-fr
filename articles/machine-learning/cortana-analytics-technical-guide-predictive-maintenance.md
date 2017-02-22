@@ -1,5 +1,5 @@
 ---
-title: "Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité | Microsoft Docs"
+title: "Maintenance prédictive dans l’industrie aérospatiale avec Azure - Guide technique de la solution Cortana Intelligence | Microsoft Docs"
 description: "Guide technique d’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour la maintenance prédictive dans les secteurs de l’aérospatial, des services publics et du transport."
 services: cortana-analytics
 documentationcenter: 
@@ -15,12 +15,16 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4ad547656bb3675a8a636106b7e95e5392ab4c5
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
 
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
+
+## <a name="important"></a>**Important**
+Cet article est obsolète. Les informations sont toujours d’actualité pour la problématique, c’est-à-dire la maintenance prédictive dans l’aérospatiale, toutefois, le dernier article comportant les informations les plus récentes est disponible [ici](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). 
+
 ## <a name="acknowledgements"></a>**Remerciements**
 Cet article a été coécrit par les scientifiques de données Yan Zhang, Gauher Shaheen, Fidan Boylu Uz et par l’ingénieur logiciel Dan Grecoe chez Microsoft.
 
@@ -235,6 +239,6 @@ Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impli
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

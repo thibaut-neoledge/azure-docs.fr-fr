@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a7bf2a8d093b5d314fdd08f5012f0517a45e3579
+ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
+ms.openlocfilehash: a0d86046b471dec473fd707eedae061f9d1b9902
 
 
 ---
@@ -50,22 +50,22 @@ Cette section décrit l’activation de l’intégration d’applications pour W
    ![Applications](./media/active-directory-saas-workday-inbound-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter l’application](./media/active-directory-saas-workday-inbound-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-workday-inbound-tutorial/IC749321.png "Ajouter une application")
 5. Dans la zone de recherche, tapez **Workday**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-workday-inbound-tutorial/IC701021.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-workday-inbound-tutorial/IC701021.png "Ajouter une application à partir de la galerie")
 6. Dans le volet de résultats, sélectionnez Workday, puis cliquez sur Terminer pour ajouter l’application.
    
-    ![Galerie d’applications](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Application gallery")
+    ![Galerie d’applications](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Galerie d’applications")
 
 ## <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration 
 ### <a name="steps"></a>Étapes :
 1. Dans **Workday Workbench**, entrez Create user dans la zone de recherche, puis cliquez sur **Create Integration System User**. 
    
-    ![Créer un utilisateur](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
+    ![Créer un utilisateur](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Créer un utilisateur")
 2. Exécutez la tâche **Create Integration System User** en fournissant un nom d’utilisateur et un mot de passe pour un nouvel utilisateur du système d’intégration.  Laissez l’option Require New Password at Next Sign In désactivée, étant donné que cet utilisateur se connectera par programmation. Laissez la valeur par défaut de 0 pour l’option Session Timeout Minutes afin d’éviter que les sessions de l’utilisateur n’expirent prématurément. 
    
-    ![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
+    ![Créer un utilisateur de système d’intégration](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Créer un utilisateur de système d’intégration")
 
 ## <a name="creating-a-security-group"></a>Création d’un groupe de sécurité
 Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité système d’intégration sans contrainte et lui affecter l’utilisateur.
@@ -73,22 +73,22 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 ### <a name="steps"></a>Étapes :
 1. Entrez create security group dans la zone de recherche, puis cliquez sur **Create Security Group**. 
    
-    ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
+    ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "Créer un groupe de sécurité")
 2. Exécutez la tâche Create Security Group.  Sélectionnez Integration System Security Group—Unconstrained dans la liste déroulante Type of Tenanted Security Group pour créer un groupe de sécurité auquel des membres seront ajoutés de manière explicite. 
    
-    ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
+    ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "Créer un groupe de sécurité")
 
 ## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Affectation de l’utilisateur système d’intégration au groupe de sécurité
 ### <a name="steps"></a>Étapes :
 1. Entrez edit security group dans la zone de recherche, puis cliquez sur **Edit Security Group**. 
    
-    ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
+    ![Modifier un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Modifier un groupe de sécurité")
 2. Recherchez et sélectionnez le nouveau groupe de sécurité d’intégration par nom. 
    
-    ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Edit Security Group")
+    ![Modifier un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Modifier un groupe de sécurité")
 3. Ajoutez le nouvel utilisateur système d’intégration au nouveau groupe de sécurité. 
    
-    ![Groupe de sécurité système](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
+    ![Groupe de sécurité système](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Groupe de sécurité système")  
 
 ## <a name="configuring-security-group-options"></a>Configuration des options du groupe de sécurité
 À cette étape, vous accordez au nouveau groupe de sécurité des autorisations pour les opérations **Get** et **Put** sur les objets sécurisés par les stratégies de sécurité de domaine suivantes :
@@ -102,19 +102,19 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 ### <a name="steps"></a>Étapes :
 1. Entrez les stratégies de sécurité de domaine dans la zone de recherche, puis cliquez sur le lien, Domain Security Policies for Functional Area.  
    
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
+    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Stratégies de sécurité de domaine")  
 2. Recherchez system et sélectionnez la zone fonctionnelle **System** .  Cliquez sur **OK**.  
    
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Domain Security Policies")  
+    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Stratégies de sécurité de domaine")  
 3. Dans la liste des stratégies de sécurité de la zone fonctionnelle System, développez Security Administration et sélectionnez la stratégie de sécurité de domaine, External Account Provisioning.  
    
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
+    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Stratégies de sécurité de domaine")  
 4. Cliquez sur **Edit Permissions**, puis, sur la page de dialogue **Edit Permissions**, ajoutez le nouveau groupe de sécurité à la liste des groupes de sécurité avec autorisations d’intégration **Get** et **Put**. 
    
-    ![Modifier une autorisation](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
+    ![Modifier l’autorisation](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Modifier l’autorisation")  
 5. Répétez l’étape 1 ci-dessus pour revenir à l’écran de sélection des zones fonctionnelles. Cette fois, recherchez staffing, sélectionnez la zone fonctionnelle Staffing, puis cliquez sur **OK**.
    
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
+    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Stratégies de sécurité de domaine")  
 6. Dans la liste des stratégies de sécurité de la zone fonctionnelle Staffing, développez Worker Data: Staffing, et répétez l’étape 4 ci-dessus pour chacune des stratégies de sécurité restantes :
    
    * Worker Data: Public Worker Reports
@@ -122,7 +122,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
    * Worker Data: Current Staffing Information
    * Worker Data: Business Title on Worker Profile
 
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
+    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Stratégies de sécurité de domaine")  
 
 
 
@@ -134,13 +134,13 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 ### <a name="steps"></a>Étapes :
 1. Entrez activate dans la zone de recherche, puis cliquez sur le lien Activate Pending Security Policy Changes. 
    
-    ![Activer](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
+    ![Activer](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activer") 
 2. Commencez la tâche Activate Pending Security Policy Changes en entrant un commentaire à des fins d’audit, puis cliquez sur **OK**. 
    
-    ![Activer la sécurité en attente](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activate Pending Security")   
+    ![Activer la sécurité en attente](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activer la sécurité en attente")   
 3. Terminez la tâche sur l’écran suivant en cochant la case Confim, puis cliquez sur **OK**. 
    
-    ![Activer la sécurité en attente](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
+    ![Activer la sécurité en attente](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activer la sécurité en attente")  
 
 ## <a name="configuring-user-import-in-azure-ad"></a>Configuration de l’importation d’utilisateurs dans Azure AD
 Cette section décrit la configuration d’Azure AD pour importer des utilisateurs à partir de Workday.
@@ -149,7 +149,7 @@ Cette section décrit la configuration d’Azure AD pour importer des utilisateu
 1. Sur la page d’intégration d’application **Workday**, cliquez sur **Configurer l’importation d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement**.
 2. Sur la page **Paramètres et informations d’identification administrateur**, procédez comme suit, puis cliquez sur **Suivant** : 
    
-    ![Paramètres et informations d’identification d’administrateur](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
+    ![Paramètres et informations d’identification administrateur](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Paramètres et informations d’identification administrateur")  
    
     a. Dans la zone de texte Nom d’utilisateur admin Workday, entrez le nom de l’utilisateur que vous avez créé dans la section Création d’un utilisateur de système d’intégration.
    
@@ -158,13 +158,13 @@ Cette section décrit la configuration d’Azure AD pour importer des utilisateu
     c. Dans la zone de texte URL de locataire Workday, entrez l’URL de votre locataire Workday.
 3. Sur la page **Tester la connexion**, cliquez sur **Démarrer le test** pour vérifier la connectivité, puis cliquez sur **Suivant**. 
    
-    ![Tester la connexion](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Test connection")  
+    ![Tester la connexion](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Tester la connexion")  
 4. Sur la page **Options d’approvisionnement**, cliquez sur **Suivant**. 
    
-    ![Options d’approvisionnement](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Provisioning options")
+    ![Options d’approvisionnement](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Options d’approvisionnement")
 5. Dans la boîte de dialogue **Démarrer l’approvisionnement**, cliquez sur **Terminer**. 
    
-    ![Démarrer l’approvisionnement](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Start provisioning")
+    ![Démarrer l’approvisionnement](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Démarrer l’approvisionnement")
 
 Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si votre utilisateur Workday a été importé.
 
@@ -175,6 +175,6 @@ Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

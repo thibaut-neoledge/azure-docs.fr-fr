@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dea75987df0cf05126564d2c7e20d59b842dc1c
-ms.openlocfilehash: a9aa385d8c18600c50797a76e5a67754c695fdf8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 286a4f46e19b9ed38f9920e169bdadd013186ef6
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: a9aa385d8c18600c50797a76e5a67754c695fdf8
 
 <br/>
 
-Une fois qu’un [type d’application a été packagé][10], il est prêt à être déployé dans un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
+Après avoir [packagé un type d’application][10], celui-ci peut être déployé sur un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
 
 1. Télécharger le package d'application
 2. Enregistrer le type d’application
@@ -248,6 +248,6 @@ PS D:\temp>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

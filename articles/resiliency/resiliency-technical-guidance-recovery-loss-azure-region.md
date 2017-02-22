@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
+ms.sourcegitcommit: 559b38da4ed787f6f7a4462f6add92384bed54f7
+ms.openlocfilehash: 0acdbefcae875c206667260b6df5dfd8882dcc42
 
 
 ---
 # <a name="azure-resiliency-technical-guidance-recovery-from-a-region-wide-service-disruption"></a>Guide technique de la résilience Azure - Récupération d’une interruption de service à l’échelle de la région
-Azure est divisé physiquement et logiquement en unités appelées régions. Une région se compose d’un ou plusieurs centres de données très proches les uns des autres. Au moment de la rédaction de cet article, Azure dispose de vingt-quatre régions dans le monde.
+Azure est divisé physiquement et logiquement en unités appelées régions. Une région se compose d’un ou plusieurs centres de données très proches les uns des autres. Pour obtenir la liste actuelle des régions, consultez la [page des régions Azure](https://azure.microsoft.com/regions/).
 
 Exceptionnellement, il est possible que les sites de toute une région deviennent inaccessibles, par exemple en raison de défaillances au niveau du réseau ou en raison d’une catastrophe naturelle. Cette section présente les fonctionnalités d’Azure permettant de créer des applications distribuées entre les régions. Cette distribution permet de minimiser le risque qu’une défaillance dans une région affecte d’autres régions.
 
@@ -120,7 +120,7 @@ Par défaut, les données associées à HDInsight sont stockées dans Azure Blob
 À ce stade, la récupération après la perte d’une région Azure requiert plusieurs instances SQL Reporting dans différentes régions Azure. Ces instances SQL Reporting doivent accéder aux mêmes données et ces dernières doivent avoir leur propre plan de récupération en cas d’incident. Vous pouvez également conserver des copies de sauvegarde externes du fichier RDL pour chaque rapport.
 
 ### <a name="media-services"></a>Media Services
-Azure Media Services adopte une approche de récupération différente pour l’encodage et la diffusion en continu. En règle générale, la diffusion en continu est plus critique pendant une panne régionale. Pour vous préparer à cette éventualité, vous devez disposer d’un compte Media Services dans deux régions Azure différentes. Le contenu encodé doit se trouver dans les deux régions. En cas de panne, vous pouvez rediriger le trafic de diffusion en continu vers l’autre région. L’encodage peut être effectué dans n’importe quelle région Azure. Si l’encodage est urgent, par exemple lors du traitement d’événements en direct, vous devez être prêt à envoyer des tâches à un autre centre de données en cas de panne.
+Azure Media Services adopte une approche de récupération différente pour l’encodage et le streaming. En règle générale, le streaming est plus critique pendant une panne régionale. Pour vous préparer à cette éventualité, vous devez disposer d’un compte Media Services dans deux régions Azure différentes. Le contenu encodé doit se trouver dans les deux régions. En cas de panne, vous pouvez rediriger le trafic du streaming vers l’autre région. L’encodage peut être effectué dans n’importe quelle région Azure. Si l’encodage est urgent, par exemple lors du traitement d’événements en direct, vous devez être prêt à envoyer des tâches à un autre centre de données en cas de panne.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 Les fichiers de configuration constituent le moyen le plus rapide de configurer un réseau virtuel dans une autre région Azure. Après avoir configuré le réseau virtuel dans la région Azure principale, [exportez les paramètres de réseau virtuel](../virtual-network/virtual-networks-create-vnet-classic-portal.md) pour le réseau actuel dans un fichier de configuration réseau. En cas de panne dans la région primaire, [restaurez le réseau virtuel](../virtual-network/virtual-networks-create-vnet-classic-portal.md) à partir du fichier de configuration stocké. Configurez ensuite les autres services cloud, les machines virtuelles ou les paramètres entre sites locaux pour utiliser le nouveau réseau virtuel.
@@ -175,7 +175,7 @@ Les fichiers de configuration constituent le moyen le plus rapide de configurer 
 ## <a name="media-services-checklist"></a>Liste de contrôle de Media Services
 1. Consultez la section Media Services de ce document.
 2. Créez un compte Media Services dans une autre région.
-3. Encodez le même contenu dans les deux régions pour prendre en charge le basculement de la diffusion en continu.
+3. Encodez le même contenu dans les deux régions pour prendre en charge le basculement du streaming.
 4. Envoyez des travaux d’encodage dans une autre région en cas d’interruption de service.
 
 ## <a name="virtual-network-checklist"></a>Liste de contrôle du réseau virtuel
@@ -188,6 +188,6 @@ Cet article fait partie d’une série intitulée [Guide technique de la résili
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

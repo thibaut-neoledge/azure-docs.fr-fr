@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 7f775813920af8b8a7ffac45e5227df6ba3e6622
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
 
 
 ---
@@ -46,7 +46,7 @@ Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquen
 2. La section 3.3.2 dans [1] définit une zone facultative appelée StreamManifestBox pour l’ingestion en direct. En raison de la logique de routage du programme d'équilibrage de la charge de Microsoft Azure, l'utilisation de cette zone est déconseillée et NE DOIT PAS être présente lors de l'ingestion dans Microsoft Azure Media Services. Si cette zone est présente, Azure Media Services l'ignore en mode silencieux.
 3. La zone TrackFragmentExtendedHeaderBox définie à la section 3.2.3.2 dans [1] doit être présente pour chaque fragment.
 4. La version 2 de la zone TrackFragmentExtendedHeaderBox DOIT être utilisée pour générer des segments de médias avec des URL identiques dans plusieurs centres de données. Le champ d'index de fragment est OBLIGATOIRE pour le basculement entre centres de données des formats de diffusion en continu basée sur les index comme Apple HTTP Live Streaming (HLS) et MPEG-DASH basée sur les index.  Pour permettre un basculement entre centres de données, l'index de fragment DOIT être synchronisé entre plusieurs encodeurs et augmenté de 1 pour chaque fragment multimédia successif, même entre les redémarrages ou échecs de l'encodeur.
-5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de la réception en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser [l’arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
+5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de la réception en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser [l’arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
 6. La durée du fragment MP4 DOIT être une constante, afin de réduire la taille des manifestes du client et d'améliorer les heuristiques de téléchargement client via l'utilisation de balises de répétition.  La durée PEUT varier pour compenser les fréquences d'images non entières.
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
 8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time et fragment_index) DOIVENT normalement arriver dans l’ordre croissant.  Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
@@ -194,6 +194,6 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

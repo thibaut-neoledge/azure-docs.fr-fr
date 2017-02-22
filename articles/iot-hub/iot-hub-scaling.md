@@ -1,6 +1,6 @@
 ---
 title: "Mise à l’échelle Azure IoT Hub | Microsoft Docs"
-description: "Décrit comment mettre à l’échelle Azure IoT Hub."
+description: "Mise à l’échelle de votre IoT hub pour prendre en charge votre débit de messages prévu. Inclut un résumé du débit pris en charge pour chaque niveau et des options pour le partitionnement."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 992c271fe3426f4a1e59f4e546b0f7f4e0d59e59
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 7683a6c6afa3dbec3fccadc9f095480ed90aa039
 
 
 ---
@@ -29,7 +29,7 @@ Pour mettre correctement à l’échelle votre solution, étudiez votre utilisat
 * Messages Cloud vers appareil
 * Opérations du registre d’identité
 
-Outre ces informations sur le débit, consultez les [Quotas et limitations IoT Hub][Quotas et limitations IoT Hub] et concevez votre solution en conséquence.
+Outre ces informations sur le débit, consultez les [quotas et limitations IoT Hub][IoT Hub quotas and throttles] et concevez votre solution en conséquence.
 
 ## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Débit de message Appareil vers cloud et Cloud vers appareil.
 La meilleure façon de dimensionner une solution IoT Hub consiste à évaluer le trafic sur une base par unité.
@@ -43,9 +43,9 @@ Les messages Appareil vers cloud respectent les recommandations de débit souten
 | S3 |Jusqu’à 814 Mo/minute par unité<br/>(1144,4 Go/jour/unité) |Moyenne de 208 333 messages/minute par unité<br/>(300 millions de messages/jour par unité) |
 
 ## <a name="identity-registry-operation-throughput"></a>Débit des opérations de registre d’identité
-Les opérations de registre d’identité IoT Hub ne sont pas censées être des opérations d’exécution, car elles sont principalement liées à la configuration d’appareils.
+Les opérations de registre d’identité IoT Hub ne sont pas censées être des opérations d’exécution, car elles sont principalement liées à l’approvisionnement d’appareils.
 
-Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitations IoT Hub][Quotas et limitations IoT Hub].
+Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitations IoT Hub][IoT Hub quotas and throttles].
 
 ## <a name="sharding"></a>Partitionnement
 Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, il est recommandé de partitionner vos appareils en plusieurs IoT hubs. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
@@ -53,17 +53,17 @@ Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
-* [Simulation d’un appareil avec le SDK de passerelle IoT][lnk-gateway]
+* [Guide du développeur IoT Hub][lnk-devguide]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[Quotas et limitations IoT Hub]: iot-hub-devguide-quotas-throttling.md
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

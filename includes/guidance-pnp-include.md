@@ -3,8 +3,10 @@
 <td>
 <img src="./media/guidance-pnp-include/pnp-logo.png"/>
 </td>
-<td style="text-align:right"><b>Architectures de référence Azure<br/>IaaS</b></td>
+<td style="text-align:right"><b>Architectures de référence Azure<br/>IaaS</b></td>
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0629_2016-->
+<!--HONumber=Jan17_HO3-->
+
+

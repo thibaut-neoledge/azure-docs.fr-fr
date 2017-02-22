@@ -1,5 +1,5 @@
 ---
-title: "Exécution d’un exemple d’application pour recevoir des messages cloud-à-appareil à partir d’Azure IoT Hub | Microsoft Docs"
+title: "Connecter Intel Edison (C) à Azure IoT - Leçon 4 : Recevoir des messages | Microsoft Docs"
 description: "Un exemple d’application s’exécute sur Edison et surveille les messages entrants à partir de votre IoT Hub. Une nouvelle tâche gulp envoie des messages à Edison à partir de votre IoT Hub pour faire clignoter la LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d492fa295237f6ff333aefb2181975e8af948723
-ms.openlocfilehash: 48e5c46d53ce412384e8667904e84b9ebd454cff
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
 
 
 ---
@@ -99,6 +99,6 @@ Vous avez correctement envoyé des messages à partir de votre IoT Hub vers Edis
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

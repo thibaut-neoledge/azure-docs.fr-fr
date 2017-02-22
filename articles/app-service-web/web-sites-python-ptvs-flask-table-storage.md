@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02080901ef6c87f169b38a1cc90f52098c199454
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
 
 
 ---
@@ -40,7 +40,7 @@ Visitez le [Centre de développement Python] pour consulter d’autres articles 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -141,7 +141,7 @@ Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de dép
 ## <a name="configure-the-web-apps-instance"></a>Configurer l'instance Web Apps
 Dans cette section, nous allons configurer les variables d’environnement de l’instance Web Apps.
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez le panneau de l'application web en cliquant sur **Parcourir** > **App Services** > le nom de votre application web.
+1. Dans le [Portail Azure](https://portal.azure.com), ouvrez le panneau de l'application web en cliquant sur **Parcourir** > **App Services** > le nom de votre application web.
 2. Dans le volet de votre application web, cliquez sur **Tous les paramètres**, puis cliquez sur **Paramètres de l'application**.
 3. Accédez à la section **Paramètres de l’application** et définissez les valeurs **REPOSITORY\_NAME**, **STORAGE\_NAME** et **STORAGE\_KEY** comme décrit dans la section **Configurer le projet** ci-dessus.
    
@@ -175,7 +175,7 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Utilisation du service de stockage de tables de Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Portail Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Kit de développement logiciel (SDK) Azure pour .NET]: http://azure.microsoft.com/downloads/
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -193,6 +193,6 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

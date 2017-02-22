@@ -1,6 +1,6 @@
 ---
-title: "Problèmes connus d’Apache Spark dans HDInsight | Microsoft Docs"
-description: "Problèmes connus d’Apache Spark dans HDInsight"
+title: "Problèmes connus du cluster Apache Spark dans Azure HDInsight | Microsoft Docs"
+description: "Problèmes connus des clusters Apache Spark dans Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f36307d77bce1f0d6805a225477a61b95865545f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 
 
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight-linux"></a>Problèmes connus avec les clusters Apache Spark sur Azure HDInsight Linux
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problèmes connus du cluster Apache Spark sur Azure HDInsight
+
 Ce document fait le suivi de tous les problèmes connus pour la version Preview publique de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy divulgue une session interactive
@@ -31,7 +32,7 @@ Lorsque Livy est redémarré avec une session interactive (à partir d’Ambari 
 
 Pour contourner ce problème, suivez la procédure ci-après :
 
-1. SSH dans le nœud principal. 
+1. SSH dans le nœud principal. Pour les clients Windows, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Windows avec PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ; pour Linux, Unix ou OS X, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
 2. Exécutez la commande suivante pour rechercher l’ID d’application des tâches interactives démarrées via Livy. 
    
         yarn application –list
@@ -71,7 +72,9 @@ Vous pouvez obtenir une erreur **`Error loading notebook`** lorsque vous tentez 
 
 **Atténuation :**
 
-Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle.  À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
+Si vous obtenez cette erreur, cela ne signifie pas que vos données sont endommagées ou perdues.  Vos blocs-notes sont toujours sur le disque, sous `/var/lib/jupyter`et vous pouvez exécuter SSH dans le cluster pour y accéder. Pour les clients Windows, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Windows avec PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) ; pour Linux, Unix ou OS X, voir [Utilisation de SSH avec Hadoop sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Une fois connecté au cluster à l’aide de SSH, vous pouvez copier les blocs-notes depuis le cluster vers votre ordinateur local (à l’aide de SCP ou WinSCP) pour en faire une sauvegarde afin d’éviter la perte de toutes les données importantes dans le bloc-notes. Vous pouvez ensuite créer un tunnel SSH dans votre nœud principal sur le port 8001, afin d’accéder à Jupyter sans avoir à passer par la passerelle.  À partir de là, vous pouvez effacer la sortie de votre bloc-notes et l’enregistrer de nouveau pour réduire la taille du bloc-notes au minimum.
 
 Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants :
 
@@ -125,6 +128,6 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et Pyspark du bl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

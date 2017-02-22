@@ -1,5 +1,5 @@
 ---
-title: "Ajout d’unités d’encodage"
+title: "Mettre à l’échelle le traitement multimédia en ajoutant des unités d’encodage - Azure | Microsoft Docs"
 description: "Découvrez comment ajouter des unités d’encodage avec .NET"
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
-ms.author: juliako;milangada;gtrifonov
+ms.date: 01/23/2017
+ms.author: juliako;milangada;
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: ad0cf996390a792495c492e4205d5be3d27ffa9b
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: ee40b92c48d91a391fe72582c7ea5e244907747f
 
 
 ---
@@ -49,7 +49,7 @@ Pour modifier le type d’unité réservée et le nombre d’unités réservées
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Ouverture d'un ticket de support
-Par défaut, chaque compte Media Services a une capacité maximale de 25 unités réservées d'encodage et 5 unités réservées de diffusion en continu à la demande. Vous pouvez demander une limite supérieure en ouvrant un ticket de support.
+Par défaut, chaque compte Media Services a une capacité maximale de 25 unités réservées d'encodage et 5 unités réservées de streaming à la demande. Vous pouvez demander une limite supérieure en ouvrant un ticket de support.
 
 ### <a name="open-a-support-ticket"></a>Ouverture d’un ticket de support
 Pour ouvrir un ticket de support, procédez comme suit :
@@ -73,6 +73,6 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

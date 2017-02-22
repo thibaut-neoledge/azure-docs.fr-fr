@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
+ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
+ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 
 
 ---
@@ -51,7 +51,7 @@ Parmi les éléments à prendre en considération :
     Il s’agit d’un outil de dépannage indispensable qui vous indique l’état de vos ressources Azure Resource Manager. Cliquez sur votre abonnement et examinez le groupe de ressources sur lequel vous effectuez un dépannage. Sous le fournisseur de ressources de calcul, consultez le jeu de mise à l’échelle de machine virtuelle que vous avez créé et consultez la vue d’instance, qui vous indique l’état d’un déploiement. Vérifiez également la vue d’instance des machines virtuelles dans le jeu de mise à l’échelle de machine virtuelle. Ensuite, accédez au fournisseur de ressources Microsoft.Insights et vérifiez que les règles de mise à l’échelle automatique sont correctes.
 * L’extension de diagnostic fonctionne-t-elle et génère-t-elle des données de performance ?
   
-    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de mesures basé sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Cela signifie que les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Exemples de modèles Azure qui ont été convertis pour utiliser le pipeline de l’hôte : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de mesures basé sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Cela signifie que les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Exemple de modèles Azure convertis pour utiliser le pipeline de l’hôte : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Le recours aux mesures basées sur l’hôte pour la mise à l’échelle automatique est préférable pour les raisons suivantes :
   
@@ -85,6 +85,6 @@ Parmi les éléments à prendre en considération :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

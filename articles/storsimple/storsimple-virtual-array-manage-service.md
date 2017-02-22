@@ -1,5 +1,5 @@
 ---
-title: "Déployer le service StorSimple Device Manager pour Microsoft Azure StorSimple Virtual Array| Microsoft Docs"
+title: "Déployer le service StorSimple Device Manager | Microsoft Docs"
 description: "Cet article décrit comment créer et supprimer le service StorSimple Device Manager dans le Portail Azure, ainsi que la procédure de gestion de la clé d’inscription du service."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b6440796fb2afc713cba40dba576f9439e5ed296
-ms.openlocfilehash: 4761d4261f64a9332830e5373a0a2ee6a63b96a1
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
 
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
@@ -124,6 +124,6 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble des fonctionnalités d’Azure Batch pour développeurs | Microsoft Docs"
+title: "Vue d’ensemble d’Azure Batch pour développeurs | Microsoft Docs"
 description: "Découvrez les fonctionnalités du service Batch et de ses API du point de vue du développeur."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
     Tous les nœuds du pool ont la même taille. Si vous prévoyez d’exécuter des applications dont la configuration système requise et/ou les niveaux de charge diffèrent, nous vous recommandons d’utiliser des pools distincts.
 * **Nombre cible de nœuds**
 
-    Il s’agit du nombre de nœuds de calcul que vous souhaitez déployer dans le pool. On parle de *cible* , car dans certaines situations, votre pool ne pourra peut-être pas atteindre le nombre de nœuds souhaité. Un pool peut ne pas atteindre le nombre souhaité de nœuds s’il atteint le [quota de cœurs](batch-quota-limit.md#batch-account-quotas) de votre compte Batch, ou si une formule de mise à l’échelle automatique que vous avez appliquée au pool limite le nombre maximal de nœuds (voir la section « Stratégie de mise à l’échelle » ci-après).
+    Il s’agit du nombre de nœuds de calcul que vous souhaitez déployer dans le pool. On parle de *cible* , car dans certaines situations, votre pool ne pourra peut-être pas atteindre le nombre de nœuds souhaité. Un pool peut ne pas atteindre le nombre souhaité de nœuds s’il atteint le [quota de cœurs](batch-quota-limit.md) de votre compte Batch, ou si une formule de mise à l’échelle automatique que vous avez appliquée au pool limite le nombre maximal de nœuds (voir la section « Stratégie de mise à l’échelle » ci-après).
 * **Stratégie de mise à l’échelle**
 
     Pour les charges de travail dynamiques, vous pouvez écrire et appliquer une [formule de mise à l’échelle automatique](#scaling-compute-resources) à un pool. Le service Batch évalue régulièrement la formule et ajuste le nombre de nœuds dans le pool en fonction de différents paramètres de pool, de travail et de tâche que vous pouvez spécifier.
@@ -489,6 +489,6 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

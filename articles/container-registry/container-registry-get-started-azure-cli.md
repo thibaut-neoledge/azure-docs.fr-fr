@@ -1,5 +1,5 @@
 ---
-title: "Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
+title: "Créer un registre de conteneur Azure dans l’interface de ligne de commande | Microsoft Docs"
 description: "Prise en main de la création et de la gestion de registres de conteneurs Azure avec la version préliminaire d’Azure CLI 2.0"
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: d806564056390ea2db74eebbbe89e1b20a350f33
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure
@@ -131,6 +131,6 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

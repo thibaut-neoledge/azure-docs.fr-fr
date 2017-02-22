@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ Cette rubrique explique comment personnaliser la page de connexion et la page de
 > [!NOTE]
 > * La promotion de la marque de société est une fonctionnalité disponible uniquement si vous avez effectué une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory, ou si vous êtes un utilisateur Office 365. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 > * Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Personnalisation de la page de connexion
 En règle générale, vous utilisez la page de connexion pour accéder à l’aide d’un navigateur à vos applications et services cloud auxquels votre organisation est abonnée.
@@ -46,8 +46,8 @@ Lorsque vous visitez un service avec une URL non spécifique au client (par exem
 > [!NOTE]
 > * Votre nom de domaine doit apparaître « Actif » dans la section **Active Directory** > **Répertoire** > **Domaines** du portail Azure Classic dans lequel vous avez effectué la personnalisation.
 > * La personnalisation de la page de connexion ne s’étend pas à la page de connexion client de Microsoft. Si vous vous connectez avec un compte Microsoft personnel, vous pouvez voir une liste personnalisée de vignettes utilisateur générées par Azure AD, mais la marque de votre organisation ne s’applique pas à la page de connexion du compte Microsoft.
-> 
-> 
+>
+>
 
 Si vous souhaitez afficher la marque, la palette de couleurs de votre société ou tout autre élément personnalisable sur cette page, reportez-vous aux images qui suivent pour comprendre la différence entre les deux.
 
@@ -91,8 +91,8 @@ Vous pouvez personnaliser les éléments suivants sur la page de connexion :
 
 > [!NOTE]
 > Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un logo de bannière mais aucune grande illustration, la page de connexion affiche votre logo et l’illustration du site de destination (autrement dit, l’image de l’autoroute de Californie d’Office 365).
-> 
-> 
+>
+>
 
 Sur votre page de connexion, la case à cocher **Maintenir la connexion** permet à un utilisateur de rester connecté lorsqu’il ferme, puis rouvre son navigateur. Elle n’a pas d’effet sur la durée de vie de session. Vous pouvez masquer la case à cocher sur la page de connexion Azure Active Directory.
 
@@ -100,12 +100,12 @@ L’affichage de la case à cocher dépend du réglage du paramètre **Masquer m
 
 ![][9]
 
-Pour masquer la case à cocher, configurez ce paramètre sur **Masqué**. 
+Pour masquer la case à cocher, configurez ce paramètre sur **Masqué**.
 
 > [!NOTE]
 > Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent de la capacité des utilisateurs à sélectionner cette case à cocher. Si vous configurez ce paramètre sur Masqué, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
-> 
-> 
+>
+>
 
 Vous pouvez également traduire tous les éléments de cette page. Une fois que vous avez configuré un jeu d’éléments de personnalisation « par défaut », vous pouvez configurer des versions supplémentaires avec différents paramètres régionaux. Vous pouvez également combiner différents éléments. Vous pouvez par exemple afficher :
 
@@ -163,15 +163,15 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 4. Cliquez sur **Personnaliser la marque**.
 5. Dans la page Personnaliser la marque, sélectionnez **Modifier les paramètres de marque existants** , puis passez à la page suivante.
 6. En fonction des éléments que vous voulez supprimer, effectuez une ou plusieurs des opérations suivantes :
-   
+
     a. Sous **Logo de bannière**, sélectionnez **Supprimer le logo téléchargé**.
-   
+
     b. Sous **Logo de la mosaïque**, sélectionnez **Supprimer le logo téléchargé**.
-   
+
     c. Supprimez le texte de toutes les zones de texte.
-   
+
     d. Cliquez sur **Suivant**.
-   
+
     e. Supprimez le texte de toutes les zones de texte.
 7. Cliquez sur **Enregistrer** pour supprimer les éléments.
 8. Si nécessaire, cliquez à nouveau sur **Personnaliser la marque** et répétez ces étapes pour tous les éléments de personnalisation à supprimer.
@@ -199,12 +199,12 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 
 | Nom | Description | Contraintes | Recommandations |
 | --- | --- | --- | --- |
-| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60 x 280 pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
-| Logo de la mosaïque |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer le pictogramme générique « Compte professionnel ou scolaire » à différents endroits. |<p>JPG ou PNG</p><p>120 x 120 pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
+| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60 x&280; pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
+| Logo de la mosaïque |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer le pictogramme générique « Compte professionnel ou scolaire » à différents endroits. |<p>JPG ou PNG</p><p>120 x&120; pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
 | </p> | | | |
 | Étiquette du nom d’utilisateur de la page de connexion |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer la chaîne générique « Compte professionnel ou scolaire » à différents endroits. Vous pouvez définir par exemple « Compte Contoso » ou « ID Contoso ». |<p>Texte Unicode, jusqu'à 50 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |<p>Court et simple</p><p>Demandez à vos utilisateurs comment ils font généralement référence au compte professionnel ou scolaire que vous leur fournissez.</p> |
 | Texte de la page de connexion |Ce texte « standard » apparaît sous le formulaire de la page de connexion et peut être utilisé pour communiquer des instructions supplémentaires ou des informations sur l’aide et l’assistance. |<p>Texte Unicode, jusqu'à 256 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |Moins de 250 caractères (environ 3 lignes de texte) |
-| Illustration de la page de connexion |Cette illustration est une grande image qui s’affiche sur la page de connexion à gauche du formulaire. |<p>JPG ou PNG</p><p>1420 x 1200</p><p>500 Ko</p> |<p>1420 x 1200 pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours rognée, pour s’adapter aux différentes tailles d’écrans. Conservez les principaux éléments visuels dans l’angle supérieur gauche (en haut à droite pour les langues qui se lisent de droite à gauche), car le redimensionnement s’effectue à partir de l’angle inférieur droit vers l’angle supérieur gauche, à mesure que la fenêtre du navigateur se réduit.</p> |
+| Illustration de la page de connexion |Cette illustration est une grande image qui s’affiche sur la page de connexion à gauche du formulaire. |<p>JPG ou PNG</p><p>1420 x&1200;</p><p>500 Ko</p> |<p>1420 x&1200; pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours rognée, pour s’adapter aux différentes tailles d’écrans. Conservez les principaux éléments visuels dans l’angle supérieur gauche (en haut à droite pour les langues qui se lisent de droite à gauche), car le redimensionnement s’effectue à partir de l’angle inférieur droit vers l’angle supérieur gauche, à mesure que la fenêtre du navigateur se réduit.</p> |
 | Couleur d’arrière-plan de la page de connexion |La couleur d’arrière-plan de la page de connexion est utilisée dans la zone à gauche du formulaire de la page. |Il doit s’agir d’une couleur RVB au format hexadécimal (par exemple #FFFFFF) |<p>La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante</p><p>Nous vous suggérons de choisir la couleur principale du Logo de la bannière</p> |
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -224,6 +224,6 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

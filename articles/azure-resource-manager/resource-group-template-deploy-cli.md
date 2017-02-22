@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 43442b6822ef4341791681e0f999cc92a08a5b2e
+ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
+ms.openlocfilehash: ccbb918a3377094395a27a9b7a63f213c5085027
 
 
 ---
@@ -34,7 +34,7 @@ Cette rubrique explique comment utiliser l’interface de ligne de commande Azur
 > [!TIP]
 > Pour obtenir de l’aide dans le débogage d’une erreur pendant le déploiement, consultez :
 > 
-> * [Afficher les opérations de déploiement avec l’interface CLI Azure](resource-manager-troubleshoot-deployments-cli.md) pour apprendre à récupérer des informations qui vous aideront à résoudre votre erreur
+> * [View deployment operations (Afficher les opérations de déploiement)](resource-manager-deployment-operations.md) pour apprendre à récupérer des informations qui vous aideront à résoudre votre erreur
 > * [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md) pour apprendre à résoudre les erreurs de déploiement courantes
 > 
 > 
@@ -93,7 +93,7 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
    azure group deployment create --resource-group examplegroup --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.json"
    ```
    
-     Les deux exemples précédents n’incluent pas de valeurs de paramètre. Vous découvrez les options de transmission des valeurs de paramètre dans la section [Parameters](#parameters) (Paramètres). À ce stade, vous êtes invité à fournir des valeurs de paramètre avec la syntaxe suivante :
+     Les deux exemples précédents n’incluent pas de valeurs de paramètre. Vous découvrez les options de transmission des valeurs de paramètre dans la section [Parameters](#parameters). À ce stade, vous êtes invité à fournir des valeurs de paramètre avec la syntaxe suivante :
 
    ```
    info:    Executing command group deployment create
@@ -204,6 +204,6 @@ Vous disposez des options suivantes pour fournir les valeurs des paramètres :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

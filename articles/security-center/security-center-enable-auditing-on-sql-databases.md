@@ -1,6 +1,6 @@
 ---
 title: "Activation de l’audit dans les bases de données SQL dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Activer l’audit sur les bases de données SQL**."
+description: "Ce document vous explique comment implémenter la recommandation de l’Azure Security Center **Activer l’audit sur les bases de données SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c662a69f2fdbe3bd7848bdcd1eb0f9742f56c8c8
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
 
 
 ---
@@ -29,15 +29,18 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Activer l’audit sur les bases de données SQL**.  Cette opération ouvre le panneau **Activer l’audit sur les bases de données SQL** .
-   ![Enable auditing on SQL databases][1]
+
+   ![Activer l’audit sur les bases de données SQL][1]
 2. Sélectionnez une base de données SQL sur laquelle activer l’audit. Cette opération ouvre le panneau **Audit et détection des menaces**.
+
    ![Audit et détection des menaces][2]
 3. Dans le panneau **Audit et détection des menaces**, sélectionnez **ON** sous **Audit**.
+
    ![Activer l’audit et la détection des menaces][3]
 4. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection-get-started.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
@@ -63,6 +66,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 
