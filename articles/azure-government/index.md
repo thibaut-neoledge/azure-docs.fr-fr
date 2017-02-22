@@ -13,8 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 651e65243a8f5d170b61352e0ab1d57d1a25ad1b
-ms.openlocfilehash: 1dc06fadc9c6b49ff314d5eab53ef1b0b1e91eda
+ms.sourcegitcommit: a715413312c7d8bd3dcfb9b252f3dae8d95fafd7
+ms.openlocfilehash: 7c4a0c1167837a876164d93d93e6dd6cd8f62ee6
 
 ---
 #<a name="azure-government-documentation"></a>Documentation Azure Government
@@ -70,13 +70,27 @@ Microsoft Azure Government offre une plateforme cloud basée sur les principes f
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <p><a href="/azure/azure-government/documentation-government-image-gallery">Images</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace">Place de marché</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace pour les partenaires</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Services</h3>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-compute">Calcul</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-storage">Stockage</a></p>
-                        <p><a href="https://docs.microsoft.com/azure/azure-government/documentation-government-services-database">Base de données</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-networking">Mise en réseau</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity">Sécurité et identité</a></p>
-                        <p><a href="https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement">Surveillance et gestion</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-compute">Calcul</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-storage">Stockage</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-database">Base de données</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-networking">Mise en réseau</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-securityandidentity">Sécurité et identité</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Surveillance et gestion</a></p>
+                        <p><a href="/azure/azure-government/documentation-government-services-monitoringandmanagement">Web et mobilité</a></p>
                     </div>
                 </div>
             </div>

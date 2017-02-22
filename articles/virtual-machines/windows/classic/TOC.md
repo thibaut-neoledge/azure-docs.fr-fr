@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [À propos des machines virtuelles](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Disques et disques durs virtuels](../../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Disques et disques durs virtuels](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Réseaux virtuels](../../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [FAQ](../../virtual-machines-windows-classic-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Comparaison des machines virtuelles, des sites web et des services cloud](../../../app-service-web/choose-web-site-cloud-service-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -104,6 +104,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
