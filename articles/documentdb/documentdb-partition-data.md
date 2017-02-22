@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
-ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
+ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
+ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
 
 
 ---
@@ -134,7 +134,7 @@ Le tableau suivant répertorie les différences d’utilisation entre les collec
         <tr>
             <td valign="top"><p>Débit minimal</p></td>
             <td valign="top"><p>400 unités de demande par seconde</p></td>
-            <td valign="top"><p>10&000; unités de demande par seconde</p></td>
+            <td valign="top"><p>2&500; unités de requête par seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit maximal</p></td>
@@ -174,11 +174,11 @@ Pour cet exemple, nous avons choisi `deviceId` , car nous savons que (a) dans la
 
 
 > [!NOTE]
-> Pour créer des collections partitionnées, vous devez spécifier une valeur de débit > 10 000 unités de requête par seconde. Étant donné que le débit est un multiple de 100, il doit s’agir de 10 100 ou d’une valeur supérieure.
+> Pour créer des collections partitionnées à l’aide du Kit de développement logiciel (SDK), vous devez spécifier une valeur de débit égale ou supérieure à 10 100 unités de requête par seconde. Pour définir une valeur de débit entre 2 500 et 10 000 pour les collections partitionnées, vous devez utiliser temporairement le portail Azure, car ces nouvelles valeurs inférieures ne sont pas encore disponibles dans le Kit de développement logiciel (SDK).
 > 
 > 
 
-Cette méthode passe un appel de l’API REST à DocumentDB et le service approvisionne plusieurs partitions en fonction du débit demandé. Vous pouvez modifier le débit d’une collection à mesure que vos besoins en matière de performances évoluent. Pour plus de détails, voir [Niveaux de performances](documentdb-performance-levels.md) .
+Cette méthode passe un appel de l’API REST à DocumentDB et le service approvisionne plusieurs partitions en fonction du débit demandé. Vous pouvez modifier le débit d’une collection à mesure que vos besoins en matière de performances évoluent. 
 
 ### <a name="reading-and-writing-documents"></a>Lecture et écriture de documents
 À présent, nous allons insérer des données dans DocumentDB. Voici un exemple de classe qui contient la lecture d’un appareil et un appel à CreateDocumentAsync pour insérer une nouvelle lecture d’appareil dans une collection.
@@ -294,7 +294,7 @@ Quand une application utilisant une collection à partition unique a besoin d’
 Pour migrer une collection à partition unique vers une collection partitionnée
 
 1. Exportez les données de la collection à partition unique vers un fichier JSON. Pour plus de détails, voir [Exportation vers un fichier JSON](documentdb-import-data.md#export-to-json-file) .
-2. Importez les données dans une collection partitionnée créée avec une définition de clé de partition et un débit supérieur à 10 000 unités de requête par seconde, comme indiqué dans l’exemple ci-dessous. Pour plus de détails, voir [Importation de DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) .
+2. Importez les données dans une collection partitionnée créée avec une définition de clé de partition et un débit supérieur à 2 500 unités de requête par seconde, comme indiqué dans l’exemple ci-dessous. Pour plus de détails, voir [Importation de DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) .
 
 ![Migration de données vers une collection partitionnée dans DocumentDB][3]  
 
@@ -329,7 +329,7 @@ DocumentDB est très souvent utilisé à des fins de journalisation et de télé
 
 * Si votre mode d’utilisation implique un petit taux d’écritures s’accumulant sur une longue période, et la nécessité d’interroger sur la base de plages d’horodatage et d’autres filtres, l’utilisation d’un cumul de l’horodatage, par exemple d’une date, comme clé de partition constitue une bonne approche. Cela vous permet d’interroger toutes les données correspondant à une date à partir d’une seule partition. 
 * Si votre charge de travail est lourde en écriture, ce qui est généralement plus courant, vous devez utiliser une clé de partition qui n’est pas basée sur l’horodatage, afin que DocumentDB puisse répartir uniformément les écritures sur plusieurs partitions. Dans ce cas, un nom d’hôte, un ID de processus, un ID d’activité ou une autre propriété présentant une cardinalité élevée constituent un bon choix. 
-* Une troisième solution consiste à adopter une approche hybride, où vous avez plusieurs collections, une pour chaque jour/mois, et où la clé de partition est une propriété granulaire telle que le nom d’hôte. Cela présente l’avantage que vous pouvez définir différents niveaux de performances en fonction de la fenêtre temporelle. Par exemple, la collection pour le mois en cours est approvisionnée avec un débit plus élevé, car elle sert les lectures et écritures, tandis que les mois précédents offrent un débit inférieur, car ils servent uniquement les lectures.
+* Une troisième solution consiste à adopter une approche hybride, où vous avez plusieurs collections, une pour chaque jour/mois, et où la clé de partition est une propriété granulaire telle que le nom d’hôte. Cela présente l’avantage que vous pouvez définir différents débits en fonction de la fenêtre temporelle. Par exemple, la collection pour le mois en cours est approvisionnée avec un débit plus élevé, car elle sert les lectures et écritures, tandis que les mois précédents offrent un débit inférieur, car ils servent uniquement les lectures.
 
 ### <a name="partitioning-and-multi-tenancy"></a>Partitionnement et mutualisation
 Si vous implémentez une application mutualisée à l’aide de DocumentDB, il existe deux modèles principaux pour implémenter la location avec DocumentDB : une clé de partition par client et une collection par client. Voici les avantages et inconvénients de chaque modèle :
@@ -354,6 +354,6 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Créer et modifier un circuit ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell | Microsoft Docs"
+title: "Créer et modifier un circuit ExpressRoute avec PowerShell et le portail Azure Classic | Microsoft Docs"
 description: "Cet article vous guide tout au long des étapes de création et d’approvisionnement d&quot;un circuit ExpressRoute. Cet article vous montre également comment vérifier l&quot;état, mettre à jour ou supprimer et annuler l’approvisionnement de votre circuit."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
@@ -13,36 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 5c803ff58a1f0e058c2f219320219c1cbf3ebfe7
+ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
+ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classique](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Cet article vous guide dans les étapes de création d’un circuit Azure ExpressRoute à l’aide d’applets de commande PowerShell et du modèle de déploiement classique. Cet article vous montrera également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 
 **À propos des modèles de déploiement Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
-### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Passez en revue les conditions préalables et les articles sur le flux de travail
+### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>Étape 1. Passez en revue les conditions préalables et les articles sur le flux de travail
 Veillez à consulter les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.  
 
-### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Installez les dernières versions des modules Azure PowerShell
+### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>Étape 2. Installez les dernières versions des modules Azure PowerShell
 Suivez les instructions de [Comment installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs) pour des étapes pas à pas permettant de configurer votre ordinateur pour l’utilisation des modules Azure PowerShell.
 
-### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Connectez-vous à votre compte Azure et sélectionnez un abonnement
+### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Étape 3. Connectez-vous à votre compte Azure et sélectionnez un abonnement
 1. Dans une invite Windows PowerShell exécutée avec des privilèges élevés, exécutez l’applet de commande suivante :
    
         Add-AzureAccount
@@ -55,13 +59,13 @@ Suivez les instructions de [Comment installer et configurer Azure PowerShell](/p
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Création et approvisionnement d’un circuit ExpressRoute
-### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Importer les modules PowerShell pour ExpressRoute
+### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>Étape 1. Importer les modules PowerShell pour ExpressRoute
  Si vous ne l’avez pas encore fait, vous devez importer les modules Azure et ExpressRoute dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous importez les modules à partir de l’emplacement où ils ont été installés sur votre ordinateur local. Selon la méthode utilisée pour installer les modules, l’emplacement peut être différent de l’exemple suivant. Modifiez l’exemple, si nécessaire.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
+### <a name="step-2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>Étape 2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
 Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge.
 
 L’applet de commande PowerShell `Get-AzureDedicatedCircuitServiceProvider` retourne ces informations que vous utilisez dans les étapes ultérieures :
@@ -76,7 +80,7 @@ Vérifiez si votre fournisseur de connectivité y est référencé. Prenez note 
 
 Vous êtes maintenant prêt à créer un circuit ExpressRoute.         
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Création d’un circuit ExpressRoute
+### <a name="step-3-create-an-expressroute-circuit"></a>Étape 3. Création d’un circuit ExpressRoute
 L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s par le biais d’Equinix dans la Silicon Valley. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête.
 
 > [!IMPORTANT]
@@ -102,7 +106,7 @@ La réponse contiendra la clé de service. Vous pouvez obtenir une description d
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4-list-all-the-expressroute-circuits"></a>4. Répertorier tous les circuits ExpressRoute
+### <a name="step-4-list-all-the-expressroute-circuits"></a>Étape 4. Répertorier tous les circuits ExpressRoute
 Vous pouvez exécuter la commande `Get-AzureDedicatedCircuit` pour obtenir la liste de tous les circuits ExpressRoute que vous avez créés :
 
     Get-AzureDedicatedCircuit
@@ -135,7 +139,7 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envoyer la clé de service à votre fournisseur de connectivité pour l’approvisionnement
+### <a name="step-5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Étape 5. Envoyer la clé de service à votre fournisseur de connectivité pour l’approvisionnement
 *ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service. *statut* indique l’état du côté Microsoft. Pour plus d’informations sur les états d’approvisionnement des circuits, consultez l’article [Flux de travail](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
@@ -155,7 +159,7 @@ Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être uti
     Status                           : Enabled
 
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Vérifier régulièrement le statut et l’état de la clé du circuit
+### <a name="step-6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>Étape 6. Vérifier régulièrement le statut et l’état de la clé du circuit
 Cela vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, *ServiceProviderProvisioningState* apparaît *Approvisionné*, comme le montre l’exemple suivant :
 
     Get-AzureDedicatedCircuit
@@ -169,7 +173,7 @@ Cela vous permet de savoir quand votre fournisseur a activé votre circuit. Une 
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7-create-your-routing-configuration"></a>7. Créer votre configuration de routage
+### <a name="step-7-create-your-routing-configuration"></a>Étape 7. Créer votre configuration de routage
 Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute (créer et modifier des homologations de circuit)](expressroute-howto-routing-classic.md) .
 
 > [!IMPORTANT]
@@ -177,7 +181,7 @@ Pour obtenir des instructions pas à pas, consultez l’article [Configuration d
 > 
 > 
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Lier un réseau virtuel à un circuit ExpressRoute
+### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>Étape 8 : Lier un réseau virtuel à un circuit ExpressRoute
 Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Pour obtenir des instructions pas à pas, voir [Liaison de circuits ExpressRoute à des réseaux virtuels](expressroute-howto-linkvnet-classic.md) . Si vous avez besoin de créer un réseau virtuel à l’aide du modèle de déploiement classique pour ExpressRoute, consultez [Créer un réseau virtuel pour ExpressRoute](expressroute-howto-vnet-portal-classic.md) pour obtenir des instructions.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Récupération de l’état d’un circuit ExpressRoute
@@ -203,7 +207,7 @@ Vous pouvez récupérer ces informations à tout moment à l’aide de l’apple
     Sku                              : Standard
     Status                           : Enabled
 
-Vous pouvez obtenir des informations sur un circuit ExpressRoute spécifique en passant la clé de service comme paramètre à l’appel :
+Vous pouvez obtenir des informations sur un circuit ExpressRoute spécifique en passant, en tant que paramètre, la clé de service à l’appel.
 
     Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
@@ -217,7 +221,7 @@ Vous pouvez obtenir des informations sur un circuit ExpressRoute spécifique en 
     Status                           : Enabled
 
 
-Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant la commande suivante :
+Vous pouvez obtenir une description détaillée de tous les paramètres en exécutant l’exemple suivant :
 
     get-help get-azurededicatedcircuit -detailed
 
@@ -255,12 +259,13 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 > 
 > 
 
-Notez les points suivants :
+#### <a name="considerations"></a>Considérations
 
 * Vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau premium à standard. Si vous ne le faites pas, votre demande de mise à jour échoue et nous appliquons les tarifs Premium.
 * Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites pas, votre demande de mise à jour échoue et nous appliquons les tarifs Premium.
 * Pour l’homologation privée, votre table de routage doit comporter moins de 4 000 routages. Si la table de routage comporte plus de 4 000 routages, la session BGP s’arrête et n’est pas réactivée tant que le nombre de préfixes publiés n’est pas inférieur à 4 000.
 
+#### <a name="disable-the-premium-add-on"></a>Désactiver le module complémentaire Premium
 Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour votre circuit existant à l’aide de l’applet de commande PowerShell suivante :
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
@@ -283,6 +288,8 @@ Pour connaître les options de bande passante prises en charge par votre fournis
 > Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. La rétrogradation de la bande passante vous oblige à désapprovisionner le circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
 > 
 > 
+
+#### <a name="resize-a-circuit"></a>Redimensionner un circuit
 
 Une fois que vous avez décidé de la taille dont vous avez besoin, vous pouvez utiliser la commande suivante pour redimensionner votre circuit :
 
@@ -311,11 +318,14 @@ Si l’erreur suivante s’affiche lors de l’augmentation de la bande passante
 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
-Notez les points suivants :
+
+### <a name="considerations"></a>Considérations
 
 * Vous devez annuler la liaison de tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si des réseaux virtuels sont liés au circuit.
 * Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est **En cours d’approvisionnement** ou **Approvisionné**, vous devez vous mettre en relation avec votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu’à ce que le fournisseur de services termine le désapprovisionnement du circuit et nous en avertisse.
 * Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur **Non approvisionné**), vous pouvez supprimer le circuit. Cette opération arrêtera la facturation du circuit.
+
+#### <a name="delete-a-circuit"></a>Supprimer un circuit
 
 Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suivante :
 
@@ -332,6 +342,6 @@ Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/27/2016
 ms.author: magoedte;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 7fa1be008b5be0c912af14674ffb38d99dcf6bcc
-ms.openlocfilehash: 4042810a5ccfffba74ae9cffd82f194e8058ad83
+ms.sourcegitcommit: 53e57807e97671bd279c03ada4c147fc1e7f1e45
+ms.openlocfilehash: c7bfc5584c11a7e69aedeb93f143a78d97c9369a
 
 
 ---
@@ -33,7 +33,8 @@ Les tableaux suivants indiquent si les services Microsoft répertoriés prennent
 | Service | Resource Manager activé | API REST | Schéma | Modèles de démarrage rapide |
 | --- | --- | --- | --- | --- |
 | Batch |Oui |[Batch REST](/rest/api/batchservice) |[Schéma Batch](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json) | |
-| Conteneur |Oui |[Service de conteneur REST](/rest/api/containerregistry) |[Schéma du conteneur](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
+| Container Registry |Oui |[Container Registry REST](/rest/api/containerregistry) |[Schéma Container Registry](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-27-preview/Microsoft.ContainerRegistry.json) |[Microsoft.ContainerRegistry](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerRegistry%22&type=Code) |
+| Service de conteneur |Oui |[Service de conteneur REST](/rest/api/compute/containerservices) |[Schéma du conteneur](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) |[Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
 | Dynamics Lifecycle Services |Oui | | | |
 | Jeux de mise à l’échelle |Oui |[Jeu de mise à l’échelle REST](/rest/api/compute/virtualmachinescalesets) |[Schéma du groupe identique](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |[virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) |
 | Service Fabric |Oui |[Service Fabric Rest](/rest/api/servicefabric) | [Schéma Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |[Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |

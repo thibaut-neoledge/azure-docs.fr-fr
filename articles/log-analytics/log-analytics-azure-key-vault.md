@@ -1,6 +1,6 @@
 ---
 title: Solution Azure Key Vault dans Log Analytics | Microsoft Docs
-description: "La solution Azure Key Vault dans Log Analytics permet de consulter les journaux d’Azure Key Vault logs."
+description: "La solution Azure Key Vault dans Log Analytics permet de consulter les journaux d’Azure Key Vault."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -12,32 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 5aae95a78e604acc5f0189d5df62620d65d29857
-ms.openlocfilehash: bb9ece6382c22f4c1b7905048647434fc7cee98a
+ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
+ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
 
 
 ---
-# <a name="azure-key-vault-analytics-preview-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics (version préliminaire) dans Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics dans Log Analytics
 
 Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault.
 
-> [!NOTE]
-> Azure Key Vault Analytics est une [solution en version préliminaire](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
-
 Pour l’utiliser, vous devez activer la journalisation des diagnostics d’Azure Key Vault et diriger les diagnostics vers un espace de travail Log Analytics. Il n’est pas nécessaire d’écrire les journaux dans le stockage Blob Azure.
+
+> [!NOTE]
+> En janvier 2017, le mode d’envoi des journaux de Key Vault vers Log Analytics a changé. Si le titre de la solution Key Vault que vous utilisez comprend la mention *(déprécié)*, consultez la section [Migration à partir d’une ancienne version de Key Vault](#migrating-from-the-old-key-vault-solution) pour connaître la marche à suivre.
+>
+>
 
 ## <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Suivez les instructions suivantes pour installer et configurer la solution Azure Key Vault :
 
-1. Utilisez `Set-AzureRmDiagnosticSetting` pour activer la journalisation des diagnostics pour les ressources de Key Vault à analyser : 
+1. Activer la journalisation des diagnostics pour les ressources Key Vault à surveiller à l’aide du portail ou de PowerShell 
 2. Activez la solution Azure Key Vault en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). 
 
-Le script PowerShell suivant fournit un exemple illustrant comment activer la journalisation des diagnostics pour le Key Vault :
+### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Activer les diagnostics Key Vault dans le portail
+
+1. Dans le portail Azure, accédez à la ressource Key Vault que vous voulez surveiller.
+2. Sélectionnez *Journaux de diagnostic* pour ouvrir la page suivante.
+
+   ![Image de la vignette Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+3. Cliquez sur *Activer les diagnostics* pour ouvrir la page suivante.
+
+   ![Image de la vignette Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+4. Pour activer les diagnostics, cliquez sur *Activé* sous *État*.
+5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
+6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
+7. Pour activer les journaux *AuditEvent*, cochez la case située sous Journal.
+8. Cliquez sur *Enregistrer* pour activer la journalisation des diagnostics dans Log Analytics.
+
+### <a name="enable-key-vault-diagnostics-using-powershell"></a>Activer les diagnostics Key Vault avec PowerShell
+Le script PowerShell suivant fournit un exemple illustrant comment utiliser `Set-AzureRmDiagnosticSetting` pour activer la journalisation des diagnostics pour Key Vault :
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -59,7 +75,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | Microsoft Azure |![Non](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Non](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Oui](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![Non](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Non](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | à l'arrivée |
 
 ## <a name="use-azure-key-vault"></a>Utiliser Azure Key Vault
-Après avoir installé la solution, vous pouvez afficher la synthèse des états de demande dans le temps pour vos Key Vault analysés à l’aide de la vignette **Azure Key Vault** sur la page **Vue d’ensemble** de Log Analytics.
+Une fois la solution installée, affichez les données Key Vault en cliquant sur la vignette **Azure Key Vault** située dans la page **Vue d’ensemble** de Log Analytics.
 
 ![Image de la vignette Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
@@ -106,12 +122,38 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | ResultType |Résultat de la demande de l’API REST (par exemple, *Réussite*) |
 | SubscriptionId |ID de l’abonnement Azure contenant le Key Vault. |
 
+## <a name="migrating-from-the-old-key-vault-solution"></a>Migration à partir d’une ancienne version de Key Vault
+En janvier 2017, le mode d’envoi des journaux de Key Vault vers Log Analytics a changé. Ces modifications présentent les avantages suivants :
++ Les journaux sont écrits directement dans Log Analytics sans avoir besoin d’utiliser un compte de stockage.
++ La durée de latence est plus courte entre le moment où les journaux sont générés et celui où ils deviennent disponibles dans Log Analytics.
++ Le nombre d’étapes de configuration est réduit.
++ Tous les types de diagnostics Azure sont au même format.
+
+Pour utiliser la solution mise à jour :
+
+1. [Configurez les diagnostics pour qu’ils soient directement envoyés à Log Analytics à partir de Key Vault](#enable-key-vault-diagnostics-in-the-portal).  
+2. Activez la solution Azure Key Vault en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
+  + Le type passe de KeyVaults à AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux Key Vault.
+  - Au lieu de `Type=KeyVaults`, utilisez `Type=AzureDiagnostics ResourceType=VAULTS`.
+  + Champs : (les noms de champs respectent la casse)
+  - Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
+  - Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
+   - Le champ CallerIpAddress est remplacé par CallerIPAddress
+   - Le champ RemoteIPCountry n’est plus présent
+4. Supprimez la solution *Key Vault Analytics (déprécié)*. Avec PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`. 
+
+Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
+
+## <a name="troubleshooting"></a>résolution des problèmes
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de Azure Key Vault.
+* Utilisez les [recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de Azure Key Vault.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

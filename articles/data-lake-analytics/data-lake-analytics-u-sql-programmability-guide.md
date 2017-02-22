@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 8da474fbc9eae750bbd2e1f6908046d2e7e7be55
-ms.openlocfilehash: 42e1d0cdde66f4bf4a6f3b23421e137716d05beb
+ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
+ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
 
 
 ---
@@ -289,7 +289,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### <a name="using-code-behind"></a>Utilisation de code-behind
 Pour utiliser la même fonctionnalité dans la section code-behind du programme U-SQL, nous définissons la fonction C# ToDateTime.
 
-Voici la section du script U-SQL de base ci-dessus qui doit être modifiée :
+Voici la section de script U-SQL de base, dans lequel nous avons apporté les modifications nécessaires :
 
 ```sql
      @rs1 =
@@ -392,6 +392,7 @@ L’avantage du code-behind est que les outils se chargent pour vous des opérat
 Lorsque vous ouvrez le script, vous pouvez voir le prologue et l’épilogue générés :
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **Figure 2** : prologue et épilogue générés automatiquement pour le code-behind
 <br />
 
@@ -422,7 +423,7 @@ La boîte de dialogue d’inscription (voir Étape 2 de la Figure 5) offre la 
 
 Nous utilisons ces deux options dans les exemples ci-dessous. Le [billet de blog récent sur le traitement d’image](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) est un autre exemple illustrant l’utilisation d’un assembly prédéfini qui peut utiliser ces options pour l’inscription.
 
-À présent, vous pouvez faire référence aux assemblys inscrits à partir de tout script U-SQL disposant d’autorisations sur la base de données des assemblys inscrits (voir le code dans le script U-SQL à la Figure 4). Vous devez ajouter une référence pour chaque assembly inscrit séparément. Des fichiers de ressources supplémentaires sont automatiquement déployés. Ce script ne doit plus avoir de fichier de code-behind pour le code dans les assemblys référencés, mais il peut toujours fournir un autre code.
+À présent, vous pouvez faire référence aux assemblys inscrits à partir de tout script U-SQL disposant d’autorisations sur la base de données des assemblys inscrits (voir le code dans le script U-SQL à la Figure 4). Vous devez ajouter une référence pour chaque assembly inscrit séparément. Des fichiers de ressources supplémentaires sont automatiquement déployés. Ce script ne doit plus avoir de fichier de code-behind pour le code dans les assemblys référencés, mais le fichier code-behind peut toujours fournir un autre code.
 
 ### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Inscription des assemblys via les outils ADL dans Visual Studio et dans les scripts U-SQL
 Bien que les outils ADL dans Visual Studio facilitent l’inscription d’un assembly, vous pouvez également la faire avec un script (de la même façon que les outils le font pour vous), par exemple, si vous développez sur une autre plateforme et avez des assemblys déjà compilés que vous voulez charger et inscrire. Vous suivez essentiellement les étapes suivantes :
@@ -439,6 +440,7 @@ Notre [site Github U-SQL](https://github.com/Azure/usql/) offre un ensemble d’
 Tout d’abord, nous téléchargeons le [projet Visual Studio](https://github.com/Azure/usql/tree/master/Examples/DataFormats) dans notre environnement de développement local (par exemple, en effectuant une copie locale avec l’outil GitHub pour Windows). Ensuite, nous ouvrons la solution dans Visual Studio et cliquons avec le bouton droit sur le projet, comme expliqué plus haut, pour inscrire l’assembly. Bien que cet assembly ait deux dépendances, nous ne devons inclure que la dépendance Newtonsoft, car System.Xml est déjà disponible dans Azure Data Lake (il doit cependant être référencé explicitement). La Figure 6 montre comment nommer l’assembly (vous pouvez également choisir un autre nom sans points) et ajouter la DLL Newtonsoft. Chacun des deux assemblys est désormais inscrit individuellement dans la base de données (par exemple, JSONBlog).
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **Figure 6** : procédure d’inscription de l’assembly Microsoft.Analytics.Samples.Formats à partir de Visual Studio
 <br />
 
@@ -449,7 +451,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-Et si vous souhaitez utiliser la fonctionnalité XML, ajoutez une référence d’assembly système et un assembly à l’assembly inscrit :
+Si vous souhaitez utiliser la fonctionnalité XML, ajoutez une référence d’assembly système et une référence à l’assembly inscrit :
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -766,9 +768,9 @@ LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS 
            string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
            USQLApplication21.UserSession.StampUserSession
            (
-            EventDateTime,
-            LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-            LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+               EventDateTime,
+               LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+               LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            )
            AS UserSessionTimestamp
     FROM @records;
@@ -822,7 +824,10 @@ Cet exemple illustre un scénario d’utilisation plus compliqué dans lequel no
 ## <a name="using-user-defined-types---udt"></a>Utilisation de types définis par l’utilisateur (UDT)
 Les types définis par l’utilisateur (ou UDT) sont une autre fonctionnalité de programmabilité de U-SQL. Un type défini par l’utilisateur U-SQL agit comme un type défini par l’utilisateur C# standard. C# est un langage fortement typé qui permet d’utiliser des types définis par l’utilisateur intégrés et personnalisés.
 
-U-SQL ne peut pas actuellement sérialiser ou désérialiser implicitement des données de types définis par l’utilisateur vers/depuis des fichiers externes. C’est pourquoi l’interface IFormatter doit être définie avec des méthodes de sérialisation/désérialisation dans le cadre de la définition du type défini par l’utilisateur. Dans ADLA V1, seule la sérialisation intermédiaire est prise en charge. Cela signifie que, si IFormatter est important pour le traitement interne des types définis par l’utilisateur, il ne peut pas être utilisé pour une sérialisation persistante dans un EXTRACTEUR ou un GÉNÉRATEUR DE SORTIE. Lors de l’écriture de données dans un fichier avec un GÉNÉRATEUR DE SORTIE, ou de la lecture avec un EXTRACTEUR, le type défini par l’utilisateur doit être sérialisé en une chaîne avec la méthode ToString() de l’implémentation de l’UDT. Une alternative consiste à utiliser un EXTRACTEUR ou un GÉNÉRATEUR DE SORTIE personnalisés pour le traitement des types définis par l’utilisateur.  
+U-SQL ne peut pas implicitement sérialiser/désérialiser des types définis par l’utilisateur arbitraires lorsque le type défini par l’utilisateur est transmis entre les sommets des jeux de lignes. Par conséquent, l’utilisateur doit fournir un formateur explicite à l’aide de l’interface IFormatter. U-SQL connaît ainsi les méthodes de sérialisation et désérialisation pour le type défini par l’utilisateur. 
+
+> [!NOTE]
+> Les extracteurs et générateurs de sortie intégrés à U-SQL ne peuvent pas actuellement sérialiser/désérialiser les données du type défini par l’utilisateur vers/à partir de fichiers, même avec le jeu IFormatter.  Par conséquent, lors de l’écriture des données de type défini par l’utilisateur dans un fichier avec l’instruction OUTPUT ou lors de la lecture avec un extracteur, l’utilisateur doit les transmettre sous la forme d’unee chaîne ou d’un tableau d’octets et appeler explicitement le code de sérialisation et de désérialisation (par exemple la méthode ToString() du type défini par l’utilisateur). Les extracteurs et les générateurs de sortie définis par l’utilisateur quant à eux peuvent lire et écrire les types définis par l’utilisateur.
 
 Si nous essayons d’utiliser un type défini par l’utilisateur dans un EXTRACTEUR ou un GÉNÉRATEUR DE SORTIE (à partir de l’instruction SELECT précédente)
 
@@ -837,7 +842,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 nous recevons l’erreur suivante
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+    Error    1    E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
     MyNameSpace.Myfunction_Returning_UDT.
 
     Description:
@@ -847,8 +852,8 @@ nous recevons l’erreur suivante
     Resolution:
 
     Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
-    the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
-    USQL-Programmability\Types.usql 52  1   USQL-Programmability
+    the preceding SELECT.    C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+    USQL-Programmability\Types.usql    52    1    USQL-Programmability
 ```
 
 Pour utiliser un type défini par l’utilisateur dans un générateur de sortie, nous devons soit le sérialiser en une chaîne avec la méthode ToString(), soit créer un générateur de sortie personnalisé.
@@ -856,7 +861,7 @@ Pour utiliser un type défini par l’utilisateur dans un générateur de sortie
 Il n’est actuellement pas possible d’utiliser des types définis par l’utilisateur dans une instruction GROUP BY. Si un type défini par l’utilisateur est utilisé dans une instruction GROUP BY, l’erreur suivante est levée :
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
+    Error    1    E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
     for column myfield
 
     Description:
@@ -867,7 +872,7 @@ Il n’est actuellement pas possible d’utiliser des types définis par l’uti
 
     Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
     C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
-    62  5   USQL-Programmability
+    62    5    USQL-Programmability
 ```
 
 Pour définir un type défini par l’utilisateur, nous devons effectuer les opérations suivantes :
@@ -896,7 +901,7 @@ Le constructeur de la classe
 ```c#
     [SqlUserDefinedType(typeof(MyTypeFormatter))]
       public class MyType
-           {
+              {
              …
            }
 ```
@@ -932,9 +937,9 @@ Instance `MyType` : instance du type
 Enregistreur `IColumnWriter`/lecteur `IColumnReader` : flux de la colonne sous-jacente.  
 Contexte `ISerializationContext` : énumération définissant un jeu d’indicateurs qui spécifie le contexte source ou cible pour le flux pendant la sérialisation. 
  
-    * *Intermediate* - Spécifie que le contexte source ou cible n’est pas un magasin persistant
+   * *Intermediate* - Spécifie que le contexte source ou cible n’est pas un magasin persistant
 
-    * *Persistence* - Spécifie que le contexte source ou cible est un magasin persistant
+   * *Persistence* - Spécifie que le contexte source ou cible est un magasin persistant
 
 En tant que type C# standard, une définition de type défini par l’utilisateur U-SQL peut inclure des remplacements pour des opérateurs tels que +/==/!=, etc. Peut inclure des méthodes statiques et ainsi de suite. Par exemple, si nous prévoyons d’utiliser ce type défini par l’utilisateur en tant que paramètre pour la fonction d’agrégation U-SQL MIN, nous devons définir un remplacement de l’opérateur <.
 
@@ -1116,6 +1121,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+       
+       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1284,9 +1291,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 }
 ```
-
-### <a name="udts-from-built-in-types"></a>type défini par l’utilisateur à partir de Types intégrés
-Bientôt disponible
 
 ## <a name="user-defined-aggregates--udagg"></a>Agrégats définis par l’utilisateur – UDAGG
 Les agrégats définis par l’utilisateur sont toutes les fonctions d’agrégation qui ne sont pas fournies prêtes à l’emploi avec U-SQL. L’exemple peut être un agrégat effectuant un calcul mathématique personnalisé, effectuant des concaténations de chaînes ou des manipulations de chaînes, etc.
@@ -1523,7 +1527,7 @@ Ensuite, nous fractionnons la ligne d’entrée en parties de colonne.
     {
     …
         string[] parts = line.Split(my_column_delimiter);
-            foreach (string part in parts)
+               foreach (string part in parts)
         {
         …
         }
@@ -2174,9 +2178,9 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 Dans ce scénario d’utilisation, l’applicateur défini par l’utilisateur agit comme un analyseur de valeurs délimitées par des virgules pour les propriétés d’une flotte de voitures. Les lignes du fichier d’entrée ressemblent à ceci :
 
 ```
-103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
-210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
+103    Z1AB2CD123XY45889    Ford,Explorer,2005,SUV,152345
+303    Y0AB2CD34XY458890    Shevrolet,Cruise,2010,4Dr,32455
+210    X5AB2CD45XY458893    Nissan,Altima,2011,4Dr,74000
 ```
 
 Il s’agit d’un fichier TSV standard de valeurs délimitées par des tabulations avec une colonne Properties contenant des propriétés de voitures telles que la marque, le modèle, etc... Ces propriétés doivent être analysées dans les colonnes de table. L’applicateur fourni permet également de générer un nombre dynamique de propriétés dans l’ensemble de lignes de résultat, en fonction du paramètre transmis : soit toutes les propriétés, soit un ensemble spécifique de propriétés.
@@ -2374,7 +2378,7 @@ Voici un exemple de combinateur
     }
 ```
 
-Dans ce scénario d’utilisation, nous créons un rapport analytique pour le détaillant. L’objectif est de rechercher tous les produits dont le prix est supérieur à 20 000 USD, et les ventes via le site web plus rapides que via le détaillant standard au cours d’une période déterminée.
+Dans ce scénario d’utilisation, nous créons un rapport analytique pour le détaillant. L’objectif est de rechercher tous les produits dont le prix est supérieur à&20; 000 USD, et les ventes via le site web plus rapides que via le détaillant standard au cours d’une période déterminée.
 
 Voici le script U-SQL de base. Vous pouvez comparer la logique entre une commande JOIN standard et un combinateur :
 
@@ -2608,6 +2612,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
