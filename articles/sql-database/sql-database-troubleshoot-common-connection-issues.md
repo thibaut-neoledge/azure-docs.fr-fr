@@ -4,7 +4,7 @@ description: "Opérations servant à identifier et résoudre les erreurs de conn
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -61,8 +61,8 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 * Erreur utilisateur : par exemple, paramètres de connexion saisis de façon incorrecte, comme le nom du serveur dans la chaîne de connexion.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
-1. Configurez les [règles de pare-feu](sql-database-configure-firewall-settings.md) pour autoriser l’adresse IP du client.
-2. Sur tous les pare-feu situés entre le client et Internet, assurez-vous que le port 1433 est ouvert pour les connexions sortantes. Consultez [Configuration du pare-feu Windows pour autoriser l’accès à SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) pour obtenir des informations supplémentaires.
+1. Configurez les [règles de pare-feu](sql-database-configure-firewall-settings.md) pour autoriser l’adresse IP du client. Définissez une règle de pare-feu avec une plage d’adresses IP allant de 0.0.0.0 à 255.255.255.255 à des fins de test temporaire. Cette opération ouvrira le serveur à toutes les adresses IP. Si elle résout votre problème de connectivité, supprimez cette règle et créez une règle de pare-feu pour une adresse ou une plage d’adresses correctement bornée. 
+2. Sur tous les pare-feu situés entre le client et Internet, assurez-vous que le port 1433 est ouvert pour les connexions sortantes. Consultez les pages [Configurer le pare-feu Windows de façon à autoriser l’accès à SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) et [Ports et protocoles requis pour l’identité hybride](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) pour connaître les pointeurs supplémentaires liés aux ports supplémentaires que vous devez ouvrir pour l’authentification Azure Active Directory.
 3. Vérifiez votre chaîne de connexion et d’autres paramètres de connexion. Consultez la section Chaîne de connexion dans la [rubrique concernant les problèmes de connectivité](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Restauration à la suite d’une panne](sql-database-disaster-recovery.md) pour connaître les étapes de restauration vers une nouvelle zone.
 
@@ -77,13 +77,11 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 | 4 |[Résoudre les problèmes de connectivité à la base de données SQL Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Cet outil permet d’identifier votre problème et de résoudre les erreurs de connexion. |
 | 5 |[Résoudre l’erreur « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. »](sql-database-troubleshoot-connection.md) |Explique comment identifier et résoudre une erreur 40613 : « La base de données &lt;x&gt; sur le serveur &lt;y&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. » |
 | 6 |[Codes d’erreur SQL pour les applications clientes SQL Database : erreur de connexion à la base de données et autres problèmes](sql-database-develop-error-messages.md) |Fournit des informations sur les codes d’erreur SQL pour les applications clientes de base de données SQL, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. |
-| 7 |[Guide des performances Azure SQL Database pour les bases de données autonomes](sql-database-performance-guidance.md) |Vous aide à déterminer le niveau de service adapté à votre application. Fournit également des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure. |
+| 7 |[Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md) |Vous aide à déterminer le niveau de service adapté à votre application. Fournit également des recommandations pour le paramétrage de votre application afin de tirer le meilleur parti de votre base de données SQL Azure. |
 | 8 |[Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md) |Fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec une base de données SQL Azure. |
-| 9 |Page Mise à niveau vers la base de données SQL Azure v12 ([Portail Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Fournit des instructions sur la mise à niveau des serveurs et bases de données SQL Azure V11 existants vers la base de données SQL Azure V12 avec le portail Azure ou PowerShell. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Résoudre les problèmes de performances des bases de données SQL Azure](sql-database-troubleshoot-performance.md)
-* [Résoudre les problèmes d’autorisation des bases de données SQL Azure](sql-database-troubleshoot-permissions.md)
 * [Rechercher dans la documentation de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Affichage des dernières mises à jour du service de base de données SQL Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -91,12 +89,10 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 * [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-* [Parcours d’apprentissage pour l’utilisation de la base de données SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [Parcours d’apprentissage pour l’utilisation des outils et fonctionnalités des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

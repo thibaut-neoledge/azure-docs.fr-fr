@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
 
 
 ---
@@ -26,18 +26,18 @@ Cet article explique comment affecter un rôle administratif à un utilisateur d
 ## <a name="assign-a-role-to-a-user"></a>Affecter un rôle à un utilisateur
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**.
-   
+
    ![Ouverture du panneau Tous les utilisateurs](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 4. Sur le panneau **Utilisateurs et groupes - Tous les utilisateurs** , sélectionnez un utilisateur dans la liste.
 5. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Rôle d’annuaire**, puis affectez l’utilisateur à un rôle dans la liste **Rôle d’annuaire**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md).
-   
+
       ![Affectation d’un utilisateur à un rôle](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Sélectionnez **Enregistrer**.
 
-## <a name="whats-next"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Ajouter un utilisateur](active-directory-users-create-azure-portal.md)
 * [Réinitialiser le mot de passe d’un utilisateur dans le nouveau portail Azure](active-directory-users-reset-password-azure-portal.md)
 * [Modifier les informations de travail d’un utilisateur](active-directory-users-work-info-azure-portal.md)
@@ -46,7 +46,6 @@ Cet article explique comment affecter un rôle administratif à un utilisateur d
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

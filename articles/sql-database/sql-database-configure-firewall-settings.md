@@ -12,23 +12,16 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/28/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5834558d761784239813afc6bbb3e77cebcf1fa
-ms.openlocfilehash: fcdd0b855d64eb4b04ef1ea6d7752e9c664557a6
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-firewall-configure.md)
-> * [Portail Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API REST](sql-database-configure-firewall-settings-rest.md)
-> 
 
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur SQL Database à partir d’une adresse IP spécifiée ou d’une plage d’adresses IP. Vous pouvez également utiliser des règles de pare-feu pour les utilisateurs quand plusieurs bases de données ont les mêmes exigences d’accès et que vous ne souhaitez pas les configurer une à une. Microsoft recommande d’utiliser, dans la mesure du possible, des règles de pare-feu au niveau de la base de données pour améliorer la sécurité et renforcer la portabilité de la base de données. Pour une vue d’ensemble des pare-feu SQL Database, consultez [Vue d’ensemble des règles de pare-feu de SQL Database](sql-database-firewall-configure.md).
 
@@ -64,6 +57,6 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

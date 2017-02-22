@@ -12,22 +12,16 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/08/2017
+ms.topic: article
+ms.date: 02/09/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3db60639507f14b24de00a46b1e2f4effa255f56
-ms.openlocfilehash: c264682b7bee875cdfbbcc0abbc6ec49f2ba8a26
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 32d8c5f13d95c3de8b06782f4f6541866389be5b
 
 
 ---
 # <a name="managing-azure-sql-database-using-powershell"></a>Gestion d’Azure SQL Database à l’aide de PowerShell
-> [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 Cette rubrique présente les applets de commande PowerShell utilisées pour effectuer de nombreuses tâches Azure SQL Database. Pour en obtenir la liste complète, consultez [Applets de commande d’Azure SQL Database](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
@@ -168,7 +162,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>Créer et gérer des pools élastiques à l’aide de PowerShell
-Pour en savoir plus sur la création de pools élastiques avec PowerShell, voir [Créer un pool de bases de données élastiques avec PowerShell](sql-database-elastic-pool-create-powershell.md).
+Pour en savoir plus sur la création de pools élastiques avec PowerShell, voir [Créer un pool de bases de données élastiques avec PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 Pour en savoir plus sur la gestion des pools élastiques avec PowerShell, voir [Surveiller et gérer un pool de bases de données élastiques avec PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
@@ -179,6 +173,6 @@ Pour en savoir plus sur la gestion des pools élastiques avec PowerShell, voir [
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

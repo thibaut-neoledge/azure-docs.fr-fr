@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: 3db1ec50b357c5bf6da51aaaf0f04ccb65d1bb05
+ms.sourcegitcommit: 892c42cf28ef1861f9422c8bcabcbc229c6033b0
+ms.openlocfilehash: 794cfa21f46981c031217687f591c35a4706ae8b
 
 
 ---
@@ -27,24 +27,24 @@ Bienvenue dans Azure Site Recovery ! Utilisez cet article si vous souhaitez migr
 * Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Azure Resource Manager et classique. De plus, Azure propose deux portails : le portail Azure Classic, qui prend en charge le modèle de déploiement classique, et le portail Azure, qui gère les deux modèles de déploiement. Les étapes de base pour la migration sont les mêmes que vous configuriez Site Recovery dans le gestionnaire de ressources ou sur le portail classique. Toutefois, les instructions et captures d’écran de l’interface utilisateur de cet article sont pertinentes pour le portail Azure.
 * **Actuellement vous pouvez uniquement migrer d’une région à l’autre. Vous pouvez basculer les machines virtuelles d’une région Azure à une autre, mais vous ne pourrez pas les restaurer par la suite.**
 * Les instructions de migration de cet article sont basées sur les instructions pour la réplication d’une machine physique vers Azure. Il contient des liens vers les étapes de [Réplication de machines virtuelles VMware ou de serveurs physiques sur Azure](site-recovery-vmware-to-azure.md), qui décrit comment répliquer un serveur physique dans le portail Azure.
-* Si vous configurez Site Recovery dans le portail classique, suivez les instructions détaillées de [cet article](site-recovery-vmware-to-azure-classic.md). **ne devez plus suivre** les instructions de cet [article hérité](site-recovery-vmware-to-azure-classic-legacy.md).
+* Si vous configurez Site Recovery dans le portail classique, suivez les instructions détaillées de [cet article](site-recovery-vmware-to-azure-classic.md). 
 
-Publiez des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Conditions préalables
 Voici ce dont vous avez besoin pour ce déploiement :
 
-* **Serveur de configuration**: une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Pour en savoir plus, consultez [Architecture du scénario](site-recovery-vmware-to-azure.md#scenario-architecture) et [Conditions préalables en matière de serveur de configuration](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites).
+* **Serveur de configuration**: une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Pour en savoir plus, consultez [Architecture du scénario](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure) et [Conditions préalables en matière de serveur de configuration](site-recovery-vmware-to-azure.md#prerequisites).
 * **Machines virtuelles IaaS**: machines virtuelles à migrer. Vous migrez ces machines virtuelles en les traitant comme des machines physiques.
 
 ## <a name="deployment-steps"></a>Étapes du déploiement
-Cette section décrit les étapes de déploiement dans le nouveau portail Azure. Si vous avez besoin de ces étapes de déploiement pour Site Recovery dans le portail classique, consultez [cet article](site-recovery-vmware-to-azure-classic.md).
+Cette section décrit les étapes de déploiement dans le nouveau portail Azure.
 
 1. [Créer un coffre](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
-2. [Déployer un serveur de configuration](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
+2. [Déployer un serveur de configuration](site-recovery-vmware-to-azure.md#prepare-the-configuration-server).
 3. Après avoir déployé le serveur de configuration, vérifiez qu’il peut communiquer avec les machines virtuelles que vous souhaitez migrer.
-4. [Configurer les paramètres de réplication](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). Créez une stratégie de réplication et affectez-la au serveur de configuration.
-5. [Installer le service Mobilité](site-recovery-vmware-to-azure.md#step-6-replicate-applications). Chaque machine virtuelle que vous souhaitez protéger exige l’installation du service installé le service Mobilité. Ce service envoie des données au serveur de processus. Le service de mobilité peut être installé manuellement ou transféré et installé automatiquement par le serveur de processus lorsque la protection de machine virtuelle est activée. Les règles de pare-feu sur les machines virtuelles que vous souhaitez migrer doivent être configurées pour autoriser l’installation Push de ce service.
+4. [Configurer les paramètres de réplication](site-recovery-vmware-to-azure.md#set-up-replication-settings). Créez une stratégie de réplication et affectez-la au serveur de configuration.
+5. [Installer le service Mobilité](site-recovery-vmware-to-azure.md#prepare-vms-for-replication). Chaque machine virtuelle que vous souhaitez protéger exige l’installation du service installé le service Mobilité. Ce service envoie des données au serveur de processus. Le service de mobilité peut être installé manuellement ou transféré et installé automatiquement par le serveur de processus lorsque la protection de machine virtuelle est activée. Les règles de pare-feu sur les machines virtuelles que vous souhaitez migrer doivent être configurées pour autoriser l’installation Push de ce service.
 6. [Activer la réplication](site-recovery-vmware-to-azure.md#enable-replication). Activez la réplication pour les machines virtuelles que vous souhaitez migrer. Vous pouvez découvrir les machines virtuelles IaaS que vous souhaitez migrer vers Azure à l’aide de l’adresse IP privée des machines virtuelles. Trouvez cette adresse sur le tableau de bord de machine virtuelle dans Azure. Lorsque vous activez la réplication, vous définissez le type de machine pour les machines virtuelles comme des machines physiques.
 7. [ Exécuter un basculement non planifié](site-recovery-failover.md#run-an-unplanned-failover). Une fois la réplication initiale terminée, vous pouvez exécuter un basculement non planifié d’une région Azure vers une autre. Vous pouvez également créer un plan de récupération et exécuter un basculement non planifié pour migrer plusieurs machines virtuelles d’une région à l’autre. [Découvrez d’autres informations](site-recovery-create-recovery-plans.md) sur les plans de récupération.
 
@@ -53,6 +53,6 @@ Découvrez les autres scénarios de réplication dans [Qu’est-ce que le servic
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

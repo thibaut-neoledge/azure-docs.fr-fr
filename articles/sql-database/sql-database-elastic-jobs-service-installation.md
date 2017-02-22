@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 
 
 ---
@@ -147,7 +147,7 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installez les composants de Tâches de bases de données élastiques à l'aide du portail
-Une fois que vous avez [créé un pool élastique](sql-database-elastic-pool-create-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques** , l'interface du portail ne peut être exécuté que sur un pool existant.
+Une fois que vous avez [créé un pool élastique](sql-database-elastic-pool-manage-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques** , l'interface du portail ne peut être exécuté que sur un pool existant.
 
 **Durée estimée :** 10 minutes.
 
@@ -181,6 +181,6 @@ Pour plus d’informations, consultez [Création et gestion de Tâches de bases 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

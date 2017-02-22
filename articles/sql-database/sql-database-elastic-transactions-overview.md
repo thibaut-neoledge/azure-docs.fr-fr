@@ -16,8 +16,8 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b251edc753575f2235b9741a7c1eb5d1cf2f821
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
 
 
 ---
@@ -145,7 +145,7 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 * Seules les bases de données hébergées sur la base de données SQL Azure V12 sont prises en charge.
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Microsoft Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
@@ -156,6 +156,6 @@ Vous n’utilisez pas encore les fonctionnalités de bases de données élastiqu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
+ms.sourcegitcommit: f772060243ce6d741d26113710be32cb76135479
+ms.openlocfilehash: 41a28f43942d4e6bf395b7fd024bd22b96420d55
 
 
 ---
@@ -28,7 +28,7 @@ Cet article répond aux questions les plus fréquemment posées sur Azure DevTes
 ## <a name="general"></a>Généralités
 * [Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?](#what-if-my-question-isnt-answered-here)
 * [Pourquoi dois-je utiliser Azure DevTest Labs ?](#why-should-i-use-azure-devtest-labs) 
-* [Que signifie « libre-service, sans problème » ?](#what-does-quotworry-free-self-servicequot-mean)
+* [Que signifie « libre-service, sans problème » ?](#what-does-worry-free-self-service-mean)
 * [Comment puis-je utiliser Azure DevTest Labs ?](#how-can-i-use-azure-devtest-labs) 
 * [Combien me coûte Azure DevTest Labs ?](#how-am-i-billed-for-azure-devtest-labs) 
 
@@ -246,6 +246,6 @@ Il se peut que votre nom de réseau virtuel contienne des points. Si tel est le 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload:
 ms.date: 12/20/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 4133e98289bf22bccb71b9522627a645e92c5223
-ms.openlocfilehash: 175972f0522db292180a56330307017a25f735b1
+ms.sourcegitcommit: d1a7ed7e182530f81a426a4383297a49505f65ea
+ms.openlocfilehash: d76ea0fb27ecece4e8dcd06a2dde9a0794071884
 
 
 ---
@@ -164,15 +164,15 @@ L’option Paramètres de configuration est inactive lorsque l’ordinateur est 
 
 e. Vérifiez si une ligne comportant **disk.EnableUUID** existe.
 
-Si cette valeur existe et qu’elle est définie sur False, remplacez ce paramétrage par True (ces éléments sont sensibles à la casse).
+  Si cette valeur existe et qu’elle est définie sur False, remplacez ce paramétrage par True (ces éléments sont sensibles à la casse).
 
-Si cette valeur existe et qu’elle est définie sur true, cliquez sur Annuler et testez la commande SCSI du système d’exploitation invité après le démarrage.
+  Si cette valeur existe et qu’elle est définie sur true, cliquez sur Annuler et testez la commande SCSI du système d’exploitation invité après le démarrage.
 
 f. Si elle n’existe pas, cliquez sur **Ajouter des lignes.**
 
-Dans la colonne Nom, ajoutez disk.EnableUUID.
+  Dans la colonne Nom, ajoutez disk.EnableUUID.
 
-Définissez la valeur sur TRUE
+  Affectez-lui la valeur TRUE.
 
 Remarque : n’ajoutez pas les valeurs ci-dessus avec des guillemets doubles.
 
@@ -359,6 +359,7 @@ Les outils VMware doivent être installés sur le serveur maître cible afin qu�
 ## <a name="common-issues"></a>Problèmes courants
 
 
-<!--HONumber=Feb17_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 

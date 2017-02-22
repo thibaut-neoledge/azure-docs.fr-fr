@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: e82d677c9d53ec5d28a40a7def4b911081765ca5
-ms.openlocfilehash: 0a249d63df35f9c3334a658672777e9b1359265e
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
 
 
 ---
@@ -101,8 +101,6 @@ Pour supprimer du portail Azure un compte DocumentDB dont vous ne vous servez pl
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
 Découvrez comment [prendre en main votre compte DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
-Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB sur [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
-
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
@@ -119,6 +117,6 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

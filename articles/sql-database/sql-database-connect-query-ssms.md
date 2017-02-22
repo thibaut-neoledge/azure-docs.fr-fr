@@ -15,20 +15,15 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 02/01/2017
 ms.author: sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: a6b147521525fad343376db0454f786a77b55c42
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
 
 
 ---
 # <a name="connect-to-sql-database-with-sql-server-management-studio-and-execute-a-sample-t-sql-query"></a>Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
 
 Cet article explique comment se connecter à une base de données SQL Azure avec SQL Server Management Studio (SSMS). Une fois la connexion établie, nous exécutons une requête Transact-SQL (T-SQL) simple pour vérifier la communication avec la base de données.
 
@@ -60,19 +55,20 @@ Cet article explique comment se connecter à une base de données SQL Azure avec
     ![new sample db query system objects with ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
 > [!Tip]
-> Pour trouver un didacticiel, consultez [Didacticiel sur la base de données SQL : création d’un serveur, d’une règle de pare-feu de niveau serveur, d’un exemple de base de données, d’une règle de pare-feu de niveau base de données et connexion à SQL Server](sql-database-get-started.md).    
+> Pour accéder à un didacticiel, consultez [Didacticiel : Approvisionner une base de données SQL Azure et y accéder à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md).    
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez utiliser des instructions T-SQL pour créer et gérer des bases de données dans Azure de la même façon que vous pouvez le faire avec SQL Server. Si vous êtes familiarisé avec l’utilisation de T-SQL avec SQL Server, consultez [Informations sur Transact-SQL avec Azure SQL Database](sql-database-transact-sql-information.md) pour obtenir un récapitulatif des différences.
 - Si vous débutez avec T-SQL, consultez [Didacticiel : Écriture d’instructions Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) et [Informations de référence sur Transact-SQL (moteur de base de données)](https://msdn.microsoft.com/library/bb510741.aspx).
-- Pour commencer à créer des utilisateurs de base de données et des administrateurs d’utilisateurs de base de données, consultez la rubrique [Didacticiel sur la base de données SQL : Créer des comptes d’utilisateurs de base de données SQL pour accéder à et gérer une base de données à l’aide du portail Azure](sql-database-control-access-sql-authentication-get-started.md)
+- Pour bien démarrer avec l’authentification SQL Server, consultez le didacticiel [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md).
+- Pour bien démarrer avec l’authentification Azure Active Directory, consultez le didacticiel [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 - Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

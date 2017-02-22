@@ -16,19 +16,12 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
-ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurer la géoréplication active pour Base de données SQL Azure avec Transact-SQL
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-geo-replication-overview.md)
-> * [portail Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 Cet article vous montre comment configurer la géoréplication active pour une base de données SQL Azure à l’aide de Transact-SQL.
 
@@ -171,6 +164,6 @@ En avril 2017 sera retiré le type secondaire non accessible en lecture et les b
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

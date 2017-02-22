@@ -16,18 +16,12 @@ ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 1ee79438f40336c3632accc0e3c228d8f2851afd
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 19a83f8206f589d1fb2bf76c5ad0cca04f281c3f
 
 
 ---
 # <a name="restore-a-deleted-azure-sql-database-by-using-powershell"></a>Restaurer une base de données SQL Azure supprimée avec PowerShell
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-recovery-using-backups.md)
-> * [Restauration d’une base de données supprimée - Portail](sql-database-restore-deleted-database-portal.md)
-> * [**Restauration d’une base de données supprimée - PowerShell**](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -77,6 +71,6 @@ Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedData
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
