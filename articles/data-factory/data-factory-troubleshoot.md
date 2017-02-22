@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
+ms.sourcegitcommit: f78081d173bfe255a3ed8016d10a2deec87ac758
+ms.openlocfilehash: 684515213fc2533e56600cacf3bc0a3a33f337c2
 
 
 ---
@@ -34,7 +34,7 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
     Login-AzureRmAccount
     ```
 3. Exécutez la commande suivante pour enregistrer le fournisseur Azure Data Factory.
-    
+
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
@@ -109,7 +109,7 @@ Cette erreur indique généralement que l’emplacement du compte de stockage sp
 En outre, il existe une seconde propriété JSON additionalLinkedServiceNames avec laquelle les comptes de stockage supplémentaires peuvent être spécifiés dans HDInsight à la demande. Ces comptes de stockage supplémentaires liés doivent avoir le même emplacement que le cluster HDInsight, ou l’approvisionnement échoue avec la même erreur.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problème : échec de l’activité .NET personnalisée
-Consultez la page [Déboguer un pipeline avec une activité personnalisée](data-factory-use-custom-activities.md#debug-the-pipeline) pour obtenir des instructions détaillées.
+Consultez la page [Déboguer un pipeline avec une activité personnalisée](data-factory-use-custom-activities.md#troubleshoot-failures) pour obtenir des instructions détaillées.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Utilisation du portail Azure pour résoudre les problèmes
 ### <a name="using-portal-blades"></a>Utilisation des panneaux du portail
@@ -153,6 +153,6 @@ Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure P
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

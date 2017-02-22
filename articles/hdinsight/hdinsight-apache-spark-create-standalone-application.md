@@ -1,5 +1,5 @@
 ---
-title: "Créer une application Scala autonome à exécuter sur un cluster HDInsight Spark | Microsoft Docs"
+title: "Créer des applications Scala autonomes à exécuter sur des clusters Azure Spark | Microsoft Docs"
 description: "Apprenez à créer une application Spark autonome à exécuter sur un cluster HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7b4348fbc77c2682001c8b18ddf7918dbb66872b
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight-linux"></a>Création d’une application Scala autonome à exécuter sur un cluster Apache Spark sur HDInsight Linux
+# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Créer une application Scala autonome à exécuter sur un cluster Apache Spark sur HDInsight
+
 Cet article fournit des instructions détaillées pour le développement d'applications Spark autonomes écrites en Scala à l'aide de Maven avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA.  La création d'une application Scala avec IntelliJ IDEA implique généralement les étapes suivantes :
 
 * Utiliser Maven en tant que le système de génération.
@@ -38,7 +39,7 @@ Cet article fournit des instructions détaillées pour le développement d'appli
 **Configuration requise**
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’ [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IDE Java. Cet article utilise IntelliJ IDEA 15.0.1. Vous pouvez l’installer à partir d’ [ici](https://www.jetbrains.com/idea/download/).
 
@@ -126,7 +127,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
     4. Dans la boîte de dialogue **Sélectionner une classe principale**, sélectionnez la classe qui s’affiche par défaut, puis cliquez sur **OK**.
        
         ![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
-    5. Dans la boîte de dialogue **Créer un fichier JAR à partir de modules**, assurez-vous que l’option **Extract to the target JAR** (Extraire vers le fichier JAR cible) est activée, puis cliquez sur **OK**. Cela crée un fichier JAR contenant toutes les dépendances.
+    5. Dans la boîte de dialogue **Create JAR from Modules** (Créer un fichier JAR à partir de modules), assurez-vous que l’option **Extract to the target JAR** (Extraire vers le fichier JAR cible) est activée, puis cliquez sur **OK** (OK). Cela crée un fichier JAR contenant toutes les dépendances.
        
         ![Créer un fichier jar](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
     6. L’onglet Disposition de la sortie répertorie tous les fichiers JAR inclus dans le cadre du projet Maven. Vous pouvez sélectionner et supprimer ceux sur lesquels l’application Scala n’a aucune dépendance directe. Pour l’application que nous créons ici, vous pouvez tous les supprimer sauf le dernier (**SparkSimpleApp compile output**). Sélectionnez les fichiers JAR à supprimer, puis cliquez sur l’icône **Delete** .
@@ -172,6 +173,6 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

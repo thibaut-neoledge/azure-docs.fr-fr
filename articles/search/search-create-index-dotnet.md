@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ Avant de suivre ce guide et de passer à la création d’un index, vous devez a
 
 Notez que tous les exemples de code de cet article sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifier la clé API d’administration de votre service Azure Search
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifier la clé API d’administration de votre service Azure Search
 Maintenant que vous avez configuré un service Azure Search, vous être presque prêt à émettre des requêtes sur le système d’extrémité de votre service à l’aide du kit de développement logiciel (SDK) .NET. Tout d'abord, vous devez obtenir l’une des clés API d'administration générées pour le service Search que vous avez configuré. Le kit de développement logiciel (SDK) .NET envoie la clé API à chaque demande à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-1. Pour accéder aux clés API de votre service, vous devez vous connecter au [Portail Azure](https://portal.azure.com/)
+1. Pour accéder aux clés API de votre service, connectez-vous au [portail Azure](https://portal.azure.com/)
 2. Accédez au panneau de votre service Azure Search
 3. Cliquez sur l’icône « Clés »
 
@@ -52,7 +52,7 @@ Dans le cadre de la création d’un index, vous pouvez utiliser votre clé d’
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Création d’une instance de la classe SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Création d’une instance de la classe SearchServiceClient
 Pour commencer à utiliser le Kit de développement logiciel (SDK) .NET Azure Search, vous devez créer une instance de la classe `SearchServiceClient` . Cette classe dispose de plusieurs constructeurs. Celle que vous cherchez utilise le nom de votre service de recherche et un objet `SearchCredentials` en tant paramètres. `SearchCredentials` encapsule votre clé API.
 
 Le code suivant crée un nouveau `SearchServiceClient` à l'aide de valeurs pour le nom du service de recherche et la clé API stockés dans le fichier de configuration de l'application (`app.config` ou `web.config`) :
@@ -73,7 +73,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Définir votre index Recherche Azure
+## <a name="define-your-azure-search-index"></a>Définir votre index Recherche Azure
 Un seul appel à la méthode `Indexes.Create` crée votre index. Cette méthode prend comme paramètre un objet `Index` qui définit votre index Azure Search. Vous devez créer un objet `Index` et l'initialiser comme suit :
 
 1. Définissez la propriété `Name` de l’objet `Index` sur le nom de votre index.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. Création de l'index
+## <a name="create-the-index"></a>Création de l'index
 Maintenant qu’un objet `Index` a été initialisé, vous pouvez créer l’index en appelant `Indexes.Create` sur votre objet `SearchServiceClient` :
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Suivant
+## <a name="next-steps"></a>Étapes suivantes
 Après avoir créé un index Azure Search, vous pouvez commencer à [télécharger du contenu dans votre index](search-what-is-data-import.md) afin d’y lancer des recherches.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

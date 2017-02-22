@@ -1,6 +1,6 @@
 ---
-title: "Sécurisation d’une application logique Azure | Microsoft Docs"
-description: "Sécuriser les entrées, l’accès et le contrôle d’une application logique Azure"
+title: "Sécuriser l’accès à Azure Logic Apps | Microsoft Docs"
+description: "Renforcez la sécurité pour protéger l’accès aux déclencheurs, aux entrées et sorties, aux paramètres d’action et aux services utilisés avec des workflows dans Azure Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: ba109fdc2a97e99f6216aa038261e6ccc5e356d9
-ms.openlocfilehash: 88df53aed1ffcf3c53d3d5557bdd2604e44f2aef
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 2cc83c6f10272139f148b450e3c1c8cc91fd68f9
 
 
 ---
@@ -281,6 +281,6 @@ Vous pouvez utiliser la fonctionnalité de connexion hybride locale pour que l�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

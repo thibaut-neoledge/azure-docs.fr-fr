@@ -264,13 +264,13 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 * [Prise en main d’Application Insights sur de nombreuses plateformes](app-insights-detect-triage-diagnose.md)
 
 ## <a name="video"></a>Vidéo
-> [VIDÉO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
+> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
 > 
 > 
 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

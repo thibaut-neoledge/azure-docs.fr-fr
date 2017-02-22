@@ -1,5 +1,5 @@
 ---
-title: "Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager | Microsoft Docs"
+title: "Créer Azure HDInsight (Hadoop) à l’aide de modèles | Microsoft Docs"
 description: "Apprenez à créer des clusters pour Azure HDInsight à l’aide de modèles Azure Resource Manager."
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 1816b7f5bb95669197891315ca57f93fd779c5c3
 
 
 ---
-# <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Création de clusters Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Création de clusters Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resource Manager (ARM). Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour accéder à d’autres outils et fonctions de création de clusters, cliquez sur l’onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
+Apprenez à créer des clusters HDInsight à l’aide des modèles Azure Resource Manager. Pour plus d’informations, consultez la page [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour accéder à d’autres outils et fonctions de création de clusters, cliquez sur l’onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Configuration requise :
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -59,9 +59,9 @@ Pour connaître le schéma JSON pour certains éléments, vous pouvez suivre la 
 
     Le portail crée un modèle Resource Manager en fonction de vos configurations.
 
-   ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
+## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 
-La procédure suivante crée un cluster HDInsight sous Linux.
+La procédure suivante crée un cluster Hadoop dans HDInsight :
 
 **Pour déployer un cluster à l’aide d’un modèle Resource Manager**
 
@@ -359,6 +359,6 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop basé sur Linu
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
 
 
 ---
@@ -44,8 +44,8 @@ Le tableau suivant vous permet de prendre de décision lors du choix entre les d
 
 * Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux à l'aide de l'Indexeur multimédia Azure.  Toutefois, contrairement à l’encodage, l’indexation des travaux n’est pas plus rapide avec des unités réservées plus rapides.
 * Si vous utilisez le pool partagé, c’est-à-dire sans aucune unité réservée, alors vos tâches d’encodage ont les mêmes performances que les unités de requête S1. Toutefois, il n’existe aucune limite supérieure à la durée que vos tâches peuvent passer en file d’attente et, à tout moment, une seule tâche maximum s’exécutera.
-* Les centres de données suivants ne proposent pas le type d’unité réservée **S2** : Sud du Brésil, Inde-Ouest, Inde-Centre et Sud de l’Inde.
-* Les centres de données suivants ne proposent pas le type d’unité réservée **S3** : Sud du Brésil, Inde-Ouest et Inde-Centre.
+* Les centres de données suivants ne proposent pas le type d’unité réservée **S2** : Sud du Brésil et Inde-Ouest.
+* Le centre de données suivant ne propose pas le type d’unité réservée **S3** : Inde-Ouest.
 * C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
 ## <a name="quotas-and-limitations"></a>Quotas et limitations
@@ -57,7 +57,7 @@ Exécuter la tâche de traitement multimédia de mise à l’échelle avec l’u
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portail](media-services-portal-scale-media-processing.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -72,6 +72,6 @@ Exécuter la tâche de traitement multimédia de mise à l’échelle avec l’u
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

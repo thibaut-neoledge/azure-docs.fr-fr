@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Mobile Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez comment utiliser Mobile Apps dans Azure App Service pour développer et héberger des applications iOS, Android ou Windows natives ou des applications multiplateformes à l’aide de Xamarin ou de Cordova."
+services: app-service\mobile
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5735759300fddfb650220cebc49bd5968621a8d4
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Documentation Mobile Apps
@@ -185,8 +196,13 @@ Découvrez comment utiliser Mobile Apps dans Azure App Service pour développer 
                 <div class="card">
                     <div class="cardText">
                         <h3>Langues</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">Kit de développement logiciel (SDK) backend .NET</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Kit de développement logiciel (SDK) backend Node.js</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Kit de développement logiciel (SDK) du client Android</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">Kit de développement logiciel (SDK) du client iOS</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">Kit de développement logiciel (SDK) du client JavaScript/Cordova</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Kit de développement logiciel (SDK) du client Windows/Xamarin</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,6 +211,6 @@ Découvrez comment utiliser Mobile Apps dans Azure App Service pour développer 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

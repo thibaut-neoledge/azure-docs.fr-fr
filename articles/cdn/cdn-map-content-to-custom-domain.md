@@ -1,9 +1,9 @@
 ---
-title: "Comment mapper le contenu du réseau de distribution de contenu Azure (CDN) à un domaine personnalisé | Microsoft Docs"
-description: "Cette rubrique montre comment mapper un contenu CDN à un domaine personnalisé."
+title: "Mapper le contenu Azure CDN à un domaine personnalisé | Microsoft Docs"
+description: "Découvrez comment mapper du contenu Azure CDN à un domaine personnalisé."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>Comment mapper un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN)
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Mapper du contenu Azure CDN à un domaine personnalisé
 Vous pouvez mapper un domaine personnalisé à un point de terminaison CDN pour utiliser votre propre nom de domaine dans les URL de contenu mis en cache, plutôt que d’utiliser un sous-domaine d’azureedge.net.
 
 Il existe deux façons de mapper votre domaine personnalisé à un point de terminaison CDN :
@@ -84,6 +84,6 @@ Après avoir inscrit votre domaine personnalisé selon l’une des procédures m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

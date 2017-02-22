@@ -366,6 +366,6 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles d’Az
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

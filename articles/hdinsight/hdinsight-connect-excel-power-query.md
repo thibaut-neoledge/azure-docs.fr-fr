@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf45651360a9fe9b5023d46000aadc054ce0ef37
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 26383db7a3fe6736fb739121dd545518784c098a
 
 
 ---
@@ -32,7 +32,7 @@ Une fonctionnalité clé de la solution de données volumineuses (« big data 
 ### <a name="prerequisites"></a>Conditions préalables
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* **Un cluster HDInsight**. Pour en configurer un, consultez la section [Prise en main d’Azure HDInsight][hdinsight-get-started].
+* **Un cluster HDInsight**. Pour en configurer un, consultez la page [Prise en main d’Azure HDInsight][hdinsight-get-started].
 * **Une station de travail** fonctionnant sous Windows 7, Windows Server 2008 R2 ou une version ultérieure.
 * **Office Professionnel Plus 2013, Office 365 ProPlus, l’édition autonome d’Excel 2013 ou Office Professionnel Plus 2010.**
 
@@ -83,6 +83,6 @@ Dans cet article, vous avez appris à utiliser Power Query pour extraire des don
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

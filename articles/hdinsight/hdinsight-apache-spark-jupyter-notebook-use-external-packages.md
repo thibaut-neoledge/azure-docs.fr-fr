@@ -1,5 +1,5 @@
 ---
-title: Utilisation de packages externes avec les blocs-notes Jupyter dans des clusters Apache Spark sur HDInsight | Microsoft Docs
+title: "Utiliser des packages Maven personnalisés avec des blocs-notes Jupyter dans Spark sur Azure | Microsoft Docs"
 description: "Cette section comporte des instructions détaillées sur la façon de configurer des blocs-notes Jupyter disponibles avec des clusters HDInsight Spark pour utiliser des packages Spark externes."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 53753790b63d783a284aa0db39841c4bd6a8a0aa
-ms.openlocfilehash: 11bcf7f4f51d105f6693545669a2f17af196bf57
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
 
 
 ---
-# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight-linux"></a>Utilisation de packages externes avec les blocs-notes Jupyter dans des clusters Apache Spark sur HDInsight Linux
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilisation de packages externes avec les blocs-notes Jupyter dans des clusters Apache Spark sur HDInsight
+> [!div class="op_single_selector"]
+> * [À l’aide de la commande magique de cellule](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [À l’aide d’une action de script](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
-Découvrez comment configurer un bloc-notes Jupyter dans un cluster Apache Spark sur HDInsight (Linux) pour utiliser des packages **maven** externes bénéficiant de la contribution de la communauté, qui ne sont pas inclus dans le cluster. 
+Découvrez comment configurer un bloc-notes Jupyter dans un cluster Apache Spark sur HDInsight pour utiliser des packages **maven** externes bénéficiant de la contribution de la communauté, qui ne sont pas inclus dans le cluster. 
 
 Vous pouvez rechercher le [référentiel Maven](http://search.maven.org/) pour obtenir la liste complète des packages disponibles. Vous pouvez également obtenir une liste des packages disponibles à partir d’autres sources. Par exemple, une liste complète des packages bénéficiant de la contribution de la communauté est disponible sur le site [Spark Packages](http://spark-packages.org/)(Packages Spark).
 
@@ -35,27 +40,27 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](http:/
 Vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark sur HDInsight Linux. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Utiliser des packages externes avec les blocs-notes Jupyter
 1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-   
-   > [!NOTE]
-   > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
+    > [!NOTE]
+    > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
+    > 
+    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+    > 
 
+   
 
 3. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Spark**.
    
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
 
 4. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
    
-    ![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Donnez un nom au bloc-notes](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Donnez un nom au bloc-notes")
 
 5. Vous allez utiliser la commande magique `%%configure` pour configurer le bloc-notes afin d’utiliser un package externe. Dans les blocs-notes utilisant des packages externes, veillez à appeler la commande magique `%%configure` dans la première cellule de code. Cela garantit que le noyau est configuré pour utiliser le package avant le démarrage de la session.
 
@@ -73,7 +78,7 @@ Vous devez disposer des éléments suivants :
    
     b. À partir du référentiel, rassemblez les valeurs pour **GroupId**, **ArtifactId** et **Version**.
    
-    ![Utiliser des packages externes avec les blocs-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter notebook")
+    ![Utiliser des packages externes avec le bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Utiliser des packages externes avec le bloc-notes Jupyter")
    
     c. Concaténez les trois valeurs séparées par deux-points (**:**).
    
@@ -122,6 +127,6 @@ Vous devez disposer des éléments suivants :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

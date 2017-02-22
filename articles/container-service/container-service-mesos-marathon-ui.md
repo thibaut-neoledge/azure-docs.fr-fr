@@ -1,5 +1,5 @@
 ---
-title: "Gérer un cluster Azure Container Service avec l’interface utilisateur Marathon | Microsoft Docs"
+title: "Gérer le cluster DC/OS Azure avec l’interface utilisateur Marathon | Microsoft Docs"
 description: "Déployez des conteneurs dans un cluster Azure Container Service à l’aide de l’interface utilisateur web Marathon."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: c472963048e842e795e17df39567a8380d8543a9
-ms.openlocfilehash: b076fabd964cfb583bb4049d1373268d0d2762fb
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
 
 
 ---
@@ -113,6 +113,6 @@ Une fois l’opération de mise à l’échelle terminée, plusieurs instances d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

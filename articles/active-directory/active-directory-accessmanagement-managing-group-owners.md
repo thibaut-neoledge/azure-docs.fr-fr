@@ -1,13 +1,12 @@
-
 ---
-title: Étapes suivantes de la gestion des accès à l’aide de groupes | Microsoft Docs
-description: Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource.
+title: "Étapes suivantes de la gestion des accès à l’aide de groupes | Microsoft Docs"
+description: "Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44350a3c-8ea1-4da1-aaac-7fc53933dd21
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+
 
 ---
 # <a name="managing-owners-for-a-group"></a>Gestion des propriétaires d’un groupe
@@ -41,9 +44,12 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
+* [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

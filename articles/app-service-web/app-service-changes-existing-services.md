@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
-ms.author: yochayk
+ms.author: yochaykk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+ms.sourcegitcommit: 75d42f41e6218d83cda00f2ef8926d6ca1f0aacd
+ms.openlocfilehash: 8f458884d0ea649dffa5f92fd459bbaaa9f5e4cf
 
 
 ---
@@ -76,7 +76,7 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 <td align="left"></td>
 <td align="left">Logic Apps</td>
 <td align="left">
-<p><li>Logic Apps est un nouveau type d'application d'App Service qui permet d'automatiser les processus d'entreprise.</p>
+<p><li>Logic Apps est un nouveau type d’application d’App Service qui permet d’automatiser les processus d’entreprise.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/logic/">En savoir plus sur les applications logiques</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -84,8 +84,8 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 <td align="left">Applications API BizTalk</td>
 <td align="left">
 <li><p>BizTalk Services est toujours disponible en tant que service autonome et reste entièrement pris en charge.</p>
-<li><p>Toutes les fonctionnalités de BizTalk Services sont intégrées à App Service en tant qu'applications API Apps permettant aux utilisateurs d'intégrer des applications d'entreprise et d'effectuer des intégrations B2B avec n'importe quel type d'application dans App Service</p>
-<li><p>Avec Logic Apps, vous pouvez désormais automatiser les processus d'entreprise grâce à une expérience de conception visuelle permettant de créer des flux de travail</p></td>
+<li><p>Toutes les fonctionnalités de BizTalk Services sont intégrées à App Service en tant qu’applications API Apps permettant aux utilisateurs d’intégrer des applications d’entreprise et d’effectuer des intégrations B2B avec n’importe quel type d’application dans App Service.</p>
+<li><p>Avec Logic Apps, vous pouvez désormais automatiser les processus d’entreprise grâce à une expérience de conception visuelle permettant de créer des flux de travail.</p></td>
 </tr>
 </tbody>
 </table>
@@ -95,6 +95,6 @@ Pour plus d’informations, consultez la [documentation App Service](https://az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

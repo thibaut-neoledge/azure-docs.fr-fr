@@ -1,5 +1,5 @@
 ---
-title: "Installation de votre appareil StorSimple 8100 | Microsoft Docs"
+title: "Installer un appareil Microsoft Azure StorSimple 8100 | Microsoft Docs"
 description: "Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
 
 
 ---
@@ -189,8 +189,8 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    
    | Étiquette | Description |
    | --- | --- |
-   |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
-   |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
+   |   0/1/4/5 |Interfaces réseau de&1; Gigabit Ethernet |
+   |   2/3 |Interfaces réseau de&10; Gigabit Ethernet |
    |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. La configuration supplémentaire requise pour une disponibilité et des performances élevées est représentée par des lignes en pointillés.)
 
@@ -251,6 +251,6 @@ Découvrez comment [déployer et configurer votre appareil StorSimple local](sto
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

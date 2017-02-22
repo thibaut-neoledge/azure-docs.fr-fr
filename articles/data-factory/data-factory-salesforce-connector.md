@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 12/22/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
+ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
 
 
 ---
@@ -26,7 +26,7 @@ Cet article décrit la façon dont vous pouvez utiliser l’activité de copie d
 Pour l’instant, Data Factory permet uniquement de déplacer des données de Salesforce vers des [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), mais il ne prend pas en charge le déplacement des données à partir d’autres magasins de données vers Salesforce.
 
 ## <a name="supported-versions"></a>Versions prises en charge
-Ce connecteur prend en charge les éditions suivantes de Salesforce : Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition.
+Ce connecteur prend en charge les éditions suivantes de Salesforce : Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition. Et il prend en charge la copie de production Salesforce, bac à sable (sandbox) et domaine personnalisé.
 
 ## <a name="prerequisites"></a>Composants requis
 * L’autorisation d’API doit être activée. Consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -55,56 +55,60 @@ Voici les artefacts Data Factory dont vous aurez besoin pour implémenter le sc�
 
 Cet exemple utilise le service lié **Salesforce** . Consultez la section [Service lié Salesforce](#salesforce-linked-service-properties) pour connaître les propriétés prises en charge par ce service lié.  Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention du jeton de sécurité.
 
+```JSON
+{
+    "name": "SalesforceLinkedService",
+    "properties":
     {
-        "name": "SalesforceLinkedService",
-        "properties":
+        "type": "Salesforce",
+        "typeProperties":
         {
-            "type": "Salesforce",
-            "typeProperties":
-            {
-                "username": "<user name>",
-                "password": "<password>",
-                "securityToken": "<security token>"
-            }
+            "username": "<user name>",
+            "password": "<password>",
+            "securityToken": "<security token>"
         }
     }
-
+}
+```
 **Service lié Azure Storage**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+    }
+}
+```
 **Jeu de données d’entrée Salesforce**
 
-    {
-        "name": "SalesforceInput",
-        "properties": {
-            "linkedServiceName": "SalesforceLinkedService",
-            "type": "RelationalTable",
-            "typeProperties": {
-                "tableName": "AllDataType__c"  
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "SalesforceInput",
+    "properties": {
+        "linkedServiceName": "SalesforceLinkedService",
+        "type": "RelationalTable",
+        "typeProperties": {
+            "tableName": "AllDataType__c"  
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 La définition de **external** sur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
@@ -119,24 +123,25 @@ La définition de **external** sur **true** informe le service Data Factory qu�
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1).
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/alltypes_c"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/alltypes_c"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 **Pipeline avec activité de copie**
 
@@ -144,54 +149,54 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 Pour obtenir la liste des propriétés prises en charge par RelationalSource, voir [Propriétés de type RelationalSource](#relationalsource-type-properties) .
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-            "start":"2016-06-01T18:00:00",
-            "end":"2016-06-01T19:00:00",
-            "description":"pipeline with copy activity",
-            "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+        {
+            "name": "SalesforceToAzureBlob",
+            "description": "Copy from Salesforce to an Azure blob",
+            "type": "Copy",
+            "inputs": [
             {
-                "name": "SalesforceToAzureBlob",
-                "description": "Copy from Salesforce to an Azure blob",
-                "type": "Copy",
-                "inputs": [
-                {
-                    "name": "SalesforceInput"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "AzureBlobOutput"
-                }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
+                "name": "SalesforceInput"
             }
-            ]
+            ],
+            "outputs": [
+            {
+                "name": "AzureBlobOutput"
+            }
+            ],
+            "typeProperties": {
+                "source": {
+                    "type": "RelationalSource",
+                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
         }
+        ]
     }
-
+}
+```
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
->
 >
 
 ![Connexion Salesforce - Data Factory - Nom de l’API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
@@ -202,6 +207,7 @@ Le tableau suivant décrit les éléments JSON spécifiques au service lié Sale
 | Propriété | Description | Requis |
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur **Salesforce**. |Oui |
+| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L’URL par défaut est « https://login.salesforce.com ». <br> - Pour copier des données à partir du bac à sable (sandbox), spécifiez « https://test.salesforce.com ». <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur. |Oui |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |Oui |
@@ -290,6 +296,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: df275d6ee1aed7e44eb26f999a068b6b56ca918f
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
 
 
 ---
@@ -129,7 +129,7 @@ Vous trouverez la solution GetStarted qui contient tous les exemples de cet arti
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez la [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
-* Pour plus d’informations sur les API ODBC, consultez ces [informations de référence](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
+* Pour plus d’informations sur les API ODBC, consultez ces [informations de référence](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
@@ -138,6 +138,6 @@ Vous trouverez la solution GetStarted qui contient tous les exemples de cet arti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de ressources de calcul avec des modèles Azure Resource Manager | Microsoft Docs"
+title: "Déploiement de ressources de calcul Linux avec des modèles Azure Resource Manager | Microsoft Docs"
 description: Didacticiel sur DotNet Core pour les machines virtuelles Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
+ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
 
 
 ---
@@ -274,6 +274,6 @@ Pour plus d’informations sur le déploiement d’Azure SQL Database, voir la [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

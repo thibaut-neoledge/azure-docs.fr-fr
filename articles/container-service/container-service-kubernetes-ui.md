@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de l’interface web Kubernetes dans Azure Container Service | Microsoft Docs"
+title: "Gérer le cluster Kubernetes Azure avec l’interface utilisateur Web | Microsoft Docs"
 description: "Utilisation de l’interface web Kubernetes dans Azure Container Service"
 services: container-service
 documentationcenter: 
@@ -8,7 +8,7 @@ manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
 keywords: 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,16 +17,20 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: ba0848c14344f137a7032a0098d2c1e07e387960
-ms.openlocfilehash: 6ede8e11361c9df2a83c71d97cf47e2306d25371
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---using-the-kubernetes-web-ui"></a>Moteur de Microsoft Azure Container Service - Utilisation de l’interface web Kubernetes
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilisation de l’interface utilisateur Web Kubernetes avec Azure Container Service
 
 ## <a name="prerequisites"></a>Composants requis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
+
+> [!NOTE]
+> La prise en charge de Kubernetes dans l’Azure Container Service est actuellement en version préliminaire.
+>
 
 Elle suppose également que vous avez installé les outils azure cli et kubectl.
 
@@ -123,7 +127,7 @@ Une fois que vous êtes dans cette vue, cliquez sur ReplicaSet, puis sur le bout
 
 ![Modification de Kubernetes](media/k8s/edit.png)
 
-Définissez le champ `spec.replicas` sur « 2 », puis appuyez sur « Mettre à jour ».
+Définissez le champ `spec.replicas` sur «&2; », puis appuyez sur « Mettre à jour ».
 
 Il n’y aura donc plus que deux réplicas, car l’un de vos pods sera supprimé.
 
@@ -132,6 +136,6 @@ Il n’y aura donc plus que deux réplicas, car l’un de vos pods sera supprim�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -394,6 +394,6 @@ Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

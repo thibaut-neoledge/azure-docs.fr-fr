@@ -241,6 +241,6 @@ Lorsque vous cliquez sur la vignette Asset Bank dans le volet d’accès, vous d
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

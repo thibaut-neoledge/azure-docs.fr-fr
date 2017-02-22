@@ -1,6 +1,6 @@
 ---
-title: "Importer/exporter des identités d’appareil IoT Hub | Microsoft Docs"
-description: "Concepts et extraits de code .NET pour la gestion en bloc des identités d’appareils IoT Hub"
+title: "Importer/exporter des identités d’appareil Azure IoT Hub | Microsoft Docs"
+description: "Utilisation du Kit de développement logiciel (SDK) de service Azure IoT pour effectuer des opérations en bloc dans le registre des identités pour importer et exporter les identités des appareils. Les opérations d’importation vous permettent de créer, de mettre à jour et de supprimer des identités d’appareils en bloc."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 7c50b4bd32d32ec33f35c2484a3c86e944830725
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 668f6ab0d5c09d53edd85b568cc8c9941b2f9135
 
 
 ---
-# <a name="bulk-management-of-iot-hub-device-identities"></a>Gestion en bloc des identités d’appareils IoT Hub
+# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestion de vos identités d’appareil IoT Hub en bloc
 Chaque IoT Hub dispose d’un registre des identités servant à créer des ressources par appareil dans le service, par exemple, une file d’attente contenant des messages actuels envoyés du cloud vers l’appareil. Le registre des identités vous permet également de contrôler l’accès aux points de terminaison orientés appareil. Cet article explique comment importer et exporter les identités des appareils en bloc vers et à partir d’un registre des identités.
 
 Les opérations d’importation et d’exportation se déroulent dans le cadre de *Tâches* , qui vous permettent d’exécuter des opérations de service en bloc par rapport à un IoT Hub.
@@ -30,7 +30,7 @@ La classe **RegistryManager** comprend les méthodes **ExportDevicesAsync** et *
 ## <a name="what-are-jobs"></a>Qu’est-ce que les tâches ?
 Les opérations de registre des identités utilisent le système de **tâches** lorsque l’opération :
 
-* présente un temps d’exécution long par rapport à une opération de runtime standard ou
+* présente un temps d’exécution potentiellement long par rapport à une opération d’exécution standard ou
 * renvoie une grande quantité de données à l’utilisateur.
 
 Dans ces cas, au lieu d’avoir une seule API d’appel en attente ou qui se bloque sur le résultat de l’opération, l’opération crée de façon asynchrone un **travail** pour cet IoT Hub. L’opération renvoie alors immédiatement un objet **JobProperties**.
@@ -75,7 +75,7 @@ La méthode **ExportDevicesAsync** requiert deux paramètres :
    ```
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
-* Un *booléen* qui indique si vous souhaitez exclure les clés d’authentification de vos données d’exportation. Si la valeur est **false**, des clés d’authentification sont incluses dans la sortie d’exportation ; dans le cas contraire, les clés sont exportées sous forme de valeur **null**.
+* Un *booléen* qui indique si vous souhaitez exclure les clés d’authentification de vos données d’exportation. Si la valeur est **false**, des clés d’authentification sont incluses dans la sortie d’exportation. Dans le cas contraire, les clés sont exportées sous forme de valeur **null**.
 
 L’extrait de code C# suivant montre comment lancer une tâche d’exportation qui inclut des clés d’authentification de l’appareil dans les données d’exportation, puis comment interroger l’exécution :
 
@@ -342,13 +342,13 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris comment effectuer des opérations en bloc dans le registre des identités dans un IoT Hub. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
-* [Mesures d’utilisation][lnk-metrics]
+* [Métriques d’IoT Hub][lnk-metrics]
 * [Surveillance des opérations][lnk-monitor]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Guide du développeur IoT Hub][lnk-devguide]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
@@ -358,6 +358,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

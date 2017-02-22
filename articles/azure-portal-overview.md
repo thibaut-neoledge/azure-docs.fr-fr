@@ -87,6 +87,6 @@ Le portail Microsoft Azure simplifie grandement la création et la gestion de vo
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

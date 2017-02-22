@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
+ms.sourcegitcommit: 4e5568bfcc3d488ef07203b7d3ad95f44354cabc
+ms.openlocfilehash: f35a42154e5d14e798a787a3ecd100ab72512b96
 
 
 ---
@@ -24,6 +24,10 @@ ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
 
 Une application Service Fabric est généralement composée de nombreux services différents qui effectuent chacun une tâche spécialisée. Ces services peuvent communiquer entre eux pour former une fonction complète, telle que le rendu des différentes parties d’une application web. Il existe également des applications clientes qui se connectent aux services et communiquent avec eux. Ce document décrit comment configurer la communication avec et entre vos services dans Service Fabric.
+
+Cette vidéo Microsoft Virtual Academy aborde également la communication de service :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="bring-your-own-protocol"></a>Apportez votre propre protocole
 Service Fabric permet de gérer le cycle de vie de vos services, mais ne décide pas des rôles de ces derniers. Cela inclut la communication. L’ouverture de votre service par Service Fabric permet au service de configurer un point de terminaison pour les demandes entrantes à l’aide du protocole ou de la pile de communication du service de votre choix. Votre service écoute sur une adresse **IP:port** normale à l’aide d’un schéma d’adressage quelconque, tel qu’un URI. Plusieurs instances de service ou réplicas peuvent partager un processus hôte, auquel cas ils devront utiliser des ports différents ou un mécanisme de partage de ports, tel que le pilote du noyau http.sys dans Windows. Dans les deux cas, chaque instance de service ou réplica dans un processus hôte doit être adressable de manière unique.
@@ -135,6 +139,6 @@ Découvrez-en plus sur les concepts et les API disponibles dans le [modèle de c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

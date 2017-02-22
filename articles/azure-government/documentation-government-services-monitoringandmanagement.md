@@ -1,23 +1,22 @@
 ---
 title: "Surveillance et gestion d’Azure Government | Microsoft Docs"
 description: "Cette article propose une comparaison de fonctionnalités et des conseils pour le développement d’applications pour Azure Government."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
-ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
+ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
+ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
 
 
 ---
@@ -39,14 +38,6 @@ Backup est mis à la disposition générale dans Azure Government.
 
 Pour plus d’informations, consultez [Azure Government Backup](documentation-government-services-backup.md).
 
-### <a name="variations"></a>Variantes
-Actuellement, les fonctionnalités Backup suivantes ne sont pas disponibles dans Azure Government :
-
-* Coffres Azure Resource Manager
-* Gestion à l’aide du portail Azure (portail Azure Classic pris en charge)
-
-Les URL pour Backup sont différentes dans Azure Government :
-
 ## <a name="site-recovery"></a>Site Recovery
 Site Recovery (ASR) est mis à la disposition générale dans Azure Government.
 
@@ -56,14 +47,16 @@ Pour plus d’informations, consultez la [documentation de la version publique d
 Actuellement, les fonctionnalités Site Recovery suivantes ne sont pas disponibles dans Azure Government :
 
 * Coffres de récupération de sites Azure Resource Manager
+* E-mail de notification
 
-| Site Recovery | Classique | Gestionnaire de ressources | 
+| Site Recovery | Classique | Gestionnaire de ressources |
 | --- | --- | --- |
-| VMware/physique  | GA | Prévu |
-| Hyper-V | GA | Prévu |
-| Site à site | GA | Prévu |
+| VMware/physique  | GA | GA |
+| Hyper-V | GA | GA |
+| Site à site | GA | GA |
 
-Remarques : le tableau s’applique aux VA et Iowa. 
+>[!NOTE]
+>Le tableau s’applique au Gouvernement des États-Unis - Virginie et Gouvernement des États-Unis - Iowa.
 
 Les URL suivantes pour ASR sont différentes dans Azure Government :
 
@@ -74,8 +67,6 @@ Les URL suivantes pour ASR sont différentes dans Azure Government :
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Pour le stockage des instantanés de la machine virtuelle |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Pour télécharger MySQL |
 
-
-
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics est mis à la disposition générale dans Azure Government.
 
@@ -84,7 +75,7 @@ Les fonctionnalités et solutions suivantes de Log Analytics ne sont actuellemen
 
 * Solutions en version d’évaluation dans Microsoft Azure, notamment :
   * Solution de surveillance du réseau
-  * Solution Application Dependency Monitor
+  * Carte de service
   * Solution Office 365
   * Solution d’analytique de mise à niveau de Windows 10
   * Solution Application Insights
@@ -127,21 +118,11 @@ Les fonctionnalités Log Analytics suivantes ont un comportement différent dans
 
 Pour plus d’informations, consultez [Documentation de la version publique de Log Analytics](../log-analytics/log-analytics-overview.md).
 
-## <a name="site-recovery"></a>Site Recovery
-Site Recovery est mis à la disposition générale dans Azure Government.
-
-Pour plus d’informations, consultez la [documentation de la version publique de Site Recovery](../site-recovery/site-recovery-overview.md).
-
-### <a name="variations"></a>Variantes
-Actuellement, les fonctionnalités Site Recovery suivantes ne sont pas disponibles dans Azure Government :
-
-* Coffres de récupération de sites Azure Resource Manager
-
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government. </a>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

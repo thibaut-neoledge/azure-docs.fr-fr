@@ -1,5 +1,5 @@
 ---
-title: "Application API Node.js dans Azure App Service | Microsoft Docs"
+title: Application API Node.js dans Azure App Service | Microsoft Docs
 description: "Découvrez comment créer une API RESTful Node.js et la déployer vers une application API dans Azure App Service."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ Dans cette section, vous créerez un référentiel qui contient le code de votre
         git init
    
      ![Nouveau dépôt Git local](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Exécutez la commande suivante pour ajouter un Git distant pour le référentiel de votre application API. 
+3. Si vous avez fait la première partie de ce didacticiel et que vous avez copié le dossier `ContactList`, la copie se trouve probablement dans le dossier `node_modules`. Il n’est pas nécessaire d’inclure le dossier `node_modules` dans le contrôle de code source, car il est créé lors du processus de déploiement via le fichier `package.json` et `npm install`. Par conséquent, ajoutez un fichier `.gitignore` en exécutant la commande suivante à la racine du répertoire de votre projet.
+
+         touch .gitignore
+      
+   Ouvrez le fichier .gitignore et ajoutez `node_modules` à la première ligne du fichier. Vous pouvez confirmer que le dossier `node_modules` doit être ignoré par le contrôle de code source si vous exécutez `git status` et que vous ne voyez pas le répertoire dans la liste. Il existe un (projet GitHub) [https://github.com/github/gitignore/blob/master/Node.gitignore] pour les fichiers à ignorer dans un projet NodeJS si vous souhaitez ajouter d’autres règles.
+ 
+4. Exécutez la commande suivante pour ajouter un Git distant pour le référentiel de votre application API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Remarque** : remplacez la chaîne « YOUR_GIT_CLONE_URL_HERE » par votre propre URL de clone Git, que vous avez copiée précédemment. 
-4. Exécutez les commandes suivantes pour créer une validation contenant l’ensemble de votre code. 
+5. Exécutez les commandes suivantes pour créer une validation contenant l’ensemble de votre code. 
    
         git add .
         git commit -m "initial revision"
    
     ![Sortie de la validation Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Exécutez la commande pour envoyer votre code vers Azure. Lorsque vous êtes invité à entrer un mot de passe, entrez celui que vous avez créé précédemment dans le Portail Azure.
+6. Exécutez la commande pour envoyer votre code vers Azure. Lorsque vous êtes invité à entrer un mot de passe, entrez celui que vous avez créé précédemment dans le Portail Azure.
    
         git push azure master
    
     Vous déclencherez ainsi le déploiement vers votre application API.  
-6. Dans votre navigateur, accédez de nouveau au panneau **Déploiements** de votre application API, et vous constaterez que le déploiement se produit. 
+7. Dans votre navigateur, accédez de nouveau au panneau **Déploiements** de votre application API, et vous constaterez que le déploiement se produit. 
    
     ![Déploiement en cours](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Maintenant que vous avez activé la livraison en continu, vous pouvez apporter d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

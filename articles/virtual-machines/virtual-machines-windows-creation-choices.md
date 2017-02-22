@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a5e0ba0128b7f20d6307f5dea784de007e71321c
+ms.sourcegitcommit: bc3921003bf3b91de88e70ff18b5c397687c288c
+ms.openlocfilehash: 6f4a825faac413652b1dc3880d899e0e40caedbc
 
 
 ---
-# <a name="different-ways-to-create-a-windows-virtual-machine-with-resource-manager"></a>Différentes méthodes de création de machine virtuelle Windows avec Resource Manager
+# <a name="different-ways-to-create-a-windows-vm"></a>Différentes méthodes pour créer une machine virtuelle Windows
 Microsoft Azure propose différents moyens de créer des machines virtuelles adaptées à tous les utilisateurs et toutes les applications. Pour cette raison, vous devez effectuer certains choix relatifs à la machine virtuelle et à sa création. Cet article vous propose un résumé de ces options et des liens pour obtenir des instructions.
 
 ## <a name="azure-portal"></a>Portail Azure
@@ -47,6 +47,6 @@ Utilisez Visual Studio pour créer, gérer et déployer des machines virtuelles 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

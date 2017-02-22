@@ -11,9 +11,9 @@ Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. 
 * de jouer le rôle d’une appliance virtuelle réseau, telle qu’un pare-feu ou un équilibreur de charge.
 * La possibilité d’ajouter l’une des adresses IP privées pour toutes les cartes réseau à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de la carte réseau principale pouvait être ajoutée à un pool principal. Pour plus d’informations sur la façon d’équilibrer la charge entre plusieurs configurations IP, consultez l’article [Équilibrage de la charge entre plusieurs configurations IP](../articles/load-balancer/load-balancer-multiple-ip.md).
 
-Une ou plusieurs configurations IP sont associées à chaque carte réseau attachée à une machine virtuelle. Une adresse IP privée statique ou dynamique est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Une adresse IP publique statique ou dynamique est affectée à une ressource d’adresse IP publique. Pour plus d’informations sur les adresses IP dans Azure, consultez l’article [Adresses IP dans Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
+Une ou plusieurs configurations IP sont associées à chaque carte réseau attachée à une machine virtuelle. Une adresse IP privée statique ou dynamique est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Une adresse IP publique statique ou dynamique est affectée à une ressource d’adresse IP publique. Pour plus d’informations sur les adresses IP dans Azure, consultez l’article [Adresses IP dans Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). Vous pouvez affecter jusqu’à 250 adresses IP privées à chaque carte réseau. Bien que vous puissiez affecter plusieurs adresses IP publiques à chaque carte réseau, il existe des limites pour le nombre d’adresses IP publiques pouvant être utilisées dans un abonnement Azure. Consultez l’article sur les [limites Azure](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,23 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
 
 
 ---
 # <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
 
-**Pourquoi échantillonner vos données ?**
- Si vous prévoyez d'analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
-
-Le **menu** ci-dessous pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. 
+Le **menu** ci-après pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**Pourquoi échantillonner vos données ?**
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -50,12 +50,14 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+
 2. Lisez les données dans une trame de données pandas à partir du fichier téléchargé à l’étape précédente.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
+
 3. Sous-échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
    
         # A 1 percent sample
@@ -72,6 +74,7 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 1. Écrivez la trame de données dans un fichier local :
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
+
 2. Chargez le fichier local dans un objet blob Azure au moyen de l’exemple de code suivant :
    
         from azure.storage.blob import BlobService
@@ -93,6 +96,7 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
    
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
+
 3. Lisez les données de l’objet blob Azure à l’aide du module [Importer les données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme l’illustre l’image ci-dessous :
 
 ![objet blob de lecteur](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
@@ -100,6 +104,6 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

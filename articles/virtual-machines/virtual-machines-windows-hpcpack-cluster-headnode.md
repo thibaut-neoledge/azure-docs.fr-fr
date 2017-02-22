@@ -1,6 +1,6 @@
 ---
 title: "Créer un nœud principal HPC Pack dans une machine virtuelle Azure | Microsoft Docs"
-description: "Apprenez à utiliser le portail Azure et le modèle de déploiement Resource Manager pour créer un nœud principal Microsoft HPC Pack dans une machine virtuelle Azure."
+description: "Apprenez à utiliser le portail Azure et le modèle de déploiement Resource Manager pour créer un nœud principal Microsoft HPC Pack 2012 R2 dans une machine virtuelle Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/17/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: c07837fb7eb050f57a73d5bd217bd0dc73bac5f1
+ms.sourcegitcommit: 3d8300bbb54bd88e6ff3844208ec5d5fa25c5e8d
+ms.openlocfilehash: d935f45f87558dd7f9838ad3b370de0d9a7870a1
 
 
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Créer le nœud principal d’un cluster HPC Pack dans une machine virtuelle Azure avec une image Marketplace
-Utilisez une [image de machine virtuelle Microsoft HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) à partir d’Azure Marketplace et du portail Azure pour créer le nœud principal d’un cluster HPC. Cette image de machine virtuelle HPC Pack est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3 préinstallé. Utilisez ce nœud principal pour un déploiement preuve de concept de HPC Pack dans Azure. Vous pouvez ensuite ajouter des nœuds de calcul au cluster pour exécuter des charges de travail HPC.
+Utilisez une [image de machine virtuelle Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) à partir de la Place de marché Azure et du portail Azure pour créer le nœud principal d’un cluster HPC. Cette image de machine virtuelle HPC Pack est basée sur Windows Server 2012 R2 Datacenter avec HPC Pack 2012 R2 Update 3 préinstallé. Utilisez ce nœud principal pour un déploiement preuve de concept de HPC Pack dans Azure. Vous pouvez ensuite ajouter des nœuds de calcul au cluster pour exécuter des charges de travail HPC.
 
 > [!TIP]
-> Pour déployer un cluster HPC Pack complet dans Azure, qui inclut le nœud principal et des nœuds de calcul, nous vous recommandons d’utiliser une méthode automatisée. Les options incluent le [script de déploiement du HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) et le modèle Resource Manager [Cluster HPC Pack pour les charges de travail Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Consultez [Options de cluster HPC Pack dans Azure](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour obtenir des modèles supplémentaires. 
+> Pour déployer un cluster HPC Pack 2012 R2 complet dans Azure, qui inclut le nœud principal et des nœuds de calcul, nous vous recommandons d’utiliser une méthode automatisée. Les options incluent le [script de déploiement du HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) et des modèles Resource Manager, tels que le [cluster HPC Pack pour les charges de travail Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Des modèles Resource Manager sont également disponibles pour les [clusters Microsoft HPC Pack 2016](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
 > 
 > 
 
@@ -34,13 +34,16 @@ Comme indiqué dans l’illustration suivante, vous déployez le nœud principal
 
 ![Nœud principal HPC Pack][headnode]
 
-* **Domaine Active Directory** : le nœud principal HPC Pack doit être joint à un domaine Active Directory dans Azure avant de démarrer les services HPC sur la machine virtuelle. Comme indiqué dans cet article, pour un déploiement preuve de concept, vous pouvez promouvoir la machine virtuelle que vous créez pour le nœud principal en tant que contrôleur de domaine avant de démarrer les services HPC. Une autre option consiste à déployer un contrôleur de domaine et une forêt distincts dans Azure, auxquels vous joignez la machine virtuelle du nœud principal.
-* **Réseau virtuel Azure** : lorsque vous utilisez le modèle de déploiement Resource Manager pour déployer le nœud principal, vous spécifiez ou créez un réseau virtuel Azure. Vous utilisez le réseau virtuel si vous devez joindre le nœud principal à un domaine Active Directory existant. Vous devez également ajouter par la suite des machines virtuelles de nœud de calcul au cluster.
+* **Domaine Active Directory** : vous devez joindre le nœud principal HPC Pack 2012 R2 à un domaine Active Directory dans Azure avant de démarrer les services HPC sur la machine virtuelle. Comme indiqué dans cet article, pour un déploiement preuve de concept, vous pouvez promouvoir la machine virtuelle que vous créez pour le nœud principal en tant que contrôleur de domaine avant de démarrer les services HPC. Une autre option consiste à déployer un contrôleur de domaine et une forêt distincts dans Azure, auxquels vous joignez la machine virtuelle du nœud principal.
+
+* **Modèle de déploiement** : pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager. Cet article suppose que vous utilisez ce modèle de déploiement.
+
+* **Réseau virtuel Azure** : lorsque vous utilisez le modèle de déploiement Resource Manager pour déployer le nœud principal, vous spécifiez ou créez un réseau virtuel Azure. Vous utilisez le réseau virtuel si vous devez joindre le nœud principal à un domaine Active Directory existant. Vous devez également ajouter par la suite des machines virtuelles de nœud de calcul au cluster.
 
 ## <a name="steps-to-create-the-head-node"></a>Étapes pour créer le nœud principal
 Voici les étapes de niveau supérieur pour utiliser le portail Azure afin de créer une machine virtuelle Azure pour le nœud principal HPC Pack à l’aide du modèle de déploiement Resource Manager. 
 
-1. Si vous voulez créer une forêt Active Directory dans Azure avec des machines virtuelles de contrôleur de domaine distinctes, une option consiste à utiliser un [modèle Resource Manager](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/). Pour un simple déploiement preuve de concept, il est acceptable d’omettre cette étape et de configurer la machine virtuelle du nœud principal elle-même en tant que contrôleur de domaine. Cette option est décrites plus loin dans cet article.
+1. Si vous voulez créer une forêt Active Directory dans Azure avec des machines virtuelles de contrôleur de domaine distinctes, une option consiste à utiliser un [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc). Pour un simple déploiement preuve de concept, il est acceptable d’omettre cette étape et de configurer la machine virtuelle du nœud principal elle-même en tant que contrôleur de domaine. Cette option est décrites plus loin dans cet article.
 2. Sur la [page HPC Pack 2012 R2 sur Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) dans Azure Marketplace, cliquez sur **Créer une machine virtuelle**. 
 3. Dans le portail, dans la page **HPC Pack 2012 R2 sur Windows Server 2012 R2**, sélectionnez le modèle de déploiement **Resource Manager**, puis cliquez sur **Créer**.
    
@@ -52,7 +55,7 @@ Voici les étapes de niveau supérieur pour utiliser le portail Azure afin de cr
    > 
    > 
 5. Après avoir créé la machine virtuelle, une fois que celle-ci est en cours d’exécution, [connectez-vous à la machine virtuelle](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) via le Bureau à distance. 
-6. Joignez la machine virtuelle à une forêt de domaine existante ou créez une forêt de domaine sur la machine virtuelle elle-même.
+6. Pour joindre la machine virtuelle à une forêt de domaines Active Directory, choisissez l’une des options suivantes :
    
    * Si vous avez créé la machine virtuelle dans un réseau virtuel Azure avec une forêt de domaine existante, joignez la machine virtuelle à la forêt en vous servant des outils standard du Gestionnaire de serveur ou de Windows PowerShell. Ensuite, redémarrez.
    * Si vous avez créé la machine virtuelle dans un réseau virtuel (sans forêt de domaine existante), promouvez-la en tant que contrôleur de domaine. Suivez les étapes standard pour installer et configurer le rôle Services de domaine Active Directory sur le nœud principal. Pour obtenir la procédure détaillée, consultez [Installer une nouvelle forêt Active Directory Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
@@ -62,7 +65,7 @@ Voici les étapes de niveau supérieur pour utiliser le portail Azure afin de cr
    
     b. Pour une configuration du nœud principal par défaut, démarrez Windows PowerShell en tant qu’administrateur et tapez la commande suivante :
    
-    ```
+    ```PowerShell
     & $env:CCP_HOME\bin\HPCHNPrepare.ps1 –DBServerInstance ".\ComputeCluster"
     ```
    
@@ -77,10 +80,10 @@ Voici les étapes de niveau supérieur pour utiliser le portail Azure afin de cr
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
-[Place de marché]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
+[marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

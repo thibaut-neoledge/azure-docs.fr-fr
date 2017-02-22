@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b65a0c306ec9316fd8a86f8ebb2808cce65200a
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 
 
 ---
@@ -70,7 +70,7 @@ Dans la page de propriété **Mise en cache** , vous pouvez spécifier des param
 * nom du compte de stockage pour l’enregistrement de l’état de la mise en cache lorsque votre application s’exécute en tant que service cloud, ou aucun, si vous ne souhaitez pas enregistrer l’état de la mise en cache. (Le nom de compte de stockage n’est pas utilisé lorsque vous exécutez votre application dans l’émulateur de calcul.) Si vous attribuez au nom de compte de stockage la valeur **(auto)** (la valeur par défaut), votre configuration de mise en cache utilise automatiquement le compte de stockage que vous sélectionnez dans la boîte de dialogue **Publier sur Azure**.
 
 > [!NOTE]
-> Le paramètre **(auto)** aura l’effet souhaité uniquement si vous publiez votre déploiement en utilisant la boîte à outils Eclipse de l’assistant Publication. Dans le cas contraire, si vous publiez le fichier .cspkg manuellement en utilisant un mécanisme externe tel que le [portail de gestion Azure][portail de gestion Azure], le déploiement ne fonctionnera pas correctement.
+> Le paramètre **(auto)** aura l’effet souhaité uniquement si vous publiez votre déploiement en utilisant la boîte à outils Eclipse de l’assistant Publication. Dans le cas contraire, si vous publiez le fichier .cspkg manuellement en utilisant un mécanisme externe tel que le [portail de gestion][Azure Management Portal], le déploiement ne fonctionne pas correctement.
 > 
 > 
 
@@ -93,7 +93,7 @@ Pour modifier une mémoire cache nommée, sélectionnez-la, puis cliquez sur le 
 
 Pour supprimer un cache, sélectionnez-le, puis cliquez sur le bouton **Supprimer** dans la page de propriété **Mise en cache**, puis cliquez sur **Oui** pour confirmer la suppression.
 
-Pour plus d’informations sur l’utilisation de la mise en cache, consultez [Utilisation de la mise en cache colocalisée][Utilisation de la mise en cache colocalisée].
+Pour plus d’informations sur l’utilisation de la mise en cache, consultez [Utilisation de la mise en cache colocalisée][How to Use Co-located Caching].
 
 <a name="certificates_properties"></a> 
 
@@ -102,7 +102,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 ![][ic710964]
 
-Dans cette boîte de dialogue, vous pouvez ajouter ou supprimer des certificats référencés par votre projet Eclipse. Notez que les certificats répertoriés ici ne sont pas automatiquement stockés dans un fichier keystore Java et par conséquent, ne sont pas automatiquement disponibles à l’utilisation depuis une application Java. Ils sont simplement enregistrés auprès d’Azure ce qui permet de les précharger dans les fenêtres de stockage de certificat sur les machines virtuelles exécutant votre déploiement et de les utiliser avec d’autres logiciels Windows. Actuellement, la seule fonctionnalité de la boîte à outils qui utilise les certificats référencés dans la boîte de dialogue **Certificats** est [Déchargement SSL][Déchargement SSL] en raison de sa dépendance vis-à-vis d’IIS (Internet Information Services) et d’Application Request Routing (ARR) qui exigent que le certificat correspondant soit mis à disposition.
+Dans cette boîte de dialogue, vous pouvez ajouter ou supprimer des certificats référencés par votre projet Eclipse. Notez que les certificats répertoriés ici ne sont pas automatiquement stockés dans un fichier keystore Java et par conséquent, ne sont pas automatiquement disponibles à l’utilisation depuis une application Java. Ils sont simplement enregistrés auprès d’Azure ce qui permet de les précharger dans les fenêtres de stockage de certificat sur les machines virtuelles exécutant votre déploiement et de les utiliser avec d’autres logiciels Windows. Actuellement, la seule fonctionnalité de la boîte à outils qui utilise les certificats référencés dans la boîte de dialogue **Certificats** est [Déchargement SSL][SSL Offloading] en raison de sa dépendance vis-à-vis d’IIS (Internet Information Services) et d’Application Request Routing (ARR) qui exigent que le certificat correspondant soit mis à disposition.
 
 Lorsque vous déployez votre projet sur Azure à l’aide de l’Assistant Publication, vous devez référencer les fichiers PFX (Personal Information Exchange) correspondant à ces certificats, ainsi que leurs mots de passe, afin de les télécharger automatiquement vers le service Azure, mais uniquement s’ils n’ont pas été téléchargés au préalable.
 
@@ -181,7 +181,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 ![][ic719504]
 
-Pour plus d’informations sur le débogage, consultez [Débogage des applications Azure dans Eclipse][Débogage des applications Azure dans Eclipse].
+Pour plus d’informations sur le débogage, consultez [Débogage des applications Azure dans Eclipse][Debugging Azure Applications in Eclipse].
 
 <a name="endpoints_properties"></a> 
 
@@ -204,9 +204,9 @@ Selon le type de point de terminaison, vous pouvez utiliser des plages de ports 
 
 Si vous souhaitez utiliser un numéro de port unique et non une plage de numéros, laissez la zone de texte de la fin de plage vide.
 
-Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrit dans le [résumé de package com.microsoft.windowsazure.serviceruntime][résumé de package com.microsoft.windowsazure.serviceruntime].
+Pour les ports qui ont pour valeur Automatique, si vous devez déterminer le port effectivement utilisé lors de l’exécution, votre application peut utiliser l’API Azure Service Runtime, qui est décrite dans le [résumé de package com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Pour voir comment les points de terminaison d’entrée d’instance peuvent être utilisés pour le débogage d’un déploiement à plusieurs instances, consultez [Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances][Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances].
+Pour voir comment les points de terminaison d’entrée d’instance peuvent être utilisés avec le débogage d’un déploiement à plusieurs instances, consultez [Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances][Debugging a specific role instance in a multi-instance deployment].
 
 Pour modifier un point de terminaison, sélectionnez-le puis cliquez sur le bouton **Modifier** situé dans la page de propriété **Points de terminaison**. Une boîte de dialogue vous permettant de modifier le nom du point de terminaison, le type et les ports public et privé. Appuyez sur **OK** pour enregistrer les valeurs de point de terminaison modifiées.
 
@@ -256,7 +256,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 ![][ic719492]
 
-Pour plus d’informations, voir l’article [Affinité de session][Affinité de session]. Notez également le comportement de cette fonctionnalité dans le contexte du déchargement SSL, comme décrit dans [Déchargement SSL][Déchargement SSL].
+Pour plus d’informations, consultez [Affinité de session][Session Affinity]. Notez également le comportement de cette fonctionnalité dans le contexte du déchargement SSL, comme décrit dans [Déchargement SSL][SSL Offloading].
 
 <a name="local_storage_properties"></a> 
 
@@ -267,7 +267,7 @@ Ouvrez le menu contextuel du rôle dans le volet Explorateur de projets Eclipse,
 
 Vous pouvez également spécifier une variable d’environnement qui correspond au stockage local.
 
-Par défaut, tous les éléments que vous déployez dans Azure sont placés (et décompressés) dans le dossier **approot** de l’instance de rôle. Bien que la plupart des déploiements simples puissent rester dans le dossier après la décompression, l’espace affecté au répertoire **approot** est limité et n’est pas bien défini (moins de 1 Go est un principe de base raisonnable). Par conséquent, pour vous assurer qu’Azure attribue suffisamment d’espace disque à des déploiements plus volumineux ne pouvant pas tenir dans le dossier **approot**, vous devez définir une ressource de stockage local à l’aide de la boîte de dialogue **Stockage local**. Pour connaître un moyen plus simple d’exécuter cette opération, consultez la page [Déploiements à grande échelle][Déploiements à grande échelle].
+Par défaut, tous les éléments que vous déployez dans Azure sont placés (et décompressés) dans le dossier **approot** de l’instance de rôle. Bien que la plupart des déploiements simples puissent rester dans le dossier après la décompression, l’espace affecté au répertoire **approot** est limité et n’est pas bien défini (moins de 1 Go est un principe de base raisonnable). Par conséquent, pour vous assurer qu’Azure attribue suffisamment d’espace disque à des déploiements plus volumineux ne pouvant pas tenir dans le dossier **approot**, vous devez définir une ressource de stockage local à l’aide de la boîte de dialogue **Stockage local**. Pour connaître un moyen plus simple d’exécuter cette opération, consultez la page [Déploiements à grande échelle][Deploying Large Deployments].
 
 Il est facile de référencer les ressources de stockage à partir de scripts de démarrage (par exemple, votre **startup.cmd**) en utilisant la variable d’environnement automatiquement associée à la ressource par la boîte à outils Eclipse, comme indiqué dans la boîte de dialogue **Stockage local**. Cette variable d’environnement contiendra le chemin complet de la ressource locale que vous avez configuré au moment de l’exécution du script de démarrage. 
 
@@ -398,38 +398,38 @@ Ouvrez le menu contextuel correspondant au rôle dans le volet Explorateur de pr
 
 ![][ic719481]
 
-Dans cette boîte de dialogue, vous pouvez activer le déchargement SSL, ce qui vous permet d’activer en toute simplicité la prise en charge du protocole sécurisé HTTPS (Hypertext Transfer Protocol Secure) dans votre déploiement Java sur Azure, sans avoir à configurer SSL dans votre serveur d’applications Java. Pour plus d’informations, consultez [Déchargement SSL][Déchargement SSL] et [Comment utiliser le déchargement SSL][Comment utiliser le déchargement SSL].
+Dans cette boîte de dialogue, vous pouvez activer le déchargement SSL, ce qui vous permet d’activer en toute simplicité la prise en charge du protocole sécurisé HTTPS (Hypertext Transfer Protocol Secure) dans votre déploiement Java sur Azure, sans avoir à configurer SSL dans votre serveur d’applications Java. Pour plus d’informations, consultez [Déchargement SSL][SSL Offloading] et [Comment utiliser le déchargement SSL][How to Use SSL Offloading].
 
 ## <a name="see-also"></a>Voir aussi
-[Kit de ressources Azure pour Eclipse][Kit de ressources Azure pour Eclipse]
+[Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse]
 
-[Installation du kit de ressources Azure pour Eclipse][Installation du kit de ressources Azure pour Eclipse]
+[Installation du kit de ressources Azure pour Eclipse][Installing the Azure Toolkit for Eclipse]
 
-[Création d’une application Hello World pour Azure dans Eclipse][Création d’une application Hello World pour Azure dans Eclipse]
+[Création d’une application Hello World pour Azure dans Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Propriétés du projet Azure][Propriétés du projet Azure]
+[Propriétés du projet Azure][Azure Project Properties]
 
-[Liste du compte de stockage Azure][Liste du compte de stockage Azure]
+[Liste des comptes de stockage Azure][Azure Storage Account List]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Centre de développement Java pour Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[portail de gestion Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Propriétés du projet Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Liste du compte de stockage Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[résumé de package com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Création d’une application Hello World pour Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Débogage d’une instance de rôle spécifique dans un déploiement à plusieurs instances]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Débogage des applications Azure dans Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
-[Déploiements à grande échelle]: http://go.microsoft.com/fwlink/?LinkID=699536
-[Utilisation de la mise en cache colocalisée]: http://go.microsoft.com/fwlink/?LinkID=699542
-[Comment utiliser le déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installation du kit de ressources Azure pour Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Affinité de session]: http://go.microsoft.com/fwlink/?LinkID=699548
-[Déchargement SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
+[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -460,6 +460,6 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

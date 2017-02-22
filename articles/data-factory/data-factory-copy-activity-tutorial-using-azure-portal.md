@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
-ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 > 
 
 Ce didacticiel vous montre comment créer et surveiller une fabrique de données Azure à l’aide du portail Azure. Le pipeline de la fabrique de données utilise une activité de copie pour copier les données d’un objet Stockage Blob Azure vers une base de données Azure SQL Database.
+
+> [!NOTE]
+> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
+> 
+> Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
 
 Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
@@ -231,7 +236,7 @@ Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé
         }
       }
     }
-    ```     
+    ```       
     Notez les points suivants : 
    
    * Le **type** de jeu de données est défini sur **AzureSQLTable**.
@@ -301,7 +306,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
    * L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
    * Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur.
      
-     Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
+     Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, «&2016;-02-03 », qui équivaut à «&2016;-02-03T00:00:00Z ».
      
      Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
      
@@ -404,15 +409,12 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier
 ## <a name="see-also"></a>Voir aussi
 | Rubrique | Description |
 |:--- |:--- |
-| [Activités de déplacement des données](data-factory-data-movement-activities.md) |Cet article fournit une description détaillée de l’activité de copie que vous avez utilisée dans ce didacticiel. |
-| [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory. |
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |
-| [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
+| [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

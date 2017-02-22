@@ -1,6 +1,6 @@
 ---
-title: "IoT : meilleures pratiques en matière de sécurité | Microsoft Docs"
-description: "Meilleures pratiques en matière de sécurité pour sécuriser votre infrastructure IoT"
+title: "Azure IoT : meilleures pratiques en matière de sécurité | Documents Microsoft"
+description: "Meilleures pratiques en matière de sécurité pour sécuriser votre infrastructure IoT. Fournit des recommandations pour les développeurs de solutions, les systèmes de déploiement de solution et les opérateurs de solution."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/16/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: b5c3257f6e2134a3e7e7eb9b4a12b95ebb70535e
 
 
 ---
@@ -25,12 +25,12 @@ ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
-* [Architecture de sécurité IoT][lnk-security-architecture]
+* [Architecture de la sécurité IoT][lnk-security-architecture]
 * [Sécuriser votre déploiement IoT][lnk-security-deployment]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-gateway]
+* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
@@ -39,6 +39,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

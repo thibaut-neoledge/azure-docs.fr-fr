@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
+ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
+ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 
 
 ---
@@ -128,10 +128,10 @@ Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](ht
 > 
 > 
 
-Pour tirer pleinement parti de votre crédit Azure gratuit d’une valeur de 200 $, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet exercice.
+Pour tirer pleinement parti de votre crédit Azure gratuit d’une valeur de&200; $, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet exercice.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Configurer les ressources Azure nécessaires pour le didacticiel
-Ce didacticiel nécessite que vous disposiez de 2 concentrateurs d’événements pour la réception des flux de données *d’entrée* et de *sortie*. Azure SQL Database produit les résultats des travaux Stream Analytics. Stockage Azure stocke les données de référence sur les inscriptions de véhicules.
+Ce didacticiel nécessite que vous disposiez de&2; concentrateurs d’événements pour la réception des flux de données *d’entrée* et de *sortie*. Azure SQL Database produit les résultats des travaux Stream Analytics. Stockage Azure stocke les données de référence sur les inscriptions de véhicules.
 
 Le script Setup.ps1 dans le dossier TollApp sur GitHub permet de créer toutes les ressources nécessaires. Pour gagner du temps, nous vous recommandons de l’exécuter. Pour plus d’informations sur la configuration de ces ressources dans le portail Azure, consultez l’annexe « Configuration des ressources du didacticiel dans le portail Azure ».
 
@@ -445,6 +445,6 @@ Pour en savoir plus sur Azure Stream Analytics, consultez la [documentation en l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

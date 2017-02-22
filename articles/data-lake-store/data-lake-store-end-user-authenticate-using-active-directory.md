@@ -1,6 +1,6 @@
 ---
-title: "S’authentifier sur Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
-description: "En savoir plus sur la façon de s’authentifier sur Data Lake Store à l’aide d’Azure Active Directory"
+title: "Authentification d’utilisateur final : Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs"
+description: "Découvrez comment authentifier l’utilisateur final auprès de Data Lake Store à l’aide d’Azure Active Directory"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
+ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
+ms.openlocfilehash: a50fc687a1738a55c3d22eb3e12060397c162e06
 
 
 ---
@@ -29,8 +29,8 @@ ms.openlocfilehash: 7e7c9fd2fe7e6327cd39c4c26583c8fd556c9044
 
 Azure Data Lake Store utilise Azure Active Directory pour l’authentification. Avant de créer une application qui fonctionne avec Azure Data Lake Store ou Azure Data Lake Analytics, vous devez commencer par déterminer comment vous voulez authentifier votre application avec Azure Active Directory (Azure AD). Les deux options principales disponibles sont :
 
-* Authentification de l’utilisateur final, et 
-* Authentification de service à service. 
+* Authentification de l’utilisateur final (cet article)
+* Authentification de service à service
 
 En raison de ces deux options, votre application est fournie avec un jeton OAuth 2.0, qui est attaché à chaque demande adressée à Azure Data Lake Store ou Azure Data Lake Analytics.
 
@@ -51,7 +51,7 @@ Il s’agit de l’approche recommandée si vous souhaitez qu’un utilisateur f
 Conséquence de la connexion de l’utilisateur final : votre application reçoit un jeton d’accès et un jeton d’actualisation. Le jeton d’accès est lié à chaque demande adressée au Data Lake Store ou à Data Lake Analytics et, par défaut, il est valide pendant une heure. Le jeton d’actualisation peut être utilisé pour obtenir un nouveau jeton d’accès et, par défaut, il est valide pendant deux semaines au maximum, s’il est régulièrement utilisé. Vous pouvez utiliser deux approches différentes pour la connexion de l’utilisateur final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Utilisation de la fenêtre contextuelle OAuth 2.0
-Votre application peut déclencher une fenêtre contextuelle d’autorisation OAuth 2.0 dans laquelle l’utilisateur final peut entrer ses informations d’identification. Cette fenêtre contextuelle fonctionne également avec le processus d’authentification à 2 facteurs Azure AD (TFA), si nécessaire. 
+Votre application peut déclencher une fenêtre contextuelle d’autorisation OAuth 2.0 dans laquelle l’utilisateur final peut entrer ses informations d’identification. Cette fenêtre contextuelle fonctionne également avec le processus d’authentification à&2; facteurs Azure AD (TFA), si nécessaire. 
 
 > [!NOTE]
 > Cette méthode n’est pas encore prise en charge dans la bibliothèque d’authentification Azure AD (ADAL) pour Python ou Java.
@@ -59,7 +59,7 @@ Votre application peut déclencher une fenêtre contextuelle d’autorisation OA
 > 
 
 ### <a name="directly-passing-in-user-credentials"></a>Transmission directe des informations d’identification de l’utilisateur
-Votre application peut fournir directement des informations d’identification de l’utilisateur à Azure AD. Cette méthode fonctionne uniquement avec les comptes d’utilisateur dotés d’ID d’organisation. Elle n’est pas compatible avec les comptes d’utilisateur personnels ou « live ID », notamment ceux se terminant par @outlook.com ou @live.com.. En outre, cette méthode n’est pas compatible avec les comptes d’utilisateur qui nécessitent l’authentification à deux facteurs Azure AD (TFA).
+Votre application peut fournir directement des informations d’identification de l’utilisateur à Azure AD. Cette méthode fonctionne uniquement avec les comptes d’utilisateur dotés d’ID d’organisation. Elle n’est pas compatible avec les comptes d’utilisateur personnels ou « live ID », notamment ceux se terminant par @outlook.com ou @live.com. En outre, cette méthode n’est pas compatible avec les comptes d’utilisateur qui nécessitent l’authentification à&2; facteurs Azure AD (TFA).
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>De quoi ai-je besoin pour utiliser cette approche ?
 * Votre nom de domaine Azure AD. Celui-ci est déjà répertorié dans les conditions préalables de cet article.
@@ -75,7 +75,7 @@ Cette section décrit comment créer et configurer une application web Azure AD 
 
 ### <a name="step-1-create-an-azure-active-directory-application"></a>Étape 1 : créez une application Azure Active Directory
 > [!NOTE]
-> Les étapes ci-dessous utilisent le portail Azure. Vous pouvez également créer une application Azure AD en utilisant [Azure PowerShell](../resource-group-authenticate-service-principal.md) ou [Azure CLI](../resource-group-authenticate-service-principal-cli.md).
+> Les étapes ci-dessous utilisent le portail Azure. Vous pouvez également créer une application Azure AD en utilisant [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) ou [Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
 > 
 > 
 
@@ -134,6 +134,6 @@ Dans cet article vous a créé une application web Azure AD et regroupé les inf
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

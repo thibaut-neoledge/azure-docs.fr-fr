@@ -3,7 +3,7 @@ title: Prise en main des tables temporelles dans Azure SQL Database | Microsoft 
 description: "Découvrez comment prendre en main les tables temporelles dans Azure SQL Database."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 08/29/2016
-ms.author: carlrab
+ms.date: 01/10/2017
+ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b83d2561d37cb2dcb799d14774b6350e0681c42
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
 
 
 ---
@@ -69,7 +69,9 @@ Quand vous créez une table temporelle avec versions gérées par le système, l
 
 Dans ce cas particulier, nous voulons effectuer une analyse temporelle des tendances sur un historique de données plus long et avec des jeux de données plus volumineux, le choix du stockage pour la table d’historique est donc un index cluster columnstore. L’index cluster columnstore fournit une très bonne compression et des performances optimales pour les requêtes analytiques. Les tables temporelles vous donnent la possibilité de configurer complètement indépendamment des index sur les tables actuelles et temporelles. 
 
-**Remarque**: Les index columnstore sont uniquement disponibles dans le niveau de service Premium.
+> [!NOTE]
+> Les index columnstore sont uniquement disponibles au niveau de service Premium.
+>
 
 Le script suivant montre comment l’index par défaut sur la table d’historique peut être modifié en index cluster columnstore :
 
@@ -199,6 +201,6 @@ Visitez Channel 9 pour écouter le [témoignage d’un client sur l’implémen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

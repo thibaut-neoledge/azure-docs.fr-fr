@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,11 +59,11 @@ Le système est constitué des composants suivants :
 
 ## <a name="create-service-instance"> </a>Création d’une instance du service Gestion des API
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][Azure Free Trial].
 > 
 > 
 
-La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure] et cliquez sur [Nouveau], **App Services**, **Gestion des API**, **Créer**.
+La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [Portail Azure][Azure Portal] et cliquez sur **Nouveau**, **Web + mobile**, **Gestion des API**.
 
 ![Nouvelle instance Gestion des API][api-management-create-instance-menu]
 
@@ -74,7 +74,7 @@ Choisissez **l’abonnement**, le **groupe de ressources** et **l’emplacement*
 Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adresse de messagerie dans le champ **Adresse de messagerie de l’administrateur**.
 
 > [!NOTE]
-> Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d’informations, consultez [Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure][Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure].
+> Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d’informations, consultez [Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adr
 Les instances du service Gestion des API sont disponibles dans trois niveaux : Développeur, Standard et Premium.
 
 > [!NOTE]
-> Le niveau Développeur est réservé aux programmes d’API de développement, de test et pilote pour lesquels la haute disponibilité n’est pas un problème. Aux niveaux Standard et Premium, vous pouvez étendre le nombre d’unités réservées pour gérer davantage de trafic. Les niveaux Standard et Premium permettent à votre service Gestion des API de disposer de la puissance de traitement et des performances maximales. Vous pouvez effectuer ce didacticiel à l’aide de n’importe quel niveau. Pour plus d’informations sur les niveaux du service Gestion des API, consultez la page relative à la [tarification du service Gestion des API][tarification du service Gestion des API].
+> Le niveau Développeur est réservé aux programmes d’API de développement, de test et pilote pour lesquels la haute disponibilité n’est pas un problème. Aux niveaux Standard et Premium, vous pouvez étendre le nombre d’unités réservées pour gérer davantage de trafic. Les niveaux Standard et Premium permettent à votre service Gestion des API de disposer de la puissance de traitement et des performances maximales. Vous pouvez effectuer ce didacticiel à l’aide de n’importe quel niveau. Pour en savoir plus sur les niveaux du service Gestion des API, consultez la page relative à la [tarification du service Gestion des API][API Management pricing].
 > 
 > 
 
@@ -199,26 +199,26 @@ La section **Analyse** comporte les quatre onglets suivants :
 ## <a name="next-steps"> </a>Étapes suivantes
 * Découvrez comment [protéger votre API avec des limites de débit](api-management-howto-product-with-rules.md).
 
-[Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Création d’une instance du service Gestion des API]: #create-service-instance
-[Création d'une API]: #create-api
-[Ajout d’une opération]: #add-operation
-[Ajout de la nouvelle API à un produit]: #add-api-to-product
-[Abonnement au produit contenant l'API]: #subscribe
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
 [Call an operation from the Developer Portal]: #call-operation
-[Affichage des analyses]: #view-analytics
-[Étapes suivantes]: #next-steps
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Gestion des comptes des développeurs dans Gestion des API Azure]: api-management-howto-create-or-invite-developers.md
-[Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
-[Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure]: api-management-howto-configure-notifications.md
-[Réponses]: api-management-howto-add-operations.md#responses
-[Création et publication d’un produit]: api-management-howto-add-products.md
-[tarification du service Gestion des API]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portail Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -257,6 +257,6 @@ La section **Analyse** comporte les quatre onglets suivants :
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

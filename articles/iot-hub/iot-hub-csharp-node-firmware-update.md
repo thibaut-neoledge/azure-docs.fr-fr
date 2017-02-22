@@ -1,6 +1,6 @@
 ---
-title: "Mettre à jour un microprogramme avec Azure IoT Hub | Microsoft Docs"
-description: "Ce didacticiel montre comment effectuer une mise à jour de microprogramme"
+title: "Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub (.NET/Node) | Microsoft Docs"
+description: "Guide d’utilisation de la gestion des appareils sur Azure IoT Hub pour lancer une mise à jour du microprogramme d’un appareil. Vous utilisez Azure IoT device SDK pour Node.js afin d’implémenter une application d’appareil simulé et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui déclenche la mise à jour du microprogramme."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 7cbb823f2d8b9a337bd987ae3fc41a85ddb6ae80
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 5b8aaa7e7b04224fd51c264822d619866e0161af
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Didacticiel : Mettre à jour un microprogramme
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Utilisation de la gestion des appareils pour lancer une mise à jour du microprogramme d’un appareil (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introduction
@@ -28,7 +28,7 @@ Dans le didacticiel [Prise en main de la gestion d’appareils][lnk-dm-getstarte
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créez une application console qui appelle une méthode directe firmwareUpdate sur l’application d’appareil simulé via votre IoT Hub.
+* Créez une application console .NET qui appelle une méthode directe firmwareUpdate sur l’application d’appareil simulé via votre IoT Hub.
 * Créez une application d’appareil simulé qui implémente une méthode directe firmwareUpdate qui passe par un processus en plusieurs étapes consistant à attendre avant de télécharger l’image du microprogramme, à télécharger celle-ci, puis finalement à l’appliquer.  Tout au long du processus, l’appareil utilise les propriétés signalées pour mettre à jour la progression.
 
 À la fin de ce didacticiel, vous avez une application d’appareil de console Node.js et une application principale de console .NET (c#) :
@@ -57,9 +57,9 @@ Dans cette section, vous créez une application console .NET (en C#) qui lance u
     ![Nouveau projet Visual C# Bureau classique Windows][img-createapp]
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **TriggerFWUpdate**, puis cliquez sur **Gérer les packages NuGet**.
-3. Dans la fenêtre **Gestionnaire de package Nuget**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement, l’installation et ajoute une référence au package Nuget [kit de développement logiciel (SDK) de service Microsoft Azure IoT][lnk-nuget-service-sdk] et ses dépendances.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
 
-    ![Fenêtre du gestionnaire de package Nuget][img-servicenuget]
+    ![Fenêtre du gestionnaire de package NuGet][img-servicenuget]
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
@@ -133,7 +133,7 @@ Dans cette section, vous allez :
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil.  
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -346,13 +346,13 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

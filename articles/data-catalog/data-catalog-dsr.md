@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -126,7 +126,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -135,7 +135,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -144,7 +144,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -153,7 +153,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -189,7 +189,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -198,7 +198,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -207,7 +207,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -216,7 +216,7 @@ Les utilisateurs d’Azure Data Catalog peuvent publier des métadonnées à l�
       <td>✓</td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
+      <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -419,7 +419,7 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
 ## <a name="data-source-reference-specification"></a>Spécification de référence de la source de données
 > [!NOTE]
 > La colonne « Structure DSL » du tableau ci-dessous répertorie uniquement les propriétés de connexion du conteneur de propriétés « address » qui sont utilisées par Azure Data Catalog (autrement dit, le conteneur de propriétés « address » peut contenir les autres propriétés de connexion de la source de données conservées, mais pas utilisées par Azure Data Catalog.)
-> 
+>
 > <table>
 > <tr>
 > <td><b>Type de source</b></td>
@@ -1169,11 +1169,10 @@ Si vous avez besoin d’une prise en charge de sources supplémentaires, envoyez
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
+title: "Créer un espace de noms, une rubrique et un abonnement Azure Service Bus à l’aide d’un modèle | Microsoft Docs"
 description: "Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4c3da81e4f809bba252738c783f66a62f116eaa
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 27ad541fc51c497528355cd1091cc48ae8fe1ee8
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus par rubrique et abonnement. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
-Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Création de modèles Azure Resource Manager].
+Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Pour accéder au modèle complet, consultez le [modèle d'espace de noms Service Bus par rubrique et abonnement][modèle d'espace de noms Service Bus par rubrique et abonnement].
+Pour le modèle complet, consultez le modèle [Espace de noms Service Bus avec rubrique et abonnement][Service Bus namespace with topic and subscription].
 
 > [!NOTE]
 > Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.
@@ -35,7 +35,7 @@ Pour accéder au modèle complet, consultez le [modèle d'espace de noms Service
 > * [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie de [modèles de démarrage rapide Azure][modèles de démarrage rapide Azure].
+> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
@@ -56,7 +56,7 @@ Le modèle définit les paramètres suivants.
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nom de l’espace de noms Service Bus à créer.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -65,7 +65,7 @@ Nom de l’espace de noms Service Bus à créer.
 ### <a name="servicebustopicname"></a>serviceBusTopicName
 Nom de la rubrique créée dans l’espace de noms Service Bus.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ Nom de la rubrique créée dans l’espace de noms Service Bus.
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 Nom de l'abonnement créé dans l'espace de noms Service Bus.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -83,7 +83,7 @@ Nom de l'abonnement créé dans l'espace de noms Service Bus.
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La version de l’API Service Bus du modèle.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -91,7 +91,7 @@ La version de l’API Service Bus du modèle.
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 Crée un espace de noms Service Bus standard de type **Messagerie**, par rubrique et abonnement.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -129,12 +129,12 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, par rubriqu
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
@@ -144,17 +144,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Maintenant que vous avez créé et déployé des ressources à l’aide d’Azure Resource Manager, découvrez comment gérer ces ressources en consultant les articles suivants :
 
 * [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Création de modèles Azure Resource Manager]: ../resource-group-authoring-templates.md
-[modèles de démarrage rapide Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[En savoir plus sur les rubriques et abonnements Service Bus]: service-bus-queues-topics-subscriptions.md
-[Utilisation d’Azure PowerShell avec Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[modèle d'espace de noms Service Bus par rubrique et abonnement]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

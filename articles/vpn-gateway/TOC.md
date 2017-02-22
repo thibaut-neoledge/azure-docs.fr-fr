@@ -6,57 +6,56 @@
 # Prise en main
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
 ## [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md)
-## [À propos des périphériques VPN pour les connexions de la passerelle VPN de site à site](vpn-gateway-about-vpn-devices.md)
+## [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md)
 ## [À propos des passerelles VPN et BGP](vpn-gateway-bgp-overview.md)
 ## [À propos de la connectivité hautement disponible](vpn-gateway-highlyavailable.md)
 
 # Procédure
-## De site à site
-### [Configurer une connexion de site à site à l’aide du portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-### [Configurer une connexion de site à site à l’aide de PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-### [Configurer une connexion de site à site à l’aide du portail Azure Classic](vpn-gateway-site-to-site-create.md)
-## De point à site
-### [Configurer une connexion site à site vers un réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-### [Configurer une connexion site à site vers un réseau virtuel à l’aide de PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-### [Configurer une connexion site à site vers un réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Configurer une connexion site à site vers un réseau virtuel à l’aide du portail Classic](vpn-gateway-point-to-site-create.md)
-## Connexion entre deux réseaux virtuels
-### [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-### [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide de PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-### [Configurer une connexion de réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md)
-## Connexions de réseau virtuel à réseau virtuel dans le cadre des déploiements Resource Manager et classiques
-### [Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail](vpn-gateway-connect-different-deployment-models-portal.md)
-### [Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Coexistence de connexions ExpressRoute et de site à site
-### [Créer la coexistence de connexions ExpressRoute et de site à site](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [Créer la coexistence de connexions ExpressRoute et de site à site](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Tunneling forcé
-### [Configurer un tunneling forcé](vpn-gateway-forced-tunneling-rm.md)
-### [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md)
-## Connexions site à site
-### [Ajouter plusieurs connexions de site à site à une passerelle VPN](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Ajouter plusieurs connexions de site à site à une passerelle VPN](vpn-gateway-multi-site.md)
+## Configurer une connexion de site à site
+### [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Portail Classic (classique)](vpn-gateway-site-to-site-create.md)
+## Configurer une connexion de point à site
+### [Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+### [Portail Azure (classique)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Portail Classic (classique)](vpn-gateway-point-to-site-create.md)
+## Configurer une connexion de réseau virtuel à réseau virtuel
+### [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Portail Classic (classique)](virtual-networks-configure-vnet-to-vnet-connection.md)
+## Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
+### [Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+## Créer la coexistence de connexions ExpressRoute et de site à site
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+### [PowerShell (classique)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Configurer un tunneling forcé
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell (classique)](vpn-gateway-about-forced-tunneling.md)
+## Configurer plusieurs connexions site à site
+### [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [PowerShell (classique)](vpn-gateway-multi-site.md)
 ## [Configurer BGP pour les passerelles VPN Azure à l’aide de PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configurer les connexions haut actif-actif](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Vérification de la connexion à une passerelle](vpn-gateway-verify-connection-resource-manager.md)
-## [Réinitialiser une passerelle VPN Azure à l’aide de PowerShell](vpn-gateway-resetgw-classic.md)
+## [Réinitialiser une passerelle VPN Azure](vpn-gateway-resetgw-classic.md)
 ## [Utilisation des certificats auto-signés pour les connexions de point à site](vpn-gateway-certificates-point-to-site.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Référence
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
 ## [PowerShell (classique)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj154113)
 
 # Rubriques connexes
-## [Machines virtuelles](/azure/virtual-machines/)
+## [Réseau virtuel](/azure/virtual-network/)
 ## [Application Gateway](/azure/application-gateway/)
 ## [DNS Azure](/azure/dns/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [Équilibreur de charge](/azure/load-balancer/)
-## [Passerelle VPN](/azure/vpn-gateway/)
 ## [ExpressRoute](/azure/expressroute/)
 
 # Ressources
@@ -67,6 +66,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

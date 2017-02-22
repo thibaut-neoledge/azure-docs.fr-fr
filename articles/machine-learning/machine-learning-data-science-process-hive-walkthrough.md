@@ -1,5 +1,8 @@
 ---
-title: "Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop | Microsoft Docs"
+
+
+
+title: "Explorer les données dans un cluster Hadoop et créer des modèles dans Azure Machine Learning | Microsoft Docs"
 description: "Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&quot;aide d&quot;un groupe de données disponible publiquement."
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -12,15 +15,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b466878831b9a8d78c03738397f2119a6d5e13d
+ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
+ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 
 ---
-# <a name="the-team-data-science-process-in-action-using-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous allons utiliser le [processus TDSP (Team Data Science Process)](data-science-process-overview.md) avec un scénario complet au moyen d’un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
 
 Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l’aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus TDSP (Team Data Science Process) : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
@@ -57,7 +60,7 @@ Nous fournissons rapidement des informations supplémentaires relatives aux donn
 Le fait de connaître le type de prévisions que vous souhaitez obtenir de l’analyse des données permet de clarifier les tâches à inclure dans votre processus.
 Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s’appuie sur le champ *tip\_amount* :
 
-1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à&0; $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de&0; $ est un exemple négatif.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0
@@ -839,6 +842,6 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

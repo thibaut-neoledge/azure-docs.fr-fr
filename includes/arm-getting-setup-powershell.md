@@ -54,6 +54,6 @@ Pour plus d’informations sur les comptes et les abonnements Azure, consultez l
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

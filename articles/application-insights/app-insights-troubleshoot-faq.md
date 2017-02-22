@@ -1,5 +1,5 @@
 ---
-title: "Dépannage et questions : Application Insights"
+title: "Dépannage et questions : Azure Application Insights | Microsoft Docs"
 description: "Un aspect d’Azure Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 *J’ai des difficultés à configurer :*
 
 * [Application .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [Analyse d’une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Analyse d’une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Diagnostics Azure](app-insights-azure-diagnostics.md)
 * [Applications web Java](app-insights-java-troubleshoot.md)
 * [autres plateformes](app-insights-platforms.md)
@@ -39,39 +39,35 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 [Voir Plateformes][platforms]
 
 ## <a name="is-it-free"></a>Est-ce gratuit ?
-* Oui, si vous choisissez le [niveau de tarification](app-insights-pricing.md)gratuit. Vous obtenez la plupart des fonctionnalités et un quota important de données.
-* Vous devez fournir les données de votre carte de crédit pour vous enregistrer auprès de Microsoft Azure, mais aucun service ne vous sera facturé, sauf si vous utilisez un autre service Azure payant, ou si vous mettez explicitement à niveau vers un niveau payant.
-* Si votre application envoie plus de données que le quota mensuel autorisé pour le niveau gratuit, les données ne sont plus consignées. Si cela se produit, vous pouvez choisir de commencer à payer ou d'attendre jusqu'à ce que le quota soit réinitialisé à la fin du mois.
-* Les données de session et l'utilisation de base ne sont pas soumises à un quota.
-* Il existe aussi une version d’évaluation gratuite qui vous permet d’obtenir les fonctionnalités payantes gratuitement pendant 30 jours.
-* Chaque ressource d'application possède un quota distinct, et vous définissez son niveau de tarification indépendamment des autres.
 
-#### <a name="what-do-i-get-if-i-pay"></a>Que vais-je obtenir si je paye ?
-* Un [quota de données mensuel](https://azure.microsoft.com/pricing/details/application-insights/)plus important.
-* L'option consistant à payer le « dépassement » pour poursuivre la collecte des données une fois le quota mensuel dépassé. Si vos données dépassent le quota, vous êtes facturé par Mo.
-* [Exportation continue](app-insights-export-telemetry.md).
+Oui, pour une utilisation expérimentale. Dans le plan de tarification de base, votre application peut envoyer un certain quota de données chaque mois sans frais. Le quota gratuit est suffisamment grand pour couvrir le développement et la publication d’une application pour un petit nombre d’utilisateurs. Vous pouvez définir un plafond pour empêcher le traitement des données au-delà d’un certain seuil.
+
+Vous devez utiliser le plan Entreprise pour bénéficier de certaines fonctionnalités, comme l’exportation continue. Cela entraîne des frais quotidiens.
+
+[Lire le plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
+
 
 ## <a name="a-nameq14awhat-does-application-insights-modify-in-my-project"></a><a name="q14"></a>Que modifie Application Insights dans mon projet ?
 Cela dépend du type de projet. Pour une application web :
 
 * Ajoute ces fichiers à votre projet :
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Installe ces packages NuGet :
-  
+
   * *Application Insights API* - API de base
   * *Application Insights API for Web Applications* - permet d'envoyer des données de télémétrie depuis le serveur
   * *Application Insights API for JavaScript Applications* - permet d'envoyer des données de télémétrie depuis le client
-    
+
     Ces packages comprennent les assemblys suivants :
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Insère des éléments dans :
-  
+
   * Web.config
   * packages.config
-* (Nouveaux projets uniquement : si vous [ajoutez Application Insights à un projet existant][start], vous devez le faire manuellement.) Insère des extraits de code dans le code du client et du serveur, afin de les initialiser avec l'ID de la ressource Application Insights. Par exemple, dans une application MVC, le code est inséré dans la page maître Views/Shared/_Layout.cshtml.
+* (Nouveaux projets uniquement - si vous [ajoutez Application Insights à un projet existant][start], vous devez le faire manuellement). Insère des extraits de code dans le code du client et du serveur, afin de les initialiser avec l'ID de la ressource Application Insights. Par exemple, dans une application MVC, le code est inséré dans la page maître Views/Shared/_Layout.cshtml.
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Comment mettre à niveau à partir d'anciennes versions du Kit de développement logiciel (SDK) ?
 Consultez les [notes de publication](app-insights-release-notes.md) du Kit de développement logiciel (SDK) adapté à votre type d'application.
@@ -80,7 +76,7 @@ Consultez les [notes de publication](app-insights-release-notes.md) du Kit de d�
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config` , puis sélectionnez **Mettre à jour Application Insights**. Vous pouvez envoyer les données à une ressource existante ou à une nouvelle ressource dans Azure. L'Assistant Mise à jour modifie la clé d'instrumentation dans ApplicationInsights.config, qui détermine où le Kit de développement logiciel (SDK) du serveur envoie vos données. Cela modifie également la clé où de l'affichage dans vos pages web, sauf si vous désactivez l'option « Tout mettre à jour ».
 
 #### <a name="a-namedataahow-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
-Voir [Rétention de données et confidentialité][données].
+Voir [Rétention de données et confidentialité][data].
 
 ## <a name="logging"></a>Journalisation
 #### <a name="a-namepostahow-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>Comment consulter les données POST dans la fonction Recherche de diagnostic ?
@@ -88,13 +84,13 @@ Les données POST ne sont pas automatiquement consignées, mais vous pouvez uti
 
 ## <a name="security"></a>Sécurité
 #### <a name="is-my-data-secure-in-the-portal-how-long-is-it-retained"></a>Mes données sont-elles sécurisées sur le portail ? Pendant combien de temps sont-elles conservées ?
-Consultez [Rétention de données et confidentialité][données].
+Consultez [Rétention de données et confidentialité][data].
 
 ## <a name="a-nameq17a-have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
 | Ce qui suit doit s'afficher | Comment y accéder | Utilité |
 | --- | --- | --- |
 | Graphiques de disponibilité |[Tests web](app-insights-monitor-web-app-availability.md) |Savoir si votre application web est active |
-| Performances des applications de serveur (temps de réponse, etc.) |[Ajout d’Application Insights à votre projet](app-insights-asp-net.md) ou [Installation d’AI Status Monitor sur le serveur](app-insights-monitor-performance-live-website-now.md) (ou écrivez votre propre code pour [suivre des dépendances](app-insights-api-custom-events-metrics.md#track-dependency)) |Détecter les problèmes de performances |
+| Performances des applications de serveur (temps de réponse, etc.) |[Ajout d’Application Insights à votre projet](app-insights-asp-net.md) ou [Installation d’AI Status Monitor sur le serveur](app-insights-monitor-performance-live-website-now.md) (ou écrivez votre propre code pour [suivre des dépendances](app-insights-api-custom-events-metrics.md#trackdependency)) |Détecter les problèmes de performances |
 | Télémétrie des dépendances |[Installation d’AI Status Monitor sur le serveur](app-insights-monitor-performance-live-website-now.md) |Diagnostiquer les problèmes relatifs à des bases de données ou à d'autres composants externes |
 | Obtention de l'arborescence des appels de procédure à partir des exceptions |[Insertion d’appels TrackException dans votre code](app-insights-search-diagnostic-logs.md#exceptions) (certains d’entre eux sont cependant signalés automatiquement) |Détecter et diagnostiquer les exceptions |
 | Recherche des données de suivi des journaux |[Ajout d’un enregistreur de données](app-insights-search-diagnostic-logs.md) |Diagnostiquer les exceptions et problèmes de performances |
@@ -110,13 +106,13 @@ Vous pouvez [écrire des scripts PowerShell](app-insights-powershell.md) pour cr
 
 <!--Link references-->
 
-[données]: app-insights-data-retention-privacy.md
+[data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

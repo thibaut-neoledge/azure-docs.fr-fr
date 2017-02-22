@@ -1,37 +1,35 @@
----
-title: "Tableau des limites Operational Insights"
-description: "Décrit les limites du système pour Operational Insights."
-services: operational-insights
-documentationcenter: NA
-author: bandersmsft
-manager: jwhit
-editor: 
-ms.service: operational-insights
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/01/2015
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: 91ca8359e0f6fe1a58ca09cc0207e8a3639abfe1
+
+>[!NOTE]
+>Log Analytics s’appelait auparavant Operational Insights.
+>
+>
+
+Les limites suivantes s’appliquent aux ressources Log Analytics par abonnement :
+
+| Ressource | Limite par défaut | Commentaires
+| --- | --- | --- |
+| Nombre d’espaces de travail gratuits par abonnement | 10 | Cette limite ne peut pas être augmentée. |
+| Nombre d’espaces de travail payants par abonnement | N/A | Vous êtes limité par le nombre de ressources au sein d’un groupe de ressources et le nombre de groupes de ressources par abonnement. | 
 
 
----
-Les limites suivantes s’appliquent aux abonnements Operational Insights.
+Les limites suivantes s’appliquent à chaque espace de travail Log Analytics :
 
-|  | GRATUIT | STANDARD | PREMIUM |
-| --- | --- | --- | --- |
-| Limite quotidienne de transfert de données |500 MO<sup>1</sup> |Aucun |Aucun |
-| Période de rétention des données |7 jours |1 mois |12 mois |
-| Limite de stockage des données |500 Mo * 7 jours = 3, 5 Go |illimitée |illimitée |
+|  | Gratuit | Standard | Premium | Standalone | OMS |
+| --- | --- | --- | --- | --- | --- |
+| Volume de données collecté par jour |500 MO<sup>1</sup> |Aucun |Aucun | Aucun | Aucun
+| Période de rétention des données |7 jours |1 mois |12 mois | 1 mois<sup>2</sup> | 1 mois <sup>2</sup>|
 
-<sup>1</sup>Lorsque les clients atteignent leur limite quotidienne de transfert de données de 500 Mo, l’analyse des données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC.
+<sup>1</sup> Lorsque les clients atteignent leur limite quotidienne de transfert de données de 500 Mo, l’analyse des données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC.
+
+<sup>2</sup> La période de rétention de données pour les plans de tarification autonomes et OMS peut être augmentée à 730 jours.
+
+| Catégorie | Limites | Commentaires
+| --- | --- | --- |
+| API du collecteur de données | La taille maximale d’une publication est de 30 Mo<br>La taille maximale des valeurs de champ est de 32 Ko | Fractionner les volumes plus importants en plusieurs publications<br>Les champs de plus de 32 Ko de champs sont tronqués. |
+| API de recherche | 5 000 enregistrements renvoyés pour des données non agrégées<br>500 000 enregistrements pour des données agrégées | La recherche de données agrégées inclut la commande `measure`
+ 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

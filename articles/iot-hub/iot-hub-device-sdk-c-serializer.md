@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT device SDK pour C - Serializer | Microsoft Docs"
-description: "En savoir plus sur la bibliothèque Serializer dans le Kit de développement logiciel (SDK) d’appareil Azure IoT pour C ."
+description: "Guide d’utilisation de la bibliothèque Serializer dans Azure IoT device SDK pour C pour créer des applications d’appareil qui communiquent avec un IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 98015b39687bcd1425093b28f67d768fe73e7091
+ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
+ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
 
 
 ---
-# <a name="microsoft-azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit Microsoft Azure IoT device SDK pour C - En savoir plus sur le sérialiseur
+# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. L’article suivant donne une description plus détaillée [**d’IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **sérialiseur** .
 
 L’article d’introduction décrit comment utiliser la bibliothèque **sérialiseur** pour envoyer des événements et recevoir des messages vers et depuis IoT Hub. Dans cet article, nous allons approfondir en fournissant une explication plus complète de la façon de modéliser vos données avec le langage de macro **sérialiseur** . L’article inclut également plus de détails sur la façon dont la bibliothèque sérialise les messages (et dans certains cas comment vous pouvez contrôler le comportement de sérialisation). Nous décrirons également certains paramètres que vous pouvez modifier déterminant la taille des modèles que vous créez.
@@ -29,7 +29,7 @@ En conclusion, nous reverrons certains des sujets abordés dans les articles pr�
 
 Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **sérialiseur** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
 
-Vous trouverez **Azure IoT device SDK pour C** dans le référentiel GitHub [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Vous pouvez consulter les détails de l’API dans [Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## <a name="the-modeling-language"></a>Le langage de modélisation
 [L’article d’introduction](iot-hub-device-sdk-c-intro.md) de cette série a présenté le langage de modélisation du **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C** via l’exemple fourni dans l’application **simplesample\_amqp** :
@@ -67,13 +67,13 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | Type | Description |
 | --- | --- |
 | double |nombre à virgule flottante double précision |
-| int |entier 32 bits |
+| int |entier&32; bits |
 | float |nombre à virgule flottante simple précision |
 | long |entier long |
-| int8\_t |entier 8 bits |
-| int16\_t |entier 16 bits |
-| int32\_t |entier 32 bits |
-| int64\_t |entier 64 bits |
+| int8\_t |entier&8; bits |
+| int16\_t |entier&16; bits |
+| int32\_t |entier&32; bits |
+| int64\_t |entier&64; bits |
 | valeur booléenne |booléenne |
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
@@ -530,10 +530,10 @@ Cette section décrit tout ce que vous devez savoir au moment de l’envoi d’�
 
 ## <a name="macro-configuration"></a>Configuration des macros
 Si vous utilisez la bibliothèque **Serializer** , il convient de connaître une partie importante du Kit de développement logiciel (SDK), accessible dans la bibliothèque azure-c-shared-utility.
-Si vous avez cloné le référentiel Azure-iot-sdks à partir de GitHub à l’aide de l’option récursive, vous trouverez cette bibliothèque d’utilitaire partagé ici :
+Si vous avez cloné le référentiel Azure-iot-sdk-c à partir de GitHub à l’aide de l’option récursive, vous trouverez cette bibliothèque d’utilitaire partagé ici :
 
 ```
-.\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 Si vous n’avez pas cloné la bibliothèque, vous pouvez la trouver [ici](https://github.com/Azure/azure-c-shared-utility).
@@ -658,7 +658,7 @@ Sinon, toutes les autres fonctionnalités répertoriées ci-dessus fonctionnent 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article décrit en détail les aspects uniques de la bibliothèque **serializer** contenue dans le **Kit de développement logiciel (SDK) d’appareil Azure IoT pour C**. Ces informations devraient vous aider à bien comprendre comment utiliser des modèles pour envoyer des événements et recevoir des messages vers et depuis IoT Hub.
 
-Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Pour plus d’informations, il existe quelques exemples du kit de développement logiciel non couverts ici. Sinon, la [documentation du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
+Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Pour plus d’informations, il existe quelques exemples du kit de développement logiciel non couverts ici. Sinon, la [documentation du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdk-c) est une ressource précieuse pour obtenir des informations complémentaires.
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les [SDK Azure IoT][lnk-sdks].
 
@@ -672,6 +672,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

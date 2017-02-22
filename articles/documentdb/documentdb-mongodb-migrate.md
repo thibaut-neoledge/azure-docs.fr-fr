@@ -1,7 +1,7 @@
 ---
-title: "Migration de données vers un compte Azure DocumentDB prenant en charge le protocole MongoDB | Microsoft Docs"
+title: Utilisez mongoimport et mongorestore avec Azure DocumentDB | Microsoft Docs
 description: "Découvrez comment utiliser mongoimport et mongorestore pour importer des données dans un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire)."
-keywords: migrate
+keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2dc98400ed4eaa2263d73f0718f5eaee260d48f5
-ms.openlocfilehash: 80665bc84948696b05b04536a066ebebb5a81e89
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
 
 
 ---
-# <a name="migrate-data-to-documentdb-with-protocol-support-for-mongodb"></a>Migration de données vers DocumentDB avec prise en charge du protocole MongoDB
+# <a name="migrate-data-to-documentdb-by-using-mongoimport-and-mongorestore"></a>Migrer des données vers DocumentDB à l’aide de mongoimport et mongorestore
 Pour migrer des données vers un compte Azure DocumentDB prenant en charge le protocole MongoDB, vous devez
 
 * télécharger *mongoimport.exe* ou *mongorestore.exe* depuis le [centre de téléchargement MongoDB](https://www.mongodb.com/download-center) ;
@@ -71,6 +71,6 @@ Exemple :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

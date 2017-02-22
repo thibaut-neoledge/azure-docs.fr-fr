@@ -1,6 +1,6 @@
 ---
-title: "Présentation d’Azure Network Security | Microsoft Docs"
-description: " Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau et vous explique ce que propose Azure dans chacun de ces domaines. "
+title: "Concepts et exigences en matière de sécurité de réseau dans Azure | Microsoft Docs"
+description: " Cet article vous aide à mieux comprendre l’offre de sécurité réseau de Microsoft Azure. Il décrit les notions de base sur les exigences et les concepts de la sécurité réseau, et vous explique ce que propose Azure sur ces deux aspects.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f62d964dc5da9200a9f1944c00a4983e8d01b997
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
 
 
 ---
@@ -270,6 +270,6 @@ En savoir plus :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

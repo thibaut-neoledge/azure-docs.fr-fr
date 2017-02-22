@@ -6,17 +6,14 @@
 
 # Prise en main
 
-## Créer un entrepôt de données SQL
-### [Portail Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Didacticiel du débutant](sql-data-warehouse-get-started-tutorial.md)
 ## [meilleures pratiques](sql-data-warehouse-best-practices.md)
 ## [Gérer](sql-data-warehouse-overview-manage.md)
 ## [Obtenir de l'aide](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # Procédure
 
-## Sauvegarder et restaurer des données
+## Sauvegarde et restauration
 
 ### [Présentation de la sauvegarde](sql-data-warehouse-backups.md)
 ### [Présentation de la restauration](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Installation de Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Créer
+### [Portail Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Développement
 
@@ -78,6 +80,7 @@
 
 ### [Vue d'ensemble](sql-data-warehouse-overview-load.md)
 ### [Exemples de données](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Charger - bcp depuis SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -101,7 +104,7 @@
 ## Suspendre et mettre à l’échelle
 
 ### [Vue d'ensemble](sql-data-warehouse-manage-compute-overview.md)
-### [Portail Azure](sql-data-warehouse-manage-compute-portal.md)
+### [portail Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
@@ -145,6 +148,6 @@
 ### [Gestion des données](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

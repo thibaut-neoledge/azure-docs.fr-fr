@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
-ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
+ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
+ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
 
 
 ---
@@ -41,9 +41,14 @@ Un jeton d’accès est utilisé par un client pour accéder à une ressource pr
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 Lorsqu’un client acquiert un jeton d’accès pour accéder à une ressource protégée, il reçoit un jeton d’actualisation et un jeton d’accès. Le jeton d’actualisation permet d’obtenir de nouvelles paires de jetons d’accès/actualisation à l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont liés à des combinaisons d’utilisateur et de client. Ils peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
-Il est important de distinguer les clients confidentiels des clients publics. Les clients confidentiels sont des applications qui peuvent stocker un mot de passe client en toute sécurité, ce qui leur permet de prouver que les demandes proviennent de l’application cliente et non d’un acteur malveillant. Comme ces flux sont plus sécurisés, les durées de vie par défaut des jetons d’actualisation émis pour ces flux sont supérieures et ne peuvent pas être modifiées à l’aide de la stratégie.
+Il est important de distinguer les clients confidentiels des clients publics. Pour plus d’informations sur les différents types de client, consultez [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-En raison des limitations de l’environnement dans lequel les applications s’exécutent, les clients publics ne peuvent pas stocker un mot de passe client en toute sécurité. Des stratégies peuvent être définies sur des ressources pour empêcher les jetons d’actualisation des clients publics antérieurs à une période spécifiée d’obtenir une nouvelle paire de jetons d’accès/actualisation (délai d’inactivité max de jeton d’actualisation).  En outre, les stratégies peuvent être utilisées pour définir une période au-delà de laquelle les jetons d’actualisation ne sont plus acceptés (âge maximal de jeton d’actualisation).  L’ajustement de la durée de vie des jetons d’actualisation vous permet de contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application cliente publique.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Durées de vie des jetons avec des jetons d’actualisation de client confidentiel
+Les clients confidentiels sont des applications qui peuvent stocker un mot de passe client en toute sécurité (secret), ce qui leur permet de prouver que les demandes proviennent de l’application cliente et non d’un acteur malveillant. Par exemple, une application web est un client confidentiel, car elle peut stocker un secret de client sur le serveur web et n’est donc pas exposée. Comme ces flux sont plus sécurisés, les durées de vie par défaut des jetons d’actualisation émis pour ces flux sont supérieures et ne peuvent pas être modifiées à l’aide de la stratégie.
+
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durées de vie des jetons avec des jetons d’actualisation de client public 
+
+Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe de client (secret). Par exemple, une application iOS/Android ne peut pas masquer un secret au propriétaire de la ressource et est donc considérée comme un client public.  Des stratégies peuvent être définies sur des ressources pour empêcher les jetons d’actualisation des clients publics antérieurs à une période spécifiée d’obtenir une nouvelle paire de jetons d’accès/actualisation (délai d’inactivité max de jeton d’actualisation).  En outre, les stratégies peuvent être utilisées pour définir une période au-delà de laquelle les jetons d’actualisation ne sont plus acceptés (âge maximal de jeton d’actualisation).  L’ajustement de la durée de vie des jetons d’actualisation vous permet de contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application cliente publique.
 
 ### <a name="id-tokens"></a>Jetons d’ID
 Les jetons d’ID sont transmis aux sites web et aux clients natifs, et contiennent les informations de profil d’un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration.  En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur.  L’ajustement de la durée de vie du jeton d’ID vous permet de contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès d’Azure AD (en mode silencieux ou interactif).
@@ -70,7 +75,7 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor** |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation* |
 | Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor*** |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation* |
 
-* *Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
+* *Une durée explicite maximale de&365; jours peut être définie pour ces attributs.
 * **Si la chaîne MaxAgeSessionSingleFactor n’est pas définie, cette valeur prend la valeur MaxAgeSingleFactor. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
 * ***Si la chaîne MaxAgeSessionMultiFactor n’est pas définie, cette valeur prend la valeur MaxAgeMultiFactor. Si aucun de ces paramètres n’est défini, la propriété prend la valeur par défaut (Jusqu’à révocation).
 
@@ -449,6 +454,6 @@ Supprime la stratégie du principal du service spécifié.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

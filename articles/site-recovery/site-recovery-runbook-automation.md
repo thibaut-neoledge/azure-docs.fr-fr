@@ -1,5 +1,5 @@
 ---
-title: "Ajouter des Runbooks Azure Automation à des plans de récupération | Microsoft Docs"
+title: "Ajouter des Runbooks Azure Automation à des plans de récupération dans Site Recovery | Microsoft Docs"
 description: "Cet article explique comment Microsoft Azure Site Recovery vous permet désormais d’étendre des plans de récupération à l’aide de Microsoft Azure Automation, afin d’effectuer des tâches complexes lors de la récupération vers Microsoft Azure"
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/23/2016
+ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 9f9a71cd7c6688dfd42dcb7ce52847f2016daf58
+ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
+ms.openlocfilehash: b88974ef713211a40b52aafab1b079ed8dbfec49
 
 
 ---
@@ -146,6 +146,6 @@ Le runbook NSGwithCustomScript attribue des adresses IP publiques à chaque mach
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

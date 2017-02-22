@@ -1,5 +1,5 @@
 ---
-title: "Mise à niveau d’application : rubriques avancées | Microsoft Docs"
+title: "Rubriques de mise à niveau d’application avancée | Microsoft Docs"
 description: "Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 01/05/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
+ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
+ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
 
 
 ---
@@ -24,13 +24,13 @@ ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Ajout ou suppression de services pendant la mise à niveau d'une application
 Si un service est ajouté à une application déjà déployée et publiée en tant que mise à niveau, le nouveau service est ajouté à l’application déployée.  Une telle mise à niveau n’affecte pas les services faisant déjà partie de l’application. Cependant, une instance du service ajouté doit être démarrée pour activer le nouveau service (à l’aide de l’applet de commande `New-ServiceFabricService` ).
 
-Des services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances en cours du service à supprimer doivent être arrêtées avant de procéder à la mise à niveau (à l’aide de l’applet de commande `Remove-ServiceFabricService` ). 
+Des services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances en cours du service à supprimer doivent être arrêtées avant de procéder à la mise à niveau (à l’aide de l’applet de commande `Remove-ServiceFabricService` ).
 
 ## <a name="manual-upgrade-mode"></a>Mode de mise à niveau manuelle
 > [!NOTE]
 > Le mode manuel non surveillé ne peut être envisagé que pour une mise à niveau ayant échoué ou suspendue. Le mode surveillé est le mode de mise à niveau recommandé pour les applications Service Fabric.
-> 
-> 
+>
+>
 
 Azure Service Fabric fournit plusieurs modes de mise à niveau pour prendre en charge les clusters de développement et de production. Les options de déploiement choisies peuvent être différentes pour différents environnements.
 
@@ -55,7 +55,7 @@ Situations qui se prêtent à l'utilisation d'un package différentiel :
 * Un package différentiel est préférable quand vous disposez d’un package d’application volumineux qui référence plusieurs fichiers manifeste de service et/ou plusieurs packages de code, de configuration ou de données.
 * Un package différentiel est préférable quand vous disposez d’un système de déploiement qui génère la disposition de la build directement à partir de votre processus de génération d’application. Dans ce cas, même si le code n’a pas changé, les assemblys nouvellement générés obtiennent une somme de contrôle différente. Si vous utilisez un package d'application complet, vous devez mettre à jour la version installée sur tous les packages de code. Si vous utilisez un package différentiel, vous fournissez uniquement les fichiers qui ont changé et les fichiers manifeste dont la version a changé.
 
-Lorsqu'une application est mise à niveau à l'aide de Visual Studio, le package différentiel est automatiquement publié. Pour créer manuellement un package différentiel, le manifeste d’application et les manifestes de service doivent être mis à jour, mais seuls les packages modifiés doivent être inclus dans le package d’application final. 
+Lorsqu'une application est mise à niveau à l'aide de Visual Studio, le package différentiel est automatiquement publié. Pour créer manuellement un package différentiel, le manifeste d’application et les manifestes de service doivent être mis à jour, mais seuls les packages modifiés doivent être inclus dans le package d’application final.
 
 Commençons par exemple par l'application suivante (numéros de version fournis pour faciliter la compréhension) :
 
@@ -102,7 +102,6 @@ Résolvez les problèmes courants de mise à niveau de l’application en vous r
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

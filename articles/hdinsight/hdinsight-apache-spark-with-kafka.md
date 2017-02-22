@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’Apache Spark avec Kafka sur HDInsight | Microsoft Docs"
+title: Utiliser Apache Spark avec Kafka sur Azure HDInsight | Microsoft Docs
 description: "Découvrez comment utiliser Spark sur HDInsight pour lire et écrire des données sur un Kafka dans un cluster HDInsight. Cet exemple utilise Scala dans un bloc-notes Jupyter pour écrire des données aléatoires sur un Kafka dans HDInsight, puis les lire à l’aide de la diffusion en continu Spark."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 535e8fc7503e21eea470a1fdb0a10fbc8a18349c
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Utilisation d’Apache Spark avec Kafka (version préliminaire) sur HDInsight
@@ -130,7 +130,7 @@ La première chose à faire lorsque vous créez une application qui fonctionne a
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
-    > Lorsque vous utilisez cette commande à partir de Windows PowerShell, vous pouvez recevoir une erreur sur la citation de l’interpréteur de commandes. Dans ce cas, utilisez la commande suivante : `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > Lorsque vous utilisez cette commande à partir de Windows PowerShell, vous pouvez recevoir une erreur sur la citation de l’interpréteur de commandes. Dans ce cas, utilisez la commande suivante : `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * Pour obtenir les informations sur __l’hôte Zookeeper__ :
 
@@ -187,6 +187,6 @@ Dans ce document, vous avez appris à utiliser Spark pour lire et écrire dans K
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

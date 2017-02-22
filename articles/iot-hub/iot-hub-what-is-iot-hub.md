@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
-ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
 
 
 ---
@@ -59,7 +59,7 @@ En plus d’un ensemble complet d’options de communication [appareil vers clou
 
 * **Représentations d’appareil physique**. À l’aide de [représentations d’appareil physique][lnk-twins], vous pouvez stocker, synchroniser et interroger les informations de métadonnées et d’état de l’appareil. Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez. 
 * **Authentification par appareil et connectivité sécurisée**. Vous pouvez configurer chaque appareil avec sa propre [clé de sécurité][lnk-devguide-security] pour lui permettre de se connecter à IoT Hub. Le [Registre d’identité IoT Hub][lnk-devguide-identityregistry] stocke les clés et les identités des appareils dans une solution. Un serveur principal de la solution peut ajouter des appareils individuels à une liste d’autorisation ou de refus, permettant ainsi un contrôle complet de l’accès à l’appareil.
-* **Routage des messages appareil-à-cloud vers les services Azure en fonction de règles déclaratives**. IoT Hub vous permet de définir des itinéraires de messages reposant sur des règles de message pour contrôler la destination à laquelle votre Hub envoie les messages appareil-à-cloud. Les règles de message ne nécessitent aucune écriture de code et peuvent remplacer des répartiteurs de messages post-ingestion personnalisés.
+* **Routage des messages appareil-à-cloud vers les services Azure en fonction de règles déclaratives**. IoT Hub vous permet de définir des itinéraires de messages reposant sur des règles de routage pour contrôler la destination à laquelle votre Hub envoie les messages appareil-à-cloud. Les règles de routage ne nécessitent aucune écriture de code et peuvent remplacer des répartiteurs de messages post-ingestion personnalisés.
 * **Surveillance des opérations de connectivité des appareils**. Vous pouvez recevoir des journaux d’opérations détaillés sur les opérations de gestion de l’identité des appareils et sur les événements de connectivité des appareils. Cette fonctionnalité de surveillance permet à votre solution IoT d’identifier les problèmes de connectivité, tels que les appareils qui tentent de se connecter avec des informations d’identification incorrectes, envoient des messages trop fréquemment ou rejettent tous les messages cloud-à-appareil.
 * **Un ensemble complet de bibliothèques d’appareils**. Les [Kits de développement logiciel (SDK) d’appareils Azure IoT][lnk-device-sdks] sont disponibles et pris en charge pour différents langages et plateformes : C pour de nombreuses distributions Linux, Windows et les systèmes d’exploitation en temps réel. Les Kits de développement logiciel (SDK) d’appareil Azure IoT prennent également en charge les langages gérés tels que C#, Java et JavaScript.
 * **Protocoles et possibilités d’extension IoT**. Si votre solution ne peut pas utiliser les bibliothèques d’appareils, IoT Hub propose un protocole public qui permet aux appareils d’utiliser nativement les protocoles MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0. Vous pouvez également étendre IoT Hub afin de permettre la prise en charge des protocoles personnalisés en :
@@ -91,7 +91,7 @@ L’industrie mobile utilise le schéma de communication assistée par service �
 IoT Hub est pris en charge sur le chemin d’accès d’homologation publique ExpressRoute.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’envoi de messages à partir d’un appareil et sur la réception de ces messages à partir d’IoT Hub, ainsi que sur la configuration des itinéraires de messages pour votre IoT Hub, consultez l’article [Envoyer et recevoir des messages avec IoT Hub][lnk-send-messages].
+Pour plus d’informations sur l’envoi de messages à partir d’un appareil et sur la réception de ces messages à partir d’IoT Hub, ainsi que sur la configuration des itinéraires de messages, consultez l’article [Envoyer et recevoir des messages avec IoT Hub][lnk-send-messages].
 
 Pour découvrir comment IoT Hub permet une gestion des appareils basée sur des normes pour que vous puissiez gérer, configurer et mettre à jour à distance vos appareils, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-device-management].
 
@@ -127,6 +127,6 @@ Pour commencer à écrire du code et à exécuter certains exemples, consultez l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: API et kit SDK .NET DocumentDB | Microsoft Docs
+title: "API .NET et ressources du Kit de développement logiciel (SDK) - Azure DocumentDB | Microsoft Docs"
 description: "Découvrez l&quot;API et le Kit SDK .NET, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit SDK .NET DocumentDB."
 services: documentdb
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 02/06/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: efd154811ebbcf2170ffb001344a954be72b1d92
-ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
+ms.sourcegitcommit: 44bc06506707e09ea2bbcbb18198bc1a10467d53
+ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
 
 
 ---
@@ -50,6 +50,20 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Résolution d’un problème causant l’échec de certaines requêtes entre partitions dans le processus hôte 32 bits.
+* Résolution d’un problème empêchant la mise à jour du conteneur de session à l’aide du jeton pour les requêtes ayant échoué en mode passerelle.
+* Résolution du problème causant l’échec ponctuel d’une requête avec des appels de fonctions définies par l’utilisateur en projection.
+
+### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Résolution d’un problème empêchant la mise à jour du conteneur de session à l’aide du jeton pour les requêtes ayant échoué.
+* Prise en charge du Kit de développement logiciel (SDK) dans les processus hôtes 32 bits. Notez que si vous utilisez des requêtes entre les partitions, le processus hôte 64 bits est recommandé pour améliorer les performances.
+* Amélioration des performances pour les scénarios impliquant des requêtes avec un grand nombre de valeurs de clé de partition dans une expression IN.
+
+### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+* Correction mineure des performances de l’API CreateDocumentCollectionIfNotExistsAsync introduit dans la version 1.11.0.
+* Correction des performances dans le Kit de développement logiciel (SDK) pour les scénarios impliquant un degré élevé de demandes simultanées.
 
 ### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Prise en charge de nouvelles classes et méthodes pour traiter le [flux de modification](documentdb-change-feed.md) de documents dans une collection.
@@ -110,7 +124,7 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 * Implémentation des [collections partitionnées](documentdb-partition-data.md) et des [niveaux de performances définis par l’utilisateur](documentdb-performance-levels.md). 
 
 ### <a name="a-name153153httpswwwnugetorgpackagesmicrosoftazuredocumentdb153"></a><a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-* **[Résolu]** L’interrogation du point de terminaison DocumentDB retourne : « System.Net.Http.HttpRequestException : Une erreur s’est produite lors de la copie du contenu vers un flux ».
+* **[Résolu]** L’interrogation du point de terminaison DocumentDB retourne : « System.Net.Http.HttpRequestException : Une erreur s’est produite lors de la copie du contenu vers un flux ».
 
 ### <a name="a-name152152httpswwwnugetorgpackagesmicrosoftazuredocumentdb152"></a><a name="1.5.2"/>[1.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
 * Prise en charge LINQ étendue, y compris de nouveaux opérateurs pour la pagination, les expressions conditionnelles et la comparaison de plages.
@@ -161,9 +175,9 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
   * Prise en charge du fournisseur LINQ pour OrderBy() ou OrderByDescending()
   * IndexingPolicy pour prendre en charge la clause Order By 
     
-        **NB: Possible breaking change** 
+    **NB : modification avec rupture possible** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    Si vous avez un code qui configure les collections avec une stratégie d'indexation personnalisée, vous devrez le mettre à jour de sorte qu'il prenne en charge la nouvelle classe IndexingPolicy. Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver
@@ -174,15 +188,6 @@ ms.openlocfilehash: 93b4c7003b4b5461d34a357967b2c089a189c854
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * Kit SDK GA
 
-> [!NOTE]
-> Une modification du nom du package NuGet entre l’aperçu et la disponibilité générale a eu lieu. Nous sommes passés de **Microsoft.Azure.Documents.Client** à **Microsoft.Azure.DocumentDB**
-> <br/>
-> 
-> 
-
-### <a name="a-name09x-preview09x-previewhttpswwwnugetorgpackagesmicrosoftazuredocumentsclient"></a><a name="0.9.x-preview"/>[0.9.x-version préliminaire](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-* Kits de développement logiciel (SDK) en version préliminaire [Obsolète]
-
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
@@ -190,23 +195,19 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
 
-> [!WARNING]
-> Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour .NET antérieures à la version **1.0.0** seront supprimées le **29 février 2016**. 
-> 
-> 
-
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.11.4](#1.11.4) |06 février 2017 |--- |
+| [1.11.3](#1.11.3) |26 janvier 2017 |--- |
+| [1.11.1](#1.11.1) |21 décembre 2016 |--- |
 | [1.11.0](#1.11.0) |8 décembre 2016 |--- |
 | [1.10.0](#1.10.0) |27 septembre 2016 |--- |
 | [1.9.5](#1.9.5) |1er septembre 2016 |--- |
 | [1.9.4](#1.9.4) |24 août 2016 |--- |
 | [1.9.3](#1.9.3) |15 août 2016 |--- |
 | [1.9.2](#1.9.2) |23 juillet 2016 |--- |
-| 1.9.1 |Déconseillé |--- |
-| 1.9.0 |Déconseillé |--- |
 | [1.8.0](#1.8.0) |14 juin 2016 |--- |
 | [1.7.1](#1.7.1) |6 mai 2016 |--- |
 | [1.7.0](#1.7.0) |26 avril 2016 |--- |
@@ -222,10 +223,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 | [1.2.0](#1.2.0) |6 juillet 2015 |--- |
 | [1.1.0](#1.1.0) |30 avril 2015 |--- |
 | [1.0.0](#1.0.0) |8 avril 2015 |--- |
-| [0.9.3-prelease](#0.9.x-preview) |12 mars 2015 |29 février 2016 |
-| [0.9.2-prelease](#0.9.x-preview) |Janvier 2015 |29 février 2016 |
-| [.9.1-prelease](#0.9.x-preview) |13 octobre 2014 |29 février 2016 |
-| [0.9.0-prelease](#0.9.x-preview) |21.08.14 |29 février 2016 |
+
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -236,6 +234,6 @@ Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

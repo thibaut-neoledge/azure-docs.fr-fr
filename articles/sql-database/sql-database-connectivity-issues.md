@@ -5,7 +5,7 @@ keywords: "connexion SQL,chaîne de connexion,problèmes de connectivité,erreu
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
@@ -14,11 +14,11 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1566cfc42a6897b5ac8b4ad7d4d6c7900ca91a3
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
 
 
 ---
@@ -318,7 +318,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service Azure SQL Database. Vous pouvez rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut être utile en visitant dans un premier temps :
 
-* [Enterprise Library 6 – avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+* [Enterprise Library 6 - avril 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine où EntLib60 peut être utile :
 
@@ -352,7 +352,7 @@ Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHa
 
 Voici des liens vers des informations sur EntLib60 :
 
-*  [Livre électronique : Guide du développeur de Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145)
+* [Livre électronique : Guide du développeur de Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145)
 * Meilleures pratiques : [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
 * Téléchargement NuGet de [Bibliothèque d’entreprise - Bloc applicatif de gestion des erreurs 6.0 temporaires de Microsoft](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -450,6 +450,6 @@ public bool IsTransient(Exception ex)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

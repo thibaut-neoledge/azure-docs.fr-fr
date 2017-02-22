@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de clés SSH avec un cluster Hadoop basé sur Linux, Unix ou OS X | Microsoft Doc"
-description: " Vous pouvez accéder à un cluster HDInsight basé sur Linux à l’aide de SSH (Secure Shell). Ce document donne des informations sur l&quot;utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X."
+title: "Utilisation de clés SSH avec un cluster Hadoop basé sur Linux, Unix ou OS X | Microsoft Docs"
+description: " Vous pouvez accéder à un cluster HDInsight à l’aide de SSH (Secure Shell). Ce document donne des informations sur l’utilisation de SSH avec HDInsight à partir des clients Windows, Linux, Unix ou OS X.."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Utilisation de clés SSH avec un cluster Hadoop basé sur Linux, Unix ou OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) vous permet de vous connecter à un cluster HDInsight sous Linux et d’exécuter des commandes à l’aide d’une interface de ligne de commande. Ce document fournit des informations de base sur SSH et des informations spécifiques sur l’utilisation de SSH avec HDInsight.
 
@@ -233,6 +231,6 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

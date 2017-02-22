@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9acb44fb6b6fac41da4dc05745a68066b0477fb
+ms.sourcegitcommit: 6b82132b24fb2be3f0d8ab5112c712c27edb733e
+ms.openlocfilehash: 4d7754e73abedb704b81fa0001e1957422bde1b3
 
 
 ---
@@ -98,7 +98,7 @@ La manière la plus rapide de commencer consiste à compiler et exécuter l’ex
     DocumentDBBenchmark completed successfully.
 
 
-**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, le lancement de plusieurs instances de l’application sur les mêmes ordinateurs ou sur d’autres machines vous permettra d’atteindre la limite approvisionnée sur les différentes instances. Si vous avez besoin d’aide pour cette étape, veuillez envoyer un e-mail à askdocdb@microsoft.com ou remplir un ticket de support.
+**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit approvisionné de la collection. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, le lancement de plusieurs instances de l’application sur les mêmes ordinateurs ou sur d’autres machines vous permettra d’atteindre la limite approvisionnée sur les différentes instances. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askdocdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 Une fois l’application en cours d’exécution, vous pouvez essayer différentes [stratégies d’indexation](documentdb-indexing-policies.md) et [niveaux de cohérence](documentdb-consistency-levels.md) pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 
@@ -116,6 +116,6 @@ Dans cet article, nous avons vu comment effectuer des tests de performances et d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

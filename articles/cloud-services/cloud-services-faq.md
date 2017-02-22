@@ -1,6 +1,6 @@
 ---
-title: Forum aux questions sur les services cloud | Microsoft Docs
-description: Forum aux questions (FAQ) sur Cloud Services.
+title: "FAQ sur les rôles Services cloud Azure | Microsoft Docs"
+description: "Forum aux questions sur les Services cloud Azure. Répond à certaines questions courantes sur les certificats, les rôles web et les rôles de travail."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
 
 
 ---
@@ -28,9 +28,9 @@ Cet article répond à certaines questions fréquemment posées sur Microsoft Az
 * **My**  
   Certificat d’application avec clé privée (\*.pfx, \*.p12).
 * **CA**  
-   Tous vos certificats intermédiaires sont stockés dans ce magasin (stratégie et autorités de certification secondaires).
+  Tous vos certificats intermédiaires sont stockés dans ce magasin (stratégie et autorités de certification secondaires).
 * **ROOT**  
-   Magasin de l’autorité de certification racine (par conséquent, il s’agit de l’emplacement de votre certificat principal de l’autorité de certification racine.
+  Magasin de l’autorité de certification racine (par conséquent, il s’agit de l’emplacement de votre certificat principal de l’autorité de certification racine.
 
 ### <a name="i-cant-remove-expired-certificate"></a>Impossible de supprimer les certificats expirés
 Azure vous empêche de supprimer un certificat s’il est en cours d’utilisation. Vous devez soit supprimer le déploiement qui utilise le certificat, soit mettre à jour le déploiement avec un autre certificat ou avec un certificat que vous avez renouvelé.
@@ -71,6 +71,6 @@ Tout d’abord, vérifiez que l’instance de machine virtuelle pour laquelle vo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

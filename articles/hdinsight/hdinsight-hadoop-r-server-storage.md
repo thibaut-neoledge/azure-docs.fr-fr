@@ -12,18 +12,18 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 089b5691673abce3ffa51b8dff1835f366c51d2e
-ms.openlocfilehash: c8487a14990396dcdd2eac5a7a9adc822bcd5177
+ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
+ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
 
 
 ---
 # <a name="azure-storage-options-for-r-server-on-hdinsight"></a>Options d’Azure Storage pour R Server sur HDInsight
 Microsoft R Server sur HDInsight a accès aux objets blob Azure et à [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) pour conserver les données, le code, les objets de résultats d’analyse, etc.
 
-Lors de la création d’un cluster Hadoop dans HDInsight, vous spécifiez un compte de stockage Azure. Un conteneur de stockage d’objets blob spécifique de compte contient le système de fichiers du cluster que vous créez (par exemple, le système Hadoop Distributed File System). Pour des raisons de performances, le cluster HDInsight est créé dans le même centre de données que le compte de stockage principal que vous spécifiez. Pour plus d'informations, consultez la page [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md "Utilisation du stockage d’objets blob Azure avec HDInsight").   
+Lors de la création d’un cluster Hadoop dans HDInsight, vous spécifiez un compte Azure Storage ou un magasin Data Lake. Un conteneur de stockage spécifique de ce compte contient le système de fichiers du cluster que vous créez (par exemple, le système Hadoop Distributed File System). Pour des raisons de performances, le cluster HDInsight est créé dans le même centre de données que le compte de stockage principal que vous spécifiez. Pour plus d'informations, consultez la page [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md "Utilisation du stockage d’objets blob Azure avec HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Utiliser plusieurs comptes de stockage d’objets blob Azure
 Si nécessaire, vous pouvez accéder à plusieurs conteneurs ou comptes de stockage Azure avec votre cluster HDI. Pour cela, vous devez spécifier les comptes de stockage supplémentaires dans l’interface utilisateur au moment de la création du cluster et procéder comme suit pour les utiliser dans R.  
@@ -31,33 +31,33 @@ Si nécessaire, vous pouvez accéder à plusieurs conteneurs ou comptes de stock
 1. Créez un cluster HDInsight avec un nom de compte de stockage **storage1** et un conteneur par défaut appelé **container1**.
 2. Spécifiez un compte de stockage supplémentaire appelé **storage2**.  
 3. Copiez le fichier mycsv.csv dans le répertoire /share et effectuez une analyse sur ce fichier.  
-   
+
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
 4. Dans le code R, définissez le nœud du nom sur **par défaut** et définissez le répertoire et le fichier à traiter.  
-   
+
         myNameNode <- "default"
         myPort <- 0
-   
+
     Emplacement des données :  
-   
+
         bigDataDirRoot <- "/share"  
-   
+
     Définir le contexte de calcul Spark :
-   
+
         mySparkCluster <- RxSpark(consoleOutput=TRUE)
-   
+
     Définir le contexte de calcul :
-   
+
         rxSetComputeContext(mySparkCluster)
-   
+
     Définir le système de fichiers Hadoop Distributed File System (HDFS) :
-   
+
         hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
-   
+
     Spécifier le fichier d’entrée à analyser dans HDFS :
-   
+
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
 Toutes les références de fichier et de répertoire pointent vers le compte de stockage wasbs://container1@storage1.blob.core.windows.net. Il s’agit du **compte de stockage par défaut** associé au cluster HDInsight.
@@ -119,15 +119,14 @@ Vous accédez à un magasin Data Lake en utilisant un principal du service Azure
 
 ### <a name="to-add-a-service-principal"></a>Pour ajouter un principal du service
 1. Lorsque vous créez votre cluster HDInsight, sélectionnez **Identité AAD de cluster** à partir de l’onglet **Source de données**.
+
 2. Dans la boîte de dialogue **Identité AAD de cluster**, sous **Sélectionner un principal de service AD**, sélectionnez **Créer**.
 
-Après avoir nommé le principal du service et avoir créé un mot de passe pour celui-ci, un nouvel onglet, vous permettant d’associer le principal du service à vos magasins Data Lake, apparaît.
+Après avoir nommé le principal du service et avoir créé un mot de passe pour celui-ci, cliquez sur **Gérer l'accès ADLS** pour associer le principal du service à vos magasins Data Lake.
 
-Notez que, par la suite, vous pouvez ajouter un accès à un magasin Data Lake en ouvrant le magasin Data Lake dans le portail Azure et vous rendant dans **Explorateur de données** > **Accès**.  Voici un exemple de boîte de dialogue qui montre comment créer un principal du service et comment l’associer au magasin Data Lake « rkadl11 ».
+Vous pouvez également permettre au cluster d'accéder à un ou plusieurs magasins Data Lake après la création de ce cluster en ouvrant l’entrée Portail Azure d'un magasin Data Lake puis en accédant au menu **Explorateur de données > Accès > Ajouter**. 
 
-![Créer le principal du service 1 pour le magasin Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
-
-![Créer le principal du service 2 pour le magasin Data Lake](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png)
+Pour plus d’informations sur l'ajout d’un accès aux magasins Data Lake par un cluster HDI, consultez l’article [Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store)
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Utiliser le magasin Data Lake avec R Server
 Après avoir créé un accès au magasin Data Lake, vous pouvez utiliser le magasin dans R Server sur HDInsight de la même façon qu’un compte de stockage Azure secondaire. La seule différence est que le préfixe **wasb://** devient **adl://**, comme suit :
@@ -185,16 +184,16 @@ Il existe également une option de stockage de données pratique pour une utilis
 Le principal avantage des fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par tout système disposant d’un système d’exploitation pris en charge, tel que Windows ou Linux. Par exemple, ils peuvent être utilisés par un autre cluster HDInsight que vous ou un membre de votre équipe avez, par une machine virtuelle Azure ou même par un système local.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous connaissez les principes de base pour utiliser la console R à partir d’une session SSH et que vous savez comment créer un cluster HDInsight incluant R Server, utilisez les liens suivants pour découvrir d’autres manières de travailler avec R Server sur HDInsight.
+Maintenant que vous maîtrisez les options de stockage Azure, utilisez les liens suivants pour découvrir d’autres façons de travailler avec R Server sur HDInsight.
 
 * [Vue d’ensemble : R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-overview.md)
 * [Prise en main de R Server sur Hadoop](hdinsight-hadoop-r-server-get-started.md)
-* [Ajouter RStudio Server à HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Ajouter RStudio Server à HDInsight (s’il n’est pas ajouté lors de la création du cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](hdinsight-hadoop-r-server-compute-contexts.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

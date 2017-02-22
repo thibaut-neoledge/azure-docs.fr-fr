@@ -1,10 +1,10 @@
 ---
-title: "Connecter des réseaux virtuels à l’aide du modèle de déploiement Resource Manager et du portail Azure | Microsoft Docs"
+title: "Connecter un réseau virtuel Azure à un autre réseau virtuel : Portail | Microsoft Docs"
 description: "Créer une connexion de passerelle VPN entre des réseaux virtuels à l’aide de Resource Manager et du portail Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 39e582d8435366ac900d242b96a5898e56d1eaeb
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -42,7 +42,8 @@ Le tableau suivant présente les modèles et les méthodes de déploiement dispo
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+**VNet Peering**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>À propos des connexions de réseau virtuel à réseau virtuel
@@ -50,7 +51,7 @@ La connexion entre deux réseaux virtuels est semblable à la connexion d’un r
 
 Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
 
-![À propos des connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![À propos des connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "À propos des connexions")
 
 ### <a name="why-connect-virtual-networks"></a>Pourquoi connecter des réseaux virtuels ?
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
@@ -63,7 +64,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
   
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
-Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
+Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez la partie [Interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Exemples de paramètres
 Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez utiliser les exemples de valeurs de configuration suivantes : À titre d’exemple, nous utilisons plusieurs espaces d’adressage pour chaque réseau virtuel. Toutefois, les configurations de réseau virtuel à réseau virtuel ne nécessitent pas plusieurs espaces d’adressage.
@@ -122,6 +123,7 @@ Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres so
 
 ## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Ajouter des espaces d’adressage supplémentaires et créer des sous-réseaux
 Vous pouvez ajouter des espaces d’adressage supplémentaires et créer des sous-réseaux pour votre réseau virtuel une fois qu’il a été créé.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Créer un sous-réseau de passerelle
@@ -153,21 +155,21 @@ Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont term
 
 1. Dans **Toutes les ressources**, accédez à la passerelle de réseau virtuel pour votre réseau virtuel. Par exemple, **TestVNet1GW**. Cliquez sur **TestVNet1GW** pour ouvrir le panneau de la passerelle de réseau virtuel.
    
-    ![Panneau Connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Panneau Connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Panneau Connexions")
 2. Cliquez sur **+Ajouter** pour ouvrir le panneau **Ajouter une connexion**.
 3. Dans le panneau **Ajouter une connexion**, dans le champ Nom, tapez un nom pour votre connexion. Par exemple, **TestVNet1toTestVNet4**.
    
-    ![Nom de connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Nom de la connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nom de la connexion")
 4. Pour **Type de connexion**. sélectionnez **Réseau virtuel à réseau virtuel** dans la liste déroulante.
 5. La valeur du champ **Première passerelle de réseau virtuel** est automatiquement renseignée parce que vous créez cette connexion à partir de la passerelle de réseau virtuel spécifiée.
 6. Le champ **Deuxième passerelle de réseau virtuel** correspond à la passerelle de réseau virtuel sur laquelle vous souhaitez créer une connexion. Cliquez sur **Choisir une autre passerelle de réseau virtuel** pour ouvrir le panneau **Choisir la passerelle de réseau virtuel**.
    
-    ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Ajouter une connexion")
 7. Affichez les passerelles de réseau virtuel qui sont répertoriées dans ce panneau. Notez que seules les passerelles de réseau virtuel incluses dans votre abonnement sont répertoriées. Si vous souhaitez vous connecter à une passerelle de réseau virtuel qui ne se trouve pas dans votre abonnement, veuillez utiliser l’[article PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Cliquez sur la passerelle de réseau virtuel à laquelle vous souhaitez vous connecter.
 9. Dans le champ **Clé partagée**, tapez une clé partagée pour votre connexion. Vous pouvez générer ou créer cette clé vous-même. Dans une connexion de site à site, la clé que vous utilisez serait exactement la même pour votre appareil local et votre connexion de passerelle de réseau virtuel. Le concept est similaire, sauf qu’au lieu de se connecter à un périphérique VPN, vous vous connectez à une autre passerelle de réseau virtuel.
    
-    ![Clé partagée](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Clé partagée](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Clé partagée")
 10. Cliquez sur **OK** en bas du panneau pour enregistrer vos modifications.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Configurer la connexion TestVNet4
@@ -181,23 +183,22 @@ Vérifiez la connexion. Pour chaque passerelle de réseau virtuel, procédez com
 
 Affichez les connexions et vérifiez l’état. Une fois que la connexion créée, vous verrez les valeurs d’état **Réussi** et **Connecté**.
 
-![Réussi](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Réussite](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Réussite")
 
 Vous pouvez double-cliquer sur chaque connexion séparément pour afficher plus d’informations sur la connexion.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Interconnexion de réseaux virtuels
 Consultez les détails du Forum Aux Questions pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

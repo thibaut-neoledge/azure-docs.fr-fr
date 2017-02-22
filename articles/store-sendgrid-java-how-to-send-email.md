@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 721cd52b37826c1880a94d8f95a0c70302c8f0b5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
 
 
 ---
@@ -131,7 +131,7 @@ Le code suivant permet d'ajouter une pièce jointe.
     multipart.addBodyPart(attachmentPart);
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Utilisation des filtres pour activer les pieds de page, le suivi et les analyses
-SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des *filtres*. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][Paramètres de filtre].
+SendGrid offre des fonctionnalités de messagerie électronique supplémentaires grâce à l'utilisation des *filtres*. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc. Pour obtenir une liste exhaustive des filtres, consultez la page [Paramètres de filtre][Filter Settings].
 
 * Le code suivant permet d'insérer un filtre de pied de page entraînant l'affichage de texte HTML en bas du message électronique à envoyer.
 
@@ -174,7 +174,7 @@ Pour ajouter un destinataire **Cc** , utilisez le code suivant :
     InternetAddress("john@contoso.com"));
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Utilisation de services SendGrid supplémentaires
-SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API SendGrid][documentation de l'API SendGrid].
+SendGrid propose des API web qui peuvent vous aider à tirer parti de fonctionnalités SendGrid supplémentaires à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
@@ -189,14 +189,14 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
 [http://sendgrid.com/features]: https://sendgrid.com/features
 [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-[Paramètres de filtre]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-[documentation de l'API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
+[Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+[SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

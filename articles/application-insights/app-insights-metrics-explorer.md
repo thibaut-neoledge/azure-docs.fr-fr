@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 040556d42f246ab2876cc5bab031036ec78e13bc
+ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
+ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
 
 
 ---
@@ -24,13 +24,11 @@ Les mesures dans [Application Insights][start] sont des mesures et le nombre des
 
 Les mesures et le nombre des événements sont affichés dans des graphiques présentant les valeurs agrégées, comme la somme, la moyenne ou le décompte.
 
-Voici un exemple de graphique :
+Voici un exemple de jeu de graphiques :
 
-![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/app-insights-metrics-explorer/01-overview.png)
+![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Certains graphiques sont segmentés : la hauteur totale du graphique correspond à la somme des mesures affichées. La légende par défaut affiche les plus grandes quantités.
-
-Les pointillés indiquent la valeur de la mesure une semaine auparavant.
+Tous les graphiques de mesures se trouvent dans le portail Application Insights. Dans la plupart des cas, ils peuvent être personnalisés, et vous pouvez ajouter plusieurs graphiques dans le panneau. Dans le volet d’aperçu, cliquez pour accéder aux graphiques plus détaillés (ayant des titres tels que « Server responses »), ou cliquez sur **Metrics Explorer** pour ouvrir un nouveau panneau où vous pouvez créer des graphiques personnalisés.
 
 ## <a name="time-range"></a>Période
 Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques et les grilles dans n’importe quel panneau.
@@ -62,33 +60,6 @@ Vous pouvez ajuster le niveau de granularité dans le panneau Période :
 
 Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
 
-## <a name="metrics-explorer"></a>Metrics Explorer
-Cliquez sur les graphiques du panneau Vue d'ensemble pour afficher un jeu plus détaillé de graphiques et de grilles connexes. Vous pouvez modifier ces graphiques et ces grilles pour vous concentrer sur les détails qui vous intéressent.
-
-Ou vous pouvez simplement cliquer sur le bouton Metrics Explorer dans l'en-tête du panneau Vue d'ensemble.
-
-Par exemple, parcourez le graphique des demandes ayant échoué pour l'application web :
-
-![Dans le panneau Vue d'ensemble, cliquez sur un graphique](./media/app-insights-metrics-explorer/14-trix.png)
-
-## <a name="what-do-the-figures-mean"></a>Que veulent dire les chiffres ?
-La légende sur le côté affiche généralement par défaut la valeur agrégée sur la période couverte par le graphique. Si vous pointez sur le graphique, il affiche la valeur au niveau de ce point.
-
-Chaque point de données du graphique est un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
-
-Les mesures sont agrégées de différentes façons :
-
-* **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
-* **Average** divise la somme par le nombre de points de données reçus durant l'intervalle.
-* **Unique** est utilisé pour comptabiliser les nombres d'utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
-
-Vous pouvez changer de méthode d’agrégation :
-
-![Sélectionnez le graphique, puis l’agrégation](./media/app-insights-metrics-explorer/05-aggregation.png)
-
-La méthode par défaut de chaque mesure s’affiche lorsque vous créez un graphique ou lorsque toutes les mesures sont désélectionnées :
-
-![Désélectionnez toutes les métriques afin d’afficher les valeurs par défaut](./media/app-insights-metrics-explorer/06-total.png)
 
 ## <a name="editing-charts-and-grids"></a>Modification des graphiques et des grilles
 Pour ajouter un nouveau graphique au panneau :
@@ -120,6 +91,30 @@ Si vous avez ajouté des [mesures personnalisées][track] au code de votre appli
 Le graphique est trop petit pour les données segmentées ? Ajustez la hauteur :
 
 ![Ajustez le curseur.](./media/app-insights-metrics-explorer/18-height.png)
+
+## <a name="aggregation-types"></a>Types d’agrégation
+La légende sur le côté affiche généralement par défaut la valeur agrégée sur la période couverte par le graphique. Si vous pointez sur le graphique, il affiche la valeur au niveau de ce point.
+
+Chaque point de données du graphique est un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
+
+Les mesures sont agrégées de différentes façons :
+
+* **Count** est un décompte des événements reçus dans l’intervalle d’échantillonnage. Il est utilisé pour des événements tels que les requêtes. Les variations dans la hauteur du graphique indiquent les variations de la vitesse à laquelle les événements se produisent. Mais notez que la valeur numérique change lorsque vous modifiez l’intervalle d’échantillonnage.
+* **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
+* **Average** divise la somme par le nombre de points de données reçus durant l'intervalle.
+* **Unique** est utilisé pour comptabiliser les nombres d'utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
+* **%** - versions en pourcentage de chaque agrégation utilisées uniquement avec des graphiques segmentés. Le total équivaut toujours à 100 %, et le graphique montre la contribution relative des différents composants d’un total.
+
+    ![Agrégation de pourcentage](./media/app-insights-metrics-explorer/percentage-aggregation.png)
+
+### <a name="change-the-aggregation-type"></a>Modification du type d’agrégation
+
+![Modification du graphique, puis sélection de l’agrégation](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+La méthode par défaut de chaque mesure s’affiche lorsque vous créez un graphique ou lorsque toutes les mesures sont désélectionnées :
+
+![Désélectionnez toutes les métriques afin d’afficher les valeurs par défaut](./media/app-insights-metrics-explorer/06-total.png)
+
 
 ## <a name="filter-your-data"></a>Filtrer vos données
 Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
@@ -229,6 +224,6 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

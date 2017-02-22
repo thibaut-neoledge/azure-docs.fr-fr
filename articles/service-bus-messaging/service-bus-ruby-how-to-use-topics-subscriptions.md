@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
+ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
+ms.openlocfilehash: c083d8ac0d16de40de4a2a9908cdcf2e02ed3d6a
 
 
 ---
@@ -25,42 +25,9 @@ ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
 
 Cet article décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Ruby. Les scénarios couverts incluent la **création de rubriques et d’abonnements, la création de filtres d’abonnement, l’envoi de messages** à une rubrique, **la réception de messages en provenance d’un abonnement** et enfin **la suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
-## <a name="service-bus-topics-and-subscriptions"></a>Rubriques et abonnements Service Bus
-Les rubriques et les abonnements Service Bus prennent en charge un modèle de communication de messagerie *de publication et d'abonnement* . Lors de l’utilisation de rubriques et d’abonnements, les composants d’une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une rubrique, qui fait office d’intermédiaire.
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-Contrairement aux files d’attente Service Bus, où chaque message est traité par un seul consommateur, les rubriques et les abonnements fournissent une forme de communication **un-à-plusieurs**, à l’aide d’un modèle de publication et d’abonnement. Il est possible d’inscrire plusieurs abonnements à une rubrique. Lorsqu’un message est envoyé à une rubrique, il est alors mis à disposition de chaque abonnement pour être traité indépendamment.
-
-Un abonnement à une rubrique ressemble à une file d’attente virtuelle qui reçoit des copies des messages envoyés à la rubrique. Vous pouvez éventuellement inscrire des règles de filtre pour une rubrique par abonnement, ce qui vous permet de filtrer ou de restreindre les messages d’une rubrique reçus en fonction des abonnements à une rubrique.
-
-Les rubriques et les abonnements Service Bus vous permettent de mettre votre infrastructure à l’échelle pour traiter de nombreux messages parmi un grand nombre d’utilisateurs et d’applications.
-
-## <a name="create-a-namespace"></a>Créer un espace de noms
-Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. Vous devez créer l’espace de noms via l’interface de ligne de commande car le [portail Azure][portail Azure] ne crée pas l’espace de noms avec une connexion ACS.
-
-Pour créer un espace de noms :
-
-1. Ouvrez une fenêtre de console Azure PowerShell.
-2. Tapez la commande suivante pour créer un espace de noms. Fournissez votre propre valeur d'espace de noms et spécifiez la même région que votre application.
-   
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-    ```
-   
-    ![Créer l'espace de noms](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
-
-## <a name="obtain-default-management-credentials-for-the-namespace"></a>Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
-Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées.
-
-L'applet de commande PowerShell que vous avez exécutée pour créer l'espace de noms Service Bus affiche la clé qui vous permet de gérer l'espace de noms. Copiez la valeur **DefaultKey**. Vous utiliserez cette valeur dans votre code, plus loin dans ce didacticiel.
-
-![Copier la clé](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
-
-> [!NOTE]
-> Pour obtenir cette clé, vous pouvez également ouvrir une session sur le [portail Azure][portail Azure] et accéder aux informations de connexion de votre espace de noms.
-> 
-> 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-ruby-application"></a>Création d'une application Ruby
 Pour obtenir des instructions, consultez le guide [Création d’une application Ruby sur Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
@@ -75,14 +42,14 @@ Pour utiliser Service Bus, téléchargez et utilisez le package Azure Ruby, qui 
 ### <a name="import-the-package"></a>Importation du package
 À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
 
-```
+```ruby
 require "azure"
 ```
 
 ## <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
 Le module Azure lit les variables d’environnement **AZURE\_SERVICEBUS\_NAMESPACE** et **AZURE\_SERVICEBUS\_ACCESS\_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms. Si ces variables d’environnement ne sont pas définies, vous devez spécifier les informations d’espace de noms avant d’utiliser **Azure::ServiceBusService** grâce au code suivant :
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -92,7 +59,7 @@ Attribuez à l'espace de noms la valeur que vous avez créée plutôt que l'URL 
 ## <a name="create-a-topic"></a>Création d'une rubrique
 L’objet **Azure::ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **Azure::ServiceBusService**. Pour créer une rubrique, utilisez la méthode **create\_topic()**. L’exemple suivant crée une rubrique ou imprime les erreurs s’il en existe.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
@@ -103,7 +70,7 @@ end
 
 Vous pouvez également transmettre un objet **Azure::ServiceBus::Topic** avec des options complémentaires, ce qui vous permet de remplacer les paramètres de rubrique par défaut comme la durée de vie de message ou la taille de file maximale. L'exemple suivant montre comment définir la taille maximale de la file d'attente sur 5 Go et la durée de vie de message sur une minute :
 
-```
+```ruby
 topic = Azure::ServiceBus::Topic.new("test-topic")
 topic.max_size_in_megabytes = 5120
 topic.default_message_time_to_live = "PT1M"
@@ -119,7 +86,7 @@ Les abonnements sont persistants et continuent à exister jusqu’à leur suppre
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n’est spécifié lors de la création d’un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement « all-messages » qui est créé utilise le filtre par défaut **MatchAll**.
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
 ```
 
@@ -134,7 +101,7 @@ Vous pouvez ajouter des filtres à un abonnement en utilisant la méthode **crea
 
 Dans l’exemple suivant, l’abonnement « high-messages » est créé avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **message\_number** a une valeur supérieure à 3 :
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
 azure_service_bus_service.delete_rule("test-topic", "high-messages", "$Default")
 
@@ -148,7 +115,7 @@ rule = azure_service_bus_service.create_rule(rule)
 
 De la même manière, l’exemple suivant crée l’abonnement « low-messages » avec un filtre **Azure::ServiceBus::SqlFilter** qui sélectionne uniquement les messages dont la propriété **message_number** a une valeur inférieure ou égale à 3 :
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
 azure_service_bus_service.delete_rule("test-topic", "low-messages", "$Default")
 
@@ -167,7 +134,7 @@ Pour envoyer un message à une rubrique Service Bus, votre application doit util
 
 L’exemple suivant montre comment envoyer cinq messages de test à la rubrique « test-topic ». Notez que la valeur de la propriété personnalisée **message_number** de chaque message varie au niveau de l’itération de la boucle (détermine l’abonnement qui le reçoit) :
 
-```
+```ruby
 5.times do |i|
   message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
     { :message_number => i })
@@ -186,7 +153,7 @@ Si le paramètre **:peek\_lock** est défini sur **false**, la lecture et la sup
 
 L’exemple suivant montre comment des messages peuvent être reçus et traités à l’aide de **receive\_subscription\_message()**. Dans l’exemple, un message est d’abord reçu, puis supprimé de l’abonnement « low-messages » par le biais de **:peek\_lock** défini sur **false**. Un autre message de « high-messages » est ensuite reçu, puis supprimé via **delete\_subscription\_message()** :
 
-```
+```ruby
 message = azure_service_bus_service.receive_subscription_message(
   "test-topic", "low-messages", { :peek_lock => false })
 message = azure_service_bus_service.receive_subscription_message(
@@ -202,15 +169,15 @@ De même, il faut savoir qu’un message verrouillé dans un abonnement est asso
 Si l’application subit un incident après le traitement du message, mais avant l’émission de la méthode **delete\_subscription\_message()**, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Cette logique est souvent obtenue grâce à la propriété **message\_id** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][portail Azure] ou par programmation. L’exemple suivant montre comme supprimer la rubrique intitulée « test-topic ».
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme. L’exemple suivant montre comme supprimer la rubrique intitulée « test-topic ».
 
-```
+```ruby
 azure_service_bus_service.delete_topic("test-topic")
 ```
 
 La suppression d’une rubrique a également pour effet de supprimer les abonnements inscrits dans la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante. Le code suivant montre comment supprimer l’abonnement « high-messages » de la rubrique « test-topic » :
 
-```
+```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
@@ -221,10 +188,10 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
 * Référence d’API pour [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
 * Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/Azure/azure-sdk-for-ruby) sur GitHub.
 
-[portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

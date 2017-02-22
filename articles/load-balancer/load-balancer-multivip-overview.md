@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
 
 ---
 
@@ -65,8 +65,8 @@ Nous définissons deux règles :
 
 | Règle | Mapper le serveur frontal | Au pool principal |
 | --- | --- | --- |
-| 1 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Le mappage complet dans Azure Load Balancer se présente désormais comme suit :
 
@@ -113,8 +113,8 @@ Nous définissons deux règles :
 
 | Règle | Mapper le serveur frontal | Au pool principal |
 | --- | --- | --- |
-| 1 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (dans les machines virtuelles 1 et 2) |
-| 2 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (dans les machines virtuelles 1 et 2) |
+| 1 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (dans les machines virtuelles 1 et 2) |
+| 2 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (dans les machines virtuelles 1 et 2) |
 
 Le tableau suivant présente le mappage complet de l’équilibrage de charge :
 
@@ -127,7 +127,7 @@ La destination du flux entrant est l’adresse IP virtuelle sur l’interface de
 
 Notez que cet exemple ne modifie pas le port de destination. Bien qu’il s’agisse d’un scénario d’adresse IP flottante, l’équilibrage de charge Azure prend également en charge la définition d’une règle pour réécrire le port de destination principal afin qu’il soit différent du port de destination frontal.
 
-Le type de règle faisant appel à l’adresse IP flottante constitue la base de plusieurs modèles de configuration d’équilibrage de charge. Un exemple disponible actuellement est la configuration [SQL AlwaysOn avec plusieurs écouteurs](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Au fil du temps, nous documenterons un plus grand nombre de ces scénarios.
+Le type de règle faisant appel à l’adresse IP flottante constitue la base de plusieurs modèles de configuration d’équilibrage de charge. Un exemple disponible actuellement est la configuration [SQL AlwaysOn avec plusieurs écouteurs](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Au fil du temps, nous documenterons un plus grand nombre de ces scénarios.
 
 ## <a name="limitations"></a>Limitations
 
@@ -138,6 +138,6 @@ Le type de règle faisant appel à l’adresse IP flottante constitue la base de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

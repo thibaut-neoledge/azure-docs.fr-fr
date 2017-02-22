@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 953bc766fca590a4c1517f3671333e537407c241
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
@@ -30,7 +30,7 @@ Le Kit de développement logiciel (SDK) a été testé sur un large éventail de
 Dans cet article, vous allez découvrir l’architecture du kit de développement logiciel (SDK) d’appareil Azure IoT pour C. Nous allons vous montrer comment initialiser la bibliothèque de périphériques, envoyer des événements à IoT Hub et recevoir des messages de sa part. Les informations de cet article sont suffisantes pour commencer à utiliser le Kit de développement logiciel (SDK), mais elles vous fournissent également des indications qui vous permettront d’obtenir des informations supplémentaires sur les bibliothèques.
 
 ## <a name="sdk-architecture"></a>Architecture du kit de développement logiciel (SDK)
-Vous trouverez le **Kit de développement logiciel (SDK) d’appareil Azure IoT pour C** dans le référentiel GitHub [Kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Vous pouvez consulter les détails de l’API dans [Référence de l’API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 Vous trouverez la dernière version des bibliothèques dans la branche **maître** de ce référentiel :
 
@@ -58,15 +58,15 @@ Avant de pouvoir exécuter les exemples du Kit de développement logiciel (SDK) 
 
 Si vous devez créer une instance d’Azure IoT Hub dans votre abonnement Azure, suivez les instructions mentionnées [ici](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
 
-Le [fichier readme (Lisez-moi)](https://github.com/Azure/azure-iot-sdks/tree/master/c) inclus avec le Kit de développement logiciel (SDK) fournit des instructions pour préparer votre environnement de développement et obtenir les informations d’identification de l’appareil.
+Le [fichier readme (Lisez-moi)](https://github.com/Azure/azure-iot-sdk-c) inclus avec le Kit de développement logiciel (SDK) fournit des instructions pour préparer votre environnement de développement et obtenir les informations d’identification de l’appareil.
 et les sections suivantes contiennent des commentaires supplémentaires sur ces instructions.
 
 ### <a name="preparing-your-development-environment"></a>Préparation de votre environnement de développement
 Même si les packages sont fournis pour certaines plateformes (telles que NuGet pour Windows ou apt_get pour Debian et Ubuntu) et que les exemples utilisent ces packages quand ils sont disponibles, les instructions ci-dessous expliquent comment générer la bibliothèque et les exemples directement à partir du code.
 
-Tout d’abord, vous devez obtenir un exemplaire du kit de développement logiciel (SDK) à partir de GitHub, puis générer la source. Vous devez obtenir une copie de la source à partir de la branche **maître** du [référentiel GitHub](https://github.com/Azure/azure-iot-sdks):
+Tout d’abord, vous devez obtenir un exemplaire du kit de développement logiciel (SDK) à partir de GitHub, puis générer la source. Vous devez obtenir une copie de la source à partir de la branche **maître** du [référentiel GitHub](https://github.com/Azure/azure-iot-sdk-c):
 
-Après avoir téléchargé une copie de la source, vous devez effectuer les étapes décrites dans l’article du Kit de développement logiciel (SDK) [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)(Préparez votre environnement de développement).
+Après avoir téléchargé une copie de la source, vous devez effectuer les étapes décrites dans l’article du Kit de développement logiciel (SDK) [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)(Préparez votre environnement de développement).
 
 Voici quelques conseils pour vous aider à exécuter la procédure décrite dans le guide de préparation :
 
@@ -84,7 +84,7 @@ Voici quelques conseils pour vous aider à exécuter la procédure décrite dans
      
         ![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
-Quand vous avez terminé toutes les étapes décrites dans la page [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) (Préparez votre environnement de développement), vous êtes prêt à compiler les exemples d’applications.
+Quand vous avez terminé toutes les étapes décrites dans la page [« Prepare your development environment »](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) (Préparez votre environnement de développement), vous êtes prêt à compiler les exemples d’applications.
 
 ### <a name="obtaining-device-credentials"></a>Obtention des informations d’identification d’appareil
 Maintenant que votre environnement de développement est configuré, vous devez à présent obtenir un ensemble d’informations d’identification d’appareils.  Pour qu’un appareil puisse accéder à un IoT Hub, vous devez d’abord ajouter l’appareil au registre des identifiés de l’IoT Hub. Lorsque vous ajoutez votre périphérique, vous obtenez un jeu d’informations d’identification dont vous avez besoin pour permettre au périphérique de se connecter au hub IoT. Les exemples d’application qui figurent dans la section qui suit attendent ces informations d’identification sous la forme de **chaîne de connexion de périphérique**.
@@ -93,11 +93,11 @@ Le référentiel open source du Kit de développement logiciel (SDK) fournit deu
 
 Comme nous allons passer en revue l’exécution des exemples sur Windows dans cet article, nous utilisons l’outil Explorateur d’appareils. Mais vous pouvez également utiliser iothub-explorer si vous préférez les outils de l’interface de ligne de commande (CLI).
 
-L’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtiendrez une chaîne de connexion correspondante. Vous avez besoin de cette chaîne de connexion pour que les exemples d'applications s'exécutent.
+L’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtiendrez une chaîne de connexion correspondante. Vous avez besoin de cette chaîne de connexion pour que les exemples d'applications s'exécutent.
 
 Si vous n’êtes pas déjà familiarisé avec la procédure, la procédure qui suit explique comment utiliser l’outil Explorateur d’appareils pour ajouter un périphérique et obtenir une chaîne de connexion d’appareil.
 
-Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible sur la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Microsoft Visual Studio 2015** et en générant la solution.
+Un programme d’installation Windows de l’outil Explorateur d’appareils est disponible sur la [page de publication du Kit de développement logiciel (SDK)](https://github.com/Azure/azure-iot-sdks/releases). Mais vous pouvez également exécuter l’outil directement à partir de son code en ouvrant **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** dans **Microsoft Visual Studio 2015** et en générant la solution.
 
 Au moment d’exécuter le programme, vous allez voir cette interface :
 
@@ -130,7 +130,7 @@ static const char* connectionString = "[device connection string]";
 Si vous souhaitez poursuivre l’opération, saisissez la chaîne de connexion de votre appareil ici, recompilez la solution. Vous serez alors en mesure d’exécuter l’exemple.
 
 ## <a name="iothubclient"></a>IoTHubClient
-Dans le dossier **iothub\_client** du référentiel azure-iot-sdks se trouve un dossier **samples** contenant une application appelée **iothub\_client\_sample\_amqp**.
+Dans le dossier **iothub\_client** du référentiel [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) trouve un dossier **samples** contenant une application appelée **iothub\_client\_sample\_amqp**.
 
 La version Windows de l’application **iothub\_client\_sample\_ampq** contient la solution Visual Studio suivante :
 
@@ -151,7 +151,7 @@ Nous allons utiliser cet exemple d’application pour vous montrer les élément
 
 ### <a name="initializing-the-library"></a>Initialisation de la bibliothèque
 > [!NOTE]
-> Avant d’utiliser les bibliothèques, vous devrez peut-être procéder à une initialisation spécifique à la plateforme. Par exemple, si vous prévoyez d’utiliser AMQP sur Linux, vous devez initialiser la bibliothèque OpenSSL. Les exemples du [référentiel GitHub](https://github.com/Azure/azure-iot-sdks) appellent la fonction de l’utilitaire **platform_init** quand le client démarre et appelle la fonction **platform_deinit** avant de se fermer. Ces fonctions sont déclarées dans le fichier d’en-tête « platform.h ». Nous vous conseillons d’examiner les définitions de ces fonctions pour votre plateforme cible dans le [référentiel](https://github.com/Azure/azure-iot-sdks) pour déterminer si vous devez inclure du code d’initialisation de la plateforme dans votre client.
+> Avant d’utiliser les bibliothèques, vous devrez peut-être procéder à une initialisation spécifique à la plateforme. Par exemple, si vous prévoyez d’utiliser AMQP sur Linux, vous devez initialiser la bibliothèque OpenSSL. Les exemples du [référentiel GitHub](https://github.com/Azure/azure-iot-sdk-c) appellent la fonction de l’utilitaire **platform_init** quand le client démarre et appelle la fonction **platform_deinit** avant de se fermer. Ces fonctions sont déclarées dans le fichier d’en-tête « platform.h ». Nous vous conseillons d’examiner les définitions de ces fonctions pour votre plateforme cible dans le [référentiel](https://github.com/Azure/azure-iot-sdk-c) pour déterminer si vous devez inclure du code d’initialisation de la plateforme dans votre client.
 > 
 > 
 
@@ -245,7 +245,7 @@ La bibliothèque **IoTHubClient** offre également un contrôle précis de la ma
 ## <a name="serializer"></a>serializer
 Sur le plan conceptuel, la bibliothèque **serializer** se trouve au-dessus de la bibliothèque **IoTHubClient** dans le Kit de développement logiciel (SDK). Elle utilise la bibliothèque **IoTHubClient** pour la communication sous-jacente avec IoT Hub, mais ajoute des fonctions de modélisation qui soulagent le développeur de la charge que représente le traitement de la sérialisation de message. Le fonctionnement de la bibliothèque est mieux illustré par un exemple.
 
-Le dossier **serializer** du référentiel azure-iot-sdks est un dossier **d’exemples** contenant une application appelée **simplesample\_amqp**. La version Windows de cet exemple inclut la solution Visual Studio suivante :
+Le dossier **serializer** du référentiel [azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c) est un dossier **samples** (exemples) contenant une application appelée **simplesample\_amqp**. La version Windows de cet exemple inclut la solution Visual Studio suivante :
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_amqp.PNG)
 
@@ -466,6 +466,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
 
 
 ---
@@ -30,10 +30,10 @@ Cet article décrit la mise à l’échelle d’une application web dans Azure A
 Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Ils ne nécessitent pas de modifier votre code ou de redéployer votre application.
 
-Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, voir [Détails de la tarification - App Service](/pricing/details/web-sites/).  
+Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, voir [Détails de la tarification - App Service](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Avant de changer le niveau **Gratuit** d’un plan App Service, commencez par supprimer les [limites de dépense](/pricing/spending-limits/) en place pour votre abonnement Azure. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
+> Avant de changer le niveau **Gratuit** d’un plan App Service, commencez par supprimer les [limites de dépense](https://azure.microsoft.com/pricing/spending-limits/) en place pour votre abonnement Azure. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 > 
 > 
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 <a name="scalingstandard"></a>
 
 ## <a name="scale-up-your-pricing-tier"></a>Montée en puissance de votre niveau de tarification
-1. Dans votre navigateur, ouvrez le[portail Azure][portal].
+1. Dans votre navigateur, ouvrez le [portail Azure][portal].
 2. Dans le panneau de votre application, cliquez sur **Tous les paramètres**, puis sur **Monter en puissance**.
    
     ![Accédez à la montée en puissance pour votre application Azure.][ChooseWHP]
@@ -86,32 +86,32 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 <a name="OtherFeatures"></a>
 
 ## <a name="learn-about-other-features"></a>En savoir plus sur les autres fonctionnalités
-* Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](/pricing/details/web-sites/).
+* Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment concernant la tarification et les fonctionnalités présentant de l’intérêt pour tous les utilisateurs (y compris les développeurs), consultez la page [Détails de la tarification - App Service](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](http://go.microsoft.com/fwlink/?LinkId=523751) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [d’essai d’App Service](https://azure.microsoft.com/try/app-service/) , qui vous permet de créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est nécessaire, et vous ne prenez aucun engagement.
 > 
 > 
 
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/).
+* Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Pour plus d’informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
   
-    [Détails de la tarification – Transferts de données](/pricing/details/data-transfers/)
+    [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Plans de support Microsoft Azure](/support/plans/)
+    [Plans de support Microsoft Azure](https://azure.microsoft.com/support/plans/)
   
-    [Contrats de niveau de service](/support/legal/sla/)
+    [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/)
   
-    [Tarification – Base de données SQL](/pricing/details/sql-database/)
+    [Tarification – Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/)
   
-    [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]
+    [Tailles des machines virtuelles et de Service cloud pour Microsoft Azure][vmsizes]
   
-    [Détails de la tarification – App Service](/pricing/details/app-service/)
+    [Détails de la tarification – App Service](https://azure.microsoft.com/pricing/details/app-service/)
   
-    [Détails de la tarification – App Service - Connexions SSL](/pricing/details/web-sites/#ssl-connections)
+    [Détails de la tarification – App Service - Connexions SSL](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, voir [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)(Meilleures pratiques : Azure App Service Web Apps).
 * Pour visionner des vidéos concernant la mise à l’échelle des applications App Service, consultez les ressources suivantes :
   
@@ -143,6 +143,6 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

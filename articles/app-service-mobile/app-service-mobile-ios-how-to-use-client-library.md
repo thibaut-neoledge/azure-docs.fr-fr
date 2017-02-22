@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 388d733b52d32d77fa441c4045d4bce863c41866
-ms.openlocfilehash: 7558c41cbc9cde6748e1706a095598ea03e9ab6a
+ms.sourcegitcommit: 614038da2384b3efa48cd46ade347392ffef9d44
+ms.openlocfilehash: 2cb7b5aff47a81ae53d1ce68426b085eba4c96fc
 
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) iOS Azure Mobile Apps][1]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend, créer une table et télécharger un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel (SDK) côté serveur, consultez les procédures du SDK Server.
+Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [SDK iOS Azure Mobile Apps][1]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend, créer une table et télécharger un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel (SDK) côté serveur, consultez les procédures du SDK Server.
 
 ## <a name="reference-documentation"></a>Documentation de référence
-La documentation de référence du Kit de développement logiciel (SDK) du client iOS se trouve ici : [Référence du client iOS Azure Mobile Apps][2].
+La documentation de référence du SDK du client iOS se trouve ici : [Référence du client iOS Azure Mobile Apps][2].
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
 Le Kit de développement logiciel (SDK) iOS prend en charge les projets Objective-C, Swift 2.2 et Swift 2.3 pour iOS 8.0 ou versions ultérieures.
@@ -497,7 +497,7 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Toutes les balises sont supprimées de la demande pour des raisons de sécurité.  Pour ajouter des balises à des installations ou des modèles dans des installations, consultez [Utiliser le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps][4].  Pour envoyer des notifications à l’aide de ces modèles inscrits, utilisez les [API Notification Hubs][3].
+Toutes les balises sont supprimées de la demande pour des raisons de sécurité.  Pour ajouter des balises à des installations ou à des modèles contenus dans une installation, consultez [Utiliser le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps][4].  Pour envoyer des notifications à l’aide de ces modèles inscrits, utilisez les [API Notification Hubs][3].
 
 ## <a name="a-nameerrorsahow-to-handle-errors"></a><a name="errors"></a>Procédure : gestion des erreurs
 Quand vous appelez un backend mobile Azure App Service, le bloc completion contient un paramètre `NSError` . Si une erreur se produit, ce paramètre est non-nil. Vous devez vérifier ce paramètre dans votre code et gérer les erreurs, le cas échéant, comme indiqué dans les extraits de code précédents.
@@ -533,7 +533,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="a-nameadalahow-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Procédure : authentifier des utilisateurs avec la bibliothèque Active Directory Authentication Library
 Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. L’authentification par flux client à l’aide d’un SDK de fournisseur d’identité est préférable à l’utilisation de la méthode `loginWithProvider:completion:` .  L’authentification par client flux offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][7]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé d’utiliser une URI de redirection de type `<app-scheme>://<bundle-id>`. Pour plus d'informations, consultez le [didacticiel de démarrage rapide d’ADAL pour iOS][8].
+1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][7]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé d’utiliser une URI de redirection de type `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez le [didacticiel de démarrage rapide d’ADAL pour iOS][8].
 2. Installez la bibliothèque ADAL à l’aide de Cocoapods. Modifiez votre podfile pour inclure la définition suivante, en remplaçant **YOUR-PROJECT** par le nom de votre projet Xcode :
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -615,8 +615,8 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 ## <a name="a-namefacebook-sdkahow-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Procédure : authentifier les utilisateurs avec le kit de développement logiciel (SDK) Facebook pour iOS
 Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS pour identifier les utilisateurs sur votre application utilisant Facebook.  L’authentification par flux client est préférable à l’utilisation de la méthode `loginWithProvider:completion:` .  L’authentification par client flux offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion Facebook, suivez le didacticiel [Comment configurer votre application App Service de manière à utiliser la connexion via Facebook][9].
-2. Installez le kit de développement logiciel (SDK) Facebook pour iOS en suivant la documentation [Kit de développement logiciel (SDK) Facebook pour iOS : prise en main][10] (en anglais). Au lieu de créer une application, vous pouvez ajouter la plateforme iOS à votre inscription existante.
+1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion Facebook, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Facebook][9].
+2. Installez le SDK Facebook pour iOS en suivant la documentation [Kit de développement logiciel (SDK) Facebook pour iOS : prise en main][10]. Au lieu de créer une application, vous pouvez ajouter la plateforme iOS à votre inscription existante.
 3. La documentation de Facebook comprend du code en Objective-C dans le délégué de l’application. Si vous utilisez **Swift**, vous pouvez vous servir des conversions suivantes pour AppDelegate.swift :
 
         // Add the following import to your bridging header:
@@ -818,54 +818,54 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 
 <!-- Anchors. -->
 
-[Présentation de Mobile Services]: #what-is
+[What is Mobile Services]: #what-is
 [Concepts]: #concepts
-[Configuration et conditions préalables]: #Setup
-[Procédure : création du client Mobile Services]: #create-client
-[Procédure : création d'une référence de table]: #table-reference
-[Procédure : interrogation des données à partir d'un service mobile]: #querying
-[Filtrer les données renvoyées]: #filtering
-[Trier les données renvoyées]: #sorting
-[Renvoyer les données de pages]: #paging
-[Sélectionner des colonnes spécifiques]: #selecting
-[Liaison des données dans l’interface utilisateur]: #binding
-[Procédure : insertion de données dans un service mobile]: #inserting
-[Procédure : modification de données dans un service mobile]: #modifying
-[Procédure : authentification des utilisateurs]: #authentication
-[Mise en cache des jetons d'authentification]: #caching-tokens
-[Téléchargement d'images et de fichiers volumineux]: #blobs
-[Procédure : gestion des erreurs]: #errors
-[Procédure : conception de tests unitaires]: #unit-testing
-[Procédure : personnalisation du client]: #customizing
-[Personnalisation des en-têtes de requête]: #custom-headers
-[Personnalisation de la sérialisation du type de données]: #custom-serialization
+[Setup and Prerequisites]: #Setup
+[How to: Create the Mobile Services client]: #create-client
+[How to: Create a table reference]: #table-reference
+[How to: Query data from a mobile service]: #querying
+[Filter returned data]: #filtering
+[Sort returned data]: #sorting
+[Return data in pages]: #paging
+[Select specific columns]: #selecting
+[How to: Bind data to the user interface]: #binding
+[How to: Insert data into a mobile service]: #inserting
+[How to: Modify data in a mobile service]: #modifying
+[How to: Authenticate users]: #authentication
+[Cache authentication tokens]: #caching-tokens
+[How to: Upload images and large files]: #blobs
+[How to: Handle errors]: #errors
+[How to: Design unit tests]: #unit-testing
+[How to: Customize the client]: #customizing
+[Customize request headers]: #custom-headers
+[Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
-[Procédure : utilisation de MSQuery]: #query-object
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-ios-get-started.md
 
-[Ajout de Mobile Services à une application existante]: /develop/mobile/tutorials/get-started-data
-[Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validation et modification des données dans Mobile Services à l'aide des scripts serveur]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
-[Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Authentification]: /develop/mobile/tutorials/get-started-with-users-ios
-[Kit de développement logiciel (SDK) iOS]: https://developer.apple.com/xcode
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[iOS SDK]: https://developer.apple.com/xcode
 
-[Gestion des jetons arrivés à expiration]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Kit de développement logiciel (SDK) Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Autorisations]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
-[Autorisation côté service]: mobile-services-javascript-backend-service-side-authorization.md
-[Utilisation de scripts pour autoriser des utilisateurs]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
+[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [schéma dynamique]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[Procédure : accès aux paramètres personnalisés]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Création d’une table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[Objet NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Interface de ligne de commande pour la gestion des tables Mobile Services]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Tableau de bord de Fabric]: https://www.fabric.io/home
 [Fabric pour iOS : prise en main]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -882,6 +882,6 @@ Vous pouvez utiliser le kit de développement logiciel (SDK) Google Sign-In pour
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

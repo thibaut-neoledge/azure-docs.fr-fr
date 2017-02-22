@@ -4,7 +4,7 @@ description: "Cet article fournit une liste des services et technologies de séc
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/02/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: 5d2d8503657269a7792667603e8b23d0183561ff
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
 
 
 ---
@@ -25,7 +25,7 @@ Dans nos discussions avec les clients Azure actuels et futurs, une question revi
 
 Nous sommes conscients que lorsque vous évaluez les options techniques des fournisseurs de service Cloud, il est utile de disposer d’une telle liste pour analyser les différentes options plus profondément lorsque vous êtes prêt.
 
-Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité. 
+Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 
 ## <a name="azure-security---general"></a>Sécurité de Windows Azure – Généralités
 * [Centre de sécurité Azure](https://azure.microsoft.com/documentation/services/security-center/)
@@ -46,18 +46,18 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 ## <a name="azure-database-security"></a>Sécurité des bases de données Azure
 * [Pare-feu SQL Azure](../sql-database/sql-database-firewall-configure.md)
 * [Chiffrement au niveau des cellules SQL Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Chiffrement de la connexion SQL Azure](../sql-database/sql-database-security-guidelines.md)
-* [Authentification SQL Azure](../sql-database/sql-database-security-guidelines.md)
+* [Chiffrement de la connexion SQL Azure](../sql-database/sql-database-control-access.md)
+* [Authentification SQL Azure](../sql-database/sql-database-control-access.md)
 * [Chiffrement systématique SQL Azure](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Chiffrement au niveau des colonnes SQL Azure](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Chiffrement transparent des données SQL Azure](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Audit de base de données SQL Azure](../sql-database/sql-database-auditing-get-started.md)
+* [Audit de base de données SQL Azure](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Gestion de l’identité et de l’accès Azure
 * [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
-* [Services de domaine Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory-ds/)
+* [Services de domaine Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d’urgence
@@ -75,7 +75,6 @@ Ce document fournit une première version de cette liste. Au fil du temps, cette
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

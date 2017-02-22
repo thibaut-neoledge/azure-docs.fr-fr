@@ -21,13 +21,21 @@
 ### [Ajouter un référentiel d’artefacts](devtest-lab-add-artifact-repo.md)
 ### [Créer des artefacts personnalisés](devtest-lab-artifact-author.md)
 
-## Gérer les bases de machine virtuelle
-### [Créer une image personnalisée](devtest-lab-create-template.md)
+## Gérer les bases et modèles de machine virtuelle
+### [Créer des environnements de plusieurs machines virtuelles avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Configurer des images Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Gérer des formules](devtest-lab-manage-formulas.md)
 ### [Comparaison entre les images et les formules](devtest-lab-comparing-vm-base-image-types.md)
+### [Gérer des formules](devtest-lab-manage-formulas.md)
+### [Créer une image personnalisée à partir d’une machine virtuelle](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Créer une image personnalisée à partir d’un disque dur virtuel à l’aide du portail Azure](devtest-lab-create-template.md)
+### [Créer une image personnalisée à partir d’un disque dur virtuel à l’aide de PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Télécharger un fichier de disque dur virtuel à l’aide d’AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [Télécharger un fichier de disque dur virtuel à l’aide de PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+### [Télécharger un fichier de disque dur virtuel à l’aide de l’Explorateur de stockage](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# les ressources
+
+
+# Ressources
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [Tarification](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
@@ -35,6 +43,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

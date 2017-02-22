@@ -1,5 +1,5 @@
 ---
-title: Obtenir les outils Azure (Ubuntu 16.04) | Microsoft Docs
+title: "Connecter Raspberry Pi (Node) à Azure IoT - Leçon 1 : Obtenir des outils (Ubuntu) | Microsoft Docs"
 description: "Sur Ubuntu, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d93b7b67ee0727f45c3f4b93459b013b16805bf6
-ms.openlocfilehash: 15abce4dfd2af3146dedc1c63d8cdd37fadcc57b
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 9cdf4331b136abc7804460fd99a4defcbbc94e7b
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 15abce4dfd2af3146dedc1c63d8cdd37fadcc57b
 > * [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
-Installez l’interface de ligne de commande Azure. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Installez l’interface de ligne de commande Azure (Azure CLI). Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Contenu
 Cet article portera sur les éléments suivants :
@@ -44,7 +44,7 @@ L’interface de ligne de commande Azure fournit une expérience de ligne de com
 
 Pour installer la dernière version d’Azure CLI, procédez comme suit :
 
-1. Exécutez les commandes suivantes dans une fenêtre de terminal. L’installation de l’interface de ligne de commande Azure peut prendre cinq minutes.
+1. Exécutez les commandes suivantes dans une fenêtre de Terminal. L’installation de l’interface de ligne de commande Azure peut prendre cinq minutes.
 
    ```bash
    sudo apt-get update
@@ -63,17 +63,17 @@ Pour installer la dernière version d’Azure CLI, procédez comme suit :
 
 Si l’installation a réussi, vous devez voir la sortie suivante.
 
-![Sortie qui indique la réussite](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
+![Sortie indiquant la réussite](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
 
 ## <a name="summary"></a>Résumé
 Vous avez installé l’interface de ligne de commande Azure. La tâche suivante consiste à créer votre Azure IoT Hub et votre identité d’appareil à l’aide de l’interface de ligne de commande Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Création de votre IoT Hub et inscription de Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+[Créer votre IoT Hub et inscrire Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

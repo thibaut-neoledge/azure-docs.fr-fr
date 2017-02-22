@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
+ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
+ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
 
 
 ---
@@ -46,7 +46,7 @@ DocumentDB est une option conseillée pour les nouvelles applications web, mobil
 ### <a name="how-does-documentdb-offer-predictable-performance"></a>Comment DocumentDB offre-t-il des performances prévisibles ?
 Une [unité de requête](documentdb-request-units.md) est la mesure du débit dans DocumentDB. 1 RU correspond au débit de la requête GET d’un document d’1 Ko. Chaque opération dans DocumentDB, y compris les lectures, les écritures, les requêtes SQL et les exécutions de procédures stockées, comporte une valeur d’unité de requête déterministe basée sur le débit nécessaire pour terminer l’opération. Au lieu de penser à l’UC, à l’E/S et à la mémoire, et à la façon dont ils impactent le débit de votre application, vous pouvez penser en termes de mesure d’unité de requête unique.
 
-Chaque collection DocumentDB peut être réservée avec un débit approvisionné en termes d’unités de requête de débit par seconde. Pour les applications quelle que soit leur échelle, vous pouvez évaluer les requêtes individuelles pour mesurer leur valeur d’unités de requête, et approvisionner les collections pour gérer la somme totale des unités de requête sur l’ensemble des requêtes. Vous pouvez également mettre à l’échelle le débit de votre collection à mesure de l’évolution des besoins de votre application. Pour plus d’informations sur les unités de requête et pour obtenir de l’aide afin de déterminer vos besoins en termes de collections, consultez [Gérer les performances et les capacités](documentdb-manage.md) et [Calculatrice de débit](https://www.documentdb.com/capacityplanner).
+Chaque collection DocumentDB peut être réservée avec un débit approvisionné en termes d’unités de requête de débit par seconde. Pour les applications quelle que soit leur échelle, vous pouvez évaluer les requêtes individuelles pour mesurer leur valeur d’unités de requête, et approvisionner les collections pour gérer la somme totale des unités de requête sur l’ensemble des requêtes. Vous pouvez également mettre à l’échelle le débit de votre collection à mesure de l’évolution des besoins de votre application. Pour plus d’informations sur les unités de requête et pour obtenir de l’aide afin de déterminer vos besoins en termes de collections, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et [Calculatrice de débit](https://www.documentdb.com/capacityplanner).
 
 ### <a name="is-documentdb-hipaa-compliant"></a>DocumentDB est-il conforme à HIPAA ?
 Oui, DocumentDB est conforme à HIPAA. HIPAA établit les conditions requises pour l’utilisation, la divulgation et la protection des informations de santé identifiables de façon individuelle. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -66,7 +66,7 @@ Si vous débutez avec Azure, vous pouvez vous inscrire pour bénéficier d’un 
 Vous pouvez également utiliser [l’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) pour développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur DocumentDB, vous pouvez commencer à utiliser un compte Azure DocumentDB dans le cloud.
 
 ### <a name="how-can-i-get-additional-help-with-documentdb"></a>Comment puis-je obtenir une aide supplémentaire avec DocumentDB ?
-Si vous avez besoin d’aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), les [Forums de développeurs Azure DNS DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou planifiez une [conversation 1 à 1 avec l’équipe d’ingénierie de DocumentDB](http://www.askdocdb.com/). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
+Si vous avez besoin d’aide, contactez-nous sur [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou planifiez une conversation 1 à 1 avec l’équipe d’ingénierie de DocumentDB en envoyant un message à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Pour vous tenir informé des dernières nouveautés et fonctionnalités de DocumentDB, suivez-nous sur [Twitter](https://twitter.com/DocumentDB).
 
 ## <a name="set-up-microsoft-azure-documentdb"></a>Configuration de Microsoft Azure DocumentDB
 ### <a name="how-do-i-sign-up-for-microsoft-azure-documentdb"></a>Comment m’inscrire à Microsoft Azure DocumentDB ?
@@ -76,7 +76,7 @@ Microsoft Azure DocumentDB est disponible dans le [portail Azure][azure-portal].
 Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés** du [portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](documentdb-manage-account.md#keys).
 
 ### <a name="how-do-i-create-a-database"></a>Comment créer une base de données ?
-Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme décrit dans la rubrique [Création d’une base de données DocumentDB](documentdb-create-database.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou au moyen des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+Vous pouvez créer des bases de données à l’aide du [portail Azure](), comme décrit dans la rubrique [Création d’une collection et d’une base de données DocumentDB](documentdb-create-collection.md), à l’aide d’un des [Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou au moyen des [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### <a name="what-is-a-collection"></a>Qu'est-ce qu'une collection ?
 Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Une collection est une entité facturable, où le [coût](documentdb-performance-levels.md) est déterminé par le débit et le stockage utilisés. Les collections peuvent couvrir une ou plusieurs partitions/serveurs et peuvent être mises à l’échelle pour gérer des volumes de stockage ou de débit quasi-illimités.
@@ -124,6 +124,6 @@ Oui. [L’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) fourn
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

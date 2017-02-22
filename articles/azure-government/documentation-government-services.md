@@ -1,23 +1,22 @@
 ---
 title: Services Azure Government | Microsoft Docs
 description: "Fournit une vue d’ensemble des services disponibles dans Azure Government."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 256dd290abcf0326330c9a6079437d8701d290e8
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,22 +36,31 @@ Pour obtenir la liste actualisée des services, consultez les [produits par rég
 * Services cloud
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Mise en réseau](documentation-government-networking.md)
-* Réseau virtuel
-* Load Balancer
-* Application Gateway
-* Passerelle VPN
-* Traffic Manager
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Prise en charge des communautés BGP](documentation-government-networking.md#support-for-bgp-communities)
+* Réseau virtuel
+* [Équilibreur de charge](documentation-government-networking.md#support-for-load-balancer)
+* Application Gateway
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
+* [Passerelle VPN](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Stockage](documentation-government-services-storage.md)
-* [Stockage Azure](documentation-government-services-storage.md#azure-storage)
+* [Azure Storage](documentation-government-services-storage.md#azure-storage)
+* [Stockage d’objets blob](documentation-government-services-storage.md#azure-storage)
+* [Stockage de table](documentation-government-services-storage.md#azure-storage)
+* [Stockage de files d’attente](documentation-government-services-storage.md#azure-storage)
+* [Stockage de fichiers](documentation-government-services-storage.md#azure-storage)
+* [Stockage chaud/froid](documentation-government-services-storage.md#azure-storage)
+* [Storage Service Encryption](documentation-government-services-storage.md#azure-storage)
+* [Stockage Premium](documentation-government-services-storage.md#azure-storage)
+* [Importation/exportation d’objets blob](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Sauvegarde](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Importation/Exportation
-* StorSimple
-* Sauvegarde
-* Site Recovery
 
-## <a name="web--mobile"></a>Web et mobilité
-* Applications Web
+## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web et mobilité](documentation-government-services-webandmobile.md)
+* [Services d’application](documentation-government-services-webandmobile.md#app-services)
 * Media Services
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Bases de données](documentation-government-services-database.md)
@@ -66,7 +74,7 @@ Pour obtenir la liste actualisée des services, consultez les [produits par rég
 
 ## <a name="enterprise-integration"></a>Intégration d’entreprise
 * Service Bus
-* StorSimple
+* [StorSimple](documentation-government-services-storage.md)
 * SQL Server Stretch Database
 
 ## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Sécurité et identité](documentation-government-services-securityandidentity.md)
@@ -76,11 +84,11 @@ Pour obtenir la liste actualisée des services, consultez les [produits par rég
 
 ## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* Sauvegarde
+* [Sauvegarde](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
-* Traffic Manager
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
 * Surveillance et diagnostics
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -89,6 +97,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

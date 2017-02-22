@@ -1,5 +1,5 @@
 ---
-title: "Obtenir les outils de votre Kit de démarrage IoT Azure (Windows 7 ou version ultérieure) | Microsoft Docs"
+title: "Connecter Intel Edison (Node) à Azure IoT - Leçon 1 : Obtenir des outils (Windows) | Microsoft Docs"
 description: "Téléchargez et installez les outils et logiciels nécessaires pour le premier exemple d’application pour Edison sur Windows 7 et versions ultérieures."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: bbefda96f95b319af11b7759c702ae39b8fe0cff
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 67e140e086d1deb17b7075133d969a93b859951c
 
 
 ---
@@ -87,6 +87,6 @@ Vous avez installé les outils de développement et le logiciel nécessaire pour
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

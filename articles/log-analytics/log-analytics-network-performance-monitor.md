@@ -4,7 +4,7 @@ description: "L’Analyseur de performances réseau vous aide à surveiller les 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/31/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 2334540ec0eeec32d0c4b3a6d9597a290bad6ec0
+ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
+ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
 
 
 ---
@@ -149,6 +149,51 @@ La *Règle par défaut* est créée par le système. Elle crée un événement d
 6. Pour enregistrer la configuration, cliquez sur **Enregistrer**.  
    ![Créer un règle d’analyse personnalisée](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
+### <a name="choose-the-right-protocol-icmp-or-tcp"></a>Choisir le bon protocole : ICMP ou TCP
+
+Le Moniteur de performances réseau utilise des transactions synthétiques pour calculer les mesures de performances réseau comme la perte de paquets et la latence des liaisons. Pour mieux comprendre, prenez un agent NPM connecté à une extrémité d’une liaison réseau. Cet agent NPM envoie des paquets de sonde à un second agent NPM connecté à une autre extrémité du réseau. Le second agent répond avec des paquets de réponse. Ce processus est répété plusieurs fois. En mesurant le nombre de réponses et le temps nécessaire pour recevoir chaque réponse, le premier agent NPM évalue la latence des liaisons et les rejets de paquet.
+
+Le format, la taille et la séquence de ces paquets sont déterminés par le protocole choisi au moment de la création des règles de surveillance. En fonction du protocole des paquets, les appareils réseau intermédiaires (routeurs, commutateurs, etc.) peuvent traiter ces paquets différemment. Le protocole que vous choisissez a donc une incidence sur la précision des résultats. Il détermine également si des étapes manuelles sont nécessaires après le déploiement de la solution NPM.
+
+Pour l’exécution des transactions synthétiques, NPM vous offre le choix entre le protocole ICMP et le protocole TCP.
+Si vous choisissez ICMP quand vous créez une règle de transaction synthétique, les agents NPM utilisent des messages ICMP ECHO pour calculer la latence du réseau et la perte de paquets. ICMP ECHO utilise le même message que celui envoyé par l’utilitaire Ping traditionnel. Quand vous utilisez le protocole TCP, les agents NPM envoient un paquet TCP SYN sur le réseau. Ceci est suivi par l’établissement d’une liaison TCP et la suppression de la connexion à l’aide de paquets RST.
+
+#### <a name="points-to-consider-before-choosing-the-protocol"></a>Éléments à prendre en considération dans le choix du protocole
+Avant de choisir un protocole, tenez compte des informations suivantes :
+
+##### <a name="discovering-multiple-network-routes"></a>Détection de plusieurs routages réseau
+TCP fournit des résultats plus précis dans le cadre de la détection de plusieurs routages et nécessite moins d’agents dans chaque sous-réseau. Par exemple, un ou deux agents utilisant TCP peuvent détecter tous les chemins redondants entre les sous-réseaux. En revanche, plusieurs agents utilisant ICMP sont nécessaires pour obtenir des résultats similaires. Avec ICMP, si vous avez *N* routages entre deux sous-réseaux, il vous faut plus de 5*N* agents dans un sous-réseau source ou de destination.
+
+##### <a name="accuracy-of-results"></a>Précision des résultats
+Les routeurs et les commutateurs ont tendance à accorder aux paquets ICMP ECHO une priorité inférieure à celle des paquets TCP. Dans certaines situations, quand les appareils réseau sont lourdement chargés, les données obtenues par TCP reflètent plus fidèlement la perte et la latence constatées par les applications. Cela vient du fait que la plupart du trafic des applications passe par TCP. Dans de tels cas, ICMP offre de moins bons résultats que TCP.
+
+##### <a name="firewall-configuration"></a>Configuration du pare-feu
+Le protocole TCP nécessite l’envoi des paquets TCP à un port de destination. Le port par défaut utilisé par les agents NPM est le port 8084. Vous pouvez toutefois le modifier au moment de la configuration des agents. Vous devez donc vérifier que vos pare-feu réseau ou règles NSG (dans Azure) autorisent le trafic sur le port. Vous devez également veiller à ce que le pare-feu local sur les ordinateurs où les agents sont installés est configuré pour autoriser le trafic sur ce port.
+
+Vous pouvez utiliser des scripts PowerShell pour configurer des règles de pare-feu sur les ordinateurs Windows, mais vous devez configurer manuellement votre pare-feu réseau.
+
+Contrairement à TCP, le protocole ICMP n’utilise pas de port. Dans la plupart des scénarios d’entreprise, le trafic ICMP est autorisé à franchir les pare-feu pour vous permettre d’utiliser des outils de diagnostic réseau comme l’utilitaire Ping. Si un test Ping effectué entre deux ordinateurs aboutit, vous pouvez utiliser le protocole ICMP sans avoir à configurer les pare-feu manuellement.
+
+> [!NOTE]
+> En cas de doute sur le protocole à utiliser, choisissez ICMP pour commencer. Si vous n’êtes pas satisfait des résultats, vous pouvez toujours passer à TCP.
+
+
+#### <a name="how-to-switch-the-protocol"></a>Comment changer de protocole
+
+Si vous avez choisi ICMP durant le déploiement, vous pouvez basculer vers TCP à tout moment en modifiant la règle de surveillance par défaut.
+
+##### <a name="to-edit-the-default-monitoring-rule"></a>Pour modifier la règle de surveillance par défaut
+1.  Accédez à **Performances réseau** > **Moniteur** > **Configurer** > **Moniteur**, puis cliquez sur **Règle par défaut**.
+2.  Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser.
+3.  Cliquez sur **Enregistrer** pour appliquer le paramètre.
+
+Même si la règle par défaut utilise un protocole spécifique, vous pouvez créer des règles avec un autre protocole. Vous pouvez même créer une combinaison de règles : certaines règles utilisant ICMP et d’autres TCP.
+
+
+
+
+
+
 ## <a name="data-collection-details"></a>Détails sur la collecte de données
 L’Analyseur de performances réseau utilise les paquets d’établissements de liaisons TCP SYN-SYNACK-ACK pour collecter les informations relatives aux pertes et à la latence, et une détermination d’itinéraire est également utilisée pour obtenir les informations de topologie.
 
@@ -224,10 +269,10 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 ![Requêtes de recherche](./media/log-analytics-network-performance-monitor/npm-queries.png)
 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Rechercher la cause première d’une alerte d’intégrité
-À présent que vous savez ce qu’est l’Analyseur de performances réseau, voyons comment identifier simplement la cause première d’un événement d’intégrité.
+À présent que vous savez ce qu’est le moniteur de performances réseau, voyons comment identifier simplement la cause première d’un événement d’intégrité.
 
-1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Analyseur de performances réseau**. Vous pouvez constater que, sur les 80 liens de sous-réseau analysés, 43 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.  
-   ![Vignette Analyseur de performances réseau](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
+1. La page Vue d’ensemble fournit une capture instantanée de l’intégrité de votre réseau via la vignette **Moniteur de performances réseau**. Vous pouvez constater que, sur les 80 liens de sous-réseau analysés, 43 sont défectueux. Cela mérite d’être examiné. Cliquez sur la vignette pour afficher le tableau de bord de la solution.  
+   ![Vignette Moniteur de performances réseau](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
 2. Dans l’image d’exemple ci-dessous, vous pouvez remarquer la présence de 4 événements d’intégrité et de 4 liaisons réseau défectueuses. Vous décidez d’analyser le problème et cliquez sur la liaison réseau **Web Sharepoint** pour déterminer la cause du problème.  
    ![Exemple de liaison réseau défectueuse](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
 3. La page détaillée affiche tous les liens de sous-réseau dans la liaison réseau **Web Sharepoint**. Vous pouvez remarquer que, pour les deux liens le sous-réseau, la latence a dépassé le seuil au-delà duquel la liaison réseau est jugée défectueuse. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. Le contrôle de sélection du temps dans le graphe vous permet de vous concentrer sur la plage de temps requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Vous pouvez ensuite effectuer une recherche dans les journaux correspondant à cette période pour étudier le problème. Cliquez sur **Afficher les liens de nœud** pour consulter des détails supplémentaires.  
@@ -246,6 +291,6 @@ Toutes les données présentées sous forme graphique via le tableau de bord de 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

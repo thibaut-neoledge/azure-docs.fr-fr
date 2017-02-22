@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 685d77363c451fbc28c39a34241dc34f796f7a77
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: c4fb98946a41ee37d8676eca52ff26f81d0ff56a
 
 
 ---
@@ -28,13 +28,15 @@ Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vou
 
 > [!NOTE]
 > Beeline utilise JDBC pour la connexion à Hive. Pour plus d’informations sur l’utilisation de JDBC avec Hive, consultez la section [Se connecter à Hive sur Azure HDInsight à l’aide du pilote Hive JDBC](hdinsight-connect-hive-jdbc-driver.md).
-> 
-> 
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Configuration requise
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Hadoop Linux sur HDInsight.
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un client SSH. Mac OS, Linux et Unix doivent être accompagnés d’un client SSH. Les utilisateurs Windows doivent télécharger un client, comme [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connexion avec SSH
@@ -247,6 +249,6 @@ Si vous utilisez Tez avec Hive, consultez les documents suivants pour les inform
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

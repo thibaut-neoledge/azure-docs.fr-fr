@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou g
    > Nous vous recommandons d’activer la collecte des données pour chacun de vos abonnements afin de vous assurer que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données à partir de cet emplacement, vous pouvez le faire plus tard dans les affichages **Intégrité** et **Recommandations**. Vous pouvez également activer la collecte des données pour l’abonnement uniquement ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md) .
    > 
    > 
-5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la capture d’écran suivante peut s’afficher lors de l’ouverture du panneau **Stratégie de sécurité**:
+5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la capture d’écran suivante peut s’afficher lors de l’ouverture du panneau **Stratégie de sécurité**. Si vous ne choisissez pas un compte de stockage pour chaque région, il est créé pour vous.
    
     ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig2.png)
 6. Si cet avertissement s’affiche, cliquez sur cette option, puis sélectionnez la région, comme illustré dans la capture d’écran suivante :
@@ -111,6 +111,6 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

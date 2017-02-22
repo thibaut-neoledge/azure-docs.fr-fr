@@ -267,6 +267,6 @@ Suivez les étapes ci-dessous pour l’exemple de pont iOS :
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

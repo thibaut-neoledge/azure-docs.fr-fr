@@ -1,5 +1,5 @@
 ---
-title: "Sécurisation des ressources de cloud avec Azure MFA et AD FS"
+title: "Sécurisation des ressources de cloud avec Azure MFA et AD FS | Microsoft Docs"
 description: "Voici la page d&quot;authentification multifacteur Azure qui explique la prise en main de l&quot;authentification multifacteur Azure et d’AD FS 2.0 dans le cloud."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
-Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
+Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Sécurisation des ressources Azure AD à l’aide d’AD FS
-Pour sécuriser vos ressources de cloud, activez tout d’abord un compte pour les utilisateurs, puis définissez une règle de revendication. Suivez cette procédure pour les différentes étapes :
+Pour sécuriser vos ressources de cloud, configurez une règle de revendication afin que les services de fédération Active Directory émettent la revendication multipleauthn lorsqu’un utilisateur effectue la vérification en deux étapes avec succès. Cette revendication est transmise à Azure AD. Suivez cette procédure pour les différentes étapes :
 
-1. Utilisez la procédure décrite dans [Activez l’authentification multifacteur pour vos utilisateurs](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) pour activer un compte.
-2. Démarrez la console de gestion AD FS.
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Accédez aux **Approbations de partie de confiance** et cliquez avec le bouton droit de la souris sur Approbation de partie de confiance. Sélectionnez **Modifier les règles de revendication...**
-4. Cliquez sur **Ajouter une règle...**
-5. Dans la liste déroulante, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée**, puis cliquez sur **Suivant**.
-6. Donnez un nom à cette règle.
-7. Sous Règle personnalisée : ajoutez le texte suivant :
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Ouvrez Gestion AD FS.
+2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
+3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication…**
 
-    Revendication correspondante :
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Cliquez sur **OK** puis **Terminer**. Fermez la console de gestion AD FS.
+4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 
-Les utilisateurs peuvent ensuite procéder à la connexion à l'aide de la méthode locale (par exemple, carte à puce).
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
+
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Nommez votre règle. 
+7. Sélectionnez **Références des méthodes d’authentification** pour le type de revendication entrante.
+8. Sélectionnez **Transférer toutes les valeurs de revendication**.
+    ![Assistant Ajouter une règle de revendication de transformation](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Cliquez sur **Terminer**. Fermez la console de gestion AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Adresses IP de confiance pour les utilisateurs fédérés
 Les adresses IP approuvées permettent aux administrateurs de contourner la vérification en deux étapes pour des adresses IP spécifiques ou pour les utilisateurs fédérés qui ont des requêtes provenant de leur propre intranet. Les sections suivantes décrivent comment configurer des adresses IP approuvées Azure Multi-Factor Authentication avec des utilisateurs fédérés et comment contourner la vérification en deux étapes, lorsqu’une requête provient d’un intranet d’utilisateurs fédérés. Pour cela, vous devez configurer AD FS pour utiliser un passthrough ou filtrer un modèle de revendication entrante avec le type de revendication Dans le périmètre du réseau d’entreprise.
@@ -56,7 +53,7 @@ Les adresses IP approuvées permettent aux administrateurs de contourner la vér
 Cet exemple utilise Office 365 pour nos approbations de la partie de confiance.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configuration des règles de revendications AD FS
-La première chose à faire consiste à configurer les revendications AD FS. Nous allons créer deux règles de revendications : une pour le type de revendication Dans le périmètre du réseau d’entreprise et l’autre pour maintenir les utilisateurs connectés.
+La première chose à faire consiste à configurer les revendications AD FS. Créez deux règles de revendications : une pour le type de revendication Dans le périmètre du réseau d’entreprise et l’autre pour maintenir les utilisateurs connectés.
 
 1. Ouvrez Gestion AD FS.
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.

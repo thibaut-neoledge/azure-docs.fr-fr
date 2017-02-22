@@ -249,6 +249,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

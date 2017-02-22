@@ -1,5 +1,5 @@
 ---
-title: Surveiller un cluster Azure Container Service avec Datadog | Microsoft Docs
+title: Surveiller le cluster DC/OS Azure - Datadog | Microsoft Docs
 description: "Surveillez un cluster Azure Container Service avec Datadog. Utilisez l’interface utilisateur web du contrôleur de domaine/système d’exploitation pour déployer les agents Datadog sur votre cluster."
 services: container-service
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eeb257e00f89948c9623ac05303d46209454a615
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 8dfd53346b6198bf5ecab4b4b73bfed93fa46b18
 
 
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Surveiller un cluster Azure Container Service avec Datadog
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Surveiller un cluster DC/OS Azure Container Service avec Datadog
 Dans cet article, nous allons déployer des agents Datadog sur tous les nœuds d’agent de votre cluster Azure Container Service. Vous aurez besoin d’un compte Datadog pour cette configuration. 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -40,7 +40,7 @@ Accédez à l'interface utilisateur de votre contrôleur de domaine/système d�
 
 ![Package Datadog dans l’Univers DC/OS](./media/container-service-monitoring/datadog1.png)
 
-Pour terminer la configuration, vous aurez besoin d’un compte Datadog ou d’un compte d’essai gratuit Datadog. Une fois que vous êtes connecté au site web Datadog, sélectionnez Integrations -> API, à gauche de l'écran. 
+Pour terminer la configuration, vous aurez besoin d’un compte Datadog ou d’un compte d’essai gratuit Datadog. Une fois que vous êtes connecté au site web Datadog, sélectionnez Integrations -> [API](https://app.datadoghq.com/account/settings#api), à gauche de l’écran. 
 
 ![Clé d’API Datadog](./media/container-service-monitoring/datadog2.png)
 
@@ -48,11 +48,11 @@ Entrez votre clé API dans la configuration de Datadog dans l’Univers DC/OS.
 
 ![Configuration de Datadog dans l’Univers DC/OS](./media/container-service-monitoring/datadog3.png) 
 
-Dans la configuration ci-dessus, le nombre d’instances est défini sur 10000000 pour que chaque fois qu’un nouveau nœud est ajouté au cluster, Datadog déploie automatiquement un agent sur ce nœud. Il s’agit d’une solution temporaire. Une fois que vous avez installé le package, vous devez naviguer vers le site web Datadog et recherchez « Dashboards » (tableaux de bord). Vous y verrez des tableaux de bord personnalisés (Custom) et d'intégration (Integration). Le tableau de bord Docker Integration contient toutes les mesures de conteneur dont vous avez besoin pour surveiller votre cluster. 
+Dans la configuration ci-dessus, le nombre d’instances est défini sur 10000000 pour que chaque fois qu’un nouveau nœud est ajouté au cluster, Datadog déploie automatiquement un agent sur ce nœud. Il s’agit d’une solution temporaire. Une fois que vous avez installé le package, vous devez naviguer vers le site web Datadog et recherchez « [Dashboards](https://app.datadoghq.com/dash/list) » (tableaux de bord). Vous y verrez des tableaux de bord personnalisés (Custom) et d'intégration (Integration). Le [tableau de bord Docker](https://app.datadoghq.com/screen/integration/docker) contient toutes les mesures de conteneur dont vous avez besoin pour surveiller votre cluster. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

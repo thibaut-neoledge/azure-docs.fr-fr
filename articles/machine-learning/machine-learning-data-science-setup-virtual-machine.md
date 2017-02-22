@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a12d11ba5dfdb312fcfa57f665aa5fc0f471b3dd
+ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
+ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
 
 
 ---
@@ -42,7 +42,7 @@ Avant de démarrer la procédure de création d’une machine virtuelle sur Azur
 3. Entrez un nom pour la machine virtuelle à créer, sélectionnez la taille et la puissance de la machine (A3, par défaut) en fonction des données que cette dernière devra traiter (taille de la mémoire et nombre de cœurs de processeur), puis entrez un nom d’utilisateur et un mot de passe pour la machine. Ensuite, cliquez sur la flèche pointant vers la droite pour accéder à la page de configuration suivante.
    
     ![Create workspace][26]
-4. Sélectionnez le nom de **RÉGION/GROUPE D’AFFINITÉS/RÉSEAU VIRTUEL** qui contient le **COMPTE DE STOCKAGE** que vous prévoyez d’utiliser pour cette machine virtuelle, puis sélectionnez ce compte de stockage. Ajoutez un point de terminaison au bas du champ **POINTS DE TERMINAISON** en entrant son nom (« IPython » dans le cas présent). Vous pouvez indiquer la chaîne de votre choix pour le **NOM** du point de terminaison, et tout entier compris entre 0 et 65536 **disponible** en guise de **PORT PUBLIC**. Le **PORT PRIVÉ** doit être défini sur **9999**. Les utilisateurs doivent **éviter** d’utiliser des ports publics déjà attribués pour des services Internet. L’article concernant les <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">ports associés aux services Internet</a> répertorie les ports qui sont attribués et qui doivent donc être évités.
+4. Sélectionnez le nom de **RÉGION/GROUPE D’AFFINITÉS/RÉSEAU VIRTUEL** qui contient le **COMPTE DE STOCKAGE** que vous prévoyez d’utiliser pour cette machine virtuelle, puis sélectionnez ce compte de stockage. Ajoutez un point de terminaison au bas du champ **POINTS DE TERMINAISON** en entrant son nom (« IPython » dans le cas présent). Vous pouvez indiquer la chaîne de votre choix pour le **NOM** du point de terminaison, et tout entier compris entre 0 et 65536 **disponible** en guise de **PORT PUBLIC**. Le **PORT PRIVÉ** doit être défini sur **9999**. Vous devez **éviter** d’utiliser des ports publics déjà attribués pour des services Internet. L’article concernant les <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">ports associés aux services Internet</a> répertorie les ports qui sont attribués et qui doivent donc être évités.
    
     ![Create workspace][27]
 5. Cliquez sur la coche pour démarrer le processus d’approvisionnement de la machine virtuelle.
@@ -86,17 +86,17 @@ Vous verrez apparaître un message d’avertissement signalant *qu’il existe u
 **Chrome :**
 ![Créer un espace de travail][21]
 
-Une fois que vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**dépôt Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) durant le processus de configuration du serveur Notebook IPython. Microsoft gère ce dépôt et le met régulièrement à jour. Les utilisateurs peuvent se connecter au dépôt Github pour obtenir les derniers exemples de notebooks IPython.
+Une fois que vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**référentiel Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) durant le processus de configuration du serveur Notebook IPython. Microsoft gère ce dépôt et le met régulièrement à jour. Les utilisateurs peuvent se connecter au dépôt Github pour obtenir les derniers exemples de notebooks IPython.
 ![Create workspace][18]
 
 ## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>Étape 5 : charger un notebook IPython figurant sur un ordinateur local vers le serveur Notebook IPython
-Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateur local vers le serveur Notebook IPython exécuté sur les machines virtuelles. Une fois que les utilisateurs se sont connectés au serveur Notebook IPython dans un navigateur web, cliquez sur le **répertoire** dans lequel le notebook IPython sera chargé. Ensuite, dans l’ **Explorateur de fichiers**de l’ordinateur local, sélectionnez le fichier .ipynb Notebook IPython à charger, puis faites-le glisser vers le répertoire Notebook IPython dans le navigateur web. Cliquez sur le bouton **Télécharger** pour charger le fichier .ipynb vers le serveur Notebook IPython. D’autres utilisateurs peuvent alors commencer à utiliser ce fichier dans leur navigateur web.
+Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateur local vers le serveur Notebook IPython exécuté sur les machines virtuelles. Une fois que vous vous êtes connecté au serveur Notebook IPython dans un navigateur web, cliquez sur le **répertoire** dans lequel le notebook IPython sera chargé. Ensuite, dans l’ **Explorateur de fichiers**de l’ordinateur local, sélectionnez le fichier .ipynb Notebook IPython à charger, puis faites-le glisser vers le répertoire Notebook IPython dans le navigateur web. Cliquez sur le bouton **Télécharger** pour charger le fichier .ipynb vers le serveur Notebook IPython. D’autres utilisateurs peuvent alors commencer à utiliser ce fichier dans leur navigateur web.
 
 ![Create workspace][22]
 
 ![Create workspace][23]
 
-## <a name="a-nameshutdownashutdown-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
+## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
 
 > [!NOTE]
@@ -137,6 +137,6 @@ Les étapes suivantes du processus TDSP (Team Data Science Process) sont présen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

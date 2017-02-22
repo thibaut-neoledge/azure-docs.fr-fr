@@ -118,6 +118,6 @@ Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vo
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

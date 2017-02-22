@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect effectue des 3 types d’opérations à partir des répertoires
 La section suivante décrit les différents types d’erreurs de synchronisation pouvant se produire lors de l’opération d’exportation vers Azure AD avec le connecteur Azure AD. Ce connecteur peut être identifié par le format de nom « contoso.*onmicrosoft.com*».
 Les erreurs lors de l’exportation vers Azure AD indiquent que l’opération \(Ajouter, mettre à jour, supprimer, etc.\) tentée par le \(moteur de synchronisation\) d’Azure AD Connect sur Azure Active Directory a échoué.
 
-![Vue d’ensemble des erreurs d’exportation](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Vue d’ensemble des erreurs d’exportation](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Erreurs d’incohérence de données
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -114,7 +114,7 @@ Azure AD tente d’effectuer une correspondance souple pour deux objets. Il est 
 * Un groupe de sécurité activé pour la messagerie est créé dans Office 365. L’administrateur ajoute un nouvel utilisateur ou un nouveau contact à l’Active Directory local (qui n’est pas encore synchronisé à Azure AD) avec la même valeur pour l’attribut ProxyAddresses que pour le groupe Office 365.
 
 #### <a name="example-case"></a>Exemple de scénario
-1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Office 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com.. Cela affecte l’attribut ProxyAddresses pour ce groupe avec la valeur de **smtp:tax@contoso.com**
+1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Office 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com. Cela affecte l’attribut ProxyAddresses pour ce groupe avec la valeur de **smtp:tax@contoso.com**
 2. Un nouvel utilisateur rejoint Contoso.com et un compte est créé pour l’utilisateur local avec l’attribut proxyAddress en tant que **smtp:tax@contoso.com**
 3. Lorsqu’Azure AD Connect synchronise le nouveau compte d’utilisateur, il obtient l’erreur « ObjectTypeMismatch ».
 
@@ -195,7 +195,7 @@ Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié 
 #### <a name="how-to-fix"></a>Procédure de résolution
 Si le suffixe pour l’attribut UserPrincipalName d’un utilisateur a été mis à jour de bob@**contoso.com** vers bob@**fabrikam.com**, où **contoso.com** et **fabrikam.com** sont tous deux des **domaines fédérés**, suivez les étapes ci-dessous pour corriger l’erreur de synchronisation
 
-1. Mettez à jour l’attribut UserPrincipalName de l’utilisateur dans Azure AD de bob@contoso.com vers bob@contoso.onmicrosoft.com. Vous pouvez utiliser la commande PowerShell suivante avec le module Azure AD PowerShell : `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Replacez le UserPrincipalName de l’utilisateur dans Azure AD bob@contoso.com par bob@contoso.onmicrosoft.com. Vous pouvez utiliser la commande PowerShell suivante avec le Module Azure AD PowerShell : `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permettez au cycle de synchronisation suivant de tenter de synchronisation. Cette fois la synchronisation sera réussie et mettra à jour l’attribut UserPrincipalName de Bob sur bob@fabrikam.com, comme prévu.
 
 ## <a name="largeobject"></a>LargeObject
@@ -209,7 +209,7 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 ### <a name="possible-scenarios"></a>Scénarios possibles
 1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés.
 2. L’attribut thmubnailPhoto de Bob défini dans Active Directory est trop volumineux pour être synchronisé dans Azure AD.
-3. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de 500 ProxyAddresses.
+3. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de&500; ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Procédure de résolution
 1. Assurez-vous que l’attribut à l’origine de l’erreur est dans la limite autorisée.
@@ -221,6 +221,6 @@ Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maxima
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

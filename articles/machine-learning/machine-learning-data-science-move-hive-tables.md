@@ -1,5 +1,5 @@
 ---
-title: "Créer et charger des données dans des tables Hive à partir d&quot;un stockage Blob | Microsoft Docs"
+title: "Créer des tables Hive et charger des données à partir de Stockage Blob Azure | Microsoft Docs"
 description: "Créer des tables Hive et charger des données d’un blob dans des tables Hive"
 services: machine-learning,storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 30820eede776ebdca36b34c6f6c595ae466d0484
-ms.openlocfilehash: 136e1571c616cb3e8f0b989b690fd8ec18c38b06
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 
 ---
-# <a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>Créer et charger des données dans des tables Hive à partir d’un stockage Azure Blob
+# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 Cette rubrique présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
 Ce **menu** pointe vers des rubriques qui expliquent comment recevoir des données dans d’autres environnements cibles où les données peuvent être stockées et traitées pendant le processus TDSP (Team Data Science Process).
@@ -238,6 +238,6 @@ Pour plus de sécurité, lorsque vous utilisez la requête suivante, il est reco
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

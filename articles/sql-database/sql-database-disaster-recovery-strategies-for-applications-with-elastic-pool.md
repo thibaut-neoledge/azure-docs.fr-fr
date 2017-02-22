@@ -16,13 +16,13 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc256d2a164445a4ebbbaec9876d3fa86b56f65c
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
 
 
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pool"></a>Stratégies de récupération d’urgence pour les applications utilisant le pool élastique de base de données SQL
-Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes pouvaient, et allaient, se produire. La base de données SQL offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. [pools élastiques](sql-database-elastic-pool.md) et les bases de données autonomes prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
+Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes pouvaient, et allaient, se produire. La base de données SQL offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
 
 Dans le cadre de cet article, nous utiliserons le modèle d’application SaaS canonique d’un ISV :
 
@@ -33,7 +33,7 @@ Nous allons à présent aborder les stratégies de récupération d’urgence ap
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scénario 1 Start-up soucieuse des coûts
 <i>Ma jeune entreprise a un budget très serré.  Je souhaite simplifier le déploiement et la gestion de l’application et avoir un contrat SLA limité pour chacun de mes clients. Mais je veux être sûr que l’application ne sera jamais hors connexion.</i>
 
-Pour répondre au besoin de simplicité, vous devez déployer toutes les bases de données client dans un pool élastique dans la région Azure de votre choix et déployer les bases de données de gestion en tant que bases de données autonomes géo-répliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, ces dernières doivent être géo-répliquées vers une autre région (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total de la ou des base(s) de données secondaire(s). Cette configuration est illustrée dans le schéma suivant.
+Pour répondre au besoin de simplicité, vous devez déployer toutes les bases de données client dans un pool élastique dans la région Azure de votre choix et déployer les bases de données de gestion en tant que bases de données uniques géo-répliquées. Pour la récupération d’urgence des locataires, utilisez la fonctionnalité de géo-restauration qui ne vous coûtera pas un centime. Pour garantir la disponibilité des bases de données de gestion, ces dernières doivent être géo-répliquées vers une autre région (étape 1). Dans ce scénario, le coût de la configuration de récupération d’urgence est égal au coût total de la ou des base(s) de données secondaire(s). Cette configuration est illustrée dans le schéma suivant.
 
 ![La figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
@@ -71,7 +71,7 @@ Dans ce scénario, vous devez séparer les clients utilisant une version d’év
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Comme dans le premier scénario, les bases de données de gestion seront assez actives, d’où l’importance d’utiliser des bases de données autonomes géo-répliquées (1). Cela garantira la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région qui héberge les bases de données de gestion primaires sera la région primaire. La région qui héberge les bases de données de gestion secondaires sera la région de récupération d’urgence.
+Comme dans le premier scénario, les bases de données de gestion seront assez actives, d’où l’importance d’utiliser une base de données unique géo-répliquée (1). Cela garantira la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région qui héberge les bases de données de gestion primaires sera la région primaire. La région qui héberge les bases de données de gestion secondaires sera la région de récupération d’urgence.
 
 Les bases de données client des clients utilisant une version payante auront des bases de données actives dans le pool « payant » configuré dans la région primaire. Vous devez configurer un pool secondaire portant le même nom dans la région de récupération d’urgence. Chaque base de données client sera géo-répliquée dans le pool secondaire (2). Cela permettra une récupération rapide de toutes les bases de données client à l’aide de la fonctionnalité de basculement. 
 
@@ -116,7 +116,7 @@ Pour limiter au maximum le temps de récupération en cas de panne, les bases de
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Comme dans les scénarios précédents, les bases de données de gestion seront assez actives. Il est donc essentiel de les configurer en tant que bases de données autonomes géo-répliquées (1). Cela garantira la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région A sera la région primaire pour les bases de données de gestion et la région B sera utilisée pour la récupération des bases de données de gestion.
+Comme dans les scénarios précédents, les bases de données de gestion seront assez actives. Il est donc essentiel de les configurer en tant que bases de données uniques géo-répliquées (1). Cela garantira la prévisibilité des résultats concernant les nouveaux abonnements de client, les mises à jour de profil et les autres opérations de gestion. La région A sera la région primaire pour les bases de données de gestion et la région B sera utilisée pour la récupération des bases de données de gestion.
 
 Les bases de données client des clients utilisant la version payante seront également géo-répliquées, mais les bases de données primaires et secondaires seront réparties dans les régions A et B (2). Ainsi, les bases de données primaires affectées par la panne pourront basculer vers l’autre région et être à nouveau accessibles. L’autre moitié des bases de données client ne sera pas du tout affectée. 
 
@@ -176,6 +176,6 @@ Cet article aborde les différentes stratégies de récupération d’urgence po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

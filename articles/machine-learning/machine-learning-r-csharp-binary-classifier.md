@@ -1,6 +1,6 @@
 ---
-title: Classifieur binaire | Microsoft Docs
-description: Classifieur binaire
+title: "(obsolète) Classificateur binaire - Azure | Microsoft Docs"
+description: "(obsolète) Classificateur binaire"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: db2fc1df586f925277026a418a073917978c0718
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: d1d4f35a7e77a5fac1e8ecb1a82c14cca3406676
 
 
 ---
-# <a name="binary-classifier"></a>Classifieur binaire
+# <a name="deprecated-binary-classifier"></a>(obsolète) Classificateur binaire
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Supposez que vous disposiez d'un jeu de données et que vous aimeriez prédire une variable dépendante binaire sur base de variables indépendantes. La « régression logistique » est une technique statistique très répandue qui est utilisée pour de telles prédictions. Ici, la variable dépendante est binaire ou dichotomique et p correspond à la probabilité de la présence de la caractéristique d’intérêt. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -77,7 +84,7 @@ Il existe plusieurs façons d’utiliser le service de manière automatique (un 
 > 
 > 
 
-À partir d’Azure Machine Learning, une nouvelle expérience vide a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Ce service web exécute une expérience Azure Machine Learning avec un script R sous-jacent. Cette expérience se divise en 2 parties : définition du schéma et modèle d’apprentissage + évaluation. Le premier module définit la structure attendue du jeu de données en entrée, où la première variable correspond à la variable dépendante et les autres variables sont indépendantes. Le deuxième module correspond à un modèle de régression logistique générique pour les données en entrée.    
+À partir d’Azure Machine Learning, une nouvelle expérience vierge a été créée et deux modules [Exécuter le script R][execute-r-script] ont été importés dans l’espace de travail. Ce service web exécute une expérience Azure Machine Learning avec un script R sous-jacent. Cette expérience se divise en 2 parties : définition du schéma et modèle d’apprentissage + évaluation. Le premier module définit la structure attendue du jeu de données en entrée, où la première variable correspond à la variable dépendante et les autres variables sont indépendantes. Le deuxième module correspond à un modèle de régression logistique générique pour les données en entrée.    
 
 ![Flux de l’expérience][2]
 
@@ -126,6 +133,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

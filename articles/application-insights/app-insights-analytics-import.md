@@ -1,0 +1,339 @@
+---
+title: "Importer vos données dans Analytics dans Azure Application Insights | Microsoft Docs"
+description: "Importez des données statiques à associer à la télémétrie de l’application ou importez un flux de données distinct à interroger avec Analytics."
+services: application-insights
+documentationcenter: 
+author: alancameronwills
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
+ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+
+
+---
+# <a name="import-data-into-analytics"></a>Importer des données dans Analytics
+
+Importez des données tabulaires dans [Analytics](app-insights-analytics.md) pour les associer à la télémétrie [Application Insights](app-insights-overview.md) à partir de votre application ou pour les analyser comme un flux distinct. Analytics est un langage de requête puissant et bien adapté à l’analyse de gros volumes de flux horodatés de télémétrie.
+
+Vous pouvez importer des données dans Analytics à l’aide de votre propre schéma. Il n’est pas nécessaire d’utiliser les schémas Application Insights standard tels qu’une requête ou une trace.
+
+Actuellement, vous pouvez importer des fichiers CSV (valeurs séparées par des virgules) ou des fichiers au format similaire, c’est-à-dire qui utilisent des points-virgules ou des tabulations comme séparateurs.
+
+L’importation de données dans Analytics peut être utile dans les trois situations suivantes :
+
+* **Association avec la télémétrie de l’application.** Par exemple, vous pouvez importer une table qui mappe des URL de votre site Web à des titres de page plus lisibles. Dans Analytics, vous pouvez créer un rapport graphique de tableau de bord qui affiche les dix pages les plus consultées de votre site Web. Maintenant, il peut afficher les titres des pages plutôt que les URL.
+* **Mettre en corrélation la télémétrie de votre application** avec d’autres sources telles que le trafic réseau, les données de serveur ou les fichiers journaux CDN.
+* **Appliquer Analytics à un flux de données distinct.** Application Insights Analytics est un outil puissant, qui fonctionne bien avec les flux horodatés partiellement alloués, et même beaucoup mieux que SQL dans la plupart des cas. Si vous avez un flux de ce type issu d’une autre source, vous pouvez l’analyser avec Analytics.
+
+Il est facile d’envoyer des données à votre source de données. 
+
+1. (Une fois) Définissez le schéma de vos données dans une « source de données ».
+2. (Régulièrement) Chargez vos données dans le stockage Azure et appelez l’API REST pour nous informer que de nouvelles données sont en attente d’ingestion. Après quelques minutes, les données sont disponibles pour être interrogées dans Analytics.
+
+Vous définissez la fréquence du chargement et la rapidité à laquelle vous souhaitez que vos données soient disponibles pour les requêtes. Nous vous recommandons de charger des données dans des segments plus grands, mais d’une taille inférieure à 1 Go.
+
+> [!NOTE]
+> *Vous avez un grand nombre de sources de données à analyser ?* [*Envisagez d’utiliser* logstash *pour envoyer vos données dans Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
+> 
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Ce dont vous avez besoin :
+
+1. Une ressource Application Insights dans Microsoft Azure.
+
+ * Si vous voulez analyser vos données séparément de la télémétrie, [créez une ressource Application Insights](app-insights-create-new-resource.md).
+ * Si vous associez ou comparez vos données à la télémétrie d’une application qui est déjà configurée avec Application Insights, vous pouvez utiliser la ressource pour cette application.
+ * Accès du propriétaire ou du contributeur à cette ressource.
+ 
+2. stockage Azure. Vous chargez les données dans le stockage Azure et Analytics les récupère. 
+
+ * Nous vous recommandons de créer un compte de stockage dédié pour vos blobs. Si vos blobs sont partagés avec d’autres processus, nos processus prendront plus de temps pour lire vos blobs.
+
+2. Bien que cette fonctionnalité soit disponible en version préliminaire, vous devez demander l’accès.
+
+ * Depuis votre ressource Application Insights dans le [portail Azure](https://portal.azure.com), ouvrez Analytics. 
+ * En bas du volet de schéma, cliquez sur le lien « Nous contacter » sous **Other Data Sources (Autres sources de données).** 
+ * Si vous voyez « Ajouter une source de données », cela signifie que vous avez déjà accès.
+
+
+## <a name="define-your-schema"></a>Définir votre schéma
+
+Avant de pouvoir importer des données, vous devez définir une *source de données,* qui spécifie le schéma de vos données.
+
+1. Démarrer l’Assistant Source de données
+
+    ![Ajouter une source de données](./media/app-insights-analytics-import/add-new-data-source.png)
+
+2. Suivez les instructions pour charger un exemple de fichier de données.
+
+ * La première ligne de l’exemple peut être des en-têtes de colonne. (Vous pouvez modifier le nom des champs à l’étape suivante.)
+ * L’exemple doit inclure au moins 10 lignes de données.
+
+3. Examinez le schéma que l’Assistant a déduit à partir de votre exemple. Vous pouvez ajuster les types déduits des colonnes si nécessaire.
+
+4. Sélectionnez un horodatage. Toutes les données dans Analytics doivent avoir un champ d’horodatage. Il doit être de type `datetime`, mais il ne doit pas forcément être nommé « Horodatage ». Si vos données comportent une colonne contenant une date et une heure au format ISO, choisissez celle-ci en tant que colonne d’horodatage. Sinon, choisissez « à mesure que les données sont arrivées », et le processus d’importation ajoutera un champ d’horodatage.
+
+    ![Examiner le schéma](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+5. Créez la source de données.
+
+
+## <a name="import-data"></a>Importer des données
+
+Pour importer des données, chargez-les dans le stockage Azure, créez une clé d’accès qui leur est associée, puis appelez une API REST.
+
+![Ajouter une source de données](./media/app-insights-analytics-import/analytics-upload-process.png)
+
+Vous pouvez effectuer l’opération suivante manuellement ou configurer un système automatisé pour qu’il le fasse à intervalles réguliers. Vous devez suivre ces étapes pour chaque bloc de données à importer.
+
+1. Chargez les données dans le [stockage Blob Azure](../storage/storage-dotnet-how-to-use-blobs.md). 
+
+ * La taille maximum des blobs est de 1 Go (sans compression). Les blobs d’une centaine de Mo sont parfaits, du point de vue des performances.
+ * Vous pouvez les compresser avec Gzip pour améliorer le temps de chargement et la latence de disponibilité des données pour interrogation. Utilisez l’extension de nom de fichier `.gz`.
+ 
+2. [Créez une clé de signature d’accès partagé pour le blob](../storage/storage-dotnet-shared-access-signature-part-2.md). Le délai d’expiration de la clé doit être d’un jour et celle-ci doit fournir un accès en lecture.
+3. Effectuez un appel REST pour indiquer à Application Insights que les données sont en attente.
+
+ * Point de terminaison : `https://dc.services.visualstudio.com/v2/track`
+ * Méthode HTTP : POST
+ * Charge utile :
+
+```JSON
+
+    {
+       "data": {
+            "baseType":"OpenSchemaData",
+            "baseData":{
+               "ver":"2",
+               "blobSasUri":"<Blob URI with Shared Access Key>",
+               "sourceName":"<Schema ID>",
+               "sourceVersion":"1.0"
+             }
+       },
+       "ver":1,
+       "name":"Microsoft.ApplicationInsights.OpenSchema",
+       "time":"<DateTime>",
+       "iKey":"<instrumentation key>"
+    }
+```
+
+Les espaces réservés sont :
+
+* `Blob URI with Shared Access Key` : cet élément est obtenu à partir de la procédure de création d’une clé. Il est spécifique au blob.
+* `Schema ID` : l’ID de schéma généré pour votre schéma défini. Les données de ce blob doivent respecter le schéma que vous avez défini pour cette source.
+* `DateTime` : l’heure à laquelle la demande est soumise, UTC. Nous acceptons les formats suivants : ISO8601 (comme « 2016-01-01 13:45:01 ») ; RFC822 (« Mer, 14 déc 16 14:57:01 +0000 ») ; RFC850 (« Mercredi, 14-déc-16 14:57:00 UTC ») ; RFC1123 (« Mer, 14 déc 2016 14:57:00 +0000 »).
+* `Instrumentation key` de votre ressource Application Insights.
+
+Les données sont disponibles dans Analytics après quelques minutes.
+
+## <a name="error-responses"></a>Réponses d’erreur
+
+* **400 Demande incorrecte** : indique que la charge utile de la demande n’est pas valide. Vérifiez les points suivants :
+ * Clé d’instrumentation correcte.
+ * Valeur de temps valide. Il s’agit de l’heure actuelle au format UTC.
+ * Conformité des données par rapport au schéma.
+* **403 Interdit** : le blob que vous avez envoyé n’est pas accessible. Assurez-vous que la clé d’accès partagé est valide et n’a pas expiré.
+* **404 Introuvable** :
+ * Le blob n’existe pas.
+ * Le nom de la source de données est incorrect.
+
+Des informations plus détaillées sont disponibles dans le message d’erreur de réponse.
+
+## <a name="sample-code"></a>Exemple de code
+
+Ce code utilise le package NuGet [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1).
+
+### <a name="classes"></a>Classes
+
+```C#
+
+
+namespace IngestionClient 
+{ 
+    using System; 
+    using Newtonsoft.Json; 
+
+    public class AnalyticsDataSourceIngestionRequest 
+    { 
+        #region Members 
+        private const string BaseDataRequiredVersion = "2"; 
+        private const string RequestName = "Microsoft.ApplicationInsights.OpenSchema"; 
+        #endregion Members 
+
+        public AnalyticsDataSourceIngestionRequest(string ikey, string schemaId, string blobSasUri, int version = 1) 
+        { 
+            Ver = version; 
+            IKey = ikey; 
+            Data = new Data 
+            { 
+                BaseData = new BaseData 
+                { 
+                    Ver = BaseDataRequiredVersion, 
+                    BlobSasUri = blobSasUri, 
+                    SourceName = schemaId, 
+                    SourceVersion = version.ToString() 
+                } 
+            }; 
+        } 
+
+
+        [JsonProperty("data")] 
+        public Data Data { get; set; } 
+
+        [JsonProperty("ver")] 
+        public int Ver { get; set; } 
+
+        [JsonProperty("name")] 
+        public string Name { get { return RequestName; } } 
+
+        [JsonProperty("time")] 
+        public DateTime Time { get { return DateTime.UtcNow; } } 
+
+        [JsonProperty("iKey")] 
+        public string IKey { get; set; } 
+    } 
+
+    #region Internal Classes 
+
+    public class Data 
+    { 
+        private const string DataBaseType = "OpenSchemaData"; 
+
+        [JsonProperty("baseType")] 
+        public string BaseType 
+        { 
+            get { return DataBaseType; } 
+        } 
+
+        [JsonProperty("baseData")] 
+        public BaseData BaseData { get; set; } 
+    } 
+
+
+    public class BaseData 
+    { 
+        [JsonProperty("ver")] 
+        public string Ver { get; set; } 
+
+        [JsonProperty("blobSasUri")] 
+        public string BlobSasUri { get; set; } 
+
+        [JsonProperty("sourceName")] 
+        public string SourceName { get; set; } 
+
+        [JsonProperty("sourceVersion")] 
+        public string SourceVersion { get; set; } 
+    } 
+
+    #endregion Internal Classes 
+} 
+
+
+namespace IngestionClient 
+{ 
+    using System; 
+    using System.IO; 
+    using System.Net; 
+    using System.Text; 
+    using System.Threading.Tasks; 
+    using Newtonsoft.Json; 
+
+    public class AnalyticsDataSourceClient 
+    { 
+        #region Members 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
+        private const string RequestContentType = "application/json; charset=UTF-8"; 
+        private const string RequestAccess = "application/json"; 
+        #endregion Members 
+
+        #region Public 
+
+        public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
+        { 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
+            request.Method = WebRequestMethods.Http.Post; 
+            request.ContentType = RequestContentType; 
+            request.Accept = RequestAccess; 
+
+            string notificationJson = Serialize(ingestionRequest); 
+            byte[] notificationBytes = GetContentBytes(notificationJson); 
+            request.ContentLength = notificationBytes.Length; 
+
+            Stream requestStream = request.GetRequestStream(); 
+            requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
+            requestStream.Close(); 
+
+            HttpWebResponse response; 
+            try 
+            { 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
+            } 
+            catch (WebException e) 
+            { 
+                HttpWebResponse httpResponse = e.Response as HttpWebResponse; 
+                if (httpResponse != null) 
+                { 
+                    Console.WriteLine( 
+                        "Ingestion request failed with status code: {0}. Error: {1}", 
+                        httpResponse.StatusCode, 
+                        httpResponse.StatusDescription); 
+                    return false; 
+                }
+                throw; 
+            } 
+        } 
+        #endregion Public 
+
+        #region Private 
+        private byte[] GetContentBytes(string content) 
+        { 
+            return Encoding.UTF8.GetBytes(content);
+        } 
+
+
+        private string Serialize(AnalyticsDataSourceIngestionRequest ingestionRequest) 
+        { 
+            return JsonConvert.SerializeObject(ingestionRequest); 
+        } 
+        #endregion Private 
+    } 
+} 
+
+```
+
+### <a name="ingest-data"></a>Réception de données
+
+Utilisez ce code pour chaque blob. 
+
+```C#
+
+
+   AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
+
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+
+   bool success = await client.RequestBlobIngestion(ingestionRequest);
+
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Visite guidée d’Analytics dans Application Insights](app-insights-analytics-tour.md)
+* [Use *Logstash* to send data to Application Insights (Utiliser Logstash pour envoyer des données à Application Insights)](https://github.com/Microsoft/logstash-output-application-insights)
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

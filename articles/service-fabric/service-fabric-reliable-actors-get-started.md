@@ -1,5 +1,5 @@
 ---
-title: Prise en main de Service Fabric Reliable Actors | Microsoft Docs
+title: "Créer votre premier microservice Azure basé sur acteur en C# | Microsoft Docs"
 description: "Ce didacticiel vous guide dans les étapes de création, de débogage et de déploiement d’un service simple basé sur acteur à l’aide de Service Fabric Reliable Actors."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2304a9433bb382c0c7ddcf36733838ac769b9584
-ms.openlocfilehash: 98e519df244e9ae934b8100ea9820a7f765b1ee3
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 25b24e6d267ac14147f426fce46d609954b7dfc9
 
 
 ---
@@ -155,6 +155,6 @@ Pendant le processus de déploiement, vous pouvez afficher la progression dans l
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

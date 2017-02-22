@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités du moteur de règles Azure Content Delivery Network | Microsoft Docs"
-description: "Cette rubrique décrit les fonctionnalités et conditions de correspondance du moteur de règles"
+title: "Fonctionnalités du moteur de règles Azure CDN | Microsoft Docs"
+description: "Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: a3d8199a9d5d067a4da1e1d40ff99bebc40a5097
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
 
 
 ---
 
-# <a name="features-for-azure-content-delivery-network--cdn-rules-engine"></a>Fonctionnalités pour le moteur de règles Azure Content Delivery Network (CDN)
+# <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des fonctionnalités disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).
 
 La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité définit le type d’action appliqué au type de requête identifié par un ensemble de conditions de correspondance.
@@ -207,9 +207,11 @@ Désactivé|Force les serveurs Edge à mettre les ressources en cache selon la s
 **Comportement par défaut :**
 
 - **HTTP Large :** Désactivé
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###<a name="cache-control-header-treatment"></a>Traitement d’en-tête de contrôle de cache
 **Objectif :** contrôle la génération des en-têtes de contrôle de cache par le serveur Edge quand la fonctionnalité Âge maximal externe est active.
 
@@ -560,7 +562,7 @@ Définissez un ensemble de codes d’état souhaités séparés par un espace.
 
 Informations essentielles :
 
-- Activez également la fonctionnalité Ignorer la requête non-cache d’origine. Si cette fonctionnalité n’est pas activée, les réponses non 200 OK ne peuvent pas être mises en cache.
+- Activez également la fonctionnalité Ignorer la requête non-cache d’origine. Si cette fonctionnalité n’est pas activée, les réponses non&200; OK ne peuvent pas être mises en cache.
 - L’ensemble des codes d’état valides pour cette fonctionnalité sont les suivants : 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, et 505.
 - Cette fonctionnalité ne peut pas être utilisée pour désactiver la mise en cache des réponses qui génèrent un code d’état 200 OK.
 
@@ -966,7 +968,28 @@ Option|Description
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
  Cette fonctionnalité permet à nos serveurs Edge de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
 
-**Exemple de scénario**
+**Exemple de scénario nº 1**
+
+Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http://marketing.azureedge.net/brochures
+
+Les demandes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://MyOrigin.azureedge.net/resources/
+
+Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Exemple de scénario nº 2**
+
+Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge en MAJUSCULES vers son équivalent en minuscules à l’aide d’expressions régulières.
+
+Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Points essentiels :**
+
+- La fonctionnalité Réécriture d’URL définit les URL de demande à réécrire. Par conséquent, aucune condition de correspondance supplémentaire n’est requise. Bien que la condition de correspondance ait été définie sur « Toujours », seules les demandes pointant vers le dossier « brochures » du serveur d’origine du client « marketing » seront réécrites.
+
+- Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
+
+
 
 ###<a name="compatibility"></a>Compatibilité
 
@@ -998,6 +1021,6 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

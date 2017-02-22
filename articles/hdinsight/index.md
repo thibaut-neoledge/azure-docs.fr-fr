@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentation Azure HDInsight - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez Hadoop sur HDInsight. La documentation vous montre comment utiliser, entre autres, Hadoop, Spark, HBase et R-Server pour traiter, analyser et interpréter le Big Data."
+services: hdinsight
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: hdinsight
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
+ms.sourcegitcommit: 2d07e801ea3375e06c9f66db49219b6c79f97e61
+ms.openlocfilehash: bf303554aa47116cdfce074d87235901b5390769
 
 ---
+
 #<a name="azure-hdinsight-documentation"></a>Documentation Azure HDInsight
 
 Découvrez comment utiliser Hadoop dans le cloud sur HDInsight pour analyser les données de diffusion en continu ou historiques. Des didacticiels et d’autres documents vous montrent comment créer des clusters, traiter et analyser le Big Data, et développer des solutions avec Hadoop, Spark, HBase, R-Server, Storm et d’autres technologies dans l’écosystème Hadoop.
@@ -171,6 +183,6 @@ Découvrez comment utiliser Hadoop dans le cloud sur HDInsight pour analyser les
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

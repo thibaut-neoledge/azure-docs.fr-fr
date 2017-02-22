@@ -1,10 +1,10 @@
 ---
-title: "Planification et conception d’une passerelle VPN | Microsoft Docs"
+title: "Planification et conception des connexions entre les systèmes locaux : passerelle VPN Azure | Microsoft Docs"
 description: "En savoir plus sur la planification et la conception de la passerelle VPN pour les connexions entre locaux, hybrides et entre réseaux virtuels"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/25/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03f9294b558a075705fca4bd647a2154e155a1ea
+ms.sourcegitcommit: d2087d4a1844379ae642c9ce5b08d62edef2fccf
+ms.openlocfilehash: 21723b3c8ab636f6c4a497abece59ce83a46d65f
 
 
 ---
@@ -117,7 +117,7 @@ Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans
 
 **Diagramme du tunneling forcé**
 
-![Connexion de tunneling forcé](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
+![Diagramme du tunneling forcé de la passerelle VPN Azure](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
 Une connexion de tunneling forcé peut être configurée dans les deux modèles de déploiement et à l’aide de différents outils. Pour plus d’informations, consultez le tableau suivant. Nous mettons à jour ce tableau à mesure que de nouveaux articles, de nouveaux modèles de déploiement et des outils supplémentaires sont disponibles pour cette configuration. Quand un article est disponible, ce tableau contient un lien vers celui-ci.
 
@@ -131,6 +131,6 @@ Pour plus d’informations sur les paramètres de passerelle spécifiques, voir 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

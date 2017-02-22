@@ -1,5 +1,5 @@
 ---
-title: "Planification d’une maintenance planifiée pour les machines virtuelles Azure | Microsoft Docs"
+title: "Guide pratique pour définir une maintenance planifiée sur des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Découvrez comment prévoir une maintenance planifiée sur des machines virtuelles Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/13/2016
 ms.author: igalf
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2f4e32f48ed26ffe1d1cb6bf7cdbd99bc56688a2
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 54b15a13d29eb1921cc1264456c5f746b550386c
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: 2f4e32f48ed26ffe1d1cb6bf7cdbd99bc56688a2
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

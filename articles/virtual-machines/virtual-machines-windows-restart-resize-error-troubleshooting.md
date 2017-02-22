@@ -13,11 +13,11 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: afa8d2b76ab0f85b5eaf615b264af2f29936016c
 
 
 ---
@@ -26,12 +26,12 @@ Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de re
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Collecter des journaux d’audit
-Pour résoudre les problèmes, commencez par collecter les journaux d’audit afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur le processus :
+## <a name="collect-activity-logs"></a>Collecte des journaux d’activité
+Pour résoudre les problèmes, commencez par collecter les journaux d’activité afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur le processus :
 
-[Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Opérations d’audit avec Resource Manager](../resource-group-audit.md)
+[Afficher les journaux d’activité pour gérer les ressources Azure](../azure-resource-manager/resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : erreur lors du démarrage d’une machine virtuelle arrêtée
 Vous essayez de démarrer une machine virtuelle arrêtée, mais obtenez un échec d’allocation.
@@ -68,6 +68,6 @@ Si vous rencontrez des problèmes lorsque vous créez une machine virtuelle Wind
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

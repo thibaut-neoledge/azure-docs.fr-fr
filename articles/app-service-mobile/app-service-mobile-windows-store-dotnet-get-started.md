@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 88f9a6b7e1f49ad58e91165a772e8453163d224c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
 
 
 ---
@@ -27,10 +27,10 @@ ms.openlocfilehash: 88f9a6b7e1f49ad58e91165a772e8453163d224c
 Ce didacticiel présente l’ajout d’un service principal cloud à une application de plateforme Windows universelle (UWP). Pour plus d’informations, consultez [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md). Voici les captures d’écran générées à partir de l’application terminée :
 
 ![Application de bureau terminée](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
- En cours d’exécution sur un ordinateur de bureau. 
+En cours d’exécution sur un ordinateur de bureau. 
 
 ![Application de téléphone terminée](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
- En cours d’exécution sur un téléphone
+En cours d’exécution sur un téléphone
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile App pour les applications UWP. 
 
@@ -41,7 +41,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * [Visual Studio Community 2015] ou version ultérieure.
 
 > [!NOTE]
-> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+> Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://azure.microsoft.com/try/app-service/mobile/). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 > 
 > 
 
@@ -76,11 +76,11 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de l’authentification à votre application](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-   Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+  Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 * [Ajouter des notifications Push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-   Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
+  Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
 * [Activer la synchronisation hors connexion pour votre application](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-   Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un backend Mobile App. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
+  Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un backend Mobile App. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -91,6 +91,6 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

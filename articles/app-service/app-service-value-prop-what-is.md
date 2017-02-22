@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ App Service offre plusieurs *types d’application*, chacun d’eux étant desti
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) : pour l’hébergement de sites et d’applications web.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) : pour l’hébergement de serveurs principaux d’application mobile.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) : pour l’hébergement d’API RESTful.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - pour l’automatisation des processus d’entreprise et l’intégration de systèmes et de données dans des clouds sans écrire de code.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - pour l’automatisation des processus d’entreprise et l’intégration de systèmes et de données dans des clouds sans écrire de code.
 
 Ici, le mot *application* fait référence aux ressources d’hébergements dédiées à l’exécution d’une charge de travail. Par exemple, vous avez certainement l’habitude de considérer qu’une « application web » constitue les ressources de calcul et le code d’application fournissant, ensemble, des fonctionnalités à un navigateur. Cependant, dans App Service, une *application web* constitue les ressources de calcul fournies par Azure pour l’hébergement de votre code d’application. 
 
@@ -82,18 +82,18 @@ Si vous avez besoin de plus d’évolutivité et d’isolement réseau, vous pou
 Pour plus d’informations sur le coût d’App Service, consultez la page [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Tester App Service
-[Créez un exemple d’application web, mobile ou logique](http://go.microsoft.com/fwlink/?LinkId=523751) et utilisez-la pendant une heure sans carte de crédit, sans aucun engagement et sans aucune contrainte.
+[Créez un exemple d’application web, mobile ou logique](https://azure.microsoft.com/try/app-service/) et utilisez-la pendant une heure sans carte de crédit, sans aucun engagement et sans aucune contrainte.
 
 Ou ouvrez un [compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/), puis essayez l’un de nos didacticiels dédiés à la prise en main :
 
 * [Didacticiel : Créer une application web](../app-service-web/app-service-web-get-started.md)
 * [Didacticiel : Créer une application mobile](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Didacticiel : Créer une application API](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Didacticiel : Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Didacticiel : Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

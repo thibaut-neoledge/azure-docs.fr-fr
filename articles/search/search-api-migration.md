@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 165ab7363efaf90eaab41098f71e2f1b846c346e
-ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Mise à niveau vers la version 2016-09-01 de l’API REST du service Recherche Azure
 Si vous utilisez la version 2015-02-28 ou 2015-02-28-Preview de [l’API REST du service Recherche Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx), cet article vous aidera à mettre à niveau votre application pour utiliser la nouvelle version de l’API (2016-09-01).
 
 La version 2016-09-01 de l’API REST contient des modifications des versions antérieures. Ces modifications sont, pour la plupart, à compatibilité descendante. La modification de votre code est donc facilitée, selon la version que vous utilisiez précédemment. Consultez la page [Procédure de mise à niveau](#UpgradeSteps) pour obtenir des instructions sur la façon de modifier votre code pour qu’il utilise la nouvelle version de l’API.
+
+> [!NOTE]
+> Votre instance de service Recherche Azure prend en charge plusieurs versions de l’API REST, y compris la plus récente. Vous pouvez continuer à utiliser une version lorsqu’elle n’est pas la plus récente, mais nous vous recommandons de migrer votre code pour utiliser la dernière version.
 
 <a name="WhatsNew"></a>
 
@@ -40,7 +43,7 @@ La version 2016-09-01 est la deuxième version généralement disponible de l’
 Si vous effectuez une mise à niveau à partir de la version 2015-02-28, vous n’aurez probablement pas à modifier votre code, en dehors du numéro de version. Les seules situations dans lesquelles vous pouvez avoir à modifier votre code sont les suivantes :
 
 * Lorsque votre code échoue, car des propriétés non reconnues sont renvoyées dans une réponse de l’API. Par défaut, votre application doit ignorer les propriétés qu’elle ne comprend pas.
-* Lorsque votre code conserve des requêtes d’API et tente de les renvoyer à la nouvelle version de l’API. Par exemple, cela peut se produire si votre application conserve les jetons de continuation renvoyés par l’API Recherche (pour plus d’informations, recherchez `@search.nextPageParameters` dans les [références sur l’API Recherche](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
+* Votre code conserve des demandes d’API et tente de les renvoyer à la nouvelle version de l’API. Par exemple, cela peut se produire si votre application conserve les jetons de continuation renvoyés par l’API Recherche (pour plus d’informations, recherchez `@search.nextPageParameters` dans les [références sur l’API Recherche](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
 
 Si vous êtes concerné par l’une de ces situations, vous aurez peut-être à modifier votre code en conséquence. Dans le cas contraire, aucune modification n’est nécessaire, sauf si vous souhaitez commencer à utiliser les [nouvelles fonctionnalités](#WhatsNew) de la version 2016-09-01.
 
@@ -67,6 +70,6 @@ Merci d’utiliser Azure Search !
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

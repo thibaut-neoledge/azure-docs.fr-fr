@@ -1,10 +1,10 @@
 ---
-title: "Création d’une sonde personnalisée pour la passerelle Application Gateway avec PowerShell dans Resource Manager | Microsoft Docs"
+title: "Créer une sonde personnalisée - Passerelle Azure Application Gateway - PowerShell | Microsoft Docs"
 description: "Apprenez à créer une sonde personnalisée pour la passerelle Application Gateway à l&quot;aide de PowerShell dans Resource Manager"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 
 
 ---
@@ -27,8 +27,6 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 > * [Portail Azure](application-gateway-create-probe-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -39,7 +37,7 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 
 ### <a name="step-1"></a>Étape 1
 
-Utilisez la connexion AzureRmAccount pour vous authentifier.
+Utilisez `Login-AzureRmAccount` pour l’authentification.
 
 ```powershell
 Login-AzureRmAccount
@@ -55,7 +53,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Étape 3
 
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser. <BR>
+Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -192,11 +190,8 @@ Configurez la taille d'instance de la passerelle Application Gateway.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-
 > [!NOTE]
-> La valeur par défaut du paramètre **InstanceCount** est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre **GatewaySize** est Medium. Vous pouvez choisir entre **Standard_Small**, **Standard_Medium** et **Standard_Large**.
-> 
-> 
+> La valeur par défaut du paramètre **InstanceCount** est de 2, avec une valeur maximale de 10. La valeur par défaut du paramètre **GatewaySize** est Medium. Vous pouvez choisir entre **Standard_Small**, **Standard_Medium** et **Standard_Large**. 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Création d'une passerelle Application Gateway avec New-AzureRmApplicationGateway
 
@@ -255,7 +250,6 @@ Charger la ressource de passerelle Application Gateway dans une variable PowerSh
 ```powershell
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
-
 
 ### <a name="step-2"></a>Étape 2 :
 
@@ -318,6 +312,6 @@ Apprenez à configurer le déchargement SSL en consultant [Configurer le déchar
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

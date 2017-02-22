@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Django (
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -38,7 +38,7 @@ Vous allez créer une application à l’aide de l’infrastructure web Django (
 * Python 2.7 ou 3.4
 * setuptools, pip, virtualenv (Python 2.7 uniquement)
 * Git
-* [Python Tools pour Visual Studio][Python Tools pour Visual Studio] (PTVS) - Remarque : ceci est facultatif
+* [Python Tools pour Visual Studio][Python Tools pour Visual Studio] (PTVS) - Remarque : ceci est facultatif
 
 **Remarque**: la publication de TFS n’est actuellement pas prise en charge pour les projets Python.
 
@@ -112,10 +112,10 @@ Packages externes requis par cette application. Le script de déploiement instal
 
 Fichiers de configuration IIS. Le script de déploiement utilisera le fichier web.x.y.config approprié et le copiera sous le nom web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Fichiers facultatifs - Personnalisation du déploiement
+### <a name="optional-files---customizing-deployment"></a>Fichiers facultatifs - Personnalisation du déploiement
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Fichiers facultatifs - Runtime Python
+### <a name="optional-files---python-runtime"></a>Fichiers facultatifs - Runtime Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Fichiers supplémentaires sur le serveur
@@ -135,7 +135,7 @@ Les trois sections suivantes expliquent comment développer des applications web
 * Windows, avec la ligne de commande ;
 * Mac/Linux, avec la ligne de commande.
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Développement d’applications web - Windows - Python Tools pour Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Développement d’applications web - Windows - Python Tools pour Visual Studio
 ### <a name="clone-the-repository"></a>Cloner le référentiel
 Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
@@ -201,7 +201,7 @@ Visual Studio n’affiche pas la progression du déploiement. Si vous souhaitez
 
 Accédez à l’URL Azure pour visualiser les modifications que vous avez apportées.
 
-## <a name="web-app-development-windows-command-line"></a>Développement d’applications web - Windows - Ligne de commande
+## <a name="web-app-development---windows---command-line"></a>Développement d’applications web - Windows - Ligne de commande
 ### <a name="clone-the-repository"></a>Cloner le référentiel
 Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
@@ -281,7 +281,7 @@ Vous découvrirez la sortie du script de déploiement, notamment la création de
 
 Accédez à l’URL Azure pour visualiser les modifications que vous avez apportées.
 
-## <a name="web-app-development-maclinux-command-line"></a>Développement d’applications web - Mac/Linux - Ligne de commande
+## <a name="web-app-development---maclinux---command-line"></a>Développement d’applications web - Mac/Linux - Ligne de commande
 ### <a name="clone-the-repository"></a>Cloner le référentiel
 Commencez par cloner le référentiel à l’aide de l’URL fournie sur le portail Azure, puis ajoutez le référentiel Azure en tant que référentiel distant. Pour plus d’informations, voir [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md).
 
@@ -365,13 +365,13 @@ Vous découvrirez la sortie du script de déploiement, notamment la création de
 
 Accédez à l’URL Azure pour visualiser les modifications que vous avez apportées.
 
-## <a name="troubleshooting-package-installation"></a>Résolution des problèmes - Installation des packages
+## <a name="troubleshooting---package-installation"></a>Résolution des problèmes - Installation des packages
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Résolution des problèmes - Environnement virtuel
+## <a name="troubleshooting---virtual-environment"></a>Résolution des problèmes - Environnement virtuel
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Résolution des problèmes - Fichiers statiques
+## <a name="troubleshooting---static-files"></a>Résolution des problèmes - Fichiers statiques
 Django se charge de collecter les fichiers statiques. Il récupère tous les fichiers statiques à partir de leur emplacement d’origine et les copie dans un dossier unique. Pour cette application, les fichiers sont copiés dans `/static`.
 
 Cette opération est effectuée, car les fichiers statiques peuvent provenir de différentes applications Django. Par exemple, les fichiers statiques des interfaces d’administration Django sont situés dans un sous-dossier de bibliothèque Django dans l’environnement virtuel. Les fichiers statiques définis par cette application se trouvent dans `/app/static`. Plus vous utiliserez d’applications Django, plus vous aurez de fichiers statiques dans différents emplacements.
@@ -392,7 +392,7 @@ Vous devrez alors effectuer la collecte manuellement sur votre ordinateur local�
 
 Puis supprimez le dossier `\static` de `.gitignore` et ajoutez-le au référentiel Git.
 
-## <a name="troubleshooting-settings"></a>Résolution des problèmes - Paramètres
+## <a name="troubleshooting---settings"></a>Résolution des problèmes - Paramètres
 Vous pouvez modifier différents paramètres dans `DjangoWebProject/settings.py`.
 
 Pour simplifier le développement, le mode débogage est activé. Ce mode vous permettra de visualiser les images et d’autres contenus statiques lors de l’exécution locale, sans nécessiter la collecte des fichiers statiques.
@@ -435,7 +435,7 @@ Une fois ce code activé, synchronisez la base de données, exécutez l’applic
 Pour plus d’informations sur Django et sur Python Tools pour Visual Studio, sélectionnez les liens suivants :
 
 * [Documentation Django]
-* [Documentation relative à Python Tools for Visual Studio]
+* [Documentation de Python Tools pour Visual Studio]
 
 Pour plus d’informations sur l’utilisation de Base de données SQL et de MySQL :
 
@@ -450,7 +450,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 <!--Link references-->
 [Django et MySQL sur Azure avec Python Tools pour Visual Studio]: web-sites-python-ptvs-django-mysql.md
 [Django et SQL Database sur Azure avec Python pour Visual Studio]: web-sites-python-ptvs-django-sql.md
-[Base de données SQL]: web-sites-python-ptvs-django-sql.md
+[SQL Database]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
 
 <!--External Link references-->
@@ -459,14 +459,14 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [python.org]: http://www.python.org/
 [Git pour Windows]: http://msysgit.github.io/
 [GitHub pour Windows]: https://windows.github.com/
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Documentation relative à Python Tools for Visual Studio]: http://aka.ms/ptvsdocs
+[Documentation de Python Tools pour Visual Studio]: http://aka.ms/ptvsdocs
 [Documentation Django]: https://www.djangoproject.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

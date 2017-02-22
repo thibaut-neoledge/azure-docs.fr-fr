@@ -5,7 +5,7 @@ description: "Réponses aux questions fréquemment posées sur le service de sau
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "sauvegarde et récupération d’urgence ; service de sauvegarde"
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/8/2017
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: d842d0a7e6a99a0a0a67b7cf6c695aba16f83d8f
+ms.openlocfilehash: 72cd97798df4e63da1e3d1dc167714f6033d2c86
 
 
 ---
 # <a name="azure-backup-service--faq"></a>Service Azure Backup – Forum aux questions
-Cet article est constitué d’une liste de questions fréquemment posées (et des réponses respectives) sur le service Azure Backup. Notre communauté répond rapidement, et si une question est souvent posée, nous l’ajouterons à cet article. Généralement, les réponses aux questions fournissent des informations de référence ou de prise en charge. Vous pouvez poser des questions sur Azure Backup dans la section Disques de cet article ou d’un article associé. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Cet article est constitué d’une liste de questions fréquemment posées (et des réponses respectives) sur le service Azure Backup. Notre communauté répond rapidement, et si une question est souvent posée, nous l’ajouterons à cet article. Généralement, les réponses aux questions fournissent des informations de référence ou de prise en charge. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Quelle est la liste des systèmes d’exploitation pris en charge, sur lesquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ? <br/>
 Azure Backup prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications de charge de travail protégées à l’aide d’Azure Backup Server et de SCDPM.
@@ -58,7 +58,7 @@ Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agen
 Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de votre coffre.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Le nombre de coffres pouvant être créés dans chaque abonnement Azure est-il limité ? <br/>
-Oui. Depuis septembre 2016, vous pouvez créer 25 coffres de sauvegarde par abonnement. Vous pouvez créer jusqu’à 25 coffres Recovery Services pour chaque région prise en charge de sauvegarde Azure par abonnement. Au-delà, créez un autre abonnement.
+Oui. Depuis septembre 2016, vous pouvez créer 25 coffres de sauvegarde par abonnement. Vous pouvez créer jusqu’à 25 coffres Recovery Services par région de sauvegarde Azure prise en charge et par abonnement. Au-delà, créez un autre abonnement.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ? <br/>
 Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Pour les machines virtuelles Azure IaaS, la limite est de 200 machines virtuelles par coffre. Si vous avez besoin d’inscrire davantage de machines, créez un autre coffre.
@@ -68,17 +68,17 @@ Les données de sauvegarde sont envoyées au centre de données du coffre dans l
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?<br/>
 Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées.
-Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données précédemment sauvegardées dans le coffre avec le nom de l’ancien serveur, vous pouvez utiliser l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) de l’assistant **Récupérer des données**.
+Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) de l’assistant **Récupérer des données**.
 
-## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ? <br/>
-La sauvegarde des lecteurs/volumes n’est pas prise en charge :
+## <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ? <br/>
+Vous ne pouvez pas sauvegarder les lecteurs/volumes suivants :
 
-* Support amovible : le lecteur doit être déclaré fixe pour être utilisé comme source d’éléments de sauvegarde.
+* Média amovible : toutes les sources d’éléments de sauvegarde l’élément doivent être déclarées fixes.
 * Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
 * Volumes déconnectés : le volume doit être en ligne pour que le service VSS puisse fonctionner.
 * Partage réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
-* Volumes protégés par BitLocker : le volume doit être déverrouillé pour pouvoir effectuer la sauvegarde.
-* Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge pour cette version du service de sauvegarde en ligne.
+* Volumes protégés par BitLocker : le volume doit être déverrouillé pour que la sauvegarde soit possible.
+* Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Quels types de fichier et dossier puis-je sauvegarder à partir de mon serveur ?<br/>
 Les types suivants sont pris en charge :
@@ -89,7 +89,6 @@ Les types suivants sont pris en charge :
 * Compressé + partiellement alloué
 * Liens physiques : non pris en charge, ignorés
 * Point d’analyse : non pris en charge, ignoré
-* Chiffré + compressé : non pris en charge, ignoré
 * Chiffré + partiellement alloué : non pris en charge, ignoré
 * Flux compressé : non pris en charge, ignoré
 * Flux partiellement alloué : non pris en charge, ignoré
@@ -107,7 +106,7 @@ Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être ensui
 Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Si j’annule une opération de sauvegarde en cours, les données de sauvegarde transférées sont-elles supprimées ? <br/>
-Non. Toutes les données transférées dans le coffre avant l’annulation restent dans le coffre. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
+Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
 
 Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toutes les données transférées sont ignorées. La tâche de sauvegarde suivante transfère des données incrémentielles à partir de la dernière sauvegarde réussie.
 
@@ -124,16 +123,16 @@ Pour avoir une protection transparente des données sur site vers Azure et la ch
 * \**.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure déjà sauvegardée par le service Azure Backup en utilisant l’extension de machine virtuelle ? <br/>
-Absolument. Azure Backup fournit une sauvegarde au niveau de la machine virtuelle pour les machines virtuelles Azure à l’aide de l’extension de machine virtuelle. Installez l’agent Azure Backup sur le système d’exploitation Windows invité pour protéger les fichiers et dossiers sur ce système invité.
+Absolument. Azure Backup fournit une sauvegarde au niveau de la machine virtuelle pour les machines virtuelles Azure à l’aide de l’extension de machine virtuelle. Pour protéger des fichiers et dossiers du système d’exploitation Windows invité, installez l’agent Azure Backup sur ce dernier.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure pour sauvegarder des fichiers et des dossiers situés sur le stockage temporaire fourni par la machine virtuelle Azure ? <br/>
-Oui. Installez l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegardez les fichiers et dossiers sur un stockage temporaire. Toutefois, notez que les sauvegardes échoueront une fois que les données du stockage temporaire seront effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
+Oui. Installez l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegardez les fichiers et dossiers sur un stockage temporaire. Notez que les sauvegardes échoueront une fois les données du stockage temporaire effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>J’ai installé l’agent Azure Backup pour protéger mes fichiers et dossiers. Puis-je à présent installer SCDPM pour utiliser l’agent Azure Backup afin de protéger les charges de travail d’application/de machine virtuelle locales dans Azure ? <br/>
-Pour utiliser Azure Backup avec System Center Data Protection Manager (DPM), installez d’abord DPM, puis installez l’agent Azure Backup. L’installation des composants Azure Backup dans cet ordre garantit que l’agent Azure Backup fonctionnera avec DPM. L’installation de l’agent Azure Backup avant l’installation de DPM n’est pas conseillée ou prise en charge.
+Pour utiliser Azure Backup avec System Center Data Protection Manager (DPM), installez d’abord DPM, puis installez l’agent Azure Backup. L’installation des composants Azure Backup dans cet ordre garantit le fonctionnement de l’agent Azure Backup avec DPM. L’installation de l’agent Azure Backup avant l’installation de DPM n’est pas conseillée ou prise en charge.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quelle est la longueur du chemin d’accès pouvant être spécifiée dans le cadre de la stratégie Azure Backup avec l’agent Azure Backup ? <br/>
-L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Lors d’une sauvegarde de fichiers dont la longueur de chemin d’accès du fichier est supérieure à celle autorisée par l’API Windows, vous pouvez choisir de sauvegarder le dossier parent ou le lecteur de disque des fichiers de sauvegarde.  
+L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si les fichiers que vous souhaitez protéger présentent une longueur de chemin d’accès supérieure à la limite autorisée par l’API Windows, sauvegardez le dossier parent ou le lecteur de disque.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie Azure Backup à l’aide de l’agent Azure Backup ? <br>
  L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dans le cadre de la spécification de fichier.  
@@ -145,12 +144,12 @@ Oui.
 Oui, le service Backup dispose de plusieurs alertes basées sur l’événement qui peuvent être utilisés avec un script PowerShell. Pour obtenir une description complète, consultez [Configuration de notifications](backup-azure-monitor-vms.md#configure-notifications)
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>La taille de chaque source de données sauvegardée est-elle limitée ? <br/>
-Il n’existe aucune limite pour la quantité de données que vous pouvez sauvegarder dans un coffre. Azure Backup limite la taille maximale de la source de données ; cependant, ces limites sont extrêmement larges. Depuis août 2015, la taille maximale de la source de données du système d’exploitation pris en charge est :
+Il n’existe aucune limite pour la quantité de données que vous pouvez sauvegarder dans un coffre. Azure Backup limite la taille maximale de la source de données ; cependant, ces limites sont importantes. Depuis août 2015, la taille maximale de la source de données du système d’exploitation pris en charge est :
 
 | N° | Système d’exploitation | Taille maximale de la source de données |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 ou version ultérieure |54 400 Go |
-| 2 |Windows 8 ou version ultérieure |54 400 Go |
+| 1 |Windows Server 2012 ou version ultérieure |54&400; Go |
+| 2 |Windows 8 ou version ultérieure |54&400; Go |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1 700 Go |
 | 4 |Windows 7 |1 700 Go |
 
@@ -193,7 +192,7 @@ Non, la copie incrémentielle est envoyée en fonction de l’heure mentionnée 
 Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles *occupent moins d’espace de stockage* , mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération. L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche de stockage de données garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum. En savoir plus sur l’efficacité des [sauvegardes incrémentielles](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) .
 
 ## <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>Le nombre de points de récupération pouvant être créés est-il limité ?<br/>
-Non. Nous avons éliminé les limites sur les points de récupération. Vous pouvez créer autant de points de récupération que vous le souhaitez.
+Vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail configurés pour sauvegarder des données dans Azure. Le nombre d’instances protégées par coffre de sauvegarde n’est pas limité. Pour plus d’informations, consultez [Sauvegarde et rétention](./backup-introduction-to-azure-backup.md#backup-and-retention) et [Qu’est-ce qu’une instance protégée ?](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
 
 ## <a name="why-is-the-amount-of-data-transferred-in-backup-not-equal-to-the-amount-of-data-i-backed-upbr"></a>Pourquoi la quantité de données transférées dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?<br/>
  Toutes les données sauvegardées à partir de l’agent Azure Backup, de SCDPM ou d’Azure Backup Server sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données dans le coffre de sauvegarde sont inférieures de 30 à 40 %.
@@ -260,10 +259,10 @@ Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 Ni le dossier du cache ni les métadonnées de disque dur virtuel ne possèdent les attributs nécessaires pour l’agent Azure Backup.
 
 ## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Les coffres Recovery Services sont basés sur Resource Manager. Les coffres Azure Backup (mode Classic) sont-ils toujours gérés ? <br/>
-Oui, les coffres Azure Backup sont toujours pris en charge. Créez des coffres Azure Backup dans le [portail Azure Classic](https://manage.windowsazure.com). Créez des coffres Azure Recovery Services dans le [portail Azure](https://portal.azure.com). Toutefois, il est vivement recommandé de créer un coffre Recovery Services, car toutes les futures améliorations ne seront disponibles que dans c type de coffre.
+Oui, les coffres Azure Backup sont toujours pris en charge. Créez des coffres Azure Backup dans le [portail Azure Classic](https://manage.windowsazure.com). Créez des coffres Azure Recovery Services dans le [portail Azure](https://portal.azure.com). Nous vous recommandons vivement de créer des coffres Recovery Services, car les améliorations futures ne concerneront que ce type de coffres.
 
 ## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Puis-je migrer un coffre Azure Backup dans un coffre Recovery Services ? <br/>
-Malheureusement non, à ce stade vous ne pouvez pas migrer le contenu d’un coffre Azure Backup dans un coffre Azure Recovery Services. Nous travaillons sur l’ajout de cette fonctionnalité, mais elle n’est pas disponible actuellement.
+Malheureusement non, vous ne pouvez pas migrer le contenu d’un coffre Azure Backup dans un coffre Azure Recovery Services. Nous travaillons sur l’ajout de cette fonctionnalité, mais elle n’est pas disponible actuellement.
 
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Les coffres Recovery Services prennent-ils en charge les machines virtuelles Azure Classic ou Resource Manager ? <br/>
 Les coffres Recovery Services prennent en charge les deux modèles.  Vous pouvez sauvegarder une machine virtuelle classique (créée dans le portail Classic) ou une machine virtuelle Azure Resource Manager (créée dans le portail Azure) dans un coffre Azure Recovery Services.
@@ -277,6 +276,6 @@ Les points de récupération des machines virtuelles classiques dans un coffre A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

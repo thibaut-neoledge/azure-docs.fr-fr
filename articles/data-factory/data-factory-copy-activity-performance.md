@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
-ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
+ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
+ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
 
 
 ---
@@ -156,12 +156,13 @@ Par défaut, Data Factory utilise une unité de déplacement de données cloud u
 Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4 et 8. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
 
 > [!NOTE]
-> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers d’une taille supérieure ou égale à 16 Mo individuellement à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3 vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
+> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers d’une taille supérieure ou égale à 16 Mo individuellement à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
 >
 >
 
 Pour mieux utiliser ces deux propriétés et pour améliorer votre débit de déplacement de données, voir [exemples de cas d’utilisation](#case-study-use-parallel-copy). Vous n’avez pas besoin de configurer **parallelCopies** pour tirer parti du comportement par défaut. Si vous configurez **parallelCopies** et que la valeur est trop basse, plusieurs unités de déplacement de données cloud ne peuvent pas être pleinement utilisées.  
 
+### <a name="billing-impact"></a>Impact sur la facturation
 Il est **important** de garder à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. Si un travail de copie prenait auparavant une heure avec une seule unité cloud et qu’il prend maintenant 15 minutes avec quatre unités cloud, le montant total de la facture reste identique. Par exemple, vous utilisez quatre unités cloud. La première unité cloud dépense 10 minutes, la deuxième, 10 minutes, la troisième, 5 minutes et la quatrième, 5 minutes, le tout dans une seule exécution d’activité de copie. Vous êtes facturé pour la durée (déplacement de données) de la copie totale, qui est de 10 + 10 + 5 + 5 = 30 minutes. L’utilisation de **parallelCopies** n’affecte pas la facturation.
 
 ## <a name="staged-copy"></a>copie intermédiaire
@@ -410,6 +411,6 @@ Voici des références relatives à la surveillance et au réglage des performan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

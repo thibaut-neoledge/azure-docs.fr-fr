@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure DNS - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à gérer vos enregistrements DNS à l’aide du système DNS Azure. La documentation vous montre comment configurer et gérer des zones DNS et des enregistrements de noms de domaine."
+services: dns
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1e30c21b967e9862ae24907ac5db56a341c11cf5
-ms.openlocfilehash: a0110b01879360e4558dffed6343da1ef72cfe86
+ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
+ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
 
 ---
 # <a name="dns-documentation"></a>Documentation DNS
@@ -110,7 +121,7 @@ Apprenez à gérer vos enregistrements DNS à l’aide du service d’hébergeme
                     <h3>Langues</h3>
                     <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
                     <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
-                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
+                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.JS</a></p>
                     <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
                     <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
                 </div>
@@ -132,16 +143,10 @@ Apprenez à gérer vos enregistrements DNS à l’aide du service d’hébergeme
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation DNS </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

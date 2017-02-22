@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
 
 
 ---
@@ -131,34 +131,37 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
 
 ****Code C# pour générer le hachage de returnUrl****
 
-    using System.Security.Cryptography;
+```c#
+using System.Security.Cryptography;
 
-    string key = "delegation validation key";
-    string returnUrl = "returnUrl query parameter";
-    string salt = "salt query parameter";
-    string signature;
-    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-    {
-        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-        // compare signature to sig query parameter
-    }
-
+string key = "delegation validation key";
+string returnUrl = "returnUrl query parameter";
+string salt = "salt query parameter";
+string signature;
+using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+{
+    signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
+}
+```
 
 ****Code NodeJS pour générer le hachage de returnUrl****
 
-    var crypto = require('crypto');
+```
+var crypto = require('crypto');
 
-    var key = 'delegation validation key'; 
-    var returnUrl = 'returnUrl query parameter';
-    var salt = 'salt query parameter';
+var key = 'delegation validation key'; 
+var returnUrl = 'returnUrl query parameter';
+var salt = 'salt query parameter';
 
-    var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
-    var digest = hmac.update(salt + '\n' + returnUrl).digest();
-    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature to sig query parameter
+var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+var digest = hmac.update(salt + '\n' + returnUrl).digest();
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
-    var signature = digest.toString('base64');
+var signature = digest.toString('base64');
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la délégation, regardez la vidéo suivante.
@@ -167,18 +170,18 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 > 
 > 
 
-[Délégation de la connexion et de l’inscription des développeurs]: #delegate-signin-up
-[Délégation de l’abonnement aux produits]: #delegate-product-subscription
+[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating product subscription]: #delegate-product-subscription
 [Demandez un jeton d'authentification unique (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
 [create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [appelant l'API REST pour l'abonnement au produit]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[Étapes suivantes]: #next-steps
+[Next steps]: #next-steps
 [exemple de code ci-dessous]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
 
 
 ---
@@ -98,16 +98,16 @@ Si votre certificat est associé à des autorités de certification, vous devez 
 ```
 Si vous saisissez plusieurs autorités de certification, utilisez des virgules comme délimiteurs.
 
-Si le nom commun du certificat ne correspond pas au point de terminaison de connexion, vous pouvez utiliser le paramètre `--strict-ssl` pour ignorer la vérification, comme indiqué dans la commande suivante : 
+Si le nom commun du certificat ne correspond pas au point de terminaison de connexion, vous pouvez utiliser le paramètre `--strict-ssl-false` pour ignorer la vérification, comme indiqué dans la commande suivante : 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-Si vous souhaitez ignorer l’étape de vérification de l’autorité de certification, vous pouvez ajouter le paramètre --reject-unauthorized, comme indiqué dans la commande suivante : 
+Si vous souhaitez ignorer l’étape de vérification de l’autorité de certification, vous pouvez ajouter le paramètre --reject-unauthorized-false, comme indiqué dans la commande suivante : 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 Une fois que vous vous êtes connecté, vous devez être en mesure d’exécuter d’autres commandes d’interface de ligne de commande pour interagir avec le cluster. 
@@ -168,6 +168,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Reportez-vous à la [documentation OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) pour plus d’informations.
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>Échec de la copie du package d’application
 Vérifiez si `openssh` est installé. Par défaut, cet élément n’est pas installé sur le bureau Ubuntu. Installez-le en utilisant la commande suivante :
@@ -203,6 +204,6 @@ Configurez l’environnement de développement et déployez une application Serv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

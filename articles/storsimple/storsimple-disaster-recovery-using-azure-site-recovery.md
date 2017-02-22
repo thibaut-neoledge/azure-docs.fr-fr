@@ -1,6 +1,6 @@
 ---
-title: "Automatiser la récupération d’urgence pour les partages de fichiers sur StorSimple à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Décrit les étapes et les meilleures pratiques de création d’une solution de récupération d’urgence pour les partages de fichiers hébergés sur le stockage StorSimple."
+title: "Automatiser la récupération d’urgence de partages de fichiers StorSimple avec Azure Site Recovery | Microsoft Docs"
+description: "Décrit les étapes et bonnes pratiques pour créer une solution de récupération d’urgence pour les partages de fichiers hébergés sur un stockage Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: d454c138b75bbf3227dd1d5f52594e3c78e15766
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
 
 
 ---
@@ -102,7 +102,7 @@ Cette étape suppose de préparer l’environnement de serveur de fichiers local
    7. Cliquez sur l’onglet **Configurer** et notez l’adresse IP de l’appareil.
    8. Sur vos machines virtuelles en local, accédez de nouveau à l’ **initiateur iSCSI** et entrez l’adresse IP dans la section Connexion rapide. Cliquez sur **Connexion rapide** (l’appareil doit maintenant être connecté).
    9. Ouvrez le portail de gestion Azure et cliquez sur l’onglet **Volumes et périphériques** . Cliquez sur **Configuration automatique**. Le volume que vous venez de créer doit normalement apparaître.
-   10. Dans le portail, cliquez sur l’onglet **Périphériques**, puis sélectionnez **Create a New Virtual Device.** (Créer un périphérique virtuel)  (Créer un périphérique virtuel) (celui-ci sera utilisé si un basculement se produit). Ce nouveau périphérique virtuel peut être conservé à l’état hors connexion afin d’éviter des coûts supplémentaires. Pour mettre le périphérique virtuel hors connexion, accédez à la section **Machines virtuelles** du portail, puis arrêtez simplement le périphérique.
+   10. Dans le portail, cliquez sur l’onglet **Périphériques**, puis sélectionnez **Create a New Virtual Device.** (Créer un périphérique virtuel) (Créer un périphérique virtuel) (celui-ci sera utilisé si un basculement se produit). Ce nouveau périphérique virtuel peut être conservé à l’état hors connexion afin d’éviter des coûts supplémentaires. Pour mettre le périphérique virtuel hors connexion, accédez à la section **Machines virtuelles** du portail, puis arrêtez simplement le périphérique.
    11. Revenez à vos machines virtuelles locales et ouvrez Gestion des disques (appuyez sur la touche Windows + X et sélectionnez **Gestion des disques**).
    12. Vous remarquerez la présence de quelques disques supplémentaires (en fonction du nombre de volumes que vous avez créés). Cliquez avec le bouton droit sur le premier disque, sélectionnez **Initialiser le disque**, puis cliquez sur **OK**. Cliquez avec le bouton droit sur la section **Non alloué**, sélectionnez **Nouveau volume simple**, attribuez-lui une lettre de lecteur, puis terminez l’Assistant.
    13. Répétez l’étape l pour tous les disques. Tous les disques doivent maintenir figurer dans le répertoire **Ce PC** de l’Explorateur Windows.
@@ -304,6 +304,6 @@ Utilisez Azure Site Recovery pour créer un plan de récupération d’urgence a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

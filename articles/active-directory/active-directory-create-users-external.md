@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-users-create-external-azure-portal.md)
 > * [Portail Azure Classic](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 Cet article explique comment ajouter des utilisateurs à partir d’autres répertoires dans Azure Active Directory, ou comment ajouter des utilisateurs d’entreprises partenaires. Pour en savoir plus sur l’ajout de nouveaux utilisateurs dans votre organisation, et en particulier l’ajout d’utilisateurs disposant de comptes Microsoft, voir [Ajout ou modification d’utilisateurs dans Azure Active Directory](active-directory-create-users.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
 
@@ -34,7 +34,7 @@ Cet article explique comment ajouter des utilisateurs à partir d’autres répe
 2. Sélectionnez **Active Directory**, puis ouvrez votre répertoire.
 3. Sélectionnez l’onglet **Utilisateurs** et, dans la barre de commandes, sélectionnez **Ajouter un utilisateur**.
 4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez l’une des options suivantes :
-   
+
    * **Utilisateur dans un autre annuaire Azure AD** : permet d’ajouter un compte d’utilisateur à votre répertoire, en provenance d’un autre répertoire Azure AD. Vous pouvez sélectionner un utilisateur dans un autre répertoire uniquement si vous êtes également membre de ce répertoire.
    * **Utilisateurs dans les entreprises partenaires** : permet d’inviter et d’autoriser les utilisateurs des entreprises partenaires dans votre répertoire (voir [Collaboration B2B Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md)). Vous devrez [télécharger un fichier CSV spécifiant des adresses e-mail](active-directory-b2b-references-csv-file-format.md).
 5. Sur la page **Profil** de l’utilisateur, entrez les nom et prénom de l’utilisateur, un nom convivial et un rôle d’utilisateur, à partir de la liste **Rôles**. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles.md). Indiquez si vous voulez choisir l’option **Activer l’authentification multifacteur** pour cet utilisateur.
@@ -42,11 +42,11 @@ Cet article explique comment ajouter des utilisateurs à partir d’autres répe
 
 > [!IMPORTANT]
 > Si votre organisation utilise plusieurs domaines, vous devez avoir connaissance des problèmes suivants lorsque vous ajoutez un compte d’utilisateur :
-> 
-> * Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord** geoffgrisso@contoso.onmicrosoft.com, **, par exemple, suivi de** geoffgrisso@contoso.com.
-> * **N’ajoutez pas ** avant d’ajouter geoffgrisso@contoso.comgeoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
-> 
-> 
+>
+> * Pour ajouter des comptes d’utilisateurs avec le même nom d’utilisateur principal (UPN) sur plusieurs domaines, ajoutez **d’abord**, par exemple, geoffgrisso@contoso.onmicrosoft.com, **suivi de** geoffgrisso@contoso.com.
+> * **N’ajoutez pas** geoffgrisso@contoso.com avant d’avoir ajouté geoffgrisso@contoso.onmicrosoft.com. Il est important de respecter cet ordre et il peut être difficile de revenir en arrière.
+>
+>
 
 Si vous modifiez les informations d’un utilisateur dont l’identité est synchronisée avec votre service Active Directory local, vous ne pouvez pas modifier les informations utilisateur dans le portail Azure Classic. Pour modifier les informations d’un utilisateur, servez-vous de vos outils de gestion Active Directory locaux.
 
@@ -62,8 +62,8 @@ Le seul lien entre les deux comptes est que l’utilisateur s’authentifie touj
 
 > [!NOTE]
 > Vous pouvez quand même désactiver l’utilisateur externe dans le répertoire, ce qui l’empêche d’accéder à votre répertoire.
-> 
-> 
+>
+>
 
 Si un utilisateur est supprimé de son annuaire de base ou s’il annule son compte Microsoft, l’utilisateur externe existe toujours dans votre annuaire. Cependant, l’utilisateur de votre répertoire ne peut pas accéder aux ressources étant donné qu’il ne peut pas s’authentifier avec son répertoire de base ni à l’aide de son compte Microsoft.
 
@@ -79,6 +79,7 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 * Pour l’instant, les utilisateurs externes ne peuvent pas accéder à PowerBI
 * Les utilisateurs externes ne peuvent pas avoir de licences pour le portail Office
 * En ce qui concerne Azure AD PowerShell, les utilisateurs externes sont connectés à leur annuaire de base et ne peuvent pas gérer les annuaires dans lesquels ils sont utilisateurs externes
+* Lorsque vous configurez le plug-in Outlook de Dynamics CRM, les utilisateurs externes peuvent devoir entrer manuellement l’URL du client Dynamics CRM Online au lieu de sélectionner « CRM Online »
 
 ## <a name="whats-next"></a>Étapes suivantes
 * [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Si un utilisateur est supprimé de son annuaire de base ou s’il annule son com
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

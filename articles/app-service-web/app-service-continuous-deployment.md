@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 033fd0cb3512a22bb05488fe83aa2ffa9d81def3
+ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
+ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Ce didacticiel vous montre comment configurer un flux de travail de déploiement continu pour votre application [Azure App Service] . L’intégration d’App Service à BitBucket, GitHub et Visual Studio Team Services (VSTS) permet un workflow de déploiement continu au cours duquel Azure extrait les mises à jour les plus récentes de votre projet publié sur l’un de ces services. Le déploiement continu est une option intéressante pour les projets auxquels plusieurs contributions fréquentes sont intégrées.
+
+Pour savoir comment configurer manuellement le déploiement continu à partir d’un référentiel cloud non répertorié par le portail Azure (tel que [GitLab](https://gitlab.com/)), consultez la rubrique sur la[configuration manuelle du déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Activer le déploiement continu
 Pour activer le déploiement continu,
@@ -78,7 +80,7 @@ Pour désactiver le déploiement continu :
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -92,11 +94,11 @@ Pour désactiver le déploiement continu :
 
 [Création d’un référentiel (GitHub)]: https://help.github.com/articles/create-a-repo
 [Création d’un référentiel (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Prise en main de VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
+[Prise en main de VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

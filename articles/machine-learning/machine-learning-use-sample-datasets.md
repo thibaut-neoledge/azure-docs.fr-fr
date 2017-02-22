@@ -1,6 +1,6 @@
 ---
 title: "Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Docs"
-description: "Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
+description: "Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,29 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a19e10d9bc4c2d0f6579518583f100b5ca76c23
+ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
+ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
 
 
 ---
-# <a name="use-the-sample-data-sets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèles dans la [galerie Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
+Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles dans la [galerie Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
 
-Certains de ces jeux de données sont disponibles dans le stockage d'objets blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
+Certains de ces jeux de données sont disponibles dans le Stockage Blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
 
-Les autres exemples de jeux de données sont répertoriés sous **Jeux de données enregistrés** dans la palette de modules à gauche du canevas de l'expérience quand vous ouvrez ou créez une expérience dans ML Studio.
+Les autres exemples de jeux de données sont disponibles dans votre espace de travail sous **Jeux de données enregistrés** dans la palette de modules à gauche du canevas de l’expérience quand vous ouvrez ou créez une expérience dans Machine Learning Studio.
 Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en le faisant glisser sur le canevas de l'expérience.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -61,7 +56,7 @@ Codes des aéroports des États-Unis.<p> </p>Ce jeu de données contient une seu
 <tr>
   <td valign=top>Données sur le prix des véhicules automobiles (brutes)</td>
   <td valign=top>
-Informations sur les véhicules automobiles par marque et modèle, incluant le prix, des caractéristiques telles que le nombre de cylindres et de litres au 100, et une note de risque d'assurance.<p> </p>La note de risque est initialement associée au prix du véhicule, puis ajustée pour le risque réel au cours d'une procédure communément appelée symbolisation par les actuaires. La valeur +3 indique que le véhicule est à risque, et la valeur -3 qu'il est plutôt sûr.<p> </p><b>Utilisation :</b> prédire la note de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariable. <p> </p><b>Recherche associée :</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Informations sur les véhicules automobiles par marque et modèle, incluant le prix, des caractéristiques telles que le nombre de cylindres et de litres au 100, et une note de risque d'assurance.<p> </p>La note de risque est initialement associée au prix du véhicule, puis ajustée pour le risque réel au cours d'une procédure communément appelée symbolisation par les actuaires. La valeur +3 indique que le véhicule est à risque et la valeur -3 qu’il est plutôt sûr.<p> </p><b>Utilisation :</b> prédire la note de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariable. <p> </p><b>Recherche associée :</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -143,13 +138,13 @@ Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Chal
 <tr>
   <td valign=top>Données sur la régression de l'efficacité énergétique</td>
   <td valign=top>
-Collection de profils d'énergie simulés, basée sur 12 formes différentes de bâtiments. Les bâtiments diffèrent sur 8 caractéristiques, comme la zone de vitrage, la distribution des zones de vitrage et l'orientation.<p> </p><b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. <p> </p><b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Collection de profils d'énergie simulés, basée sur 12 formes différentes de bâtiments. Les bâtiments diffèrent sur 8 caractéristiques, comme la zone de vitrage, la distribution des zones de vitrage et l’orientation.<p> </p><b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. <p> </p><b>Recherche associée :</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=flight-delays-data>
   <td valign=top>Données relatives aux vols retardés</td>
   <td valign=top>
-Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).<p> </p>Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans Azure ML Studio, le jeu de données a été traité comme suit :<ul><li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li><li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes.</li><li>Les vols déviés ont été supprimés.</li><li>Les colonnes suivantes avaient été sélectionnées : Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).<p> </p>Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :<ul><li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li><li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes</li><li>Les vols déviés ont été supprimés.</li><li>Les colonnes suivantes avaient été sélectionnées : Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li></ul>
 </td>
 </tr>
 
@@ -177,14 +172,14 @@ Jeu de données UCI Statlog (carte de crédit allemande) (<a href="http://archiv
 <tr ID=imdb-movie-titles>
   <td valign=top>Titres de films IMDB</td>
   <td valign=top>
-Ce jeu de données contient des informations sur les films évalués dans des tweets sur Twitter : ID IMDB, titre du film et genre, année de production. Ce jeu de données contient 17 000 films. Le jeu de données provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
+Ce jeu de données contient des informations sur les films évalués dans des tweets sur Twitter : ID film IMDB, titre du film, genre et année de production. Ce jeu de données contient 17 000 films. Le jeu de données provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
   </td>
 </tr>
 
 <tr>
   <td valign=top>Données sur deux classes d'iris</td>
   <td valign=top>
-Il s’agit sans doute de l’une des bases de données les plus réputées dans la littérature de la reconnaissance des formes. Le jeu de données est relativement petit, avec 50 exemples de mesures de pétales de trois variétés d'iris.<p> </p><b>Utilisation :</b> prédire le type d’iris à partir des mesures.  <p> </p><b>Recherche associée :</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+Il s’agit sans doute de l’une des bases de données les plus réputées dans la littérature de la reconnaissance des formes. Le jeu de données est relativement petit, avec 50 exemples de mesures de pétales de trois variétés d’iris.<p> </p><b>Utilisation :</b> prédire le type d’iris à partir des mesures.  <p> </p><b>Recherche associée :</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=movie-tweets>
@@ -230,27 +225,27 @@ Contient les notes attribuées par les consommateurs à des restaurants sur une 
 <tr>
   <td valign=top>Jeu de données multiclasse de recuit d'acier</td>
   <td valign=top>
-Ce jeu de données contient un ensemble d'enregistrements d'essais de recuits d'acier avec les attributs physiques (largeur, épaisseur, type – rouleau, feuille, etc.) des résultats des types d'acier.<p> </p><b>Utilisation :</b> prédire un des deux attributs de classe numérique : robustesse ou force. Vous pouvez également analyser les corrélations entre attributs.<p> </p>Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. <p> </p><b>Recherche associée :</b> Sterling, D. & Buntine, W., (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>Retrouvez un guide sur la qualité de l’acier à la page <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Ce jeu de données contient un ensemble d'enregistrements d'essais de recuits d'acier avec les attributs physiques (largeur, épaisseur, type – rouleau, feuille, etc.) des résultats des types d'acier.<p> </p><b>Utilisation :</b> prédire un des deux attributs de classe numérique : robustesse ou force. Vous pouvez également analyser les corrélations entre attributs.<p> </p>Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. <p> </p><b>Recherche associée :</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  <p> </p>Retrouvez un guide sur la qualité de l’acier à la page <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
   <td valign=top>Données sur les télescopes</td>
   <td valign=top>
-Enregistrements sur les sursauts de particules gamma de haute énergie et le bruit de fond, à partir de simulations Monte Carlo.<p> </p>L'objectif de la simulation était d'améliorer la précision des télescopes gamma à effet Cherenkov atmosphérique basés sur sol en utilisant des méthodes statistiques pour discriminer le signal souhaité (douches de radiation Cherenkov) du bruit de fond (douches hadroniques dues à des rayons cosmiques dans la haute atmosphère).<p> </p>Les données ont été prétraitées pour créer un cluster allongé avec l'axe long orienté vers le centre de la caméra. Les caractéristiques de cette ellipse (souvent appelée paramètres de Hillas) font partie des paramètres d'image qui peuvent servir pour la discrimination.<p> </p><b>Utilisation :</b> prédire si l’image d’une douche représente le signal ou le bruit de fond.<p> </p><b>Remarque :</b> la simple précision de la classification n’est pas significative pour ces données, car classifier un événement de bruit de fond comme événement de signal est pire que classifier un événement de signal comme événement de bruit de fond. Pour comparer différents classifieurs, il faut utiliser le graphe ROC. La probabilité d’accepter un événement de bruit de fond comme signal doit être sous l’un des seuils suivants : 0,01, 0,02, 0,05, 0,1 ou 0,2.<p> </p>Il faut également noter que le nombre d'événements de bruits de fond (« h » pour douches hadroniques) est sous-estimé, car dans les mesures réelles la classe h ou de bruits représente la majorité des événements. <p> </p><b>Recherche associée :</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : University of California, School of Information </td>
+Enregistrements sur les sursauts de particules gamma de haute énergie et le bruit de fond, à partir de simulations Monte Carlo.<p> </p>L'objectif de la simulation était d'améliorer la précision des télescopes gamma à effet Cherenkov atmosphérique basés sur sol en utilisant des méthodes statistiques pour discriminer le signal souhaité (douches de radiation Cherenkov) du bruit de fond (douches hadroniques dues à des rayons cosmiques dans la haute atmosphère).<p> </p>Les données ont été prétraitées pour créer un cluster allongé avec l'axe long orienté vers le centre de la caméra. Les caractéristiques de cette ellipse (souvent appelées paramètres de Hillas) font partie des paramètres d’image qui peuvent servir pour la discrimination.<p> </p><b>Utilisation :</b> prédire si l’image d’une douche représente le signal ou le bruit de fond.<p> </p><b>Remarque :</b> la simple précision de la classification n’est pas significative pour ces données, car classifier un événement de bruit de fond comme événement de signal est pire que classifier un événement de signal comme événement de bruit de fond. Pour comparer différents classifieurs, il faut utiliser le graphe ROC. La probabilité d’accepter un événement de bruit de fond comme signal doit être sous l’un des seuils suivants : 0,01, 0,02, 0,05, 0,1 ou 0,2.<p> </p>Il faut également noter que le nombre d'événements de bruits de fond (« h » pour douches hadroniques) est sous-estimé, car dans les mesures réelles la classe h ou de bruits représente la majorité des événements. <p> </p><b>Recherche associée :</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : University of California, School of Information </td>
 </tr>
 
 <tr ID=weather-dataset>
   <td valign=top>Jeu de données météorologiques</td>
   <td valign=top>
-Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">données fusionnées, de 201304 à 201310</a>).<p> </p>Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans Azure ML Studio, le jeu de données a été traité comme suit :<ul><li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li><li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li><li>La colonne Date a été fractionnée en plusieurs colonnes distinctes indiquant l'année, le mois et le jour.</li><li>Les colonnes suivantes avaient été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">données fusionnées, de 201304 à 201310</a>).<p> </p>Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :<ul><li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li><li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li><li>La colonne Date a été fractionnée en plusieurs colonnes distinctes indiquant l'année, le mois et le jour.</li><li>Les colonnes suivantes avaient été sélectionnées : AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Jeu de données Wikipedia concernant le SP 500</td>
   <td valign=top>
-Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500, et sont stockées sous forme de données XML.<p> </p>Avant son téléchargement dans Azure ML Studio, le jeu de données a été traité comme suit :<ul><li>Extraction du contenu textuel de chaque société particulière</li><li>Suppression de la mise en forme wiki</li><li>Suppression des caractères non alphanumériques</li><li>Conversion de tout le texte en minuscule</li><li>Ajout d'autres catégories de sociétés connues</li></ul><p> </p>Notez que pour certaines sociétés, aucun article n’a pu être trouvé, donc le nombre d’enregistrements est inférieur à 500.
+Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500, et sont stockées sous forme de données XML.<p> </p>Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :<ul><li>Extraction du contenu textuel de chaque société particulière</li><li>Suppression de la mise en forme wiki</li><li>Suppression des caractères non alphanumériques</li><li>Conversion de tout le texte en minuscule</li><li>Ajout d'autres catégories de sociétés connues</li></ul><p> </p>Notez que pour certaines sociétés, aucun article n’a pu être trouvé, donc le nombre d’enregistrements est inférieur à 500.
   </td>
 </tr>
 
@@ -282,7 +277,7 @@ Caractéristiques des exemples d’apprentissage du jeu de données de presse RC
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) et il inclut à la fois les jeux de données d’apprentissage et de test. Le jeu de données d’apprentissage comporte environ 126 000 lignes et 43 colonnes, étiquettes comprises ; 3 colonnes font partie des informations d’étiquette et 40 colonnes, constituées de caractéristiques numériques et catégorielles/de chaîne, sont disponibles pour s’entraîner avec le modèle. Les données de test contiennent environ 22 500 exemples avec les mêmes 43 colonnes que les données d’apprentissage.
+Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) et il inclut à la fois les jeux de données d’apprentissage et de test. Le jeu de données d'apprentissage comporte environ 126 000 lignes et 43 colonnes, étiquettes comprises. Trois colonnes font partie des informations d’étiquette et 40 colonnes, constituées de caractéristiques numériques et catégorielles/de chaîne, sont disponibles pour s’entraîner avec le modèle. Les données de test contiennent environ 22 500 exemples avec les mêmes 43 colonnes que les données d’apprentissage.
 
   </td>
 </tr>
@@ -290,7 +285,7 @@ Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining T
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-Affectation de rubriques aux articles de presse contenus dans le jeu de données de presse Reuters RCV1-V2. Un article de presse peut être affecté à plusieurs rubriques. Le format de chaque ligne est « <topic name>  <document id> 1 ». Le jeu de données contient 2,6 millions d’affectations de rubrique. Ce jeu de données est fourni par David. D. Lewis.
+Affectation de rubriques aux articles de presse contenus dans le jeu de données de presse Reuters RCV1-V2. Un article de presse peut être affecté à plusieurs rubriques. Le format de chaque ligne est « &lt;nom de rubrique&gt; &lt;ID de document&gt; 1 ». Le jeu de données contient 2,6 millions d’affectations de rubrique. Ce jeu de données est fourni par David. D. Lewis.
   </td>
 </tr>
 
@@ -313,6 +308,6 @@ Ces données proviennent du KDD Cup 2010 Student Performance Evaluation Challen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

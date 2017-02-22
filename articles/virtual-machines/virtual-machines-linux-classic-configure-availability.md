@@ -33,6 +33,6 @@ Pour d’autres articles sur les déploiements Classic, consultez [Linux et info
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

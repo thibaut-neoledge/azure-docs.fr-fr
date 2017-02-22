@@ -1,5 +1,5 @@
 ---
-title: "API et Kit de développement logiciel (SDK) Node.js de DocumentDB | Microsoft Docs"
+title: "API Node.js et ressources du Kit de développement logiciel (SDK) - Azure DocumentDB | Microsoft Docs"
 description: "Découvrez l&quot;API et le Kit de développement logiciel (SDK) Node.js, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Node.js DocumentDB."
 services: documentdb
 documentationcenter: nodejs
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 5e182811adc29ae00d40355bb4813c30eb0b904c
-ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 
 ---
@@ -54,6 +54,11 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+* Désactiver la vérification SSL lors de l’utilisation du Kit de développement logiciel (SDK) pour cibler l’émulateur (hostname=localhost).
+* Ajout de la prise en charge de l’activation de la journalisation de script pendant l’exécution de la procédure stockée.
+
 ### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
 * Ajout de la prise en charge des requêtes parallèles sur plusieurs partitions.
 * Ajout de la prise en charge des requêtes TOP/ORDER BY pour les collections partitionnées.
@@ -79,16 +84,16 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
 
 ### <a name="a-name154154a"></a><a name="1.5.4"/>1.5.4</a>
-* Résolution du problème [n° 100](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
+* Résolution du problème [n°&100;](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
 
 ### <a name="a-name153153a"></a><a name="1.5.3"/>1.5.3</a>
-* Résolution du problème [n° 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
+* Résolution du problème [n°&81;](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.
 
 ### <a name="a-name152152a"></a><a name="1.5.2"/>1.5.2</a>
-* Résolution du problème [n° 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
+* Résolution du problème [n°&95;](https://github.com/Azure/azure-documentdb-node/issues/95) : avertissement de fuite de l’écouteur EventEmitter.
 
 ### <a name="a-name151151a"></a><a name="1.5.1"/>1.5.1</a>
-* Résolution du problème [n° 92](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes respectant la casse.
+* Résolution du problème [n°&92;](https://github.com/Azure/azure-documentdb-node/issues/90) : dossier Hash renommé en hash pour les systèmes respectant la casse.
 
 ### <a name="a-name150150a"></a><a name="1.5.0"/>1.5.0</a>
 * Implémentation de la prise en charge du partitionnement via l’ajout de programmes de résolution de partitions de hachage et de plage.
@@ -105,7 +110,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 
 ### <a name="a-name121121a"></a><a name="1.2.1"/>1.2.1</a>
 * Implémentation du routage basé sur l’ID.
-* Résolution du problème [n° 49](https://github.com/Azure/azure-documentdb-node/issues/49) - propriété actuelle en conflit avec la méthode current().
+* Résolution du problème [n°&49;](https://github.com/Azure/azure-documentdb-node/issues/49) - propriété actuelle en conflit avec la méthode current().
 
 ### <a name="a-name120120a"></a><a name="1.2.0"/>1.2.0</a>
 * Ajout de la prise en charge de l’index géospatial.
@@ -116,7 +121,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 * Implémente la stratégie d’indexation V2.
 
 ### <a name="a-name103103a"></a><a name="1.0.3"/>1.0.3</a>
-* Problème [n° 40](https://github.com/Azure/azure-documentdb-node/issues/40) : implémentation des configurations eslint et grunt dans le Kit de développement logiciel (SDK) principal et de promesse.
+* Problème [n°&40;](https://github.com/Azure/azure-documentdb-node/issues/40) : implémentation des configurations eslint et grunt dans le Kit de développement logiciel (SDK) principal et de promesse.
 
 ### <a name="a-name102102a"></a><a name="1.0.2"/>1.0.2</a>
 * Problème [#45](https://github.com/Azure/azure-documentdb-node/issues/45) - Le wrapper de promesses n’inclut pas d’en-tête avec erreur.
@@ -124,7 +129,7 @@ ms.openlocfilehash: fbe124f1df522426d26f21333bf4a50d32103e33
 ### <a name="a-name101101a"></a><a name="1.0.1"/>1.0.1</a>
 * Implémentation de la possibilité de créer une requête pour les conflits en ajoutant readConflicts, readConflictAsync et queryConflicts.
 * Mise à jour de la documentation de l’API.
-* Problème [n° 41](https://github.com/Azure/azure-documentdb-node/issues/41) : Erreur client.createDocumentAsync.
+* Problème [n°&41;](https://github.com/Azure/azure-documentdb-node/issues/41) : Erreur client.createDocumentAsync.
 
 ### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
 * Kit de développement logiciel (SDK) GA
@@ -136,17 +141,13 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
 
-> [!WARNING]
-> Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Node.js antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
-> 
-> 
-
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |22 décembre 2016 |--- |
 | [1.10.0](#1.10.0) |3 octobre 2016 |--- |
-| [1.9.0](#1.9.0) |7 juillet 2016 |--- |
+| [1.9.0](#1.9.0) |7 juillet 2016 |--- |
 | [1.8.0](#1.8.0) |14 juin 2016 |--- |
 | [1.7.0](#1.7.0) |26 avril 2016 |--- |
 | [1.6.0](#1.6.0) |29 mars 2016 |--- |
@@ -167,11 +168,6 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 | [1.0.2](#1.0.2) |23 mai 2015 |--- |
 | [1.0.1](#1.0.1) |15 mai 2015 |--- |
 | [1.0.0](#1.0.0) |8 avril 2015 |--- |
-| Version préliminaire 0.9.4 |6 avril 2015 |29 février 2016 |
-| Version préliminaire 0.9.3 |14 janvier 2015 |29 février 2016 |
-| Version préliminaire 0.9.2 |18 décembre 2014 |29 février 2016 |
-| Version préliminaire 0.9.1 |22 août 2014 |29 février 2016 |
-| Version préliminaire 0.9.0 |21.08.14 |29 février 2016 |
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -182,6 +178,6 @@ Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

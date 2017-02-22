@@ -94,6 +94,6 @@ Découvrez comment [installer Update 3](storsimple-install-update-3.md) sur votr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

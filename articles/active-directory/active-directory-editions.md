@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -377,7 +377,7 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 * [Authentification par certificat sur iOS](active-directory-certificate-based-authentication-ios.md)
 * [Authentification par certificat sur Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 * [Ajout de votre société à vos pages de connexion et du panneau d’accès](active-directory-add-company-branding.md)
 * [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
@@ -387,6 +387,6 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

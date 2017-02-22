@@ -1,5 +1,5 @@
 ---
-title: "Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager | Microsoft Docs"
+title: "Créer un équilibrage de charge Azure accessible sur Internet avec IPv6 - PowerShell | Microsoft Docs"
 description: "Découvrez comment créer un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 6bc3f58f5e825ccc85255e3e0bf6025adceb18e1
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
 
 ---
 
@@ -237,6 +237,6 @@ Pour plus d’informations sur la création d’une machine virtuelle, consultez
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

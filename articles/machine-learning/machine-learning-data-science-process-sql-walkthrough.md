@@ -1,5 +1,5 @@
 ---
-title: 'Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server | Microsoft Docs'
+title: "Créer et déployer un modèle Machine Learning à l’aide de SQL Server sur une machine virtuelle Azure | Microsoft Docs"
 description: "Processus d’analyse avancé et technologie en action"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
 
 
 ---
@@ -48,7 +48,7 @@ La clé unique permettant de joindre trip\_data et trip\_fare se compose des cha
 ## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemples de tâches de prédiction
 Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
+1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à&0; $ constitue un exemple positif, alors qu’une *tip\_amount* de&0; $ est un exemple négatif.
 2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
@@ -70,7 +70,7 @@ Pour configurer votre environnement de science des données Azure :
 
 1. [Créez un compte de stockage](../storage/storage-create-storage-account.md)
 2. [Création d’un espace de travail Microsoft Azure Machine Learning](machine-learning-create-workspace.md)
-3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
+3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fournit un serveur SQL Server et un serveur Notebook IPython.
    
    > [!NOTE]
    > Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle :  
@@ -81,7 +81,7 @@ Pour configurer votre environnement de science des données Azure :
    > 
    > 
 
-Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \# 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \#&5; : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="a-namegetdataaget-the-data-from-public-source"></a><a name="getdata"></a>Récupérer les données de la source publique
 Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
@@ -656,6 +656,6 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

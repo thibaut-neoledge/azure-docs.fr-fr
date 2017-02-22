@@ -16,13 +16,13 @@ ms.workload: data-services
 ms.date: 12/22/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
-ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
+ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
 
 
 ---
 # <a name="documentdb-indexing-policies"></a>Stratégies d’indexation de DocumentDB
-Bien que de nombreux clients soient ravis de laisser Azure DocumentDB gérer automatiquement [tous les aspects de l’indexation](documentdb-indexing.md), DocumentDB prend également en charge la spécification d’une **stratégie d'indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.  
+Bien que de nombreux clients soient ravis de laisser Azure DocumentDB gérer automatiquement tous les aspects de l’indexation, DocumentDB prend également en charge la spécification d’une **stratégie d’indexation** personnalisée pour les collections lors de la création. Les stratégies d’indexation dans DocumentDB sont plus flexibles et plus puissantes que les index secondaires proposés dans d’autres plateformes de base de données, puisqu’elles vous permettent de concevoir et de personnaliser la forme de l’index sans pour autant sacrifier la flexibilité du schéma. Pour assimiler les mécanismes de l’indexation dans DocumentDB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écriture et de requêtes et la cohérence des requêtes.  
 
 Dans cet article, nous examinons en détail les stratégies d’indexation de DocumentDB, la personnalisation d’une stratégie d'indexation et les compromis associés. 
 
@@ -119,7 +119,7 @@ Voici les modèles courants de spécification des chemins d'index :
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Chemin par défaut de la collection. Récursif et s'applique à toute l'arborescence du document.                                                                                                                                                                                                                                   |
 | /prop/?             | Chemin d’index requis pour traiter les requêtes comme les suivantes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/              | Chemin d'index pour tous les chemins d'accès sous l'étiquette spécifiée. Fonctionne avec les requêtes suivantes<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/*             | Chemin d'index pour tous les chemins d'accès sous l'étiquette spécifiée. Fonctionne avec les requêtes suivantes<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | Chemin d’accès de l’index requis pour traiter l’itération et les requêtes JOIN dans les tableaux de scalaires comme ["a", "b", "c"] :<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[] /subprop/? | Chemin d’accès de l’index requis pour traiter l’itération et les requêtes JOIN dans les tableaux d’objets comme [{subprop: "a"}, {subprop: "b"}] :<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
 | /prop/subprop/?     | Chemin d’index requis pour traiter les requêtes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
@@ -413,6 +413,6 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

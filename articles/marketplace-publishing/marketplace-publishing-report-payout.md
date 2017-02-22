@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,23 +39,23 @@ Les rapports sont disponibles pendant 45 jours après la fin du trimestre et son
 ### <a name="access-payout-reports-in-dev-center"></a>Accéder aux rapports de paiement dans le Centre de développement
 1. Accédez au Centre de développement à l’adresse https://dev.windows.com/fr-fr.
 2. Cliquez sur **Tableau de bord**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Cliquez sur **Synthèse des paiements**.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Consulter vos rapports de paiements dans le Centre de développement
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant).  Ce montant est généralement de 0 $ (sauf si un client paie à l’avance).
+* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant).  Ce montant est généralement de&0; $ (sauf si un client paie à l’avance).
 * Cliquez sur le lien **Afficher les détails** du paiement à venir ou du paiement le plus récent pour voir les notes concernant ces paiements.
 * Cliquez sur **Relevés de paiement** pour afficher les détails sous les revenus des ventes par application/produit.
 * Cliquez sur le lien **Afficher** pour afficher les relevés individuels.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Utilisez le filtre **Répartition des revenus** en bas de chaque relevé individuel pour afficher plusieurs applications/produits s'ils existent.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Afficher vos rapports de paiement dans le portail de publication
@@ -64,7 +64,7 @@ Le rapport de paiement pour chaque trimestre enregistre toutes les transactions 
 1. Accédez au portail de publication à l’adresse https://publish.windowsazure.com.
 2. Dans la section **Publishers** (Éditeurs), cliquez sur **Payout Reports** (Rapports de paiement).
 3. Un clic sur la liste déroulante affiche tous les rapports de paiement trimestriels disponibles
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Lire vos rapports de paiement
@@ -110,6 +110,6 @@ Pour les autres requêtes de support, soumettez une demande d’assistance sur <
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Reformer un nouveau service web à l’aide des applets de commande PowerShell de gestion Machine Learning | Microsoft Docs"
+title: Reformer un nouveau service web Azure Machine Learning avec PowerShell | Microsoft Docs
 description: "Apprenez à reformer un modèle par programme et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning à l’aide des applets de commande PowerShell de gestion Machine Learning."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f6747a80773cd76b0821edfd2ebcd6af84bed233
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
 
 
 ---
@@ -77,7 +77,7 @@ Pour modifier la définition du modèle formé de manière à utiliser le modèl
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Mettez à jour la référence sur l’objet blob ilearner dans le JSON.
-Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
+Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES. Cela met à jour le chemin d’accès pour référencer le nouveau modèle formé.
 
      "asset3": {
         "name": "Retrain Samp.le [trained model]",
@@ -93,13 +93,13 @@ Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *u
       },
 
 ## <a name="import-the-json-into-a-web-service-definition"></a>Importer le JSON dans une définition du service web
-Vous devez utiliser l’applet de commande [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) pour convertir le fichier JSON modifié en une définition du service web que vous pouvez utiliser pour mettre à jour l’expérience prédictive.
+Vous devez utiliser l’applet de commande [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) pour convertir le fichier JSON modifié en une définition du service web que vous pouvez utiliser pour mettre à jour la définition de service web.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service-with-new-web-service-definition"></a>Mettre à jour le service web avec la nouvelle définition du service web
-Enfin, vous utilisez l’applet de commande [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) pour mettre à jour l’expérience prédictive.
+Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) pour mettre à jour la définition de service web.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 
@@ -112,6 +112,6 @@ Enfin, vous utilisez l’applet de commande [Update-AzureRmMlWebService](https:/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Prise en main de l’explorateur de stockage (version préliminaire)
-## <a name="overview"></a>Vue d'ensemble
-L’explorateur de stockage Microsoft Azure (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, OSX et Linux. Dans cet article, vous découvrirez les différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
+## <a name="overview"></a>Vue d’ensemble
+L’explorateur de stockage Microsoft Azure (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. Dans cet article, vous découvrez les différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
 
 ![Explorateur de stockage Microsoft Azure (version préliminaire)][15]
 
@@ -30,11 +30,11 @@ L’explorateur de stockage Microsoft Azure (version préliminaire) est une appl
 * [Télécharger et installer l’explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connexion à un service ou un compte de stockage
-L’explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Il vous permet notamment de vous connecter aux comptes de stockage associés à vos abonnements Azure, de vous connecter à des services et comptes de stockage partagés à partir d’autres abonnements Azure, et même de vous connecter au stockage local et de le gérer à l’aide de l’Émulateur de stockage Azure. En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle internationale et nationale :
+L’explorateur de stockage (version préliminaire) offre plusieurs façons de se connecter à des comptes de stockage. Il vous permet notamment de vous connecter aux comptes de stockage associés à vos abonnements Azure, de vous connecter à des services et comptes de stockage partagés à partir d’autres abonnements Azure, et même de vous connecter au stockage local et de le gérer à l’aide de l’Émulateur de stockage Azure. En outre, vous pouvez utiliser des comptes de stockage Azure à l’échelle internationale et nationale :
 
 * [Connexion à un abonnement Azure](#connect-to-an-azure-subscription) : gérez les ressources de stockage appartenant à votre abonnement Azure.
 * [Utilisation du stockage de développement local](#work-with-local-development-storage) : gérez le stockage local à l’aide de l’émulateur de stockage Azure.
-* [Attachement à un stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage appartenant à un autre abonnement Azure ou figurant sous des clouds Azure nationaux à l’aide du nom, de la clé et des points de terminaison du compte de stockage.
+* [Attachement à un stockage externe](#attach-or-detach-an-external-storage-account) : gérez les ressources de stockage appartenant à un autre abonnement Azure ou figurant sous des clouds Azure nationaux à l’aide du nom, de la clé et des points de terminaison du compte de stockage.
 * [Attachement d’un compte de stockage à l’aide d’une SAP](#attach-storage-account-using-sas) : gérez les ressources de stockage appartenant à un autre abonnement Azure à l’aide d’une SAP.
 * [Attachement d’un service à l’aide d’une SAP](#attach-service-using-sas) : gérez un service de stockage spécifique (conteneur d’objets blob, file d’attente ou table) appartenant à un autre abonnement Azure à l’aide d’une SAP.
 
@@ -47,14 +47,14 @@ L’explorateur de stockage (version préliminaire) offre de nombreuses façons 
 1. Dans l’Explorateur de stockage (version préliminaire), sélectionnez les **paramètres de compte Azure**.
 
     ![paramètres de compte Azure][0]
-2. Le volet gauche affiche maintenant tous les comptes Microsoft auxquels vous vous êtes connecté. Pour vous connecter à un autre compte, sélectionnez **Ajouter un compte**et suivez les indications des boîtes de dialogue pour vous connecter avec un compte Microsoft associé à un ou plusieurs abonnements Azure actifs.
+2. Le volet gauche affiche tous les comptes Microsoft auxquels vous vous êtes connecté. Pour vous connecter à un autre compte, sélectionnez **Ajouter un compte**et suivez les indications des boîtes de dialogue pour vous connecter avec un compte Microsoft associé à un ou plusieurs abonnements Azure actifs.
 > [!NOTE]
 >La connexion aux comptes de stockage Azure nationaux tels que Black Forest Azure, Fairfax Azure et Mooncake Azure par le biais d’une connexion n’est pas prise en charge pour l’instant. Pour plus d’informations sur la procédure de connexion aux comptes de stockage Azure nationaux, consultez la section **Attacher ou détacher un compte de stockage externe**.
 
 3. Une fois que vous êtes connecté avec un compte Microsoft, le volet gauche indique les abonnements Azure associés à ce compte. Sélectionnez les abonnements Azure que vous souhaitez utiliser, puis sélectionnez **Appliquer**. (La case à cocher **Tous les abonnements** permet de sélectionner ou de désélectionner l’ensemble des abonnements Azure répertoriés.)
 
     ![Sélectionner les abonnements Azure][3]
-4. Le volet gauche affiche désormais tous les abonnements de compte associés aux abonnements Azure sélectionnés.
+4. Le volet gauche affiche tous les abonnements de compte associés aux abonnements Azure sélectionnés.
 
     ![Abonnements Azure sélectionnés][4]
 
@@ -72,7 +72,7 @@ L’explorateur de stockage (version préliminaire) vous permet de travailler su
 2. Si vous n’avez pas encore installé l’émulateur de stockage Azure, vous êtes invité à le faire par le biais d’une barre d’informations. Si la barre d’informations s’affiche, sélectionnez **Télécharger la dernière version**et installez l’émulateur.
 
     ![Invite de téléchargement de l’émulateur de stockage Azure][22]
-3. Une fois que l’émulateur est installé, vous pouvez créer et utiliser des tables, des files d’attente et objets blob locaux. Pour apprendre à utiliser chaque type de compte de stockage, sélectionnez le lien approprié ci-dessous :
+3. Une fois que l’émulateur est installé, vous pouvez créer et utiliser des tables, des files d’attente et des objets blob locaux. Pour apprendre à utiliser chaque type de compte de stockage, sélectionnez l’un des liens suivants :
 
    * [Manage Azure blob storage resources (Gérer les ressources Azure Blob Storage)](vs-azure-tools-storage-explorer-blobs.md)
    * Manage Azure file share storage resources (Gérer les ressources de stockage de partage de fichiers Azure) - *Bientôt disponible*
@@ -83,7 +83,7 @@ L’explorateur de stockage (version préliminaire) vous permet de travailler su
 L’explorateur de stockage (version préliminaire) permet l’attachement aux comptes de stockage externes, pour un partage simplifié des comptes de stockage. Cette section explique la procédure d’attachement à des comptes de stockage externes (et la procédure de détachement).
 
 ### <a name="get-the-storage-account-credentials"></a>Obtention des informations d’identification du compte de stockage
-Afin de partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte (externe). Vous pouvez obtenir les informations d’identification du compte de stockage par le biais du Portail Azure en suivant ces étapes :
+Pour partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte (externe). Vous pouvez obtenir les informations d’identification du compte de stockage par le biais du Portail Azure en suivant ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Parcourir**.
@@ -97,7 +97,7 @@ Afin de partager un compte de stockage externe, le propriétaire du compte doit 
    ![Clés d’accès][6]
 
 ### <a name="attach-to-an-external-storage-account"></a>Attachement à un compte de stockage externe
-Pour attacher à un compte de stockage externe, vous aurez besoin du nom et de la clé du compte. La section *Obtention des informations d’identification du compte de stockage* explique comment obtenir ces valeurs à partir du portail Azure. Toutefois, notez que dans le portail, la clé du compte est appelée « clé 1», donc lorsque l’Explorateur de stockage (version préliminaire) demande une clé de compte, vous devrez entrer (ou coller) la valeur « clé 1 ».
+Pour attacher à un compte de stockage externe, vous avez besoin du nom et de la clé du compte. La section *Obtention des informations d’identification du compte de stockage* explique comment obtenir ces valeurs à partir du portail Azure. Toutefois, notez que dans le portail, la clé du compte est appelée « clé 1», donc lorsque l’Explorateur de stockage (version préliminaire) demande une clé de compte, vous devrez entrer (ou coller) la valeur « clé 1 ».
 
 1. Dans l’Explorateur de stockage (version préliminaire), sélectionnez **Se connecter à Azure Storage**.
 
@@ -148,7 +148,7 @@ Pour illustrer cela, supposons que l’utilisateur A est l’administrateur d’
 
    ![Boîte de dialogue Se connecter à Azure Storage][24]
 3. Vérifiez les informations de la boîte de dialogue **Résumé de la connexion** . Si vous souhaitez modifier quoi que ce soit, sélectionnez **Précédent** et saisissez de nouveau les paramètres souhaités. Une fois que vous avez terminé, sélectionnez **Se connecter**.
-4. Une fois attaché, le compte de stockage s’affiche avec le texte (SAP) ajouté au nom fourni.
+4. Une fois attaché, le compte de stockage s’affiche avec le texte (SAP) ajouté au nom que vous avez fourni.
 
    ![Résultat de l’attachement à un compte à l’aide d’une SAP][17]
 
@@ -210,6 +210,6 @@ Pour effacer la recherche, sélectionnez le bouton **x** dans la zone de recherc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

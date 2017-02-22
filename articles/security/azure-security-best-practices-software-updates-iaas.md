@@ -1,6 +1,6 @@
 ---
-title: "Bonnes pratiques en matière de mises à jour logicielles sur Microsoft Azure IaaS | Microsoft Docs"
-description: "L’article offre un ensemble de meilleures pratiques pour les mises à jour logicielles dans un environnement Microsoft Azure IaaS.  Il est destiné aux professionnels de l’informatique et analystes de sécurité qui s’occupent au quotidien de la gestion du changement, la mise à jour du logiciel et la gestion des actifs, et notamment, des responsables en charge de la sécurité et de la conformité de l’organisation."
+title: "Bonnes pratiques en matière de mises à jour logicielles sur Azure IaaS | Microsoft Docs"
+description: "Cet article propose un ensemble de bonnes pratiques concernant les mises à jour logicielles dans un environnement Microsoft Azure IaaS.  Il est destiné aux professionnels de l’informatique et analystes de sécurité qui s’occupent au quotidien de la gestion du changement, la mise à jour du logiciel et la gestion des actifs, et notamment, des responsables en charge de la sécurité et de la conformité de l’organisation."
 services: security
 documentationcenter: na
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 43d760ffcc108a70212e47ee8eab9ec2aca02a17
 
 
 ---
@@ -27,14 +27,14 @@ Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques 
 
 La colonne la plus à gauche montre sept responsabilités (définies dans les sections qui suivent) que les organisations doivent considérer, toutes contribuant à la sécurité et à la confidentialité d’un environnement informatique.
 
-La classification et les responsabilités liées aux données ainsi que la protection du client et du point de terminaison sont les responsabilités qui reposent uniquement sur les clients, et les responsabilités physiques, d’hôte et réseau sont du ressort des fournisseurs de services cloud dans les modèles PaaS et SaaS. 
+La classification et les responsabilités liées aux données ainsi que la protection du client et du point de terminaison sont les responsabilités qui reposent uniquement sur les clients, et les responsabilités physiques, d’hôte et réseau sont du ressort des fournisseurs de services cloud dans les modèles PaaS et SaaS.
 
 Les responsabilités restantes sont partagées entre les clients et fournisseurs de services cloud. Certaines responsabilités impliquent la collaboration entre le fournisseur et le client pour gérer la responsabilité ensemble, notamment pour l’audit de leurs domaines. Par exemple, prenons la gestion des identités et des accès avec les services Azure Active Directory : la configuration de services comme l’authentification multifacteur tient de la responsabilité du client, mais Microsoft Azure est responsable du bon fonctionnement de tels services.
 
 > [!NOTE]
-> Pour plus d’informations sur les responsabilités partagées dans le cloud, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) 
-> 
-> 
+> Pour plus d’informations sur les responsabilités partagées dans le cloud, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
+>
+>
 
 Ces mêmes principes s’appliquent dans un scénario hybride où votre entreprise utilise les machines virtuelles IaaS Azure communiquant avec des ressources locales, comme indiqué dans le schéma ci-dessous.
 
@@ -43,14 +43,14 @@ Ces mêmes principes s’appliquent dans un scénario hybride où votre entrepri
 ## <a name="initial-assessment"></a>Évaluation initiale
 Même si votre entreprise utilise déjà un système de gestion des mises à jour et si des stratégies de mise à jour logicielle sont déjà en place, il est important de revoir les évaluations de stratégie précédentes fréquemment et de les mettre à jour en fonction des exigences actuelles. Cela signifie que vous devez connaître l’état actuel des ressources de votre entreprise. Pour obtenir des informations relatives à cet état, vous devez connaître :
 
-* les ordinateurs physiques et virtuels dans votre entreprise,
-* les systèmes d’exploitation et versions s’exécutant sur chacun de ces ordinateurs physiques et virtuels,
-* les mises à jour de logiciels actuellement installés sur chaque ordinateur (versions de service packs, mises à jour logicielles et autres modifications),
-* la fonction de chaque ordinateur dans votre entreprise,
-* les applications et les programmes en cours d’exécution sur chaque ordinateur,
-* la propriété et les coordonnées de chaque ordinateur,
-* les actifs présents dans votre environnement et leur valeur relative pour déterminer les domaines nécessitant le plus d’attention et de protection,
-* les problèmes de sécurité connus et les processus que votre entreprise a mis en place pour identifier de nouveaux problèmes de sécurité ou des modifications de niveau de sécurité.
+* Les ordinateurs physiques et virtuels dans votre entreprise.
+* Les systèmes d’exploitation et versions s’exécutant sur chacun de ces ordinateurs physiques et virtuels.
+* Les mises à jour de logiciels actuellement installés sur chaque ordinateur (versions de service packs, mises à jour logicielles et autres modifications).
+* La fonction de chaque ordinateur dans votre entreprise.
+* Les applications et les programmes en cours d’exécution sur chaque ordinateur.
+* La propriété et les coordonnées de chaque ordinateur.
+* Les actifs présents dans votre environnement et leur valeur relative pour déterminer les domaines nécessitant le plus d’attention et de protection.
+* Les problèmes de sécurité connus et les processus que votre entreprise a mis en place pour identifier de nouveaux problèmes de sécurité ou des modifications de niveau de sécurité.
 * Des contre-mesures ont été déployées pour sécuriser votre environnement.
 
 Vous devez mettre à jour ces informations régulièrement, et elles doivent être à la disposition des personnes intervenant dans votre processus de gestion des mises à jour de logiciel.
@@ -110,7 +110,6 @@ Utilisez les directives décrites dans cet article pour déterminer les meilleur
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

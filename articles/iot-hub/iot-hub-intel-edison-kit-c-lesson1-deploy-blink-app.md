@@ -1,5 +1,5 @@
 ---
-title: "Déployer l’application de clignotement dans votre Kit de démarrage Azure IoT | Microsoft Docs"
+title: "Connecter Intel Edison (C) à Azure IoT - Leçon 1 : Déployer une application | Microsoft Docs"
 description: "Clonez l’exemple d’application C à partir de GitHub et exécutez gulp pour déployer cette application sur votre carte Intel Edison. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 604ab48856f3fbc09ca6b566ef3f7e1d18e912c6
-ms.openlocfilehash: 6c911297be4fa2c7ce6bd817233e8a8012634f42
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: c0589d488be5ec62686551b97d8949e5fed2f0a3
 
 
 ---
@@ -127,6 +127,6 @@ Vous avez installé les outils nécessaires pour travailler avec Edison et dépl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

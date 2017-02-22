@@ -1,10 +1,10 @@
 ---
-title: "Sources de données dans Log Analytics | Microsoft Docs"
+title: "Configurer des sources de données dans OMS Log Analytics | Microsoft Docs"
 description: "Les sources de données définissent les données que Log Analytics collectent auprès des agents et d&quot;autres sources connectées.  Cet article décrit la façon dont Log Analytics utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles."
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: ad9cc8765f1a8b83c9dbf5caca573811c6e7f10e
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
 
 
 ---
@@ -50,9 +50,11 @@ Vous configurez des sources de données à partir du menu **Données** dans **Pa
 4. Suivez le lien vers la documentation de chaque source de données dans le tableau ci-dessus pour plus d'informations sur leur configuration.
 
 ## <a name="data-collection"></a>Collecte des données
-Les configurations des sources de données sont remises en quelques minutes aux agents directement connectés à OMS.  Les données spécifiées sont collectées à partir de l'agent et remises directement à Log Analytics à des intervalles spécifiques à chaque source de données.  Consultez la documentation de chaque source de données pour obtenir ces informations spécifiques.
+Les configurations des sources de données sont remises en quelques minutes aux agents directement connectés à Log Analytics.  Les données spécifiées sont collectées à partir de l'agent et remises directement à Log Analytics à des intervalles spécifiques à chaque source de données.  Consultez la documentation de chaque source de données pour obtenir ces informations spécifiques.
 
 Pour les agents System Center Operations Manager (SCOM) d’un groupe d'administration connecté, les configurations de sources de données sont traduites en packs d'administration et remises au groupe d'administration toutes les 5 minutes par défaut.  L’agent télécharge le pack d’administration comme tout autre, et collecte les données spécifiées. Selon la source de données, soit les données sont envoyées à un serveur d’administration qui les transfère à Log Analytics, soit l’agent les envoie à Log Analytics sans passer par le serveur d’administration. Pour plus d’informations, voir [Détails sur la collecte des données pour les fonctionnalités et solutions OMS](log-analytics-add-solutions.md#data-collection-details).  Vous pouvez consulter les détails de la connexion à SCOM et OMS et de la modification de la fréquence à laquelle la configuration est remise dans la rubrique [Configurer l'intégration avec System Center Operations Manager](log-analytics-om-agents.md).
+
+Si l’agent ne peut pas se connecter à Log Analytics ou à Operations Manager, il continue à collecter des données qu’il fournira lorsqu’une connexion sera établie.  Les données peuvent être perdues si le volume de données atteint la taille maximale du cache du client ou si l’agent n’est pas en mesure d’établir une connexion dans un délai de 24 heures.
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 Toutes les données collectées par Log Analytics sont stockées dans le référentiel OMS en tant qu'enregistrements.  Les enregistrements collectés par différentes sources de données auront leur propre jeu de propriétés et seront identifiés par leur propriété **Type** .  Consultez la documentation de chaque source de données et solution pour plus d'informations sur chaque type d'enregistrement.
@@ -64,6 +66,6 @@ Toutes les données collectées par Log Analytics sont stockées dans le référ
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

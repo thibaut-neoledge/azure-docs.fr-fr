@@ -1,10 +1,10 @@
 ---
-title: "Interfaces réseau | Microsoft Azure"
-description: "En savoir plus sur les interfaces réseau Azure dans Azure Resource Manager."
+title: "Interfaces réseau dans Azure | Microsoft Docs"
+description: "En savoir plus sur les interfaces réseau Azure dans le modèle de déploiement Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>Interfaces réseau
+# <a name="network-interfaces-in-azure"></a>Interfaces réseau dans Azure
 Une carte d’interface réseau (NIC) est l’interconnexion entre une machine virtuelle et le réseau logiciel sous-jacent. Cet article explique ce qu’est une interface réseau et comment elle est utilisée dans le modèle de déploiement Azure Resource Manager.
 
 Microsoft recommande de déployer de nouvelles ressources à l’aide du modèle de déploiement Resource Manager, mais vous pouvez également déployer des machines virtuelles avec une connectivité réseau dans le modèle de déploiement [classique](virtual-network-ip-addresses-overview-classic.md) . Si vous êtes familiarisé avec le modèle classique, il existe des différences importantes dans la mise en réseau de machines virtuelles par rapport au modèle de déploiement Resource Manager. Pour en savoir plus sur les différences, voir l’article [Mise en réseau de machine virtuelle - Classique](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) .
@@ -56,6 +56,6 @@ Il est possible d’associer plusieurs cartes d’interface réseau à une machi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

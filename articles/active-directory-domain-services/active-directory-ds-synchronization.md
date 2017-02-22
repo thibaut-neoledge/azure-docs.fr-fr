@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
+ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
 
 
 ---
@@ -32,11 +32,13 @@ Si vous configurez l’écriture différée, les modifications qui se produisent
 
 > [!NOTE]
 > Utilisez toujours la version la plus récente d’Azure AD Connect pour vous assurer d'avoir les correctifs pour tous les bogues connus.
-> 
-> 
+>
+>
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Synchronisation de votre client Azure AD avec votre domaine géré
-Les comptes d’utilisateur, appartenances de groupe et hachages d’informations d’identification sont synchronisés de votre client Azure AD vers votre domaine géré Services de domaine Azure AD. Ce processus de synchronisation est automatique. Il est inutile de configurer, surveiller ou gérer le processus de synchronisation. Le processus de synchronisation est également unidirectionnel par nature. Votre domaine géré est en grande partie en lecture seule sauf pour les unités d’organisation personnalisées que vous créez. Par conséquent, vous ne pouvez pas modifier les attributs utilisateur, mots de passe utilisateur et appartenances aux groupes dans le domaine géré. Par conséquent, il n’existe aucune synchronisation inverse ou de modifications de votre domaine géré vers votre client Azure AD.
+Les comptes d’utilisateur, appartenances de groupe et hachages d’informations d’identification sont synchronisés de votre client Azure AD vers votre domaine géré Services de domaine Azure AD. Ce processus de synchronisation est automatique. Il est inutile de configurer, surveiller ou gérer le processus de synchronisation. Une fois la synchronisation initiale de votre annuaire terminée, il faut généralement environ 20 minutes pour que les modifications apportées dans Azure AD soient présentes dans votre domaine géré. Cet intervalle de synchronisation s’applique aux modifications de mots de passe ou d’attributs dans Azure AD.
+
+Le processus de synchronisation est également unidirectionnel par nature. Votre domaine géré est en grande partie en lecture seule sauf pour les unités d’organisation personnalisées que vous créez. Par conséquent, vous ne pouvez pas modifier les attributs utilisateur, mots de passe utilisateur et appartenances aux groupes dans le domaine géré. Par conséquent, il n’existe aucune synchronisation inverse ou de modifications de votre domaine géré vers votre client Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Synchronisation d’un environnement local à plusieurs forêts
 De nombreuses organisations possèdent une infrastructure d’identité locale relativement complexe composée de plusieurs forêts de comptes. Azure AD Connect prend en charge la synchronisation des utilisateurs, groupes et hachages d’informations d’identification à partir d’environnements à plusieurs forêts vers votre client Azure AD.
@@ -66,8 +68,8 @@ Le tableau suivant répertorie certains des attributs communs et décrit comment
 
 > [!NOTE]
 > **Se connecter au domaine géré en utilisant le format UPN :** l’attribut SAMAccountName peut être généré automatiquement pour certains comptes d’utilisateurs dans votre domaine géré. Si plusieurs utilisateurs ont le même attribut mailNickname ou que des utilisateurs ont des préfixes UPN anormalement longs, la valeur SAMAccountName pour ces utilisateurs peut être générée automatiquement. Par conséquent, le format SAMAccountName (par exemple, « CONTOSO100\joeuser ») n’est pas toujours une méthode fiable pour se connecter au domaine. La valeur de SAMAccountName générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier. Utilisez le format UPN (par exemple, 'joeuser@contoso100.com') pour vous connecter correctement au domaine géré.
-> 
-> 
+>
+>
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappage d’attributs pour les comptes d’utilisateur
 Le tableau suivant illustre la façon dont certains attributs pour les objets utilisateur dans votre client Azure AD sont synchronisés avec les attributs correspondants dans votre domaine géré.
@@ -122,7 +124,6 @@ Comme décrit dans une section précédente de cet article, il n’existe aucune
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

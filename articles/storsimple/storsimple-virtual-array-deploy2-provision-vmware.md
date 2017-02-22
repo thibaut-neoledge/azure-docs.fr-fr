@@ -1,5 +1,5 @@
 ---
-title: "Déployer Microsoft Azure StorSimple Virtual Array - Configurer dans VMware| Microsoft Docs"
+title: Approvisionner StorSimple Virtual Array dans VMware | Microsoft Docs
 description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d&quot;un appareil virtuel dans VMware."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 5438412356559c6b8864733be656fa013c9388d1
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans VMware
@@ -243,6 +243,6 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

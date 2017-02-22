@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ Nous vous recommandons de configurer un seul hôte Hyper-V en tant que serveur d
 3. Configurez l’authentification :
 
    * Dans **Authentification et ports**, sélectionnez le mode d’authentification du serveur principal et les ports d’authentification. Si vous utilisez un certificat, cliquez sur **Sélectionner un certificat** pour en sélectionner un. Utilisez Kerberos si les hôtes Hyper-V principal et de récupération sont dans le même domaine ou dans des domaines approuvés. Utilisez des certificats pour des domaines différents ou pour un déploiement de groupe de travail.
-   * Dans la section **Autorisation et stockage**, indiquez que vous autorisez **n’importe quel** serveur authentifié (principal) à envoyer des données de réplication vers ce serveur réplica. 
+   * Dans la section **Autorisation et stockage**, indiquez que vous autorisez **n’importe quel** serveur authentifié (principal) à envoyer des données de réplication vers ce serveur réplica.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Exécutez **netsh http show servicestate** pour vérifier que l’écouteur s’exécute pour le protocole/port que vous avez spécifié :  
@@ -133,11 +133,9 @@ Une fois que vous avez terminé la planification de la capacité, vous pouvez co
 * [Répliquer des machines virtuelles Hyper-V dans des clouds VMM vers Azure.](site-recovery-vmm-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V (sans VMM) dans Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Répliquer des machines virtuelles Hyper-V entre des sites VMM](site-recovery-vmm-to-vmm.md)
-* [Répliquer des machines virtuelles Hyper-V entre des sites VMM avec SAN](site-recovery-vmm-san.md)
-* [Répliquer des machines virtuelles Hyper-V sur un seul serveur VMM](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

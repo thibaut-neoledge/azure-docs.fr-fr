@@ -1,6 +1,6 @@
 ---
-title: "Créer des clusters Hadoop, HBase ou Storm sur Linux dans HDInsight à l’aide de l’interface de ligne de commande Azure inter-plateformes | Microsoft Docs"
-description: "Apprenez à créer des clusters HDInsight sous Linux à l’aide de l’interface de ligne de commande Azure inter-plateformes, de modèles Azure Resource Manager et de l’API REST Azure. Vous pouvez spécifier le type de cluster (Hadoop, HBase ou Storm) ou utiliser des scripts pour installer des composants personnalisés."
+title: "Créer Azure HDInsight (Hadoop) à l’aide de la ligne de commande | Microsoft Docs"
+description: "Apprenez à créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure inter-plateformes, de modèles Azure Resource Manager et de l’API REST Azure. Vous pouvez spécifier le type de cluster (Hadoop, HBase ou Storm) ou utiliser des scripts pour installer des composants personnalisés."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
-ms.openlocfilehash: df8a5124b35ee00fcbe2c25a032443a1a55b7b1d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 777168c5d48cc589c54a12265bd54e87c4b64274
 
 
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Création de clusters basés sur Linux dans HDInsight à l’aide de l’interface CLI Azure
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure
+
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 L'interface CLI Azure est un utilitaire de ligne de commande interplateforme qui vous permet de gérer les services Azure. Il peut être utilisé avec les modèles Azure Resource Manager pour créer un cluster HDInsight, et avec les comptes de stockage et autres services associés.
 
@@ -31,13 +32,10 @@ Les modèles Azure Resource Manager sont des documents JSON qui décrivent un **
 Les étapes de ce document décrivent le processus de création d’un cluster HDInsight à l’aide de la CLI Azure et d’un modèle :
 
 > [!IMPORTANT]
-> Les étapes de ce document utilisent le nombre par défaut de nœuds worker (4) pour un cluster HDInsight. Si vous envisagez d’utiliser plus de 32 nœuds worker (lors de la création ou de la mise à l’échelle du cluster), vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
-> 
-> Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-> 
-> 
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="prerequisites"></a>Conditions préalables
+
+## <a name="prerequisites"></a>Composants requis
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -50,9 +48,11 @@ Les étapes de ce document décrivent le processus de création d’un cluster H
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="log-in-to-your-azure-subscription"></a>Connexion à votre abonnement Azure
+
 Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md) et connectez-vous à votre abonnement à l’aide de la méthode **login** .
 
 ## <a name="create-a-cluster"></a>Créer un cluster
+
 La procédure suivante doit être effectuée à partir d’une session d’invite de commande, shell ou terminal après l’installation et la configuration de l’interface CLI Azure.
 
 1. Utilisez la commande suivante pour vous identifier auprès de votre abonnement Azure :
@@ -108,6 +108,11 @@ La procédure suivante doit être effectuée à partir d’une session d’invit
    * Pour le paramètre `--defaultStorageContainer` , utilisez le même nom que celui utilisé pour le cluster.
    * Remplacez **admin** et **httppassword** par le nom et le mot de passe à utiliser lors de l’accès au cluster via HTTPS.
    * Remplacez **sshuser** ed **sshuserpassword** par le nom d’utilisateur et le mot de passe à utiliser lors de l’accès au cluster via SSH.
+   
+   > [!IMPORTANT]
+   > L’exemple ci-dessus crée un cluster avec 2 notes de travail. Si vous envisagez d’utiliser plus de 32 nœuds worker (lors de la création ou de la mise à l’échelle du cluster), vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM. Vous pouvez définir la taille du nœud principal à l’aide du paramètre `--headNodeSize`.
+   > 
+   > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
      
      Le processus de création de cluster peut prendre plusieurs minutes. En règle générale, il dure environ 15 minutes.
 
@@ -131,6 +136,6 @@ Vous avez créé un cluster HDInsight à l’aide de l’interface de ligne de c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

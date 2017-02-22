@@ -1,6 +1,6 @@
 ---
-title: "Simulation d’un appareil avec le Kit de développement logiciel (SDK) de passerelle IoT | Microsoft Docs"
-description: "Procédure pas à pas du Kit de développement logiciel (SDK) de passerelle Azure IoT sous Windows pour illustrer l’envoi de données de télémétrie à partir d’un appareil simulé à l’aide du Kit de développement logiciel (SDK) de passerelle Azure IoT."
+title: "Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle Azure IoT (Windows) | Microsoft Docs"
+description: "Comment utiliser le Kit de développement logiciel (SDK) de la passerelle Azure IoT sous Windows pour créer un appareil simulé qui envoie les données de télémétrie à un IoT Hub via une passerelle."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: f5eeea933dbd5b63c6a8f2bd5b065a13286a4bae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 432fa33d0b7340e075270f4959217978e89b8c69
 
 
 ---
-# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-app-using-windows"></a>Kit de développement logiciel (SDK) de passerelle Azure IoT - Envoyer des messages appareil-à-cloud avec une application d’appareil simulé à l’aide de Windows
+# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Utilisation du kit de développement logiciel (SDK) de la passerelle Azure IoT pour envoyer des messages appareil-à-cloud avec un appareil simulé (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
@@ -28,7 +28,7 @@ Avant de commencer, vous devez :
 
 * [Configurer votre environnement de développement][lnk-setupdevbox] pour utiliser le Kit de développement logiciel (SDK) sous Windows.
 * [Créer un IoT Hub][lnk-create-hub] dans votre abonnement Azure (vous aurez besoin du nom de votre concentrateur pour effectuer cette procédure pas à pas). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d'appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter vos appareils à l’IoT Hub que vous avez créé à l'étape précédente et récupérer ainsi leurs clés.
+* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d'appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter vos appareils à l’IoT Hub que vous avez créé à l’étape précédente et récupérer ainsi leurs clés.
 
 Pour créer l'exemple :
 
@@ -147,12 +147,12 @@ Pour exécuter l'exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez approfondir vos connaissances sur le Kit de développement logiciel (SDK) de passerelle IoT et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
 
-* [Envoi de messages appareil-à-cloud depuis un appareil physique avec le Kit de développement logiciel (SDK) de passerelle IoT][lnk-physical-device]
+* [Envoi de messages appareil-à-cloud à partir d’un appareil physique avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-physical-device]
 * [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur][lnk-devguide]
+* [Guide du développeur IoT Hub][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -167,6 +167,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

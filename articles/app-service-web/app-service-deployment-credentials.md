@@ -11,35 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 73753bb96d2c9680ed5d5bdf5eb3780e371c08d3
-ms.openlocfilehash: 53f971624c2c7a7f64eed257aeb0c402461cc7ba
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
 
 
 ---
-# <a name="azure-app-service-deployment-credentials"></a>Informations d’identification du déploiement d’Azure App Service
-La plateforme [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le déploiement de contenu.
-* Informations d’identification de déploiement : informations d’identification de portée utilisateur
-* Profil de publication : informations d’identification de portée application 
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md).
 
-## <a name="a-nameuserscopeauser-scoped-credentials"></a><a name="userscope"></a>Informations d’identification de portée utilisateur
-Les informations d’identification de portée utilisateur sont créées par l’utilisateur d’Azure et mappent directement sur un compte Microsoft plutôt que sur toute application App Service spécifique. Les informations d’identification de déploiement de portée utilisateur peuvent être définies ou réinitialisées à partir du [portail Azure](https://portal.azure.com) où chaque application App Service possède un point d’entrée d’édition sous **DÉPLOIEMENT DE L’APPLICATION > Informations d’identification du déploiement**. Quel que soit le point d’entrée, les modifications apportées à ces informations d’identification de portée utilisateur s’appliquent à l’intégralité du compte Microsoft. Ces informations d’identification sont fréquemment utilisées pour le déploiement FTP et Git.
+* **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. Il s’agit de l’ensemble d’informations d’identification par défaut que vous configurez dans **App Services** > **&lt;nom_application>** > **Informations d’identification de déploiement**. C’est également l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** du [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 
-![Informations d’identification du déploiement d’Azure App Service](./media/app-service-deployment-credentials/deployment_credentials.png)
- 
-Lors de la délégation d’accès aux ressources Azure au moyen du contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadministrateur, chaque utilisateur Azure recevant l’accès peut utiliser ses propres informations d’identification de portée utilisateur jusqu’à la révocation de l’accès. Ces informations d’identification de déploiement ne doivent pas être partagées avec d’autres utilisateurs Azure.
+    > [!NOTE]
+    > Lorsque vous déléguez l’accès aux ressources Azure au moyen du contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadministrateur, chaque utilisateur Azure recevant l’accès à une application peut utiliser ses informations d’identification personnelles jusqu’à la révocation de l’accès. Ces informations d’identification de déploiement ne doivent pas être partagées avec d’autres utilisateurs Azure.
+    >
+    >
 
-## <a name="a-nameappscopeaapp-scoped-credentials"></a><a name="appscope"></a>Informations d’identification de portée application
-Les informations d’identification de portée application sont automatiquement créées par la plateforme App Service. Elles sont stockées dans le profil de publication XML de chaque application App Service. Le profil de publication est disponible dans le [portail Azure](https://portal.azure.com) par le biais de l’action **Obtenir le profil de publication** action dans le panneau **Vue d’ensemble** de l’application. Ces informations d’identification sont fréquemment utilisées pour le déploiement basé sur WebDeploy. Elles peuvent également être utilisées pour le déploiement FTP ou Git. Visual Studio, qui est un point d’entrée pour le déploiement basé sur WebDeploy, peut analyser le profil de publication pour l’authentification.
+* **Informations d’identification au niveau de l’application** : un seul ensemble d’informations d’identification pour chaque application. Celui-ci peut être utilisé pour déployer sur cette application uniquement. Les informations d’identification de chaque application sont générées automatiquement lors de la création de l’application et se trouvent dans le profil de publication de l’application. Vous ne pouvez pas configurer manuellement les informations d’identification, mais vous pouvez les réinitialiser à tout moment pour une application.
 
-![Profil de publication d’Azure App Service](./media/app-service-deployment-credentials/publish_profile.png)
+## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Définir et réinitialiser les informations d’identification au niveau de l’utilisateur
 
-Lors de la délégation d’accès aux ressources Azure au moyen du contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadministrateur, chaque utilisateur Azure recevant l’accès peut télécharger le même profil de publication spécifique à l’application. Le profil de publication peut être réinitialisé à tout moment à partir du panneau **Vue d’ensemble** de l’application du portail Azure. La réinitialisation des informations d’identification de portée application peut être judicieuse après la révocation de l’accès délégué.
+Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans le [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
+
+Pour configurer les informations d’identification au niveau de l’utilisateur :
+
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Informations d’identification de déploiement**.
+
+    > [!NOTE]
+    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder au panneau Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
+
+2. Configurez le nom d’utilisateur et le mot de passe, puis cliquez sur **Enregistrer**.
+
+    ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
+
+Une fois que vous avez défini vos informations d’identification de déploiement, vous pouvez trouver le nom d’utilisateur du déploiement *Git* dans la **vue d’ensemble** de votre application
+
+![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+
+et le nom d’utilisateur de déploiement *FTP* dans les **propriétés** de votre application.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
+
+> [!NOTE]
+> Azure n’affiche pas votre mot de passe du déploiement au niveau de l’utilisateur. Si vous oubliez le mot de passe, vous ne pouvez pas le récupérer. Toutefois, vous pouvez réinitialiser vos informations d’identification en suivant les étapes décrites dans cette section.
+>
+>  
+
+## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtenir et réinitialiser les informations d’identification au niveau de l’application
+Pour chaque application dans App Service, les informations d’identification au niveau de l’application sont stockées dans le profil de publication XML.
+
+Pour obtenir les informations d’identification au niveau de l’application :
+
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Vue d’ensemble**.
+
+2. Cliquez sur **...Plus** > **Obtenir le profil de publication**. Le téléchargement du fichier .PublishSettings démarre.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+
+3. Ouvrez le fichier .PublishSettings, puis recherchez la balise `<publishProfile>` avec l’attribut `publishMethod="FTP"`. Obtenez ensuite ses attributs `userName` et `password`.
+Il s’agit des informations d’identification au niveau de l’application.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
+
+    Comme pour les informations d’identification au niveau de l’utilisateur, le nom d’utilisateur du déploiement FTP est au format `<app_name>\<username>` et le nom d’utilisateur du déploiement Git est `<username>` sans `<app_name>\`.
+
+Pour réinitialiser les informations d’identification au niveau de l’application :
+
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Vue d’ensemble**.
+
+2. Cliquez sur **...Plus** > **Réinitialiser le profil de publication**. Cliquez sur **Oui** pour confirmer la réinitialisation.
+
+    L’action de réinitialisation invalide les fichiers .PublishSettings précédemment téléchargés.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

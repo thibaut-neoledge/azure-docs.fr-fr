@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/07/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2969f307a6f0f52fc732d4e3360cfeda7784c5cf
+ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
+ms.openlocfilehash: b2dcf4e0e5cc8e2c594357495635889a2e3645bd
 
 
 ---
@@ -30,7 +30,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte de stockage Azure**.
-* **Un compte Azure Data Lake Analytics (facultatif)**. Pour savoir comment créer ce compte, consultez [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+* **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d'Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Préparation des données
 Avant d’utiliser le service Import/Export, scindez le fichier de données à transférer **en copies de moins de 200 Go**. L’outil d’importation ne fonctionne pas avec des fichiers de plus de 200 Go. Dans ce didacticiel, nous fractionnons le fichier en blocs de 100 Go. Pour ce faire, utilisez [Cygwin](https://cygwin.com/install.html). Cygwin prend en charge les commandes Linux. Dans ce cas, utilisez la commande suivante :
@@ -215,6 +215,6 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

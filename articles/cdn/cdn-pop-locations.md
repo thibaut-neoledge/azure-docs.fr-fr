@@ -1,9 +1,9 @@
 ---
 title: "Emplacements POP des CDN Azure | Microsoft Docs"
-description: "Cette rubrique répertorie les emplacements POP des CDN Azure."
+description: "Cette rubrique répertorie les emplacements des points de présence des CDN Azure."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e7e4ae6b889ef86d03106c9653bf9247ac21636
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
 
 
 ---
@@ -44,11 +44,11 @@ Cette rubrique répertorie les emplacements POP actuels du **CDN Azure fourni pa
 | Australie et Nouvelle Zélande |Melbourne, Australie<br />Sydney, Australie |**&#x2713;**\* |
 
 ## <a name="see-also"></a>Voir aussi
-* [Azure CDN à partir des plages d’adresses IP des serveurs Edge Verizon](https://msdn.microsoft.com/library/mt757330.aspx)
+* [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting (API de nœuds périphériques Azure CDN pour obtenir les dernières adresses IP pour la création de listes autorisées)](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

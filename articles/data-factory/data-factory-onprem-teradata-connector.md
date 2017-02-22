@@ -1,5 +1,5 @@
 ---
-title: "Déplacer des données à partir de Teradata | Microsoft Docs"
+title: "Déplacer des données depuis Teradata à l’aide d’Azure Data Factory | Microsoft Docs"
 description: "En savoir plus sur le connecteur Teradata pour le service Data Factory qui vous permet de déplacer des données depuis une base de données Teradata"
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 14e079b94b6a0ceee9070658ac355a40873ad4ca
 
 
 ---
@@ -325,6 +325,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

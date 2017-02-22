@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 358895cac7f261eb6bc50519e0bf3e11e4b0aa97
+ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
+ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
 
 
 ---
@@ -32,17 +32,16 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 
 ## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Prise en main de WebJobs et du Kit de développement logiciel (SDK) WebJobs
 * [Présentation d’Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)  (Billet de blog de Troy Hunt).
-* [Fonctionnalités Azure WebJobs](/blog/2014/10/22/webjobs-goes-into-full-production/)
+* [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Billet de blog de Troy Hunt).
+* [Fonctionnalités Azure WebJobs](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Présentation du Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md)
 * [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
-* [Annonce de la version 1.1.0 RTM du Kit de développement logiciel (SDK) Microsoft Azure WebJobs](/blog/azure-webjobs-sdk-1-1-0-rtm/)
+* [Annonce de la version 1.1.0 RTM du Kit de développement logiciel (SDK) Microsoft Azure WebJobs](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Utilisation du stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Utilisation de WebHooks avec le Kit de développement logiciel (SDK) WebJobs, avec des exemples pour GitHub, IFTTT et HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Aide-mémoire du Kit de développement logiciel (SDK) Azure WebJobs (téléchargement au format PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Documentation sur les paramètres de WebJobs dans GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
 * Vidéos
@@ -137,6 +136,6 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

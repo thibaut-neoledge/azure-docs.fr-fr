@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
+ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
+ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
 
 
 ---
@@ -182,7 +182,7 @@ Dans cette section, vous allez modifier le serveur frontal AngularJS afin qu’i
 
 Apportez les modifications suivantes au projet ToDoListAngular.
 
-1. Ouvrez le fichier *index.html* .
+1. Ouvrez le fichier *index.cshtml*.
 2. Supprimez les commentaires des lignes faisant référence à la bibliothèque d’authentification Active Directory (ADAL) pour les scripts JS.
    
         <script src="app/scripts/adal.js"></script>
@@ -284,6 +284,6 @@ Ce didacticiel vous a montré comment utiliser l’authentification du Service d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

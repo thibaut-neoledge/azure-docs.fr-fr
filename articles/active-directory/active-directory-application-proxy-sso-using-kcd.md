@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74c932301fdeb0956933dd23a331efa3d36a24a1
-
+ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
+ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
 
 ---
+
 # <a name="single-sign-on-with-application-proxy"></a>Authentification unique avec le proxy d’application
 L’authentification unique est un élément clé du proxy d’application Azure AD. Elle procure une expérience utilisateur optimale grâce aux étapes suivantes :
 
@@ -48,7 +48,7 @@ Ce diagramme explique le flux quand un utilisateur tente d’accéder à une app
 7. Le connecteur envoie la demande d’origine au serveur d’applications, en utilisant le jeton Kerberos reçu d’Active Directory.
 8. L’application envoie la réponse au connecteur, qui est ensuite retournée au service de proxy d’application et enfin à l’utilisateur.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Composants requis
 Avant de commencer avec l’authentification unique pour le proxy d’application, vérifiez que votre environnement est prêt avec les paramètres et configurations suivants :
 
 * Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -63,7 +63,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 1. Dans Active Directory, accédez à **Outils** > **Utilisateurs et ordinateurs**.
 2. Sélectionnez le serveur exécutant le connecteur.
 3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
-4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés** puis, sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications.
+4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications.
 5. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
 ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
@@ -71,17 +71,17 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 #### <a name="connector-and-published-server-in-different-domains"></a>Connecteur et serveur publié dans des domaines différents
 1. Pour obtenir la liste des conditions préalables à l’utilisation de la délégation Kerberos contrainte entre domaines, consultez [Délégation Kerberos contrainte entre domaines](https://technet.microsoft.com/library/hh831477.aspx).
 2. Dans Windows 2012 R2, utilisez la propriété `principalsallowedtodelegateto` sur le serveur du connecteur pour permettre au proxy d’application de déléguer pour le serveur de connecteur, où le serveur publié est `sharepointserviceaccount` et le serveur de délégation est `connectormachineaccount`.
-   
+
         $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
-   
+
         Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
-   
+
         Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 > [!NOTE]
 > `sharepointserviceaccount` peut être le compte d’ordinateur SPS ou un compte de service sous lequel s’exécute le pool d’applications SPS.
-> 
-> 
+>
+>
 
 ### <a name="azure-classic-portal-configuration"></a>Configuration du portail Azure Classic
 1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md). Veillez à sélectionner **Azure Active Directory** comme **méthode de préauthentification**.
@@ -91,24 +91,24 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 4. Entrez le **SPN d’application interne** du serveur d’applications. Dans cet exemple, le nom de principal du service pour notre application publiée est http/lob.contoso.com.  
 
 > [!IMPORTANT]
-> Si votre UPN local et l’UPN dans Azure Active Directory ne sont pas identiques, vous devez configurer l’ [identité de connexion déléguée](#delegated-login-identity) pour que la pré-authentification fonctionne.
-> 
-> 
+> Si votre UPN local et l’UPN dans Azure Active Directory ne sont pas identiques, vous devez configurer [l’identité de connexion déléguée](#delegated-login-identity) pour que la pré-authentification fonctionne.
+>
+>
 
 |  |  |
 | --- | --- |
-| Méthode d’authentification interne |Si vous utilisez Azure AD pour la préauthentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique pour cette application. <br><br> Sélectionnez **l’authentification Windows intégrée** (IWA) si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte (KCD) pour activer l’authentification unique pour cette application. Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne sera pas en mesure de les publier. <br><br> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. |
+| Méthode d’authentification interne |Si vous utilisez Azure AD pour la préauthentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique pour cette application. <br><br> Sélectionnez **l’authentification Windows intégrée** (IWA) si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte (KCD) pour activer l’authentification unique pour cette application. Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne pourra pas les publier. <br><br> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. |
 | SPN d’application interne |Il s’agit du nom de principal du service (SPN) de l’application interne tel qu’il est configuré Azure AD local. Le SPN est utilisé par le connecteur du proxy d’application pour extraire les jetons Kerberos pour l’application en utilisant la délégation Kerberos contrainte. |
 
 ## <a name="sso-for-non-windows-apps"></a>Authentification unique pour les applications non Windows
-Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec l’annuaire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. De nombreux protocoles définissent comment envoyer ces demandes. La plupart des serveurs non Windows supposent qu’il s’agit de Negotiate/SPNego, qui est maintenant pris en charge sur le proxy d’application Azure AD.
+Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec l’annuaire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. Plusieurs protocoles définissent la manière d’envoyer ces demandes. La plupart des serveurs non Windows supposent qu’il s’agit de Negotiate/SPNego, qui est maintenant pris en charge sur le proxy d’application Azure AD.
 
 ![Diagramme de l’authentification unique non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
 ### <a name="delegated-login-identity"></a>identité de connexion déléguée
 L’identité de connexion déléguée vous permet de gérer deux scénarios de connexion différents :
 
-* Les applications non Windows qui obtiennent généralement l’identité de l’utilisateur sous la forme d’un nom d’utilisateur ou d’un nom de compte SAM, pas d’une adresse de messagerie (nomutilisateur@domaine).
+* Les applications non Windows qui obtiennent généralement l’identité de l’utilisateur sous la forme d’un nom d’utilisateur ou d’un nom de compte SAM, pas d’une adresse de messagerie (username@domain).
 * Les configurations de connexion alternatives où l’UPN dans Azure AD et l’UPN dans votre Active Directory local sont différents.
 
 Avec le proxy d’application, vous pouvez sélectionner l’identité à utiliser pour obtenir le ticket Kerberos. Ce paramètre est à configurer application par application. Certaines de ces options sont adaptées pour les systèmes qui n’acceptent pas le format d’adresse de messagerie, tandis que d’autres sont conçues pour les connexions alternatives.
@@ -130,21 +130,21 @@ Grâce à cette fonctionnalité, de nombreuses organisations qui ont des identit
 Cette configuration convient aussi pour les applications qui n’acceptent pas d’adresses sous forme d’adresses de messagerie, scénario très courant pour les serveurs principaux non Windows.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>Configuration de l’authentification unique pour différentes identités sur le cloud et localement
-1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ **Nom d’utilisateur principal** dans les paramètres de synchronisation. Notez que ces paramètres déterminent aussi la façon dont les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités.  
+1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ **Nom d’utilisateur principal** dans les paramètres de synchronisation. Ces paramètres déterminent également comment les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités.  
    ![Capture d’écran de l’identification des utilisateurs : liste déroulante Nom d’utilisateur principal](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. Dans les paramètres de configuration de l’application à modifier, sélectionnez l’ **Identité de connexion déléguée** à utiliser :
-   
+
    * Nom d’utilisateur principal : joe@contoso.com  
    * Nom d’utilisateur principal alternatif : joed@contoso.local  
    * Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal : joe  
    * Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal alternatif : joed  
    * Nom du compte SAM local : suivant la configuration du contrôleur de domaine local
-   
+
    ![Capture d’écran du menu déroulant Identité de connexion déléguée](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>Résolution des problèmes liés à l’authentification unique pour différentes identités
-Si une erreur se produit dans le processus d’authentification unique, elle apparaît dans le journal des événements d’ordinateur du connecteur, comme expliqué dans [Résoudre les problèmes](active-directory-application-proxy-troubleshoot.md).
-Toutefois, dans certains cas, la demande est correctement envoyée à l’application principale, mais celle-ci répond dans différentes réponses HTTP. Pour résoudre ces cas, il faut tout d’abord examiner le numéro d’événement 24029 sur l’ordinateur connecteur dans le journal des événements de session du proxy d’application. L’identité de l’utilisateur qui a été utilisée pour la délégation s’affiche dans le champ « utilisateur » dans les détails de l’événement. Pour activer le journal de session, sélectionnez **Afficher les journaux d’analyse et de débogage** dans le menu Affichage de l’Observateur d’événements.
+Si une erreur se produit dans le processus d’authentification unique, elle apparaît dans le journal des événements d’ordinateur du connecteur, comme expliqué dans la section [Résoudre les problèmes](active-directory-application-proxy-troubleshoot.md).
+Toutefois, dans certains cas, la demande est correctement envoyée à l’application principale, mais celle-ci répond dans plusieurs réponses HTTP. Pour résoudre ces cas, il faut tout d’abord examiner le numéro d’événement 24029 sur l’ordinateur connecteur dans le journal des événements de session du proxy d’application. L’identité de l’utilisateur qui a été utilisée pour la délégation s’affiche dans le champ « utilisateur » dans les détails de l’événement. Pour activer le journal de session, sélectionnez **Afficher les journaux d’analyse et de débogage** dans le menu Affichage de l’Observateur d’événements.
 
 ## <a name="see-also"></a>Voir aussi
 * [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
@@ -152,7 +152,7 @@ Toutefois, dans certains cas, la demande est correctement envoyée à l’applic
 * [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 * [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+Pour les dernières nouvelles et mises à jour, consultez le site [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
@@ -160,6 +160,6 @@ Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

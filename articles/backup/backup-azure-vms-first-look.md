@@ -4,7 +4,7 @@ description: "Protégez les machines virtuelles Azure avec un coffre de sauvegar
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/15/2016
+ms.date: 1/10/2017
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ La sauvegarde d’une machine virtuelle se compose de cinq étapes principales :
 ![Vue d’ensemble du processus de sauvegarde de machine virtuelle](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../resource-manager-deployment-model.md). Ce didacticiel est destiné aux machines virtuelles qui peuvent être créées dans le portail Azure Classic. Le service Azure Backup prend en charge les machines virtuelles basées sur Resource Manager. Pour plus d’informations sur la sauvegarde des machines virtuelles dans un coffre Recovery Services, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Ce didacticiel est destiné aux machines virtuelles qui peuvent être créées dans le portail Azure Classic. Le service Azure Backup prend en charge les machines virtuelles basées sur Resource Manager. Pour plus d’informations sur la sauvegarde des machines virtuelles dans un coffre Recovery Services, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
 >
 >
 
@@ -211,6 +211,6 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

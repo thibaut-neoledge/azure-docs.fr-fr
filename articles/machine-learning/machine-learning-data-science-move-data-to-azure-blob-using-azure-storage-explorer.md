@@ -1,5 +1,5 @@
 ---
-title: "Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de l’explorateur de stockage Azure | Microsoft Docs"
+title: "Déplacer des données à destination et à partir de Stockage Blob avec l’explorateur de stockage Azure | Microsoft Docs"
 description: "Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de l’explorateur de stockage Azure"
 services: machine-learning,storage
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
-ms.openlocfilehash: f0127adbebcc0f858239bc9a8aad8b657b1d167b
+ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
+ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
 
 
 ---
@@ -58,6 +58,6 @@ Les étapes suivantes expliquent comment charger ou télécharger des données �
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

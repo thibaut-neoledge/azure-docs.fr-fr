@@ -1,6 +1,6 @@
 ---
-title: "Réplication de machines virtuelles VMware sur Azure à l’aide de Site Recovery avec Azure Automation DSC | Microsoft Docs"
-description: "Explique comment utiliser Azure Automation DSC pour déployer automatiquement le service Mobilité Azure Site Recovery et l’agent Azure pour les machines virtuelles/physiques sur Azure."
+title: "Déployer le service Mobilité Site Recovery avec Azure Automation DSC | Microsoft Docs"
+description: "Explique comment utiliser Azure Automation DSC pour déployer automatiquement le service Mobilité Azure Site Recovery et l’agent Azure pour la réplication de serveurs physiques et de machines virtuelles VMware sur Azure."
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -12,15 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: krnese
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5895b772d411f783480275ee990163f662b7ee2
+ms.sourcegitcommit: efacf5d10b80fbeea7bd3d2569d878bd8bfa002b
+ms.openlocfilehash: ac6b72bbb70f838493a7e4857217f7c0e669841c
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-by-using-site-recovery-with-azure-automation-dsc"></a>Réplication de machines virtuelles VMware sur Azure à l’aide de Site Recovery avec Azure Automation DSC
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Déployer le service Mobilité avec Azure Automation DSC pour la réplication de machines virtuelles
 Dans Operations Management Suite, nous fournissons une solution complète de sauvegarde et de récupération d’urgence que vous pouvez exploiter dans le cadre de votre plan de continuité d’activité.
 
 Nous avions commencé avec Hyper-V en utilisant Hyper-V Replica. Mais nous avons étendu notre offre pour prendre en charge une installation hétérogène, car les clients ont plusieurs hyperviseurs et plusieurs plateformes dans les nuages.
@@ -50,31 +50,31 @@ Cet article fournit un exemple de la manière dont vous pouvez utiliser Configur
 ## <a name="prerequisites"></a>Composants requis
 * Un référentiel pour stocker l’installation requise
 * Un référentiel pour stocker la phrase secrète requise pour s’enregistrer avec le serveur d’administration
-  
+
   > [!NOTE]
   > Une phrase secrète unique est générée pour chaque serveur d’administration. Si vous envisagez de déployer plusieurs serveurs d’administration, vous devez vous assurer que la phrase secrète correcte est stockée dans le fichier passphrase.txt.
-  > 
-  > 
+  >
+  >
 * Windows Management Framework (WMF) 5.0 installé sur les machines que vous souhaitez protéger (obligatoire pour Automation DSC).
-  
+
   > [!NOTE]
   > Si vous souhaitez utiliser DSC pour des ordinateurs Windows sur lesquels WMF 4.0 est installé, reportez-vous à la section [Utilisation de DSC dans les environnements déconnectés](#Use DSC in disconnected environments).
-  > 
-  > 
+  >
+  >
 
 Le service Mobilité peut être installé par le biais de la ligne de commande et accepte plusieurs arguments. C’est la raison pour laquelle vous devez extraire les fichiers binaires (à partir de votre installation) et les stocker dans un emplacement où vous pourrez les récupérer à l’aide d’une configuration DSC.
 
 ## <a name="step-1-extract-binaries"></a>Étape 1 : extraction des fichiers binaires
 1. Pour extraire les fichiers dont vous avez besoin pour cette installation, accédez au répertoire suivant sur votre serveur d’administration :
-   
+
     **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
-   
+
     Dans ce dossier, vous devriez voir un fichier MSI nommé :
-   
+
     **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
-   
+
     Utilisez la commande suivante pour extraire le programme d’installation :
-   
+
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 2. Sélectionnez tous les fichiers et envoyez-les vers un dossier compressé (zippé).
 
@@ -205,8 +205,8 @@ Enregistrez la configuration en tant **qu’ASRMobilityService**.
 
 > [!NOTE]
 > N’oubliez pas de remplacer le CSIP dans votre configuration pour qu’il reflète le serveur d’administration réel de manière à ce que l’agent soit connecté correctement et utiliser la phrase secrète appropriée.
-> 
-> 
+>
+>
 
 ## <a name="step-3-upload-to-automation-dsc"></a>Étape 3 : chargement dans Automation DSC
 Dans la mesure où votre configuration DSC créée importe un module de ressources DSC nécessaire (xPSDesiredStateConfiguration), vous devez importer ce module dans Automation avant de charger la configuration DSC.
@@ -255,8 +255,8 @@ Une fois que vous avez terminé, vous pouvez récupérer les informations sur la
 ## <a name="step-4-onboard-machines-to-automation-dsc"></a>Étape 4 : intégration de machines sur Automation DSC
 > [!NOTE]
 > L’une des conditions préalables à la réalisation de ce scénario est que les machines Windows soient mises à jour avec la dernière version de WMF. Vous pouvez télécharger et installer la version correcte pour votre plateforme depuis le [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=50395).
-> 
-> 
+>
+>
 
 Vous allez maintenant créer une métaconfiguration de DSC que vous allez appliquer aux nœuds. Pour y parvenir, vous devez récupérer l’URL du point de terminaison et la clé primaire de votre compte Automation sélectionné dans Azure. Ces valeurs peuvent se trouver sous **Keys** dans le panneau **Tous les paramètres** du compte Automation.
 
@@ -514,7 +514,6 @@ Après avoir déployé les agents du Service Mobilité, vous pouvez [activer la 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

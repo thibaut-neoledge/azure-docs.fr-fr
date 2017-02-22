@@ -1,5 +1,5 @@
 ---
-title: "collectd : statistiques de performances pour Java sous Linux dans Azure Application Insights | Microsoft Docs"
+title: Surveiller les performances des applications web Java sur Linux - Azure | Microsoft Docs
 description: "Surveillance étendue des performances des applications de votre site web Java avec le plug-in collectd pour Application Insights."
 services: application-insights
 documentationcenter: java
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
 
 Pour explorer les métriques de performances d’un système Linux dans [Application Insights](app-insights-overview.md), installez [collectd](http://collectd.org/) et son plug-in Application Insights. Cette solution open source rassemble diverses statistiques concernant le système et le réseau.
 
-En général, vous utilisez collectd si vous avez déjà [instrumenté votre service web Java avec Application Insights][Java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes. 
+De manière générale, vous utilisez collectd lorsque vous avez déjà [instrumenté votre service web Java avec Application Insights][java]. Il vous donne davantage de données pour vous aider à améliorer les performances de votre application ou à diagnostiquer les problèmes. 
 
 ![Exemples de graphiques](./media/app-insights-java-collectd/sample.png)
 
@@ -47,7 +47,7 @@ Sur vos ordinateurs serveurs Linux :
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Ajoutez cet extrait de code à l’aide de la clé d’instrumentation provenant de votre ressource :
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ Sur vos ordinateurs serveurs Linux :
 ```
 
 Voici une partie d’un exemple de fichier de configuration :
+
+```XML
 
     ...
     # collectd plugins
@@ -83,14 +85,15 @@ Voici une partie d’un exemple de fichier de configuration :
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configurez d’autres [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins)permettant de collecter des données de différentes sources.
 
 Redémarrez collectd selon les instructions de son [manuel](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualiser les données dans Application Insights
-Dans votre ressource Application Insights, ouvrez [Metrics Explorer et ajoutez des graphiques][métriques] en sélectionnant les métriques que vous souhaitez afficher à partir de la catégorie Personnalisé.
+Dans votre ressource Application Insights, ouvrez [Metrics Explorer et ajoutez des graphiques][metrics] en sélectionnant les métriques que vous souhaitez afficher à partir de la catégorie Personnalisé.
 
 ![](./media/app-insights-java-collectd/result.png)
 
@@ -128,15 +131,15 @@ Séparez les directives par un saut de ligne.
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[Java]: app-insights-java-get-started.md
+[java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métriques]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

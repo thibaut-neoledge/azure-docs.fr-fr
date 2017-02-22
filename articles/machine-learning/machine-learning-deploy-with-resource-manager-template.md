@@ -1,5 +1,5 @@
 ---
-title: "Déployer un espace de travail Machine Learning à l’aide du modèle Azure Resource Manager | Microsoft Docs"
+title: "Déployer un espace de travail Machine Learning avec Azure Resource Manager | Microsoft Docs"
 description: "Comment déployer un espace de travail pour Azure Machine Learning à l’aide du modèle Azure Resource Manager"
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
 
 
 ---
@@ -152,6 +152,6 @@ Après la configuration de l’espace de travail, vous pouvez également automat
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer votre starter kit IoT Azure | Microsoft Docs
+title: "Connecter Arduino (C) à Azure IoT - Leçon 1 : Configurer l’appareil | Microsoft Docs"
 description: "Configurez Adafruit Feather M0 WiFi pour une première utilisation."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: fd3f55ee79bdd4d485ae3a479a5a072905956bc9
-ms.openlocfilehash: 47d7a4e68574c5f88b336e9ca7b21dbba24a94cf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 3789c07cd6142ba5b6a58a67813c0ead6b87bd76
 
 
 ---
@@ -103,6 +103,6 @@ Dans cet article, vous avez appris à configurer votre carte Arduino. La tâche 
 [get-the-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

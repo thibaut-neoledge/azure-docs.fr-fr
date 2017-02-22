@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c28ad5efa3cfcdc63559b50056ca6c79f8d600c9
+ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
+ms.openlocfilehash: b0122a87ec64d16d6e026f9b37a563125a5f1920
 
 
 ---
@@ -31,9 +31,9 @@ Cet article est le premier didacticiel d’une série :
 
 Voici un exemple de la topologie finale :
 
-![Topologie HDInsight jointe à un domaine](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Topologie HDInsight jointe à un domaine](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-Azure AD ne prenant en charge que les réseaux virtuels Classic et les clusters HDInsight Linux ne prenant en charge que les réseaux virtuels Azure Resource Manager, l’intégration HDInsight Azure AD requiert deux réseaux virtuels et une homologation mutuelle. Pour bénéficier d’une comparaison entre les deux modèles de déploiement, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../resource-manager-deployment-model.md). Les deux réseaux virtuels doivent se trouver dans la région de l’instance Azure AD DS.
+Azure AD ne prenant en charge que les réseaux virtuels Classic et les clusters HDInsight Linux ne prenant en charge que les réseaux virtuels Azure Resource Manager, l’intégration HDInsight Azure AD requiert deux réseaux virtuels et une homologation mutuelle. Pour bénéficier d’une comparaison entre les deux modèles de déploiement, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md). Les deux réseaux virtuels doivent se trouver dans la région de l’instance Azure AD DS.
 
 Les noms de service Azure doivent être globalement uniques. Les noms suivants sont utilisés dans ce didacticiel. Contoso est un nom fictif. Vous devez remplacer *contoso* par un nom différent quand vous parcourez le didacticiel. 
 
@@ -324,7 +324,7 @@ Une fois que vous avez créé le réseau virtuel Resource Manager, vous le conf
 8. Cliquez sur **OK**.
 
 ## <a name="create-hdinsight-cluster"></a>Créer un cluster HDInsight
-Dans cette section, vous créez un cluster Hadoop Linux dans HDInsight à l’aide du portail Azure ou du [modèle Azure Resource Manager](../resource-group-template-deploy.md). Pour d'autres méthodes de création de cluster et comprendre les paramètres, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation d’un modèle Resource Manager pour créer des clusters Hadoop dans HDInsight, consultez [Création de clusters Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
+Dans cette section, vous créez un cluster Hadoop Linux dans HDInsight à l’aide du portail Azure ou du [modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Pour d'autres méthodes de création de cluster et comprendre les paramètres, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation d’un modèle Resource Manager pour créer des clusters Hadoop dans HDInsight, consultez [Création de clusters Hadoop dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
 
 **Pour créer un cluster HDInsight joint à un domaine à l’aide du portail Azure**
 
@@ -375,7 +375,7 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
 
 1. Cliquez sur l’image suivante pour ouvrir un modèle Resource Manager dans le portail Azure. Le modèle Resource Manager est situé dans un conteneur blob public. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. À partir du panneau **Paramètres**, saisissez les informations suivantes :
    
    * **Abonnement** : (sélectionnez votre abonnement Azure.)
@@ -404,11 +404,11 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le c
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine avec Azure PowerShell, consultez [Configuration de clusters HDInsight joints à un domaine avec Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](hdinsight-domain-joined-run-hive.md).
-* Pour exécuter des requêtes Hive à l’aide de SSH sur des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sur Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

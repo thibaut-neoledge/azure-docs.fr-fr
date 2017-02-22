@@ -1,10 +1,10 @@
 ---
-title: "Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique | Microsoft Docs"
+title: "Connecter un réseau virtuel Azure à un autre réseau virtuel : Classique | Microsoft Docs"
 description: "Comment interconnecter des réseaux virtuels Azure à l’aide de PowerShell et du portail Azure Classic."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: c1fd18ad8889033cba8a92f6ae255ba6478e6595
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 863b308125a7a9ae2b9d9104d150bd2474c064b3
 
 
 ---
@@ -60,7 +60,7 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
   * Si vous avez plusieurs abonnements Azure, vous pouvez désormais interconnecter des charges de travail de différents abonnements en toute sécurité entre des réseaux virtuels.
   * Pour les entreprises ou prestataires de services, il est désormais possible d’activer la communication interorganisationnelle avec une technologie VPN sécurisée au sein d’Azure.
 
-### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels pour les réseaux virtuels classiques
+### <a name="vnet-to-vnet-considerations-for-classic-vnets"></a>Interconnexion de réseaux virtuels pour les réseaux virtuels classiques
 * Les réseaux virtuels peuvent être situés dans des abonnements identiques ou différents.
 * Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
 * Un service cloud ou un point de terminaison d’équilibrage de charge ne peut pas s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
@@ -200,6 +200,6 @@ Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

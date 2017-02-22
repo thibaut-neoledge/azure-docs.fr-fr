@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a20450442a8471534e4cd3faab9167d1db65d9b3
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: cbbd416a065b3284e85957cc024955d11524d3da
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: a20450442a8471534e4cd3faab9167d1db65d9b3
 La fonctionnalité de *transfert automatique* vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Lorsque le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination). Notez qu'il est toujours possible d'envoyer un message à l'entité de destination directement. Notez également qu’il n’est pas possible de chaîner une sous-file d’attente, comme une file d’attente de rebut, à une autre file d’attente ou rubrique.
 
 ## <a name="using-auto-forwarding"></a>Utilisation du transfert automatique
-Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo Property][SubscriptionDescription.ForwardTo Property] sur les objets [QueueDescription Class][QueueDescription Class] ou [SubscriptionDescription Class][SubscriptionDescription Class] pour la source, comme dans l’exemple suivant.
+Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] sur les objets [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] pour la source, comme dans l’exemple suivant.
 
-```
+```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
 srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
@@ -56,22 +56,22 @@ Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubr
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le transfert automatique, consultez les rubriques de référence suivantes :
 
-* [SubscriptionDescription.ForwardTo Property][SubscriptionDescription.ForwardTo Property]
-* [QueueDescription Class][QueueDescription Class]
-* [SubscriptionDescription Class][SubscriptionDescription Class]
+* [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
+* [QueueDescription][QueueDescription]
+* [SubscriptionDescription][SubscriptionDescription]
 
-Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Entités de messagerie partitionnées][Entités de messagerie partitionnées].
+Pour en savoir plus sur les améliorations des performances de Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
 
-[QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-[SubscriptionDescription.ForwardTo Property]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx (Propriété SubscriptionDescription.ForwardTo)
-[QueueDescription Class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx (Classe QueueDescription)
-[SubscriptionDescription Class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx (Classe SubscriptionDescription)
+[QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-[Entités de messagerie partitionnées]: service-bus-partitioning.md
+[Partitioned messaging entities]: service-bus-partitioning.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

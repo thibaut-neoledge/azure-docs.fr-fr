@@ -3,7 +3,7 @@ title: "Surveillance d’un service cloud | Microsoft Docs"
 description: "Découvrez comment surveiller des services cloud dans le portail Azure Classic."
 services: cloud-services
 documentationcenter: 
-author: rboucher
+author: thraka
 manager: timlt
 editor: 
 ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
@@ -12,12 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2015
-ms.author: robb
+ms.date: 12/07/2015
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d581d678d35045d7d27df55ee1e629f259f30c
-
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Surveillance des services cloud
@@ -30,18 +29,18 @@ Les affichages de surveillance du portail Azure Classic sont configurables à lo
 ## <a name="concepts"></a>Concepts
 Par défaut, une surveillance minimale est fournie pour le nouveau service cloud à l'aide de compteurs de performances récupérés sur le système d'exploitation hôte pour les instances de rôle (machines virtuelles). Les mesures minimales sont limitées au pourcentage processeur, aux données entrantes, aux données sortantes, au débit d'écriture sur le disque et au débit de lecture sur le disque. En configurant la surveillance détaillée, vous obtenez des mesures supplémentaires basées sur les données de performances dans les machines virtuelles (instances de rôle). Les mesures détaillées offrent une analyse plus fine des problèmes qui surviennent au cours du fonctionnement de l'application.
 
-Par défaut, les données des compteurs de performances des instances de rôle sont échantillonnées et transférées à partir de l'instance de rôle toutes les 3 minutes. Lorsque vous activez la surveillance détaillée, les données brutes des compteurs de performances sont consolidées pour chaque instance de rôle et pour toutes les instances de rôle de chaque rôle toutes les 5 minutes, toutes les heures et toutes les 12 heures. Les données consolidées sont purgées tous les 10 jours.
+Par défaut, les données des compteurs de performances des instances de rôle sont échantillonnées et transférées à partir de l'instance de rôle toutes les 3 minutes. Lorsque vous activez la surveillance détaillée, les données brutes des compteurs de performances sont consolidées pour chaque instance de rôle et pour toutes les instances de rôle de chaque rôle toutes les 5 minutes, toutes les heures et toutes les 12 heures. Les données consolidées sont purgées tous les 10 jours.
 
 Une fois la surveillance détaillée activée, les données de surveillance consolidées sont stockées dans des tables dans votre compte de stockage. Avant d'activer la surveillance détaillée d'un rôle, vous devez configurer une chaîne de connexion de diagnostic qui assure la liaison avec le compte de stockage. Vous pouvez utiliser différents comptes de stockage pour différents rôles.
 
-Notez que l'activation de la surveillance détaillée va augmenter les coûts de stockage liés au stockage des données, au transfert des données et aux transactions de stockage. La surveillance minimale ne nécessite pas de compte de stockage. Les données des mesures exposées au niveau minimal ne sont pas stockées dans votre compte de stockage, même si vous sélectionnez le niveau de surveillance détaillé.
+L’activation de la surveillance détaillée augmente les coûts de stockage liés au stockage des données, au transfert des données et aux transactions de stockage. La surveillance minimale ne nécessite pas de compte de stockage. Les données des mesures exposées au niveau minimal ne sont pas stockées dans votre compte de stockage, même si vous sélectionnez le niveau de surveillance détaillé.
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>Procédure de configuration de la surveillance des services cloud
 Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail Azure Classic. 
 
 ### <a name="before-you-begin"></a>Avant de commencer
-* Créez un compte de stockage pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d'informations, consultez **Comptes de stockage**ou la page [Création d'un compte de stockage](/manage/services/storage/how-to-create-a-storage-account/).
-* Activez le diagnostic Azure pour vos rôles de service cloud. Consultez [Configuration des diagnostics pour les services cloud](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
+* Créez un compte de stockage *classique* pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d’informations, consultez [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Activez le diagnostic Azure pour vos rôles de service cloud. Consultez [Configuration des diagnostics pour les services cloud](cloud-services-dotnet-diagnostics.md).
 
 Assurez-vous que la chaîne de connexion de diagnostic est présente dans la configuration du rôle. Vous ne pouvez pas activer la surveillance détaillée avant d'activer Azure Diagnostics d’inclure une chaîne de connexion de diagnostic dans la configuration du rôle.   
 
@@ -53,7 +52,7 @@ Assurez-vous que la chaîne de connexion de diagnostic est présente dans la con
 **Pour ajouter manuellement la chaîne de connexion de diagnostic à la configuration de rôle**
 
 1. Ouvrez le projet Cloud Service dans Visual Studio.
-2. Double-cliquez sur le **rôle** pour ouvrir le concepteur de rôle et sélectionnez l’onglet **Paramètres**.
+2. Double-cliquez sur le **rôle** pour ouvrir le concepteur de rôle et sélectionnez l’onglet **Paramètres**
 3. Recherchez un paramètre appelé **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
 4. Si ce paramètre n’est pas présent, cliquez sur le bouton **Ajouter un paramètre** pour l’ajouter à la configuration et modifier le type pour le nouveau paramètre sur **ConnectionString**
 5. Définissez la valeur de chaîne de connexion en cliquant sur le bouton **...** . Ceci ouvrira une boîte de dialogue qui vous permet de sélectionner un compte de stockage.
@@ -149,6 +148,7 @@ Pour afficher les compteurs de performance personnalisés dans le portail, vous 
    
    * Pour tracer une mesure, activez la case à cocher correspondante dans les en-têtes du graphique. Sur un écran étroit, cliquez sur la flèche vers le bas à côté de ***n*??metrics** pour créer le graphique d’une métrique que la zone d’en-tête du graphique ne peut pas afficher.
    * Pour supprimer une mesure du graphique, désactivez la case à cocher à côté de son en-tête.
+   
 3. Basculez entre les affichages **Relative** et **Absolute**.
 4. Choisissez 1 heure, 24 heures ou 7 jours de données à afficher.
 
@@ -178,6 +178,6 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role ins
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

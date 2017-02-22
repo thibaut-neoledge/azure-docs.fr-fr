@@ -1,5 +1,5 @@
 ---
-title: "Profils Traffic Manager imbriqués | Microsoft Azure"
+title: "Profils Traffic Manager imbriqués | Microsoft Docs"
 description: "Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager"
 services: traffic-manager
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b5c49b585be10a02e959a70385d31e474e21ce01
+ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
+ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
 
 ---
 
@@ -162,6 +162,6 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

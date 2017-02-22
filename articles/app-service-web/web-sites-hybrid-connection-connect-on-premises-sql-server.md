@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
 
 
 ---
@@ -26,7 +26,7 @@ Les connexions hybrides permettent de connecter des applications web [Azure App 
 Dans ce didacticiel, vous allez apprendre à créer une application web App Service dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), à la connecter à votre base de données SQL Server locale à l’aide de la nouvelle fonctionnalité de connexion hybride, à créer une application ASP.NET simple qui utilisera la connexion hybride et à déployer l’application sur l’application web App Service. L’application web finalisée sur Azure stocke les informations d’identification des membres dans une base de données locale. Ce didacticiel ne requiert aucune d'expérience préalable dans l'utilisation d'Azure ou ASP.NET.
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans le [portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 > 
@@ -289,7 +289,7 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [SSMScreateNewDB]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A05SSMScreateNewDBlh.png
 [SSMSprovideDBname]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A06SSMSprovideDBname.png
 [SSMSMembershipDBCreated]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A07SSMSMembershipDBCreated.png
-[Nouveau]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
+[New]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B04WebSiteRunningBlade.png
@@ -335,6 +335,6 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

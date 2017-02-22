@@ -3,8 +3,8 @@ title: "Gérer des points de terminaison dans Azure Traffic Manager | Microsoft 
 description: "Cet article vous aide à ajouter, supprimer, activer et désactiver des points de terminaison d’Azure Traffic Manager."
 services: traffic-manager
 documentationcenter: 
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 ms.assetid: 038270d1-28ba-4078-9c5d-37fc5d683be6
 ms.service: traffic-manager
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: ddc3c682cae4ed5eb986a98816e86353c5390e05
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 22729a7164b8998e92147e418ce96ff9b09896b9
 
 ---
 
@@ -80,6 +80,6 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -39,7 +39,7 @@ Pour plus d’informations sur les bases de données SQL Azure, consultez [Bases
 
 ## <a name="what-features-are-supported"></a>Quelles fonctionnalités sont prises en charge ?
 
-Le tableau suivant répertorie les principales fonctionnalités d’Azure SQL Database et de SQL Server, spécifie sa prise en charge et fournit un lien vers des informations relatives à la fonctionnalité sur chaque plateforme. Pour les fonctionnalités Transact-SQL, suivez le lien dans la table pour la catégorie de la fonctionnalité. Voir aussi [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md) pour plus d’informations sur les raisons du manque de prise en charge de certains types de fonctionnalités.
+Les tableaux suivants répertorient les principales fonctionnalités d’Azure SQL Database et de SQL Server, spécifient sa prise en charge et fournissent un lien vers des informations relatives à la fonctionnalité sur chaque plateforme. Pour les fonctionnalités Transact-SQL, suivez le lien dans la table pour la catégorie de la fonctionnalité. Voir aussi [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md) pour plus d’informations sur les raisons du manque de prise en charge de certains types de fonctionnalités.
 
 Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
 
@@ -47,7 +47,7 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 * Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
 
 > [!TIP]
-> Pour tester la compatibilité d’une base de données existante avec Azure SQL Database, consultez [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) (Valider la compatibilité Azure SQL Database).
+> Pour tester la compatibilité d’une base de données existante avec Azure SQL Database, consultez [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md) (Migrer une base de données SQL Server vers Azure).
 >
 
 | **Fonctionnalité** | **SQL Server** | **Base de données SQL Azure** | 
@@ -156,11 +156,11 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 - Consultez la page [Vue d’ensemble des bases de données SQL](sql-database-overview.md) pour obtenir une vue d’ensemble des bases de données Azure SQL.
 - Pour plus d’informations sur la prise en charge de Transact-SQL et les différences, consultez la page [Différences dans le langage Transact-SQL pour Azure SQL Database](sql-database-transact-sql-information.md).
 - Pour plus d’informations sur les quotas de ressources spécifiques et les limitations basées sur votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
-- Pour une vue d’ensemble de la sécurité, consultez [Vue d’ensemble de la sécurité de base de données SQL Azure](sql-database-security-overview.md).
+- Pour une vue d’ensemble de la sécurité, consultez [Azure SQL Database Security Overview (Vue d’ensemble de la sécurité de Azure SQL Database)](sql-database-security-overview.md).
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

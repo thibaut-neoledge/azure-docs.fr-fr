@@ -3,7 +3,7 @@ title: "Alertes en temps réel Azure CDN | Microsoft Docs"
 description: "Alertes en temps réel dans Microsoft Azure CDN. Les alertes en temps réel fournissent des notifications sur les performances des points de terminaison dans votre profil CDN."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a6bd8982bb89c1829a6a5945f6ff9d8ed7009f0
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
 
 
 ---
@@ -114,6 +114,6 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

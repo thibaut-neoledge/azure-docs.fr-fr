@@ -29,7 +29,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
-## [Kit de développement logiciel (SDK) Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [Kit de développement logiciel (SDK) Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 
 # Rubriques connexes

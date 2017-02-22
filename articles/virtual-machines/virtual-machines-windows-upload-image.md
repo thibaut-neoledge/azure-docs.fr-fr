@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 5aa6b2149170ef04af0ebde957feda5630c5d5eb
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Télécharger un disque dur virtuel Windows d’une machine virtuelle locale vers Azure
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) Windows afin de créer une machine virtuelle Azure. Vous pouvez télécharger un disque dur virtuel à partir d’une machine virtuelle généralisée ou spécialisée. 
 
-Pour en savoir plus sur les disques et les disques durs virtuels dans Azure, consultez [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour en savoir plus sur les disques et les disques durs virtuels dans Azure, consultez [À propos des disques et VHD pour machines virtuelles](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 Vous pouvez télécharger des disques durs virtuels généralisés et spécialisés dans Azure. Chaque type nécessite que vous prépariez la machine virtuelle avant de commencer.
@@ -132,6 +132,6 @@ Selon votre connexion réseau et la taille de votre fichier de disque dur virtue
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

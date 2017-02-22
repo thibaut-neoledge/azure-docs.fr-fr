@@ -1,6 +1,6 @@
 ---
-title: "Régression linéaire multivariable | Microsoft Docs"
-description: "Régression linéaire multivariable"
+title: "(déconseillé) Régression linéaire multivariable - Azure | Microsoft Docs"
+description: "(déconseillé) Régression linéaire multivariable"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01d90591f61920769dbdca360f69156281145517
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 96780fccdf887548b0f6e525736f1d507cf30486
 
 
 ---
-# <a name="multivariate-linear-regression"></a>Régression linéaire multivariable
+# <a name="deprecated-multivariate-linear-regression"></a>(déconseillé) Régression linéaire multivariable
+
+> [!NOTE]
+> Microsoft DataMarket va être mis hors service et cette API est désormais déconseillée. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API utiles dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des ressources dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Supposons que vous disposez d’un jeu de données et que vous souhaitez prédire rapidement une variable dépendante (y) pour chaque individu (i) sur la base de variables indépendantes. La régression linéaire est une technique statistique répandue qui est utilisée pour de telles prédictions. Ici, la variable dépendante y est supposée être une valeur continue.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -121,6 +128,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

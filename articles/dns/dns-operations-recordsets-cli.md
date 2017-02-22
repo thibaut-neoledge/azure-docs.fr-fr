@@ -1,5 +1,5 @@
 ---
-title: "Gestion des jeux d’enregistrements DNS et des enregistrements dans Azure DNS à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
+title: "Gestion des enregistrements DNS dans Azure DNS à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
 description: "Gestion des jeux d&quot;enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes d’interface de ligne de commande pour les opérations sur les jeux d&quot;enregistrements et les enregistrements."
 services: dns
 documentationcenter: na
@@ -11,200 +11,272 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 12/20/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 2bc18d618cf8838209bea9f8a2d323e3b1042709
+ms.sourcegitcommit: 5508413543a229cb639a55832b3253fe86e21f2c
+ms.openlocfilehash: 6a80423f9550f3df218c247673dbdbf25ea5d4e3
 
 ---
 
-# <a name="manage-dns-records-and-record-sets-by-using-cli"></a>Création d’enregistrements et de jeux d’enregistrements DNS à l’aide de l’interface de ligne de commande
+# <a name="manage-dns-records-in-azure-dns-using-the-azure-cli"></a>Gestion des enregistrements DNS dans Azure DNS à l’aide de l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](dns-operations-recordsets-portal.md)
 > * [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Cet article explique comment gérer des jeux d’enregistrements et des enregistrements pour votre zone DNS à l’aide de l’interface de ligne de commande (CLI) Azure multiplateforme.
+Cet article explique comment gérer des enregistrements DNS pour votre zone DNS à l’aide de l’interface de ligne de commande (CLI) Azure multiplateforme, disponible sur Windows, Mac et Linux. Vous pouvez également gérer vos enregistrements DNS à l’aide [d’Azure PowerShell](dns-operations-recordsets.md) ou du [portail Azure](dns-operations-recordsets-portal.md).
 
-Il est important de comprendre la différence entre les jeux d’enregistrements DNS et les enregistrements DNS individuels. Un jeu d’enregistrements est une collection d’enregistrements dans une zone ayant le même nom et le même type. Pour plus d’informations, consultez [Présentation des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md).
+Les exemples de cet article supposent que vous avez déjà [installé l’interface de ligne de commande Azure, ouvert une session et créé une zone DNS](dns-operations-dnszones-cli.md).
 
-## <a name="configure-the-cross-platform-azure-cli"></a>Configuration de l’interface de ligne de commande Azure multiplateforme
+## <a name="introduction"></a>Introduction
 
-Azure DNS est un service Azure Resource Manager uniquement. Il ne dispose pas d’une API de gestion de Service Azure. Assurez-vous à l’aide de la commande `azure config mode arm` que l’interface de ligne de commande Azure est configurée pour utiliser le mode Resource Manager.
+Avant de créer des enregistrements DNS dans Azure DNS, vous devez comprendre comment Azure DNS organise les enregistrements DNS en jeux d’enregistrements DNS.
 
-Si le message « **Erreur : « dns » n’est pas une commande azure**» s’affiche, cela est probablement dû au fait que vous utilisez l’interface de ligne de commande Azure en mode Azure Service Management et non pas en mode Resource Manager.
+[!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="create-a-new-record-set-and-record"></a>Création d’un jeu d’enregistrements et d’un enregistrement
+Pour plus d’informations sur les enregistrements DNS dans Azure DNS, voir [Enregistrements et zones DNS](dns-zones-records.md).
 
-Pour créer un jeu d’enregistrements dans le portail Azure, consultez [Création d’un jeu d’enregistrements et d’un enregistrement](dns-getstarted-create-recordset-cli.md).
+## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
-## <a name="retrieve-a-record-set"></a>Récupérer un jeu d’enregistrements
+Pour créer un enregistrement DNS, utilisez la commande `azure network dns record-set add-record`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set add-record -h`.
 
-Pour récupérer un jeu d’enregistrements existant, utilisez `azure network dns record-set show`. Spécifiez le groupe de ressources, le nom de la zone, le nom relatif du jeu d’enregistrements et le type d’enregistrement. Utilisez l’exemple ci-dessous en remplaçant les valeurs par les vôtres.
+Lors de la création d’un enregistrement, vous devez spécifier le nom du groupe de ressources, le nom de la zone, le type d’enregistrement et les détails de l’enregistrement créé. Le nom du jeu d’enregistrements doit être un nom *relatif*, c’est-à-dire qu’il ne doit pas contenir le nom de la zone.
+
+Si le jeu d’enregistrements n’existe pas, cette commande le crée pour vous. Si le jeu d’enregistrements existe déjà, cette commande ajoute l’enregistrement spécifié au jeu d’enregistrements existant.
+
+Si un jeu d’enregistrements est créé, une durée de vie (TTL) de 3600 est utilisée par défaut. Pour plus d’instructions sur l’utilisation de différents TTL, consultez [Création d’un jeu d’enregistrements DNS](#create-a-dns-record-set).
+
+L’exemple suivant crée un enregistrement A appelé *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’adresse IP de l’enregistrement A est *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set show myresourcegroup contoso.com www A
+azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+```
+
+Pour créer un enregistrement à l’apex de la zone (dans cet exemple, « contoso.com »), utilisez le nom d’enregistrement "@", (guillemets compris) :
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+```
+
+## <a name="create-a-dns-record-set"></a>Créer un jeu d’enregistrements DNS
+
+Dans les exemples ci-dessus, l’enregistrement DNS a été ajouté à un jeu d’enregistrements existant, ou le jeu d’enregistrements a été créé *implicitement*. Vous pouvez également créer le jeu d’enregistrements *explicitement* avant d’ajouter des enregistrements à celui-ci. Azure DNS prend en charge les jeux d’enregistrements « vides », qui peuvent servir d’espaces réservés pour réserver un nom DNS avant de créer des enregistrements DNS. Les jeux d’enregistrements vides sont visibles dans le volet de contrôle d’Azure DNS, mais n’apparaissent pas sur les serveurs de noms Azure DNS.
+
+Des jeux d’enregistrements sont créés à l’aide de la commande `azure network dns record-set create`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set create -h`.
+
+La création explicite du jeu d’enregistrements permet de spécifier les propriétés de jeu d’enregistrements, comme la [Durée de vie (TTL)](dns-zones-records.md#time-to-live) et les métadonnées. Vous pouvez utiliser des [métadonnées de jeu d’enregistrements](dns-zones-records.md#tags-and-metadata) pour associer les données spécifiques de l’application à chaque jeu d’enregistrements, comme paires clé-valeur.
+
+L’exemple suivant crée un jeu d’enregistrements vide avec une durée de vie de 60 secondes, à l’aide du paramètre `--ttl` (forme abrégée `-l`) :
+
+```azurecli
+azure network dns record-set create MyResourceGroup contoso.com www A --ttl 60
+```
+
+L’exemple suivant crée un jeu d’enregistrements avec deux entrées de métadonnées, « dept=finance » et « environment=production », en utilisant le paramètre `--metadata` (forme abrégée `-m`) :
+
+```azurecli
+azure network dns record-set create MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
+```
+
+Après avoir créé un jeu d’enregistrements vide, les enregistrements peuvent être ajoutés à l’aide de `azure network dns record-set add-record`, comme décrit dans [Création d’un enregistrement DNS](#create-a-dns-record).
+
+## <a name="create-records-of-other-types"></a>Créer des enregistrements d’autres types
+
+À présent que nous avons vu en détail comment créer des enregistrements de type « A », les exemples suivants montrent comment créer des enregistrements d’autres types pris en charge par Azure DNS.
+
+Les paramètres utilisés pour spécifier les données de l’enregistrement varient selon le type de l’enregistrement. Par exemple, pour un enregistrement de type « A », vous spécifiez l’adresse IPv4 avec le paramètre `-a <IPv4 address>`. Les paramètres pour chaque type d’enregistrement peuvent être spécifiés à l’aide de `azure network dns record-set add-record -h`.
+
+Dans chaque cas, nous montrons comment créer un seul enregistrement. L’enregistrement est ajouté au jeu d’enregistrements existant, ou à un jeu d’enregistrements créé implicitement. Pour plus d’informations sur la création de jeux d’enregistrements et la définition explicite des paramètres de jeu d’enregistrements, consultez [Création d’un jeu d’enregistrements DNS](#create-a-dns-record-set).
+
+Nous ne donnons pas d’exemple de création de jeu d’enregistrements SOA (Architecture orientée services), car les enregistrements de ce type sont créés et supprimés avec chaque zone DNS, et ne peuvent pas l’être séparément. En revanche, vous pouvez [modifier les enregistrements SOA en procédant de la manière décrite dans un exemple plus loin](#to-modify-an-SOA-record).
+
+### <a name="create-an-aaaa-record"></a>Créer un enregistrement AAAA
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AAAA --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-a-cname-record"></a>Créer un enregistrement CNAME
+
+> [!NOTE]
+> Les normes DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name "@"`).
+> 
+> Pour plus d’informations, voir [Enregistrements CNAME](dns-zones-records.md#cname-records).
+
+```azurecli
+azure network dns record-set add-record  MyResourceGroup contoso.com  test-cname CNAME --cname www.contoso.com
+```
+
+### <a name="create-an-mx-record"></a>Créer un enregistrement MX
+
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements "@" pour créer l’enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com  "@" MX --exchange mail.contoso.com --preference 5
+```
+
+### <a name="create-an-ns-record"></a>Créer un enregistrement NS
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup  contoso.com  test-ns NS --nsdname ns1.contoso.com
+```
+
+### <a name="create-a-ptr-record"></a>Création d’un enregistrement PTR
+
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP.  Le nom d’enregistrement « 10 » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PTR --ptrdname "myservice.contoso.com"
+```
+
+### <a name="create-an-srv-record"></a>Création d’un enregistrement SRV
+
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’apex de la zone.
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com  "_sip._tls" SRV --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
+```
+
+### <a name="create-a-txt-record"></a>Création d’un enregistrement TXT
+
+L’exemple suivant montre comment créer un enregistrement TXT. Pour plus d’informations sur la longueur maximale de chaîne prise en charge dans les enregistrements TXT, voir [Enregistrements TXT](dns-zones-records.md#txt-records).
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com test-txt TXT --text "This is a TXT record"
+```
+
+## <a name="get-a-record-set"></a>Obtention d’un jeu d'enregistrements
+
+Pour récupérer un jeu d’enregistrements existant, utilisez `azure network dns record-set show`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set show -h`.
+
+Comme lors de la création d’un enregistrement ou jeu d’enregistrements, le nom du jeu d’enregistrements doit être un nom *relatif*, c’est-à-dire qu’il ne doit pas contenir le nom de la zone. Vous devez également spécifier le type d’enregistrement, la zone contenant le jeu d’enregistrements et le groupe de ressources contenant la zone.
+
+L’exemple suivant retrouve l’enregistrement *www* de type A dans la zone *contoso.com* du groupe de ressources *MyResourceGroup* :
+
+```azurecli
+azure network dns record-set show MyResourceGroup contoso.com www A
 ```
 
 ## <a name="list-record-sets"></a>Liste des jeux d'enregistrements
 
-Vous pouvez répertorier tous les enregistrements d’une zone DNS à l’aide de la commande `azure network dns record-set list` . Vous devez spécifier le nom du groupe de ressources et le nom de la zone.
+Vous pouvez répertorier tous les enregistrements d’une zone DNS à l’aide de la commande `azure network dns record-set list` . Pour obtenir de l’aide, consultez l’article `azure network dns record-set list -h`.
 
-### <a name="to-list-all-record-sets"></a>Pour répertorier tous les jeux d’enregistrements
-
-Cet exemple retourne tous les jeux d’enregistrements, quel que soit le nom ou le type d’enregistrement :
+Cet exemple renvoie tous les jeux d’enregistrements dans la zone *contoso.com*, dans le groupe de ressources *MyResourceGroup*, quel que soit le nom ou le type d’enregistrement :
 
 ```azurecli
-azure network dns record-set list myresourcegroup contoso.com
+azure network dns record-set list MyResourceGroup contoso.com
 ```
 
-### <a name="to-list-record-sets-of-a-given-type"></a>Pour répertorier les jeux d’enregistrements d’un type donné
-
-Cet exemple retourne tous les jeux d’enregistrements correspondant au type d’enregistrement donné (dans ce cas, les enregistrements « A »).
+Cet exemple retourne tous les jeux d’enregistrements correspondant au type d’enregistrement donné (dans ce cas, les enregistrements « A ») :
 
 ```azurecli
-azure network dns record-set list myresourcegroup contoso.com A
+azure network dns record-set list MyResourceGroup contoso.com --type A
 ```
 
-## <a name="add-a-record-to-a-record-set"></a>Ajout d’un enregistrement à un jeu d'enregistrements
+## <a name="add-a-record-to-an-existing-record-set"></a>Ajouter un enregistrement à un jeu d’enregistrements existant
 
-Vous pouvez utiliser la commande `azure network dns record-set add-record`pour ajouter des enregistrements aux jeux d’enregistrements. Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type du jeu d'enregistrements créé. Par exemple, lors de l’utilisation d’un jeu d’enregistrements de type « A », vous pouvez spécifier uniquement des enregistrements avec le paramètre `-a <IPv4 address>`.
+Vous pouvez utiliser `azure network dns record-set add-record` à la fois pour créer un enregistrement dans un nouveau jeu d’enregistrements ou pour ajouter un enregistrement à un jeu d’enregistrements existant.
 
-Pour créer un jeu d’enregistrements, utilisez la commande `azure network dns record-set create`. Spécifiez le groupe de la ressource, le nom de la zone, le nom relatif du jeu d’enregistrements, le type d’enregistrement et la durée de vie (TTL). Si le paramètre `--ttl` n’est pas défini, la valeur par défaut (en secondes) est quatre.
+Pour plus d’informations, consultez [Création d’un enregistrement DNS](#create-a-dns-record) et [Création d’enregistrements d’autres types](#create-records-of-other-types) ci-dessus.
+
+## <a name="remove-a-record-from-an-existing-record-set"></a>Suppression d’un enregistrement d’un jeu d'enregistrements existant.
+
+Pour supprimer un enregistrement DNS d’un jeu d'enregistrements existant, utilisez `azure network dns record-set delete-record`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set delete-record -h`.
+
+Cette commande supprime un enregistrement DNS d’un jeu d’enregistrements. Si le dernier enregistrement d’un jeu d’enregistrements est supprimé, le jeu d’enregistrements lui-même n’est **pas** supprimé. Un jeu d’enregistrements vide est laissé à la place. Pour supprimer le jeu d’enregistrements à la place, consultez [Suppression d’un jeu d’enregistrements](#delete-a-record-set).
+
+Vous devez spécifier l’enregistrement à supprimer et la zone de laquelle il doit être supprimé, en utilisant les mêmes paramètres que lors de la création d’un enregistrement avec `azure network dns record-set add-record`. Ces paramètres sont décrits dans [Création d’un enregistrement DNS](#create-a-dns-record) et [Création d’enregistrements d’autres types](#create-records-of-other-types) ci-dessus.
+
+Cette commande vous demande de confirmer l’opération. Ce message peut être supprimé en utilisant le switch `--quiet` (forme abrégée `-q`).
+
+L’exemple suivant supprime l’enregistrement A avec la valeur «&1;.2.3.4 » du jeu d’enregistrements *www* dans la zone *contoso.com* du groupe de ressources *MyResourceGroup*. L’invite de confirmation est supprimée.
 
 ```azurecli
-azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
+azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4 --quiet
 ```
 
-Après avoir créé le jeu d’enregistrements « A », ajoutez l’adresse IPv4 à l’aide de la commande `azure network dns record-set add-record`.
+## <a name="modify-an-existing-record-set"></a>Modifier un jeu d’enregistrements
+
+Chaque jeu d’enregistrements contient une [durée de vie (TTL)](dns-zones-records.md#time-to-live), des [métadonnées](dns-zones-records.md#tags-and-metadata) et des enregistrements DNS. Les sections suivantes expliquent comment modifier chacune de ces propriétés.
+
+### <a name="to-modify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>Pour modifier un enregistrement A, AAAA, MX, NS, PTR, SRV ou TXT
+
+Pour modifier un enregistrement existant de type A, AAAA, MX, NS, PTR, SRV ou TXT, vous devez d’abord ajouter un nouvel enregistrement, puis supprimer l’enregistrement existant. Pour obtenir des instructions détaillées sur la façon de supprimer et ajouter des enregistrements, consultez les sections précédentes de cet article.
+
+L’exemple suivant montre comment modifier un enregistrement « A », de l’adresse IP 1.2.3.4 à l’adresse IP 5.6.7.8 :
 
 ```azurecli
-azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
+azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6.7.8
+azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-Les exemples suivants montrent comment créer un jeu d’enregistrements de chaque type d’enregistrement. Chaque jeu d’enregistrements contient un seul enregistrement.
+Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d’enregistrements NS créé automatiquement à l’apex de la zone (`-Name "@"`, guillemets inclus). Pour ce jeu d’enregistrements, les seules modifications autorisées sont celles de la durée de vie (TTL) et des métadonnées du jeu d’enregistrements.
 
-[!INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
+### <a name="to-modify-a-cname-record"></a>Pour modifier un enregistrement CNAME
 
-## <a name="update-a-record-in-a-record-set"></a>Mettre à jour un enregistrement dans un jeu d’enregistrements
+Pour modifier un enregistrement CNAME, utilisez `azure network dns record-set add-record` pour ajouter la nouvelle valeur de l’enregistrement. Contrairement aux autres types d’enregistrements, un jeu d’enregistrements CNAME ne peut contenir qu’un seul enregistrement. Par conséquent, l’enregistrement existant est *remplacé* lorsque le nouvel enregistrement est ajouté et n’a pas besoin d’être supprimé séparément.  Une invite vous demande d’accepter ce remplacement.
 
-### <a name="to-add-another-ip-address-1234-to-an-existing-a-record-set-www"></a>Pour ajouter une autre adresse IP (1.2.3.4) à un jeu d’enregistrements « A » (www) existant :
-
-    azure network dns record-set add-record  myresourcegroup contoso.com  A
-    -a 1.2.3.4
-    info:    Executing command network dns record-set add-record
-    Record set name: www
-    + Looking up the dns zone "contoso.com"
-    + Looking up the DNS record set "www"
-    + Updating DNS record set "www"
-    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/a/www
-    data:    Name                            : www
-    data:    Type                            : Microsoft.Network/dnszones/a
-    data:    Location                        : global
-    data:    TTL                             : 4
-    data:    A records:
-    data:        IPv4 address                : 192.168.1.1
-    data:        IPv4 address                : 1.2.3.4
-    data:
-    info:    network dns record-set add-record command OK
-
-### <a name="to-remove-an-existing-value-from-a-record-set"></a>Pour supprimer une valeur existante d’un jeu d’enregistrements
-
-, utilisez `azure network dns record-set delete-record`.
-
-    azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
-    info:    Executing command network dns record-set delete-record
-    + Looking up the DNS record set "www"
-    Delete DNS record? [y/n] y
-    + Updating DNS record set "www"
-    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-    data:    Name                            : www
-    data:    Type                            : Microsoft.Network/dnszones/A
-    data:    Location                        : global
-    data:    TTL                             : 4
-    data:    A records:
-    data:    IPv4 address                    : 192.168.1.1
-    data:
-    info:    network dns record-set delete-record command OK
-
-## <a name="remove-a-record-from-a-record-set"></a>Suppression d’un enregistrement d’un jeu d’enregistrements
-
-Des enregistrements peuvent être supprimés d’un jeu d’enregistrements à l’aide de la commande `azure network dns record-set delete-record`. L’enregistrement à supprimer doit correspondre exactement à un enregistrement existant relativement à tous les paramètres.
-
-La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime pas le jeu d'enregistrements. Pour plus d’informations, consultez la section [Suppression d’un jeu d’enregistrements](#delete)de cet article.
+Cet exemple modifie le jeu d’enregistrements CNAME *www* dans la zone *contoso.com*, dans le groupe de ressources *MyResourceGroup*, pour pointer vers « www.fabrikam.net » au lieu de sa valeur existante :
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
+azure network dns record-set add-record MyResourceGroup contoso.com www CNAME --cname www.fabrikam.net
+``` 
 
-azure network dns record-set delete myresourcegroup contoso.com www A
-```
+### <a name="to-modify-an-soa-record"></a>Pour modifier un enregistrement SOA
 
-### <a name="remove-an-aaaa-record-from-a-record-set"></a>Supprimer un enregistrement AAAA d’un jeu d’enregistrements
+Utilisez `azure network dns record-set set-soa-record` pour modifier l’enregistrement SOA pour une zone DNS donnée. Pour obtenir de l’aide, consultez l’article `azure network dns record-set set-soa-record -h`.
 
-```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
-```
-
-### <a name="remove-a-cname-record-from-a-record-set"></a>Supprimer un enregistrement CNAME d’un jeu d’enregistrements
+L’exemple suivant montre comment définir la propriété « email » de l’enregistrement SOA pour la zone *contoso.com* dans le groupe de ressources *MyResourceGroup* :
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
+azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
 ```
 
-### <a name="remove-an-mx-record-from-a-record-set"></a>Supprimer un enregistrement MX d’un jeu d’enregistrements
+### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Pour modifier la durée de vie (TTL) d’un jeu d’enregistrements
+
+Pour modifier la durée de vie (TTL) d’un jeu d’enregistrements, utilisez `azure network dns record-set set`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set set -h`.
+
+L’exemple suivant montre comment modifier la durée de vie d’un jeu d’enregistrements, dans ce cas sur 60 secondes :
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
+azure network dns record-set set MyResourceGroup contoso.com www A --ttl 60
 ```
 
-### <a name="remove-an-ns-record-from-record-set"></a>Supprimer un enregistrement NS d’un jeu d’enregistrements
+### <a name="to-modify-the-metadata-of-an-existing-record-set"></a>Pour modifier les métadonnées d’un jeu d’enregistrements
+
+Vous pouvez utiliser des [métadonnées de jeu d’enregistrements](dns-zones-records.md#tags-and-metadata) pour associer les données spécifiques de l’application à chaque jeu d’enregistrements, comme paires clé-valeur. Pour modifier les métadonnées d’un jeu d’enregistrements, utilisez `azure network dns record-set set`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set set -h`.
+
+L’exemple suivant montre comment modifier un jeu d’enregistrements avec deux entrées de métadonnées, « dept=finance » et « environment=production », en utilisant le paramètre `--metadata` (forme abrégée `-m`). Notez que toutes les métadonnées existantes sont *remplacées* par les valeurs fournies.
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+azure network dns record-set set MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
 ```
 
-### <a name="remove-a-ptr-record-from-a-record-set"></a>Suppression d’un enregistrement PTR d’un jeu d’enregistrements
+## <a name="delete-a-record-set"></a>Supprimer un jeu d’enregistrements
 
-Dans ce cas « my-arpa-zone.com » représente la zone ARPA représentant votre plage d’adresses IP.  Chaque enregistrement PTR dans cette zone correspond à une adresse IP au sein de cette plage d’adresses IP.
+Les jeux d’enregistrements peuvent être supprimés à l’aide de la commande `azure network dns record-set delete`. Pour obtenir de l’aide, consultez l’article `azure network dns record-set delete -h`. La suppression d’un jeu d’enregistrements a pour effet de supprimer également tous les enregistrements qu’il contient.
+
+> [!NOTE]
+> Vous ne pouvez pas supprimer de jeux d’enregistrements SOA et NS au niveau de l’apex de la zone (`-Name "@"`).  Ceux-ci sont créés automatiquement lors de la création de la zone, et automatiquement supprimés lors de la suppression de celle-ci.
+
+L’exemple suivant supprime le jeu d’enregistrements *www* de type A dans la zone *contoso.com* du groupe de ressources *MyResourceGroup* :
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+azure network dns record-set delete MyResourceGroup contoso.com www A
 ```
 
-### <a name="remove-an-srv-record-from-a-record-set"></a>Supprimer un enregistrement SRV d’un jeu d’enregistrements
-
-```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
-```
-
-### <a name="remove-a-txt-record-from-a-record-set"></a>Supprimer un enregistrement TXT d’un jeu d’enregistrements
-
-```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
-```
-
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Suppression d’un jeu d'enregistrements
-
-Les jeux d’enregistrements peuvent être supprimés à l’aide de l’applet de commande `Remove-AzureRmDnsRecordSet` . Vous ne pouvez pas supprimer à l’extrémité de la zone les jeux d’enregistrements SOA et NS (nom = "@") qui ont été créés automatiquement durant la création de la zone. Ils sont supprimés automatiquement lors de la suppression de la zone.
-
-Dans l’exemple suivant, le jeu d’enregistrements « A » « test-a » est supprimé de la zone DNS « contoso.com » :
-
-```azurecli
-azure network dns record-set delete myresourcegroup contoso.com  "test-a" A
-```
-
-Le commutateur facultatif `-q` peut être utilisé pour supprimer l’invite de confirmation.
+Vous êtes invité à confirmer l’opération de suppression. Pour supprimer cette invite, utilisez le switch `--quiet` (forme abrégée `-q`).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure DNS, consultez la [Vue d’ensemble d’Azure DNS](dns-overview.md). Pour plus d’informations sur l’automatisation de DNS, consultez [Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET](dns-sdk.md).
+Apprenez-en davantage sur les [zones et enregistrements dans Azure DNS](dns-zones-records.md).
+<br>
+Découvrez comment [protéger vos zones et enregistrements](dns-protect-zones-recordsets.md) lors de l’utilisation d’Azure DNS.
 
-Si vous voulez utiliser des enregistrements DNS inversés, consultez [Gestion des enregistrements DNS inversés pour vos services à l’aide de l’interface de ligne de commande Azure](dns-reverse-dns-record-operations-cli.md).
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

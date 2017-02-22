@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/05/2016
+ms.date: 1/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 31d80e58071383aee22772e224c90289a610c0b3
+ms.sourcegitcommit: b70d2d709d0940964c4220b798207adaf3551d36
+ms.openlocfilehash: d31e987e636b178b5aa05722ff08707a6e53c3cf
 
 
 ---
@@ -48,8 +48,8 @@ Les types de basculement pris en charge dépendent de votre scénario de déploi
 | Entre Microsoft Azure et le site VMM |Non pris en charge |Pris en charge |Non pris en charge |
 | Entre un site Hyper-V et Microsoft Azure |Pris en charge |Pris en charge |Pris en charge |
 | Entre Microsoft Azure et un site Hyper-V |Non pris en charge |Pris en charge |Non pris en charge |
-| Entre un site VMware et Microsoft Azure |Pris en charge (scénario amélioré)<br/><br/>  Non pris en charge (ancien scénario) |Non pris en charge |Pris en charge |
-| Entre un serveur physique et Microsoft Azure |Pris en charge (scénario amélioré)<br/><br/>  Non pris en charge (ancien scénario) |Non pris en charge |Pris en charge |
+| Entre un site VMware et Microsoft Azure |Pris en charge (scénario amélioré)<br/><br/> Non pris en charge (ancien scénario) |Non pris en charge |Pris en charge |
+| Entre un serveur physique et Microsoft Azure |Pris en charge (scénario amélioré)<br/><br/> Non pris en charge (ancien scénario) |Non pris en charge |Pris en charge |
 
 ## <a name="failover-and-failback"></a>Basculement et restauration automatique
 Vous effectuez le basculement des machines virtuelles vers un site local secondaire ou vers Microsoft Azure, en fonction de votre déploiement. Une machine qui effectue un basculement vers Microsoft Azure est créée en tant que machine virtuelle Azure. Vous pouvez effectuer le basculement d’une machine virtuelle ou d’un serveur physique uniques, ou d’un plan de récupération. Les plans de récupération comprennent un ou plusieurs groupes ordonnés présentant des machines virtuelles ou serveurs physiques protégés. Ils permettent d’orchestrer le basculement de plusieurs machines, en fonction du groupe auquel elles appartiennent. [Découvrez plus d’informations](site-recovery-create-recovery-plans.md) sur les plans de récupération.
@@ -78,86 +78,7 @@ Si vous avez effectué le basculement vers Microsoft Azure, vos machines virtue
 * **Acheminer les demandes des clients**: Microsoft Azure Site Recovery fonctionne en parallèle avec Microsoft Azure Traffic Manager pour acheminer les demandes des clients vers votre application après le basculement.
 
 ## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
-Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionner les paramètres réseau des ordinateurs virtuels de réplication utilisés pour le test. Vous avez plusieurs possibilités.  
-
-| **Option de test de basculement** | **Description** | **Vérification du basculement** | **Détails** |
-| --- | --- | --- | --- |
-| **Basculement vers Microsoft Azure, sans réseau** |Aucun réseau Microsoft Azure cible n’est sélectionné. |Vérifie que la machine virtuelle de test démarre comme prévu dans Microsoft Azure. |Toutes les machines virtuelles de test d’un plan de récupération sont ajoutées dans un seul service cloud et peuvent se connecter entre elles<br/><br/>Les machines ne sont connectées à aucun réseau Azure après le basculement.<br/><br/>Les utilisateurs peuvent se connecter aux machines de test avec une adresse IP publique |
-| **Basculement vers Microsoft Azure, via un réseau** |Un réseau Microsoft Azure cible est sélectionné. |Vérifie que les machines de test sont connectées au réseau. |Créez un réseau Azure isolé du réseau de production Azure et configurez l’infrastructure de la machine virtuelle répliquée, afin qu’elle fonctionne comme prévu.<br/><br/>Le sous-réseau de la machine virtuelle de test est basé sur le sous-réseau auquel la machine virtuelle ayant fait l’objet d’un basculement doit se connecter en cas de basculement, planifié ou non. |
-| **Basculement vers un site VMM secondaire, sans réseau** |Aucun réseau de machines virtuelles n’est sélectionné. |Vérifie que les machines de test sont créées.<br/><br/>La machine virtuelle de test est créée sur l’hôte qui héberge déjà la machine virtuelle de réplication. Elle n'est pas ajoutée au cloud où se trouve la machine virtuelle de réplication. |<p>La machine ayant basculé ne sera connectée à aucun réseau.<br/><br/>La machine peut être connectée à un réseau de machines virtuelles après sa création |
-| **Basculement vers un site VMM secondaire, via un réseau** |Un réseau de machines virtuelles existant est sélectionné. |Vérifie la création des machines virtuelles. |La machine virtuelle de test est créée sur l’hôte qui héberge déjà la machine virtuelle de réplication. Elle n'est pas ajoutée au cloud où se trouve la machine virtuelle de réplication.<br/><br/>Créer un réseau de machines virtuelles isolé de votre réseau de production<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles à des fins de test du basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. |
-| **Basculement vers un site VMM secondaire : création d’un réseau** |Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés. |Vérifie la création des machines virtuelles. |Utilisez cette option si le plan de récupération fait appel à plusieurs réseaux de machines virtuelles. Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.</p><p>La machine virtuelle de test est créée sur l’hôte qui héberge déjà la machine virtuelle de réplication. Elle n'est pas ajoutée au cloud où se trouve la machine virtuelle de réplication. |
-
-> [!NOTE]
-> L’adresse IP donnée à une machine virtuelle durant un test de basculement est identique à l’adresse IP qu’elle recevrait durant un basculement planifié ou non planifié (à condition que l’adresse IP soit disponible dans le réseau de test de basculement). Si la même adresse IP n’est pas disponible dans le réseau de test de basculement, la machine virtuelle reçoit une autre adresse IP disponible dans le réseau de test de basculement.
->
->
-
-### <a name="run-a-test-failover-from-on-premises-to-azure"></a>Exécuter un test de basculement depuis un site local vers Microsoft Azure
-Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles** .
-
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Test Type de basculement**.
-2. Sur la page **Confirmer le test de basculement** , indiquez le mode de connexion des ordinateurs virtuels de réplication au réseau Microsoft Azure après le basculement.
-3. Si vous effectuez le basculement vers Microsoft Azure et que la fonction de chiffrement des données est activée pour le cloud, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur.
-4. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
-5. Vous pouvez accéder aux machines de réplication dans Microsoft Azure à partir de votre site local : lancez une connexion RDP à la machine virtuelle. Le port 3389 doit être ouvert sur le point de terminaison de la machine virtuelle.
-6. Lorsque vous avez terminé et que le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
-7. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement.
-8. Cliquez sur **Le test de basculement est terminé.** L’environnement de test est alors automatiquement nettoyé. Une fois cette opération terminée, le basculement de test affiche l’état ****Terminé** **.
-
-> [!NOTE]
-> Si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du basculement de test sont supprimés.
->
->
-
-### <a name="run-a-test-failover-from-a-primary-on-premises-site-to-a-secondary-on-premises-site"></a>Exécution d’un test de basculement depuis un site local principal vers un site local secondaire
-Vous devez effectuer un certain nombre d’actions pour pouvoir exécuter un test de basculement. Cela inclut la création d’une copie du contrôleur de domaine et le déplacement des serveurs DHCP et DNS de test vers votre environnement de test. Vous pouvez accomplir cette opération de différentes manières :
-
-* Si vous souhaitez exécuter un test de basculement à l’aide d’un réseau existant, vous devez préparer les systèmes Active Directory, DHCP et DNS de ce réseau.
-* Si vous souhaitez exécuter un test de basculement via l’option de création automatique des réseaux de machines virtuelles, ajoutez une étape manuelle avant Group1 dans le plan de récupération que vous utiliserez pour le basculement de test. Ensuite, ajoutez les ressources d’infrastructure au réseau créé de manière automatique avant de procéder au basculement de test.
-
-#### <a name="things-to-note"></a>Points à noter
-* Lors de la réplication vers un site secondaire, le type de réseau utilisé par l’ordinateur de réplication ne doit pas nécessairement correspondre au type de réseau logique utilisé pour le test de basculement. Cependant, il se peut que certaines combinaisons ne fonctionnent pas. Si le réplica utilise l’isolement basé sur VLAN ou DHCP, le réseau de machines virtuelles associé au réplica n’a pas besoin d’un pool d’adresses IP statiques. Ainsi, l’utilisation de la fonction de virtualisation de réseau Windows pour un test de basculement ne peut pas aboutir, car aucun pool d’adresses n’est disponible. En outre, le test de basculement ne fonctionne pas si le réseau du réplica n’est associé à aucun isolement et si le réseau de test utilise la fonction de virtualisation de réseau Windows. En effet, un réseau ne présentant aucun isolement n’inclut aucun sous-réseau requis pour créer un réseau utilisant la fonction de virtualisation de réseau Windows.
-* Le mode de connexion des ordinateurs virtuels de réplication aux réseaux de machines virtuelles mappés après le basculement dépend de la configuration choisie pour le réseau de machines virtuelles dans la console VMM :
-  * **Réseau de machines virtuelles configuré sans isolement ou isolement VLAN**: si le protocole DHCP est défini pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du serveur DHCP disponible. Vous n’avez pas besoin de définir un pool d’adresses IP statiques pour le réseau de machines virtuelles cible. Si un pool d’adresses IP statiques est utilisé pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du pool défini pour le réseau de machines virtuelles. Si aucun pool d’adresses IP statiques n’est défini sur le réseau de machines virtuelles cible, le processus d’allocation d’une adresse IP échoue. Le pool d’adresses IP doit être créé sur les serveurs VMM source et cible que vous allez utiliser à des fins de protection et de récupération.
-  * **Réseau de machines virtuelles avec virtualisation de réseau Windows**: si un réseau de machines virtuelles est configuré avec ce paramètre, un pool statique doit être défini pour le réseau de machines virtuelles cible, que le réseau de machines virtuelles source soit configuré pour utiliser le protocole DHCP ou un pool d’adresses IP statiques ou non. Si vous définissez le protocole DHCP, le serveur VMM cible joue le rôle de serveur DHCP et fournit une adresse IP provenant du pool défini pour le réseau de machines virtuelles cible. Si l’utilisation d’un pool d’adresses IP statiques est définie pour le serveur source, le serveur VMM cible alloue une adresse IP à partir du pool. Dans les deux cas, le processus d’allocation d’une adresse IP échoue si aucun pool d’adresses IP statiques n’est défini.
-
-#### <a name="run-test"></a>Exécuter un test
-Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles** .
-
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Test Type de basculement**.
-2. Sur la page **Confirmer le test de basculement** , indiquez le mode de connexion des machines virtuelles aux réseaux, après le test de basculement.
-3. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
-4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
-5. Une fois l’opération terminée, vérifiez que les machines virtuelles démarrent correctement.
-6. Après avoir effectué cette vérification, terminez le test de basculement afin de nettoyer l’environnement isolé. Si vous avez opté pour la création automatique de réseaux de machines virtuelles, le nettoyage supprime toutes les machines virtuelles de test, ainsi que les réseaux de test.
-
-> [!NOTE]
-> Si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du basculement de test sont supprimés.
->
->
-
-#### <a name="prepare-dhcp"></a>Préparer le service DHCP
-Si les machines virtuelles impliquées dans le test de basculement utilisent le protocole DHCP, un serveur DHCP de test doit être créé dans le réseau isolé est créé pour les besoins du test de basculement.
-
-### <a name="prepare-active-directory"></a>Préparation du système Active Directory
-Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#test-failover-considerations) pour plus de détails. 
-
-### <a name="prepare-dns"></a>Préparer le service DNS
-Préparer un serveur DNS pour le test de basculement en procédant comme suit :
-
-* **DHCP**: si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
-* **Adresse statique**: si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans le réseau de test de basculement. Vous devrez peut-être mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant :
-
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+Reportez-vous au document [Tester le basculement vers Azure](site-recovery-test-failover-to-azure.md) si vous effectuez un test de basculement vers Azure. Reportez-vous au document [Test de basculement sur VMM](site-recovery-test-failover-vmm-to-vmm.md) si vous effectuez un test de basculement vers un autre site local géré par un serveur VMM.  
 
 ## <a name="run-a-planned-failover-primary-to-secondary"></a>Exécuter un basculement planifié (depuis un système principal vers un système secondaire)
  Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles** .
@@ -201,7 +122,11 @@ Cette procédure explique comment exécuter un test de basculement non planifié
 
     - **Synchroniser les données uniquement lors du basculement (téléchargement complet)**: utilisez cette option si vous exécutez Azure depuis une longue période. Cette option est plus rapide, car nous nous attendons à ce que la majeure partie du disque ait changé et nous ne voulons pas passer du temps au calcul de la somme de contrôle. Elle effectue un téléchargement du disque. C’est également utile lorsque la machine virtuelle locale a été supprimée.
 
-    > [AZURE.NOTE] Nous vous recommandons d’utiliser cette option si vous exécutez Azure depuis un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée. Cette option n’effectue aucun calcul de somme de contrôle.
+    > [!NOTE] 
+    > Nous vous recommandons d’utiliser cette option si vous exécutez Azure depuis un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée. Cette option n’effectue aucun calcul de somme de contrôle.
+    >
+    >
+
 
 1. Si vous effectuez le basculement vers Microsoft Azure et que la fonction de chiffrement des données est activée pour le cloud, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur sur le serveur VMM.
 2. Par défaut, le dernier point de récupération est utilisé. Cependant, vous pouvez indiquer un autre point de récupération dans la zone **Changer le point de récupération**.
@@ -235,6 +160,6 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

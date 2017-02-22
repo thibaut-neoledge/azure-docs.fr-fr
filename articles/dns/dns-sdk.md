@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: 93048e5789480fbb3c5d2ac6e799685fbf6f888f
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
 
 ---
 
@@ -27,8 +27,8 @@ Vous pouvez automatiser les opérations de création, de suppression ou de mise 
 
 En règle générale, l’accès par programme aux ressources Azure est accordé via un compte dédié au lieu de vos propres informations d’identification de l’utilisateur. Ces comptes dédiés sont appelés comptes de « principal du service ». Pour utiliser l’exemple de projet de kit de développement logiciel Azure DNS, vous devez d’abord créer un compte de principal du service et lui attribuer les autorisations appropriées.
 
-1. Suivez [ces instructions](../resource-group-authenticate-service-principal.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
-2. Créez un groupe de ressources ([procédure](../resource-group-template-deploy-portal.md)).
+1. Suivez [ces instructions](../azure-resource-manager/resource-group-authenticate-service-principal.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
+2. Créez un groupe de ressources ([procédure](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../active-directory/role-based-access-control-configure.md)).
 4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :
 
@@ -168,6 +168,6 @@ Téléchargez l’[exemple de projet de SDK Azure .NET DNS](https://www.microsof
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

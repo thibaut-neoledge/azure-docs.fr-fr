@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 01/23/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
 
 
 ---
@@ -65,7 +65,7 @@ L’exécution d’applications Batch et HPC inclut souvent un *gestionnaire de 
 * **Gestionnaire de cluster** : fournit, libère et administre les ressources de calcul (ou nœuds de calcul). Un gestionnaire de cluster peut automatiser l'installation des images de système d'exploitation et des applications sur les nœuds de calcul, mettre à l’échelle les ressources de calcul selon les besoins et surveiller les performances des nœuds.
 * **Planificateur de travaux** : spécifie les ressources (telles que les processeurs ou la mémoire) dont une application a besoin et les conditions d’exécution. Un planificateur de travaux gère une file d'attente de travaux et leur alloue des ressources selon leur priorité ou d'autres caractéristiques.
 
-Les outils de clustering et de planification des travaux pour les clusters Windows et Linux migrent correctement vers Azure. Par exemple, [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), la solution de cluster de calcul gratuite de Microsoft pour les charges de travail HPC Windows et Linux, offre plusieurs options d'exécution dans Azure. Vous pouvez également créer des clusters Linux pour exécuter des outils open source tels que Torque et SLURM. Vous avez par ailleurs la possibilité d’intégrer dans Azure des solutions de Grid Computing commerciales, telles que [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) et [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+Les outils de clustering et de planification des travaux pour les clusters Windows et Linux migrent correctement vers Azure. Par exemple, [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), la solution de cluster de calcul gratuite de Microsoft pour les charges de travail HPC Windows et Linux, offre plusieurs options d'exécution dans Azure. Vous pouvez également créer des clusters Linux pour exécuter des outils open source tels que Torque et SLURM. Vous avez par ailleurs la possibilité d’intégrer dans Azure des solutions de Grid Computing commerciales, telles que [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) et [Univa Grid Engine](http://www.univa.com/products/grid-engine).
 
 Comme indiqué dans les sections suivantes, vous pouvez également tirer parti des services Azure pour gérer les ressources de calcul et planifier des travaux sans (ou en plus) les outils de gestion de cluster traditionnels.
 
@@ -90,7 +90,7 @@ Voici des informations supplémentaires sur les services de calcul, de données,
 Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter des systèmes d’exploitation et des outils Linux et Windows standard et personnalisés. Azure vous propose un choix de [tailles d’instance](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avec différentes configurations de cœurs d’UC, de mémoire, de capacité de disque et d’autres caractéristiques. Selon vos besoins, vous pouvez mettre à l’échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
 
 > [!NOTE]
-> Tirez parti des instances Azure nécessitant beaucoup de ressources système pour améliorer les performances et l’extensibilité des charges de travail HPC, notamment les applications MPI parallèles qui nécessitent une faible latence et un réseau d’application haut débit. Voir [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(À propos des machines virtuelles de série H ou de calcul intensif de série A).  
+> Tirez parti des [instances Azure nécessitant beaucoup de ressources système telles que la série H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour améliorer les performances et l’évolutivité des charges de travail HPC. Ces instances prennent également en charge des applications MPI parallèles qui nécessitent un réseau d’application à faible latence et à débit élevé. Sont également disponibles les machines virtuelles de [série N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) avec des processeurs graphiques NVIDIA pour étendre l’éventail de scénarios de calcul et de visualisation dans Azure.  
 > 
 > 
 
@@ -124,7 +124,7 @@ Votre solution Big Compute peut devoir inclure d'autres services Azure pour se 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Ressources techniques pour Batch et HPC](big-compute-resources.md) pour obtenir des conseils techniques afin de créer votre solution.
-* Discutez de vos options Azure avec des partenaires, notamment Cycle Computing et UberCloud.
+* Discutez de vos options Azure avec des partenaires, tels que Cycle Computing, Rescale et UberCloud.
 * Découvrez les solutions Azure Big Compute fournies par [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) et [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 * Pour les dernières annonces, consultez le [blog de l’équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -137,6 +137,6 @@ Votre solution Big Compute peut devoir inclure d'autres services Azure pour se 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: bcb91660500484210c342a84595386ebb5e0bbbd
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -43,7 +43,7 @@ Contrairement aux autres services où les options de l’interface sont limitée
 Voici comment cela fonctionne : Azure AD B2C exécute le code dans l’explorateur client et utilise une approche moderne appelée [partage de ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger le contenu depuis une URL spécifiée au préalable dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Le code fusionne des éléments de l’interface utilisateur d’Azure AD B2C et le contenu chargé depuis votre URL, et affiche la page pour le consommateur. Procédure à suivre :
 
 1. Créer un contenu HTML5 correct avec un élément `<div id="api"></div>` (obligatoirement vide) situé dans `<body>`. Cet élément marque l’endroit où le contenu Azure AD B2C est inséré.
-2. Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé).
+2. Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé). Notez que vous devez activer à la fois les méthodes de demande GET et OPTIONS lors de la configuration de CORS.
 3. Modifier le style des éléments d’interface utilisateur dans lesquels sera incorporé Azure AD B2C.
 
 ## <a name="test-out-the-ui-customization-feature"></a>Tester la fonctionnalité de personnalisation de l’interface
@@ -72,7 +72,7 @@ Vous trouverez ci-dessous un contenu HTML élémentaire que vous pouvez utiliser
 ```
 
 ## <a name="the-core-ui-elements-in-each-type-of-page"></a>Éléments d’interface utilisateur de base dans chaque type de page
-Les sections suivantes présentent des exemples de fragments HTML5 qu’Azure AD B2C fusionne dans l’élément `<div id="api"></div>` situé dans votre contenu. **N’insérez pas ces fragments dans votre contenu HTML5.**  Le service Azure AD B2C les insère au moment de l’exécution. Utilisez ces exemples pour concevoir vos propres feuilles de style.
+Les sections suivantes présentent des exemples de fragments HTML5 qu’Azure AD B2C fusionne dans l’élément `<div id="api"></div>` situé dans votre contenu. **N’insérez pas ces fragments dans votre contenu HTML5.** Le service Azure AD B2C les insère au moment de l’exécution. Utilisez ces exemples pour concevoir vos propres feuilles de style.
 
 ### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>Contenu Azure AD B2C inséré dans la « page de sélection du fournisseur d’identité »
 Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix à l’inscription ou à la connexion. Il s’agit de fournisseurs d’identité sociale tels que Facebook et Google + ou de comptes locaux (basés sur une adresse de messagerie ou un nom d’utilisateur).
@@ -340,20 +340,15 @@ Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interf
 
 * Ne copiez pas le contenu par défaut Azure AD B2C et n’essayez pas de le modifier. Il est préférable de créer votre contenu HTML5 à partir de zéro et d’utiliser le contenu par défaut comme référence.
 * Dans toutes les pages (à l’exception des pages d’erreur) prises en charge par les stratégies d’inscription, de connexion et de modification de profil, les feuilles de style que vous fournissez devront remplacer les feuilles de style par défaut que nous ajoutons à ces pages dans les fragments <head> . Dans toutes les pages prises en charge par les stratégies d’inscription, de connexion ou de réinitialisation du mot de passe, ainsi que dans les pages d’erreur de toutes les stratégies, vous devrez définir vous-même les éléments de style.
-* Pour des raisons de sécurité, nous ne vous permettons pas d’inclure du langage JavaScript dans votre contenu. La plupart des éléments dont vous avez besoin sont disponibles et prêts à l’emploi. Dans le cas contraire, utilisez [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) pour demander de nouvelles fonctionnalités.
+* Pour des raisons de sécurité, nous ne vous permettons pas d’inclure du langage JavaScript dans votre contenu. La plupart des éléments dont vous avez besoin sont disponibles et prêts à l’emploi. Dans le cas contraire, utilisez [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) pour demander de nouvelles fonctionnalités.
 * Versions de navigateur prises en charge :
-  * Internet Explorer 11
-  * Internet Explorer 10
-  * Internet Explorer 9 (limité)
-  * Internet Explorer 8 (limité)
-  * Google Chrome 43.0
-  * Google Chrome 42.0
-  * Mozilla Firefox 38.0
-  * Mozilla Firefox 37.0
+  * Internet Explorer 11, 10, Edge
+  * Prise en charge limitée pour Internet Explorer 9, 8
+  * Google Chrome 42.0 et ultérieur
+  * Mozilla Firefox 38.0 et ultérieur
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

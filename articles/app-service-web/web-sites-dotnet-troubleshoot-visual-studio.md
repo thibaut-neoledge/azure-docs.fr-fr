@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 2f6a8a728448432678a0545acd879a4f66a28557
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
 
 
 ---
@@ -38,7 +38,7 @@ Vous apprendrez ce qui suit :
 Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
 ## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Configuration requise
-Ce didacticiel fonctionne avec l’environnement de développement, le projet web et l’application web Microsoft Azure que vous avez configurés dans le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted]. Pour les sections relatives à WebJobs, vous avez besoin de l’application créée dans [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
+Ce didacticiel fonctionne avec l’environnement de développement, le projet Web et l’application Web Azure que vous avez configurés dans le didacticiel [Prise en main d’Azure et ASP.NET][GetStarted]. Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
 
 Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
 
@@ -117,9 +117,9 @@ Si le message d'erreur détaillé ne fournit pas assez d'informations et que vou
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
 
-Cette section vous montre comment procéder au débogage à distance en utilisant le projet créé dans le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted].
+Cette section vous montre comment procéder au débogage à distance en utilisant le projet que vous créez dans le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted].
 
-1. Ouvrez le projet web que vous avez créé durant le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted].
+1. Ouvrez le projet Web que vous avez créé durant le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted].
 2. Ouvrez *Controllers\HomeController.cs*.
 3. Supprimez la méthode `About()` et insérez le code suivant à la place.
 
@@ -165,7 +165,7 @@ Les fonctionnalités présentées dans cette section sont disponibles uniquement
 
 Le débogage à distance fonctionne uniquement avec les tâches Web en continu. Les tâches Web planifiées et à la demande ne prennent pas en charge le débogage.
 
-1. Ouvrez le projet web que vous avez créé dans [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
+1. Ouvrez le projet Web que vous avez créé dans [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][GetStartedWJ].
 2. Dans le projet ContosoAdsWebJob, ouvrez *Functions.cs*.
 3. [Définissez un point d’arrêt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) sur la première instruction dans la méthode `GnerateThumbnail`.
 
@@ -209,7 +209,7 @@ Si votre fonction [a écrit des journaux](websites-dotnet-webjobs-sdk-storage-qu
 ## <a name="notes-about-remote-debugging"></a>Notes à propos du débogage à distance
 * Nous vous déconseillons d'exécuter le mode débogage en production. Si votre application web de production n’est pas montée en charge sur plusieurs instances de serveur, la fonction de débogage empêche le serveur web de répondre aux autres demandes. Si vous avez plusieurs instances de serveurs web, le fait de joindre le débogueur générera une instance aléatoire et vous empêchera de vérifier que les demandes suivantes de votre navigateur parviendront à cette instance. De même, comme vous ne déployez généralement pas une version de débogage dans un environnement de production, les optimisations du compilateur pour les versions Release peuvent empêcher l'affichage des réactions ligne par ligne dans votre code source. Pour résoudre les problèmes de production, la meilleure ressource est constituée des journaux de suivi d'application et de serveur Web.
 * Évitez les arrêts longs aux points d'arrêt avec le débogage à distance. Azure considère qu'un processus arrêté pendant plus de quelques minutes ne répond pas, et l'arrête définitivement.
-* Pendant le débogage, le serveur envoie des données à Visual Studio, ce qui peut affecter les frais de bande passante. Pour plus d'informations sur les tarifs de bande passante, consultez les [tarifs Azure](/pricing/calculator/).
+* Pendant le débogage, le serveur envoie des données à Visual Studio, ce qui peut affecter les frais de bande passante. Pour plus d'informations sur les tarifs de bande passante, consultez les [tarifs Azure](https://azure.microsoft.com/pricing/calculator/).
 * Vérifiez que l’attribut `debug` de l’élément `compilation` du fichier *Web.config* est défini sur true. Il est défini sur true par défaut lorsque vous publiez une configuration de version de débogage.
 
         <system.web>
@@ -239,7 +239,7 @@ Les journaux sont écrits dans des fichiers issus du dossier *LogFiles*, au sein
 ## <a name="a-nameapptracelogsacreate-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Création et affichage des journaux de suivi d’application
 Dans cette section, vous effectuerez les tâches suivantes :
 
-* ajout d’instructions de suivi pour le projet web que vous avez créé avec le didacticiel [Prise en main d’Azure et d’ASP.NET][GetStarted] ;
+* ajout d’instructions de traçage au projet Web que vous avez créé dans [Prise en main d’Azure et ASP.NET][GetStarted] ;
 * affichage des journaux lorsque vous exécutez le projet localement ;
 * affichage des journaux durant leur génération par l'application exécutée dans Azure.
 
@@ -570,7 +570,7 @@ Pour en savoir plus sur la résolution des applications web dans le Service d�
 
 * [Surveillance d’applications Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Étude des fuites de mémoire dans les applications Web Microsoft Azure avec Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Article sur le blog ALM de Microsoft concernant les fonctionnalités de Visual Studio prévues pour l'analyse de problèmes de mémoire gérés.
-* [Les outils en ligne des applications Web Microsoft Azure que vous devez connaître](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Article de blog par Amit Apple.
+* [Les outils en ligne des applications Web Microsoft Azure que vous devez connaître](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Article de blog par Amit Apple.
 
 Pour obtenir des réponses sur une question relative à la résolution des problèmes, ouvrez un fil de discussion dans l'un des forums suivants :
 
@@ -584,9 +584,9 @@ Pour plus d’informations sur l’utilisation du mode débogage dans Visual Stu
 ### <a name="remote-debugging-in-azure"></a>Débogage distant dans Azure
 Pour en savoir plus sur le débogage distant des applications web Microsoft Azure et WebJobs, consultez les articles de blog suivants, en anglais :
 
-* [Présentation du débogage à distance d’Azure App Service Web Apps](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)(en anglais).
-* [Présentation du débogage à distance d’Azure App Service Web Apps : 2e partie - au cœur du débogage distant (en anglais)](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Présentation du débogage à distance d’Azure App Service Web Apps : 3e partie - environnement multi-instance et GIT (en anglais)](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Présentation du débogage à distance d’Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)(en anglais).
+* [Présentation du débogage à distance d’Azure App Service Web Apps : 2e partie - au cœur du débogage distant (en anglais)](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Présentation du débogage à distance d’Azure App Service Web Apps : 3e partie - environnement multi-instance et GIT (en anglais)](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Débogage de WebJobs (vidéo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Si votre application Web utilise une API Web Microsoft Azure ou un système Mobile Services principal qu’il vous faut déboguer, consultez l’article [Débogage du serveur principal .NET dans Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)(en anglais).
@@ -595,15 +595,15 @@ Si votre application Web utilise une API Web Microsoft Azure ou un système M
 Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualisée disponible sur Internet. Nous vous conseillons de commencer par consulter les anciens documents de présentation rédigés pour Web Forms, car MVC n'existait pas encore, et de compléter cela en consultant les billets de blog les plus récents traitant de problèmes plus précis. Les ressources suivantes constituent un bon début :
 
 * [Surveillance et télémétrie (développement d’applications cloud concrètes avec Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-   Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
+  Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
 * [Suivi ASP.NET](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
-   Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
+  Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
 * [Écouteurs de suivi](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Contient des informations sur les écouteurs de suivi mais ne mentionne pas l’élément [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
 * [Procédure pas à pas : intégration du suivi ASP.NET avec le suivi System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-   Cette page est également un peu ancienne, mais vous y trouverez des informations complémentaires que l’article de présentation ne traite pas.
+  Cette page est également un peu ancienne, mais vous y trouverez des informations complémentaires que l’article de présentation ne traite pas.
 * [Suivi dans les vues d’ASP.NET MVC Razor](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](http://msdn.microsoft.com/library/bb397417.aspx) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
+  En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](http://msdn.microsoft.com/library/bb397417.aspx) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
 
         try
         {
@@ -615,9 +615,9 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
             throw;
         }
 * [Journalisation de suivi de diagnostics de diffusion à partir de l’outil en ligne de commande Azure (et Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
+  Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
 * [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux de streaming dans Web Apps - avec David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-   par Scott Hanselman et David Ebbo.
+  par Scott Hanselman et David Ebbo.
 
 Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH](http://nuget.org/packages/elmah/). Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -629,7 +629,7 @@ Pour plus d'informations sur l'analyse des journaux de serveur Web, consultez le
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Un outil pour afficher les données des journaux de serveur Web (fichiers*.log* ).
 * [Dépannage des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
+  Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
 * [Billets du blog de Robert McMurray sur l’utilisation de LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](http://support.microsoft.com/kb/943891)
 
@@ -641,6 +641,6 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

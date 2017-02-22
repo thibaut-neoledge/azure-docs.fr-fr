@@ -1,12 +1,12 @@
 ---
-title: "Créer un Azure IoT Hub et inscrire votre appareil | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Leçon 2 : Enregistrer un appareil | Microsoft Docs"
 description: 
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "azure iot hub, cloud de l’internet des objets, azure iot hub créer un appareil, ti sensortag, ti ble"
+keywords: "azure iot hub, cloud de l’internet des objets, créer un appareil azure iot hub, ti sensortag, ti ble"
 ms.assetid: 23cfbe21-22c6-4fe1-ae41-63714a897f12
 ms.service: iot-hub
 ms.devlang: c
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: d3726201754b90a60e9bde2651c023adf9f9033b
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
 
 
 ---
 
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Créer votre Azure IoT Hub et inscrire votre appareil
+# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Créer un Azure IoT Hub et inscrire votre appareil
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
@@ -39,7 +39,7 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 Dans cette leçon, vous allez apprendre ce qui suit :
 
 - Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
-- Inscription d’un appareil dans un IoT Hub.
+- l’inscription d’un appareil dans un IoT Hub.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
@@ -48,7 +48,7 @@ Dans cette leçon, vous allez apprendre ce qui suit :
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Pour créer un IoT Hub, procédez comme suit :
+Pour créer un IoT Hub, procédez comme suit :
 
 1. Connectez-vous à votre compte Azure en exécutant la commande suivante :
 
@@ -56,7 +56,7 @@ Pour créer un IoT Hub, procédez comme suit :
    az login
    ```
 
-   Après une connexion réussie, tous vos abonnements disponibles sont répertoriés.
+   Une fois la connexion établie, tous vos abonnements disponibles sont répertoriés.
 
 2. Définissez l’abonnement Azure par défaut que vous souhaitez utiliser en exécutant la commande suivante :
 
@@ -72,7 +72,7 @@ Pour créer un IoT Hub, procédez comme suit :
    az provider register -n "Microsoft.Devices"
    ```
 
-4. Créez un groupe de ressources nommé `iot-gateway` dans la région États-Unis de l’Ouest en exécutant la commande suivante :
+4. Créez un groupe de ressources nommé `iot-gateway` dans la région États-Unis de l’Ouest en exécutant la commande suivante :
 
    ```bash
    az group create --name iot-gateway --location westus
@@ -80,7 +80,7 @@ Pour créer un IoT Hub, procédez comme suit :
    
    `westus` est l’emplacement où vous créez votre groupe de ressources. Si vous souhaitez utiliser un autre emplacement, vous pouvez exécuter `az account list-locations -o table` pour voir tous les emplacements pris en charge par Azure.
 
-5. Créez un IoT Hub dans le groupe de ressources `iot-gateway` en exécutant la commande suivante :
+5. Créez un IoT Hub dans le groupe de ressources `iot-gateway` en exécutant la commande suivante :
 
    ```bash
    az iot hub create --name {my hub name} --resource-group iot-gateway
@@ -94,7 +94,7 @@ Par défaut, l’outil crée un IoT Hub dans le niveau de tarification gratuit. 
 ## <a name="register-your-device-in-your-iot-hub"></a>Inscrire votre appareil dans votre IoT Hub
 
 Chaque appareil qui envoie des messages à votre IoT Hub et reçoit des messages de votre IoT Hub doit être inscrit sous un ID unique.
-Inscrivez votre appareil dans votre Azure IoT Hub en exécutant la commande suivante :
+Inscrivez votre appareil dans votre Azure IoT Hub en exécutant la commande suivante :
 
 ```bash
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
@@ -108,6 +108,6 @@ Vous avez créé un IoT Hub et inscrit votre appareil logique sous une identité
 [Configurer et exécuter un exemple d’application de téléchargement cloud d’appareil simulé](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

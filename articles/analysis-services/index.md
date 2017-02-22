@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Analysis Services - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à configurer la modélisation de données avec Analysis Services dans le cloud. La documentation vous montre comment créer une solution BI d’entreprise à l’aide de données tabulaires."
+services: analysis-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
-ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Documentation Analysis Services
@@ -77,7 +88,7 @@ Découvrez comment configurer et gérer la modélisation de données avec Analys
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -89,7 +100,7 @@ Découvrez comment configurer et gérer la modélisation de données avec Analys
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">Référence sur les API REST</a></p>
+                        <p><a href="/rest/api/analysisservices/">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -97,18 +108,10 @@ Découvrez comment configurer et gérer la modélisation de données avec Analys
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Télécharger la documentation Analysis Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 

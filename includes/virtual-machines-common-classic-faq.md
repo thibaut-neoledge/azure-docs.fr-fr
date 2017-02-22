@@ -131,6 +131,6 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

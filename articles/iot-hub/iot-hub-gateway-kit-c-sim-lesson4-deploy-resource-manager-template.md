@@ -1,5 +1,5 @@
 ---
-title: "Enregistrer des messages dans le cloud Azure et les lire à partir du cloud | Microsoft Docs"
+title: "Appareil simulé et passerelle Azure IoT - Leçon 4 : Enregistrer des messages | Microsoft Docs"
 description: "Enregistrez des messages à partir d’Intel NUC dans votre hub IoT, écrivez-les dans le stockage Table Azure, puis lisez-les à partir du cloud."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: ac4204d6d253e59a367f110aaa3bd28fd94792ea
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 2116e2c2ef5808145b56e63c1e2b91f20e639a3d
 
 
 ---
@@ -36,20 +36,20 @@ Si vous rencontrez des problèmes, recherchez des solutions dans la [page de ré
 
 Dans cette leçon, vous allez apprendre ce qui suit :
 
-- comment utiliser d’Azure Resource Manager pour déployer des ressources Azure ;
-- comment utiliser une application de fonction Azure pour traiter les messages de l’IoT Hub et les écrire dans une table du stockage Table Azure.
+- l’utilisation d’Azure Resource Manager pour déployer des ressources Azure ;
+- l’utilisation d’une application de fonction Azure pour traiter les messages de l’IoT Hub et les écrire dans le stockage Table Azure.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
 Vous devez avoir terminé les leçons précédentes :
 
-- [Leçon 1 : Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+- [Leçon 1 : Configurer l’Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 - [Leçon 2 : Préparer votre ordinateur hôte et Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 - [Leçon 3 : Recevoir des messages à partir de l’appareil simulé et lire des messages à partir de votre IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 ## <a name="open-a-sample-app"></a>Ouvrir un exemple d’application
 
-Accédez à votre dossier du référentiel `iot-hub-c-intel-nuc-gateway-getting-started`, initialisez les fichiers de configuration, puis ouvrez l’exemple de projet dans Visual Studio Code en exécutant la commande suivante :
+Accédez à votre dossier de référentiel `iot-hub-c-intel-nuc-gateway-getting-started`, initialisez les fichiers de configuration, puis ouvrez l’exemple de projet dans Visual Studio Code en exécutant la commande suivante :
 
 ```bash
 cd Lesson4
@@ -85,10 +85,10 @@ Si vous n’avez pas modifié la valeur à la leçon 2, utilisez `iot-gateway` e
 Vous avez créé votre application de fonction Azure pour traiter les messages de l’IoT Hub et un compte de Stockage Azure pour stocker ces messages. Vous pouvez maintenant lire les messages envoyés par votre passerelle à votre IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Lecture des messages conservés dans le stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
+[Lire des messages conservés dans le stockage Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

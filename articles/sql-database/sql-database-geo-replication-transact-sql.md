@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,21 +16,14 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 702a01f7ea56e8af6286149bcb42590294cb618b
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurer la géoréplication pour Base de données SQL Azure avec Transact-SQL
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-geo-replication-overview.md)
-> * [Portail Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurer la géoréplication active pour Base de données SQL Azure avec Transact-SQL
 
-Cet article vous montre comment configurer la géo-réplication active pour une base de données SQL Azure à l’aide de Transact-SQL.
+Cet article vous montre comment configurer la géoréplication active pour une base de données SQL Azure à l’aide de Transact-SQL.
 
 Pour lancer un basculement avec Transact-SQL, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
@@ -53,8 +46,8 @@ Pour configurer la géoréplication active à l’aide de Transact-SQL, vous dev
 > 
 
 ## <a name="add-secondary-database"></a>Ajout d'une base de données secondaire
-Vous pouvez utiliser l’instruction **ALTER DATABASE** pour créer une base de données secondaire géo-répliquée sur un serveur partenaire. Vous exécutez cette instruction sur la base de données master du serveur contenant la base de données à répliquer. La base de données géo-répliquée (« base de données primaire ») aura le même nom que la base de données répliquée et aura, par défaut, le même niveau de service que la base de données primaire. La base de données secondaire peut être accessible en lecture ou non et il peut s’agir d’une base de données unique ou une base de données élastique. Pour plus d’informations, consultez [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
-Une fois la seconde base de données secondaire créée et semée, les données vont commencer une réplication asynchrone depuis la base de données primaire. Les étapes suivantes décrivent comment configurer la géoréplication à l’aide de Management Studio. Vous trouverez les opérations destinées à créer des éléments secondaires avec accès en lecture ou non, soit avec une base de données unique, soit avec une base de données élastique.
+Vous pouvez utiliser l’instruction **ALTER DATABASE** pour créer une base de données secondaire géo-répliquée sur un serveur partenaire. Vous exécutez cette instruction sur la base de données master du serveur contenant la base de données à répliquer. La base de données géo-répliquée (« base de données primaire ») aura le même nom que la base de données répliquée et aura, par défaut, le même niveau de service que la base de données primaire. La base de données secondaire peut être accessible en lecture ou non, et il peut s’agir d’une base de données unique ou d’une base de données dans un pool élastique. Pour plus d’informations, consultez [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) et [Niveaux de service](sql-database-service-tiers.md).
+Une fois la seconde base de données secondaire créée et semée, les données vont commencer une réplication asynchrone depuis la base de données primaire. Les étapes suivantes décrivent comment configurer la géoréplication à l’aide de Management Studio. Vous trouverez les opérations destinées à créer des éléments secondaires avec accès en lecture ou non, soit comme base de données unique, soit comme base de données dans un pool élastique.
 
 > [!NOTE]
 > Si une base de données existe sur le serveur partenaire spécifié avec le même nom qu’une base de données primaire, la commande échoue.
@@ -88,8 +81,8 @@ Utilisez les étapes suivantes pour créer une base de données secondaire acces
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
-### <a name="add-non-readable-secondary-elastic-database"></a>Ajouter une base de données secondaire non accessible en lecture (base de données élastique)
-Utilisez les étapes suivantes pour créer une base de données secondaire non accessible en lecture en tant que base de données élastique.
+### <a name="add-non-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire non accessible en lecture (pool élastique)
+Utilisez les étapes suivantes pour créer une base de données secondaire non accessible en lecture dans un pool élastique.
 
 1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
@@ -100,8 +93,8 @@ Utilisez les étapes suivantes pour créer une base de données secondaire non a
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
-### <a name="add-readable-secondary-elastic-database"></a>Ajouter une base de données secondaire accessible en lecture (base de données élastique)
-Utilisez les étapes suivantes pour créer une base de données secondaire accessible en lecture en tant que base de données élastique.
+### <a name="add-readable-secondary-elastic-pool"></a>Ajouter une base de données secondaire accessible en lecture (pool élastique)
+Utilisez les étapes suivantes pour créer une base de données secondaire accessible en lecture dans un pool élastique.
 
 1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
@@ -125,10 +118,11 @@ Utilisez les étapes suivantes pour supprimer la base de données secondaire ré
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 
-## <a name="monitor-geo-replication-configuration-and-health"></a>Surveillance de la configuration et de l’état de géoréplication
+## <a name="monitor-active-geo-replication-configuration-and-health"></a>Surveillance de la configuration et de l’état de la géoréplication active
+
 Les tâches de surveillance incluent la surveillance de la configuration de géoréplication et la surveillance de l’état de réplication de données.  Vous pouvez utiliser la vue de gestion dynamique **sys.dm_geo_replication_links** dans la base de données Master pour renvoyer des informations sur tous les liens de réplication de chaque base de données sur le serveur logique de base de données SQL Azure. Cette vue contient une ligne pour chacun des liens de réplication entre les bases de données primaires et secondaires. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_replication_link_status** pour renvoyer une ligne pour chaque base de données SQL Azure actuellement engagée dans un lien de réplication. Cela inclut les bases de données primaires et secondaires. S’il existe plusieurs liens de réplication continus pour une base de données primaire donnée, cette table contient une ligne pour chacune des relations. La vue est créée dans toutes les bases de données, y compris la logique principale. Toutefois, l’interrogation de cette vue dans la logique principale renvoie un jeu vide. Vous pouvez utiliser la vue de gestion dynamique **sys.dm_operation_status** pour afficher l’état de toutes les opérations de base de données, et notamment l’état des liens de réplication. Pour plus d’informations, consultez [sys.geo_replication_links (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/mt575504.aspx) et [sys.dm_operation_status (Base de données SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Utilisez les étapes suivantes pour surveiller un partenariat de géoréplication.
+Utilisez les étapes suivantes pour surveiller un partenariat de géoréplication active.
 
 1. Dans Management Studio, connectez-vous à un serveur logique de base de données SQL Azure.
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
@@ -170,6 +164,6 @@ En avril 2017 sera retiré le type secondaire non accessible en lecture et les b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

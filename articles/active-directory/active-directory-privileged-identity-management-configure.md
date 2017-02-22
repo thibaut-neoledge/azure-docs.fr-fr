@@ -3,7 +3,7 @@ title: Azure AD Privileged Identity Management | Microsoft Docs
 description: "Une rubrique qui explique ce qu’est Azure AD Privileged Identity Management et comment utiliser PIM pour renforcer la sécurité de votre cloud."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
+ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
+ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 
 
 ---
@@ -25,8 +25,6 @@ Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gé
 
 > [!NOTE]
 > Privileged Identity Management est disponible uniquement avec l’édition Premium P2 d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-> 
-> 
 
 Les organisations veulent limiter le nombre de personnes qui ont accès aux informations ou aux ressources sécurisées afin de réduire le risque qu’un utilisateur malveillant accède à ces données. Mais utilisateurs doivent pouvoir toujours effectuer des opérations privilégiées dans les applications Azure, Office 365 ou SaaS. Les organisations doivent offrir un accès privilégié aux utilisateurs dans Azure AD sans avoir à surveiller ce que font les utilisateurs avec leurs privilèges d’administrateur. Azure AD Privileged Identity Management contribue à minimiser ce risque.  
 
@@ -53,8 +51,6 @@ Vous pouvez commencer à utiliser Azure AD Privileged Identity Management dans l
 
 > [!NOTE]
 > Vous devez être un administrateur général avec un compte d’organisation (par exemple, @yourdomain.com), et non avec un compte Microsoft (par exemple, @outlook.com),, pour activer Azure AD Privileged Identity Management sur un annuaire.
-> 
-> 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre répertoire.
 2. Si votre organisation possède plusieurs répertoires, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure. Sélectionnez le répertoire où vous allez utiliser Azure AD Privileged Identity Management.
@@ -107,6 +103,9 @@ Il existe deux méthodes pour suivre la façon dont vos employés et les adminis
 
 La deuxième option consiste à configurer des [révisions d’accès](active-directory-privileged-identity-management-how-to-start-security-review.md)régulières. Ces révisions d’accès peuvent être effectuées par un réviseur affecté (par exemple, un gestionnaire d’équipe) ou par les employés eux-mêmes. C’est la méthode la plus adaptée pour déterminer les utilisateurs qui nécessitent l’accès et ceux qui n’en ont plus besoin.
 
+## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM à l’expiration de l’abonnement
+Avant d’être disponible de manière générale, Azure AD PIM était en version préliminaire et aucune vérification de la licence n’était requise pour qu’un client affiche un aperçu d’Azure AD PIM.  Maintenant qu’Azure AD PIM est disponible de manière générale, le client doit disposer d’un abonnement d’évaluation ou payant pour continuer à utiliser PIM après décembre 2016.  Si votre organisation n’achète pas Azure AD Premium P2 ou si votre abonnement expire, Azure AD PIM ne sera plus disponible dans votre client.  Vous trouverez plus d’informations dans les [spécifications de l’abonnement à Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
@@ -121,6 +120,6 @@ La deuxième option consiste à configurer des [révisions d’accès](active-di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

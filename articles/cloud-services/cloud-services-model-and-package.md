@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: 1a59bcfbb3c140e03c5a09bdfd48a4b312eb07b3
+ms.sourcegitcommit: 40add25104b2d86a5d68d297ad7a52cc111002f4
+ms.openlocfilehash: e0c03a4aff4f84d0f4f2d79220e34e8c86791bff
 
 
 ---
@@ -30,7 +30,7 @@ Une fois que le service cloud s’exécute dans Azure, vous pouvez le reconfigur
 * Je connais déjà cela, mais donnez-moi [quelques exemples](#next-steps) de configuration.
 * Je souhaite créer le fichier [ServicePackage.cspkg](#cspkg).
 * J’utilise Visual Studio et souhaite...
-  * [Créer un service cloud][vs_create]
+  * [Création d'un service cloud][vs_create]
   * [Reconfigurer un service cloud existant][vs_reconfigure]
   * [Déployer un projet de service cloud][vs_deploy]
   * [Un Bureau à distance sur une instance de service cloud][remotedesktop]
@@ -89,31 +89,31 @@ Le fichier **ServiceDefinition.csdef** spécifie les paramètres qui sont utilis
 </ServiceDefinition>
 ```
 
-Vous pouvez vous reporter au [schéma de définition de service][] pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication de certains éléments :
+Vous pouvez vous reporter au [schéma de définition de service](https://msdn.microsoft.com/library/azure/ee758711.aspx) pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication de certains éléments :
 
 **Sites**  
- Contient les définitions des sites ou applications web hébergés dans IIS 7.0.
+Contient les définitions des sites ou applications web hébergés dans IIS 7.0.
 
 **InputEndpoints**  
- Contient les définitions des points de terminaison qui permettent de contacter le service cloud.
+Contient les définitions des points de terminaison qui permettent de contacter le service cloud.
 
 **InternalEndpoints**  
- Contient les définitions des points de terminaison qui sont utilisés par les instances de rôle pour communiquer entre eux.
+Contient les définitions des points de terminaison qui sont utilisés par les instances de rôle pour communiquer entre eux.
 
 **ConfigurationSettings**  
- Contient les définitions de paramètre des fonctionnalités d’un rôle spécifique.
+Contient les définitions de paramètre des fonctionnalités d’un rôle spécifique.
 
 **Certificates**  
- Contient les définitions des certificats nécessaires à un rôle. L’exemple de code précédent illustre un certificat qui est utilisé pour la configuration d’Azure Connect.
+Contient les définitions des certificats nécessaires à un rôle. L’exemple de code précédent illustre un certificat qui est utilisé pour la configuration d’Azure Connect.
 
 **LocalResources**  
- Contient les définitions des ressources de stockage local. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle.
+Contient les définitions des ressources de stockage local. Une ressource de stockage local est un répertoire réservé dans le système de fichiers de la machine virtuelle dans lequel s’exécute l’instance d’un rôle.
 
 **Imports**  
- Contient les définitions des modules importés. L’exemple de code précédent illustre les modules Connexion Bureau à distance et Azure Connect.
+Contient les définitions des modules importés. L’exemple de code précédent illustre les modules Connexion Bureau à distance et Azure Connect.
 
 **Startup**  
- Contient les tâches qui sont exécutées au démarrage du rôle. Les tâches sont définies dans un fichier .cmd ou exécutable.
+Contient les tâches qui sont exécutées au démarrage du rôle. Les tâches sont définies dans un fichier .cmd ou exécutable.
 
 <a name="cscfg"></a>
 
@@ -143,18 +143,18 @@ Le fichier de configuration de service n’est pas fourni dans le package de l�
 Vous pouvez vous reporter au [schéma de configuration de service](https://msdn.microsoft.com/library/azure/ee758710.aspx) pour mieux comprendre le schéma XML utilisé ici. Toutefois, voici une brève explication des éléments :
 
 **rôle web**  
- Configure le nombre d’instances du rôle en cours d’exécution. Pour empêcher le service cloud d’être potentiellement indisponible pendant les mises à niveau, il est conseillé de déployer plusieurs instances de vos rôles web. Ce faisant, vous respectez les recommandations du [contrat de niveau de service de Calcul Azure](http://azure.microsoft.com/support/legal/sla/), ce qui garantit une connectivité externe à 99,95 % pour les rôles Internet lorsque deux instances de rôle au moins sont déployées pour un service.
+Configure le nombre d’instances du rôle en cours d’exécution. Pour empêcher le service cloud d’être potentiellement indisponible pendant les mises à niveau, il est conseillé de déployer plusieurs instances de vos rôles web. En déployant plus d’une instance, vous respectez les recommandations du [contrat de niveau de service de Calcul Azure](http://azure.microsoft.com/support/legal/sla/), ce qui garantit une connectivité externe à 99,95 % pour les rôles Internet lorsque deux instances de rôle au moins sont déployées pour un service.
 
 **ConfigurationSettings**  
- Configure les paramètres des instances en cours d’exécution d’un rôle. Le nom des éléments `<Setting>` doit correspondre aux définitions de paramètre dans le fichier de définition de service.
+Configure les paramètres des instances en cours d’exécution d’un rôle. Le nom des éléments `<Setting>` doit correspondre aux définitions de paramètre dans le fichier de définition de service.
 
 **Certificates**  
- Configure les certificats utilisés par le service. L’exemple de code précédent montre comment définir le certificat pour le module RemoteAccess. La valeur de l’attribut *thumbprint* doit être définie sur l’empreinte numérique du certificat à utiliser.
+Configure les certificats utilisés par le service. L’exemple de code précédent montre comment définir le certificat pour le module RemoteAccess. La valeur de l’attribut *thumbprint* doit être définie sur l’empreinte numérique du certificat à utiliser.
 
 <p/>
 
 > [!NOTE]
-> L’empreinte numérique du certificat peut être ajoutée au fichier de configuration à l’aide d’un éditeur de texte. Cette valeur peut également être ajoutée dans l’onglet **Certificats** de la page **Propriétés** du rôle dans Visual Studio.
+> L’empreinte du certificat peut être ajoutée au fichier de configuration à l’aide d’un éditeur de texte. La valeur peut également être ajoutée dans l’onglet **Certificats** de la page **Propriétés** du rôle dans Visual Studio.
 > 
 > 
 
@@ -169,7 +169,7 @@ L’exemple suivant illustre la configuration d’un rôle web avec un site web 
     <Setting name="DiagnosticsConnectionString" />
   </ConfigurationSettings>
   <Endpoints>
-    <InputEndpoint name="HttpIn" protocol="http" <mark>port="80"</mark> />
+    <InputEndpoint name="HttpIn" protocol="http" port="80" />
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
   </Endpoints>
@@ -185,7 +185,7 @@ L’exemple suivant illustre la configuration d’un rôle web avec un site web 
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.cloudapp.net"</mark> />
+      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -200,19 +200,19 @@ L’exemple suivant illustre la configuration d’un rôle web avec un site web 
 Vous pouvez mettre à jour la configuration du service cloud pendant son exécution dans Azure, sans le mettre hors connexion. Pour modifier les informations de configuration, vous pouvez charger un nouveau fichier de configuration ou modifier le fichier de configuration existant et l’appliquer à votre service en cours d’exécution. Les modifications suivantes peuvent être apportées à la configuration d’un service :
 
 * **Modification des valeurs des paramètres de configuration**  
-   Lorsqu’un paramètre de configuration est changé, une instance de rôle peut choisir d’appliquer la modification pendant que l’instance est en ligne ou de recycler l’instance normalement et d’appliquer la modification pendant qu’elle est hors connexion.
+  Lorsqu’un paramètre de configuration est changé, une instance de rôle peut choisir d’appliquer la modification pendant que l’instance est en ligne ou de recycler l’instance normalement et d’appliquer la modification pendant qu’elle est hors connexion.
 * **Modification de la topologie de service des instances de rôle**  
-   Les modifications de la topologie n’affectent pas les instances en cours d’exécution, sauf lorsqu’une instance est supprimée. Généralement, vous n’avez pas besoin de recycler les instances restantes, mais vous pouvez choisir de recycler des instances de rôle en réponse à une modification de la topologie.
+  Les modifications de la topologie n’affectent pas les instances en cours d’exécution, sauf lorsqu’une instance est supprimée. Généralement, vous n’avez pas besoin de recycler les instances restantes, mais vous pouvez choisir de recycler des instances de rôle en réponse à une modification de la topologie.
 * **Modification de l’empreinte de certificat**  
-   Vous ne pouvez mettre à jour un certificat que lorsqu’une instance de rôle est hors connexion. Si un certificat est ajouté, supprimé ou modifié pendant qu’une instance de rôle est en ligne, Azure la met normalement hors connexion pour mettre à jour le certificat avant de la remettre en ligne une fois la modification effectuée.
+  Vous ne pouvez mettre à jour un certificat que lorsqu’une instance de rôle est hors connexion. Si un certificat est ajouté, supprimé ou modifié pendant qu’une instance de rôle est en ligne, Azure la met normalement hors connexion pour mettre à jour le certificat avant de la remettre en ligne une fois la modification effectuée.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Gestion des modifications de configuration à l’aide des événements de service Runtime
-La [bibliothèque Runtime Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclut l’espace de noms [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), qui fournit des classes pour interagir avec l’environnement Azure à partir du code exécuté dans l’instance d’un rôle. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :
+La [bibliothèque Runtime Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclut l’espace de noms [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), qui fournit des classes pour interagir avec l’environnement Azure à partir d’un rôle. La classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) définit les événements suivants qui sont déclenchés avant et après une modification de la configuration :
 
 * **[Modification](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) d’un événement**  
-   Se produit avant que la modification de la configuration ne soit appliquée à une instance spécifiée d’un rôle, ce qui vous permet de supprimer les instances de rôle si nécessaire.
+  Se produit avant que la modification de la configuration ne soit appliquée à une instance spécifiée d’un rôle, ce qui vous permet de supprimer les instances de rôle si nécessaire.
 * **[Événement](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) modifié**  
-   Se produit après l’application de la modification de la configuration à l’instance spécifiée d’un rôle.
+  Se produit après l’application de la modification de la configuration à l’instance spécifiée d’un rôle.
 
 > [!NOTE]
 > Comme les modifications de certificat placent toujours les instances d’un rôle hors connexion, elles ne déclenchent pas les événements RoleEnvironment.Changing ou RoleEnvironment.Changed.
@@ -226,7 +226,7 @@ Pour déployer une application en tant que service cloud dans Azure, vous devez 
 
 **CSPack** utilise le contenu du fichier de définition de service et du fichier de configuration de service pour définir le contenu du package. **CSPack** génère un fichier de package d’application (.cspkg) que vous pouvez charger dans Azure à l’aide du [portail Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Par défaut, le package est nommé `[ServiceDefinitionFileName].cspkg`, mais vous pouvez indiquer un autre nom à l’aide de l’option `/out` de **CSPack**.
 
-**CSPack** est généralement situé dans  
+**CSPack** se situe dans  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
@@ -239,7 +239,7 @@ Pour déployer une application en tant que service cloud dans Azure, vous devez 
 <p />
 
 > [!TIP]
-> Exécutez le service cloud localement dans l’**émulateur de calcul Microsoft Azure** et utilisez l’option **/copyonly**. Cette option copie les fichiers binaires de l’application dans une disposition de répertoire d’où ils peuvent être exécutés dans l’émulateur de calcul.
+> Exécutez votre service cloud localement dans **l’émulateur de calcul Microsoft Azure** et utilisez l’option **/copyonly**. Cette option copie les fichiers binaires de l’application dans une disposition de répertoire d’où ils peuvent être exécutés dans l’émulateur de calcul.
 > 
 > 
 
@@ -284,7 +284,7 @@ Je crée un package de service cloud et je souhaite...
 
 J’utilise Visual Studio et souhaite...
 
-* [Créer un service cloud][vs_create]
+* [Créer un nouveau service de cloud computing][vs_create]
 * [Reconfigurer un service cloud existant][vs_reconfigure]
 * [Déployer un projet de service cloud][vs_deploy]
 * [Configurer un Bureau à distance pour une instance de service cloud][vs_remote]
@@ -298,6 +298,6 @@ J’utilise Visual Studio et souhaite...
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/20/2016
+ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c89357b2d6e2ab92d6a4a1b771650d77edb5e66
-ms.openlocfilehash: 78716196cb677c95dae5082face6c8ea6499df4b
+ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
+ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
 
 
 ---
@@ -24,19 +24,38 @@ ms.openlocfilehash: 78716196cb677c95dae5082face6c8ea6499df4b
 
 Cet article résume les systèmes d’exploitation et composants pris en charge pour Azure Site Recovery. Une liste des conditions préalables et des composants pris en charge est disponible pour chaque scénario de déploiement dans l’article de déploiement correspondant, et ce document résume l’ensemble.
 
+## <a name="support-for-azure-replication-scenarios"></a>Prise en charge des scénarios de réplication Azure
+
+**Déploiement** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
+--- | --- | --- | ---
+**Portail Azure** | Machines virtuelles VMware locales vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales (hors clouds de VMM) vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales (dans des clouds de VMM) vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques.
+**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement. | Mode Maintenance uniquement.
+**PowerShell** | Non pris en charge pour le moment. | Pris en charge | Pris en charge
+
+
+## <a name="support-for-secondary-site-replication-scenarios"></a>Prise en charge des scénarios de réplication sur un site secondaire
+
+**Déploiement** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
+--- | --- | --- | ---
+**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le guide d’aide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) le guide d’utilisation d’InMage Scout. Non disponible dans le portail Azure | Non pris en charge | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire<br/><br/> Réplication Hyper-V standard uniquement, SAN non pris en charge
+**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement. | Mode Maintenance uniquement.
+**PowerShell** | Non pris en charge. | N/D | Pris en charge
+
+
+
 ## <a name="support-for-virtualization-server-operating-systems"></a>Prise en charge de systèmes d’exploitation de serveurs de virtualisation
 
 ### <a name="host-servers-replicate-to-azure"></a>Serveurs hôtes (réplication vers Azure)
 
 **Machine virtuelle VMware/serveur physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | ---
-vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement)  <br/><br/>  vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour | Windows Server 2012 R2 avec les dernières mises à jour | Windows Server 2012 R2 avec les dernières mises à jour
+vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement)  <br/><br/> vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour<br/><br/> Les sites Hyper-V qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge. | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par une VMM s’exécutant sous System Center 2016.<br/><br/> Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.
 
 ### <a name="host-servers-replicate-to-secondary-site"></a>Serveurs hôtes (réplication vers un site secondaire)
 
 **Machine virtuelle VMware/serveur physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement)  <br/><br/>  vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour | Au minimum Windows Server 2012 avec les dernières mises à jour
+vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement)  <br/><br/> vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour | Windows Server 2016, Windows Server 2012 R2, ou Windows Server 2012 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par une VMM s’exécutant sous System Center 2016.<br/><br/> Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et de versions antérieures ne sont actuellement pas pris en charge.
 
 
 ## <a name="support-for-replicated-machines"></a>Prise en charge des machines répliquées
@@ -48,7 +67,7 @@ Les machines virtuelles doivent respecter la [configuration requise pour Azure](
 **Prérequis** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
 Ce qui est répliqué | Toute charge de travail sur une machine virtuelle Windows ou Linux | Toute charge de travail | Toute charge de travail
-Système d’exploitation hôte | Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/>  Stockage requis : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil (multivoie)) ; gestionnaire de volume : (LVM2). Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge. Le système de fichiers ReiserFS est pris en charge uniquement sur SUSE Linux Enterprise Server 11 SP3. | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Système d’exploitation hôte | Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Stockage requis : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil (multivoie)) ; gestionnaire de volume : (LVM2). Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge. Le système de fichiers ReiserFS est pris en charge uniquement sur SUSE Linux Enterprise Server 11 SP3. | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 ### <a name="machines-replicate-to-secondary-site"></a>Machines (réplication vers un site secondaire)
@@ -56,17 +75,17 @@ Système d’exploitation hôte | Windows Server 2012 R2 64 bits, Windows Server
 **Prérequis** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
 Ce qui est répliqué | Toute charge de travail sur une machine virtuelle Windows ou Linux | Toute charge de travail | Toute charge de travail
-Système d’exploitation hôte | Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/>  Stockage requis : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil (multivoie)) ; gestionnaire de volume : (LVM2).<br/><br/> Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge. Le système de fichiers ReiserFS est pris en charge uniquement sur SUSE Linux Enterprise Server 11 SP3. | Tout système d’exploitation invité pris en charge par Hyper-V] (https://technet.microsoft.com/library/mt126277.aspx)
+Système d’exploitation hôte | Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Stockage requis : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil (multivoie)) ; gestionnaire de volume : (LVM2).<br/><br/> Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge. Le système de fichiers ReiserFS est pris en charge uniquement sur SUSE Linux Enterprise Server 11 SP3. | Tout système d’exploitation invité pris en charge par Hyper-V] (https://technet.microsoft.com/library/mt126277.aspx)
 
 
 ## <a name="support-for-provider-and-agent"></a>Prise en charge du fournisseur et de l’agent
 
 **Nom** | **Description** | **Version la plus récente** | **Détails**
 --- | --- | --- | --- | ---
-**Fournisseur Azure Site Recovery** | Coordonne les communications entre des serveurs locaux et le site Azure/secondaire  <br/><br/>  Installé sur des serveurs VMM locaux ou des serveurs Hyper-V, si aucun serveur VMM n’existe | 5.1.1700 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
-**Installation unifiée d’Azure Site Recovery (VMware vers Azure)** | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/>  Installé sur des serveurs VMware locaux | 9.3.4246.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
-**Service de mobilité** | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer.  | N/A (disponible sur le portail) | .
-**Agent Microsoft Azure Recovery Services (MARS)** | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/>  Installé sur des serveurs Hyper-V locaux (avec ou sans serveur VMM) | |
+**Fournisseur Azure Site Recovery** | Coordonne les communications entre des serveurs locaux et le site Azure/secondaire  <br/><br/> Installé sur des serveurs VMM locaux ou des serveurs Hyper-V, si aucun serveur VMM n’existe | 5.1.1700 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
+**Installation unifiée d’Azure Site Recovery (VMware vers Azure)** | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | 9.3.4246.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
+**Service de mobilité** | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | N/A (disponible sur le portail) | .
+**Agent Microsoft Azure Recovery Services (MARS)** | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur VMM) | |
 
 ## <a name="support-for-networking"></a>Prise en charge de la mise en réseau
 
@@ -170,7 +189,7 @@ Chemins d’accès multiples (MPIO) | Oui | Oui
 **Stockage (machine virtuelle invitée/serveur physique)** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
 VMDK | Oui | N/D
-VHD/VHDX | N/D | Oui (jusqu'à 64 disques)
+VHD/VHDX | N/D | Oui (jusqu’à 16 disques)
 Machine virtuelle de 2e génération | N/D | Oui
 Disque de cluster partagé | Oui  | Non
 Disque chiffré | Non | Non
@@ -210,6 +229,29 @@ Clusters invités avec disque partagé | Non | Non | Non
 Groupes à haute disponibilité | Non | Non | Non
 CONCENTRATEUR | Oui | Oui | Oui
 
+## <a name="support-for-azure-vms"></a>Prise en charge des machines virtuelles Azure
+
+Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et des serveurs physiques exécutant n’importe quel système d’exploitation pris en charge par Azure. La plupart des versions de Windows et Linux sont concernées. Les machines virtuelles locales à répliquer doivent répondent à la configuration requise d’Azure.
+
+**Fonctionnalité** | **Configuration requise** | **Détails**
+--- | --- | ---
+**Hôte Hyper-V** | Doit exécuter Windows Server 2012 R2 ou une version ultérieure | La vérification des conditions préalables échoue si le système d’exploitation n’est pas pris en charge
+**Hyperviseur VMware** | Système d’exploitation pris en charge | [Vérifier la configuration requise](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+**Système d’exploitation invité** | Pour une réplication de Hyper-V sur Azure, Site Recovery prend en charge tous les systèmes d’exploitation [pris en charge par Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Pour une réplication de VMware et de serveur physique, vérifiez les [conditions préalables](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Architecture du système d’exploitation invité** | 64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Taille du disque du système d’exploitation** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Nombre de disques du système d’exploitation** | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Nombre de disques de données** | 16 ou moins (la valeur maximale est fonction de la taille de la machine virtuelle créée. 16 = XL). | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Taille du disque dur virtuel de données** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau. |
+**Adresse IP statique** | Pris en charge | Si la machine virtuelle principale utilise une adresse IP statique, vous pouvez spécifier l’adresse associée à la machine qui sera créée dans Azure.<br/><br/> Une adresse IP statique pour une **machine virtuelle Linux s’exécutant sur Hyper-V** n’est pas prise en charge.
+**Disque iSCSI** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Disque dur virtuel partagé** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Disque FC** | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Format de disque dur** | Disque dur virtuel (VHD)  <br/><br/> VHDX | Bien que VDHX ne soit pas actuellement pris en charge dans Azure, Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à la restauration automatique en local, les machines continue à utiliser le format VHDX.
+**BitLocker** | Non pris en charge | Bitlocker doit être désactivé préalablement à la protection d’une machine virtuelle.
+**Nom de la machine virtuelle** | Entre 1 et 63 caractères. Uniquement des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre. | Mettez à jour la valeur dans les propriétés de machine virtuelle de Site Recovery
+**Type de machine virtuelle** | Génération 1<br/><br/> Génération 2 - Windows | Les machines virtuelles de 2e génération avec un type de disque de système d’exploitation de base, qui inclut un ou deux volumes de données au format VHDX et d’une taille inférieure à 300 Go sont prises en charge.<br/><br/>. Les machines virtuelles Linux de 2e génération ne sont pas prises en charge. [En savoir plus](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) |
 
 
 
@@ -223,6 +265,6 @@ CONCENTRATEUR | Oui | Oui | Oui
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

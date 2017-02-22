@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/16/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: e285ffa003cd2d946403cc3d657a851762b41adc
-ms.openlocfilehash: cadc0dcc313513bb3731018166d583c361a711bb
+ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
+ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
 
 
 ---
@@ -31,6 +31,11 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 Pour commencer avec le code, téléchargez le projet à partir de [DocumentDB performances test pilote Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)(Exemple de pilote de test des performances DocumentDB). 
 
+Le partitionnement et les clés de partition sont également abordés dans cette vidéo Azure Friday avec Scott Hanselman et Shireesh Thota, responsable principal de l’ingénierie DocumentDB.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> 
+
 ## <a name="partitioning-in-documentdb"></a>Partitionnement dans DocumentDB
 Dans DocumentDB, vous pouvez stocker et interroger des documents JSON sans schéma avec des délais de réponse de l’ordre des millisecondes à n’importe quelle échelle. DocumentDB fournit des conteneurs pour le stockage des données, appelés **collections**. Les collections sont des ressources logiques. Elles peuvent s’étendre sur plusieurs partitions physiques ou serveurs. Le nombre de partitions est déterminé par DocumentDB en fonction de la taille de stockage et du débit approvisionné de la collection. Chaque partition dans DocumentDB dispose d’une quantité fixe de stockage SSD associé. Elle est également répliquée pour offrir une haute disponibilité. La gestion des partitions est entièrement exécutée par Azure DocumentDB. Vous n’avez pas à écrire du code complexe, ni à gérer vos partitions. Les collections DocumentDB sont **pratiquement illimitées** en termes de débit et de stockage. 
 
@@ -40,7 +45,7 @@ Comment cela fonctionne-t-il ? Lorsque vous créez une collection dans DocumentD
 
 Prenons pour exemple une application qui stocke des données sur les employés et leurs services dans DocumentDB. Choisissons `"department"` en tant que propriété de clé de partition, afin d’assurer la montée en charge des données par service. Chaque document dans DocumentDB doit contenir une propriété `"id"` obligatoire, unique pour chaque document ayant la même valeur de clé de partition, par exemple, `"Marketing`. Chaque document stocké dans une collection doit avoir une combinaison unique de clé de partition et d’ID, par exemple, `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` et `{ "Department": "Sales", "id": "0001" }`. En d’autres termes, la propriété composée de (clé de partition, ID) est la clé principale de votre collection.
 
-### <a name="partition-keys"></a>Clés de partition
+## <a name="partition-keys"></a>Clés de partition
 Le choix de la clé de partition est une décision importante que vous devrez prendre au moment de la conception. Vous devez choisir un nom de propriété JSON avec un large éventail de valeurs et susceptible de disposer de modèles d’accès répartis équitablement. La clé de partition est spécifiée en tant que chemin d’accès JSON. Par exemple, `/department` représente le service de la propriété. 
 
 Le tableau suivant présente des exemples de définitions de clé de partition et les valeurs JSON correspondants.
@@ -77,7 +82,7 @@ Le tableau suivant présente des exemples de définitions de clé de partition e
 
 Examinons comment le choix de la clé de partition a une incidence sur les performances de votre application.
 
-### <a name="partitioning-and-provisioned-throughput"></a>Partitionnement et débit approvisionné
+## <a name="partitioning-and-provisioned-throughput"></a>Partitionnement et débit approvisionné
 DocumentDB est conçu pour offrir des performances prévisibles. Lorsque vous créez une collection, vous réservez un débit en termes **[d’unités de requête](documentdb-request-units.md) (RU) par seconde**. Un coût en unités de demande proportionnel à la quantité de ressources système, comme le processeur et les E/S consommés par l’opération, est affecté à chaque demande. La lecture d’un document de 1 Ko avec une cohérence de session consomme 1 unité de demande. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les documents plus volumineux nécessitent plus d’unités de demande selon leur taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
 
 Lorsque DocumentDB stocke des documents, il les distribue uniformément entre les partitions en fonction de la valeur de la clé de partition. Le débit est également réparti uniformément entre les partitions disponibles, par exemple, le débit par partition = (débit total par collection) / (nombre de partitions). 
@@ -87,17 +92,15 @@ Lorsque DocumentDB stocke des documents, il les distribue uniformément entre le
 > 
 > 
 
-## <a name="single-partition-and-partitioned-collections"></a>Partition unique et collections partitionnées
+## <a name="single-partition-and-partitioned-collections"></a>Collections à partition unique et partitionnées
 DocumentDB prend en charge la création de partitions uniques et de collections partitionnées. 
 
-* Les **collections partitionnées** peuvent s’étendre sur plusieurs partitions. Elles prennent en charge des volumes de stockage et de débit très importants. Vous devez spécifier une clé de partition pour la collection.
-* **collections à partition unique** offrent des options tarifaires plus avantageuses, ainsi que la possibilité d’interroger et d’effectuer des transactions sur toutes les données de la collection. Elles ont les mêmes limites de stockage et d’évolutivité qu’une partition unique. Il n’est pas obligatoire de spécifier une clé de partition pour ces collections. 
+* Les **collections partitionnées** peuvent s’étendre sur plusieurs partitions et prennent en charge des volumes illimités de stockage et de débit. Vous devez spécifier une clé de partition pour la collection. 
+* Les **collections de partition unique** sont disponibles à des tarifs inférieurs, mais sont limitées en termes de volume de stockage et de débit. Il n’est pas obligatoire de spécifier une clé de partition pour ces collections. Nous recommandons d’utiliser des collections partitionnées plutôt que des collections à une seule partition pour tous les scénarios, sauf dans les situations où vous n’attendez que peu de stockage de données et de demandes.
 
 ![Collections partitionnées dans DocumentDB][2] 
 
-Les collections à partition unique sont adaptées aux scénarios ne nécessitant pas de grands volumes de stockage ou de débit. Notez que les collections à partition unique ont les mêmes limites de stockage et d’évolutivité qu’une partition unique, par ex. jusqu'à 10 Go de stockage et jusqu'à 10 000 unités de requête par seconde. 
-
-Les collections partitionnées peuvent prendre en charge de très grandes quantités de stockage et de débit. Toutefois, les offres par défaut sont configurées pour stocker jusqu’à 250 Go de stockage et une mise à l’échelle jusqu’à 250 000 unités de demande par seconde. Si vous avez besoin d’un stockage ou d’un débit plus importants par collection, veuillez contacter le [support Azure](documentdb-increase-limits.md) pour faire augmenter les limites de votre compte.
+Les collections partitionnées peuvent prendre en charge un volume illimité de stockage et de débit.
 
 Le tableau suivant répertorie les différences d’utilisation entre les collections à partition unique et les collections partitionnées :
 
@@ -126,17 +129,17 @@ Le tableau suivant répertorie les différences d’utilisation entre les collec
         <tr>
             <td valign="top"><p>Stockage maximal</p></td>
             <td valign="top"><p>10 Go</p></td>
-            <td valign="top"><p>Illimité (250 Go par défaut)</p></td>
+            <td valign="top"><p>Illimité</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit minimal</p></td>
             <td valign="top"><p>400 unités de demande par seconde</p></td>
-            <td valign="top"><p>10 000 unités de demande par seconde</p></td>
+            <td valign="top"><p>10&000; unités de demande par seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit maximal</p></td>
-            <td valign="top"><p>10 000 unités de demande par seconde</p></td>
-            <td valign="top"><p>Illimité (250 000 unités de demande par seconde par défaut)</p></td>
+            <td valign="top"><p>10&000; unités de demande par seconde</p></td>
+            <td valign="top"><p>Illimité</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Versions d’API</p></td>
@@ -285,8 +288,8 @@ Dans la section suivante, nous examinons la manière de passer de collections à
 
 <a name="migrating-from-single-partition"></a>
 
-### <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migration de collections à partition unique vers des collections partitionnées
-Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (> 10 000 unités de requête/s) ou d’un stockage de données plus important (> 10 Go), vous pouvez utiliser [l’outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée. 
+## <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migration de collections à partition unique vers des collections partitionnées
+Quand une application utilisant une collection à partition unique a besoin d’un débit supérieur (>&10;&000; unités de requête/s) ou d’un stockage de données plus important (>&10; Go), vous pouvez utiliser [l’outil de migration de données DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) pour migrer les données de la collection à partition unique vers une collection partitionnée. 
 
 Pour migrer une collection à partition unique vers une collection partitionnée
 
@@ -309,7 +312,7 @@ Le choix de la clé de partition est une décision importante que vous devrez pr
 Votre choix de clé de partition doit équilibrer la nécessité d’utiliser des transactions et la nécessité de répartir les entités sur plusieurs clés de partitions pour garantir une solution évolutive. D’un côté, vous pouvez définir la même clé de partition pour tous vos documents, mais cela peut limiter l’extensibilité de votre solution. D’un autre côté, vous pouvez attribuer une clé de partition unique à chaque document, ce qui optimise l’évolutivité, mais peut vous empêcher d’utiliser des transactions entre les documents par le biais des procédures stockées et des déclencheurs. Une clé de partition idéale vous permet d’utiliser des requêtes efficaces et possède une cardinalité suffisante pour garantir l’évolutivité de votre solution. 
 
 ### <a name="avoiding-storage-and-performance-bottlenecks"></a>Éviter les goulots d’étranglement des performances et du stockage
-Il est également important de choisir une propriété qui permet de distribuer les écritures entre plusieurs valeurs distinctes. Les demandes auprès de la même clé de partition ne peuvent pas surpasser le débit d’une partition unique et sont limitées. Il est donc important de choisir une clé de partition qui n’entraîne pas de **« zones réactives »** au sein de votre application. La taille totale de stockage des documents avec la même clé de partition ne peut pas non plus dépasser 10 Go de stockage. 
+Il est également important de choisir une propriété qui permet de distribuer les écritures entre plusieurs valeurs distinctes. Les demandes auprès de la même clé de partition ne peuvent pas surpasser le débit d’une partition unique et sont limitées. Il est donc important de choisir une clé de partition qui n’entraîne pas de **« zones réactives »** au sein de votre application. Étant donné que toutes les données pour une clé de partition unique doivent être stockées dans une partition, il est également recommandé d’éviter les clés de partition qui ont des volumes importants de données pour la même valeur. 
 
 ### <a name="examples-of-good-partition-keys"></a>Exemples de clés de partition adéquates
 Voici quelques exemples pour savoir comment sélectionner la clé de partition pour votre application :
@@ -342,7 +345,6 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 * Effectuez un test des performances et de la mise à l’échelle avec DocumentDB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md) pour obtenir un exemple
 * Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 * Informez-vous sur le [débit approvisionné dans DocumentDB](documentdb-performance-levels.md)
-* Si vous souhaitez personnaliser la façon dont votre application effectue le partitionnement, vous pouvez incorporer votre propre implémentation de partitionnement côté client. Voir [Prise en charge du partitionnement côté client](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -352,6 +354,6 @@ Dans cet article, nous avons décrit le fonctionnement du partitionnement dans A
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

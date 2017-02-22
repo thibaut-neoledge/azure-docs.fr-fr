@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/09/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 9f27890e52cb7a9a0d46f2bb84bfe92f7c6fff37
-ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
+ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
+ms.openlocfilehash: 2d7592680289d9f222f5e0aa36aa66d12f4fa517
 
 
 ---
@@ -26,10 +26,6 @@ ms.openlocfilehash: 9864314956d79317785c1c2a4bc87621bc6a3e2d
 ## <a name="overview"></a>Vue d'ensemble
 
 Operations Management Suite (OMS) fournit des fonctionnalités de surveillance, d’alerte et de correction des alertes sur le ressources cloud et locales. L’extension de machine virtuelle de l’agent OMS pour Linux est publiée et prise en charge par Microsoft. L’extension installe l’agent OMS sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail OMS existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle OMS pour Linux.
-
-Pour des informations générales sur les extensions de machines virtuelles Azure, consultez la page [Présentation des extensions de machines virtuelles](./virtual-machines-linux-extensions-features.md).
-
-Pour plus d’informations sur Operations Management Suite, consultez [Présentation d’Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -46,49 +42,13 @@ L’extension de l’agent OMS peut être exécutée sur ces distributions de Li
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 et 12 |
 
-### <a name="connectivity"></a>Connectivité
+### <a name="internet-connectivity"></a>Connectivité Internet
 
 L’extension de l’agent OMS pour Linux nécessite que la machine virtuelle cible soit connectée à Internet. 
 
-## <a name="extension-configuration"></a>Configuration de l’extension
+## <a name="extension-schema"></a>Schéma d’extensions
 
-L’extension de machine virtuelle de l’agent OMS pour Linux requiert l’ID et la clé de l’espace de travail OMS cible. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données de configuration protégées de l’extension de machine virtuelle Azure sont chiffrées et déchiffrées uniquement sur la machine virtuelle cible. Les configurations publiques et privées sont spécifiées au moment du déploiement, ce qui est détaillé dans les sections suivantes de ce document.
-
-### <a name="public-configuration"></a>Configuration publique
-
-Schéma pour la configuration publique :
-
-- workspaceId : (obligatoire, chaîne) l’ID de l’espace de travail OMS dans lequel intégrer la machine virtuelle.
-
-```json
-{
-  "workspaceId": "myWorkspaceId"
-}
-```
-
-### <a name="private-configuration"></a>Configuration privée
-
-Schéma pour la configuration publique :
-
-- workspaceKey : (obligatoire, chaîne) la clé partagée principale/secondaire de l’espace de travail.
-
-```json
-{
-  "workspaceKey": "myWorkSpaceKey"
-}
-```
-
-## <a name="template-deployment"></a>Déploiement de modèle
-
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement, comme l’intégration dans OMS. Vous trouverez un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle d’agent OMS dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
-
-Cet exemple peut être déployé à partir de ce document à l’aide du bouton suivant :
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-Le JSON utilisé pour déployer l’extension de machine virtuelle Agent OMS est semblable à l’exemple suivant :
+Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible.
 
 ```json
 {
@@ -113,12 +73,28 @@ Le JSON utilisé pour déployer l’extension de machine virtuelle Agent OMS est
 }
 ```
 
+### <a name="property-values"></a>Valeurs de propriétés
+
+| Nom | Valeur/Exemple |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | OmsAgentForLinux |
+| typeHandlerVersion | 1.0 |
+| workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+
+## <a name="template-deployment"></a>Déploiement de modèle
+
+Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement, comme l’intégration dans OMS. Vous trouverez un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle d’agent OMS dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent OMS sur une machine virtuelle existante. Avant de déployer l’extension d’agent OMS, créez un fichier public.json et un fichier protected.json. Le schéma pour ces fichiers est détaillé plus haut dans ce document.
 
 ```azurecli
-azure vm extension set <resource-group> <vm-name> \
+azure vm extension set myResourceGroup myVM \
   OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
   --public-config-path public.json  \
   --private-config-path protected.json
@@ -146,6 +122,6 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

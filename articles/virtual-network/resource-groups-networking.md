@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18234ad720d4e85b50d1871dacf243c65f45be33
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
 
 
 ---
 # <a name="network-resource-provider"></a>Fournisseur de ressources réseau
-Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
+Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Azure Resource Manager vous permet de créer ce type d’applications, sous la forme d’une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous Resource Manager.
 
 Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès à vos ressources. Il existe trois fournisseurs de ressources principaux : réseau, stockage et calcul. Ce document présente les caractéristiques et les avantages du fournisseur de ressources réseau, à savoir :
 
@@ -40,7 +40,7 @@ Azure Resource Manager s’appuie sur différents fournisseurs de ressources pou
   * Kit de développement logiciel (SDK) Java
   * Interface de ligne de commande Azure
   * Portail en version préliminaire
-  * Langue du modèle ARM
+  * Langage du modèle Resource Manager
 
 ## <a name="network-resources"></a>Ressources réseau
 Vous pouvez désormais gérer les ressources réseau indépendamment, au lieu qu'elles soient toutes gérées via une ressource de calcul unique (un machine virtuelle). Cela garantit un degré de flexibilité et de souplesse plus élevé dans la composition d'une infrastructure complexe et à grande échelle dans un groupe de ressources.
@@ -103,8 +103,8 @@ Les méthodes HTTP suivantes sont prises en charge lors des appels à l'API REST
 
 La demande et la réponse sont toutes les deux conformes à un format de charge utile JSON. Pour plus d'informations, consultez [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
-### <a name="arm-template-language"></a>Langue du modèle ARM
-Outre la gestion des ressources de manière impérative (via des API ou un Kit de développement logiciel (SDK)), vous pouvez également utiliser un style de programmation déclaratif pour créer et gérer les ressources réseau en utilisant la langue du modèle ARM.
+### <a name="resource-manager-template-language"></a>Langage du modèle Resource Manager
+Outre la gestion des ressources de manière impérative (via des API ou un Kit de développement logiciel (SDK)), vous pouvez également utiliser un style de programmation déclaratif pour créer et gérer les ressources réseau en utilisant le langage du modèle Resource Manager.
 
 Un exemple de représentation d'un modèle est fourni ci-dessous :
 
@@ -234,13 +234,13 @@ Lorsqu'un modèle est utilisé, vous avez la possibilité de fournir manuellemen
 
 Les principaux avantages de l'utilisation de modèles sont les suivants :
 
-* Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L'orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par le gestionnaire des ressources Azure (ARM).
+* Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L’orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par Resource Manager.
 * L'infrastructure peut être créée de manière reproductible entre diverses régions et dans une région en modifiant simplement les paramètres.
 * Le style déclaratif entraîne un délai de création des modèles et de déploiement de l'infrastructure plus court.
 
 Pour obtenir des exemples de modèles, consultez [Modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Pour plus d'informations sur la langue du modèle ARM, consultez [Langue de modèle de gestionnaire des ressources Azure](../resource-group-authoring-templates.md).
+Pour plus d’informations sur le langage du modèle Resource Manager, consultez [Langage du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 L'exemple de modèle ci-dessus utilise le réseau virtuel et des ressources de sous-réseau. Il existe d'autres ressources réseau que vous pouvez utiliser, comme indiqué ci-dessous :
 
@@ -258,17 +258,17 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 ![Exemple de déploiement de modèle](./media/resource-groups-networking/Figure6.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Langue du modèle Azure Resource Manager](../resource-group-authoring-templates.md)
+[Langue du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Mise en réseau Azure : modèles couramment utilisés](https://github.com/Azure/azure-quickstart-templates)
 
-[Déploiement Azure Resource Manager et déploiement Classic](../resource-manager-deployment-model.md)
+[Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

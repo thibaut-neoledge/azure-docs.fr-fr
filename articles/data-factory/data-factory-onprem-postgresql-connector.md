@@ -1,5 +1,5 @@
 ---
-title: "Déplacer des données à partir de PostgreSQL | Microsoft Docs"
+title: "Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory | Microsoft Docs"
 description: "Découvrez comment déplacer des données depuis une base de données PostgreSQL à l’aide d’Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 037f76cdd01376780dde8c435d81f8d072dca2f0
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 464db2456b4bd63ee4f0aae95214f2c9fcc3ba41
 
 
 ---
@@ -331,6 +331,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

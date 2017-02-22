@@ -1,11 +1,10 @@
 ---
 services: virtual-machines
-title: Using Azure CLI with Azure Resource Manager
+title: "Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager"
 author: squillace
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machine
 ms.devlang: na
 ms.topic: article
@@ -13,9 +12,13 @@ ms.tgt_pltfrm: linux
 ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: e2f9d2c74e5dfa0a08f25685062903a985ba641c
+
 
 ---
-## Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager (ARM)
+## <a name="using-azure-cli-with-azure-resource-manager-arm"></a>Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager (ARM)
 Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez (bien entendu) disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
 
 > [!NOTE]
@@ -23,18 +26,18 @@ Pour utiliser l’interface de ligne de commande Azure avec les commandes et mod
 > 
 > 
 
-### Étape 1 : vérification de la version de l’interface de ligne de commande Azure
-Pour utiliser l’interface de ligne de commande pour des modèles ARM et des commandes impératives, vous devez disposer au moins de la version 0.8.17. Pour vérifier votre version, tapez `azure --version`. Le résultat suivant doit s’afficher :
+### <a name="step-1-verify-the-azure-cli-version"></a>Étape 1 : vérification de la version de l’interface de ligne de commande Azure
+Pour utiliser l’interface de ligne de commande pour des modèles ARM et des commandes impératives, vous devez disposer au moins de la version 0.8.17. Pour vérifier votre version, tapez `azure --version`. Le résultat suivant doit s’afficher :
 
     $ azure --version
     0.8.17 (node: 0.10.25)
 
 Si vous souhaitez mettre à jour votre version de l’interface de ligne de commande, consultez la page [Interface de ligne de commande](https://github.com/Azure/azure-xplat-cli).
 
-### Étape 2 : vérification de l’utilisation d’une identité professionnelle ou scolaire avec Azure
+### <a name="step-2-verify-you-are-using-a-work-or-school-identity-with-azure"></a>Étape 2 : vérification de l’utilisation d’une identité professionnelle ou scolaire avec Azure
 Vous ne pouvez utiliser le mode de commande ARM que si vous utilisez un [client Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) ou un [nom principal de service](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Ils sont également appelés *ID d’organisation*.)
 
-Pour voir si vous en avez un, connectez-vous en tapant `azure login` et en indiquant votre nom d’utilisateur professionnel ou scolaire et votre mot de passe à l’invite. Si vous en avez un, voici ce que vous devez voir :
+Pour voir si vous en avez un, connectez-vous en tapant `azure login` et en indiquant votre nom d’utilisateur professionnel ou scolaire et votre mot de passe à l’invite. Si vous en avez un, voici ce que vous devez voir :
 
     $ azure login
     info:    Executing command login
@@ -47,12 +50,12 @@ Pour voir si vous en avez un, connectez-vous en tapant `azure login` et en indiq
     +
     info:    login command OK
 
-Si tel n’est pas le cas, vous devez créer un client (ou un principal de service) avec votre identité de compte Microsoft. (Cela est souvent le cas avec les abonnements MSDN personnels ou les abonnements d’essai gratuits.) Pour créer un ID professionnel ou scolaire à partir de votre compte Azure créé avec un ID Microsoft, consultez la page [Association d’un annuaire Azure AD à un nouvel abonnement Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si vous pensez que vous devriez avoir un ID d’organisation, il se peut que vous deviez contacter la personne qui a créé le compte pour vous.
+Si tel n’est pas le cas, vous devez créer un client (ou un principal de service) avec votre identité de compte Microsoft. (Cela est souvent le cas avec les abonnements MSDN personnels ou les abonnements d’essai gratuits.) Pour créer un ID professionnel ou scolaire à partir de votre compte Azure créé avec un ID Microsoft, consultez [Association d’un annuaire Azure AD à un abonnement Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si vous pensez que vous devriez avoir un ID d’organisation, il se peut que vous deviez contacter la personne qui a créé le compte pour vous.
 
-### Étape 3 : choix de votre abonnement Azure
-Si votre compte Azure ne contient qu’un abonnement, l’interface de ligne de commande Azure s’associe à cet abonnement par défaut. Si vous avez plusieurs abonnements, vous devez sélectionner l’abonnement que vous souhaitez utiliser en tapant `azure account set <subscription id or name> true`, où *id ou nom d’abonnement* est l’ID ou le nom d’abonnement que vous souhaitez utiliser dans la session active.
+### <a name="step-3-choose-your-azure-subscription"></a>Étape 3 : choix de votre abonnement Azure
+Si votre compte Azure ne contient qu’un abonnement, l’interface de ligne de commande Azure s’associe à cet abonnement par défaut. Si vous avez plusieurs abonnements, vous devez sélectionner l’abonnement que vous souhaitez utiliser en tapant `azure account set <subscription id or name> true` , où *id ou nom d’abonnement* est l’ID ou le nom d’abonnement que vous souhaitez utiliser dans la session active.
 
-Un résultat tel que celui-ci doit s’afficher :
+Un résultat tel que celui-ci doit s’afficher :
 
     $ azure account set "Azure Free Trial" true
     info:    Executing command account set
@@ -60,8 +63,8 @@ Un résultat tel que celui-ci doit s’afficher :
     info:    Changes saved
     info:    account set command OK
 
-### Étape 4 : configuration de votre interface de ligne de commande en mode ARM
-Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de ligne de commande, tapez `azure config mode arm`. Un résultat tel que celui-ci doit s’afficher :
+### <a name="step-4-place-your-azure-cli-in-the-arm-mode"></a>Étape 4 : configuration de votre interface de ligne de commande en mode ARM
+Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de ligne de commande, tapez `azure config mode arm`. Un résultat tel que celui-ci doit s’afficher :
 
     $ azure config mode arm
     info:    New mode is arm
@@ -71,4 +74,9 @@ Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de lign
 > 
 > 
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

@@ -1,5 +1,5 @@
 ---
-title: Gestion des extensions de machine virtuelle | Microsoft Docs
+title: Gestion des extensions de machine virtuelle Linux | Microsoft Docs
 description: "Explique comment ajouter, rechercher, mettre à jour et supprimer des extensions pour les machines virtuelles Azure, dans le modèle de déploiement classique."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,23 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 745561dca53b6832926730baf9d0388445ca5d3b
+ms.sourcegitcommit: 7ee387dde3f910fac2fe9195681c8fb8a0443d41
+ms.openlocfilehash: 9f491566fafd431e363873653240b0d5e727d91d
 
 
 ---
 # <a name="manage-virtual-machine-extensions"></a>Gestion des extensions de machine virtuelle
 Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machines virtuelles Windows ou Linux dans Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Pour plus d’informations sur l'utilisation d'extensions de machines virtuelles avec le modèle Resource Manager, suivez [ce lien](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur l'utilisation d'extensions de machines virtuelles avec le modèle Resource Manager, suivez [ce lien](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

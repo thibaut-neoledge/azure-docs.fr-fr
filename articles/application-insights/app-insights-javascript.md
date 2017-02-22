@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -129,17 +129,17 @@ Le graphique illustre la moyenne de tous les chargements de page dans votre appl
 
 Observez le nombre d’affichages de page et l’écart type. Si le nombre de pages est très faible, alors le problème n’a pas un impact important sur les utilisateurs. Un écart type élevé (comparable à la moyenne elle-même) indique une variation considérable entre les mesures individuelles.
 
-**Zoomez sur une URL et un affichage de page.**  Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
+**Zoomez sur une URL et un affichage de page.** Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
 
 ![](./media/app-insights-javascript/35.png)
 
 Cliquez sur `...` pour obtenir une liste complète des propriétés de cet événement ou examinez les appels Ajax et les événements associés. S’ils sont synchrones, les appels Ajax lents ont un impact sur le temps de chargement de l’ensemble de la page. Les événements associés incluent les requêtes de serveur pour la même URL (si vous avez configuré Application Insights sur votre serveur web).
 
-**Historique des performances de la page.**  Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
+**Historique des performances de la page.** Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
 
 ![Cliquez sur l’en-tête de la grille et sélectionnez un nouveau type de graphique.](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentation en fonction d’autres aspects.**  Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
+**Segmentation en fonction d’autres aspects.** Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -170,7 +170,7 @@ Cliquez sur n’importe quelle ligne pour obtenir des détails spécifiques.
 Cliquez sur `...` pour obtenir les données de télémétrie complètes d’un appel Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Aucun appel Ajax n’est signalé ?
-Les appels AJAX incluent tous les appels HTTP effectués à partir du script de votre page web. S’ils ne sont pas signalés, vérifiez que l’extrait de code ne définit pas les [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
+Les appels AJAX incluent tous les appels HTTP/HTTPS effectués à partir du script de votre page web. S’ils ne sont pas signalés, vérifiez que l’extrait de code ne définit pas les [paramètres](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Exceptions du navigateur
 Le panneau Navigateurs présente un graphique récapitulatif des exceptions, ainsi qu’une grille des types d’exception plus bas.
@@ -193,7 +193,7 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 > 
 > 
 
-Vous pouvez également utiliser le puissant [langage des requêtes Analytics](app-insights-analytics-tour.md) pour effectuer des recherches dans les vues de pages.
+Vous pouvez également utiliser le puissant [langage des requêtes Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) pour effectuer des recherches dans les vues de pages.
 
 ### <a name="page-view-properties"></a>Propriétés d'affichage de la page
 * **Durée d’affichage de la page** 
@@ -230,6 +230,6 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

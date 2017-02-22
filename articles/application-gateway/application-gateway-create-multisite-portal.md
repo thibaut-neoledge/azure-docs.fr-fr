@@ -1,5 +1,5 @@
 ---
-title: "Configurer une passerelle Application Gateway existante pour l’hébergement de plusieurs sites dans le portail Azure | Microsoft Docs"
+title: "Héberger plusieurs sites sur la passerelle Azure Application Gateway | Microsoft Docs"
 description: "Cette page fournit des instructions pour configurer une passerelle Application Gateway Azure pour l’hébergement de plusieurs applications web sur la même passerelle avec le portail Azure."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: ce548953a6503e146dc67401eaf57f30fe521632
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 90b7e2f7f5327684f173bd7e10f21e65bea8fbe7
 
 
 ---
@@ -143,6 +143,6 @@ Découvrez comment protéger vos sites web grâce au [Pare-feu d’applications 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

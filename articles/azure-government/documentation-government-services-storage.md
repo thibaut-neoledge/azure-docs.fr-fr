@@ -1,23 +1,22 @@
 ---
 title: Stockage Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/13/2016
+ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: e9287ab74e9bed8681b66fa9a168c8d7c403c63b
-ms.openlocfilehash: 8c9488e302540ca0c67926f6aa6fad591c6ce037
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
 
 
 ---
@@ -36,7 +35,8 @@ Pour plus d’informations sur ce service et son utilisation, consultez la [docu
 | [Stockage Blob à chaud/froid] (../storage/storage-blob-storage-tiers.md) |N/D |N/D |
 | [Stockage Chiffrement du service] (../storage/storage-service-encryption.md) |GA |GA |
 | [Stockage Premium] (../storage/storage-premium-storage.md) |GA |N/D | Comprend des machines virtuelles de la série DS. |
-| [Importation/Exportation d’objets Blob] (../storage/storage-import-export-service.md) |GA |GA | Seuls les comptes de stockage classiques sont actuellement pris en charge. |
+| [Importation/Exportation d’objets Blob] (../storage/storage-import-export-service.md) |GA |GA |
+| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Variantes
 Les URL pour les comptes de stockage dans Azure Government sont différents :
@@ -68,6 +68,11 @@ En cas [d’attachement à un compte de stockage externe] (../vs-azure-tools-sto
 >
 >
 
+> [!NOTE]
+> Lors du déploiement du service StorSimple Manager, utilisez les URL https://portal.azure.us/ et https://manage.windowsazure.us/ menant respectivement aux portails Azure et classique. Pour savoir comment déployer la baie virtuelle StorSimple, consultez [Configuration système requise pour StorSimple Virtual Array] (../storsimple/storsimple-ova-system-requirements.md). Pour la gamme StorSimple 8000, consultez [Configuration requise logicielle, de haute disponibilité et de réseau StorSimple] (../storsimple/storsimple-system-requirements.md) et accédez à la section Déployer sur la barre de navigation gauche. Pour obtenir une documentation StorSimple générale, consultez [Présentation de StorSimple] (../storsimple/index.md).
+>
+>
+
 ### <a name="considerations"></a>Considérations
 Les informations suivantes identifient les limites d’Azure Government pour le stockage Azure :
 
@@ -80,6 +85,6 @@ Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-v
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

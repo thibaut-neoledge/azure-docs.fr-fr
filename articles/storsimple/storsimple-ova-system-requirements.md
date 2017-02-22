@@ -1,28 +1,27 @@
 ---
-title: "Configuration système requise pour StorSimple Virtual Array"
+title: "Configuration système requise pour Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
 description: "En savoir plus sur la configuration logicielle et du réseau requise pour votre StorSimple Virtual Array"
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
 editor: 
-ms.assetid: df0a45e8-4d6f-4849-94c0-82c615770821
+ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/17/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
-
+ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
+ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
-## <a name="overview"></a>Vue d'ensemble
-Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel local StorSimple ou appareil virtuel StorSimple) et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
+## <a name="overview"></a>Vue d’ensemble
+Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
 Les conditions requises sont les suivantes :
 
@@ -90,9 +89,9 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Sortie |WAN |Non |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | TCP 443 (HTTPS) |Sortie |WAN |Oui |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
-| UDP 53 (DNS) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> **Remarque**: si vous déployez un serveur de fichiers, nous recommandons l’utilisation d’un serveur DNS local. |
-| UDP 123 (NTP) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> **Remarque :** si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l’heure avec vos contrôleurs de domaine Active Directory. |
-| TCP 80 (HTTP) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> **Remarque**: l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS. |
+| UDP 53 (DNS) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> Notez que si vous déployez un serveur de fichiers, nous recommandons l’utilisation d’un serveur DNS local. |
+| UDP 123 (NTP) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> Notez que si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l’heure avec vos contrôleurs de domaine Active Directory. |
+| TCP 80 (HTTP) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> Notez que l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS. |
 | TCP 443 (HTTPS) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. |
 | TCP 3260 (iSCSI) |Dans |LAN |Non |Ce port est utilisé pour accéder aux données via iSCSI. |
 
@@ -104,11 +103,12 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Modèles d’URL pour règles de pare-feu
-Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre tableau virtuel et le service StorSimple Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, ou que des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire. 
+Les administrateurs réseau peuvent souvent configurer des règles de pare-feu avancées basées sur des modèles d’URL afin de filtrer le trafic entrant et sortant. Votre tableau virtuel et le service StorSimple Device Manager dépendent d’autres applications Microsoft telles qu’Azure Service Bus, Azure Active Directory Access Control, ou que des comptes de stockage et des serveurs Microsoft Update. Les modèles d’URL associés à ces applications peuvent être utilisés pour configurer des règles de pare-feu. Il est important de comprendre que les modèles d’URL associés à ces applications peuvent changer. L’administrateur réseau doit alors surveiller et mettre à jour les règles de pare-feu pour votre appareil StorSimple si nécessaire. 
 
 Dans la plupart des cas, nous vous recommandons de définir librement les règles de pare-feu pour le trafic sortant en fonction des ADresses IP fixes StorSimple. Toutefois, vous pouvez utiliser les informations ci-dessous pour définir les règles de pare-feu avancées qui sont nécessaires à la création d’environnements sécurisés.
 
 > [!NOTE]
+> 
 > * Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud. 
 > * Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 > 
@@ -116,7 +116,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL | Composant/Fonctionnalité |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Service StorSimple Manager<br>Service de contrôle d’accès<br>Azure Service Bus |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Service StorSimple Device Manager<br>Service de contrôle d’accès<br>Azure Service Bus |
 | `http://*.backup.windowsazure.com` |Enregistrement de l’appareil |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Révocation de certificat |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Comptes de stockage Azure et surveillance |
@@ -126,11 +126,11 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 | `http://*.data.microsoft.com ` |Service de télémétrie dans Windows, consultez l’article [Mise à jour de l’expérience client et du diagnostic de la télémétrie](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-step"></a>Étape suivante
-* [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
+* [Préparation du portail pour déployer StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

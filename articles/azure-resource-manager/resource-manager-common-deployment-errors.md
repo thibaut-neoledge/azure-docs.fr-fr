@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/18/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
-ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
+ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
+ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
 
 
 ---
@@ -37,19 +37,17 @@ L’illustration suivante montre le journal d’activité d’un abonnement. Il 
 
 Les erreurs de validation sont liées à des scénarios pouvant être identifiés comme source de problème. Ces erreurs de validation incluent notamment les erreurs de syntaxe dans votre modèle ou le déploiement de ressources entraînant un dépassement des quotas d’abonnement. Les erreurs de déploiement sont liées aux événements se produisant lors du déploiement. Par exemple, une erreur de déploiement peut survenir si vous tentez d’accéder à une ressource qui est déployée en parallèle.
 
-Les deux types d’erreurs retournent un code d’erreur qui vous permet de résoudre les problèmes liés au déploiement. Les deux types d’erreurs apparaissent dans le journal d’activité. Toutefois, les erreurs de validation n’apparaissent pas dans l’historique de votre déploiement, car le déploiement n’a jamais démarré.
+Les deux types d’erreurs retournent un code d’erreur qui vous permet de résoudre les problèmes liés au déploiement. Les deux types d’erreurs apparaissent dans le [journal d’activité](resource-group-audit.md). Toutefois, les erreurs de validation n’apparaissent pas dans l’historique de votre déploiement, car le déploiement n’a jamais démarré.
 
 
 ## <a name="error-codes"></a>Codes d’erreur
-Les erreurs de déploiement retournent le code **DeploymentFailed**. Toutefois, ce code d’erreur est une erreur de déploiement général. Le code d’erreur qui vous permet en fait de résoudre le problème se trouve généralement à un niveau en dessous de cette erreur. L’illustration suivante montre le code d’erreur **RequestDisallowedByPolicy** qui se trouve sous l’erreur de déploiement.
-
-![afficher le code d'erreur](./media/resource-manager-common-deployment-errors/error-code.png)
 
 Les codes d’erreur suivants sont décrits dans cette rubrique :
 
 * [AccountNameInvalid](#accountnameinvalid)
 * [Échec de l’autorisation](#authorization-failed)
 * [BadRequest](#badrequest)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -64,6 +62,67 @@ Les codes d’erreur suivants sont décrits dans cette rubrique :
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
 
+### <a name="deploymentfailed"></a>DeploymentFailed
+
+Ce code d’erreur indique une erreur de déploiement générale, mais il ne s’agit pas du code d’erreur dont vous avez besoin pour la résolution du problème. Le code d’erreur qui vous permet de résoudre le problème se trouve généralement à un niveau en dessous de cette erreur. Par exemple, l’illustration suivante montre le code d’erreur **RequestDisallowedByPolicy** qui se trouve sous l’erreur de déploiement.
+
+![afficher le code d'erreur](./media/resource-manager-common-deployment-errors/error-code.png)
+
+### <a name="skunotavailable"></a>SkuNotAvailable
+
+Lors du déploiement d’une ressource (généralement une machine virtuelle), vous pouvez recevoir le message et le code d’erreur suivants :
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné. Pour résoudre ce problème, vous devez déterminer quelles références sont disponibles dans une région. Pour identifier les références disponibles, vous pouvez utiliser le portail ou une opération REST.
+
+- Pour utiliser le [portail](https://portal.azure.com), connectez-vous au portail et ajoutez une ressource à l’aide de l’interface. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
+
+    ![Références disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- Pour utiliser l’API REST pour des machines virtuelles, envoyez la demande suivante :
+
+  ```HTTP 
+  GET
+  https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
+  ```
+
+  Elle renvoie les références et les régions disponibles dans le format suivant :
+
+  ```json
+  {
+    "value": [
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A0",
+        "tier": "Standard",
+        "size": "A0",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A1",
+        "tier": "Standard",
+        "size": "A1",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      ...
+    ]
+  }    
+  ```
+
+Si vous ne parvenez pas à trouver une référence appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Cette erreur peut résulter de différents types d’erreurs.
 
@@ -71,12 +130,16 @@ Cette erreur peut résulter de différents types d’erreurs.
 
    Si vous recevez un message d’erreur qui indique que la validation du modèle a échoué, vous avez peut-être un problème de syntaxe dans votre modèle.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed
+  ```
 
    Cette erreur est facile à commettre car les expressions de modèle peuvent être complexes. Par exemple, l’affectation de nom suivante pour un compte de stockage contient un jeu de crochets, trois fonctions, trois jeux de parenthèses, un jeu de guillemets simples et une propriété :
 
-       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```json
+  "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```
 
    Si vous ne fournissez pas la syntaxe correspondante, le modèle produit une valeur très différente de votre intention.
 
@@ -86,50 +149,60 @@ Cette erreur peut résulter de différents types d’erreurs.
 
    Une autre erreur de modèle non valide se produit lorsque le nom de la ressource n’est pas au format approprié.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed: 'The template resource {resource-name}'
-       for type {resource-type} has incorrect segment lengths.
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed: 'The template resource {resource-name}'
+  for type {resource-type} has incorrect segment lengths.
+  ```
 
    Une ressource au niveau racine doit avoir un segment de moins dans le nom que dans le type de ressource. Chaque segment se différencie par une barre oblique. Dans l’exemple suivant, le type comporte deux segments et le nom un segment : il s’agit donc d’un **nom valide**.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "myHostingPlanName",
+    ...
+  }
+  ```
 
    Mais l’exemple suivant n’est **pas un nom valide** car il possède le même nombre de segments que le type.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "appPlan/myHostingPlanName",
-         ...
-       }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "appPlan/myHostingPlanName",
+    ...
+  }
+  ```
 
    Pour les ressources enfants, le type et le nom ont le même nombre de segments. Ce nombre de segments est logique, car le nom complet et le type de l’enfant incluent le nom du parent et le type. Par conséquent, le nom complet a toujours un segment de moins que le type complet.
 
-       "resources": [
-           {
-               "type": "Microsoft.KeyVault/vaults",
-               "name": "contosokeyvault",
-               ...
-               "resources": [
-                   {
-                       "type": "secrets",
-                       "name": "appPassword",
-                       ...
-                   }
-               ]
-           }
-       ]
+  ```json
+  "resources": [
+      {
+          "type": "Microsoft.KeyVault/vaults",
+          "name": "contosokeyvault",
+          ...
+          "resources": [
+              {
+                  "type": "secrets",
+                  "name": "appPassword",
+                  ...
+              }
+          ]
+      }
+  ]
+  ```
 
    Obtenir des segments valides peut être difficile si des types Resource Manager sont appliqués à plusieurs fournisseurs de ressources. Par exemple, l’installation d’un verrou de ressource sur un site web nécessite un type avec quatre segments. Par conséquent, le nom comporte&3; segments :
 
-       {
-           "type": "Microsoft.Web/sites/providers/locks",
-           "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-           ...
-       }
+  ```json
+  {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+      ...
+  }
+  ```
 
 - La copie de l’index n’est pas prévue.
 
@@ -139,44 +212,59 @@ Cette erreur peut résulter de différents types d’erreurs.
 
    Si le modèle spécifie les valeurs autorisées pour un paramètre et que vous fournissez une valeur qui n’est pas une de ces valeurs, vous recevez un message similaire à l’erreur suivante :
 
-       Code=InvalidTemplate;
-       Message=Deployment template validation failed: 'The provided value {parameter value}
-       for the template parameter {parameter name} is not valid. The parameter value is not
-       part of the allowed values
+  ```
+  Code=InvalidTemplate;
+  Message=Deployment template validation failed: 'The provided value {parameter value}
+  for the template parameter {parameter name} is not valid. The parameter value is not
+  part of the allowed values
+  ``` 
 
    Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement.
+
+- Dépendance circulaire détectée
+
+   Vous recevez cette erreur lorsque des ressources dépendant les unes des autres empêchent le déploiement de démarrer. À cause de l’effet combiné d’interdépendances, plusieurs ressources attendent d’autres ressources qui sont elles aussi en attente. Par exemple, la ressource 1 dépend de la ressource 3, la ressource 2 de la ressource 1 et la ressource 3 de la ressource 2. Vous pouvez généralement résoudre ce problème en supprimant les dépendances inutiles. Pour obtenir des conseils sur la résolution des erreurs de dépendance, consultez [Vérifier la séquence de déploiement](#check-deployment-sequence).
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound et ResourceNotFound
 Lorsque votre modèle inclut le nom d’une ressource qui ne peut pas être résolue, vous recevez une erreur similaire à la suivante :
 
-    Code=NotFound;
-    Message=Cannot find ServerFarm with name exampleplan.
+```
+Code=NotFound;
+Message=Cannot find ServerFarm with name exampleplan.
+```
 
 Si vous tentez de déployer la ressource manquante dans le modèle, vérifiez si vous devez ajouter une dépendance. Resource Manager optimise le déploiement en créant des ressources en parallèle, quand cela est possible. Si une ressource doit être déployée après une autre ressource, vous devez utiliser l’élément **dependsOn** de votre modèle pour créer une dépendance avec l’autre ressource. Par exemple, quand vous déployez une application web, le plan App Service doit être présent. Si vous n’avez pas spécifié que l’application web est dépendante du plan App Service, Resource Manager crée les deux ressources en même temps. Vous recevez une erreur indiquant que la ressource du plan App Service est introuvable, car elle n’existe pas encore quand vous tentez de définir une propriété sur l’application web. Vous pouvez éviter cette erreur en définissant la dépendance dans l’application web.
 
-    {
-      "apiVersion": "2015-08-01",
-      "type": "Microsoft.Web/sites",
-      ...
-      "dependsOn": [
-        "[variables('hostingPlanName')]"
-      ],
-      ...
-    }
+```json
+{
+  "apiVersion": "2015-08-01",
+  "type": "Microsoft.Web/sites",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  ...
+}
+```
+
+Pour obtenir des conseils sur la résolution des erreurs de dépendance, consultez [Vérifier la séquence de déploiement](#check-deployment-sequence).
 
 Vous pouvez également voir cette erreur lorsque la ressource se trouve dans un groupe de ressources différent de celui faisant l’objet d’un déploiement. Dans ce cas, utilisez la [fonction resourceId](resource-group-template-functions.md#resourceid) pour obtenir le nom complet de la ressource.
 
-    "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    }
+```json
+"properties": {
+    "name": "[parameters('siteName')]",
+    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+}
+```
 
 Si vous essayez d’utiliser les fonctions [reference](resource-group-template-functions.md#reference) ou [listKeys](resource-group-template-functions.md#listkeys) avec une ressource qui ne peut pas être résolue, vous recevez l’erreur suivante :
 
-    Code=ResourceNotFound;
-    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
-    group {resource group name} was not found.
+```
+Code=ResourceNotFound;
+Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
+group {resource group name} was not found.
+```
 
 Recherchez une expression qui inclut la fonction **reference**. Vérifiez que les valeurs des paramètres sont corrects.
 
@@ -184,55 +272,69 @@ Recherchez une expression qui inclut la fonction **reference**. Vérifiez que le
 
 Lorsqu’une ressource est parent d’une autre ressource, la ressource parent doit exister avant de créer la ressource enfant. Si elle n’existe pas encore, vous recevez l’erreur suivante :
 
-     Code=ParentResourceNotFound;
-     Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
+Code=ParentResourceNotFound;
+Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
 
 Le nom de la ressource enfant inclut le nom de la ressource parent. Par exemple, une base de données SQL peut être définie de la manière suivante :
 
-    {
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
-      ...
+```json
+{
+  "type": "Microsoft.Sql/servers/databases",
+  "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
+  ...
+```
 
 Toutefois, si vous ne spécifiez pas de dépendance sur la ressource parent, la ressource enfant peut être déployée avant cette dernière. Pour corriger cette erreur, incluez une dépendance.
 
-    "dependsOn": [
-        "[variables('databaseServerName')]"
-    ]
+```json
+"dependsOn": [
+    "[variables('databaseServerName')]"
+]
+```
 
 <a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists et StorageAccountAlreadyTaken
 Pour les comptes de stockage, vous devez fournir un nom pour la ressource qui est unique dans Azure. Si vous ne fournissez pas un nom unique, une erreur de ce type s’affiche :
 
-    Code=StorageAccountAlreadyTaken
-    Message=The storage account named mystorage is already taken.
+```
+Code=StorageAccountAlreadyTaken
+Message=The storage account named mystorage is already taken.
+```
 
 Vous pouvez créer un nom unique en concaténant votre nommage avec le résultat de la fonction [uniqueString](resource-group-template-functions.md#uniquestring) .
 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]",
+"type": "Microsoft.Storage/storageAccounts",
+```
 
 Si vous déployez un compte de stockage portant le même nom qu’un compte de stockage existant dans votre abonnement, mais que vous indiquez un emplacement différent, vous recevez une erreur indiquant que le compte de stockage existe déjà dans un autre emplacement. Supprimez le compte de stockage existant ou indiquez le même emplacement que le compte de stockage existant.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-Vous voyez l’erreur **AccountNameInvalid** lorsque vous tentez de donner à un compte de stockage un nom qui inclut des caractères interdits. Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres.
+Vous voyez l’erreur **AccountNameInvalid** lorsque vous tentez de donner à un compte de stockage un nom qui inclut des caractères interdits. Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres. La fonction [uniqueString](resource-group-template-functions.md#uniquestring) renvoie 13 caractères. Si vous concaténez un préfixe au résultat de la fonction **uniqueString**, fournissez un préfixe de 11 caractères maximum.
 
 ### <a name="badrequest"></a>BadRequest
 
-L’état BadRequest peut survenir lorsque vous spécifiez une valeur de propriété non valide. Par exemple, si vous indiquez une valeur de référence (SKU) incorrecte pour un compte de stockage, le déploiement échoue. 
+L’état BadRequest peut survenir lorsque vous spécifiez une valeur de propriété non valide. Par exemple, si vous indiquez une valeur de référence (SKU) incorrecte pour un compte de stockage, le déploiement échoue. Pour déterminer les valeurs valides pour la propriété, consultez la [documentation de l’API REST](/rest/api) pour le type de ressource que vous déployez.
 
 <a id="noregisteredproviderfound" />
 ### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound et MissingSubscriptionRegistration
 Lorsque vous déployez une ressource, vous pouvez recevoir le message et le code d’erreur suivants :
 
-    Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location {ocation}
-    and API version {api-version} for type {resource-type}.
+```
+Code: NoRegisteredProviderFound
+Message: No registered resource provider found for location {location}
+and API version {api-version} for type {resource-type}.
+```
 
 Vous pouvez sinon recevoir un message similaire indiquant :
 
-    Code: MissingSubscriptionRegistration
-    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
+Code: MissingSubscriptionRegistration
+Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
 
 Ces erreurs apparaissent pour l’une des trois raisons suivantes :
 
@@ -258,33 +360,47 @@ Vous pouvez voir l’état de l’inscription et inscrire un espace de noms de f
 
 Pour afficher l’état de votre inscription, utilisez **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Pour inscrire un fournisseur, utilisez **Register-AzureRmResourceProvider** et indiquez le nom du fournisseur de ressources que vous voulez inscrire.
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```
 
 Pour obtenir les emplacements pris en charge d’un type particulier de ressource, utilisez la commande suivante :
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 Pour obtenir les versions d’API prises en charge d’un type particulier de ressource, utilisez la commande suivante :
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 **Interface de ligne de commande Azure**
 
 Pour voir si le fournisseur est inscrit, utilisez la commande `azure provider list` .
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Pour inscrire un fournisseur de ressources, utilisez la commande `azure provider register` et indiquez *l’espace de noms* à inscrire.
 
-    azure provider register Microsoft.Cdn
+```azurecli
+azure provider register Microsoft.Cdn
+```
 
 Pour afficher les emplacements et les versions d’API pris en charge pour un fournisseur de ressources, utilisez la commande suivante :
 
-    azure provider show -n Microsoft.Compute --json > compute.json
+```azurecli
+azure provider show -n Microsoft.Compute --json > compute.json
+```
 
 <a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded et OperationNotAllowed
@@ -293,38 +409,48 @@ Pour obtenir des informations complètes sur les quotas, consultez [Abonnement A
 
 Pour examiner les quotas de cœurs de votre abonnement, vous pouvez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure. L’exemple suivant montre que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
 
-    azure vm list-usage
+```azurecli
+azure vm list-usage
+```
 
 Résultat :
 
-    info:    Executing command vm list-usage
-    Location: westus
-    data:    Name   Unit   CurrentValue  Limit
-    data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4
-    info:    vm list-usage command OK
+```azurecli
+info:    Executing command vm list-usage
+Location: westus
+data:    Name   Unit   CurrentValue  Limit
+data:    -----  -----  ------------  -----
+data:    Cores  Count  0             4
+info:    vm list-usage command OK
+```
 
 Si vous déployez un modèle qui crée plus de quatre cœurs dans la région ouest des États-Unis, vous obtenez une erreur de déploiement similaire à la suivante :
 
-    Code=OperationNotAllowed
-    Message=Operation results in exceeding quota limits of Core.
-    Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
+Code=OperationNotAllowed
+Message=Operation results in exceeding quota limits of Core.
+Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
 
 Dans PowerShell, vous pouvez également utiliser l’applet de commande **Get-AzureRmVMUsage** .
 
-    Get-AzureRmVMUsage
+```powershell
+Get-AzureRmVMUsage
+```
 
 Résultat :
 
-    ...
-    CurrentValue : 0
-    Limit        : 4
-    Name         : {
-                     "value": "cores",
-                     "localizedValue": "Total Regional Cores"
-                   }
-    Unit         : null
-    ...
+```powershell
+...
+CurrentValue : 0
+Limit        : 4
+Name         : {
+                 "value": "cores",
+                 "localizedValue": "Total Regional Cores"
+               }
+Unit         : null
+...
+```
 
 Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
 
@@ -336,23 +462,31 @@ Dans ce cas, vous devez accéder au portail et signaler un problème de support 
 ### <a name="invalidcontentlink"></a>InvalidContentLink
 Lorsque vous recevez le message d’erreur suivant :
 
-    Code=InvalidContentLink
-    Message=Unable to download deployment content from ...
+```
+Code=InvalidContentLink
+Message=Unable to download deployment content from ...
+```
 
 Vous avez probablement tenté d’établir une liaison avec un modèle imbriqué qui n’est pas disponible. Vérifiez l’URI que vous avez indiqué pour le modèle imbriqué. Si le modèle existe dans un compte de stockage, assurez-vous que l’URI est accessible. Vous devrez peut-être valider un jeton SAS. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
 ### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 Vous recevez cette erreur lorsque votre abonnement inclut une stratégie de ressource qui empêche une action que vous tentez d’exécuter au cours du déploiement. Dans le message d’erreur, recherchez l’identificateur de la stratégie.
 
-    Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
+Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
 
 Dans **PowerShell**, fournissez cet identificateur de stratégie en tant que paramètre **Id** pour extraire des informations sur la stratégie qui a bloqué votre déploiement.
 
-    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```
 
 Dans **Interface de ligne de commande Azure**, indiquez le nom de la définition de stratégie :
 
-    azure policy definition show regionPolicyDefinition --json
+```azurecli
+azure policy definition show regionPolicyDefinition --json
+```
 
 Pour plus d’informations sur les stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
@@ -360,23 +494,6 @@ Pour plus d’informations sur les stratégies, consultez [Utiliser le service P
 Vous pouvez recevoir une erreur lors du déploiement, car le compte ou le principal du service qui tente de déployer les ressources n’a pas accès à ces actions. Azure Active Directory permet à votre administrateur ou à vous-même de contrôler très précisément quelles identités peuvent accéder à quelles ressources. Par exemple, si votre compte est affecté au rôle de lecteur, vous ne pouvez pas créer de ressources. Dans ce cas, vous voyez un message d’erreur indiquant que l’autorisation a échoué.
 
 Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la rubrique [Contrôle d’accès en fonction du rôle d’Azure](../active-directory/role-based-access-control-configure.md).
-
-### <a name="skunotavailable"></a>SkuNotAvailable
-
-Lors du déploiement d’une ressource (généralement une machine virtuelle), vous pouvez recevoir le message et le code d’erreur suivants :
-
-```
-Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
-```
-
-Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné. Deux options s’offrent à vous pour résoudre ce problème :
-
-- Connectez-vous au portail et ajoutez une nouvelle ressource à l’aide de l’interface utilisateur. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
-
-    ![Références (SKU) disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
-
-- Si vous ne parvenez pas à trouver une référence appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 ## <a name="troubleshooting-tricks-and-tips"></a>Conseils et astuces de dépannage
 
@@ -387,15 +504,21 @@ Vous pouvez découvrir des informations précieuses sur le traitement de votre d
 
    Dans PowerShell, définissez le paramètre **DeploymentDebugLogLevel** pour All, ResponseContent ou RequestContent.
 
-       New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
 
    Examinez le contenu de la requête avec l’applet de commande suivant :
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
 
    Ou examinez la réponse avec :
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
 
    Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
@@ -403,11 +526,15 @@ Vous pouvez découvrir des informations précieuses sur le traitement de votre d
 
    Dans l’interface de ligne de commande Azure, définissez le paramètre **--debug-setting** sur All, ResponseContent ou RequestContent.
 
-       azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```azurecli
+  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```
 
-   Examinez les éléments suivants du contenu de la demande et de la réponse journalisé :
+   Examinez le contenu de la demande et de la réponse journalisé à l’aide de la commande suivante :
 
-       azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```azurecli
+  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```
 
    Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
@@ -415,52 +542,60 @@ Vous pouvez découvrir des informations précieuses sur le traitement de votre d
 
    Pour enregistrer les informations de débogage pour un modèle imbriqué, utilisez l’élément **debugSetting**.
 
-       {
-           "apiVersion": "2016-09-01",
-           "name": "nestedTemplate",
-           "type": "Microsoft.Resources/deployments",
-           "properties": {
-               "mode": "Incremental",
-               "templateLink": {
-                   "uri": "{template-uri}",
-                   "contentVersion": "1.0.0.0"
-               },
-               "debugSetting": {
-                  "detailLevel": "requestContent, responseContent"
-               }
-           }
-       }
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
 
 
 ### <a name="create-a-troubleshooting-template"></a>Création d’un modèle de résolution des problèmes
 Dans certains cas, le moyen le plus simple pour résoudre les problèmes de votre modèle consiste à tester des parties de celui-ci. Vous pouvez créer un modèle simplifié qui vous permet de vous concentrer sur la partie que vous pensez erronée. Par exemple, supposons que vous recevez une erreur lorsque vous référencez une ressource. Au lieu de traiter un modèle complet, créez un modèle retournant la partie qui peut être à l’origine de votre problème. Il peut vous aider à déterminer si vous transmettez les paramètres appropriés à l’aide de fonctions de modèle et si vous obtenez la ressource que vous attendez.
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageName": {
-            "type": "string"
-        },
-        "storageResourceGroup": {
-            "type": "string"
-        }
-      },
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "exampleOutput": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-            "type" : "object"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
 
 Si vous rencontrez des erreurs de déploiement que vous pensez liées à une mauvaise définition des dépendances, vous pouvez tester votre modèle en le divisant en modèles plus simples. Commencez par créer un modèle déployant une seule ressource (comme un serveur SQL Server). Lorsque vous êtes sûr que cette ressource est correctement définie, ajoutez une ressource qui en dépend (par exemple une base de données SQL). Une fois ces deux ressources correctement définies, ajoutez les autres ressources dépendantes (telles que les stratégies d’audit). Supprimez le groupe de ressources entre chaque déploiement de test afin de tester correctement les dépendances. 
 
 ### <a name="check-deployment-sequence"></a>Vérifier la séquence de déploiement
 
-De nombreuses erreurs de déploiement se produisent lorsque des ressources sont déployées selon une séquence inattendue. Ces erreurs surviennent lorsque les dépendances ne sont pas définies correctement. Une ressource tente d’utiliser la valeur d’une autre ressource, mais cette autre ressource n’existe pas encore. Pour afficher l’ordre des opérations de déploiement :
+De nombreuses erreurs de déploiement se produisent lorsque des ressources sont déployées selon une séquence inattendue. Ces erreurs surviennent lorsque les dépendances ne sont pas définies correctement. Lorsqu’il vous manque une dépendance requise, une ressource tente d’utiliser la valeur d’une autre ressource, mais cette autre ressource n’existe pas encore. Vous obtenez une erreur indiquant qu’une ressource est introuvable. Vous pouvez rencontrer ce type d’erreur par intermittence, car la durée du déploiement peut varier pour chaque ressource. Par exemple, votre première tentative pour déployer vos ressources réussit, car le déploiement d’une ressource requise se termine par hasard à temps. Cependant, votre seconde tentative échoue, car le déploiement de la ressource requise ne se termine pas à temps. 
+
+Il vaut mieux éviter de définir des dépendances qui ne sont pas nécessaires. Lorsque vous avez des dépendances inutiles, vous prolongez la durée du déploiement en empêchant les ressources qui ne sont pas interdépendantes d’être déployées en parallèle. Par ailleurs, il se peut que créiez des dépendances circulaires qui bloquent le déploiement. La fonction [reference](resource-group-template-functions.md#reference) crée une dépendance implicite envers la ressource que vous spécifiez en tant que paramètre dans la fonction, si cette ressource est déployée dans le même modèle. Il se peut donc que vous ayez des dépendances en plus des dépendances spécifiées dans la propriété **dependsOn**. La fonction [resourceId](resource-group-template-functions.md#resourceid) ne crée pas de dépendance implicite ou ne valide pas l’existence de la ressource.
+
+Lorsque vous rencontrez des problèmes de dépendance, vous devez déterminer l’ordre de déploiement des ressources. Pour afficher l’ordre des opérations de déploiement :
 
 1. Sélectionnez l’historique de déploiement de votre groupe de ressources.
 
@@ -474,14 +609,38 @@ De nombreuses erreurs de déploiement se produisent lorsque des ressources sont 
 
    ![déploiement en parallèle](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
 
-   L’image suivante montre trois comptes de stockage non déployés en parallèle. Le deuxième compte de stockage est marqué comme dépendant du premier compte de stockage, et le troisième dépend du deuxième compte de stockage. Par conséquent, le premier compte de stockage est démarré, accepté et terminé avant que le suivant ne démarre.
+   L’image suivante montre trois comptes de stockage non déployés en parallèle. Le deuxième compte de stockage dépend du premier compte de stockage, et le troisième du deuxième. Par conséquent, le premier compte de stockage est démarré, accepté et terminé avant que le suivant ne démarre.
 
    ![déploiement séquentiel](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
-Examinez vos événements de déploiement pour déterminer si une ressource est démarrée plus tôt que prévu. Dans ce cas, vérifiez les dépendances de cette ressource.
+Les scénarios réels peuvent être autrement plus compliqués, mais vous pouvez utiliser la même technique pour identifier le moment où le déploiement est démarré et terminé pour chaque ressource. Examinez vos événements de déploiement pour déterminer si la séquence est bien celle prévue. Si ce n’est pas le cas, réévaluez les dépendances de cette ressource.
+
+Resource Manager identifie les dépendances circulaires lors de la validation du modèle. Il renvoie un message d’erreur indiquant spécifiquement qu’il existe une dépendance circulaire. Pour résoudre une dépendance circulaire :
+
+1. Dans votre modèle, recherchez la ressource identifiée dans la dépendance circulaire. 
+2. Pour cette ressource, examinez la propriété **dependsOn** et les utilisations de la fonction **référence** pour voir de quelles ressources elle dépend. 
+3. Examinez ces ressources pour voir de quelles ressources elles dépendent. Suivez les dépendances jusqu’à ce que vous trouviez une ressource qui dépend de la ressource d’origine.
+5. Pour les ressources impliquées dans la dépendance circulaire, examinez attentivement toutes les utilisations de la propriété **dependsOn** pour identifier les dépendances qui ne sont pas nécessaires. Supprimer ces dépendances. Si vous n’êtes pas certain qu’une dépendance soit nécessaire, essayez de la supprimer. 
+6. Redéployez le modèle.
+
+La suppression de valeurs de la propriété **dependsOn** peut provoquer des erreurs lors du déploiement du modèle. Si vous rencontrez une erreur, rajoutez la dépendance dans le modèle. 
+
+Si cette approche ne résout pas la dépendance circulaire, essayez de déplacer une partie de votre logique de déploiement dans les ressources enfants (par exemple, les extensions ou les paramètres de configuration). Configurez ces ressources enfants pour qu’elles se déploient après les ressources impliquées dans la dépendance circulaire. Par exemple, supposons que vous déployiez deux machines virtuelles, mais que vous deviez définir sur chacune d’elles des propriétés faisant référence les unes aux autres. Vous pouvez les déployer dans l’ordre suivant :
+
+1. Machine virtuelle 1
+2. Machine virtuelle 2
+3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
+4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et&2;. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
+
+Cette approche fonctionne aussi pour les applications App Service. Essayez de déplacer des valeurs de configuration dans une ressource enfant de la ressource d’application. Vous pouvez déployer deux applications web dans l’ordre suivant :
+
+1. Application web 1
+2. Application web 2
+3. La configuration de l’application web 1 dépend des applications web 1 et&2;. Elle contient des paramètres d’application avec les valeurs de l’application web 2.
+4. La configuration de l’application web 2 dépend des applications web 1 et&2;. Elle contient des paramètres d’application avec les valeurs de l’application web 1.
 
 ## <a name="troubleshooting-other-services"></a>Résolution des problèmes d’autres services
-Si les codes d’erreur de déploiement précédents ne vous permettent pas de résoudre votre problème, vous pouvez rechercher des conseils de dépannage plus détaillés pour le service Azure présentant une erreur.
+Si les codes d’erreur de déploiement précédents ne vous permettent pas de résoudre votre problème, vous pouvez rechercher des instructions de dépannage plus détaillées pour chaque service Azure.
 
 Le tableau suivant répertorie les rubriques de dépannage des machines virtuelles.
 
@@ -512,10 +671,10 @@ Le tableau suivant répertorie les rubriques de dépannage des autres services A
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
-* Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-troubleshoot-deployments-portal.md).
+* Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

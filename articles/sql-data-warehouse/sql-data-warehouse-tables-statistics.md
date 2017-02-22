@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb76a6b58a88b2c80958c867f02a0f43d3b0fe25
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
 
 
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gestion des statistiques sur les tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Vue d'ensemble][Vue d'ensemble]
-> * [Types de données][Types de données]
-> * [Distribuer][Distribuer]
+> * [Vue d’ensemble][Overview]
+> * [Types de données][Data Types]
+> * [Distribuer][Distribute]
 > * [Index][Index]
 > * [Partition][Partition]
-> * [Statistiques][Statistiques]
-> * [Temporaire][Temporaire]
+> * [Statistiques][Statistics]
+> * [Temporaire][Temporary]
 > 
 > 
 
@@ -95,7 +95,7 @@ WHERE
 
 Par exemple, les statistiques des colonnes de date d’un entrepôt de données doivent souvent être mises à jour. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes.  À l’inverse, les statistiques d’une colonne indiquant le sexe d’un client dans une table n’auront peut-être jamais besoin d’être mises à jour. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données ne fait mention que d’un seul sexe et qu’une nouvelle exigence nécessite le recours à plusieurs sexes, vous devez absolument mettre à jour les statistiques de la colonne relative au sexe.
 
-Pour plus d’informations, consultez [Statistiques][Statistiques] sur MSDN.
+Pour en savoir plus, consultez la section [Statistiques][Statistics] de MSDN.
 
 ## <a name="implementing-statistics-management"></a>Implémentation de fonctions de gestion des statistiques
 Il est souvent judicieux d’étendre le processus de chargement des données, afin de vérifier que les statistiques sont mises à jour à la fin du chargement. Le chargement des données se produit lorsque la taille et/ou la distribution des valeurs sont souvent modifiées dans les tables. Par conséquent, il est logique d’implémenter certains processus de gestion à ce niveau.
@@ -113,7 +113,7 @@ Certains principes généraux sont fournis ci-dessous, afin de vous aider à met
 > 
 > 
 
-Pour plus d’informations, consultez [Évaluation de la cardinalité][Évaluation de la cardinalité] sur MSDN.
+Pour en savoir plus, consultez la section [Estimation de la cardinalité][Cardinality Estimation] de MSDN.
 
 ## <a name="examples-create-statistics"></a>Exemples de création de statistiques
 Ces exemples indiquent comment utiliser différentes options pour créer des statistiques. Les options à utiliser pour chaque colonne dépendent des caractéristiques de vos données et de l’utilisation de la colonne dans les requêtes.
@@ -178,7 +178,7 @@ Bien sûr, vous pouvez combiner les options. L’exemple ci-dessous permet de cr
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Pour obtenir les références complètes, consultez [CREATE STATISTICS][CREATE STATISTICS] sur MSDN.
+Pour accéder à la référence complète, consultez la section [CREATE STATISTICS][CREATE STATISTICS] de MSDN.
 
 ### <a name="f-create-multi-column-statistics"></a>F. Créer des statistiques sur plusieurs colonnes
 Pour créer des statistiques sur plusieurs colonnes, il vous suffit d’utiliser les exemples précédents, en spécifiant davantage de colonnes.
@@ -350,9 +350,9 @@ Cette instruction est facile à utiliser. N’oubliez pas que cette action met �
 > 
 > 
 
-Pour en savoir plus sur l’implémentation d’une procédure `UPDATE STATISTICS` , consultez l’article [Tables temporaires][Temporaire] . La méthode d’implémentation est légèrement différente de celle de la procédure `CREATE STATISTICS` ci-dessus, mais le résultat final est le même.
+Pour en savoir plus sur l’implémentation d’une procédure `UPDATE STATISTICS`, consultez l’article relatif aux [tables temporaires][Temporary]. La méthode d’implémentation est légèrement différente de celle de la procédure `CREATE STATISTICS` ci-dessus, mais le résultat final est le même.
 
-Pour accéder à la syntaxe complète, consultez [UPDATE STATISTICS][UPDATE STATISTICS] sur MSDN.
+Pour accéder à la syntaxe complète, consultez la section [Mise à jour des statistiques][Update Statistics] de MSDN.
 
 ## <a name="statistics-metadata"></a>Métadonnées de statistiques
 Vous pouvez utiliser plusieurs fonctions et vues système pour rechercher des informations sur des statistiques. Par exemple, vous pouvez voir si un objet de statistiques peut-être obsolète à l’aide de la fonction « stats-date » (qui permet de connaître la date de création ou de dernière mise à jour des statistiques).
@@ -464,25 +464,25 @@ La fonction DBCC SHOW_STATISTICS() est implémentée de manière plus stricte da
 7. L’erreur personnalisée 2767 n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] sur MSDN.  Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Vue d'ensemble], [Types de données de table][Types de données], [Distribution d’une table][Distribuer], [Indexation d’une table][Index], [Partitionnement d’une table][Partition] et [Tables temporaires][Temporaire].  Pour plus d’informations sur les bonnes pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][Meilleures pratiques relatives à SQL Data Warehouse].  
+Pour en savoir plus, consultez la section [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] de MSDN.  Pour plus d’informations, consultez les articles [Vue d’ensemble des tables][Overview], [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition] et [Tables temporaires][Temporary].  Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 
 <!--Article references-->
-[Vue d'ensemble]: ./sql-data-warehouse-tables-overview.md
-[Types de données]: ./sql-data-warehouse-tables-data-types.md
-[Distribuer]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistiques]: ./sql-data-warehouse-tables-statistics.md
-[Temporaire]: ./sql-data-warehouse-tables-temporary.md
-[Meilleures pratiques relatives à SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Évaluation de la cardinalité]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistiques]: https://msdn.microsoft.com/library/ms190397.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
@@ -497,6 +497,6 @@ Pour plus d’informations, consultez [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTIC
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Analyser les performances du nœud de périmètre dans Microsoft Azure CDN | Microsoft Docs"
+title: "Analyser les performances du nœud de périmètre dans Azure CDN | Microsoft Docs"
 description: "Analyser les performances du nœud de périmètre dans Microsoft Azure CDN. Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61fe3f9419b5a6b15beb27d7b3f0782b404cd076
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 
 
 ---
@@ -191,6 +191,6 @@ Chaque rapport de ce module contient un graphique et des statistiques sur l’ut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

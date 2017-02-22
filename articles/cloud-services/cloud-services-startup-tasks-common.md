@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
+ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
+ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
 
 
 ---
@@ -27,7 +27,6 @@ Consultez [cet article](cloud-services-startup-tasks.md) pour comprendre comment
 
 > [!NOTE]
 > Les tâches de démarrage ne s’appliquent pas aux rôles de machine virtuelle ; elles ne concernent que les rôles web de service cloud et de travail.
-> 
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Définir des variables d’environnement avant le démarrage d’un rôle
@@ -387,7 +386,7 @@ Comme Visual Studio ne fournit pas de débogueur pour parcourir les fichiers de 
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Pour simplifier votre code xml, vous pouvez créer un fichier *cmd* wrapper qui appelle toutes vos tâches de démarrage avec la journalisation et garantit que chaque tâche enfant partage les mêmes variables d’environnement. Cela peut avoir un 
+Pour simplifier votre code xml, vous pouvez créer un fichier *cmd* wrapper qui appelle toutes vos tâches de démarrage avec la journalisation et garantit que chaque tâche enfant partage les mêmes variables d’environnement.
 
 Il peut néanmoins s’avérer ennuyeux d’utiliser `>> "%TEMP%\StartupLog.txt" 2>&1` sur la fin de chaque tâche de démarrage. Vous pouvez appliquer la journalisation des tâches en créant un wrapper qui gère la journalisation pour vous. Ce wrapper appelle le fichier batch réel que vous souhaitez exécuter. Toutes les sorties depuis le fichier batch cible seront redirigées vers le fichier *Startuplog.txt*.
 
@@ -521,6 +520,6 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

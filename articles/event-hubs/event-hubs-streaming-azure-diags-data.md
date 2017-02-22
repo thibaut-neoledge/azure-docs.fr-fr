@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 339438be098d0adb46a22ccf0389d7503c43672e
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 6623bb9a4f3845676574f6335dd662dd5bcf7be9
 
 
 ---
@@ -51,7 +51,7 @@ La réception Event Hubs dans Azure Diagnostics est prise en charge dans les ser
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion d’Azure Diagnostics au récepteur Event Hubs
 Azure Diagnostics transmet toujours par défaut des journaux et des mesures à un compte de Stockage Azure. Une application peut en outre est transmise à Event Hubs en ajoutant une nouvelle section **Sinks** à l’élément **WadCfg** dans la section **PublicConfig** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans le chemin suivant : **Projet de service cloud** > **Rôles** >  **(RoleName)** > fichier **diagnostics.wadcfgx**.
 
-```
+```xml
 <SinksConfig>
   <Sink name="HotPath">
     <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
@@ -93,7 +93,7 @@ Il est important de prendre en compte le nombre de points de données qui doit r
 
 Voici quelques exemples de configurations :
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -108,7 +108,7 @@ Voici quelques exemples de configurations :
 
 Dans l’exemple suivant, le récepteur est appliqué au nœud parent **PerformanceCounters** dans la hiérarchie, ce qui signifie que tous les enfants **PerformanceCounters** sont envoyés à Event Hubs.  
 
-```
+```xml
 <PerformanceCounters scheduledTransferPeriod="PT1M">
   <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
   <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
@@ -156,7 +156,7 @@ Notez que l’application console doit inclure le [package Event Processor Host 
 
 N’oubliez pas de remplacer les valeurs entre crochets de la fonction **Main** par les valeurs de vos ressources.   
 
-```
+```csharp
 //Console application code for EventHub test client
 using System;
 using System.Collections.Generic;
@@ -252,7 +252,7 @@ namespace EventHubListener
 •    [En savoir plus sur Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Annexe : Exemple de fichier de configuration d’Azure Diagnostics (.wadcfgx)
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -307,7 +307,7 @@ namespace EventHubListener
 
 Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple se présente comme suit.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
   <Role name="MyFixIt.WorkerRole">
@@ -318,12 +318,18 @@ Le fichier complémentaire *ServiceConfiguration.Cloud.cscfg* pour cet exemple s
   </Role>
 </ServiceConfiguration>
 ```
+## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
+
+* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
+* [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3ed0a436b88a0fb3746ba9db75a6af8231f44980
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
 
 
 ---
@@ -32,7 +32,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.  
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.  
 > 
 > 
 
@@ -150,21 +150,21 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 * [Documentation Git](http://git-scm.com/documentation)
 * [Documentation du projet Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Déploiement continu vers Azure App Service](app-service-continuous-deployment.md)
-* [Comment utiliser PowerShell pour Azure](../powershell-install-configure.md)
+* [Comment utiliser PowerShell pour Azure](/powershell/azureps-cmdlets-docs)
 * [Utilisation des outils en ligne de commande Azure](../xplat-cli-install.md)
 
 [Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Centre de développement Azure]: http://www.windowsazure.com/en-us/develop/overview/
+[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
 [portail Azure]: https://portal.azure.com
-[Site Web Git]: http://git-scm.com
-[Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Git website]: http://git-scm.com
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [interface de ligne de commande Azure]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
 
-[Utilisation de Git avec CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
-[Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
+[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
+[Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory | Microsoft Docs"
-description: "Apprenez à créer des clusters HDInsight à la demande avec Azure Data Factory."
+title: "Créer Azure HDInsight (Hadoop) à l’aide de Data Factory | Microsoft Docs"
+description: "Découvrez comment créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
-ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Création de clusters Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factor
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) est un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données. Dans cet article, vous allez apprendre comment utiliser Azure Data Factory pour créer un [service lié Azure HDInsight à la demande](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) et comment utiliser le cluster pour exécuter une tâche Hive. Voici le processus général :
 
@@ -198,7 +198,7 @@ Si vous avez besoin d’aide avec ce script PowerShell, consultez [Utilisation d
 7. Ouvrez le dossier et vérifiez les fichiers des deux dossiers.
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
-Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
+Avec le compte de stockage, les données d’entrée et le script HiveQL préparé, vous êtes prêt à créer une fabrique de données Azure. Il existe plusieurs méthodes pour créer la fabrique de données. Vous utilisez le portail Azure pour appeler un modèle Resource Manager personnalisé dans ce didacticiel. Vous pouvez également appeler le modèle Resource Manager depuis l’[interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) et [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Pour les autres méthodes de création de fabriques de données, consultez la page [Didacticiel : créer votre première fabrique de données](../data-factory/data-factory-build-your-first-pipeline.md).
 
 Le modèle Resource Manager de niveau supérieur contient :
 
@@ -372,7 +372,7 @@ Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Groupes de ressources** dans le volet de gauche.
 3. Double-cliquez sur le nom du groupe de ressources que vous avez créé dans votre interface de ligne de commande ou votre script PowerShell. Utilisez le filtre si la liste des groupes de ressources est trop longue. Il ouvre le groupe de ressources dans un nouveau panneau.
-4. Dans la mosaïque **Ressources** , vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
+4. Dans la mosaïque **Ressources**, vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
 5. Cliquez sur **Supprimer** dans la partie supérieure du panneau. Ce faisant, vous supprimez également le compte de stockage et les données stockées dans celui-ci.
 6. Entrez le nom du groupe de ressources, puis cliquez sur **Supprimer**.
 
@@ -444,6 +444,6 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

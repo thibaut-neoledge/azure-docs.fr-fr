@@ -38,6 +38,6 @@ La suppression de chaque collection peut prendre quelques minutes.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

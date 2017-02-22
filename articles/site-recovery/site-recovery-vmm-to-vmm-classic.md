@@ -1,5 +1,5 @@
 ---
-title: "Répliquer des machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire | Microsoft Docs"
+title: "Répliquer des machines virtuelles Hyper-V dans VMM sur un site secondaire (Azure Classic) | Microsoft Docs"
 description: "Cet article explique comment répliquer des machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire avec Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 985bbff3a5572a0caacf5201390038434f30fabc
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 0c14d1fd457df16483c0f4fefc4f1f82e3df4dd0
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 985bbff3a5572a0caacf5201390038434f30fabc
 > * [Portail Azure](site-recovery-vmm-to-vmm.md)
 > * [Portail classique](site-recovery-vmm-to-vmm-classic.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-> 
-> 
+>
+>
 
 Le service Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d’urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Les machines peuvent être répliquées vers Azure ou vers un centre de données local secondaire. Pour avoir un rapide aperçu, consultez la section [Qu’est-ce qu’Azure Site Recovery ?](site-recovery-overview.md)
 
@@ -51,7 +51,7 @@ Assurez-vous que les conditions préalables sont remplies :
 | **VMM** |Vous avez besoin d’au moins un serveur VMM.<br/><br/>Le serveur VMM doit exécuter au moins System Center 2012 SP1 avec les dernières mises à jour cumulatives.<br/><br/>Si vous voulez configurer la protection avec un seul serveur VMM, vous aurez besoin d’au moins deux clouds configurés sur le serveur.<br/><br/>Si vous souhaitez déployer la protection avec deux serveurs VMM, chaque serveur doit avoir au moins un cloud configuré sur le serveur VMM principal que vous souhaitez protéger et un cloud configuré sur le serveur VMM secondaire que vous souhaitez utiliser pour la protection et la récupération.<br/><br/>Tous les clouds VMM doivent avoir le profil de capacité Hyper-V défini.<br/><br/>Le cloud source à protéger doit comporter un ou plusieurs groupes hôtes VMM.<br/><br/>Pour en savoir plus sur la configuration des clouds VMM, consultez la rubrique [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Procédure pas à pas : création de clouds privés avec System Center 2012 SP1 VMM) dans le blog de Keith Mayer. |
 | **Hyper-V** |Vous avez besoin d’un ou plusieurs serveurs hôtes Hyper-V dans les groupes hôtes VMM principaux et secondaires, ainsi que d’une ou plusieurs machines virtuelles sur chaque serveur hôte Hyper-V.<br/><br/>Les serveurs Hyper-V hôte et cible doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.<br/><br/>Tout serveur Hyper-V contenant des machines virtuelles à protéger doit se trouver dans un nuage VMM.<br/><br/>Si vous exécutez Hyper-V dans un cluster, notez que le service Broker de cluster n’est pas créé automatiquement si le cluster est basé sur des adresses IP statiques. Vous devez configurer manuellement le service Broker du cluster. [En savoir plus](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) , consultez le billet d’Aidan Finn. |
 | **Mappage réseau** |Vous pouvez configurer le mappage réseau pour vous assurer que les machines virtuelles répliquées sont placées de manière optimale sur les serveurs hôtes Hyper-V secondaires après le basculement et qu’elles peuvent se connecter aux réseaux de machines virtuelles appropriés. Si vous ne configurez pas de mappage réseau, les machines virtuelles de réplicas ne sont connectées à aucun réseau après le basculement.<br/><br/>Pour configurer le mappage réseau pendant le déploiement, assurez-vous que les machines virtuelles sur le serveur hôte Hyper-V source sont connectées à un réseau de machines virtuelles VMM. Ce réseau doit être lié à un réseau logique lui-même associé au cloud.<br/<br/>Le cloud cible sur le serveur VMM secondaire que vous utilisez pour la récupération doit avoir un réseau de machines virtuelles correspondant configuré, qui lui-même doit être lié à un réseau logique correspondant associé au cloud cible.<br/><br/>[En savoir plus](site-recovery-network-mapping.md) sur le mappage réseau. |
-| **Mappage de stockage** |Par défaut, quand vous répliquez une machine virtuelle sur un serveur hôte Hyper-V source vers un serveur hôte Hyper-V cible, les données répliquées sont stockées à l'emplacement par défaut indiqué pour l'hôte Hyper-V cible dans le Gestionnaire Hyper-V. Pour disposer d’un meilleur contrôle sur l’emplacement de stockage des données répliquées, vous pouvez configurer un mappage de stockage.<br/><br/>  Pour cela, vous devez configurer des classifications de stockage sur les serveurs VMM source et cible avant de commencer le déploiement. [En savoir plus](site-recovery-storage-mapping.md). |
+| **Mappage de stockage** |Par défaut, quand vous répliquez une machine virtuelle sur un serveur hôte Hyper-V source vers un serveur hôte Hyper-V cible, les données répliquées sont stockées à l'emplacement par défaut indiqué pour l'hôte Hyper-V cible dans le Gestionnaire Hyper-V. Pour disposer d’un meilleur contrôle sur l’emplacement de stockage des données répliquées, vous pouvez configurer un mappage de stockage.<br/><br/> Pour cela, vous devez configurer des classifications de stockage sur les serveurs VMM source et cible avant de commencer le déploiement. [En savoir plus](site-recovery-storage-mapping.md). |
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Étape 1 : Création d’un coffre Site Recovery
 1. Connectez-vous au [Portail de gestion](https://portal.azure.com) à partir du serveur VMM à inscrire.
@@ -60,7 +60,7 @@ Assurez-vous que les conditions préalables sont remplies :
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 5. Dans **Région** , sélectionnez la région géographique du coffre. Pour vérifier les régions prises en charge, consultez la section Disponibilité géographique dans la page [Détails sur la tarification d'Azure Site Recovery](http://go.microsoft.com/fwlink/?LinkId=389880).
 6. Cliquez sur **Create vault**.
-   
+
     ![Create vault](./media/site-recovery-vmm-to-vmm-classic/create-vault.png)
 
 Dans la barre d'état, vérifiez que le coffre a été créé. Le coffre apparaît comme **Actif** sur la page principale Recovery Services.
@@ -69,38 +69,38 @@ Dans la barre d'état, vérifiez que le coffre a été créé. Le coffre appara�
 Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléchargé et installé le fournisseur Azure Site Recovery sur le serveur VMM, vous utiliserez cette clé pour inscrire le serveur VMM dans le coffre.
 
 1. Sur la page **Recovery Services** , cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l'icône.
-   
+
     ![Icône Quick Start](./media/site-recovery-vmm-to-vmm-classic/quick-start-icon.png)
 2. Dans la liste déroulante, sélectionnez **Entre deux sites VMM locaux**.
 3. Dans **Préparer les serveurs VMM**, cliquez sur **Générer le fichier de clé d’inscription**. Le fichier de clé est généré automatiquement et est valide pendant cinq jours après sa création. Si vous n'accédez pas au portail Azure à partir du serveur VMM, vous devez copier ce fichier sur le serveur.
-   
+
     ![Registration Key](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
 ## <a name="step-3-install-the-azure-site-recovery-provider"></a>Étape 3 : Installation du fournisseur Azure Site Recovery
 1. Dans la page **Démarrage rapide**, dans **Préparer les serveurs VMM**, cliquez sur **Télécharger le fournisseur Microsoft Azure Site Recovery pour une installation sur les serveurs VMM** pour obtenir la dernière version du fichier d’installation du fournisseur.
 2. Exécutez ce fichier sur le serveur VMM source.
-   
+
    > [!NOTE]
    > Si VMM est déployé dans un cluster et que vous installez le fournisseur pour la première fois, installez-le sur un nœud actif et terminez l'installation pour inscrire le serveur VMM dans le coffre. Ensuite, installez le fournisseur sur les autres nœuds. Notez que, si vous mettez à niveau le fournisseur, vous devez le mettre à niveau sur tous les nœuds, car ils doivent tous exécuter la même version du fournisseur.
-   > 
-   > 
+   >
+   >
 3. Le programme d’installation effectue quelques **vérifications de la configuration requise** et demande l’autorisation d’arrêter le service VMM pour commencer l’installation du fournisseur. Le service VMM redémarre automatiquement une fois l’installation terminée. Si vous installez sur un cluster VMM, vous serez invité à arrêter le rôle de cluster.
 4. Dans **Microsoft Update** , vous pouvez opter pour l'installation de mises à jour. En activant ce paramètre, les mises à jour du fournisseur seront installées en fonction de votre stratégie Microsoft Update.
-   
+
     ![Mises à jour Microsoft](./media/site-recovery-vmm-to-vmm-classic/ms-update.png)
 5. L’emplacement de l’installation est **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Cliquez sur le bouton Installer pour démarrer l’installation du fournisseur.
-   
+
     ![Emplacement de l’installation](./media/site-recovery-vmm-to-vmm-classic/install-location.png)
 6. Une fois le fournisseur installé, cliquez sur **Inscrire** pour inscrire le serveur dans le coffre.
-   
+
     ![Installation terminée](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
 7. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré. Cliquez sur *Next*.
-   
+
     ![Enregistrement du serveur](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 8. Sur la page **Connexion Internet** , indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez **Se connecter avec des paramètres de proxy existants** pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
-   
+
     ![Paramètres Internet](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
-   
+
    * Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s'exécute pour vérifier la connexion proxy.
    * Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, dont son adresse et son port.
    * Les URL suivantes doivent être accessibles à partir du serveur VMMet des hôtes Hyper-V :
@@ -116,7 +116,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 11. Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM.
 12. Dans **Synchroniser les métadonnées du cloud** , indiquez si vous voulez synchroniser les métadonnées de tous les clouds sur le serveur VMM à l’aide du coffre. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM.
 13. Cliquez sur **Suivant** pour terminer le processus. Une fois l'inscription terminée, les métadonnées du serveur VMM sont extraites par Azure Site Recovery. Le serveur s’affiche dans **Serveurs VMM** > **Serveurs** dans le coffre.
-    
+
     ![Serveurs](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### <a name="command-line-installation"></a>Installation à partir de la ligne de commande
@@ -125,14 +125,14 @@ Le fournisseur Azure Site Recovery peut également être installé à partir de 
 1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription dans un dossier, par exemple C:\ASR.
 2. Arrêter le service System Center Virtual Machine Manager
 3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’ **administrateur** :
-   
+
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Installez le fournisseur en exécutant :
-   
+
         C:\ASR> setupdr.exe /i
 5. Inscrivez le fournisseur en exécutant :
-   
+
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
         C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
@@ -156,23 +156,23 @@ Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de pr
 3. Dans **Cible**, sélectionnez **VMM**.
 4. Dans **Emplacement cible**, sélectionnez le serveur VMM local qui gère le cloud à utiliser pour la récupération.
 5. Dans **Target Cloud**, spécifiez le cloud cible à utiliser pour le basculement des machines virtuelles du cloud source. Notez les points suivants :
-   
+
    * Nous vous recommandons de choisir un cloud cible qui remplisse les conditions requises pour la récupération des machines virtuelles que vous prévoyez de protéger.
    * Un cloud ne peut appartenir qu'à une seule paire de clouds, que ce soit en qualité de cloud principal ou de cloud cible.
 6. Dans **Fréquence de copie**, spécifiez la fréquence de synchronisation des données entre les emplacements source et cible. Notez que ce paramètre est pertinent uniquement quand l'hôte Hyper-V exécute Windows Server 2012 R2. Les autres serveurs utilisent un paramétrage par défaut de cinq minutes.
 7. Dans **Points de récupération supplémentaires**, spécifiez si vous souhaitez créer des points de récupération supplémentaires. La valeur zéro par défaut indique que seul le point de récupération le plus récent d’une machine virtuelle principale est stocké sur un serveur hôte de réplication. Notez que l'activation de plusieurs points de récupération nécessite un stockage supplémentaire pour les instantanés qui sont stockés à chaque point de récupération. Par défaut, des points de récupération sont créés toutes les heures, pour que chacun contienne une heure de données. La valeur de point de récupération que vous attribuez à la machine virtuelle dans la console VMM ne doit pas être inférieure à la valeur que vous attribuez dans la console Azure Site Recovery.
 8. Dans **Fréquence des instantanés cohérents avec l’application**, spécifiez la fréquence de création des instantanés cohérents au niveau de l’application. Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Notez que si vous activez les instantanés cohérents avec l'application, cela affectera les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
-   
+
     ![Configurer les paramètres de protection](./media/site-recovery-vmm-to-vmm-classic/cloud-settings.png)
 9. Dans **Compression du transfert de données**, indiquez si les données répliquées transférées doivent être compressées.
 10. Dans **Authentication**, indiquez le mode d'authentification du trafic entre les serveurs hôtes Hyper-V principaux et de récupération. Sélectionnez HTTPS, sauf si vous avez configuré un environnement Kerberos opérationnel. Azure Site Recovery configurera automatiquement des certificats pour l'authentification HTTPS. Aucune configuration manuelle n'est nécessaire. Si vous sélectionnez Kerberos, un ticket Kerberos est utilisé pour l'authentification mutuelle des serveurs hôtes. Par défaut, les ports 8083 et 8084 (pour les certificats) seront ouverts dans le Pare-feu Windows sur les serveurs hôtes Hyper-V. Notez que ce paramètre n'est utile que pour les serveurs hôtes Hyper-V s'exécutant sur Windows Server 2012 R2.
 11. Dans **Port**, modifiez le numéro de port sur lequel les ordinateurs hôtes source et cible écoutent le trafic de réplication. Par exemple, vous pouvez modifier ce paramètre si vous souhaitez appliquer la limitation de bande passante réseau de Qualité de service (QoS) pour le trafic de réplication. Vérifiez que le port n'est utilisé par aucune autre application et qu'il est ouvert dans les paramètres du pare-feu.
 12. Dans **Méthode de réplication**, indiquez comment sera traitée la réplication de données initiale entre les emplacements source et cible avant que la réplication normale ne démarre :
-    
+
     * **Over network**: la copie de données sur le réseau peut demander du temps et des ressources. Nous vous recommandons d'utiliser cette option si le cloud contient des machines virtuelles dotées de disques durs virtuels relativement petits et si le site principal est connecté au site secondaire sur une connexion à large bande passante. Vous pouvez opter pour un démarrage immédiat de la copie ou sélectionner une heure. Si vous utilisez la réplication réseau, nous vous recommandons de la planifier sur des heures creuses.
     * **Offline**: cette méthode précise que la réplication initiale s'exécute à l'aide d'un support externe. Elle est indiquée si vous voulez éviter une dégradation des performances réseau ou pour les emplacements éloignés géographiquement. Pour utiliser cette méthode, il convient de spécifier l'emplacement d'exportation sur le cloud source et l'emplacement d'importation sur le cloud cible. Lorsque vous activez la protection pour une machine virtuelle, le disque dur virtuel est copié vers l'emplacement d'exportation spécifié. Vous l'envoyez vers le site cible et le copiez vers l'emplacement d'importation. Le système copie les informations importées vers les machines virtuelles de réplication.
 13. Sélectionnez **Supprimer une machine virtuelle de réplica** pour indiquer que la machine virtuelle de réplication doit être supprimée si vous cessez de protéger la machine virtuelle en sélectionnant l’option **Delete protection for the virtual machine** (Supprimer la protection pour la machine virtuelle) dans l’onglet Machines virtuelles des propriétés du cloud. Si vous activez ce paramètre et que vous désactivez la protection, la machine virtuelle est supprimée d'Azure Site Recovery, les paramètres Site Recovery de la machine virtuelle sont supprimés de la console VMM et le réplica est supprimé.
-    
+
     ![Configurer les paramètres de protection](./media/site-recovery-vmm-to-vmm-classic/cloud-settings-replica.png)
 
 Suite à l'enregistrement des paramètres, une tâche est créée et peut être surveillée sous l'onglet **Jobs** . Tous les serveurs hôte Hyper-V du cloud VMM source sont configurés pour la réplication. Les paramètres de cloud peuvent être modifiés sous l'onglet **Configure** . Pour modifier l'emplacement cible ou le cloud cible, vous devez supprimer la configuration du cloud, puis reconfigurer ce dernier.
@@ -197,10 +197,10 @@ Vous devez effectuer les actions suivantes pour préparer la réplication initia
 1. Dans la page Démarrage rapide, cliquez sur **Mapper les réseaux**.
 2. Sélectionnez le serveur VMM source à partir duquel vous souhaitez mapper des réseaux, puis le serveur VMM cible auquel les réseaux seront mappés. La liste des réseaux sources et leurs réseaux cibles associés s'affiche à l'écran. Une valeur vide est indiquée pour les réseaux qui ne sont pas mappés.
 3. Sélectionnez un réseau dans **Réseau sur la source** > **Mapper**. Le service détecte les réseaux de machines virtuelles sur le serveur cible et les affiche. Cliquez sur l'icône d'information en regard du nom des réseaux source et cible pour afficher les sous-réseaux de chaque réseau.
-   
+
     ![configurer le mappage réseau](./media/site-recovery-vmm-to-vmm-classic/network-mapping1.png)
 4. Dans la boîte de dialogue, sélectionnez l'un des réseaux de machines virtuelles du serveur VMM cible.
-   
+
     ![Sélectionner un réseau cible](./media/site-recovery-vmm-to-vmm-classic/network-mapping2.png)
 5. Quand vous sélectionnez un réseau cible, les clouds protégés qui utilisent le réseau source sont affichés. Les réseaux cibles disponibles qui sont associés aux clouds utilisés pour la protection sont également affichés. Nous vous recommandons de sélectionner un réseau cible qui est accessible à tous les clouds utilisés pour la protection. Vous pouvez également accéder au serveur VMM et modifier les propriétés de cloud pour ajouter le réseau logique correspondant au réseau de machines virtuelles que vous souhaitez.
 6. Cliquez sur la coche pour terminer le processus de mappage. Une tâche de suivi du processus de mappage démarre. Vous pouvez l'afficher dans l'onglet **Tâches** .
@@ -212,7 +212,7 @@ Par défaut, quand vous répliquez une machine virtuelle sur un serveur hôte Hy
 2. Une fois les classifications en place, vous pouvez créer des mappages. Pour cela, dans la page **Démarrage rapide**, cliquez sur **Mapper le stockage**.
 3. Cliquez sur l’onglet **Stockage** > **Mapper les classifications de stockage**.
 4. Sous l’onglet **Mapper les classifications de stockage** , sélectionnez les classifications sur les serveurs VMM source et cible. Enregistrez vos paramètres.
-   
+
     ![Sélectionner un réseau cible](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
 
 ## <a name="step-7-enable-virtual-machine-protection"></a>Étape 7 : Activation de la protection des machines virtuelles
@@ -220,16 +220,16 @@ Dès lors que les serveurs, les clouds et les réseaux ont été configurés cor
 
 1. Sous l’onglet **Machines virtuelles** du cloud dans lequel se trouve la machine virtuelle, cliquez sur **Activer la protection** > **Ajouter des machines virtuelles**.
 2. Dans la liste des machines virtuelles du cloud, sélectionnez celle que vous voulez protéger.
-   
+
     ![activer la protection des machines virtuelles](./media/site-recovery-vmm-to-vmm-classic/enable-protection.png)
 3. Suivez la progression de l'action d'activation de la protection, y compris la réplication initiale, dans l'onglet **Tâches** . Lorsque la tâche de finalisation de la protection s’exécute, la machine virtuelle est prête à être basculée. Une fois la protection activée et les machines virtuelles répliquées, celles-ci sont affichées dans Azure.
-   
+
     ![Tâche de protection de la machine virtuelle](./media/site-recovery-vmm-to-vmm-classic/vm-jobs.png)
 
 > [!NOTE]
 > Vous pouvez également activer la protection des machines virtuelles dans la console VMM. Cliquez sur **Activer la protection** dans la barre d’outils sous l’onglet **Azure Site Recovery** dans les propriétés de la machine virtuelle.
-> 
-> 
+>
+>
 
 ### <a name="on-board-existing-virtual-machines"></a>Intégrer des machines virtuelles existantes
 Si vous avez des machines virtuelles existantes dans VMM qui sont répliquées à l’aide du réplica Hyper-V, vous devrez les intégrer à la protection Azure Site Recovery comme suit :
@@ -243,10 +243,10 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 ### <a name="create-a-recovery-plan"></a>Créer un plan de récupération
 1. Sous l’onglet **Plans de récupération**, cliquez sur **Créer un plan de récupération**.
 2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **Hyper-V** pour afficher uniquement les clouds configurés pour la réplication Hyper-V.
-   
+
     ![Créer un plan de récupération](./media/site-recovery-vmm-to-vmm-classic/recovery-plan1.png)
 3. Dans **Sélectionner la machine virtuelle**, sélectionnez les groupes de réplication. Toutes les machines virtuelles associées au groupe de réplication sont sélectionnées et ajoutées au plan de récupération. Ces machines virtuelles sont ajoutées au groupe par défaut du plan de récupération, à savoir le groupe 1. Vous pouvez ajouter d'autres groupes si nécessaire. Notez qu'après la réplication, les machines virtuelles démarrent dans l'ordre des groupes du plan de récupération.
-   
+
     ![Ajouter des machines virtuelles](./media/site-recovery-vmm-to-vmm-classic/recovery-plan2.png)
 
 Une fois un plan de récupération créé, il s’affiche dans la liste de l'onglet **Plans de récupération** .
@@ -289,7 +289,7 @@ Cette section fournit des informations supplémentaires sur la confidentialité 
 * **Résultat**: inscrit le serveur auprès du service pour que les machines virtuelles puissent être protégées.
 * **Informations recueillies**: après l’inscription, le Service recueille, traite et transmet les informations de certificat de gestion à partir du serveur VMM qui est désigné pour fournir la récupération d’urgence à l’aide du nom du Service du serveur VMM et du nom des clouds de machines virtuelles sur votre serveur VMM.
 * **Utilisation des informations**:
-  
+
   * Certificat de gestion : permet d'identifier et d'authentifier le serveur VMM inscrit pour l'accès au Service. Le Service utilise la portion de clé publique du certificat pour sécuriser un jeton auquel seul le serveur VMM inscrit a accès. Le serveur a besoin d'utiliser ce jeton pour accéder aux fonctionnalités du Service.
   * Nom du serveur VMM : ce nom est nécessaire pour identifier et communiquer avec le serveur VMM approprié sur lequel les clouds sont situés.
   * Noms de clouds du serveur VMM : les noms de clouds sont nécessaires en cas d'utilisation de la fonctionnalité de couplage/découplage de clouds du Service décrite ci-dessous. Quand vous décidez de coupler le cloud d'un centre de données principal avec un autre cloud du centre de données de récupération, les noms de tous les clouds du centre de données de récupération sont présentés.
@@ -324,7 +324,7 @@ Le fournisseur du serveur VMM est averti de l'événement par le Service et exé
 
 * **Informations recueillies**: le Service utilise ces informations pour spécifier l'état des informations de l'action de basculement votre portail Service.
 * **Utilisation des informations**: voici comment le Service utilise ces informations :
-  
+
   * Certificat de gestion : permet d'identifier et d'authentifier le serveur VMM inscrit pour l'accès au Service. Le Service utilise la portion de clé publique du certificat pour sécuriser un jeton auquel seul le serveur VMM inscrit a accès. Le serveur a besoin d'utiliser ce jeton pour accéder aux fonctionnalités du Service.
   * Nom du serveur VMM : ce nom est nécessaire pour identifier et communiquer avec le serveur VMM approprié sur lequel les clouds sont situés.
   * Noms de clouds du serveur VMM : les noms de clouds sont nécessaires en cas d'utilisation de la fonctionnalité de couplage/découplage de clouds du Service décrite ci-dessous. Quand vous décidez de coupler le cloud d'un centre de données principal avec un autre cloud du centre de données de récupération, les noms de tous les clouds du centre de données de récupération sont présentés.
@@ -335,7 +335,6 @@ Après avoir exécuté un test de basculement pour vérifier que votre environne
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

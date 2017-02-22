@@ -1,5 +1,5 @@
 ---
-title: "Lier un réseau virtuel à un circuit ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell | Microsoft Docs"
+title: "Lier un réseau virtuel à un circuit ExpressRoute avec PowerShell et le portail Azure Classic | Microsoft Docs"
 description: "Ce document explique comment lier des réseaux virtuels à des circuits ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
+ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Lier un réseau virtuel à un circuit ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure - Resource Manager](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - Classique](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -162,6 +163,6 @@ Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](e
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

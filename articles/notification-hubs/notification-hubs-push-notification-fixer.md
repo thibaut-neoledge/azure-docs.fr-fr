@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 844c86a762d861f87422740c1d4d6d4f342ee728
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
 
 
 ---
@@ -230,7 +230,7 @@ Plus de détails ici :
 [Conseils relatifs aux modèles]: https://msdn.microsoft.com/library/dn530748.aspx 
 [Aide sur APNs]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Aide sur GCM]: http://developer.android.com/google/gcm/adv.html
-[Exportation/importation d'enregistrements]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Explorateur ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
 [Code de l’explorateur ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Vue d’ensemble de l’Explorateur de serveurs Visual Studio]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
@@ -243,6 +243,6 @@ Plus de détails ici :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

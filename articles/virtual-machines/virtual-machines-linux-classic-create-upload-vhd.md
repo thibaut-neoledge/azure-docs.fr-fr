@@ -1,6 +1,6 @@
 ---
-title: "Création et chargement d’un VHD Linux | Microsoft Docs"
-description: "Création et téléchargement d’un disque dur virtuel (VHD) Azure avec le modèle de déploiement classique contenant le système d&quot;exploitation Linux."
+title: "Création et téléchargement d’un VHD Linux dans Azure | Microsoft Docs"
+description: "Création et téléchargement d’un disque dur virtuel (VHD) Azure contenant le système d&quot;exploitation Linux avec le modèle de déploiement Classic"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,25 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 12a95742140fb1fdbbb15a042543fde52408b1f6
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Vous pouvez également [charger une image de disque personnalisé à l’aide d’Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [charger une image de disque personnalisé à l’aide d’Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Découvrez comment préparer le système d’exploitation afin de pouvoir l’utiliser pour créer plusieurs machines virtuelles basées sur cette image. 
 
-> [!NOTE]
-> Si vous avez un moment, aidez-nous à améliorer la documentation relative aux machines virtuelles Azure Linux en répondant à cette [enquête rapide](https://aka.ms/linuxdocsurvey) concernant vos expériences. Chaque réponse nous aide à vous faciliter la tâche.
-> 
-> 
 
 ## <a name="prerequisites"></a>Composants requis
 Cet article part du principe que vous disposez des éléments suivants :
@@ -42,10 +37,8 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 > [!NOTE]
 > Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX au format VHD à l’aide de [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou de l’applet de commande PowerShell [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). De plus, Azure ne prend pas en charge le chargement de disques durs virtuels dynamiques. Vous devez convertir ces disques en disques durs virtuels statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/Microsoft/azure-vhd-utils-for-go) pour convertir les disques dynamiques au cours du processus de téléchargement vers Azure.
-> 
-> 
 
-* **Interface de ligne de commande Azure** : installez [l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md) la plus récente pour charger le disque dur virtuel.
+* **Interface de ligne de commande Azure** : installez [l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) la plus récente pour charger le disque dur virtuel.
 
 <a id="prepimage"> </a>
 
@@ -72,7 +65,7 @@ Consultez également les **[notes d’installation Linux](virtual-machines-linux
 ## <a name="step-2-prepare-the-connection-to-azure"></a>Étape 2 : préparation de la connexion à Azure
 Assurez-vous que vous utilisez l’interface de ligne de commande Azure dans le modèle de déploiement Classic (`azure config mode asm`), puis connectez-vous à votre compte :
 
-```
+```azurecli
 azure login
 ```
 
@@ -84,7 +77,7 @@ Vous avez besoin d’un compte de stockage vers lequel charger votre fichier de 
 
 Utilisez l’interface de ligne de commande Azure pour charger l’image, à l’aide de la commande suivante :
 
-```bash
+```azurecli
 azure vm image create <ImageName> `
     --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> `
     --os Linux <PathToVHDFile>
@@ -97,33 +90,33 @@ Dans l’exemple précédent :
 * **VHDName** est l’étiquette affichée dans le portail pour identifier le disque dur virtuel.
 * **PathToVHDFile** est le chemin d’accès complet et le nom du fichier .vhd sur votre machine.
 
-L’exemple suivant est complet :
+La commande suivante illustre un exemple complet :
 
-```bash
-azure vm image create UbuntuLTS `
-    --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd `
-    --os Linux /home/ahmet/UbuntuLTS.vhd
+```azurecli
+azure vm image create myImage `
+    --blob-url https://mystorage.blob.core.windows.net/vhds/myimage.vhd `
+    --os Linux /home/ahmet/myimage.vhd
 ```
 
 ## <a name="step-4-create-a-vm-from-the-image"></a>Étape 4 : créer une machine virtuelle à partir de l’image
-Vous créez une machine virtuelle à l’aide de `azure vm create` , de la même façon qu’une machine virtuelle standard. Spécifiez le nom que vous avez donné à votre image à l’étape précédente. Dans l’exemple suivant, nous utilisons le nom d’image **UbuntuLTS** attribué à l’étape précédente :
+Vous créez une machine virtuelle à l’aide de `azure vm create` , de la même façon qu’une machine virtuelle standard. Spécifiez le nom que vous avez donné à votre image à l’étape précédente. Dans l’exemple suivant, nous utilisons le nom d’image **myImage** attribué à l’étape précédente :
 
-```bash
+```azurecli
 azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
-    --location "West US" "DeployedUbuntu" UbuntuLTS
+    --location "West US" "myDeployedVM" myImage
 ```
 
 Pour créer vos machines virtuelles, fournissez vos propres nom d’utilisateur et mot de passe, emplacement, nom DNS et nom d’image.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, voir [référence CLI Azure pour le modèle de déploiement Azure Classic](../virtual-machines-command-line-tools.md).
+Pour plus d’informations, voir [référence CLI Azure pour le modèle de déploiement Azure Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-[Étape 1 : préparation de l'image pour le téléchargement]: #prepimage
-[Étape 2 : préparation de la connexion à Azure]: #connect
-[Étape 3 : chargement de l’image dans Azure]: #upload
+[Step 1: Prepare the image to be uploaded]: #prepimage
+[Step 2: Prepare the connection to Azure]: #connect
+[Step 3: Upload the image to Azure]: #upload
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

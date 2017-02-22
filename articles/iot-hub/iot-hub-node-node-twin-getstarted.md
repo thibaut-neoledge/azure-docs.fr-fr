@@ -1,6 +1,6 @@
 ---
-title: "Prise en main des représentations d’appareil | Microsoft Docs"
-description: "Ce didacticiel vous montre comment utiliser les représentations d’appareil"
+title: "Prise en main des représentations physiques Azure IoT Hub (Node) | Microsoft Docs"
+description: "Guide d’utilisation des représentations d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez les SDK Azure IoT pour Node.js afin d’implémenter l’application d’appareil simulé et une application de service qui ajoute les balises et exécute la requête IoT Hub."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: d7b615476bb5e9ed08e1e84f63c1a40c11154b23
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
 
 
 ---
-# <a name="tutorial-get-started-with-device-twins"></a>Didacticiel : Prise en main des représentations d’appareil
+# <a name="get-started-with-device-twins-node"></a>Prise en main des représentations d’appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
 
-* **AddTagsAndQuery.js**, application Node.js destinée à être exécutée à partir du serveur principal, qui ajoute des balises et interroge des représentations d’appareil.
+* **AddTagsAndQuery.js**, application Node.js qui ajoute des balises et interroge des représentations d’appareil.
 * **TwinSimulatedDevice.js**, application Node.js qui simule un appareil se connectant à votre IoT Hub avec l’identité d’appareil créée précédemment, et signale son état de connectivité.
 
 > [!NOTE]
@@ -56,11 +56,11 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
     npm install azure-iothub --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **AddTagsAndQuery.js** dans le dossier **addtagsandqueryapp**.
-4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**, puis remplacez l’espace réservé **{service connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre hub :
+4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**, puis remplacez l’espace réservé **{iot hub connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre IoT Hub :
    
         'use strict';
         var iothub = require('azure-iothub');
-        var connectionString = '{service hub connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -144,7 +144,7 @@ Dans cette section, vous allez créer une application console Node.js qui se con
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **ReportConnectivity.js** dans le dossier **reportconnectivity**.
-4. Ajoutez le code suivant au fichier **ReportConnectivity.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
+4. Ajoutez le code suivant au fichier **ReportConnectivity.js**, puis remplacez l’espace réservé **{device connection string}** par la chaîne de connexion à l’appareil que vous avez copiée lors de la création de l’identité d’appareil **myDeviceId** :
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -225,13 +225,13 @@ Utilisez les ressources suivantes :
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

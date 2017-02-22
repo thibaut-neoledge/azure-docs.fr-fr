@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 664abe5887b3d96eb48e3b47df9a32648ee623dd
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
 
 
 ---
@@ -30,16 +30,15 @@ L’expérience de préversion vous permet de gérer les nombreuses ressources d
 L’expérience de préversion lit et écrit dans le même locataire Azure Active Directory que le portail classique et le centre d’administration Office 365. Les modifications apportées dans l’un de ces portails sont répercutées dans tous les autres.
 
 ## <a name="use-the-same-authorization-logic"></a>Utiliser la même logique d’autorisation
-L’expérience de la version préliminaire utilise la même logique d’autorisation que les clients Active Directory existants. Les utilisateurs sont autorisés à apporter des modifications aux ressources de répertoire en fonction de leur rôle, par exemple administrateur global, administrateur de l’utilisateur ou administrateur de mot de passe. Avoir un rôle sur des ressources Azure ou un abonnement Azure n’autorise pas un utilisateur à gérer les ressources Active Directory. Pour plus d’informations sur les rôles de gestion Azure AD, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md). 
+L’expérience de la version préliminaire utilise la même logique d’autorisation que les clients Active Directory existants. Les utilisateurs sont autorisés à apporter des modifications aux ressources de répertoire en fonction de leur rôle, par exemple administrateur global, administrateur de l’utilisateur ou administrateur de mot de passe. Avoir un rôle sur des ressources Azure ou un abonnement Azure n’autorise pas un utilisateur à gérer les ressources Active Directory. Pour plus d’informations sur les rôles de gestion Azure AD, voir [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles.md).
 
 L’expérience de la version préliminaire est optimisée pour les administrateurs généraux. Si vous utilisez l’expérience de préversion lors d’une connexion en tant qu’utilisateur qui n’est pas un administrateur global, l’expérience peut s’en trouver dégradée. Par exemple, vous pourriez être en mesure de sélectionner un bouton qui vous permet de commencer une tâche que vous ne pouvez pas effectuer dans le répertoire. Nous travaillons sur l’amélioration de cette expérience.
 
-## <a name="tell-us-what-you-think"></a>Partagez votre opinion
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez nous envoyer vos commentaires sur l’expérience de la version préliminaire dans la section portail d’administration du [forum de commentaires Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: dc41ae217547fea45326cb146a59bc2888e1f44b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 55c349f19055e4e4d17f5c7290a2ee82d2d3d19d
 
 
 ---
@@ -45,7 +45,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit] ou [activer les avantages de votre abonnement Visual Studio].
 
 > [!NOTE]
-> Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+> Vous pouvez [essayer App Service](https://azure.microsoft.com/try/app-service/) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 > 
 > 
 
@@ -273,6 +273,6 @@ Pour activer Node-Inspector, procédez comme suit :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

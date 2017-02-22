@@ -1,6 +1,6 @@
 ---
-title: Prise en main de la gestion des appareils Azure IoT Hub | Microsoft Docs
-description: "Ce didacticiel vous apprend à bien démarrer avec la gestion d’appareils dans Azure IoT Hub."
+title: Prise en main de la gestion des appareils Azure IoT Hub (.NET/Node) | Microsoft Docs
+description: "Guide d’utilisation de la gestion des appareils Azure IoT Hub pour lancer un redémarrage d’appareil à distance. Vous utilisez Azure IoT device SDK pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui appelle la méthode directe."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cf9741e7bc30ccb5e6b8f79dad7c8ef725cd683a
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Didacticiel : Prise en main de la gestion d’appareils
+# <a name="get-started-with-device-management-netnode"></a>Prise en main de la gestion d’appareils (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## <a name="introduction"></a>Introduction
-Les applications principales IoT peuvent utiliser des primitives dans Azure IoT Hub, à savoir la représentation d’appareil et les méthodes directes, pour démarrer et surveiller à distance les actions de gestion sur les appareils.  Cet article fournit des conseils et du code illustrant comment une application principale et un appareil fonctionnent ensemble pour lancer et surveiller le redémarrage d’un appareil distant à l’aide d’IoT Hub.
+Les applications principales peuvent utiliser des primitives dans Azure IoT Hub, à savoir la représentation d’appareil et les méthodes directes, pour démarrer et surveiller à distance les actions de gestion sur les appareils.  Cet article fournit des conseils et du code illustrant comment les applications principales et les appareils fonctionnent ensemble pour lancer et surveiller le redémarrage d’un appareil distant à l’aide d’IoT Hub.
 
 Pour démarrer et surveiller à distance les actions de gestion sur vos appareils à partir d’une application cloud principale, utilisez des primitives IoT Hub comme la [représentation d’appareil][lnk-devtwin] et les [méthodes directes][lnk-c2dmethod]. Ce didacticiel illustre comment une application principale et un appareil peuvent fonctionner ensemble pour vous permettre de lancer et de surveiller le redémarrage d’un appareil distant à partir d’IoT Hub.
 
@@ -40,9 +40,9 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * Utiliser le portail Azure pour créer un IoT Hub et une identité d’appareil dans celui-ci.
 * Créer une application d’appareil simulé disposant d’une méthode directe permettant le redémarrage qui peut être appelée par le cloud.
-* Créer une application console qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
+* Créer une application console .NET qui appelle une méthode directe de redémarrage sur l’application d’appareil simulé via votre IoT Hub.
 
-À la fin de ce didacticiel, vous avez une application d’appareil de console Node.js et une application principale de console .NET (c#) :
+À la fin de ce didacticiel, vous avez une application d’appareil de console Node.js et une application principale de console .NET (c#) :
 
 **dmpatterns_getstarted_device.js**, qui se connecte à votre IoT Hub avec l’identité d’appareil créée précédemment, reçoit une méthode directe de redémarrage, simule un redémarrage physique et indique l’heure du dernier redémarrage.
 
@@ -66,9 +66,9 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
     ![Nouveau projet Visual C# Bureau classique Windows][img-createapp]
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **TriggerReboot**, puis cliquez sur **Gérer les packages NuGet**.
-3. Dans la fenêtre **Gestionnaire de package Nuget**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement, l’installation et ajoute une référence au package Nuget [kit de développement logiciel (SDK) de service Microsoft Azure IoT][lnk-nuget-service-sdk] et ses dépendances.
+3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **microsoft.azure.devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet][lnk-nuget-service-sdk] et ses dépendances.
 
-    ![Fenêtre du gestionnaire de package Nuget][img-servicenuget]
+    ![Fenêtre du gestionnaire de package NuGet][img-servicenuget]
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
@@ -113,10 +113,10 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
 8. Générez la solution.
 
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous allez :
+Dans cette section, vous allez :
 
-* Créer une application console Node.js qui répond à une méthode directe appelée par le cloud.
-* Déclencher un redémarrage d’appareil simulé.
+* Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
+* Déclencher un redémarrage d’appareil simulé
 * Utiliser les propriétés signalées pour activer les requêtes sur la représentation d’appareil afin d’identifier les appareils et l’heure de leur dernier redémarrage
 
 1. Créez un dossier vide nommé **simulateddevice**.  Dans le dossier **simulateddevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
@@ -124,7 +124,7 @@ Dans cette section, vous allez :
     ```
     npm init
     ```
-2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
+2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -138,7 +138,7 @@ Dans cette section, vous allez :
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer un client d’appareil.  Remplacez la chaîne de connexion par la chaîne de connexion de votre appareil.  
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  Remplacez la chaîne de connexion par la chaîne de connexion de votre appareil.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -237,7 +237,7 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 [img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -253,6 +253,6 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

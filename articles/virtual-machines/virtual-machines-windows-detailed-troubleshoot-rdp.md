@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
 
 
 ---
@@ -28,8 +28,6 @@ Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et
 
 > [!IMPORTANT]
 > Pour éliminer les erreurs du Bureau à distance les plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avant de continuer.
-> 
-> 
 
 Vous pouvez rencontrer un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de résolution des problèmes de base du Bureau à distance](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Suivez ces étapes pour déterminer pourquoi le client Bureau à distance ne parvient pas à se connecter au service Bureau à distance sur la machine virtuelle Azure.
 
@@ -141,7 +139,7 @@ Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si vo
 
 Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, vous pouvez utiliser une session Azure PowerShell distante vers la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat pour le service cloud d’hébergement de la machine virtuelle. Accédez à [Configurer l’accès à distance sécurisé de PowerShell aux machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** sur votre ordinateur local.
 
-Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Ouvrez ensuite une invite de commandes Azure PowerShell, puis remplacez le dossier actif par l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1** . Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -192,7 +190,7 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
+[Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -201,6 +199,6 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

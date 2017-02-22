@@ -1,5 +1,5 @@
 ---
-title: "Déployer votre première application web dans Azure en 5 minutes | Microsoft Docs"
+title: "Déployer votre première application web HTML dans Azure en&5; minutes | Microsoft Docs"
 description: "Découvrez la facilité avec laquelle vous pouvez exécuter des applications web dans App Service en déployant un exemple d’application. Commencez le développement rapidement et visualisez les résultats immédiatement."
 services: app-service\web
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 4e2d846ef3ce6e78d5789c7b8e1b8228617837b6
+ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
+ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Déployer votre première application web dans Azure en 5 minutes
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>Déployer votre première application web HTML dans Azure en&5; minutes
 
 > [!div class="op_single_selector"]
 > * [Premier site HTML](app-service-web-get-started-html-cli-nodejs.md)
 > * [Première application .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
 > * [Première application PHP](app-service-web-get-started-php-cli-nodejs.md)
 > * [Première application Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Première application PHP](app-service-web-get-started-python-cli-nodejs.md)
+> * [Première application Python](app-service-web-get-started-python-cli-nodejs.md)
 > * [Première application PHP](app-service-web-get-started-java.md)
 > 
 > 
@@ -57,7 +57,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 * Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Vous pouvez [essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
+> Vous pouvez [essayer App Service](https://azure.microsoft.com/try/app-service/) sans compte Azure. Créez une application de base et expérimentez-la pendant une heure, sans carte de paiement et sans engagement.
 > 
 > 
 
@@ -135,6 +135,6 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

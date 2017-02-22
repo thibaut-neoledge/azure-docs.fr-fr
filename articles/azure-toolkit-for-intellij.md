@@ -4,7 +4,7 @@ description: En savoir plus sur le kit de ressources Azure pour IntelliJ.
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 115a095d-1b70-41d6-adb4-78f24b2a4451
 ms.service: multiple
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b23f7c1185544cfb37d208abfe00523166e4de5
+ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
+ms.openlocfilehash: 623ec422684fc881cc94d247756e006d4d5dc53a
 
 
 ---
@@ -41,7 +41,7 @@ Les articles suivants vous aideront à vous familiariser avec l’utilisation du
 Les articles suivants expliquent comment utiliser la Boîte à outils Azure pour IntelliJ afin d’ajouter la fonctionnalité Azure à vos projets Java :
 
 * [Débogage d’une application web Java sur Azure dans IntelliJ]
-* [Utilisation du plug-in Outils HDInsight pour IntelliJ IDEA afin de créer des applications Spark pour un cluster Linux HDInsight Spark][Plug-in Outils HDInsight pour IntelliJ]
+* [Utilisation du plug-in Outils HDInsight pour IntelliJ IDEA afin de créer des applications Spark pour un cluster Linux HDInsight Spark][HDInsight Tools Plugin for IntelliJ]
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les liens suivants :
@@ -55,12 +55,12 @@ Pour plus d’informations sur les boîtes à outils Azure pour les environnemen
   * [Créer une application web « Hello World » pour Azure dans IntelliJ]
   * [Nouveautés du Kit de ressources Azure pour IntelliJ]
 
-Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
+Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure] et les [outils Java pour Visual Studio Team Services].
 
 <!-- URL List -->
 
 [Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse.md
-[Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
 [Créer une application web « Hello World » pour Azure dans Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
@@ -69,12 +69,13 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
+[outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Débogage d’une application web Java sur Azure dans IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
-[Plug-in Outils HDInsight pour IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

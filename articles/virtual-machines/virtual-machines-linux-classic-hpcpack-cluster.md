@@ -16,8 +16,8 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 38c1494a3089bac46e565a373a83a939791beef7
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 6bd6b9ea57cf0e54e55ddde82efe7b4b99885e1f
 
 
 ---
@@ -58,7 +58,7 @@ Pour plus d’informations sur les options de déploiement d’un cluster HPC Pa
 Autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
 
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
-* **Azure PowerShell** - [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** - [installez et configurez Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 * **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `.\New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.1 ou ultérieure du script.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Option de déploiement 1. Utiliser un modèle Resource Manager
@@ -86,7 +86,7 @@ Autres conditions préalables à respecter pour un déploiement du cluster à l�
 Voici les autres conditions préalables à respecter pour un déploiement du cluster à l’aide du script de déploiement HPC Pack IaaS :
 
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows pour exécuter le script de déploiement de cluster.
-* **Azure PowerShell** - [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
+* **Azure PowerShell** - [installez et configurez Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 * **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vous pouvez vérifier la version du script en exécutant `.\New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.1 ou ultérieure du script.
 
 **Fichier de configuration XML**
@@ -318,6 +318,6 @@ L’outil [clusrun](https://technet.microsoft.com/library/cc947685.aspx) de HPC
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Exemples de services web Machine Learning développés avec R | Microsoft Docs"
-description: "Recherchez un ensemble pratique d’exemples de services web créés avec du code R et Machine Learning et publié sur Azure Marketplace."
+title: "(obsolète) Exemples de services web Machine Learning développés avec R - Azure | Microsoft Docs"
+description: "(obsolète) Recherchez un ensemble pratique d’exemples de services web créés avec du code R et Machine Learning et publié sur Azure Marketplace."
 keywords: csharp,code r,exemples de services web
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 303fb71faf73d4a1b6d17b4ca66b83b15157332b
 
 
 ---
-# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Des exemples de services web utilisant du code R sur Azure Machine Learning sont publiés sur Microsoft Azure Marketplace
+# <a name="deprecated-web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>(obsolète) Des exemples de services web utilisant du code R sur Azure Machine Learning sont publiés sur Microsoft Azure Marketplace
+
+> [!NOTE]
+> Microsoft DataMarket va être mis hors service, et ces API sont désormais obsolètes. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Cet article contient des exemples de services web créés à l’aide d’Azure Machine Learning et publiés sur Azure Marketplace. Chaque exemple de service web est associé à un document complet intégrant des exemples de jeux de données pour tester les services et expliquant comment l’utilisateur peut lui-même créer un service similaire. 
 
 Dans Azure Machine Learning Studio, les utilisateurs peuvent écrire du code R et le publier en quelques clics sous la forme d’un service web afin que d’autres applications et périphériques l’utilisent dans le monde entier. 
@@ -72,6 +79,6 @@ Pour les Questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

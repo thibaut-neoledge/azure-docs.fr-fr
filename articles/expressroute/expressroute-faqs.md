@@ -1,10 +1,10 @@
 ---
-title: Forum Aux Questions ExpressRoute
+title: Forum Aux Questions Azure ExpressRoute | Microsoft Docs
 description: "Le Forum aux questions ExpressRoute contient des informations sur les services Azure pris en charge, le coût, les données et connexions, le contrat de niveau de service, les fournisseurs et les emplacements, la bande passante et les détails techniques."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9f26fd3796a45d6a4a782f80632e09a6390f1dbe
-ms.openlocfilehash: ae2dbb8524acba44f83397b7340ca98433b34de6
+ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
+ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
 
 
 ---
@@ -46,7 +46,7 @@ Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez vo
 Oui. Les circuits ExpressRoute sont configurés pour prendre en charge les cas où vous pouvez aller jusqu’à doubler la limite de la bande passante obtenue sans frais supplémentaire. Vérifiez auprès de votre fournisseur de services si cette fonctionnalité est prise en charge.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion de réseau privé avec un réseau virtuel et d’autres services Azure simultanément ?
-Oui. Un circuit ExpressRoute, une fois installé, vous permettra d’accéder simultanément à des services au sein d’un réseau virtuel et à d’autres services Azure. Vous allez vous connecter à des réseaux virtuels sur le chemin d’accès d’homologation privée et à d’autres services sur le chemin d’accès d’homologation publique.
+Oui. Un circuit ExpressRoute, une fois installé, vous permet d’accéder simultanément à des services au sein d’un réseau virtuel et à d’autres services Azure. Vous allez vous connecter à des réseaux virtuels sur le chemin d’accès d’homologation privée et à d’autres services sur le chemin d’accès d’homologation publique.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute offre-t-il un contrat de niveau de service (SLA) ?
 Pour plus d’informations, consultez la [page sur les contrats de niveau de service ExpressRoute](https://azure.microsoft.com/support/legal/sla/) .
@@ -83,7 +83,7 @@ Nous ne définissons aucune limite sur la quantité de transfert de données. Po
 ### <a name="what-connection-speeds-are-supported-by-expressroute"></a>Quelles vitesses de connexion sont prises en charge par ExpressRoute ?
 Offres relatives à la bande passante prise en charge :
 
-|50 Mbits/s, 100 Mbits/s, 200 Mbits/s, 500 Mbits/s, 1 Gbit/s, 2 Gbit/s, 5 Gbits/s, 10 Gbits/s|
+50 Mbit/s, 100 Mbit/s, 200 Mbit/s, 500 Mbit/s, 1 Gbit/s, 2 Gbit/s, 5 Gbit/s, 10 Gbit/s|
 
 ### <a name="which-service-providers-are-available"></a>Quels fournisseurs de services sont disponibles ?
 Pour obtenir la liste des fournisseurs de services et des emplacements, consultez la page [Partenaires et emplacements ExpressRoute](expressroute-locations.md) .
@@ -99,7 +99,7 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour prendre en charge la charge de votre réseau. Vous pouvez également créer plusieurs circuits dans un autre emplacement d’homologation pour bénéficier de la tolérance de panne.
 
 ### <a name="a-nameonep2plinkaif-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
-Non, vous n’avez besoin que d’une connexion physique si votre fournisseur de services peut établir deux circuits virtuels Ethernet sur la connexion physique. La connexion physique (par exemple, une fibre optique) s’achève sur un appareil de couche 1 (L1) (voir l'image ci-dessous). Les deux circuits virtuels Ethernet sont marqués avec des ID de VLAN différents, l’un pour le circuit principal et l’autre pour le circuit secondaire. Ces ID de VLAN se trouvent dans l’en-tête Ethernet 802.1Q externe. L’en-tête Ethernet 802.1Q interne (non illustré) est mappé à un [domaine de routage ExpressRoute](expressroute-circuit-peerings.md)spécifique. 
+Non, vous n’avez besoin que d’une connexion physique si votre fournisseur de services peut établir deux circuits virtuels Ethernet sur la connexion physique. La connexion physique (par exemple, une fibre optique) s’achève sur un appareil de couche 1 (L1) (voir l’image ci-dessous). Les deux circuits virtuels Ethernet sont marqués avec des ID de VLAN différents, l’un pour le circuit principal et l’autre pour le circuit secondaire. Ces ID de VLAN se trouvent dans l’en-tête Ethernet 802.1Q externe. L’en-tête Ethernet 802.1Q interne (non illustré) est mappé à un [domaine de routage ExpressRoute](expressroute-circuit-peerings.md)spécifique. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
@@ -245,11 +245,11 @@ Consultez la rubrique [Partenaires et emplacements ExpressRoute](expressroute-lo
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 for Operations (précédemment appelé Dynamics AX Online) est-il accessible par le biais d’une connexion ExpressRoute ?
-Oui. [Dynamics 365 pour les opérations](https://www.microsoft.com/en-us/dynamics365/operations) est hébergé sur Azure. Vous pouvez activer l’homologation publique Azure sur votre circuit ExpressRoute pour vous y connecter. 
+Oui. [Dynamics 365 pour les opérations](https://www.microsoft.com/dynamics365/operations) est hébergé sur Azure. Vous pouvez activer l’homologation publique Azure sur votre circuit ExpressRoute pour vous y connecter. 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

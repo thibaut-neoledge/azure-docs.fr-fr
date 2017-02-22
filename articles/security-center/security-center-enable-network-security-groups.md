@@ -1,6 +1,6 @@
 ---
 title: "Activation de groupes de sécurité réseau dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Activer des groupes de sécurité réseau**."
+description: "Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activer des groupes de sécurité réseau**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,34 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72dcf86c50c6a393ae065e5b487cb99f5701a5dc
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
 
 
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Activation de groupes de sécurité réseau dans Azure Security Center
 Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 
-Si vous n’avez pas activé de groupe de sécurité réseau, le centre de sécurité (Security Center) vous envoie deux recommandations : activer des groupes de sécurité réseau sur des sous-réseaux et activer des groupes de sécurité réseau sur des machines virtuelles. Vous choisissez à quel niveau, à quel sous-réseau ou à quelle machine virtuelle appliquer des groupes de sécurité réseau.
+Si vous n’avez pas activé de groupe de sécurité réseau, Azure Security Center vous envoie deux recommandations : activer des groupes de sécurité réseau sur des sous-réseaux et activer des groupes de sécurité réseau sur des machines virtuelles. Vous choisissez à quel niveau, à quel sous-réseau ou à quelle machine virtuelle appliquer des groupes de sécurité réseau.
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Activer des groupes de sécurité réseau** sur des sous-réseaux ou des ordinateurs virtuels.
    ![Activer des groupes de sécurité réseau][1]
 2. Le panneau **Configurer les groupes de sécurité réseau manquants** s’ouvre alors pour les sous-réseaux ou les machines virtuelles en fonction de la recommandation que vous avez sélectionnée. Sélectionnez un sous-réseau ou une machine virtuelle comme cible de la configuration d’un groupe de réseau virtuel.
-   
+
    ![Configurer un groupe de sécurité réseau pour un sous-réseau][2]
-   
+
    ![Configurer un groupe de sécurité réseau pour une machine virtuelle][3]
-3. Dans le panneau **Choisir un groupe de sécurité réseau** , sélectionner un groupe de sécurité réseau existant ou créez un groupe de sécurité réseau.
-   
+3. Dans le panneau **Choisir un groupe de sécurité réseau** , sélectionnez un groupe de sécurité réseau existant ou **Création** pour créer un groupe de sécurité réseau.
+
    ![Choisir un groupe de sécurité réseau][4]
 
 Si vous créez un groupe de sécurité réseau, suivez les étapes indiquées dans l’article [Gestion des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) pour créer un groupe de sécurité et définir des règles de sécurité.
@@ -68,6 +68,6 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

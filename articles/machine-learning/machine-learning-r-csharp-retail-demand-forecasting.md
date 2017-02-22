@@ -1,6 +1,6 @@
 ---
-title: "Prévisions - ETS + STL | Microsoft Docs"
-description: "Prévisions - ETS + STL"
+title: "(obsolète) Prévisions - ETS + STL - Azure | Microsoft Docs"
+description: "(obsolète) Prévisions - ETS + STL"
 services: machine-learning
 documentationcenter: 
 author: xueshanz
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7a8877257ba03de22e0f74253885585c02d2bd10
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: cdf6661a36e38bf7a6fca241682be796712bd5d9
 
 
 ---
-# <a name="forecasting---ets--stl"></a>Prévisions - ETS + STL
+# <a name="deprecated-forecasting---ets--stl"></a>(obsolète) Prévisions - ETS + STL
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Ce [service web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) applique la décomposition des tendances saisonnières (STL) et le modèle de lissage exponentiel (ETS) pour produire des prédictions basées sur les données historiques fournies par l’utilisateur. La demande pour un produit spécifique va-t-elle augmenter cette année ? Puis-je prévoir les ventes de mes produits pour Noël afin de planifier efficacement mon inventaire ? Les modèles de prévision sont en mesure de répondre à ces questions. Ces modèles examinent les tendances cachées et de saison sur la base des données passées afin de prévoir les tendances futures. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -141,6 +148,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

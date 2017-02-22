@@ -1,5 +1,5 @@
 ---
-title: "Forum Aux Questions d’Azure Multi-Factor Authentication"
+title: FAQ Multi-Factor Authentication Azure | Microsoft Docs
 description: "Fournit une liste de questions fréquentes et les réponses relatives à Azure Multi-Factor Authentication. Multi-Factor Authentication est une méthode permettant de vérifier l’identité d’un utilisateur qui requiert d’autres méthodes que le nom d’utilisateur et le mot de passe. Ce service fournit une couche de sécurité supplémentaire pour la connexion et les transactions de l’utilisateur."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c83a7216d9763994fd5006dd9cd40883337ba4a
+ms.sourcegitcommit: 9617cd00ed4a5f8f867542238e5008a9a17663c9
+ms.openlocfilehash: 1e01bdc099af865e01eb2784cf367e482300ade8
 
 
 ---
@@ -61,6 +61,8 @@ La facturation repose sur le nombre d’utilisateurs configurés pour utiliser M
 Lorsque vous utilisez le modèle « par utilisateur » ou « par authentification », Azure MFA est une ressource basée sur la consommation. Tous les frais sont facturés sur l’abonnement Azure de l’organisation, comme c’est le cas pour les machines virtuelles, les sites web, etc.
 
 Lorsque vous utilisez le modèle basé sur licence, des licences Azure Multi-Factor Authentication sont achetées, puis affectées à des utilisateurs, comme pour Office 365 et d’autres produits soumis à abonnement.
+
+Pour plus d’informations sur les options disponibles, consultez [Azure Multi-Factor Authentication : fonctionnement](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)
 
 **Q : Existe-t-il une version gratuite d’Azure Multi-Factor Authentication pour les administrateurs ?**
 
@@ -160,8 +162,6 @@ La solution consiste à disposer de comptes d’utilisateur distincts pour les o
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne trouvez pas ici la réponse à votre question, veuillez laisser un commentaire en bas de la page. Sinon, voici quelques options supplémentaires pour obtenir de l’aide :
 
-**Q : Comment puis-je obtenir de l'aide pour Azure Multi-Factor Authentication ?**
-
 * Recherchez des solutions aux problèmes techniques courants dans la [base de connaissances du support Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport).
 * Parcourez les forums et recherchez des questions et des réponses techniques de la communauté ou posez votre question sur les [forums Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Si vous êtes un client hérité de PhoneFactor et que vous avez des questions ou besoin d’aide pour réinitialiser un mot de passe, utilisez le lien [Réinitialisation de mot de passe](mailto:phonefactorsupport@microsoft.com) pour ouvrir une demande de support.
@@ -170,6 +170,6 @@ Si vous ne trouvez pas ici la réponse à votre question, veuillez laisser un co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

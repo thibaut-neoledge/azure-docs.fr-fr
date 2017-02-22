@@ -139,7 +139,7 @@ L’application Boomi attend l’assertion SAML dans un format spécifique. Vous
 
     > [!NOTE]
     > Remarque : la valeur de revendication NameID de la réponse doit correspondre à l’ID de fédération configuré au sein du système Boomi. Nous vous invitons à collaborer avec l’équipe de support technique Boomi pour mapper l’identificateur d’utilisateur approprié dans votre organisation, en tant qu’ID de fédération. Par défaut, Azure AD définit la valeur NameIdentifier en tant que valeur UPN. Pour modifier ce paramètre, accédez à l’onglet Attribut, comme indiqué dans la capture d’écran ci-dessous. L’intégration ne fonctionnera qu’une fois le mappage correct effectué. 
-    
+     
     ![Configurer l’authentification unique](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_51.png)
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Boomi en tant qu’administrateur. 
@@ -238,13 +238,13 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez le
 
 2. Après connexion, accédez à **Gestion des utilisateurs** et allez dans **Utilisateurs**.
 
-    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Users")
+    ![Utilisateurs](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Utilisateurs")
 
 3. Cliquez sur l’icône **+**, et la boîte de dialogue **Ajouter/gérer les rôles utilisateur** s’ouvre.
 
-    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "Users")
+    ![Utilisateurs](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "Utilisateurs")
 
-    ![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
+    ![Utilisateurs](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Utilisateurs")
 
 4. Saisissez **l’adresse de messagerie de l’utilisateur**.
 
@@ -321,6 +321,6 @@ Lorsque vous cliquez sur la mosaïque Boomi dans le volet d’accès, vous devez
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

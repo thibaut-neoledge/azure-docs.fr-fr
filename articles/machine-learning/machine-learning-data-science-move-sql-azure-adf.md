@@ -12,20 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: adbede3de17f055f5e39630658f526dd239d50da
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
 
 
 ---
 # <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d'un serveur SQL local vers SQL Azure avec Azure Data Factory
 Cette rubrique montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
 
-Le **menu** suivant pointe vers des rubriques qui expliquent comment recevoir des données dans d’autres environnements cibles où les données peuvent être stockées et traitées pendant le processus TDSP (Team Data Science Process).
-
-[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données SQL Azure, consultez [Déplacer des données dans une base de données SQL Azure pour Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
 ## <a name="a-nameintroaintroduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>Présentation : Qu’est-ce qu’ADF et quand doit-il être utilisé pour migrer des données ?
 Azure Data Factory est un service d’intégration de données dans le cloud entièrement géré qui gère et automatise le déplacement et la transformation des données. Le concept clé du modèle ADF est le pipeline. Un pipeline est un regroupement logique d’activités, chacune d'elles définissant les actions à effectuer sur les données contenues dans des groupes de données. Les services liés sont utilisés pour définir les informations nécessaires à Data Factory pour se connecter à des ressources de données.
@@ -93,21 +91,21 @@ Dans ce scénario, nous avons trois ressources pour lesquelles les services li�
 ### <a name="a-nameadf-linked-service-onprem-sqlalinked-service-for-on-premise-sql-server-database"></a><a name="adf-linked-service-onprem-sql"></a>Service lié pour base de données SQL Server locale
 Pour créer un service lié pour le serveur SQL Server local :
 
-* cliquez sur le **magasin de données** dans la page d’accueil ADF sur le portail Azure classique ;
-* sélectionnez **SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* du serveur SQL local. Vous devez entrer le nom du serveur sous la forme d’un **nom d’instance avec barre oblique inverse et nom de serveur entièrement qualifié (nomserveur\nominstance)**. Nommez le service lié *adfonpremsql*.
+* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
+* Sélectionnez **SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* du serveur SQL local. Vous devez entrer le nom du serveur sous la forme d’un **nom d’instance avec barre oblique inverse et nom de serveur entièrement qualifié (nomserveur\nominstance)**. Nommez le service lié *adfonpremsql*.
 
 ### <a name="a-nameadf-linked-service-blob-storealinked-service-for-blob"></a><a name="adf-linked-service-blob-store"></a>Service lié pour les objets blob
 Pour créer un service lié pour le compte de stockage d’objets Blob Azure :
 
-* cliquez sur le **magasin de données** dans la page d’accueil ADF sur le portail Azure classique ;
-* sélectionnez **Azure Storage Account**
-* entrez la clé et le nom de conteneur du compte de stockage d’objets Blob Azure. Nommez le service lié *adfds*.
+* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
+* Sélectionnez **Azure Storage Account**.
+* Entrez la clé et le nom de conteneur du compte de stockage Blob Azure. Nommez le service lié *adfds*.
 
-### <a name="a-nameadf-linked-service-azure-sqlalinked-service-for-azure-sql-database"></a><a name="adf-linked-service-azure-sql"></a>Service lié pour base de données Azure SQL
+### <a name="a-nameadf-linked-service-azure-sqlalinked-service-for-azure-sql-database"></a><a name="adf-linked-service-azure-sql"></a>Service lié pour la base de données SQL Azure
 Pour créer le service lié pour la base de données SQL Azure :
 
-* cliquez sur le **magasin de données** dans la page d’accueil ADF sur le portail Azure classique ;
-* sélectionnez **Azure SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* de la base de données Azure SQL. Le *nom d’utilisateur* doit être spécifié en tant que *user@servername*.   
+* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
+* Sélectionnez **Azure SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* de la base de données Azure SQL. Le *nom d’utilisateur* doit être spécifié en tant que *user@servername*.   
 
 ## <a name="a-nameadf-tablesadefine-and-create-tables-to-specify-how-to-access-the-datasets"></a><a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
 Créez des tables qui spécifient la structure, l'emplacement et la disponibilité des jeux de données avec les procédures reposant sur des scripts suivantes. Les fichiers JSON sont utilisés pour définir les tables. Pour plus d'informations sur la structure de ces fichiers, consultez [Jeux de données](../data-factory/data-factory-create-datasets.md).
@@ -330,6 +328,6 @@ Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

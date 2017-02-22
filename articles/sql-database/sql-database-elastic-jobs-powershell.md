@@ -1,5 +1,5 @@
 ---
-title: "Création et gestion des tâches de bases de données élastiques à l&quot;aide de PowerShell"
+title: "Création et gestion de tâches élastiques à l’aide de PowerShell | Microsoft Docs"
 description: "Gérer la base de données SQL Azure avec PowerShell"
 services: sql-database
 documentationcenter: 
@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92a986e9a5ff736408d1221143d38b117eab437f
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
 
 ---
-# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Création et gestion des tâches de bases de données SQL élastiques à l'aide de PowerShell (version préliminaire)
+# <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 > [!div class="op_single_selector"]
 > * [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
@@ -31,7 +32,7 @@ Les API PowerShell pour les **tâches de bases de données élastiques** (en ver
 ## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **tâches de bases de données élastiques** : voir [Installing tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Sélectionner votre abonnement Azure
@@ -357,7 +358,7 @@ Récupérez toutes les exécutions de tâches de niveau supérieur, y compris le
 Récupérez toutes les exécutions de tâches enfants d'un ID d'exécution de tâches fourni, y compris les exécutions de tâches inactives :
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Récupérez toutes les exécutions de tâches créées à l'aide d'une planification/combinaison de tâches, y compris les tâches inactives :
 
@@ -371,13 +372,13 @@ Récupérez toutes les tâches ciblant une carte de partitions spécifiée, y co
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Récupérez toutes les tâches ciblant une collecte personnalisée spécifiée, y compris les tâches inactives :
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Récupérez la liste des exécutions de tâches de travail dans l'exécution d'une tâche spécifique :
 
@@ -483,7 +484,7 @@ Pour déclencher la suppression de tâches, utilisez [**l’applet de commande R
     Remove-AzureSqlJob -JobName $jobName
 
 ## <a name="to-create-a-custom-database-target"></a>Créer une cible de base de données personnalisée
-Vous pouvez définir des cibles de bases de données personnalisées pour une exécution directe ou pour une inclusion dans un groupe de bases de données personnalisées. Par exemple, puisque les **pools de bases de données élastiques** ne sont pas encore pris en charge directement via les API PowerShell, vous pouvez créer simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
+Vous pouvez définir des cibles de bases de données personnalisées pour une exécution directe ou pour une inclusion dans un groupe de bases de données personnalisées. Par exemple, puisque les **pools élastiques** ne sont pas encore pris en charge directement via les API PowerShell, vous pouvez créer simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
 
 Définissez les variables suivantes pour refléter les informations de base de données souhaitées :
 
@@ -585,7 +586,7 @@ Utilisez [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.as
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Supprimer une association planifiée pour arrêter l’exécution planifiée d’une tâche
@@ -651,6 +652,6 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

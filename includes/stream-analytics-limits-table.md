@@ -1,24 +1,4 @@
 ---
-title: Tableau des limites Stream Analytics
-description: "Décrit les limites du système et les tailles recommandées pour les connexions et les composants Stream Analytics."
-services: stream-analytics
-documentationcenter: NA
-author: jeffstokes72
-manager: paulettm
-editor: cgronlun
-ms.service: stream-analytics
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 07/25/2016
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
-
-
----
 | Identificateur de la limite | Limite | Commentaires |
 | --- | --- | --- |
 | Nombre maximal d’unités de diffusion en continu par abonnement par région |50 |Pour demander une augmentation du nombre d’unités de diffusion en continu au-delà de 50 dans le cadre de votre abonnement, contactez le [Support technique Microsoft](https://support.microsoft.com/en-us). |
@@ -27,10 +7,10 @@ ms.openlocfilehash: b4cfc4663dbef820c866846d65b9fa8512c7dcff
 | Nombre maximal de sorties par travail |60 |Il existe une limite inconditionnelle de 60 sorties par travail Stream Analytics. |
 | Nombre maximal de fonctions par travail |60 |Il existe une limite inconditionnelle de 60 fonction par travail Stream Analytics. |
 | Nombre maximal de travaux par région |1 500 |Chaque abonnement peut avoir jusqu'à 1 500 travaux par région géographique. |
+| Objet blob de données de référence Mo | 100 | Un objet blob de données de référence ne peut pas être supérieur à 100 Mo. |
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

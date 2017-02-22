@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/20/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afb51a4513a7f1bcbbc85394d8dc7ab8af762f43
+ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
+ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 
 
 ---
@@ -28,11 +28,11 @@ Azure AD Identity Protection envoie deux types d’e-mails de notification autom
 * E-mail de synthèse hebdomadaire
 
 ## <a name="user-compromised-alert-email"></a>E-mail d’alerte en cas d’utilisateur compromis
-Un e-mail d’alerte en cas d’utilisateur compromis est généré lorsqu’Azure AD Identity Protection identifie un compte compromis. Cet e-mail inclut un lien vers le rapport Utilisateurs associés à un indicateur de risque dans le tableau de bord d’Identity Protection. Nous vous recommandons d’examiner immédiatement les notifications d’utilisateurs compromis.
+Un e-mail d’alerte en cas d’utilisateur compromis est généré lorsqu’Azure AD Identity Protection identifie un compte compromis. Cet e-mail inclut un lien vers le rapport Utilisateurs associés à un indicateur de risque dans le tableau de bord d’Identity Protection. Nous vous recommandons d’examiner immédiatement les notifications des comptes compromis.
 
 ## <a name="weekly-digest-email"></a>E-mail de synthèse hebdomadaire
 L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux événements à risque.<br>
- Il inclut :
+Il inclut :
 
 * Les utilisateurs à risque
 * Activités suspectes
@@ -41,11 +41,11 @@ L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux év
 
 <br>
 ![Correction](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br> 
+<br>
 
 Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire.
 <br><br>
-![Risque des utilisateurs](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![Risques des utilisateurs](./media/active-directory-identityprotection-notifications/62.png "User risks")
 <br>
 
 **Pour ouvrir la boîte de dialogue de configuration connexe**:
@@ -60,11 +60,10 @@ Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire.
    <br>
 
 ## <a name="see-also"></a>Voir aussi
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

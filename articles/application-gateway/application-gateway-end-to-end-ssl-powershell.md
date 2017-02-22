@@ -4,7 +4,7 @@ description: "Cet article explique comment configurer le chiffrement SSL de bout
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 6f061810b865e7855877bf08b02e758351f3e63c
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 
 
 ---
@@ -29,9 +29,7 @@ La passerelle Application Gateway prend en charge le chiffrement de bout en bout
 La désactivation de certaines versions du protocole SSL est une autre fonctionnalité prise en charge par la passerelle Application Gateway. La passerelle Application Gateway prend en charge la désactivation des versions de protocole suivantes : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**.
 
 > [!NOTE]
-> SSL 2.0 et SSL 3.0 sont désactivés par défaut et ne peuvent pas être activés. Considérés comme non sécurisés, ils ne peuvent pas être utilisés avec Application Gateway
-> 
-> 
+> SSL 2.0 et SSL 3.0 sont désactivés par défaut et ne peuvent pas être activés. Considérés comme non sécurisés, ils ne peuvent pas être utilisés avec Application Gateway.
 
 ![image du scénario][scenario]
 
@@ -135,8 +133,6 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 > [!IMPORTANT]
 > La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement cname comme alias.
-> 
-> 
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Créer un objet de configuration de passerelle Application Gateway
 
@@ -167,9 +163,7 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendI
 ```
 
 > [!NOTE]
-> Un nom de domaine complet (FQDN) est également une valeur valide pour remplacer une adresse IP dans les serveurs principaux à l’aide du commutateur -BackendFqdns.
-> 
-> 
+> Un nom de domaine complet (FQDN) est également une valeur valide pour remplacer une adresse IP dans les serveurs principaux à l’aide du commutateur -BackendFqdns. 
 
 ### <a name="step-4"></a>Étape 4
 
@@ -189,8 +183,6 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 > [!NOTE]
 > Cet exemple configure le certificat utilisé pour la connexion SSL. Le certificat doit être au format .pfx et le mot de passe contenir entre 4 et 12 caractères.
-> 
-> 
 
 ### <a name="step-6"></a>Étape 6
 
@@ -206,8 +198,6 @@ Téléchargez le certificat à utiliser sur les ressources du pool principal pou
 
 > [!NOTE]
 > La sonde par défaut obtient la clé publique de la liaison SSL **par défaut** sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. La clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que trafic soit dirigé **si** vous utilisez des en-têtes d’hôte et SNI sur le serveur principal. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison SSL **par défaut**. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et SNI sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison SSL par défaut sur les serveurs principaux. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
-> 
-> 
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
@@ -215,8 +205,6 @@ $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitel
 
 > [!NOTE]
 > Le certificat fourni dans cette étape doit être la clé publique du certificat pfx présent sur le serveur principal. Exportez le certificat (pas le certificat racine) installé sur le serveur principal au format .CER et utilisez-le dans cette étape. Cette étape permet d’ajouter le serveur principal à la liste approuvée par la passerelle d’application.
-> 
-> 
 
 ### <a name="step-8"></a>Étape 8
 
@@ -244,8 +232,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles doivent être utilisées pour les tests de développement et non à des fins de production.
-> 
-> 
 
 ### <a name="step-11"></a>Étape 11
 
@@ -337,6 +323,6 @@ Pour en savoir plus sur le renforcement de la sécurité de vos applications web
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

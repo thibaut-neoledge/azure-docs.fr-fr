@@ -25,7 +25,7 @@
 
 # Procédure
 ## Déplacer des données
-### [Assistant Data Factory Copy](data-factory-copy-wizard.md)
+### [Assistant Data Factory Copy](data-factory-azure-copy-wizard.md)
 #### [Charger 1 To en 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [activité de copie](data-factory-data-movement-activities.md)
 #### [Guide sur les performances et le réglage](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Référence du développeur Azure Data Factory](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # les ressources

@@ -16,9 +16,10 @@
 # Procédure
 ## [Configurer une méthode de routage](traffic-manager-configure-routing-method.md)
 ## [Tester vos paramètres](traffic-manager-testing-settings.md)
-## [Résoudre les problèmes d’un point de terminaison détérioré](traffic-manager-troubleshooting-degraded.md)
-## [Combinaison des services d’équilibrage de charge](traffic-manager-load-balancing-azure.md)
+## [Combiner les services d’équilibrage de charge](traffic-manager-load-balancing-azure.md)
 ## [Utiliser des ressources réseau](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Résolution des problèmes
+### [Résoudre les problèmes d’un point de terminaison détérioré](traffic-manager-troubleshooting-degraded.md)
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

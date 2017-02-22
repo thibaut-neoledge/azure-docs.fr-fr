@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/28/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
+ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
 
 
 ---
@@ -43,7 +43,7 @@ Comme l'illustre le schéma suivant, le **modèle de ressources** hiérarchique 
 ![Modèle de ressources hiérarchique de DocumentDB][1]  
 **Modèle de ressource hiérarchique**   
 
-Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un ensemble de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents** et les **pièces jointes** associées. La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble **d’autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.  
+Pour commencer à utiliser des ressources, vous devez [créer un compte de base de données](documentdb-create-account.md) à l’aide de votre abonnement Azure. Un compte de base de données se compose d’un ensemble de **bases de données**. Chacune d’elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur, des documents** et les **pièces jointes** associées. La base de données a également des **utilisateurs** associés. Chacun d’eux reçoit un ensemble **d’autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l’utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.  
 
 | Ressource | Description |
 | --- | --- |
@@ -70,7 +70,7 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
     <tbody>
         <tr>
             <td valign="top"><p><strong>Propriété</strong></p></td>
-            <td valign="top"><p><strong>Définie par l'utilisateur ou générée par le système ?</strong></p></td>
+            <td valign="top"><p><strong>Définie par l’utilisateur ou générée par le système ?</strong></p></td>
             <td valign="top"><p><strong>Objectif</strong></p></td>
         </tr>
         <tr>
@@ -464,6 +464,6 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

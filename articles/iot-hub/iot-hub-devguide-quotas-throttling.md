@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Quotas et limitation | Microsoft Docs"
-description: "Guide du développeur Azure IoT Hub - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu"
+title: Comprendre les quotas Azure IoT Hub et la limitation | Microsoft Docs
+description: "Guide du développeur - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,15 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: c0f8c779d7f9552dc05ac3791b74c3d57cb1fe64
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
 
 
 ---
-# <a name="reference---quotas-and-throttling"></a>Référence - Quotas et limitation
+# <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
+
 ## <a name="quotas-and-throttling"></a>Quotas et limitation
 Chaque abonnement Azure peut avoir au maximum 10 IoT Hubs, et au maximum un hub gratuit.
 
@@ -35,21 +36,21 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 
 | Limitation | Hubs gratuits et S1 | Hubs S2 | Hubs S3 | 
 | -------- | ------- | ------- | ------- |
-| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 100/min/unité | 100/min/unité | 5 000/min/unité |
-| Connexions d’appareils | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
-| Envois appareil-à-cloud | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
-| Envois cloud-à-appareil | 100/min/unité | 100/min/unité | 5 000/min/unité |
-| Réceptions cloud-à-appareil <br/> (uniquement lorsque les appareils utilisent HTTP)| 1 000/min/unité | 1 000/min/unité| 50 000/min/unité |
-| Chargement de fichiers | 100 notifications de chargement de fichiers/min/unité | 100 notifications de chargement de fichiers/min/unité | 5 000 notifications de chargement de fichiers/min/unité |
-| Méthodes directes | 10/s/unité | 30/s/unité | 1 500/s/unité | 
-| Lectures de représentations | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
-| Mises à jour de représentations | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
-| Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | 100/min/unité | 100/min/unité | 5 000/min/unité |
+| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 100/min/unité | 100/min/unité | 5&000;/min/unité |
+| Connexions d’appareils | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6&000;/s/unité |
+| Envois appareil-à-cloud | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6&000;/s/unité |
+| Envois cloud-à-appareil | 100/min/unité | 100/min/unité | 5&000;/min/unité |
+| Réceptions cloud-à-appareil <br/> (uniquement lorsque l’appareil utilise HTTP)| 1 000/min/unité | 1 000/min/unité| 50&000;/min/unité |
+| Chargement de fichiers | 100 notifications de chargement de fichiers/min/unité | 100 notifications de chargement de fichiers/min/unité | 5&000; notifications de chargement de fichiers/min/unité |
+| Méthodes directes | 10/s/unité | 30/s/unité | 1&500;/s/unité | 
+| Lectures de représentations d’appareil | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
+| Mises à jour de jumeaux d’appareils | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
+| Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | 100/min/unité | 100/min/unité | 5&000;/min/unité |
 | Débit d’opérations de travaux par appareil | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
 
 Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités configurées pour l’IoT Hub.
 
-Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Cela signifie que pour connecter 100 000 appareils, au moins 1 000 secondes sont nécessaires (environ 16 minutes). Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre des identités.
+Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Par conséquent, pour connecter 100 000 appareils, au moins 1 000 secondes (soit environ 16 minutes) sont nécessaires. Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre des identités.
 
 Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitation d’IoT Hub et vous) fournit une présentation détaillée du comportement de limitation d’IoT Hub.
 
@@ -67,8 +68,10 @@ IoT Hub applique d’autres limites à ses différentes fonctionnalités.
 
 | Opération | Limite |
 | --------- | ----- |
-| URI de chargement de fichiers | 10 000 URI de SAP peuvent être générés à la fois pour un compte de stockage. <br/>  10 URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
+| URI de chargement de fichiers | 10&000; URI de SAP peuvent être générés à la fois pour un compte de stockage. <br/> &10; URI de signature d’accès partagé/appareil peuvent être générés à la fois. |
 | Travaux | L’historique des travaux est conservé pendant 30 jours maximum. <br/> Le nombre maximal de travaux simultanés est 1 (pour les niveaux gratuit et S1), 5 (pour S2) ou 10 (pour S3). |
+| Points de terminaison supplémentaires | Les hubs avec SKU payants peuvent avoir 10 points de terminaison supplémentaires. Les hubs avec SKU gratuits peuvent avoir un point de terminaison supplémentaire. |
+| Règles de routage de messages | Les hubs avec SKU payants peuvent avoir 100 règles de routage. Les hubs avec SKU gratuits peuvent avoir cinq règles de routage. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
@@ -87,6 +90,6 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

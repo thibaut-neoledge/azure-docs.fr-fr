@@ -1,10 +1,10 @@
 ---
 title: "Utiliser le connecteur SharePoint Online dans vos applications logiques | Microsoft Docs"
-description: "Commencez à utiliser le connecteur SharePoint Online Azure App Service dans vos applications logiques."
+description: "Commencer à utiliser le connecteur SharePoint Online dans vos applications logiques"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76b6f627efdf189b873d9a6bdd722e73e837077d
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: c462c98e2ecef1afe62ef921265b8842b6ae717d
 
 
 ---
@@ -29,7 +29,7 @@ Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
 > 
 > 
 
-Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Pour ajouter une opération aux applications logiques, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>À propos des déclencheurs et des actions
 Le connecteur SharePoint peut être utilisé en tant qu’action ; il possède un ou plusieurs déclencheurs. Tous les connecteurs prennent en charge les données aux formats JSON et XML. 
@@ -532,7 +532,7 @@ Aucune des propriétés n’est obligatoire.
 | value |array |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
@@ -542,6 +542,6 @@ Aucune des propriétés n’est obligatoire.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

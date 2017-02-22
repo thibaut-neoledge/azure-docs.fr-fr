@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Logic Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à développer des applications logiques qui automatisent et simplifient les workflows métier en local et dans le cloud. Didacticiels, modèles et références d’API."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Documentation Logic Apps
 
 Apprenez à développer des applications logiques qui simplifient et intègrent des workflows évolutifs dans le cloud. Des didacticiels, modèles et références d’API vous aident à concevoir et déployer des workflows métier automatisés en local et dans le cloud.
@@ -150,6 +162,6 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

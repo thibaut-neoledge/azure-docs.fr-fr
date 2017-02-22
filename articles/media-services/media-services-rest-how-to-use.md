@@ -118,6 +118,6 @@ Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhait
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

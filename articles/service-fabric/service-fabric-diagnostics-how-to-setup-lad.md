@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 3416511777ff006d0aa933cd45e50f1d200bcad4
 > 
 > 
 
-Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux facilite l’analyse et la résolution des problèmes concernant vos services, votre application, voire le cluster lui-même. L’une des façons de charger et collecter les journaux consiste à utiliser l’extension Azure Diagnostics, qui charge les journaux dans Azure Storage. Vous pouvez lire les événements à partir du stockage et les placer dans un produit tel que [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou une autre solution d’analyse de journaux.
+Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux facilite l’analyse et la résolution des problèmes concernant vos services, votre application, voire le cluster lui-même. L’une des façons de charger et collecter les journaux consiste à utiliser l’extension Azure Diagnostics, qui charge les journaux dans Azure Storage, Azure Application Insights ou Azure Event Hubs. Vous pouvez également lire les événements du stockage ou d’Event Hubs et les placer dans un produit comme [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) est fourni avec un service complet de recherche dans les journaux et un service d’analyse intégré.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Sources de journaux que vous pourriez vouloir collecter
 * **Journaux Service Fabric** : émis par la plateforme via [LTTng](http://lttng.org) et chargés dans votre compte de stockage. Les journaux peuvent porter sur les événements opérationnels ou d’exécution émis par la plate-forme. Ils sont stockés dans l’emplacement spécifié par le manifeste de cluster. (Pour obtenir les informations sur le compte de stockage, recherchez la balise **AzureTableWinFabETWQueryable**, puis **StoreConnectionString**.)
@@ -52,6 +52,6 @@ Pour identifier plus précisément les événements à consulter lors de la rés
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

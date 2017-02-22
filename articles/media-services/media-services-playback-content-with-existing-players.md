@@ -1,5 +1,5 @@
 ---
-title: Lecture du contenu | Microsoft Docs
+title: Utiliser des lecteurs existants pour lire du contenu - Azure | Microsoft Docs
 description: "Cette rubrique répertorie les lecteurs existants que vous pouvez utiliser pour lire votre contenu."
 services: media-services
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>Lecture de votre contenu à l’aide des lecteurs existants
-Azure Media Services prend en charge de nombreux formats de diffusion en continu populaires, tels que la diffusion en continu lisse, la diffusion en continu HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.
+Azure Media Services prend en charge de nombreux formats de streaming populaires, tels que Smooth Streaming, le streaming HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Le lecteur de contenu Media Services sur le portail Azure
 Le **portail Azure** propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
@@ -30,12 +30,12 @@ Cliquez sur la vidéo de votre choix (assurez-vous qu’elle a été [publiée](
 
 Certaines considérations s’appliquent :
 
-* Le **lecteur de contenu de Media Services** assure la lecture depuis le point de terminaison de diffusion en continu par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de diffusion en continu que celui par défaut, utilisez un autre lecteur, Par exemple, le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Le **lecteur de contenu de Media Services** assure la lecture depuis le point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, utilisez un autre lecteur. Par exemple, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Utilisez le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour lire votre contenu (protégé ou non) dans l'un des formats suivants :
+Utilisez [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour lire votre contenu (protégé ou non) dans l'un des formats suivants :
 
 * Smooth Streaming
 * MPEG DASH
@@ -47,7 +47,7 @@ Utilisez le [Lecteur multimédia Azure](http://amsplayer.azurewebsites.net/azure
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Lecteurs Silverlight
-#### <a name="monitoring"></a>Analyse
+#### <a name="monitoring"></a>Surveillance
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### <a name="playready-with-token"></a>PlayReady avec jeton
@@ -77,6 +77,6 @@ Pour plus d’informations sur le développement de vos propres lecteurs, consul
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

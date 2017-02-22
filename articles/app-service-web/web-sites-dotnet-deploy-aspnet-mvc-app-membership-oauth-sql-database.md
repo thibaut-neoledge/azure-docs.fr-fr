@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3aaddd0b8ff500e3417a0ae7dd21207be45ade64
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
 
 
 ---
@@ -41,12 +41,12 @@ Vous apprendrez ce qui suit :
 > [!NOTE]
 > Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting) .
 > 
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/). Vous pouvez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
 ## <a name="prerequisites"></a>Composants requis
-Pour suivre ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/pricing/free-trial/?WT.mc_id=A261C142F).
+Pour suivre ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le kit de développement logiciel 2.8.1. Les mêmes instructions s’appliquent à Visual Studio 2015 avec la dernière version du [Kit de développement logiciel (SDK) Azure pour .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) installée, mais la présentation de certains écrans peut différer des illustrations.
 
@@ -104,10 +104,10 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
     ![_Layout.cshtml dans l'Explorateur de solutions][newapp004]
 2. Remplacez le lien ActionLink *_Layout.cshtml* par le code suivant :
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Pour le troisième paramètre, remplacez "Home" par "Contacts". Le balisage ci-dessus crée un lien "Contacts" sur chaque page vers la méthode Index du contrôleur Contacts. Remplacez le nom de l’application dans l’en-tête et le pied de page "Mon application ASP.NET" et "Nom de l’application" par "Gestionnaire de contacts" et "Démonstration GC". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Pour le troisième paramètre, remplacez "Home" par "Contacts". Le balisage ci-dessus crée un lien "Contacts" sur chaque page vers la méthode Index du contrôleur Contacts. Remplacez le nom de l’application dans l’en-tête et le pied de page "Mon application ASP.NET" et "Nom de l’application" par "Gestionnaire de contacts" et "Démonstration GC". 
 
 ### <a name="run-the-application-locally"></a>Exécution locale de l'application
 1. Appuyez sur Ctrl+F5 pour exécuter l'application.
@@ -443,7 +443,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
           }
    
     Si vous effectuez une recherche globale pour *AllowAnonymous*, vous pouvez voir qu’il est utilisé dans les méthodes de connexion et d’inscription du contrôleur Compte.
-3. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action à l’exception d’Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous : 
+3. Dans *CmController.cs*, ajoutez `[Authorize(Roles = "canEdit")]` aux méthodes HttpGet et HttpPost qui modifient les données (Create, Edit, Delete, toutes les méthodes d’action sauf Index et Details) dans le contrôleur *Cm*. Une partie du code terminé est affichée ci-dessous : 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -603,10 +603,10 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[Ajout d’un fournisseur OAuth]: #addOauth
-[Utilisation de l’API d’appartenance]:#mbrDB
-[Création d’un script de déploiement des données]:#ppd
-[Mise à jour de la base de données des membres]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Using the Membership API]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -655,14 +655,14 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/dntutmobile-migrations-package-manager-console.png
 
 
-[Informations importantes sur ASP.NET dans Azure Web Apps]: #aspnetwindowsazureinfo
-[Étapes suivantes]: #nextsteps
+[Important information about ASP.NET in Azure web apps]: #aspnetwindowsazureinfo
+[Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

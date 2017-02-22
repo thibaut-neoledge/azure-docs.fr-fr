@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
-ms.author: yuridio
+ms.date: 01/09/2017
+ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 2337c80ff0128c7ca4bf287ceb460dfc11404668
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
 
 
 ---
@@ -84,7 +84,7 @@ Azure utilise un pare-feu hyperviseur (filtre de paquets) qui est implémenté d
 Il existe deux catégories de règles qui sont programmées ici :
 
 * **Règles de configuration des machines ou d’infrastructure** : par défaut, toutes les communications sont bloquées. Il existe des exceptions qui permettent d’autoriser une machine virtuelle à envoyer et recevoir le trafic DHCP et DNS. Les machines virtuelles peuvent également envoyer le trafic vers l’Internet « public » et vers d’autres machines virtuelles dans le cluster et le serveur d’activation du système d’exploitation. La liste de destinations sortantes autorisées des machines virtuelles n’inclut pas les sous-réseaux de routeur Azure, les serveurs principaux de gestion Azure, ni d’autres propriétés Microsoft.
-* **Fichier de configuration de rôle** : ceci définit les listes de contrôle d’accès (ACL) entrant en fonction du modèle de service du client. Par exemple, si un client possède un serveur web frontal sur le port 80 sur une machine virtuelle spécifique, Azure ouvre le port TCP 80 à toutes les adresses IP si vous configurez un point de terminaison dans le [modèle de déploiement Azure Classic](../resource-manager-deployment-model.md). Si la machine virtuelle comporte un rôle de serveur principal ou de travail en cours d’exécution, Azure n’ouvre le rôle de travail qu’à la machine virtuelle dans le même client.
+* **Fichier de configuration de rôle** : ceci définit les listes de contrôle d’accès (ACL) entrant en fonction du modèle de service du client. Par exemple, si un client possède un serveur web frontal sur le port 80 sur une machine virtuelle spécifique, Azure ouvre le port TCP 80 à toutes les adresses IP si vous configurez un point de terminaison dans le [modèle de déploiement Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Si la machine virtuelle comporte un rôle de serveur principal ou de travail en cours d’exécution, Azure n’ouvre le rôle de travail qu’à la machine virtuelle dans le même client.
 
 ## <a name="isolation"></a>Isolement
 Une autre exigence importante en matière de sécurité dans le cloud consiste à procéder à une séparation pour empêcher le transfert non autorisé et accidentel d’informations entre les déploiements dans une architecture mutualisée partagée .
@@ -197,7 +197,6 @@ Azure dispose de contrôles de sécurité en place pour implémenter l’atténu
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

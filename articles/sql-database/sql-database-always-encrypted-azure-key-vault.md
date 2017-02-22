@@ -1,5 +1,5 @@
 ---
-title: "Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs"
+title: "Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs"
 description: "Protéger les données sensibles de votre base de données SQL en quelques minutes."
 keywords: "chiffrement des données, clé de chiffrement, chiffrement cloud"
 services: sql-database
@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a14169076eeb26749d6d1e362fe0301c4da77f2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
 
 
 ---
@@ -49,7 +50,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 * [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) , version 13.0.700.242 ou ultérieure.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou version ultérieure (sur l’ordinateur client).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](../powershell-install-configure.md), version 1.0 ou ultérieure. Tapez **(Get-Module azure -ListAvailable).Version** pour voir la version de PowerShell que vous exécutez.
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs), version 1.0 ou ultérieure. Tapez **(Get-Module azure -ListAvailable).Version** pour voir la version de PowerShell que vous exécutez.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Autoriser votre application cliente à accéder au service SQL Database
 Vous devez autoriser votre application cliente à accéder au service SQL Database en configurant l’authentification requise et en obtenant le *ClientId* et le *Secret* dont vous aurez besoin pour authentifier votre application dans le code suivant.
@@ -144,7 +145,7 @@ Dans cette section, vous allez créer une table pour stocker les données des pa
 SSMS intègre un Assistant pour vous aider à configurer facilement le chiffrement intégral en définissant pour vous la clé principale de colonne, la clé de chiffrement de colonne et les colonnes chiffrées.
 
 1. Développez **Bases de données** > **Clinique** > **Tables**.
-2. Cliquez avec le bouton droit sur la table **Patients**, puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Always Encrypted :
+2. Cliquez avec le bouton droit sur la table **Patients**, puis sélectionnez **Chiffrer les colonnes** pour ouvrir l’Assistant Always Encrypted :
    
     ![Chiffrer les colonnes](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
@@ -649,6 +650,6 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

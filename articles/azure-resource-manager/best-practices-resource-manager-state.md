@@ -1,5 +1,5 @@
 ---
-title: "Gestion de l’état dans les modèles Resource Manager | Microsoft Docs"
+title: "Transmettre des valeurs complexes entre les modèles Azure | Microsoft Docs"
 description: "Ce didacticiel présente des approches recommandées pour l’utilisation des objets complexes afin de partager des données d’état avec des modèles Azure Resource Manager et leurs modèles liés."
 services: azure-resource-manager
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 
 ---
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Partage d’état dans les modèles Azure Resource Manager
+# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Partage d’état vers et depuis les modèles Azure Resource Manager
 Cette rubrique présente les bonnes pratiques pour gérer et partager l’état dans les modèles. Les paramètres et les variables présentés dans cette rubrique sont des exemples du type d'objets que vous pouvez définir pour organiser aisément votre déploiement. À partir de ces exemples, vous pouvez implémenter vos propres objets avec les valeurs de propriété pertinentes pour votre environnement.
 
 Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire le livre blanc complet, téléchargez [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Considérations et pratiques éprouvées concernant les modèles Resource Manager de classe mondiale).
@@ -415,6 +415,6 @@ Au moment de définir la machine virtuelle, vous affectez à **osProfile** la va
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

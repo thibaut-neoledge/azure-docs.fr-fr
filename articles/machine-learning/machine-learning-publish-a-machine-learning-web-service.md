@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44afeaa05ff2a8ab5a685d9f82880b0fa50f490b
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
 
 
 ---
@@ -27,7 +27,7 @@ D'un point de vue très général, cela s'effectue en trois étapes :
 
 * **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
 * **[Convertissez-la en expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
-* **Déployez-la en tant que service web** : vous pouvez déployer votre expérience prédictive sous la forme d’un [nouveau] service web Azure ou d’un service web Azure [classique]. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
+* **[Déployez-la en tant que service web]** : vous pouvez déployer votre expérience prédictive sous la forme d’un [nouveau] service web Azure ou d’un service web Azure [classique]. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -54,12 +54,16 @@ Pour plus d’informations sur la façon d’effectuer cette conversion, voir [C
 
 Les étapes suivantes décrivent le déploiement d’une expérience prédictive comme nouveau service web. Vous pouvez également déployer l’expérience comme service web classique.
 
-## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Déployer l’expérience prédictive comme nouveau service web
-À présent que l’expérience prédictive a été correctement préparée, vous pouvez la déployer comme service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
+## <a name="deploy-it-as-a-web-service"></a>Déployez-la en tant que service web
+
+Vous pouvez déployer l’expérience prédictive comme nouveau service web ou comme service web classique.
+
+### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Déployer l’expérience prédictive comme nouveau service web
+À présent que l’expérience prédictive a été correctement préparée, vous pouvez la déployer comme nouveau service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
 Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Nouveau]**.  La page de déploiement du portail de service web Machine Learning s’ouvre.
 
-### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Page d’expérience de déploiement du portail du service web Machine Learning
+#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Page d’expérience de déploiement du portail du service web Machine Learning
 Sur la page de l’expérience de déploiement, entrez le nom du service web.
 Sélectionnez un plan de tarification. Si vous disposez d’un plan de tarification existant, vous pouvez le sélectionner. Sinon, vous devez créer un nouveau plan de tarification pour le service.
 
@@ -73,7 +77,7 @@ La page Démarrage rapide du service web fournit des conseils et vous donne acc�
 
 <!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
-### <a name="test-your-web-service"></a>Tester votre service web
+#### <a name="test-your-new-web-service"></a>Test de votre nouveau service web
 Pour tester votre nouveau service web, cliquez sur **Tester le service web** dans la section des tâches courantes. Dans la page de test, vous pouvez tester votre service web comme un service de requête-réponse (RRS) ou comme un service d’exécution de lots (BES).
 
 La page de test RRS affiche les entrées, les sorties et tous les paramètres globaux que vous avez définis pour l’expérience. Pour tester le service web, vous pouvez entrer manuellement les valeurs appropriées pour les entrées ou fournir un fichier au format CSV contenant les valeurs de test.
@@ -104,22 +108,25 @@ Une fois que vous avez déployé le service web, vous pouvez :
 * **le gérer** via le portail de services web Azure Machine Learning ou le portail Azure Classic
 * **le mettre à jour** si vous modifiez votre modèle
 
-### <a name="access-the-web-service"></a>Accès au service web
+#### <a name="access-your-new-web-service"></a>Accès à votre nouveau service web
 Une fois que vous avez déployé votre service web à partir de Machine Learning Studio, vous pouvez envoyer des données au service et recevoir des réponses par programme.
 
 La page **Utiliser** fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Elle contient notamment la clé API pour activer l’accès autorisé au service.
 
 Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
 
-### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
+#### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
 Vous pouvez gérer vos services web classiques via le portail de services web Machine Learning. Dans la [page principale du portail](https://services.azureml-test.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
 
-## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Déployer l’expérience prédictive comme un service web classique
-Maintenant que l’expérience prédictive est correctement préparée, vous pouvez la publier en tant que service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
+### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Déployer l’expérience prédictive comme un service web classique
+
+Maintenant que l’expérience prédictive est correctement préparée, vous pouvez la publier en tant que service web Azure classique. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
 Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas du canevas de l’expérience, puis cliquez sur **Déployer le service web**. Le service web est configuré et vous êtes placé dans le tableau de bord du service web.
 
 ![Déploiement du service web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+
+#### <a name="test-your-classic-web-service"></a>Test de votre service web classique
 
 Vous pouvez tester le service web dans le portail des services web Azure Machine Learning ou dans Machine Learning Studio.
 
@@ -141,14 +148,14 @@ Vous pouvez activer la journalisation pour diagnostiquer toute défaillance que 
 
 Vous pouvez également configurer les points de terminaison pour le service web dans le portail des services web Azure Machine Learning en procédant de façon similaire à la procédure décrite précédemment dans la section relative au nouveau service web. Les options sont différentes. Vous pouvez ajouter ou modifier la description du service, activer la journalisation et activer des exemples de données à des fins de test.
 
-### <a name="access-the-web-service"></a>Accès au service web
+#### <a name="access-your-classic-web-service"></a>Accès à votre service web classique
 Une fois que vous avez déployé votre service web à partir de Machine Learning Studio, vous pouvez envoyer des données au service et recevoir des réponses par programme.
 
 Le tableau de bord fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Par exemple, la clé API est fournie afin de permettre un accès autorisé au service et des pages d'aide API sont fournies pour vous aider à commencer à écrire votre code.
 
 Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
 
-### <a name="manage-the-web-service"></a>Gérer le service web
+#### <a name="manage-your-classic-web-service"></a>Gestion de votre service web classique
 Vous pouvez effectuer diverses actions pour analyser un service web. Vous pouvez le mettre à jour et le supprimer. Vous pouvez également ajouter des points de terminaison à un service web classique en plus du point de terminaison par défaut créé lors de son déploiement.
 
 Pour plus d’informations, consultez [Gérer un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md) et [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md).
@@ -174,14 +181,15 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 <!-- internal links -->
 [Créez une expérience d'apprentissage]: #create-a-training-experiment
 [Convertissez-la en expérience prédictive]: #convert-the-training-experiment-to-a-predictive-experiment.
+[Déployez-la en tant que service web]: #deploy-it-as-a-web-service.
 [nouveau]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [classique]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Accéder]: #access-the-Web-service
-[Gérer]: #manage-the-Web-service-in-the-azure-management-portal
-[Mettre à jour]: #update-the-Web-service
+[Access]: #access-the-Web-service
+[Manage]: #manage-the-Web-service-in-the-azure-management-portal
+[Update]: #update-the-Web-service
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

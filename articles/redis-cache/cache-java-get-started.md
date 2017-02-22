@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c42aebb3aaf5c32ebdc4f79e2ace2f127e4fb20d
-ms.openlocfilehash: fe875fba2651b770d910d257282f5e9f41f8a043
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
 
 
 ---
@@ -53,6 +53,10 @@ Les dernières versions de [jedis](https://github.com/xetorthio/jedis) prennent 
     JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
+> [!NOTE]
+> Le port non SSL est désactivé pour les nouvelles instances Cache Redis Azure. Si vous utilisez un autre client qui ne prend pas en charge SSL, la procédure d’activation du port non SSL est expliquée [ici](cache-configure.md#access-ports).
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Ajouter un élément au cache et le récupérer
     package com.mycompany.app;
@@ -80,6 +84,6 @@ Les dernières versions de [jedis](https://github.com/xetorthio/jedis) prennent 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

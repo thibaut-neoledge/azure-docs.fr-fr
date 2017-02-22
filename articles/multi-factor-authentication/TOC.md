@@ -14,6 +14,7 @@
 ### [Créer un fournisseur d’authentification](multi-factor-authentication-get-started-auth-provider.md)
 ### [Configurer les paramètres](multi-factor-authentication-whats-next.md)
 ### [Rapports dans MFA](multi-factor-authentication-manage-reports.md)
+### [Utiliser des serveurs de stratégie réseau existants](multi-factor-authentication-nps-extension.md)
 ### Azure MFA en local
 #### [Installer le portail utilisateurs](multi-factor-authentication-get-started-portal.md)
 #### [Configurations VPN avancées](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -28,7 +29,7 @@
 
 ## Integrate
 ### [Services de fédération](multi-factor-authentication-get-started-adfs.md)
-#### [Utiliser AD FS 2.0](multi-factor-authentication-get-started-adfs-cloud.md)
+#### [Utiliser AD FS&2;.0](multi-factor-authentication-get-started-adfs-cloud.md)
 #### [Utiliser AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 #### [Utiliser Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 ### Répertoires
@@ -38,7 +39,7 @@
 ### [Applications web IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Passerelle Bureau à distance](multi-factor-authentication-get-started-server-rdg.md)
 
-## Développement 
+## Développement
 ### [Création dans des applications personnalisées (kit de développement logiciel, SDK)](multi-factor-authentication-sdk.md)
 
 ## Résolution des problèmes
@@ -46,6 +47,6 @@
 ### [Poser une question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

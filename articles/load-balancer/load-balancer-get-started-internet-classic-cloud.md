@@ -1,5 +1,5 @@
 ---
-title: "Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique avec les services cloud | Microsoft Docs"
+title: "Créer un équilibrage de charge accessible sur Internet pour les services cloud Azure | Microsoft Docs"
 description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique pour les services cloud"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 6a471050a03c8399b0715c331b54636c68fd71cb
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
 
 ---
 
@@ -93,6 +93,6 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gérer le volume de données et les fonctionnalités pour Application Insights | Microsoft Docs"
+title: "Gérer la tarification et le volume de données Application Insights | Microsoft Docs"
 description: "Gérer les volumes de données de télémétrie et surveiller les coûts dans Application Insights."
 services: application-insights
 documentationcenter: 
@@ -11,34 +11,83 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2fb91689d6fbce5d90aba32b0acd65bcb4bd709d
-ms.openlocfilehash: c852187847b69627d2f27c25fbe2ee8d8d1cf49d
+ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
+ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
 
 
 ---
-# <a name="manage-features-and-data-volume-in-application-insights"></a>Gérer le volume de données et les fonctionnalités dans Application Insights
+# <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
 
 
-La tarification pour [Azure Application Insights][start] est basée sur le volume de données par application. Une faible utilisation pendant le développement ou pour une petite application est susceptible d’être gratuite, compte tenu du quota mensuel gratuit de données de télémétrie.
+La tarification pour [Azure Application Insights][start] est basée sur le volume de données par application. Une faible utilisation pendant le développement ou dans une petite application est susceptible d’être gratuite, compte tenu du quota mensuel de 1 Go de données de télémétrie accordé.
 
 Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement à Azure.
 
 Il existe deux plans de tarification. Le plan par défaut est nommé De base. Vous pouvez opter pour le plan Entreprise, facturé à la journée, qui donne accès à certaines fonctionnalités supplémentaires telles que [l’exportation continue](app-insights-export-telemetry.md).
 
-[Voir le plan de tarification][pricing].
+Si vous avez des questions sur la tarification d’Application Insights, publiez une question dans notre [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="review-pricing-plan-for-your-application-insights-resource"></a>Examen du plan de tarification pour votre ressource Application Insights
+## <a name="the-pricing-plans"></a>Les plans de tarification
+
+Consultez la [page de tarification d’Application Insights][pricing] pour connaître les prix actuels dans votre devise.
+
+### <a name="basic-plan"></a>Plan De base
+
+Le plan De base est la valeur par défaut lorsqu’une ressource Application Insights est créée et est suffisante pour la plupart des clients.
+
+* Dans le plan De base, vous êtes facturé en fonction du volume de données : nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application.
+* Votre premier 1 Go pour chaque application est gratuit. Si vous expérimentez ou développez simplement, vous n'aurez probablement pas à payer.
+* [L’exportation continue](app-insights-export-telemetry.md) est disponible pour un coût supplémentaire par Go ajouté au plan De base, même s’il est gratuit jusqu’à début mars 2017.
+
+### <a name="enterprise-plan"></a>Plan Entreprise
+
+* Dans le plan Entreprise, votre application peut utiliser toutes les fonctionnalités d’Application Insights. [L'exportation continue](app-insights-export-telemetry.md) et [le connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) sont disponibles sans frais supplémentaires ajoutés au plan d’entreprise.
+* Vous payez pour chaque nœud qui envoie des données de télémétrie pour n'importe quelle application dans le plan Entreprise. 
+ * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle Platform-as-a-Service qui héberge votre application.
+ * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas comptés comme nœuds.
+ * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker back-end, ces composants sont comptés séparément.
+* Dans un abonnement, vos frais sont calculés par nœud, pas par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
+* Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué / 744 (le nombre d’heures dans un mois de 31 jours).
+* Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). L’allocation des données inutilisées n'est pas reportée d’un jour à l’autre.
+ * Lorsque vous choisissez l’option de tarification Entreprise, chaque abonnement reçoit un volume quotidien de données selon le nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous avez 5 nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights dans cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d'importance, car les données incluses sont partagées entre tous les nœuds. Si, un jour donné, les ressources d’Application Insights reçoivent plus de données que le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
+ * Le volume de données quotidien alloué est calculé comme suit : nombre d’heures quotidiennes (UTC) pendant lesquelles chaque nœud envoie des données de télémétrie, divisé par 24 fois 200 Mo. Par conséquent, si 4 nœuds envoient des données de télémétrie pendant 15 heures sur les 24 heures de la journée, les données incluses pour le jour en question sont calculées comme suit : ((4 x 15)/24) x 200 Mo = 500 Mo. Au prix de 2,30 USD par Go pour le dépassement de données, les frais s'élèvent à 1,15 USD si les nœuds envoient 1 Go de données dans cette journée.
+ * Notez que le volume quotidien alloué pour le plan Entreprise n’est pas partagé avec les applications pour lesquelles vous avez choisi l’option De base et le volume alloué inutilisé n’est pas reporté de jour en jour. 
+* Voici quelques exemples de détermination du nombre de nœuds distincts :
+| Scénario                               | Nombre total de nœuds quotidien |
+|:---------------------------------------|:----------------:|
+| 1 application utilise 3 instances d'Azure App Service et 1 serveur virtuel | 4 |
+| 3 applications s’exécutant sur 2 machines virtuelles et les ressources Application Insights pour ces applications sont dans le même abonnement et dans le plan Entreprise | 2 | 
+| 4 applications dont les ressources Application Insights sont dans le même abonnement. Chaque application exécute 2 instances pendant 16 heures creuses et 4 instances pendant 8 heures de pointe. | 13.33 | 
+| Services cloud avec1 rôle de travail et 1 rôle web, chacune exécutant 2 instances | 4 | 
+| Cluster de 5 nœuds Service Fabric exécutant 50 micro-services, chaque micro-service exécutant 3 instances | 5|
+
+* La méthode de comptage de nœuds précise varie selon le Kit de développement logiciel (SDK) Application Insights que votre application utilise. 
+  * Dans les versions du Kit de développement logiciel 2.2 et ultérieures, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ou [le Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) Application Insights signale chaque hôte d’application en tant que nœud, par exemple le nom d’ordinateur pour le serveur physique et les hôtes de machine virtuelle ou le nom d’instance dans le cas de services cloud.  La seule exception concerne les applications qui utilisent uniquement [.NET Core](https://dotnet.github.io/) et le Kit de développement logiciel (SDK) principal Application Insights, auquel cas un seul nœud sera signalé pour tous les hôtes, car le nom d’hôte n’est pas disponible. 
+  * Pour les versions antérieures du Kit de développement logiciel (SDK), le [Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comporte comme les nouvelles versions du Kit de développement logiciel (SDK). Toutefois, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ne signale qu’un seul nœud, quel que soit le nombre d’hôtes d’application actuel. 
+  * Notez que, si votre application utilise le Kit de développement logiciel (SDK) pour définir l’instance de rôle (roleInstance) sur une valeur personnalisée, cette même valeur est utilisée par défaut pour déterminer le nombre de nœuds. 
+  * Si vous utilisez une nouvelle version du Kit de développement logiciel (SDK) avec une application exécutée à partir d’ordinateurs clients ou d'appareils mobiles, il est possible que le nombre de nœuds retourné soit très important (en raison du grand nombre d’ordinateurs clients ou d'appareils mobiles). 
+
+### <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
+
+Des frais supplémentaires sont facturés pour les [tests web à plusieurs étapes](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Cela vaut pour les tests web qui exécutent une séquence d’actions. 
+
+Aucun frais supplémentaire n'est facturé pour les tests Ping sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées, ainsi que d’autres données de télémétrie de votre application.
+
+## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Utilisation du plan de tarification pour estimer les coûts de votre ressource Application Insights
 Ouvrez le panneau Fonctionnalités + Tarification dans la ressource Application Insights de votre application.
 
 ![Choisissez Tarification.](./media/app-insights-pricing/01-pricing.png)
 
-1. Consultez votre volume de données pour le mois. Cela inclut toutes les données reçues et conservées (après tous les [échantillonnages](app-insights-sampling.md) provenant de votre serveur, de vos applications clientes et des tests de disponibilité).
-2. Les [tests web multiétapes](app-insights-monitor-web-app-availability.md#multi-step-web-tests) font l’objet d’une facturation distincte. (Cela n’inclut pas les tests de disponibilité simples, qui sont compris dans les frais de volume de données.)
-3. Activez les fonctionnalités supplémentaires offertes par le plan Entreprise. Ce plan ne prévoit pas de quota de données gratuites.
-4. Cliquez pour accéder aux options de gestion des données et définir une limite quotidienne ou un échantillonnage d’ingestion.
+**a.** Consultez votre volume de données pour le mois. Cela inclut toutes les données reçues et conservées (après tous les [échantillonnages](app-insights-sampling.md) provenant de votre serveur, de vos applications clientes et des tests de disponibilité).
+
+**b.** Les [tests web multiétapes](app-insights-monitor-web-app-availability.md#multi-step-web-tests) font l’objet d’une facturation distincte. (Cela n’inclut pas les tests de disponibilité simples, qui sont compris dans les frais de volume de données.)
+
+**c.** Activer le plan Entreprise.
+
+**d.** Cliquez pour accéder aux options de gestion des données pour afficher le volume de données pour le dernier mois et définir une limite quotidienne ou un échantillonnage d’ingestion.
 
 Les frais liés à Application Insights sont ajoutés à votre facture Azure. Les informations relatives à votre facture Azure s’affichent dans la section Facturation du portail Azure ou sur le [portail de facturation Azure](https://account.windowsazure.com/Subscriptions). 
 
@@ -47,17 +96,12 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 ## <a name="data-rate"></a>Débit de données
 Le volume d’envoi de données est limité de trois façons :
 
-* Limite quotidienne. Elle est fixée par défaut à 100 Go par jour. Lorsque votre application atteint le plafond, nous envoyons un courrier électronique et ignorons les données jusqu’à la fin de la journée. Vous pouvez la modifier sur le panneau de gestion des volumes de données.
-* [Échantillonnage](app-insights-sampling.md). Ce mécanisme peut réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques.
-* La limitation de bande passante restreint le débit de données par minute. Pour le plan de tarification De base, la limite correspond à un débit moyen de 200 points de données par seconde sur une période de cinq minutes ; pour le plan de tarification Entreprise, cette limite équivaut à un débit moyen de 500 points de données par seconde sur une période d’une minute. 
+* **Limite quotidienne.** Elle est fixée par défaut à 500 Go par jour. Lorsque votre application atteint le plafond, nous envoyons un courrier électronique et ignorons les données jusqu’à la fin de la journée. Pour la modifier, utilisez le panneau de gestion des volumes de données.
+* **[Échantillonnage](app-insights-sampling.md).** Ce mécanisme peut réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques.
+* **La limitation** limite le débit de données à 16 000 événements par seconde pour les événements avec une moyenne de 1 minute. 
 
-En ce qui concerne la limitation de bande passante, trois compartiments sont comptabilisés séparément :
 
-* [appels TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) et [journaux capturés](app-insights-asp-net-trace-logs.md) ;
-* [exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitées à 50 points/s ;
-* toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés et résultats des tests web).
-
-*Que se passe-t-il si mon application dépasse le taux par seconde ?*
+*Que se passe-t-il si mon application dépasse le taux limite ?*
 
 * Le volume de données que votre application envoie est évalué à chaque minute. S’il dépasse le taux par seconde moyen de plus d’une minute, le serveur refuse des demandes. Le Kit de développement logiciel (SDK) met les données en mémoire tampon et essaie ensuite de renvoyer, en diffusant un pic pendant plusieurs minutes. Si votre application envoie régulièrement des données au-delà du taux limite, certaines données sont supprimées. (les kits de développement logiciel (SDK) ASP.NET, Java et JavaScript essaient de renvoyer de cette manière ; les autres SDK suppriment parfois simplement les données limitées).
 
@@ -71,7 +115,7 @@ En cas de limitation, vous en êtes informé par un avertissement.
 ## <a name="to-reduce-your-data-rate"></a>Pour réduire le débit de données
 Voici quelques opérations possibles pour réduire le volume de données :
 
-* Réduire la limite de volume quotidienne. La limite par défaut est de 100 Go par jour.
+* Réduire la limite de volume quotidienne. La valeur par défaut est 500 Go/jour.
 * Utilisez l’ [échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. Dans les applications serveurs, elle s’applique automatiquement.
 * [Limitez le nombre d’appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
@@ -107,31 +151,10 @@ Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endro
 
 Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés. 
 
-## <a name="which-pricing-plan-should-i-choose"></a>Quel plan de tarification dois-je choisir ?
-
-Sauf si vous avez besoin des fonctionnalités avancées offertes par le plan Entreprise, le plan de base est plus simple et légèrement plus économique. Vous obtenez un quota gratuit de données par application et par mois, puis un coût pour chaque Go de télémétrie supplémentaire envoyé par votre application. 
-
-## <a name="nodes-in-the-enterprise-plan"></a>Nœuds dans le plan Entreprise
-
-Si vous choisissez le plan de tarification Enterprise, une partie de votre facture est calculée à partir du nombre de nœuds qui envoient des données à Application Insights.
-
-Un nœud est un serveur qui héberge votre application. Cela peut correspondre à une machine virtuelle, une instance PaaS ou un ordinateur. 
-
-Les stations de travail de développeur qui exécutent votre application pendant le débogage ne sont pas incluses dans le nombre de nœuds. Les applications clientes qui s’exécutent dans des navigateurs ou sur appareils mobiles ne sont pas incluses.
-
-Les nœuds sont comptabilisés toutes les heures. Bien que les prix de nœud sont présentés par mois, les prix effectifs sont calculés par heure, afin que la facturation soit plus légère pour un nœud qui envoie des données de télémétrie seulement quelques heures par mois.
-
-Si votre application se met à l’échelle avec des charges différentes pour utiliser plus ou moins d’instances de serveur, les frais du plan Entreprise d’Application Insights évolueront en conséquence.
-
-Les nœuds peuvent être partagés entre applications. Par exemple, si vous avez trois applications s’exécutant sur deux machines virtuelles, et que les ressources Application Insights pour ces applications se trouvent dans le même abonnement et dans le plan Entreprise, le nombre de nœuds trouvés dans cet abonnement est de deux.
-
-Le quota de données de 200 Mo par nœud par jour est mis en commun entre les nœuds du même abonnement. Si vous avez deux nœuds qui hébergent des applications dans le plan Entreprise et qu’ils envoient des données pendant 16 et 20 heures par jour, alors l’allocation de données pour ce jour est ((16+20)/24) * 200 = 300 Mo. Si, à la fin de la journée, vos applications du plan Entreprise ont envoyé plus de 300 Mo, l’excédent sera facturé au tarif par Go.
-
-Le quota du plan Entreprise n’est pas partagé entre les applications pour lesquelles vous avez choisi l’option de tarification De base.
 
 ## <a name="transition-from-the-old-pricing-tiers"></a>Transition depuis les anciens niveaux de tarification
 
-Les applications existantes peuvent continuer à utiliser les anciens niveaux de tarification jusqu’en février 2017. À ce moment, la plupart des applications seront automatiquement déplacées vers le plan de base. Celles qui utilisent l’exportation continue ou le connecteur pour OMS Log Analytics seront déplacées vers le plan d’entreprise.
+Les applications existantes peuvent continuer à utiliser les anciens niveaux de tarification jusqu’en février 2017. À partir de cette date, la plupart des applications seront automatiquement déplacées vers le plan de base. Celles qui utilisent l’exportation continue ou le connecteur pour OMS Log Analytics seront déplacées vers le plan d’entreprise.
 
 
 ## <a name="limits-summary"></a>Synthèse des limites
@@ -151,6 +174,6 @@ Les applications existantes peuvent continuer à utiliser les anciens niveaux de
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

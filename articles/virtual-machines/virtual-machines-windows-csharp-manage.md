@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d0c334a0b1e047208f6f61e5181864b1c2e3a6a
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 81706c6c95199b25a07589780d2a27fc0f8dffa7
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gestion des machines virtuelles Azure à l’aide de modèles Azure Resource Manager et de C
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Gestion des machines virtuelles Azure à l’aide de modèles Azure Resource Manager et de C# #
 Les tâches présentées dans cet article vous montrent comment gérer des machines virtuelles, avec notamment le démarrage, l’arrêt et la mise à jour. Une machine virtuelle doit exister dans un groupe de ressources pour effectuer les tâches décrites dans cet article.
 
 Pour effectuer les tâches décrites dans cet article, vous avez besoin de ce qui suit :
 
 * [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-* [Un jeton d’authentification](../resource-group-authenticate-service-principal.md)
+* [Un jeton d’authentification](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="create-a-visual-studio-project-and-install-packages"></a>Création d’un projet Visual Studio et installation des packages
 Les packages NuGet sont le moyen le plus simple pour installer les bibliothèques dont vous avez besoin pour terminer les tâches de cet article. Les bibliothèques que vous installez pour cet article sont la bibliothèque d’authentification Azure Active Directory et la bibliothèque de fournisseurs de ressources de calcul. Pour obtenir les bibliothèques dans Visual Studio, suivez ces étapes :
@@ -435,11 +435,11 @@ Cet exemple vous montre comment ajouter un disque de données à une machine vir
 5. Cliquez sur **Démarrer** dans Visual Studio, puis connectez-vous à Azure AD en utilisant les mêmes nom d’utilisateur et mot de passe que vous utilisez avec votre abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous rencontrez des problèmes avec un déploiement, vous pouvez consulter [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../resource-manager-troubleshoot-deployments-portal.md).
+Si vous rencontrez des problèmes lors d’un déploiement, nous vous conseillons de consulter la section [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

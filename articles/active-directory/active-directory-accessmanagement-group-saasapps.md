@@ -1,4 +1,3 @@
-
 ---
 title: "Utilisation d’un groupe pour gérer l’accès aux applications SaaS| Microsoft Docs"
 description: "Comment utiliser les groupes dans Azure Active Directory Premium ou Basic pour attribuer l’accès à des applications SaaS intégrées à Azure Active Directory."
@@ -13,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8045c26225406420c1175df45643ba6238dd8d9
+ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
+ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
 
 
 ---
@@ -37,10 +36,10 @@ Cette fonctionnalité peut être utilisée avec des centaines d’applications p
 
 > [!NOTE]
 > L’onglet Utilisateurs et groupes ne s’affiche qu’une fois que vous avez activé Azure AD Premium ou Azure AD Basic.
-> 
-> 
+>
+>
 
-## <a name="related-articles"></a>Articles connexes
+### <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
@@ -51,7 +50,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

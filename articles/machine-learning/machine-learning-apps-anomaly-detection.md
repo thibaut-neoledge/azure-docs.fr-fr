@@ -1,28 +1,33 @@
 ---
-title: "Application Machine Learning : service de détection des anomalies | Microsoft Docs"
-description: "L’API de détection des anomalies est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps."
+title: "(déconseillé) Service de détection des anomalies Azure Machine Learning | Microsoft Docs"
+description: "(déconseillé) Le service de détection des anomalies est un exemple de service généré avec Microsoft Azure Machine Learning. Il permet de détecter les anomalies dans des données de séries chronologiques présentant des valeurs numériques réparties uniformément dans le temps."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
+ms.date: 01/18/2017
 ms.author: alok
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+ms.sourcegitcommit: eff129aceac18342a79f06376023301afc676763
+ms.openlocfilehash: 847c24f8baf5f5db93474b469eb402d3ab7d4880
 
 
 ---
-# <a name="machine-learning-anomaly-detection-service"></a>Service de détection des anomalies Machine Learning
-## <a name="overview"></a>Vue d’ensemble
-L’[API de détection des anomalies](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps. 
+# <a name="machine-learning-anomaly-detection-service-deprecated"></a>Service de détection des anomalies Machine Learning (déconseillé)
+> [!NOTE]
+> Vous pouvez à présent déployer cette API dans votre abonnement Azure à l’aide de la nouvelle option d’**inscription** disponible dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). Pour plus d’informations, consultez [API de détection des anomalies Machine Learning](machine-learning-apps-anomaly-detection-api.md).
+> 
+> La méthode d’accès à l’API via Azure DataMarket décrite dans cet article est maintenant déconseillée.
+
+## <a name="overview"></a>Vue d'ensemble
+L’[API de détection des anomalies (déconseillée)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle permet de détecter les anomalies dans des données de séries chronologiques présentant des valeurs numériques réparties uniformément dans le temps. 
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
 
@@ -155,8 +160,8 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Sorties |
 | --- | --- | --- | --- | --- |
-| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) |
-| Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté, 0 dans le cas contraire) | |
+| Détecteurs de pics |Détecteurs TSpike |Détecter des pics et des creux en fonction de l’écart des valeurs par rapport aux premier et troisième quartiles |*tspikedetector.Sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |TSpike : valeurs binaires (1 si un pic/creux est détecté,&0; dans le cas contraire) |
+| Détecteur ZSpike |Détecter des pics et des creux en fonction de l’écart des points de données par rapport à leur moyenne |*zspikedetector.sensitivity :* prend une valeur d’entier dans la plage de 1 à 10. Par défaut : 3. Des valeurs supérieures interceptent plus de valeurs extrêmes, rendant la détection moins sensible |ZSpike : valeurs binaires (1 si un pic/creux est détecté,&0; dans le cas contraire) | |
 | Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |TScore : nombre flottant représentant le résultat d’anomalies pour une tendance |
 | Détecteurs de changements de niveau |Détecteur de changements de niveau unidirectionnels |Détecter les changements de niveau vers le haut suivant la sensibilité définie |*upleveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |PScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut |
 | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |RPScore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
@@ -191,11 +196,11 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | TSpike |Indicateur binaire signalant si un pic est détecté par le détecteur TSpike |
 | ZSpike |Indicateur binaire signalant si un pic est détecté par le détecteur ZSpike |
 | Pscore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut |
-| Palert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau vers le haut en fonction de la sensibilité d’entrée |
+| Palert |Valeur de&1;/0 indiquant s’il y a une anomalie de changement de niveau vers le haut en fonction de la sensibilité d’entrée |
 | RPScore |Nombre flottant représentant le résultat d’anomalies pour un changement de niveau bidirectionnel |
-| RPAlert |Valeur de 1/0 indiquant s’il y a une anomalie de changement de niveau bidirectionnel vers le haut en fonction de la sensibilité d’entrée |
+| RPAlert |Valeur de&1;/0 indiquant s’il y a une anomalie de changement de niveau bidirectionnel vers le haut en fonction de la sensibilité d’entrée |
 | TScore |Nombre flottant représentant le résultat d’anomalies pour une tendance positive |
-| TAlert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
+| TAlert |Valeur de&1;/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
 
 Cette sortie peut être analysée à l’aide d’un [analyseur simple](https://adresultparser.codeplex.com/) ; celui-ci propose un exemple de code qui montre comment se connecter à l’API et analyser la sortie. Les anomalies détectées peuvent être visualisées sur un tableau de bord et/ou transmises à des experts pour qu’ils appliquent les mesures correctives appropriées, ou intégrées à des systèmes de tickets.
 
@@ -208,6 +213,6 @@ Cette sortie peut être analysée à l’aide d’un [analyseur simple](https://
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

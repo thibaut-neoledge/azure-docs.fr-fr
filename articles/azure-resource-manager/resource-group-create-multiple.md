@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de plusieurs instances de ressources | Microsoft Docs"
+title: "Déploiement de plusieurs instances de ressources Azure | Microsoft Docs"
 description: "Utilisez l’opération de copie et les tableaux dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: e37eb89227ce8927f1c7f53306168962dce9b8f1
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Création de plusieurs instances de ressources dans Azure Resource Manager
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Déployer plusieurs instances de ressources dans des modèles Azure Resource Manager
 Cette rubrique explique comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex et length
@@ -122,7 +122,7 @@ Utilisez le modèle suivant :
     "parameters": { 
       "org": { 
          "type": "array", 
-             "defaultValue": [ 
+         "defaultValue": [ 
              "Contoso", 
              "Fabrikam", 
              "Coho" 
@@ -168,13 +168,13 @@ Vous pouvez spécifier qu’une ressource est déployée après une autre ressou
                      "count": 3 
                   }
             },
-           {
-               "apiVersion": "2015-06-15", 
-               "type": "Microsoft.Compute/virtualMachines", 
-               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-               "dependsOn": ["storagecopy"],
-               ...
-           }
+            {
+                "apiVersion": "2015-06-15", 
+                "type": "Microsoft.Compute/virtualMachines", 
+                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+                "dependsOn": ["storagecopy"],
+                ...
+            }
         ],
         "outputs": {}
     }
@@ -556,6 +556,6 @@ Maintenant, créez le modèle parent qui a une seule instance statique du modèl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

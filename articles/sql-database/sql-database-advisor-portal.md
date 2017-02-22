@@ -16,17 +16,12 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e16587c3eb7366c92297455e8a175ab118174526
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: f63bd47c15439e6fedc0f6edf579681697155592
 
 
 ---
 # <a name="sql-database-advisor-using-the-azure-portal"></a>SQL Database Advisor avec le portail Azure
-> [!div class="op_single_selector"]
-> * [Présentation de SQL Database Advisor](sql-database-advisor.md)
-> * [Portail](sql-database-advisor-portal.md)
-> 
-> 
 
 Vous pouvez utiliser Azure SQL Database Advisor dans le portail Azure afin d’examiner et d’implémenter des recommandations pour vos bases de données SQL existantes et améliorer ainsi les performances actuelles des requêtes.
 
@@ -156,6 +151,6 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

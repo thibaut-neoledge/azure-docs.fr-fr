@@ -1,9 +1,6 @@
+Les solutions cloud Azure reposent sur des machines virtuelles (émulation de matériel informatique physique). Cela permet un conditionnement souple des déploiements logiciels et une meilleure consolidation des ressources par rapport au matériel physique. Les conteneurs [Docker](https://www.docker.com) et l’écosystème des dockers ont considérablement augmenté les façons de développer, d’expédier et de gérer les logiciels distribués. Le code d’application d’un conteneur est isolé de la machine virtuelle hôte et des autres conteneurs sur la même machine virtuelle. Cette isolation vous confère une plus grande agilité de déploiement et de développement.
 
-
-
-Azure vous offre des solutions cloud exceptionnelles reposant sur les machines virtuelles&mdash;basées sur l’émulation de matériel informatique physique&mdash;pour permettre des déploiements logiciels flexibles et améliorer considérablement la consolidation des ressources par rapport au matériel physique. Au cours des dernières années, en grande partie grâce à l’approche [Docker](https://www.docker.com) des conteneurs et à l’écosystème Docker, la technologie de conteneurs Linux a immensément développé les moyens dont vous disposez pour développer et gérer les logiciels distribués. Le code d’application dans un conteneur est isolé de la machine virtuelle Azure hôte ainsi que d’autres conteneurs sur la même machine virtuelle, ce qui vous donne plus de souplesse de développement et de déploiement au niveau de l’application, &mdash;outre la flexibilité que les machines virtuelles Azure vous offrent déjà.
-
-**Mais c’est de l’histoire ancienne.** La grande *nouveauté* nouveautés is that Azure offers you even more Docker goodness:
+Azure propose les valeurs Docker suivantes :
 
 * [De nombreux](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) moyens [différents](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de créer des hôtes Docker pour des conteneurs adaptés à vos besoins
 * [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) crée des clusters d’hôtes de conteneur utilisant des orchestrateurs tels que **marathon** et **swarm**.
@@ -15,29 +12,26 @@ Et, étant donné que vous pouvez créer des machines virtuelles et conteneurs L
 Cet article traite de ces concepts à un niveau supérieur et propose également de très nombreux liens vers plus d’informations, des didacticiels et des produits liés à l’utilisation de conteneurs et de clusters sur Azure. Si vous savez déjà tout cela et que seuls les liens vous intéressent, vous les trouverez dans les [outils pour l’utilisation des conteneurs](#tools-for-working-with-azure-vms-and-containers).
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>Différence entre les machines virtuelles et les conteneurs
-Les machines virtuelles s’exécutent dans un environnement isolé de virtualisation matérielle, fourni par un [hyperviseur](http://en.wikipedia.org/wiki/Hypervisor). Dans Azure, le service [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) gère toutes les opérations pour vous. Il vous suffit de créer Virtual Machines en choisissant le système d’exploitation et en le configurant pour qu’il s’exécute comme vous le souhaitez&mdash;ou en téléchargeant votre propre image de machine virtuelle personnalisée. Les machines virtuelles sont une technologie éprouvée, et aguerrie ; de nombreux outils sont disponibles pour gérer les systèmes d’exploitation et configurer les applications que vous installez et exécutez. Tous les éléments exécutés dans une machine virtuelle sont masqués du système d’exploitation hôte et, du point de vue d’une application ou d’un utilisateur exécutés dans une machine virtuelle, la machine virtuelle apparaît comme un ordinateur physique autonome.
+Les machines virtuelles s’exécutent dans un environnement isolé de virtualisation matérielle, fourni par un [hyperviseur](http://en.wikipedia.org/wiki/Hypervisor). Dans Azure, le service [Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) gère pour vous toutes les opérations. Vous créez des machines virtuelles en choisissant le système d’exploitation et en configurant &mdash; ou en téléchargeant une image de machine virtuelle personnalisée. Les machines virtuelles sont une technologie éprouvée, et aguerrie ; de nombreux outils sont disponibles pour gérer les systèmes d’exploitation et les applications qu’ils contiennent.  Les applications d’une machine virtuelle sont masquées dans le système d’exploitation hôte. Du point de vue d’une application ou d’un utilisateur sur une machine virtuelle, la machine virtuelle apparaît comme un ordinateur physique autonome.
 
-Les [conteneurs Linux](http://en.wikipedia.org/wiki/LXC)&mdash; (qui incluent ceux créés et hébergés à l’aide d’outils Docker, d’autres approches existent)&mdash;ne nécessitent pas d’hyperviseur pour assurer leur isolation et n’y ont pas recours. À la place, l’hôte conteneur utilise les fonctionnalités d’isolation des processus et systèmes de fichiers du noyau Linux pour exposer sur le conteneur (et son application) certaines fonctionnalités du noyau uniquement et son propre système de fichiers isolés (au minimum). Du point de vue d’une application exécutée dans un conteneur, le conteneur apparaît comme une instance unique du système d’exploitation. Une application à relation contenant-contenu ne peut pas voir les processus ou autres ressources en dehors de son conteneur.
+Les [conteneurs Linux](http://en.wikipedia.org/wiki/LXC), et ceux créés et hébergés à l’aide des outils docker, n’utilisent pas un hyperviseur pour assurer l’isolation. Avec des conteneurs, l’hôte conteneur utilise des fonctionnalités d’isolation des processus et systèmes de fichiers du noyau Linux pour exposer sur le conteneur, ses applications, certaines fonctionnalités du noyau et son propre système de fichiers isolés. Du point de vue d’une application exécutée dans un conteneur, le conteneur apparaît comme une instance du système d’exploitation unique. Une application à relation contenant-contenu ne peut pas voir les processus ou autres ressources en dehors de son conteneur.
 
-Le noyau de l’ordinateur hôte Docker étant partagé dans ce modèle d’isolation et d’exécution, et l’espace disque nécessaire du conteneur n’incluant pas un système d’exploitation dans son intégralité, le temps de démarrage du conteneur ainsi que la surcharge de stockage disque requis sont grandement réduits.
-
-C’est vraiment pratique.
-
-Les conteneurs Windows Server offrent les mêmes avantages que les conteneurs Linux pour les applications qui s’exécutent sur Windows. Les conteneurs Windows prennent en charge le format d’image Docker et l’API Docker, mais ils peuvent également être gérés à l’aide de PowerShell. Deux runtimes de conteneur sont disponibles avec les conteneurs Windows, les conteneurs Windows Server et les conteneurs Hyper-V. Les conteneurs Hyper-V fournissent une couche supplémentaire d’isolement en hébergeant chaque conteneur dans une machine virtuelle très optimisée. Pour en savoir plus sur les conteneurs Windows, consultez [À propos des conteneurs Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Pour commencer à utiliser les conteneurs vous familiariser avec les conteneurs Windows dans Azure, découvrez comment [déployer un cluster Azure Container Service](/articles/container-service/container-service-deployment.md).
-
-C’est très pratique aussi.
-
-### <a name="is-this-too-good-to-be-true"></a>Est-ce trop beau pour être vrai ?
-Oui &mdash;et non. À l’instar de toute autre technologie, les conteneurs n’éliminent pas comme par magie tous les efforts exigés par les applications distribuées. Toutefois, les conteneurs modifient en profondeur les éléments suivants :
-
-* la rapidité selon laquelle le code d’application peut être développé et partagé à grande échelle ;
-* la rapidité et la fiabilité selon lesquelles il peut être testé ;
-* la rapidité et la fiabilité selon lesquelles il peut être déployé.
-
-Cela étant dit, n’oubliez pas que les conteneurs s’exécutent sur un hôte conteneur&mdash;un système d’exploitation, et dans Azure cela signifie une machine virtuelle Azure. Même si l’idée des conteneurs vous plaît déjà, vous aurez toujours besoin d’une infrastructure de machines virtuelles qui héberge les conteneurs. Cependant, l’avantage est que les conteneurs ne se préoccupent de la machine virtuelle sur laquelle ils sont exécutés (bien que le conteneur puisse exiger un environnement d’exécution Linux ou Windows, par exemple).
+Le nombre de ressources utilisées dans un conteneur Docker est beaucoup moins important que dans une machine virtuelle. Les conteneurs Docker utilisent un modèle d’isolation et d’exécution d’applications qui ne partage pas le noyau de l’hôte Docker. Le conteneur utilise beaucoup moins d’espace disque car il ne contient pas le système d’exploitation complet. Le temps de démarrage et l’espace disque requis sont considérablement inférieurs à ceux dans une machine virtuelle.
+Les conteneurs Windows Server offrent les mêmes avantages que les conteneurs Linux pour les applications qui s’exécutent sur Windows. Les conteneurs Windows prennent en charge le format d’image Docker et l’API Docker, mais ils peuvent également être gérés à l’aide de PowerShell. Deux runtimes de conteneur sont disponibles avec les conteneurs Windows, les conteneurs Windows Server et les conteneurs Hyper-V. Les conteneurs Hyper-V fournissent une couche supplémentaire d’isolation en hébergeant chaque conteneur dans une machine virtuelle très optimisée. Pour en savoir plus sur les conteneurs Windows, consultez [À propos des conteneurs Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Pour commencer à utiliser les conteneurs vous familiariser avec les conteneurs Windows dans Azure, découvrez comment [déployer un cluster Azure Container Service](/articles/container-service/container-service-deployment.md).
 
 ## <a name="what-are-containers-good-for"></a>Quels sont les avantages des conteneurs ?
-Ils sont utiles dans de nombreux cas mais, &mdash;comme [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) et [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;, ils favorisent la création d’applications distribuées orientées microservices à service unique, dans laquelle la conception d’applications repose sur des éléments composables plus petits, plutôt que sur des composants plus étroitement associés.
+
+Les conteneurs peuvent améliorer :
+
+* la vitesse avec laquelle le code d’application peut être développé et partagé à grande échelle ;
+* la vitesse et la fiabilité auxquelles une application peut être testée ;
+* la vitesse et la fiabilité auxquelles une application peut être déployée.
+
+Les conteneurs s’exécutent sur un hôte conteneur&mdash;un système d’exploitation, et dans le cas d’Azure, une machine virtuelle Azure. Même si l’idée des conteneurs vous plaît déjà, vous aurez toujours besoin d’une infrastructure de machines virtuelles qui héberge les conteneurs. Cependant, l’avantage est que les conteneurs ne se préoccupent de la machine virtuelle sur laquelle ils sont exécutés (bien que le conteneur puisse exiger un environnement d’exécution Linux ou Windows, par exemple).
+
+
+## <a name="what-are-containers-good-for"></a>Quels sont les avantages des conteneurs ?
+Ils sont utiles dans de nombreux cas, mais ils encouragent &mdash;[comme d’ailleurs Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) et [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md) &mdash; la création d’applications distribuées orientées microservices à service unique, dans laquelle la conception d’applications repose sur des éléments composables plus petits, plutôt que sur des composants plus étroitement associés.
 
 Cela est particulièrement vrai dans les environnements de cloud public comme Azure, dans lesquels vous louez des machines virtuelles quand et où vous le souhaitez. Non seulement vous bénéficiez de l’isolation, du déploiement rapide et des outils d’orchestration, mais vous pouvez prendre des décisions d’infrastructure des applications plus efficaces.
 
@@ -64,7 +58,7 @@ Les professionnels informatiques et opérationnels bénéficient également de l
 * le code à relation contenant-contenu est rigoureusement identique ;
 * les services à relation contenant-contenu peuvent être démarrés, arrêtés et déplacés rapidement entre les environnements de développement, de test et de production.
 
-De telles fonctionnalités&mdash;et elles il y en a d’autres&mdash;sont attractives pour les entreprises établies, où les départements d’informatique ont pour mission d’adapter les ressources&mdash;y compris la puissance de traitement&mdash;aux tâches requises, non seulement pour rester dans la course mais également pour augmenter leur portée et la satisfaction des clients. Les petites entreprises, les ISV et les start-ups ont exactement les mêmes exigences mais peuvent les décrire différemment.
+De telles fonctionnalités &mdash; sachant qu’il y en a d’autres &mdash; sont attractives pour les entreprises établies, celles dans lesquelles les services informatiques ont pour mission d’adapter les ressources &mdash; y compris la puissance de traitement &mdash; aux tâches requises, non seulement pour rester dans la course, mais également pour augmenter leur portée et la satisfaction des clients. Les petites entreprises, les ISV et les start-ups ont exactement les mêmes exigences mais peuvent les décrire différemment.
 
 ## <a name="what-are-virtual-machines-good-for"></a>Quels sont les avantages des machines virtuelles ?
 Les machines virtuelles constituent la colonne vertébrale du cloud computing. Rien de nouveau de ce côté. Si les machines virtuelles démarrent plus lentement, présentent un encombrement de disques plus élevé et ne correspondent pas directement à une architecture de microservices, elles offrent des avantages très importants :
@@ -77,7 +71,7 @@ Les machines virtuelles constituent la colonne vertébrale du cloud computing. R
 Ce dernier élément est important car une application à relation contenant-contenu nécessite toujours des types de système d’exploitation et de processeur spécifiques, selon les appels que l’application passera. Il est essentiel de se rappeler que vous installez les conteneurs sur des machines virtuelles car ils contiennent les applications que vous souhaitez déployer. Les conteneurs ne remplacent ni les machines virtuelles ni les systèmes d’exploitation.
 
 ## <a name="high-level-feature-comparison-of-vms-and-containers"></a>Comparaison des fonctionnalités générales des machines virtuelles et des conteneurs
-Le tableau suivant décrit de manière très générale le type de différences de fonctionnalités (&mdash;sans trop de travail supplémentaire&mdash;) entre des machines virtuelles et des conteneurs Linux. Notez que certaines fonctionnalités peuvent être plus ou moins souhaitables selon vos propres besoins en matière d’applications, et que, à l’instar de tous les logiciels, un travail supplémentaire accroît la prise en charge des fonctionnalités, notamment dans le domaine de la sécurité.
+Le tableau suivant décrit, de manière très générale, les différences entre les fonctionnalités qui &mdash; sans trop de travail supplémentaire &mdash; existent entre des machines virtuelles et des conteneurs Linux. Notez que certaines fonctionnalités peuvent être plus ou moins souhaitables selon vos propres besoins en matière d’applications, et que, à l’instar de tous les logiciels, un travail supplémentaire accroît la prise en charge des fonctionnalités, notamment dans le domaine de la sécurité.
 
 | Fonctionnalité | Machines virtuelles | Conteneurs |
 |:--- | --- | --- |
@@ -90,14 +84,14 @@ Le tableau suivant décrit de manière très générale le type de différences 
 ## <a name="creating-and-managing-groups-of-vms-and-containers"></a>Création et gestion de groupes de machines virtuelles et de conteneurs
 À ce stade, un architecte, développeur ou spécialiste des opérations informatiques pourrait penser : « Je peux automatiser TOUTES ces opérations ; le Data-Center-As-A-Service est une RÉALITÉ ! »
 
-Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d’entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser vos déploiements Azure (&mdash;et peut-être l’avez-vous déjà fait&mdash;) en utilisant PowerShell ou des scripts de l’interface de ligne de commande Azure.
+Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d’entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser &mdash; vous l’avez peut-être déjà fait &mdash; vos déploiements Azure en utilisant PowerShell ou des scripts de l’interface de ligne de commande Azure.
 
 Souvent, ces fonctionnalités sont ensuite migrées vers des outils tels que [Puppet](https://puppetlabs.com/) et [Chef](https://www.chef.io/) pour automatiser la création et la configuration des machines virtuelles à l'échelle. (Voici des liens expliquant l' [utilisation de ces outils avec Azure](#tools-for-working-with-containers).)
 
 ### <a name="azure-resource-group-templates"></a>Modèles de groupes de ressources Azure
 Plus récemment, Azure a publié l’API REST de [gestion des ressources Azure](../articles/resource-manager-deployment-model.md) et a mis à jour les outils PowerShell et les outils de l’interface de ligne de commande Azure pour en faciliter l’utilisation. Vous pouvez déployer, modifier ou redéployer des topologies d'application intégrales à l'aide de [modèles Azure Resource Manager](../articles/resource-group-authoring-templates.md) avec l'API de gestion des ressources Azure en utilisant :
 
-* le [portail Azure avec des modèles](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, utilisez le bouton « DeployToAzure »
+* le [portail Azure avec des modèles](https://github.com/Azure/azure-quickstart-templates) &mdash; astuce : utilisez le bouton « DeployToAzure »
 * [l’interface de ligne de commande Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * les [modules Azure PowerShell](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -197,10 +191,10 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows](https://
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
-[microservicess]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Instructions pour les infrastructures réseau Azure | Microsoft Docs"
+title: "Instructions pour les infrastructures réseau Azure - Windows | Microsoft Docs"
 description: "Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’un réseau virtuel dans des services d’infrastructure Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 5db3100d94af1461d538eb1bb9b16b7bf387517a
+ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
+ms.openlocfilehash: 6c89e59fc948606860439b12987676c453732f55
 
 
 ---
@@ -76,11 +76,11 @@ Pour les réseaux virtuels entre différents locaux, vous devez concevoir des so
 
 | Nombre de machines virtuelles nécessaires | Nombre de bits hôte nécessaires | Taille du sous-réseau |
 | --- | --- | --- |
-| 1 à 3 |3 |/29 |
-| 4 à 11 |4 |/28 |
-| 12 à 27 |5 |/27 |
-| 28 à 59 |6 |/26 |
-| 60 à 123 |7 |/25 |
+| 1 à&3; |3 |/29 |
+| 4 à&11; |4 |/28 |
+| 12 à&27; |5 |/27 |
+| 28 à&59; |6 |/26 |
+| 60 à&123; |7 |/25 |
 
 > [!NOTE]
 > Pour des sous-réseaux locaux normaux, le nombre maximal d’adresses d’hôte pour un sous-réseau avec n bits hôte est 2<sup>n</sup> – 2. Pour un sous-réseau Azure, le nombre maximal d’adresses d’hôte pour un sous-réseau avec n bits hôte est 2<sup>n</sup> – 5 (2 plus 3 pour les adresses qu’Azure utilise sur chaque sous-réseau).
@@ -106,6 +106,6 @@ Comme avec une infrastructure de réseau local physique, un réseau virtuel Azur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

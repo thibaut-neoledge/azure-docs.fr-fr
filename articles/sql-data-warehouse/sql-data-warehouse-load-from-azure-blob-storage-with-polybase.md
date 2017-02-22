@@ -1,5 +1,5 @@
 ---
-title: "Charger les données de stockage d’objets blob Azure dans SQL Data Warehouse (PolyBase) | Microsoft Docs"
+title: "Charger à partir d’Azure Blob vers l’entrepôt de données Azure| Microsoft Docs"
 description: "Apprenez à utiliser PolyBase pour charger des données de stockage d’objets blob Azure dans SQL Data Warehouse. Chargez quelques tables à partir de données publiques dans le schéma d’entrepôt de données Contoso Retail."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea83972d4b12a83fbf339acb6601dc961674be6f
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
 
 
 ---
@@ -38,7 +38,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 3. Procéder à des optimisations une fois le chargement terminé
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Pour exécuter ce didacticiel, vous avez besoin d’un compte Azure qui possède déjà une base de données SQL Data Warehouse. Si vous n’en disposez pas, consultez la page [Créer un entrepôt de données SQL][Créer un entrepôt de données SQL].
+Pour exécuter ce didacticiel, vous avez besoin d’un compte Azure qui possède déjà une base de données SQL Data Warehouse. Si vous n’en disposez pas, consultez la page [Créer un entrepôt de données SQL][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Configurer la source de données
 PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objet externe sont stockées dans SQL Data Warehouse. Les données elles-mêmes sont stockées en externe.
@@ -277,7 +277,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour en savoir plus, consultez [Gérer les index columnstore][Gérer les index columnstore].
+Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes. 
 
@@ -289,12 +289,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Pour plus d’informations sur la maintenance des index columnstore, consultez l’article [Gérer les index columnstore][Gérer les index columnstore].
+Pour plus d’informations sur la maintenance des index Columnstore, consultez l’article [Gérer les index Columnstore][manage columnstore indexes].
 
 ## <a name="6-optimize-statistics"></a>6. Optimiser les statistiques
 Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement. Les statistiques offrent plusieurs possibilités. Par exemple, si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes.
 
-Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques][statistiques].
+Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques][statistics].
 
 L’exemple suivant est un bon point de départ pour la création de statistiques. Il permet de créer des statistiques sur une colonne pour chaque colonne de la table de dimension, et chaque colonne de jointure des tables de faits. Vous pouvez toujours ajouter ultérieurement des statistiques sur une ou plusieurs colonnes dans d’autres colonnes de table de faits.
 
@@ -354,18 +354,18 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour charger l’ensemble des données de l’entrepôt de données Contoso Retail, utilisez le script fourni dans GitHub. Pour d’autres conseils de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][Vue d’ensemble sur le développement SQL Data Warehouse].
+Pour charger l’ensemble des données de l’entrepôt de données Contoso Retail, utilisez le script. Pour d’autres conseils de développement, consultez [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Créer un entrepôt de données SQL]: sql-data-warehouse-get-started-provision.md
-[Chargement de données dans SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[Vue d’ensemble sur le développement SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Gérer les index columnstore]: sql-data-warehouse-tables-index.md
-[Statistiques]: sql-data-warehouse-tables-statistics.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: sql-data-warehouse-tables-index.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[libellé]: sql-data-warehouse-develop-label.md
+[label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
@@ -375,11 +375,11 @@ Pour charger l’ensemble des données de l’entrepôt de données Contoso Reta
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

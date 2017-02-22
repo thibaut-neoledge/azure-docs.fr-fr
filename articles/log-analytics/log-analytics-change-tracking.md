@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/18/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
+ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
+ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 
 ---
 # <a name="change-tracking-solution-in-log-analytics"></a>Solution de suivi des modifications dans Log Analytics
-Cet article vous aidera à utiliser la solution de suivi des modifications de configuration de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels, services Windows, démons Linux et packages Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels. Vous pouvez également configurer la solution pour suivre les modifications apportées à des fichiers Windows spécifiques.
+Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
-Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées à des logiciels installés, aux services Windows et aux démons Linux sur les serveurs analysés sont lues, puis les données sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. Lorsque des modifications sont détectées, les serveurs comprenant des modifications sont affichés dans le tableau de bord de suivi des modifications. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées à des logiciels installés, aux services Windows et aux démons Linux sur les serveurs analysés sont lues, puis les données sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
@@ -63,12 +63,12 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent direct | Agent SCOM | Agent Linux | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows et Linux |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |Toutes les heures |
+| Windows et Linux |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Non](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Oui](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 15 minutes et 1 heure selon le type de modification |
 
 ## <a name="use-change-tracking"></a>Utilisation du suivi des modifications
 Une fois la solution installée, vous pouvez afficher le résumé des modifications pour vos serveurs analysés à l’aide de la vignette **Suivi des modifications** sur la page **Vue d’ensemble** d’OMS.
 
-![image de la vignette de suivi des modifications](./media/log-analytics-change-tracking/oms-changetracking-tile.png)
+![image de la vignette de suivi des modifications](./media/log-analytics-change-tracking/change-tracking-tile.png)
 
 Vous pouvez afficher les modifications apportées à votre infrastructure, puis étudier en détail les informations pour les catégories suivantes :
 
@@ -79,9 +79,9 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 * Modifications de services Windows pour chaque serveur
 * Modifications du démon Linux
 
-![image du tableau de bord de suivi des modifications](./media/log-analytics-change-tracking/oms-changetracking01.png)
+![image du tableau de bord de suivi des modifications](./media/log-analytics-change-tracking/change-tracking-dash01.png)
 
-![image du tableau de bord de suivi des modifications](./media/log-analytics-change-tracking/oms-changetracking02.png)
+![image du tableau de bord de suivi des modifications](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
 ### <a name="to-view-changes-for-any-change-type"></a>Affichage des modifications pour tout type de modification
 1. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Suivi des modifications**.
@@ -93,6 +93,6 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

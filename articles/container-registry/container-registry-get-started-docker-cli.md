@@ -1,5 +1,5 @@
 ---
-title: "Opérations de Docker sur un Registre de conteneur | Microsoft Docs"
+title: Authentification avec un Registre de conteneurs Azure | Microsoft Docs
 description: "Transmettre et extraire des images Docker vers un Registre de conteneur Azure à l’aide de l’interface de ligne de commande (CLI) Docker"
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: 923e1a045062a817dd6726dfce94485be7211ca2
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Transmettre votre première image vers un Registre de conteneur à l’aide de l’interface de ligne de commande (CLI) Docker
@@ -66,7 +66,7 @@ La commande suivante démarre le conteneur Nginx local interactivement (pour que
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Accédez à [http://localhost : 8080](http://localhost:8080) pour afficher le conteneur en cours d’exécution. Vous voyez un écran semblable au suivant.
+Accédez à [http://localhost :&8080;](http://localhost:8080) pour afficher le conteneur en cours d’exécution. Vous voyez un écran semblable au suivant.
 
 ![Nginx sur un ordinateur local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -98,7 +98,7 @@ docker pull myregistry-contoso.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry-exp.azurecr.io/samples/nginx
 ```
 
-Accédez à [http://localhost : 8080](http://localhost:8080) pour afficher le conteneur en cours d’exécution.
+Accédez à [http://localhost :&8080;](http://localhost:8080) pour afficher le conteneur en cours d’exécution.
 
 Pour arrêter le conteneur en cours d’exécution, appuyez sur [CTRL] + [C].
 
@@ -118,6 +118,6 @@ Maintenant que vous connaissez les principes de base, vous êtes prêt à utilis
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Meilleures pratiques pour améliorer les performances à l’aide de Service Bus | Microsoft Docs"
-description: "Explique comment utiliser Azure Service Bus pour optimiser les performances lors de l’échange de messages répartis."
+title: "Meilleures pratiques pour améliorer les performances à l’aide d’Azure Service Bus | Microsoft Docs"
+description: "Explique comment utiliser Service Bus pour optimiser les performances lors de l’échange de messages répartis."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
+ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
-Cette rubrique décrit comment utiliser la messagerie Azure Service Bus pour optimiser les performances lors de l’échange de messages répartis. La première partie de cette rubrique décrit les différents mécanismes qui sont proposés et qui permettent d’améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
+Cet article décrit comment utiliser la [messagerie Azure Service Bus](https://azure.microsoft.com/services/service-bus/) pour optimiser les performances lors de l’échange de messages répartis. La première partie de cette rubrique décrit les différents mécanismes qui sont proposés et qui permettent d’améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
 
 Dans cette rubrique, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
 
 Les sections suivantes présentent plusieurs concepts Service Bus utiles pour améliorer les performances.
 
 ## <a name="protocols"></a>Protocoles
-Service Bus permet aux clients d’envoyer et de recevoir des messages par le biais de trois protocoles
+Service Bus permet aux clients d’envoyer et de recevoir des messages par le biais de l’un des trois protocoles suivants :
 
 1. Advanced Message Queuing Protocol (AMQP)
 2. Service Bus Messaging Protocol (SBMP)
-3. HTTP
+3. http
 
 AMQP et SBMP sont plus efficaces, car ils maintiennent la connexion au Service Bus tant que la fabrique de messagerie existe. Il permet également le traitement par lot et la lecture anticipée. Sauf mention explicite, tout le contenu de cette rubrique suppose l’utilisation du protocole AMQP ou SBMP.
 
@@ -44,7 +44,7 @@ L’exécution d’une opération (envoi, réception, suppression, etc.) prend u
 
 * **Opérations asynchrones** : le client planifie les opérations en effectuant des opérations asynchrones. La requête suivante démarre avant la fin de la demande précédente. Voici un exemple d’opération d’envoi asynchrone :
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +62,7 @@ L’exécution d’une opération (envoi, réception, suppression, etc.) prend u
   
   Voici un exemple d’opération de réception asynchrone :
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -93,7 +93,7 @@ Par défaut, un client utilise un intervalle 20 ms entre les lots. Vous pouvez 
 
 Pour désactiver le traitement par lot, définissez la propriété [BatchFlushInterval][BatchFlushInterval] sur **TimeSpan.Zero**. Par exemple :
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -103,11 +103,11 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 Le traitement par lot n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus. Le protocole HTTP ne prend pas en charge le traitement par lot.
 
 ## <a name="batching-store-access"></a>Accès au dispositif de stockage de traitement par lot
-Pour augmenter le débit d’une file d’attente/d’une rubrique/d’un abonnement, Service Bus regroupe plusieurs messages lorsqu’il écrit à son dispositif de stockage en interne. S’il est activé sur une file d’attente ou une rubrique, l’écriture de messages dans le dispositif de stockage est traitée par lot. S’il est activé sur une file d’attente ou un abonnement, l’écriture de messages depuis le dispositif de stockage est traitée par lot. Si l’accès au magasin par lot est activé pour une entité, Service Bus retarde l’opération d’écriture de dispositif de stockage concernant cette entité de 20 ms au maximum. Les opérations de stockage supplémentaires qui se produisent pendant cet intervalle sont ajoutées au lot. L’accès au dispositif de stockage par lot affecte seulement les opérations **d’envoi** et **complètes** ; les opérations de réception ne sont pas affectées. L’accès au dispositif de stockage est une propriété d’entité. Le traitement par lot se produit sur toutes les entités qui permettent l’accès au stockage par lot.
+Pour augmenter le débit d’une file d’attente, d’une rubrique ou d’un abonnement, Service Bus regroupe plusieurs messages lorsqu’il écrit à son dispositif de stockage en interne. S’il est activé sur une file d’attente ou une rubrique, l’écriture de messages dans le dispositif de stockage est traitée par lot. S’il est activé sur une file d’attente ou un abonnement, l’écriture de messages depuis le dispositif de stockage est traitée par lot. Si l’accès au magasin par lot est activé pour une entité, Service Bus retarde l’opération d’écriture de dispositif de stockage concernant cette entité de 20 ms au maximum. Les opérations de stockage supplémentaires qui se produisent pendant cet intervalle sont ajoutées au lot. L’accès au dispositif de stockage par lot affecte seulement les opérations **d’envoi** et **complètes** ; les opérations de réception ne sont pas affectées. L’accès au dispositif de stockage est une propriété d’entité. Le traitement par lot se produit sur toutes les entités qui permettent l’accès au stockage par lot.
 
 Lorsque vous créez une file d’attente, une rubrique ou un abonnement, l’accès au stockage par lot est activé par défaut. Pour désactiver l’accès au stockage par lot, définissez la propriété [EnableBatchedOperations][EnableBatchedOperations] sur **false** avant de créer l’entité. Par exemple :
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -120,7 +120,7 @@ La lecture anticipée permet au client de la file d’attente ou de l’abonneme
 
 Lorsqu’un message est lu par anticipation, le service le verrouille. Ce faisant, le message lu par anticipation ne peut pas être reçu par un autre destinataire. Si le destinataire ne peut pas terminer le message avant expiration du verrouillage, le message devient disponible pour les autres destinataires. La copie lue par anticipation du message reste dans le cache. Le destinataire qui consomme la copie mise en cache expirée reçoit une exception lorsqu’il essaie de terminer le message. Par défaut, le verrouillage du message expire au bout de 60 secondes. Cette valeur peut être étendue à 5 minutes. Pour empêcher la consommation des messages arrivés à expiration, la taille du cache doit toujours être inférieure au nombre de messages qui peuvent être utilisés par un client au sein de l’intervalle de délai d’expiration de verrouillage.
 
-Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 3 destinataires, et chaque récepteur peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20\*3\*10 = 600. Par défaut, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] est définie sur 0, ce qui signifie qu’aucun message supplémentaire n’est lu à partir du service.
+Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 3 destinataires, et chaque récepteur peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20 X 3 X 10 = 600. Par défaut, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] est définie sur 0, ce qui signifie qu’aucun message supplémentaire n’est lu à partir du service.
 
 La lecture anticipée de messages augmente le débit global d’un abonnement ou une file d’attente, car elle permet de réduire le nombre total d’opérations de messagerie, ou les allers-retours. La lecture anticipée du premier message, cependant, prend plus de temps (en raison de la taille du message accrue). La réception de message avec lecture anticipée sera plus rapide, car ces messages ont déjà été téléchargés par le client.
 
@@ -131,7 +131,7 @@ La lecture anticipée n’affecte pas le nombre d’opérations de messagerie fa
 ## <a name="express-queues-and-topics"></a>Files d’attente et les rubriques rapides
 Les entités rapides permettent un débit élevé et réduisent les temps de latence. Avec les entités rapides, si un message est envoyé à une file d’attente ou à une rubrique, il n’est pas immédiatement stocké dans la banque de messagerie. Au lieu de cela, le message est mis en cache. Si un message reste dans la file d’attente pendant plus de quelques secondes, il est automatiquement écrit dans un stockage stable, afin d’éviter qu’il soit perdu en cas de panne. L’écriture du message en mémoire cache permet d’augmenter le débit et de réduire le temps de latence, car il n’a pas accès au stockage stable au moment où que le message est envoyé. Les messages consommés en quelques secondes ne sont pas écrits dans le magasin de messagerie. Dans l’exemple suivant, l’abonnement crée une rubrique rapide.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -142,7 +142,7 @@ Si un message contenant des informations sensibles ne devant pas être égarées
 ## <a name="use-of-partitioned-queues-or-topics"></a>Utilisation de files d’attente partitionnées ou de rubriques
 En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une file d’attente ou une rubrique partitionnée, elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +150,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>Utilisation de plusieurs files d’attente
+
 S’il est impossible d’utiliser une file d’attente ou une rubrique partitionnée, la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique partitionnée. Vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
 
-## <a name="development--testing-features"></a>Fonctionnalités de développement et de test
-Service Bus possède une fonctionnalité qui est utilisée spécifiquement pour le développement, qui **ne doit jamais être utilisée dans les configurations de production**.
+## <a name="development-and-testing-features"></a>Fonctionnalités de développement et de test
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+Service Bus possède une fonctionnalité qui est utilisée spécifiquement pour le développement, qui **ne doit jamais être utilisée dans les configurations de production** : [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-* Lorsque de nouvelles règles ou des filtres sont ajoutés à la rubrique, EnableFilteringMessagesBeforePublishing peut être utilisé pour vérifier que la nouvelle expression de filtre fonctionne comme prévu.
+Lorsque de nouvelles règles ou des filtres sont ajoutés à la rubrique, vous pouvez utiliser [TopicDescription.EnableFilteringMessagesBeforePublishing][] pour vérifier que la nouvelle expression de filtre fonctionne comme prévu.
 
 ## <a name="scenarios"></a>Scénarios
 Les sections suivantes décrivent les scénarios de messagerie classiques et soulignent les paramètres Service Bus favoris par défaut. Les débits sont classés dans la catégorie Petit (moins d’1 message/seconde), Modéré (1 message/s ou plus, mais moins de 100 messages par seconde) et Élevé (100 messages/seconde ou plus). Le nombre de clients est classé en tant que petit (5 ou moins), modéré (plus de 5, mais inférieur ou égal à 20) et grand (plus de 20).
@@ -243,21 +243,22 @@ Pour maximiser le débit, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’optimisation des performances Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

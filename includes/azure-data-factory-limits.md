@@ -6,9 +6,9 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | pipelines dans une fabrique de données |2 500 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | jeux de données dans une fabrique de données |5 000 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | tranches simultanées par jeu de données |10 |10 |
-| octets par objet pour les objets pipeline <sup>1</sup> |200 Ko |2 000 Ko |
+| octets par objet pour les objets pipeline <sup>1</sup> |200 Ko |200 Ko |
 | octets par objet pour les objets jeu de données et service lié <sup>1</sup> |100 Ko |2 000 Ko |
-| Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> |48 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Cœurs de cluster HDInsight à la demande d’un abonnement<sup>2</sup> |60 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Unité de déplacement de données cloud <sup>3</sup> |8 |[Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |1 000 |MaxInt (32 bits) |
 
@@ -29,6 +29,6 @@ Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

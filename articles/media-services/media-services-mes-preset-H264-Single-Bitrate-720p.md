@@ -1,6 +1,6 @@
 ---
-title: "H264 – Vitesse de transmission unique – 720 pixels | Microsoft Docs"
-description: "Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 – Vitesse de transmission unique – 720 pixels**."
+title: "Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 720 pixels - Azure | Microsoft Docs"
+description: "Cette rubrique offre une vue d’ensemble de la présélection de tâche **H264 - Vitesse de transmission unique - 720 pixels**."
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 17a507ca20b795ca47aeb7d4add0c68c5496f71f
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: f653f966d8498c756ebd318e7631feaaa753b49a
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17a507ca20b795ca47aeb7d4add0c68c5496f71f
   
  Cette rubrique présente la présélection `H264 Single Bitrate 720p` aux formats XML et JSON.  
   
- Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 4 500 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour connaître la signification des différents éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
+ Cette présélection produit un fichier MP4 unique avec une vitesse de transmission de 4 500 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Media Encoder Standard schema](media-services-mes-schema.md) (Schéma Media Encoder Standard).  
   
  XML  
   
@@ -118,6 +118,6 @@ ms.openlocfilehash: 17a507ca20b795ca47aeb7d4add0c68c5496f71f
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

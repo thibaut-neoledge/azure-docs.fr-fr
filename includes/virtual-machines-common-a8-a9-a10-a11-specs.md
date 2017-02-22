@@ -2,7 +2,7 @@
 ## <a name="key-features"></a>Fonctionnalités clés
 * **Matériel hautes performances** : ces instances sont conçues et optimisées pour des applications nécessitant des ressources réseau et de calcul importantes, notamment des applications de traitement par lot et de calcul hautes performances (HPC), la modélisation et les simulations à grande échelle. 
   
-    Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, consultez l’article [Tailles de machines virtuelles](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Plus d’informations sur le processeur Intel Xeon E5-2667 v3 (utilisé dans la série H) et le processeur Intel Xeon E5-2670 (utilisé pour les tailles A8 à A11), notamment les extensions de jeu d’instructions prises en charge, voir sur le site web Intel.com. 
+    Plus d’informations sur le processeur Intel Xeon E5-2667 v3 (utilisé dans la série H) et le processeur Intel Xeon E5-2670 (utilisé pour les tailles A8 à A11), notamment les extensions de jeu d’instructions prises en charge, voir sur le site web Intel.com. 
 * **Conçu pour les clusters HPC** : déployez plusieurs instances nécessitant beaucoup de ressources système dans Azure pour créer un cluster HPC autonome ou pour augmenter la capacité d’un cluster local. Si vous le souhaitez, déployez des outils de gestion cluster et de planification des tâches. Ou bien, utilisez les instances de travail nécessitant beaucoup de ressources système dans un autre service Azure tel qu’Azure Batch.
 * **Connexion réseau RDMA pour applications MPI** : un sous-ensemble d’instances nécessitant beaucoup de ressources système (H16r, H16mr, A8 et A9) offre une deuxième interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle. 
   
@@ -24,6 +24,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

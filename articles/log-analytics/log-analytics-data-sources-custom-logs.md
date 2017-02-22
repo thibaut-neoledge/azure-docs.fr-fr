@@ -1,5 +1,5 @@
 ---
-title: "Journaux personnalisés dans Log Analytics | Microsoft Docs"
+title: "Collecter les journaux personnalisés dans OMS Log Analytics | Microsoft Docs"
 description: "Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans le référentiel OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
+ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
 
 
 ---
@@ -122,7 +122,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | Propriété | Description |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur horaire, il s’agit de l’heure collectée dans l’entrée. |
-| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br>  Linux – Tous les agents Linux |
+| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br> Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. |
 | ManagementGroupName |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 
@@ -177,6 +177,6 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/21/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a50ac3b7fe76dd44887fb197f685c1311d9dc04c
+ms.sourcegitcommit: 822bace005a6244a47c9484487dab85b1aec9d9a
+ms.openlocfilehash: e20b1ca582c56da7b4fb1e2df3be90bd1c29a8b6
 
 
 ---
@@ -28,6 +28,7 @@ Il est possible que vous receviez des erreurs quand vous essayez de supprimer le
 
 * Lorsque vous supprimez une machine virtuelle, le disque et le disque dur virtuel ne sont pas automatiquement supprimés. Cela peut être la cause de l'échec de la suppression du compte de stockage. Nous ne supprimons pas le disque pour que vous puissiez l’utiliser pour monter une autre machine virtuelle.
 * Il existe toujours un bail sur un disque ou sur l’objet blob associé au disque.
+* Il existe toujours une image de machine virtuelle qui utilise un compte de stockage, un conteneur ou un objet blob.
 
 Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou sur @AzureSupport sur Twitter. Vous pouvez également créer une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options/) .
 
@@ -64,39 +65,69 @@ Quand vous essayez de supprimer le conteneur de stockage, il est possible que vo
 
 *Échec de la suppression du conteneur de stockage <container name>. Erreur : « Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande »*.
 
+Ou
+
+*Les disques de machines virtuelles suivants utilisent actuellement des objets blob de ce conteneur. Par conséquent, le conteneur ne peut pas être supprimé : VirtualMachineDiskName1, VirtualMachineDiskName2, ...*
+
 ### <a name="scenario-3-unable-to-delete-a-vhd"></a>Scénario 3 : Impossible de supprimer un disque dur virtuel
 Après avoir supprimé une machine virtuelle, puis tenté de supprimer les objets blob des disques durs virtuels associés, il est possible que vous receviez le message suivant :
 
 *Échec de la suppression de l’objet blob « path/XXXXXX-XXXXXX-os-1447379084699.vhd ». Erreur : « Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande »*.
 
+Ou
+
+*L’objet blob « BlobName.vhd » est en cours d’utilisation en tant que disque de la machine virtuelle « VirtualMachineDiskName », donc il ne peut pas être supprimé.*
+
 ## <a name="solution"></a>Solution
 Pour résoudre les problèmes les plus courants, essayez la méthode suivante :
 
-### <a name="step-1-delete-any-os-disks-that-are-preventing-deletion-of-the-storage-account-container-or-vhd"></a>Étape 1 : Supprimer les disques du système d’exploitation qui empêchent la suppression du compte de stockage, du conteneur ou du disque dur virtuel
+### <a name="step-1-delete-any-disks-that-are-preventing-deletion-of-the-storage-account-container-or-vhd"></a>Étape 1 : Supprimer les disques qui empêchent la suppression du compte de stockage, du conteneur ou du disque dur virtuel
 1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/).
 2. Sélectionnez **MACHINES VIRTUELLES** > **DISQUES**.
-   
+
     ![Image de disques sur des machines virtuelles sur le portail Azure Classic.](./media/storage-cannot-delete-storage-account-container-vhd/VMUI.png)
 3. Recherchez les disques associés au compte de stockage, au conteneur ou au disque dur virtuel à supprimer. En vérifiant l’emplacement du disque, vous trouverez le compte de stockage, le conteneur et le disque dur virtuel associés.
-   
+
     ![Image qui affiche des informations d'emplacement sur les disques sur le portail Azure Classic](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
-4. Vérifiez qu’aucune machine virtuelle n’est indiquée dans le champ **Attaché à** des disques, puis supprimez les disques.
-   
+4. Utilisez l’une des méthodes suivantes pour supprimer les disques :
+
+  - Si aucune machine virtuelle n’est indiquée dans le champ **Attaché à** des disques, vous pouvez supprimer le disque directement.
+
+  - Si le disque est un disque de données, procédez comme suit :
+
+    1. Vérifiez le nom de la machine virtuelle à laquelle le disque est attaché.
+    2. Accédez à **Machines virtuelles** > **Instances**, puis recherchez la machine virtuelle.
+    3. Assurez-vous que le disque n’est pas activement utilisé.
+    4. Sélectionnez **Détacher le disque** au bas du portail pour détacher le disque.
+    5. Accédez à **Machines virtuelles** > **Disques** et attendez que le champ **Attaché à** soit vide. Cela indique que le disque a été correctement détaché de la machine virtuelle.
+    6. Sélectionnez **Supprimer** sous **Machines virtuelles** > **Disques** pour supprimer le disque.
+
+  - Si le disque est un disque du système d’exploitation (le champ **Contient le système d’exploitation** a une valeur telle que Windows) et qu’il est attaché à une machine virtuelle, procédez comme suit pour supprimer la machine virtuelle. Le disque du système d’exploitation ne peut pas être détaché. Nous devons donc supprimer la machine virtuelle pour libérer l’attribution.
+
+    1. Vérifiez le nom de la machine virtuelle à laquelle le disque de données est attaché.  
+    2. Accédez à **Machines virtuelles** > **Instances**, puis sélectionnez la machine virtuelle à laquelle le disque est attaché.
+    3. Assurez-vous qu’aucun élément n’utilise activement la machine virtuelle, et que vous n’avez plus besoin de la machine virtuelle.
+    4. Sélectionnez la machine virtuelle à laquelle le disque est attaché, puis sélectionnez **Supprimer** > **Supprimer les disques attachés**.
+    5. Accédez à **Machines virtuelles** > **Disques** et attendez que le disque ne s’affiche plus.  Cela peut prendre plusieurs minutes. Vous devrez peut-être actualiser la page.
+    6. Si le disque ne disparaît pas, attendez que le champ **Attaché à** soit vide. Cela indique que le disque a été entièrement détaché de la machine virtuelle.  Ensuite, sélectionnez le disque et sélectionnez **Supprimer** en bas de la page pour supprimer le disque.
+
+
    > [!NOTE]
    > Si un disque est attaché à une machine virtuelle, vous ne pouvez pas le supprimer. Les disques sont détachés de façon asynchrone d’une machine virtuelle supprimée. L’effacement de ce champ peut prendre quelques minutes après la suppression de la machine virtuelle.
-   > 
-   > 
+   >
+   >
+
 
 ### <a name="step-2-delete-any-vm-images-that-are-preventing-deletion-of-the-storage-account-or-container"></a>Étape 2 : Supprimer les images de machine virtuelle qui empêchent la suppression du compte de stockage ou du conteneur
 1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com/).
 2. Sélectionnez **MACHINE VIRTUELLE** > **IMAGES**, puis supprimez les images associées au compte de stockage, au conteneur ou au disque dur virtuel.
-   
+
     Ensuite, réessayez de supprimer le compte de stockage, le conteneur ou le disque dur virtuel.
 
 > [!WARNING]
 > Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Il n’est pas possible de restaurer un compte de stockage supprimé ou de récupérer son contenu avant la suppression. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un disque dur virtuel, un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible. Vérifiez que la ressource n’est pas en cours d’utilisation.
-> 
-> 
+>
+>
 
 ## <a name="about-the-stopped-deallocated-status"></a>À propos de l’état Arrêté (Désalloué)
 Les machines virtuelles créées dans le modèle de déploiement classique et conservées auront le statut **Arrêté (Désalloué)** soit sur le [portail Azure](https://portal.azure.com/), soit sur le [portail Azure Classic](https://manage.windowsazure.com/).
@@ -117,7 +148,6 @@ Le statut « Arrêté (désalloué) » libère les ressources de l'ordinateur (p
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

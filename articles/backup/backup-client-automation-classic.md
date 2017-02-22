@@ -1,6 +1,7 @@
 ---
-title: "Déployer et gérer une sauvegarde pour un serveur/client Windows à l’aide de PowerShell | Microsoft Docs"
-description: "Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell"
+
+title: "Utiliser PowerShell pour gérer les sauvegardes Windows Server dans Azure | Microsoft Docs"
+description: "Déployez et gérez des sauvegardes Windows Server à l’aide de PowerShell."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -13,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse;markgal;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Classique](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 
@@ -43,8 +44,8 @@ Si vous souhaitez utiliser dans l’environnement 1.0 (ou ultérieur) des scrip
 ## <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 > [!WARNING]
 > Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureRMBackupVault** . Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Paramètres de mise en réseau
 Lorsque l’ordinateur Windows accède à Internet via un serveur proxy, les paramètres proxy peuvent également être fournis à l’agent. Dans cet exemple, il n’y a aucun serveur proxy. Nous effaçons donc explicitement toutes informations concernant un proxy.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Sauvegarde des fichiers et dossiers
 Toutes les sauvegardes de serveurs et clients Windows vers Azure Backup sont régies par une stratégie. Cette dernière comprend trois parties :
@@ -607,7 +608,6 @@ Pour plus d’informations sur Azure Backup pour client/serveur Windows, consult
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

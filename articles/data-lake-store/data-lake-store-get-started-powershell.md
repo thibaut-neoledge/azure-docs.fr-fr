@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec Data Lake Store | Microsoft Docs"
+title: "Prise en main d’Azure Data Lake Store à l’aide de PowerShell | Microsoft Docs"
 description: "Utiliser Azure PowerShell pour créer un compte Data Lake Store et effectuer des opérations de base"
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
-ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
 
 
 ---
@@ -205,6 +205,6 @@ Vous pouvez continuer à ajuster ces paramètres en augmentant et en diminuant l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

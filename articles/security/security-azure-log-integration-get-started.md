@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/24/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d02a99406fd22f7578cb4825447f7710df374210
-ms.openlocfilehash: 1ccd7d97596b3a74efcb9a066f42b04b62600fe3
+ms.sourcegitcommit: aaa69e2e4fed314e8bc363f60e7538b12bb3a56d
+ms.openlocfilehash: ca7f05534113752f3607268c15a9fe3e0e2982e0
 
 
 ---
@@ -24,10 +24,12 @@ ms.openlocfilehash: 1ccd7d97596b3a74efcb9a066f42b04b62600fe3
 L’intégration des journaux Azure permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
 Ce didacticiel vous guide dans la procédure d’installation de l’intégration des journaux Azure et d’intégration des journaux d’audit Azure et des alertes de l’Azure Security Center. La durée estimée pour effectuer ce didacticiel est d’une heure.
-Conditions préalables E o## Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
+
+## <a name="prerequisites"></a>Conditions préalables
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un ordinateur (local ou dans le cloud) sur lequel installer le service d’intégration Azure journal. Cet ordinateur doit exécuter un système d’exploitation Windows 64 bits avec .net 4.5.1 installé. Cet ordinateur est appelé **l’intégrateur Azlog**.
-Abonnement Azure y*. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/free/).
 * Les diagnostics Azure sont activés pour vos machines virtuelles Azure. Pour activer les diagnostics pour les Cloud Services, consultez [Activation des diagnostics Azure dans Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). Pour activer les diagnostics pour une machine virtuelle Azure exécutant Windows, consultez la rubrique [Utiliser PowerShell pour activer Azure Diagnostics sur une machine virtuelle exécutant Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * La connectivité depuis l’intégrateur Azlog vers le stockage Azure pour authentifier et autoriser un abonnement Azure.
 * Pour les journaux des machines virtuelles Azure, l’agent SIEM (par exemple, Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent ou IBM QRadar WinCollect) doit être installé sur l’intégrateur Azlog.
@@ -50,35 +52,35 @@ Le service d’intégration des journaux Azure collecte les données de télém�
 
 > [!NOTE]
 > Vous pouvez désactiver la collecte des données de télémétrie en décochant cette option.
-> 
-> 
+>
+>
 
 
 ## <a name="set-your-azure-environment"></a>Configuration de votre environnement Azure
-1. Ouvrez l’invite de commandes et **cd** dans **c:\Program Files\Microsoft Azure Log Integration**.
+1. Ouvrez la console PowerShell en tant qu’administrateur et accédez à **c:\Program Files\Microsoft Azure Log Integration** à l’aide de la commande **cd**.
 2. Exécutez la commande Set-AzLogAzureEnvironment -Name <Cloud>
-       
+
        Replace the Cloud with any of the following
-       AzureCloud 
-       AzureChinaCloud 
-       AzureUSGovernment 
+       AzureCloud
+       AzureChinaCloud
+       AzureUSGovernment
        AzureGermanCloud
-       
-       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate
-       
+
+       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate.
+
 ## <a name="integrate-azure-vm-logs-from-your-azure-diagnostics-storage-accounts"></a>Intégration de journaux des machines virtuelles Azure à partir de vos comptes de stockage Azure Diagnostics
 1. Vérifiez la configuration requise indiquée ci-dessus pour vous assurer que votre compte de stockage WAD collecte les journaux avant de poursuivre l’intégration de votre journal Azure. N’effectuez pas les étapes suivantes si votre compte de stockage WAD ne collecte pas les journaux.
 2. Ouvrez l’invite de commandes et **cd** dans **c:\Program Files\Microsoft Azure Log Integration**.
 3. Exécutez la commande.
-   
+
         azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>
-   
+
       Remplacez StorageAccountName par le nom du compte de stockage Azure configuré pour recevoir des événements de diagnostics de votre machine virtuelle.
-   
+
         azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==
-   
+
       Si vous souhaitez que l’ID d’abonnement s’affiche dans l’XML de l’événement, ajoutez l’ID d’abonnement au nom convivial :
-   
+
         azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>
 4. Patientez 30 à 60 minutes (l’opération peut prendre jusqu'à une heure), puis affichez les événements qui sont extraits à partir du compte de stockage. Pour afficher, ouvrez **Observateur d’événements > Journaux Windows > Événements transférés** dans l’intégrateur Azlog.
 5. Assurez-vous que votre connecteur SIEM standard installé sur l’ordinateur est configuré pour choisir les événements à partir de la **événements transmis** dossier et transférez-les dans votre instance SIEM. Passez en revue la configuration spécifique SIEM pour configurer et afficher l’intégration des journaux.
@@ -100,28 +102,28 @@ Si vous ne voyez toujours les événements, procédez comme suit :
 ## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Intégration de journaux d’audit Azure et d’alertes du Security Center
 1. Ouvrez l’invite de commandes et **cd** dans **c:\Program Files\Microsoft Azure Log Integration**.
 2. Exécutez la commande.
-   
+
         azlog createazureid
-   
+
       Cette commande vous invite à entrer votre nom d’utilisateur Azure. La commande crée ensuite un [principal du Service Azure Active Directory](../active-directory/active-directory-application-objects.md) dans les locataires Azure AD qui hébergent les abonnements Azure dans lesquels l’utilisateur connecté est un administrateur, un coadministrateur ou un propriétaire. La commande échouera si l’utilisateur connecté est seulement un utilisateur invité dans le locataire Azure AD. L’authentification à Azure s’effectue par le biais d’Azure Azure Active Directory (AD).  La création d’un principal du service pour l’intégration d’Azlog crée l’identité Azure AD qui aura un accès en lecture aux abonnements Azure.
 3. Exécutez la commande.
-   
+
         azlog authorize <SubscriptionID>
-   
+
       Elle affecte les accès en lecture de l’abonnement au service principal créé à l’étape 2. Si vous ne spécifiez pas de SubscriptionID, elle tente d’affecter le rôle de lecteur du principal du service à tous les abonnements auxquels vous avez accès.
-   
+
         azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
-   
+
    > [!NOTE]
    > Des avertissements peuvent s’afficher si vous exécutez la commande **authorize** immédiatement après la commande **createazureid**. Il existe un temps de latence entre la création du compte Azure AD et la disponibilité du compte pour une utilisation. Si vous patientez environ 10 secondes après l’exécution de la commande **createazureid** avant d’exécuter la commande **authorize**, vous ne devriez pas voir ces avertissements.
-   > 
-   > 
+   >
+   >
 4. Vérifiez que les fichiers JSON de journaux d’audit sont présents dans les dossiers suivants :
-   
+
    * **c:\Users\azlog\AzureResourceManagerJson**
    * **c:\Users\azlog\AzureResourceManagerJsonLD**
 5. Vérifiez que les alertes Security Center existent dans les dossiers suivants :
-   
+
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
 6. Pointez le connecteur de transfert de fichier SIEM standard vers le dossier approprié pour diriger les données vers l’instance SIEM. Vous aurez peut-être besoin de certains mappages de champ en fonction du produit SIEM que vous utilisez.
@@ -140,7 +142,6 @@ Dans ce didacticiel, vous avez appris à installer l’intégration des journaux
 
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

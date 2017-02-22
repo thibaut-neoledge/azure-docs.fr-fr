@@ -1,6 +1,6 @@
 ---
-title: "Guide du développeur - Messagerie | Microsoft Docs"
-description: "Guide du développeur Azure IoT Hub - Messagerie d’appareil-à-cloud et de cloud-à-appareil"
+title: "Présentation des messages Azure IoT Hub | Microsoft Docs"
+description: "Guide du développeur - Messagerie d’appareil-à-cloud et de cloud-à-appareil avec IoT Hub. Comprend des informations sur les formats de message et les protocoles de communication pris en charge."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 1951ea9d876ccb962e0bc84873bfb71ee42aa535
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 1951ea9d876ccb962e0bc84873bfb71ee42aa535
 ## <a name="overview"></a>Vue d'ensemble
 IoT Hub fournit les primitives de messagerie suivantes pour communiquer avec un appareil :
 
-* [Appareil-à-cloud][lnk-d2c] : à partir d’un appareil vers un serveur principal d’application.
-* [Cloud-à-appareil][lnk-c2d] : à partir d’un serveur principal d’application (*service* ou *cloud*).
+* [Appareil-à-cloud][lnk-d2c] : à partir d’un appareil vers une application de serveur principal.
+* [Cloud-à-appareil][lnk-c2d] : à partir d’une application de serveur principal (*service* ou *cloud*).
 
 Les principales propriétés de la fonctionnalité de messagerie IoT Hub sont la fiabilité et la durabilité des messages. Ces propriétés activent la résilience de la connectivité intermittente côté appareils et des pics de chargement dans le traitement d’événements côté cloud. IoT Hub implémente *au moins une fois* des garanties de remise pour l’envoi de messages appareil vers cloud et cloud vers appareil.
 
 IoT Hub prend en charge plusieurs [protocoles d’appareil][lnk-protocols] (par exemple, MQTT, AMQP et HTTP). Pour prendre en charge une interopérabilité transparente entre les différents protocoles, IoT Hub définit un [format de message commun][lnk-message-format] qui est pris en charge par tous les protocoles d’appareil.
 
-IoT Hub expose un [point de terminaison compatible avec Event Hub][lnk-compatible-endpoint] pour permettre aux applications de serveur principal de lire les messages appareil-à-cloud que l’IoT Hub reçoit.
+IoT Hub expose un [Point de terminaison compatible avec Event Hub][lnk-compatible-endpoint] prédéfini pour permettre aux applications principales de lire les messages appareil vers cloud que le hub reçoit. Vous pouvez également créer des points de terminaison personnalisés dans votre IoT Hub en liant d’autres services de votre abonnement au hub.
 
 ### <a name="when-to-use"></a>Quand utiliser
 Utilisez les messages appareil-à-cloud pour envoyer des alertes et des données de télémétrie de série chronologique à partir de votre application pour appareil, et des messages cloud-à-appareil pour envoyer des notifications à sens unique à l’application pour appareil.
@@ -42,30 +42,26 @@ Reportez-vous à [l’aide sur la communication cloud-à-appareil][lnk-c2d-guida
 Pour une comparaison des services IoT Hub et Event Hubs, consultez [Comparaison entre IoT Hub et Event Hubs][lnk-compare].
 
 ## <a name="device-to-cloud-messages"></a>Messages Appareil vers cloud
-Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Votre service principal reçoit des messages appareil-à-cloud par le biais d’un point de terminaison côté service web (**/messages/events**) qui est compatible avec [Event Hubs][lnk-event-hubs]. Par conséquent, vous pouvez utiliser [l’intégration et les SDK standard Event Hubs][lnk-compatible-endpoint] pour recevoir des messages appareil-à-cloud.
+Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Les règles d’acheminement acheminent ensuite vos messages vers l’un des points de terminaison côté service sur votre IoT Hub. Les règles d’acheminement utilisent les propriétés des messages appareil vers cloud qui transitent par votre hub pour déterminer où les acheminer. Par défaut, les messages sont acheminés vers le point de terminaison côté service prédéfini (messages/events) compatible avec [Event Hubs][lnk-event-hubs]. Par conséquent, vous pouvez utiliser [l’intégration et les SDK standard Event Hubs][lnk-compatible-endpoint] pour recevoir des messages appareil-à-cloud.
 
-IoT Hub implémente la messagerie appareil-à-cloud d’une manière semblable à [Event Hubs][lnk-event-hubs]. Les messages appareil-à-cloud d’IoT Hub ressemblent davantage à des *événements* Event Hubs qu’à des *messages* [Service Bus][lnk-servicebus].
+IoT Hub implémente les messages appareil vers cloud à l’aide d’un modèle de messagerie de diffusion en continu. Les messages appareil vers cloud d’IoT Hub s’apparentent plus à des *événements* [Event Hubs][lnk-event-hubs] qu’à des *messages* [Service Bus][lnk-servicebus] dans la mesure où de nombreux événements transmis par le service peuvent être lus par plusieurs lecteurs.
 
 Les conséquences sont les suivantes :
 
-* À l’instar des événements Event Hubs, les messages appareil-à-cloud sont durables et sont conservés dans un IoT Hub jusqu’à sept jours (consultez [Options de configuration appareil-à-cloud][lnk-d2c-configuration]).
-* Les messages appareil-à-cloud sont partitionnés en un ensemble fixe de partitions, qui est défini au moment de la création (consultez [Options de configuration appareil-à-cloud][lnk-d2c-configuration]).
-* Comme pour Event Hubs, les clients lisant des messages appareil-à-cloud doivent gérer des partitions et des points de contrôle. Voir [Event Hubs - Événements de consommation][lnk-event-hubs-consuming-events].
-* Comment les événements Event Hubs, les messages appareil-à-cloud ne doivent pas dépasser 256 Ko, et peuvent groupés en lots pour optimiser les envois. Les lots doivent représenter 256 Ko de volume et 500 messages maximum.
+* À l’instar des événements Event Hubs, les messages appareil vers cloud sont durables et sont conservés dans le point de terminaison **messages/events** par défaut d’un IoT Hub jusqu’à sept jours.
+* Comment les événements Event Hubs, les messages appareil-à-cloud ne doivent pas dépasser 256 Ko, et peuvent groupés en lots pour optimiser les envois. Les lots ne peuvent pas dépasser 256 Ko.
 
 Toutefois, il existe quelques différences importantes entre les messages appareil vers cloud IoT Hub et Event Hubs :
 
 * Comme l’explique la section [Contrôler l’accès à IoT Hub][lnk-devguide-security], IoT Hub permet l’authentification et le contrôle d’accès par appareil.
+* IoT Hub vous permet de créer jusqu'à 10 points de terminaison personnalisés. Les messages sont remis aux points de terminaison selon les itinéraires configurés sur votre IoT Hub.
 * IoT Hub autorise des millions d’appareils connectés simultanément (consultez [Quotas et limitation][lnk-quotas]), tandis qu’Event Hubs est limité à 5 000 connexions AMQP par espace de noms.
 * IoT Hub n’autorise pas le partitionnement arbitraire à l’aide d’une **PartitionKey**. Les messages appareil vers cloud sont partitionnés selon leur **deviceId**d’origine.
 * La mise à l’échelle IoT Hub est légèrement différente de celle d’Event Hubs. Pour plus d’informations, consultez [Mise à l’échelle d’IoT Hub][lnk-guidance-scale].
 
-> [!NOTE]
-> Vous ne pouvez pas substituer IoT Hub à Event Hubs dans tous les scénarios. Par exemple, dans certains calculs de traitement d’événements, il peut être nécessaire de repartitionner les événements par rapport à une autre propriété ou à un autre champ avant d’analyser les flux de données. Dans ce cas, vous pouvez utiliser un hub d’événements pour dissocier les deux parties du pipeline de traitement de flux. Pour plus d’informations, consultez *Partitions* dans [Vue d’ensemble d’Azure Event Hubs][lnk-eventhub-partitions].
-> 
-> 
-
 Pour plus d’informations sur la façon d’utiliser la messagerie appareil-à-cloud, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
+
+Pour plus d’informations sur la configuration de l’acheminement des messages, consultez [Règles d’acheminement](#routing-rules).
 
 > [!NOTE]
 > Si vous utilisez HTTP pour envoyer des messages appareil vers cloud, les valeurs et les noms de propriétés ne peuvent contenir que des caractères alphanumériques ASCII plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
@@ -73,17 +69,33 @@ Pour plus d’informations sur la façon d’utiliser la messagerie appareil-à-
 > 
 
 ### <a name="non-telemetry-traffic"></a>Trafic autre que la télémétrie
-Souvent, outre les points de données de télémétrie, les appareils envoient également des messages et demandes qui nécessitent une exécution et une gestion au niveau de la couche de logique métier d’application. Il s’agit, par exemple, des alertes critiques qui doivent déclencher une action spécifique au niveau du serveur principal, ou encore des réponses de l’appareil aux commandes envoyées par le serveur principal.
+Souvent, outre les points de données de télémétrie, les appareils envoient des messages et demandes qui nécessitent une exécution séparée et une gestion au niveau de la couche logique métier de l’application. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le service principal. Vous pouvez facilement écrire une règle d’acheminement qui envoie ces types de messages à un point de terminaison dédié à leur traitement.
 
 Pour plus d’informations sur la meilleure façon de traiter ce genre de messages, consultez [Didacticiel : traiter les messages appareil-à-cloud IoT Hub][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Options de configuration appareil-à-cloud
-Un hub IoT expose les propriétés suivantes pour vous permettre de contrôler les messages appareil-à-cloud.
+### <a name="routing-rules"></a>Règles d’acheminement
+
+IoT Hub vous permet d’acheminer les messages vers des points de terminaison IoT Hub en fonction de leurs propriétés. Les règles d’acheminement vous offrent la souplesse nécessaire pour envoyer des messages au bon endroit sans avoir à mettre en place des services supplémentaires pour les traiter ou à écrire du code en plus. Chaque règle d’acheminement que vous configurez a les propriétés suivantes :
+
+* **Nom**. Nom unique qui identifie la règle.
+* **Source**. Origine du flux de données qui fait l’objet du traitement. Par exemple, télémétrie des appareils.
+* **Condition**. Expression de requête de la règle d’acheminement exécutée sur les propriétés du message et utilisée pour déterminer s’il existe une correspondance pour le point de terminaison. Pour plus d’informations sur la construction d’une condition d’acheminement, consultez la [Référence : langage de requête pour jumeaux d’appareils et travaux][lnk-devguide-query-language].
+* **Point de terminaison**. Nom du point de terminaison auquel IoT Hub envoie des messages qui correspondent à la condition. Les points de terminaison doivent être dans la même région que l’IoT Hub, sinon des écritures inter-régions peuvent vous être facturées.
+
+Un seul message peut correspondre à la condition de plusieurs règles d’acheminement, auquel cas IoT Hub remet le message au point de terminaison associé à chaque règle ayant affiché une correspondance. Par ailleurs, IoT Hub déduplique automatiquement la remise des messages ; par conséquent, si un message correspond à plusieurs règles qui ont toutes la même destination, il n’est écrit qu’une seule fois dans cette destination.
+
+Pour plus d’informations sur la création de points de terminaison personnalisés dans IoT Hub, consultez la page [Points de terminaison IoT Hub][lnk-devguide-endpoints].
+
+### <a name="built-in-endpoint-messagesevents"></a>Point de terminaison prédéfini : messages/events
+
+Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages **messages/events** prédéfini.
 
 * **Nombre de partitions**. Configurez cette propriété lors de la création pour définir le nombre de partitions pour la réception d’événements appareil-à-cloud.
 * **Durée de rétention**. Cette propriété spécifie la durée de rétention des messages appareil-à-cloud. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours.
 
-À l’instar d’Event Hubs, IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison de la réception de messages appareil vers cloud.
+IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
+
+Par défaut, tous les messages qui ne correspondent pas explicitement à une règle d’acheminement des messages sont écrits sur le point de terminaison prédéfini. Si vous désactivez cet itinéraire de secours, les messages qui ne correspondent explicitement à aucune règle d’acheminement des messages sont supprimés.
 
 Toutes les propriétés ci-dessus peuvent être modifiées par programme par le biais des [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis] ou du [Portail Azure][lnk-management-portal].
 
@@ -120,7 +132,7 @@ Chaque message cloud-à-appareil cible un seul appareil en définissant la propr
 > 
 
 ### <a name="message-lifecycle"></a>Cycle de vie des messages
-Pour garantir la remise au moins une fois des messages, IoT Hub conserve les messages cloud-à-appareil dans des files d’attente par appareil. Les appareils doivent explicitement confirmer l’ *achèvement* afin que IoT Hub supprime les messages de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
+Pour garantir au moins une remise des messages, IoT Hub conserve les messages cloud vers appareil dans des files d’attente par appareil. Les appareils doivent explicitement confirmer l’ *achèvement* afin que IoT Hub supprime les messages de la file d’attente. Cela garantit la résilience contre les échecs de connectivité et d’appareils.
 
 L’illustration suivante présente le graphique d’état du cycle de vie d’un message cloud-à-appareil.
 
@@ -140,7 +152,7 @@ Un message peut passer de l’état **Enqueued** (En file d’attente) à l’é
 Pour accéder à des instructions sur les messages cloud-à-appareil, consultez [Didacticiel : envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d-tutorial]. Pour accéder aux rubriques de référence à propos des différences de présentation de la fonctionnalité cloud-à-appareil entre les SDK Azure IoT, consultez [SDK Azure IoT][lnk-sdks].
 
 > [!NOTE]
-> Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Par exemple, le contenu du message a bien été conservé dans le stockage local ou une opération a été exécutée avec succès. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Parfois, pour les tâches longues, vous pouvez terminer le message cloud vers appareil après la conservation de la description de la tâche dans le stockage local. Vous pouvez ensuite notifier le serveur principal d’applications à l’aide d’un ou de plusieurs messages appareil vers cloud à différents stades de la progression de la tâche.
+> Généralement, les messages cloud-à-appareil sont achevés à chaque fois que la perte du message n’affecte pas la logique d’application. Par exemple, le contenu du message a bien été conservé dans le stockage local ou une opération a été exécutée avec succès. Le message peut également transporter des informations temporaires, dont la perte n’aurait aucun impact sur les fonctionnalités de l’application. Parfois, pour les tâches longues, vous pouvez terminer le message cloud vers appareil après la conservation de la description de la tâche dans le stockage local. Vous pouvez ensuite notifier le serveur principal de la solution à l’aide d’un ou de plusieurs messages appareil vers cloud à différents stades de la progression de la tâche.
 > 
 > 
 
@@ -178,7 +190,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 | --- | --- |
 | EnqueuedTimeUtc |Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
 | OriginalMessageId |**MessageId** du message Cloud vers appareil auquel appartiennent ces informations de commentaires. |
-| StatusCode |Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = réussite <br/> 1 = message arrivé à expiration <br/> 2 = nombre maximal de remises dépassé <br/>  3 = message rejeté |
+| StatusCode |Entier obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> 0 = réussite <br/> 1 = message arrivé à expiration <br/> 2 = nombre maximal de remises dépassé <br/> &3; = message rejeté |
 | Description |Valeurs de chaîne pour **StatusCode**. |
 | deviceId |**DeviceId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
 | DeviceGenerationId |**DeviceGenerationId** de l’appareil cible du message Cloud vers appareil auquel appartient ce commentaire. |
@@ -220,21 +232,30 @@ Chaque IoT Hub expose les options de configuration suivantes pour la messagerie 
 Pour plus d’informations, consultez [créer des IoT Hubs][lnk-portal].
 
 ## <a name="read-device-to-cloud-messages"></a>Lires les messages appareil-à-cloud
-IoT Hub expose un point de terminaison pour permettre aux services de votre serveur principal de lire les messages appareil-à-cloud que reçoit votre hub. Le point de terminaison est compatible avec Event Hub, ce qui vous permet d’utiliser tout mécanisme pris en charge par le service Event Hubs pour la lecture des messages.
+IoT Hub expose le point de terminaison prédéfini **messages/events** pour permettre à vos services principaux de lire les messages appareil vers cloud que reçoit votre hub. Ce point de terminaison est compatible avec Event Hubs, ce qui vous permet d’utiliser tous les mécanismes pris en charge par le service Event Hubs pour lire les messages.
+
+Vous pouvez également créer des points de terminaison personnalisés dans IoT Hub. IoT Hub prend actuellement en charge les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus. Pour plus d’informations sur la lecture à partir de ces services, consultez les pages : lecture à partir [d’Event Hubs][lnk-getstarted-eh], lecture à partir de [Files d’attente Service Bus][lnk-getstarted-queue], lecture à partir de [Rubriques Service Bus][lnk-getstarted-topic].
+
+### <a name="reading-from-the-built-in-endpoint"></a>Lecture à partir du point de terminaison prédéfini
 
 Lorsque vous utilisez le [Kit de développement logiciel (SDK) Azure Service Bus pour .NET][lnk-servicebus-sdk] ou [l’hôte du processeur d’événements Event Hubs][lnk-eventprocessorhost], vous pouvez utiliser toutes les chaînes de connexion IoT Hub avec les autorisations appropriées. Vous utilisez ensuite **messages/événements** comme nom d’Event Hub.
 
 Lorsque vous utilisez des Kits de développement logiciel (SDK) ou des intégrations de produits qui n’ont pas connaissance d’IoT Hub, vous devez récupérer un point de terminaison compatible avec Event Hubs et un nom compatible à partir des paramètres IoT Hub dans le [Portail Azure][lnk-management-portal] :
 
-1. Dans le panneau IoT Hub, cliquez sur **Messagerie**.
-2. Dans la section **Device-to-cloud settings** (Paramètres appareil-à-cloud), vous trouverez les valeurs suivantes : **Point de terminaison compatible avec les hubs d’événements**, **Nom compatible avec les hubs d’événements** et **Partitions**.
+1. Dans le panneau IoT Hub, cliquez sur **Points de terminaison**.
+2. Dans la section **Points de terminaison prédéfinis**, cliquez sur **Événements**. Le panneau contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de rétention** et **Groupes de consommateurs**.
    
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
 
 > [!NOTE]
-> Si le Kit de développement logiciel (SDK) requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le modèle du **Point de terminaison compatible avec les hubs d’événements**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
+> Le Kit de développement logiciel (SDK) IoT Hub requiert le nom de point de terminaison IoT Hub, à savoir **messages/events** comme le montre le panneau **Points de terminaison**.
+>
+>
+
+> [!NOTE]
+> Si le SDK que vous utilisez requiert une valeur **Nom d’hôte** ou **Espace de noms**, supprimez le schéma du **Point de terminaison compatible avec Event Hub**. Par exemple, si votre point de terminaison compatible avec les hubs d’événements est **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, le **Nom d’hôte** est **iothub-ns-myiothub-1234.servicebus.windows.net** et l’**Espace de noms** est **iothub-ns-myiothub-1234**.
 > 
-> 
+>
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au Event Hub ci-dessus.
 
@@ -313,7 +334,7 @@ Prenez en compte les points suivants lorsque vous choisissez votre protocole pou
 ## <a name="port-numbers"></a>Numéros de ports
 Les appareils peuvent communiquer avec IoT Hub dans Azure à l’aide de divers protocoles. En règle générale, le choix du protocole dépend des exigences spécifiques de la solution. Le tableau suivant répertorie les ports de sortie qui doivent être ouverts pour qu’un appareil puisse utiliser un protocole spécifique :
 
-| Protocole | Port(s) |
+| Protocole | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sur WebSockets |443 |
@@ -327,24 +348,24 @@ Lorsque vous avez créé un IoT Hub dans une région Azure, l’IoT Hub conserve
 ## <a name="notes-on-mqtt-support"></a>Remarques sur la prise en charge MQTT
 IoT Hub implémente le protocole MQTT v3.1.1 avec le comportement spécifique et les limitations suivantes :
 
-* **QoS 2 n’est pas pris en charge**. Quand un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand un client d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
-* **Les messages Retain ne sont pas persistants**. Si un client d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+* **QoS 2 n’est pas pris en charge**. Quand une application d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau. Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**.
+* **Les messages Retain ne sont pas persistants**. Si une application d’appareil publie un message avec l’indicateur RETAIN (conserver) défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
 
 Pour plus d’informations, consultez la [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt].
 
 Enfin, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite l’exécution et l’utilisation d’une passerelle de protocole personnalisée.
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
-Autres rubriques de référence dans le Guide du développeur :
+Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
-* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser lors du développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 * La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous savez comment envoyer et recevoir des messages avec IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur :
+À présent que vous savez comment envoyer et recevoir des messages avec IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
 * [Charger des fichiers à partir d’un appareil][lnk-devguide-upload]
 * [Gérer les identités des appareils dans IoT Hub][lnk-devguide-identities]
@@ -374,6 +395,9 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
+[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
@@ -388,7 +412,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-compatible-endpoint]: iot-hub-devguide-messaging.md#read-device-to-cloud-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
-[lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
 [lnk-c2d-configuration]: iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
@@ -405,7 +428,8 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
-
+[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -413,6 +437,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

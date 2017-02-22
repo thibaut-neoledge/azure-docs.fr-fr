@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 
 ---
@@ -34,13 +34,13 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez en créer un [gratuitement][lnk-free-trial] en quelques minutes.
-* [Azure CLI 0.10.4][lnk-CLI-install] ou version ultérieure. Si vous disposez déjà d’Azure CLI, vous pouvez valider la version actuelle à l’invite de commandes avec la commande suivante :
+* [Azure CLI 0.10.4][lnk-CLI-install] ou version ultérieure. Si vous avez déjà installé l’interface de ligne de commande (CLI) Azure, vous pouvez valider la version actuelle à l’invite de commandes avec la commande suivante :
   ```
     azure --version
   ```
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). L’interface de ligne de commande (CLI) Azure doit être en mode Azure Resource Manager :
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). L’interface de ligne de commande (CLI) Azure doit être en mode Azure Resource Manager :
 > 
 > ```
 > azure config mode arm
@@ -49,13 +49,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 > 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Configurer votre compte et votre abonnement Microsoft Azure
-1. À l’invite de commandes, connectez-vous en tapant la commande suivante
+1. À l’invite de commandes, connectez-vous en tapant la commande suivante :
    
    ```
     azure login
    ```
    Utilisez le navigateur web suggéré et le code d’authentification.
-2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements Azure associés à vos informations d’identification. Vous pouvez afficher les abonnements et identifier l’abonnement Azure par défaut à l’aide de la commande suivante
+2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements Azure associés à vos informations d’identification. Vous pouvez afficher les abonnements et identifier l’abonnement Azure par défaut à l’aide de la commande suivante :
    
    ```
     azure account list 
@@ -67,7 +67,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
     azure account set <subscription name>
    ```
 
-3. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un nommé **exampleResourceGroup** 
+3. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un nommé **exampleResourceGroup** :
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -88,21 +88,21 @@ Paramètres obligatoires :
     - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
     - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
 ```
-Pour afficher tous les paramètres disponibles pour la création, vous pouvez utiliser la commande d’aide dans une invite de commandes
+Pour afficher tous les paramètres disponibles pour la création, vous pouvez utiliser la commande d’aide dans une invite de commandes :
 
 ```
     azure iothub create -h 
 ```
 Exemple rapide :
 
- Pour créer un IoT Hub appelé **exampleIoTHubName** dans le groupe de ressources **exampleResourceGroup** exécutez simplement la commande suivante
+ Pour créer un IoT Hub appelé **exampleIoTHubName** dans le groupe de ressources **exampleResourceGroup** exécutez la commande suivante :
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> Cette commande CLI Azure crée un IoT Hub Standard S1 pour lequel vous êtes facturé. Vous pouvez supprimer l’IoT Hub **exampleIoTHubName** à l’aide de la commande suivante 
+> Cette commande CLI Azure crée un IoT Hub Standard S1 pour lequel vous êtes facturé. Vous pouvez supprimer l’IoT Hub **exampleIoTHubName** à l’aide de la commande suivante :
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -133,6 +133,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

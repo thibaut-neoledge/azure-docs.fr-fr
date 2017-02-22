@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [portail Azure](active-directory-groups-create-azure-portal.md)
 > * [Portail Azure Classic](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 L’une des principales fonctionnalités de la gestion des utilisateurs Azure Active Directory (Azure AD) est la possibilité de créer des groupes d’utilisateurs. Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs simultanément. Vous pouvez également utiliser des groupes pour affecter des autorisations d’accès à
 
@@ -73,13 +73,13 @@ Lorsqu’un attribut d’un utilisateur change, le système évalue toutes les r
 
 > [!NOTE]
 > Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365. Les appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications.
-> 
+>
 > L’appartenance dynamique à des groupes nécessite qu’une licence Azure AD Premium soit affectée à
-> 
+>
 > * L’administrateur qui gère la règle sur un groupe
 > * Tous les membres du groupe
-> 
-> 
+>
+>
 
 **Pour activer l’appartenance dynamique pour un groupe**
 
@@ -103,7 +103,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

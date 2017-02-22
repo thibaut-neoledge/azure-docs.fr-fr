@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 80b391e43417ce09bd8aaaa04e48fcd85baf9323
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
 
 
 ---
@@ -37,7 +37,7 @@ Notez que ce didacticiel décrit l’utilisation de AAC. Cependant, FMLE ne pren
 
 ## <a name="prerequisites"></a>Conditions préalables
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
-* Assurez-vous qu’il y a un point de terminaison de diffusion en continu en cours d’exécution avec au moins une unité de diffusion en continu allouée. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
+* Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Lancez l’outil et connectez-vous à votre compte AMS.
 
@@ -49,13 +49,14 @@ Notez que ce didacticiel décrit l’utilisation de AAC. Cependant, FMLE ne pren
 ## <a name="create-a-channel"></a>Créer un canal
 1. Dans l’outil AMSE, accédez à l’onglet **Live** , puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...** .
 
-![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-1. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTPM**. Vous pouvez laisser tous les autres paramètres inchangés.
+2. Spécifiez un nom de canal (le champ Description est facultatif). Sous Paramètres du canal, sélectionnez **Standard** pour l’option Live Encoding, avec le protocole d’entrée défini sur **RTPM**. Vous pouvez laisser tous les autres paramètres inchangés.
 
-Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
+    Vérifiez que l’option **Démarrer maintenant le nouveau canal** est sélectionnée.
 
-1. Cliquez sur **Créer un canal**.
+3. Cliquez sur **Créer un canal**.
+
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
@@ -134,9 +135,10 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 >
 
 ## <a name="test-playback"></a>Tester la lecture
-1. Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
 
-    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
+Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
+
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
 Si le flux s’affiche dans le lecteur, cela signifie que l’encodeur a été correctement configuré pour se connecter à AMS.
 
@@ -150,7 +152,9 @@ Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les p
 3. Cochez la case **Démarrer le programme maintenant** .
 4. Cliquez sur **Créer le programme**.  
 
-    Remarque : la création d’un programme prend moins de temps que la création d’un canal.    
+    >[!NOTE]
+    >La création d’un programme prend moins de temps que la création d’un canal.
+        
 5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)**, puis sélectionnez **avec Azure Media Player**.  
 6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu).
 
@@ -167,6 +171,6 @@ Pour obtenir des instructions détaillées, reportez-vous à la rubrique consacr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

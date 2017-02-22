@@ -1,5 +1,5 @@
 ---
-title: "Sortie dans un cache Redis Azure depuis Azure Stream Analytics à l’aide d’Azure Functions | Microsoft Docs"
+title: "Traitement en temps réel Stream Analytics pour Azure Functions | Microsoft Docs"
 description: "Découvrez comment utiliser une fonction Azure connectée à une file d’attente Service Bus pour remplir un cache Redis Azure à partir de la sortie d’une tâche Stream Analytics."
 keywords: "flux de données, cache redis, file d’attente Service Bus"
 services: stream-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
 
 
 ---
@@ -207,6 +207,6 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités, suivez 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

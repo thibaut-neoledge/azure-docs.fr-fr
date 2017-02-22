@@ -4,7 +4,7 @@ description: "Considérations importantes avant la sauvegarde de machines virtue
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: sauvegarde de machines virtuelles
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
 ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
@@ -95,7 +95,7 @@ La majeure partie du temps de sauvegarde est consacrée à la lecture et la copi
 ## <a name="total-restore-time"></a>Temps de restauration total
 Une opération de restauration se compose de deux sous-tâches principales : copie de données depuis un coffre vers le compte de stockage choisi et création de la machine virtuelle. La copie de données depuis un coffre dépend de l’endroit où les sauvegardes sont stockées en interne dans Azure et de l’endroit où le compte de stockage client est stocké. Le temps nécessaire pour copier des données dépend des paramètres suivants :
 * Délai d’attente de la file : étant donné que le service traite des restaurations à partir de plusieurs clients en même temps, les demandes de restauration sont mises en file d’attente.
-* Durée de la copie de données : les données sont copiées de manière similaire à un premier processus de sauvegarde d’un coffre vers un compte de stockage client. Si le compte de stockage dans lequel le service de sauvegarde doit écrire des données depuis un coffre est chargé, la durée de la copie peut augmenter. Par conséquent, veillez à sélectionner un compte de stockage qui n’est pas chargé avec d’autres opérations d’écriture ou de lecture d’applications pendant la restauration pour optimiser le temps de copie. 
+* Durée de la copie de données : les données sont copiées de manière similaire à un premier processus de sauvegarde d’un coffre vers un compte de stockage client. Si le compte de stockage dans lequel le service de sauvegarde doit écrire des données depuis un coffre est chargé, la durée de la copie peut augmenter. Par conséquent, veillez à sélectionner un compte de stockage qui n’est pas chargé avec d’autres opérations d’écriture ou de lecture d’applications pendant la restauration pour optimiser le temps de copie.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Nous vous suggérons de suivre les meilleures pratiques ci-dessous lors de la configuration de sauvegardes de machines virtuelles :
@@ -141,6 +141,6 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: 75c2b2a467a03b51519cad530bf3d03ed32c4300
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
 
 
 ---
@@ -120,7 +120,7 @@ Utilisez la section Notification pour définir les paramètres de base pour votr
 Vous pouvez utiliser la section Contenu pour modifier le contenu de vos annonces, de vos sondages, de vos Push de données et de vos vignettes (Windows Phone uniquement). Le paramètre Contenu de vos campagnes Push est spécifique à chaque type de campagne. 
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation de l’interface utilisateur - Reach - Contenu Push][Lien 29]
+* [Documentation de l’interface utilisateur - Reach - Contenu Push][Link 29]
 
 ![Reach-Campaign5][24]
 
@@ -136,7 +136,7 @@ Utilisez la section Audience pour définir une liste d'éléments standard pour 
   Une fois votre audience définie, vous pouvez utiliser le bouton de simulation pour savoir combien d'utilisateurs recevront cette notification Push. Ce bouton calculera le nombre d'utilisateurs connus potentiellement ciblés par cette audience (il s'agit d'une estimation basée sur un échantillon aléatoire d'utilisateurs). Notez que les utilisateurs qui ont désinstallé l'application font également partie de l'audience mais ne peuvent pas être contactés.
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Lien 28]
+* [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
 ![Reach-Campaign6][25]
 
@@ -158,7 +158,7 @@ Vous pouvez utiliser la section Délai d'exécution pour définir à quel moment
 > Les campagnes qui n'ont pas de date de fin peuvent mettre en cache des notifications Push localement et continuer de les afficher une fois que vous avez terminé manuellement ces campagnes. Pour éviter cela, indiquer une date de fin pour ces campagnes.
 
 ### <a name="see-also"></a>Voir aussi
-* [Reach - Procédures - Planification][Lien 3] 
+* [Reach - Procédures - Planification][Link 3] 
 
 ![Reach-Campaign8][27]
 
@@ -172,7 +172,7 @@ Vous pouvez utiliser la section Test pour envoyer cette notification Push à vot
 > Aucune donnée côté serveur n'est enregistrée lorsque vous utilisez le bouton pour « tester » les notifications Push. Les données sont enregistrées uniquement pour les vraies campagnes de notification Push.
 
 ### <a name="see-also"></a>Voir aussi
-* [Documentation sur l’interface utilisateur - Mon compte][Lien 14]
+* [Documentation sur l’interface utilisateur - Mon compte][Link 14]
 
 ![Reach-Campaign9][28]
 
@@ -237,39 +237,39 @@ Vous pouvez utiliser la section Test pour envoyer cette notification Push à vot
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Lien 1]: mobile-engagement-user-interface.md
-[Lien 2]: mobile-engagement-troubleshooting-guide.md
-[Lien 3]: mobile-engagement-how-tos.md
-[Lien 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Lien 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Lien 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Lien 7]: https://account.windowsazure.com/PreviewFeatures
-[Lien 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Lien 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Lien 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Lien 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Lien 12]: mobile-engagement-user-interface-navigation.md
-[Lien 13]: mobile-engagement-user-interface-home.md
-[Lien 14]: mobile-engagement-user-interface-my-account.md
-[Lien 15]: mobile-engagement-user-interface-analytics.md
-[Lien 16]: mobile-engagement-user-interface-monitor.md
-[Lien 17]: mobile-engagement-user-interface-reach.md
-[Lien 18]: mobile-engagement-user-interface-segments.md
-[Lien 19]: mobile-engagement-user-interface-dashboard.md
-[Lien 20]: mobile-engagement-user-interface-settings.md
-[Lien 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Lien 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Lien 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Lien 24]: mobile-engagement-troubleshooting-guide-service.md
-[Lien 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Lien 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Lien 27]: mobile-engagement-user-interface-reach-campaign.md
-[Lien 28]: mobile-engagement-user-interface-reach-criterion.md
-[Lien 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

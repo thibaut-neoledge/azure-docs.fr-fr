@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
 
 
 ---
@@ -25,17 +25,16 @@ ms.openlocfilehash: a7b22dba766628279b175d73eda3f01866aeba9d
 
 Les rôles d’administrateur disponibles sont les suivants :
 
-* **Administrateur de facturation**: effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
-* **Administrateur général/Administrateur d’entreprise**: a accès à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
+* **[Administrateur de facturation](#billing-administrator)** : effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
+* **[Administrateur général/Administrateur d’entreprise](#global-administrator)** : a accès à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de l’entreprise ». Il est « Administrateur général » dans le [portail Azure](https://portal.azure.com).
   >
   >
-* **Administrateur de conformité**:
+* **Administrateur de conformité** : les utilisateurs disposant de ce rôle possèdent des autorisations de gestion dans le [Centre de sécurité et conformité compatibilité de la sécurité Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1?ui=en-US&rs=en-US&ad=US&fromAR=1) et le [Centre d'administration Exchange](https://technet.microsoft.com/en-us/library/jj657489(v=exchg.150).aspx), et peuvent lire les rapports dans le Centre d’administration Office 365. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrateur de service CRM** : les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft CRM Online, lorsque le service est présent. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Approbateur d’accès au référentiel sécurisé client**: lorsque le service de référentiel sécurisé est activé, les utilisateurs disposant de ce rôle peuvent approuver d’accès aux informations de l’entreprise par les ingénieurs de Microsoft. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Administrateurs d’appareil**: les utilisateurs disposant de ce rôle deviennent administrateurs sur tous les appareils Windows 10 qui sont joints à Azure Active Directory.
+* **Administrateurs d’appareils** : les utilisateurs disposant de ce rôle deviennent administrateurs sur tous les appareils Windows 10 joints à Azure Active Directory.
 * **Lecteurs de répertoire**: il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge [l’infrastructure de consentement](active-directory-integrating-applications.md). Vous ne devez pas l’affecter à tous les utilisateurs.
 * **Comptes de synchronisation de répertoire**: n’utilisez pas cela. Ce rôle est automatiquement attribué au service Azure AD Connect et n’est pas prévu ni pris en charge pour une autre utilisation.
 * **Enregistreurs de répertoire**: il s’agit d’un rôle hérité qui doit être affecté aux applications ne prenant pas en charge [l’infrastructure de consentement](active-directory-integrating-applications.md). Vous ne devez pas l’affecter à tous les utilisateurs.
@@ -43,22 +42,25 @@ Les rôles d’administrateur disponibles sont les suivants :
 * **Administrateur de service Intune**: les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft Intune Online, lorsque le service est présent. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Skype pour administrateur de service d’entreprise**: les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft Skype Entreprise, lorsque le service est présent. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Ce rôle a été appelé précédemment sous le nom de rôle **Administrateur de service Lync** .
 * **Inviteur d’invités** : les utilisateurs ayant ce rôle peuvent gérer les invitations d’invités. Il n’inclut pas d’autres autorisations.
-* **Administrateur de mots de passe/Administrateur du support technique**: réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
+* **Administrateur de la boîte aux lettres** : ce rôle n’est utilisé que dans le cadre de la prise en charge de la messagerie Exchange Online sur les appareils RIM Blackberry. Si votre organisation n’utilise pas la messagerie Exchange Online sur les appareils RIM Blackberry, n’employez pas ce rôle.
+* **Support de niveau 1 de partenaire** : ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
+* **Support de niveau 2 de partenaire** : ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
+* **[Administrateur de mots de passe/Administrateur de support technique](#password-administrator)** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur Helpdesk ».
   >
   >
 * **Administrateur de service SharePoint**: les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft SharePoint Online, lorsque le service est présent. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Administrateur de services fédérés**: gère les demandes de service et surveille l’état des services.
+* **[Administrateur du service](#service-administrator)** : gère les demandes de service et surveille l’état des services.
 
   > [!NOTE]
   > Pour assigner le rôle d’administrateur du service à un utilisateur, l’administrateur général doit d’abord assigner des autorisations administratives à l’utilisateur du service, comme Exchange Online, puis lui assigner le rôle d’administrateur du service dans le portail Azure Classic.
   >
   >
-* **Administrateur de comptes utilisateur**: réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
-* **Lecteur de sécurité** : accès en lecture seule à certaines fonctionnalités de sécurité des services Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
-* **Administrateur de sécurité** : toutes les autorisations en lecture seule du rôle **Lecteur de sécurité** plus certaines autorisations d’administration supplémentaires pour les mêmes services : Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
+* **[Administrateur des comptes utilisateur](#user-administrator)** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, groupes d’utilisateurs et demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
+* **[Lecteur de sécurité](#security-reader)** : accès en lecture seule à certaines fonctionnalités de sécurité des services Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
+* **[Administrateur de sécurité](#security-administrator)** : toutes les autorisations en lecture seule du rôle **Lecteur de sécurité**, plus certaines autorisations d’administration supplémentaires pour les mêmes services : Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health et Centre de sécurité et conformité Office 365.
 
 ## <a name="administrator-permissions"></a>Autorisations des administrateurs
 ### <a name="billing-administrator"></a>Administrateur de facturation
@@ -113,7 +115,7 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 7. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
+* Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)
 * Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gestion des utilisateurs](active-directory-create-users.md)
@@ -122,6 +124,6 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

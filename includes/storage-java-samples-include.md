@@ -9,6 +9,6 @@ Voici la liste de tous nos exemples de référentiel pour la bibliothèque clien
 * [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
 * [Storage Java Client Library Samples (Exemples de bibliothèque cliente de stockage en Java)](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

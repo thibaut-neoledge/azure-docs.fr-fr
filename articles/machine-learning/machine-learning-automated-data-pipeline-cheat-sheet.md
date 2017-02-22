@@ -1,5 +1,5 @@
 ---
-title: "Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning | Microsoft Docs"
+title: "Aide-mémoire sur le pipeline de données automatisé Azure Machine Learning | Microsoft Docs"
 description: "Aide-mémoire imprimable qui vous montre comment configurer un pipeline de données automatisé dans votre service web Azure Machine Learning, que vos données soient locales, diffusées, dans Azure ou un service cloud tiers."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
 
 
 ---
@@ -29,7 +29,7 @@ Cet aide-mémoire vous guide lors de la prise de décisions. Il propose des lien
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Télécharger l’aide-mémoire relatif au pipeline de données automatisé Machine Learning
 Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format tabloïd (11 x 17 pouces).
 
- **[aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+**[aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
 
@@ -46,6 +46,6 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

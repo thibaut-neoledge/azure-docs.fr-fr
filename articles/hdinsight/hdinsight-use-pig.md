@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e8239199edb40813081094b4efa680346685b42
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
 
 
 ---
@@ -98,6 +98,9 @@ HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilise
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 | [Bureau à distance](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Exécute des tâches Pig sur Azure HDInsight à l’aide de services SQL Server Integration Services locaux
 Vous pouvez également utiliser les services SQL Server Integration Services (SSIS) pour exécuter une tâche Pig. Le pack de fonctionnalités Azure pour SSIS fournit les composants suivants, compatibles avec les tâches Pig sur HDInsight.
 
@@ -115,8 +118,6 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 * [Utilisation d’Oozie avec HDInsight](hdinsight-use-oozie.md)
 * [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
 
-[check]: ./media/hdinsight-use-pig/hdi.checkmark.png
-
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
@@ -124,9 +125,9 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -139,13 +140,12 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
-[image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-[image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
-[image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

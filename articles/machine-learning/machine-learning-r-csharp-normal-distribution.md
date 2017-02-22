@@ -1,6 +1,6 @@
 ---
-title: Suite de services web de distribution normale | Microsoft Docs
-description: Suite de services web de distribution normale
+title: "(obsolète) Suite de services web de distribution normale - Azure | Microsoft Docs"
+description: "(obsolète) Suite de services web de distribution normale"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cd4f532d69f9380ac96675d403dbad1c83e89636
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>Normal Distribution Suite
+# <a name="deprecated-normal-distribution-suite"></a>(obsolète) Suite de distribution normale
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 La suite de distribution normale correspond à un ensemble d’exemples de services web ([Générateur](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/ndp5)) qui facilite la génération et la gestion des distributions normales. Les services permettent de générer une séquence de distribution normale de n’importe quelle longueur, de calculer les quantiles à partir d’une probabilité donnée et de calculer la probabilité à partir d’un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution normale repose sur les fonctions R qnorm, rnorm et pnorm qui sont incluses dans le package de statistiques R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

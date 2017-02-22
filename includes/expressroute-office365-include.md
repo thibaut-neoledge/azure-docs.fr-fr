@@ -9,6 +9,6 @@ Les offres SaaS, comme Office 365 et Dynamics 365, ont été créées pour être
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

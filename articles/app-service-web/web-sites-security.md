@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: e65a655bc9e85b4797d795c9be6ded9ef253ed86
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
 
 
 ---
@@ -60,7 +60,7 @@ Si vous utilisez le nom de domaine **\*.azurewebsites.net** créé pour votre ap
 L’activation du protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protège la communication entre votre application et ses utilisateurs contre les attaques de l’intercepteur.
 
 ## <a name="secure-data-tier"></a>Sécurisation de la couche Données
-App Service est hautement intégré dans la base de données SQL, de sorte que toutes les chaînes de connexion sont chiffrées sur le panneau et sont décryptées uniquement sur la machine virtuelle sur laquelle l’application s’exécute *et* uniquement lorsque l’application s’exécute. En outre, Azure SQL Database comprend plusieurs fonctionnalités de sécurité qui protègent vos données d’application des cyber-menaces, notamment [le chiffrement au repos](https://msdn.microsoft.com/library/dn948096.aspx), [le chiffrement intégral (Always Encrypted)](https://msdn.microsoft.com/library/mt163865.aspx), [le masquage dynamique des données (Dynamic Data Masking)](../sql-database/sql-database-dynamic-data-masking-get-started.md) et [la détection des menaces](../sql-database/sql-database-threat-detection-get-started.md). Si vous avez des données sensibles ou devez répondre à des exigences de conformité, consultez la rubrique [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md) pour plus d’informations sur la manière de sécuriser vos données.
+App Service est hautement intégré dans la base de données SQL, de sorte que toutes les chaînes de connexion sont chiffrées sur le panneau et sont décryptées uniquement sur la machine virtuelle sur laquelle l’application s’exécute *et* uniquement lorsque l’application s’exécute. En outre, Azure SQL Database comprend plusieurs fonctionnalités de sécurité qui protègent vos données d’application des cyber-menaces, notamment [le chiffrement au repos](https://msdn.microsoft.com/library/dn948096.aspx), [le chiffrement intégral (Always Encrypted)](https://msdn.microsoft.com/library/mt163865.aspx), [le masquage dynamique des données (Dynamic Data Masking)](../sql-database/sql-database-dynamic-data-masking-get-started.md) et [la détection des menaces](../sql-database/sql-database-threat-detection.md). Si vous avez des données sensibles ou devez répondre à des exigences de conformité, consultez la rubrique [Sécurisation de votre base de données SQL](../sql-database/sql-database-security-overview.md) pour plus d’informations sur la manière de sécuriser vos données.
 
 Si vous utilisez un fournisseur de base de données tiers, tels que ClearDB, vous devez consulter directement la documentation du fournisseur quant aux meilleures pratiques de sécurité.  
 
@@ -110,7 +110,7 @@ Pour plus d’informations sur les fichiers **web.config** ou **applicationhost.
 Pour plus d’informations sur la journalisation des informations des applications App Service, également utile pour détecter les attaques, consultez la page [Activer la journalisation des diagnostics](web-sites-enable-diagnostic-log.md).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -120,6 +120,6 @@ Pour plus d’informations sur la journalisation des informations des applicatio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

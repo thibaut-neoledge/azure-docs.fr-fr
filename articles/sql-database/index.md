@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure SQL Database - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Découvrez SQL Database, une base de données en tant que service dans le cloud. Des didacticiels, vidéos et autres documents vous montrent comment configurer, vous connecter et gérer une base de données relationnelle."
+services: sql-database
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
+ms.sourcegitcommit: b7dd50ea4075bdd82ef671a3dcd05460444d2312
+ms.openlocfilehash: 53111017309665d9e2e1ca499f5b77e0424e47da
 
 ---
 
@@ -157,6 +168,6 @@ Découvrez comment utiliser SQL Database, une base de données relationnelle en 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

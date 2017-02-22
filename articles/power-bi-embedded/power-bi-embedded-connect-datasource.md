@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+ms.sourcegitcommit: 5c4b5e09ac5e336504be32533ad011aad102af75
+ms.openlocfilehash: fdc0d76741d5078978e1bfeadd156e84cac3a48a
 
 
 ---
@@ -31,6 +31,19 @@ Voici les différences entre l’**importation** et l’utilisation de **DirectQ
 | Les tables, colonnes *et données* sont importées ou copiées dans le jeu de données du rapport. Pour voir les modifications apportées aux données sous-jacentes, vous devez actualiser ou réimporter un jeu de données à jour et complet. |Seules les *tables et colonnes* sont importées ou copiées dans le jeu de données du rapport. Vous visualisez toujours les données les plus récentes. |
 
 Power BI Embedded vous permet d’utiliser DirectQuery avec des sources de données cloud mais pas des sources de données locales, pour l’instant.
+
+> [!NOTE]
+> La passerelle de données locale n’est pas prise en charge avec Power BI Embedded pour l’instant. Cela signifie que vous ne pouvez pas utiliser DirectQuery avec des sources de données locales.
+
+## <a name="supported-data-sources"></a>Sources de données prises en charge
+
+**DirectQuery**
+* Base de données SQL Azure
+* Azure SQL Data Warehouse
+
+**Importationation**
+
+Vous pouvez importer à l’aide de toutes les sources de données disponibles dans Power BI Desktop. Vous ne pourrez **pas** actualiser ces données dans Power BI Embedded. Vous devrez télécharger les modifications apportées à votre fichier PBIX dans Power BI Embedded. Cela est dû à l’absence de passerelle disponible. 
 
 ## <a name="benefits-of-using-directquery"></a>Avantages de l'utilisation de DirectQuery
 Il existe deux grands avantages à utiliser **DirectQuery**:
@@ -56,9 +69,11 @@ Pour garantir que les requêtes envoyées à la source de données sous-jacente 
 * [Prise en main de Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

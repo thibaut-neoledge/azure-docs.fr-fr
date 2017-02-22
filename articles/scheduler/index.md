@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentation Azure Scheduler - Didacticiels, informations de référence sur les API | Microsoft Docs"
 description: "Apprenez à utiliser Scheduler pour planifier et appeler des tâches, notamment des actions d’application récurrentes et des travaux de maintenance courants. Didacticiels, références d’API et autres."
+services: scheduler
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: scheduler
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
+ms.sourcegitcommit: ad88288056956ab29d446efbe105157f6b732d5f
+ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
 
 ---
 # <a name="scheduler-documentation"></a>Documentation Scheduler
@@ -101,6 +112,6 @@ Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

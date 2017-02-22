@@ -1,6 +1,6 @@
 ---
-title: "Gestion des jeux d’enregistrements DNS et des enregistrements à l’aide du portail Azure | Microsoft Docs"
-description: "Gestion des jeux d&quot;enregistrements DNS et des enregistrements lorsque votre domaine est hébergé dans Azure DNS."
+title: "Gérer des jeux d’enregistrements DNS et des enregistrements avec Azure DNS | Microsoft Docs"
+description: "Azure DNS permet de gérer les jeux d’enregistrements DNS et les enregistrements lors de l’hébergement de votre domaine."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: db14074ba4f3b5b675f608b76c496c84f7c22945
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 ---
 
@@ -105,11 +105,11 @@ Les enregistrements NS et SOA qui sont créés automatiquement sont gérés diff
 
 ### <a name="modify-soa-records"></a>Modification d'enregistrements SOA
 
-Vous ne pouvez pas ajouter ou supprimer des enregistrements du jeu d’enregistrements SOA créé automatiquement dans l’extrémité de la zone (nom = "@"). Toutefois, vous pouvez modifier les paramètres dans l’enregistrement SOA (excepté « Host ») et la durée de vie du jeu d’enregistrements.
+Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = "@"). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modification d’enregistrements NS à l’extrémité de la zone
 
-Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d’enregistrements NS créé automatiquement à l’extrémité de la zone (nom = "@"). La seule modification possible est la modification de la durée de vie du jeu d’enregistrements.
+Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le jeu d’enregistrements NS créé automatiquement à l’extrémité de la zone (nom = "@"). La seule modification possible est la modification de la durée de vie du jeu d’enregistrements.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Suppression de jeux d’enregistrements SOA ou NS
 
@@ -123,6 +123,6 @@ Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extr�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Importer des données en parallèle et en bloc à l’aide de tables de partition SQL | Microsoft Docs"
+title: "Créer et optimiser des tables pour une importation en parallèle rapide des données dans un serveur SQL Server sur une machine virtuelle Azure | Microsoft Docs"
 description: "Importer des données en parallèle et en bloc à l’aide de tables de partition SQL"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
-ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,10 +24,8 @@ ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Créer une base de données et un ensemble de groupes de fichiers
-* [Créer une base de données](https://technet.microsoft.com/library/ms176061.aspx) (si elle n’existe pas)
-* Ajoutez des groupes de fichiers à la base de données qui contiendra les fichiers physiques partitionnés.
-  
-  Pour cette opération, utilisez [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si la base n’existe pas encore ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si elle existe
+* [Créez une base de données](https://technet.microsoft.com/library/ms176061.aspx) (si elle n’existe pas).
+* Ajoutez des groupes de fichiers de base de données à la base de données qui contiendra les fichiers physiques partitionnés. Pour cette opération, utilisez [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si la base de données n’existe pas ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si elle existe.
 * Ajoutez un ou plusieurs fichiers (selon le cas) dans chaque groupe de fichiers de base de données.
   
   > [!NOTE]
@@ -185,6 +183,6 @@ Pour obtenir un exemple de procédure pas à pas complet utilisant le processus 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

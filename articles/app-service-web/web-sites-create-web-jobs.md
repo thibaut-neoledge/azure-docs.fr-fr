@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
+ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
+ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Exécuter des tâches en arrière-plan avec les tâches web
 ## <a name="overview"></a>Vue d'ensemble
-Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue, ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
+Vous pouvez exécuter des programmes ou des scripts dans WebJobs au niveau de votre application Web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de trois façons : à la demande, de façon continue ou de façon planifiée. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
 Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur le déploiement à l’aide de Visual Studio ou d’un processus de diffusion continue, consultez [Déploiement de tâches Web Azure dans Web Apps](websites-dotnet-deploy-webjobs.md).
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk.md).
 
- Azure Functions (actuellement en version préliminaire) est un autre moyen d’exécuter des programmes et des scripts dans Azure App Service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Functions](../azure-functions/functions-overview.md).
+ Azure Functions fournit une autre façon d’exécuter des scripts et des programmes à partir d’un environnement sans serveur ou d’une application App Service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Functions](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -207,6 +207,6 @@ Pour plus d’informations, consultez la page [Ressources recommandées pour Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

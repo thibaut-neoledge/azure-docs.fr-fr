@@ -1,5 +1,5 @@
 ---
-title: Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager | Microsoft Docs
+title: "Migration de ressources classiques vers Azure Resource Manager - Vue d’ensemble | Microsoft Docs"
 description: "Cet article décrit pas à pas la procédure de migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
+ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
+ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
 
 
 ---
@@ -138,6 +138,8 @@ Vous sélectionnez le réseau virtuel ou le service hébergé (s’il ne s’agi
 
 * Si la migration d’une ressource est impossible, la plateforme Azure en indique les raisons.
 
+Lors de la validation de services de stockage, vous trouverez le compte migré dans un groupe de ressources portant le même nom que votre compte de stockage avec, en suffixe, «-Migrated ».  Par exemple, si votre compte de stockage est nommé « mystorage », vous trouverez la ressource activée par ARM dans un groupe de ressources nommé « mystorage-Migrated », contenant un compte de stockage nommé « mystorage ».
+
 ### <a name="prepare"></a>Préparation
 L’opération de préparation constitue la deuxième étape du processus de migration. Le rôle de cette étape est de simuler la transformation des ressources IaaS Classic en ressources Resource Manager et de vous les présenter côte à côte pour que vous puissiez les visualiser.
 
@@ -237,7 +239,7 @@ Les noms de toutes les ressources que vous avez explicitement fournis dans le mo
 
 **J’ai reçu un message *« La machine virtuelle signale que l’agent est dans l’état général Pas prêt. Par conséquent, la machine virtuelle ne peut pas être migrée. Assurez-vous que l’état général de l’agent signalé par l’agent de machine virtuelle est « Prêt »* ou *« La machine virtuelle contient une extension dont l’état n’est pas signalé par la machine virtuelle. Par conséquent, cette machine virtuelle ne peut pas être migrée. »***
 
-Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les 5 minutes.
+Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité sortante à Internet. L’agent de machine virtuelle utilise la connectivité sortante pour atteindre le compte de stockage Azure afin de mettre à jour l’état de l’agent toutes les&5; minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous savez en quoi consiste la migration des ressources IaaS Classic vers Resource Manager, vous pouvez commencer à effectuer la migration des ressources.
@@ -250,6 +252,6 @@ Ce message est affiché lorsque la machine virtuelle n’a pas de connectivité 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c3400063097cdf70398a95e9e39e9097e27992
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
 
 
 ---
@@ -33,7 +33,7 @@ Les fonctionnalités suivantes sont disponibles dans les domaines gérés des se
 * **Utilisation de vos informations d’identification/mots de passe d’entreprise :** les mots de passe des utilisateurs dans votre client Azure AD fonctionnent avec les services de domaine Azure AD. Les utilisateurs peuvent utiliser leurs informations d’identification d’entreprise pour joindre des machines à des domaines, se connecter de manière interactive ou via le bureau à distance et s’authentifier sur le domaine géré.
 * **Prise en charge des liaisons LDAP et des lectures LDAP :** vous pouvez utiliser des applications qui reposent sur les liaisons LDAP pour authentifier les utilisateurs dans des domaines pris en charge par les services de domaine Azure AD. En outre, les applications qui utilisent des opérations de lecture LDAP pour interroger les attributs des utilisateurs ou ordinateurs à partir de l’annuaire peuvent également fonctionner auprès des services de domaine Azure AD.
 * **LDAP sécurisé (LDAPS) :** vous pouvez activer l’accès au répertoire via LDAP sécurisé (LDAPS). L’accès LDAP sécurisé est disponible au sein du réseau virtuel par défaut. Toutefois, vous pouvez activer également l’accès LDAP sécurisé via internet.
-* **Stratégie de groupe :** vous pouvez utiliser un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur et aux ordinateurs joints au domaine.
+* **Stratégie de groupe :** vous pouvez utiliser un seul objet de stratégie de groupe intégré pour les conteneurs des utilisateurs et des ordinateurs afin d’imposer la conformité aux stratégies de sécurité nécessaires pour les comptes d’utilisateur et aux ordinateurs joints au domaine. Vous pouvez également créer vos propres objets de stratégie de groupe personnalisés et les affecter à des unités d’organisation personnalisées pour gérer la stratégie de groupe.
 * **Gérer les DNS :** les membres du groupe AAD DC Administrators peuvent gérer les DNS de votre domaine géré à l’aide d'outils d’administration DNS courants comme le composant logiciel enfichable DNS Administration MMC.
 * **Créer des unités organisationnelles (UO) personnalisées :** les membres du groupe AAD DC Administrators peuvent créer des unités organisationnelles personnalisées au sein du domaine géré. Ces utilisateurs bénéficient de privilèges administratifs complets sur les unités organisationnelles personnalisées et peuvent donc ajouter/supprimer des comptes de service, des ordinateurs, des groupes, etc. au sein de ces unités organisationnelles personnalisées.
 * **Disponibilité dans plusieurs régions Azure** : consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles.
@@ -42,7 +42,6 @@ Les fonctionnalités suivantes sont disponibles dans les domaines gérés des se
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

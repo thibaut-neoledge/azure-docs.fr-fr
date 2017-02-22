@@ -99,6 +99,6 @@ Pour en savoir plus sur le déploiement de l'inscription d'appareils avec AD FS
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

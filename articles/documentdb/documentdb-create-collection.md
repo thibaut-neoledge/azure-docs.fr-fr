@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/13/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
+ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
+ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
 
 
 ---
@@ -33,18 +33,18 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 2. Dans le panneau **Compte DocumentDB** pour le compte sélectionné, cliquez sur **Ajouter une collection**.
 
     ![Capture d'écran montrant l'option Comptes DocumentDB dans la barre de lancement, le compte dans le panneau Comptes DocumentDB et la base de données dans le panneau Compte DocumentDB, dans le filtre Bases de données](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. Dans le panneau **Ajouter une collection**, entrez l’ID de votre nouvelle collection dans la zone **ID**. Les noms de collection doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Lorsque le nom est validé, une coche verte s'affiche dans la case ID.
+3. Dans le panneau **Ajouter une collection**, dans la zone **ID de collection**, entrez l’ID de votre nouvelle collection. Les noms de collection doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Lorsque le nom est validé, une coche verte s'affiche dans la case ID.
 
     ![Capture d’écran montrant le bouton Ajouter la collection dans le panneau Base de données, les paramètres dans le panneau Ajouter la collection et le bouton OK. Portail Azure pour DocumentDB - Créateur de bases de données basées sur le cloud pour les bases de données JSON NoSQL.](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. Par défaut, **Niveau de tarification** est défini sur **Standard** afin que vous puissiez personnaliser le débit et le stockage de votre collection. Pour plus d’informations sur le niveau de tarification, consultez [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md).  
-5. Sélectionnez un **Mode de partitionnement** pour la collection : **Partition unique** ou **Partitionné**.
+4. Par défaut, le paramètre **Capacité de stockage** est défini sur **250 Go** pour gérer des collections partitionnées.
 
-    Une **partition unique** possède une capacité de stockage réservée de 10 Go et peut atteindre des niveaux de débit compris entre 400 et 10 000 unités de requête par seconde (RU/s). Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez [Unités de requête](documentdb-request-units.md).
+    Définissez cette capacité de stockage sur **10 Go** si vous souhaitez une [collection à partition unique](documentdb-partition-data.md#single-partition-and-partitioned-collections) avec des niveaux de débit allant de 400 à 10 000 unités de requête par seconde (RU/s). Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez [Unités de requête](documentdb-request-units.md).
 
-    Une **collection partitionnée** peut être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 10 100 unités de requête par seconde. Pour plus d’informations sur les collections partitionnées, consultez [Collections à partition unique et collections partitionnées](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Définissez la capacité de stockage sur **250 Go** si vous souhaitez une [collection partitionnée](documentdb-partition-data.md#single-partition-and-partitioned-collections) pouvant être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 10 100 unités de requête par seconde.
 
-    Par défaut, le débit pour une nouvelle collection à partition unique est défini sur 1 000 RU/s avec une capacité de stockage de 10 Go. Pour une collection partitionnée, le débit de la collection est défini sur 10100 RU/s, sans limite maximale pour la capacité ou le débit.
-6. Si vous créez une collection partitionnée, sélectionnez la **Clé de partition** pour la collection. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations sur la sélection d’une clé de partition, consultez [Conception du partitionnement](documentdb-partition-data.md#designing-for-partitioning).
+    Définissez la capacité de stockage sur **Personnalisée** si vous souhaitez configurer une quantité autre que 10 Go ou 250 Go. La capacité de mise à l’échelle de DocumentDB est pratiquement sans limite. N’hésitez donc pas à inclure la valeur de débit et de taille de stockage dont vous avez besoin dans votre requête de support.
+
+6. Dans la zone **Clé de Partition**, entrez une clé de partition pour la collection. Cette valeur est requise pour les collections partitionnées et facultative pour les collections à partition unique. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations sur la sélection d’une clé de partition, consultez [Conception du partitionnement](documentdb-partition-data.md#designing-for-partitioning).
 7. Dans le panneau **Base de données**, créez une base de données ou utilisez une base de données existante. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin. Pour valider le nom, cliquez en dehors de la zone de texte. Quand le nom est validé, une coche verte s’affiche dans la case.
 8. Cliquez sur **OK** en bas de l'écran pour créer la nouvelle collection.
 9. La nouvelle collection s’affiche maintenant dans le filtre **Collections** du panneau **Vue d’ensemble**.
@@ -83,6 +83,6 @@ Une fois que chaque collection contient des documents, vous pouvez utiliser [Doc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

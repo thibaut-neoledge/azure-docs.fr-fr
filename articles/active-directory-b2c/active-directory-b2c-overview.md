@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -33,7 +33,7 @@ Vous pouvez écrire votre application dans le service Azure Active Directory B2C
 [!INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
 ## <a name="whats-new"></a>Nouveautés
-Consultez régulièrement cette page pour en savoir plus sur les futures modifications apportées à Azure Active Directory B2C. Nous tweeterons également à propos des mises à jour via @AzureAD.
+Consultez régulièrement cette page pour en savoir plus sur les futures modifications apportées à Azure Active Directory B2C. Nous communiquerons également les mises à jour sur Tweeter via @AzureAD.
 
 * Découvrez notre [infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) et les types de stratégies que vous pouvez créer et utiliser dans vos applications.
 * Placez un signet sur notre [blog relatif au service](https://blogs.msdn.microsoft.com/azureadb2c/) pour recevoir des notifications sur les problèmes mineurs, les mises à jour, l’état et les mesures d’atténuation du service. Continuez également de surveiller le [Tableau de bord Statut Azure](https://azure.microsoft.com/status/) .
@@ -54,6 +54,7 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 Les liens ci-dessous vous seront utiles pour explorer le service en profondeur :
 
 * Consultez les [informations de tarification relatives à Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Consultez notre [exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) pour Azure Active Directory B2C. 
 * Pour obtenir de l’aide sur le dépassement de la capacité de la pile, utilisez les balises [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 * Faites-nous part de vos commentaires sur le [forum d’Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/), votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
 * Consultez [l’article de référence sur les protocoles Azure AD B2C](active-directory-b2c-reference-protocols.md).
@@ -67,6 +68,6 @@ Nous vous encourageons à activer les notifications d’incidents de sécurité 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

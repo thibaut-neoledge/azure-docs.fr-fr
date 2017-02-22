@@ -1,9 +1,9 @@
 ---
-title: "Migration de ressources IaaS de l’environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
+title: "Migrer des machines virtuelles vers Resource Manager à l’aide d’Azure CLI | Microsoft Docs"
 description: "Cet article décrit pas à pas la procédure de migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
-ms.author: cynthn
+ms.date: 02/21/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fa3dacd0b5e2ad97cd751395d58ef3afe92aee3
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
 
 
 ---
@@ -163,6 +163,6 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,12 +1,12 @@
-1. Connectez-vous au [Portail Azure][Portail Azure].
+1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le volet de navigation gauche du portail, cliquez sur **Nouveau**, puis sur **Enterprise Integration** et sur **Relay**.
 3. Dans la boîte de dialogue **Créer un espace de noms** , entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 4. Dans le champ **Abonnement** , sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
-5. Dans le champ **[Groupe de ressources](../articles/azure-portal/resource-group-portal.md)**, choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
+5. Dans le champ **[Groupe de ressources](../articles/azure-resource-manager/resource-group-portal.md)**, choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
 6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
    
     ![Créer un espace de noms][create-namespace]
-7. Cliquez sur **Create**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+7. Cliquez sur **Create**. Le système crée l'espace de noms de service et l'active. Après quelques minutes, le système approvisionne des ressources pour votre compte.
 
 ### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
 1. Dans la liste des espaces de noms, cliquez sur le nom de l’espace de noms que vous venez de créer.
@@ -18,16 +18,16 @@
    
     ![connection-string][connection-string]
 
+5. Répétez l’étape précédente, en copiant et collant la valeur de **Clé primaire** dans un emplacement temporaire pour l’utiliser ultérieurement.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

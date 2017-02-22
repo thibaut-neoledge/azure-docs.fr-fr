@@ -1,6 +1,6 @@
 ---
 title: "Limiter l’accès par le biais d’un point de terminaison accessible sur Internet dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Restreindre l’accès via un point de terminaison accessible sur Internet**."
+description: "Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Limiter l&quot;accès par le biais d&quot;un point de terminaison accessible sur Internet**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9316339551fdc6b8b266886b120fea5d7c1ef28f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
 
 
 ---
@@ -27,23 +27,28 @@ Cette recommandation est générée pour n’importe quel port non web avec une 
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Limiter l'accès par le biais d'un point de terminaison accessible sur Internet**.
+
    ![Restreindre l’accès via un point de terminaison accessible sur Internet][1]
 2. Le panneau **Restreindre l’accès via un point de terminaison accessible sur Internet**s’ouvre. Ce panneau répertorie les machines virtuelles dont les règles de trafic entrant créent un problème de sécurité potentiel. Sélectionnez une machine virtuelle.
+
    ![Sélectionner une machine virtuelle][2]
 3. Le panneau **NSG** affiche des informations sur le groupe de sécurité réseau (NSG), les règles de trafic entrant associées ainsi que la machine virtuelle associée. Sélectionnez **Modifier les règles de trafic entrant** pour poursuivre la modification d’une règle de trafic entrant.
+
    ![Panneau Groupe de sécurité réseau][3]
 4. Dans le panneau **Règles de sécurité entrantes** , sélectionnez la règle de trafic entrant à modifier. Dans cet exemple, sélectionnons **AllowWeb**.
-   ![Règles de sécurité entrantes][4]
-   
+
+   ![Règles de sécurité de trafic entrant][4]
+
    Notez que vous pouvez également sélectionner **Règles par défaut** pour afficher l’ensemble de règles par défaut de tous les groupes de sécurité réseau. Les règles par défaut ne peuvent pas être supprimées, mais comme une priorité plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. En savoir plus sur les [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
+
    ![Règles par défaut][5]
 5. Dans le panneau **AllowWeb**, modifiez les propriétés de la règle de trafic entrant pour que la valeur **Source** affiche une adresse IP ou un bloc d’adresses IP. Pour en savoir plus sur les propriétés de la règle de trafic entrant, consultez [Règles de groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+
    ![Modifier une règle de trafic entrant][6]
 
 ## <a name="see-also"></a>Voir aussi
@@ -72,6 +77,6 @@ Pour plus d’informations sur Security Center, consultez :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

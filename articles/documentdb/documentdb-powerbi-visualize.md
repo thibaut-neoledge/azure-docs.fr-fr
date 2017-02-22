@@ -3,7 +3,7 @@ title: Didacticiel Power BI pour connecteur DocumentDB | Microsoft Docs
 description: "Utilisez ce didacticiel Power BI pour importer JSON, créer des rapports et visualiser les données à l&quot;aide de DocumentDB et du connecteur Power BI."
 keywords: "didacticiel power BI, visualiser les données, connecteur Power BI"
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 
 
 ---
@@ -88,7 +88,7 @@ Prêt à vous lancer ? Allons-y.
     Laissez les champs facultatifs du nom de la base de données, du nom de la collection et de l’instruction vides.  Nous allons utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.
    
     ![Didacticiel de Power BI pour DocumentDB - Connecteur Power BI - Fenêtre de connexion](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte.  Vous pouvez récupérer la clé dans la zone **Clé primaire** du panneau **[Clés en lecture seule](documentdb-manage-account.md#keys)** du portail Azure. Sinon, vous pouvez utiliser le compte de démonstration, auquel cas la clé est la suivante : `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Entrez la clé du compte et cliquez sur **Se connecter**.
+7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte.  Vous pouvez récupérer la clé dans la zone **Clé primaire** du panneau **[Clés en lecture seule](documentdb-manage-account.md#keys)** du portail Azure. Sinon, vous pouvez utiliser le compte de démonstration, auquel cas la clé est la suivante : `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Entrez la clé du compte et cliquez sur **Se connecter**.
    
     nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels.  ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau [Clés](documentdb-manage-account.md#keys) du portail Azure. Sinon, vous pouvez utiliser les informations du compte de démonstration fournies ci-dessus.
    
@@ -216,6 +216,6 @@ Pour procéder à une actualisation planifiée, procédez comme suit.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76a9208938f0c55e5301c2612b8dd82eb5975679
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -28,8 +29,11 @@ Les bases de données partitionnées verticalement utilisent différents ensembl
 * L’utilisateur doit posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE.
 * Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
-## <a name="overview"></a>Vue d’ensemble
-**REMARQUE** : contrairement au partitionnement horizontal, ces instructions DDL ne dépendent pas de la définition d’une couche de données avec un mappage de partition via la bibliothèque client de base de données élastique.
+## <a name="overview"></a>Vue d'ensemble
+
+> [!NOTE]
+> Contrairement au partitionnement horizontal, ces instructions DDL ne dépendent pas de la définition d’une couche de données avec un mappage de partition via la bibliothèque client de base de données élastique.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -44,7 +48,9 @@ Les informations d'identification sont utilisées par la requête élastique pou
     SECRET = '<password>'
     [;]
 
-**Remarque** Veillez à ce que *<username>* ne contienne pas le suffixe *"@servername"*. 
+> [!NOTE]
+> Veillez à ce que `<username>` ne contienne pas le suffixe **"@servername"**. 
+>
 
 ## <a name="create-external-data-sources"></a>Créer des sources de données externes
 Syntaxe :
@@ -57,7 +63,9 @@ Syntaxe :
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Important** Le paramètre TYPE doit être défini sur **RDBMS**. 
+> [!IMPORTANT]
+> Le paramètre TYPE doit être défini sur **RDBMS**. 
+>
 
 ### <a name="example"></a>Exemple
 L’exemple suivant illustre l’utilisation de l’instruction CREATE pour les sources de données externes. 
@@ -117,7 +125,7 @@ La syntaxe permettant de créer des tables externes à l’aide de sources de do
 
 La clause DATA_SOURCE définit la source de données externe (par exemple, la base de données distante en cas de partitionnement horizontal) utilisée pour la table externe.  
 
-Les clauses SCHEMA_NAME et OBJECT_NAME offrent la possibilité de mapper une définition de table externe sur une table dans un autre schéma base de données, ou sur une table portant un autre nom, respectivement. Cela s’avère utile si vous souhaitez définir une table externe sur une vue de catalogue ou une DMV sur votre base de données distante, ou dans toute autre situation dans laquelle le nom de table distant est déjà utilisé en local.  
+Les clauses SCHEMA_NAME et OBJECT_NAME offrent la possibilité de mapper une définition de table externe sur une table dans un autre schéma base de données, ou sur une table portant un autre nom, respectivement. Cela s’avère utile si vous souhaitez définir une table externe sur une vue de catalogue ou une vue de gestion dynamique sur votre base de données distante, ou dans toute autre situation dans laquelle le nom de table distant est déjà utilisé en local.  
 
 L’instruction DDL suivante supprime une définition de table externe existante du catalogue local. Elle n’affecte pas la base de données distante. 
 
@@ -184,6 +192,6 @@ Pour interroger des bases de données partitionnées horizontalement, consultez 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

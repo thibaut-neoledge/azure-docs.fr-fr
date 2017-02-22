@@ -1,6 +1,6 @@
 ---
-title: Suite de distribution binomiale | Microsoft Docs
-description: Suite de distribution binomiale
+title: "(obsolète) Suite de distribution binomiale | Microsoft Docs"
+description: "(obsolète) Suite de distribution binomiale"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f274408b370466af4eb9bd6e2ecbce32ce03857
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 4d4a343be86909acf054eaaf9cc4a1b0df5a4209
 
 
 ---
-# <a name="binomial-distribution-suite"></a>Suite de distribution binomiale
+# <a name="deprecated-binomial-distribution-suite"></a>(obsolète) Suite de distribution binomiale
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 La suite de distribution binomiale correspond à un ensemble d’exemples de services web ([Générateur binomial](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Calculatrice de probabilité](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Calculatrice de quantile](https://datamarket.azure.com/dataset/aml_labs/bdq5)) qui facilite la génération et la gestion des distributions binomiales. Les services permettent de générer une séquence de distribution binomiale de n'importe quelle longueur, de calculer les quantiles à partir d'une probabilité donnée et de calculer la probabilité à partir d'un quantile donné. Chacun des services émet des résultats différents selon le service sélectionné (voir la description ci-dessous). La suite de distribution binomiale repose sur les fonctions R qbinom, rbinom et pbinom qui sont incluses dans le package de statistiques R. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -289,6 +296,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

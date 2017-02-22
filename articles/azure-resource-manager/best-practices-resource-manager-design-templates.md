@@ -1,6 +1,6 @@
 ---
-title: "Schémas pour les modèles Resource Manager | Microsoft Docs"
-description: "Afficher les modèles de conception pour les modèles Azure Resource Manager"
+title: "Concevoir des modèles Azure pour des solutions complexes | Microsoft Docs"
+description: "Présente les meilleures pratiques relatives à la conception des modèles Azure Resource Manager pour les scénarios complexes"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
-ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Schémas de conception des modèles Azure Resource Manager
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Concevoir des modèles pour les modèles Azure Resource Manager lors du déploiement de solutions complexes
 À l’aide d’une approche souple, basée sur des modèles Azure Resource Manager, vous pouvez déployer des topologies complexes rapidement et de manière homogène. Vous pouvez adapter facilement ces déploiements selon l’évolution des offres principales. Vous pouvez également les adapter aux variables des scénarios ou clients hors-norme.
 
 Cette rubrique fait partie d’un livre blanc plus volumineux. Pour lire le livre blanc complet, téléchargez [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Considérations et pratiques éprouvées concernant les modèles Azure Resource Manager de classe mondiale).
@@ -351,6 +351,6 @@ Pour publier votre modèle dans le Marketplace, vous devez établir des copies d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

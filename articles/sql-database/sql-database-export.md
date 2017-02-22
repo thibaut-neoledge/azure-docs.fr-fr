@@ -3,20 +3,21 @@ title: "Archiver une base de données SQL Azure dans un fichier BACPAC à l’ai
 description: "Archiver une base de données SQL Azure dans un fichier BACPAC à l’aide du portail Azure"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 08/15/2016
-ms.author: sstein
+ms.date: 12/20/2016
+ms.author: sstein;carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 035a4b394c446d3b92e17ec6d938690504f463c5
-ms.openlocfilehash: 8fbc4febad665d66c857876eb60f0165c5fc5c8e
+ms.sourcegitcommit: df14225e6c2a1b9bf83623df172b9be9b5777add
+ms.openlocfilehash: 33699b00d50c623661292e5a9b21a97726c47611
 
 
 ---
@@ -32,7 +33,11 @@ Cet article fournit des instructions pour archiver votre base de données SQL Az
 
 Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouvez exporter le schéma et les données associés dans un fichier BACPAC. Un fichier BACPAC est un fichier ZIP avec l’extension BACPAC. Il peut être stocké ultérieurement dans Azure Blob Storage ou un stockage local dans un emplacement local, puis importé dans Azure SQL Database ou une installation locale SQL Server. 
 
-***Considérations***
+> [!IMPORTANT]
+> La fonctionnalité Automatiser l’exportation Azure SQL Database est maintenant disponible en version préliminaire et sera supprimée le 1er mars 2017. À partir du 1er décembre 2016, vous ne pourrez plus configurer l’exportation automatisée sur une base de données SQL. Tous vos travaux d’exportation automatisée existants continueront à fonctionner jusqu’au 1er mars 2017. Après le 1er décembre 2016, vous pouvez utiliser [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md) ou [Azure Automation](../automation/automation-intro.md) pour archiver des bases de données SQL régulièrement à l’aide de PowerShell en fonction d’une planification de votre choix. Pour obtenir un exemple de script, vous pouvez télécharger [l’exemple de script sur GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+>
+
+## <a name="considerations"></a>Considérations
 
 * Pour qu’une archive soit cohérente au niveau transactionnel, vous devez vérifier qu’aucune activité d’écriture n’a lieu lors de l’exportation ou effectuer une exportation à partir d’une [copie cohérente au niveau transactionnel](sql-database-copy.md) de votre base de données SQL Azure.
 * La taille maximale d’un fichier BACPAC archivé dans Azure Blob Storage est de 200 Go. Pour archiver un fichier BACPAC plus volumineux dans un stockage local, utilisez l’utilitaire d’invite de commande [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) . Cet utilitaire est fourni avec Visual Studio et SQL Server. Vous pouvez également [télécharger](https://msdn.microsoft.com/library/mt204009.aspx) la dernière version de SQL Server Data Tools pour obtenir cet utilitaire.
@@ -43,8 +48,7 @@ Lorsque vous avez besoin d’archiver une base de données SQL Azure, vous pouve
   * Utilisez un [index cluster](https://msdn.microsoft.com/library/ms190457.aspx) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW_STATISTICS** et à vérifier que *RANGE_HI_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
-> 
+> Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).  
 > 
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
@@ -57,7 +61,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 Ouvrez le panneau Base de données SQL de la base de données que vous voulez exporter :
 
 > [!IMPORTANT]
-> Pour garantir un fichier BACPAC cohérent au niveau transactionnel, vous devez d’abord [créer une copie de votre base de données](sql-database-copy.md) , puis exporter la copie de base de données. 
+> Pour garantir un fichier BACPAC cohérent au niveau transactionnel, vous devez d’abord [créer une copie de votre base de données](sql-database-copy.md), puis exporter la copie de base de données. 
 > 
 > 
 
@@ -72,13 +76,13 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
    ![Exporter la base de données][2]
 6. Sélectionnez le type d’authentification. 
 7. Entrez les informations d’identification appropriées pour le serveur SQL Azure qui contient la base de données que vous exportez.
-8. Cliquez sur **OK** pour archiver la base de données. En cliquant sur **OK** , une demande d’exportation de la base de données est créée et envoyée au service. La durée de l’exportation dépend de la taille et de la complexité de votre base de données, ainsi que de votre niveau de service. Vous recevez une notification.
+8. Cliquez sur **OK** pour archiver la base de données. En cliquant sur **OK** , une demande d’exportation de la base de données est créée et envoyée au service. La durée de l’exportation dépend de la taille et de la complexité de votre base de données, ainsi que de votre niveau de service. Consultez la notification que vous recevez.
    
    ![exporter la notification][3]
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>Surveillez la progression de l’opération d’exportation
 1. Cliquez sur **Serveurs SQL**.
-2. Cliquez sur le serveur contenant la base de données (source) d’origine que vous venez d’archiver.
+2. Cliquez sur le serveur contenant la base de données (source) d’origine que vous avez archivée.
 3. Faites défiler vers Opérations.
 4. Dans le panneau du serveur SQL, cliquez sur **Historique d'Import/Export**:
    
@@ -105,6 +109,6 @@ Ouvrez le panneau Base de données SQL de la base de données que vous voulez ex
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

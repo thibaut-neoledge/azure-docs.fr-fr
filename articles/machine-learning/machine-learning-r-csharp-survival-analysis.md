@@ -1,6 +1,6 @@
 ---
-title: "Analyse de survie avec Azure Machine Learning | Microsoft Docs"
-description: "Probabilité d&quot;occurrence d&quot;un événement d&quot;analyse de survie"
+title: "(obsolète) Analyse de survie avec Azure Machine Learning | Microsoft Docs"
+description: "(obsolète) Probabilité d&quot;occurrence d&quot;un événement d&quot;analyse de survie"
 services: machine-learning
 documentationcenter: 
 author: zhangya
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: zhangya
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e689f1e6fad3e65c3d25631adc93f1e0106706f2
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
 
 
 ---
-# <a name="survival-analysis"></a>Analyse de survie
+# <a name="deprecated-survival-analysis"></a>(obsolète) Analyse de survie
+
+> [!NOTE]
+> Microsoft DataMarket va être supprimé et cette API est désormais obsolète. 
+> 
+> Vous trouverez de nombreux exemples d’expériences et d’API dans la [galerie Cortana Intelligence](http://gallery.cortanaintelligence.com). Pour plus d’informations sur la galerie, consultez [Partager et découvrir des solutions dans la galerie Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Dans de nombreux scénarios, le principal résultat évalué est la durée avant qu'un événement qui vous intéresse ne se produise. En d’autres termes, vous posez la question « Quand cet événement va-t-il se produire ? ». Par exemple, considérez les situations dans lesquelles les données décrivent le temps écoulé (jours, années, kilométrage, etc.) jusqu’à ce que l’événement se produise (rechute (maladie), obtention d’un doctorat, défaillance des plaquettes de frein). Dans les données, chaque instance représente un objet spécifique (un ou une patient(e), un ou une étudiant(e), une voiture, etc.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -209,6 +216,6 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

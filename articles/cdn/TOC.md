@@ -11,7 +11,8 @@
 ### [Stockage](cdn-create-a-storage-account-with-cdn.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
 
-## Gérer
+## gérer
+### [Activer le protocole HTTPS pour un domaine personnalisé](cdn-custom-ssl.md)
 ### [Gérer avec PowerShell](cdn-manage-powershell.md)
 ### Configurer la durée de vie
 #### [Web Apps/Services Cloud, ASP.NET ou contenu IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -62,6 +63,6 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

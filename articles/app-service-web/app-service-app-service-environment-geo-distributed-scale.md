@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 482667df5897eeeef60786373edbbf6d5902c909
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e7f816713cc74ca27dd7718e8071f48dd653e213
 
 
 ---
@@ -42,7 +42,7 @@ Le reste de cette rubrique décrit les étapes nécessaires à la configuration 
 Avant de créer une empreinte d’application distribuée, il peut s’avérer utile de disposer de quelques éléments d’informations.
 
 * **Domaine personnalisé pour l’application :** quel est le nom de domaine personnalisé que les utilisateurs utiliseront pour accéder à l’application ?  Pour l’exemple d’application, le nom de domaine personnalisé est *www.scalableasedemo.com*
-* **Domaine Traffic Manager :** un nom de domaine doit être choisi au moment de la création d’un [profil Azure Traffic Manager][AzureTrafficManagerProfile].  Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager.  Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*.  Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
+* **Domaine Traffic Manager :** vous devez choisir un nom de domaine au moment de la création d’un [profil Azure Traffic Manager][AzureTrafficManagerProfile].  Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager.  Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*.  Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
 * **Stratégie de mise à l’échelle de l’empreinte de l’application :** l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ?  Plusieurs régions ?  Une combinaison des deux approches ?  La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale.  Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure.  Avec plus de 15 régions Azure publiques disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondial.  Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (Sud-Central des États-Unis).
 * **Convention de dénomination pour les environnements App Service :** chaque environnement App Service exige un nom unique.  Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile.  Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée.  Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
 * **Convention de dénomination pour les applications :** comme plusieurs instances de l’application vont être déployées, un nom est requis pour chacune d’entre elles.  Les environnements App Service proposent une fonctionnalité peu connue, mais très pratique, qui fait que le même nom d’application peut être utilisé sur plusieurs environnements App Service.  Étant donné que chaque environnement App Service comporte un suffixe de domaine unique, les développeurs peuvent choisir d’utiliser le même nom d’application dans chaque environnement.  Par exemple, un développeur peut avoir des applications nommées comme suit : *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  Cependant, pour l’exemple d’application, chaque instance de l’application a également un nom unique.  Les noms d’instance application utilisés sont *webfrontend1*, *webfrontend2* et *webfrontend3*.
@@ -54,7 +54,7 @@ Une fois que plusieurs instances d’une application sont déployées sur plusie
 * **webfrontend2.fe2ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le deuxième environnement App Service.
 * **webfrontend3.fe3ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le troisième environnement App Service.
 
-Le moyen le plus simple d’enregistrer plusieurs points de terminaison Azure App Service s’exécutant tous dans la **même** région Azure est d’utiliser la [prise en charge Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
+Le moyen le plus simple d’enregistrer plusieurs points de terminaison Azure App Service s’exécutant tous dans la **même** région Azure, est d’utiliser la [prise en charge Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
 
 La première étape consiste à créer un profil Azure Traffic Manager.  Le code suivant montre comment le profil a été créé pour l’exemple d’application :
 
@@ -94,7 +94,7 @@ Dans cet exemple le domaine personnalisé est *www.scalableasedemo.com*, et chaq
 
 ![Domaine personnalisé][CustomDomain] 
 
-Pour avoir un récapitulatif de l’enregistrement d’un domaine personnalisé avec les applications Azure App Service, consultez l’article qui suit sur [l’enregistrement de domaines personnalisés][RegisterCustomDomain].
+Pour obtenir un récapitulatif de l’enregistrement d’un domaine personnalisé avec les applications Azure App Service, consultez l’article qui suit sur l’[enregistrement de domaines personnalisés][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Essai de la topologie distribuée
 Le résultat final de la configuration de Traffic Manager et de DNS est que les demandes de *www.scalableasedemo.com* circulent dans suivant la séquence suivante :
@@ -114,7 +114,7 @@ L’image de la console ci-dessous représente une recherche DNS sur le domaine 
 ## <a name="additional-links-and-information"></a>Informations et liens supplémentaires
 Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-Documentation de la [prise en charge Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
+Documentation sur la [prise en charge Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -134,6 +134,6 @@ Documentation de la [prise en charge Powershell Azure Resource Manager Traffic M
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

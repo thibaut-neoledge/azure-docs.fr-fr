@@ -1,6 +1,6 @@
 ---
-title: "Contrôle d’accès à Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment contrôler l’accès à Microsoft Azure SQL Database."
+title: "Accorder l’accès à Azure SQL Database | Microsoft Docs"
+description: "Découvrez comment accorder l’accès à Microsoft Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -17,17 +17,15 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
-
+ms.sourcegitcommit: 4f75c60a0dffec0d51d1f5ba448bd76235ac38bf
+ms.openlocfilehash: 7b0a1ac97641419234e128cc30b643f9e655ec6b
 
 ---
 # <a name="azure-sql-database-access-control"></a>Contrôle d’accès à Azure SQL Database
 Pour assurer la sécurité, SQL Database contrôle l’accès avec des règles de pare-feu qui limitent la connectivité par adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. 
 
 > [!IMPORTANT]
-> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md).
->
+> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md). Pour obtenir un didacticiel utilisant l’authentification SQL Server, consultez le [Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Pour obtenir un didacticiel utilisant l’authentification Azure Active Directory, consultez le [Didacticiel sur les bases de données SQL : authentification AAD, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-aad-authentication-get-started.md).
 
 ## <a name="firewall-and-firewall-rules"></a>Pare-feu et règles de pare-feu
 Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande. Pour en savoir plus, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
@@ -40,14 +38,14 @@ Dans le cadre du processus de connexion, les connexions à partir des machines v
 
 Une base de données SQL prend en charge deux types d’authentification :
 
-* L’**authentification SQL**, qui utilise un nom d’utilisateur et un mot de passe. Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo ». 
-* L’**authentification Azure Active Directory**, qui utilise des identités gérées par Azure Active Directory et est prise en charge pour les domaines gérés et intégrés. Utilisez l’authentification Active Directory (sécurité intégrée) [dans la mesure du possible](https://msdn.microsoft.com/library/ms144284.aspx). Si vous souhaitez utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire. Pour une procédure pas à pas relative à la création d’un administrateur Azure AD pour activer l’authentification Azure Active Directory, consultez [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) .
+* **L’authentification SQL**, qui utilise un nom d’utilisateur et un mot de passe. Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo ». 
+* **L’authentification Azure Active Directory**, qui utilise des identités gérées par Azure Active Directory et qui est prise en charge pour les domaines gérés et intégrés. Utilisez l’authentification Active Directory (sécurité intégrée) [dans la mesure du possible](https://msdn.microsoft.com/library/ms144284.aspx). Si vous souhaitez utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire. Pour une procédure pas à pas relative à la création d’un administrateur Azure AD pour activer l’authentification Azure Active Directory, consultez [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) .
 
-Le moteur de base de données ferme les connexions restées inactives pendant plus de 30 minutes. La connexion nécessite une nouvelle identification pour être effective. Les connexions perpétuelles à SQL Database requièrent une nouvelle autorisation (effectuée par le moteur de base de données) au moins toutes les 10 heures. Le moteur de base de données tente de renouveler l’autorisation à l’aide du mot de passe envoyé à l’origine. L’utilisateur n’a rien à saisir. Pour des raisons de performances, lorsqu’un mot de passe est réinitialisé dans SQL Database, la connexion n’est pas authentifiée à nouveau, même si elle est réinitialisée suite à un regroupement de connexions. Ce comportement est différent de SQL Server local. Si le mot de passe a été modifié depuis l’autorisation initiale de la connexion, celle-ci doit être interrompue et une nouvelle connexion établie à l’aide du nouveau mot de passe. Un utilisateur disposant de l’autorisation KILL DATABASE CONNECTION peut mettre explicitement fin à une connexion à SQL Database à l’aide de la commande [KILL](https://msdn.microsoft.com/library/ms173730.aspx).
+Le moteur de base de données ferme les connexions restées inactives pendant plus de 30 minutes. La connexion nécessite une nouvelle identification pour fonctionner à nouveau. Les connexions perpétuelles à SQL Database requièrent une nouvelle autorisation (effectuée par le moteur de base de données) au moins toutes les 10 heures. Le moteur de base de données tente de renouveler l’autorisation à l’aide du mot de passe envoyé à l’origine. L’utilisateur n’a rien à saisir. Pour des raisons de performances, lorsqu’un mot de passe est réinitialisé dans SQL Database, la connexion n’est pas authentifiée à nouveau, même si elle est réinitialisée suite à un regroupement de connexions. Ce comportement est différent de SQL Server local. Si le mot de passe a été modifié depuis l’autorisation initiale de la connexion, celle-ci doit être interrompue et une nouvelle connexion établie à l’aide du nouveau mot de passe. Un utilisateur disposant de l’autorisation KILL DATABASE CONNECTION peut mettre explicitement fin à une connexion à SQL Database à l’aide de la commande [KILL](https://msdn.microsoft.com/library/ms173730.aspx).
 
 Les comptes d’utilisateur peuvent être soit créés dans la base de données principale et autorisés à accéder à toutes les bases de données sur le serveur, soit créés dans la base de données elle-même (appelés utilisateurs à relation contenant-contenu). Pour plus d’informations sur la création et la gestion des connexions, consultez [Gérer les connexions](sql-database-manage-logins.md). Pour plus de portabilité et d’évolutivité, utilisez des utilisateurs de base de données à relation contenant-contenu. Pour plus d’informations sur les utilisateurs à relation contenant-contenu, consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) et [Bases de données à relation contenant-contenu](https://technet.microsoft.com/library/ff929071.aspx).
 
-Nous vous recommandons, au titre de meilleure pratique, d’utiliser un autre compte pour l’authentification de votre application. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL. La méthode recommandée consiste à créer un [utilisateur de base de données à relation contenant-contenu](https://msdn.microsoft.com/library/ff929188), qui permet à votre application de s’authentifier directement auprès de la base de données. Vous pouvez créer un utilisateur de base de données contenu utilisant une authentification SQL en exécutant la commande T-SQL suivante tout en étant connecté à votre base de données utilisateur en tant qu’administrateur de serveur :
+Nous vous recommandons, au titre de meilleure pratique, d’utiliser un autre compte pour l’authentification de votre application. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL. La méthode recommandée consiste à créer un [utilisateur de base de données à relation contenant-contenu](https://msdn.microsoft.com/library/ff929188), qui permet à votre application de s’authentifier directement auprès de la base de données. 
 
 ## <a name="authorization"></a>Autorisation
 
@@ -64,15 +62,16 @@ En outre, ces fonctionnalités peuvent servir à limiter ou à élever les autor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble de toutes les fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md).
+- Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Securing your SQL Database (Sécurisation de SQL Database)](sql-database-security-overview.md).
 - Pour en savoir plus sur les règles de pare-feu, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
 - Pour en savoir plus sur les utilisateurs et les connexions, consultez [Gérer les connexions](sql-database-manage-logins.md). 
 - Pour une description de l’utilisation des fonctionnalités de protection des données dans SQL Database, consultez [Protecting data within your SQL Database (Protection des données dans SQL Database)](sql-database-protect-data.md).
-- Pour une discussion sur la surveillance proactive, consultez [Prise en main de l’audit SQL Database](sql-database-auditing-get-started.md) et [Prise en main de Threat Detection pour SQL Database](sql-database-threat-detection-get-started.md).
+- Pour une discussion sur la surveillance proactive, consultez [Prise en main de l’audit SQL Database](sql-database-auditing-get-started.md) et [Prise en main de la détection des menaces pour SQL Database](sql-database-threat-detection-get-started.md).
+- Pour obtenir un didacticiel utilisant l’authentification SQL Server, consultez le [Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md).
+- Pour apprendre à utiliser l’authentification Azure Active Directory, consultez le didacticiel [SQL Database tutorial: Azure AD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules (SQL Database : authentification Azure AD, connexions et comptes d’utilisateurs, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données)](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

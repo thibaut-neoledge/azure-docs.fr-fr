@@ -1,5 +1,5 @@
 ---
-title: "Études de cas clients | Microsoft Docs"
+title: "Azure Data Factory : Études de cas client | Microsoft Docs"
 description: "Découvrez comment certains de nos clients utilisent Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85bc4e2224bf367473fa9b999d6798d8b1aa6a42
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
 
 
 ---
-# <a name="customer-case-studies"></a>Études de cas clients
+# <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory : Études de cas client
 Data Factory est un service de gestion des informations dans le cloud qui automatise le déplacement et la transformation des données. Des clients répartis dans plusieurs secteurs utilisent Data Factory et d’autres services Azure pour générer leurs pipelines d’analyse et résoudre des problèmes commerciaux.  Découvrez directement auprès de nos clients comment et pourquoi ils utilisent Data Factory.
 
 ## <a name="milliman"></a>Milliman
@@ -47,6 +47,6 @@ Data Factory est un service de gestion des informations dans le cloud qui automa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

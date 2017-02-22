@@ -1,5 +1,5 @@
 ---
-title: "Obtenir les outils Azure pour votre Kit de démarrage Azure IoT (Ubuntu 16.04) | Microsoft Docs"
+title: "Connecter Intel Edison (Node) à Azure IoT - Leçon 2 : Outils Azure (Ubuntu) | Microsoft Docs"
 description: "Sur Ubuntu, installez Python et l’interface de ligne de commande Azure (Azure CLI)."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 12158a53a2c570fe5d10e7e01a03e54b04117215
-ms.openlocfilehash: eee0370eeb89971c37ff49ac87af96f95d5aef6d
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 1b3ee6667c8ba376bbbd7a2bb61e85ec17b61b4d
 
 
 ---
@@ -82,6 +82,6 @@ Vous avez installé l’interface de ligne de commande Azure. La tâche suivante
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

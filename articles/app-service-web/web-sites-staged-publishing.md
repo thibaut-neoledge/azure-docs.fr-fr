@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
+ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
 
 
 ---
@@ -58,7 +58,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
     Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
    
     ![Sources de configuration][MultipleConfigurationSources]
-4. Dans le panneau de ressources de votre application, cliquez sur **Emplacements de déploiement**, puis cliquez sur un emplacement de déploiement pour ouvrir le panneau de ressources correspondant. Comme pour toute autre application, celui-ci contient un ensemble de mesures et de paramètres de configuration. Le nom de l’emplacement est indiqué en haut du panneau pour vous rappeler que c’est l’emplacement de déploiement qui affiché.
+4. Dans le panneau des ressources de votre application, cliquez sur **Emplacements de déploiement**, puis cliquez sur un emplacement de déploiement pour ouvrir le panneau des ressources correspondant. Comme pour toute autre application, celui-ci contient un ensemble de mesures et de paramètres de configuration. Le nom de l’emplacement est indiqué en haut du panneau pour vous rappeler que c’est l’emplacement de déploiement qui affiché.
    
     ![Titre de l'emplacement de déploiement][StagingTitle]
 5. Cliquez sur l’URL de l’application dans le panneau de l’emplacement. Notez que l’emplacement de déploiement possède son propre nom d’hôte et qu’il s’agit d’une application dynamique. Pour limiter l’accès public à l’emplacement de déploiement, consultez la page [Application web App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
@@ -268,7 +268,7 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 - - -
 > [!NOTE]
-> Visualisez une application web en action. [Essayez App Service](http://go.microsoft.com/fwlink/?LinkId=523751) dès maintenant et créez une première application temporaire. Aucune carte de crédit ni aucun engagement ne sont nécessaires.
+> Visualisez une application web en action. [Essayez App Service](https://azure.microsoft.com/try/app-service/) dès maintenant et créez une première application temporaire. Aucune carte de crédit ni aucun engagement ne sont nécessaires.
 > 
 > 
 
@@ -295,6 +295,6 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

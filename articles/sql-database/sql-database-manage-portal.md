@@ -1,26 +1,27 @@
 ---
 title: "Gérer une base de données SQL Azure à l’aide du portail Azure | Microsoft Docs"
-description: "Découvrez comment utiliser le portail Azure pour gérer une base de données relationnelle dans le cloud."
+description: "Référence rapide sur l’utilisation du portail Azure pour gérer une base de données relationnelle dans le cloud."
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
-ms.author: sstein
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 
 
 ---
-# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Gestion des bases de données SQL Azure au moyen du portail Azure
+# <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Gérer des bases de données SQL Azure au moyen du portail Azure
 > [!div class="op_single_selector"]
 > * [Portail Azure](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
@@ -88,8 +89,8 @@ Pour surveiller et améliorer les caractéristiques de performances d’une base
 ## <a name="how-do-i-configure-geo-replication"></a>Comment configurer la géoréplication ?
 Pour configurer la géoréplication pour une base de données SQL, cliquez sur **Géo-réplication** dans le panneau **Base de données SQL**. Pour plus d’informations, voir [Configurer la géoréplication pour Base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md).
 
-## <a name="how-do-i-failover-to-a-geo-replicated-sql-database"></a>Comment basculer vers une base de données SQL géorépliquée ?
-Pour basculer vers une base de données secondaire géo-répliquée, cliquez sur **Géo-réplication** dans le panneau **Base de données SQL**, puis sur **Basculement**. Pour plus d’informations, voir [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-failover-portal.md).
+## <a name="how-do-i-fail-over-to-a-geo-replicated-sql-database"></a>Comment basculer vers une base de données SQL géorépliquée ?
+Pour basculer vers une base de données secondaire géo-répliquée, cliquez sur **Géo-réplication** dans le panneau **Base de données SQL**, puis sélectionnez **Basculement**. Pour plus d’informations, voir [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-failover-portal.md).
 
 ## <a name="how-do-i-copy-a-sql-database"></a>Comment copier une base de données SQL ?
 Pour copier une base de données SQL, cliquez sur **Copier** dans le panneau **Base de données SQL**. Pour plus d’informations, voir [Copie d’une base de données SQL Azure à l’aide du portail Azure](sql-database-copy-portal.md).
@@ -126,6 +127,6 @@ Pour supprimer une base de données SQL, cliquez sur **Supprimer** dans le panne
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

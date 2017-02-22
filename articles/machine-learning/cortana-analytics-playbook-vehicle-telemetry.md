@@ -1,5 +1,5 @@
 ---
-title: Manuel de la solution Vehicle Telemetry Analytics | Microsoft Docs
+title: "Prédire l’état des véhicules et les habitudes de conduite | Microsoft Docs"
 description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 307ed83dc1f47bb86af4a476acbb51876012ff25
-ms.openlocfilehash: e4311a740ccb4cac2c1d6e7e1197a736d3a4a777
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 3467c5549381f1354987fead424646afe847739c
 
 
 ---
@@ -61,6 +61,6 @@ Cette solution utilise deux **sources de données**différentes :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

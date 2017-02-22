@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager
 [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.
 
 Une infrastructure AD FS hautement disponible et par-delà les frontières permet d’obtenir ce qui suit :
@@ -76,7 +76,7 @@ Suivez les étapes ci-dessous pour créer un profil Traffic Manager. Pour plus d
    
    **Type de ressource cible :** sélectionnez Adresse IP publique comme valeur de cette propriété. 
    
-   **Ressource cible :** vous pouvez choisir parmi les différents noms DNS dont vous disposez dans votre abonnement. Choisissez le nom DNS à attribuer.
+   **Ressource cible :** vous pouvez choisir parmi les différents noms DNS dont vous disposez dans votre abonnement. Choisissez le nom DNS correspondant au point de terminaison configuré.
    
    Ajoutez un point de terminaison pour chaque région géographique vers laquelle vous souhaitez qu’Azure Traffic Manager achemine le trafic.
    Pour plus d’informations et pour connaître les instructions détaillées pour ajouter/configurer des points de terminaison dans Traffic Manager, reportez-vous à l’article [Ajouter, désactiver, activer ou supprimer des points de terminaison](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Suivez les étapes ci-dessous pour créer un profil Traffic Manager. Pour plus d
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Tester le routage et la connexion des services AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Tester le routage et la connexion des services AD FS
 ### <a name="routing-test"></a>Test de routage
 Un test très basique du routage consiste à effectuer un test Ping sur le nom DNS du service de fédération à partir d’une machine de chaque région géographique. Selon la méthode de routage choisie, le point de terminaison soumis réellement au test Ping est reflété dans l’affichage Ping. Par exemple, si vous avez sélectionné le routage de type Performances, le point de terminaison le plus proche de la région du client est atteint. L’instantané indiqué ci-dessous présente deux tests Ping à partir de deux machines clientes de différentes régions, l’une dans la région Asie de l’Est et l’autre dans la région États-Unis de l’Ouest. 
 
 ![Test de routage](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Test de connexion des services AD FS
+### <a name="ad-fs-sign-in-test"></a>Test de connexion des services AD FS
 Le moyen le plus simple de tester AD FS est d’utiliser la page IdpInitiatedSignon.aspx. Pour cela, vous devez activer l’authentification IdpInitiatedSignOn sur les propriétés AD FS. Suivez les étapes ci-dessous pour vérifier votre configuration AD FS
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer. 
@@ -126,6 +126,6 @@ Le moyen le plus simple de tester AD FS est d’utiliser la page IdpInitiatedSig
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

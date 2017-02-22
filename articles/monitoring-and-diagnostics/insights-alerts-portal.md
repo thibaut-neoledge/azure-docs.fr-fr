@@ -1,8 +1,8 @@
 ---
-title: "Utiliser le Portail Azure pour créer des alertes pour les services Azure | Microsoft Docs"
-description: "Utilisez le Portail Azure pour créer des alertes Azure, qui peuvent déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies."
+title: "Créer des alertes pour les services Azure - Portail Azure | Microsoft Docs"
+description: "Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions spécifiées sont remplies."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Utiliser le Portail Azure pour créer des alertes pour les services Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Créer des alertes dans Azure Monitor pour les services Azure - Portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Vue d'ensemble
 Cet article vous montre comment définir des alertes Azure avec le Portail Azure.   
@@ -53,10 +53,10 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
 1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la.
 2. Sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
-   
+
     ![Analyse](./media/insights-alerts-portal/AlertRulesButton.png)
 3. Sélectionnez la commande **Ajouter une alerte** et renseignez les champs.
-   
+
     ![Ajouter une alerte](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
 5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « PT5M » et que vous alerte recherche l’UC au-dessus de 80 %, elle se déclenche quand l’UC a été constamment au-dessus de 80 % pendant cinq minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de l’UC se produit toutes les minutes.   
@@ -84,7 +84,6 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

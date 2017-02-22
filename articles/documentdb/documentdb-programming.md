@@ -1,5 +1,5 @@
 ---
-title: "Programmation DocumentDB : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur | Microsoft Docs"
+title: "Programmation de JavaScript côté serveur pour Azure DocumentDB | Microsoft Docs"
 description: "Apprenez à utiliser DocumentDB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données."
 keywords: "Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
 
 
 ---
@@ -26,7 +26,7 @@ Découvrez comment l’exécution transactionnelle de JavaScript intégrée au l
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur de DocumentDB. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
@@ -63,7 +63,7 @@ Commençons par une simple procédure stockée qui renvoie une réponse « Hell
 
     var helloWorldStoredProc = {
         id: "helloWorld",
-        body: function () {
+        serverScript: function () {
             var context = getContext();
             var response = context.getResponse();
 
@@ -105,7 +105,7 @@ L'extrait de code suivant indique comment utiliser l'objet context pour interagi
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
+        serverScript: function createMyDocument(documentToCreate) {
             var context = getContext();
             var collection = context.getCollection();
 
@@ -161,8 +161,8 @@ Dans DocumentDB, JavaScript est hébergé dans le même espace mémoire que la b
 
     // JavaScript source code
     var exchangeItemsSproc = {
-        name: "exchangeItems",
-        body: function (playerId1, playerId2) {
+        id: "exchangeItems",
+        serverScript: function (playerId1, playerId2) {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -298,8 +298,8 @@ Ci-dessous se trouve un exemple de procédure stockée qui a été écrite pour 
 DocumentDB fournit des déclencheurs qui sont exécutés ou déclenchés par une opération dans un document. Par exemple, vous pouvez spécifier un pré-déclencheur lorsque vous créez un document ; ce pré-déclencheur s'exécutera avant la création du document Voici un exemple de la façon dont les pré-déclencheurs peuvent être utilisés pour valider les propriétés d'un document en cours de création.
 
     var validateDocumentContentsTrigger = {
-        name: "validateDocumentContents",
-        body: function validate() {
+        id: "validateDocumentContents",
+        serverScript: function validate() {
             var context = getContext();
             var request = context.getRequest();
 
@@ -369,8 +369,8 @@ Les post-déclencheurs, comme les pré-déclencheurs, sont associés à une opé
 L'exemple suivant montre les post-déclencheurs en action :
 
     var updateMetadataTrigger = {
-        name: "updateMetadata",
-        body: function updateMetadata() {
+        id: "updateMetadata",
+        serverScript: function updateMetadata() {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -439,11 +439,11 @@ Un élément important à noter est l’exécution **transactionnelle** des déc
 ## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Fonctions définies par l’utilisateur
 Les fonctions définies par l'utilisateur permettent d'étendre la grammaire du langage de requête SQL dans DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service DocumentDB.  
 
-L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à 20 000 $.
+L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à&20; 000 $.
 
     var taxUdf = {
-        name: "tax",
-        body: function tax(income) {
+        id: "tax",
+        serverScript: function tax(income) {
 
             if(income == undefined) 
                 throw 'no input';
@@ -814,6 +814,6 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

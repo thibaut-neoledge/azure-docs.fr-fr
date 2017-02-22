@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ Azure Active Directory applique les deux stratégies et l’utilisateur n’obti
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>L’accès conditionnel fonctionne-t-il avec Exchange ActiveSync ?
  
-Vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel. Mais la prise en charge de ce cas de figure reste limitée.  
-Les limitations suivantes s’appliquent à une stratégie incluant Exchange ActiveSync :
+Non, pour l’instant, vous ne pouvez pas utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
 
-- Si vous affectez des **applications cloud**, seule l’option **Exchange Online** est sélectionnée.
 
-- Si vous devez définir un **contrôle**, seule l’option **Exiger un appareil conforme** est sélectionnable. 
- 
-    ![Grant (Autoriser)](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- Si vous devez configurer une **condition**, vous ne pouvez configurer que des **applications clientes**.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Que se passe-t-il si je demande une authentification multifacteur et un appareil conforme ?
 
-    ![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
+Actuellement, l’utilisateur est invité à utiliser l’authentification multifacteur, quel que soit l’appareil.
+
 
 
 ## <a name="common-scenarios"></a>Scénarios courants
@@ -193,7 +188,7 @@ En d’autres termes, l’authentification multifacteur peut être requise si un
 
 Si vous utilisez Intune dans votre environnement, vous pouvez utiliser d’emblée l’interface de stratégie d’accès conditionnel dans la console Azure.
 
-De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que seuls les appareils approuvés ont accès aux services Office 365. Cela signifie que les appareils mobiles sont inscrits dans Intune, qu’ils répondent aux critères de la stratégie de conformité et que des PC Windows sont joints à un domaine local. L’avantage, c’est que vous n’avez pas à définir la même stratégie pour chacun des services Office 365.  Lorsque vous créez une stratégie, configurez les applications cloud pour inclure chacune des applications Office 365 que vous souhaitez protéger avec l’accès conditionnel. 
+De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que seuls les appareils approuvés ont accès aux services Office 365. Cela signifie que les appareils mobiles sont inscrits dans Intune, qu’ils répondent aux critères de la stratégie de conformité et que des PC Windows sont joints à un domaine local. L’avantage, c’est que vous n’avez pas à définir la même stratégie pour chacun des services Office 365.  Lorsque vous créez une stratégie, configurez les applications cloud pour inclure chacune des applications Office&365; que vous souhaitez protéger avec l’accès conditionnel. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -201,6 +196,6 @@ Pour savoir comment configurer une stratégie d’accès conditionnel, consultez
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

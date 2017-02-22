@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: f4ad13e7674f7af28b22f55dbbb76ccc5d5d26f8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
 
 
 ---
@@ -976,7 +976,7 @@ Une API Web peut être utilisée par de nombreuses applications clientes de dif
 
     Le protocole HTTP prend en charge les connexions HTTP persistantes, quand elles sont disponibles. La spécification HTTP 1.0 a ajouté l’en-tête Connection:Keep-Alive, qui permet à une application cliente d’indiquer au serveur qu’il peut réutiliser la même connexion pour envoyer les requêtes suivantes. La connexion est automatiquement arrêtée si le client ne la réutilise pas pendant une période définie par l’hôte. Il s’agit du comportement par défaut HTTP 1.1 utilisé par les services Microsoft Azure. Ici donc, il n’est pas nécessaire d’inclure des en-têtes Keep-Alive dans les messages.
 
-    Le maintien d’une connexion ouverte peut contribuer à l’amélioration de la réactivité en réduisant la latence et la congestion réseau, mais cela peut affecter l’évolutivité. En effet, en conservant des connexions non nécessaires ouvertes pendant une période prolongée, vous limitez la capacité d’autres clients de se connecter au même moment. Cela peut également affecter la durée de vie de la batterie, si l’application cliente s’exécute sur un appareil mobile. Si l’application transmet des requêtes au serveur à titre occasionnel uniquement, le maintien d’une connexion ouverte peut entraîner une usure prématurée de la batterie. Pour garantir qu’une connexion n’est pas rendue persistante avec HTTP 1.1, le client peut inclure un en-tête Connection:Close dans les messages afin d’écraser le comportement par défaut. De la même manière, si le serveur gère un nombre très important de clients, il peut inclure un en-tête Connection:Close dans les messages de réponse afin de fermer la connexion et d’économiser des ressources serveur.
+    Le maintien d’une connexion ouverte peut contribuer à l’amélioration de la réactivité en réduisant la latence et la congestion réseau, mais cela peut affecter l’évolutivité. En effet, en conservant des connexions non nécessaires ouvertes pendant une période prolongée, vous limitez la capacité d’autres clients à se connecter au même moment. Cela peut également affecter la durée de vie de la batterie, si l’application cliente s’exécute sur un appareil mobile. Si l’application transmet des requêtes au serveur à titre occasionnel uniquement, le maintien d’une connexion ouverte peut entraîner une usure prématurée de la batterie. Pour garantir qu’une connexion n’est pas rendue persistante avec HTTP 1.1, le client peut inclure un en-tête Connection:Close dans les messages afin d’écraser le comportement par défaut. De la même manière, si le serveur gère un nombre très important de clients, il peut inclure un en-tête Connection:Close dans les messages de réponse afin de fermer la connexion et d’économiser des ressources serveur.
 
   > [!NOTE]
   > Les connexions HTTP persistantes représentent une fonction facultative destinée à alléger la charge du réseau associée à l’établissement répété de canaux de communication. L’API Web et l’application cliente ne doivent pas dépendre de la disponibilité d’une connexion HTTP persistante. N’utilisez pas de connexions HTTP persistantes pour implémenter les systèmes de notification de type Comet. Au lieu de cela, vous devez employer des sockets (ou des sockets Web si disponibles) sur la couche TCP. Enfin, notez que les en-têtes Keep-Alive présentent une utilisation limitée si une application cliente communique avec un serveur via un proxy ; seule la connexion avec le client et le proxy sera persistante.
@@ -1150,6 +1150,6 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -65,6 +65,6 @@ Une fois votre espace de travail créé, ouvrez Machine Learning Studio ([https:
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

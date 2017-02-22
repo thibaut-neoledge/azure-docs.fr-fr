@@ -17,10 +17,7 @@ translationtype: Human Translation
 ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
 ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
-
 ---
-<!--TODO: Introduction -->
-
 ## <a name="register-your-application-with-your-ad-tenant"></a>Inscrire votre application avec votre client AD
 Tout d’abord, vous devez inscrire votre application avec votre client Azure Active Directory (Azure AD). Ceci vous fournira un ID d’application pour votre application et lui permettra de recevoir des jetons.
 
@@ -36,6 +33,6 @@ Tout d’abord, vous devez inscrire votre application avec votre client Azure Ac
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -78,6 +78,6 @@ Pour configurer le client LDAP, suivez ces indications :
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

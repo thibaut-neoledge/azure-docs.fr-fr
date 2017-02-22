@@ -8,6 +8,6 @@ Les passerelles de réseau virtuel ExpressRoute peuvent utiliser les référence
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

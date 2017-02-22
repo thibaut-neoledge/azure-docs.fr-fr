@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Vous pouvez visualiser tous les fournisseurs de ressources par le biais du porta
 
 Pour récupérer tous les fournisseurs de ressources, utilisez l’applet de commande PowerShell suivante :
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Vous pouvez également utiliser l’interface CLI Azure pour récupérer tous les fournisseurs de ressources à l’aide de la commande suivante :
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Vous pouvez consulter la liste renvoyée pour connaître les fournisseurs de ressources à utiliser.
 
 Pour obtenir plus d’informations sur un fournisseur de ressources, ajoutez l’espace de noms du fournisseur à votre commande. La commande retourne les types de ressources pris en charge pour le fournisseur de ressources, ainsi que les emplacements et les versions d’API pris en charge pour chaque type de ressource. L’applet de commande PowerShell suivante fournit des informations sur Microsoft.Compute :
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Sinon, à partir de l’interface CLI Azure, utilisez la commande suivante pour récupérer les types de ressources, les emplacements et les versions d’API pris en charge pour Microsoft.Compute :
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Pour plus d’informations, consultez la page [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Pour en savoir plus sur le format du modèle et sur sa construction, consultez l
 
 Resource Manager traite le modèle comme toute autre requête (voir l’image [Couche de gestion cohérente](#consistent-management-layer)). Il analyse le modèle et convertit sa syntaxe en opérations API REST pour les fournisseurs de ressources appropriés. Par exemple, lorsque Resource Manager reçoit un modèle avec la définition de ressource suivante :
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Il convertit la définition en opération API REST suivante, qui est envoyée au fournisseur de ressources Microsoft.Storage :
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 La manière dont vous définissez les modèles et les groupes de ressources dépend entièrement de vous et de la façon dont vous voulez gérer votre solution. Par exemple, vous pouvez déployer votre application à trois niveaux via un modèle unique pour un groupe de ressources unique.
 
@@ -181,26 +193,32 @@ Les ressources ne doivent pas nécessairement appartenir au même groupe de ress
 
 L’exemple suivant présente une balise appliquée à une machine virtuelle.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Pour récupérer toutes les ressources avec une valeur de balise, utilisez l’applet de commande PowerShell suivante :
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Vous pouvez également exécuter la commande CLI Azure suivante :
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Vous avez également la possibilité de consulter les ressources balisées via le portail Azure.
 
@@ -242,7 +260,7 @@ Dans certains cas, vous souhaiterez exécuter un code ou un script permettant d�
 Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Journaux d’activité
-Resource Manager consigne dans un journal toutes les opérations de création, de modification ou de suppression d’une ressource. Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource. Pour afficher les journaux, sélectionnez **Journaux d’activité** dans le panneau **Paramètres** d’un groupe de ressources. Vous pouvez filtrer les journaux selon différentes valeurs, notamment en fonction de l’utilisateur ayant initié l’opération. Pour plus d’informations sur l’utilisation des journaux d’activité, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
+Resource Manager consigne dans un journal toutes les opérations de création, de modification ou de suppression d’une ressource. Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource. Pour afficher les journaux, sélectionnez **Journaux d’activité** dans le panneau **Paramètres** d’un groupe de ressources. Vous pouvez filtrer les journaux selon différentes valeurs, notamment en fonction de l’utilisateur ayant initié l’opération. Pour en savoir plus sur l’utilisation des journaux d’activité, voir [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Stratégies personnalisées
 Resource Manager vous permet de créer des stratégies personnalisées pour gérer vos ressources. Les types de stratégies que vous créez peuvent inclure divers scénarios. Vous pouvez appliquer une convention de dénomination des ressources, limiter les types et les instances de ressources qui peuvent être déployées ou limiter les régions qui peuvent héberger un type de ressource. Vous pouvez demander une valeur de balise sur les ressources pour organiser la facturation par service. Vous créez des stratégies pour vous aider à réduire les coûts et à assurer la cohérence de votre abonnement. 
@@ -251,17 +269,19 @@ Vous pouvez définir des stratégies au format JSON, puis les appliquer à votre
 
 L’exemple suivant illustre une stratégie qui garantit la cohérence des balises en spécifiant que toutes les ressources incluent une balise costCenter.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Il existe de nombreux autres types de stratégies que vous pouvez créer. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ Voici une vidéo de cette présentation :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

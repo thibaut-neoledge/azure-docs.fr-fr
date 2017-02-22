@@ -11,14 +11,14 @@ ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
-ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 8b22b5ac29e855f3074cab01042057f214e9e9b7
 
 
 ---
@@ -30,7 +30,7 @@ Une DTU est une unité de mesure des ressources dont la disponibilité est assur
 
 ![Introduction à la base de données SQL : DTU de base de données unique par couche et niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-Vous pouvez [modifier les niveaux de service](sql-database-scale-up.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les quatre secondes environ). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU.
+Vous pouvez [modifier les niveaux de service](sql-database-service-tiers.md) à tout moment avec un temps d’arrêt minimal de votre application (généralement sous les quatre secondes environ). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Définition des unités de transaction de base de données élastique (DTU)
 Une eDTU est une unité de mesure de l’ensemble des ressources (DTU) pouvant être partagées au sein d’un ensemble de bases de données sur un serveur SQL Azure (appelé [pool élastique](sql-database-elastic-pool.md)). Les pools élastiques offrent une solution simple et économique pour gérer les objectifs de performance de plusieurs bases de données ayant des modèles d’utilisation variables et non prévisibles. Pour plus d’informations,consultez [niveaux de service des pools élastiques](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) .
@@ -58,6 +58,6 @@ Les niveaux de performances sont étalonnés et régis pour fournir les ressourc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

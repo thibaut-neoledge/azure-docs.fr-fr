@@ -1,5 +1,5 @@
 ---
-title: "Listage des ressources Azure Storage avec la bibliothèque cliente Microsoft Azure Storage pour C++ | Microsoft Docs"
+title: "Listage des ressources de stockage Azure avec la bibliothèque cliente de stockage pour C++ | Microsoft Docs"
 description: "Apprenez à utiliser les API de listage de la bibliothèque cliente Microsoft Azure Storage pour C++ pour énumérer conteneurs, objets blob, files d&quot;attente, tables et autres entités."
 documentationcenter: .net
 services: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 085796493df86a2e86a88266d9b3aacf12cb6541
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
 
 
 ---
@@ -206,6 +206,6 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

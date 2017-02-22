@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
 Dans cette étape du processus de publication, vous devez fournir du contenu marketing et des informations sur votre offre et/ou vos références SKU dans Azure Marketplace. Par exemple, vous devez fournir une description de votre produit, le logo de votre entreprise, les offres tarifaires, le détail des offres et d’autres informations nécessaires pour envoyer votre offre et/ou référence SKU dans l’environnement intermédiaire. Ces informations sont utilisées comme contenu marketing dans le portail Azure. Vous allez commencer ce processus dans le [portail de publication][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Étape 1 : Fournir du contenu marketing au Marketplace
-**L’anglais est la langue par défaut et la seule prise en charge.**  Assurez-vous que toutes les informations fournies dans les champs sont en anglais. Toutes les informations peuvent être modifiées à tout moment jusqu’à ce que vous procédiez au déploiement dans un environnement intermédiaire.
+**L’anglais est la langue par défaut et la seule prise en charge.** Assurez-vous que toutes les informations fournies dans les champs sont en anglais. Toutes les informations peuvent être modifiées à tout moment jusqu’à ce que vous procédiez au déploiement dans un environnement intermédiaire.
 
 1. Accédez au portail de publication à l’adresse [https://publish.windowsazure.com](https://publish.windowsazure.com)
 2. Dans le menu de gauche, cliquez sur l’onglet **Marketing** .
@@ -145,7 +145,7 @@ Pour les offres de machines virtuelles, une fois qu’une offre/référence est 
 ### <a name="21-set-your-vm-prices"></a>2.1. Définir les prix de votre machine virtuelle
 Actuellement, nous proposons les **3 types de modèles de facturation**
 
-* **Horaire :** les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs sur les tailles de machine virtuelle. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affichera pour le client sous forme de tarif horaire et mensuel lorsqu’ils considéreront l’achat (voir la capture d’écran ci-dessous). **L’éditeur reçoit 80 % du coût logiciel qu’il facture.**  Par conséquent, calculez vos tarifs en conséquence avant de définir les prix pour vos références.
+* **Horaire :** les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs sur les tailles de machine virtuelle. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affichera pour le client sous forme de tarif horaire et mensuel lorsqu’ils considéreront l’achat (voir la capture d’écran ci-dessous). **L’éditeur reçoit 80 % du coût logiciel qu’il facture.** Par conséquent, calculez vos tarifs en conséquence avant de définir les prix pour vos références.
   
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 * **Version d’évaluation gratuite :** il s’agit d’une autre version du modèle horaire. Ici, le client n’est pas facturé pour le coût logiciel (gratuit) pendant les 30 premiers jours après le déploiement de la machine virtuelle. Après ces 30 jours, les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs dans le modèle horaire.
@@ -194,7 +194,7 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarification horaire
 10. L’Assistant de tarification automatique s’ouvre. La première page affiche la sélection pour le marché de base. Effectuez votre sélection et passez à la page suivante en cliquant sur le bouton « -> ».
     
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
-11. L’option permettant de sélectionner les cœurs et les plans s’affichera sur la page 2. Sélectionnez les plans voulus, puis cliquez sur « -> ». Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner tous les **plans de service** et **compteurs**, ou vous pouvez cocher manuellement les cases. **Vous devez fournir des prix pour tous les cœurs d’une référence (SKU), même si votre référence ne le prend pas en charge.**  Par conséquent, assurez-vous que toutes les tailles de cœur sont sélectionnées.
+11. L’option permettant de sélectionner les cœurs et les plans s’affichera sur la page 2. Sélectionnez les plans voulus, puis cliquez sur « -> ». Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner tous les **plans de service** et **compteurs**, ou vous pouvez cocher manuellement les cases. **Vous devez fournir des prix pour tous les cœurs d’une référence (SKU), même si votre référence ne le prend pas en charge.** Par conséquent, assurez-vous que toutes les tailles de cœur sont sélectionnées.
     
     ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 12. La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels Microsoft verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
@@ -290,6 +290,6 @@ Votre contenu Marketplace étant chargé, nous allons maintenant tester votre of
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

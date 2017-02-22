@@ -1,5 +1,5 @@
 ---
-title: "Configurer des connexions sécurisées prises en charge par le cluster Service Fabric | Microsoft Docs"
+title: "Configurer des connexions sécurisées au cluster Azure Service Fabric | Microsoft Docs"
 description: "Découvrez comment utiliser Visual Studio pour configurer des connexions sécurisées prises en charge par le cluster Azure Service Fabric."
 services: service-fabric
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 
 
 ---
@@ -41,7 +41,7 @@ La boîte de dialogue **Sélectionner un cluster Service Fabric** valide automa
 1. Vérifiez que vous pouvez accéder à l’un des certificats clients approuvés par le cluster de destination. Le certificat est généralement partagé au format Personal Information Exchange (.pfx). Pour savoir comment configurer le serveur afin d’accorder l’accès à un client, consultez [Configuration d’un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md) .
 2. Installez le certificat approuvé. Pour ce faire, double-cliquez sur le fichier .pfx ou utilisez le script PowerShell Import-PfxCertificate pour importer les certificats. Installez le certificat à l’emplacement **Cert:\LocalMachine\My**. Il vous est possible d'accepter tous les paramètres par défaut lors de l'importation du certificat.
 3. Choisissez la commande **Publier...** du menu contextuel du projet pour ouvrir la boîte de dialogue **Publier une application Azure**, puis sélectionnez le cluster cible. L'outil résout automatiquement la connexion et enregistre les paramètres de connexion sécurisée dans le profil de publication.
-4. [Facultatif] : vous pouvez modifier le profil de publication pour spécifier une connexion sécurisée au cluster.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    Puisque vous modifiez manuellement le fichier XML du profil de publication pour spécifier les informations de certificat, prenez soin de noter le nom du magasin de certificats, l'emplacement du magasin et l’empreinte numérique du certificat. Vous devrez fournir ces valeurs pour le nom du magasin de certificats et l’emplacement du magasin. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
    
@@ -53,7 +53,7 @@ La boîte de dialogue **Sélectionner un cluster Service Fabric** valide automa
    
    Voici un exemple de connexion à un cluster sécurisé basé sur un certificat x509 :
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ Pour plus d’informations sur l’accès aux clusters Service Fabric, consultez
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

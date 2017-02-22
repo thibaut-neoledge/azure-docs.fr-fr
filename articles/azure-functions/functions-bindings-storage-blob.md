@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ Cet article explique comment configurer et coder des liaisons d’objets blob St
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Déclencheur d’objet blob Stockage
-Le déclencheur d’objet blob Stockage Azure vous permet de surveiller un conteneur de stockage pour les objets blob nouveaux et mis à jour et de réagir en conséquence. 
+Le déclencheur d’objet blob Azure Storage vous permet de surveiller un conteneur de stockage pour les nouveaux objets blob et ceux mis à jour, mais aussi d’exécuter votre code de fonction en cas de détection de modifications. 
 
 Le déclencheur d’objet blob Stockage d’une fonction utilise les objets JSON suivants dans le tableau `bindings` de function.json :
 
@@ -328,9 +328,9 @@ La sortie d’objet blob Stockage pour une fonction utilise les objets JSON suiv
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
@@ -372,6 +372,6 @@ Voir [Exemple d’entrée](#inputsample).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

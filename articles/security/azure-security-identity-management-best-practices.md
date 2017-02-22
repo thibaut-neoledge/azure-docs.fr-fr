@@ -1,5 +1,5 @@
 ---
-title: "Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure | Microsoft Docs"
+title: "Gestion des identités et des accès : bonnes pratiques de sécurité Azure | Microsoft Docs"
 description: "Cet article détaille un ensemble de meilleures pratiques en matière de gestion des identités et du contrôle d’accès à l’aide de fonctionnalités Azure intégrées."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: eb4f55ab1f463d3351c74d9996eb8611281abe41
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
 
 
 ---
@@ -138,6 +138,6 @@ Pour en savoir plus sur la protection d’identité Azure, lisez l’article [Az
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

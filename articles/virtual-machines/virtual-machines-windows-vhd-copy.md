@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
+ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
 
 
 ---
@@ -93,7 +93,7 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
-* Lorsque vous utilisez AzCopy, si vous rencontrez l’erreur « Le serveur n’a pas pu authentifier la requête. Vérifiez que la valeur de l'en-tête d'autorisation est formée correctement, avec la signature. » et que vous utilisez Clé 2 ou la clé de stockage secondaire, essayez d’utiliser la clé de stockage principale ou primaire.
+* Lorsque vous utilisez AZCopy, si l’erreur d’échec d’authentification de la demande par le serveur s’affiche, vérifiez la valeur de l’en-tête d’autorisation : il doit être correctement formé et comporter notamment la signature. Si vous utilisez la clé 2 ou la clé de stockage secondaire, essayez d’utiliser la clé primaire ou la première clé de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez créer une machine virtuelle en [joignant la copie du disque dur virtuel à une machine virtuelle en tant que disque du système d’exploitation](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -101,6 +101,6 @@ Elapsed time:            00.00:13:07
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

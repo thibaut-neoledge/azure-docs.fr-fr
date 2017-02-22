@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 6700ea97bea02d68329b923f8715d84e5df1de33
+ms.sourcegitcommit: 8062106872bd50cd265fc4e64bc6f4c0fb2dbb1d
+ms.openlocfilehash: b7458e13174dc03f2c4cab707c033d96a80628e6
 
 
 ---
@@ -44,7 +44,11 @@ Pour les machines virtuelles créées à l’aide du modèle de déploiement Cla
 - [Réinitialisation à l’aide d’Azure PowerShell](#vmaccess-extension-and-powershell---classic)
 
 ## <a name="azure-portal---resource-manager"></a>Portail Azure - Resource Manager
-Sélectionnez votre machine virtuelle en cliquant sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche :
+Pour développer le menu du portail, cliquez sur les trois barres dans l’angle supérieur gauche, puis sur **Machines virtuelles** :
+
+![Accédez à votre machine virtuelle Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
+
+Sélectionnez votre machine virtuelle Windows, puis cliquez sur **Support + dépannage** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche :
 
 ![Page Réinitialiser le mot de passe](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -100,11 +104,15 @@ Si vous ne pouvez toujours pas vous connecter à distance à votre machine virtu
 
 
 ## <a name="azure-portal---classic"></a>Portail Azure - Classic
-Pour des machines virtuelles créées à l’aide du modèle de déploiement Classic, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le service Bureau à distance. Cliquez sur : **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l’accès à distance**. La page suivante apparaît.
+Pour des machines virtuelles créées à l’aide du modèle de déploiement Classic, vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour réinitialiser le service Bureau à distance. Pour développer le menu du portail, cliquez sur les trois barres dans l’angle supérieur gauche, puis sur **Machines virtuelles (classiques)** :
+
+![Accédez à votre machine virtuelle Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
+
+Sélectionnez votre machine virtuelle Windows, puis cliquez sur **Réinitialiser... à distance**. La boîte de dialogue suivante apparaît pour réinitialiser la configuration du Bureau à distance :
 
 ![Page Réinitialiser la configuration RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Vous pouvez également essayer de réinitialiser le nom et le mot de passe du compte d’administrateur local. Cliquez sur : **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialiser le mot de passe**. La page suivante apparaît.
+Vous pouvez également réinitialiser le nom et le mot de passe du compte d’administrateur local. À partir de votre machine virtuelle, cliquez sur **Support + dépannage** > **Réinitialiser le mot de passe**. Le panneau de réinitialisation du mot de passe s’affiche :
 
 ![Page Réinitialiser le mot de passe](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
@@ -174,6 +182,6 @@ Si l’extension d’accès aux machines virtuelles Azure ne répond pas et que 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

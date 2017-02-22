@@ -1,5 +1,5 @@
 ---
-title: "Application de stratégies aux machines virtuelles Azure Resource Manager | Microsoft Docs"
+title: "Appliquer la sécurité avec des stratégies sur des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Comment appliquer une stratégie à une machine virtuelle Azure Resource Manager Linux"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Application de stratégies aux machines virtuelles Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Appliquer la sécurité et des stratégies aux machines virtuelles Linux avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous allons décrire comment utiliser les stratégies d'Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
 
 Les grandes lignes des étapes sont présentées ci-dessous.
@@ -82,7 +82,7 @@ La stratégie ci-dessus peut facilement être modifiée pour un scénario dans l
 ```
 
 #### <a name="virtual-machine-property-fields"></a>Champs de propriété de la machine virtuelle
-Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent être utilisées en tant que champs dans votre définition de stratégie. Pour plus d’informations sur les champs de stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../resource-manager-policy.md#fields).
+Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent être utilisées en tant que champs dans votre définition de stratégie. Pour plus d’informations sur les champs de stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Nom du champ | Description |
 | --- | --- |
@@ -92,13 +92,13 @@ Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent 
 | imageVersion |Spécifie la version de l’image du SKU choisi |
 
 ## <a name="create-the-policy"></a>Création de la stratégie
-Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../resource-manager-policy.md#create-and-assign-a-policy).
+Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 ## <a name="apply-the-policy"></a>Application de la stratégie
-Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../resource-manager-policy.md#create-and-assign-a-policy).
+Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

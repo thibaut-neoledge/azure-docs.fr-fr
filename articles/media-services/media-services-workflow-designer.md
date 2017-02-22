@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 
 ---
@@ -35,7 +35,7 @@ Exemples de flux de travail que vous pouvez créer :
 Cet outil permet aussi de modifier nos [flux de travail publiés](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Pour obtenir votre copie de l'outil Concepteur de flux de travail, contactez mepd@microsoft.com.
+> Pour obtenir une copie de l'outil Concepteur de flux de travail, contactez mepd@microsoft.com.
 > 
 > 
 
@@ -51,9 +51,9 @@ La vidéo du jour 1 présente :
 
 * Vue d'ensemble du concepteur
 * Flux de travail de base : « Hello World »
-* Création de plusieurs fichiers de sortie MP4 à utiliser avec la diffusion en continu d’Azure Media Services
+* Création de plusieurs fichiers de sortie MP4 à utiliser avec le streaming Azure Media Services
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +64,7 @@ La vidéo du jour 2 présente :
 * Flux de travail avec une logique avancée
 * Étapes du graphique
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ La vidéo du jour 3 présente :
 * Restrictions de l'encodeur actuel
 * Questions et réponses  
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -95,6 +95,6 @@ Si vous avez besoin d'aide ou si vous avez des questions à propos de la créati
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

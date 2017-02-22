@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 69a976f1f019cb89780d00c6bc730fae30e92378
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 9616197bd2b1587290b3beb14cb883e2dba8fb4e
 Découvrez comment surveiller et gérer les ressources Stream Analytics à l’aide d’applets de commande Azure PowerShell et de scripts PowerShell qui exécutent les tâches Stream Analytics de base.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Conditions requises pour l'exécution des applets de commande Azure PowerShell pour Stream Analytics
-* Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell : Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).  
+* Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell : Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 
 Azure PowerShell 0.9.8 :  
 
@@ -64,7 +64,7 @@ Azure PowerShell 1.0 :
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Applets de commande Azure PowerShell pour Stream Analytics
 Vous pouvez utiliser les applets de commande Azure PowerShell suivantes pour surveiller et gérer des travaux Azure Stream Analytics. Notez qu'il existe différentes versions d'Azure PowerShell. 
-**Dans les exemples répertoriés, la première commande s'applique à Azure PowerShell 0.9.8, la deuxième commande s'applique à Azure PowerShell 1.0.**  Les commandes Azure PowerShell 1.0 contiennent toujours « AzureRM » dans la commande.
+**Dans les exemples répertoriés, la première commande s'applique à Azure PowerShell 0.9.8, la deuxième commande s'applique à Azure PowerShell 1.0.** Les commandes Azure PowerShell 1.0 contiennent toujours « AzureRM » dans la commande.
 
 ### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
 Répertorie tous les travaux Stream Analytics définis dans l’abonnement Azure ou le groupe de ressources spécifié, ou obtient des informations sur un travail spécifique au sein d’un groupe de ressources.
@@ -280,7 +280,7 @@ Si vous spécifiez une sortie qui existe déjà et que vous ne spécifiez pas le
 
 Si vous spécifiez le paramètre -Force et un nom de sortie existant, la sortie est remplacée sans confirmation.
 
-Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’une sortie (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] de la [bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
+Pour plus d’informations sur la structure et le contenu du fichier JSON, reportez-vous à la section [Création d’une sortie (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] de la[ bibliothèque de référence des API REST de gestion de Stream Analytics][stream.analytics.rest.api.reference].
 
 **Exemple 1**
 
@@ -476,6 +476,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

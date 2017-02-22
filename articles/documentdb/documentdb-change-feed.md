@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/13/2016
-ms.author: b-hoedid
+ms.date: 01/25/2017
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: b22e75264345bc9d155bd1abc1fdb6e978dfad04
-ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
+ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
+ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
 
 
 ---
@@ -47,7 +47,7 @@ Change Feed permet un traitement efficace des jeux de données importants avec u
 
 ![Pipeline lambda Azure DocumentDB pour l’ingestion et la requête](./media/documentdb-change-feed/lambda.png)
 
-Vous pouvez utiliser DocumentDB pour recevoir et stocker des données d’événement à partir d’appareils, de capteurs, de l’infrastructure et des applications, et traiter ces événements en temps réel avec [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) ou [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+Vous pouvez utiliser DocumentDB pour recevoir et stocker des données d’événement à partir d’appareils, de capteurs, de l’infrastructure et des applications, et traiter ces événements en temps réel avec [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) ou [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 Dans les applications web et mobiles, vous pouvez suivre les événements tels que les modifications apportées aux profil, préférences ou emplacement de votre client pour déclencher certaines actions, comme l’envoi de notifications Push à leurs appareils à l’aide [d’Azure Functions](../azure-functions/functions-bindings-documentdb.md) ou [d’App Services](https://azure.microsoft.com/services/app-service/). Si vous utilisez DocumentDB pour créer un jeu, vous pouvez, par exemple, utiliser Change Feed pour implémenter des classements en temps réel basés sur des scores de jeux terminés.
 
@@ -74,7 +74,7 @@ DocumentDB fournit des conteneurs élastiques de stockage et de débit appelés 
 ### <a name="readdocumentfeed-api"></a>API ReadDocumentFeed
 Examinons brièvement comment ReadDocumentFeed fonctionne. DocumentDB prend en charge la lecture d’un flux de documents dans une collection via l’API `ReadDocumentFeed`. Par exemple, la demande suivante retourne une page de documents à l’intérieur de la collection `serverlogs`. 
 
-    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
     x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
     authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
     Cache-Control: no-cache
@@ -172,20 +172,24 @@ Cette demande renvoie la réponse suivante contenant les métadonnées des plage
     <tr>
         <td>minInclusive</td>
         <td>Valeur de hachage de la clé de partition minimale pour la plage de clés de partition. À usage interne.</td>
-    </tr>       
+    </tr>        
 </table>
 
 Vous pouvez effectuer cette opération à l’aide d’un des [Kits de développement logiciel (SDK) de DocumentDB](documentdb-sdk-dotnet.md) pris en charge. Par exemple, l’extrait de code suivant montre comment récupérer des plages de clés de partition dans .NET.
 
+    string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-    FeedResponse<PartitionKeyRange> response;
 
     do
     {
-        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-        partitionKeyRanges.AddRange(response);
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     }
-    while (response.ResponseContinuation != null);
+    while (pkRangesResponseContinuation != null);
 
 DocumentDB prend en charge la récupération de documents par plage de clés de partition en définissant l’en-tête `x-ms-documentdb-partitionkeyrangeid` facultatif. 
 
@@ -254,24 +258,31 @@ Voici un exemple de demande pour retourner toutes les modifications incrémentie
     Accept: application/json
     Host: mydocumentdb.documents.azure.com
 
-Les modifications sont classées par heure dans chaque valeur de clé de partition de la plage. Il n’existe aucun ordre garanti entre les valeurs de clé de partition. Si les résultats sont trop nombreux pour figurer sur une seule page, vous pouvez lire la page de résultats suivante en soumettant à nouveau la demande avec l’en-tête `If-None-Match` et une valeur égale à l’`etag` de la réponse précédente. Si plusieurs documents ont été mis à jour via des transactions au sein d’une procédure stockée ou avec un déclencheur, ils seront tous renvoyés dans la même page de réponse.
+Les modifications sont classées par heure dans chaque valeur de clé de partition de la plage. Il n’existe aucun ordre garanti entre les valeurs de clé de partition. Si les résultats sont trop nombreux pour figurer sur une seule page, vous pouvez lire la page de résultats suivante en soumettant à nouveau la demande avec l’en-tête `If-None-Match` et une valeur égale à l’`etag` de la réponse précédente. Si plusieurs documents ont été insérés ou mis à jour via des transactions au sein d’une procédure stockée ou avec un déclencheur, ils seront tous renvoyés dans la même page de réponse.
 
-Le Kit de développement (SDK) .NET fournit les classes d’assistance `CreateDocumentChangeFeedQuery` et `ChangeFeedOptions` pour accéder aux modifications apportées à une collection. L’extrait de code suivant montre comment récupérer toutes les modifications apportées depuis le début à l’aide du SDK .NET à partir d’un seul client.
+> [!NOTE]
+> Avec la modification de flux, plus d’éléments seront retournés dans une page spécifiée dans `x-ms-max-item-count` dans le cas de plusieurs documents insérés ou mis à jour à l’intérieur des procédures stockées ou des déclencheurs. 
+
+Le Kit de développement logiciel (SDK) .NET fournit les classes d’assistance [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) et [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) pour accéder aux modifications apportées à une collection. L’extrait de code suivant montre comment récupérer toutes les modifications apportées depuis le début à l’aide du SDK .NET à partir d’un seul client.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
         string collection,
         Dictionary<string, string> checkpoints)
     {
+        string pkRangesResponseContinuation = null;
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+                collectionUri, 
+                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
             partitionKeyRanges.AddRange(pkRangesResponse);
+            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
         }
-        while (pkRangesResponse.ResponseContinuation != null);
+        while (pkRangesResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -334,6 +345,7 @@ Dans cet article, nous vous avons fourni une procédure pas à pas concernant le
 * Commencez à coder avec [les Kits de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
 title: "Aperçu de l’utilisation des lecteurs pour un travail d’exportation | Microsoft Docs"
 description: "Découvrez comment afficher un aperçu de la liste d’objets blob que vous avez sélectionnés pour un travail d’exportation dans le service Azure Import-Export."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: d8ea4cb51c9609b8fa9ed5ee50762f981da68e20
+ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
+ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
 
 
 ---
@@ -28,11 +28,11 @@ Avant de créer un travail d’exportation, vous devez choisir un ensemble d’o
   
 |Option de ligne de commande|Description|  
 |--------------------------|-----------------|  
-|**/logdir:**<LogDirectory\>|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés seront créés dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
+|**/logdir:**<LogDirectory\>|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés seront écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
 |**/sn:**<StorageAccountName\>|Obligatoire. Nom du compte de stockage du travail d’exportation.|  
 |**/sk:**<StorageAccountKey\>|Obligatoire si et seulement si aucune SAP de conteneur n’est spécifiée. Clé du compte de stockage du travail d’exportation.|  
 |**/csas:**<ContainerSas\>|Obligatoire si et seulement si aucune clé du compte de stockage n’est spécifiée. SAP du conteneur pour lister les objets blob à exporter dans le travail d’exportation.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Obligatoire. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageservices/importexport/Put-Job) de l’API REST du service Import/Export.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Obligatoire. Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Format du fichier utilisé dans l’élément `BlobListBlobPath` dans l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de l’API REST du service Import/Export.|  
 |**/DriveSize:**<DriveSize\>|Obligatoire. Taille des disques à utiliser pour un travail d’exportation, *par exemple* 500 Go ou 1,5 To.|  
   
 L’exemple suivant illustre la commande `PreviewExport` :  
@@ -74,6 +74,7 @@ Number of drives needed:        3
 [Référence sur l’outil Azure Import-Export](storage-import-export-tool-how-to-v1.md)
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

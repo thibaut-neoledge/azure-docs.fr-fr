@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
+ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
+ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
 
 
 ---
@@ -38,10 +38,10 @@ Ce dont vous avez besoin :
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Obtenir une clé d'instrumentation Application Insights
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 2. Créez une ressource Application Insights. Définissez le type d’application sur Application web Java.
-   
+
     ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-get-started/02-create.png)
 3. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.
-   
+
     ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-get-started/03-key.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Ajoutez le Kit de développement logiciel (SDK) Application Insights pour Java à votre projet
@@ -54,6 +54,8 @@ Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug
 Si votre projet est déjà configuré pour être assemblé avec Maven, fusionnez le code suivant dans votre fichier pom.xml.
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
+
+```XML
 
     <repositories>
        <repository>
@@ -71,7 +73,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-
+```
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>1.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
@@ -81,6 +83,8 @@ Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionne
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
+```JSON
+
     repositories {
       mavenCentral()
     }
@@ -89,6 +93,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
+```
 
 * *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'1.0.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
@@ -102,11 +107,11 @@ Ajouter manuellement le Kit de développement logiciel :
 
 ### <a name="questions"></a>Questions...
 * *Quelle est la relation entre les composants `-core` et `-web` du fichier zip ?*
-  
+
   * `applicationinsights-core` vous fournit l’API seule. Ce composant est toujours requis.
   * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. Vous pouvez omettre ce composant si vous ne souhaitez pas recueillir automatiquement ces données de télémétrie. Par exemple, si vous préférez écrire vos propres mesures.
 * *Pour mettre à jour le Kit de développement logiciel lorsque nous publions des modifications*
-  
+
   * Téléchargez le dernier [Kit de développement logiciel Application Insights pour Java](https://aka.ms/qqkaq6) et remplacez les anciens Kits.
   * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
@@ -114,6 +119,8 @@ Ajouter manuellement le Kit de développement logiciel :
 Ajoutez ApplicationInsights.xml dans le dossier de ressources de votre projet, ou vérifiez qu’il est ajouté au chemin de la classe du déploiement de votre projet. Copiez-y le code XML suivant.
 
 Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -144,6 +151,7 @@ Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 
 * La clé d'instrumentation est envoyée avec chaque élément de télémétrie et indique à Application Insights de l'afficher dans votre ressource.
@@ -160,8 +168,10 @@ Le kit de développement logiciel (SDK) d’Application Insights recherche la cl
 
 Vous pouvez également [définir la clé dans le code](app-insights-api-custom-events-metrics.md#ikey):
 
-    telemetryClient.InstrumentationKey = "...";
+```Java
 
+    telemetryClient.InstrumentationKey = "...";
+```
 
 ## <a name="4-add-an-http-filter"></a>4. Ajouter un filtre HTTP
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
@@ -169,6 +179,8 @@ La dernière étape de la configuration permet au composant de demande HTTP de c
 Recherchez et ouvrez le fichier web.xml dans votre projet et fusionnez le code suivant sous le nœud de l'application web, où vos filtres d'application sont configurés.
 
 Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous les autres filtres.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -180,9 +192,12 @@ Pour obtenir des résultats plus précis, le filtre doit être mappé avant tous
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Si vous utilisez Spring Web MVC 3.1 ou une version ultérieure
 Modifiez ces éléments dans *-servlet.xml pour inclure le package Application Insights :
+
+```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -192,14 +207,18 @@ Modifiez ces éléments dans *-servlet.xml pour inclure le package Application I
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
+```
 
 #### <a name="if-youre-using-struts-2"></a>Si vous utilisez Struts 2
 Ajoutez cet élément au fichier de configuration Struts (généralement struts.xml ou struts-default.xml) :
+
+```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+```
 
 (Si vous avez défini des intercepteurs dans une pile par défaut, l'intercepteur peut simplement être ajouté à cette pile).
 
@@ -220,11 +239,11 @@ Cliquez sur un des graphiques pour afficher des métriques agrégées plus déta
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
 > Application Insights repose sur l’hypothèse que le format des requêtes HTTP pour les applications MVC est le suivant : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` sont regroupés dans `GET Home/Product`. Ceci permet l’agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d’exécution des demandes.
-> 
-> 
+>
+>
 
 ### <a name="instance-data"></a>Données d’instance
-Cliquez sur un type de demande spécifique pour afficher les instances individuelles. 
+Cliquez sur un type de demande spécifique pour afficher les instances individuelles.
 
 Deux types de données s’affichent dans Application Insights : des données agrégées, stockées et affichées sous forme de moyennes, de nombres et de sommes ; et les données d’instance : des rapports individuels des requêtes HTTP, des exceptions, les vues de page ou des événements personnalisés.
 
@@ -233,7 +252,7 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics : un puissant langage de requête
-En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles. [Analytics]() est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
+En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](app-insights-analytics.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
 
 ![Exemple d’Analytics](./media/app-insights-java-get-started/025.png)
 
@@ -241,16 +260,16 @@ En accumulant toujours plus de données, vous pouvez exécuter des requêtes à 
 Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
-  
+
   * dc.services.VisualStudio.com:443
   * f5.services.visualstudio.com:443
 
-* Si le trafic sortant doit être acheminé via un pare-feu, définissez les propriétés système `http.proxyHost` et `http.proxyPort`. 
+* Si le trafic sortant doit être acheminé via un pare-feu, définissez les propriétés système `http.proxyHost` et `http.proxyPort`.
 
 * Sur les serveurs Windows, installez :
-  
+
   * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Cette opération active les compteurs de performances.)
 
 
@@ -261,7 +280,7 @@ Les exceptions non gérées sont collectées automatiquement :
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels à trackException() dans votre code][apiexceptions]. 
+* [Insérez des appels à trackException() dans votre code][apiexceptions].
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Surveiller les appels de méthode et les dépendances externes
@@ -275,20 +294,25 @@ Ouvrez **Paramètres**, **Serveurs** afin d’afficher une gamme de compteurs de
 ### <a name="customize-performance-counter-collection"></a>Personnaliser la collecte des compteurs de performances
 Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
 
+```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### <a name="collect-additional-performance-counters"></a>Collecter des compteurs de performances supplémentaires
 Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Compteurs JMX (exposés par la machine virtuelle Java)
+
+```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` : nom affiché sur le portail Application Insights.
 * `objectName` : nom de l'objet JMX.
@@ -301,12 +325,14 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 #### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
+```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName : nom affiché sur le portail Application Insights.
 * categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
@@ -344,7 +370,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 ![Exemple de test web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[En savoir plus sur les tests de disponibilité web.][availability] 
+[En savoir plus sur les tests de disponibilité web.][availability]
 
 ## <a name="questions-problems"></a>Des questions ? Des problèmes ?
 [Résolution des problèmes Java](app-insights-java-troubleshoot.md)
@@ -355,13 +381,13 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 * Ajoutez [la surveillance à vos pages web](app-insights-javascript.md) pour surveiller le temps de chargement des pages, les appels AJAX et les exceptions du navigateur.
 * Écrivez [télémétrie personnalisée](app-insights-api-custom-events-metrics.md) pour suivre l’utilisation sur le navigateur ou le serveur.
 * Créez des [tableaux de bord](app-insights-dashboards.md) pour rassembler les graphiques essentiels pour la surveillance de votre système.
-* [Analytics](app-insights-analytics.md) pour des requêtes puissantes sur vos données de télémétrie
+* Utilisez [Analytics](app-insights-analytics.md) pour des requêtes puissantes sur les données de télémétrie de votre application
 * Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
@@ -371,6 +397,6 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e993e8c0cb7b7143f9e7be5bd413f42742666fa8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 96ac017b469405e0eb106bf5eb391b5273600ab2
 
 
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Applets de commande PowerShell et API REST pour SQL Data Warehouse
-De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][Gérer l’évolutivité avec REST].
+De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][Manage scalability with REST].
 
 > [!NOTE]
-> Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][Installation et configuration d’Azure PowerShell].
+> Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0.3 ou supérieure.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 > 
 > 
 
@@ -44,7 +44,7 @@ Une base de données appelée « Database02 » et hébergée sur un serveur ap
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Une variante, dans cet exemple, l’objet récupéré est redirigé vers [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
+Variante : dans cet exemple l’objet récupéré est redirigé vers [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -88,22 +88,22 @@ Ces applets de commande PowerShell sont souvent utilisées avec Azure SQL Data W
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’exemples PowerShell, consultez :
 
-* [Création de SQL Data Warehouse à l’aide de Powershell][Création de SQL Data Warehouse à l’aide de Powershell]
-* [Restauration de base de données][Restauration de base de données]
+* [Création de SQL Data Warehouse à l’aide de PowerShell][Create a SQL Data Warehouse using PowerShell]
+* [Restauration de base de données][Database restore]
 
-Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande de la base de données SQL Azure][Applets de commande de la base de données SQL Azure].  Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations des bases de données SQL Azure][Opérations des bases de données SQL Azure].
+Pour obtenir la liste de toutes les tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande d’Azure SQL Database][Azure SQL Database Cmdlets].  Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations pour Azure SQL Database][Operations for Azure SQL Databases].
 
 <!--Image references-->
 
 <!--Article references-->
-[Installation et configuration d’Azure PowerShell]: ../powershell-install-configure.md
-[Création de SQL Data Warehouse à l’aide de Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restauration de base de données]: ./sql-data-warehouse-restore-database-powershell.md
-[Gérer l’évolutivité avec REST]: ./sql-data-warehouse-manage-compute-rest-api.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Database restore]: ./sql-data-warehouse-restore-database-powershell.md
+[Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Applets de commande de la base de données SQL Azure]: https://msdn.microsoft.com/library/mt574084.aspx
-[Opérations des bases de données SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
+[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
@@ -121,6 +121,6 @@ Pour obtenir la liste de toutes les tâches pouvant être automatisées avec Pow
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Backup - Déployer et gérer une sauvegarde pour DPM à l’aide de PowerShell | Microsoft Docs"
+title: 'Sauvegarde Azure : Utiliser PowerShell pour sauvegarder des charges de travail DPM | Microsoft Docs'
 description: "Découvrez comment déployer et gérer Azure Backup pour Data Protection Manager (DPM) à l’aide de PowerShell"
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: jimpark; trinadhk; anuragm; markgal
+ms.date: 1/23/2017
+ms.author: nkolli;trinadhk;anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
+ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Classique](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 Cet article décrit comment utiliser PowerShell pour configurer Azure Backup sur un serveur DPM, ainsi que pour gérer les sauvegardes et la récupération.
 
@@ -68,8 +68,8 @@ Les tâches de configuration et d’inscription ci-après peuvent être automati
 ### <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 > [!WARNING]
 > Pour les clients utilisant Azure Backup pour la première fois, vous devez enregistrer le fournisseur Azure Backup à utiliser avec votre abonnement. Pour cela, exécutez la commande suivante : Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Vous pouvez créer un coffre de sauvegarde en utilisant l’applet de commande **New-AzureRMBackupVault** . Le coffre de sauvegarde constituant une ressource ARM, vous devez le placer dans un groupe de ressources. Dans une console Azure PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
 
@@ -143,8 +143,8 @@ Cette opération inscrira le serveur DPM nommé « TestingServer » auprès de
 
 > [!IMPORTANT]
 > N’utilisez pas de chemins relatifs pour spécifier le fichier des informations d’identification du coffre. Vous devez fournir un chemin absolu dans la cmdlet.
-> 
-> 
+>
+>
 
 ### <a name="initial-configuration-settings"></a>Paramètres de la configuration initiale
 Une fois que le serveur DPM est inscrit auprès du coffre de sauvegarde Azure, il démarre avec les paramètres d’abonnement par défaut. Ces paramètres d’abonnement incluent la mise en réseau, le chiffrement et la zone intermédiaire. Avant de modifier les paramètres d’abonnement, vous devez obtenir les paramètres (par défaut) existants à l’aide de l’applet de commande [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) :
@@ -194,8 +194,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Conservez les informations de phrase secrète en lieu sûr après les avoir définies. Vous ne pourrez pas restaurer les données à partir d’Azure sans ce mot de passe.
-> 
-> 
+>
+>
 
 À ce stade, vous devez avoir apporté toutes les modifications requises à l’objet ```$setting``` . Pensez à valider les modifications.
 
@@ -351,7 +351,6 @@ Les commandes peuvent facilement être étendues à n'importe quel type de sourc
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

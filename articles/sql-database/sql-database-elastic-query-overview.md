@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 06d1d0e4b72a50c093aaa1337b518a9f11ffbaa0
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 21b2c50e79a8a60e7ffe94f7d41dfe3048ec5174
 
 
 ---
@@ -55,12 +55,12 @@ Une requête de base de données élastique offre un accès facile à un ensembl
 
 **Figure 1** Requête de base de données élastique utilisée sur la couche de données mise à l’échelle
 
-![ Requête de base de données élastique utilisée sur la couche de données mise à l’échelle][1]
+![Requête de base de données élastique utilisée sur la couche de données mise à l’échelle][1]
 
 Les scénarios clients pour une requête élastique sont caractérisés par les topologies suivantes :
 
-* **Partitionnement vertical – Requêtes de base de données croisées** (Topologie 1) : les données sont partitionnées verticalement entre plusieurs bases de données dans une couche de données. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
-* **Partitionnement horizontal - partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir des lignes sur une mise à l’échelle vers la couche données. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
+* **Partitionnement vertical - Requêtes de base de données croisées** (topologie 1) : les données sont partitionnées verticalement entre plusieurs bases de données dans une couche de données. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
+* **Partitionnement horizontal - partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir des lignes sur une mise à l’échelle vers la couche de données. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
 
 > [!NOTE]
 > Une requête de base de données élastique est mieux adaptée aux scénarios de création de rapports occasionnels où la plus grande partie du traitement peut s’effectuer sur la couche données. Pour les charges de travail de création de rapports intensive ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -68,7 +68,7 @@ Les scénarios clients pour une requête élastique sont caractérisés par les 
 > 
 
 ## <a name="elastic-database-query-topologies"></a>Topologies de requête de base de données élastique
-### <a name="topology-1-vertical-partitioning--cross-database-queries"></a>Topologie 1 : partitionnement vertical : requêtes de base de données croisée
+### <a name="topology-1-vertical-partitioning---cross-database-queries"></a>Topologie 1 : partitionnement vertical : requêtes de base de données croisée
 Pour commencer le codage, voir [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](sql-database-elastic-query-getting-started-vertical.md).
 
 Une requête élastique peut être utilisée pour mettre les données situées dans une base de données SQLDB à la disposition d’autres bases de données SQLDB. Ainsi, les requêtes issues d’une base de données peuvent faire référence à des tables dans n’importe quelle autre base de données SQLDB distante. La première étape consiste à définir une source de données externe pour chaque base de données distante. La source de données externe est définie dans la base de données locale à partir de laquelle vous souhaitez accéder aux tables situées sur la base de données distante. Aucune modification de la base de données distante n’est nécessaire. Pour les scénarios verticaux dans lesquels les différentes bases de données comportent des schémas différents, les requêtes élastiques peuvent être utilisées pour implémenter des scénarios d’utilisation courants tels que l’accès aux données de référence et l’interrogation de bases de données croisées.
@@ -77,20 +77,20 @@ Une requête élastique peut être utilisée pour mettre les données situées d
 
 **Figure 2** Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence
 
-![ Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
+![Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
 
 **Interrogation des bases de données croisées**: les requêtes élastiques permettent d’utiliser des cas nécessitant l’interrogation de plusieurs bases de données BDSQL. La figure 3 représente quatre bases de données différentes : Gestion de la relation client (CRM), Inventaire, Ressources humaines (RH) et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
 
 **Figure 3** Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données
 
-![ Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données][4]
+![Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données][4]
 
-### <a name="topology-2-horizontal-partitioning--sharding"></a>Topologie 2 : Partitionnement horizontal - partitionnement
+### <a name="topology-2-horizontal-partitioning---sharding"></a>Topologie 2 : partitionnement horizontal - partitionnement
 L’utilisation d’une requête élastique destinée à effectuer des tâches de création de rapports sur une couche de données partitionnée exige un [mappage de partitionnement de base de données élastique](sql-database-elastic-scale-shard-map-management.md) pour représenter les bases de données de la couche de données. En règle générale, un seul mappage de partition est utilisé dans ce scénario, et une base de données partitionnée dédiée avec des fonctions d’interrogation élastique sert de point d’entrée pour les requêtes de création de rapport. Seule cette base de données dédiée doit avoir accès à la table de partition. La figure 4 illustre cette topologie et sa configuration avec la base de données de requête élastique et du mappage de partition. Les bases de données de la couche de données peuvent appartenir à n’importe quelle version ou édition d’Azure SQL Database. Pour plus d’informations sur la bibliothèque cliente de base de données élastique, consultez [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4** partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées
 
-![ partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées][5]
+![partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées][5]
 
 > [!NOTE]
 > La base de données de requête de la base de données élastique dédiée doit être une base de données SQL DB v12. Il n’existe aucune restriction concernant les partitions.
@@ -174,6 +174,6 @@ Vous trouverez d’autres informations sur les scénarios de partitionnement hor
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
