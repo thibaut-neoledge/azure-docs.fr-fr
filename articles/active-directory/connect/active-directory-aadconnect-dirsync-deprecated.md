@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 53a67a2bccb622bfd79eb082baf9688336760cf1
+ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
+ms.openlocfilehash: 9b1a297b19b07ca8b77525484e59389255567ed3
 
 
 ---
+
 # <a name="upgrade-windows-azure-active-directory-sync-dirsync-and-azure-active-directory-sync-azure-ad-sync"></a>Mettre à niveau Microsoft Azure Active Directory Sync (« DirSync ») et Azure Active Directory Sync (« Azure AD Sync »)
 Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais déconseillés et ne seront plus pris en charge à partir du 13 avril 2017.
 
@@ -49,18 +50,18 @@ Si vous utilisez Azure AD Sync, une mise à niveau sur place est recommandée. S
 Si vous souhaitez savoir comment effectuer une mise à niveau sur place depuis DirSync vers Azure AD Connect, regardez cette vidéo de Channel 9 :
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
-> 
-> 
+>
+>
 
 ## <a name="faq"></a>Forum Aux Questions
 **Q: J'ai reçu une notification par courrier électronique de l'équipe Azure et/ou un message du centre de messages Office 365, mais j'utilise Connect.**  
-La notification a été également envoyée aux clients à l'aide d'Azure AD Connect avec un numéro de build 1.0. \*. 0 (à l'aide d'une version pre-1.1). Microsoft recommande aux clients de maintenir à jour leurs versions d’Azure AD Connect. Grâce à la fonctionnalité de [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) de la version 1.1., il est vraiment facile de toujours avoir une version récente d’Azure AD Connect installée.
+La notification a été également envoyée aux clients à l'aide d'Azure AD Connect avec un numéro de build 1.0. \*. 0 (à l'aide d'une version pre-1.1). Microsoft recommande aux clients de maintenir à jour leurs versions d’Azure AD Connect. Grâce à la fonctionnalité de [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) introduite dans la version 1.1, il est facile de toujours avoir une version récente d’Azure AD Connect installée.
 
 **Q : DirSync/Azure AD Sync vont-ils cesser de fonctionner le 13 avril 2017 ?**  
- Non. La date à laquelle ils ne seront plus en mesure de communiquer avec Azure AD sera annoncée ultérieurement. Vous pourrez trouver cette information dans cette rubrique quand elle sera disponible.
+Non. La date à laquelle ces produits ne seront plus en mesure de communiquer avec Azure AD sera annoncée ultérieurement. Vous pourrez trouver cette information dans cette rubrique quand elle sera disponible.
 
 **Q: Quelles versions de DirSync puis-je mettre à niveau ?**  
- Une mise à niveau est prise en charge à partir de n’importe quelle version de DirSync utilisée.
+Une mise à niveau est prise en charge à partir de n’importe quelle version de DirSync utilisée.
 
 **Q : Qu’en est-il du connecteur Azure AD pour FIM/MIM ?**  
 Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconseillé. Il est dans l’état **feature freeze**; aucune nouvelle fonctionnalité n’est ajoutée et il ne reçoit aucune résolution de bogue. Microsoft recommande aux clients qui l’utilisent d’envisager de passer à Azure AD Connect. Il est fortement recommandé ne pas démarrer de nouveaux déploiements en l’utilisant. Ce connecteur sera annoncé comme déconseillé par la suite.
@@ -70,7 +71,6 @@ Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconsei
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

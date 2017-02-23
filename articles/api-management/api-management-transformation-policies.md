@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 6fc751d956eee68d2bbab50b0f25b928759c9d32
+ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
+ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
 
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
@@ -472,11 +472,11 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 > [!NOTE]
 >  Vous ne pouvez ajouter que des paramètres de chaîne de requête avec la stratégie. Vous ne pouvez pas ajouter de paramètres de chemin d’accès de modèle dans l’URL de réécriture.  
-  
+
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
 ### <a name="example"></a>Exemple  
@@ -492,7 +492,33 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
     </outbound>  
 </policies>  
 ```  
-  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put?c=d -->
+```  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" copy-unmatched-params="false" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put -->
+```
+
 ### <a name="elements"></a>Éléments  
   
 |Nom|Description|Requis|  
@@ -503,7 +529,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Attribut|Description|Requis|Default|  
 |---------------|-----------------|--------------|-------------|  
-|template|URL de service web réelle avec les paramètres de chaîne de requête.|Oui|N/A|  
+|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|N/A|  
+|copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non|true|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -580,6 +607,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

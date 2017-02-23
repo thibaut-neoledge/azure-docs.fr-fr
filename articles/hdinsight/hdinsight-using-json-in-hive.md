@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a79029fef54dc8beaaa9daea690a67ae1940c44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
 
 
 ---
@@ -58,7 +58,7 @@ Apprenez à traiter et analyser les fichiers JSON à l’aide de Hive dans HDIns
         ]
     }
 
-Le fichier se trouve à l’emplacement suivant : wasbs://processjson@hditutorialdata.blob.core.windows.net/. Pour plus d’informations sur l’utilisation du stockage d'objets blob Azure avec HDInsight, consultez la page [Utilisation du stockage d’objets blob Azure compatibles avec HDFS avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md). Si vous le souhaitez, vous pouvez copier le fichier vers le conteneur par défaut de votre cluster.
+Le fichier se trouve à l’emplacement suivant : wasbs://processjson@hditutorialdata.blob.core.windows.net/. Pour plus d’informations sur l’utilisation du stockage Blob Azure avec HDInsight, consultez la page [Utilisation du stockage d’objets blob Azure compatibles avec HDFS avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md). Si vous le souhaitez, vous pouvez copier le fichier vers le conteneur par défaut de votre cluster.
 
 Dans ce didacticiel, vous allez utiliser la console Hive.  Pour obtenir des instructions sur l’ouverture de la console Hive, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight avec le Bureau à distance](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -260,6 +260,6 @@ Autres articles associés :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+ms.sourcegitcommit: 79f5bad314b230df27c73fb7e60e173778c96865
+ms.openlocfilehash: da31e1ceebfecf766828fa761b01f4e346cd13aa
 
 
 ---
@@ -69,8 +69,6 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
    4. Définissez **État** sur **ACTIVÉ**.
    5. Cliquez sur les métriques de diagnostic que vous souhaitez utiliser.
    6. Cliquez sur **OK**.
-
-Vous pouvez spécifier les événements écrits dans Azure Storage plus précisément à l’aide d’Azure PowerShell. Voir [Collecter des données à l’aide des diagnostics Azure écrits dans Table Storage ou de journaux IIS écrits dans un objet blob](log-analytics-azure-storage-json.md).
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
 Reportez-vous à [Procédure : activer les diagnostics dans un service cloud](../cloud-services/cloud-services-dotnet-diagnostics.md) pour connaître les étapes générales d’activation des diagnostics Windows Azure. Les instructions ci-dessous utilisent ces informations et les personnalisent pour une utilisation avec Log Analytics.
@@ -192,12 +190,12 @@ Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire,
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser des fichiers JSON dans Stockage Blob](log-analytics-azure-storage-json.md) pour lire les journaux des services Azure qui écrivent des diagnostics dans Stockage Blob au format JSON.
+* [Collecter les journaux et les indicateurs de performance des services Azure](log-analytics-azure-storage.md) pour les services pris en charge par Azure.
 * [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

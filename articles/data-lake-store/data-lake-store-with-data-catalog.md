@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c881b378a96b9d3eca7018bc32154a265ec524ea
-ms.openlocfilehash: 893892759b0cac38c0baa5ed3d56addb0dd75065
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
 
 
 ---
@@ -40,17 +40,17 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 1. Accédez à `https://azure.microsoft.com/services/data-catalog`, puis cliquez sur **Prise en main**.
 2. Connectez-vous au portail Azure Data Catalog, puis cliquez sur **Publier des données**.
 
-    ![Référencer une source de données](./media/data-lake-store-with-data-catalog/register-data-source.png "Register a data source")
+    ![Référencer une source de données](./media/data-lake-store-with-data-catalog/register-data-source.png "Référencer une source de données")
 3. Sur la page suivante, cliquez sur **Lancer l’application**. Ceci télécharge le fichier manifeste d’application sur votre ordinateur. Double-cliquez sur le fichier manifeste pour démarrer l’application.
 4. Sur la page Bienvenue, cliquez sur **Connexion**, puis entrez vos informations d’identification.
 
-    ![Écran d’accueil](./media/data-lake-store-with-data-catalog/welcome.screen.png "Welcome screen")
+    ![Écran d’accueil](./media/data-lake-store-with-data-catalog/welcome.screen.png "Écran d’accueil")
 5. Dans la page Sélectionner une source de données, sélectionnez **Azure Data Lake**, puis cliquez sur **Suivant**.
 
-    ![Sélectionnez la source de données](./media/data-lake-store-with-data-catalog/select-source.png "Select data source")
+    ![Sélectionner une source de données](./media/data-lake-store-with-data-catalog/select-source.png "Sélectionner une source de données")
 6. Sur la page suivante, spécifiez le nom du compte Data Lake Store que vous voulez inscrire dans Data Catalog. Laissez les autres options à leur valeur par défaut, puis cliquez sur **Connexion**.
 
-    ![Se connecter à une sources de données](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connect to data source")
+    ![Se connecter à la source de données](./media/data-lake-store-with-data-catalog/connect-to-source.png "Se connecter à la source de données")
 7. La page suivante peut être divisée selon les segments suivants.
 
     a. La zone **Hiérarchie du serveur** représente la structure des dossiers du compte Data Lake Store. **$Root** représente la racine du compte Data Lake Store et **AmbulanceData** représente le dossier créé à la racine du compte Data Lake Store.
@@ -59,20 +59,20 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
     c. **Objets à référencer** répertorie les fichiers et dossiers à référencer dans Azure Data Catalog.
 
-    ![Afficher la structure des données](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
-8. Pour ce didacticiel, vous devez référencer tous les fichiers du répertoire. Pour cela, cliquez sur le bouton (![déplacer des objets](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) pour déplacer tous les fichiers dans la zone **Objets à référencer** .
+    ![Afficher la structure des données](./media/data-lake-store-with-data-catalog/view-data-structure.png "Afficher la structure des données")
+8. Pour ce didacticiel, vous devez référencer tous les fichiers du répertoire. Pour cela, cliquez sur le bouton (![déplacer des objets](./media/data-lake-store-with-data-catalog/move-objects.png "Déplacer des objets")) pour déplacer tous les fichiers dans la zone **Objets à référencer**.
 
     Comme les données sont référencées dans un catalogue de données au niveau de l’organisation, il est recommandé d’ajouter des métadonnées que vous pouvez utiliser ultérieurement pour localiser rapidement les données. Par exemple, vous pouvez ajouter une adresse de messagerie pour le propriétaire des données (par exemple une personne qui charge les données) ou ajouter une étiquette pour identifier les données. La capture d’écran ci-dessous montre une étiquette que nous ajoutons aux données.
 
-    ![Afficher la structure des données](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
+    ![Afficher la structure des données](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Afficher la structure des données")
 
     Cliquez sur **S'inscrire**.
 9. La capture d’écran suivante montre que les données sont référencées avec succès dans le catalogue de données.
 
-    ![Référencement terminé](./media/data-lake-store-with-data-catalog/registration-complete.png "View data structure")
+    ![Référencement terminé](./media/data-lake-store-with-data-catalog/registration-complete.png "Afficher la structure des données")
 10. Cliquez sur **Afficher le portail** pour revenir au portail Data Catalog et vérifiez que vous pouvez maintenant accéder aux données référencées à partir du portail. Pour rechercher les données, vous pouvez utiliser l’étiquette que vous avez utilisée lors du référencement des données.
 
-     ![Rechercher des données dans le catalogue](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Search data in catalog")
+     ![Rechercher des données dans le catalogue](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Rechercher des données dans le catalogue")
 11. Vous pouvez maintenant effectuer des opérations comme ajouter des annotations et de la documentation aux données. Pour plus d’informations, consultez les liens suivants :
 
     * [Annoter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
@@ -85,6 +85,6 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

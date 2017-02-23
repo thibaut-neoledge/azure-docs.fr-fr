@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/18/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3fb6227aaa50816d49372e9b43fdf5faadf1bded
+ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
+ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
 
 
 ---
@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "Scenario")
+![Scénario](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Activation de l'intégration d'applications pour Qualtrics
 Cette section décrit l'activation de l'intégration de l'application pour Qualtrics.
@@ -50,48 +50,49 @@ Cette section décrit l'activation de l'intégration de l'application pour Qualt
    ![Applications](./media/active-directory-saas-qualtrics-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "Add an application from gallerry")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, entrez **Qualtrics**.
    
-   ![Galerie d’applications](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **Qualtrics**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-   ## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s'authentifier sur Qualtrics avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Qualtrics**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Qualtrics**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "Configurer l’authentification unique")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Qualtrics**, tapez votre URL (par exemple : *https://ssotest2ut1.qualtrics.com*), puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "Configure App URL")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur Qualtrics**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configurer l’authentification unique")
 5. Envoyez le fichier de métadonnées à l’équipe du support technique Qualtrics.
    
    > [!NOTE]
    > La configuration de l’authentification unique doit être effectuée par l’équipe du support technique Qualtrics. Vous recevez une notification dès qu’elle est terminée.
    > 
    > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configurer l’authentification unique")
    
-   ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
 Aucun élément d'action ne vous permet de configurer l’approvisionnement des utilisateurs dans Qualtrics.  
 Lorsqu'un utilisateur tente de se connecter à Qualtrics à l'aide du panneau d'accès, Qualtrics vérifie si cet utilisateur existe.  
+
 Si aucun compte d'utilisateur n’est disponible, Qualtrics le crée automatiquement.
 
 ## <a name="assigning-users"></a>Affectation d’utilisateurs
@@ -101,16 +102,16 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’applications **Qualtrics**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "Assign Users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

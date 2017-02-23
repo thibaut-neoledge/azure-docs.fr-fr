@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique | Microsoft Docs"
+title: "Numériser du texte avec Azure Media Analytics OCR | Microsoft Docs"
 description: "Azure Media Analytics OCR (reconnaissance optique de caractères) vous permet de convertir le contenu texte de fichiers vidéo en un texte numérique modifiable et pouvant faire l’objet d’une recherche.  Vous pouvez ainsi automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MO
 
 ## <a name="task-configuration"></a>Configuration de la tâche
 Configuration de la tâche (préconfiguration). Lors de la création d’une tâche **Azure Media OCR**, vous devez spécifier une présélection de configuration avec JSON ou XML. 
+
+>[!NOTE]
+>Le moteur de reconnaissance optique de caractères prend une zone d’image avec au minimum 40 pixels et au maximum 32000 pixels comme entrée valide pour la hauteur et la largeur.
+>
 
 ### <a name="attribute-descriptions"></a>Descriptions des attributs
 | Nom de l’attribut | Description |
@@ -342,6 +346,6 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

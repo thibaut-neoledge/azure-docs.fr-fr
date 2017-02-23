@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7705670592c353032740bd80d03bc8f174028e39
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
 
 
 ---
@@ -39,12 +39,6 @@ Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps �
 npm install azure-mobile-apps-client --save
 ```
 
-Une fois le Kit installé, la bibliothèque se trouve dans `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copiez ce fichier vers votre espace web.
-
-```
-<script src="path/to/MobileServices.Web.min.js"></script>
-```
-
 La bibliothèque peut également être utilisée en tant que module ES2015, au sein d'environnements CommonJS tels que Browserify et Webpack, et en tant que bibliothèque AMD.  Par exemple :
 
 ```
@@ -52,6 +46,12 @@ La bibliothèque peut également être utilisée en tant que module ES2015, au s
 var WindowsAzure = require('azure-mobile-apps-client');
 # For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
+Vous pouvez également utiliser une version du Kit de développement logiciel (SDK) avant génération en téléchargeant directement à partir de notre CDN :
+
+```html
+<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
 ```
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
@@ -63,12 +63,12 @@ Deux flux d’authentification sont pris en charge : un flux serveur et un flux
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes
+### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes.
 Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
 
 * Exécuter votre service en local
 * Utilisation de Live Reload avec l’infrastructure Ionic
-* Redirection vers le App Service pour authentification. 
+* Redirection vers le App Service pour authentification.
 
 L’exécution locale peut entraîner des problèmes car, par défaut, l’authentification d’App Service est uniquement configurée pour autoriser l’accès à partir du serveur principal de votre application mobile. Utilisez la procédure suivante pour modifier les paramètres d’App Service afin d’activer l’authentification lors de l’exécution locale du serveur :
 
@@ -79,12 +79,12 @@ L’exécution locale peut entraîner des problèmes car, par défaut, l’authe
 5. Développez le nœud **config** > **authsettings** pour votre application.
 6. Cliquez sur le bouton **Modifier** pour activer la modification de la ressource.
 7. Trouvez l’élément **allowedExternalRedirectUrls** , qui doit être null. Ajoutez vos URL dans un tableau :
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Remplacez les URL dans le tableau par les URL de votre service ; dans cet exemple, `http://localhost:3000` pour l’exemple de service Node.js local. Vous pouvez également utiliser `http://localhost:4400` pour le service Ripple ou d’autres URL, selon la configuration de votre application.
 8. En haut de la page, cliquez sur **Lecture/Écriture**, puis sur **PUT** pour enregistrer vos mises à jour.
 
@@ -101,15 +101,15 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
-[Ajout de l'authentification à votre application]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [portail Azure]: https://portal.azure.com/
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Documentation sur l’objet de requête]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

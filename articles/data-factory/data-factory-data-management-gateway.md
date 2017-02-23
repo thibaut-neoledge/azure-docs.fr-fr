@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
-ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
+ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
+ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 
 
 ---
@@ -164,8 +164,8 @@ La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliqu
 Il existe trois options de configuration :
 
 * **Ne pas utiliser de proxy**: la passerelle n’utilise pas explicitement de proxy pour se connecter aux services cloud.
-* **Utiliser le proxy système**: la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
-* **Utiliser un proxy personnalisé**: configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs selon le paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
+* **Utiliser le proxy système** : la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
+* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs selon le paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
 
 Le service hôte de la passerelle de gestion des données redémarre automatiquement après avoir enregistré les paramètres de proxy mis à jour.
 
@@ -185,8 +185,8 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 >
 >
 
-### <a name="configure-proxy-server-settings-in-diahostexeconfig"></a>Configurer les paramètres du serveur proxy dans diahost.exe.config
-Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config.  Si aucun proxy n’est spécifié dans diahost.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration.
+### <a name="configure-proxy-server-settings"></a>Configurer les paramètres du serveur proxy 
+Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est spécifié dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration diahost.exe.config.  
 
 1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config pour sauvegarder le fichier d’origine.
 2. Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. La balise par défaut pour system.net apparaît dans le code suivant :
@@ -206,7 +206,11 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
    Vous pouvez ajouter des propriétés supplémentaires à l’intérieur de la balise de proxy pour spécifier les paramètres requis comme scriptLocation. Reportez-vous à la page de syntaxe [&lt;proxy&gt;, élément (paramètres réseau)](https://msdn.microsoft.com/library/sa91de1e.aspx) .
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. Enregistrez le fichier de configuration à l’emplacement d’origine, puis redémarrez le service hôte de passerelle de gestion des données, qui relève les modifications. Pour redémarrer le service, utilisez l’applet de services du panneau de configuration, ou allez dans le **Gestionnaire de configuration de passerelle de gestion des données**, cliquez sur le bouton **Arrêter le service**, puis sur **Démarrer le service**. Si le service ne démarre pas, il est probable qu’une syntaxe de balise XML incorrecte ait été ajoutée dans le fichier de configuration d’application que vous avez modifié.     
+3. Enregistrez le fichier de configuration à l’emplacement d’origine, puis redémarrez le service hôte de passerelle de gestion des données, qui relève les modifications. Pour redémarrer le service, utilisez l’applet de services du panneau de configuration, ou allez dans le **Gestionnaire de configuration de passerelle de gestion des données**, cliquez sur le bouton **Arrêter le service**, puis sur **Démarrer le service**. Si le service ne démarre pas, il est probable qu’une syntaxe de balise XML incorrecte ait été ajoutée dans le fichier de configuration d’application que vous avez modifié.
+
+> [!IMPORTANT]
+> N’oubliez pas de mettre à jour diahost.exe.config **et** diawp.exe.config.  
+     
 
 Outre ces points, vous devez également vous assurer que Microsoft Azure figure dans la liste d’autorisation de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -447,6 +451,6 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

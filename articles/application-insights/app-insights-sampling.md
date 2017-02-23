@@ -1,31 +1,31 @@
 ---
-title: "Échantillonnage de données de télémétrie dans Application Insights | Microsoft Docs"
+title: "Échantillonnage de données de télémétrie dans Azure Application Insights | Microsoft Docs"
 description: "Comment maintenir sous contrôle le volume de télémétrie."
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
 
-L’échantillonnage est une fonctionnalité [d’Azure Application Insights](app-insights-overview.md). Il s’agit de la méthode recommandée pour réduire le trafic et le stockage des données de télémétrie, tout en conservant une analyse statistiquement correcte des données d’application. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments lorsque vous effectuez un diagnostic.
+L’échantillonnage est une fonctionnalité dans [Azure Application Insights](app-insights-overview.md). Il s’agit de la méthode recommandée pour réduire le trafic et le stockage des données de télémétrie, tout en conservant une analyse statistiquement correcte des données d’application. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments lorsque vous effectuez un diagnostic.
 Lorsque les données de mesure apparaissent sur le portail, elles sont renormalisées pour tenir compte de l’échantillonnage, afin de réduire tout effet sur les statistiques.
 
-L’échantillonnage réduit le trafic, vous permet de respecter les quotas de données mensuelles et vous aide à contourner les limitations.
+L’échantillonnage réduit les coûts du trafic et des données, et vous aide à éviter les limitations.
 
 ## <a name="in-brief"></a>En bref :
 * L’échantillonnage conserve 1 enregistrement sur *n* et ignore le reste. Par exemple, il peut conserver 1 événement sur 5, soit un taux d’échantillonnage de 20 %. 
@@ -103,6 +103,17 @@ Dans [ApplicationInsights.config](app-insights-configuration-with-applicationins
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     Valeur affectée lorsque l’application vient de démarrer. Ne diminuez pas cette valeur pendant le débogage. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    Une liste délimitée par des points-virgules des types que vous souhaitez échantillonner. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Les types spécifiés sont échantillonnés ; toutes les instances des autres types sont toujours transmises.
+
+
+**Pour désactiver** l’échantillonnage adaptatif, supprimez le nœud AdaptiveSamplingTelemetryProcessor de applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Solution alternative : configurer l’échantillonnage adaptatif dans le code
 Au lieu d’ajuster l’échantillonnage dans le fichier .config, vous pouvez utiliser le code. Cela vous permet de spécifier une fonction de rappel qui est appelée chaque fois que le taux d’échantillonnage est réévalué. Par exemple, vous pouvez utiliser cette fonction pour savoir quel est le taux d’échantillonnage utilisé.
@@ -344,6 +355,6 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

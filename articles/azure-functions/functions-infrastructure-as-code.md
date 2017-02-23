@@ -1,6 +1,6 @@
 ---
-title: "Automatiser le déploiement de ressources pour Azure Functions | Microsoft Docs"
-description: "Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application Azure Functions dans Microsoft Azure."
+title: "Automatiser le déploiement de ressources pour une application Azure Functions | Microsoft Docs"
+description: "Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application Azure Functions."
 services: Functions
 documtationcenter: na
 author: mattchenderson
@@ -17,41 +17,41 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: cfowler;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d11ef8865d21dfe4e56bcb6fa08ce58c53f3d309
-ms.openlocfilehash: 7c55a1d34df71c2c958f42f43810fbce7bd74e5d
+ms.sourcegitcommit: 360abaa575e473e18e55d0784730f4bd5635f3eb
+ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 
 
 ---
 
-# <a name="automate-the-deployment-of-resources-for-your-azure-functions-app"></a>Automatiser le déploiement de ressources pour votre application Azure Functions
+# <a name="automate-resource-deployment-for-your-azure-functions-app"></a>Automatiser le déploiement de ressources pour votre application Azure Functions
 
-Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application de fonctions. Vous allez apprendre à définir la ligne de base des ressources requises pour une application Azure Functions et les paramètres spécifiés lors de l’exécution du déploiement. En fonction des [déclencheurs et des liaisons](functions-triggers-bindings.md) utilisés dans votre fonction, vous pouvez avoir besoin de ressources supplémentaires de déploiement pour englober toute votre application comme infrastructure sous forme de code.
+Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une application Azure Functions. Apprenez à définir les ressources de ligne de base requises pour une application Azure Functions et les paramètres spécifiés lors du déploiement. En fonction des [déclencheurs et des liaisons](functions-triggers-bindings.md) dans votre application Functions, pour garantir la réussite de la configuration de l’Infrastructure as Code de votre application, vous devrez peut-être déployer des ressources supplémentaires.
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Pour obtenir des exemples de modèle complet, consultez [Create consumption-based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) (Créer une application Azure Function basée sur l’utilisation) et/ou [Create an App Service Plan based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json) (Créer une application Azure Function basée sur un plan App Service).
+Pour obtenir des exemples de modèles complets, consultez [Create a Consumption plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) (Créer une application Azure Functions basée sur l’utilisation) et [Create an App Service plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json) (Créer une application Azure Functions basée sur un plan App Service).
 
-## <a name="what-is-deployed"></a>Ce qui est déployé
+## <a name="required-resources"></a>Ressources nécessaires
 
-Les exemples ci-dessous créent une application Azure Function de la ligne de base. Les ressources requises pour une Function App sont les suivantes :
+Vous pouvez utiliser les exemples de cet article pour créer une application Azure Functions de ligne de base. Vous aurez besoin des ressources suivantes pour votre application :
 
 * Compte de [stockage Azure](../storage/index.md)
-* Plan d’hébergement (Plan d’utilisation ou plan App Service)
-* Function App (Microsoft.Web/Site d’une sorte de **functionapp**)
+* Plan d’hébergement (plan d’utilisation ou plan Azure App Service)
+* Application Functions (`type`: **Microsoft.Web/Site**, `kind`: **functionapp**)
 
 ## <a name="parameters"></a>Paramètres
 
-Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Le modèle inclut une section appelée Paramètres, qui contient toutes les valeurs de paramètres. Vous devez définir les paramètres des valeurs qui varient selon le projet que vous déployez, ou l’environnement dans lequel vous effectuez le déploiement.
+Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque votre modèle est déployé. La section **Paramètres** d’un modèle contient toutes les valeurs des paramètres. Définissez les paramètres des valeurs qui varient selon le projet que vous déployez, ou l’environnement dans lequel vous effectuez le déploiement.
 
-Les [variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) sont utiles pour les valeurs qui ne changent pas en fonction d’un déploiement individuel ou les paramètres qui requièrent une transformation avant leur utilisation dans un modèle (par exemple, pour transmettre des règles de validation).
+Les [variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) sont utiles pour les valeurs qui ne changent pas en fonction d’un déploiement individuel et les paramètres qui requièrent une transformation avant leur utilisation dans un modèle (par exemple, pour transmettre des règles de validation).
 
-Lorsque vous définissez les paramètres, utilisez le champ **allowedValues** pour spécifier les valeurs qu'un utilisateur peut fournir au cours du déploiement. Utilisez le champ **defaultValue** pour affecter une valeur au paramètre, si aucune valeur n'est fournie pendant le déploiement.
+Lorsque vous définissez les paramètres, utilisez le champ **allowedValues** pour spécifier les valeurs qu’un utilisateur peut fournir au cours du déploiement. Utilisez le champ **defaultValue** pour affecter une valeur au paramètre, si aucune valeur n’est fournie pendant le déploiement.
 
-Nous allons décrire les paramètres de notre modèle.
+Un modèle Azure Resource Manager utilise les paramètres suivants.
 
 ### <a name="appname"></a>appName
 
-Nom de la fonction que vous souhaitez créer.
+Le nom de l’application Azure Functions que vous souhaitez créer.
 
 ```json
 "appName": {
@@ -61,13 +61,13 @@ Nom de la fonction que vous souhaitez créer.
 
 ### <a name="location"></a>location
 
-Emplacement dans lequel déployer Function App.
+Emplacement de déploiement de l’application Functions.
 
 > [!NOTE]
-> Le paramètre **defaultValue** est utilisé pour hériter de l’emplacement du groupe de ressources, ou si une valeur de paramètre n’est pas spécifiée lors d’un déploiement Powershell ou de l’interface de ligne de commande. En cas de déploiement à partir du portail, une zone de liste déroulante est fournie pour sélectionner les **allowedValues**.
+> Utilisez le paramètre **defaultValue** pour hériter de l’emplacement du groupe de ressources, ou si une valeur de paramètre n’est pas spécifiée lors d’un déploiement PowerShell ou de l’interface de ligne de commande Azure. Si vous déployez votre application à partir du portail Azure, sélectionnez une valeur dans la zone de liste déroulante du paramètre **allowedValues**.
 
 > [!TIP]
-> Pour obtenir une liste actualisée des régions dans lesquelles Azure Functions est disponible, rendez-vous sur la page [Products available by region](https://azure.microsoft.com/regions/services/) (Disponibilité des produits par région).
+> Pour obtenir une liste actualisée des régions dans lesquelles vous pouvez utiliser Azure Functions, rendez-vous sur la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
 ```json
 "location": {
@@ -104,7 +104,7 @@ Emplacement dans lequel déployer Function App.
       "type": "string",
       "defaultValue": "master",
       "metadata": {
-        "description": "Sourcecode Repo branch"
+        "description": "Source code repository branch"
       }
     }
 ```
@@ -116,16 +116,16 @@ Emplacement dans lequel déployer Function App.
     "type": "bool",
     "defaultValue": false,
     "metadata": {
-        "description": "Use 'true' if you are deploying from the base repo, 'false' if you are deploying from your own fork. If you're using 'false', make sure you have admin permissions to the repo. If you get an error, you should add GitHub integration to another web app manually, so that you get a GitHub access token associated with your Azure Subscription."
+        "description": "Use 'true' if you are deploying from the base repo. Use 'false' if you are deploying from your own fork. If you use 'false', make sure that you have Administrator rights in the repo. If you get an error, manually add GitHub integration to another web app, to associate a GitHub access token with your Azure subscription."
     }
 }
 ```
 
 ## <a name="variables"></a>Variables
 
-En plus des paramètres, les modèles Azure Resource Manager disposent également d’un concept de variables qui peuvent intégrer des paramètres pour créer des paramètres plus spécifiques à utiliser par votre modèle.
+Les modèles Azure Resource Manager utilisent des variables pour incorporer des paramètres ; vous pouvez donc utiliser des paramètres plus spécifiques dans votre modèle.
 
-Dans l’exemple ci-dessous, vous pouvez voir que nous exploitons des variables pour appliquer les [fonctions des modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) de manière à prendre l’appName fourni et à le convertir en minuscules pour s’assurer que les [exigences d’attribution de nom](../storage/storage-create-storage-account.md#create-a-storage-account) pour les comptes de stockage Azure sont remplies.
+Dans l’exemple suivant, afin de répondre aux [critères d’attribution de noms](../storage/storage-create-storage-account.md#create-a-storage-account) du compte de stockage Azure, nous utilisons des variables pour appliquer [les fonctions du modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) et ainsi convertir la valeur **appName** saisie en minuscules.
 
 ```json
 "variables": {
@@ -138,7 +138,7 @@ Dans l’exemple ci-dessous, vous pouvez voir que nous exploitons des variables 
 
 ### <a name="storage-account"></a>Compte de stockage
 
-Un compte de stockage Azure est une ressource requise dans Azure Functions.
+Un compte de stockage Azure est nécessaire pour une application Azure Functions.
 
 ```json
 {
@@ -152,9 +152,9 @@ Un compte de stockage Azure est une ressource requise dans Azure Functions.
 }
 ```
 
-### <a name="hosting-plan-consumption-vs-app-service-plan"></a>Plan d’hébergement : plan de consommation par rapport au plan App Service
+### <a name="hosting-plan-consumption-vs-app-service"></a>Plan d’hébergement : utilisation ou App Service
 
-Il existe des scénarios lors de la création de fonctions dans lesquels vous voudrez peut-être que la mise à l’échelle de vos fonctions soit entièrement gérée, ce qui signifie une mise à l’échelle à la demande par la plateforme (consommation). Vous pourriez également choisir une mise à l’échelle gérée par l’utilisateur dans laquelle vos fonctions s’exécutent 24h/24 et 7 j/7 sur un matériel dédié (plan App Service) dans lequel le nombre d’instances peut être configuré manuellement ou automatiquement. La décision d’utiliser un plan plutôt qu’un autre peut reposer sur les fonctionnalités disponibles dans le plan, ou une décision basée sur l’architecture par coût. Pour en savoir plus sur les différents plans d’hébergements, consultez l’article [Scaling Azure Functions](functions-scale.md) (Mettre à l’échelle Azure Functions).
+Dans certains scénarios, vous souhaiterez peut-être que vos fonctions soient mises à l’échelle à la demande par la plateforme, opération également appelée mise à l’échelle complètement gérée (en utilisant un plan d’hébergement basé sur l’utilisation). Ou vous préférez peut-être que vos fonctions soient mises à l’échelle par l’utilisateur. Si vous optez pour la mise à l’échelle gérée par l’utilisateur, vos fonctions s’exécuteront 24 h/24 et 7 j/7 sur du matériel dédié (en utilisant un plan d’hébergement App Service). Le nombre d’instances peut être défini manuellement ou automatiquement. Le choix du plan d’hébergement peut se faire en fonction des éléments proposés dans le plan ou de l’architecture par coût. Pour en savoir plus sur les plans d’hébergement, consultez [Mise à l’échelle des fonctions Azure](functions-scale.md).
 
 #### <a name="consumption-plan"></a>Plan de consommation
 
@@ -172,7 +172,7 @@ Il existe des scénarios lors de la création de fonctions dans lesquels vous vo
 }
 ```
 
-#### <a name="app-service-plan"></a>Plan App Service
+#### <a name="app-service-plan"></a>Plan App Service
 
 ```json
 {
@@ -190,14 +190,14 @@ Il existe des scénarios lors de la création de fonctions dans lesquels vous vo
 }
 ```
 
-### <a name="function-app-site"></a>Function App (site)
+### <a name="functions-app-a-site"></a>Application Functions (un site)
 
-Une fois l’option de mise à l’échelle sélectionnée, créez le conteneur qui contiendra toutes vos fonctions, et connu sous le nom de Function App.
+Une fois que vous avez sélectionné une option de mise à l’échelle, créez une application Functions. L’application est le conteneur regroupant toutes vos fonctions.
 
-Une Function App dispose de nombreuses ressources enfants dont vous pouvez tirer parti, notamment les **Paramètres de l’application** et les **Options de contrôle de la souce**. Vous pouvez choisir de supprimer la ressource enfant **sourcecontrols** en faveur d’une autre [option de déploiement](functions-continuous-deployment.md).
+Une application Functions dispose de nombreuses ressources enfant que vous pouvez utiliser dans votre développement, notamment les paramètres de l’application et les options de contrôle de code source. Vous pouvez également choisir de supprimer la ressource enfant **sourcecontrols** et utiliser une autre [option de déploiement](functions-continuous-deployment.md) à la place.
 
 > [!IMPORTANT]
-> Il est important de comprendre comment les ressources sont déployées dans Azure pour s’assurer de créer une configuration d’infrastructure sous forme de code réussie pour votre applications lors de l’utilisation d’Azure Resource Manager. Dans cet exemple, vous remarquerez que des configurations de niveau supérieur sont appliquées à l’aide de **siteConfig**. Il est important de les définir à un niveau supérieur, dans la mesure où elles apportent du sens au moteur de déploiement et d’exécution Azure Functions et sont requises avant l’application de la ressource enfant **sourcecontrols/web**. Bien que ces paramètres puissent être configurés dans la ressource de niveau enfant **configuration/appSettings**, il existe des scénarios dans lesquels votre Function App et vos fonctions doivent être déployés *avant* d’appliquer les **configuration/appsettings**, dans la mesure où vos fonctions sont une dépendance d’une autre ressource, par exemple une [application logique](../logic-apps/index.md).
+> Il est important de comprendre comment les ressources sont déployées dans Azure pour s’assurer de créer une configuration Infrastructure as Code réussie pour votre application en utilisant Azure Resource Manager. Dans l’exemple suivant, les configurations de niveau supérieur sont appliquées à l’aide de **siteConfig**. Il est important de définir ces configurations à un niveau supérieur, car elles fournissent des informations au moteur de déploiement et au runtime Azure Functions. Des informations de niveau supérieur sont requises avant que la ressource enfant **sourcecontrols/web** soit appliquée. Bien qu’il soit possible de configurer ces paramètres dans la ressource **configuration/appSettings** au niveau enfant, dans certains scénarios, votre application Functions et les fonctions doivent être déployées *avant* que la ressource **configuration/appSettings** soit appliquée. Dans ce cas par exemple, dans [Logic Apps](../logic-apps/index.md), vos fonctions sont une dépendance d’une autre ressource.
 
 ```json
 {
@@ -252,13 +252,13 @@ Une Function App dispose de nombreuses ressources enfants dont vous pouvez tirer
 }
 ```
 > [!TIP]
-> Dans ce modèle, le paramètre d’application [Projet](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file), qui définit le répertoire de base dans lequel le moteur de déploiement de fonctions (Kudu) recherche le code pouvant être déployé, est utilisé. Dans cet exemple, nous avons défini cette valeur sur `src` dans la mesure où notre référentiel GitHub contient un dossier `src`, dont nos fonctions sont des enfants. Si vous disposez d’un référentiel dans lequel vos fonctions se trouvent directement à la racine, ou si vous n’effectuez pas de déploiement à partir du contrôle de source, ce paramètre d’application peut être supprimé.
+> Dans ce modèle, la valeur du paramètre d’application [Projet](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file), qui définit le répertoire de base dans lequel le moteur de déploiement de fonctions (Kudu) recherche le code pouvant être déployé, est utilisée. Dans notre référentiel, nos fonctions se trouvent dans un sous-dossier du dossier **src**. Par conséquent, dans l’exemple précédent, nous définissons la valeur de paramètres d’application sur `src`. Si vos fonctions sont à la racine de votre référentiel, ou si vous ne déployez pas de contrôle de code source, vous pouvez supprimer cette valeur de paramètres d’application.
 
-## <a name="deploying-your-template"></a>Déploiement du modèle
+## <a name="deploy-your-template"></a>Déployer votre modèle
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [INTERFACE DE LIGNE DE COMMANDE](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portail](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Bouton Déployer dans Azure
@@ -279,13 +279,14 @@ Remplacez ```<url-encoded-path-to-azuredeploy-json>``` par une version [d’URL 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez la possibilité de déployer une application de fonction à partir de code, profitez-en pour en savoir plus sur le développement et la configuration d’Azure Functions :
+En savoir plus sur le développement et la configuration d’Azure Functions.
 
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Comment configurer les paramètres d’application Azure Functions](functions-how-to-use-azure-function-app-settings.md)
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

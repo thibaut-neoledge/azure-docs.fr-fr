@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2016
+ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
-ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
+ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
+ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
 
 
 ---
@@ -28,7 +28,7 @@ Utilisez Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster de
 
 Ce didacticiel présente une approche, parfois nommée « cloudburst », visant à utiliser des ressources évolutives à la demande dans Azure afin d’exécuter des applications nécessitant beaucoup de calculs.
 
-Ce didacticiel ne requiert pas d'expérience préalable avec les clusters de calcul ou HPC Pack. Il vise uniquement à vous aider à déployer rapidement un cluster de calcul hybride à des fins de démonstration. Pour connaître les éléments à prendre en compte ainsi que la procédure à suivre pour déployer un HPC Pack hybride à plus grande échelle dans un environnement de production, consultez les [instructions détaillées](http://go.microsoft.com/fwlink/p/?LinkID=200493). Pour d’autres scénarios avec HPC Pack, notamment le déploiement automatisé de clusters dans des machines virtuelles Azure, consultez [Options pour créer et gérer un cluster de calcul haute performance dans Azure avec Microsoft HPC Pack](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ce didacticiel ne requiert pas d’expérience préalable avec les clusters de calcul ou HPC Pack 2012 R2. Il vise uniquement à vous aider à déployer rapidement un cluster de calcul hybride à des fins de démonstration. Pour connaître les éléments à prendre en compte, ainsi que la procédure à suivre pour déployer un cluster HPC Pack hybride à plus grande échelle dans un environnement de production ou pour utiliser un cluster HPC Pack 2016, consultez les [instructions détaillées](http://go.microsoft.com/fwlink/p/?LinkID=200493). Pour d’autres scénarios avec HPC Pack, notamment le déploiement automatisé de clusters dans des machines virtuelles Azure, consultez [Options pour créer et gérer un cluster de calcul haute performance dans Azure avec Microsoft HPC Pack](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prerequisites"></a>Composants requis
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
@@ -38,6 +38,10 @@ Ce didacticiel ne requiert pas d'expérience préalable avec les clusters de cal
   * Le système d'exploitation doit être installé dans l'une des langues suivantes pour prendre en charge HPC Pack : anglais, japonais ou chinois (simplifié).
   * Vérifiez que les mises à jour importantes et critiques sont installées.
 * **HPC Pack 2012 R2** - [Téléchargez](http://go.microsoft.com/fwlink/p/?linkid=328024) le package d’installation pour obtenir gratuitement la dernière version et copiez les fichiers sur l’ordinateur servant de nœud principal ou vers un emplacement sur le réseau. Sélectionnez les fichiers d'installation de la même langue que votre serveur Windows Server.
+
+    >[!NOTE]
+    > Si vous souhaitez utiliser un cluster HPC Pack 2016 plutôt qu’un cluster HPC Pack 2012 R2, une configuration supplémentaire est nécessaire. Consultez les [instructions détaillées](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+    > 
 * **Compte de domaine** : ce compte doit disposer d’autorisations d’administrateur local sur le nœud principal pour installer HPC Pack.
 * **Connectivité TCP sur le port 443** entre le nœud principal et Azure.
 
@@ -263,7 +267,7 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
     C'est ici que s'achève ce didacticiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez la documentation de [HPC Pack 2012 R2 et HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
+* Consultez la documentation de [HPC Pack](https://technet.microsoft.com/library/cc514029).
 * Pour configurer un déploiement de cluster HPC Pack hybride à plus grande échelle, consultez [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)(Débordement vers des instances de rôle de travail Azure avec Microsoft HPC Pack).
 * Pour accéder à d’autres méthodes de création d’un cluster HPC Pack dans Azure, notamment avec des modèles Azure Resource Manager, consultez [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Consultez [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) (Big Compute dans Azure : ressources techniques pour Batch et HPC (calcul haute performance) pour en savoir plus sur la gamme de solutions cloud Big Compute et HPC dans Azure).
@@ -307,6 +311,6 @@ Après avoir testé le cluster, arrêtez les nœuds Azure pour éviter toute fac
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
