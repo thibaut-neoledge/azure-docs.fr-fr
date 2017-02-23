@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Halosys au format suivant : `https://<company-name>.Halosys.com/client-api/api`.
 
-    Dans la zone de texte **URL d’identificateur**, tapez l’URL au format suivant : `https://<company-name>.Halosys.com`.   
+    Dans la zone de texte **URL d’identificateur**, tapez l’URL au format suivant : `https://<company-name>.Halosys.com`.    
          
 4. Sur la page **Configurer l’authentification unique sur Halosys**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur :
 
