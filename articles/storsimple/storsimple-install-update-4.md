@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9fe568a3b6632950cccbbd4ea3fe024e7aa68a
-ms.openlocfilehash: f0ac2d226f9df9eeae9c3b29674459ec330ae04b
+ms.sourcegitcommit: 988d859e2cc9cd723e23704193b6c3bbdce08379
+ms.openlocfilehash: 976aa382e34cdc417a79b513c0e8e063b30d9e01
 
 
 ---
@@ -75,7 +75,7 @@ Vous devez télécharger et installer les correctifs logiciels suivants dans l�
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Mise à jour logicielle &#42; |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
+| 1. |KB4011839 |Mise à jour logicielle |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Standard  <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Package de mises à jour de sécurité du système d’exploitation |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
@@ -105,6 +105,6 @@ Découvrez plus en détail la [version Update 4](storsimple-update4-release-not
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
