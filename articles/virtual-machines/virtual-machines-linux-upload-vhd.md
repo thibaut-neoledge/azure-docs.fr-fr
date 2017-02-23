@@ -100,7 +100,7 @@ Maintenant, créez votre machine virtuelle avec la commande [az vm create](/cli/
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
@@ -110,7 +110,7 @@ Pour créer une machine virtuelle avec des disques non gérés, spécifiez l’U
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
 ```
@@ -250,7 +250,7 @@ Maintenant, créez votre machine virtuelle avec la commande [az vm create](/cli/
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
@@ -264,7 +264,7 @@ L’exemple suivant crée une machine virtuelle nommée `myVM` à partir de votr
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --custom-os-disk-type linux \
+    --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
     --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```

@@ -3,7 +3,7 @@ title: "Gestion des noms de domaine personnalisés dans la version préliminaire
 description: "Concepts de gestion et procédures pour gérer un nom de domaine dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
