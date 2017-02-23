@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 0800297f675182cbd246181d5ece03a5b1fd0c97
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 0800297f675182cbd246181d5ece03a5b1fd0c97
 
 En utilisant une banque de données persistante avec Apache Storm, vous pouvez associer les entrées de données qui arrivent à des moments différents. Par exemple, la liaison des événements de connexion et de déconnexion d’une session utilisateur pour calculer la durée de la session.
 
-Dans ce document, vous allez apprendre à créer une topologie Storm C# de base qui effectue le suivi des événements de connexion et de déconnexion des sessions utilisateur et calcule la durée de la session. La topologie utilise HBase comme un magasin de données persistant. HBase vous permet également d’effectuer des requêtes par lots sur les données historiques pour produire des informations supplémentaires, telles que le nombre de sessions utilisateur ayant démarré ou ayant pris fin pendant une période spécifique.
+Dans ce document, vous apprenez à créer une topologie Storm C# de base qui effectue le suivi des événements de connexion et de déconnexion des sessions utilisateur et calcule la durée de la session. La topologie utilise HBase comme un magasin de données persistant. HBase vous permet également d’effectuer des requêtes par lots sur les données historiques pour produire des informations supplémentaires, telles que le nombre de sessions utilisateur ayant démarré ou ayant pris fin pendant une période spécifique.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -78,7 +78,7 @@ Quand une session démarre, un événement **START** est reçu par la topologie 
 
 L’exemple de topologie est composé des éléments suivants :
 
-* Session.cs : simule une session utilisateur en créant un ID de session aléatoire, l’heure de début et la durée de la session.
+* Session.cs : simule une session utilisateur en créant un ID de session aléatoire, l’heure de début et la durée de la session.
 
 * Spout.cs : crée 100 sessions, émet un événement START, attend le délai aléatoire pour chaque session, puis émet un événement END. Il recycle ensuite les sessions terminées pour en générer de nouvelles.
 
@@ -168,7 +168,7 @@ Ce téléchargement contient les projets C# suivants :
    
    ![Image de l’élément de menu Envoyer à Storm](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. Dans la boîte de dialogue **Submit Topology** , sélectionnez le cluster Storm qui va exécuter cette topologie.
+6. Dans la boîte de dialogue **Submit Topology** , sélectionnez le cluster Storm sur lequel vous souhaitez déployer cette topologie.
    
    > [!NOTE]
    > La première fois que vous soumettez une topologie, la récupération du nom des clusters HDInsight peut prendre quelques secondes.
@@ -177,7 +177,7 @@ Ce téléchargement contient les projets C# suivants :
    
    ![Image de la vue de la topologie](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
-   Quand la topologie commence à générer des données, la valeur de la colonne **EMITTED** s’incrémente.
+   Quand la topologie commence à générer des données, la valeur de la colonne **Emitted** s’incrémente.
    
    > [!NOTE]
    > Si **Storm Topology View** ne s’ouvre pas automatiquement, procédez comme suit pour l’ouvrir :
@@ -191,7 +191,7 @@ Une fois les données émises, procédez comme suit pour interroger les données
 
 1. Revenez au projet **SessionInfo** . S’il n’est pas en cours d’exécution, démarrez une nouvelle instance du projet.
 
-2. Quand vous y êtes invité, sélectionnez **s** pour rechercher un événement START. Vous devez entrer une heure de début et de fin pour définir une plage de temps : seuls les événements entre ces deux heures sont renvoyés.
+2. Quand vous y êtes invité, sélectionnez **s** pour rechercher un événement START. Vous êtes invité à entrer une heure de début et de fin pour définir une plage de temps : seuls les événements entre ces deux heures sont renvoyés.
    
     Utilisez le format suivant quand vous entrez les heures de début et de fin : HH:MM et « am » ou « pm ». Par exemple, 11:20.
    
@@ -204,7 +204,7 @@ La recherche des événements END fonctionne de la même façon que pour les év
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
-> Les valeurs d’heure s’expriment en heure locale ; l’heure retournée par la requête s’exprime en UTC.
+> Les valeurs d’heure s’expriment en heure locale ; l’heure retournée par la requête s’exprime en UTC.
 
 ## <a name="stop-the-topology"></a>Arrêt de la topologie
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Dans ce document, vous allez apprendre à utiliser Curl pour exécuter des tâches Pig Latin sur un cluster HDInsight Azure. Le langage de programmation Pig Latin permet de décrire les transformations appliquées aux données d’entrée pour produire le résultat souhaité.
+Dans ce document, vous apprenez à utiliser Curl pour exécuter des tâches Pig Latin sur un cluster HDInsight Azure. Le langage de programmation Pig Latin permet de décrire les transformations appliquées aux données d’entrée pour produire le résultat souhaité.
 
 Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des demandes HTTP brutes pour exécuter, analyser et récupérer des tâches Pig. Cela fonctionne à l’aide de l’API REST WebHCat (anciennement Templeton) fournie par votre cluster HDInsight.
 
@@ -34,9 +34,13 @@ Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant d
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -66,7 +70,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 2. Utilisez le code suivant pour soumettre une tâche Pig Latin au cluster :
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     Les paramètres utilisés dans cette commande sont les suivants :
    
@@ -94,18 +98,9 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ## <a name="a-idresultsaview-results"></a><a id="results"></a>Affichage des résultats
 
-Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **wasb:///example/pigcurl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/pigcurl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
+Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage par défaut utilisé par le cluster. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, **/example/pigcurl**. 
 
-Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **example/pigcurl**, utilisez la commande suivante :
-
-    azure storage blob list <container-name> example/pigcurl
-
-Pour télécharger un fichier, utilisez ce qui suit :
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> Vous devez spécifier le nom du compte de stockage qui contient l’objet blob à l’aide des paramètres `-a` et `-k`, ou définir les variables d’environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**.
+Le magasin de stockage pour HDInsight peut être le stockage Azure ou Azure Data Lake Store, et il existe plusieurs façons d’accéder à des données en fonction de celui que vous utilisez. Pour plus d’informations sur la façon de travailler avec le stockage Azure et Azure Data Lake Store, consultez la section [HDFS, stockage Blob et Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) du document HDInsight sur Linux.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Résumé
 
@@ -127,6 +122,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
 
 
 ---
@@ -25,16 +25,20 @@ ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Dans cet article, vous allez apprendre à utiliser le protocole SSH (Secure Shell) pour vous connecter à un Hadoop sur le cluster HDInsight, puis soumettre des tâches MapReduce à l’aide des commandes Hadoop.
+Dans cet article, vous apprenez à utiliser le protocole SSH (Secure Shell) pour vous connecter à un Hadoop sur le cluster HDInsight, puis soumettre des tâches MapReduce à l’aide des commandes Hadoop.
 
 > [!NOTE]
 > Si vous êtes déjà familiarisé avec l’utilisation de serveurs Hadoop sur Linux, mais pas avec HDInsight, consultez la rubrique [Informations sur l’utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md).
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Configuration requise
 
-Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
 * un cluster HDInsight basé sur Linux (Hadoop sur HDInsight)
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Un client SSH. Les systèmes d’exploitation Mac, Linux et Unix doivent être accompagnés d’un client SSH. Les utilisateurs Windows doivent télécharger un client, comme [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connexion avec SSH
@@ -49,21 +53,23 @@ Connectez-vous au nom de domaine complet de votre cluster HDInsight à l’aide 
 
 **Si vous avez fourni un mot de passe pour l’authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez fournir le mot de passe lorsque vous y êtes invité.
 
-Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop dans HDInsight sur Linux à partir de Linux, OS X et Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez la rubrique [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, OS X, Unix et Bash sous Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="putty-windows-clients"></a>PuTTY (clients Windows)
 
-Windows ne fournit pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Les précédentes versions de Windows ne fournissent pas de client SSH intégré. Nous vous recommandons d’utiliser **PuTTY**, qui peut être téléchargé à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH avec Hadoop Linux dans HDInsight à partir de Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
+Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [Utilisation de SSH (PuTTY) avec Hadoop Linux dans HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a name="a-idhadoopause-hadoop-commands"></a><a id="hadoop"></a>Utilisation de commandes Hadoop
 
 1. Une fois connecté au cluster HDInsight, utilisez la commande **Hadoop** suivante afin de lancer une tâche MapReduce :
    
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
-   
-    Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar**. En tant qu’entrée, elle utilise le document **wasb://example/data/gutenberg/davinci.txt** et la sortie est stockée dans **wasb:///example/data/WordCountOutput**.
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
+    ```
+
+    Cela lance la classe **wordcount**, contenue dans le fichier **hadoop-mapreduce-examples.jar**. En tant qu’entrée, elle utilise le document **/example/data/gutenberg/davinci.txt** et la sortie est stockée dans **/example/data/WordCountOutput**.
    
     > [!NOTE]
     > Pour plus d’informations sur cette tâche MapReduce et sur les exemples de données, consultez la rubrique [Utilisation de MapReduce dans Hadoop sur HDInsight](hdinsight-use-mapreduce.md).
@@ -77,7 +83,9 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 3. Une fois la tâche terminée, utilisez la commande suivante pour répertorier les fichiers de sortie stockés sur **wasb://example/data/WordCountOutput** :
    
-        hdfs dfs -ls wasbs:///example/data/WordCountOutput
+    ```
+    hdfs dfs -ls /example/data/WordCountOutput
+    ```
    
     Cela devrait afficher deux fichiers, **_SUCCESS** et **part-r-00000**. Le fichier **part-r-00000** contient la sortie de cette tâche.
    
@@ -86,9 +94,11 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 4. Pour afficher la sortie, utilisez la commande suivante :
    
-        hdfs dfs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+    ```
+    hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
+    ```
    
-    Cela affiche une liste de mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d’occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
+    Cela affiche une liste de mots contenus dans le fichier **wasb://example/data/gutenberg/davinci.txt**, ainsi que le nombre d’occurrences de chaque mot. Voici un exemple des données contenues dans le fichier :
    
         wreathed        3
         wreathing       1
@@ -116,6 +126,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

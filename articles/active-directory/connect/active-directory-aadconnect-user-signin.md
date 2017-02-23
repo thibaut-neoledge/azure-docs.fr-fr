@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: 5b77d16c4a373936dfa5fbba35bc3dc4c9a37e78
+ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
+ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
 
 
 ---
@@ -97,7 +97,7 @@ Si vous avez déjà configuré l’authentification cloud à l’aide d’une ve
 ### <a name="understanding-user-principal-name"></a>Présentation du nom d’utilisateur principal
 Dans Active Directory, le suffixe UPN par défaut est le nom DNS du domaine dans lequel le compte d’utilisateur a été créé. Dans la plupart des cas, il s’agit du nom de domaine enregistré en tant que domaine d’entreprise sur Internet. Toutefois, vous pouvez ajouter d’autres suffixes UPN avec les domaines et approbations Active Directory.
 
-L’UPN de l’utilisateur est au format username@domain. Par exemple, pour un domaine Active Directory nommé « contoso.com », un utilisateur nommé John pourrait avoir l’UPN 'john@contoso.com'. L’UPN de l’utilisateur se base sur RFC 822. Bien que l’UPN et la messagerie partagent le même format, la valeur du nom UPN d’un utilisateur n’est pas forcément identique à l’adresse de messagerie de l’utilisateur.
+L’UPN de l’utilisateur est au format username@domain. Par exemple, pour un domaine Active Directory nommé « contoso.com », un utilisateur nommé John peut avoir l’UPN suivant : 'john@contoso.com'. L’UPN de l’utilisateur se base sur RFC 822. Bien que l’UPN et la messagerie partagent le même format, la valeur du nom UPN d’un utilisateur n’est pas forcément identique à l’adresse de messagerie de l’utilisateur.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Nom d’utilisateur principal dans Azure AD
 L’Assistant Azure AD Connect utilise l’attribut userPrincipalName ou vous laisse spécifier l’attribut (dans une installation personnalisée) à utiliser en local en tant que nom d’utilisateur principal dans Azure AD. Il s’agit de la valeur qui sera utilisée pour la connexion à Azure AD. Si la valeur de l’attribut du nom principal d’utilisateur ne correspond pas à un domaine vérifié dans Azure AD, Azure AD la remplacera par une valeur .onmicrosoft.com par défaut.
@@ -178,6 +178,6 @@ En savoir plus sur [Azure AD Connect : principes de conception](active-directory
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

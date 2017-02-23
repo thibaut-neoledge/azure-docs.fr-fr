@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
-ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ Cet article explique comment attacher un disque persistant à votre machine virt
 ## <a name="quick-commands"></a>Commandes rapides
 L’exemple suivant attache un disque de `50` Go à la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
+Pour utiliser des disques gérés :
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+Pour utiliser des disques non gérés :
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>Attacher un disque
-La procédure d’attachement d’un nouveau disque est rapide. Tapez `azure vm disk attach-new myResourceGroup myVM sizeInGB` afin de créer un nouveau disque (Go) et de l’associer à votre machine virtuelle. Si vous n'identifiez pas explicitement un compte de stockage, les disques que vous créez sont placés dans le même compte de stockage que celui sur lequel réside le disque du système d'exploitation. L’exemple suivant attache un disque de `50` Go à la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
+## <a name="attach-a-managed-disk"></a>Attacher un disque géré
+
+En utilisant des disques gérés, vous pouvez vous concentrer sur vos machines virtuelles et leurs disques sans vous soucier des comptes de stockage Azure. Vous pouvez rapidement créer et attacher un disque géré à une machine virtuelle en utilisant le même groupe de ressources Azure. Vous pouvez également créer autant de disques que vous le souhaitez et les attacher ensuite à la machine virtuelle.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>Attacher un nouveau disque à une machine virtuelle
+
+Si vous avez uniquement besoin d’un nouveau disque sur votre machine virtuelle, vous pouvez utiliser la commande `az vm disk attach`.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>Association d'un disque existant 
+
+Dans de nombreux cas, vous attachez des disques qui ont déjà été créés. Commencez par rechercher l’ID du disque pour l’intégrer à la commande `az vm disk attach-disk`. Le code suivant utilise un disque créé avec `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+Le résultat ressemble à ce qui suit (vous pouvez appliquer l’option `-o table` à n’importe quelle commande afin d’obtenir le bon format de sortie) :
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>Attacher un disque non géré
+
+Vous pouvez rapidement ajouter un nouveau disque qui sera créé dans le même compte de stockage que votre machine virtuelle. Tapez `azure vm disk attach-new` afin de créer un nouveau disque (Go) et de l’associer à votre machine virtuelle. Si vous n'identifiez pas explicitement un compte de stockage, les disques que vous créez sont placés dans le même compte de stockage que celui sur lequel réside le disque du système d'exploitation. L’exemple suivant attache un disque de `50` Go à la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -292,6 +352,6 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

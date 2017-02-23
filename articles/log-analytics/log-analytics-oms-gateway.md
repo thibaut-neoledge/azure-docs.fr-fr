@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/10/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
-ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
+ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
+ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
 
 
 ---
@@ -72,9 +72,9 @@ Il existe trois méthodes d'obtenir le fichier de configuration de la passerelle
 
 ### <a name="oms-portal"></a>Portail OMS
 
-1.  Connectez-vous à votre espace de travail OMS.
-2.  Sélectionnez **Paramètres** > **Sources connectées** > **Serveurs Windows**.
-3.  Cliquez sur **Télécharger la passerelle OMS**.
+1.    Connectez-vous à votre espace de travail OMS.
+2.    Sélectionnez **Paramètres** > **Sources connectées** > **Serveurs Windows**.
+3.    Cliquez sur **Télécharger la passerelle OMS**.
 
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -100,11 +100,11 @@ Configuration requise : .Net Framework 4.5, Windows Server 2012 R2 SP1 et ver
 4. Sur la page relative au port et à l’adresse proxy :
    1. Saisissez le numéro de port TCP à utiliser pour la passerelle. Le programme d’installation ouvre ce port à partir du pare-feu Windows. La valeur par défaut est 8080.
       Les numéros de port valides sont compris entre 1 et 65535. Si la valeur saisie n’est pas comprise dans cette plage, un message d’erreur s’affiche.
-   2. Éventuellement, si le serveur sur lequel la passerelle est installée doit utiliser un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, `http://myorgname.corp.contoso.com:80` Si vide, la passerelle essaie de se connecter à Internet directement. Dans le cas contraire, la passerelle se connecte au proxy. Si votre serveur proxy requiert une authentification, tapez votre nom d'utilisateur et votre mot de passe.
+   2. Éventuellement, si le serveur sur lequel la passerelle est installée doit utiliser un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, `http://myorgname.corp.contoso.com:80` Si vide, la passerelle essaie de se connecter à Internet directement. Dans le cas contraire, la passerelle se connecte au proxy. Si votre serveur proxy requiert une authentification, tapez votre nom d'utilisateur et votre mot de passe.  
        ![Configuration du proxy de l’assistant d’installation de la passerelle](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Cliquez sur **Suivant**
 5. Si vous n’avez pas activé les mises à jour Microsoft, la page des mises à jour Microsoft s’affiche, et vous pouvez choisir d’activer les mises à jour. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
-6. Dans la page dossier de Destination, conservez le dossier par défaut **%ProgramFiles%\OMS Gateway** ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
+6. Dans la page Dossier de destination, conservez le dossier par défaut c:\ProgramFiles\OMS Gateway ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
 7. Dans la page Prêt pour l’installation, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
 8. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services.  
     ![Services – Passerelle OMS](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -280,6 +280,6 @@ Vous pouvez également laisser des commentaires sur OMS ou Log Analytics sur le 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

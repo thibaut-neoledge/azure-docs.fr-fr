@@ -1,5 +1,5 @@
 ---
-title: "Créer des hôtes Docker dans Azure avec Docker Machine | Microsoft Docs"
+title: "Utiliser Docker Machine pour créer des hôtes Linux dans Azure | Microsoft Docs"
 description: "Décrit l&quot;utilisation de Docker Machine pour créer des hôtes Docker dans Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Utiliser Docker Machine avec le pilote Azure
-[Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des conteneurs Linux plutôt que des machines virtuelles pour isoler les données d’application et le traitement sur des ressources partagées. Cette rubrique explique quand et comment utiliser [Docker Machine](https://docs.docker.com/machine/) (la commande `docker-machine`) pour créer de nouvelles machines virtuelles Linux dans Azure activé en tant qu’hôte docker pour vos conteneurs Linux.
+[Docker](https://www.docker.com/) propose une virtualisation basée sur les conteneurs Linux plutôt que sur les machines virtuelles afin d’isoler les données d’application et les calculs sur une ressource partagée. Cette rubrique décrit comment et dans quels cas utiliser [Docker Machine](https://docs.docker.com/machine/). La commande `docker-machine` crée une nouvelle machine virtuelle Linux dans Azure activée en tant qu’hôte Docker pour les conteneurs Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Créer des machines virtuelles avec Docker Machine
 Créez des machines virtuelles hôtes Docker dans Azure avec la commande `docker-machine create` en utilisant l’argument de pilote `azure` pour l'option de pilote (`-d`) et tous les autres arguments. 
@@ -132,6 +132,6 @@ Pour plus d’exemples sur l’utilisation de Docker, consultez [Utilisation de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.topic: article
+ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
+ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
+ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
 
 
 ---
+
 # <a name="enable-application-proxy-in-the-azure-portal"></a>Activer le proxy d’application dans le Portail Azure
 Cet article vous guide tout au long des étapes d’activation du proxy d’application Microsoft Azure AD pour votre répertoire de cloud dans Azure AD.
 
@@ -31,14 +31,14 @@ Pour pouvoir activer et utiliser les services Proxy d’application, vous devez 
 * Un [abonnement Microsoft Azure AD de base ou Premium](active-directory-editions.md) et un annuaire Azure AD sur lequel vous êtes administrateur général.
 * Un serveur exécutant Windows Server 2012 R2 ou Windows 8.1 ou version ultérieure sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur envoie des requêtes aux services Proxy d’application dans le cloud, et doit disposer d’une connexion HTTP ou HTTPS aux applications que vous publiez.
   
-  * Pour permettre l’authentification unique à vos applications publiées, cette machine doit être jointe au même domaine AD que les applications que vous publiez.
+  * Pour permettre l’authentification unique à vos applications publiées, cette machine doit être jointe au même domaine AD que les applications que vous publiez. Pour plus d’informations, consultez [Authentification unique avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md).
 * Si un pare-feu existe, assurez-vous qu’il autorise les requêtes HTTPS (TCP) du connecteur au proxy d’application. Le connecteur utilise ces ports avec des sous-domaines qui font partie des domaines de haut niveau msappproxy.net et servicebus.windows.net. Veillez à ouvrir les ports ci-après pour le trafic **sortant** :
   
   | Numéro de port | Description |
   | --- | --- |
   | 80 |Active le trafic HTTP sortant pour valider la sécurité. |
   | 443 |Active l’authentification utilisateur auprès d’Azure AD (obligatoire uniquement pour le processus d’inscription du connecteur). |
-  | 10100 à 10120 |Active les réponses HTTP LOB renvoyées au proxy. |
+  | 10100 à&10120; |Active les réponses HTTP LOB renvoyées au proxy. |
   | 9352, 5671 |Active la communication depuis le connecteur vers le service Azure pour les requêtes entrantes. |
   | 9350 |Facultatif ; permet de meilleures performances pour les requêtes entrantes. |
   | 8080 |Active la séquence de démarrage du connecteur et la mise à jour automatique du connecteur. |
@@ -77,6 +77,8 @@ Pour pouvoir activer et utiliser les services Proxy d’application, vous devez 
      ![Services de connecteur de proxy d’application - capture d’écran](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Cliquez sur **Terminer** dans la fenêtre d’installation.
 
+Pour plus d’informations sur les connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md). 
+
 Pour bénéficier d’une haute disponibilité, vous devez déployer au moins deux connecteurs. Pour déployer d’autres connecteurs, répétez les étapes 2 et 3 décrites plus haut. Chaque connecteur doit être inscrit séparément.
 
 Si vous souhaitez désinstaller le connecteur, désinstallez le service du connecteur et le service de mise à jour. Redémarrez votre ordinateur pour supprimer complètement le service.
@@ -89,6 +91,6 @@ Si vous disposez d’applications figurant sur des réseaux distincts ou à diff
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

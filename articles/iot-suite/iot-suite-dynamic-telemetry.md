@@ -1,6 +1,6 @@
 ---
 title: "Utiliser la télémétrie dynamique | Microsoft Docs"
-description: "Suivez ce didacticiel pour savoir comment utiliser la télémétrie dynamique avec la solution préconfigurée de surveillance à distance."
+description: "Suivez ce didacticiel pour savoir comment utiliser la télémétrie dynamique avec la solution préconfigurée de surveillance à distance Azure IoT Suite."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
+ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
+ms.openlocfilehash: 7fe03bcb918997971208554d030264d67bedb1ff
 
 
 ---
@@ -36,47 +36,7 @@ Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## <a name="configure-the-nodejs-simulated-device"></a>Configurer l’appareil simulé Node.js
-1. Dans le tableau de bord de surveillance à distance, cliquez sur **+ Ajouter un appareil** , puis ajoutez un appareil personnalisé. Notez le nom d’hôte, l’ID de l’appareil et la clé de l’appareil IoT Hub. Vous en aurez besoin ultérieurement dans ce didacticiel lorsque vous préparerez l’application cliente de l’appareil remote_monitoring.js.
-2. Assurez-vous que Node.js version 0.12.x ou ultérieure est installé sur votre ordinateur de développement. Exécutez `node --version` à l’invite de commande ou dans un interpréteur de commandes pour vérifier la version. Pour plus d’informations sur l’utilisation d’un gestionnaire de package pour installer Node.js sur Linux, consultez l’article [Installing Node.js via package manager][node-linux] (Installation de Node.js par le biais d’un gestionnaire de package).
-3. Après avoir installé Node.js, clonez la dernière version du référentiel [azure-iot-sdks][lnk-github-repo] sur votre machine de développement. Utilisez toujours la branche **maître** pour avoir la version la plus récente des bibliothèques et des exemples.
-4. À partir de votre copie locale du référentiel [azure-iot-sdks][lnk-github-repo], copiez les deux fichiers suivants, contenus dans le dossier node/device/samples, dans un dossier vide sur votre machine de développement :
-   
-   * packages.json
-   * remote_monitoring.js
-5. Ouvrez le fichier remote_monitoring.js et recherchez la définition de variable suivante :
-   
-    ```
-    var connectionString = "[IoT Hub device connection string]";
-    ```
-6. Remplacez **[chaîne de connexion d’un périphérique de IoT Hub]** par votre chaîne de connexion de périphérique. Utilisez les valeurs de nom d’hôte, ID de l’appareil et clé de l’appareil IoT Hub notées à l’étape 1. La chaîne de connexion du périphérique suit ce format :
-   
-    ```
-    HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
-    ```
-   
-    Si votre nom d’hôte IoT Hub est **contoso** et votre ID d’appareil **mydevice**, votre chaîne de connexion ressemble à la suivante :
-   
-    ```
-    var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
-    ```
-7. Enregistrez le fichier. Exécutez les commandes suivantes dans un interpréteur de commandes ou une invite de commandes dans le dossier contenant ces fichiers pour installer les packages nécessaires, puis exécutez l’exemple d’application :
-   
-    ```
-    npm install
-    node remote_monitoring.js
-    ```
-
-## <a name="observe-dynamic-telemetry-in-action"></a>Observer la télémétrie dynamique en action
-Le tableau de bord affiche la télémétrie de température et d’humidité à partir des appareils simulés existants :
-
-![Tableau de bord par défaut][image1]
-
-Si vous sélectionnez l’appareil simulé Node.js que vous avez exécuté dans la section précédente, vous affichez la télémétrie de température, d’humidité et de température externe :
-
-![Ajouter une température externe au tableau de bord][image2]
-
-La solution de surveillance à distance détecte automatiquement le type supplémentaire de télémétrie de température externe et l’ajoute au graphique sur le tableau de bord.
+[!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
 ## <a name="add-a-telemetry-type"></a>Ajouter un type de télémétrie
 L’étape suivante consiste à remplacer les données de télémétrie générées par l’appareil simulé Node.js par un nouveau jeu de valeurs :
@@ -236,19 +196,15 @@ Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouv
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[image1]: media/iot-suite-dynamic-telemetry/image1.png
-[image2]: media/iot-suite-dynamic-telemetry/image2.png
 [image3]: media/iot-suite-dynamic-telemetry/image3.png
 [image4]: media/iot-suite-dynamic-telemetry/image4.png
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
-[lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

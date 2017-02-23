@@ -15,25 +15,40 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
-ms.openlocfilehash: 3864148ecd09b5bc4199185bc0e5a781703f3fdb
+ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
+ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
 
 
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Redéployer une machine virtuelle vers un nouveau nœud Azure
-Si vous avez été confronté à des difficultés pour la résolution des problèmes SSH ou l’accès des applications à une machine virtuelle Azure, le redéploiement de la machine virtuelle peut vous aider. Lorsque vous redéployez une machine virtuelle, celle-ci est déplacée vers un nouveau nœud au sein de l’infrastructure Azure, puis remise sous tension, conservant tous vos options de configuration et ressources associées. Cet article vous montre comment redéployer une machine virtuelle à l’aide de l’interface de ligne de commande Azure ou du portail Azure.
+Si vous avez été confronté à des difficultés pour la résolution des problèmes SSH ou l’accès des applications à une machine virtuelle Linux dans Azure, vous pouvez tenter de redéployer la machine virtuelle. Lorsque vous redéployez une machine virtuelle, celle-ci est déplacée vers un nouveau nœud au sein de l’infrastructure Azure, puis remise sous tension, conservant tous vos options de configuration et ressources associées. Cet article vous montre comment redéployer une machine virtuelle à l’aide de l’interface de ligne de commande Azure ou du portail Azure.
 
 > [!NOTE]
 > Une fois que vous redéployez une machine virtuelle, le disque temporaire est perdu et les adresses IP dynamiques associées à l’interface réseau virtuelle sont mises à jour. 
 
+Vous pouvez redéployer une machine virtuelle à l’aide d’une des options suivantes. Choisissez une seule option pour redéployer votre machine virtuelle :
 
-## <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
-Assurez-vous que la [dernière interface de ligne de commande Azure est installée](../xplat-cli-install.md) sur votre ordinateur et que vous êtes en mode Resource Manager (`azure config mode arm`).
+- [Azure CLI 1.0](#azure-cli-10)
+- [Azure CLI 2.0 (version préliminaire)](#azure-cli-20-preview)
+- [Portail Azure](#using-azure-portal)
+
+
+## <a name="azure-cli-10"></a>Azure CLI 1.0
+Installez la [dernière version d’Azure CLI 1.0](../xplat-cli-install.md), connectez-vous à un compte Azure et vérifiez que le mode Resource Manager est activé (`azure config mode arm`).
 
 L’exemple suivant redéploie la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
+```
+
+## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+Installez la dernière version [d’Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
+
+Redéployez votre machine virtuelle avec la commande [az vm redeploy](/cli/azure/vm#redeploy). L’exemple suivant redéploie la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
@@ -44,6 +59,6 @@ Vous pouvez rechercher une aide spécifique sur le [dépannage des connexions SS
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

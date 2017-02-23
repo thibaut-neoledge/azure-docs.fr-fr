@@ -1,7 +1,7 @@
 ---
 
-title: "Utiliser une machine virtuelle de dépannage Linux avec l’interface de ligne de commande| Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide de l’interface de ligne de commande Azure."
+title: "Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 1.0 | Microsoft Docs"
+description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure CLI 1.0."
 services: virtual-machines-linux
 documentationCenter: 
 authors: iainfoulds
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: 89094f69fab8b30a16fcc5bc1bcd628ed52da757
+ms.sourcegitcommit: cb876ea4281fefa334e0aaf4ed66d87fa5653099
+ms.openlocfilehash: 2d0eedd3dfd2b9c754b450228fa65d06fe0514f5
 
 
 ---
 
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide de l’interface de ligne de commande Azure
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure CLI 1.0
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
 
 
@@ -34,11 +34,12 @@ Le processus de résolution de problème se présente comme suit :
 4. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
 5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
 
-Veillez à ce que [l’interface de ligne de commande Azure](../xplat-cli-install.md) soit connectée et utilise le mode Resource Manager :
+Veillez à ce que la [dernière version d’Azure CLI 1.0](../xplat-cli-install.md) soit installée et connectée et assurez-vous qu’elle utilise le mode Resource Manager :
 
 ```azurecli
 azure config mode arm
 ```
+
 Dans les exemples suivants, remplacez les noms de paramètres avec vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `myVM`.
 
 
@@ -235,6 +236,6 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

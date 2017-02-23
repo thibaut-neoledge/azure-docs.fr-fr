@@ -3,34 +3,31 @@ title: "Copie d’une base de données SQL Azure à l’aide du portail Azure | 
 description: "Création d&quot;une copie d&quot;une base de données SQL Azure"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: daa6f079-13ed-462f-b346-e201aa61681b
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
+ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
+ms.openlocfilehash: 5da07683a4ca9fe1751debc163a0a5a595b6f82b
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-the-azure-portal"></a>Copie d’une base de données SQL Azure à l’aide du portail Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-copy.md)
-> * [portail Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-Les étapes suivantes vous montrent comment copier une base de données SQL avec le [Portail Azure](https://portal.azure.com) sur le même serveur ou un serveur différent.
+Les étapes suivantes vous montrent comment copier une base de données SQL avec le [Portail Azure](https://portal.azure.com) sur le même serveur ou un serveur différent. 
+
+> [!NOTE]
+> Vous pouvez également copier une base de données SQL à l’aide de [PowerShell](sql-database-copy-powershell.md) ou [Transact-SQL](sql-database-copy-transact-sql.md).
+>
 
 Pour copier une base de données SQL, vous avez besoin des éléments suivants :
 
@@ -47,7 +44,7 @@ Ouvrez la page de la base de données SQL que vous voulez copier :
    ![Base de données SQL](./media/sql-database-copy-portal/sql-database-copy.png)
 4. Sur la page **Copie** , un nom est fourni par défaut pour la base de données. Tapez un autre nom si vous le souhaitez (toutes les bases de données d’un serveur doivent avoir un nom unique).
 5. Sélectionner un **serveur cible**. Le serveur cible est celui où est créée la copie de la base de données. Vous pouvez copier la base de données sur le même serveur ou sur un autre serveur. Vous pouvez créer un serveur ou sélectionner un serveur existant dans la liste. 
-6. Une fois le **Serveur cible** sélectionné, les options **Pool de bases de données élastiques** et **Niveau tarifaire** sont activées. Si le serveur dispose d’un pool, vous pouvez y copier la base de données.
+6. Une fois le **Serveur cible** sélectionné, les options **Pool élastique** et **Niveau tarifaire** sont activées. Si le serveur dispose d’un pool, vous pouvez y copier la base de données.
 7. Cliquez sur **OK** pour démarrer le processus de copie.
    
    ![Base de données SQL](./media/sql-database-copy-portal/copy-page.png)
@@ -66,15 +63,8 @@ Ouvrez la page de la base de données SQL que vous voulez copier :
 Pour résoudre les connexions à l’issue de l’opération de copie, consultez [Résoudre les connexions](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez la page [Copie d’une base de données SQL Azure](sql-database-copy.md) pour une vue d’ensemble de la copie d’une base de données SQL Azure.
-* Consultez la page [Copier une base de données SQL Azure à l’aide de PowerShell](sql-database-copy-powershell.md) pour copier une base de données à l’aide de PowerShell.
-* Consultez la page [Copier une base de données SQL Azure à l’aide de T-SQL](sql-database-copy-transact-sql.md) pour copier une base de données à l’aide de Transact-SQL.
-* Consultez la page [Gestion de la sécurité d’une base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md) pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la copie d’une base de données vers un autre serveur logique.
-
-## <a name="additional-resources"></a>Ressources supplémentaires
-* [Gérer les connexions](sql-database-manage-logins.md)
-* [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md)
-* [Exporter la base de données vers un fichier BACPAC](sql-database-export.md)
+* Pour en savoir plus sur la gestion des utilisateurs et des connexions lors de la copie d’une base de données sur un autre serveur logique, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
+* Pour exporter une base de données dans un fichier BACPAC à l’aide du portail Azure, consultez [Export the database to a BACPAC using the Azure portal](sql-database-export-portal.md) (Exporter la base de données dans un fichier BACPAC à l’aide du portail Azure).
 * [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 * [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -87,6 +77,6 @@ Pour résoudre les connexions à l’issue de l’opération de copie, consultez
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure et Linux | Microsoft Docs
+title: "Vue d’ensemble des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Décrit les services de calcul, de stockage et de mise en réseau Azure à l’aide de machines virtuelles Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
-ms.author: v-livech
+ms.author: squillace
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e9625a14486cdcfbd9a23625b6399cf391574e64
+ms.sourcegitcommit: 4d2bd4bbcaf889ee25cc4567772384b167166c10
+ms.openlocfilehash: 736f30768da968f8e1d39ff94fe9de66cc219321
 
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
-Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, mobiles, la mise en réseau, le stockage et le web. En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
+Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
 
 Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document de mappage de définition](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)Azure vs AWS.
 
@@ -31,8 +31,14 @@ Les ressources Microsoft Azure sont réparties sur plusieurs régions géographi
 * [Régions Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Availability
-Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Ainsi, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans nos centres de données et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
+Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Ainsi, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans nos centres de données et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble. 
 
+## <a name="managed-disks"></a>Managed Disks
+
+Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0 (version préliminaire)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+ 
+Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur Managed Disks, voir la page [Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
+ 
 ## <a name="azure-virtual-machines--instances"></a>Machines virtuelles et instances Azure
 Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans Azure Marketplace. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -98,29 +104,27 @@ Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microso
 ## <a name="getting-setup-on-azure"></a>Installation sur Azure
 Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’interface de ligne de commande Azure installée et d’une paire de clés SSH (publique et privée).
 
-## <a name="sign-up-for-an-account"></a>Inscrivez-vous pour obtenir un compte
+### <a name="sign-up-for-an-account"></a>Inscrivez-vous pour obtenir un compte
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
-## <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [l’interface de ligne de commande Azure ](../xplat-cli-install.md)sur votre station de travail Mac ou Linux.
+### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI 2.0 (version préliminaire) ](/cli/azure/install)sur votre station de travail Mac ou Linux.
 
-## <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
+### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour activer les connexions sans mot de passe et améliorer la sécurité.
 
-## <a name="getting-started-with-linux-on-microsoft-azure"></a>Prise en main de Microsoft Azure sur Linux
-Avec la configuration de votre compte Azure, l’interface de ligne de commande Azure installée et les clés SSH créées, vous êtes maintenant prêt à créer une infrastructure dans Azure Cloud.  La première tâche consiste à créer quelques machines virtuelles.
 
-## <a name="create-a-vm-using-the-cli"></a>Créer une machine virtuelle à l’aide de l’interface de ligne de commande
+### <a name="create-a-vm-using-the-cli"></a>Créer une machine virtuelle à l’aide de l’interface de ligne de commande
 La création d’une machine virtuelle Linux à l’aide de l’interface de ligne de commande est un moyen rapide de déployer une machine virtuelle sans quitter le terminal que vous utilisez.  Tout ce que vous pouvez spécifier sur le portail web est disponible via un commutateur ou un indicateur de ligne de commande.  
 
 * [Créer une machine virtuelle Linux à l’aide de l’interface de ligne de commande](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="create-a-vm-in-the-portal"></a>Créer une machine virtuelle dans le portail
+### <a name="create-a-vm-in-the-portal"></a>Créer une machine virtuelle dans le portail
 La création d’une machine virtuelle sur le portail web Azure consiste à facilement définir les différentes options à l’aide de la souris pour accéder à un déploiement.  Au lieu d’utiliser des indicateurs de ligne de commande ou des commutateurs, vous pouvez afficher une belle disposition d’options et de paramètres.  Tous les éléments disponibles au moyen de l’interface de ligne de commande sont également disponibles sur le portail.
 
 * [Créer une machine virtuelle Linux à l’aide du portail](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="login-using-ssh-without-a-password"></a>Connexion avec SSH sans mot de passe
+### <a name="login-using-ssh-without-a-password"></a>Connexion avec SSH sans mot de passe
 La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vous connecter.  L’utilisation de mots de passe pour vous connecter via le protocole SSH est peu sûre et prend du temps.  L’utilisation de clés SSH est la méthode la plus sûre et la plus rapide pour vous connecter.  Lorsque vous créez vos machines virtuelles Linux via le portail ou l’interface de ligne de commande, vous avez deux possibilités pour l’authentification.  Si vous choisissez un mot de passe pour SSH, Azure configure la machine virtuelle pour autoriser les connexions via les mots de passe.  Si vous choisissez d’utiliser une clé publique SSH, Azure configure la machine virtuelle pour autoriser uniquement les connexions via les clés SSH et désactive les connexions de mot de passe. Pour sécuriser votre machine virtuelle Linux en autorisant uniquement les connexions par clé SSH, utilisez l’option de clé SSH publique lors de la création de machines virtuelles sur le portail ou dans l’interface de ligne de commande.
 
 * [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -150,6 +154,6 @@ Vous avez maintenant une vue d’ensemble de Linux sur Azure.  L’étape suivan
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
