@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ App Service sur Linux prend actuellement en charge les piles d’applications su
 * Node.js
 * PHP
 * .Net Core
+* Ruby
 
 Les clients peuvent déployer leurs applications à l’aide de :
 
@@ -66,6 +67,8 @@ Web Apps sur Linux est uniquement pris en charge dans les plans App Service déd
 
 Sous Linux, les applications web doivent être créées dans un groupe de ressources qui ne contient pas d’applications web non Linux dans la même région.
 
+Sous Linux, Web Apps ne prend pas en charge le déploiement d’applications .NET Core à partir d’une source non compilée. Vous devez d’abord publier/compiler votre application .NET Core localement, puis envoyer les bits de site publiés vers votre application.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -73,9 +76,9 @@ Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux
 * [Utilisation d’une image Docker personnalisée pour App Service sur Linux](app-service-linux-using-custom-docker-image.md)
 * [Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux](app-service-linux-using-nodejs-pm2.md)
 * [Utilisation de .NET Core dans Azure App Service Web Apps sur Linux](app-service-linux-using-dotnetcore.md)
+* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

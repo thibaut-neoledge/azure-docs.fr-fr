@@ -15,8 +15,8 @@ ms.date: 01/17/2017
 ms.author: spelluru
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 65c036240618f3e426707d57eeb6b194410a9084
-ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
+ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
+ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
@@ -27,15 +27,36 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  [Passerelle de gestion de données](data-factory-data-management-gateway.md)
 *  [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## <a name="current-version-2561641"></a>VERSION ACTUELLE (2.5.6164.1)
+
+## <a name="current-version-2762192"></a>VERSION ACTUELLE (2.7.6219.2)
+
+### <a name="whats-new"></a>Nouveautés
+- Vous pouvez désormais vous authentifier dans votre Azure Data Lake Store à l’aide d’un principal du service. Auparavant, seul OAuth était pris en charge.
+- Nous avons empaqueté un nouveau pilote pour lire des données du magasin de données local Oracle dans la passerelle.
+
+### <a name="enhancements-"></a>Améliorations
+- Amélioration des performances de lecture de données à partir d’une source de données Oracle.
+- Problème résolu : problème d’expiration du jeton OAuth de source OData.
+- Problème résolu : impossible de lire les décimales Oracle de plus de 28 bits.
+
+
+## <a name="earlier-versions"></a>Versions antérieures
+
+## <a name="2661922"></a>2.6.6192.2
+### <a name="whats-new"></a>Nouveautés
+- Les clients peuvent faire part de leurs commentaires sur l’expérience d’inscription à la passerelle.
+- Prise en charge d’un nouveau format de compression : ZIP (Deflate)
+
+### <a name="enhancements-"></a>Améliorations
+- Amélioration des performances pour le récepteur d’Oracle, source HDFS.
+- Correctif de bogue pour la mise à jour automatique de la passerelle, capacité de traitement parallèle de la passerelle.
+
+
+## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>Améliorations
 - Expérience d’inscription de la passerelle améliorée et plus robuste. Vous pouvez maintenant suivre l’état d’avancement lors du processus d’inscription de la passerelle, ce qui rend l’expérience d’inscription plus réactive.
 - Amélioration du processus de restauration de la passerelle. Vous pouvez toujours récupérer la passerelle même si vous n’avez pas le fichier de sauvegarde de passerelle avec cette mise à jour. Cela vous oblige à réinitialiser les informations d’identification du Service lié dans le portail.
 - Résolution de bogue.
-
-
-
-## <a name="earlier-versions"></a>Versions antérieures
 
 ## <a name="2461511"></a>2.4.6151.1
 
@@ -216,6 +237,6 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

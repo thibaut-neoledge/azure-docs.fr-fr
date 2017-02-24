@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/09/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 8e7c14d9eeeab43d596eec99cb380f06cf9c39b3
+ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
+ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
 
 
 ---
@@ -74,7 +74,7 @@ Vous pouvez créer des applications Service Fabric sur MacOS X à des fins d’
 [Créer votre première application (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## <a name="core-concepts"></a>Principaux concepts
-Les articles [Terminologie Service Fabric](service-fabric-technical-overview.md), [Modèle d’application Service Fabric](service-fabric-application-model.md) et [Vue d’ensemble des modèles de programmation Service Fabric](service-fabric-choose-framework.md) contiennent des concepts et des descriptions supplémentaires, mais voici les principes de base.
+Les articles [Terminologie Service Fabric](service-fabric-technical-overview.md), [Modèle d’application](service-fabric-application-model.md) et [Modèles de programmation pris en charge](service-fabric-choose-framework.md) contiennent des concepts et des descriptions supplémentaires, mais voici les informations de base.
 
 <table><tr><th>Principaux concepts</th><th>Au moment du design</th><th>En cours d’exécution</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
@@ -140,6 +140,7 @@ Reposant sur Reliable Services, l’infrastructure [Reliable Actor](service-fabr
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: 53b97327e41c68fbbbe20b5bc5cf99bdae15e1f9
+ms.sourcegitcommit: b2428f93680c12c76000fa8eb1a7138f72a8efe7
+ms.openlocfilehash: 9d67f089f4aba03e846a8fe020a91b6b1ac6ea48
 
 
 ---
@@ -101,7 +101,7 @@ Avec toutes ces contraintes, vous vous dites peut-être : « Je pense que, dans 
 
 Eh bien, c’est possible ! Les contraintes peuvent être configurées en fonction de différents niveaux d’application, qui se résument le plus souvent à la valeur « strict » (0), « souple » (1), « optimisation » (2) et « désactivé » (-1). La plupart des contraintes définies ici sont strictes par défaut. Par exemple, la capacité, et presque toutes sont strictes ou souples.
 
-Les différentes priorités de contrainte expliquent également pourquoi des avertissements de violation de contrainte s’affichent plus souvent que d’autres : nous sommes prêts à assouplir (violer) temporairement certaines contraintes. Ces niveaux ne signifient pas vraiment qu’une contrainte donnée est ou sera enfreinte, mais seulement qu’il existe un ordre dans lequel elles sont appliquées de préférence. Ceci permet à Cluster Resource Manager d’effectuer les bons compromis s’il est impossible de satisfaire toutes les contraintes.
+Les différentes priorités de contrainte expliquent également pourquoi des avertissements de violation de contrainte s’affichent plus souvent que d’autres : nous sommes prêts à assouplir (violer) temporairement certaines contraintes. Ces niveaux ne signifient pas vraiment qu’une contrainte donnée sera enfreinte, mais seulement qu’il existe un ordre préférentiel d’application. Ceci permet à Cluster Resource Manager d’effectuer les bons compromis s’il est impossible de satisfaire toutes les contraintes.
 
 Dans des situations avancées, les priorités des contraintes peuvent être modifiées. Supposons, par exemple, que vous vouliez vous assurer que la contrainte Affinity sera enfreinte pour résoudre les problèmes de capacité de nœud. Pour ce faire, vous pouvez définir la priorité de la contrainte Affinity sur « souple » (1) et laisser la contrainte Capacity sur « stricte » (0).
 
@@ -159,7 +159,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Contraintes de domaine d’erreur et de domaine de mise à niveau
 Cluster Resource Manager présente le souhait de conserver les services répartis entre les domaines d’erreur et de mise à niveau sous la forme d’une contrainte dans le moteur de Resource Manager. Pour plus d’informations sur leur utilisation, consultez l’article sur la [configuration de cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Nous avons parfois dû être stricts concernant les domaines d’erreur et de mise à niveau afin d’éviter un problème. Nous avons également parfois dû les ignorer entièrement (bien que brièvement !). En règle générale, la flexibilité de l’infrastructure de priorité de contrainte a bien fonctionné, mais elle n’est pas souvent nécessaire. La plupart du temps, les priorités par défaut sont conservées. Les domaines de mise à niveau restent une contrainte souple. Cluster Resource Manager peut avoir à regrouper deux réplicas dans un domaine de mise à niveau pour faire face à une mise à niveau, des échecs ou des violations de contraintes. Normalement, cela ne se produit que lorsqu’il existe plusieurs défaillances ou toute autre attrition dans le système empêchant un positionnement correct. Si l’environnement est correctement configuré, toutes les contraintes, notamment les contraintes de domaine d’erreur et de mise à niveau, sont entièrement respectées, même pendant les mises à niveau. L’essentiel est que Cluster Resource Manager surveille vos contraintes et le signale immédiatement lorsqu’il détecte des violations.
+Nous avons parfois dû être stricts concernant les domaines d’erreur et de mise à niveau afin d’éviter un problème. Nous avons également parfois dû les ignorer entièrement (bien que brièvement !). En règle générale, la flexibilité de l’infrastructure de priorité de contrainte a bien fonctionné, mais elle n’est pas souvent nécessaire. La plupart du temps, les priorités par défaut sont conservées. Les domaines de mise à niveau restent une contrainte souple. Cluster Resource Manager peut avoir à regrouper deux réplicas dans un domaine de mise à niveau pour faire face à une mise à niveau, des échecs ou des violations de contraintes. Normalement, cela ne se produit que lorsqu’il existe plusieurs défaillances ou toute autre attrition dans le système empêchant un positionnement correct. Si l’environnement est correctement configuré, toutes les contraintes, y compris les contraintes d’erreur et de mise à niveau, sont entièrement respectées, même pendant les mises à niveau. L’essentiel est que Cluster Resource Manager surveille vos contraintes et le signale immédiatement lorsqu’il détecte des violations.
 
 ## <a name="the-preferred-location-constraint"></a>La contrainte d’emplacement par défaut
 La contrainte PreferredLocation est un peu différente : il s’agit de la seule contrainte définie sur « optimisation ». Nous utilisons cette contrainte lors de mises à niveau pour tenter de replacer les services là où nous les avions trouvés avant la mise à niveau. Il existe toutes sortes de raisons pour lesquelles cette méthode ne fonctionne pas dans la pratique, mais c’est une optimisation intéressante.
@@ -187,6 +187,6 @@ En règle générale, vous souhaitez que la mise à niveau se termine même si l
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

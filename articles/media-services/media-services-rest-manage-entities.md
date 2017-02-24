@@ -1,23 +1,26 @@
-
 ---
-title: Gestion des entités Media Services avec l’API REST | Microsoft Docs
-description: Découvrez comment gérer des entités Media Services avec l'API REST
+title: "Gestion des entités Media Services avec REST | Microsoft Docs"
+description: "Découvrez comment gérer des entités Media Services avec l&quot;API REST"
 author: juliako
 manager: dwrede
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 95262a32-0f2a-4286-b9e2-1a1ca6399b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
+ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+
 
 ---
-# <a name="managing-media-services-entities-with-rest-api"></a>Gestion des entités Media Services avec l’API REST
+# <a name="managing-media-services-entities-with-rest"></a>Gestion des entités Media Services avec REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
@@ -26,25 +29,27 @@ ms.author: juliako
 
 Microsoft Azure Media Services est un service basé sur REST conçu autour d’OData v3. Pour cette raison, vous pouvez ajouter, interroger, mettre à jour et supprimer des entités de la même façon que vous pouvez le faire dans tout autre service OData. Toute exception sera indiquée le cas échéant. Pour plus d’informations sur OData, consultez la [documentation Open Data Protocol](http://www.odata.org/documentation/).
 
-* Ajout d’entités 
-* Exécution d’une requête sur les entités 
-* Énumérer les grandes collections d'entités
-* Mise à jour des entités 
-* Suppression des entités 
+Cette rubrique vous montre comment gérer les entités Azure Media Services avec REST.
+
+
+>[!NOTE]
+> À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
+
+## <a name="considerations-when-working-with-ams-rest"></a>Considérations relatives à l’utilisation d’AMS REST
+
+Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 
 > [!NOTE]
-> Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
-> 
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
+> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
 > 
 > 
 
 ## <a name="adding-entities"></a>Ajout d’entités
 Chaque entité de Media Services est ajoutée à un jeu d'entités, tel que Assets, via une demande HTTP POST.
 
-L’exemple suivant montre comment créer une stratégie AccessPolicy :
+L’exemple suivant montre comment créer une stratégie AccessPolicy :
 
     POST https://media.windows.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -73,7 +78,7 @@ L’exemple suivant montre la récupération d’une liste de toutes les entité
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
-Vous pouvez également récupérer une entité spécifique ou tous les jeux d'entités associés à une entité spécifique, comme dans les exemples suivants :
+Vous pouvez également récupérer une entité spécifique ou tous les jeux d'entités associés à une entité spécifique, comme dans les exemples suivants :
 
     GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -104,7 +109,7 @@ L’exemple suivant renvoie uniquement la propriété State de toutes les tâche
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
-L'exemple suivant retourne l'ensemble des JobTemplates avec le nom « SampleTemplate ».
+L'exemple suivant retourne l'ensemble des JobTemplates avec le nom « SampleTemplate ».
 
     GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -121,7 +126,7 @@ L'exemple suivant retourne l'ensemble des JobTemplates avec le nom « SampleTemp
 > 
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Énumérer les grandes collections d'entités
-Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Utilisez **skip** et **top** pour énumérer les grandes collections d’entités. 
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Utilisez **skip** et **top** pour énumérer les grandes collections d’entités. 
 
 L’exemple suivant montre comment utiliser **skip** et **top** pour ignorer les 2 000 premiers emplois et obtenir les 1 000 emplois suivants.  
 
@@ -175,6 +180,9 @@ L’exemple suivant montre comment supprimer un localisateur qui était utilisé
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

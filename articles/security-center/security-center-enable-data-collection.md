@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 486ab53ede1465da2cba16ff4160599b50c2b092
-ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
+ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
+ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Activer la collecte des données dans Azure Security Center
-Pour aider les clients à prévenir les menaces, à les détecter et à y répondre, Azure Security Center collecte et traite des données concernant vos machines virtuelles Azure, notamment des informations de configuration, des métadonnées, des journaux des événements et bien plus. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. La collecte des données est recommandée, mais vous pouvez refuser cette fonctionnalité en la désactivant dans la stratégie de Security Center (consultez [Désactivation de la collecte des données](#disabling-data-collection)). Si vous désactivez la collecte des données, Security Center vous recommandera d’activer la collecte des données dans la stratégie de sécurité de cet abonnement.
+Pour aider les clients à prévenir les menaces, à les détecter et à y répondre, Azure Security Center collecte et traite des données concernant vos machines virtuelles Azure, notamment des informations de configuration, des métadonnées, des journaux des événements et bien plus. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. La collecte de données est recommandée, mais vous pouvez la refuser en désactivant cette fonctionnalité dans la stratégie de Security Center (consultez la page [Désactiver la collecte de données](#disabling-data-collection)). Si vous désactivez la collecte de données, Security Center vous recommandera d’activer la collecte de données dans la stratégie de sécurité de cet abonnement.
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
@@ -31,15 +31,15 @@ Pour aider les clients à prévenir les menaces, à les détecter et à y répon
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Sélectionnez la mosaïque **Recommandations** dans le panneau **Security Center**.  Le panneau **Recommandations** s’ouvre.
    ![Panneau Security Center][1]
-2. Dans le panneau **Recommandations**, sélectionnez **Activer la collecte des données pour des abonnements**.  Cette opération ouvre le panneau **Activer la collecte des données** .
+2. Dans le panneau **Recommandations**, sélectionnez **Activer la collecte des données pour des abonnements**.  Cette opération ouvre le panneau **Activer la collecte de données** .
    ![Panneau Recommandations][2]
 3. Sur le panneau **Activer la collecte des données** , sélectionnez votre abonnement. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre.
-4. Dans le panneau **Stratégie de sécurité**, sélectionnez **Activée** sous **Collecte des données** pour collecter automatiquement les journaux. L’activation de l’option Collecte des données activera également l’extension de la surveillance sur toutes les machines virtuelles prises en charge, actuelles et nouvelles, dans l’abonnement.
+4. Dans le panneau **Stratégie de sécurité**, sélectionnez **Activée** sous **Collecte des données** pour collecter automatiquement les journaux. L’activation de la collecte de données configure l’extension de surveillance sur toutes les machines virtuelles prises en charge, actuelles et nouvelles, de l’abonnement.
 
    ![Panneau Stratégie de sécurité][3]
 
 5. Sélectionnez **Enregistrer**.
-6. Sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, il sera automatiquement créé pour vous. Dans cet exemple, nous allons choisir **newstoracct**. Vous pouvez modifier le compte de stockage ultérieurement en revenant à la stratégie de sécurité de votre abonnement et en choisissant un autre compte de stockage.
+6. Sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata. Dans cet exemple, nous choisissons **newstoracct**. Vous pouvez modifier le compte de stockage ultérieurement en revenant à la stratégie de sécurité de votre abonnement et en choisissant un autre compte de stockage.
    ![Choisir un compte de stockage][4]
 7. Sélectionnez **OK**.
 
@@ -52,7 +52,7 @@ Pour aider les clients à prévenir les menaces, à les détecter et à y répon
 La collecte des données peut être activée via l’agent de surveillance Azure et via l’extension Surveillance de la sécurité Azure. L’extension Surveillance de la sécurité Azure analyse différentes configurations de sécurité et les envoie sous forme de traces de [Suivi d’événements pour Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). En outre, le système d’exploitation crée des entrées de journal des événements. L’agent de surveillance Azure lit les entrées du journal des événements et les traces ETW, puis les copie dans votre compte de stockage pour les analyser. L’agent de surveillance copie également les fichiers de vidage sur incident sur votre compte de stockage. Le compte de stockage en question est celui que vous avez configuré dans la stratégie de sécurité.
 
 ## <a name="disabling-data-collection"></a>Désactivation de la collecte des données
-Vous pouvez désactiver la collecte des données à tout moment, ce qui entraîne la suppression automatique des agents de surveillance précédemment installés par Security Center.  Vous devez sélectionner un abonnement pour désactiver la collecte des données.
+Vous pouvez désactiver la collecte de données à tout moment, ce qui entraîne la suppression automatique des agents de surveillance précédemment installés par Security Center. Vous devez sélectionner un abonnement pour désactiver la collecte des données.
 
 > [!NOTE]
 > Vous pouvez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, mais vous devez sélectionner un abonnement pour désactiver la collecte des données.
@@ -67,7 +67,7 @@ Vous pouvez désactiver la collecte des données à tout moment, ce qui entraîn
 4. Sélectionnez **Enregistrer** dans le ruban supérieur.
 
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment implémenter la recommandation de Security Center « Activer la collecte des données ». Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
@@ -88,6 +88,6 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

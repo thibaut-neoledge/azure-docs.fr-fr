@@ -1,5 +1,5 @@
 ---
-title: "Ouvrir des ports sur une machine virtuelle Azure à l’aide de PowerShell | Microsoft Docs"
+title: "Ouvrir des ports sur une machine virtuelle à l’aide d’Azure PowerShell | Microsoft Docs"
 description: "Découvrez comment ouvrir un port / créer un point de terminaison sur votre machine virtuelle Windows à l’aide du modèle de déploiement Azure Resource Manager et d’Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 78336671467db146ca4a2c54c2b422cd1dce2865
+ms.sourcegitcommit: 91c2e6f53f8ba490d2943a60c7ad519d856707b9
+ms.openlocfilehash: 0d57a27c0862b09e2628520a1e50a0cc56a55881
 
 
 ---
@@ -91,6 +91,6 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

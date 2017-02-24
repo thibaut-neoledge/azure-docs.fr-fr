@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 18fa3fd2fc9bb68b9e68c0c5ac5663a8a8348fd7
-ms.openlocfilehash: e02cb1916c65d137dc06b1ce6a9dd9621a31b56c
+ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
+ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
 
 
 ---
@@ -85,7 +85,7 @@ Pour configurer l’intégration de SAP HANA Cloud Platform Identity Authenticat
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Puis allez à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Applications][2]
     
@@ -131,11 +131,11 @@ L’application SAP HANA Cloud Platform Identity Authentication attend les asser
 
     ![Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, sous **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
     ![Configurer l’authentification unique][5]
 
-3. Dans la section **Attributs utilisateur**, sur la boîte de dialogue **Authentification unique**, si votre application SAP attend un attribut, par exemple « firstName ». Dans la boîte de dialogue des attributs du jeton SAML, ajoutez l’attribut « firstName ».
+3. Dans la section **Attributs utilisateur**, dans la boîte de dialogue **Authentification unique**, si votre application SAP attend un attribut, par exemple « firstName », ajoutez l’attribut « firstName » dans la boîte de dialogue des attributs du jeton SAML.
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
@@ -194,9 +194,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom**, tapez **BrittaSimon**.
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse de messagerie** de Britta Simon.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][202] 
 
-4. Cliquez sur le bouton **Ajouter**. Puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
@@ -276,6 +276,7 @@ Lorsque vous cliquez sur la mosaïque SAP HANA Cloud Platform Identity Authentic
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
+ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
+ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
 
 
 ---
@@ -89,7 +89,7 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 ## <a name="more-information"></a>Plus d’informations
 * Pour plus d’informations sur les pools élastiques Azure, consultez [Pools élastiques](sql-database-elastic-pool.md).
 * Pour plus d’informations sur les outils de bases de données et la mise à l’échelle élastique, consultez [Outils de bases de données élastique et mise à l’échelle élastique](sql-database-elastic-scale-get-started.md).
-* Pour plus d’informations sur la migration d’une base de données SQL Server, consultez [l’Assistant Migration SQL Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
+* Pour en savoir plus sur la migration d’une base de données SQL Server, consultez [Migrer une base de données SQL Server vers Azure](sql-database-cloud-migrate.md).
 * Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
@@ -98,6 +98,6 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

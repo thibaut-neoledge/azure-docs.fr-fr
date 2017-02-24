@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 628dfc48c00e61fe5c4883f6237a44e0f1309f0e
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: bc8c54b51f9eee653fbe84351081dcef562e62d4
 
 
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Comment configurer la persistance des données pour un Cache Redis Azure Premium
-Le Cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité, y compris le nouveau niveau Premium.
-
-Le niveau Premium de Cache Redis Azure comprend des fonctionnalités comme le clustering, la persistance et la prise en charge de réseau virtuel. Cet article décrit comment configurer la persistance dans une instance Premium de Cache Redis Azure.
+Le Cache Redis Azure offre différents types de caches permettant de choisir en toute flexibilité parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité, notamment les fonctionnalités de couche Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article décrit comment configurer la persistance dans une instance Premium de Cache Redis Azure.
 
 Pour plus d’informations sur les autres fonctionnalités du cache Premium, consultez [Introduction au niveau Premium du Cache Redis Azure](cache-premium-tier-intro.md).
 
@@ -32,16 +30,9 @@ La persistance Redis vous permet de conserver les données stockées dans Redis.
 
 Le Cache Redis Azure offre une persistance Redis à l'aide du [modèle RDB](http://redis.io/topics/persistence)où les données sont stockées dans un compte de stockage Azure. Quand la persistance est configurée, le Cache Redis Azure conserve un instantané du cache Redis dans un format binaire Redis sur le disque selon une fréquence de sauvegarde configurable. Si un événement catastrophique se produit et provoque la désactivation du cache principal et du réplica, le cache est reconstruit à l’aide de l’instantané le plus récent.
 
-La persistance peut être configurée à partir du panneau **Nouveau Cache Redis** lors de la création du cache et du panneau **Paramètres** pour les caches Premium existants.
+La persistance peut être configurée à partir du panneau **Nouveau Cache Redis** lors de la création du cache et du **menu Ressource** pour les caches Premium existants.
 
-## <a name="create-a-premium-cache"></a>Création d'un cache Premium
-Pour créer un cache et configurer la persistance, connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
-
-![Création d’un cache Redis][redis-cache-new-cache-menu]
-
-Pour configurer la persistance, sélectionnez d’abord l’un des caches **Premium** dans le panneau **Choisir votre niveau tarifaire**.
-
-![Choisir votre niveau tarifaire][redis-cache-premium-pricing-tier]
+[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Une fois que vous avez sélectionné un niveau tarifaire Premium, cliquez sur **Persistance Redis**.
 
@@ -50,7 +41,7 @@ Une fois que vous avez sélectionné un niveau tarifaire Premium, cliquez sur **
 Les étapes de la section suivante décrivent comment configurer la persistance Redis sur votre nouveau cache Premium. Une fois la persistance Redis configurée, cliquez sur **Créer** pour créer votre cache Premium avec la persistance Redis.
 
 ## <a name="configure-redis-persistence"></a>Configuration de la persistance Redis
-Le panneau **Persistance des données Redis** permet de configurer la persistante Redis. Pour les nouveaux caches, ce panneau est accessible pendant la création du cache, comme décrit dans la section précédente. Pour les caches existants, le panneau **Persistance des données Redis** est accessible à partir du panneau **Paramètres** de votre cache.
+Le panneau **Persistance des données Redis** permet de configurer la persistante Redis. Pour les nouveaux caches, ce panneau est accessible pendant la création du cache, comme décrit dans la section précédente. Pour les caches existants, le panneau **Persistance des données Redis** est accessible à partir du **menu Ressource** de votre cache.
 
 ![Paramètres Redis][redis-cache-settings]
 
@@ -61,7 +52,7 @@ Pour configurer l’intervalle de sauvegarde, sélectionnez une **Fréquence de 
 Cliquez sur **Compte de stockage** pour sélectionner le compte de stockage à utiliser, puis, dans la liste déroulante **Clé de stockage**, choisissez d’utiliser la **Clé primaire** ou la **Clé secondaire**. Vous devez choisir un compte de stockage situé dans la même région que le cache. Un compte **Stockage Premium** est recommandé, car ce type de stockage offre un débit plus élevé. 
 
 > [!IMPORTANT]
-> Si la clé de stockage pour votre compte de persistance est régénérée, vous devez choisir de nouveau la clé souhaitée dans la liste déroulante **Clé de stockage** .
+> Si la clé de stockage pour votre compte de persistance est régénérée, vous devez reconfigurer la clé souhaitée dans la liste déroulante **Clé de stockage** .
 > 
 > 
 
@@ -116,6 +107,6 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

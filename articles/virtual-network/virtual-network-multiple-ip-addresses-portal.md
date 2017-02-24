@@ -1,5 +1,5 @@
 ---
-title: "Plusieurs adresses IP pour les machines virtuelles - Portail | Microsoft Docs"
+title: "Plusieurs adresses IP pour les machines virtuelles Azure - Portail | Microsoft Docs"
 description: "Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure | Resource Manager"
 services: virtual-network
 documentationcenter: na
@@ -16,41 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 7ce83952f0f16e01a4837ce2155571d223d7b551
-ms.openlocfilehash: b1a2549e0f04dbc00a47a57ecc888ca36339c646
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 6e7eac6ae505c627ffa1d63aace76b9006d92c74
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [INTERFACE DE LIGNE DE COMMANDE](virtual-network-multiple-ip-addresses-cli.md)
+>[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 >
-
-Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. Une ou plusieurs adresses IP publiques ou privées, statiques ou dynamiques, peuvent être affectées à chaque carte réseau. L’affectation de plusieurs adresses IP à une machine virtuelle permet :
-
-* D’héberger plusieurs sites web ou services avec des adresses IP différentes et des certificats SSL sur un serveur unique.
-* de jouer le rôle d’une appliance virtuelle réseau, telle qu’un pare-feu ou un équilibreur de charge.
-* La possibilité d’ajouter l’une des adresses IP privées pour toutes les cartes réseau à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de la carte réseau principale pouvait être ajoutée à un pool principal. Pour plus d’informations sur la façon d’équilibrer la charge entre plusieurs configurations IP, consultez l’article [Équilibrage de la charge entre plusieurs configurations IP](../load-balancer/load-balancer-multiple-ip.md).
-
-Une ou plusieurs configurations IP sont associées à chaque carte réseau attachée à une machine virtuelle. Une adresse IP privée statique ou dynamique est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Une adresse IP statique ou dynamique est affectée à une ressource d’adresse IP publique. Pour plus d’informations sur les adresses IP dans Azure, consultez l’article [Adresses IP dans Azure](virtual-network-ip-addresses-overview-arm.md).
-
-Cet article explique comment utiliser PowerShell pour affecter plusieurs adresses IP à une machine virtuelle créée à l’aide du modèle de déploiement Azure Resource Manager. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../resource-manager-deployment-model.md).
+Cet article explique comment créer une machine virtuelle dans le modèle de déploiement Azure Resource Manager à l’aide du portail Azure. Il n’est pas possible d’affecter plusieurs adresses IP à des ressources créées à l’aide du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, voir [Comprendre les modèles de déploiement](../resource-manager-deployment-model.md).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="scenario"></a>Scénario
-Une machine virtuelle avec une seule carte réseau est créée et connectée à un réseau virtuel. La machine virtuelle nécessite trois adresses IP *privées* différentes et deux adresses IP *publiques*. Les adresses IP sont affectées aux configurations IP suivantes :
-
-* **IPConfig-1 :** attribue une adresse IP privée *dynamique* (par défaut) et une adresse IP publique *statique*.
-* **IPConfig-2 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
-* **IPConfig-3 :** attribue une adresse IP privée *dynamique* et aucune adresse IP publique.
-  
-    ![Plusieurs adresses IP](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-Les configurations IP sont associées à la carte réseau lors de sa création, et la carte réseau est attachée à la machine virtuelle lors de la création de celle-ci. Les types d’adresses IP utilisés pour le scénario sont indiqués à titre d’illustration. Vous pouvez affecter les types d’adresses IP et d’attribution que vous souhaitez.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
@@ -58,16 +37,30 @@ Si vous souhaitez créer une machine virtuelle avec plusieurs adresses IP, vous
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
-Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario) de cet article, mais ce n’est pas une condition obligatoire.
-
-> [!NOTE]
-> Bien que cet article affecte toutes les configurations IP à une seule carte réseau, vous pouvez également affecter plusieurs configurations IP à toute carte réseau dans une machine virtuelle. Pour découvrir comment créer une machine virtuelle avec plusieurs cartes réseau, voir [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](virtual-network-deploy-multinic-arm-ps.md).
+Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples fournis dans les sections suivantes supposent que vous disposez déjà d’une machine virtuelle avec les trois configurations IP décrites dans le [scénario](#Scenario) de cet article, mais ce n’est pas une condition obligatoire.
 
 ### <a name="a-namecoreaddacore-steps"></a><a name="coreadd"></a>Étapes de base
 
-1. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
-    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
-    - sans suivre les instructions fournies dans le message que vous recevez.
+1. Inscrivez-vous pour la version d’évaluation en exécutant les commandes suivantes dans PowerShell après votre connexion, puis sélectionnez l’abonnement approprié :
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    N’essayez pas d’effectuer les étapes restantes avant d’obtenir le résultat suivant lorsque vous exécutez la commande ```Get-AzureRmProviderFeature``` :
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Cela peut prendre quelques minutes.
+    
 2. Accédez au portail Azure en saisissant l’adresse https://portal.azure.com. Connectez-vous, si nécessaire.
 3. Dans le portail, cliquez sur **Plus de services**, puis saisissez *Machines virtuelles* dans la zone de filtre et cliquez sur **Machines virtuelles**.
 4. Dans le panneau **Machines virtuelles**, cliquez sur la machine virtuelle à laquelle ajouter des adresses IP. Dans le panneau qui s’affiche, cliquez sur **Interfaces réseau** et sélectionnez l’interface réseau à laquelle ajouter les adresses IP. Dans l’exemple illustré dans l’image suivante, la carte réseau nommée *myNIC* associée à la machine virtuelle *myVM* est sélectionnée :
@@ -161,6 +154,6 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,22 +1,22 @@
 ---
-title: "Vue d’ensemble du Kit de développement logiciel Windows Phone Silverlight"
+title: "Azure Mobile Engagement - Vue d’ensemble du Kit de développement logiciel (SDK) Windows Phone Silverlight | Microsoft Docs"
 description: "Vue d&quot;ensemble du Kit de développement Silverlight de Windows Phone pour Azure Engagement Mobile"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 0e3d2420-0509-4952-8891-392e3dad9aaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 105335b3c4c6e805f9398fbc002d5c4051acd147
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
 
 
 ---
@@ -31,10 +31,10 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 3. Implémentation du plan de la balise : [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notes de publication
-### <a name="330-04192016"></a>3.3.0 (04/19/2016)
-Partie du package NuGet *MicrosoftAzure.MobileEngagement***v3.4.0**
+###<a name="331-11032016"></a>3.3.1 (11/03/2016)
+Partie du package NuGet *MicrosoftAzure.MobileEngagement* **v3.4.1**
 
-* Ajout de l'API « TestLogLevel » aux journaux de console enable/disable/filter émis par le Kit de développement logiciel (SDK).
+* Améliorations de la stabilité.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-phone-release-notes.md)
 
@@ -51,11 +51,11 @@ Les journaux de console produits par le Kit de développement logiciel (SDK) peu
             EngagementAgent.Instance.Init();
 
 ### <a name="upgrade-from-older-versions"></a>Mise à niveau à partir de versions antérieures
-Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure.md)
+Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

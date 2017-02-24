@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
+ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
+ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
@@ -44,6 +44,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Pourquoi l’authentification échoue-t-elle lors d’une tentative de clonage d’un référentiel GIT ?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Le service Gestion des API est-il compatible avec Azure ExpressRoute ?](#does-api-management-work-with-azure-expressroute)
 * [Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?](#api-management-api-import-restrictions)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?
 Vous pouvez nous contacter de l’une des façons suivantes :
@@ -90,7 +91,6 @@ Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de c
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obtenez une URL d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilisez l’URL pour accéder au portail d’administration.
-
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?
 Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
@@ -100,7 +100,6 @@ Vous pouvez utiliser le contrôle de version de différentes manières dans Gest
 * Dans Gestion des API, vous pouvez configurer des API représentant différentes versions. Par exemple, vous pouvez avoir deux API différentes, MonAPIv1 et MonAPIv2. Un développeur peut choisir la version qu’il souhaite utiliser.
 * Vous pouvez également configurer votre API avec une URL de service qui n’inclut pas un segment de version, par exemple https://mon.api. Ensuite, configurez un segment de version pour chaque modèle de [réécriture de l’URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL). Par exemple, vous pouvez avoir une opération avec un [modèle d’URL](api-management-howto-add-operations.md#url-template) appelé /resource et un modèle de [réécriture de l’URL](api-management-howto-add-operations.md#rewrite-url-template) appelé /v1/Resource. Vous pouvez modifier la valeur du segment de version séparément pour chaque opération.
 * Si vous souhaitez conserver un segment de version « par défaut » dans l’URL de service de l’API, vous pouvez définir, sur les opérations concernées, une stratégie qui utilise la stratégie [Définir le service principal](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) pour modifier le chemin d’accès de requête principal.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Comment configurer plusieurs environnements dans une seule API ?
 Il existe deux manières de configurer plusieurs environnements, par exemple un environnement de test et un environnement de production, dans une seule API. Vous pouvez :
 
@@ -148,9 +147,11 @@ Oui. Le service Gestion des API est compatible avec Azure ExpressRoute.
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?
 Oui. Pour savoir comment procéder, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
 
+### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?
+[Problèmes connus et restrictions](api-management-api-import-restrictions.md) pour les formats Open API(Swagger), WSDL et WADL.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

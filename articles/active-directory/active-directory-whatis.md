@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b247388bff35fb755c8363eb48695e47f2510574
-ms.openlocfilehash: a5f8adfa278b096914239357c675654fd9fc2908
+ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
+ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
 
 
 ---
@@ -146,7 +146,7 @@ Par le biais des listes de contrôle d’accès, peut être appliqué individuel
 
 **Si vous êtes un administrateur informatique :**
 
-* [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/) Vous pouvez vous inscrire pour une période d’essai gratuit de 30 jours, puis déployer votre première solution cloud en moins de 5 minutes.
+* [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/) Vous pouvez vous inscrire pour une période d’essai gratuit de 30 jours, puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien
 
 * Lisez la page « Prise en main d’Azure Active Directory » pour accélérer l’installation et la configuration d’un client Azure AD.
 
@@ -173,6 +173,6 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

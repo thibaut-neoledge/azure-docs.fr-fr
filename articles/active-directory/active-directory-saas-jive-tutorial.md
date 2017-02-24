@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: 8e5af99c6c0a8ce4d1b239b3271846f39bc387be
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 304ee87e82ce5acc4479fd16d3ac1aa340e42815
 
 
 ---
@@ -207,7 +207,7 @@ Dans le cadre de cette procédure, vous devez fournir un jeton de sécurité à 
 
 La capture d’écran suivante présente un exemple de la boîte de dialogue associée dans Azure AD :
 
-![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-jive-tutorial/IC698794.png "Configure User Provisioning")
+![Configurer l’approvisionnement des utilisateurs](./media/active-directory-saas-jive-tutorial/IC698794.png "Configurer l’approvisionnement des utilisateurs")
 
 #### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 1. Sur la page d’intégration d’application **Jive** du portail de gestion Azure, cliquez sur **Configurer l’approvisionnement des utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement des utilisateurs**.
@@ -283,6 +283,6 @@ Lorsque vous cliquez sur la vignette Jive dans le volet d’accès, vous devez �
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

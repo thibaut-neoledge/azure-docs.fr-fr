@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
+ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
+ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 
 ---
 
@@ -45,17 +45,13 @@ Si vous n’êtes pas familiarisé avec le proxy d’application, vous pouvez en
 
   ![Ajouter une application d’entreprise](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. Sur la page Catégories, sélectionnez **Or add your own (Ou ajoutez la vôtre)**.  
+3. Dans la page Catégories, sélectionnez **Application locale**.  
 
   ![Ajout de votre propre application](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. Choisissez **Deploying an existing application (Déploiement d’une application existante)** dans le menu déroulant.
-5. Fournissez un nom pour votre application, puis sélectionnez **Ajouter**. Une fenêtre de chargement s’affiche. Une fois que votre application est ajoutée, le panneau Démarrage rapide s’ouvre.
-6. Dans le panneau Démarrage rapide, sélectionnez **Enable remote access for your on-premises application (Activer l’accès à distance pour votre application locale)**.
+4. Fournissez les informations suivantes sur votre application :
 
-  ![Activer l’accès à distance pour votre application locale](./media/application-proxy-publish-azure-portal/enable-remote-access.png)
-
-7. Fournissez les informations suivantes sur votre application :
+   - **Nom** : le nom de l’application qui apparaît dans le panneau d’accès. 
 
    - **URL interne**: adresse utilisée par le connecteur du proxy d’application pour accéder à l’application à partir de votre réseau privé. Vous pouvez spécifier un chemin spécifique sur le serveur principal à publier, alors que le reste du serveur n’est pas publié. De cette façon, vous pouvez publier des sites différents sur le même serveur en tant qu’applications distinctes et donner à chacun d’eux son propre nom et ses propres règles d’accès.
 
@@ -72,9 +68,8 @@ Si vous n’êtes pas familiarisé avec le proxy d’application, vous pouvez en
 
    ![Configuration de votre application](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-8. Sélectionnez **Enregistrer**.
+8. Sélectionnez **Ajouter**.
 
-   ![Enregistrer les paramètres de proxy d’application](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
 
 ## <a name="add-a-test-user"></a>Ajouter un utilisateur de test 
 
@@ -105,6 +100,6 @@ Dans votre navigateur, accédez à l’URL externe que vous avez configurée au 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

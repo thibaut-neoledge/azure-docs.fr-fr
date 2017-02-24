@@ -4,7 +4,7 @@ description: "Cette solution de gestion de machines virtuelles assure le démarr
 services: automation
 documentationCenter: 
 authors: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 02/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: adb787b4ff1b4164bcf7ac08e7b6a227acfce423
-ms.openlocfilehash: 1f29554cce2ba5fe7b02c546c705cce3d9e13019
+ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
+ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) dans Automation
 
-La solution « Démarrer/arrêter les machines virtuelles pendant les heures creuses » (version préliminaire) assure le démarrage et l’arrêt de vos machines virtuelles classiques et Azure Resource Manager, selon un programme défini par l’utilisateur, et fournit des informations sur la réussite des tâches Automation qui démarrent et arrêtent vos machines virtuelles avec OMS Log Analytics.  
+La solution Start/Stop VMs during off-hours (Preview) (Démarrer/arrêter des machines virtuelles durant les heures creuses [version préliminaire]) assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager et fournit des informations sur la réussite des tâches Automation qui démarrent et arrêtent vos machines virtuelles avec OMS Log Analytics.  
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -79,8 +79,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Spécifie l’abonnement q
 
 Planification | Description|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Planification du runbook StartByResourceGroup, qui démarre les machines virtuelles gérées par cette solution.|
-StopByResourceGroup-Schedule-MS-Mgmt | Planification du runbook StartByResourceGroup, qui arrête les machines virtuelles gérées par cette solution.|
+StartByResourceGroup-Schedule-MS-Mgmt | Planification du runbook StartByResourceGroup, qui démarre les machines virtuelles gérées par cette solution. Une fois la création terminée, la valeur par défaut est le fuseau horaire UTC.|
+StopByResourceGroup-Schedule-MS-Mgmt | Planification du runbook StartByResourceGroup, qui arrête les machines virtuelles gérées par cette solution. Une fois la création terminée, la valeur par défaut est le fuseau horaire UTC.|
 
 ### <a name="credentials"></a>Informations d'identification
 
@@ -116,7 +116,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (P
 
 8. Enfin, dans le panneau **Ajouter une solution**, sélectionnez **Configuration** pour afficher le panneau **Paramètres**.  Dans le panneau **Paramètres**, vous êtes invité à :  
    - Spécifier le **nom du groupe de ressources cible**, c’est-à-dire le nom du groupe de ressources qui contient les machines virtuelles à gérer par cette solution.  Vous pouvez entrer plusieurs noms en les séparant à l’aide de points-virgules (les valeurs respectent la casse).  Si vous souhaitez cibler les machines virtuelles de tous les groupes de ressources de l’abonnement, l’utilisation d’un caractère générique est prise en charge.
-   - Sélectionnez une **planification**, c’est-à-dire une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles du ou des groupes de ressources.  
+   - Sélectionnez une **planification**, c’est-à-dire une date et une heure récurrentes pour le démarrage et l’arrêt des machines virtuelles du ou des groupes de ressources.  Par défaut, la planification est configurée sur le fuseau horaire UTC et il est impossible de sélectionner une autre région.  Si vous souhaitez configurer la planification sur votre propre fuseau horaire après la configuration de la solution, consultez [Modification de la planification de démarrage et d’arrêt](#modifying-the-startup-and-shutdown-schedule) ci-dessous.    
 
 10. Une fois que vous avez configuré les paramètres initiaux requis pour la solution, sélectionnez **Créer**.  Tous les paramètres sont validés et une tentative de déploiement de la solution dans votre abonnement est effectuée.  Ce processus peut prendre plusieurs secondes. Vous pouvez suivre la progression sous **Notifications** dans le menu. 
 
@@ -159,7 +159,7 @@ Pour configurer les variables indiquées précédemment, procédez comme suit :
 
 ### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modification de la planification de démarrage et d’arrêt
 
-La gestion de la planification du démarrage et de l’arrêt dans cette solution suit la procédure indiquée dans [Planification d’un Runbook dans Azure Automation](automation-scheduling-a-runbook.md).  N’oubliez pas que vous ne pouvez pas modifier la configuration de la planification.  Vous devez désactiver la planification existante et en créer une nouvelle, puis la lier au runbook **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** auquel vous souhaitez que la planification s’applique.   
+La gestion de la planification du démarrage et de l’arrêt dans cette solution suit la procédure indiquée dans [Planification d’un Runbook dans Azure Automation](automation-schedules.md).  N’oubliez pas que vous ne pouvez pas modifier la configuration de la planification.  Vous devez désactiver la planification existante et en créer une nouvelle, puis la lier au runbook **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** auquel vous souhaitez que la planification s’applique.   
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 
@@ -247,6 +247,6 @@ Le compte Automation et l’espace de travail OMS ne sont pas supprimés au cour
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

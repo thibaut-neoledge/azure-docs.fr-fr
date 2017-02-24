@@ -1,5 +1,5 @@
 ---
-title: "Création d’une application web avec App Service sur Linux | Microsoft Docs"
+title: "Créer une application web Azure en cours d’exécution sur Linux | Microsoft Docs"
 description: "Workflow de création d’application web d’App Service sur Linux."
 keywords: azure app service, application web, linux, oss
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Créer une application web avec App Service sur Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Créer une application web Azure en cours d’exécution sur Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Utiliser le portail Azure pour créer votre application web
 Vous pouvez commencer à créer votre application web sur Linux à partir du [portail Azure](https://portal.azure.com) comme indiqué dans l’image suivante :
 
@@ -34,7 +34,7 @@ Ensuite, le **panneau Créer** s’ouvre comme indiqué dans l’image suivante�
 1. Donnez un nom à votre application web.
 2. Sélectionnez un groupe de ressources existant ou créez-en un. (Consultez les régions disponibles dans la [section Limitations](app-service-linux-intro.md).)
 3. Sélectionnez un plan Azure App Service existant ou créez-en un. (Consultez les notes relatives au plan App Service dans la [section Limitations](app-service-linux-intro.md).)
-4. Sélectionnez la pile d’applications que vous souhaitez utiliser. Vous pouvez choisir entre plusieurs versions de Node.js et PHP.
+4. Sélectionnez la pile d’applications que vous souhaitez utiliser. Vous pouvez choisir entre plusieurs versions de Node.js, PHP, .Net Core et Ruby.
 
 Une fois que vous avez créé l’application, vous pouvez modifier la pile d’applications dans les paramètres de l’application comme illustré dans l’image suivante :
 
@@ -59,6 +59,6 @@ Vous pouvez également utiliser FTP pour télécharger votre application sur vot
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

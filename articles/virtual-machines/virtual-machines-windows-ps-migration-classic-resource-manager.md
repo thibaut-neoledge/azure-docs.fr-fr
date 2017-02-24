@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
 
 
 ---
@@ -37,7 +37,7 @@ Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration
 * Si vous avez déjà des scripts automatisés qui déploient votre infrastructure et vos applications, essayez de créer une configuration de test similaire à l’aide de ces scripts pour la migration. Vous pouvez également configurer des environnements de test à l’aide du portail Azure.
 
 > [!IMPORTANT]
-> Les passerelles ExpressRoute et d’application ne sont actuellement pas prises en charge pour la migration de déploiement classique vers Resource Manager. Pour migrer un réseau virtuel classique avec une passerelle ExpressRoute ou d’application, supprimez la passerelle avant d’exécuter une opération de validation pour déplacer le réseau (vous pouvez exécuter l’étape de préparation sans supprimer la passerelle). Après avoir effectué la migration, reconnectez la passerelle dans Azure Resource Manager.
+> Les passerelles d’application ne sont actuellement pas prises en charge pour la migration de déploiement classique vers Resource Manager. Pour migrer un réseau virtuel classique avec une passerelle d’application, supprimez la passerelle avant d’exécuter une opération de validation pour déplacer le réseau (vous pouvez exécuter l’étape de préparation sans supprimer la passerelle d’application). Après avoir effectué la migration, reconnectez la passerelle dans Azure Resource Manager. Vous devez contacter le support technique si vous souhaitez migrer des passerelles ExpressRoute dans les cas où la passerelle et le circuit ExpressRoute se trouvent dans le même abonnement. Les passerelles ExpressRoute se connectant à des circuits ExpressRoute dans un autre abonnement ne peuvent pas être migrées. Dans ce cas, supprimez la passerelle ExpressRoute, migrez le réseau virtuel et recréez la passerelle.
 > 
 > 
 

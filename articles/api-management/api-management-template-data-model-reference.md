@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 5df4ff1e0d68a62f5e470c7b05e1507ff019d0dc
+ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
+ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
@@ -355,9 +355,10 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |ProviderName|string|Nom du fournisseur d’authentification.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).
+Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

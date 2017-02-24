@@ -1,10 +1,10 @@
 ---
-title: "Transfert de données vers et à partir d’Azure Storage | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble des différentes méthodes de déplacement des données vers et à partir d’Azure Storage."
+title: "Déplacement de grandes quantités de données vers/à partir d’un stockage cloud dans Azure | Microsoft Docs"
+description: "Une vue d’ensemble des différentes méthodes de déplacement des données vers et à partir du stockage Azure."
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
+ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
 
 
 ---
@@ -74,10 +74,12 @@ Consultez [StorSimple](../storsimple/storsimple-overview.md) pour en savoir plus
 Quand vous disposez d’applications et de charges de travail locales, vous avez besoin d’une solution qui permet à votre entreprise de continuer à fonctionner en cas de sinistre. Azure Site Recovery gère la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Les données répliquées sont stockées dans Azure Storage, de sorte que vous n’avez plus besoin d’un centre de données sur site secondaire.
 
 Consultez [Azure Site Recovery](../site-recovery/site-recovery-overview.md) pour en savoir plus.
+### <a name="moving-data-faq"></a>FAQ sur le déplacement des données :
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Puis-je migrer des disques durs virtuels d’une région à une autre sans copie ?
+La seule façon de copier des disques durs virtuels entre des régions consiste à copier les données entre les comptes de stockage dans chaque région. Pour ce faire, vous pouvez utiliser AZCopy. Pour en savoir plus, consultez Transfert de données avec l’utilitaire de ligne de commande AzCopy. Pour les très grandes quantités de données, vous pouvez également utiliser Azure Import/Export. Consultez [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) pour en savoir plus.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

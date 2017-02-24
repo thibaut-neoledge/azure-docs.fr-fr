@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
+ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 
 
 ---
@@ -107,18 +107,8 @@ Dans cette étape, vous allez apprendre à placer un certificat SSL que vous ave
 ## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Étape 2 : Vérifier la propriété du domaine
 Dans cette étape, vous allez apprendre à effectuer la vérification de la propriété du domaine pour un certificat SSL que vous venez de commander. 
 
-1. Cliquez sur l’**Étape 2 : Vérifier** à partir du panneau **Configuration du certificat**. Quatre types de vérification du domaine sont pris en charge par les certificats App Service.
+1. Cliquez sur l’**Étape 2 : Vérifier** à partir du panneau **Configuration du certificat**. Il existe 3 types de vérification du domaine pris en charge par les certificats App Service.
    
-   * **Vérification d’App Service** 
-     
-     * C’est le processus le plus pratique si **votre domaine personnalisé est déjà attribué aux applications App Service.**  Cette méthode répertorie toutes les applications App Service qui répondent à ce critère. 
-        Par exemple, dans le cas présent, **contosocertdemo.com** est un domaine personnalisé attribué à une application App Service appelée **« ContosoCertDemo »** et, par conséquent, c’est la seule application App Service répertoriée ici. En cas de déploiement dans plusieurs régions, elle les répertorie toutes dans l’ensemble des régions.
-       
-        La méthode de vérification est disponible UNIQUEMENT pour les achats de certificats Standard (de base). Pour les certificats génériques, ignorez cette méthode et passez à l’option B, C ou D ci-dessous.
-     * Cliquez sur le bouton **« Vérifier »** pour terminer cette étape.
-     * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
-     
-     ![insérer une image de la vérification d’App Service](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **Vérification du domaine** 
      
      * Il s’agit du processus le plus pratique **SEULEMENT SI** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
@@ -131,15 +121,7 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
      * Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bouton **« Renvoyer le message »** .
    * **Vérification manuelle**    
      
-     1. **Vérification de page web HTML**
-        
-        * Créez un fichier HTML nommé **{Jeton de vérification du domaine}**.html. (Vous pouvez copier le jeton à partir du panneau d’état de vérification du domaine.)
-        * Le contenu de ce fichier doit être exactement identique au nom du **jeton de vérification du domaine**.
-        * Chargez ce fichier à la racine du serveur web qui héberge votre domaine.
-        * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
-          
-          Par exemple, si vous achetez un certificat standard pour contosocertdemo.com avec le jeton de vérification de domaine **cAGgQrKc**, une requête web effectuée sur **http://contosocertdemo.com/cAGgQrKc.html** doit retourner **cAGgQrKc.**
-     2. **Vérification d’enregistrement TXT DNS**
+      **Vérification d’enregistrement TXT DNS**
         
         * À l’aide de votre Gestionnaire DNS, créez un enregistrement TXT sur le sous-domaine **DZC** avec une valeur égale au **jeton de vérification du domaine.**
         * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
@@ -200,13 +182,13 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnali
 * [portail de gestion Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

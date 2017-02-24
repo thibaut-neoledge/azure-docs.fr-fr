@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 4ca6e9a70eeba688912dd1f2c840fe0289a365c9
+ms.sourcegitcommit: 6fad9ecee49eae24daf924bc292daaf42000c901
+ms.openlocfilehash: 546d7f721689d5d52adfc6149b715a0f9e1aa71e
 
 
 ---
@@ -284,6 +284,6 @@ Consultez les articles suivants :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

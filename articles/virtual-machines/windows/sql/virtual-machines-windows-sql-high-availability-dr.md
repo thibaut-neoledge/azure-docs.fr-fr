@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/07/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: fbde757e44d05bf14f9337b47865edfb53894f10
+ms.sourcegitcommit: e43906fda1f5abc38c138b55c991c4ef8c550aa0
+ms.openlocfilehash: 93696222ca82573194541bfa95263f23fe3e2c39
 
 
 ---
@@ -28,7 +28,7 @@ Les machines virtuelles Microsoft Azure avec SQL Server permettent de réduire l
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="understanding-the-need-for-an-hadr-solution"></a>Compréhension du besoin d’une solution HADR
-Il vous incombe de garantir que votre système de base de données possède les fonctions HADR requises par le contrat de niveau de service. Le fait que Azure fournisse des mécanismes haute disponibilité, comme le service de réparation pour les services cloud et la détection de la récupération après défaillance pour les machines virtuelles, n’est pas une garantie du respect du contrat de niveau de service souhaité. Ces mécanismes protègent la haute disponibilité des machines virtuelles, mais pas de SQL Server exécuté sur les machines virtuelles. Il est possible que l’instance SQL Server échoue pendant que la machine virtuelle est en ligne et saine. De plus, même les mécanismes haute disponibilité fournis par Azure tiennent compte des temps morts des machines virtuelles en raison d’événements tels que la récupération après une défaillance matérielle ou logicielle et des mises à niveau du système d’exploitation.
+Il vous incombe de garantir que votre système de base de données possède les fonctions HADR requises par le contrat de niveau de service. Le fait qu’Azure fournisse des mécanismes haute disponibilité, comme le service de réparation pour les services cloud et la détection de la récupération après défaillance pour les machines virtuelles, n’est pas une garantie du respect du contrat de niveau de service souhaité. Ces mécanismes protègent la haute disponibilité des machines virtuelles, mais pas de SQL Server exécuté sur les machines virtuelles. Il est possible que l’instance SQL Server échoue pendant que la machine virtuelle est en ligne et saine. De plus, même les mécanismes haute disponibilité fournis par Azure tiennent compte des temps morts des machines virtuelles en raison d’événements tels que la récupération après une défaillance matérielle ou logicielle et des mises à niveau du système d’exploitation.
 
 Par ailleurs, le stockage géo-redondant dans Azure (implémenté via la fonctionnalité de géo-réplication) peut ne pas être une solution de récupération d’urgence adaptée pour vos bases de données. Comme la géo-réplication envoie les données de manière asynchrone, il est possible que les mises à jour récentes soient perdues en cas de sinistre. La section [Géo-réplication des données et des fichiers journaux non prise en charge sur des disques distincts](#geo-replication-support) contient des informations supplémentaires concernant les limitations de géo-réplication.
 
@@ -36,27 +36,27 @@ Par ailleurs, le stockage géo-redondant dans Azure (implémenté via la fonctio
 Les technologies HADR SQL Server prises en charge dans Azure incluent :
 
 * [Groupes de disponibilité AlwaysOn](https://technet.microsoft.com/library/hh510230.aspx)
-* [Mise en miroir de bases de données](https://technet.microsoft.com/library/ms189852.aspx)
-* [Copie des journaux de transaction](https://technet.microsoft.com/library/ms187103.aspx)
-* [Sauvegarde et restauration avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Instances de cluster de basculement AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
+* [Copie des journaux de transaction](https://technet.microsoft.com/library/ms187103.aspx)
+* [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Mise en miroir de base de données](https://technet.microsoft.com/library/ms189852.aspx) - Déconseillée dans SQL Server 2016
 
 Il est possible de combiner les technologies pour implémenter une solution SQL Server qui a des fonctions de haute disponibilité et de récupération d’urgence. Selon la technologie que vous utilisez, un déploiement hybride peut nécessiter un tunnel VPN avec le réseau virtuel Azure. Les sections ci-dessous illustrent certains exemples d’architectures de déploiement.
 
 ## <a name="azure-only-high-availability-solutions"></a>Azure uniquement : solutions de haute disponibilité
-Disposez d’une solution haute disponibilité pour vos bases de données SQL Server dans Azure à l’aide des groupes de disponibilité AlwaysOn ou de la mise en miroir de bases de données.
+Vous pouvez disposer d’une solution haute disponibilité pour vos bases de données SQL Server dans Azure à l’aide des fonctionnalités AlwaysOn, notamment les Groupes de disponibilité ou les Instances de cluster de basculement.
 
 | Technology | Exemples d’architecture |
 | --- | --- |
-| **Groupes de disponibilité AlwaysOn** |Tous les réplicas de disponibilité exécutés dans les machines virtuelles Azure pour la haute disponibilité dans la même région. Vous devez configurer une machine virtuelle de contrôleur de domaine, car le clustering de basculement Windows Server (WSFC) nécessite un domaine Active Directory.<br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Pour plus d’informations, voir [Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
-| **Instances de cluster de basculement AlwaysOn** |Les instances de cluster de basculement (FCI) qui nécessitent un stockage partagé, peuvent être créées de 2 manières.<br/><br/>1. Une instance de cluster de basculement sur un WSFC à deux nœuds exécutée dans des machines virtuelles Azure, avec le stockage pris en charge par une solution de clustering tierce. Pour un exemple spécifique utilisant SIOS DataKeeper, consultez [Haute disponibilité pour un partage de fichiers à l’aide de WSFC et du logiciel tiers SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Une instance de cluster de basculement sur un WSFC à deux nœuds exécutée dans des machines virtuelles Azure, avec le stockage de bloc partagé cible iSCSI distant via ExpressRoute. Par exemple, NPS (NetApp Private Storage) expose une cible iSCSI via ExpressRoute avec Equinix dans les machines virtuelles Azure.<br/><br/>Pour les solutions de stockage partagé et de réplication de données tierces, contactez le fournisseur pour tout problème lié à l’accès aux données lors du basculement.<br/><br/>Notez que l’utilisation des instances de cluster de basculement dans [Azure File Storage](https://azure.microsoft.com/services/storage/files/) n’est pas encore prise en charge, car cette solution n’utilise pas Premium Storage. Nous travaillons actuellement à mettre en place cette prise en charge. |
+| **Groupes de disponibilité AlwaysOn** |Les réplicas de disponibilité exécutés sur les machines virtuelles Azure dans la même région offrent une haute disponibilité. Vous devez configurer une machine virtuelle de contrôleur de domaine, car le clustering de basculement Windows Server (WSFC) nécessite un domaine Active Directory.<br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Pour plus d’informations, voir [Configuration de groupes de disponibilité AlwaysOn dans Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
+| **Instances de cluster de basculement AlwaysOn** |Les instances de cluster de basculement (FCI) qui nécessitent un stockage partagé, peuvent être créées de 3 manières.<br/><br/>1. Un WSFC à deux nœuds exécuté sur des machines virtuelles Azure avec stockage attaché utilisant les [espaces de stockage direct Windows Server 2016 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) pour fournir un réseau SAN virtuel basé sur logiciel.<br/><br/>2. Un WSFC à deux nœuds exécuté sur des machines virtuelles Azure avec le stockage pris en charge par une solution de clustering tierce. Pour un exemple spécifique utilisant SIOS DataKeeper, consultez [Haute disponibilité pour un partage de fichiers à l’aide de WSFC et du logiciel tiers SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. Un WSFC à deux nœuds exécuté sur des machines virtuelles Azure, avec le stockage de bloc partagé cible iSCSI distant via ExpressRoute. Par exemple, NPS (NetApp Private Storage) expose une cible iSCSI via ExpressRoute avec Equinix dans les machines virtuelles Azure.<br/><br/>Pour les solutions de stockage partagé et de réplication de données tierces, contactez le fournisseur pour tout problème lié à l’accès aux données lors du basculement.<br/><br/>Notez que l’utilisation des instances de cluster de basculement dans [Azure File Storage](https://azure.microsoft.com/services/storage/files/) n’est pas encore prise en charge, car cette solution n’utilise pas Premium Storage. Nous travaillons actuellement à mettre en place cette prise en charge. |
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure uniquement : solutions de récupération d’urgence
 Disposez d’une solution de récupération d’urgence pour vos bases de données SQL Server dans Azure à l’aide de groupes de disponibilité AlwaysOn, de la mise en miroir de bases de données, ou de la sauvegarde et la restauration avec des objets blob de stockage.
 
 | Technology | Exemples d’architecture |
 | --- | --- |
-| **Groupes de disponibilité AlwaysOn** |Réplicas de disponibilité exécutés dans plusieurs centres de données sur les machines virtuelles Azure pour la récupération d’urgence. Cette solution inter-régions empêche l’indisponibilité totale du site. <br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Au sein d’une région, tous les réplicas doivent se trouver dans le même service cloud et le même réseau virtuel. Comme chaque région aura un réseau virtuel distinct, ces solutions requièrent la connectivité de réseau virtuel à réseau virtuel. Pour plus d’informations, voir [Configurer un VPN de site à site dans le portail Azure Classic](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). |
+| **Groupes de disponibilité AlwaysOn** |Réplicas de disponibilité exécutés dans plusieurs centres de données sur les machines virtuelles Azure pour la récupération d’urgence. Cette solution inter-régions empêche l’indisponibilité totale du site. <br/> ![Groupes de disponibilité AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Au sein d’une région, tous les réplicas doivent se trouver dans le même service cloud et le même réseau virtuel. Comme chaque région aura un réseau virtuel distinct, ces solutions requièrent la connectivité de réseau virtuel à réseau virtuel. Pour plus d’informations, voir [Configurer un VPN de site à site dans le portail Azure Classic](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). Pour obtenir des instructions détaillées, consultez [Configurer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles dans différentes régions](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Mise en miroir de bases de données** |Serveurs principal et miroir s’exécutant dans des centres de données différents pour la récupération d’urgence. Vous devez déployer à l’aide de certificats de serveur, car un domaine Active Directory ne peut pas couvrir plusieurs centres de données.<br/>![Mise en miroir de bases de données](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Sauvegarde et restauration avec le service de stockage d’objets blob Azure** |Bases de données de production sauvegardées directement dans le stockage d’objets blob dans un autre centre de données pour la récupération d’urgence.<br/>![Sauvegarde et restauration](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Pour plus d’informations, voir [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-backup-recovery.md). |
 
@@ -139,6 +139,6 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

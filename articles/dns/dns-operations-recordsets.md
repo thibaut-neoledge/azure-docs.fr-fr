@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f8dcbdb573fb50d32dfdefbb52c7af71bdc1cb95
-ms.openlocfilehash: 2264acb9c78a162adb7b9937568838ab5ec2c720
+ms.sourcegitcommit: bfb59158facd2a4f861fa3221f032fc65419bdc0
+ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
 
 ---
 
@@ -47,39 +47,39 @@ Si votre nouvel enregistrement porte le même nom et est du même type qu’un e
 
 Vous pouvez utiliser l’applet de commande `New-AzureRmDnsRecordSet` pour créer des jeux d’enregistrements. Lors de la création d’un jeu d’enregistrements, vous devez en spécifier le nom, la zone et la durée de vie (TTL), ainsi que les enregistrements à créer et leur type.
 
-Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, si vous utilisez un jeu d’enregistrements de type « A », vous devez spécifier l’adresse IP à l’aide du paramètre `-IPv4Address`. D’autres paramètres sont utilisés pour d’autres types d’enregistrements. Pour plus d’informations, voir les [autres exemples de types d’enregistrements](#additional-record-type-examples).
+Les paramètres pour ajouter des enregistrements à un jeu d'enregistrements varient selon le type de jeu d'enregistrements. Par exemple, si vous utilisez un jeu d’enregistrements de type « A », vous devez spécifier l’adresse IP à l’aide du paramètre `-IPv4Address`. D’autres paramètres sont utilisés pour d’autres types d’enregistrements. Pour plus d’informations, voir les [autres exemples de types d’enregistrements](#additional-record-type-examples).
 
-L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie 3 600 secondes. Le jeu d’enregistrements ne contient qu’un seul enregistrement, dont l’adresse IP est « 1.2.3.4 »
+L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www » dans la zone DNS « contoso.com ». Le nom complet du jeu d’enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie 3 600 secondes. Le jeu d’enregistrements ne contient qu’un seul enregistrement, dont l’adresse IP est «&1;.2.3.4 ».
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
+New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Pour créer un jeu d’enregistrements à l’apex (au sommet) d’une zone (en l’occurrence, « contoso.com »), utilisez le nom de jeu d’enregistrements "@" (guillemets compris) :
+Pour créer un jeu d’enregistrements à l’apex (au sommet) d’une zone (en l’occurrence, « contoso.com »), utilisez le nom de jeu d’enregistrements '@' (guillemets non compris) :
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) 
+New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
 Si vous devez créer un jeu d’enregistrements contenant plusieurs enregistrements, commencez par créer un groupe local, ajoutez les enregistrements, puis transmettez le groupe à `New-AzureRmDnsRecordSet` comme suit :
 
 ```powershell
 $aRecords = @()
-$aRecords += New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4
-$aRecords += New-AzureRmDnsRecordConfig -IPv4Address 2.3.4.5
-New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4"
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
+New-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-Vous pouvez utiliser des [métadonnées de jeu d’enregistrements](dns-zones-records.md#tags-and-metadata) pour associer les données spécifiques de l’application à chaque jeu d’enregistrements, comme paires clé-valeur. L’exemple suivant montre comment créer un jeu d’enregistrements avec deux entrées de métadonnées, « dept=finance » et « environment=production ».
+Vous pouvez utiliser des [métadonnées de jeu d’enregistrements](dns-zones-records.md#tags-and-metadata) pour associer les données spécifiques de l’application à chaque jeu d’enregistrements, comme paires clé-valeur. L’exemple suivant montre comment créer un jeu d’enregistrements avec deux entrées de métadonnées, « dept=finance » et « environment=production ».
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) -Metadata @{ dept="finance"; environment="production" } 
+New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
 ```
 
 Azure DNS prend également en charge les jeux d’enregistrements « vides », qui peuvent servir d’espaces réservés pour réserver un nom DNS avant de créer des enregistrements DNS. Les jeux d’enregistrements vides sont visibles dans le volet de contrôle d’Azure DNS, mais n’apparaissent pas sur les serveurs de noms Azure DNS. L’exemple suivant crée un jeu d’enregistrements vide :
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords @()
+New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords @()
 ```
 
 ## <a name="create-records-of-other-types"></a>Créer des enregistrements d’autres types
@@ -93,50 +93,50 @@ Nous ne donnons pas d’exemple de création de jeu d’enregistrements SOA (Arc
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements AAAA avec un seul enregistrement
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ipv6Address 2607:f8b0:4009:1803::1005) 
+New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ipv6Address "2607:f8b0:4009:1803::1005") 
 ```
 
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements CNAME avec un seul enregistrement
 
 > [!NOTE]
-> Les normes DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name "@"`).
+> Les normes DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name '@'`).
 > 
 > Pour plus d’informations, voir [Enregistrements CNAME](dns-zones-records.md#cname-records).
 
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-cname -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Cname www.contoso.com) 
+New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Cname "www.contoso.com") 
 ```
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements MX avec un seul enregistrement
 
-Dans cet exemple, nous utilisons le nom de jeu d’enregistrements "@" pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements '@' pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "@" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Exchange mail.contoso.com -Preference 5) 
+New-AzureRmDnsRecordSet -Name "@" -RecordType MX -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Exchange "mail.contoso.com" -Preference 5) 
 ```
 
 ### <a name="create-an-ns-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements NS avec un seul enregistrement
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-ns -RecordType NS -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Nsdname ns1.contoso.com) 
+New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Nsdname "ns1.contoso.com") 
 ```
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements PTR avec un seul enregistrement
 
-Dans ce cas, « my-arpa-zone.com » indique la zone ARPA représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement «&10; » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA de recherche inversée représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement «&10; » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName my-arpa-zone.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname myservice.contoso.com) 
+New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "myservice.contoso.com") 
 ```
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure "@" dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’apex de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure '@' dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’apex de la zone.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target sip.contoso.com) 
+New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
 ```
 
 
@@ -145,7 +145,7 @@ New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -R
 L’exemple suivant montre comment créer un enregistrement TXT. Pour plus d’informations sur la longueur maximale de chaîne prise en charge dans les enregistrements TXT, voir [Enregistrements TXT](dns-zones-records.md#txt-records).
 
 ```powershell
-New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
+New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
 ```
 
 
@@ -158,14 +158,14 @@ Comme avec l’applet de commande `New-AzureRmDnsRecordSet`, le nom du jeu d’e
 L’exemple suivant montre comment récupérer un jeu d’enregistrements. Dans cet exemple, la zone est spécifiée à l’aide des paramètres `-ZoneName` et `-ResourceGroupName`.
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Vous pouvez également spécifier la zone à l’aide d’un objet zone transmis avec le paramètre « -Zone ». 
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -Zone $zone
+$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
 ## <a name="list-record-sets"></a>Liste des jeux d'enregistrements
@@ -175,25 +175,25 @@ Vous pouvez également utiliser l’applet de commande `Get-AzureRmDnsZone` pour
 L’exemple suivant retourne tous les jeux d’enregistrements présents dans la zone :
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 L’exemple suivant montre comment récupérer tous les jeux d’enregistrements d’un type donné en spécifiant le type d’enregistrement, mais en omettant le nom du jeu d’enregistrements :
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$recordsets = Get-AzureRmDnsRecordSet -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Pour récupérer parmi les types d’enregistrements tous les jeux d’enregistrements portant un nom spécifique, vous devez récupérer tous les jeux d’enregistrements, puis filtrer les résultats :
 
 ```powershell
-$recordsets = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup | where {$_.Name.Equals("www")}
+$recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
 ```
 
 Dans tous les exemples ci-dessus, vous pouvez spécifier la zone à l’aide des paramètres `-ZoneName` et `-ResourceGroupName` (comme indiqué), ou en spécifiant un objet zone :
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 $recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 ```
 
@@ -204,13 +204,13 @@ Pour ajouter un enregistrement à un jeu d’enregistrements existant, suivez le
 1. Obtenez le jeu d’enregistrements existant
 
     ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
+    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
 2. Ajoutez le nouvel enregistrement au jeu d’enregistrements local. Cette opération se fait hors connexion.
 
     ```powershell
-    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address"5.6.7.8
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
 3. Validez la modification sur le service Azure DNS. 
@@ -224,7 +224,7 @@ L’applet de commande `Set-AzureRmDnsRecordSet` *remplace* le jeu d’enregistr
 Vous pouvez également *canaliser* cette séquence d’opérations, c’est-à-dire transmettre l’objet jeu d’enregistrements en utilisant le canal plutôt qu’en le transmettant en tant que paramètre :
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address 5.6.7.8 | Set-AzureRmDnsRecordSet
+Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
 Les exemples ci-dessus montrent comment ajouter un enregistrement « A » à un jeu existant d’enregistrements de type « A ». Une séquence similaire d’opérations est utilisée pour ajouter des enregistrements à des jeux d’enregistrements d’autres types, en remplaçant le paramètre `-Ipv4Address` de l’applet de commande `Add-AzureRmDnsRecordConfig` par d’autres paramètres spécifiques de chaque type d’enregistrement. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
@@ -238,19 +238,19 @@ Le processus de suppression d’un enregistrement d’un jeu d’enregistrements
 1. Obtenez le jeu d’enregistrements existant
 
     ```powershell
-    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
+    $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
 2. Supprimez l’enregistrement de l’objet jeu d’enregistrements local. Cette opération se fait hors connexion. L’enregistrement à supprimer doit correspondre exactement à un enregistrement existant relativement à tous les paramètres.
 
     ```powershell
-    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 5.6.7.8
+    Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
 3. Validez la modification sur le service Azure DNS. Utilisez le commutateur facultatif `-Overwrite` pour désactiver les [vérifications ETag](dns-zones-records.md#etags) des modifications simultanées.
 
     ```powershell
-    Set-AzureRmDnsRecordSet -RecordSet $rs
+    Set-AzureRmDnsRecordSet -RecordSet $Rs
     ```
 
 La séquence utilisée ci-dessus pour supprimer le dernier enregistrement d’un jeu d’enregistrements n’a pas pour effet de supprimer celui-ci, mais de le laisser vide. Pour supprimer entièrement un jeu d’enregistrements, voir [Supprimer un jeu d’enregistrements](#delete-a-record-set).
@@ -258,7 +258,7 @@ La séquence utilisée ci-dessus pour supprimer le dernier enregistrement d’un
 Comme pour l’ajout d’enregistrements à un jeu d’enregistrements, vous pouvez canaliser la séquence des opérations de suppression d’un jeu d’enregistrements comme suit :
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address 5.6.7.8 | Set-AzureRmDnsRecordSet
+Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
 Différents types d’enregistrements sont pris en charge en transmettant les paramètres spécifiques du type approprié à `Remove-AzureRmDnsRecordSet`. Les paramètres pour chaque type d’enregistrement sont identiques à ceux de l’applet de commande `New-AzureRmDnsRecordConfig`, comme indiqué dans les [autres exemples de types d’enregistrements](#additional-record-type-examples) ci-dessus.
@@ -282,8 +282,8 @@ Lorsque vous utilisez l’applet de commande `Set-AzureRmDnsRecordSet`, des [vé
 Dans cet exemple, nous modifions l’adresse IP d’un enregistrement « A » existant :
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
-$rs.Records[0].Ipv4Address = 9.8.7.6
+$rs = Get-AzureRmDnsRecordSet -name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
+$rs.Records[0].Ipv4Address = "9.8.7.6"
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
@@ -294,7 +294,7 @@ Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enre
 L’exemple suivant montre comment modifier la propriété *Email* de l’enregistrement SOA :
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 $rs.Records[0].Email = "admin.contoso.com"
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
@@ -306,7 +306,7 @@ Vous ne pouvez pas ajouter, supprimer ou modifier les enregistrements dans le je
 L'exemple suivant montre comment modifier la propriété de durée de vie du jeu d'enregistrement NS :
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 $rs.Ttl = 300
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
@@ -319,13 +319,13 @@ L’exemple suivant montre comment modifier les métadonnées d’un jeu d’enr
 
 ```powershell
 # Get the record set
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 
-# Add "dept=finance" name-value pair
-$rs.Metadata.Add("dept", "finance") 
+# Add 'dept=finance' name-value pair
+$rs.Metadata.Add('dept', 'finance') 
 
-# Remove metadata item named "environment"
-$rs.Metadata.Remove("environment")  
+# Remove metadata item named 'environment'
+$rs.Metadata.Remove('environment')  
 
 # Commit changes
 Set-AzureRmDnsRecordSet -RecordSet $rs
@@ -337,25 +337,25 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 Les jeux d’enregistrements peuvent être supprimés à l’aide de l’applet de commande `Remove-AzureRmDnsRecordSet` . La suppression d’un jeu d’enregistrements a pour effet de supprimer également tous les enregistrements qu’il contient.
 
 > [!NOTE]
-> Vous ne pouvez pas supprimer de jeux d’enregistrements SOA et NS au niveau de l’apex de la zone (`-Name "@"`).  Ceux-ci sont créés automatiquement lors de la création de la zone, et automatiquement supprimés lors de la suppression de celle-ci.
+> Vous ne pouvez pas supprimer de jeux d’enregistrements SOA et NS au niveau de l’apex de la zone (`-Name '@'`).  Azure DNS les crée automatiquement lors de la création de la zone, et les supprime automatiquement lors de la suppression de celle-ci.
 
 L’exemple suivant montre comment supprimer un jeu d’enregistrements. Dans cet exemple, le nom, le type, la zone et le groupe de ressources du jeu d’enregistrements sont spécifiés explicitement.
 
 ```powershell
-Remove-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
 Vous pouvez également spécifier le jeu d’enregistrements par un nom et un type, et la zone à l’aide d’un objet :
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
-Remove-AzureRmDnsRecordSet -Name www -RecordType A -Zone $zone
+$zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
+Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
 Une troisième option consiste à spécifier le jeu d’enregistrements en utilisant un objet jeu d’enregistrements :
 
 ```powershell
-$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 Remove-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
@@ -364,7 +364,7 @@ Lorsque vous spécifiez le jeu d’enregistrements à supprimer à l’aide d’
 L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être transmis en tant que paramètre :
 
 ```powershell
-Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup | Remove-AzureRmDnsRecordSet
+Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
 ```
 
 ## <a name="confirmation-prompts"></a>Invites de confirmation
@@ -387,6 +387,6 @@ Examinez la [documentation de référence d’Azure DNS PowerShell](/powershell/
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

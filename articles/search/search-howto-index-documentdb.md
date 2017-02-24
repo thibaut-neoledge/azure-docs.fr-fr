@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -26,7 +26,10 @@ Si vous souhaitez mettre en place des expériences de recherche sur vos données
 
 Pour ce faire, vous devez avoir un [service Recherche Azure](search-create-service-portal.md), plus un index, un indexeur et une source de données. Vous pouvez créer ces objets à l’aide d’une ces approches : [portail](search-import-data-portal.md), [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search) ou [API REST](/rest/api/searchservice/) pour tous les langages autres que .NET. 
 
-Si vous optez pour le portail, l’[Assistant Importer les données](search-import-data-portal.md) vous guide tout au long de la création de tous ces objets. En règle générale, un index par défaut peut être généré pour vous.
+Si vous optez pour le portail, [l’Assistant Importation de données](search-import-data-portal.md) vous guide dans la création de tous ces objets. En règle générale, un index par défaut peut être généré pour vous.
+
+> [!NOTE]
+> Vous pouvez lancer l’Assistant **Importation de données** sur le tableau de bord DocumentDB afin de simplifier l’indexation de cette source de données. Dans la navigation de gauche, accédez à **Collections** > **Ajouter la Recherche Azure** pour commencer.
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Concepts d’indexeur Azure Search
 Azure Search prend en charge la création et la gestion de sources de données (dont DocumentDB) et d'indexeurs qui fonctionnent en s'appuyant sur ces dernières.
@@ -93,7 +96,7 @@ Lorsque des lignes sont supprimées de la table source, vous devez également su
 ### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Utilisation des requêtes
 En plus de capturer les documents modifiés ou supprimés, une requête DocumentDB peut être utilisée pour aplatir les propriétés imbriquées, dérouler les tableaux, projeter des propriétés json et filtrer les données à indexer. La manipulation des données à indexer peut améliorer les performances de l’indexeur Recherche Azure.
 
-Exemple de document :
+Exemple de document :
 
     {
         "userId": 10001,
@@ -106,22 +109,22 @@ Exemple de document :
     }
 
 
-Aplatir la requête :
+Aplatir la requête :
 
     SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
     
     
-Requête de projection :
+Requête de projection :
 
     SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
 
 
-Requête de déroulement de tableau :
+Requête de déroulement de tableau :
 
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
     
     
-Requête de filtre :
+Requête de filtre :
 
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
 
@@ -291,6 +294,6 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
 * Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

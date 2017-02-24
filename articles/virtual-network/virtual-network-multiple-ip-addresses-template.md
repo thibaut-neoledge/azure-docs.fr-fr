@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
+ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
 
 
 ---
@@ -48,7 +48,7 @@ Le déploiement d’un modèle vous permet de créer rapidement et de manière c
 
 |Nom|Description|
 |---|---|
-|adminUsername|Nom d’utilisateur administrateur. Le nom d’utilisateur doit satisfaire aux [exigences de nom d’utilisateur Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Nom d’utilisateur administrateur. Le nom d’utilisateur doit satisfaire aux [exigences de nom d’utilisateur Azure](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Mot de passe administrateur. Le mot de passe doit satisfaire les [exigences de mot de passe Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nom DNS de PublicIPAddressName1. Le nom DNS est résolu en une des adresses IP publiques affectées à la machine virtuelle. Le nom doit être unique au sein de la région Azure (emplacement) dans laquelle vous créez la machine virtuelle.|
 |dnsLabelPrefix1|Nom DNS de PublicIPAddressName2. Le nom DNS est résolu en une des adresses IP publiques affectées à la machine virtuelle. Le nom doit être unique au sein de la région Azure (emplacement) dans laquelle vous créez la machine virtuelle.|
@@ -67,9 +67,26 @@ Vous pouvez utiliser le portail Azure, PowerShell ou l’interface de ligne de c
 
 Pour déployer le modèle à l’aide du portail Azure, procédez comme suit :
 
-1. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
-    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
-    - sans suivre les instructions fournies dans le message que vous recevez. 
+1. Inscrivez-vous pour la version d’évaluation en exécutant les commandes suivantes dans PowerShell après votre connexion, puis sélectionnez l’abonnement approprié :
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    N’essayez pas d’effectuer les étapes restantes avant d’obtenir le résultat suivant lorsque vous exécutez la commande ```Get-AzureRmProviderFeature``` :
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Cela peut prendre quelques minutes.
+
 2. Si vous le souhaitez, modifiez le modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 3. Déployez le modèle selon l’une des méthodes suivantes :
     - **Sélectionner le modèle dans le portail :** suivez les étapes de l’article [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Choisissez le modèle existant nommé *101-vm-multiple-ipconfig*.
@@ -114,6 +131,6 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

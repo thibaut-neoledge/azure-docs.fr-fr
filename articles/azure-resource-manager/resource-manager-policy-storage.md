@@ -1,5 +1,5 @@
 ---
-title: "Stratégies d’Azure Resource Manager pour le stockage | Microsoft Docs"
+title: "Stratégies de ressources Azure pour les comptes de stockage | Microsoft Docs"
 description: "Décrit les stratégies d’Azure Resource Manager pour gérer le déploiement de comptes de stockage."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ce31bbcb96a6afe19cf6c25dd9a68d6c2d4d080c
-ms.openlocfilehash: f2141304f6db6d137065e06558e10c721b11f892
+ms.sourcegitcommit: 5ea75843bf671ad4d879c01cdd20d5bbc5e889c2
+ms.openlocfilehash: 08c991e9f217c49828889d0b806888e193b245a8
 
 
 ---
-# <a name="apply-azure-resource-policies-to-storage-accounts"></a>Appliquer des stratégies Azure Resource Manager aux comptes de stockage
-Grâce aux stratégies d’Azure Resource Manager, vous définissez des règles cohérentes décrivant les modalités de déploiement des ressources dans votre organisation. Vous créez des stratégies personnalisées pour vous assurer que les utilisateurs de votre organisation respectent les conventions nécessaires pour gérer les ressources de votre organisation. Cette rubrique présente plusieurs stratégies qui définissent les règles applicables aux comptes de stockage Azure. Pour plus d’informations sur les stratégies, consultez [Use resource policies to manage resources (Utiliser les stratégies de ressource pour gérer les ressources)](resource-manager-policy.md).
-
-Les exemples de cette rubrique montrent des valeurs codées en dur dans la règle de stratégie. Toutefois, vous pouvez utiliser des paramètres pour transmettre les valeurs utilisées lors de l’attribution de la stratégie. Pour plus d’informations, consultez les [paramètres de la stratégie](resource-manager-policy.md#parameters).
+# <a name="apply-resource-policies-to-storage-accounts"></a>Appliquer des stratégies de ressources à des comptes de stockage
+Cette rubrique montre plusieurs [stratégies de ressources](resource-manager-policy.md) que vous pouvez appliquer aux comptes de stockage Azure. Ces stratégies garantissent la cohérence entre les comptes de stockage déployés dans votre organisation. 
 
 ## <a name="define-permitted-storage-account-types"></a>Définir les types de compte de stockage autorisés
 
@@ -53,6 +51,8 @@ La stratégie suivante restreint les [types de compte de stockage](../storage/st
   }
 }
 ```
+
+Une règle de stratégie similaire avec un paramètre permettant d’accepter les références SKU autorisées est disponible sous la forme d’une définition de stratégie prédéfinie. La stratégie prédéfinie possède l’ID de ressource `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## <a name="define-permitted-access-tier"></a>Définir le niveau d’accès autorisé
 
@@ -110,16 +110,15 @@ La stratégie suivante requiert que tous les comptes de stockage activent le [ch
 }
 ```
 
-## <a name="create-and-assign-policies"></a>Créer et attribuer une stratégie
-
-Après avoir défini une règle de stratégie (comme indiqué dans les exemples précédents), vous devez créer la stratégie et lui attribuer une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour obtenir des exemples de création et d’affectation de stratégies, consultez [Créer et attribuer une stratégie](resource-manager-policy.md#create-and-assign-a-policy). 
+Cette règle de stratégie est également disponible sous forme de définition de stratégie prédéfinie avec l’ID de ressource `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour obtenir des exemples de création et d’attribution de stratégies, consultez la page [Attribuer et gérer les stratégies](resource-manager-policy-create-assign.md). 
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

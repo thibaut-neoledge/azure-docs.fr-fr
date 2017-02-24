@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
 
 
 ---
@@ -33,7 +33,7 @@ Le service Data Factory prend en charge la connexion à des sources MongoDB loca
 Actuellement, Data Factory prend uniquement en charge le déplacement de données de MongoDB vers d’autres magasins de données, mais pas l’inverse.
 
 ## <a name="supported-versions"></a>Versions prises en charge
-Ce connecteur MongoDB prend en charge MongoDB version 2.4 et les versions ultérieures.
+Ce connecteur MongoDB prend en charge MongoDB version 2.4, 2.6, 3.0 et 3.2.
 
 ## <a name="prerequisites"></a>Composants requis
 Pour permettre au service Azure Data Factory de se connecter à votre base de données MongoDB locale, vous devez installer les composants suivants :
@@ -358,6 +358,6 @@ Consultez l’article [Déplacement de données entre des sources locales et le 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

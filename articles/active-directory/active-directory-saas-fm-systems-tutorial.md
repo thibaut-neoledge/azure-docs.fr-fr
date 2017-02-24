@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 789ec6f0a230f49ecd935bc85ea4ad984e936da9
-ms.openlocfilehash: bd2bfa1696215ded3da40d349111efa13ddbed37
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: e92f8cb6e980a0552b8ff836ed521e069ba811bb
 
 
 ---
@@ -35,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-fm-systems-tutorial/IC795899.png "Scenario")
+![Scénario](./media/active-directory-saas-fm-systems-tutorial/IC795899.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-fmsystems"></a>Activation de l’intégration d’application pour FM:Systems
 Cette section décrit l’activation de l’intégration d’application pour FM:Systems.
@@ -53,15 +53,15 @@ Cette section décrit l’activation de l’intégration d’application pour FM
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, tapez **FM:Systems**.
    
-    ![Galerie d’applications](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Galerie d’applications")
 
 7. Dans le volet de résultats, sélectionnez **FM:Systems**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -74,15 +74,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Sur la page d’intégration d’application **FM:Systems** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à FM:Systems**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer l’URL de l’application** , procédez comme suit :
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configurer l’URL de l’application")
    
     a. Dans la zone de texte **URL de connexion FM:Systems**, tapez votre **URL de réponse** FM:Systems (par exemple : *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).  
       
@@ -95,7 +95,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 4. Dans la page **Configurer l’authentification unique sur FM:Systems**, cliquez sur **Télécharger les métadonnées**, puis enregistrez les métadonnées sur votre ordinateur.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configurer l’authentification unique")
 
 5. Envoyez le fichier de métadonnées téléchargé à votre équipe de support technique FM:Systems.
    
@@ -104,9 +104,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     > Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
     > 
     > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configurer l’authentification unique")
    
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -118,11 +118,11 @@ Dans le cas de FM:Systems, l’approvisionnement est une tâche manuelle.
 
 2. Accédez à **System Administration \> Manage Security \> Users \> User list**.
    
-    ![Administration système](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "System Administration")
+    ![Administration système](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "Administration système")
 
 3. Cliquez sur **Create new user**.
    
-    ![Create new user](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Create New User")
+    ![Créer un nouvel utilisateur](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Créer un nouvel utilisateur")
 
 4. Dans la section **Create User** , procédez comme suit :
    
@@ -140,17 +140,17 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Sur la page d’intégration d’application **FM:Systems**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

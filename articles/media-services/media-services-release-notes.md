@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
+ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
+ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
 
 
 ---
@@ -43,6 +43,10 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>Historique des versions de l’API REST
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
+
+## <a name="febuary-2017-release"></a>Version de février 2017
+
+À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Version de janvier 2017
 
@@ -535,6 +539,6 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

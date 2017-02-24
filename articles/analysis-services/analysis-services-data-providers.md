@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
-ms.openlocfilehash: 41e2556437004699991363096147379d0ffa967c
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
 
 
 ---
@@ -40,10 +40,10 @@ Les fournisseurs de données pour les connexions clientes sont différents des f
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les données les plus récentes sont installées et votre application cliente est prête à se connecter à un serveur. Pour en savoir plus sur la connexion, consultez la page sur l’[obtention des données à partir d’Azure Analysis Services](analysis-services-connect.md).
+Avec les données les plus récentes installées, votre application cliente est prête à se connecter à un serveur. Pour en savoir plus sur la connexion à partir d’un client, consultez [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md).
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,7 +24,7 @@ Importez des données tabulaires dans [Analytics](app-insights-analytics.md) pou
 
 Vous pouvez importer des données dans Analytics à l’aide de votre propre schéma. Il n’est pas nécessaire d’utiliser les schémas Application Insights standard tels qu’une requête ou une trace.
 
-Actuellement, vous pouvez importer des fichiers CSV (valeurs séparées par des virgules) ou des fichiers au format similaire, c’est-à-dire qui utilisent des points-virgules ou des tabulations comme séparateurs.
+Vous pouvez importer des fichiers JSON ou DSV (valeurs séparées par des délimiteurs : virgule, point-virgule ou tabulation).
 
 L’importation de données dans Analytics peut être utile dans les trois situations suivantes :
 
@@ -72,12 +72,15 @@ Avant de pouvoir importer des données, vous devez définir une *source de donn�
 
     ![Ajouter une source de données](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Suivez les instructions pour charger un exemple de fichier de données.
+2. Téléchargez un exemple de fichier de données. (Facultatif si vous téléchargez une définition de schéma.)
 
- * La première ligne de l’exemple peut être des en-têtes de colonne. (Vous pouvez modifier le nom des champs à l’étape suivante.)
- * L’exemple doit inclure au moins 10 lignes de données.
+    La première ligne de l’exemple peut être des en-têtes de colonne. (Vous pouvez modifier le nom des champs à l’étape suivante.)
 
-3. Examinez le schéma que l’Assistant a déduit à partir de votre exemple. Vous pouvez ajuster les types déduits des colonnes si nécessaire.
+    L’exemple doit inclure au moins 10 lignes de données.
+
+3. Examinez le schéma de l’Assistant. S’il a déduit les types à partir d’un exemple, vous devrez probablement modifier les types déduits des colonnes.
+
+   (Facultatif.) Téléchargez une définition de schéma. Consultez le format ci-dessous.
 
 4. Sélectionnez un horodatage. Toutes les données dans Analytics doivent avoir un champ d’horodatage. Il doit être de type `datetime`, mais il ne doit pas forcément être nommé « Horodatage ». Si vos données comportent une colonne contenant une date et une heure au format ISO, choisissez celle-ci en tant que colonne d’horodatage. Sinon, choisissez « à mesure que les données sont arrivées », et le processus d’importation ajoutera un champ d’horodatage.
 
@@ -85,6 +88,37 @@ Avant de pouvoir importer des données, vous devez définir une *source de donn�
 
 5. Créez la source de données.
 
+### <a name="schema-definition-file-format"></a>Format de fichier de définition de schéma
+
+Au lieu de modifier le schéma dans l’interface utilisateur, vous pouvez charger la définition de schéma à partir d’un fichier. Le format de définition de schéma est le suivant : 
+
+Format délimité 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Format JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Chaque colonne est identifiée par l’emplacement, le nom et le type. 
+
+* Emplacement : pour le format de fichier délimité, il s’agit de la position de la valeur mappée. Pour le format JSON, il s’agit du jpath de la clé mappée.
+* Nom : nom affiché de la colonne.
+* Type : type de données de cette colonne.
+ 
+Si un exemple de données a été utilisé et que le format de fichier est délimité, la définition de schéma doit mapper toutes les colonnes et ajouter de nouvelles colonnes à la fin. 
+
+JSON permet un mappage partiel des données, par conséquent la définition de schéma du format JSON n’a pas besoin de mapper toutes les clés trouvées dans un exemple de données. Il peut également mapper les colonnes qui ne font pas partie de l’exemple de données. 
 
 ## <a name="import-data"></a>Importer des données
 
@@ -271,7 +305,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
@@ -334,6 +367,6 @@ Utilisez ce code pour chaque blob.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
