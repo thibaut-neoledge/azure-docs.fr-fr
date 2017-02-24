@@ -74,7 +74,7 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
 2. Assurez-vous que la machine virtuelle a été libérée.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Définissez l’état de la machine virtuelle sur **Généralisé**. 
@@ -119,7 +119,7 @@ Créez une image managée à l’aide de votre disque dur virtuel généralisé 
 2. Arrêtez/libérez la machine virtuelle.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $rgName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Indiquez que la machine virtuelle est généralisée.
