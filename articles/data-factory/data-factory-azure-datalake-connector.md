@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d95d42592e1102d635e5eaad473196c4fa461136
-ms.openlocfilehash: e633562e35276b2d0c6dd19ada5a17bae7b1b0b6
+ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
+ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
 
 
 ---
@@ -423,8 +423,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 ### <a name="using-service-principal-authentication-recommended"></a>Authentification d’un principal du service (recommandée)
 Pour utiliser l’authentification d’un principal du service, vous devez commencer par inscrire une entité d’application dans Azure Active Directory (AAD) et lui accorder l’accès dans Data Lake Store. Ensuite, vous pouvez spécifier les propriétés ci-dessous dans Azure Data Factory avec l’ID d’application, la clé d’application et les informations de locataire correspondantes pour copier des données depuis/vers Data Lake Store. Reportez-vous à [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) portant sur la configuration et la récupération des informations requises.
 
->[!NOTE]
->Si vous venez de créer un principal du service à partir d’AAD, l’opération peut prendre quelques minutes. Si une erreur s’affiche dans l’assistant de copie ou dans les détails de l’exécution de la copie indiquant « The credentials provided are invalid » (Les informations d’identification fournies ne sont pas valides), attendez quelques instants et réessayez.
+> [!IMPORTANT]
+> Lorsque vous utilisez l’Assistant Copie, veillez à accorder au principal du service au minimum l’autorisation de lecture de votre racine ADLS (« / ») ou le rôle de lecteur du compte ADLS, afin de naviguer correctement entre les dossiers. Sinon, l’erreur « Les informations d’identification fournies ne sont pas valides » peut s’afficher.
+>
+> Si vous venez de créer ou de mettre à jour un principal du service à partir d’AAD, l’opération peut prendre quelques minutes. Revérifiez la configuration du principal du service et de la liste ACL ADLS. Si vous voyez toujours le message d’erreur indiquant « Les informations d’identification fournies ne sont pas valides », patientez, puis réessayez.
 >
 
 | Propriété | Description | Requis |
@@ -594,6 +596,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

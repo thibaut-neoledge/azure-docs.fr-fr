@@ -14,11 +14,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
 
 
 ---
@@ -27,59 +27,62 @@ ms.openlocfilehash: 9a72e2b5299828fbc2b3fdf543cd5c81574a14d3
 
 Cette rubrique explique les quelques différences entre l’implémentation d’événements étendus dans la base de données SQL Azure et dans Microsoft SQL Server.
 
-* La base de données SQL V12 a intégré la fonctionnalité d’événements étendus au cours de la seconde moitié du calendrier 2015.
-* Cette fonctionnalité est présente dans SQL Server depuis 2008.
-* L’ensemble de fonctionnalités des événements étendus sur la base de données SQL est un sous-ensemble robuste des fonctionnalités de SQL Server.
+- La base de données SQL V12 a intégré la fonctionnalité d’événements étendus au cours de la seconde moitié du calendrier 2015.
+- Cette fonctionnalité est présente dans SQL Server depuis 2008.
+- L’ensemble de fonctionnalités des événements étendus sur la base de données SQL est un sous-ensemble robuste des fonctionnalités de SQL Server.
 
 *XEvents* est un surnom informel parfois utilisé pour désigne les « événements étendus » dans les blogs et autres emplacements informels.
 
-> [!NOTE]
-> À compter d’octobre 2015, la fonctionnalité de session d’événements étendus est activée dans la base de données SQL Azure  dans la version préliminaire. La date de disponibilité générale n’est pas encore définie.
-> 
-> Les annonces concernant la disponibilité générale seront postées sur la page [Mises à jour du service](https://azure.microsoft.com/updates/?service=sql-database) Azure.
-> 
-> 
-
 Des informations complémentaires sur les événements étendus, pour Base de données SQL Azure et Microsoft SQL Server, sont disponibles dans :
 
-* [Démarrage rapide : Événements étendus dans SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-* [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Démarrage rapide : Événements étendus dans SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Conditions préalables
+
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
 
-* [Service Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
-* [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
-  
-  * La majeure partie de notre documentation sur les événements étendus s’applique à SQL Server et au service Base de données SQL.
+- [Service Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
+- [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
+
+- La majeure partie de notre documentation sur les événements étendus s’applique à SQL Server et au service Base de données SQL.
 
 Il est utile d’avoir une connaissance préalable des éléments suivants lorsque vous choisissez le fichier d’événements comme [cible](#AzureXEventsTargets):
 
-* [Service Azure Storage](https://azure.microsoft.com/services/storage/)
-* PowerShell
-  
-  * [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+- [Service Azure Storage](https://azure.microsoft.com/services/storage/)
+
+
+- PowerShell
+    - [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
 
 ## <a name="code-samples"></a>Exemples de code
+
 Des rubriques connexes fournissent deux exemples de code :
 
-* [Code cible de la mémoire tampon en anneau pour les événements étendus dans la base de données SQL](sql-database-xevent-code-ring-buffer.md)
-  
-  * Script Transact-SQL simple court.
-  * Dans la rubrique concernant l’exemple de code, nous insistons sur le fait que, lorsque vous avez fini de traiter une cible de la mémoire tampon en anneau, vous devez en libérer les ressources en exécutant une instruction `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Vous pouvez ensuite ajouter une autre instance de mémoire tampon en anneau avec l’instruction `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
-* [Code cible du fichier d’événements pour les événements étendus dans la base de données SQL](sql-database-xevent-code-event-file.md)
-  
-  * La Phase 1 est PowerShell pour créer un conteneur Azure Storage.
-  * La Phase 2 est Transact-SQL qui utilise le conteneur Azure Storage.
+
+- [Code cible de la mémoire tampon en anneau pour les événements étendus dans la base de données SQL](sql-database-xevent-code-ring-buffer.md)
+    - Script Transact-SQL simple court.
+    - Dans la rubrique concernant l’exemple de code, nous insistons sur le fait que, lorsque vous avez fini de traiter une cible de la mémoire tampon en anneau, vous devez en libérer les ressources en exécutant une instruction `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Vous pouvez ensuite ajouter une autre instance de mémoire tampon en anneau avec l’instruction `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+
+
+- [Code cible du fichier d’événements pour les événements étendus dans la base de données SQL](sql-database-xevent-code-event-file.md)
+    - La Phase 1 est PowerShell pour créer un conteneur Azure Storage.
+    - La Phase 2 est Transact-SQL qui utilise le conteneur Azure Storage.
 
 ## <a name="transact-sql-differences"></a>Différences Transact-SQL
-* Lorsque vous exécutez la commande [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) sur SQL Server, vous pouvez utiliser la clause **ON SERVER** . Mais sur la base de données SQL vous utilisez la clause **ON DATABASE** à la place.
-* La clause **ON DATABASE** s’applique également aux commandes Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) et [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
-* Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
-  
-  * La valeur **= ON** prend en charge le redémarrage automatique après la reconfiguration de la base de données logique en raison d’un basculement.
+
+
+- Lorsque vous exécutez la commande [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) sur SQL Server, vous pouvez utiliser la clause **ON SERVER** . Mais sur la base de données SQL vous utilisez la clause **ON DATABASE** à la place.
+
+
+- La clause **ON DATABASE** s’applique également aux commandes Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) et [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+
+
+- Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
+    - La valeur **= ON** prend en charge le redémarrage automatique après la reconfiguration de la base de données logique en raison d’un basculement.
 
 ## <a name="new-catalog-views"></a>Nouvelles vues catalogue
+
 La fonctionnalité des événements étendus est prise en charge par plusieurs [vues catalogue](http://msdn.microsoft.com/library/ms174365.aspx). Les vues catalogue vous indiquent les *métadonnées ou définitions* des sessions d’événements créées par l’utilisateur dans la base de données actuelle. Les affichages ne renvoient pas d’informations sur les instances des sessions d’événements actives.
 
 | Nom de<br/>la vue catalogue | Description |
@@ -93,6 +96,7 @@ La fonctionnalité des événements étendus est prise en charge par plusieurs [
 Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_*. Les noms suivent le modèle **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+
 La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
 
 | Nom de la vue de gestion dynamique | Description |
@@ -105,22 +109,23 @@ La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](ht
 
 Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennent pas la partie *\_database*, par exemple :
 
-* **sys.dm_xe_sessions**, au lieu de name<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, au lieu de name<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Vues de gestion dynamique communes aux deux produits
 Pour les événements étendus, il existe des vues de gestion dynamique supplémentaires qui sont communes à la base de données SQL Azure et Microsoft SQL Server :
 
-* **sys.dm_xe_map_values**
-* **sys.dm_xe_object_columns**
-* **sys.dm_xe_objects**
-* **sys.dm_xe_packages**
+- **sys.dm_xe_map_values**
+- **sys.dm_xe_object_columns**
+- **sys.dm_xe_objects**
+- **sys.dm_xe_packages**
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
 ## <a name="find-the-available-extended-events-actions-and-targets"></a>Rechercher les actions, cibles et événements étendus disponibles
+
 Vous pouvez exécuter une simple instruction SQL **SELECT** pour obtenir une liste des événements, actions et cibles disponibles.
 
-```
+```tsql
 SELECT
         o.object_type,
         p.name         AS [package_name],
@@ -141,57 +146,66 @@ SELECT
 ```
 
 
-
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>
-
-&nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Cibles de vos sessions d’événements de Base de données SQL
+
 Voici les cibles capables de capturer des résultats à partir de vos sessions d’événements sur la base de données SQL :
 
-* [Cible de mémoire tampon en anneau](http://msdn.microsoft.com/library/ff878182.aspx) -Maintient brièvement les données d’événements en mémoire.
-* [Cible de compteur d’événements](http://msdn.microsoft.com/library/ff878025.aspx) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
-* [Cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
+- [Cible de mémoire tampon en anneau](http://msdn.microsoft.com/library/ff878182.aspx) -Maintient brièvement les données d’événements en mémoire.
+- [Cible de compteur d’événements](http://msdn.microsoft.com/library/ff878025.aspx) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
+- [Cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
 
 L’API [Suivi d’événements pour Windows](http://msdn.microsoft.com/library/ms751538.aspx) n’est pas disponible pour les événements étendus sur la base de données SQL.
 
 ## <a name="restrictions"></a>Restrictions
+
 Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud de Base de données SQL :
 
-* Les événements étendus sont fondés sur le modèle d’isolement à client unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
-* Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master**.
+- Les événements étendus sont fondés sur le modèle d’isolement à client unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
+- Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master**.
 
 ## <a name="permission-model"></a>Modèle d’autorisation
+
 Vous devez disposer de l’autorisation **Contrôle** sur la base de données pour émettre une instruction **CREATE EVENT SESSION**. Le propriétaire de la base de données (dbo) possède l’autorisation **Contrôle** .
 
 ### <a name="storage-container-authorizations"></a>Autorisations de conteneur de stockage
+
 Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifier **rwl** pour les autorisations. La valeur **rwl** fournit les autorisations suivantes :
 
-* Lire
-* Écrire
-* Énumérer
+- Lire
+- Écrire
+- Énumérer
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
+
 Il existe des scénarios où l’utilisation intensive des événements étendus peut accumuler plus de mémoire active qu’il n’en faut pour l’intégrité de l’ensemble du système. Par conséquent, le système de la base de données SQL Azure définit et ajuste dynamiquement les limites de quantité de mémoire active pouvant être accumulée par une session d’événements. De nombreux facteurs entrent dans le calcul dynamique.
 
 Si vous recevez un message d’erreur indiquant qu’une quantité maximale de mémoire a été appliquée, vous pouvez envisager certaines actions correctives, notamment :
 
-* Exécuter moins de sessions d’événement simultanées.
-* À l’aide des instructions **CREATE** et **ALTER** pour les sessions d’événements, réduisez la quantité de mémoire spécifiée dans la clause **MAX\_MEMORY**.
+- Exécuter moins de sessions d’événement simultanées.
+- À l’aide des instructions **CREATE** et **ALTER** pour les sessions d’événements, réduisez la quantité de mémoire spécifiée dans la clause **MAX\_MEMORY**.
 
 ### <a name="network-latency"></a>Latence du réseau
+
 La cible **Fichier d’événement** peut rencontrer une latence ou des problèmes de réseau lors de la persistance de données sur des objets blob Azure Storage. D’autres événements de la base de données SQL peuvent être retardés en attendant la fin de la communication réseau. Ce délai peut ralentir votre charge de travail.
 
-* Pour atténuer ce risque de baisse des performances, évitez de définir l’option **EVENT_RETENTION_MODE** sur **NO_EVENT_LOSS** dans vos définitions de session d’événements.
+- Pour atténuer ce risque de baisse des performances, évitez de définir l’option **EVENT_RETENTION_MODE** sur **NO_EVENT_LOSS** dans vos définitions de session d’événements.
 
 ## <a name="related-links"></a>Liens connexes
-* [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md)
-* [Applets de commande Azure Storage](http://msdn.microsoft.com/library/dn806401.aspx)
-* [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
-* [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
-* [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-* [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
-* [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md)
+- [Applets de commande Azure Storage](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Utilisation d’Azure PowerShell avec Azure Storage](../storage/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
+- [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+
+
+- La page web *Mises à jour de service* Azure, restreinte par paramètre à Azure SQL Database :
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
+
 
 Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
 
@@ -204,6 +218,6 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

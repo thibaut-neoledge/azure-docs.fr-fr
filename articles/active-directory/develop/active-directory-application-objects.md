@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ Parfois, la signification du terme « application » dans Azure Active Directory
 Une application Azure AD dépasse le cadre d’un simple élément logiciel. Il s’agit d’un terme conceptuel, qui fait référence non seulement à une application logicielle, mais également à son inscription (ou configuration d’identité) auprès d’Azure AD, qui lui permet de participer aux « conversations » d’authentification et d’autorisation lors de l’exécution. Par définition, une application peut agir en tant que [client](active-directory-dev-glossary.md#client-application) (consommant une ressource), en tant que [serveur de ressources](active-directory-dev-glossary.md#resource-server) (exposant les API aux clients), voire les deux. Le protocole de conversation est défini par une [flux d’octroi d’autorisation OAuth 2.0](active-directory-dev-glossary.md#authorization-grant)afin de permettre respectivement au client et à la ressource d’accéder aux données d’une ressource et de les protéger. Approfondissons maintenant les choses pour examiner la manière dont un modèle d’application Azure AD représente une application en interne. 
 
 ## <a name="application-registration"></a>Inscription de l’application
-Lorsque vous inscrivez une application dans le [portail Azure Classic][AZURE-Classic-Portal], deux objets sont créés dans votre client Azure AD : un objet application et un objet principal du service.
+Lorsque vous inscrivez une application dans le [portail Azure][AZURE-Portal], deux objets sont créés dans votre client Azure AD : un objet application et un objet principal du service.
 
 #### <a name="application-object"></a>Objet application
 Une application Azure AD est *définie* par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. L’objet application fournit des informations liées à l’identité pour une application. Il s’agit du modèle dont le ou les objets principal du service correspondants d’une application sont *dérivés* à des fins d’utilisation lors de l’exécution. 
@@ -69,10 +69,10 @@ L’objet principal de service d’une application est accessible via l’API Az
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

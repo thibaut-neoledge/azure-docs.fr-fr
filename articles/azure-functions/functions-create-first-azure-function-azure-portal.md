@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
-ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
+ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
+ms.openlocfilehash: 996fc80ff926117dc12180efe1949b3dbeba3f91
 
 
 ---
@@ -28,9 +28,7 @@ Azure Functions est une expérience de calcul à la demande pilotée par les év
 Cette rubrique indique comment utiliser le Portail Azure pour créer une fonction Azure Node.js « Hello World » simple, appelée par un déclencheur HTTP. Avant de pouvoir créer une fonction dans le Portail Azure, vous devez créer explicitement une Function App dans Azure App Service. Pour que la Function App soit créée automatiquement pour vous, consultez [le didacticiel de démarrage rapide des autres Azure Functions](functions-create-first-azure-function.md), une expérience de démarrage rapide plus simple, incluant une vidéo.
 
 ## <a name="create-a-function-app"></a>Créer une Function App
-Une Function App héberge l’exécution de vos fonctions dans Azure. Suivez ces étapes pour créer une Function App dans le portail Azure.
-
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. Si vous ne disposez pas d’un compte Azure, vivez l’expérience [Try Functions](https://functions.azure.com/try) ou [créez un compte Azure gratuit](https://azure.microsoft.com/free/). 
+Une application de fonction héberge l’exécution de vos fonctions dans Azure. Si vous ne disposez pas d’un compte Azure, vivez l’expérience [Try Functions](https://functions.azure.com/try) ou [créez un compte Azure gratuit](https://azure.microsoft.com/free/). Suivez ces étapes pour créer une Function App dans le portail Azure.
 
 1. Accédez au [Portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Cliquez sur **+Nouveau** > **Calculer** > **Function App**, sélectionnez votre **Abonnement**, tapez dans le champ **Nom de l’application** un nom identifiant de manière unique votre Function App, puis spécifiez les paramètres suivants :
@@ -42,6 +40,8 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
    * **Compte de stockage**: chaque Function App nécessite un compte de stockage. Vous pouvez choisir un compte de stockage existant ou en créer un. 
      
      ![Créer une Function App dans le Portail Azure](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+
+    Notez que vous devez entrer un **nom d’application** valide, qui peut seulement contenir des lettres, des chiffres et des traits d’union. Le trait de soulignement (**_**) n’est pas un caractère autorisé.
 
 3. Cliquez sur **Créer** pour configurer et déployer la nouvelle Function App.  
 
@@ -57,35 +57,16 @@ Les étapes suivantes permettent de créer une fonction à partir du démarrage 
 2. (Facultatif) À ce stade du démarrage rapide, vous pouvez suivre une visite rapide des fonctionnalités Azure Functions dans le portail.    Après avoir terminé ou ignoré la visite, vous pouvez tester votre nouvelle fonction à l’aide du déclencheur HTTP.
 
 ## <a name="test-the-function"></a>Tester la fonction
-Comme les démarrages rapides Azure Functions contiennent du code fonctionnel, vous pouvez tester votre nouvelle fonction immédiatement.
-
-1. Dans l’onglet **Développer**, examinez la fenêtre **Code** et notez que ce code Node.js attend une requête HTTP avec un *nom* transmis dans le corps du message ou dans une chaîne de requête. Lorsque la fonction s’exécute, cette valeur est renvoyée dans le message de réponse.
-   
-2. Cliquez sur **Tester** pour afficher le volet de requête HTTP de test intégré pour la fonction.
- 
-    ![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
-
-2. Dans la zone de texte **Corps de la demande**, remplacez la valeur de la propriété *name* par votre nom, puis cliquez sur **Exécuter**. Vous voyez que l’exécution est déclenchée par une requête HTTP de test, que des informations sont écrites dans les journaux de diffusion en continu, et que la réponse « Hello » s’affiche dans la **Sortie**. 
-
-3. Pour déclencher l’exécution de la même fonction à partir d’une autre fenêtre ou d’un autre onglet de navigateur, copiez la valeur **URL de la fonction** de l’onglet **Développer** et collez-la dans la barre d’adresse d’un navigateur. Puis ajoutez la valeur de chaîne de requête `&name=yourname` à l’URL et appuyez sur Entrée. Les mêmes informations sont écrites dans les journaux et le navigateur affiche la réponse « Hello » comme avant.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce démarrage rapide présente une exécution simple d’une fonction de base déclenchée par HTTP. Pour plus d’informations sur l’utilisation d’Azure Functions dans vos applications, consultez les rubriques suivantes :
-
-* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
-* [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.
-* [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-  Présente les plans de service disponibles pour Azure Functions, dont le plan App Service basé sur la consommation, et explique comment choisir le plan adapté à vos besoins. 
-* [Qu'est-ce qu'Azure App Service ?](../app-service/app-service-value-prop-what-is.md)  
-   Azure Functions utilise la plateforme Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

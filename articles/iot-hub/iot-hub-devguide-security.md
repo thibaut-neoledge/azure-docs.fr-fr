@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f27dbd437e00ec4954419699d1dab1199970c8fc
-ms.openlocfilehash: de0b016cd9fc1a81e6acd0d2ab1d233a711a427c
+ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
+ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
 
 
 ---
@@ -222,7 +222,7 @@ Le résultat, qui accorde l’accès à toutes les fonctionnalités de device1, 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 > [!NOTE]
-> Il est possible de générer un jeton SAP à l’aide de l’outil .NET [Explorateur d’appareils][lnk-device-explorer].
+> Il est possible de générer un jeton SAP à l’aide de l’outil [Explorateur d’appareils][lnk-device-explorer] .NET ou de l’utilitaire de ligne de commande multiplateforme et basé sur des nœuds [iothub-explorer][lnk-iothub-explorer].
 > 
 > 
 
@@ -379,7 +379,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
-* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser lors du développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 * La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
@@ -428,6 +428,7 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -435,6 +436,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

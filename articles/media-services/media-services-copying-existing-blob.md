@@ -1,6 +1,6 @@
 ---
-title: "Copie d’un objet blob existant dans un élément multimédia Media Services | Microsoft Docs"
-description: "Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services."
+title: "Copie d’objets blob d’un compte de stockage dans un élément multimédia Azure Media Services | Microsoft Docs"
+description: "Cette rubrique montre comment copier un objet blob existant dans un élément multimédia Media Services. Cet exemple utilise les extensions de kit de développement logiciel (SDK) Azure Media Services pour .NET."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,309 +12,277 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/31/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+ms.sourcegitcommit: b74fbba254f73c1df388b2b0ff9134cc7b8a31e8
+ms.openlocfilehash: acc4780ea16f5a5ef0b87788b72595f29f6dcd89
 
 
 ---
-# <a name="copying-an-existing-blob-into-a-media-services-asset"></a>Copie d'un objet blob existant dans un élément multimédia Media Services
-Cette rubrique montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Microsoft Azure Media Services.
+# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copie d’objets blob dans un élément multimédia Media Services
+Cette rubrique montre comment copier des objets blob à partir d’un compte de stockage dans un nouvel élément multimédia Azure Media Services (AMS) à l’aide des [extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Vos objets blob peuvent exister dans un compte de stockage associé à un compte Media Services ou à un compte de stockage qui n'est pas associé au compte Media Services. Cette rubrique montre comment copier des objets blob à partir d’un compte de stockage dans un élément multimédia Media Services. Notez que vous pouvez également effectuer une copie entre des centres de données. Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](https://azure.microsoft.com/pricing/#header-11).
+Les méthodes d’extension utilisées fonctionne avec les éléments suivants :
+
+- des éléments multimédias standard,
+- des éléments multimédias archivés en temps réel (format FragBlob),
+- des éléments multimédias source et cible appartenant à différents comptes Media Services (même de différents centres de données). Toutefois, cette opération peut être facturée. Pour plus d'informations sur la tarification, consultez [Transferts de données](https://azure.microsoft.com/pricing/#header-11).
 
 > [!NOTE]
 > Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
 > 
-> 
 
-## <a name="download-sample"></a>Charger l’exemple
-Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+La rubrique présente deux exemples de code :
 
-## <a name="prerequisites"></a>Conditions préalables
-* Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md).
-* Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
-* .NET Framework 4.5.
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+1. Copiez des blobs d’une ressource d’un compte AMS vers une nouvelle ressource d’un compte AMS.
+2. Copiez des objets blob d’un compte de stockage dans un compte AMS.
 
-## <a name="set-up-your-project"></a>Configuration de votre projet
-Dans cette section, vous aller créer et configurer un projet d'application console C#.
+## <a name="copy-blobs-between-two-ams-accounts"></a>Copier des blob entre deux comptes AMS  
+
+### <a name="prerequisites"></a>Composants requis
+
+Deux comptes Media Services. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md).
+
+### <a name="download-sample"></a>Charger l’exemple
+Vous pouvez suivre les étapes décrites dans cet article ou télécharger un exemple contenant le code décrit dans cet article sur [cette page](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+
+### <a name="set-up-your-project"></a>Configuration de votre projet
 
 1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. 
-2. Entrez CopyExistingBlobsIntoAsset pour le nom, puis cliquez sur OK.
-3. Utilisez Nuget pour ajouter des références aux DLL associées à Media Services. Dans le menu principal de Visual Studio, sélectionnez OUTILS -> Gestionnaire de package de bibliothèques -> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez Install-Package windowsazure.mediaservices, puis appuyez sur Entrée.
+3. Utilisez [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) pour installer et ajouter les extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET (windowsazure.mediaservices.extensions). L’installation de ce package installe également le Kit de développement logiciel (SDK) Media Services pour .NET et ajoute toutes les autres dépendances requises.
 4. Ajoutez les autres références requises pour ce projet : System.Configuration.
-5. Remplacez les instructions using qui ont été ajoutées au fichier Programs.cs par défaut par les suivantes :
-   
-        using System;
-        using System.Linq;
-        using System.Configuration;
-        using System.IO;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using System.Collections.Generic;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using Microsoft.WindowsAzure;
-        using System.Web;
-        using Microsoft.WindowsAzure.Storage.Blob;
-        using Microsoft.WindowsAzure.Storage.Auth;
-6. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de vos valeurs de clé et de nom Media Services et de stockage. 
+6. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de vos comptes Media Services, du compte de stockage cible et de l’ID de l’élément multimédia source. 
    
         <appSettings>
-          <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
-          <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
-          <add key="MediaServicesStorageAccountName" value="Media-Services-Storage-Account-Name"/>
-          <add key="MediaServicesStorageAccountKey" value="Media-Services-Storage-Account-Key"/>
-          <add key="ExternalStorageAccountName" value="External-Storage-Account-Name"/>
-          <add key="ExternalStorageAccountKey" value="External-Storage-Account-Key"/>
+              <add key="MediaServicesSourceAccountName" value="name"/>
+              <add key="MediaServicesSourceAccountKey" value="key"/>
+              <add key="MediaServicesDestAccountName" value="name"/>
+              <add key="MediaServicesDestAccountKey" value="key"/>
+              <add key="DestStorageAccountName" value="name"/>
+              <add key="DestStorageAccountKey" value="key"/>
+              <add key="SourceAssetID" value="nb:cid:UUID:assetID"/>       
         </appSettings>
 
-## <a name="copy-blobs-from-a-storage-account-into-a-media-services-asset"></a>Copie d'objets blob à partir d'un compte de stockage dans un élément multimédia Media Services
-L'exemple de code ci-dessous effectue les tâches suivantes :
+### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Copier des blobs d’une ressource d’un compte AMS vers une ressource d’un autre compte AMS
 
-1. Crée l'instance CloudMediaContext. 
-2. Crée des instances CloudStorageAccount : _sourceStorageAccount et _destinationStorageAccount.
-3. Télécharge des fichiers Smooth Streaming depuis un répertoire local vers un conteneur d'objets blob qui se trouve dans _sourceStorageAccount._ 
-4. Crée un nouvel élément multimédia. Le conteneur d'objets blob qui est créé pour cet élément multimédia se trouve dans _destinationStorageAccount. 
-5. Utilise le Kit de développement logiciel (SDK) Azure Storage pour copier les objets blob spécifiés dans le conteneur associé à l'élément multimédia.
-   
-   > [!NOTE]
-   > L'opération de copie ne lève pas d'exception si le localisateur a expiré.
-   > 
-   > 
-6. Étant donné que, dans cet exemple, nous copions des fichiers Smooth Streaming, l’exemple montre comment définir le fichier .ism comme fichier principal. Si, par exemple, nous avions copié un fichier .mp4, c’est ce fichier mp4 qui serait défini comme fichier principal.
-7. Crée l'URL Smooth Streaming pour le localisateur OnDemandOrigin associé à l'élément multimédia. 
-   
+Le code suivant utilise la méthode d’extension **IAsset.Copy** pour copier tous les fichiers de l’élément multimédia source dans l’élément multimédia cible à l’aide d’une seule extension. La prise en charge asynchrone implique une surcharge supplémentaire.
+
+    using System;
+    using System.Linq;
+    using System.Configuration;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    
+    namespace CopyExistingBlobsIntoAsset
+    {
         class Program
         {
-            // Read values from the App.config file. 
-            static string _accountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            static string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-            static string _storageAccountName = ConfigurationManager.AppSettings["MediaServicesStorageAccountName"];
-            static string _storageAccountKey = ConfigurationManager.AppSettings["MediaServicesStorageAccountKey"];
-            static string _externalStorageAccountName = ConfigurationManager.AppSettings["ExternalStorageAccountName"];
-            static string _externalStorageAccountKey = ConfigurationManager.AppSettings["ExternalStorageAccountKey"];
-   
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static CloudMediaContext _context = null;
-   
-            private static CloudStorageAccount _sourceStorageAccount = null;
-            private static CloudStorageAccount _destinationStorageAccount = null;
-   
+            static string _sourceAaccountName = ConfigurationManager.AppSettings["MediaServicesSourceAccountName"];
+            static string _sourceAccountKey = ConfigurationManager.AppSettings["MediaServicesSourceAccountKey"];
+            static string _destAccountName = ConfigurationManager.AppSettings["MediaServicesDestAccountName"];
+            static string _destAccountKey = ConfigurationManager.AppSettings["MediaServicesDestAccountKey"];
+            static string _destStorageAccountName = ConfigurationManager.AppSettings["DestStorageAccountName"];
+            static string _destStorageAccountKey = ConfigurationManager.AppSettings["DestStorageAccountKey"];
+            static string _sourceAssetID = ConfigurationManager.AppSettings["SourceAssetID"];
+            
+    
+            private static CloudMediaContext _sourceContext = null;
+            private static CloudMediaContext _destContext = null;
+    
             static void Main(string[] args)
             {
-            _cachedCredentials = new MediaServicesCredentials(
-                    _accountName,
-                    _accountKey);
-            // Use the cached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_cachedCredentials);
-   
-            // In this example the storage account from which we copy blobs is not 
-            // associated with the Media Services account into which we copy blobs.
-            // But the same code will work for coping blobs from a storage account that is 
-            // associated with the Media Services account.
-            //
-            // Get a reference to a storage account that is not associated with a Media Services account
-            // (an external account).  
-            StorageCredentials externalStorageCredentials =
-                new StorageCredentials(_externalStorageAccountName, _externalStorageAccountKey);
-            _sourceStorageAccount = new CloudStorageAccount(externalStorageCredentials, true);
-   
-            //Get a reference to the storage account that is associated with a Media Services account. 
-            StorageCredentials mediaServicesStorageCredentials =
-                new StorageCredentials(_storageAccountName, _storageAccountKey);
-            _destinationStorageAccount = new CloudStorageAccount(mediaServicesStorageCredentials, false);
-   
-            // Upload Smooth Streaming files into a storage account.
-            string localMediaDir = @"C:\supportFiles\streamingfiles";
-            CloudBlobContainer blobContainer =
-                UploadContentToStorageAccount(localMediaDir);
-   
-            // Create a new asset and copy the smooth streaming files into 
-            // the container that is associated with the asset.
-            IAsset asset = CreateAssetFromExistingBlobs(blobContainer);
-   
-            // Get the streaming URL for the smooth streaming files 
-            // that were copied into the asset.   
-            string urlForClientStreaming = CreateStreamingLocator(asset);
-            Console.WriteLine("Smooth Streaming URL: " + urlForClientStreaming);
-   
-            Console.ReadLine();
-            }
-   
-            /// <summary>
-            /// Uploads content from a local directory into the specified storage account.
-            /// In this example the storage account is not associated with the Media Services account.
-            /// </summary>
-            /// <param name="localPath">The path from which to upload the files.</param>
-            /// <returns>The container that contains the uploaded files.</returns>
-            static public CloudBlobContainer UploadContentToStorageAccount(string localPath)
-            {
-            CloudBlobClient externalCloudBlobClient = _sourceStorageAccount.CreateCloudBlobClient();
-   
-            CloudBlobContainer externalMediaBlobContainer = externalCloudBlobClient.GetContainerReference("streamingfiles");
-   
-            externalMediaBlobContainer.CreateIfNotExists();
-   
-            // Upload files to the block blob container. 
-            // Page blobs are not supported by Azure Media Services. 
-            DirectoryInfo uploadDirectory = new DirectoryInfo(localPath);
-            foreach (var file in uploadDirectory.EnumerateFiles())
-            {
-                CloudBlockBlob blob = externalMediaBlobContainer.GetBlockBlobReference(file.Name);
-   
-                blob.UploadFromFile(file.FullName, FileMode.Open);
-            }
-   
-            return externalMediaBlobContainer;
-            }
-   
-            /// <summary>
-            /// Creates a new asset and copies blobs from the specifed storage account.
-            /// </summary>
-            /// <param name="mediaBlobContainer">The specified blob container.</param>
-            /// <returns>The new asset.</returns>
-            static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer mediaBlobContainer)
-            {
-            // Create a new asset. 
-            IAsset asset = _context.Assets.Create("NewAsset_" + Guid.NewGuid(), AssetCreationOptions.None);
-   
-            IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
-                TimeSpan.FromHours(24), AccessPermissions.Write);
-            ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
-   
-            CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
-   
-            // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
-            string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
-   
-            CloudBlobContainer assetContainer =
-                destBlobStorage.GetContainerReference(destinationContainerName);
-   
-            if (assetContainer.CreateIfNotExists())
-            {
-                assetContainer.SetPermissions(new BlobContainerPermissions
-                {
-                PublicAccess = BlobContainerPublicAccessType.Blob
-                });
-            }
-   
-            var blobList = mediaBlobContainer.ListBlobs();
-            foreach (var sourceBlob in blobList)
-            {
-                var assetFile = asset.AssetFiles.Create((sourceBlob as ICloudBlob).Name);
-                CopyBlob(sourceBlob as ICloudBlob, assetContainer);
-                assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
-                assetFile.Update();
-            }
-   
-            asset.Update();
-   
-            destinationLocator.Delete();
-            writePolicy.Delete();
-   
-            // Since we copied a set of Smooth Streaming files, 
-            // set the .ism file to be the primary file. 
-            // If we, for example, copied an .mp4, then the mp4 would be the primary file. 
-            SetISMFileAsPrimary(asset);
-   
-            return asset;
-            }
-   
-            /// <summary>
-            /// Creates the OnDemandOrigin locator in order to get the streaming URL.
-            /// </summary>
-            /// <param name="asset">The asset that contains the smooth streaming files.</param>
-            /// <returns>The streaming URL.</returns>
-            static public string CreateStreamingLocator(IAsset asset)
-            {
-            var ismAssetFile = asset.AssetFiles.ToList().
-                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).First();
-   
-            // Create a 30-day readonly access policy. 
-            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
-                TimeSpan.FromDays(30),
-                AccessPermissions.Read);
-   
-            // Create a locator to the streaming content on an origin. 
-            ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
-                policy,
-                DateTime.UtcNow.AddMinutes(-5));
-   
-            return originLocator.Path + ismAssetFile.Name + "/manifest";
-            }
-   
-            /// <summary>
-            /// Copies the specified blob into the specified container.
-            /// </summary>
-            /// <param name="sourceBlob">The source container.</param>
-            /// <param name="destinationContainer">The destination container.</param>
-            static private void CopyBlob(ICloudBlob sourceBlob, CloudBlobContainer destinationContainer)
-            {
-            var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
-            {
-                Permissions = SharedAccessBlobPermissions.Read,
-                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
-            });
-   
-            ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
-   
-            if (destinationBlob.Exists())
-            {
-                Console.WriteLine(string.Format("Destination blob '{0}' already exists. Skipping.", destinationBlob.Uri));
-            }
-            else
-            {
-   
-                // Display the size of the source blob.
-                Console.WriteLine(sourceBlob.Properties.Length);
-   
-                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
-   
-                while (true)
-                {
-                // The StartCopyFromBlob is an async operation, 
-                // so we want to check if the copy operation is completed before proceeding. 
-                // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
-                destinationBlob.FetchAttributes();
-                if (destinationBlob.CopyState.Status != CopyStatus.Pending)
-                {
-                    break;
-                }
-                //It's still not completed. So wait for some time.
-                System.Threading.Thread.Sleep(1000);
-                }
+                // Create the context for your source Media Services account.
+    
+                // Use the cached credentials to create CloudMediaContext.
+                _sourceContext = new CloudMediaContext(new MediaServicesCredentials(
+                    _sourceAaccountName,
+                    _sourceAccountKey));
 
-                // Display the size of the destination blob.
-                Console.WriteLine(destinationBlob.Properties.Length);
+                // Create the context for your destination Media Services account.
+                _destContext = new CloudMediaContext(new MediaServicesCredentials(
+                    _destAccountName,
+                    _destAccountKey));
+    
+                // Get the credentials of the default Storage account bound to your destination Media Services account.
+                StorageCredentials destinationStorageCredentials =
+                    new StorageCredentials(_destStorageAccountName, _destStorageAccountKey);
+    
+                // Get a reference to the source asset in the source context.
+                IAsset sourceAsset = _sourceContext.Assets.Where(a => a.Id == _sourceAssetID).First();
+    
+                // Create an empty destination asset in the destination context.
+                IAsset destinationAsset = _destContext.Assets.Create(sourceAsset.Name, AssetCreationOptions.None);
+    
+                // Copy the files in the source asset instance into the destination asset instance.
+                // There is an additional overload with async support.
+                sourceAsset.Copy(destinationAsset, destinationStorageCredentials);
 
-            }
-            }
-
-            /// <summary>
-            /// Sets a file with the .ism extension as a primary file.
-            /// </summary>
-            /// <param name="asset">The asset that contains the smooth streaming files.</param>
-            static private void SetISMFileAsPrimary(IAsset asset)
-            {
-
-            //If you expect the asset to contain the .ism asset file, set the .ism file as the primary file.
-            var ismAssetFiles = asset.AssetFiles.ToList().
-                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
-
-            // The following code assigns the first .ism file as the primary file in the asset.
-            // An asset should have one .ism file.  
-            ismAssetFiles.First().IsPrimary = true;
-            ismAssetFiles.First().Update();
+                
             }
         }
+    }
 
 
+## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS 
+
+### <a name="prerequisites"></a>Composants requis
+
+- Un compte de stockage à partir duquel vous souhaitez copier des blobs.
+- Un compte AMS dans lequel vous souhaitez copier des blobs.
+
+### <a name="set-up-your-project"></a>Configuration de votre projet
+
+1. Utilisez Visual Studio pour créer une solution qui contient le projet d'application console C#. 
+3. Utilisez [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) pour installer et ajouter les extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET (windowsazure.mediaservices.extensions). L’installation de ce package installe également le Kit de développement logiciel (SDK) Media Services pour .NET et ajoute toutes les autres dépendances requises.
+4. Ajoutez les autres références requises pour ce projet : System.Configuration.
+6. Ajoutez la section appSettings au fichier .config et mettez à jour les valeurs en fonction de votre stockage source et des comptes AMS de destination.
+   
+          <appSettings>
+            <add key="MediaServicesAccountName" value="name" />
+            <add key="MediaServicesAccountKey" value="key" />
+            <add key="MediaServicesStorageAccountName" value="name" />
+            <add key="MediaServicesStorageAccountKey" value="key" />
+            <add key="SourceStorageAccountName" value="name" />
+            <add key="SourceStorageAccountKey" value="key" />
+          </appSettings>
+
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-a-ams-account"></a>Copier des objets blob d’un compte de stockage dans un compte AMS
+
+Le code suivant copie des blobs d’un compte de stockage dans un élément multimédia Media Services. 
+
+    using System;
+    using System.Configuration;
+    using System.Linq;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    using System.Threading.Tasks;
+    
+    namespace CopyExistingBlobsIntoAsset
+    {
+        class Program
+        {
+            // Read values from the App.config file.
+            private static readonly string _mediaServicesAccountName =
+                ConfigurationManager.AppSettings["MediaServicesAccountName"];
+            private static readonly string _mediaServicesAccountKey =
+                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _mediaServicesStorageAccountName =
+                ConfigurationManager.AppSettings["MediaServicesStorageAccountName"];
+            private static readonly string _mediaServicesStorageAccountKey =
+                ConfigurationManager.AppSettings["MediaServicesStorageAccountKey"];
+            private static readonly string _sourceStorageAccountName =
+         ConfigurationManager.AppSettings["SourceStorageAccountName"];
+            private static readonly string _sourceStorageAccountKey =
+                ConfigurationManager.AppSettings["SourceStorageAccountKey"];
+    
+            // Field for service context.
+            private static CloudMediaContext _context = null;
+            private static CloudStorageAccount _sourceStorageAccount = null;
+            private static CloudStorageAccount _destinationStorageAccount = null;
+    
+            static void Main(string[] args)
+            {
+    
+                // Used the cached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey));
+    
+                _sourceStorageAccount = 
+                    new CloudStorageAccount(new StorageCredentials(_sourceStorageAccountName, 
+                        _sourceStorageAccountKey), true);
+    
+                _destinationStorageAccount = 
+                    new CloudStorageAccount(new StorageCredentials(_mediaServicesStorageAccountName, 
+                        _mediaServicesStorageAccountKey), true);
+                
+                CloudBlobClient sourceCloudBlobClient = 
+                    _sourceStorageAccount.CreateCloudBlobClient();
+                CloudBlobContainer sourceContainer = 
+                    sourceCloudBlobClient.GetContainerReference("NameOfBlobContainerYouWantToCopy");
+    
+                CreateAssetFromExistingBlobs(sourceContainer);
+            }
+            
+            static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer sourceBlobContainer)
+            {
+                CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
+    
+                // Create a new asset. 
+                IAsset asset = _context.Assets.Create("NewAsset_" + Guid.NewGuid(), AssetCreationOptions.None);
+    
+                IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
+                    TimeSpan.FromHours(24), AccessPermissions.Write);
+    
+                ILocator destinationLocator = 
+                    _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
+    
+                // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
+                CloudBlobContainer destAssetContainer =
+                    destBlobStorage.GetContainerReference((new Uri(destinationLocator.Path)).Segments[1]);
+    
+                if (destAssetContainer.CreateIfNotExists())
+                {
+                    destAssetContainer.SetPermissions(new BlobContainerPermissions
+                    {
+                        PublicAccess = BlobContainerPublicAccessType.Blob
+                    });
+                }
+    
+                var blobList = sourceBlobContainer.ListBlobs();
+    
+                foreach (var sourceBlob in blobList)
+                {
+                    var assetFile = asset.AssetFiles.Create((sourceBlob as ICloudBlob).Name);
+    
+                    ICloudBlob destinationBlob = destAssetContainer.GetBlockBlobReference(assetFile.Name);
+    
+                    // Call the CopyBlobHelpers.CopyBlobAsync extension method to copy blobs.
+                    using (Task task = 
+                        CopyBlobHelpers.CopyBlobAsync((CloudBlockBlob)sourceBlob, 
+                            (CloudBlockBlob)destinationBlob, 
+                            new BlobRequestOptions(), 
+                            CancellationToken.None))
+                    {
+                        task.Wait();
+                    }
+    
+                    assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
+                    assetFile.Update();
+                    Console.WriteLine("File {0} is of {1} size", assetFile.Name, assetFile.ContentFileSize);
+                }
+    
+                asset.Update();
+    
+                destinationLocator.Delete();
+                writePolicy.Delete();
+    
+                // Set the primary asset file.
+                // If, for example, we copied a set of Smooth Streaming files, 
+                // set the .ism file to be the primary file. 
+                // If we, for example, copied an .mp4, then the mp4 would be the primary file. 
+                var ismAssetFiles = asset.AssetFiles.ToList().
+                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
+    
+                // The following code assigns the first .ism file as the primary file in the asset.
+                // An asset should have one .ism file.  
+                ismAssetFiles.First().IsPrimary = true;
+                ismAssetFiles.First().Update();
+    
+                return asset;
+            }
+        }
+    }
+    
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous pouvez désormais encoder vos éléments multimédias téléchargés. Pour plus d'informations, consultez [Encode an asset using Media Encoder Standard with the Azure portal (Encoder un élément multimédia à l’aide de Media Encoder Standard avec le portail Azure)](media-services-portal-encode.md).
+
+Vous pouvez également utiliser les fonctions Azure pour déclencher une tâche de codage à partir d’un fichier entrant dans le conteneur configuré. Pour plus d’informations, consultez [cet exemple](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -325,6 +293,6 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cf0baa0bb9dab87a3ac0376a0aa115dca198f790
-ms.openlocfilehash: 82a7dc272d101e6c608209121f3edf1062ad1b5f
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
 
 
 ---
@@ -34,6 +34,10 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Hadoop sur HDInsight. Les clusters basés sur Linux ou Windows fonctionnent.
+
+  > [!IMPORTANT]
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
 
 Pour générer et exécuter l’exemple d’application Java lié à cet article, vous devez disposer des éléments suivants.
@@ -77,7 +81,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
             Remplacez **USERNAME** par le nom de compte d’utilisateur SSH pour le cluster. Remplacez **CLUSTERNAME** par le nom du cluster HDInsight.
         
         > [!NOTE]
-        > Dans les environnements Windows, vous devez utiliser l’utilitaire PSCP au lieu de scp. Vous pouvez le télécharger à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > Dans les environnements Windows, vous ne disposerez peut-être pas de la commande `scp`. Dans ce cas, utilisez l’utilitaire PSCP à la place. Vous pouvez le télécharger à partir de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * Pour **HDInsight sous Windows**, procédez comme suit pour télécharger les fichiers jar.
      
@@ -195,6 +199,6 @@ Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

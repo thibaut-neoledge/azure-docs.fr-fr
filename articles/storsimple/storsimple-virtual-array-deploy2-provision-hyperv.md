@@ -4,7 +4,7 @@ description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Arr
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V
@@ -48,7 +48,7 @@ Avant de déployer un tableau virtuel, assurez-vous que :
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre tableau virtuel :
 
   * Un minimum de 4 cœurs.
-  * Au moins 8 Go de RAM.
+  * Au moins 8 Go de RAM. Si vous envisagez de configurer le tableau virtuel en tant que serveur de fichiers, 8 Go prennent en charge moins de 2 millions de fichiers. Vous avez besoin de 16 Go de RAM pour prendre en charge 2 à 4 millions de fichiers.
   * Une interface réseau.
   * Un disque virtuel de 500 Go pour les données.
 
@@ -73,7 +73,7 @@ Pour créer un tableau virtuel vous devez disposer des éléments suivants :
 Assurez-vous que le matériel sous-jacent (système hôte) sur lequel vous créez le tableau virtuel est capable de dédier les ressources suivantes à votre tableau virtuel :
 
 * Un minimum de 4 cœurs.
-* Au moins 8 Go de RAM.
+* Au moins 8 Go de RAM. Si vous envisagez de configurer le tableau virtuel en tant que serveur de fichiers, 8 Go prennent en charge moins de 2 millions de fichiers. Vous avez besoin de 16 Go de RAM pour prendre en charge 2 à 4 millions de fichiers.
 * Une interface réseau.
 * Un disque virtuel de 500 Go pour les données système.
 
@@ -217,6 +217,6 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

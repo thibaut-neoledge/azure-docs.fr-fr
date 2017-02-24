@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1f40d6119d5fefc48c1e12d510423f996239fe14
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: dd28e295df7acead773f9076d790e0e96b66adb9
 
 
 ---
 # <a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop Windows dans HDInsight
-> [!NOTE]
-> Les étapes de cette procédure sont spécifiques aux clusters HDInsight basés sur Windows. Si vous utilisez un cluster Linux, consultez [Disponibilité et fiabilité des clusters Hadoop Linux dans HDInsight](hdinsight-high-availability-linux.md) pour plus d’informations spécifiques à Linux.
+> [!IMPORTANT]
+> Les étapes de cette procédure sont spécifiques aux clusters HDInsight basés sur Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Si vous utilisez un cluster Linux, consultez [Disponibilité et fiabilité des clusters Hadoop Linux dans HDInsight](hdinsight-high-availability-linux.md) pour plus d’informations spécifiques à Linux.
 >
 >
 
@@ -58,7 +58,7 @@ Pour déterminer quel est le nœud principal actif et vérifier le statut des se
 Dans la capture d’écran, le nœud principal actif est *headnode0*.
 
 ## <a name="access-log-files-on-the-secondary-head-node"></a>Accéder aux fichiers journaux sur le nœud principal secondaire
-Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
+Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous êtes connecté au cluster via RDP, double-cliquez sur l’icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -106,6 +106,6 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

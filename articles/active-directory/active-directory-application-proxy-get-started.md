@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c0f17c4ff79bab7f5b13f42cd31e170780fc0c2
+ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
+ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
 
 
 ---
@@ -53,8 +53,10 @@ Avec le Proxy d’application Azure AD, vous pouvez accéder à différents type
 * API web que vous voulez exposer aux applications enrichies sur différents appareils  
 * Applications hébergées derrière une passerelle Bureau à distance  
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="how-does-the-service-work-with-connectors"></a>Comment le service fonctionne-t-il avec des connecteurs ?
 Le Proxy d’application fonctionne grâce à l’installation d’un service Windows Server léger appelé connecteur au sein de votre réseau. Avec le connecteur, vous n’êtes pas obligé d’ouvrir des ports entrants ou de placer quoi que ce soit dans la zone dématérialisée. Si le volume de trafic vers vos applications est important, vous pouvez ajouter d’autres connecteurs. Le service se charge de l’équilibrage de la charge. Les connecteurs sont sans état et extraient tout ce dont ils ont besoin sur le cloud.
+
+Pour plus d’informations sur les connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md). 
 
 Lorsque les utilisateurs accèdent à distance à des applications, ils se connectent au point de terminaison publié. Les utilisateurs s’authentifient dans Azure AD puis sont acheminés via le connecteur vers l’application locale.
 
@@ -71,18 +73,21 @@ Lorsque les utilisateurs accèdent à distance à des applications, ils se conne
 ### <a name="single-sign-on"></a>Authentification unique
 Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux applications qui utilisent l’authentification Windows intégrée (IWA) ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification IWA, le Proxy d’application emprunte l’identité de l’utilisateur à l’aide de la délégation Kerberos contrainte pour fournir l’authentification unique. Si vous avez une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique est réussie, car l’utilisateur a déjà été authentifié par Azure AD.
 
+Pour plus d’informations sur Kerberos, consultez [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tout ce que vous voulez savoir sur Kerberos Constrained Delegation (KCD)).
+
 ## <a name="how-to-get-started"></a>Pour commencer
 Assurez-vous que vous disposez d’un abonnement Azure AD Basic ou Premium et d’un annuaire Azure AD sur lequel vous êtes administrateur global. Vous devez également disposer de licences d’Azure AD Premium ou Basic pour l’administrateur de l’annuaire et les utilisateurs qui accèdent aux applications. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md) .
 
 La configuration du Proxy d’application s’effectue en deux étapes :
 
-1. [Activer le Proxy d’application et configurer le connecteur](active-directory-application-proxy-enable.md)    
+1. [Activer le proxy d’application et configurer le connecteur](active-directory-application-proxy-enable.md).    
 2. [Publier des applications](active-directory-application-proxy-publish.md) : utilisez l’Assistant simple et rapide pour publier vos applications locales et les rendre accessibles à distance.
 
 ## <a name="whats-next"></a>Et ensuite ?
 Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
 * [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
+* [Utiliser des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md) 
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 * [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
 * [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
@@ -92,6 +97,6 @@ Pour les dernières nouvelles et mises à jour, consultez le site [Application P
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

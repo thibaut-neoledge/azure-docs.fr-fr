@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 53c84ff1e99236343585ff31ef1bcb57e0250fdc
+ms.sourcegitcommit: 46c624608773fcd55e7ee3548aaa32fbbc630056
+ms.openlocfilehash: b6d0c877e0f0515dd82c0615850009910aa0b0be
 
 
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Évaluation des performances d’un modèle dans Azure Machine Learning
-Cette rubrique explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
+Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
 
 * régression ;
 * classification binaire ; 
@@ -113,9 +113,11 @@ Il est donc utile de calculer d’autres métriques capturant des aspects plus s
 
 Figure 6. matrice de confusion d’une classification binaire
 
-Revenons au problème de classification du revenu et posons-nous plusieurs questions d’évaluation qui nous aideront à comprendre les performances du classifieur utilisé. Nous pouvons tout naturellement nous poser la question suivante : sur le nombre d’employés pour lesquels le modèle a prédit un revenu > 50 K (VP+FP), combien ont été classés correctement (VP) ? Nous pouvons répondre à cette question en examinant la métrique **Precision** (Précision) du modèle, qui détermine le taux de positifs qui ont été classés correctement : VP/(VP+FP). Une autre question courante est la suivante : sur le nombre total d’employés avec un revenu > 50 K (VP+FN), combien ont été classés correctement par le classifieur (VP) ? La réponse nous est donnée par la métrique **Recall**(Rappel), correspondant au taux de vrais positifs : VP/(VP+FN) du classifieur. Vous pouvez remarquer qu’il existe un compromis évident entre la précision et le rappel. Par exemple, si l’on considère un jeu de données relativement équilibré, un classifieur capable de prédire la plupart des instances positives présente un rappel fort, mais une précision relativement faible, car de nombreuses instances négatives ne seront pas classées correctement, ce qui entraînera un grand nombre de faux positifs. Pour visualiser un diagramme représentant la variation de ces deux métriques, vous pouvez cliquer sur la courbe « PRECISION/RECALL » (PRÉCISION/RAPPEL) de la page de sortie des résultats de l’évaluation (partie supérieure gauche de la Figure 7).
+Revenons au problème de classification du revenu et posons-nous plusieurs questions d’évaluation qui nous aideront à comprendre les performances du classifieur utilisé. Nous pouvons tout naturellement nous poser la question suivante : sur le nombre d’employés pour lesquels le modèle a prédit un revenu > 50 K (VP+FP), combien ont été classés correctement (VP) ? Nous pouvons répondre à cette question en examinant la métrique **Precision** (Précision) du modèle, qui détermine le taux de positifs qui ont été classés correctement : VP/(VP+FP). Une autre question courante est la suivante : sur le nombre total d’employés avec un revenu >&50; K (VP+FN), combien ont été classés correctement par le classifieur (VP) ? La réponse nous est donnée par la métrique **Recall**(Rappel), correspondant au taux de vrais positifs : VP/(VP+FN) du classifieur. Vous pouvez remarquer qu’il existe un compromis évident entre la précision et le rappel. Par exemple, si l’on considère un jeu de données relativement équilibré, un classifieur capable de prédire la plupart des instances positives présente un rappel fort, mais une précision relativement faible, car de nombreuses instances négatives ne seront pas classées correctement, ce qui entraînera un grand nombre de faux positifs. Pour visualiser un diagramme représentant la variation de ces deux métriques, vous pouvez cliquer sur la courbe « PRECISION/RECALL » (PRÉCISION/RAPPEL) de la page de sortie des résultats de l’évaluation (partie supérieure gauche de la Figure 7).
 
-![Résultats de l’évaluation de la classification binaire](media/machine-learning-evaluate-model-performance/7.png) Figure 7. résultats de l’évaluation de la classification binaire
+![Résultats de l’évaluation de la classification binaire](media/machine-learning-evaluate-model-performance/7.png)
+
+Figure 7. résultats de l’évaluation de la classification binaire
 
 Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score**(F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces 2 métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). La mesure F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
 
@@ -189,6 +191,6 @@ Figure 13 : résultats de la validation croisée d’un modèle de classificat
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

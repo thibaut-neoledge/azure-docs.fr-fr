@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
 
 
 ---
@@ -31,17 +31,26 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Activer la journalisation de diagnostic pour votre compte Data Lake Store
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-2. Ouvrez votre compte Data Lake Store et dans le panneau de votre compte Data Lake Store, cliquez sur **Paramètres**, puis cliquez sur **Paramètres de diagnostic**.
+2. Ouvrez votre compte Data Lake Store et, dans le panneau de votre compte Data Lake Store, cliquez sur **Paramètres** puis sur **Paramètres de diagnostic**.
+3. Dans le panneau **Journaux de diagnostic**, cliquez sur **Activer les diagnostics**.
+
+    ![Activer la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Activer les journaux de diagnostic")
+
 3. Dans le panneau **Diagnostic** , apportez les modifications suivantes pour configurer la journalisation de diagnostic.
    
-    ![Activer la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Activer la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
    
    * Définissez **État** sur **Activé** pour activer la journalisation de diagnostic.
-   * Vous pouvez choisir de stocker/traiter les données de deux manières différentes.
-     * Sélectionnez l’option **Export to Event Hub** (Exporter vers Event Hub) pour transmettre les données de journal à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
-     * Sélectionnez l’option **Export to Storage Account** (Exporter vers le compte de stockage) pour stocker les journaux sur un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données qui seront traitées par lots à une date ultérieure. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure sur lequel enregistrer les journaux.
+   * Vous pouvez choisir de stocker/traiter les données de manières différentes.
+     
+        * Sélectionnez l’option **Archive to a storage account (Archiver dans un compte de stockage)** pour stocker les journaux dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données qui seront traitées par lots à une date ultérieure. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure sur lequel enregistrer les journaux.
+        
+        * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
+
+        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir les détails concernant l’espace de travail Operations Management Suite que vous allez utiliser pour analyser le journal.
+     
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
-   * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées.
+   * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.
    * Cliquez sur **Save**.
 
 Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic** .
@@ -55,7 +64,7 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 ### <a name="using-the-data-lake-store-settings-view"></a>Utilisation de la vue des paramètres Data Lake Store
 1. Dans le panneau **Paramètres** de votre compte Data Lake Store, cliquez sur **Journaux de diagnostic**.
    
-    ![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic") 
 2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de demande**.
    
    * Les journaux de demande capturent chaque demande d’API effectuée sur le compte Data Lake Store.
@@ -65,13 +74,13 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>À partir du compte de Stockage Azure qui contient des données de journal
 1. Ouvrez le panneau du compte de Stockage Azure associé au Data Lake Store pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
    
-    ![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
    
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
    * Le conteneur **insights-logs-requests** contient les journaux de demande.
 2. Les journaux sont stockés dans ces conteneurs selon la structure suivante.
    
-    ![Afficher la journalisation de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
    
     Par exemple, le chemin d’accès complet à un journal d’audit peut être `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -177,6 +186,6 @@ Azure Data Lake Store fournit un exemple de traitement et d’analyse des donné
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

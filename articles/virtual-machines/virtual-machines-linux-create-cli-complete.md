@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
-ms.openlocfilehash: d8308ed6ec03457bd0ec30d34166631357e2b60f
+ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
+ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 
 
 ---
@@ -53,7 +53,7 @@ Tout d’abord, créez le groupe de ressources avec la commande [az group create
 az group create --name myResourceGroup --location westeurope
 ```
 
-Créez le compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#create). L’exemple suivant permet de créer un compte de stockage nommé `mystorageaccount`. (Le nom du compte de stockage doit être unique ; choisissez donc un autre nom qui n’est pas susceptible d’être déjà utilisé.)
+L’étape suivante est facultative. L’action par défaut lorsque vous créez une machine virtuelle avec Azure CLI 2.0 (version préliminaire) est d’utiliser Azure Managed Disks. Pour plus d’informations sur Azure Managed Disks, voir la page [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks). Si vous souhaitez plutôt utiliser des disques non gérés, vous devez créer un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#create). L’exemple suivant permet de créer un compte de stockage nommé `mystorageaccount`. (Le nom du compte de stockage doit être unique ; choisissez donc un autre nom qui n’est pas susceptible d’être déjà utilisé.)
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -164,10 +164,11 @@ Créez le groupe à haute disponibilité avec la commande [az vm availability-se
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
-Créez la première machine virtuelle Linux avec la commande [az vm create](/cli/azure/vm#create). L’exemple qui suit permet de créer une machine virtuelle nommée `myVM1` :
+Créez la première machine virtuelle Linux avec la commande [az vm create](/cli/azure/vm#create). L’exemple qui suit permet de créer une machine virtuelle nommée `myVM1` qui utilise Azure Managed Disks. Si vous souhaitez utiliser des disques non gérés, consultez la remarque supplémentaire ci-dessous.
 
 ```azurecli
 az vm create \
@@ -176,13 +177,16 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Si vous utilisez Azure Managed Disks, ignorez cette étape. Si vous souhaitez utiliser des disques non gérés et que vous avez créé un compte de stockage dans les étapes précédentes, vous devez ajouter des paramètres supplémentaires à la commande de traitement. Ajoutez les paramètres supplémentaires suivants à la commande de traitement pour créer des disques non gérés dans le compte de stockage nommé `mystorageaccount` : 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Créez la seconde machine virtuelle Linux, de nouveau avec la commande **az vm create**. L’exemple qui suit permet de créer une machine virtuelle nommée `myVM2` :
@@ -194,14 +198,17 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Là encore, si vous n’utilisez pas par défaut Azure Managed Disks, ajoutez les paramètres supplémentaires suivants à la commande de traitement pour créer les disques non gérés dans le compte de stockage nommé `mystorageaccount` :
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Vérifiez que tout a été correctement généré avec la commande [az vm show](/cli/azure/vm#show) :
 
@@ -245,7 +252,9 @@ Par défaut, la sortie est au format JSON (JavaScript Object Notation). Pour obt
 ```
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
-Vous avez besoin de comptes de stockage pour vos disques de machine virtuelle et pour tous les disques de données que vous souhaitez ajouter. Vous créez des comptes de stockage presque immédiatement après avoir créé des groupes de ressources.
+L’étape suivante est facultative. L’action par défaut lorsque vous créez une machine virtuelle avec Azure CLI 2.0 (version préliminaire) est d’utiliser Azure Managed Disks. Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker. Pour plus d’informations sur Azure Managed Disks, voir la page [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks). Passez à [Créer un réseau virtuel et un sous-réseau](#create-a-virtual-network-and-subnet) si vous souhaitez utiliser Azure Managed Disks. 
+
+Si vous souhaitez utiliser des disques non gérés, vous devez créer un compte de stockage pour vos disques de machine virtuelle et pour tous les disques de données complémentaires que vous souhaitez ajouter.
 
 Ici, nous utilisons la commande [az storage account create](/cli/azure/storage/account#create) et transmettons l’emplacement du compte, le groupe de ressources qui le contrôle, ainsi que le type de support de stockage souhaité. L’exemple qui suit permet de créer un compte de stockage nommé `mystorageaccount` :
 
@@ -983,7 +992,8 @@ Les groupes à haute disponibilité aident à diffuser vos machines virtuelles s
 
 ```azurecli
 az vm availability-set create --resource-group myResourceGroup --location westeurope \
-  --name myAvailabilitySet
+  --name myAvailabilitySet \
+  --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
 Les domaines d’erreur désignent un groupe de machines virtuelles partageant une source d’alimentation et un commutateur réseau communs. Par défaut, les machines virtuelles configurées dans votre groupe à haute disponibilité sont réparties entre trois domaines de défaillance au maximum. Ainsi, en cas de problème matériel dans l’un de ces domaines d’erreur, aucune machine virtuelle exécutant votre application n’est affectée. Azure distribue automatiquement les machines virtuelles sur les domaines d’erreur lorsque vous les placez dans un groupe à haute disponibilité.
@@ -994,11 +1004,11 @@ Vous pouvez obtenir des informations supplémentaires sur [la gestion de la disp
 
 
 ## <a name="create-the-linux-vms"></a>Créer les machines virtuelles Linux
-Vous avez créé les ressources de stockage et de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Créons maintenant ces machines virtuelles et sécurisons-les avec une clé SSH sans mot de passe. Dans ce cas précis, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version LTS. Nous recherchons les informations de cette image à l’aide de la commande [az vm image list](/cli/azure/vm/image#list), comme décrit dans [Recherche d’images de machine virtuelle Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vous avez créé les ressources de réseau pour prendre en charge des machines virtuelles accessibles par Internet. Créons maintenant ces machines virtuelles et sécurisons-les avec une clé SSH sans mot de passe. Dans ce cas précis, nous allons créer une machine virtuelle Ubuntu basée sur la dernière version LTS. Nous recherchons les informations de cette image à l’aide de la commande [az vm image list](/cli/azure/vm/image#list), comme décrit dans [Recherche d’images de machine virtuelle Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Nous spécifions également une clé SSH à utiliser pour l’authentification. Si vous n’avez pas de clés SSH, vous pouvez en créer en suivant [ces instructions](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous pouvez également utiliser la méthode `--admin-password` pour authentifier vos connexions SSH une fois la machine virtuelle créée. Cette méthode est généralement moins sécurisée.
 
-Nous créons la machine virtuelle en regroupant toutes nos ressources et informations avec la commande [az vm create](/cli/azure/vm#create) :
+Nous créons la machine virtuelle en regroupant toutes nos ressources et informations avec la commande [az vm create](/cli/azure/vm#create). L’exemple qui suit permet de créer une machine virtuelle nommée `myVM1` qui utilise Azure Managed Disks. Si vous souhaitez utiliser des disques non gérés, consultez la remarque supplémentaire ci-dessous.
 
 ```azurecli
 az vm create \
@@ -1007,13 +1017,16 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic1 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Si vous utilisez Azure Managed Disks, ignorez cette étape. Si vous souhaitez utiliser des disques non gérés et que vous avez créé un compte de stockage dans les étapes précédentes, vous devez ajouter des paramètres supplémentaires à la commande de traitement. Ajoutez les paramètres supplémentaires suivants à la commande de traitement pour créer des disques non gérés dans le compte de stockage nommé `mystorageaccount` : 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Output:
@@ -1066,14 +1079,17 @@ az vm create \
     --location westeurope \
     --availability-set myAvailabilitySet \
     --nics myNic2 \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Là encore, si vous n’utilisez pas par défaut Azure Managed Disks, ajoutez les paramètres supplémentaires suivants à la commande de traitement pour créer les disques non gérés dans le compte de stockage nommé `mystorageaccount` :
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 À ce stade, vous exécutez vos machines virtuelles Ubuntu derrière un équilibreur de charge dans Azure auquel vous pouvez uniquement vous connecter avec votre paire de clés SSH (car les mots de passe sont désactivés). Vous pouvez installer nginx ou httpd, déployer une application web et voir le flux de trafic transitant par l’équilibreur de charge vers toutes les machines virtuelles.
 
@@ -1101,6 +1117,6 @@ Vous voici en mesure de commencer à utiliser plusieurs composants réseau et ma
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

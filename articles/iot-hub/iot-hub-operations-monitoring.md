@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
+ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
+ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
 
 
 ---
-# <a name="operations-monitoring"></a>Surveillance des opérations
+# <a name="iot-hub-operations-monitoring"></a>Surveillance des opérations IoT Hub
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
-IoT Hub surveille cinq catégories d’événements :
+IoT Hub surveille six catégories d’événements :
 
 * Opérations d’identité des appareils
 * Télémétrie d’appareil
 * Messages Cloud vers appareil
 * Connexions
 * Chargements de fichiers
+* Routage de messages
 
 ## <a name="how-to-enable-operations-monitoring"></a>Comment activer la surveillance des opérations
 1. Créez un hub IoT. Pour savoir comment créer un IoT Hub, consultez le guide [Prise en main][lnk-get-started].
@@ -39,6 +40,9 @@ IoT Hub surveille cinq catégories d’événements :
 3. Sélectionnez les catégories de surveillance qui vous intéressent, puis cliquez sur **Enregistrer**. Les événements sont disponibles en lecture depuis le point de terminaison compatible avec le hub d’événements répertorié dans **Paramètres de surveillance**. Le point de terminaison IoT Hub s’appelle `messages/operationsmonitoringevents`.
    
     ![][2]
+
+> [!NOTE]
+> Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions**, IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Catégories d’événements et utilisation respective
 Chaque catégorie de surveillance d’opérations assure le suivi d’un type spécifique d’interaction avec IoT Hub et a un schéma qui définit la façon dont sont structurés les événements qu’elle comporte.
@@ -144,10 +148,26 @@ Notez que cette catégorie ne peut pas détecter les erreurs qui surviennent dir
          "durationMs": 1234
     }
 
+### <a name="message-routing"></a>Routage de messages
+La catégorie de routage des messages assure le suivi des erreurs qui se produisent pendant l’évaluation du routage des messages et de l’intégrité du point de terminaison perçue par IoT Hub. Cette catégorie inclut les événements tels qu’une règle prenant la valeur « Non définie », lorsqu’IoT Hub marque un point de terminaison comme inactif et toute autre erreur reçue à partir d’un point de terminaison. Cette catégorie n’inclut pas les erreurs spécifiques sur les messages eux-mêmes (tels que les erreurs de limitation des appareils) qui sont signalées dans la catégorie « télémétrie des appareils ».
+        
+    {
+        "messageSizeInBytes": 1234,
+        "time": "UTC timestamp",
+        "operationName": "ingress",
+        "category": "routes",
+        "level": "Error",
+        "deviceId": "device-ID",
+        "messageId": "ID of message",
+        "routeName": "myroute",
+        "endpointName": "myendpoint",
+        "details": "ExternalEndpointDisabled"
+    }
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub][lnk-devguide]
+* [Guide du développeur IoT Hub][lnk-devguide]
 * [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
 
 <!-- Links and images -->
@@ -164,6 +184,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

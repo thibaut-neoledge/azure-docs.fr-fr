@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 40d9b0ee5a24e5503de19daa030bf1e8169dec24
-ms.openlocfilehash: 58be070ea5d5f4ea9f6d9453a1adcc23c4b9b2a2
+ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
+ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
 
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-La fonctionnalité Gestion des API Azure peut être connectée à un réseau virtuel (VNET) afin de pouvoir accéder aux services principaux du réseau et pour que le portail des développeurs et la passerelle API soient accessibles sur le réseau.
+La gestion des API Azure peut être déployée à l’intérieur du réseau virtuel (VNET), pour qu’il puisse accéder aux services principaux au sein du réseau. Le portail des développeurs et la passerelle API peuvent être configurés pour être accessibles depuis Internet ou uniquement au sein du réseau virtuel.
 
 > [!NOTE]
 > La gestion des API Azure prend en charge les réseaux virtuels classiques et Azure Resource Manager.
@@ -101,12 +101,14 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 
 | Port(s) source / de destination | Direction | Protocole de transfert | Objectif | Source / Destination | Type d’accès |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 / 80, 443 |Trafic entrant |TCP |Communication client avec Gestion des API |INTERNET / VIRTUAL_NETWORK |Externe |
+| * / 80, 443 |Trafic entrant |TCP |Communication client avec Gestion des API |INTERNET / VIRTUAL_NETWORK |Externe |
 | * / 3443 |Trafic entrant |TCP |Point de terminaison de gestion pour le portail Azure et Powershell |INTERNET / VIRTUAL_NETWORK |Externe et interne |
-| 80, 443 / 80, 443 |Règle de trafic sortant |TCP |Dépendance sur Stockage Azure et Azure Service Bus |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| 1433 / 1433 |Règle de trafic sortant |TCP |Dépendance sur SQL Azure |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| 9350 - 9354 / 9350 - 9354 |Règle de trafic sortant |TCP |Dépendance sur Service Bus |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| 5671 / 5671 |Règle de trafic sortant |AMQP |Dépendance pour la stratégie Journaliser dans Event Hub |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 80, 443 |Règle de trafic sortant |TCP |Dépendance sur Stockage Azure et Azure Service Bus |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 1433 |Règle de trafic sortant |TCP |Dépendance sur SQL Azure |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 11000 - 11999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 14000 - 14999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 9350 - 9354 |Règle de trafic sortant |TCP |Dépendance sur Service Bus |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 5671 |Règle de trafic sortant |AMQP |Dépendance pour la stratégie Journaliser dans Event Hub |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | 6381 - 6383 / 6381 - 6383 |Trafic entrant et sortant |UDP |Dépendance sur Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Externe et interne |-
 | * / 445 |Règle de trafic sortant |TCP |Dépendance sur le partage de fichiers Azure pour GIT |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / * | Trafic entrant |TCP |Équilibrage de charge de l’infrastructure Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externe et interne |
@@ -152,6 +154,6 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

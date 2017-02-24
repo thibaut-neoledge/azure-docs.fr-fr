@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
-ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
+ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
+ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
 
 
 ---
@@ -40,6 +40,7 @@ Le plan De base est la valeur par défaut lorsqu’une ressource Application Ins
 
 * Dans le plan De base, vous êtes facturé en fonction du volume de données : nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application.
 * Votre premier 1 Go pour chaque application est gratuit. Si vous expérimentez ou développez simplement, vous n'aurez probablement pas à payer.
+* Les données des [Flux de métriques temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.
 * [L’exportation continue](app-insights-export-telemetry.md) est disponible pour un coût supplémentaire par Go ajouté au plan De base, même s’il est gratuit jusqu’à début mars 2017.
 
 ### <a name="enterprise-plan"></a>Plan Entreprise
@@ -49,6 +50,7 @@ Le plan De base est la valeur par défaut lorsqu’une ressource Application Ins
  * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle Platform-as-a-Service qui héberge votre application.
  * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas comptés comme nœuds.
  * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker back-end, ces composants sont comptés séparément.
+ * Les données des [Flux de métriques temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.
 * Dans un abonnement, vos frais sont calculés par nœud, pas par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué / 744 (le nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). L’allocation des données inutilisées n'est pas reportée d’un jour à l’autre.
@@ -98,7 +100,7 @@ Le volume d’envoi de données est limité de trois façons :
 
 * **Limite quotidienne.** Elle est fixée par défaut à 500 Go par jour. Lorsque votre application atteint le plafond, nous envoyons un courrier électronique et ignorons les données jusqu’à la fin de la journée. Pour la modifier, utilisez le panneau de gestion des volumes de données.
 * **[Échantillonnage](app-insights-sampling.md).** Ce mécanisme peut réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques.
-* **La limitation** limite le débit de données à 16 000 événements par seconde pour les événements avec une moyenne de 1 minute. 
+* La **limitation** restreint le débit de données à 32 000 événements par seconde, avec une moyenne de 1 minute. 
 
 
 *Que se passe-t-il si mon application dépasse le taux limite ?*
@@ -174,6 +176,6 @@ Les applications existantes peuvent continuer à utiliser les anciens niveaux de
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

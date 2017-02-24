@@ -12,22 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
+ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
+ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Présentation du journal d’activité Azure
-Le **journal d’activité Azure** est un journal qui fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Le journal d’activité était précédemment appelé « journal d’audit » ou « journal des opérations », car il indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas les opérations (GET) de lecture.
+Le **journal d’activité Azure** est un journal qui fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Le journal d’activité était précédemment appelé « journal d’audit » ou « journal des opérations », car il indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
 
 Le journal d’activité est différent des [journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md), qui correspondent à tous les journaux émis par une ressource. Ces journaux fournissent des informations sur l’opération de cette ressource, plutôt que sur les opérations sur cette ressource.
 
 Vous pouvez extraire des événements de votre journal d’activité à l’aide du portail Azure, de l’interface de ligne de commande, des applets de commande PowerShell et de l’API REST Azure Monitor.
 
 Regardez cette [vidéo de présentation du journal d’activité](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+
+> [!WARNING]
+> Le journal des activités Azure est principalement utilisé pour les activités qui se produisent dans Azure Resource Manager, et non celles qui utilisent le modèle Classic/RDFE. Notez que certains types de ressources Classic ont un fournisseur de ressources proxy dans Azure Resource Manager (par exemple : Microsoft.ClassicCompute). Si un utilisateur interagit avec un type de ressource Classic par le biais d’Azure Resource Manager à l’aide de ces fournisseurs de ressources proxy, les opérations s’affichent dans le journal d’activité. Si un utilisateur interagit avec un type de ressource Classic dans le portail Classic ou en dehors de proxys Azure Resource Manager, les actions de l’utilisateur sont uniquement enregistrées dans le journal des opérations accessible dans le portail Classic.
+>
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Ce que vous pouvez faire avec le journal d’activité
 Voici ce que vous pouvez faire avec le journal d’activité :
@@ -45,7 +50,7 @@ Il n’est pas nécessaire que l’espace de noms du compte de stockage ou du hu
 Un **profil de journal** contrôle comment votre journal d’activité est exporté. À l’aide d’un profil de journal, vous pouvez configurer :
 
 * L’emplacement où le journal d’activité doit être envoyé (compte de stockage ou Event Hubs).
-* Les catégories d’événements (Write, Delete, Action) qui doivent être envoyées
+* Les catégories d’événements (Write, Delete, Action) qui doivent être envoyées. *Notez que la signification de « catégorie » dans le cadre du profil de journal est différente de la signification de la propriété « category » dans un événement de journal d’activité. Bien que « catégorie » dans le profil du journal représente le type d’opération (écriture, suppression, action), la propriété « category » dans un événement de journal d’activité représente la source ou le type d’événement (administration, ServiceHealth, alertes, etc.).*
 * Les régions (emplacements) qui doivent être exportées.
 * La durée de rétention du journal d’activité dans un compte de stockage ; une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647. Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
 
@@ -239,6 +244,6 @@ Chaque événement dans le journal d’activité a un objet blob JSON similaire 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

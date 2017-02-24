@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
 
 
 ---
@@ -269,7 +269,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a name="a-idmorethanoneheadnodeamorethanoneheadnode"></a><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Description**: configuration du cluster incorrecte. Plusieurs configurations de nœud principal trouvées.  
-* **Atténuation**: modifiez la configuration de façon à spécifier un seul nœud principal.
+* **Atténuation** : modifiez la configuration de façon à spécifier un seul nœud principal.
 
 ### <a name="a-idoperationtimedoutretryrequestaoperationtimedoutretryrequest"></a><a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Description**: il n’a pas été possible d’exécuter l’opération dans le temps imparti ou en respectant le nombre maximum de tentatives. Relancez la requête.  
@@ -331,6 +331,6 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

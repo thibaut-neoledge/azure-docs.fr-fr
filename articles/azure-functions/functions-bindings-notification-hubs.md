@@ -3,7 +3,7 @@ title: Liaison Notification Hubs Azure Functions| Microsoft Docs
 description: "Découvrez comment utiliser les liaisons Azure Notification Hubs dans Azure Functions."
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: 
 tags: 
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
+ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 
 
 ---
@@ -76,8 +76,8 @@ Vous pouvez également ajouter manuellement une chaîne de connexion pour un hub
 
 1. Dans le panneau **Function App** du portail Azure, cliquez sur **Paramètres Function App > Accéder aux paramètres App Service**.
 2. Dans le panneau **Paramètres**, cliquez sur **Paramètres de l’application**.
-3. Faites défiler les éléments vers le bas jusqu’à la section **Chaînes de connexion**, puis ajoutez une entrée nommée pour la valeur *DefaultFullSharedAccessSignature* pour votre hub de notification. Définissez le type sur **Personnalisé**.
-4. Référencez votre nom de chaîne de connexion dans les liaisons de sortie. Cette chaîne sera semblable à **MyHubConnectionString** utilisé dans l’exemple ci-dessus.
+3. Faites défiler les éléments vers le bas jusqu’à la section **Paramètres de l’application**, puis ajoutez une entrée nommée pour la valeur *DefaultFullSharedAccessSignature* pour votre hub de notification.
+4. Référencez votre nom de chaîne de paramètre de l’application dans les liaisons de sortie. Cette chaîne sera semblable à **MyHubConnectionString** utilisé dans l’exemple ci-dessus.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Notifications natives APNS avec déclencheurs de file d’attente C#
 Cet exemple indique comment utiliser les types définis dans la [bibliothèque Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) pour envoyer une notification APNS native. 
@@ -298,6 +298,6 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

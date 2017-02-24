@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
-ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
 
 
 ---
@@ -91,7 +91,7 @@ Concentrons-nous sur les requêtes qui ont renvoyé un code de résultat particu
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -114,7 +114,7 @@ Rechercher les requêtes ayant échoué :
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-reference.md#casts) pour une comparaison numérique.
+`resultCode` étant de type chaîne, nous devons [le convertir](app-insights-analytics-reference.md#casts) pour une comparaison numérique.
 
 ## <a name="time-range"></a>Période
 
@@ -128,26 +128,26 @@ Remplacez l’intervalle de temps en écrivant une requête qui mentionne `times
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-La fonctionnalité d’intervalle de temps est équivalente à une clause « where » insérée après chaque mention d’une des tables sources. 
+La fonctionnalité d’intervalle de temps est équivalente à une clause « where » insérée après chaque mention d’une des tables sources.
 
-`ago(3d)` signifie « il y a trois jours ». Il existe d’autres unités de temps, par exemple les heures (`2h`, `2.5h`), les minutes (`25m`) et les secondes (`10s`). 
+`ago(3d)` signifie « il y a trois jours ». Il existe d’autres unités de temps, par exemple les heures (`2h`, `2.5h`), les minutes (`25m`) et les secondes (`10s`).
 
 Autres exemples :
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -212,7 +212,7 @@ Les timestamps sont toujours exprimés en UTC. Par conséquent, si vous vous tro
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -318,14 +318,14 @@ Convertir un booléen en une chaîne à utiliser comme discriminant :
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -343,7 +343,7 @@ Compter les requêtes en prenant un jour comme modulo de temps et en fractionnan
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -449,7 +449,7 @@ Pour rechercher les exceptions liées à une requête qui a renvoyé une répons
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,6 +459,7 @@ Avant d’effectuer la jointure, nous pouvons utiliser `project` pour sélection
 Dans les mêmes clauses, nous renommons la colonne timestamp.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): affecter un résultat à une variable
+
 Utilisez `let` pour séparer les parties de l’expression précédente. Les résultats sont identiques :
 
 ```AIQL
@@ -471,23 +472,37 @@ Utilisez `let` pour séparer les parties de l’expression précédente. Les ré
     | take 30
 ```
 
-> Conseil : dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de la requête. Exécutez-la en totalité.
->
+> [!Tip] 
+> Dans le client Analytics, ne placez pas de lignes vides entre les différentes parties de la requête. Exécutez-la en totalité.
 >
 
-### <a name="functions"></a>Fonctions 
+Utilisez `toscalar` pour convertir une cellule de tableau en une valeur :
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>Fonctions
 
 Utilisez *Let* pour définir une fonction :
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>Accès à des objets imbriqués
@@ -547,24 +562,24 @@ Vous pouvez épingler vos résultats à un tableau de bord afin de rassembler to
 
 ## <a name="combine-with-imported-data"></a>Combiner avec des données importées
 
-Les rapports d’analyse sont du plus bel effet sur le tableau de bord mais il peut arriver que vous souhaitiez convertir les données dans un format plus digeste. Par exemple, supposons que vos utilisateurs authentifiés sont identifiés dans les données de télémétrie par un alias. Vous souhaitez afficher leurs vrais noms dans vos résultats. Pour cela, vous avez besoin d’un fichier CSV qui fait correspondre les alias aux véritables noms. 
+Les rapports d’analyse sont du plus bel effet sur le tableau de bord mais il peut arriver que vous souhaitiez convertir les données dans un format plus digeste. Par exemple, supposons que vos utilisateurs authentifiés sont identifiés dans les données de télémétrie par un alias. Vous souhaitez afficher leurs vrais noms dans vos résultats. Pour cela, vous avez besoin d’un fichier CSV qui fait correspondre les alias aux véritables noms.
 
 Vous pouvez importer un fichier de données et l’utiliser comme une table standard (requêtes, exceptions et ainsi de suite). Interrogez-la individuellement ou joignez-la à d’autres tables. Par exemple, si vous disposez d’une table nommée usermap et qu’elle contient des colonnes `realName` et `userId`, vous pouvez l’utiliser pour traduire le champ `user_AuthenticatedId` dans les données de télémétrie de la requête :
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Pour importer une table, dans le panneau Schéma, sous **Autres sources de données**, suivez les instructions pour ajouter une nouvelle source de données en téléchargeant un échantillon de vos données. Vous pouvez utiliser cette définition permet de charger des tables. 
+Pour importer une table, dans le panneau Schéma, sous **Autres sources de données**, suivez les instructions pour ajouter une nouvelle source de données en téléchargeant un échantillon de vos données. Vous pouvez utiliser cette définition permet de charger des tables.
 
-La fonctionnalité d’importation est actuellement en version préliminaire, vous verrez donc initialement un lien « Nous contacter » sous « Autres sources de données ». Utilisez-le pour vous inscrire au programme d’évaluation, et le lien sera alors remplacé par un bouton « Ajouter une nouvelle source de données ». 
+La fonctionnalité d’importation est actuellement en version préliminaire, vous verrez donc initialement un lien « Nous contacter » sous « Autres sources de données ». Utilisez-le pour vous inscrire au programme d’évaluation, et le lien sera alors remplacé par un bouton « Ajouter une nouvelle source de données ».
 
 
 ## <a name="tables"></a>Tables
@@ -580,7 +595,7 @@ Rechercher les requêtes qui échouent le plus :
 ![Compter les requêtes segmentées par nom](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Table des événements personnalisés
-Si vous utilisez [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) pour envoyer vos propres événements, vous pouvez les lire depuis cette table.
+Si vous utilisez [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) pour envoyer vos propres événements, vous pouvez les lire depuis cette table.
 
 Prenons un exemple dans lequel le code de votre application contient les lignes suivantes :
 
@@ -602,7 +617,7 @@ Extraire des mesures et des dimensions de ces événements :
 ![Afficher la fréquence des événements personnalisés](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Table des mesures personnalisées
-Si vous utilisez [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) pour envoyer vos propres valeurs métriques, vous trouverez ses résultats dans le flux **customMetrics**. Par exemple :  
+Si vous utilisez [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) pour envoyer vos propres valeurs métriques, vous trouverez ses résultats dans le flux **customMetrics**. Par exemple :  
 
 ![Mesures personnalisées dans Application Insights Analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -655,16 +670,16 @@ Contient les résultats d’appels que votre application effectue vers des bases
 Appels AJAX à partir du navigateur :
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 Appels de dépendance à partir du serveur :
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -683,6 +698,6 @@ Contient les données de télémétrie envoyées par votre application à l’ai
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

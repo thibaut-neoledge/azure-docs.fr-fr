@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 14b6b817c071ba833d2f49ca289151520e1e32f0
+ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
+ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
 
 
 ---
@@ -44,8 +44,6 @@ L'Assistant d’installation fournit une configuration qui est censée fonctionn
 
 > [!WARNING]
 > Les règles de synchronisation out-of-box ont une empreinte numérique. Si vous apportez une modification à ces règles, l’empreinte numérique ne correspondra plus. Vous risquez de rencontrer des problèmes lorsque vous tenterez d’appliquer une nouvelle version d’Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
-> 
-> 
 
 ### <a name="disable-an-unwanted-sync-rule"></a>Désactiver une règle de synchronisation indésirable
 Ne supprimez pas une règle de synchronisation out-of-box. Elle est recréée au cours de la mise à niveau suivante.
@@ -57,6 +55,8 @@ Dans certains cas, l'Assistant d'installation a produit une configuration qui ne
 Dans l'image ci-dessus, l'Assistant d'installation a trouvé un ancien schéma Exchange 2003 dans la forêt de comptes. Cette extension de schéma a été ajoutée avant l’introduction de la forêt de ressources dans l’environnement de Fabrikam. Pour garantir qu’aucun attribut de l’ancienne implémentation Exchange n’est synchronisé, la règle de synchronisation devrait être désactivée comme indiqué.
 
 ### <a name="change-an-out-of-box-rule"></a>effectuer des modifications sur une règle out-of-box
+La seule fois où vous devez effectuer des modifications sur une règle out-of-box est lorsque vous devez modifier la règle de jointure. Si vous devez modifier un flux d’attributs, vous devez créer une règle de synchronisation avec une priorité plus élevée que les règles out-of-box. La seule règle que vous aurez vraiment à cloner est la règle **Reçu depuis AD - jointure utilisateur**. Vous pouvez remplacer toutes les autres règles avec une règle de priorité plus élevée.
+
 Si vous devez effectuer des modifications d’une règle out-of-box, vous devriez en faire une copie, puis désactiver la règle d’origine. Modifiez ensuite la règle clonée. L’éditeur de règles de synchronisation vous accompagne dans ces étapes. Lorsque vous ouvrez une règle out-of-box, cette boîte de dialogue s'affiche :   
 ![Règle d'avertissement out-of-the box](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -73,7 +73,6 @@ Sur cette règle clonée, effectuez les modifications nécessaires de la portée
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

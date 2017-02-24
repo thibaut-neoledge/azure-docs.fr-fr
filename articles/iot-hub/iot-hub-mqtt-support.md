@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: 0fc92fd63118dd1b3c9bad5cf7d5d8397bc3a0b6
-ms.openlocfilehash: 2f952b85a99300d0a52a59f639675d6f02fafe08
+ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
+ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
 
 
 ---
@@ -87,8 +87,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 L’application de l’appareil peut également utiliser `devices/{device_id}/messages/events/{property_bag}` comme **nom de rubrique « Will »** pour définir des *messages « Will »* à transmettre en tant que message de télémétrie.
 
-IoT Hub ne prend pas en charge les messages QoS 2. Si un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau.
-IoT Hub ne conserve pas les messages Retain. Si un appareil envoie un message avec l’indicateur **RETAIN** défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+- IoT Hub ne prend pas en charge les messages QoS 2. Si un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau.
+- IoT Hub ne conserve pas les messages Retain. Si un appareil envoie un message avec l’indicateur **RETAIN** défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+- IoT Hub ne prend en charge qu’une seule connexion MQTT active par appareil. Toute nouvelle connexion MQTT au nom du même ID d’appareil entraîne l’interruption de la connexion existante par IoT Hub.
 
 Reportez-vous au [Guide du développeur de messages][lnk-messaging] pour plus d’informations.
 
@@ -136,10 +137,16 @@ Reportez-vous au [Guide du développeur de représentations d’appareil][lnk-de
 
 ### <a name="update-device-twins-reported-properties"></a>Mettre à jour les propriétés signalées de la représentation d’appareil
 
-Tout d’abord, un appareil doit être abonné à `$iothub/twin/res/#` pour recevoir les réponses de l’opération. Ensuite, il envoie un message, qui contient la mise à jour de la représentation d’appareil `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, avec une valeur propagée pour **l’ID de la requête**. Le service envoie alors un message de réponse contenant les données de la représentation d’appareil sur la rubrique `$iothub/twin/res/{status}/?$rid={request id}`, en utilisant le même **ID de requête** que la requête.
+La séquence suivante décrit comment un appareil met à jour les propriétés déclarées dans le jumeau d’appareil IoT Hub :
+
+1. Un appareil doit tout d’abord s’abonner à la rubrique `$iothub/twin/res/#` pour recevoir des réponses d’opération de IoT Hub.
+
+1. Un appareil envoie un message qui contient la mise à jour de jumeau d’appareil pour la rubrique `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Ce message contient une valeur **ID de demande**.
+
+1. Le service envoie ensuite un message de réponse qui contient la nouvelle valeur ETag de la collection de propriétés déclarées dans la rubrique `$iothub/twin/res/{status}/?$rid={request id}`. Ce message de réponse utilise le même **ID de demande** que la demande.
 
 Le corps du message contient un document JSON qui fournit de nouvelles valeurs pour les propriétés signalées (aucune autre propriété ou métadonnée ne peut être modifiée).
-Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document de la représentation d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple,
+Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document de la représentation d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple :
 
         {
             "telemetrySendFrequency": "35m",
@@ -159,7 +166,7 @@ Reportez-vous au [Guide du développeur de représentations d’appareil][lnk-de
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Réception de notifications de mise à jour des propriétés souhaitées
 
-Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple,
+Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple :
 
         {
             "telemetrySendFrequency": "5m",
@@ -231,6 +238,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

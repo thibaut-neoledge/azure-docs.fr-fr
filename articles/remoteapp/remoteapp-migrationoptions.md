@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
+ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
 
 
 ---
@@ -29,7 +29,7 @@ Si vous avez cessé d’utiliser RemoteApp du fait de [l’annonce de la suppres
 
 L’IaaS en libre-service est un déploiement personnalisable que vous gérez, exploitez et possédez, directement déployé sur des machines virtuelles (VM) ou des systèmes physiques. En face, une offre de PaaS/SaaS entièrement géré ressemble davantage à Azure RemoteApp : un partenaire fournit une couche de service sur une solution d’accès distant qui gère les opérations et la maintenance, pendant que vous, en tant que client, effectuez la gestion des images et applications.
 
-Lisez la suite pour plus d’informations, notamment des exemples des différentes options d’hébergement.    
+[Consultez les webinaires Azure RemoteApp sur les options de migration](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp), ou lisez la suite pour plus d’informations (y compris des exemples des différentes options d’hébergement).
 
 ## <a name="self-managed-iaas-solutions"></a>Solutions autogérées (IaaS)
 ### <a name="rds-on-iaas"></a>**RDS sur IaaS**
@@ -212,6 +212,6 @@ Toujours besoin d’aide pour choisir ou des questions supplémentaires ? Utili
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

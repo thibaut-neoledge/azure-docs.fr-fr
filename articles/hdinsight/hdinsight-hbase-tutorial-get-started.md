@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel HBase : prise en main de HBase dans Hadoop | Microsoft Docs'
+title: "Didacticiel HBase : prise en main de clusters HBase Windows dans Hadoop | Microsoft Docs"
 description: "Suivez ce didacticiel HBase pour apprendre à utiliser Apache HBase avec Hadoop dans HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
 keywords: apache hbase,hbase,shell hbase,didacticiel hbase
 services: hdinsight
@@ -13,25 +13,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 501c44ff8db2b825b58d98b9b89219ec9fff8b7c
-ms.openlocfilehash: 6384d7b0f4851ce4d1612857203e7c3c1381d6fc
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Windows
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide d’Apache Hive. Pour obtenir des informations générales sur HBase, voir [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
 
-Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Windows, utilisez le sélecteur d’onglets en haut de la page pour basculer.
-
-> [!NOTE]
-> HBase (version 0.98.0) sous HDInsight Windows peut uniquement être utilisé avec des clusters HDInsight 3.1 (basé sur Apache Hadoop et YARN 2.4.0). Pour obtenir des informations sur la version, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions]
-> 
-> 
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Les informations de ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d’informations sur les clusters Linux, consultez [Didacticiel HBase : prise en main d’Apache HBase dans HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -82,11 +77,11 @@ Actuellement, il existe deux méthodes pour accéder à HBase. Cette section cou
 
 Pour la plupart des utilisateurs, les données s’affichent sous la forme tabulaire :
 
-![données tabulaires hbase hdinsight][img-hbase-sample-data-tabular]
+![Données tabulaires HBase HDInsight][img-hbase-sample-data-tabular]
 
 Dans HBase, qui est une implémentation de BigTable, certaines données ont l’aspect suivant :
 
-![données bigtable hbase hdinsight][img-hbase-sample-data-bigtable]
+![Données bigtable HBase HDInsight][img-hbase-sample-data-bigtable]
 
 Cela deviendra plus clair une fois la procédure suivante terminée.  
 
@@ -110,7 +105,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![interpréteur de commandes hbase hadoop hdinsight][img-hbase-shell]
+    ![Interpréteur de commandes HBase Hadoop HDInsight][img-hbase-shell]
 6. Récupérez une seule ligne :
    
         get 'Contacts', '1000'
@@ -126,7 +121,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 HBase propose plusieurs méthodes pour charger des données dans des tables. Pour en savoir plus, consultez la rubrique [Chargement en bloc](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Un exemple de fichier de données a été chargé dans un conteneur d’objets blob public, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt. Le contenu du fichier de données est :
+Un exemple de fichier de données a été téléchargé dans un conteneur d’objets blob, wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt Le contenu du fichier de données est le suivant :
 
     8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -329,6 +324,6 @@ Pour plus d'informations, consultez les pages suivantes :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

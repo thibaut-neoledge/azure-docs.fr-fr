@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Azure AD v2.0 pour sécuriser une application web MVC .NET qui appelle une API web | Microsoft Docs"
+title: "Prise en main de l’appel d’API dans les applications web Azure AD v2.0 .NET | Microsoft Docs"
 description: "Comment créer une application Web .NET MVC qui appelle des services Web à l’aide de comptes personnels Microsoft et de comptes professionnels ou scolaires pour la connexion."
 services: active-directory
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 8c35bfbc75f99fc8558f83667b12a6df1cd3eefd
+ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
+ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
 
 
 ---
@@ -202,6 +202,6 @@ Nous vous encourageons à activer les notifications d’incidents de sécurité 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

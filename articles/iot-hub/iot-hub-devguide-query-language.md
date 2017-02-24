@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
-ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
+ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
+ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
 
 
 ---
@@ -246,15 +246,31 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 La [condition] [ lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de représentation et de travail. Les conditions d’itinéraire sont évaluées sur les propriétés du message en supposant que la représentation JSON suivante est utilisée :
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+Les propriétés système du message ont pour préfixe le symbole `'$'`.
+Les propriétés de l’utilisateur sont toujours accessibles par leur nom. Si un nom de propriété d’utilisateur coïncide avec une propriété système (telle que `$to`), la propriété de l’utilisateur est récupérée avec l’expression `$to`.
+Vous pouvez toujours accéder à la propriété système à l’aide de crochets `{}` : par exemple, vous pouvez utiliser l’expression `{$to}` pour accéder à la propriété système `to`. Les noms de propriétés entre crochets récupèrent toujours la propriété système correspondante.
 
 N’oubliez pas que les noms de propriété respectent la casse.
 
 > [!NOTE]
 > Toutes les propriétés de message sont des chaînes. Les propriétés système, comme décrit dans le [guide du développeur][lnk-devguide-messaging-format], ne sont actuellement pas disponibles pour utilisation dans les requêtes.
->
 >
 
 Par exemple, si vous utilisez une propriété `messageType`, vous souhaiterez peut-être acheminer toutes les données de télémétrie vers un point de terminaison et toutes les alertes vers un autre point de terminaison. Vous pouvez écrire l’expression suivante pour acheminer les données de télémétrie :
@@ -458,6 +474,6 @@ Découvrez comment exécuter des requêtes dans vos applications à l’aide des
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

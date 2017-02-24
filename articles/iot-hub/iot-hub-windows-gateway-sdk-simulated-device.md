@@ -12,11 +12,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 02/08/2017
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 432fa33d0b7340e075270f4959217978e89b8c69
+ms.sourcegitcommit: 5edf2f4c7d9d2e8e8ceb2e8de9ae7cef4c9fd02e
+ms.openlocfilehash: 446e7361b5817ce888105fbb78f329affa7de6e6
 
 
 ---
@@ -28,13 +28,13 @@ Avant de commencer, vous devez :
 
 * [Configurer votre environnement de développement][lnk-setupdevbox] pour utiliser le Kit de développement logiciel (SDK) sous Windows.
 * [Créer un IoT Hub][lnk-create-hub] dans votre abonnement Azure (vous aurez besoin du nom de votre concentrateur pour effectuer cette procédure pas à pas). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d'appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter vos appareils à l’IoT Hub que vous avez créé à l’étape précédente et récupérer ainsi leurs clés.
+* Ajoutez deux appareils à votre hub IoT et notez leur ID et leurs clés d'appareil. Vous pouvez utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] ou [iothub-explorer][lnk-iothub-explorer] pour ajouter vos appareils à l’IoT Hub que vous avez créé à l’étape précédente et récupérer ainsi leurs clés.
 
 Pour créer l'exemple :
 
 1. Ouvrez une **invite de commandes Développeur pour VS2015** .
 2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
-3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio, génère la solution, puis exécute les tests. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**.
+3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio et génère la solution. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**. Des paramètres supplémentaires peuvent être accordés au script pour générer et exécuter des tests unitaires et de bout en bout. Ces paramètres sont **--run-unittests** et **--run-e2e-tests**, respectivement.
 
 Pour exécuter l'exemple :
 
@@ -142,7 +142,7 @@ Pour exécuter l'exemple :
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. Vous pouvez utiliser l’outil [Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour analyser les messages qu’IoT Hub reçoit de la passerelle.
+3. Vous pouvez utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] ou [iothub-explorer][lnk-iothub-explorer] pour analyser les messages qu’IoT Hub reçoit de la passerelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez approfondir vos connaissances sur le Kit de développement logiciel (SDK) de passerelle IoT et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
@@ -153,20 +153,22 @@ Si vous souhaitez approfondir vos connaissances sur le Kit de développement log
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
+* [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-create-hub]: iot-hub-create-through-portal.md
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

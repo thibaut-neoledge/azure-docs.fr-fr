@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c7bdcc824654086ea5f7a3099e95b39bca99a46b
-ms.openlocfilehash: 80022c9a1983ccc53778a09d836ddfb476803dac
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
 
 
 ---
-# <a name="tutorial-build-your-first-pipeline-to-process-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -29,31 +29,34 @@ ms.openlocfilehash: 80022c9a1983ccc53778a09d836ddfb476803dac
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
-> 
-> 
 
-Dans ce didacticiel, vous devez générer votre première fabrique de données Azure avec un pipeline de données qui traite les données en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop). 
+Dans ce didacticiel, vous allez générer votre première fabrique de données Azure avec un pipeline de données. Le pipeline transforme les données d’entrée en exécutant un script Hive sur un cluster Azure HDInsight (Hadoop) pour produire des données de sortie.  
 
-> [!NOTE]
-> Cet article ne fournit pas de vue d’ensemble conceptuelle d’Azure Data Factory. Pour obtenir une vue d’ensemble conceptuelle de ce service, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md). Consultez la page [Parcours d’apprentissage Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/) pour connaître la méthode recommandée pour naviguer dans notre contenu afin d’en savoir plus sur Data Factory.
-> 
-> 
+Cet article fournit une vue d’ensemble et la configuration requise pour le didacticiel. Si vous disposez de tout ce qui est nécessaire, vous pouvez suivre le didacticiel en utilisant les outils/kits de développement logiciel (SDK) ci-après : portail Azure, Visual Studio, PowerShell, modèle Resource Manager, API REST. Sélectionnez l’une des options de la liste déroulante au début ou les liens à la fin de cet article pour suivre ce didacticiel en utilisant l’une ou l’autre des possibilités.    
 
-## <a name="whats-covered-in-this-tutorial"></a>Sujets traités dans ce didacticiel
-**Azure Data Factory** permet de concevoir des tâches de **déplacement** et de **traitement** de données dans des flux de travail pilotés par les données (également appelés pipelines de données). Vous apprenez à créer votre premier pipeline de données avec une activité de traitement de données (ou de transformation de données). Cette activité utilise un cluster HDInsight Hadoop pour transformer et analyser des exemples de journaux web.  
-
+## <a name="tutorial-overview"></a>Vue d’ensemble du didacticiel
 Dans ce didacticiel, vous effectuerez les étapes suivantes :
 
-1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines de données qui déplacent et traitent des données. 
-2. Créer des **services liés**. Vous créez un service lié pour lier un magasin de données ou un service de calcul à la fabrique de données. Un magasin de données comme Azure Storage conserve les données d’entrée/de sortie d’activités dans le pipeline. Un service de calcul comme un cluster HDInsight Hadoop traite/transforme des données.    
+1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines de données qui déplacent et transforment des données. 
+
+    Dans ce didacticiel, vous créez un pipeline dans la fabrique de données. 
+2. Création d'un **pipeline**. Un pipeline peut avoir une ou plusieurs activités (exemples : activité de copie, activité Hive HDInsight). Cet exemple utilise l’activité Hive d’HDInsight, qui exécute un script Hive sur un cluster HDInsight Hadoop. Le script crée d’abord une table qui fait référence aux données de journaux web bruts stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
+
+    Dans ce didacticiel, le pipeline utilise l’activité Hive pour transformer les données en exécutant une requête Hive sur un cluster Azure HDInsight Hadoop. 
+3. Créer des **services liés**. Vous créez un service lié pour lier un magasin de données ou un service de calcul à la fabrique de données. Un magasin de données comme Azure Storage conserve les données d’entrée/de sortie d’activités dans le pipeline. Un service de calcul comme un cluster HDInsight Hadoop traite/transforme des données.
+
+    Dans ce didacticiel, vous allez créer deux services liés : **Azure Storage** et **Azure HDInsight**. Le service lié du stockage Azure relie un compte de stockage Azure qui contient les données d’entrée/de sortie de la fabrique de données. Le service lié Azure HDInsight relie un cluster Azure HDInsight qui est utilisé pour transformer les données de la fabrique de données. 
 3. Créer des **jeux de données**d’entrée et de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité.
-4. Créer le **pipeline**. Un pipeline peut avoir une ou plusieurs activités (exemples : activité de copie, activité Hive HDInsight). Cet exemple utilise l’activité Hive d’HDInsight, qui exécute un script Hive sur un cluster HDInsight Hadoop. Le script crée d’abord une table qui fait référence aux données de journaux web bruts stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
-   
-   Azure Data Factory prend deux types d’activités en charge. Il s’agit des [activités de déplacement des données](data-factory-data-movement-activities.md) et des [activités de transformation des données](data-factory-data-transformation-activities.md). Il n’existe qu’une seule activité de déplacement de données, l’activité de copie. Dans ce didacticiel, vous n’utilisez pas l’activité de copie. Pour un didacticiel sur l’utilisation de l’activité de copie, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). L’activité HDInsight Hive que vous utilisez dans ce didacticiel fait partie des activités de transformation de données prises en charge par Data Factory.  
 
-Voici la **vue schématique** de l’exemple de fabrique de données que vous créez dans ce didacticiel. 
+    Dans ce didacticiel, les jeux de données d’entrée et de sortie indiquent des emplacements de données d’entrée et de sortie dans le stockage Blob Azure. Le service lié du stockage Azure indique quel compte de stockage Azure est utilisé. Un jeu de données d’entrée spécifie l’emplacement des fichiers d’entrée, tandis qu’un jeu de données de sortie indique l’emplacement des fichiers de sortie. 
 
-![Vue Diagramme dans le didacticiel Data Factory](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+
+Pour obtenir une présentation détaillée d’Azure Data Factory, consultez l’article [Présentation d’Azure Data Factory](data-factory-introduction.md).
+  
+Voici la **vue schématique** de l’exemple de fabrique de données que vous créez dans ce didacticiel. **MyFirstPipeline** a une activité de type Hive qui utilise le jeu de données **AzureBlobInput** comme une entrée et génère le jeu de données **AzureBlobOutput** en tant que sortie. 
+
+![Vue Diagramme dans le didacticiel Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+
 
 Dans ce didacticiel, le dossier **inputdata** du conteneur d’objets blob Azure **adfgetstarted** contient un fichier nommé input.log. Ce fichier journal contient les entrées de trois mois : janvier, février et mars 2016. Voici les échantillons de lignes pour chaque mois du fichier d’entrée. 
 
@@ -77,178 +80,35 @@ Dans les échantillons de lignes ci-dessus, la première (avec 2016-01-01) est �
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 1. **Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
-2. **Stockage Azure** : dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker les données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . Après avoir créé le compte de stockage, notez le **nom du compte** et la **clé d’accès**. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys). 
+2. **Stockage Azure** : dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker les données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . Après avoir créé le compte de stockage, notez le **nom du compte** et la **clé d’accès**. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+3. Téléchargez et consultez le fichier de requête Hive (**HQL**) situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Il s’agit de la requête qui transforme les données d’entrée pour produire des données de sortie. 
+4. Téléchargez et consultez l’exemple de fichier d’entrée (**input.log**) situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
+5. Créez un conteneur de blobs nommé **adfgetstarted** dans votre stockage Blob Azure. 
+6. Chargez le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Utilisez des outils tels que [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/). 
+7. Chargez le fichier **input.log** dans le dossier **inputdata** du conteneur **adfgetstarted**. 
 
-### <a name="upload-files-to-azure-storage-for-the-tutorial"></a>Charger des fichiers dans Azure Storage pour le didacticiel
-Avant de commencer le didacticiel, vous devez préparer votre compte de stockage Azure avec les exemples de fichiers du didacticiel.
+Si vous disposez de tout ce qui est nécessaire, sélectionnez l’un des outils/kits de développement logiciel (SDK) ci-dessous pour suivre ce didacticiel : 
 
-1. Chargez le fichier de requête Hive (HQL) dans le dossier **script** du conteneur d’objets blob **adfgetstarted**.
-2. Chargez le fichier d’entrée dans le dossier **inputdata** du conteneur d’objets blob **adfgetstarted**. 
+- [portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-#### <a name="create-hql-script-file"></a>Créer le fichier de script HQL
-Lancez le **Bloc-notes** et collez le script HQL suivant. Ce script Hive crée deux tables : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** dans le menu et sélectionnez **Enregistrer sous**. Accédez au dossier **C:\adfgetstarted** de votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
+Le portail Azure et Visual Studio proposent une méthode utilisant l’interface utilisateur graphique pour créer vos fabriques de données. Quant aux options fournies par l’API REST, le modèle Resource Manager et PowerShell, elles vous permettent de créer vos fabriques de données via des scripts et des programmes.
 
-```SQL   
-set hive.exec.dynamic.partition.mode=nonstrict;
-
-DROP TABLE IF EXISTS WebLogsRaw; 
-CREATE TABLE WebLogsRaw (
-  date  date,
-  time  string,
-  ssitename string,
-  csmethod  string,
-  csuristem  string,
-  csuriquery string,
-  sport int,
-  susername string,
-  cipcsUserAgent string,
-  csCookie string,
-  csReferer string,
-  cshost  string,
-  scstatus  int,
-  scsubstatus  int,
-  scwin32status  int,
-  scbytes int,
-  csbytes int,
-  timetaken int
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-LINES TERMINATED BY '\n' 
-tblproperties ("skip.header.line.count"="2");
-
-LOAD DATA INPATH '${hiveconf:inputtable}' OVERWRITE INTO TABLE WebLogsRaw;
-
-DROP TABLE IF EXISTS WebLogsPartitioned ; 
-create external table WebLogsPartitioned (  
-  date  date,
-  time  string,
-  ssitename string,
-  csmethod  string,
-  csuristem  string,
-  csuriquery string,
-  sport int,
-  susername string,
-  cipcsUserAgent string,
-  csCookie string,
-  csReferer string,
-  cshost  string,
-  scstatus  int,
-  scsubstatus  int,
-  scwin32status  int,
-  scbytes int,
-  csbytes int,
-  timetaken int
-)
-partitioned by ( year int, month int)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-STORED AS TEXTFILE 
-LOCATION '${hiveconf:partitionedtable}';
-
-INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
-SELECT
-  date,
-  time,
-  ssitename,
-  csmethod,
-  csuristem,
-  csuriquery,
-  sport,
-  susername,
-  cipcsUserAgent,
-  csCookie,
-  csReferer,
-  cshost,
-  scstatus,
-  scsubstatus,
-  scwin32status,
-  scbytes,
-  csbytes,
-  timetaken,
-  year(date),
-  month(date)
-FROM WebLogsRaw
-```
-
-Lors de l’exécution, l’activité Hive dans le pipeline Data Factory transmet les valeurs pour les paramètres **inputtable** et **partitionedtable** comme indiqué dans l’extrait de code suivant :  
-
-```JSON
-"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-```
-
-La valeur **storageaccountname** est le nom de votre compte de stockage Azure.
-
-#### <a name="create-a-sample-input-file"></a>Créer un exemple de fichier d’entrée
-Dans le Bloc-notes, créez un fichier nommé **input.log** dans le dossier **c:\adfgetstarted** avec le contenu suivant : 
-
-```
-#Software: Microsoft Internet Information Services 8.0
-#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step5.png X-ARR-LOG-ID=9b0c14b1-434d-495a-9b0d-46775194257b 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 37931 871 32
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step6.png X-ARR-LOG-ID=f99cff81-ec38-4a13-b2fe-21b10adca996 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 27146 871 47
-2016-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step1.png X-ARR-LOG-ID=af94d3b4-8e05-4871-82c4-638f866d4e83 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 66259 871 140
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-02-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-03-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-03-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-03-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-03-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-2016-03-01 02:01:10 SAMPLEWEBSITE GET /blogposts/mvc4/step7.png X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 30184 871 47
-```
-
-#### <a name="upload-input-file-and-hql-file-to-your-azure-blob-storage"></a>Charger le fichier d’entrée et le fichier HQL dans votre stockage d’objets blob Azure
-Cette section explique comment utiliser l’outil **AzCopy** pour copier les fichiers input.log et partitionweblogs.hql dans le stockage d’objets Blob Azure. Vous pouvez utiliser n’importe quel outil de votre choix (par exemple l’[Explorateur de stockage Microsoft Azure](http://storageexplorer.com/), [CloudXPlorer de ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer)) pour effectuer cette tâche.   
-
-1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [dernière version Preview](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
-2. Accédez au dossier c:\adfgetstarted et exécutez la commande suivante : 
-
-    ```
-    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy" /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storageaccesskey>  /Pattern:input.log
-    ```   
-    Cette commande permet de télécharger le fichier **input.log** dans le compte de stockage (conteneur **adfgetstarted** et dossier **inputdata**). Remplacez **storageaccountname** par le nom de votre compte de stockage et **storageaccesskey** par la clé d’accès de stockage.
-   
-   > [!NOTE]
-   > Cette commande crée un conteneur nommé **adfgetstarted** dans votre stockage blob Azure et copie le fichier **input.log** de votre disque local vers le dossier **inputdata** du conteneur. 
-   > 
-   > 
-3. Une fois que le fichier a été chargé, vous voyez une sortie d’AzCopy similaire à la suivante.
-
-    ```   
-    Finished 1 of total 1 file(s).
-    [2015/12/16 23:07:33] Transfer summary:
-    -----------------
-    Total files transferred: 1
-    Transfer successfully:   1
-    Transfer skipped:        0
-    Transfer failed:         0
-    Elapsed time:            00.00:00:01
-    ```
-4. Exécutez la commande suivante pour charger le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Voici la commande : 
-
-    ```   
-    AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
-    ```
-
-Vous avez terminé les étapes préalables requises. Créez une fabrique de données à l’aide de l’une des manières suivantes. Cliquez sur l’une des options de la liste déroulante en haut ou sur les liens suivants pour suivre le didacticiel. 
-
-* [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
-* [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-* [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-* [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-* [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> [!NOTE]
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+  
+
+
+<!--HONumber=Feb17_HO1-->
 
 

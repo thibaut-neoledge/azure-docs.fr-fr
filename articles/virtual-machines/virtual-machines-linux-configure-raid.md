@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 02/02/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
-ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
+ms.sourcegitcommit: 6d1f26e462e011a2226ac5a14c7dc3360d0c6f36
+ms.openlocfilehash: f06703d4082e55d571367fe61221d657b3e30a58
 
 
 ---
@@ -132,7 +132,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11 et openSUSE** : activez boot.md et créez mdadm.conf
+    c. **SLES 11** : activez boot.md et créez mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -167,7 +167,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
     ```
    
-    Sur **SLES 11 et openSUSE** :
+    Ou sur **SLES 11** :
 
     ```bash
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
@@ -241,6 +241,6 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

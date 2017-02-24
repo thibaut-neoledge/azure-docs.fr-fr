@@ -3,7 +3,7 @@ title: "Ajouter votre nom de domaine personnalisé et configurer l’authentific
 description: "Découvrez comment ajouter les noms de domaine de votre entreprise à Azure Active Directory et comment configurer l’authentification fédérée entre Azure Active Directory et votre solution de fédération locale."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

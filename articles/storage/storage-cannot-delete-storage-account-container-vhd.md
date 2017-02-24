@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 822bace005a6244a47c9484487dab85b1aec9d9a
-ms.openlocfilehash: e20b1ca582c56da7b4fb1e2df3be90bd1c29a8b6
+ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
+ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
 
 
 ---
@@ -36,29 +36,21 @@ Si le problème lié à Azure n’est pas traité dans cet article, parcourez le
 La section suivante répertorie les erreurs courantes que vous pourriez recevoir quand vous tentez de supprimer les comptes de stockage Azure, les conteneurs ou les disques durs virtuels.
 
 ### <a name="scenario-1-unable-to-delete-a-storage-account"></a>Scénario 1 : Impossible de supprimer un compte de stockage
-Lorsque vous accédez au compte de stockage dans le [portail Azure](https://portal.azure.com/) ou dans le [portail Azure Classic](https://manage.windowsazure.com/) et que vous sélectionnez **Supprimer**, le message d'erreur suivant peut s’afficher :
+Lorsque vous accédez au compte de stockage classique dans le [portail Azure](https://portal.azure.com/) et que vous sélectionnez **Supprimer**, une liste des objets qui empêchent la suppression du compte de stockage peut s’afficher :
 
-*Le compte de stockage StorageAccountName contient des images de machine virtuelle. Supprimez ces images de machine virtuelle avant de supprimer ce compte de stockage.*
+  ![Image de l’erreur qui se produit lors de la suppression du compte de stockage](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-Il est également possible que vous obteniez cette erreur :
+Lorsque vous accédez au compte de stockage dans le [portail Azure Classic](https://manage.windowsazure.com/) et que vous sélectionnez **Supprimer**, l’une des erreurs suivantes peut s’afficher :
 
-**Dans le portail Azure**:
+- *Le compte de stockage StorageAccountName contient des images de machine virtuelle. Supprimez ces images de machine virtuelle avant de supprimer ce compte de stockage.*
 
-*Échec de suppression du compte de stockage <vm-storage-account-name>. Impossible de supprimer le compte de stockage <vm-storage-account-name> : Storage account <vm-storage-account-name> contient des images et/ou des disques actifs. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage. ».*
+- *Échec de suppression du compte de stockage <vm-storage-account-name>. Impossible de supprimer le compte de stockage <vm-storage-account-name> : Storage account <vm-storage-account-name> contient des images et/ou des disques actifs. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage. ».*
 
-**Dans le portail Azure Classic**:
+- *Le compte de stockage <vm-storage-account-name> contient des images et/ou des disques actifs, par exemple, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage.*
 
-*Le compte de stockage <vm-storage-account-name> contient des images et/ou des disques actifs, par exemple, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Supprimez ces images et/ou disques avant de supprimer ce compte de stockage.*
+- *Le compte de stockage <vm-storage-account-name> contient 1 ou plusieurs conteneurs avec une image active et/ou des artefacts de disque. Supprimez ces artefacts du dépôt d’images avant de supprimer ce compte de stockage*.
 
-ou
-
-**Dans le portail Azure**:
-
-*Le compte de stockage <vm-storage-account-name> contient 1 ou plusieurs conteneurs avec une image active et/ou des artefacts de disque. Supprimez ces artefacts du dépôt d’images avant de supprimer ce compte de stockage*.
-
-**Dans le portail Azure Classic**:
-
-*Échec d’envoi : le compte de stockage <vm-storage-account-name> contient 1 ou plusieurs conteneurs avec une image active et/ou des artefacts de disque. Supprimez ces artefacts du dépôt d’images avant de supprimer ce compte de stockage. Quand vous essayez de supprimer un compte de stockage auquel sont associés des disques toujours actifs, un message vous informe que des disques actifs doivent être supprimés*.
+- *Échec d’envoi : le compte de stockage <vm-storage-account-name> contient 1 ou plusieurs conteneurs avec une image active et/ou des artefacts de disque. Supprimez ces artefacts du dépôt d’images avant de supprimer ce compte de stockage. Quand vous essayez de supprimer un compte de stockage auquel sont associés des disques toujours actifs, un message vous informe que des disques actifs doivent être supprimés*.
 
 ### <a name="scenario-2-unable-to-delete-a-container"></a>Scénario 2 : Impossible de supprimer un conteneur
 Quand vous essayez de supprimer le conteneur de stockage, il est possible que vous rencontriez l’erreur suivante :
@@ -89,7 +81,7 @@ Pour résoudre les problèmes les plus courants, essayez la méthode suivante :
 3. Recherchez les disques associés au compte de stockage, au conteneur ou au disque dur virtuel à supprimer. En vérifiant l’emplacement du disque, vous trouverez le compte de stockage, le conteneur et le disque dur virtuel associés.
 
     ![Image qui affiche des informations d'emplacement sur les disques sur le portail Azure Classic](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
-4. Utilisez l’une des méthodes suivantes pour supprimer les disques :
+4. Supprimez les disques en utilisant l’une des méthodes suivantes :
 
   - Si aucune machine virtuelle n’est indiquée dans le champ **Attaché à** des disques, vous pouvez supprimer le disque directement.
 
@@ -125,7 +117,7 @@ Pour résoudre les problèmes les plus courants, essayez la méthode suivante :
     Ensuite, réessayez de supprimer le compte de stockage, le conteneur ou le disque dur virtuel.
 
 > [!WARNING]
-> Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Il n’est pas possible de restaurer un compte de stockage supprimé ou de récupérer son contenu avant la suppression. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un disque dur virtuel, un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible. Vérifiez que la ressource n’est pas en cours d’utilisation.
+> Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Lorsque vous supprimez un VHD, un blob, une table, une file d’attente ou un fichier, il est définitivement supprimé. Vérifiez que la ressource n’est pas en cours d’utilisation.
 >
 >
 
@@ -148,6 +140,6 @@ Le statut « Arrêté (désalloué) » libère les ressources de l'ordinateur (p
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

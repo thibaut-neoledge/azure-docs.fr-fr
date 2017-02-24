@@ -4,7 +4,7 @@ description: "Présente en détail les nombreuses méthodes de sécurisation d�
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d943e28507de9675d30e662354ca811fbd8c1b4a
-ms.openlocfilehash: 489041f211f28dd373e34bf9ba719d7fcc8c035d
+ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
+ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
 
 
 ---
@@ -55,7 +55,7 @@ Quand vous créez un compte de stockage, vous sélectionnez un modèle de déplo
 Ce guide porte essentiellement sur le modèle Resource Manager, qui est la méthode recommandée pour créer des comptes de stockage. Au lieu d’accorder l’accès à l’ensemble de l’abonnement, les comptes de stockage Resource Manager vous permettent de contrôler l’accès au plan de gestion à un niveau plus limité en utilisant le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)
-Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Avec le modèle Gestionnaire de ressources, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.
 
@@ -328,33 +328,41 @@ Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres cl�
   Cet article explique le fonctionnement du chiffrement côté client. Il fournit des exemples d’utilisation de la bibliothèque cliente de stockage pour chiffrer et déchiffrer les ressources des quatre services de stockage. Il parle également d’Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Utilisation de la fonctionnalité Azure Disk Encryption pour chiffrer les disques utilisés par vos machines virtuelles
-Azure Disk Encryption est une nouvelle fonctionnalité qui est actuellement disponible en version préliminaire. Cette fonctionnalité vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
+Azure Disk Encryption est une nouvelle fonctionnalité. Cette fonctionnalité vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
 
-Azure Disk Encryption convient pour les trois scénarios de chiffrement client suivants :
-
-* Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir des fichiers VHD chiffrés par le client et des clés de chiffrement fournies par le client, qui sont stockées dans Azure Key Vault.
-* Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’Azure Marketplace.
-* Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà dans Azure.
-
-> [!NOTE]
-> Pour les machines virtuelles Linux en cours d’exécution dans Azure ou les nouvelles machines virtuelles Linux créées à partir d’images dans Azure Marketplace, le chiffrement du disque du système d’exploitation n’est actuellement pas pris en charge. Le chiffrement du volume du système d’exploitation pour les machines virtuelles Linux est pris en charge uniquement pour les machines virtuelles qui ont été chiffrées sur site et téléchargées dans Azure. Cette restriction s’applique uniquement au disque du système d’exploitation ; le chiffrement des volumes de données pour une machine virtuelle Linux est pris en charge.
-> 
-> 
-
-La solution prend en charge les éléments de machines virtuelles IaaS en version préliminaire qui suivent lorsqu’elle est activée dans Microsoft Azure :
+La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 
 * Prise en main d’Azure Key Vault
-*  [Machines virtuelles IaaS des séries A, D et G](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Activer le chiffrement sur les machines virtuelles IaaS créées à l’aide du modèle [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* Toutes les [régions](https://azure.microsoft.com/regions/)
+* Machines virtuelles de niveau standard : [Machines virtuelles IaaS des séries A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Activation du chiffrement sur les machines virtuelles IaaS Windows et Linux
+* Désactivation du chiffrement sur les systèmes d’exploitation et les lecteurs de données pour les machines virtuelles IaaS Windows
+* Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
+* Activation du chiffrement sur les machines virtuelles IaaS exécutant le système d’exploitation client Windows
+* Activation du chiffrement sur les volumes avec chemins d’accès de montage
+* Activation du chiffrement sur les machines virtuelles Linux configurées avec entrelacement (RAID) à l’aide de mdadm
+* Activation du chiffrement sur les machines virtuelles Linux à l’aide de LVM pour les disques de données
+* Activation du chiffrement sur les machines virtuelles Windows configurées à l’aide d’espaces de stockage
+* Toutes les régions publiques Azure sont prises en charge
+
+La solution ne prend pas en charge les scénarios, fonctionnalités et technologies suivants dans la version :
+
+* Machines virtuelles IaaS de niveau de base
+* Désactivation du chiffrement sur un lecteur de système d’exploitation pour les machines virtuelles IaaS Linux
+* Machines virtuelles IaaS créées à l’aide de la méthode classique de création de machines virtuelles
+* Intégration à votre service de gestion de clés local
+* Azure Files (système de partage de fichiers), NFS (Network File System), volumes dynamiques et machines virtuelles Windows configurées avec des systèmes RAID logiciels
+
+
+> [!NOTE]
+> Le chiffrement de disque du système d’exploitation Linux est actuellement pris en charge sur les distributions Linux suivantes : RHEL 7.2, CentOS 7.2n et Ubuntu 16.04.
+> 
+> 
 
 Cette fonctionnalité garantit que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans Azure Storage.
 
-#### <a name="resources"></a>Ressources
-* [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+#### <a name="resources"></a>les ressources
+* [Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
   
-  Cet article traite de la fonctionnalité Azure Disk Encryption en version préliminaire et fournit un lien de téléchargement du livre blanc.
-
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparaison entre Azure Disk Encryption, SSE et le chiffrement côté client
 #### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
 Pour les disques utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Vous pouvez activer SSE pour chiffrer les fichiers VHD qui sont utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite SSE sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
@@ -527,6 +535,6 @@ Pour plus d’informations sur CORS et sur la façon de l’activer, consultez l
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

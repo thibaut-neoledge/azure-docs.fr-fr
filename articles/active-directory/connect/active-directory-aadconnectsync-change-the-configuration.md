@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect Sync : comment modifier la configuration par défaut | Microsoft Docs"
+title: 'Synchronisation Azure AD Connect : Apporter une modification dans la synchronisation Azure AD Connect | Microsoft Docs'
 description: "Cet article vous guide dans les changements de configuration d’Azure AD Connect Sync."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
+ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
+ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
 
 
 ---
@@ -65,7 +65,7 @@ Par défaut, le [planificateur](active-directory-aadconnectsync-feature-schedule
 4. Ne renseignez pas le champ **Join rule**(Règles de jointure).
 5. Sur la page **Transformations**, définissez le type de flux sur **Expression**. Sélectionnez l’attribut cible **givenName** et, dans Source, entrez `PCase([givenName])`.
    ![Transformations des règles entrantes](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
-    Le moteur de synchronisation respecte la casse aussi bien pour le nom de la fonction que pour le nom de l’attribut. Si vous faites une erreur de saisie, un message d’avertissement s’affiche lorsque vous ajoutez la règle. L’éditeur vous permet d’enregistrer et de continuer, mais vous devrez donc rouvrir la règle pour la corriger.
+   Le moteur de synchronisation respecte la casse aussi bien pour le nom de la fonction que pour le nom de l’attribut. Si vous faites une erreur de saisie, un message d’avertissement s’affiche lorsque vous ajoutez la règle. L’éditeur vous permet d’enregistrer et de continuer, mais vous devrez donc rouvrir la règle pour la corriger.
 6. Cliquez sur **Ajouter** pour enregistrer la règle.
 
 Votre nouvelle règle personnalisée doit être visible pour les autres règles de synchronisation du système.
@@ -83,12 +83,12 @@ Démarrez le **Service de synchronisation** depuis le menu Démarrer. Les étape
    ![Synchronisation complète](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    Les objets ne sont pas mis à jour dans le métaverse. Vous voulez à présent examiner l’objet dans le métaverse.
 2. **Aperçu et synchronisation complète d’un seul objet**  
-   Sous Actions, sélectionnez **Connecteurs** en haut de la page. Identifiez le connecteur que vous avez modifié dans la section précédente (dans ce cas, les services de domaine Active Directory), puis sélectionnez-le. Sélectionnez **Search Connector Space**(Rechercher l’espace de connecteur). Utilisez l’étendue pour rechercher un objet que vous souhaitez utiliser pour tester les modifications. Sélectionnez l’objet et cliquez sur **Aperçu**. Dans le nouvel écran, sélectionnez **Commit Preview**(Valider l’aperçu).
+   Sous Actions, sélectionnez **Connecteurs** en haut de la page. Identifiez le connecteur que vous avez modifié dans la section précédente (dans ce cas, les services de domaine Active Directory), puis sélectionnez-le. Sélectionnez **Search Connector Space**(Rechercher l’espace de connecteur). Utilisez l’étendue pour rechercher un objet que vous souhaitez utiliser pour tester les modifications. Sélectionnez l’objet et cliquez sur **Aperçu**. Dans le nouvel écran, sélectionnez **Commit Preview**(Valider l’aperçu).  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
-    La modification est maintenant validée dans le métaverse.
+   La modification est maintenant validée dans le métaverse.
 
 **Consulter l’objet dans le métaverse**  
- Vous souhaitez maintenant choisir quelques exemples d’objets pour vous assurer que la valeur correspond à celle attendue et que la règle est bien appliquée. Sélectionnez **Metaverse Search** (Recherche dans le métaverse) en haut de l’écran. Ajoutez les filtres dont vous avez besoin pour rechercher les objets appropriés. Dans les résultats de la recherche, ouvrez un objet. Examinez les valeurs d’attribut et vérifiez dans la colonne **Règles de synchronisation** que la règle a bien été appliquée comme prévu.  
+Vous souhaitez maintenant choisir quelques exemples d’objets pour vous assurer que la valeur correspond à celle attendue et que la règle est bien appliquée. Sélectionnez **Metaverse Search** (Recherche dans le métaverse) en haut de l’écran. Ajoutez les filtres dont vous avez besoin pour rechercher les objets appropriés. Dans les résultats de la recherche, ouvrez un objet. Examinez les valeurs d’attribut et vérifiez dans la colonne **Règles de synchronisation** que la règle a bien été appliquée comme prévu.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Activation du planificateur
@@ -107,7 +107,7 @@ Pour créer une règle avec d’autres flux d’attributs, procédez comme suit�
 
 * Ouvrez l’ **Éditeur de règles de synchronisation** depuis le menu Démarrer.
 * En maintenant l’option **Entrant** sélectionnée sur la gauche, cliquez sur le bouton **Ajouter une nouvelle règle**.
-* Attribuez à la règle un nom et une description. Sélectionnez Active Directory local et les types d’objets appropriés.  Dans **Type de lien**, sélectionnez **Jointure**. Pour le choix de la priorité, sélectionnez un nombre qui n’est pas utilisé par une autre règle. Les règles par défaut commencent à 100, donc, il est possible d’utiliser la valeur 50 dans cet exemple.
+* Attribuez à la règle un nom et une description. Sélectionnez Active Directory local et les types d’objets appropriés. Dans **Type de lien**, sélectionnez **Jointure**. Pour le choix de la priorité, sélectionnez un nombre qui n’est pas utilisé par une autre règle. Les règles par défaut commencent à 100, donc, il est possible d’utiliser la valeur 50 dans cet exemple.
   ![Flux d’attributs 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * Laissez l’option d’étendue vide (elle doit s’appliquer à tous les objets utilisateur de la forêt).
 * Laissez les règles de jointure vides (c’est la règle par défaut qui doit gérer toutes les jointures).
@@ -133,7 +133,7 @@ Dans cette expression, prenons tout ce qui figure à gauche du premier signe @-s
 Certains attributs dans Active Directory sont à valeurs multiples dans le schéma, même s’ils semblent être à valeur unique dans Utilisateurs et ordinateurs Active Directory. L’attribut description constitue un exemple.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-Dans cette expression, au cas où l’attribut a une valeur, nous prenons le premier élément (Item) dans l’attribut, nous supprimons les espaces à gauche et à droite (Trim), puis nous conservons les 448 premiers caractères (Left) dans la chaîne.
+Dans cette expression, au cas où l’attribut a une valeur, prenez le premier élément (Item) dans l’attribut, supprimez les espaces à gauche et à droite (Trim), puis conservez les 448 premiers caractères (Left) de la chaîne.
 
 ### <a name="do-not-flow-an-attribute"></a>Ne transmettez pas d'attribut
 Pour plus d’informations sur le scénario de cette section, consultez la section [Contrôler le processus de flux d’attributs](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
@@ -152,6 +152,25 @@ Chez Fabrikam, nous nous sommes rendus compte que certains des attributs que nou
 * Vérifiez que les modifications prévues vont être exportées en recherchant l'espace de connecteur.
   ![Suppression progressive](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## <a name="create-rules-with-powershell"></a>Création de règles avec PowerShell
+L’éditeur de règles de synchronisation est adapté lorsque vous avez seulement quelques modifications à apporter. Si vous devez apporter de nombreuses modifications, PowerShell peut être une meilleure option. Certaines fonctionnalités avancées sont uniquement disponibles avec PowerShell.
+
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>Obtenir le script PowerShell pour une règle out-of-box
+Pour voir le script PowerShell qui a créé une règle out-of-box, sélectionnez la règle dans l’éditeur de règles de synchronisation, puis cliquez sur **Exporter**. Cette action vous donne le script PowerShell qui a créé la règle.
+
+### <a name="advanced-precedence"></a>Priorité avancée
+Les règles de synchronisation out-of-box commencent avec une valeur de priorité de 100. Si vous avez de nombreuses forêts et que vous devez apporter de nombreuses modifications personnalisées, 99 règles de synchronisation pourraient ne pas suffire.
+
+Vous pouvez indiquer au moteur de synchronisation que vous souhaitez que des règles supplémentaires soient insérées avant les règles out-of-box. Pour obtenir ce comportement, procédez comme suit :
+
+1. Marquez la première règle de synchronisation d’out-of-box (cette règle est **Obtenu par jointure d’utilisateurs AD**) dans l’éditeur de règles de synchronisation, puis sélectionnez **Exporter**. Copiez la valeur d’identificateur SR.  
+![PowerShell avant modification](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. Créez la nouvelle règle de synchronisation. Vous pouvez utiliser l’éditeur de règles de synchronisation pour la créer. Exportez la règle dans un script PowerShell.
+3. Dans la propriété **PrecedenceBefore**, insérez la valeur d’identificateur de la règle out-of-box. Définissez la **priorité** sur **0**. Assurez-vous que l’attribut d’identificateur est unique et que vous ne réutilisez pas un GUID à partir d’une autre règle. Assurez-vous également que la propriété **ImmutableTag** n’est pas définie, car cette propriété doit uniquement être définie pour une règle out-of-box. Enregistrez le script PowerShell et exécutez-le. Le résultat est que votre règle personnalisée se voit affecter la priorité 100 et que toutes les autres règles out-of-box sont incrémentées.  
+![PowerShell après modification](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+Vous pouvez avoir plusieurs règles de synchronisation personnalisées utilisant la même valeur **PrecedenceBefore** si nécessaire.
+
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
@@ -163,7 +182,6 @@ Chez Fabrikam, nous nous sommes rendus compte que certains des attributs que nou
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

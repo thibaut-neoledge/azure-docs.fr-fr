@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ba2e051f4f14db10a83d6aaf90fc6355cef586a
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
 
 
 ---
@@ -27,7 +27,7 @@ L’intégration de People à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à People
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à People (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez gérer vos comptes à un emplacement central avec le portail Azure Classic
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à People, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure
-* Un abonnement People pour lequel l’authentification unique est activée
+* Un abonnement People pour lequel l’authentification unique (SSO) est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -96,7 +96,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’application **People**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    [Configuration de l’authentification unique][6] 
+    [Configurer l’authentification unique][6] 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à People ?**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_03.png) 
@@ -104,33 +104,24 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
    
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application People au format suivant : **« https://\<company name\>.peoplehr.com/ »**. 
-   
-    b. Si vous ne connaissez pas l’URL de votre locataire, contactez l’équipe de support People via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) pour l’obtenir.  
-   
-    c. Dans la zone de texte **Identificateur** , tapez l’URL du locataire. 
-   
-    d. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : « **https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx** ».
-   
-    e. Cliquez sur **Suivant**
+   1. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application People au format suivant : **« https://\<company name\>.peoplehr.com/ »**. 
+   2. Si vous ne connaissez pas l’URL de votre locataire, contactez l’équipe de support People via [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) pour l’obtenir.    3. Dans la zone de texte **Identificateur** , tapez l’URL du locataire. 
+   4. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : « **https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx** ».
+   5. Cliquez sur **Next**.
 4. Dans la page **Configurer l’authentification unique sur People**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
    
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
+   1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+   2. Cliquez sur **Suivant**.
 5. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire People en tant qu’administrateur.
    
-    a. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
-   
-    b. Cliquez sur **Company**(Entreprise).
+   1. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)    
+   2. Cliquez sur **Company**(Entreprise).
    
     ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
-   
-    c. Dans **Upload 'Single Sign On' SAML meta-data file** (Charger le fichier de métadonnées SAML Authentification unique), cliquez sur **Browse** (Parcourir) pour charger le fichier de métadonnées téléchargé.
+    3. Dans **Upload 'Single Sign On' SAML meta-data file** (Charger le fichier de métadonnées SAML Authentification unique), cliquez sur **Browse** (Parcourir) pour charger le fichier de métadonnées téléchargé.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
@@ -162,24 +153,18 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+    1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+    2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+    3. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   1. Dans la zone de texte **First Name**, tapez **Britta**.  
+   2. Dans la zone de texte **Last Name**, tapez **Simon**.
+   3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+   5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
@@ -187,9 +172,8 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
    
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+   1. Notez la valeur du **Nouveau mot de passe**.
+   2. Cliquez sur **Terminé**.   
 
 ### <a name="creating-a-people-test-user"></a>Création d’un utilisateur de test People
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans People. People ne prenant pas en charge l’approvisionnement juste-à-temps, vous devez contacter l’équipe de support People pour créer un utilisateur manuellement.
@@ -243,6 +227,6 @@ Quand vous cliquez sur la vignette People dans le volet d’accès, vous devez �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

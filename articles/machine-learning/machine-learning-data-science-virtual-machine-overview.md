@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 
 
 ---
@@ -50,18 +50,23 @@ La machine virtuelle Science des données peut être utilisée pour évaluer ou 
 De nombreux outils de science des données populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft R Server ou de SQL Server 2016. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
 
 | **Édition Windows** | **Édition Linux** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Jupyter Notebook (R, Python) |JupyterHub : Jupyter notebooks multi-utilisateurs (R, Python, Julia) |
-| SQL Server 2016 Developer Edition : analyse dans la base de données évolutive avec les services R |Postgres, SQuirreL SQL (outil de base de données), pilotes SQL Server et ligne de commande (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Outils Node.js, Python et R pour Visual Studio |IDE et éditeurs </br> - Plug-in du kit de ressources Eclipse avec Azure </br> - Emacs (avec SSE, auctex) gedit |
+| -- | --|
+| Microsoft R Open avec packages courants préinstallés | Microsoft R Open avec packages courants préinstallés |
+| Microsoft R Server Developer Edition avec algorithmes MicrosoftML et Microsoft R opérationnels  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 avec packages courants préinstallés|
+| JuliaPro avec packages courants préinstallés | JuliaPro avec packages courants préinstallés |
+| Jupyter Notebook Server (R, Python, Julia) |JupyterHub : blocs-notes Jupyter multi-utilisateurs (R, Python, Julia) |
+| SQL Server 2016 SP1 Developer Edition : analyse en base de données évolutive avec les services R |PostgreSQL, SQuirreL SQL (outil de base de données), pilotes SQL Server et ligne de commande (bcp, sqlcmd) |
+|-  Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools </br> - Node.js, Python et outils R pour Visual Studio (RTVS 0.5) </br>- R Studio Desktop|IDE et éditeurs </br> - Plug-in du kit de ressources Eclipse avec Azure </br> - Emacs (avec SSE, auctex) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Visual Studio Code|
 | Power BI Desktop |-- |
-| Outils d’apprentissage automatique </br> - Intégration à Azure Machine Learning </br> - CNTK (formation approfondie/AI) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) </br> - Mxnet (formation approfondie/AI) |Outils d’apprentissage automatique </br> - Intégrations à Azure Machine Learning </br> - CNTK (formation approfondie/AI) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) |
+| Outils d’apprentissage automatique </br> - Intégration à Azure Machine Learning </br> - Formation approfondie/AI Microsoft Cognitive Toolkit (CNTK 2.0) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) </br> - Mxnet (formation approfondie/AI) </br> - Tensorflow  |Outils d’apprentissage automatique </br> - Intégrations à Azure Machine Learning </br> - CNTK (formation approfondie/AI) </br> - Xgboost (outil ML populaire dans les concours de science des données) </br> - Vowpal Wabbit (apprenant en ligne rapide) </br> - Rattle (outils de données et d’analyse à démarrage rapide visuel) </br> - Mxnet (formation approfondie/AI)|
 | Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence |Kits de développement logiciel (SDK) pour accéder à Azure et à la suite de services Cortana Intelligence |
 | Outils pour le déplacement des données et la gestion des ressources Azure et Big Data : Storage Explorer, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (pour DocumentDB), Microsoft Data Management Gateway |Outils pour le déplacement des données et la gestion des ressources Azure et Big Data : Azure Storage Explorer, CLI |
 | Git, plug-in Visual Studio Team Services |Git |
 | Port Windows des utilitaires de ligne de commande Linux/Unix les plus populaires accessible via GitBash/l’invite de commande |-- |
+| Weka | Weka |
+| Drill | Drill |
+| --| Spark local |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Prise en main de la machine virtuelle Science des données Windows
 * Créez une instance de la machine virtuelle sur Windows en accédant à [cette page](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) et en sélectionnant le bouton vert **Créer une machine virtuelle**.
@@ -86,6 +91,6 @@ De nombreux outils de science des données populaires sont déjà installés et 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

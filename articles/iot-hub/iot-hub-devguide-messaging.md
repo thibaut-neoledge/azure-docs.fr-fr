@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
+ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
 
 
 ---
@@ -97,7 +97,7 @@ IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point d
 
 Par défaut, tous les messages qui ne correspondent pas explicitement à une règle d’acheminement des messages sont écrits sur le point de terminaison prédéfini. Si vous désactivez cet itinéraire de secours, les messages qui ne correspondent explicitement à aucune règle d’acheminement des messages sont supprimés.
 
-Toutes les propriétés ci-dessus peuvent être modifiées par programme par le biais des [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis] ou du [Portail Azure][lnk-management-portal].
+La durée de rétention peut être modifiée par programme par le biais des [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis] ou du [Portail Azure][lnk-management-portal].
 
 ### <a name="anti-spoofing-properties"></a>Propriétés de détection d’usurpation d’identité
 Pour éviter l’usurpation d’appareil dans les messages appareil-à-cloud, IoT Hub marque tous les messages avec les propriétés suivantes :
@@ -437,6 +437,6 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

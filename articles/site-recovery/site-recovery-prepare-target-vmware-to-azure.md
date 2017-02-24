@@ -1,0 +1,58 @@
+---
+title: "Préparer la cible (VMware vers Azure) | Microsoft Docs"
+description: "Cet article décrit comment préparer votre environnement Azure de manière à lancer la réplication de machines virtuelles VMware vers Azure."
+services: site-recovery
+documentationcenter: 
+author: bsiva
+manager: abhemraj
+editor: 
+ms.assetid: 
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/11/2017
+ms.author: bsiva
+translationtype: Human Translation
+ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
+ms.openlocfilehash: 555ea8eed17e42019513029f7b3ac2167f002578
+
+---
+
+# <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
+> [!div class="op_single_selector"]
+> * [Machines virtuelles VMware](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Serveurs physiques](./site-recovery-prepare-target-physical-to-azure.md)
+
+Cet article décrit comment préparer votre environnement Azure de manière à lancer la réplication de machines virtuelles VMware vers Azure.
+
+## <a name="prerequisites"></a>Composants requis
+
+Cet article part des principes suivants :
+- Vous avez créé un coffre Recovery Services pour protéger vos machines virtuelles VMware. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
+- Vous avez [configuré votre environnement local](./site-recovery-set-up-vmware-to-azure.md) pour répliquer les machines virtuelles VMware vers Azure.
+
+## <a name="prepare-target"></a>Préparer la cible
+
+Après avoir réalisé **l’Étape 1 : Sélection de l’objectif de la protection** et **l’Étape 2 : Préparation de la source**, vous passez à **l’Étape 3 : Cible**.
+
+![Préparer la cible](./media/site-recovery-prepare-target-vmware-to-azure/prepare-target-vmware-to-azure.png)
+
+1. **Abonnement :** dans le menu déroulant, sélectionnez l’abonnement vers lequel vous souhaitez répliquer vos machines virtuelles.
+2. **Modèle de déploiement :** sélectionnez le modèle de déploiement (Classique ou Gestionnaire de ressources).
+
+Selon le modèle de déploiement choisi, une validation est exécutée pour vérifier que vous disposez au moins d’un compte de stockage et d’un réseau virtuel compatibles dans l’abonnement cible pour la réplication et le basculement de votre machine virtuelle.
+
+Une fois les validations terminées avec succès, cliquez sur OK pour passer à l’étape suivante.
+
+Si vous n’avez pas de compte de stockage Resource Manager ou réseau virtuel compatible, ou si vous souhaitez en ajouter d’autres, vous pouvez le faire en cliquant sur les boutons **+ Compte de stockage** ou **+ Réseau** en haut du panneau.
+
+## <a name="next-steps"></a>Étapes suivantes
+[Configurer les paramètres de réplication](./site-recovery-setup-replication-settings-vmware.md)
+
+
+
+<!--HONumber=Feb17_HO2-->
+
+
