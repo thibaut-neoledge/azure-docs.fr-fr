@@ -1,9 +1,9 @@
 ---
-title: Migration vers le stockage Azure Premium | Microsoft Docs
-description: "Migration de vos machines virtuelles existantes vers Azure Storage Premium. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d&quot;E/S exécutées sur les machines virtuelles Azure."
+title: Migration de machines virtuelles vers le stockage Azure Premium | Microsoft Docs
+description: "Migrez vos machines virtuelles existantes vers le stockage Azure Premium. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d&quot;E/S exécutées sur les machines virtuelles Azure."
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -12,16 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
-ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
 
 
 ---
-# <a name="migrating-to-azure-premium-storage"></a>Migration vers le stockage Premium Azure
-## <a name="overview"></a>Vue d'ensemble
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
+
+> [!NOTE]
+> Cet article explique comment migrer une machine virtuelle qui utilise des disques standard non gérés vers une machine virtuelle qui utilise des disques premium non gérés. Nous vous recommandons d’utiliser Azure Managed Disks pour les nouvelles machines virtuelles et de convertir vos anciens disques non gérés en disques gérés. Azure Managed Disks gère les comptes de stockage sous-jacents à votre place. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Managed Disks](storage-managed-disks-overview.md).
+>
+
 Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.
 
 L’objectif de ce guide est d’aider les nouveaux utilisateurs d’Azure Premium Storage à mieux se préparer pour effectuer une transition en douceur de leur système actuel vers Premium Storage. Le guide traite des trois composants clés inclus dans ce processus :
@@ -34,7 +38,6 @@ Vous pouvez migrer des machines virtuelles d’autres plateformes vers Azure Pre
 
 > [!NOTE]
 > Vous pouvez consulter un aperçu des fonctionnalités et de la tarification dans [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md). Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
->
 >
 
 L’exécution du processus de migration dans son intégralité peut nécessiter des actions supplémentaires précédant et suivant les étapes fournies dans ce guide. Par exemple, la configuration de réseaux virtuels ou de points de terminaison ou l’intégration de modifications de code dans l’application elle-même, ce qui peut nécessiter un certain temps d’indisponibilité dans votre application. Ces actions sont propres à chaque application, et vous devez les exécuter en plus des étapes indiquées dans ce guide pour effectuer la transition complète vers Premium Storage de manière aussi transparente que possible.
@@ -773,6 +776,6 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

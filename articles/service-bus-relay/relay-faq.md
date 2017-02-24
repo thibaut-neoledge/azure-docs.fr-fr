@@ -1,5 +1,5 @@
 ---
-title: FAQ Relais | Microsoft Docs
+title: "Forum Aux Questions (FAQ) sur Azure Relay | Microsoft Docs"
 description: "Répond à certaines questions fréquemment posées sur Azure Relay."
 services: service-bus-relay
 documentationcenter: na
@@ -12,32 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/02/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 12702f585605a88ed6e753a0ff301095e8629e05
+ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
+ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 
 ---
 # <a name="relay-faq"></a>FAQ Relay
-Cet article répond à certaines questions fréquemment posées sur Microsoft Azure Relay. Vous pouvez également visiter le [FAQ du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de support et de tarification générale Azure.
+
+Cet article répond à certaines questions fréquemment posées sur [Microsoft Azure Relay](https://azure.microsoft.com/services/service-bus/). Vous pouvez également visiter le [FAQ du support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de support et de tarification générale Azure.
 
 ## <a name="general-questions"></a>Questions générales
 ### <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
-Le [service Relais](relay-what-is-it.md) d’Azure facilite vos applications hybrides en offrant la possibilité d’exposer les services qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise.
+Le [service Azure Relay](relay-what-is-it.md) simplifie vos applications hybrides en offrant la possibilité d’exposer les services qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise.
 
 ### <a name="what-is-a-relay-namespace"></a>Qu’est-ce qu’un espace de noms Relay ?
-Un [espace de noms](relay-create-namespace-portal.md) fournit un conteneur d’étendue pour l’adressage des ressources Relay au sein de votre application. Il est nécessaire d’en créer un pour utiliser Relay. C’est l’une des premières étapes à effectuer au démarrage.
+Un [espace de noms](relay-create-namespace-portal.md) fournit un conteneur d’étendue pour l’adressage des ressources Relay au sein de votre application. Il est nécessaire de créer un espace de noms pour utiliser Relay. C’est l’une des premières étapes à effectuer au démarrage.
 
 ### <a name="what-happened-to-the-previously-named-relay-service"></a>Qu’est devenu le service Relais ?
-Le service **Relais** s’appelle désormais *Relais WCF*. Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. Le service Connexions hybrides est une version modifiée d’un service tiré de BizTalk. Les services Relais WCF et Connexions hybrides continueront d’être pris en charge.
+L’ancien service **Service Bus Relay** s’appelle désormais *WCF Relay*. Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. Le service Connexions hybrides est une version modifiée d’un service tiré de BizTalk. Les services Relais WCF et Connexions hybrides continueront d’être pris en charge.
 
 ## <a name="pricing"></a>Tarification
 Cette section répond à certaines questions fréquemment posées sur la tarification de Relay. Vous pouvez également visiter le [Forum aux questions de Support Azure](http://go.microsoft.com/fwlink/?LinkID=185083) pour obtenir des informations de tarification générale Microsoft Azure. Pour obtenir toutes les informations sur la tarification de Relay, consultez [Détails de la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Comment sont facturés les services Connexions hybrides et Relais WCF ?
-Pour obtenir toutes les informations sur la tarification de Relay, consultez [Détails de la tarification de Service Bus][Vue d’ensemble de la tarification]. Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
+Pour obtenir toutes les informations sur la tarification de Relay, consultez [Détails de la tarification de Service Bus][Pricing overview]. Outre les prix indiqués, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Comment est facturé le service Connexions hybrides ?
 Voici trois exemples de scénarios :
@@ -86,18 +87,21 @@ Un nom d’espace de noms Relay peut uniquement contenir entre 6 et 50 caractèr
 
 ## <a name="subscription-and-namespace-management"></a>Gestion des abonnements et des espaces de noms
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Migration d’un espace de noms vers un autre abonnement Azure
-Vous pouvez utiliser les commandes PowerShell (voir [cet article](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) pour déplacer un espace de noms d’un abonnement Azure à un autre. Pour exécuter cette opération, l’espace de noms doit être déjà actif. Il est également impératif que l’utilisateur qui exécute les commandes soit un administrateur des abonnements source et cible.
+Vous pouvez utiliser les commandes PowerShell (voir [cet article](../service-bus-messaging/service-bus-powershell-how-to-provision.md)) pour déplacer un espace de noms d’un abonnement Azure à un autre. Pour exécuter cette opération, l’espace de noms doit être déjà actif. Il est également impératif que l’utilisateur qui exécute les commandes soit un administrateur des abonnements source et cible.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Quelles sont les exceptions générées par les API Azure Relay et les actions recommandées ?
-L’article [Exceptions Relay][Exceptions Relay] décrit certaines exceptions, ainsi que les actions suggérées.
+L’article [Exceptions Relay][Exceptions RelayRelay exceptions] décrit certaines de ces exceptions, ainsi que les actions recommandées.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages prennent en charge la génération d’une signature ?
-Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Signatures d’accès partagé].
+Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
 
-[Vue d’ensemble de la tarification]: https://azure.microsoft.com/pricing/details/service-bus/
-[Exceptions Relay]: relay-exceptions.md
-[Signatures d’accès partagé]: ../service-bus-messaging/service-bus-sas-overview.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison Relay sur liste blanche ?
+Oui. Le client Relay établit des connexions au service Relay à l’aide des noms de domaine complets. Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge les listes blanches de DNS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer un espace de noms](relay-create-namespace-portal.md)
@@ -106,6 +110,6 @@ Les signatures d’accès partagé sont un mécanisme d’authentification basé
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

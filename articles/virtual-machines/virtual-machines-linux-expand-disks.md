@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/22/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: c89ce056cb0fa84b2169df161660916d083bec3f
-ms.openlocfilehash: bcef9de167fa31001ee4086d7e5b85c2d8bc4613
+ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
+ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
 
 
 ---
 
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli"></a>Développer le disque de système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface CLI Azure
-La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer le disque du système d’exploitation. Cet article vous explique comment développer le disque du système d’exploitation sur une machine virtuelle Linux à l’aide de l’interface CLI Azure.
+La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer le disque du système d’exploitation. Cet article vous explique comment développer le disque du système d’exploitation sur une machine virtuelle Linux à l’aide de disques non gérés avec l’interface CLI Azure.
 
 
 ## <a name="prerequisites"></a>Composants requis
@@ -46,7 +46,7 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     > [!NOTE]
     > `azure vm stop` ne publie pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `azure vm deallocate`. La machine virtuelle doit être libérée pour développer le disque dur virtuel.
 
-2. Modifiez la taille du disque du système d’exploitation avec la commande `azure vm set`. L’exemple suivant met à jour la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`, sur la valeur de `50` Go :
+2. Modifiez la taille du disque non géré du système d’exploitation à l’aide de la commande `azure vm set`. L’exemple suivant met à jour la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`, sur la valeur de `50` Go :
 
     ```azurecli
     azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
@@ -72,6 +72,6 @@ Si vous avez besoin de stockage supplémentaire, vous pouvez également [ajouter
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

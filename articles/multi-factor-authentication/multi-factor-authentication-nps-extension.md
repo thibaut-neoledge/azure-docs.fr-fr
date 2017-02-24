@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: c9cf1540c0f8d16b0a5cdbedc78ac58cd5686107
-ms.openlocfilehash: 51ebadc241892ebc6fb26b29955e3030ae1bdcb3
+ms.sourcegitcommit: 68f1088a7303b5eddecc9ff99f7330c0462baafc
+ms.openlocfilehash: 9fb517a08fb56a1adb9e23f820aa2e4aa20eacf6
 
 
 ---
@@ -49,10 +49,8 @@ Windows Server 2008 R2 SP1 ou version ultérieure avec le composant NPS activé
 
 ### <a name="libraries"></a>Bibliothèques
 
-Deux bibliothèques sont requises pour l’extension NPS. Elles sont installées lors du processus de configuration :
-
--   Redistributable Microsoft Visual Studio 2013 C++ (X64)
--   Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166
+-    [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -64,19 +62,22 @@ Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoi
 
 ## <a name="install-the-nps-extension"></a>Installer l’extension NPS
 
+> [!IMPORTANT]
+> Installez l’extension NPS sur un serveur autre que le point d’accès VPN. 
+
 Pour installer l’extension NPS pour Azure MFA :
 
-1.  [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
-2.  Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
-3.  Exécutez le fichier *setup.exe* et suivez les instructions d’installation.
+1.    [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
+2.    Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
+3.    Exécutez le fichier *setup.exe* et suivez les instructions d’installation.
 
 Une fois l’installation terminée, le programme d’installation crée un script PowerShell dans cet emplacement : `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ étant le lecteur d’installation). Ce script PowerShell effectue les opérations suivantes :
 
--   Vous pouvez créer un certificat auto-signé.
--   Associer la clé publique du certificat au principal du service sur Azure AD.
--   Stocker le certificat dans le magasin de certificats de l’ordinateur local.
--   Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
--   Redémarrer le serveur NPS.
+-    Vous pouvez créer un certificat auto-signé.
+-    Associer la clé publique du certificat au principal du service sur Azure AD.
+-    Stocker le certificat dans le magasin de certificats de l’ordinateur local.
+-    Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
+-    Redémarrer le serveur NPS.
 
 À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation.
 
@@ -137,7 +138,7 @@ Cette erreur peut être due à plusieurs raisons. Suivez ces étapes pour résou
 1. Redémarrez votre serveur NPS.
 2. Vérifiez que le certificat client est installé comme prévu.
 3. Vérifiez que le certificat est associé à votre client sur Azure AD.
-4. Vérifiez que https://login.windows.new/ est accessible depuis le serveur exécutant l’extension.
+4. Vérifiez que https://login.windows.net/ est accessible depuis le serveur exécutant l’extension.
 
 -------------------------------------------------------------
 
@@ -157,6 +158,6 @@ Découvrez comment intégrer Azure MFA avec [Active Directory](multi-factor-auth
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

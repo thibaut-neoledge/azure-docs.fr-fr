@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
-ms.openlocfilehash: d195f4936e8adfa22972a2a518188987398928e8
+ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
+ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
 
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les tâches MapReduce sur les clusters Hadoop en utilisant Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les cmdlets Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
+Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les tâches MapReduce sur les clusters Hadoop en utilisant Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les applets de commande Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
 
 * [**Nombre de mots**][hdinsight-sample-wordcount] : nombre d'occurrences de mots dans un fichier texte.
 * [**Nombre de mots de diffusion en continu C#**][hdinsight-sample-csharp-streaming] : nombre d'occurrences de mots dans un fichier texte à l'aide de l'interface de diffusion Hadoop.
@@ -40,7 +40,7 @@ Une documentation abondante existe sur le Web pour les technologies liées à Ha
 * [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Présentation d'Azure HDInsight][hdinsight-introduction]
 
-Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire de MapReduce.  Pour plus d'informations, consultez les pages suivantes :
+Aujourd'hui, de nombreuses personnes choisissent Hive et Pig par l’intermédiaire de MapReduce.  Pour plus d'informations, consultez les pages suivantes :
 
 * [Utilisation d'Hive dans HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
@@ -54,10 +54,10 @@ Aujourd'hui, de nombreuses personnes choisissez Hive et Pig par l'intermédiaire
     > [!IMPORTANT]
     > La prise en charge de la gestion des ressources HDInsight par Azure PowerShell à l’aide d’Azure Service Manager est **déconseillée** ; elle sera supprimée le 1er janvier 2017. Dans ce document, la procédure repose sur les nouvelles applets de commande HDInsight qui fonctionnent avec Azure Resource Manager.
     >
-    > Suivez les étapes indiquées dans [Installation et de configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) pour plus d’informations.
+    > Suivez les étapes indiquées dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source qui sera utilisé pour compter des mots et l'emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -119,8 +119,8 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    La tâche MapReduce produit un fichier nommé *part-r-00000*avec les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant *« there »*.
-3. Définissez les 3 premières variables, puis exécutez le script.
+    La tâche MapReduce produit un fichier nommé *part-r-00000*avec les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant *« there »*.
+3. Définissez les trois premières variables, puis exécutez le script.
 
 ## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Nombre de mots - Diffusion en continu C#
 Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d’écrire des fonctions de mappage et de réduction dans d’autres langages que Java.
@@ -138,11 +138,9 @@ Lorsqu'un exécutable est spécifié pour les **raccords de réduction**, chaque
 
 Entre-temps, le réducteur collecte les résultats en forme de lignes depuis le [stdout][stdin-stdout-stderr] du processus. Il convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du raccord de réduction. Par défaut, la valeur va du début d’une ligne jusqu’à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l’exception du caractère de tabulation).
 
-Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page [Hadoop Streaming][hadoop-streaming].
-
 **Pour soumettre une tâche de comptage de diffusion en continu C#**
 
-* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
+* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java) et remplacez la définition de la tâche par la ligne suivante :
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -164,7 +162,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
 
 **Pour soumettre une tâche d'estimateur Pi**
 
-* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java), puis remplacez la définition de la tâche par les éléments suivants :
+* Suivez la procédure indiquée dans [Nombre de mots - Java](#word-count-java) et remplacez la définition de la tâche par la ligne suivante :
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -615,7 +613,7 @@ FileOutputFormat.setOutputPath(jobConf, outDir);
 final FileSystem fs = FileSystem.get(jobConf);
 if (fs.exists(TMP_DIR)) {
 throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
-+ " already exists. Please remove it first.");
++ " already exists. Remove it first.");
 }
 if (!fs.mkdirs(inDir)) {
 throw new IOException("Cannot create input directory " + inDir);
@@ -989,6 +987,6 @@ public class TeraSort extends Configured implements Tool {
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

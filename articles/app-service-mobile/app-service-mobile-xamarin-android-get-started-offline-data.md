@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
+ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
+ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
 
 
 ---
@@ -124,12 +124,12 @@ Le projet client Xamarin que vous avez téléchargé pendant l’exécution du d
 [Création d’une application Xamarin Android]: app-service-mobile-xamarin-android-get-started.md
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
-[Extension Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac82535515f346d43bbceeb274ce61d81ade60b1
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: bb140097831453d46f6bfef1c9fbe569eefb3020
 
 
 ---
@@ -26,8 +26,8 @@ Dans ce didacticiel, vous allez apprendre à intégrer Tangoe Command Premium Mo
 L’intégration de Tangoe Command Premium Mobile à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Tangoe Command Premium Mobile.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Tangoe Command Premium Mobile (via l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Tangoe Command Premium Mobile (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez gérer vos comptes à un emplacement central avec le portail Azure Classic
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -110,40 +110,39 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
    
     ![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png) 
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL qu’entrent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile en respectant le modèle suivant : **https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<émetteur du client\>&Target=\<URL de page cible\>**.
+   1. Dans la zone de texte **URL de connexion**, tapez l’URL qu’entrent vos utilisateurs pour se connecter à votre application Tangoe Command Premium Mobile en respectant le modèle suivant : **https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<émetteur du client\>&Target=\<URL de page cible\>**.
 
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **https://sso.tangoe.com/sp/ACS.saml2**.
+   2. Dans la zone de texte **URL de réponse**, tapez l’URL selon le modèle suivant : **https://sso.tangoe.com/sp/ACS.saml2**.
 
-    > [AZURE.NOTE]  Si vous ne connaissez pas les valeurs correctes pour les URL, vous pouvez utiliser les valeurs ci-dessus comme espaces réservés et demander les valeurs correctes au service clientèle Tangoe.
+    > [!NOTE]  
+    > Si vous ne connaissez pas les valeurs correctes pour les URL, vous pouvez utiliser les valeurs ci-dessus comme espaces réservés et demander les valeurs correctes au service clientèle Tangoe.
+    >
 
-
-1. Dans la page **Configurer l’authentification unique sur Tangoe Command Premium Mobile** , procédez comme suit :
+4. Dans la page **Configurer l’authentification unique sur Tangoe Command Premium Mobile** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png) 
    
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
-2. Pour configurer l’authentification unique pour votre application, contactez le service clientèle Tangoe en lui fournissant les éléments suivants :
+   1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+   2. Cliquez sur **Next**.
 
-    - le fichier de métadonnées téléchargé ;
-    - l’ **URL de l’émetteur**
-    - **L’URL d’authentification unique SAML**
-    - l’ **URL du service d’authentification unique**
+5. Pour configurer l’authentification unique pour votre application, contactez le service clientèle Tangoe en lui fournissant les éléments suivants :
 
+   - le fichier de métadonnées téléchargé ;
+   - l’ **URL de l’émetteur**
+   - **L’URL d’authentification unique SAML**
+   - l’ **URL du service d’authentification unique**
 
-
-1. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
-2. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
+7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+* Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -172,15 +171,11 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.  
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Suivant**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png) 
@@ -188,16 +183,14 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_08.png) 
    
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
 ### <a name="creating-an-tangoe-command-premium-mobile-test-user"></a>Création d’un utilisateur de test Tangoe Command Premium Mobile
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Tangoe Command Premium Mobile. Tous les utilisateurs de Tangoe Command Premium Mobile doivent être configurés dans cette application avant de procéder à l’authentification unique. Par conséquent, appuyez-vous sur le service clientèle Tangoe pour configurer tous ces utilisateurs dans l’application. 
 
 > [!NOTE]
 > Si vous avez besoin de créer un utilisateur manuellement ou un groupe d’utilisateurs, vous devez contacter l’équipe de support Tangoe Command Premium Mobile.
-> 
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
@@ -209,18 +202,18 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Pour ouvrir la vue des applications dans le portail Classic, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
 
-![Affecter des utilisateurs][201] 
+ ![Affecter des utilisateurs][201] 
 
-1. Dans la liste des applications, sélectionnez **Tangoe Command Premium Mobile**.
+2. Dans la liste des applications, sélectionnez **Tangoe Command Premium Mobile**.
 
-![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png) 
+ ![Configurer l’authentification unique](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png) 
+ 
+3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
 
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+ ![Affecter des utilisateurs][203] 
 
-![Affecter des utilisateurs][203] 
-
-1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
-2. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
 
 ![Affecter des utilisateurs][205]
 
@@ -253,6 +246,6 @@ Quand vous cliquez sur la vignette Tangoe Command Premium Mobile dans le volet d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

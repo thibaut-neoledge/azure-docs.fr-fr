@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 7c481cfae5f97b71c0ab184419ceaa46ab3f5a5b
-ms.openlocfilehash: 394d82e444bdbc8b07243d92743ceb660f142509
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Attachement d’un disque de données à une machine virtuelle Linux dans le portail Azure
-Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Avant cela, passez en revue les conseils suivants :
+Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vous pouvez utiliser des disques gérés Azure (Azure Managed Disks) ou des disques non gérés. Les disques gérés sont traités par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker. Les disques non gérés requièrent un compte de stockage et sont soumis à un certain nombre de [quotas et de limites](../azure-subscription-service-limits.md#storage-limits). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+Avant d’attacher des disques à votre machine virtuelle, lisez les conseils suivants :
 
 * La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Pour utiliser le stockage de Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques de comptes de stockage Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Les disques attachés aux machines virtuelles sont en fait des fichiers .vhd dans un compte de stockage Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
-* Pour un disque existant, le fichier .vhd doit être disponible dans un compte de stockage Azure. Vous pouvez utiliser un fichier .vhd présent, s’il n’est attaché à aucune autre machine virtuelle, ou charger votre propre fichier .vhd sur le compte de stockage.
+* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Les disques attachés aux machines virtuelles sont en réalité des fichiers .vhd stockés dans Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="find-the-virtual-machine"></a>Recherchez la machine virtuelle.
@@ -39,17 +39,53 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
    
     ![Ouverture des paramètres d’un disque](./media/virtual-machines-linux-attach-disk-portal/find-disk-settings.png)
 
-Continuez en suivant les instructions pour attacher un [nouveau disque](#option-1-attach-a-new-disk) ou un [disque existant](#option-2-attach-an-existing-disk).
+Continuez en suivant les instructions pour attacher un [disque géré](#use-azure-managed-disks) ou un [disque non géré](#use-unmanaged-disks).
 
-## <a name="option-1-attach-a-new-disk"></a>Option 1 : attacher un nouveau disque
-1. Dans le panneau **Disques**, cliquez sur **Attacher un nouveau disque**.
+## <a name="use-azure-managed-disks"></a>Utiliser Azure Managed Disks
+
+### <a name="attach-a-new-disk"></a>Attacher un nouveau disque
+
+1. Dans le panneau **Disques**, cliquez sur **+ Add data disk** (+ Ajouter un disque de données).
+2. Cliquez sur le menu déroulant **Nom** et sélectionnez **Create disk** (Créer un disque) :
+
+    ![Créer un disque géré Azure](./media/virtual-machines-linux-attach-disk-portal/create-new-md.png)
+
+3. Entrez un nom pour votre disque géré. Vérifiez les paramètres par défaut, mettez-les à jour le cas échéant, puis cliquez sur **Créer**.
+   
+   ![Examen des paramètres d’un disque](./media/virtual-machines-linux-attach-disk-portal/create-new-md-settings.png)
+
+4. Cliquez sur **Enregistrer** pour créer le disque géré et mettre à jour la configuration de la machine virtuelle :
+
+   ![Enregistrer le nouveau disque géré Azure](./media/virtual-machines-linux-attach-disk-portal/confirm-create-new-md.png)
+
+5. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**. Étant donné que les disques gérés sont des ressources de niveau supérieur, le disque s’affiche à la racine du groupe de ressources :
+
+   ![Disque géré Azure dans le groupe de ressources](./media/virtual-machines-linux-attach-disk-portal/view-md-resource-group.png)
+
+### <a name="attach-an-existing-disk"></a>Association d'un disque existant
+1. Dans le panneau **Disques**, cliquez sur **+ Add data disk** (+ Ajouter un disque de données).
+2. Cliquez sur le menu déroulant **Nom** pour afficher une liste des disques gérés disponibles dans votre abonnement Azure. Sélectionnez le disque géré à attacher :
+
+   ![Attacher un disque géré Azure existant](./media/virtual-machines-linux-attach-disk-portal/select-existing-md.png)
+
+3. Cliquez sur **Enregistrer** pour attacher le disque géré existant et mettre à jour la configuration de la machine virtuelle :
+   
+   ![Enregistrer les mises à jour Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/confirm-attach-existing-md.png)
+
+4. Après qu’Azure a attaché le disque à la machine virtuelle, le disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
+
+## <a name="use-unmanaged-disks"></a>Utiliser des disques non gérés
+
+### <a name="attach-a-new-disk"></a>Attacher un nouveau disque
+
+1. Dans le panneau **Disques**, cliquez sur **+ Add data disk** (+ Ajouter un disque de données).
 2. Passez en revue les paramètres par défaut, mettez-les à jour en fonction des besoins, puis cliquez sur **OK**.
    
    ![Examen des paramètres d’un disque](./media/virtual-machines-linux-attach-disk-portal/attach-new.png)
 3. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
-## <a name="option-2-attach-an-existing-disk"></a>Option 2 : attacher un disque existant
-1. Dans le panneau **Disques**, cliquez sur **Attacher un disque existant**.
+### <a name="attach-an-existing-disk"></a>Association d'un disque existant
+1. Dans le panneau **Disques**, cliquez sur **+ Add data disk** (+ Ajouter un disque de données).
 2. Sous **Attacher un disque existant**, cliquez sur **Fichier VHD**.
    
    ![Attachement d’un disque existant](./media/virtual-machines-linux-attach-disk-portal/attach-existing.png)
@@ -61,12 +97,11 @@ Continuez en suivant les instructions pour attacher un [nouveau disque](#option-
 6. Après qu’Azure a attaché le disque à la machine virtuelle, le disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois le disque ajouté, vous devez le préparer pour utilisation. Pour plus d'informations, consultez [Initialisation d’un nouveau disque de données sous Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Points de terminaison classiques dans Resource Manager | Microsoft Docs"
-description: "Découvrez comment les points de terminaison du modèle de déploiement classique sont désormais implémentés dans Resource Manager à l’aide de règles ACL et de groupes de sécurité réseau"
+title: Comprendre les points de terminaison pour machines virtuelles Windows dans Azure | Microsoft Docs
+description: "Découvrez comment les points de terminaison du modèle de déploiement Classic sont désormais implémentés dans Resource Manager à l’aide de règles ACL et de groupes de sécurité réseau"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1b6342ef22a00a4d760d8b13d1a2945ab3754463
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>Points de terminaison classiques dans Resource Manager
+# <a name="classic-endpoints-for-windows-vms-with-azure-resource-manager"></a>Points de terminaison classiques pour les machines virtuelles Windows avec Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -35,6 +35,6 @@ Vous pouvez consulter des informations plus détaillées sur les technologies ab
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

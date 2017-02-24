@@ -1,10 +1,10 @@
 
 ---
 title: Utilisation de certificats avec Enterprise Integration Pack | Microsoft Docs
-description: "Découvrez comment utiliser les certificats avec Enterprise Integration Pack et vos applications logiques"
+description: "Découvrez comment utiliser les certificats avec Enterprise Integration Pack | Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: deonhe
+ms.date: 02/03/2016
+ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: a1baafa9a2b4552ad711615e5e0abb0180a0d562
-ms.openlocfilehash: e6c8ed2fe6ff574fb40991d7060865ea08887df9
+ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
+ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
 
 
 ---
@@ -37,9 +37,9 @@ Parfois, les communications B2B doivent rester confidentielles. Enterprise Integ
 * En chiffrant le contenu des messages
 * En signant numériquement les messages  
 
-## <a name="how-do-you-upload-certificates"></a>Comment télécharger des certificats ?
-### <a name="public-certificates"></a>Certificats publics
-Pour utiliser un *certificat public* dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord télécharger le certificat dans votre compte d’intégration. Pour utiliser un *certificat auto-signé*, vous devez d’abord le télécharger dans le coffre de clés [Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur le coffre de clés").
+## <a name="upload-a-public-certificate"></a>Téléchargement d’un certificat public
+
+Pour utiliser un *certificat public* dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord télécharger le certificat dans votre compte d’intégration.  
 
 Après avoir téléchargé un certificat, vous pouvez l'utiliser pour sécuriser vos messages B2B lorsque vous définissez leurs propriétés dans les [contrats](logic-apps-enterprise-integration-agreements.md) que vous créez.  
 
@@ -61,8 +61,9 @@ Voici les étapes détaillées pour télécharger vos certificats publics sur vo
 9. Sélectionnez la mosaïque **Certificats** . Vous devez voir le certificat qui vient d’être ajouté.  
 ![Consultez le nouveau certificat](media/logic-apps-enterprise-integration-certificates/certificate-4.png)  
 
-### <a name="private-certificates"></a>Certificats privés
-Vous pouvez également télécharger des certificats privés sur votre compte d’intégration en procédant comme suit :  
+## <a name="upload-a-private-certificate"></a>Téléchargement d’un certificat privé
+
+Pour utiliser un *certificat privé* dans vos applications logiques avec des capacités B2B, vous pouvez télécharger un certificat privé dans votre compte d’intégration en effectuant les étapes suivantes.
 
 1. [Chargez votre clé privée dans Key Vault](../key-vault/key-vault-get-started.md "En savoir plus sur Key Vault") et indiquez un **nom de clé**. 
    
@@ -100,6 +101,6 @@ Voici les étapes détaillées pour télécharger vos certificats privés sur vo
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

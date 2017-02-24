@@ -1,6 +1,6 @@
 ---
 title: "Création de clusters Hadoop basés sur Windows dans HDInsight à l&quot;aide de l’interface de ligne de commande Azure"
-description: "Apprenez à créer des clusters pour Azure HDInsight à l&quot;aide de l’interface de ligne de commande."
+description: "Apprenez à créer des clusters Hadoop Windows pour Azure HDInsight à l’aide l’interface de ligne de commande Azure"
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Création de clusters Hadoop basés sur Windows dans HDInsight à l'aide de l’interface de ligne de commande Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Apprenez à créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure. Pour accéder à d'autres outils et fonctions de création de clusters, cliquez sur l'onglet de sélection situé en haut de cette page, ou consultez la section relative aux [méthodes de création de clusters](hdinsight-provision-clusters.md#cluster-creation-methods).
+Apprenez à créer des clusters Hadoop Windows dans HDInsight à l’aide l’interface de ligne de commande Azure. 
+
+> [!IMPORTANT]
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Les informations mentionnées dans cet article s’appliquent uniquement aux clusters HDInsight basés sur Windows. Pour plus d’informations sur la création de clusters Linux, consultez [Création de clusters Hadoop dans HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="prerequisites"></a>Configuration requise :
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +38,7 @@ Avant de commencer à suivre les instructions de cet article, vous devez dispose
 * **Abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Interface de ligne de commande Azure**.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Exigences de contrôle d’accès
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,7 +50,7 @@ Utilisez la commande suivante pour vous connecter à Azure :
 
 Pour plus d’informations sur l’authentification à l’aide d’un compte professionnel ou scolaire, consultez la section [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure](../xplat-cli-connect.md).
 
-Utilisez la commande suivante pour basculer en mode ARM :
+Utilisez la commande suivante pour passer en mode Azure Resource Manager :
 
     azure config mode arm
 
@@ -55,9 +59,9 @@ Pour obtenir de l’aide, utilisez le commutateur **-h** .  Par exemple :
     azure hdinsight cluster create -h
 
 ## <a name="create-clusters"></a>Créer des clusters
-Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance d'Azure Resource Management (ARM) et d'un compte de stockage d'objets Blob Azure. Pour créer un cluster HDInsight, vous devez indiquer les éléments suivants :
+Avant de pouvoir créer un cluster HDInsight, vous devez disposer d’un groupe Resource Management et d’un compte de stockage d’objets Blob Azure. Pour créer un cluster HDInsight, vous devez indiquer les éléments suivants :
 
-* **Groupe de ressources Azure**: un compte Data Lake Analytics doit être créé au sein d'un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
+* **Groupe de ressources Azure** : un compte Data Lake Analytics doit être créé au sein d’un groupe de ressources Azure. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée.
   
     Pour répertorier les groupes de ressources dans votre abonnement :
   
@@ -91,7 +95,7 @@ Avant de pouvoir créer un cluster HDInsight, vous devez disposer d'une instance
         -- Lists the keys for a Storage account
         azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
   
-    Pour en savoir plus sur l’obtention d’informations au moyen du portail Azure, consultez la section « Gérer votre compte de stockage » de la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md#manage-your-storage-account).
+    Pour en savoir plus sur l’obtention d’informations au moyen du portail Azure, consultez la section « Gérer votre compte de stockage » de la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md#manage-your-storage-account).
 * **(facultatif) Conteneur d'objets blob par défaut** : la commande **azure hdinsight cluster create** crée le conteneur s'il n'existe pas. Si vous avez choisi de créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
   
     azure storage container create --account-name « <Storage Account Name> » --account-key <Storage Account Key> [ContainerName]
@@ -127,18 +131,18 @@ Créer un cluster avec une action de script
 
 Pour plus d’informations sur les actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-## <a name="create-clusters-using-arm-templates"></a>Créer des clusters à l'aide de modèles ARM
-Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters en appelant des modèles ARM. Consultez [Déploiement avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+## <a name="create-clusters-using-resource-manager-templates"></a>Créer des clusters à l’aide de modèles Resource Manager
+Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters en appelant des modèles Azure Resource Manager. Consultez [Déploiement avec l’interface de ligne de commande Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Voir aussi
 * [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) : apprenez à utiliser votre cluster HDInsight
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
 * [Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure](hdinsight-administer-use-command-line.md)
-* [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](../virtual-machines-command-line-tools.md)
+* [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

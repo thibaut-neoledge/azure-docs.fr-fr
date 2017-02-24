@@ -4,7 +4,7 @@ description: "En savoir plus sur la configuration logicielle et du réseau requi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01ed44d08c06e35c66a842a27b46775ec97a3a
-ms.openlocfilehash: ae27c2a514bdaad731b73e6c9790b9ced2c35102
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
@@ -46,7 +46,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | **Composant** | **Prérequis** |
 | --- | --- |
 | Nombre minimal de processeurs virtuels (cœurs) |4 |
-| Quantité minimale de mémoire (RAM) |8 Go |
+| Quantité minimale de mémoire (RAM) |8 Go <br> Pour un serveur de fichiers, 8 Go pour moins de 2 millions de fichiers et 16 Go pour 2 à 4 millions de fichiers|
 | Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go  <br></br>Disque de données - 500 Go à 8 To |
 | Nombre minimal d'interfaces réseau |1 |
 | Bande passante Internet minimale<sup>2</sup> |5 Mbits/s |
@@ -131,6 +131,6 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 01/30/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 6c5bf8907a5f69e45e7b62fb466bdc53460e9029
-ms.openlocfilehash: 86a5911e99e7631b09604afcb0f53ed2887b576b
+ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
+ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
 
 
 ---
@@ -83,9 +83,9 @@ Lorsque l’émulateur est en cours d’exécution, une icône est affichée dan
 
 L’émulateur DocumentDB est installé par défaut dans le répertoire `C:\Program Files\DocumentDB Emulator`. Vous pouvez également démarrer et arrêter l’émulateur à partir de la ligne de commande. Pour plus d’informations, consultez la section [Référence de l’outil en ligne de commande](#command-line).
 
-## <a name="start-the-local-emulator-data-explorer"></a>Démarrer l’émulateur local de l’Explorateur de données
+## <a name="start-the-documentdb-emulator-data-explorer"></a>Démarrer l’émulateur DocumentDB de l’Explorateur de données
 
-Au démarrage de l’émulateur local, l’Explorateur de données DocumentDB s'ouvre automatiquement dans votre navigateur. L’adresse apparaît sous la forme [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si vous fermez l’explorateur et que vous souhaitez le réouvrir ultérieurement, vous pouvez ouvrir l’URL dans votre navigateur ou la lancer à partir de l’émulateur DocumentDB dans l’icône de la barre d’état système Windows, comme indiqué ci-dessous.
+Au démarrage de l’émulateur DocumentDB, l’Explorateur de données DocumentDB s’ouvre automatiquement dans votre navigateur. L’adresse apparaît sous la forme [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si vous fermez l’explorateur et que vous souhaitez le réouvrir ultérieurement, vous pouvez ouvrir l’URL dans votre navigateur ou la lancer à partir de l’émulateur DocumentDB dans l’icône de la barre d’état système Windows, comme indiqué ci-dessous.
 
 ![Lanceur de l'Explorateur de données de l'émulateur local DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
@@ -95,11 +95,7 @@ Une fois que l'émulateur DocumentDB est exécuté sur votre bureau, vous pouvez
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-        new ConnectionPolicy { EnableEndpointDiscovery = false });
-
-> [!NOTE]
-> Lors de la connexion à l’émulateur, vous devez définir EnableEndpointDiscovery = false dans la configuration de la connexion.
+        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 Si vous utilisez la [prise en charge du protocole DocumentDB pour MongoDB](documentdb-protocol-mongodb.md), utilisez la chaîne de connexion suivante :
 
@@ -107,22 +103,26 @@ Si vous utilisez la [prise en charge du protocole DocumentDB pour MongoDB](docum
 
 Vous pouvez utiliser les outils existants comme [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) pour vous connecter à l’émulateur DocumentDB. Vous pouvez également migrer des données entre l’émulateur DocumentDB et le service Azure DocumentDB à l’aide de l'[outil de migration de données DocumentDB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
+À l’aide de l’émulateur DocumentDB, par défaut, vous pouvez créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée. Pour plus d’informations sur la modification de cette valeur, voir la section relative à la [définition de la valeur PartitionCount](#set-partitioncount).
+
 ## <a name="export-the-documentdb-emulator-ssl-certificate"></a>Exporter le certificat SSL de l’émulateur DocumentDB
 
-Les langages .Net et le runtime utilisent le magasin de certificats Windows pour se connecter en toute sécurité à l’émulateur local DocumentDB. D’autres langages ont leur propre méthode de gestion et de l’utilisation des certificats. Java utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), tandis que Python utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html).
+Les langages .NET et le runtime utilisent le magasin de certificats Windows pour se connecter en toute sécurité à l’émulateur local DocumentDB. D’autres langages ont leur propre méthode de gestion et de l’utilisation des certificats. Java utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), tandis que Python utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html).
 
-Pour obtenir un certificat à utiliser avec les langages et les runtimes qui ne s’intègrent pas au magasin de certificats Windows, vous devrez l'exporter à l’aide du Gestionnaire de certificats Windows. Vous pouvez le démarrer en exécutant le fichier certlm.msc ou suivre les instructions étape par étape de la publication « [ Exporter les certificats de l’émulateur DocumentDB](./documentdb-nosql-local-emulator-export-ssl-certificates.md) ». Une fois le certificat en cours d’exécution, ouvrez les certificats personnels comme indiqué ci-dessous et exportez le certificat avec le nom convivial "DocumentDBEmulatorCertificate" en tant que fichier X.509 (.cer) codé en Base&64;.
+Pour obtenir un certificat à utiliser avec les langages et les runtimes qui ne s’intègrent pas au magasin de certificats Windows, vous devrez l'exporter à l’aide du Gestionnaire de certificats Windows. Vous pouvez le démarrer en exécutant le fichier certlm.msc ou suivre les instructions étape par étape de la publication [Exporter les certificats de l’émulateur DocumentDB](./documentdb-nosql-local-emulator-export-ssl-certificates.md). Une fois le certificat en cours d’exécution, ouvrez les certificats personnels comme indiqué ci-dessous et exportez le certificat avec le nom convivial "DocumentDBEmulatorCertificate" en tant que fichier X.509 (.cer) codé en Base&64;.
 
 ![Certificat SSL de l'émulateur local DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-ssl_certificate.png)
 
-Le certificat X.509 peut être importé dans le magasin de certificats Java en suivant les instructions de la publication « [Ajout d'un certificat au magasin de certificats d'autorité de certification Java](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store) ».  Une fois le certificat importé dans les magasin de certificats Java, les applications MongoDB pourront se connecter à l’émulateur local DocumentDB.
+Le certificat X.509 peut être importé dans le magasin de certificats Java en suivant les instructions de la publication [Ajout d’un certificat au magasin de certificats d’autorité de certification Java](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store). Une fois le certificat importé dans les magasins de certificats Java, les applications MongoDB pourront se connecter à l’émulateur DocumentDB.
+
+Lors de la connexion à l’émulateur à partir des Kits de développement logiciel (SDK) Python et Node.js, la vérification SSL est désactivée.
 
 ## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>Référence de l’outil en ligne de commande de l’émulateur DocumentDB
 À partir de l’emplacement d’installation, vous pouvez utiliser la ligne de commande pour démarrer et arrêter l’émulateur, configurer les options et effectuer d’autres opérations.
 
 ### <a name="command-line-syntax"></a>Syntaxe de ligne de commande
 
-    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
 Pour afficher la liste des options, tapez `DocumentDB.Emulator.exe /?` dans l’invite de commandes.
 
@@ -135,63 +135,81 @@ Pour afficher la liste des options, tapez `DocumentDB.Emulator.exe /?` dans l’
 </tr>
 <tr>
   <td>[aucun argument]</td>
-  <td>Démarre l’émulateur DocumentDB avec des paramètres par défaut</td>
+  <td>Démarre l’émulateur DocumentDB avec des paramètres par défaut.</td>
   <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
-  <td>Shutdown</td>
-  <td>Arrête l’émulateur DocumentDB</td>
-  <td>DocumentDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Aide</td>
-  <td>Affiche la liste des arguments de ligne de commande</td>
+  <td>[Aide]</td>
+  <td>Affiche la liste des arguments de ligne de commande pris en charge.</td>
   <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
-  <td>Datapath</td>
-  <td>Spécifie le chemin d’accès dans lequel stocker les fichiers de données</td>
-  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>Shutdown</td>
+  <td>Arrête l’émulateur DocumentDB.</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
+  <td></td>
+</tr>
+<tr>
+  <td>DataPath</td>
+  <td>Spécifie le chemin d’accès dans lequel stocker les fichiers de données. Valeur par défaut : %LocalAppdata%\DocumentDBEmulator.</td>
+  <td>DocumentDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt; : un chemin accessible</td>
 </tr>
 <tr>
   <td>Port</td>
-  <td>Spécifie le numéro de port à utiliser pour l'émulateur.  La valeur par défaut est 8081</td>
-  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
+  <td>Spécifie le numéro de port à utiliser pour l'émulateur.  La valeur par défaut est 8081.</td>
+  <td>DocumentDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;port&gt; : numéro de port unique</td>
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10250</td>
-  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10250.</td>
+  <td>DocumentDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt; : numéro de port unique</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
-  <td>Spécifie les ports à utiliser pour une connectivité directe. Les valeurs par défaut sont 10251,10252,10253,10254</td>
-  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
+  <td>Spécifie les ports à utiliser pour une connectivité directe. Les valeurs par défaut sont 10251,10252,10253,10254.</td>
+  <td>DocumentDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
   <td>&lt;directports&gt; : liste séparée par des virgules de 4 ports</td>
 </tr>
 <tr>
   <td>Clé</td>
-  <td>Clé d’autorisation pour l’émulateur. La clé doit être le codage en base 64 d’un vecteur de 64 octets</td>
-  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
+  <td>Clé d’autorisation pour l’émulateur. La clé doit être le codage en base 64 d’un vecteur de 64 octets.</td>
+  <td>DocumentDB.Emulator.exe /Key:&lt;key&gt;</td>
   <td>&lt;clé&gt; : la clé doit être le codage en base 64 d’un vecteur de 64 octets</td>
 </tr>
 <tr>
-  <td>EnableThrottling</td>
-  <td>Spécifie que le comportement de limitation des demandes est activé</td>
-  <td>DocumentDB.Emulator.exe /enablethrottling</td>
+  <td>EnableRateLimiting</td>
+  <td>Spécifie que le comportement de limitation de taux de demandes est activé.</td>
+  <td>DocumentDB.Emulator.exe /EnableRateLimiting</td>
   <td></td>
 </tr>
 <tr>
-  <td>DisableThrottling</td>
-  <td>Spécifie que le comportement de limitation des demandes est désactivé</td>
-  <td>DocumentDB.Emulator.exe /disablethrottling</td>
+  <td>DisableRateLimiting</td>
+  <td>Spécifie que le comportement de limitation de taux de demandes est désactivé.</td>
+  <td>DocumentDB.Emulator.exe /DisableRateLimiting</td>
   <td></td>
+</tr>
+<tr>
+  <td>NoUI</td>
+  <td>Ne pas afficher l’interface utilisateur de l’émulateur.</td>
+  <td>DocumentDB.Emulator.exe /NoUI</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoExplorer</td>
+  <td>Ne pas afficher l’Explorateur de documents au démarrage.</td>
+  <td>DocumentDB.Emulator.exe /NoExplorer</td>
+  <td></td>
+</tr>
+<tr>
+  <td>PartitionCount</td>
+  <td>Spécifie le nombre maximal de collections partitionnées. Pour plus d’informations, voir la section [Modification du nombre de collections](#set-partitioncount).</td>
+  <td>DocumentDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
+  <td>&lt;partitioncount&gt; : nombre maximal autorisé de collections à partition unique. Valeur par défaut : 25. Valeur maximale autorisée : 250.</td>
 </tr>
 </table>
 
@@ -205,12 +223,54 @@ L’émulateur DocumentDB étant un environnement émulé exécuté sur une stat
 * L’émulateur DocumentDB ne prend pas en charge les substitutions de quota de service disponibles dans le service Azure DocumentDB (par exemple, les limites de taille de document ou l'augmentation du stockage d'une collection partitionnée).
 * Votre copie de l’émulateur DocumentDB n'a peut-être pas été mise à jour avec les dernières modifications apportées au service Azure DocumentDB, veuillez consulter la section [Planificateur de capacité DocumentDB](https://www.documentdb.com/capacityplanner) pour évaluer avec précision les besoins de débit de production (RU) de votre application.
 
+## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>Modification du nombre de collections
+
+Par défaut, vous pouvez créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée à l’aide de l’émulateur DocumentDB. En modifiant la valeur **PartitionCount**, vous pouvez créer jusqu'à 250 collections à partition unique ou 10 collections partitionnées, ou n’importe quelle combinaison des deux qui ne dépasse pas 250 partitions uniques (où 1 collection partitionnée = 25 collections à partition unique).
+
+Si vous tentez de créer une collection après le dépassement du nombre de partitions actuel, l’émulateur lève une exception ServiceUnavailable comportant le message suivant.
+
+    Sorry, we are currently experiencing high demand in this region, 
+    and cannot fulfill your request at this time. We work continuously 
+    to bring more and more capacity online, and encourage you to try again. 
+    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
+
+Pour modifier le nombre de collections disponibles dans l’émulateur DocumentDB, procédez comme suit :
+
+1. Supprimez toutes les données locales de l’émulateur DocumentDB en cliquant avec le bouton droit sur l’icône **Émulateur DocumentDB** dans la zone d’état, puis en cliquant sur **Reset Data...** (Réinitialiser les données...).
+2. Supprimez toutes les données de l’émulateur dans ce dossier C:\Users\user_name\AppData\Local\DocumentDBEmulator.
+3. Quittez toutes les instances ouvertes en cliquant avec le bouton droit sur l’icône **Émulateur DocumentDB** dans la zone d’état, puis en cliquant sur **Quitter**. Quitter l’ensemble des instances peut prendre une minute.
+4. Installez la dernière version de l’[émulateur DocumentDB](https://aka.ms/documentdb-emulator).
+5. Lancez l’émulateur avec l’indicateur PartitionCount en définissant une valeur <= 250. Par exemple : `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`.
+
+## <a name="troubleshooting"></a>résolution des problèmes
+
+Utilisez les conseils suivants pour vous aider à résoudre les problèmes rencontrés avec l’émulateur DocumentDB :
+
+- Si l’émulateur DocumentDB se bloque, collectez les fichiers de vidage dans le dossier sous c:\Utilisateurs\nom_utilisateur\AppData\Local\CrashDumps, compressez-les et joignez-les à un e-mail à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+- Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et joignez-les à un e-mail à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>Collecter les fichiers de trace
+
+Pour collecter des traces de débogage, exécutez les commandes suivantes à partir d’une invite de commande d’administration :
+
+1. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
+2. `DocumentDB.Emulator.exe /shutdown`. Regardez la barre d’état système pour vérifier que le programme s’est arrêté ; l’arrêt peut prendre une minute. Vous pouvez également cliquer sur **Quitter** dans l’interface utilisateur de l’émulateur DocumentDB.
+3. `DocumentDB.Emulator.exe /starttraces`
+4. `DocumentDB.Emulator.exe`
+5. Reproduisez le problème. Si l’Explorateur de données ne fonctionne pas, attendez quelques secondes pour que le navigateur s’ouvre afin d’intercepter l’erreur.
+5. `DocumentDB.Emulator.exe /stoptraces`
+6. Accédez à `%ProgramFiles%\DocumentDB Emulator` et recherchez le fichier docdbemulator_000001.etl.
+7. Envoyez le fichier .etl ainsi que les étapes de reproduction à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) pour le débogage.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur DocumentDB, consultez la rubrique [Présentation d’Azure DocumentDB](documentdb-introduction.md)
 * Pour vous initier au développement de l’émulateur DocumentDB, téléchargez un des [Kits de développement logiciel (SDK) DocumentDB pris en charge](documentdb-sdk-dotnet.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

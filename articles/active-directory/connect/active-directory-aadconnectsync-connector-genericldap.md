@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
 
 
 ---
@@ -41,7 +41,7 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée |Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants :  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>Serveur d’annuaire 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Répertoires notables non pris en charge :** <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
+| Source de données connectée |Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants :  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>Serveur d’annuaire&389;</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Répertoires notables non pris en charge :** <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
 | Scénarios |<li>Gestion du cycle de vie des objets</li><li>Gestion des groupes</li><li>Gestion des mots de passe</li> |
 | Opérations |Tous les annuaires LDAP prennent en charge les opérations suivantes :  <li>Importation complète</li><li>Exportation</li>Les opérations suivantes sont uniquement prises en charge dans les annuaires spécifiés :<li>Importation différentielle</li><li>Définition du mot de passe, modification du mot de passe</li> |
 | Schéma |<li>Le schéma est détecté à partir du schéma LDAP (RFC3673 et RFC4512/4.2)</li><li>Prend en charge des classes structurelles, les classes auxiliaires et la classe d’objets extensibleObject (RFC4512/4.3)</li> |
@@ -55,7 +55,7 @@ Les répertoires pris en charge pour l’importation différentielle et la gesti
 * Catalogue global Microsoft Active Directory (AD GC)
   * Prend en charge toutes les opérations d’importation différentielle
   * Prend en charge la définition de mot de passe
-* Serveur d’annuaire 389
+* Serveur d’annuaire&389;
   * Prend en charge toutes les opérations d’importation différentielle
   * Prend en charge la définition de mot de passe et la modification de mot de passe
 * Apache Directory Server
@@ -114,7 +114,7 @@ Les contrôles/fonctionnalités LDAP suivants doivent être disponibles sur le s
 
 Le filtre True/False n’est souvent pas signalé comme pris en charge par les annuaires LDAP et peut apparaître sur la **Page Global** sous **fonctionnalités obligatoires introuvables**. Il est utilisé pour créer **ou** filtrer dans les requêtes LDAP, par exemple, en cas d’importation de plusieurs types d’objets. Si vous pouvez importer plusieurs types d’objets, votre serveur LDAP prend en charge cette fonctionnalité.
 
-Si vous utilisez un répertoire dans lequel un identificateur unique est le point d’ancrage, les éléments suivants doivent également être disponibles (voir la section [Configurer les points d’ancrage](#configure-anchors) plus loin dans cet article pour plus d’informations) :  
+Si vous utilisez un répertoire dans lequel un identificateur unique est le point d’ancrage, les éléments suivants doivent également être disponibles (pour plus d’informations, consultez la section [Configurer les points d’ancrage](#configure-anchors)) :  
 `1.3.6.1.4.1.4203.1.5.1` Tous les attributs opérationnels
 
 Si le répertoire comporte plus d’objets que ce qu’un appel à l’annuaire peut contenir, il est recommandé d’utiliser la pagination. Pour que la pagination fonctionne, vous avez besoin de l’une des options suivantes :
@@ -162,7 +162,7 @@ Dans la page Connectivité, vous devez spécifier l’hôte, le port et la liais
 * Pour les autres liaisons, entrez les informations dans les champs de nom d’utilisateur/mot de passe ou sélectionnez un certificat.
 * Si vous utilisez Kerberos pour vous authentifier, indiquez également le domaine/la spécialité de l’utilisateur.
 
-La zone de texte **Alias d’attribut** est utilisée pour les attributs définis dans le schéma avec la syntaxe RFC4522. Ceux-ci ne peuvent pas être détectés lors de la détection du schéma et le connecteur a besoin d’aide pour les identifier. Par exemple les éléments suivants sont nécessaires et doivent être saisis dans la zone d’alias d’attribut pour identifier correctement l’attribut userCertificate en tant qu’attribut binaire :
+La zone de texte **Alias d’attribut** est utilisée pour les attributs définis dans le schéma avec la syntaxe RFC4522. Ceux-ci ne peuvent pas être détectés lors de la détection du schéma et le connecteur a besoin d’aide pour les identifier. Par exemple les éléments suivants doivent être saisis dans la zone d’alias d’attribut pour identifier correctement l’attribut userCertificate en tant qu’attribut binaire :
 
 `userCertificate;binary`
 
@@ -172,7 +172,7 @@ Voici un exemple de cette configuration :
 
 Sélectionnez la case à cocher **Inclure des attributs opérationnels dans le schéma** pour inclure également les attributs créés par le serveur. Elle inclut des attributs, notamment la date à laquelle l’objet a été créé et l’heure de la dernière mise à jour.
 
-Sélectionnez **Inclure les attributs extensibles dans le schéma** si des objets extensibles (RFC 4512/4.3) sont utilisés. L’activation de cette option permet d’utiliser chaque attribut sur n’importe quel objet. Cette option peut rendre le schéma très volumineux. Alors, à moins que l’annuaire connecté n’utilise cette fonction, il est conseillé de garder cette option désactivée.
+Sélectionnez **Inclure les attributs extensibles dans le schéma** si des objets extensibles (RFC&4512;/4.3) sont utilisés. L’activation de cette option permet d’utiliser chaque attribut sur n’importe quel objet. Cette option peut rendre le schéma très volumineux. Alors, à moins que l’annuaire connecté n’utilise cette fonction, il est conseillé de garder cette option désactivée.
 
 ### <a name="global-parameters"></a>Paramètres globaux
 Sur la page Paramètres globaux, vous configurez un nom unique pour le journal des modifications différentielles et d’autres fonctionnalités LDAP. La page est prérenseignée avec les informations fournies par le serveur LDAP.
@@ -238,7 +238,7 @@ Voici une liste de serveurs LDAP et du point d’ancrage utilisé :
 | Répertoire | Attribut d’ancrage |
 | --- | --- |
 | Microsoft AD LDS et AD GC |objectGUID |
-| Serveur d’annuaire 389 |dn |
+| Serveur d’annuaire&389; |dn |
 | Apache Directory |dn |
 | IBM Tivoli DS |dn |
 | Isode Directory |dn |
@@ -264,7 +264,6 @@ Dans les annuaires avec un journal des modifications différentielles basé sur 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

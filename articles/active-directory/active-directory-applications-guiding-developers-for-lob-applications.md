@@ -1,5 +1,5 @@
 ---
-title: "Azure AD et applications : un guide pour les développeurs | Microsoft Docs"
+title: "Développer des applications métier pour Azure AD | Microsoft Docs"
 description: "Destiné aux professionnels de l’informatique, cet article fournit des instructions pour l’intégration d’applications Azure à Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
 
 
 ---
@@ -36,18 +36,18 @@ En inscrivant une application, tout utilisateur peut effectuer les opérations s
 * Obtenir un ou plusieurs secrets/clés que l’application peut utiliser pour s’authentifier auprès d’Active Directory.
 * Personnaliser l’application avec un nom personnalisé, un logo, etc., dans le portail Azure.
 * Appliquer les fonctionnalités d’autorisation Azure AD pour l’application, notamment :
-  
+
   * Contrôle d’accès en fonction du rôle
   * Azure Active Directory en tant que serveur d’autorisation oAuth (sécuriser une API exposée par l’application)
 * Déclarer les autorisations requises nécessaires au bon fonctionnement de l’application, notamment :
-  
+
       - Autorisations de l’application (administrateurs généraux uniquement). Par exemple : Appartenance au rôle dans une autre application Azure AD ou appartenance au rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
       - Autorisations déléguées (tout utilisateur). Par exemple : Azure AD, connexion et lecture de profil
 
 > [!NOTE]
 > Par défaut, tout membre peut inscrire une application. Pour savoir comment limiter les autorisations d’inscription d’applications à des membres spécifiques, reportez-vous au document [Comment les applications sont ajoutées à Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-> 
-> 
+>
+>
 
 Voici les opérations que vous devez effectuer en tant qu’administrateur général pour aider les développeurs à préparer leurs applications pour la production :
 
@@ -83,7 +83,6 @@ Pour en savoir plus sur le consentement de l’utilisateur et sur l’expérienc
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,23 +13,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f03c595977f098f19d396cc460c73e27163f070c
+ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
+ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
 
 
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications YARN dans HDInsight sous Linux
 Ce document explique comment accéder aux journaux des applications YARN (Yet Another Resource Negotiator) terminées sur un cluster Hadoop dans Azure HDInsight.
 
-> [!NOTE]
-> Les informations présentes sur le document sont spécifiques aux clusters HDInsight sous Linux. Pour plus d’informations sur les clusters Windows, consultez [Accéder aux journaux des applications YARN dans HDInsight sous Windows](hdinsight-hadoop-access-yarn-app-logs.md)
-> 
-> 
+> [!IMPORTANT]
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 * Un cluster HDInsight sous Linux
 * Vous devez [créer un tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) avant d’accéder à l’interface utilisateur web des journaux ResourceManager.
 
@@ -47,11 +45,12 @@ Les informations génériques sur les applications comprennent les données suiv
 * Conteneurs utilisés par toute tentative d’application donnée
 
 ## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Applications et journaux YARN
+
 YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont MapReduce) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN se compose d’un gestionnaire de ressources (RM, *Resource Manager*) global, de gestionnaires de nœuds (NM, *Node Manager*) pour chaque nœud de travail, ainsi que de maîtres d’application (AM, *Application Master*) pour chaque application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
 
-Par ailleurs, chaque application peut se composer de plusieurs *tentatives d’application* pour se terminer en cas de panne ou de perte de communication entre un maître d’application et un gestionnaire de ressources. Par conséquent, les conteneurs sont accordés à une tentative spécifique d'une application. D’une certaine façon, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN, et tout le travail réalisé dans le contexte d’un conteneur est effectué sur le nœud de travail unique sur lequel le conteneur a été alloué. Pour plus d’informations, consultez la rubrique [Concepts relatifs à YARN][YARN-concepts].
+Chaque application peut comporter plusieurs *tentatives d’application*. Cela permet à une application de relancer une opération en cas d’incident ou de perte de communication entre un maître d’application et un gestionnaire de ressources. Chaque tentative est exécutée dans un conteneur. D’une certaine manière, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN. Tout le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud Worker auquel le conteneur a été alloué. Pour plus d’informations, consultez la rubrique [Concepts relatifs à YARN][YARN-concepts].
 
-Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux][log-aggregation] de YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications. La fonctionnalité d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe, car elle regroupe les journaux de tous les conteneurs sur un nœud de travail et les stocke dans un même fichier journal agrégé par nœud de travail sur le système de fichiers lorsqu’une application se termine. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud de travail unique sont toujours regroupés dans un fichier unique, ce qui se traduit par l'existence d'un fichier journal par nœud de travail utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
+Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux] de YARN fournit une infrastructure adaptée à la collecte, à l’[agrégationlog-aggregation] et au stockage des journaux des applications. La fonction d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud Worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un fichier journal par nœud Worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
 
     wasbs:///app-logs/<user>/logs/<applicationId>
 
@@ -60,6 +59,7 @@ où *user* est le nom de l’utilisateur ayant démarré l’application et *app
 Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits dans un [TFile][T-file], un [format binaire][binary-format] indexé par conteneur. Vous devez utiliser les journaux ResourceManager ou les outils de l’interface de ligne de commande YARN pour afficher ces journaux au format texte brut pour les applications ou les conteneurs qui présentent un intérêt. 
 
 ## <a name="yarn-cli-tools"></a>Outils de l’interface de ligne de commande YARN
+
 Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des documents suivants :
 
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -95,6 +95,6 @@ Une fois que vous avez créé un tunnel SSH, procédez comme suit pour afficher 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

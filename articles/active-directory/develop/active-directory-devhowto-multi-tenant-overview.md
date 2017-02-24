@@ -1,5 +1,5 @@
 ---
-title: "Création d’une application capable de connecter n’importe quel utilisateur Azure Active Directory | Microsoft Docs"
+title: "Création d’une application capable de connecter n’importe quel utilisateur Azure AD | Microsoft Docs"
 description: "Procédure étape par étape pour créer une application capable de connecter un utilisateur à partir de n’importe quel client Azure Active Directory, également appelée application mutualisée."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
+ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
+ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 
 
 ---
@@ -39,9 +39,9 @@ Il existe quatre étapes simples pour convertir votre application en une applica
 Examinons chaque étape en détail. Vous pouvez également accéder directement à [cette liste d’exemples d’architectures mutualisées][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Conversion d’une inscription en inscription mutualisée
-Par défaut, les inscriptions web app/API dans Azure AD sont de type client unique.  Vous pouvez rendre votre inscription mutualisée en activant (« Oui ») le commutateur « Application mutualisée » sur la page de configuration de l’inscription de votre application dans le [portail Azure Classic][AZURE-classic-portal].
+Par défaut, les inscriptions web app/API dans Azure AD sont de type client unique.  Vous pouvez rendre votre inscription mutualisée en activant (avec l’option « Oui ») le commutateur « Mutualisé » sur la page de propriétés de l’inscription de votre application dans le [portail Azure][AZURE-portal].
 
-Remarque : avant qu’une application ne soit mutualisée, Azure AD nécessite que l’URI ID d’application soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole.  Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce client.  Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients.  L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD.  Par exemple, si le nom de votre client était contoso.onmicrosoft.com, un URI ID d’application valide serait `https://contoso.onmicrosoft.com/myapp`.  Si votre client possède le domaine vérifié `contoso.com`, un URI ID d’application valide serait alors `https://contoso.com/myapp`.  La définition d’une application mutualisée échouera si l’URI ID d’application ne suit pas ce modèle.
+Notez également que, avant qu’une application ne soit mutualisée, l’URI d'ID d’application doit être globalement unique Azure AD. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole.  Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce client.  Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients.  L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD.  Par exemple, si le nom de votre client était contoso.onmicrosoft.com, un URI ID d’application valide serait `https://contoso.onmicrosoft.com/myapp`.  Si votre client possède le domaine vérifié `contoso.com`, un URI ID d’application valide serait alors `https://contoso.com/myapp`.  La définition d’une application mutualisée échouera si l’URI ID d’application ne suit pas ce modèle.
 
 Les inscriptions clientes natives sont mutualisées par défaut.  Aucune action n’est nécessaire de votre part pour rendre mutualisée une connexion d’application cliente native.
 
@@ -101,7 +101,7 @@ Dans les exemples d’architectures mutualisées figurant dans la section [Conte
 Examinons à présent l’expérience des utilisateurs qui se connectent à des applications mutualisées.
 
 ## <a name="understanding-user-and-admin-consent"></a>Comprendre le consentement de l’utilisateur et de l’administrateur
-Pour qu’un utilisateur puisse se connecter à une application dans Azure AD, cette application doit être représentée dans le client de l’utilisateur.  Cela permet à l’organisation d’effectuer différentes tâches, par exemple appliquer des stratégies uniques lorsque les utilisateurs de leurs clients se connectent à l’application.  Pour une application à client unique, l’inscription est simple ; il s’agit de l’inscription qui a lieu lorsque vous enregistrez l’application dans le [portail Azure Classic][AZURE-classic-portal].
+Pour qu’un utilisateur puisse se connecter à une application dans Azure AD, cette application doit être représentée dans le client de l’utilisateur.  Cela permet à l’organisation d’effectuer différentes tâches, par exemple appliquer des stratégies uniques lorsque les utilisateurs de leurs clients se connectent à l’application.  Pour une application à locataire unique, l’inscription est simple ; il s’agit de l’inscription de l’application dans le [portail Azure][AZURE-portal].
 
 Pour une application mutualisée, l’inscription initiale de l’application s’effectue dans le client Azure AD utilisé par le développeur.  Lorsqu’un utilisateur d’un autre client se connecte à l’application pour la première fois, Azure AD l’invite à donner son consentement pour les autorisations demandées par l’application.  S’il donne son consentement, une représentation de l’application appelée *principal du service* est créée dans le client de l’utilisateur, et la connexion peut alors continuer. Une délégation est également créée dans le répertoire qui enregistre le consentement de l’utilisateur pour l’application. Consultez la rubrique [Objets principal du service et application][AAD-App-SP-Objects] pour plus d’informations sur les objets ServicePrincipal et Application de l’application et les liens qui les unissent.
 
@@ -125,7 +125,7 @@ Le paramètre `prompt=admin_consent` peut également être utilisé par les appl
 
 Si une application requiert le consentement de l’administrateur, que l’administrateur se connecte à l’application mais que le paramètre `prompt=admin_consent` n’est pas envoyé, l’administrateur pourra donner son consentement à l’application, mais uniquement pour son compte d’utilisateur.  Les utilisateurs standard ne pourront toujours pas se connecter et donner leur consentement à l’application.  Cela s’avère utile si vous souhaitez donner à l’administrateur du client la possibilité d’explorer votre application avant d’autoriser l’accès à d’autres utilisateurs.
 
-L’administrateur d’un client peut empêcher les utilisateurs standard de donner son consentement aux applications.  Si cette fonctionnalité est désactivée, le consentement de l’administrateur est toujours requis pour que l’application soit configurée dans le client.  Si vous souhaitez tester votre application en désactivant le consentement de l’utilisateur standard, vous pouvez utiliser le commutateur de configuration dans la section sur la configuration du client Azure AD du [portail Azure Classic][AZURE-classic-portal].
+L’administrateur d’un client peut empêcher les utilisateurs standard de donner son consentement aux applications.  Si cette fonctionnalité est désactivée, le consentement de l’administrateur est toujours requis pour que l’application soit configurée dans le client.  Si vous souhaitez tester votre application en désactivant le consentement de l’utilisateur standard, vous pouvez utiliser le commutateur de configuration dans la section sur la configuration du locataire Azure AD du [portail Azure][AZURE-portal].
 
 > [!NOTE]
 > Dans certaines applications, les utilisateurs standard peuvent donner leur consentement initialement, et l’application peut par la suite impliquer l’administrateur et imposer des autorisations nécessitant le consentement de l’administrateur.  Il n’existe actuellement aucun moyen d’effectuer cette opération avec une inscription unique dans Azure AD.  Avec le prochain point de terminaison Azure AD v2, les applications pourront demander des autorisations lors de l’exécution et non au moment de l’inscription, ce qui permettra ce scénario.  Pour plus d’informations, consultez le [Guide du développeur de modèle d’application Azure AD v2][AAD-V2-Dev-Guide].
@@ -153,7 +153,7 @@ Le diagramme ci-dessous décrit le processus de consentement pour une applicatio
 Les utilisateurs et les administrateurs peuvent à tout moment révoquer leur consentement pour votre application :
 
 * Les utilisateurs révoquent l’accès à des applications individuelles en les supprimant de leur liste [Applications du panneau d’accès][AAD-Access-Panel].
-* Les administrateurs révoquent l’accès à des applications en les supprimant d’Azure AD à l’aide de la section sur la gestion d’Azure AD du [portail Azure Classic][AZURE-classic-portal].
+* Les administrateurs révoquent l’accès à des applications en les supprimant d’Azure AD à l’aide de la section sur la gestion d’Azure AD du [portail Azure][AZURE-portal].
 
 Si un administrateur donne son consentement à une application pour tous les utilisateurs d’un client, ces utilisateurs ne peuvent pas révoquer l’accès individuellement.  Seul l’administrateur peut révoquer l’accès et uniquement pour l’application entière.
 
@@ -173,7 +173,7 @@ Les applications mutualisées peuvent également obtenir des jetons d’accès p
 * [Étendues des autorisations de l’API Graph Microsoft][MSFT-Graph-AAD]
 * [Étendues des autorisations de l’API Graph Azure AD][AAD-Graph-Perm-Scopes]
 
-Utilisez la section commentaires Disqus ci-dessous pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
+Utilisez la section de commentaires ci-dessous pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -188,7 +188,7 @@ Utilisez la section commentaires Disqus ci-dessous pour fournir des commentaires
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
@@ -211,7 +211,7 @@ Utilisez la section commentaires Disqus ci-dessous pour fournir des commentaires
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
@@ -239,6 +239,6 @@ Utilisez la section commentaires Disqus ci-dessous pour fournir des commentaires
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

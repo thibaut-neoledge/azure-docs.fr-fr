@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 8a6c84ba559545cd1b786fc42cbbb7b190585e66
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
 
 
 ---
@@ -47,7 +47,7 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
-* Pilotes clients ODBC 64 bits
+* Pilotes clients ODBC&64; bits
 
 ### <a name="permissions-in-connected-data-source"></a>Autorisations dans la source de données connectée
 Pour créer ou exécuter les tâches prises en charge dans le connecteur SQL générique, vous devez disposer de :
@@ -157,7 +157,7 @@ Le connecteur SQL générique prend en charge les méthodes suivantes pour l’i
   * La stratégie de filigrane ne prend pas en charge les objets supprimés.
 * **Instantané**: (fonctionne uniquement avec Microsoft SQL Server) [Génération de vues différentielles à l’aide d’instantanés](https://technet.microsoft.com/library/cc720640.aspx)
 * **Suivi des modifications**: (fonctionne uniquement avec Microsoft SQL Server) [About Suivi des modifications](https://msdn.microsoft.com/library/bb933875.aspx)  
-   Limites :
+  Limites :
   * Le point d’ancrage et l’attribut de nom unique doivent faire partie de la clé primaire de l’objet sélectionné dans la table.
   * La requête SQL n’est pas prise en charge pendant l’importation et l’exportation avec suivi des modifications.
 
@@ -234,7 +234,7 @@ Effectuez les actions suivantes :
 
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
 
-* Les requêtes définies à résultats multiples ne sont pas prises en charge.
+* Les requêtes à jeux de résultats multiples ne sont pas prises en charge.
 * La requête SQL prend en charge la pagination et fournit un Index de début et un index de fin en tant que variable pour prendre en charge la pagination.
 
 ### <a name="delta-import"></a>Importation d’écart
@@ -259,12 +259,12 @@ Le connecteur SQL générique prend en charge l’exportation en utilisant quatr
 * Requête SQL
 
 **Table/Vue**  
- Si vous choisissez l’option Table/Vue, le connecteur génère les requêtes respectives pour procéder à l’exportation.
+Si vous choisissez l’option Table/Vue, le connecteur génère les requêtes respectives pour procéder à l’exportation.
 
 **Procédures stockées**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
 
-Si vous choisissez l’option Procédure stockée, l’exportation nécessite 3 procédures stockées différentes pour effectuer des opérations d’insertion/de mise à jour/de suppression.
+Si vous choisissez l’option Procédure stockée, l’exportation nécessite&3; procédures stockées différentes pour effectuer des opérations d’insertion/de mise à jour/de suppression.
 
 * **Ajouter un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une insertion dans la table concernée.
 * **Mettre à jour un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une mise à jour dans la table concernée.
@@ -275,7 +275,7 @@ Si vous choisissez l’option Procédure stockée, l’exportation nécessite 3 
 **SQL query**  
 ![runstep9](./media/active-directory-aadconnectsync-connector-genericsql/runstep9.png)
 
-Si vous choisissez l’option Requête SQL, l’exportation nécessite 3 procédures stockées différentes pour effectuer les opérations d’insertion/de mise à jour/de suppression.
+Si vous choisissez l’option Requête SQL, l’exportation nécessite&3; procédures stockées différentes pour effectuer les opérations d’insertion/de mise à jour/de suppression.
 
 * **Requête d’insertion**: cette requête s’exécute si un objet arrive au connecteur pour une insertion dans la table concernée.
 * **Requête de mise à jour**: cette requête s’exécute si un objet arrive au connecteur pour une mise à jour dans la table concernée.
@@ -287,7 +287,6 @@ Si vous choisissez l’option Requête SQL, l’exportation nécessite 3 procéd
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -17,9 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: 6fc5dfd3fbdd2e0690b60f4b232e624c34bf53b6
-ms.openlocfilehash: c1022a127266d28d3b59bfebd0543a840fe11e3a
-
+ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
+ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
 
 ---
 
@@ -35,29 +34,23 @@ Les performances de DocumentDB sont basées sur la quantité [d’unités de req
 
 En tant que système de base de données distribué globalement, DocumentDB est le seul service Azure à fournir un contrat SLA sur la latence, le débit et la cohérence, en plus de la haute disponibilité. Le débit que vous approvisionnez est appliqué à chacune des régions associées à votre compte de base de données DocumentDB. Pour les opérations de lecture, DocumentDB propose plusieurs [niveaux de cohérence](documentdb-consistency-levels.md). 
 
-Le tableau suivant indique le nombre d’unités de requête nécessaire pour lire et écrire des transactions en fonction de la taille des documents. 
+Le tableau suivant indique le nombre d’unités de requête nécessaire pour lire et écrire des transactions en fonction de la taille des documents de 1 ko et 100 ko.
 
 |Taille du document|1 lecture|1 écriture|
 |-------------|------|-------|
 |1 Ko|1 unité de requête|5 unités de requête|
-|5 Ko|5 unités de requête|25 unités de requête|
-|10 Ko|10 unités de requête|50 unités de requête|
-|50 Ko|50 unités de requête|250 unités de requête|
-|100 Ko|100 unités de requête|500 unités de requête|
+|100 Ko|10 unités de requête|50 unités de requête|
 
-## <a name="cost-of-running-documentdb-in-readwrite-mode-without-indexing"></a>Coût de l’exécution de DocumentDB en mode Lecture/Écriture sans indexation
+## <a name="cost-of-reads-and-writes"></a>Coût des lectures et écritures
 
 Si vous approvisionnez 1 000 unités de requête par seconde, vous obtenez un total de 3,6 millions d’unités de requête par heure, à un coût de 0,08 dollar l’heure (aux États-Unis et en Europe). Pour un document d’une taille de 1 Ko, vous pouvez donc consommer 3,6 millions de lectures ou 0,72 million d’écritures (3,6 millions d’unités de requête/5) en utilisant le débit approvisionné. Normalisé au million de lectures et d’écritures, le coût serait de 0,022 $/million de lectures (0,08 $/3,6) et de 0,111 $/million d’écritures (0,08 $/0,72). Le coût par million devient minime, comme le montre le tableau ci-dessous.
 
 |Taille du document|1 million de lectures|1 million d’écritures|
 |-------------|-------|--------|
 |1 Ko|0,022 $|0,111 $|
-|5 Ko|0,111 $|0,556 $|
-|10 Ko|0,222 $|1,111 $|
-|50 Ko|1,111 $|5,556 $|
-|100 Ko|2,222 $|11,111 $|
+|100 Ko|0,222 $|1,111 $|
 
-La plupart des magasins d’objets et d’objets Blob de base, tels que les services AWS S3 ou Stockage Blob Azure, facturent&0;,40 $ le million de transactions de lecture et&5; $ le million de transactions d’écriture. S’il est utilisé de manière optimale, DocumentDB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
+La plupart des magasins d’objets et d’objets Blob de base facturent&0;,40 $ le million de transactions de lecture et&5; $ le million de transactions d’écriture. S’il est utilisé de manière optimale, DocumentDB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dd507b6be4aa9853940adbf80baa3ec4997ce3c7
-ms.openlocfilehash: 05c5def02a5bee18f26bc8b96b9aa1c8f3fdff70
+ms.sourcegitcommit: fcc47e3e054d88fe40c13a0fd9949c315dbfce9b
+ms.openlocfilehash: 1617aebffeec5b385b47a7425f6c849267da68a6
 
 
 ---
@@ -67,7 +67,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";
    
@@ -96,7 +96,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
                     };
    
                     System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
@@ -130,18 +130,22 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
         }
 4. Appuyez sur **F5** pour exécuter l'application.
 
+Pour réexécuter le travail, vous devez modifier le nom du dossier de sortie du travail. Dans l’exemple, il s’agit de « /example/data/davinciwordcount ».
+
+Une fois le travail terminé, le résultat est vide. Pour afficher le résultat du travail MapReduce, utilisez le portail Azure pour explorer le conteneur de stockage par défaut dans le stockage Blob.  Le nom du fichier est : « part-r-00000 ».
+
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* Pour créer un cluster et envoyer une tâche Hive, consultez [Prise en main d’Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Pour soumettre un travail Hive, consultez [Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 * Pour créer des clusters HDInsight, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Pour gérer des clusters HDInsight, consultez [Gestion de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-administer-use-management-portal.md).
+* Pour gérer des clusters HDInsight, consultez [Gestion de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-administer-use-portal-linux.md).
 * Pour découvrir le Kit de développement logiciel (SDK) .NET HDInsight, consultez [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
 * Pour l’authentification non interactive sur Azure, consultez [Créer des applications HDInsight .NET d’authentification non interactive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

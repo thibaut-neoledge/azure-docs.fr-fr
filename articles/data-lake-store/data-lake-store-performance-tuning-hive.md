@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 36c9a33fc0fa1b71b3dde22a6dfd472eb569b650
-ms.openlocfilehash: 28a18ac0e33c0cccbb97d31dd34e8286ff566852
+ms.sourcegitcommit: ab688288c7ae0d6bebdff5156fad6f7f5e9b4224
+ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
 
 
 ---
@@ -56,7 +56,7 @@ Voici les principaux paramètres à définir pour améliorer les performances d�
 
 **Set hive.exec.reducer.bytes.per.reducer** : la valeur par défaut convient parfaitement lorsque les données sont décompressées.  Pour les données compressées, vous devez réduire la taille du réducteur.  
 
-**Set hive.tez.container.size** : dans chaque nœud, la mémoire est spécifiée par yarn.nodemanager.resource.memory-mb et doit être correctement définie sur le cluster HDI par défaut.  Pour plus d’informations sur la définition de la mémoire appropriée dans YARN, consultez ce billet.
+**Set hive.tez.container.size** : dans chaque nœud, la mémoire est spécifiée par yarn.nodemanager.resource.memory-mb et doit être correctement définie sur le cluster HDI par défaut.  Pour plus d’informations sur la configuration de mémoire appropriée dans YARN, consultez ce [billet](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 Des charges de travail d’e/s intensives peuvent bénéficier de davantage de parallélisme grâce à la diminution de la taille du conteneur Tez. Cela fournit à l’utilisateur un nombre supérieur de conteneurs, ce qui augmente l’accès concurrentiel.  Toutefois, certaines requêtes Hive nécessitent une quantité importante de mémoire (par exemple, MapJoin).  Si la tâche ne dispose pas de suffisamment de mémoire, une exception de mémoire insuffisante se produit lors de l’exécution.  En cas d’exceptions de mémoire insuffisante, vous devez augmenter la mémoire.   
 
@@ -94,6 +94,6 @@ Voici quelques blogs qui vous aideront à optimiser vos requêtes Hive :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

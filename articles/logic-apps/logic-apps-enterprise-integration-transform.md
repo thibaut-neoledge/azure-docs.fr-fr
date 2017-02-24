@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble d’Enterprise Integration Pack | Microsoft Docs"
-description: "Utilisez les fonctionnalités d’Enterprise Integration Pack pour activer les processus métier et les scénarios d’intégration à l’aide de Microsoft Azure App Service"
+title: "Convertir les données XML avec des transformations - Azure Logic Apps | Microsoft Docs"
+description: "Créer des transformations ou des mappages pour convertir les données XML entre les différents formats dans les applications logiques à l’aide du Kit de développement logiciel (SDK) d’intégration d’entreprise"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: cca850073040cde0fb6f035f041419ac777bb0a2
+ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
+ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
 
 
 ---
@@ -75,6 +75,6 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

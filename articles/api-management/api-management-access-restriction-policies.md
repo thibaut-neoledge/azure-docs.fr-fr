@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
@@ -368,7 +368,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |id|L’attribut `id` sur l’élément `key` vous permet de spécifier la chaîne qui sera comparée à la revendication `kid` dans le jeton (le cas échéant) pour déterminer la clé appropriée à utiliser pour la validation de la signature.|Non|N/A|  
 |match|L’attribut `match` sur l’élément `claim` spécifie si toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Les valeurs possibles sont les suivantes :<br /><br /> -                          `all` : toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse.<br /><br /> -                          `any` : au moins une valeur de revendication doit être présente dans le jeton pour que la validation réussisse.|Non|tout|  
 |query-paremeter-name|Nom du paramètre de la requête contenant le jeton.|Soit `header-name`, soit `query-paremeter-name` doit être spécifié, mais pas les deux.|N/A|  
-|require-expiration-time|Booléen. Spécifie si une revendication d’expiration est requise dans le jeton.|Non|true|  
+|require-expiration-time|Booléen. Spécifie si une revendication d’expiration est requise dans le jeton.|Non|true|
+|require-scheme|Le nom du schéma de jeton, par ex. « Support ». Lorsque cet attribut est défini, la stratégie garantit que le schéma spécifié est présent dans la valeur d’en-tête d’autorisation.|Non|N/A|
 |require-signed-tokens|Booléen. Spécifie si un jeton doit être signé.|Non|true|  
 |url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.windows.net/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|Oui|N/A|  
   
@@ -506,6 +508,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

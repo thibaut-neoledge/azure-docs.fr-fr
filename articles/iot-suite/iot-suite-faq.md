@@ -4,7 +4,7 @@ description: "Forum Aux Questions (FAQ) relatives à IoT Suite"
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: araguila
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
-ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 * Si vous supprimez le groupe de ressources sur le [portail Azure][lnk-azure-portal], vous supprimez uniquement les ressources de ce groupe de ressources. Vous devez également supprimer l’application Azure Active Directory associée à la solution préconfigurée sur le [Portail Azure Classic][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’IoT Hub puis-je configurer dans un abonnement ?
-Dix. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 10 instances IoT Hub par abonnement, comme indiqué dans l’article concernant les [limites d’abonnement Azure][link-azuresublimits]. Par conséquent, étant donné que chaque solution préconfigurée approvisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 solutions préconfigurées au maximum dans un abonnement. 
+Vous pouvez configurer 10 instances IoT Hub par abonnement. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 10 instances IoT Hub par abonnement, comme indiqué dans l’article concernant les [limites d’abonnement Azure][link-azuresublimits]. Par conséquent, étant donné que chaque solution préconfigurée approvisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 solutions préconfigurées au maximum dans un abonnement. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Combien d’instances de DocumentDB puis-je configurer dans un abonnement ?
 Cinquante. Vous pouvez créer un [ticket de support Azure][link-azuresupportticket] pour augmenter cette limite, mais par défaut, vous ne pouvez approvisionner que 50 instances de DocumentDB par abonnement. 
@@ -80,6 +80,6 @@ Vous pouvez également explorer certaines des autres fonctionnalités et capacit
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

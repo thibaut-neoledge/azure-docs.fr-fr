@@ -1,6 +1,6 @@
 ---
-title: Stockage des machines virtuelles Azure et Linux | Microsoft Docs
-description: "Décrit le Stockage Standard et Premium Azure avec des machines virtuelles Linux."
+title: Machines virtuelles Linux Azure et stockage Azure | Microsoft Docs
+description: "Décrit le Stockage Standard et Premium Azure, ainsi que l’utilisation des disques gérés et non gérés avec des machines virtuelles Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -12,28 +12,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/04/2016
-ms.author: v-livech
+ms.date: 2/7/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
+ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
 
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Stockage des machines virtuelles Azure et Linux
 Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients.  Le Stockage Azure permet aux développeurs de créer des applications à grande échelle pour prendre en charge de nouveaux scénarios, et fournit également une base de stockage pour les Machines Virtuelles Azure.
 
-## <a name="azure-storage-standard-and-premium"></a>Stockage Azure : Standard et Premium
-Les machines virtuelles Azure peuvent reposer sur des disques de stockage Standard ou Premium.  Lorsque vous utilisez le portail pour choisir votre machine virtuelle, vous devez dérouler une liste sur l’écran Informations de base pour afficher les disques Standard et Premium.  La capture d’écran ci-dessous met en évidence ce menu déroulant.  Quand l’option SSD est sélectionnée, seules les machines virtuelles compatibles Stockage Premium, toutes assorties de lecteurs SSD, s’affichent.  Quand l’option disque dur est sélectionnée, les machines virtuelles compatibles Stockage Standard, assorties de lecteurs de disques rotatifs, s’affichent, ainsi que les machines virtuelles de Stockage Premium assorties de SSD.
+## <a name="managed-disks"></a>Managed Disks
 
-  ![écran1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+Les machines virtuelles Azure prennent désormais en charge [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ce qui vous permet de créer vos machines virtuelles sans avoir à créer ou à gérer vous-mêmes [des comptes de stockage Azure](../storage/storage-introduction.md). Vous choisissez un compte de stockage Premium ou Standard et la taille du disque. Azure crée ensuite les disques de machine virtuelle pour vous. Les machines virtuelles intégrant des disques gérés offrent de nombreux avantages, notamment :
+
+- Une extensibilité automatique. Azure crée les disques et gère le stockage sous-jacent pour prendre en charge jusqu’à 10 000 disques par abonnement.
+- Une fiabilité accrue avec les groupes à haute disponibilité. Azure garantit que les disques de machine virtuelle sont automatiquement isolés les uns des autres au sein des groupes à haute disponibilité.
+- Un meilleur contrôle d’accès. Les disques gérés offrent un large choix d’options de [contrôle d’accès en fonction du rôle (RBAC) d’Azure](../active-directory/role-based-access-control-what-is.md). 
+
+La tarification des disques gérés est différente de celle des disques non gérés. Pour en savoir plus, consultez la rubrique relative à la [tarification et à la facturation des disques gérés](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+
+Vous pouvez convertir des machines virtuelles existantes qui utilisent des disques non gérés pour utiliser des disques gérés avec la commande [az vm convert](/cli/azure/vm#convert). Pour en savoir plus, consultez la [Procédure de conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
+
+- [Copiez le disque dur virtuel (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
+- Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create), ou
+- Attachez le disque dur virtuel copié avec la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution avec des disques gérés.
+
+
+## <a name="azure-storage-standard-and-premium"></a>Stockage Azure : Standard et Premium
+Que vous utilisiez des disques gérés ou non gérés, les machines virtuelles Azure peuvent intégrer des disques de stockage Standard ou Premium. Lorsque vous utilisez le portail pour choisir votre machine virtuelle, vous devez dérouler un menu sur l’écran **Informations de base** pour afficher les disques Standard et Premium. Quand l’option SSD est sélectionnée, seules les machines virtuelles compatibles Stockage Premium, toutes assorties de lecteurs SSD, s’affichent.  Quand l’option Disque dur est sélectionnée, les machines virtuelles compatibles Stockage Standard dotées de lecteurs de disques rotatifs s’affichent, ainsi que les machines virtuelles de Stockage Premium dotées de disques SSD.
 
 Lorsque vous créez une machine virtuelle à partir de l’interface `azure-cli`, vous pouvez choisir entre Standard et Premium pour la taille de la machine virtuelle en sélectionnant l’indicateur `-z` ou `--vm-size`.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Créer une machine virtuelle avec Stockage Standard sur l’interface CLI
-L’indicateur CLI `-z` choisit Standard_A1, A1 étant une machine virtuelle Linux avec Stockage Standard.
+## <a name="creating-a-vm-with-a-managed-disk"></a>Création d’une machine virtuelle avec un disque géré
 
-```bash
+L’exemple suivant nécessite Azure CLI 2.0 (version préliminaire) que vous pouvez installer [en cliquant ici].
+
+Tout d’abord, créez un groupe de ressources pour gérer les ressources :
+
+```azurecli
+az group create --location westus --name myResourceGroup
+```
+
+Créez ensuite la machine virtuelle avec la commande `az vm create`, comme indiqué dans l’exemple suivant. N’oubliez pas de spécifier un argument `--public-ip-address-dns-name` unique, car `manageddisks` sera probablement déjà pris.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+L’exemple précédent crée une machine virtuelle avec un disque géré dans un compte de stockage Standard. Pour utiliser un compte de stockage Premium, ajoutez l’argument `--storage-sku Premium_LRS`, comme indiqué dans l’exemple suivant :
+
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+
+### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Créer une machine virtuelle avec un disque Standard non géré à l’aide d’Azure CLI 1.0
+
+Vous pouvez également utiliser Azure CLI 1.0 pour créer des machines virtuelles avec des disques Standard et Premium. Pour le moment, vous ne pouvez pas utiliser Azure CLI 1.0 pour créer des machines virtuelles dotées de disques gérés.
+
+L’option `-z` sélectionne Standard_A1, ce qui correspond à une machine virtuelle Linux avec Stockage Standard.
+
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -44,10 +100,10 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Créer une machine virtuelle avec Stockage Premium sur l’interface CLI
-L’indicateur CLI `-z` choisit Standard_DS1, DS1 étant une machine virtuelle Linux avec Stockage Premium.
+### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Créer une machine virtuelle avec Stockage Premium à l’aide d’Azure CLI 1.0
+L’option `-z` sélectionne Standard_DS1, ce qui correspond à une machine virtuelle Linux avec Stockage Premium.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -186,6 +242,6 @@ Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

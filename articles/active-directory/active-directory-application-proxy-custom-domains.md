@@ -1,34 +1,34 @@
 ---
-title: "Utilisation des domaines personnalisés dans le proxy d’application Azure AD | Microsoft Docs"
-description: "Explique comment utiliser les domaines personnalisés dans le proxy d&quot;application Azure AD."
+title: "Domaines personnalisés dans le proxy d’application Azure AD | Microsoft Docs"
+description: "Gérer les domaines personnalisés dans le proxy d’application Azure AD afin que l’URL de l’application soit identique quel que soit l’emplacement d’où vos utilisateurs y accèdent."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fedd64ad885bacedf01afd91adf0c4d05265c476
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: b8edebd4e7dfdbf85a9beb6d126acaf7ec66dd01
 
 
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
-En utilisant un domaine par défaut, vous pouvez définir une même URL en tant qu’URL interne et externe pour accéder à l’application. Vos utilisateurs n’ont ainsi qu’une seule URL à mémoriser pour accéder à l’application, quel que soit l’endroit à partir duquel ils y accèdent. Cela vous permet aussi de créer un raccourci unique dans le volet d’accès de l’application. Si vous utilisez le domaine par défaut fourni par le proxy d'application Azure AD, il n'y a aucune autre configuration nécessaire pour activer votre domaine. Dans le cas où vous utilisez un domaine personnalisé, vous avez quelques procédures à suivre pour vous assurer que le proxy d'application reconnaît bien votre domaine et valide ses certificats.
+En utilisant un domaine par défaut, vous pouvez définir une même URL en tant qu’URL interne et externe pour accéder à l’application. Vos utilisateurs n’ont ainsi qu’une seule URL à mémoriser pour accéder à l’application, quel que soit l’endroit à partir duquel ils y accèdent. Cela vous permet aussi de créer un raccourci unique dans le volet d’accès de l’application. Si vous utilisez le domaine par défaut fourni par le proxy d'application Azure AD, il n'y a aucune autre configuration nécessaire pour activer votre domaine. Si vous utilisez un domaine personnalisé, vous avez quelques procédures à suivre pour vous assurer que le proxy d’application reconnaît bien votre domaine et valide ses certificats.
 
 ## <a name="selecting-your-custom-domain"></a>Sélection de votre domaine personnalisé
 1. Publiez votre application en suivant les instructions fournies dans [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md).
 2. Une fois que l'application s'affiche dans la liste des applications, sélectionnez-la et cliquez sur **Configurer**.
 3. Sous **URL externe**, entrez votre domaine personnalisé.
 4. Si votre URL externe est https, vous serez invité à télécharger un certificat afin qu’Azure puisse valider l'URL de l'application. Vous pouvez également télécharger un certificat générique qui correspond à l'URL externe de l'application. Ce domaine doit se trouver dans la liste de vos [domaines vérifiés par Azure](https://msdn.microsoft.com/library/azure/jj151788.aspx). Azure doit avoir un certificat pour l'URL du domaine de l'application ou un certificat générique qui correspond à l'URL externe pour l'application.
-5. Veillez à ajouter un enregistrement DNS qui achemine l'URL interne vers l'application qui vous permet d'avoir la même URL pour l'accès interne et externe et un seul raccourci vers l'application dans la liste des applications de l'utilisateur.
+5. Ajoutez un enregistrement DNS qui achemine l’URL interne vers l’application. Cet enregistrement vous permet d’avoir la même URL pour l’accès interne et externe à l’application, et un seul raccourci dans la liste des applications de l’utilisateur.
 
 ## <a name="frequently-asked-questions-about-working-with-custom-domains"></a>Forum aux questions sur l'utilisation des domaines personnalisés
 Q : Puis-je sélectionner un certificat déjà téléchargé sans avoir à le télécharger à nouveau ?  
@@ -70,17 +70,15 @@ R : Oui, les certificats auto-signés sont autorisés. Notez que si vous utilis
 Q : Existe-t-il un endroit où je peux afficher tous les certificats de mon client ?  
 R : Cette fonctionnalité n’est pas prise en charge dans la version actuelle.  
 
-## <a name="see-also"></a>Voir aussi
-* [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
-* [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-* [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
+* [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md) à vos applications publiées.
 * [Ajout de votre propre nom de domaine à Azure AD](active-directory-add-domain.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST"
+title: "Contrôle d’accès en fonction des rôles avec REST - Azure AD | Microsoft Docs"
 description: "Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST"
 services: active-directory
 documentationcenter: na
@@ -12,21 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 
 
 ---
-# <a name="managing-role-based-access-control-with-the-rest-api"></a>Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gérer le contrôle d’accès en fonction des rôles à l’aide de l’API REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 Le contrôle d’accès en fonction du rôle (RBAC) disponible dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
@@ -43,13 +41,13 @@ Utilisez la méthode **GET** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{api-version}* par 2015-07-01.
 3. Remplacez *{filter}* par la condition que vous souhaitez appliquer pour filtrer la liste des attributions de rôle :
-   
+
    * Répertorier les affectations de rôle pour la portée spécifiée seulement, sans y inclure les affectations de rôles à des étendues secondaires : `atScope()`    
    * Répertorier les affectations de rôle pour un utilisateur, un groupe ou une application spécifique : `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Répertorier les affectations de rôle pour un utilisateur spécifique, y compris celles héritées de groupes | `assignedTo('{objectId of user}')`
@@ -93,7 +91,7 @@ Utilisez la méthode **GET** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -134,7 +132,7 @@ Utilisez la méthode **PUT** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Lorsque vous créez une affectation de rôle pour une portée parent, toutes les portées enfants en héritent. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -192,7 +190,7 @@ Utilisez la méthode **DELETE** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée sur laquelle vous souhaitez créer les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -233,13 +231,13 @@ Utilisez la méthode **GET** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les rôles. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Remplacez *{api-version}* par 2015-07-01.
 3. Remplacez *{filter}* par la condition que vous souhaitez appliquer pour filtrer la liste des rôles :
-   
+
    * Répertorier les rôles disponibles à l’affectation à la portée spécifiée et chacune de ses portées enfants : `atScopeAndBelow()`
    * Rechercher un rôle utilisant le nom d’affichage exact : `roleName%20eq%20'{role-display-name}'`. Utilisez la forme codée de l’URL du nom d’affichage exact du rôle. Par exemple, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -316,7 +314,7 @@ Utilisez la méthode **GET** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée dont vous souhaitez répertorier les attributions de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -396,7 +394,7 @@ Utilisez la méthode **PUT** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples qui suivent montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -499,7 +497,7 @@ Utilisez la méthode **PUT** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par le premier élément *AssignableScope* du rôle personnalisé. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -602,7 +600,7 @@ Utilisez la méthode **DELETE** avec l’URI suivant :
 Dans l’URI, procédez aux changements suivants pour personnaliser votre demande :
 
 1. Remplacez *{scope}* par la portée dont vous souhaitez supprimer la définition de rôle. Les exemples suivants montrent comment spécifier la portée sur différents niveaux :
-   
+
    * Abonnement : /subscriptions/{subscription-id}  
    * Groupe de ressources : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Ressource : /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -649,12 +647,12 @@ Code d’état : 200
 
 ```
 
+## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

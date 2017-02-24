@@ -1,6 +1,6 @@
 ---
 title: Utilisation de Docker Compose sur une machine virtuelle Linux dans Azure | Microsoft Docs
-description: "Procédure d’utilisation de Docker et Compose sur des machines virtuelles Linux dans Azure"
+description: "Procédure d’utilisation de Docker et Compose sur des machines virtuelles Linux avec l’interface CLI Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
-ms.openlocfilehash: 06ad7f9267f24ee1f2fe417ad4aa0bf1096832d6
+ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
+ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
 
 
 ---
@@ -27,25 +27,61 @@ Avec [Compose](http://github.com/docker/compose), un fichier texte simple vous p
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Étape 1 : Configurer une machine virtuelle Linux en tant qu’hôte Docker
 La Place de marché Azure propose différentes procédures Azure et des images ou des modèles Resource Manager disponibles pour la création d’une machine virtuelle Linux et sa configuration en tant qu’hôte Docker. Par exemple, la page [Utilisation de l’extension de machine virtuelle Docker pour déployer votre environnement](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) contient une procédure rapide relative à la création d’une machine virtuelle Ubuntu avec l’extension de machine virtuelle Docker à l’aide d’un [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-Si vous utilisez l’extension de machine virtuelle Docker, votre machine virtuelle est automatiquement configurée en tant que hôte Docker et Compose est déjà installé. L’exemple de cet article vous montre comment utiliser [l’interface de ligne de commande Azure 1.0](../xplat-cli-install.md) en mode Resource Manager pour créer la machine virtuelle.
+Si vous utilisez l’extension de machine virtuelle Docker, votre machine virtuelle est automatiquement configurée en tant que hôte Docker et Compose est déjà installé. Vous pouvez créer une machine virtuelle et utiliser l’extension de machine virtuelle Docker à l’aide d’une des versions suivantes de l’interface CLI :
 
-La commande de base issue du document précédent crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine Virtuelle avec l’extension Azure Docker VM installée :
+- [Azure CLI 1.0](#azure-cli-10) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
+- [Azure CLI 2.0 (version préliminaire)](#azure-cli-20-preview) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+
+
+### <a name="azure-cli-10"></a>Azure CLI 1.0
+Installez la dernière version [d’Azure CLI 1.0](../xplat-cli-install.md) et connectez-vous à un compte Azure. Assurez-vous que vous utilisez le mode Resource Manager pour créer la machine virtuelle (`azure config mode arm`).
+
+L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` et déploie une machine virtuelle avec l’extension de machine virtuelle Azure Docker. Un [modèle Azure Resource Manager issu de Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) est utilisé pour déployer l’environnement :
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-L’interface de ligne de commande Azure vous renvoie à l’invite après quelques secondes, mais l’hôte Docker est toujours en cours de création et de configuration. Le déploiement prend quelques minutes. Vous pouvez afficher des détails sur l’état de l’hôte Docker à l’aide de la commande `azure vm show`. L’exemple suivant vérifie l’état de la machine virtuelle nommée `myDockerVM` (nom par défaut extrait du modèle - ne pas modifier ce nom) dans le groupe de ressources nommé `myResourceGroup`. Entrez le nom du groupe de ressources que vous avez créé à l’étape précédente :+
+L’interface de ligne de commande Azure vous renvoie à l’invite après quelques secondes, mais l’hôte Docker est toujours en cours de création et de configuration. Le déploiement prend quelques minutes. Vous pouvez afficher des détails sur l’état de l’hôte Docker à l’aide de la commande `azure vm show`. L’exemple suivant vérifie l’état de la machine virtuelle nommée `myDockerVM` (nom par défaut extrait du modèle - ne pas modifier ce nom) dans le groupe de ressources nommé `myResourceGroup`. Entrez le nom du groupe de ressources que vous avez créé à l’étape précédente :
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myDockerVM
 ```
 
-Vers le haut de la sortie, vous voyez le `ProvisioningState` de la machine virtuelle. Lorsque `Succeeded`s’affiche, le déploiement est terminé et vous pouvez vous connecter par SSH à la machine virtuelle.
+### <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+Installez la dernière version [d’Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
+
+Tout d’abord, créez un groupe de ressources pour votre environnement Docker avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `West US` :
+
+```azurecli
+az group create --name myResourceGroup --location westus
+```
+
+Ensuite, déployez une machine virtuelle avec la commande [az group deployment create](/cli/azure/group/deployment#create) qui inclut l’extension de machine virtuelle Azure Docker de [ce modèle Azure Resource Manager sur Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Indiquez vos propres valeurs pour `newStorageAccountName`, `adminUsername`, `adminPassword` et `dnsNameForPublicIP` :
+
+```azurecli
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
+    "adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+Le déploiement prend quelques minutes. Une fois le déploiement terminé, [passez à l’étape suivante](#step-2-verify-that-compose-is-installed) pour procéder à la connexion SSH à votre machine virtuelle. 
+
+Sinon, si vous souhaitez retourner le contrôle à l’invite et permettre au déploiement de continuer en arrière-plan, ajoutez l’indicateur `--no-wait` à la commande précédente. Ce processus vous permet d’effectuer d’autres tâches dans l’interface CLI pendant que le déploiement se poursuit pendant quelques minutes. Vous pouvez ensuite afficher des détails sur l’état de l’hôte Docker avec la commande [az vm show](/cli/azure/vm#show). L’exemple suivant vérifie l’état de la machine virtuelle nommée `myDockerVM` (nom par défaut extrait du modèle - ne pas modifier ce nom) dans le groupe de ressources nommé `myResourceGroup` :
+
+```azurecli
+az vm show --resource-group myResourceGroup --name myDockerVM \
+  --query [provisioningState] --output tsv
+```
+
+Lorsque cette commande renvoie `Succeeded`, le déploiement est terminé et vous pouvez procéder à la connexion SSH à la machine virtuelle à l’étape suivante.
 
 ## <a name="step-2-verify-that-compose-is-installed"></a>Étape 2: vérifier que Compose est installé
-Une fois le déploiement terminé, utilisez SSH pour votre nouvel hôte Docker en utilisant le nom DNS fourni pendant le déploiement. Vous pouvez utiliser `azure vm show -g myDockerResourceGroup -n myDockerVM` pour afficher les détails de votre machine virtuelle, y compris le nom DNS.
+Une fois le déploiement terminé, utilisez SSH pour votre nouvel hôte Docker en utilisant le nom DNS fourni pendant le déploiement. Vous pouvez utiliser `azure vm show -g myResourceGroup -n myDockerVM` (Azure CLI 1.0) ou `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Azure CLI 2.0 (version préliminaire)) pour afficher les détails de votre machine virtuelle, y compris le nom DNS.
 
 Pour vérifier que Compose est installé sur la machine virtuelle, exécutez la commande suivante :
 
@@ -137,6 +173,6 @@ Vous pouvez maintenant vous connecter directement à WordPress sur la machine vi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

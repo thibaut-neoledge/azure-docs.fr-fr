@@ -1,10 +1,10 @@
 ---
-title: "Déployer Microsoft Azure StorSimple Virtual Array 1 : préparation de portail | Microsoft Docs"
+title: "Préparation du portail pour StorSimple Virtual Array | Microsoft Docs"
 description: "Le premier didacticiel de déploiement de StorSimple Virtual Array implique la préparation du portail Azure"
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail
@@ -72,7 +72,7 @@ Avant de déployer un tableau virtuel, assurez-vous que :
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre tableau virtuel :
   
   * Un minimum de 4 cœurs.
-  * Au moins 8 Go de RAM.
+  * Au moins 8 Go de RAM. Si vous envisagez de configurer le tableau virtuel en tant que serveur de fichiers, 8 Go prennent en charge 2 millions de fichiers. Vous avez besoin de 16 Go de RAM pour prendre en charge 2 à 4 millions de fichiers de plan.
   * Une interface réseau.
   * Un disque virtuel de 500 Go pour les données système.
 
@@ -172,6 +172,6 @@ L'étape suivante consiste à configurer une machine virtuelle pour votre instan
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

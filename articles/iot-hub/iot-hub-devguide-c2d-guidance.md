@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17b338ab15ae7cf46f6732e7e7a1005eec98990b
+ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
+ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
 
 
 ---
@@ -35,9 +35,9 @@ Voici une comparaison détaillée des différentes options de communication clou
 | Flux de données | Bidirectionnel. L’application pour appareil peut répondre immédiatement à la méthode. Le dispositif principal reçoit les résultats en fonction du contexte de la demande. | Unidirectionnel. L’application pour appareil reçoit une notification avec la modification de propriété. | Unidirectionnel. L’application pour appareil reçoit le message
 | Durabilité | Les appareils déconnectés ne sont pas contactés. Le serveur principal est averti que l’appareil n’est pas connecté. | Les valeurs de propriété sont conservées dans la représentation d’appareil. L’appareil les lira lors de la reconnexion suivante. Les valeurs de propriété sont récupérables avec le [langage de requête d’IoT Hub][lnk-query]. | Les messages peuvent être conservés par IoT Hub jusqu’à 48 heures. |
 | Cibles | Appareil unique utilisant le paramètre **deviceId** ou appareils multiples utilisant le paramètre [jobs][lnk-jobs]. | Appareil unique utilisant le paramètre **deviceId** ou appareils multiples utilisant le paramètre [jobs][lnk-jobs]. | Appareil unique par **deviceId**. |
-| Taille | Demandes jusqu’à8 Ko et réponses jusqu’à 8 Ko. | La taille maximum des propriétés souhaitées est de 8 Ko. | Jusqu’à 256 Ko de messages. |
+| Taille | Demandes jusqu’à8 Ko et réponses jusqu’à 8 Ko. | La taille maximum des propriétés souhaitées est de 8 Ko. | Messages jusqu’à 64 Ko. |
 | Fréquence | Élevée. Pour plus d’informations, référez-vous à [Limites de IoT Hub][lnk-quotas]. | Moyenne. Pour plus d’informations, référez-vous à [Limites de IoT Hub][lnk-quotas]. | Faible. Pour plus d’informations, référez-vous à [Limites de IoT Hub][lnk-quotas]. |
-| Protocole | Disponible sur MQTT et AMQP. | Disponible actuellement uniquement lorsque vous utilisez MQTT. | Disponible sur tous les protocoles. L’appareil doit interroger lors de l’utilisation de HTTP. |
+| Protocole | Disponible actuellement uniquement lorsque vous utilisez MQTT. | Disponible actuellement uniquement lorsque vous utilisez MQTT. | Disponible sur tous les protocoles. L’appareil doit interroger lors de l’utilisation de HTTP. |
 
 Découvrez comment utiliser les méthodes directes, les propriétés souhaitées et les messages cloud-à-appareil grâce aux didacticiels suivants :
 
@@ -56,6 +56,7 @@ Découvrez comment utiliser les méthodes directes, les propriétés souhaitées
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

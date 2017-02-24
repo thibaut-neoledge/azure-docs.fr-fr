@@ -1,6 +1,6 @@
 ---
-title: "Stratégie de mise en cache CDN dans l&quot;extension Media Services"
-description: "Cette rubrique offre une vue d’ensemble d’une stratégie de mise en cache CDN dans l’extension Media Services."
+title: "Gérer la stratégie de mise en cache CDN dans Azure Media Services | Microsoft Docs"
+description: "Découvrez comment gérer la stratégie de mise en cache CDN dans Azure Media Services."
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/04/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8e5fa4f3de86be0a8ef65971e42c8b20f61f0b2
+ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
+ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
 
 
 ---
-# <a name="cdn-caching-policy-in-media-services-extension"></a>Stratégie de mise en cache CDN dans l'extension Media Services
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gérer la stratégie de mise en cache CDN dans Azure Media Services
 Azure Media Services fournit la diffusion en continu adaptative HTTP et le téléchargement progressif. La diffusion en continu HTTP est hautement évolutive de par les avantages de mise en cache dans le proxy et les couches CDN, et la mise en cache côté client. Les points de terminaison de la diffusion en continu fournissent des fonctionnalités générales de diffusion en continu et de configuration pour les en-têtes HTTP du cache. Les points de terminaison de diffusion en continu définissent le contrôle de cache HTTP : les en-têtes max-age et Expires. Pour plus d'informations sur les en-têtes de cache HTTP, rendez-vous sur le site [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>En-têtes de mise en cache par défaut
@@ -30,9 +30,9 @@ Les points de terminaison de diffusion en continu appliquent par défaut des en-
 Azure Media Services propose un [CDN intégré](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) pour les points de terminaison de diffusion en continu. Les en-têtes de contrôle du cache s'applique aux points de terminaison de diffusion en continu de la même façon qu’aux points de terminaison de diffusion en continu fonctionnant avec CDN. Azure CDN utilise les valeurs configurées de cache de points de terminaison de diffusion en continu pour définir la durée de vie des objets mis en cache en interne, et il utilise également cette valeur pour définir les en-têtes de cache de distribution. Lors de l'utilisation des points de terminaison de diffusion en continu fonctionnant avec CDN, il est déconseillé de définir des petites valeurs de cache Définir de petites valeurs diminue les performances et réduit le profit du CDN. Il est interdit de définir des en-têtes de cache inférieure à 600 secondes pour les points de terminaison de diffusion en continu fonctionnant avec CDN.
 
 > [!IMPORTANT]
-> L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon**.  Si vous souhaitez utiliser le **CDN Azure fourni par Akamai** pour Azure Media Services, vous devez [configurer le point de terminaison manuellement](cdn-create-new-endpoint.md).  Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](cdn-overview.md).
+>Azure Media Services est complètement intégré à Azure CDN. En un seul clic, vous pouvez intégrer tous les fournisseurs Azure CDN disponibles (Akamai et Verizon) à votre point de terminaison de streaming, y compris les produits CDN Standard et Premium. Pour plus d’informations, consultez cette [annonce](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> 
+> Les frais liés au transfert des données à partir d’un point de terminaison de streaming vers CDN sont désactivés uniquement si le CDN est activé sur les API de point de terminaison de streaming ou s’il utilise la section de point de terminaison de streaming du portail de gestion Azure. L’intégration manuelle ou la création directe d’un point de terminaison CDN à l’aide des API du CDN ou de la section du portail ne désactivent pas les frais de données.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Configuration des en-têtes de cache avec Azure Media Services
 Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Services pour configurer les valeurs des en-têtes de cache.
@@ -49,6 +49,6 @@ Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

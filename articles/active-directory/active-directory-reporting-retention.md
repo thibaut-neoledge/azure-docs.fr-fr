@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
-ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
@@ -30,8 +30,8 @@ Comment obtenir la collection des données d’activité démarrées ?
 
 | Édition d’Azure AD | Début de la collection |
 | :--              | :--   |
-|Premium et Premium 2 | Lorsque vous vous inscrivez pour une licence |
-| Gratuit | La première fois que vous ouvrez le [panneau Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilisez les [API de création de rapports](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Lorsque vous vous inscrivez pour un abonnement |
+| Azure AD Gratuit | La première fois que vous ouvrez le [panneau Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilisez les [API de création de rapports](https://aka.ms/aadreports)  |
 
 
 Quand vos données d’activité sont-elles disponibles dans le portail Azure ?
@@ -46,14 +46,14 @@ Pendant combien de temps les données collectées sont stockées ?
 
 **Rapports d’activité**    
 
-| Rapport | Azure AD Gratuit | Azure AD Premium 1 | Azure AD Premium 2 |
+| Rapport | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Audit de répertoire | 7 jours | 30 jours | 30 jours |
 | Activité de connexion |    7 jours | 30 jours | 30 jours |
 
 **Signaux de sécurité**
 
-| Rapport | Azure AD Gratuit | Azure AD Premium 1 | Azure AD Premium 2 |
+| Rapport | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Connexions risquées | 7 jours | 30 jours | 90 jours |
 
@@ -61,6 +61,6 @@ Pendant combien de temps les données collectées sont stockées ?
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

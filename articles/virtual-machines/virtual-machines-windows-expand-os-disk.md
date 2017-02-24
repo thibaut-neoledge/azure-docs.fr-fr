@@ -1,6 +1,6 @@
 ---
-title: "Développer un lecteur de système d’exploitation pour une machine virtuelle Windows dans Azure | Microsoft Docs"
-description: "Cet article présente une approche pour l’extension de la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide de Powershell et Azure Resource Manager."
+title: "Développer le lecteur de système d’exploitation d’une machine virtuelle Windows dans Azure | Microsoft Docs"
+description: "Développer la taille du lecteur de système d’exploitation d’une machine virtuelle à l’aide d’Azure PowerShell dans le modèle de déploiement Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: kirpasingh
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: kirpas
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: a56ca6ee60ce13a1791f09da45dc8fcdc909f203
+ms.sourcegitcommit: dad38b1d122537b326e25bd0d3f3cf220549e30f
+ms.openlocfilehash: 8fcc4bf792639f3193ab089db4192705601df456
 
 
 ---
@@ -27,6 +27,6 @@ ms.openlocfilehash: a56ca6ee60ce13a1791f09da45dc8fcdc909f203
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

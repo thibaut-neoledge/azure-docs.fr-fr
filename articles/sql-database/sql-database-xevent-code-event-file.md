@@ -14,15 +14,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: c046c6bd16d6ede165ccaeb5983393dd5e33bfae
+ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
+ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
 
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Vous pouvez utiliser un exemple de code complet pour capturer et signaler les informations liées à un événement étendu.
@@ -38,6 +39,7 @@ Cette rubrique présente un exemple de code en deux phases :
   * Pour créer et démarrer la session d’événement, etc.
 
 ## <a name="prerequisites"></a>Composants requis
+
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.
   
@@ -52,13 +54,14 @@ Cette rubrique présente un exemple de code en deux phases :
   * Ces modules fournissent des commandes, telles que **New-AzureStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour le conteneur Azure Storage
+
 Il s’agit de la première phase de l’exemple de code en deux phases.
 
 Le script commence par des commandes à supprimer s’il a déjà été exécuté, et est réexécutable.
 
 1. Collez le script PowerShell dans un éditeur de texte simple, tel que Notepad.exe, puis enregistrez-le dans un fichier avec l’extension **.ps1**.
 2. Démarrez PowerShell ISE en tant qu’administrateur.
-3. À l’invite, tapez <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/> et appuyez sur Entrée.
+3. À l’invite, tapez <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>et appuyez sur Entrée.
 4. Dans PowerShell ISE, ouvrez votre fichier **.ps1** . Exécutez le script.
 5. Tout d’abord, le script ouvre une nouvelle fenêtre pour vous permettre de vous connecter à Azure.
    
@@ -66,9 +69,10 @@ Le script commence par des commandes à supprimer s’il a déjà été exécut�
 
 ![PowerShell ISE, avec le module Azure installé, prêt à exécuter le script.][30_powershell_ise]
 
-&nbsp;
 
-```
+### <a name="powershell-code"></a>Code PowerShell
+
+```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
 
 #--------------- 1 -----------------------
@@ -239,11 +243,10 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 ```
 
 
-&nbsp;
-
 Prenez note des quelques valeurs nommées que le script PowerShell affiche à la fin de son exécution. Vous devrez modifier ces valeurs dans le script Transact-SQL lors de la phase 2 ci-après.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2 : code Transact-SQL utilisant le conteneur Azure Storage
+
 * Lors de la phase 1 de cet exemple de code, vous avez exécuté un script PowerShell pour créer un conteneur Azure Storage.
 * Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
 
@@ -258,16 +261,14 @@ Le script PowerShell a affiché quelques valeurs nommées à la fin de son exéc
 5. Recherchez chaque occurrence de **TODO** dans le script et effectuez les modifications appropriées.
 6. Enregistrez le script, puis exécutez-le.
 
-&nbsp;
 
 > [!WARNING]
 > La valeur de clé SAS générée par le script PowerShell précédent pourrait commencer par un « ? » (point d’interrogation). Lorsque vous utilisez la clé SAP dans le script T-SQL suivant, vous devez *supprimer le point d’interrogation « ? » au début*. Dans le cas contraire, vos efforts peuvent être bloqués par la sécurité.
-> 
-> 
 
-&nbsp;
 
-```
+### <a name="transact-sql-code"></a>Code Transact-SQL
+
+```tsql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -461,11 +462,9 @@ GO
 ```
 
 
-&nbsp;
-
 Si la liaison avec la cible n’a pas pu se faire au moment de l’exécution, vous devez arrêter et redémarrer la session d’événement :
 
-```
+```tsql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;
@@ -473,16 +472,14 @@ GO
 ```
 
 
-&nbsp;
-
 ## <a name="output"></a>Sortie
+
 Quand le script Transact-SQL a fini de s’exécuter, cliquez sur une cellule sous l’en-tête de colonne **event_data_XML**. Un élément **<event>** s’affiche, avec une instruction UPDATE.
 
 Voici un élément **<event>** généré pendant le test :
 
-&nbsp;
 
-```
+```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
   <data name="state">
     <value>0</value>
@@ -521,7 +518,6 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
-&nbsp;
 
 Le script Transact-SQL précédent a utilisé la fonction système suivante pour lire le fichier d’événement :
 
@@ -531,9 +527,9 @@ Une explication des options avancées de l’affichage des données d’événem
 
 * [Affichage avancée des données cibles à partir d’événements étendus](http://msdn.microsoft.com/library/mt752502.aspx)
 
-&nbsp;
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversion de l’exemple de code pour l’exécuter sur SQL Server
+
 Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent sur Microsoft SQL Server.
 
 * Par souci de simplicité, vous allez remplacer entièrement le conteneur Stockage Azure par un simple fichier tel que **C:\myeventdata.xel**. Le fichier doit être stocké sur le disque dur local de l’ordinateur qui héberge SQL Server.
@@ -543,6 +539,7 @@ Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent su
   * Vous n’avez pas besoin de compte Azure Storage.
 
 ## <a name="more-information"></a>Plus d’informations
+
 Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
 
 * [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -560,6 +557,6 @@ Image references.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

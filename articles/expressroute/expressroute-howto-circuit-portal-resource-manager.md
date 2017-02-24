@@ -1,10 +1,10 @@
 ---
-title: "Créer et modifier un circuit ExpressRoute à l’aide de Resource Manager et du portail Azure | Microsoft Docs"
+title: "Créer et modifier un circuit ExpressRoute à l’aide du portail Azure | Microsoft Docs"
 description: "Cet article explique comment créer, approvisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
-ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
+ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
+ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
 
 
 ---
@@ -149,6 +149,6 @@ Après avoir créé votre circuit, effectuez les opérations suivantes :
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

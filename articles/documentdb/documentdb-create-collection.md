@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
+ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
 
 
 ---
@@ -40,7 +40,7 @@ Vous ne savez pas vraiment ce qu’est une collection ? Consultez [Qu’est-ce 
 
     Définissez cette capacité de stockage sur **10 Go** si vous souhaitez une [collection à partition unique](documentdb-partition-data.md#single-partition-and-partitioned-collections) avec des niveaux de débit allant de 400 à 10 000 unités de requête par seconde (RU/s). Une unité de requête (RU) correspond au débit de lecture d’un document de 1 Ko. Pour plus d’informations sur les unités de requête, consultez [Unités de requête](documentdb-request-units.md).
 
-    Définissez la capacité de stockage sur **250 Go** si vous souhaitez une [collection partitionnée](documentdb-partition-data.md#single-partition-and-partitioned-collections) pouvant être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 10 100 unités de requête par seconde.
+    Définissez la capacité de stockage sur **250 Go** si vous souhaitez une [collection partitionnée](documentdb-partition-data.md#single-partition-and-partitioned-collections) pouvant être mise à l’échelle afin de gérer une quantité illimitée de stockage sur plusieurs partitions, avec des niveaux de débit à partir de 2 500 unités de requête par seconde.
 
     Définissez la capacité de stockage sur **Personnalisée** si vous souhaitez configurer une quantité autre que 10 Go ou 250 Go. La capacité de mise à l’échelle de DocumentDB est pratiquement sans limite. N’hésitez donc pas à inclure la valeur de débit et de taille de stockage dont vous avez besoin dans votre requête de support.
 
@@ -83,6 +83,6 @@ Une fois que chaque collection contient des documents, vous pouvez utiliser [Doc
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

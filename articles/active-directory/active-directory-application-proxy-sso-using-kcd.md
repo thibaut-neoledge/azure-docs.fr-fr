@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
+ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
 
 ---
 
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
 L’authentification unique est un élément clé du proxy d’application Azure AD. Elle procure une expérience utilisateur optimale grâce aux étapes suivantes :
 
 1. L’utilisateur se connecte au cloud.  
-2. Toutes les validations de sécurité sont effectuées dans le cloud (pré-authentification)  
+2. Toutes les validations de sécurité sont effectuées dans le cloud (pré-authentification).  
 3. Lorsque la demande est envoyée à l’application locale, le connecteur proxy d’application emprunte l’identité de l’utilisateur. L’application principale pense qu’il s’agit d’un utilisateur standard qui se connecte depuis un appareil faisant partie du domaine.
 
 ![Diagramme d’accès de l’utilisateur final au réseau d’entreprise via le proxy d’application](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
@@ -62,7 +62,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>Connecteur et serveur publié dans le même domaine
 1. Dans Active Directory, accédez à **Outils** > **Utilisateurs et ordinateurs**.
 2. Sélectionnez le serveur exécutant le connecteur.
-3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
+.3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
 4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications.
 5. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
@@ -104,6 +104,8 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec l’annuaire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. Plusieurs protocoles définissent la manière d’envoyer ces demandes. La plupart des serveurs non Windows supposent qu’il s’agit de Negotiate/SPNego, qui est maintenant pris en charge sur le proxy d’application Azure AD.
 
 ![Diagramme de l’authentification unique non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+
+Pour plus d’informations sur Kerberos, consultez la page [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tout ce que vous voulez savoir sur Kerberos Constrained Delegation (KCD)).
 
 ### <a name="delegated-login-identity"></a>identité de connexion déléguée
 L’identité de connexion déléguée vous permet de gérer deux scénarios de connexion différents :
@@ -160,6 +162,6 @@ Pour les dernières nouvelles et mises à jour, consultez le site [Application P
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

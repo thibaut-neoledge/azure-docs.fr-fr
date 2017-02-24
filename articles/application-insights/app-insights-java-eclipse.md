@@ -1,5 +1,5 @@
 ---
-title: "Prise en main d’Application Insights avec Java dans Eclipse"
+title: "Prise en main d’Azure Application Insights avec Java dans Eclipse | Microsoft Docs"
 description: "Le plug-in Eclipse permet d’ajouter la surveillance des performances et de l’utilisation de votre site web Java avec Application Insights"
 services: application-insights
 documentationcenter: java
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2016
+ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
 
 
 ---
@@ -23,12 +23,13 @@ ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
 Le Kit de développement logiciel (SDK) Application Insights envoie la télémétrie de votre application web Java afin que vous puissiez en analyser les performances et l’utilisation. Le plug-in Eclipse pour Application Insights installe automatiquement le Kit de développement logiciel (SDK) dans votre projet pour pouvoir bénéficier de la télémétrie de base, plus une API avec laquelle vous pouvez écrire des éléments de télémétrie personnalisés.   
 
 ## <a name="prerequisites"></a>Composants requis
-Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse. ([Ajout d’Application Insights à d’autres types de projets Java][java].)
+Actuellement, le plug-in fonctionne pour les projets Web dynamiques dans Eclipse.
+([Ajout d’Application Insights à d’autres types de projets Java][java].)
 
 Vous devez disposer des éléments suivants :
 
 * Oracle JRE 1.6 ou version ultérieure
-* Un abonnement [Microsoft Azure](https://azure.microsoft.com/). (Vous pouvez commencer par l’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).)
+* Un abonnement à [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/), Indigo ou version ultérieure.
 * Windows 7 ou version ultérieure ou Windows Server 2008 ou version ultérieure
 
@@ -36,33 +37,31 @@ Vous devez disposer des éléments suivants :
 Vous ne devez effectuer cette opération qu’une seule fois par machine. Cette étape installe un kit de ressources qui peut ensuite ajouter le Kit de développement logiciel (SDK) pour chaque projet web dynamique.
 
 1. Dans Eclipse, cliquez sur Aide, Installer un nouveau logiciel.
-   
+
     ![Aide, installation de nouveaux logiciels](./media/app-insights-java-eclipse/0-plugin.png)
-2. Le Kit de développement logiciel (SDK) est disponible à l'adresse http://dl.windowsazure.com/eclipse, sous Azure Toolkit. 
+2. Le Kit de développement logiciel (SDK) est disponible à l'adresse http://dl.microsoft.com/eclipse, sous Azure Toolkit.
 3. Désactivez l’option **Contacter tous les sites de mise à jour...**
-   
+
     ![Pour le Kit de développement logiciel (SDK) Application Insights, désactivez Contacter tous les sites de mise à jour.](./media/app-insights-java-eclipse/1-plugin.png)
 
 Suivez les étapes restantes pour chaque projet Java.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Créer une ressource Application Insights dans Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Créez une ressource Application Insights.  
-   
+2. Créez une ressource Application Insights. Définissez le type d’application sur Application web Java.  
+
     ![Cliquez sur + et choisissez Ajouter Application Insights.](./media/app-insights-java-eclipse/01-create.png)  
-3. Définissez le type d’application sur Application web Java.  
-   
-    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-eclipse/02-create.png)  
+
 4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.  
-   
+
     ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/03-key.png)  
 
 ## <a name="add-application-insights-to-your-project"></a>Ajout de Application Insights à votre projet
 1. Ajoutez Application Insights à partir du menu contextuel de votre projet Web Java.
-   
+
     ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/02-context-menu.png)
 2. Collez la clé d’instrumentation que vous avez obtenue sur le portail Azure.
-   
+
     ![Dans la nouvelle vue d’ensemble des ressources, cliquez sur Propriétés et copiez la clé d’instrumentation.](./media/app-insights-java-eclipse/03-ikey.png)
 
 La clé est envoyée avec chaque élément de télémétrie et indique à Application Insights de l’afficher dans votre ressource.
@@ -76,7 +75,7 @@ Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (S
 
 ![Réponse du serveur, nombre de demandes et échecs ](./media/app-insights-java-eclipse/5-results.png)
 
-Cliquez sur un des graphiques pour afficher des mesures plus détaillées. 
+Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
 
 ![Nombres de demandes par nom](./media/app-insights-java-eclipse/6-barchart.png)
 
@@ -87,7 +86,7 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 ![Tous le suivi pour cette demande](./media/app-insights-java-eclipse/7-instance.png)
 
 ## <a name="client-side-telemetry"></a>Télémétrie côté client
-Dans le panneau Démarrage rapide, cliquez sur Obtenir le code pour analyser mes pages web : 
+Dans le panneau Démarrage rapide, cliquez sur Obtenir le code pour analyser mes pages web :
 
 ![Dans le panneau de vue d’ensemble de l’application, cliquez sur Démarrage rapide, Obtenir le code pour analyser mes pages web. Copiez le script](./media/app-insights-java-eclipse/02-monitor-web-page.png)
 
@@ -106,15 +105,15 @@ Les mesures liées au nombre de consultations de la page, à l’utilisateur et 
 Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :
-  
+
   * dc.services.VisualStudio.com:443
   * dc.services.visualstudio.com:80
   * f5.services.visualstudio.com:443
   * f5.services.visualstudio.com:80
 * Sur les serveurs Windows, installez :
-  
+
   * [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
-    
+
     (Cette opération active les compteurs de performances.)
 
 ## <a name="exceptions-and-request-failures"></a>Exceptions et échecs de requêtes
@@ -124,7 +123,7 @@ Les exceptions non gérées sont collectées automatiquement :
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
-* [Insérez des appels à TrackException dans votre code](app-insights-api-custom-events-metrics.md#track-exception). 
+* [Insérez des appels à TrackException dans votre code](app-insights-api-custom-events-metrics.md#trackexception).
 * [Installez l’agent Java sur votre serveur](app-insights-java-agent.md). Vous spécifiez les méthodes que vous souhaitez surveiller.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Surveiller les appels de méthode et les dépendances externes
@@ -138,20 +137,27 @@ Dans le panneau Vue d'ensemble, faites défiler vers le bas et cliquez sur la vi
 ### <a name="customize-performance-counter-collection"></a>Personnaliser la collecte des compteurs de performances
 Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
 
+```XML
+
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### <a name="collect-additional-performance-counters"></a>Collecter des compteurs de performances supplémentaires
 Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Compteurs JMX (exposés par la machine virtuelle Java)
+
+```XML
+
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` : nom affiché sur le portail Application Insights.
 * `objectName` : nom de l'objet JMX.
@@ -164,12 +170,15 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 #### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
+```XML
+
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName : nom affiché sur le portail Application Insights.
 * categoryName : catégorie du compteur de performances (objet de performances) à laquelle ce compteur de performances est associé.
@@ -192,7 +201,7 @@ Vous obtenez des graphiques du temps de réponse, ainsi que des notifications pa
 
 ![Exemple de test web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
 
-[En savoir plus sur les tests de disponibilité web.][availability] 
+[En savoir plus sur les tests de disponibilité web.][availability]
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
@@ -200,7 +209,7 @@ Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez fair
 [En savoir plus sur les journaux de diagnostic][javalogs]
 
 ## <a name="custom-telemetry"></a>Télémétrie personnalisée
-Insérez quelques lignes de code dans votre application web Java pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes. 
+Insérez quelques lignes de code dans votre application web Java pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes.
 
 Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java côté serveur.
 
@@ -209,12 +218,12 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 ## <a name="next-steps"></a>Étapes suivantes
 #### <a name="detect-and-diagnose-issues"></a>Détecter et diagnostiquer les problèmes
 * [Ajoutez la télémétrie de client web][usage] pour obtenir la télémétrie des performances du client web.
-* [Configurez les tests web][availability] pour vérifier que votre application est bien active.
+* [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
-* [Capturez le suivi Log4J ou Logback.][javalogs]
+* [Capturez le suivi Log4J ou Logback][javalogs]
 
 #### <a name="track-usage"></a>Suivi de l'utilisation
-* [Ajoutez la télémétrie de client web][usage] pour surveiller les affichages de page et autres mesures utilisateur de base.
+* [Ajoutez la télémétrie de client web][usage] pour surveiller les affichages de page et autres mesures des utilisateurs de la version Basic.
 * [Suivez des événements et des mesures personnalisés][track] pour en savoir plus sur la façon dont votre application est utilisée, à la fois sur le client et sur le serveur.
 
 <!--Link references-->
@@ -229,7 +238,6 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

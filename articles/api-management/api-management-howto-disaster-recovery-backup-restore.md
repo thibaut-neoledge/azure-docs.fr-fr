@@ -1,5 +1,5 @@
 ---
-title: "Implémentation d’une récupération d’urgence à l’aide d’une sauvegarde et d’une restauration de service dans Gestion des API Azure | Microsoft Docs"
+title: "Implémenter une récupération d’urgence à l’aide d’une sauvegarde et d’une restauration dans Gestion des API Azure | Microsoft Docs"
 description: "Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d&quot;urgence dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
@@ -30,7 +29,7 @@ Ce guide montre comment authentifier des demandes Azure Resource Manager et comm
 > [!NOTE]
 > Le processus de sauvegarde et de restauration d'une instance de service de gestion des API pour la récupération d'urgence permet également de répliquer les instances de service de gestion des API dans les scénarios intermédiaires.
 >
-> À noter que chaque sauvegarde expire au bout de 7 jours. Si vous essayez de restaurer une sauvegarde après l'expiration de la période de 7 jours, la restauration échoue avec un message `Cannot restore: backup expired` .
+> À noter que chaque sauvegarde expire au bout de 30 jours. Si vous essayez de restaurer une sauvegarde après l'expiration de la période de 30 jours, la restauration échoue avec un message `Cannot restore: backup expired`.
 >
 >
 
@@ -149,7 +148,7 @@ Tenez compte des contraintes suivantes lorsque vous faites une demande de sauveg
 
 * Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 * Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion des services** telle que la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc.
-* La récupération d'une **sauvegarde n'est garantie que pendant 7 jours** à partir du moment de sa création.
+* La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
 * Les **données d’utilisation** utilisées pour la création des rapports d’analyse **ne sont pas incluses** dans la sauvegarde. Utilisez l’[API REST de Gestion des API Azure][Azure API Management REST API] pour récupérer régulièrement les rapports d’analyse et les conserver en toute sécurité.
 * La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Afin de le réduire au maximum, nous vous conseillons d'implémenter des sauvegardes régulières, ainsi que des sauvegardes à la demande lorsque vous apportez des modifications importantes à votre service Gestion des API.
 * Les **modifications** de la configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu’une opération de sauvegarde est en cours **peuvent ne pas être incluses dans la sauvegarde et donc être perdues**.
@@ -214,6 +213,6 @@ Consultez les blogs Microsoft suivants pour les deux procédures pas à pas diff
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

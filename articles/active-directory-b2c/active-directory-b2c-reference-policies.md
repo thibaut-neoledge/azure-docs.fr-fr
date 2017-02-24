@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 55ed7d44006f18fa3573a5bef5e8f24107ca20fa
+ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
+ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
 
 
 ---
@@ -162,12 +162,16 @@ Pour activer la réinitialisation affinée du mot de passe sur votre application
     > 
     > 
 
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Comment lier une stratégie d’inscription ou de connexion à une stratégie de réinitialisation de mot de passe ?
+Quand vous créez une stratégie d’inscription ou de connexion (avec des comptes locaux), le consommateur voit un lien « Mot de passe oublié ? » sur la première page de l’expérience. Cliquer sur ce lien ne déclenche pas automatiquement une stratégie de réinitialisation de mot de passe. Au lieu de cela, un code d’erreur spécifique `AADB2C90118` est retourné à votre application. Votre application doit gérer ceci et appeler une stratégie de réinitialisation de mot de passe spécifique. Vous pouvez trouver un exemple illustrant cette approche de liaison de stratégies [ici](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
+* [Désactiver la vérification par courrier électronique lors de l’inscription du consommateur](active-directory-b2c-reference-disable-ev.md)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
 
 
 ---
@@ -45,7 +45,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **GÉRER LES PACKAGES NUGET**.
 3. Dans le gestionnaire de packages NuGet, activez **Inclure la version préliminaire** et recherchez **Microsoft.Azure.Management.ResourceManager**. Cliquez sur **Installer**. Sous **Réviser les modifications**, cliquez sur **OK**, puis sur **J’accepte** pour accepter les licences.
 4. Dans le gestionnaire de packages NuGet, recherchez **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Cliquez sur **Installer**, dans **Réviser les modifications**, cliquez sur **OK**, puis cliquez sur **J’accepte** pour accepter la licence.
-5. Dans Program.cs, remplacez les instructions **using** existantes par les instructions suivantes :
+5. Dans Program.cs, remplacez les instructions **using** existantes par le code suivant :
    
     ```
     using System;
@@ -193,7 +193,7 @@ Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure R
 * Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 * Pour plus d’informations sur les capacités d’Azure Resource Manager, voir [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
 
-Pour en savoir plus sur le développement pour IoT Hub, consultez les pages suivantes :
+Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 
 * [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
 * [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks]
@@ -218,6 +218,6 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

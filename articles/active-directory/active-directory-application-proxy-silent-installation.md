@@ -1,27 +1,34 @@
 ---
-title: "Comment installer sans assistance le connecteur du proxy d’application Azure AD | Microsoft Docs"
+title: "Installer sans assistance le connecteur du proxy d’application Azure AD | Microsoft Docs"
 description: "Explique comment effectuer une installation silencieuse du connecteur du Proxy d’application Azure AD pour offrir un accès à distance sécurisé à vos applications locales."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
 
 
 ---
 # <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>Comment installer silencieusement le connecteur du Proxy d'application Azure AD
 Vous souhaitez pouvoir envoyer un script d’installation vers plusieurs serveurs Windows ou vers des serveurs Windows sans interface utilisateur. Cette rubrique explique comment créer un script Windows PowerShell qui active l’installation sans assistance pour installer et inscrire votre connecteur de Proxy d’application Azure AD.
+
+Cette fonctionnalité est utile lorsque vous souhaitez :
+
+* Installer le connecteur sur des machines sans couche d’interface utilisateur ou quand vous ne pouvez pas vous connecter à l’ordinateur via RDP.
+* Installer et inscrire beaucoup de connecteurs à la fois.
+* Intégrer l’installation et l’inscription du connecteur dans le cadre d’une autre procédure.
+* Créer une image de serveur standard qui contient les exécutables du connecteur, mais qui n’est pas inscrite.
 
 ## <a name="enabling-access"></a>Activation de l’accès
 Le Proxy d’application fonctionne avec un service Windows Server léger appelé connecteur, à l’intérieur de votre réseau. Pour que le connecteur du Proxy d'application puisse fonctionner, il doit être inscrit auprès de votre annuaire Azure AD à l'aide d'un identifiant d’administrateur global et d’un mot de passe. Généralement, ces informations sont saisies pendant l'installation du connecteur dans une boîte de dialogue contextuelle. Sinon, vous pouvez utiliser Windows PowerShell pour créer un objet d’informations d’identification afin d’entrer vos informations d’inscription, ou vous pouvez créer votre propre jeton et l’utiliser pour communiquer vos informations d’inscription.
@@ -41,7 +48,7 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
 * Inscription du connecteur à l’aide d’un jeton créé hors connexion
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Inscription du connecteur à l’aide d’un objet d’informations d’identification Windows PowerShell
-1. Créez l’objet d’informations d’identification de Windows PowerShell en exécutant la commande suivante, où les valeurs « <username> » et « <password> » doivent être remplacées par le nom d’utilisateur et le mot de passe pour accéder à votre annuaire :
+1. Créez l’objet d’informations d’identification de Windows PowerShell en exécutant la commande suivante, où les valeurs « \<username\> » et « \<password\> » doivent être remplacées par le nom d’utilisateur et le mot de passe pour accéder à votre annuaire :
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -108,25 +115,23 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
         }
 
 
+2. Une fois que vous disposez du jeton, créez une chaîne SecureString en utilisant le jeton :
 
-
-
-1. Une fois que vous disposez du jeton, créez une chaîne SecureString en utilisant le jeton :  <br>
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-2. Exécutez la commande Windows PowerShell suivante, où SecureToken est le nom du jeton que vous avez créé précédemment et tenantID le GUID de votre locataire :  <br>
+
+3. Exécuter la commande Windows PowerShell suivante, en remplaçant \<locataire GUID\> avec votre ID de répertoire :
+
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-## <a name="see-also"></a>Voir aussi
-* [Activation du proxy d’application Azure AD](active-directory-application-proxy-enable.md)
+## <a name="next-steps"></a>Étapes suivantes 
 * [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 * [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
 
-Pour les dernières nouvelles et mises à jour, visitez [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

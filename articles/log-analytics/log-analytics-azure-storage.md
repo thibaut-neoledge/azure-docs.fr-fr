@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
-ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -32,8 +32,7 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 
 | Service                 | Type de ressource                           | Journaux        | Mesures     | Solution |
 | --- | --- | --- | --- | --- |
-| Passerelles d’application    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Networking Analytics (version préliminaire)](log-analytics-azure-networking-analytics.md) |
-| API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
+| Passerelles d’application    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Connecteur   | Connecteur   | [Connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (version préliminaire) |
 | Comptes Automation     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [Plus d’informations](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Comptes Batch          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
@@ -43,10 +42,10 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Espace de noms Event Hub     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics (version préliminaire)](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Équilibreurs de charge          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Groupes de sécurité réseau | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Networking Analytics (version préliminaire)](log-analytics-azure-networking-analytics.md) |
+| Groupes de sécurité réseau | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Services de recherche         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
@@ -112,6 +111,7 @@ Pour activer les diagnostics sur une ressource lors de sa création, et envoyer 
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Diagnostics Azure vers stockage, puis vers Log Analytics
 
@@ -152,6 +152,6 @@ La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Aut
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

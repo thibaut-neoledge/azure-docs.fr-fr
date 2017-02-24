@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 02/06/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 5b8aaa7e7b04224fd51c264822d619866e0161af
+ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
+ms.openlocfilehash: a586d437ed7636874d324c9d3fc5274fe9001627
 
 
 ---
@@ -29,7 +29,7 @@ Dans le didacticiel [Prise en main de la gestion d’appareils][lnk-dm-getstarte
 Ce didacticiel vous explique les procédures suivantes :
 
 * Créez une application console .NET qui appelle une méthode directe firmwareUpdate sur l’application d’appareil simulé via votre IoT Hub.
-* Créez une application d’appareil simulé qui implémente une méthode directe firmwareUpdate qui passe par un processus en plusieurs étapes consistant à attendre avant de télécharger l’image du microprogramme, à télécharger celle-ci, puis finalement à l’appliquer.  Tout au long du processus, l’appareil utilise les propriétés signalées pour mettre à jour la progression.
+* Créez un appareil simulé qui implémente une méthode directe **firmwareUpdate**. Cette méthode lance un processus en plusieurs étapes qui attend de télécharger l’image du microprogramme, la télécharge et enfin, l’applique. À chaque étape du processus de mise à jour, l’appareil utilise les propriétés signalées pour mettre à jour la progression.
 
 À la fin de ce didacticiel, vous avez une application d’appareil de console Node.js et une application principale de console .NET (c#) :
 
@@ -50,7 +50,7 @@ Pour créer votre IoT Hub et obtenir votre chaîne de connexion, procédez de la
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Déclencher une mise à jour du microprogramme à distance sur l’appareil à l’aide d’une méthode directe
-Dans cette section, vous créez une application console .NET (en C#) qui lance une mise à jour du microprogramme à distance sur un appareil à l’aide d’une méthode directe, et utilise des requêtes de la représentation d’appareil pour obtenir régulièrement l’état de la mise à jour du microprogramme active sur cet appareil.
+Dans cette section, vous créez une application de console .NET (à l’aide de C#) qui lance une mise à jour de microprogramme à distance sur un appareil. L’application utilise une méthode directe pour lancer la mise à jour et des requêtes de jumeau d’appareil pour obtenir régulièrement l’état de la mise à jour du microprogramme actif.
 
 1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Nommez le projet **TriggerFWUpdate**.
 
@@ -63,8 +63,9 @@ Dans cette section, vous créez une application console .NET (en C#) qui lance u
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
         
-5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur des espaces réservés par la chaîne de connexion pour le IoT Hub créé dans la section précédente.
+5. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur des espaces réservés par la chaîne de connexion pour le IoT Hub créé dans la section précédente et l’ID de votre appareil.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -107,218 +108,7 @@ Dans cette section, vous créez une application console .NET (en C#) qui lance u
         
 8. Générez la solution.
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-Dans cette section, vous allez :
-
-* Créer une application console Node.js qui répond à une méthode directe appelée par le cloud
-* Déclencher une mise à jour du microprogramme simulé
-* Utiliser les propriétés signalées pour activer les requêtes sur la représentation d’appareil afin d’identifier les appareils et l’heure de leur dernière mise à jour de microprogramme
-
-1. Créez un dossier vide nommé **simulateddevice**.  Dans le dossier **simulateddevice**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
-   
-    ```
-    npm init
-    ```
-2. À l’invite de commandes, dans le dossier **manageddevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
-   
-    ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-3. À l’aide d’un éditeur de texte, créez un fichier **dmpatterns_fwupdate_device.js** dans le dossier **manageddevice**.
-4. Ajoutez les instructions ’require’ suivantes au début du fichier **dmpatterns_fwupdate_device.js** :
-   
-    ```
-    'use strict';
-   
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
-6. Ajoutez la fonction suivante qui sera utilisée pour mettre à jour les propriétés signalées
-   
-    ```
-    var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
-      var patch = {
-          iothubDM : {
-            firmwareUpdate : firmwareUpdateValue
-          }
-      };
-   
-      twin.properties.reported.update(patch, function(err) {
-        if (err) throw err;
-        console.log('twin state reported')
-      });
-    };
-    ```
-7. Ajoutez les fonctions suivantes qui simulent le téléchargement et l’application de l’image du microprogramme.
-   
-    ```
-    var simulateDownloadImage = function(imageUrl, callback) {
-      var error = null;
-      var image = "[fake image data]";
-   
-      console.log("Downloading image from " + imageUrl);
-   
-      callback(error, image);
-    }
-   
-    var simulateApplyImage = function(imageData, callback) {
-      var error = null;
-   
-      if (!imageData) {
-        error = {message: 'Apply image failed because of missing image data.'};
-      }
-   
-      callback(error);
-    }
-    ```
-8. Ajoutez la fonction suivante qui actualise l’état de mise à jour du microprogramme (en le définissant sur En attente de téléchargement) via les propriétés signalées.  Généralement, un appareil est informé de la disponibilité d’une mise à jour, et une stratégie définie par un administrateur a pour effet que l’appareil commence à télécharger et à appliquer la mise à jour.  C’est ici qu’intervient la logique d’activation de cette stratégie.  Pour plus de facilité, nous retardons de 4 secondes et procédons au téléchargement de l’image du microprogramme. 
-   
-    ```
-    var waitToDownload = function(twin, fwPackageUriVal, callback) {
-      var now = new Date();
-   
-      reportFWUpdateThroughTwin(twin, {
-        fwPackageUri: fwPackageUriVal,
-        status: 'waiting',
-        error : null,
-        startedWaitingTime : now.toISOString()
-      });
-      setTimeout(callback, 4000);
-    };
-    ```
-9. Ajoutez la fonction suivante qui actualise l’état de mise à jour du microprogramme (en le définissant sur En attente de téléchargement) via les propriétés signalées.  Elle poursuit en simulant le téléchargement du microprogramme, puis actualise l’état de mise à jour du microprogramme afin d’informer sur la réussite ou l’échec du téléchargement.
-   
-    ```
-    var downloadImage = function(twin, fwPackageUriVal, callback) {
-      var now = new Date();   
-   
-      reportFWUpdateThroughTwin(twin, {
-        status: 'downloading',
-      });
-   
-      setTimeout(function() {
-        // Simulate download
-        simulateDownloadImage(fwPackageUriVal, function(err, image) {
-   
-          if (err)
-          {
-            reportFWUpdateThroughTwin(twin, {
-              status: 'downloadfailed',
-              error: {
-                code: error_code,
-                message: error_message,
-              }
-            });
-          }
-          else {        
-            reportFWUpdateThroughTwin(twin, {
-              status: 'downloadComplete',
-              downloadCompleteTime: now.toISOString(),
-            });
-   
-            setTimeout(function() { callback(image); }, 4000);   
-          }
-        });
-   
-      }, 4000);
-    }
-    ```
-10. Ajoutez la fonction suivante qui actualise l’état de mise à jour du microprogramme (en le définissant sur En attente d’application de l’image du microprogramme) via les propriétés signalées.  Elle poursuit en simulant l’application de l’image du microprogramme, puis actualise l’état de mise à jour du microprogramme afin d’informer sur la réussite ou l’échec de l’application.
-    
-    ```
-    var applyImage = function(twin, imageData, callback) {
-      var now = new Date();   
-    
-      reportFWUpdateThroughTwin(twin, {
-        status: 'applying',
-        startedApplyingImage : now.toISOString()
-      });
-    
-      setTimeout(function() {
-    
-        // Simulate apply firmware image
-        simulateApplyImage(imageData, function(err) {
-          if (err) {
-            reportFWUpdateThroughTwin(twin, {
-              status: 'applyFailed',
-              error: {
-                code: err.error_code,
-                message: err.error_message,
-              }
-            });
-          } else { 
-            reportFWUpdateThroughTwin(twin, {
-              status: 'applyComplete',
-              lastFirmwareUpdate: now.toISOString()
-            });    
-    
-          }
-        });
-    
-        setTimeout(callback, 4000);
-    
-      }, 4000);
-    }
-    ```
-11. Ajoutez la fonction suivante qui gère la méthode **firmwareUpdate** et lance le processus en plusieurs étapes de mise à jour du microprogramme.
-    
-    ```
-    var onFirmwareUpdate = function(request, response) {
-    
-      // Respond the cloud app for the direct method
-      response.send(200, 'FirmwareUpdate started', function(err) {
-        if (!err) {
-          console.error('An error occured when sending a method response:\n' + err.toString());
-        } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
-        }
-      });
-    
-      // Get the parameter from the body of the method request
-      var fwPackageUri = JSON.parse(request.payload).fwPackageUri;
-    
-      // Obtain the device twin
-      client.getTwin(function(err, twin) {
-        if (err) {
-          console.error('Could not get device twin.');
-        } else {
-          console.log('Device twin acquired.');
-    
-          // Start the multi-stage firmware update
-          waitToDownload(twin, fwPackageUri, function() {
-            downloadImage(twin, fwPackageUri, function(imageData) {
-              applyImage(twin, imageData, function() {});    
-            });  
-          });
-    
-        }
-      });
-    }
-    ```
-12. Enfin, ajoutez le code suivant qui connecte à votre IoT Hub en tant qu’appareil. 
-    
-    ```
-    client.open(function(err) {
-      if (err) {
-        console.error('Could not connect to IotHub client');
-      }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
-      }
-    
-      client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate(request, response));
-    });
-    ```
-
-> [!NOTE]
-> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Gestion des erreurs temporaires][lnk-transient-faults].
-> 
-> 
+[!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
 ## <a name="run-the-apps"></a>Exécuter les applications
 Vous êtes maintenant prêt à exécuter les applications.
@@ -328,12 +118,12 @@ Vous êtes maintenant prêt à exécuter les applications.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. Exécutez l’application console C# **TriggerFWUpdate**, cliquez avec le bouton droit sur le projet **TriggerFWUpdate**, puis sélectionnez **Debug** et **Démarrer une nouvelle instance**.
+2. Dans Visual Studio, cliquez avec le bouton droit sur le projet **TriggerFWUpdate**. Exécutez l’application console C#, sélectionnez **Déboguer** et **Démarrer une nouvelle instance**.
 
 3. La réponse de l’appareil à la méthode directe s’affiche dans la console.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez utilisé une méthode directe pour déclencher une mise à jour du microprogramme à distance sur un appareil, et utilisé périodiquement les propriétés signalées pour comprendre la progression du processus de mise à jour du microprogramme.  
+Dans ce didacticiel, vous avez utilisé une méthode directe pour déclencher une mise à jour du microprogramme à distance sur un appareil, et utilisé les propriétés signalées pour suivre la progression de la mise à jour du microprogramme.
 
 Pour savoir comment étendre votre solution IoT et planifier des appels de méthode sur plusieurs appareils, voir le didacticiel [Planifier et diffuser des travaux][lnk-tutorial-jobs].
 
@@ -353,6 +143,6 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

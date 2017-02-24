@@ -1,9 +1,9 @@
 ---
-title: "Bien démarrer avec Azure AD Java | Microsoft Docs"
+title: "Bien démarrer avec la ligne de commande Azure AD Java | Microsoft Docs"
 description: "Comment créer une application de ligne de commande Java qui connecte les utilisateurs pour l’accès à une API."
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d7fd3656e4a2263c98c26615051b6584ebbfb30e
+ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
+ms.openlocfilehash: 51913b5e0d43514f50f2d51500f2149438d87045
 
 
 ---
@@ -271,6 +271,6 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

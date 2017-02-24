@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 55756029ebba3f3467828db5567a6616f7eeba2b
+ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
+ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modèle de tarification de Logic Apps
@@ -30,18 +30,20 @@ Les déclencheurs sont des actions spéciales qui sont conçues pour instancier 
 * **Déclencheur d’interrogation** : ce déclencheur interroge constamment un point de terminaison jusqu’à ce qu’il reçoive un message répondant aux critères de création d’une instance d’une application logique.  L’intervalle d’interrogation peut être configuré dans le déclencheur dans le concepteur d’applications logiques.  Chaque requête d’interrogation compte comme une exécution d’action, même si elle ne crée pas d’instance d’une application logique.
 * **Déclencheur webhook** : ce déclencheur attend qu’un client lui envoie une requête sur un point de terminaison particulier.  Chaque requête envoyée au point de terminaison webhook est considérée comme une exécution d’action. Le déclencheur de requête et le déclencheur Webhook HTTP sont tous deux des déclencheurs webhook.
 * **Déclencheur de périodicité** : ce déclencheur crée une instance de l’application logique en fonction de l’intervalle de périodicité configuré dans le déclencheur.  Par exemple, un déclencheur de périodicité peut être configuré pour s’exécuter tous les trois jours ou toutes les minutes.
+
 Les exécutions de déclencheur sont visibles dans le panneau des ressources de Logic Apps dans la partie Historique du déclencheur.
+
 Toutes les actions exécutées, qu’il s’agisse de réussites ou d’échecs, sont considérées comme des exécutions d’action.  Les actions qui ont été ignorées en raison d’une condition non remplie ou celles qui n’ont pas été exécutées, car l’application logique s’est arrêtée avant son achèvement ne sont pas considérées comme des exécutions d’action.
 
-Les actions exécutées dans des boucles sont comptabilisées par itération de la boucle.  Par exemple, une seule et même action d’une boucle foreach en itération dans une liste de 10 éléments est comptabilisée comme le nombre d’éléments de la liste (10) multiplié par le nombre d’actions de la boucle (1) plus une correspondant à l’initiation de la boucle, ce qui, dans cet exemple, représente (10 * 1) + 1 = 11 exécutions d’action.
+Les actions exécutées dans des boucles sont comptabilisées par itération de la boucle.  Par exemple, une seule et même action d’une boucle foreach en itération dans une liste de 10 éléments est comptabilisée comme le nombre d’éléments de la liste (10) multiplié par le nombre d’actions de la boucle (1) plus une correspondant à l’initiation de la boucle, ce qui, dans cet exemple, représente (10 * 1) + 1 = 11 exécutions d’action.
 Il n’est pas possible de créer de nouvelles instances des applications logiques qui sont désactivées. Par conséquent, pendant leur période de désactivation, elles ne peuvent pas être facturées.  N’oubliez pas qu’une fois une application logique désactivée, la suspension de ses instances, avant leur désactivation complète, peut prendre un certain temps.
 ### <a name="integration-account-usage"></a>Utilisation d’un compte d’intégration
 Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) est inclus dans la consommation en fonction de l’utilisation à des fins d’exploration, de développement et de test, ce qui vous permet d’utiliser les fonctionnalités de traitement [B2B/EDI](logic-apps-enterprise-integration-b2b.md) et [XML](logic-apps-enterprise-integration-xml.md) de Logic Apps sans coût supplémentaire. Vous pouvez créer au maximum un seul compte par région et stocker jusqu'à 10 accords et 25 cartes. Il n’y a pas de limite pour les schémas, les certificats et les partenaires et vous pouvez en télécharger autant que vous en avez besoin.
 
-Outre l’inclusion de comptes d’intégration en fonction de la consommation, vous pouvez également créer des comptes d’intégration standard sans ces limites et avec notre contrat de niveau de service Logic Apps standard. Consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/details/logic-apps) pour plus d’informations.
+Outre l’inclusion de comptes d’intégration en fonction de la consommation, vous pouvez également créer des comptes d’intégration standard sans ces limites et avec notre contrat de niveau de service Logic Apps standard. Pour plus d’informations, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="app-service-plans"></a>Plans App Service
-Les applications logiques créées précédemment faisant référence à un plan App Service garderont le même comportement. Selon le plan choisi, elles sont limitées après le dépassement des exécutions quotidiennes prescrites, mais sont facturées à l’aide de l’indicateur de l’exécution d’action.
+Les applications logiques créées précédemment faisant référence à un plan App Service gardent le même comportement. Selon le plan choisi, elles sont limitées après le dépassement des exécutions quotidiennes prescrites, mais sont facturées à l’aide de l’indicateur de l’exécution d’action.
 Les clients EA qui ont un plan App Service dans leur abonnement, qui ne doit pas être explicitement associé à l’application logique, tirent parti des quantités incluses.  Par exemple, si vous avez un plan App Service standard dans votre abonnement EA et une application logique dans le même abonnement, il ne vous est pas facturé 10 000 exécutions d’action par jour (voir tableau suivant). 
 
 Plans App Service et exécutions d’action quotidiennes autorisées :
@@ -60,6 +62,6 @@ Pour plus d’informations sur la tarification, voir la page de [tarification de
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

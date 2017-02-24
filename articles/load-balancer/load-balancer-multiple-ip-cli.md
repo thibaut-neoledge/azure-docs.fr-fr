@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
 
 
 ---
@@ -38,8 +38,27 @@ Avec ce scénario, nous disposons de deux machines virtuelles exécutant Window
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Pour obtenir la version préliminaire, envoyez un e-mail à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) en indiquant votre ID d’abonnement et l’utilisation prévue.
+Inscrivez-vous pour la version d’évaluation en exécutant les commandes suivantes dans PowerShell après votre connexion, puis sélectionnez l’abonnement approprié :
 
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+N’essayez pas d’effectuer les étapes restantes avant d’obtenir le résultat suivant lorsque vous exécutez la commande ```Get-AzureRmProviderFeature``` :
+        
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+        
+>[!NOTE] 
+>Cela peut prendre quelques minutes.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Étapes pour équilibrer la charge sur plusieurs configurations IP
 
@@ -135,6 +154,6 @@ Exécutez la procédure ci-dessous afin de respecter le scénario décrit dans c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’instantanés incrémentiels pour la sauvegarde et la récupération de machines virtuelles Azure | Microsoft Docs"
+title: "Utilisation de captures instantanées incrémentielles pour la sauvegarde et la récupération de disques de machines virtuelles Azure non gérés | Microsoft Docs"
 description: "Créer une solution personnalisée pour la sauvegarde et la récupération de vos disques de machine virtuelle Azure à l’aide d’instantanés incrémentiels."
 services: storage
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
+ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
 
 
 ---
-# <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Sauvegarde des disques de machine virtuelle Azure avec des instantanés incrémentiels
-## <a name="overview"></a>Vue d'ensemble
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles
+## <a name="overview"></a>Vue d’ensemble
 Azure Storage offre la possibilité de prendre des instantanés d’objets blob. Les instantanés capturent l’état de l’objet blob à un instant précis. Dans cet article, nous allons décrire comment gérer des sauvegardes de disques de machine virtuelle à l’aide d’instantanés. Vous pouvez utiliser cette méthode comme une alternative à Azure Backup et Recovery Service et si vous voulez créer une stratégie de sauvegarde personnalisée pour vos disques de machine virtuelle.
 
 Les disques de machine virtuelle Azure sont stockés en tant qu’objets blob de pages dans Azure Storage. Étant donné que cet article aborde la stratégie de sauvegarde des disques de machine virtuelle, nous faisons référence aux instantanés dans le contexte des objets blob de pages. Pour plus d’informations sur les instantanés, reportez-vous à [Création d’un instantané d’objet blob](https://msdn.microsoft.com/library/azure/hh488361.aspx).
@@ -60,7 +60,7 @@ La copie d’instantané incrémentiel vous permet de copier d’un compte de st
 
 Si les conditions suivantes sont respectées,
 
-* L’objet blob a été créé le 1er janvier 2016 ou ultérieurement.
+* L’objet blob a été créé le&1;er janvier&2016; ou ultérieurement.
 * L’objet blob n’a pas été remplacé avec [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) ou [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) entre deux instantanés.
 
 **Remarque**: cette fonctionnalité est disponible pour les objets blob de pages Azure Standard et Premium.
@@ -123,6 +123,6 @@ Apprenez-en plus sur la création d’instantanés d’un objet blob et la plani
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

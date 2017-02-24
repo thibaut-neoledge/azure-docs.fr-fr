@@ -4,7 +4,7 @@ description: "Fournit des conseils sur la personnalisation des solutions précon
 services: 
 suite: iot-suite
 documentationcenter: .net
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
-ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 
 
 ---
@@ -33,19 +33,19 @@ Le code source pour les solutions préconfigurées est disponible sur GitHub dan
 Le code source pour les solutions préconfigurées est fourni dans le but d’illustrer les modèles et pratiques utilisés pour implémenter la fonctionnalité de bout en bout d’une solution IoT utilisant Azure IoT Suite. Pour plus d’informations sur la création et le déploiement des solutions, consultez les dépôts GitHub.
 
 ## <a name="changing-the-preconfigured-rules"></a>Modification des règles préconfigurées
-La solution de surveillance à distance inclut trois tâches [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) destinées à implémenter la logique d’informations, de règles et de télémétrie de l’appareil affichée pour la solution.
+La solution de surveillance à distance inclut trois travaux [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) destinés à gérer la logique d’informations, de règles et de télémétrie dans la solution.
 
-Les trois tâches Stream Analytics et leur syntaxe sont décrites en détail dans [Procédure pas à pas pour la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-sample-walkthrough.md). 
+Les trois travaux Stream Analytics et leur syntaxe sont décrits en détail dans [Présentation de la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-sample-walkthrough.md). 
 
 Vous pouvez modifier ces tâches directement pour en modifier la logique, ou ajouter une logique spécifique à votre scénario. Pour rechercher les tâches Stream Analytics, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez au groupe de ressources portant le même nom que votre solution IoT. 
 3. Sélectionnez la tâche Azure Stream Analytics à modifier. 
-4. Arrêtez la tâche en sélectionnant **Arrêter**dans le jeu de commandes. 
+4. Arrêtez le travail en sélectionnant **Arrêter**dans l’ensemble de commandes. 
 5. Modifiez les entrées, la requête et les sorties.
    
-    Une simple modification consiste à changer la requête pour la tâche **Règles** afin d’utiliser le signe **« < »** au lieu du signe **« > »**. Le portail de solution affiche toujours **« > »** quand vous modifiez une règle, mais le comportement est inversé en raison de la modification de la tâche sous-jacente.
+    Une simple modification consiste à changer la requête pour la tâche **Règles** afin d’utiliser le signe **« < »** au lieu du signe **« > »**. Le portail de solution affiche toujours **« > »** quand vous modifiez une règle, mais le comportement est inversé en raison de la modification du travail sous-jacent.
 6. Démarrage du travail
 
 > [!NOTE]
@@ -59,12 +59,12 @@ En plus de modifier les tâches Azure Stream Analytics préconfigurées, vous po
 ## <a name="customizing-devices"></a>Personnalisation des appareils
 L’une des activités d’extension les plus courantes consiste à utiliser des appareils spécifiques à votre scénario. Il existe plusieurs méthodes pour travailler avec des appareils, Notamment, la modification d’un appareil simulé pour qu’il corresponde à votre scénario ou l’utilisation du [Kit SDK d’appareils IoT][IoT Device SDK] pour connecter votre appareil physique à la solution.
 
-Pour obtenir un guide étape par étape sur l’ajout d’appareils à la solution préconfigurée de surveillance à distance, consultez les rubriques [IoT Suite - Connexion d’appareils](iot-suite-connecting-devices.md) et [Kit de développement logiciel (SDK) C - exemple de surveillance à distance](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Ces appareils sont conçus pour fonctionner avec la solution préconfigurée de surveillance à distance.
+Pour obtenir un guide étape par étape sur l’ajout d’appareils, consultez les articles sur la [connexion des appareils dans IoT Suite](iot-suite-connecting-devices.md) et [l’exemple de Kit de développement logiciel (SDK) C de surveillance à distance](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). Ces appareils sont conçus pour fonctionner avec la solution préconfigurée de surveillance à distance.
 
 ### <a name="creating-your-own-simulated-device"></a>Création de votre propre appareil simulé
-Le code source de la solution de surveillance à distance (référencé ci-dessus) contient un simulateur .NET. C’est lui qui est configuré dans le cadre de la solution et qui peut être modifié pour envoyer des données de télémétrie ou des métadonnées différentes, ou pour répondre à des commandes différentes.
+Le [code source de la solution de surveillance à distance](https://github.com/Azure/azure-iot-remote-monitoring) contient un simulateur .NET. C’est lui qui est configuré dans le cadre de la solution et qui peut être modifié pour envoyer des données de télémétrie ou des métadonnées différentes, ou pour répondre à des commandes différentes.
 
-Le simulateur préconfiguré dans la solution préconfigurée de surveillance à distance est un appareil de refroidissement qui émet une télémétrie de température et d’humidité. Vous pouvez modifier le simulateur dans le projet [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) après avoir dupliqué le référentiel GitHub.
+Le simulateur préconfiguré dans la solution préconfigurée de surveillance à distance simule un appareil de refroidissement qui émet des données de télémétrie de température et d’humidité. Vous pouvez modifier le simulateur dans le projet [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) une fois le référentiel GitHub dupliqué.
 
 ### <a name="available-locations-for-simulated-devices"></a>Emplacements disponibles pour les appareils simulés
 L’ensemble des emplacements par défaut se trouve à Seattle/Redmond, Washington, États-Unis. Vous pouvez modifier ces emplacements dans [SampleDeviceFactory.cs][lnk-sample-device-factory].
@@ -94,12 +94,12 @@ Les membres du rôle **ReadOnly** peuvent afficher le tableau de bord et la list
 5. Cliquez sur le nom de l’application qui correspond au nom de votre solution préconfigurée. Si vous ne voyez pas votre application dans la liste, sélectionnez **Applications que ma société possède** dans le menu déroulant **Afficher** et cliquez sur la coche.
 6. En bas de la page, cliquez sur **Gérer le manifeste** et **Télécharger le manifeste**.
 7. Cela permet de télécharger un fichier .json sur votre ordinateur local.  Ouvrez ce fichier pour le modifier dans un éditeur de texte de votre choix.
-8. Sur la troisième ligne du fichier .json, vous trouverez :
+8. Sur la troisième ligne du fichier .json, vous trouverez :
    
    ```
    "appRoles" : [],
    ```
-   Remplacez ce contenu par ce qui suit :
+   Remplacez cette ligne par le code suivant :
    
    ```
    "appRoles": [
@@ -125,12 +125,12 @@ Les membres du rôle **ReadOnly** peuvent afficher le tableau de bord et la list
    } ],
    ```
 9. Enregistrez le fichier .json mis à jour (vous pouvez remplacer le fichier existant).
-10. Au bas de la page du portail de gestion Azure, sélectionnez **Gérer le manifeste** puis **Télécharger le manifeste** pour télécharger le fichier .json que vous avez enregistré à l’étape précédente.
+10. Au bas de la page du portail Azure Classic, sélectionnez **Gérer le manifeste**, puis **Télécharger le manifeste** pour télécharger le fichier .json que vous avez enregistré à l’étape précédente.
 11. Vous avez maintenant ajouté les rôles **Admin** et **ReadOnly** à votre application.
 12. Pour affecter un de ces rôles à un utilisateur de votre répertoire, consultez [Autorisations sur le site azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Commentaires
-Vous avez une personnalisation que vous aimeriez voir couverte dans ce document ? Veuillez ajouter des suggestions de fonctionnalités à [User Voice](https://feedback.azure.com/forums/321918-azure-iot)ou commenter cet article ci-dessous. 
+Vous avez une personnalisation que vous aimeriez voir couverte dans ce document ? Ajoutez des suggestions de fonctionnalités à [User Voice](https://feedback.azure.com/forums/321918-azure-iot) ou commentez cet article. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les options permettant de personnaliser les solutions préconfigurées, consultez :
@@ -153,6 +153,6 @@ Pour en savoir plus sur les options permettant de personnaliser les solutions pr
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

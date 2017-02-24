@@ -4,7 +4,7 @@ description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Arr
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 655c00e3042cca78872df052cb89bab43fbc35a4
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans VMware
@@ -43,7 +43,7 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre appareil virtuel :
 
   * Un minimum de 4 cœurs.
-  * Au moins 8 Go de RAM.
+  * Au moins 8 Go de RAM. Si vous envisagez de configurer le tableau virtuel en tant que serveur de fichiers, 8 Go prennent en charge moins de 2 millions de fichiers. Vous avez besoin de 16 Go de RAM pour prendre en charge 2 à 4 millions de fichiers.
   * Une interface réseau.
   * Un disque virtuel de 500 Go pour les données système.
 
@@ -66,7 +66,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 * Un client VMware vSphere sur votre système pour gérer l'hôte ESXi.
 
   * Un minimum de 4 cœurs.
-  * Au moins 8 Go de RAM.
+  * Au moins 8 Go de RAM. Si vous envisagez de configurer le tableau virtuel en tant que serveur de fichiers, 8 Go prennent en charge moins de 2 millions de fichiers. Vous avez besoin de 16 Go de RAM pour prendre en charge 2 à 4 millions de fichiers.
   * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. La bande passante Internet minimale doit être de 5 Mbits/s pour une utilisation optimale de l'appareil.
   * Un disque virtuel de 500 Go pour les données.
 
@@ -77,6 +77,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
    1. Vérifiez que vous avez téléchargé le dernier fichier d’image. Si vous avez téléchargé l’image précédemment, téléchargez-la à nouveau pour être certain d’avoir l’image la plus récente. La dernière image comprend deux fichiers (au lieu d’un).
    2. Prenez note de l’emplacement où vous avez copié l’image car vous l’utiliserez plus loin dans la procédure.
+
 2. Connectez-vous au serveur ESXi à l’aide du client vSphere. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -243,6 +244,6 @@ SI vous rencontrez une autre erreur durant la configuration initiale effectuée 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

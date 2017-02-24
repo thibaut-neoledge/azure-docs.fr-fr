@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: ebff4403b81930d533c1dcbaf2b8857207eda4b6
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: a2a429873c30f526a0de05d4018f53f3a83bbe28
 
 ---
 
@@ -58,7 +58,7 @@ Ajoutez la valeur IPv4 au jeu d’enregistrements précédemment créé "@" en u
 Pour trouver l’adresse IP d’une application web, suivez la procédure décrite dans [Configurer un nom de domaine personnalisé dans Azure App Service](../app-service-web/web-sites-custom-domain-name.md#vip).
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
 ```
 
 ### <a name="step-3"></a>Étape 3
@@ -77,26 +77,36 @@ Si votre domaine est déjà géré par Azure DNS (consultez [Délégation de dom
 
 Ouvrez PowerShell et créez un jeu d’enregistrements CNAME, puis affectez-le à une variable $rs. Cet exemple crée un type de jeu d’enregistrements CNAME avec une durée de vie de 600 secondes dans la zone DNS nommée « contoso.com ».
 
-    $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+```powershell
+$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+```
 
-    Name              : www
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-    RecordType        : CNAME
-    Records           : {}
-    Tags              : {}
+L’exemple suivant est la réponse.
 
+```
+Name              : www
+ZoneName          : contoso.com
+ResourceGroupName : myresourcegroup
+Ttl               : 600
+Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+RecordType        : CNAME
+Records           : {}
+Tags              : {}
+```
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 
 Une fois le jeu d'enregistrements CNAME créé, vous devez créer une valeur d'alias qui pointe vers l'application web.
 
 À l'aide de la variable « $rs » attribuée précédemment, vous pouvez utiliser la commande PowerShell ci-dessous pour créer l'alias pour l’application web contoso.azurewebsites.net.
 
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+```powershell
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+```
 
+L’exemple suivant est la réponse.
+
+```
     Name              : www
     ZoneName          : contoso.com
     ResourceGroupName : myresourcegroup
@@ -105,6 +115,7 @@ Une fois le jeu d'enregistrements CNAME créé, vous devez créer une valeur d'a
     RecordType        : CNAME
     Records           : {contoso.azurewebsites.net}
     Tags              : {}
+```
 
 ### <a name="step-3"></a>Étape 3
 
@@ -116,20 +127,22 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 Vous pouvez valider l'enregistrement correctement créé en interrogeant « www.contoso.com » à l'aide de nslookup, comme indiqué ci-dessous :
 
-    PS C:\> nslookup
-    Default Server:  Default
-    Address:  192.168.0.1
+```
+PS C:\> nslookup
+Default Server:  Default
+Address:  192.168.0.1
 
-    > www.contoso.com
-    Server:  default server
-    Address:  192.168.0.1
+> www.contoso.com
+Server:  default server
+Address:  192.168.0.1
 
-    Non-authoritative answer:
-    Name:    <instance of web app service>.cloudapp.net
-    Address:  <ip of web app service>
-    Aliases:  www.contoso.com
-    contoso.azurewebsites.net
-    <instance of web app service>.vip.azurewebsites.windows.net
+Non-authoritative answer:
+Name:    <instance of web app service>.cloudapp.net
+Address:  <ip of web app service>
+Aliases:  www.contoso.com
+contoso.azurewebsites.net
+<instance of web app service>.vip.azurewebsites.windows.net
+```
 
 ## <a name="create-an-awverify-record-for-web-apps"></a>Créer un enregistrement « awverify » pour des applications web
 
@@ -139,24 +152,34 @@ Si vous décidez d'utiliser un enregistrement A pour votre application web, vou
 
 Créez l’enregistrement « awverify ». Dans l’exemple ci-dessous, nous créons l’enregistrement « awverify » pour contoso.com pour vérifier la propriété du domaine personnalisé.
 
-    $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+```powershell
+$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+```
 
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-    RecordType        : CNAME
-    Records           : {}
-    Tags              : {}
+L’exemple suivant est la réponse.
 
+```
+Name              : awverify
+ZoneName          : contoso.com
+ResourceGroupName : myresourcegroup
+Ttl               : 600
+Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+RecordType        : CNAME
+Records           : {}
+Tags              : {}
+```
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="step-2"></a>Étape 2
 
 Une fois le jeu d’enregistrements « awverify » créé, affectez l’alias du jeu d’enregistrements CNAME. Dans l’exemple ci-dessous, nous affectons l’alias de jeu d’enregistrements CNAME à awverify.contoso.azurewebsites.net.
 
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+```powershell
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+```
 
+L’exemple suivant est la réponse.
+
+```
     Name              : awverify
     ZoneName          : contoso.com
     ResourceGroupName : myresourcegroup
@@ -165,6 +188,7 @@ Une fois le jeu d’enregistrements « awverify » créé, affectez l’alias du
     RecordType        : CNAME
     Records           : {awverify.contoso.azurewebsites.net}
     Tags              : {}
+```
 
 ### <a name="step-3"></a>Étape 3
 
@@ -180,6 +204,6 @@ Suivez la procédure décrite dans [Configuration d’un nom de domaine personna
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
