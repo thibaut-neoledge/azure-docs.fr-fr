@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3c3db5ba37844f6a77eece2f20bdce080d0ab8b7
-ms.openlocfilehash: 10466164f5454120e99ce7a2a368c9c548b46bc3
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -98,9 +98,26 @@ Quelle que soit la méthode choisie, vous devez fournir des valeurs pour le [par
 
 Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
-1. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
-    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
-    - sans suivre les instructions fournies dans le message que vous recevez.
+1. Inscrivez-vous pour la version d’évaluation en exécutant les commandes suivantes dans PowerShell après votre connexion, puis sélectionnez l’abonnement approprié :
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    N’essayez pas d’effectuer les étapes restantes avant d’obtenir le résultat suivant lorsque vous exécutez la commande ```Get-AzureRmProviderFeature``` :
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Cela peut prendre quelques minutes.
+
 2. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). L’article décrit plusieurs options de déploiement d’un modèle. Si vous choisissez de déployer à l’aide de `-TemplateUri parameter`, l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `-TemplateFile`, copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `-TemplateParameterFile`.
@@ -116,14 +133,31 @@ Pour déployer le modèle à l’aide de PowerShell, procédez comme suit :
 
 Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI) Azure 1.0, procédez comme suit :
 
-1. Inscrivez-vous pour la version préliminaire en envoyant à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) un message électronique contenant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
-    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
-    - sans suivre les instructions fournies dans le message que vous recevez.
+1. Inscrivez-vous pour la version d’évaluation en exécutant les commandes suivantes dans PowerShell après votre connexion, puis sélectionnez l’abonnement approprié :
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    N’essayez pas d’effectuer les étapes restantes avant d’obtenir le résultat suivant lorsque vous exécutez la commande ```Get-AzureRmProviderFeature``` :
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Cela peut prendre quelques minutes.
+
 2. Déployez le modèle en suivant les étapes de l’article [Déployer un modèle avec l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). L’article décrit plusieurs options de déploiement du modèle. Si vous choisissez de déployer à l’aide de `--template-uri` (-f), l’URI de ce modèle est *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si vous choisissez de déployer à l’aide du paramètre `--template-file` (f-), copiez le contenu du [fichier de modèle](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) de GitHub dans un nouveau fichier sur votre ordinateur. Si vous le souhaitez, modifiez le contenu du modèle. Le modèle déploie les ressources et les paramètres répertoriés dans la section des [ressources](#resources) de cet article. Pour en savoir plus sur les modèles et leur création, lisez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Quelle que soit l’option que vous choisissez pour déployer le modèle, vous devez fournir des valeurs pour les valeurs de paramètre répertoriées dans la section des [paramètres](#parameters) de cet article. Si vous choisissez de fournir des paramètres à l’aide d’un fichier de paramètres, copiez le contenu du [fichier de paramètres](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub dans un nouveau fichier sur votre ordinateur. Modifiez les valeurs dans le fichier. Utilisez le fichier que vous avez créé en tant que valeur pour le paramètre `--parameters-file` (-e).
     
-    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli).
+    Pour déterminer les valeurs valides pour les paramètres OSVersion, ImagePublisher et imageOffer, suivez les étapes de l’article [Accéder à et sélectionner des images de machine virtuelle Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
 
 3. Une fois la machine virtuelle déployée, connectez la machine virtuelle et ajoutez les adresses IP privées au système d’exploitation que vous avez déployé en suivant les étapes de la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.
 
@@ -131,6 +165,6 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande (CLI
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
