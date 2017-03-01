@@ -39,6 +39,7 @@
 ### [Files d’attente et rubriques partitionnées](service-bus-partitioning.md)
 ### [Files d’attente de lettres mortes](service-bus-dead-letter-queues.md)
 ### [Traitement des transactions](service-bus-transactions.md)
+### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
