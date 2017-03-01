@@ -1,7 +1,7 @@
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cette opération ne supprime pas le disque du stockage. Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.  
 
 > [!NOTE]
-> Dans Azure, une machine virtuelle utilise différents types de disque, comme le disque du système d’exploitation, un disque temporaire local et des disques de données facultatifs. Pour plus d’informations, consultez l’article [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas détacher un disque de système d’exploitation si vous ne supprimez pas également la machine virtuelle.
+> Dans Azure, une machine virtuelle utilise différents types de disque, comme le disque du système d’exploitation, un disque temporaire local et des disques de données facultatifs. Pour plus d’informations, consultez l’article [À propos des disques et VHD pour machines virtuelles](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous ne pouvez pas détacher un disque de système d’exploitation si vous ne supprimez pas également la machine virtuelle.
 
 ## <a name="find-the-disk"></a>Recherche du disque
 Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez rechercher le nombre LUN (numéro d’unité logique), qui est un identificateur pour le disque à détacher. Pour ce faire, procédez comme suit :
@@ -111,9 +111,4 @@ Une fois le numéro de LUN du disque identifié et les références de système 
     ```
 
 Le disque détaché reste dans le stockage, mais il n'est plus attaché à une machine virtuelle.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

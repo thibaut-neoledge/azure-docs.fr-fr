@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -57,12 +58,12 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 | Groupes de disponibilité AlwaysOn | [Pris en charge](https://msdn.microsoft.com/library/hh510230.aspx) | Non pris en charge - Voir [Géoréplication active](sql-database-geo-replication-overview.md) |
 | Attacher une base de données | [Pris en charge](https://msdn.microsoft.com/library/ms190209.aspx) | Non pris en charge |
 | Rôles d’application | [Pris en charge](https://msdn.microsoft.com/library/ms190998.aspx) | [Pris en charge](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Mise à l’échelle automatique | Non pris en charge | [Pris en charge](sql-database-scale-up.md) |
+| Mise à l’échelle automatique | Non pris en charge | [Pris en charge](sql-database-service-tiers.md) |
 | Azure Active Directory | Non pris en charge | [Pris en charge](sql-database-aad-authentication.md) |
 | Azure Data Factory | Non pris en charge - voir [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Pris en charge](https://azure.microsoft.com/services/data-factory/) |
-| Audit | [Pris en charge](https://msdn.microsoft.com/library/cc280386.aspx) | [Pris en charge](sql-database-auditing-get-started.md) |
+| Audit | [Pris en charge](https://msdn.microsoft.com/library/cc280386.aspx) | [Pris en charge](sql-database-auditing.md) |
 | Fichier BACPAC (exporter) | [Pris en charge](https://msdn.microsoft.com/library/hh213241.aspx) | [Pris en charge](sql-database-export.md) |
-| Fichier BACPAC (importer) | [Pris en charge](https://msdn.microsoft.com/library/hh710052.aspx) | [Pris en charge](sql-database-import.md) |
+| Fichier BACPAC (importer) | [Pris en charge](https://msdn.microsoft.com/library/hh710052.aspx) | [Pris en charge](sql-database-import-portal.md) |
 | Instructions BACKUP et RESTORE | [Pris en charge](https://msdn.microsoft.com/library/ff848768.aspx) | Non pris en charge |
 | Fonctions intégrées | [Pris en charge](https://msdn.microsoft.com/library/ms174318.aspx) | [La plupart](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Modifier la capture de données | [Pris en charge](https://msdn.microsoft.com/library/cc645937.aspx) | Non pris en charge |
@@ -132,7 +133,7 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 | SQL Server Integration Services (SSIS) | [Pris en charge](https://msdn.microsoft.com/library/ms141026.aspx) | Non pris en charge - voir [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Pris en charge](https://msdn.microsoft.com/library/hh245198.aspx) | [Pris en charge](https://msdn.microsoft.com/library/hh245198.aspx) |
 | Générateur de profils SQL Server | [Pris en charge](https://msdn.microsoft.com/library/ms181091.aspx) | Non pris en charge - voir [Événements étendus](https://msdn.microsoft.com/library/ms181091.aspx) |
-| Réplication SQL Server | [Pris en charge](https://msdn.microsoft.com/library/ms151198.aspx) | [Abonné à la réplication transactionnelle et de capture instantanée uniquement](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Réplication SQL Server | [Pris en charge](https://msdn.microsoft.com/library/ms151198.aspx) | [Abonné à la réplication transactionnelle et de capture instantanée uniquement](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Pris en charge](https://msdn.microsoft.com/library/ms159106.aspx) | Non pris en charge |
 | Procédures stockées | [Pris en charge](https://msdn.microsoft.com/library/ms190782.aspx) | [Pris en charge](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Fonctions stockées système | [Pris en charge](https://msdn.microsoft.com/library/ff848780.aspx) | [Certains](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +159,4 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 - Pour plus d’informations sur les quotas de ressources spécifiques et les limitations basées sur votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
 - Pour une vue d’ensemble de la sécurité, consultez [Azure SQL Database Security Overview (Vue d’ensemble de la sécurité de Azure SQL Database)](sql-database-security-overview.md).
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
