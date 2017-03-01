@@ -15,8 +15,9 @@ ms.workload: backup-recovery
 ms.date: 02/12/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5031f64ffcd34b6287a3ecd87dd027c2bc7c716f
-ms.openlocfilehash: 9d0d0ba4ca5966b39ce62ea8296d48e5930c9782
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: 14cc104bb755a0893c00963636e210b656b270b5
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 9d0d0ba4ca5966b39ce62ea8296d48e5930c9782
 
 Cet article décrit la procédure de migration d’instances Windows AWS vers des machines virtuelles Azure avec le service [Azure Site Recovery](site-recovery-overview.md).
 
-La migration est en fait un basculement d’AWS vers Azure. Il n’est pas possible de restaurer automatiquement les machines et il n’y a pas de réplication continue. Cet article décrit les étapes de migration dans le Portail Azure, qui se basent sur les instructions de [réplication d’une machine physique vers Azure](site-recovery-vmware-to-azure.md).
+La migration est en fait un basculement d’AWS vers Azure. Vous ne pouvez pas restaurer automatiquement les machines et il n’y a pas de réplication continue. Cet article décrit les étapes de migration dans le Portail Azure, qui se basent sur les instructions de [réplication d’une machine physique vers Azure](site-recovery-vmware-to-azure.md).
 
 Publiez des commentaires ou des questions au bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
@@ -41,25 +42,32 @@ Site Recovery permet de migrer des instances EC2 qui fonctionnent sous l’un de
 
 Voici ce dont vous avez besoin pour ce déploiement
 
-* **Serveur de configuration** : une machine virtuelle locale sous Windows Server 2012 R2 est déployée en tant que serveur de configuration. Par défaut, les autres composants Site Recovery (serveur de traitement et serveur cible maître) sont installés au cours du déploiement du serveur de configuration. [En savoir plus](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure)
-* **Instances EC2** : les instances de machines virtuelles EC2 que vous souhaitez migrer.
+* **Serveur de configuration** : une machine virtuelle Amazon EC2 sous Windows Server 2012 R2 est déployée en tant que serveur de configuration. Par défaut, les autres composants Azure Site Recovery (serveur de traitement et serveur cible maître) sont installés pendant le déploiement du serveur de configuration. Cet article décrit les étapes de migration dans le portail Azure. Celles-ci s’appuient sur les instructions de la section [En savoir plus](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure).
+
+* **Instances EC2** : les instances de machines virtuelles Amazon EC2 que vous souhaitez migrer.
 
 ## <a name="deployment-steps"></a>Étapes du déploiement
 
-1. création d'un coffre
-2. Déployer le serveur de configuration
-3. Après avoir déployé le serveur de configuration, vérifiez qu’il peut communiquer avec les machines virtuelles que vous souhaitez migrer.
-4. Configurez les paramètres de réplication.
-5. Installez le service Mobilité. Chaque machine virtuelle que vous souhaitez protéger exige l’installation du service installé le service Mobilité. Ce service envoie des données au serveur de processus. Le service de mobilité peut être installé manuellement ou transféré et installé automatiquement par le serveur de processus lorsque la protection de machine virtuelle est activée. Les règles de pare-feu sur les instances EC2 que vous souhaitez migrer doivent être configurées pour autoriser l’installation Push de ce service. Le groupe de sécurité pour les instances EC2 doit avoir les règles suivantes :
+1. Créer un coffre Recovery Services
 
-    ![règles de pare-feu](./media/site-recovery-migrate-aws-to-azure/migrate-firewall.png)
-6. Activez la réplication. Activez la réplication pour les machines virtuelles que vous souhaitez migrer. Vous pouvez découvrir les instances EC2 à l’aide de l’adresse IP privée, que vous pouvez obtenir à partir de la console EC2.
-7. Exécutez un basculement non planifié). Une fois la réplication initiale terminée, vous pouvez exécuter un basculement non planifié d’AWS vers Azure pour chaque machine virtuelle. Si vous le souhaitez, vous pouvez créer un plan de récupération et exécuter un basculement non planifié pour migrer des machines virtuelles d’AWS vers Azure. [Découvrez d’autres informations](site-recovery-create-recovery-plans.md) sur les plans de récupération.
+2. Les règles suivantes doivent être configurées pour le groupe de sécurité de vos instances EC2 : ![Règles](./media/site-recovery-migrate-aws-to-azure/migration_pic1.png)
 
-Cliquez sur les liens pour obtenir des instructions détaillées sur les [Étapes de déploiement](site-recovery-vmware-to-azure.md) et pour exécuter un [Basculement non planifié](site-recovery-failover.md#run-an-unplanned-failover).
+3. Sur le même cloud privé virtuel Amazon que vos instances EC2, déployez un serveur de configuration ASR. Consultez les conditions requises pour un déploiement de machines virtuelles VMware et de serveurs physiques sur Azure et ainsi connaître les composants nécessaires à la configuration d’un déploiement serveur ![DeployCS](./media/site-recovery-migrate-aws-to-azure/migration_pic2.png)
 
+4.    Une fois votre serveur de configuration déployé dans AWS et inscrit avec votre coffre Recovery Services, vous devriez voir le serveur de configuration et le serveur de traitement dans l’infrastructure Site Recovery comme indiqué ci-dessous : ![CSinVault](./media/site-recovery-migrate-aws-to-azure/migration_pic3.png)
+  >[!NOTE]
+  >Jusqu’à 15 minutes sont parfois nécessaires au serveur de configuration et au serveur de traitement pour apparaître.
+  >
 
+5. Après avoir déployé le serveur de configuration, vérifiez qu’il peut communiquer avec les machines virtuelles que vous souhaitez migrer.
 
-<!--HONumber=Feb17_HO2-->
+6. [Configurer les paramètres de réplication](site-recovery-setup-replication-settings-vmware.md)
 
+7. Activer la réplication : activez la réplication pour les machines virtuelles que vous souhaitez migrer. Vous pouvez découvrir les instances EC2 à l’aide de l’adresse IP privée, que vous pouvez obtenir à partir de la console EC2.
+![SelectVM](./media/site-recovery-migrate-aws-to-azure/migration_pic4.png)
+8. Une fois que les instances EC2 ont été protégées et que la réplication vers Azure est terminée, [exécutez un test de basculement](site-recovery-test-failover-to-azure.md) pour valider les performances de votre application dans Azure ![TFI](./media/site-recovery-migrate-aws-to-azure/migration_pic5.png)
+
+9. Effectuer un basculement de AWS vers Azure pour chaque machine virtuelle. Si vous le souhaitez, vous pouvez créer un plan de récupération et exécuter un basculement pour migrer des machines virtuelles d’AWS vers Azure. [Découvrez d’autres informations](site-recovery-create-recovery-plans.md) sur les plans de récupération.
+
+10. Pour la migration, vous n’avez pas besoin de valider de basculement. Au lieu de cela, sélectionnez l’option Terminer la migration pour chacune des machines que vous souhaitez migrer. L’action Terminer la migration met un terme au processus de migration, supprime la réplication de la machine, puis arrête la facturation de Site Recovery pour celle-ci.![Migrer](./media/site-recovery-migrate-aws-to-azure/migration_pic6.png)
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa823259a86d361d13af9f6c2df062362c7e47b
-ms.openlocfilehash: 2faa881f146cc1b0a8c0523f2fb0f20b0136441e
+ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
+ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -34,14 +35,23 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |---|---|---|---|---|
 |qpu_metric|QPU|Nombre|Moyenne|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|
 |memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|
+|TotalConnectionRequests|Nombre total de demandes de connexion|Nombre|Moyenne|Nombre total de demandes de connexion. Il s’agit des arrivées.|
+|SuccessfullConnectionsPerSec|Connexions réussies par seconde|Nombre par seconde|Moyenne|Taux de connexions terminées réussies.|
+|TotalConnectionFailures|Nombre total d’échecs de connexion|Nombre|Moyenne|Total des échecs de tentatives de connexion.|
+|CurrentUserSessions|Sessions utilisateur actuelles|Nombre|Moyenne|Nombre actuel de sessions utilisateur établies.|
+|QueryPoolBusyThreads|Threads occupés du pool de threads de requêtes|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads de requêtes.|
+|CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Nombre|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
+|ProcessingPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de traitement|Nombre|Moyenne|Nombre de travaux autres que d’E/S contenus dans la file d’attente du pool de threads de traitement.|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|TotalRequests|Nombre total de demandes de la passerelle|Nombre|Somme|Nombre de demandes de la passerelle|
-|TotalSuccessfulRequests|Demandes de la passerelle ayant abouti|Nombre|Somme|Nombre de demandes de la passerelle traitées|
-|TotalFailedRequests|Demandes de la passerelle ayant échoué|Nombre|Somme|Nombre de défaillances des demandes de la passerelle|
+|TotalRequests|Nombre total de demandes de la passerelle|Nombre|Total|Nombre de demandes de la passerelle|
+|SuccessfulRequests|Demandes de la passerelle ayant abouti|Nombre|Total|Nombre de demandes de la passerelle ayant abouti|
+|UnauthorizedRequests|Demandes de la passerelle non autorisées|Nombre|Total|Nombre de demandes de la passerelle non autorisées|
+|FailedRequests|Demandes de la passerelle ayant échoué|Nombre|Total|Nombre de défaillances des demandes de la passerelle|
+|OtherRequests|Autres demandes de la passerelle|Nombre|Total|Nombre d’autres demandes de la passerelle|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -290,29 +300,66 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Opérations d’écriture disque/s|Opérations d’écriture disque/s|Nombre par seconde|Moyenne|E/S d’écriture disque par seconde|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
-| Mesure | Nom d’affichage de la mesure | Unité | Type d’agrégation | Description |
-| --- | --- | --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol |Tentatives d’envoi de message de télémétrie |Nombre |Total |Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT |
-| d2c.telemetry.ingress.success |Messages de télémétrie envoyés |Nombre |Total |Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT |
-| d2c.telemetry.egress.success | Messages de télémétrie remis | Nombre | Total | Nombre d’écritures réussies sur un point de terminaison |
-| d2c.telemetry.egress.invalid | Tentatives non valides de remise de messages de télémétrie | Nombre | Total | Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison |
-| d2c.telemetry.egress.dropped | Messages de télémétrie annulés | Nombre | Total | Nombre de messages ignorés car un point de terminaison était défectueux |
-| d2c.telemetry.egress.fallback | Messages de télémétrie correspondant à une condition de secours | Nombre | Total | Nombre de messages correspondant à l’itinéraire de secours |
-| d2c.telemetry.egress.orphaned | Messages de télémétrie orphelins | Nombre | Total | Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris |
-| d2c.endpoints.latency.eventHubs | Latence des messages des points de terminaison Event Hub | Millisecondes | Moyenne | Latence moyenne, min et max entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes |
-| d2c.endpoints.latency.serviceBusQueues | Latence des messages des points de terminaison de files d’attente Service Bus | Millisecondes | Moyenne | Latence moyenne, min et max entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes |
-| d2c.endpoints.latency.serviceBusTopics | Latence des messages des points de terminaison de rubriques Service Bus | Millisecondes | Moyenne | Latence moyenne, min et max entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes |
-| c2d.commands.egress.complete.success |Commandes terminées |Nombre |Total |Nombre de commandes cloud vers appareil terminées correctement par l’appareil |
-| c2d.commands.egress.abandon.success |Commandes abandonnées |Nombre |Total |Nombre de commandes cloud vers appareil abandonnées par l’appareil |
-| c2d.commands.egress.reject.success |Commandes rejetées |Nombre |Total |Nombre de commandes cloud vers appareil rejetées par l’appareil |
-| devices.totalDevices |Nombre total d’appareils |Nombre |Total |Nombre d’appareils enregistrés sur votre hub IoT |
-| devices.connectedDevices.allProtocol |Appareils connectés |Nombre |Total |Nombre d’appareils connectés à votre hub IoT |
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Nombre|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|
+|d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Nombre|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|
+|c2d.commands.egress.complete.success|Commandes terminées|Nombre|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|
+|c2d.commands.egress.abandon.success|Commandes abandonnées|Nombre|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|
+|c2d.commands.egress.reject.success|Commandes rejetées|Nombre|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|
+|devices.totalDevices|Nombre total d’appareils|Nombre|Total|Nombre d’appareils enregistrés sur votre hub IoT|
+|devices.connectedDevices.allProtocol|Appareils connectés|Nombre|Total|Nombre d’appareils connectés à votre hub IoT|
+|d2c.telemetry.egress.success|Messages de télémétrie remis|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison (total)|
+|d2c.telemetry.egress.dropped|Messages supprimés|Nombre|Total|Nombre de messages supprimés parce qu’ils ne correspondaient pas aux itinéraires et que l’itinéraire de secours était désactivé|
+|d2c.telemetry.egress.orphaned|Messages orphelins|Nombre|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|
+|d2c.telemetry.egress.invalid|Messages non valides|Nombre|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|
+|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Nombre|Total|Nombre de messages écrits au point de terminaison de secours|
+|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|
+|d2c.endpoints.latency.eventHubs|Latence des messages des points de terminaison Event Hub|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes|
+|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|
+|d2c.endpoints.latency.serviceBusQueues|Latence des messages des points de terminaison de files d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes|
+|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|
+|d2c.endpoints.latency.serviceBusTopics|Latence des messages des points de terminaison de rubriques Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes|
+|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Nombre|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|
+|d2c.endpoints.latency.builtIn.events|Latence de message pour le point de terminaison intégré (messages/événements)|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes |
+|d2c.twin.read.success|Lectures de représentations réussies d’appareils|Nombre|Total|Total des lectures de représentations réussies initiées par un appareil.|
+|d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un appareil.|
+|d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|
+|d2c.twin.update.success|Mises à jour de représentations réussies d’appareils|Nombre|Total|Total des mises à jour de représentations réussies initiées par un appareil.|
+|d2c.twin.update.failure|Mises à jour de représentations d’appareils en échec|Nombre|Total|Total des mises à jour de représentations en échec initiées par un appareil.|
+|d2c.twin.update.size|Taille des mises à jour de représentations d’appareils|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un appareil.|
+|c2d.methods.success|Appels de méthode directe réussis|Nombre|Total|Total des appels de méthode directe réussis.|
+|c2d.methods.failure|Appels de méthode directe en échec|Nombre|Total|Total des appels de méthode directe en échec.|
+|c2d.methods.requestSize|Taille de demande des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les demandes de méthode directe réussies.|
+|c2d.methods.responseSize|Taille de réponse des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les réponses de méthode directe réussies.|
+|c2d.twin.read.success|Lectures de représentations réussies de serveur principal|Nombre|Total|Total des lectures de représentations réussies initiées par un serveur principal.|
+|c2d.twin.read.failure|Lectures de représentations de serveur principal en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un serveur principal.|
+|c2d.twin.read.size|Taille de la réponse des lectures de représentations de serveur principal|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un serveur principal.|
+|c2d.twin.update.success|Mises à jour de représentations réussies de serveur principal|Nombre|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|
+|c2d.twin.update.failure|Mises à jour de représentations de serveur principal en échec|Nombre|Total|Total des mises à jour de représentations en échec initiées par un serveur principal.|
+|c2d.twin.update.size|Taille des mises à jour de représentations de serveur principal|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un serveur principal.|
+|twinQueries.success|Requêtes de représentations réussies|Nombre|Total|Total des requêtes de représentations réussies.|
+|twinQueries.failure|Requêtes de représentations en échec|Nombre|Total|Total des requêtes de représentations en échec.|
+|twinQueries.resultSize|Taille du résultat des requêtes de représentations|Octets|Moyenne|Moyenne, minimum et maximum de la taille du résultat de toutes les requêtes de représentations réussies.|
+|jobs.createTwinUpdateJob.success|Créations réussies des travaux de mises à jour de représentations|Nombre|Total|Total des créations réussies de travaux de mises à jour de représentations.|
+|jobs.createTwinUpdateJob.failure|Créations des travaux de mises à jour de représentations en échec|Nombre|Total|Total des créations en échec des travaux de mises à jour de représentations.|
+|jobs.createDirectMethodJob.success|Créations réussies des travaux d’appel de méthode|Nombre|Total|Total des créations réussies des travaux d’appel de méthode directe.|
+|jobs.createDirectMethodJob.failure|Créations des travaux d’appel de méthode en échec|Nombre|Total|Total des créations en échec des travaux d’appel de méthode directe.|
+|jobs.listJobs.success|Appels réussis pour répertorier les travaux|Nombre|Total|Total des appels réussis pour répertorier les travaux.|
+|jobs.listJobs.failure|Appels en échec pour répertorier les travaux|Nombre|Total|Total des appels en échec pour répertorier les travaux.|
+|jobs.cancelJob.success|Annulations de travaux réussies|Nombre|Total|Total des appels réussis pour annuler un travail.|
+|jobs.cancelJob.failure|Annulations de travaux en échec|Nombre|Total|Total des appels en échec pour annuler un travail.|
+|jobs.queryJobs.success|Requêtes de travaux réussies|Nombre|Total|Total des appels réussis pour interroger les travaux.|
+|jobs.queryJobs.failure|Requêtes de travaux en échec|Nombre|Total|Total des appels en échec pour interroger les travaux.|
+|jobs.completed|Travaux terminés|Nombre|Total|Total des travaux terminés.|
+|jobs.failed|Travaux en échec|Nombre|Total|Total des travaux en échec.|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|INREQS|Demandes entrantes|Nombre|Total|Débit de messages entrants Event Hub pour un espace de noms|
+|INREQS|Demandes entrantes|Nombre|Total|Nombre total des demandes entrantes pour un espace de noms|
 |SUCCREQ|Requêtes ayant réussi|Nombre|Total|Nombre total de demandes ayant réussi pour un espace de noms|
 |FAILREQ|Demandes ayant échoué|Nombre|Total|Nombre total de demandes ayant échoué pour un espace de noms|
 |SVRBSY|Erreurs de serveur occupé|Nombre|Total|Nombre total d’erreurs de serveur occupé pour un espace de noms|
@@ -320,8 +367,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |MISCERR|Autres erreurs|Nombre|Total|Nombre total de demandes ayant échoué pour un espace de noms|
 |INMSGS|Messages entrants|Nombre|Total|Nombre total de messages entrants pour un espace de noms|
 |OUTMSGS|Messages sortants|Nombre|Total|Nombre total de messages sortants pour un espace de noms|
-|EHINMBS|Octets entrants par seconde|Octets par seconde|Total|Débit de messages entrants Event Hub pour un espace de noms|
-|EHOUTMBS|Octets sortants par seconde|Octets par seconde|Total|Nombre total de messages sortants pour un espace de noms|
+|EHINMBS|Octets entrants|Octets par seconde|Total|Débit de messages entrants Event Hub pour un espace de noms|
+|EHOUTMBS|Octets sortants|Octets par seconde|Total|Nombre total de messages sortants pour un espace de noms|
 |EHABL|Archiver les messages de file d’attente|Nombre|Total|Messages d’archive Event Hub dans le backlog pour un espace de noms|
 |EHAMSGS|Archiver les messages|Nombre|Total|Messages archivés Event Hub dans un espace de noms|
 |EHAMBS|Débit message archive|Octets par seconde|Total|Débit de messages archivés Event Hub dans un espace de noms|
@@ -367,6 +414,70 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |---|---|---|---|---|
 |Débit|Débit|Octets par seconde|Moyenne||
 
+## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|registration.all|Opération d’inscription|Nombre|Total|Total des opérations d’inscription réussies (requêtes de mises à jour de créations et suppressions). |
+|registration.create|Opérations de création d’inscription|Nombre|Total|Total des créations d’inscription réussies.|
+|registration.update|Opérations de mise à jour d’inscription|Nombre|Total|Total des mises à jour d’inscription réussies.|
+|registration.get|Opérations de lecture d’inscription|Nombre|Total|Total des requêtes d’inscription réussies.|
+|registration.delete|Opérations de suppression d’inscription|Nombre|Total|Total des suppressions d’inscription réussies.|
+|incoming|Messages entrants|Nombre|Total|Total des appels d’API d’envoi réussis. |
+|incoming.scheduled|Notifications Push planifiées envoyées|Nombre|Total|Notifications Push planifiées annulées|
+|incoming.scheduled.cancel|Notifications Push planifiées annulées|Nombre|Total|Notifications Push planifiées annulées|
+|scheduled.pending|Notifications planifiées en attente|Nombre|Total|Notifications planifiées en attente|
+|installation.all|Opérations de gestion de l’installation|Nombre|Total|Opérations de gestion de l’installation|
+|installation.get|Opérations d’obtention d’installation|Nombre|Total|Opérations d’obtention d’installation|
+|installation.upsert|Opérations de création ou de mise à jour d’installation|Nombre|Total|Opérations de création ou de mise à jour d’installation|
+|installation.patch|Opérations d’installation de correctif|Nombre|Total|Opérations d’installation de correctif|
+|installation.delete|Opérations de suppression d’installation|Nombre|Total|Opérations de suppression d’installation|
+|outgoing.allpns.success|Notifications réussies|Nombre|Total|Total des notifications réussies.|
+|outgoing.allpns.invalidpayload|Erreurs de charge utile|Nombre|Total|Nombre d’opérations Push en échec, car le PNS a retourné une erreur de charge utile incorrecte.|
+|outgoing.allpns.pnserror|Erreurs système de notification externe|Nombre|Total|Nombre d’opérations Push en échec en raison d’un problème de communication avec le PNS (à l’exclusion des problèmes d’authentification).|
+|outgoing.allpns.channelerror|Erreurs de canal|Nombre|Total|Nombre d’opérations Push en échec, car le canal n’était pas valide ni associé à l’application appropriée, limité ou arrivé à expiration.|
+|outgoing.allpns.badorexpiredchannel|Erreurs de canal incorrect ou arrivé à expiration|Nombre|Total|Nombre d’opérations Push en échec, car le canal/jeton/registrationId indiqué dans l’inscription est arrivé à expiration ou non valide.|
+|outgoing.wns.success|Notifications WNS réussies|Nombre|Total|Total des notifications réussies.|
+|outgoing.wns.invalidcredentials|Erreurs d’autorisation WNS (informations d’identification non valides)|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci étaient bloquées. (Windows Live ne reconnaît pas les informations d’identification).|
+|outgoing.wns.badchannel|Erreur de canal WNS incorrect|Nombre|Total|Nombre d’opérations Push en échec, car l’élément ChannelURI indiqué dans l’inscription n’a pas été reconnu (état WNS : 404 introuvable).|
+|outgoing.wns.expiredchannel|Erreur de canal WNS arrivé à expiration|Nombre|Total|Nombre d’opérations Push en échec, car l’élément ChannelURI est arrivé à expiration (état WNS : 410 Supprimé).|
+|outgoing.wns.throttled|Notifications WNS limitées|Nombre|Total|Nombre d’opérations Push en échec, car WNS limite cette application (état WNS : 406 Non accepté).|
+|outgoing.wns.tokenproviderunreachable|Erreurs d’autorisation WNS (inaccessible)|Nombre|Total|Windows Live n’est pas accessible.|
+|outgoing.wns.invalidtoken|Erreurs d’autorisation WNS (jeton non valide)|Nombre|Total|Le jeton fourni à WNS n’est pas valide (état WNS : 401 Non autorisé).|
+|outgoing.wns.wrongtoken|Erreurs d’autorisation WNS (jeton incorrect)|Nombre|Total|Le jeton fourni à WNS est valide, mais il concerne une autre application (état WNS : 403 Interdit). Cela peut se produire si l’élément ChannelURI indiqué dans l’inscription est associé à une autre application. Vérifiez que l’application cliente est associée à l’application dont les informations d’identification figurent dans le hub de notification.|
+|outgoing.wns.invalidnotificationformat|Format de notification WNS non valide|Nombre|Total|Le format de la notification n’est pas valide (état WNS : 400). Notez que WNS ne rejette pas toutes les charges utiles non valides.|
+|outgoing.wns.invalidnotificationsize|Erreur de taille de notification WNS non valide|Nombre|Total|La charge utile de notification est trop grande (état WNS : 413).|
+|outgoing.wns.channelthrottled|Canal WNS limité|Nombre|Total|La notification a été supprimée, car l’élément ChannelURI indiqué dans l’inscription est limité (en-tête de réponse WNS : X-WNS-NotificationStatus:channelThrottled).|
+|outgoing.wns.channeldisconnected|Canal WNS déconnecté|Nombre|Total|La notification a été supprimée, car l’élément ChannelURI contenu dans l’inscription est limité (en-tête de réponse WNS : X-WNS-DeviceConnectionStatus : déconnecté).|
+|outgoing.wns.dropped|Notifications WNS supprimées|Nombre|Total|La notification a été supprimée, car l’élément ChannelURI indiqué dans l’inscription est limité (X-WNS-NotificationStatus : supprimé, mais pas X-WNS-DeviceConnectionStatus : déconnecté).|
+|outgoing.wns.pnserror|Erreurs WNS|Nombre|Total|La notification n’a pas été remise en raison d’erreurs de communication avec WNS.|
+|outgoing.wns.authenticationerror|Erreurs d’authentification WNS|Nombre|Total|La notification n’a pas été remise en raison d’erreurs de communication avec Windows Live, d’informations d’identification non valides ou d’un jeton incorrect.|
+|outgoing.apns.success|Notifications APNS réussies|Nombre|Total|Total des notifications réussies.|
+|outgoing.apns.invalidcredentials|Erreurs d’autorisation APNS|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci étaient bloquées.|
+|outgoing.apns.badchannel|Erreur de canal APNS incorrect|Nombre|Total|Nombre d’opérations Push en échec, car le jeton n’est pas valide (code d’état APNS : 8).|
+|outgoing.apns.expiredchannel|Erreur de canal APNS arrivé à expiration|Nombre|Total|Nombre de jetons qui ont été invalidés par le canal de commentaires APNS.|
+|outgoing.apns.invalidnotificationsize|Erreur de taille de notification APNS non valide|Nombre|Total|Nombre d’opérations Push en échec, car la charge utile était trop importante (code d’état APNS : 7).|
+|outgoing.apns.pnserror|Erreurs APNS|Nombre|Total|Nombre d’opérations Push en échec en raison d’erreurs de communication avec APNS.|
+|outgoing.gcm.success|Notifications GCM réussies|Nombre|Total|Total des notifications réussies.|
+|outgoing.gcm.invalidcredentials|Erreurs d’autorisation GCM (informations d’identification non valides)|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci étaient bloquées.|
+|outgoing.gcm.badchannel|Erreur de canal GCM incorrect|Nombre|Total|Nombre d’opérations Push en échec, car l’élément registrationId contenu dans l’inscription n’a pas été reconnu (résultat GCM : inscription non valide).|
+|outgoing.gcm.expiredchannel|Erreur de canal GCM arrivé à expiration|Nombre|Total|Nombre d’opérations Push en échec, car l’élément registrationId contenu dans l’inscription est arrivé à expiration (résultat GCM : NotRegistered).|
+|outgoing.gcm.throttled|Notifications GCM limitées|Nombre|Total|Nombre d’opérations Push en échec, car GCM a limité cette application (code d’état GCM : 501-599 ou résultat : indisponible).|
+|outgoing.gcm.invalidnotificationformat|Format de notification GCM non valide|Nombre|Total|Nombre d’opérations Push en échec, car la charge utile n’était pas mise en forme correctement (résultat GCM : InvalidDataKey ou InvalidTtl).|
+|outgoing.gcm.invalidnotificationsize|Erreur de taille de notification GCM non valide|Nombre|Total|Nombre d’opérations Push en échec, car la charge utile était trop importante (résultat GCM : MessageTooBig).|
+|outgoing.gcm.wrongchannel|Erreur de canal GCM incorrect|Nombre|Total|Nombre d’opérations Push en échec, car l’élément registrationId contenu dans l’inscription n’est pas associé à l’application actuelle (résultat GCM : InvalidPackageName).|
+|outgoing.gcm.pnserror|Erreurs GCM|Nombre|Total|Nombre d’opérations Push en échec en raison d’erreurs de communication avec GCM.|
+|outgoing.gcm.authenticationerror|Erreurs d’authentification GCM|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies, celles-ci sont bloquées ou l’élément SenderId n’est pas configuré correctement dans l’application (résultat GCM : MismatchedSenderId).|
+|outgoing.mpns.success|Notifications MPNS réussies|Nombre|Total|Total des notifications réussies.|
+|outgoing.mpns.invalidcredentials|Informations d’identification MPNS non valides|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci sont bloquées.|
+|outgoing.mpns.badchannel|Erreur de canal incorrect MPNS|Nombre|Total|Nombre d’opérations Push en échec, car l’élément ChannelURI contenu dans l’inscription n’a pas été reconnu (état MPNS : 404 introuvable).|
+|outgoing.mpns.throttled|Notifications MPNS limitées|Nombre|Total|Nombre d’opérations Push en échec, car MPNS limite cette application (WNS MPNS : 406 Non accepté).|
+|outgoing.mpns.invalidnotificationformat|Format de notification MPNS non valide|Nombre|Total|Nombre d’opérations Push en échec, car la charge utile de la notification était trop importante.|
+|outgoing.mpns.channeldisconnected|Canal MPNS déconnecté|Nombre|Total|Nombre d’opérations Push en échec, car l’élément ChannelURI contenu dans l’inscription était déconnecté (état MPNS : 412 introuvable).|
+|outgoing.mpns.dropped|Notifications MPNS supprimées|Nombre|Total|Nombre d’opérations Push qui ont été supprimées par MPNS (en-tête de réponse MPNS : X-NotificationStatus : QueueFull ou Suppressed).|
+|outgoing.mpns.pnserror|Erreurs MPNS|Nombre|Total|Nombre d’opérations Push en échec en raison d’erreurs de communication avec MPNS.|
+|outgoing.mpns.authenticationerror|Erreurs d’authentification MPNS|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci sont bloquées.|
+
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
@@ -396,13 +507,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |blocked_by_firewall|Bloqué par le pare-feu|Nombre|Total|Bloqué par le pare-feu|
 |deadlock|Blocages|Nombre|Total|Blocages|
 |storage_percent|Pourcentage de la taille de la base de données|Pourcentage|Maximale|Pourcentage de la taille de la base de données|
-|xtp_storage_percent|Pourcentage de stockage OLTP en mémoire (aperçu)|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire (aperçu)|
+|xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|
 |workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|
-|sessions_percent|Pourcentage sessions|Pourcentage|Moyenne|Pourcentage sessions|
+|sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|
 |dtu_limit|Limite DTU|Nombre|Moyenne|Limite DTU|
 |dtu_used|DTU utilisé|Nombre|Moyenne|DTU utilisé|
 |service_level_objective|Objectif de niveau de service de la base de données|Nombre|Total|Objectif de niveau de service de la base de données|
-|dwu_limit|limite dwu|Nombre|Maximale|limite dwu|
+|dwu_limit|Limite DWU|Nombre|Maximale|Limite DWU|
 |dwu_consumption_percent|Pourcentage DWU|Pourcentage|Moyenne|Pourcentage DWU|
 |dwu_used|DWU utilisé|Nombre|Moyenne|DWU utilisé|
 
@@ -416,11 +527,12 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|
 |storage_percent|Pourcentage de stockage|Pourcentage|Moyenne|Pourcentage de stockage|
 |workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|
-|sessions_percent|Pourcentage sessions|Pourcentage|Moyenne|Pourcentage sessions|
+|sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|
 |eDTU_limit|Limite eDTU|Nombre|Moyenne|Limite eDTU|
 |storage_limit|Limite de stockage|Octets|Moyenne|Limite de stockage|
 |eDTU_used|eDTU utilisé|Nombre|Moyenne|eDTU utilisé|
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|
+|xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -449,7 +561,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Octets reçus|Données entrantes|Octets|Total|Données entrantes|
 |Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
 
-## <a name="microsoftwebsites-including-azure-functions"></a>Microsoft.Web/sites (y compris Azure Functions)
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites (y compris Functions)
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
@@ -466,8 +578,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Http406|Http 406|Nombre|Total|Http 406|
 |Http4xx|Http 4xx|Nombre|Total|Http 4xx|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|
-|MemoryWorkingSet|Plage de travail de la mémoire|Octets|Total|Plage de travail de la mémoire|
-|AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Total|Plage de travail moyenne de la mémoire|
+|MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|
+|AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|
 |AverageResponseTime|Temps de réponse moyen|Secondes|Moyenne|Temps de réponse moyen|
 |FunctionExecutionUnits|Unités d’exécution de fonctions|Nombre|Moyenne|Unités d’exécution de fonctions|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Nombre|Moyenne|Nombre d’exécutions de fonctions|
@@ -489,8 +601,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Http406|Http 406|Nombre|Total|Http 406|
 |Http4xx|Http 4xx|Nombre|Total|Http 4xx|
 |Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|
-|MemoryWorkingSet|Plage de travail de la mémoire|Octets|Total|Plage de travail de la mémoire|
-|AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Total|Plage de travail moyenne de la mémoire|
+|MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|
+|AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|
 |AverageResponseTime|Temps de réponse moyen|Secondes|Moyenne|Temps de réponse moyen|
 |FunctionExecutionUnits|Unités d’exécution de fonctions|Nombre|Moyenne|Unités d’exécution de fonctions|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Nombre|Moyenne|Nombre d’exécutions de fonctions|
@@ -499,10 +611,5 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 * [En savoir plus sur les mesures dans Azure Monitor](monitoring-overview.md#monitoring-sources)
 * [Créer des alertes sur les mesures](insights-receive-alert-notifications.md)
 * [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

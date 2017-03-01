@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 02/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a7b05db6af721a62b7cbb795c329b383bd391e0a
-ms.openlocfilehash: fbb3933ef2dff882467fb2db34f9aa14dec13b1f
+ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
+ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -41,15 +42,20 @@ Tout d’abord, vous devez savoir à quoi va servir le cluster que vous créez e
 * Étant donné que vous ne pouvez pas prédire l’avenir, prenez les informations que vous connaissez et choisissez le nombre de types de nœuds dont vos applications ont besoin pour démarrer. Vous pourrez toujours ajouter ou supprimer des types de nœuds ultérieurement. Un cluster Service Fabric doit comprendre au moins un type de nœud.
 
 ## <a name="the-properties-of-each-node-type"></a>Propriétés de chaque type de nœud
-Le **type de nœud** peut être considéré comme l’équivalent des rôles dans Cloud Services. Les types de nœuds définissent les tailles de machine virtuelle, le nombre de machines virtuelles et leurs propriétés. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que jeu de mise à l’échelle de machine virtuelle distinct. Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud étant défini comme un groupe de machines virtuelles identiques distinct, il peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
+Le **type de nœud** peut être considéré comme l’équivalent des rôles dans Cloud Services. Les types de nœuds définissent les tailles de machine virtuelle, le nombre de machines virtuelles et leurs propriétés. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques. Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud étant défini comme un groupe de machines virtuelles identiques distinct, il peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
+
+Lisez [ce document](service-fabric-cluster-nodetypes.md) pour plus d’informations sur la relation entre les types de nœuds et les groupes de machines virtuelles identiques, et savoir comment ouvrir une session RDP sur l’une des instances, ouvrir de nouveaux ports, etc.
 
 Votre cluster peut avoir plusieurs types de nœuds, mais le type de nœud principal (le premier que vous définissez dans le portail) doit avoir au moins cinq machines virtuelles pour les clusters utilisés pour les charges de travail de production (ou au moins trois machines virtuelles pour les clusters de test). Si vous créez le cluster à l’aide d’un modèle Resource Manager, un attribut **is Primary** se trouve sous la définition du type de nœud. Le type de nœud principal est le type de nœud où sont placés les services système de Service Fabric.  
 
 ### <a name="primary-node-type"></a>Type de nœud principal
 Pour un cluster avec plusieurs types de nœuds, vous devez en choisir un comme nœud principal. Voici les caractéristiques d’un type de nœud principal :
 
-* La taille minimale des machines virtuelles pour le type de nœud principal est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
-* Le nombre minimal de machines virtuelles pour le type de nœud principal est déterminé par le niveau de fiabilité que vous choisissez. La valeur par défaut du niveau de fiabilité est Silver. Faites défiler vers le bas pour plus d’informations sur le niveau de fiabilité et sur les valeurs qu’il peut prendre.
+* La **taille minimale des machines virtuelles** pour le type de nœud principal est déterminée par le **niveau de durabilité** que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
+* Le **nombre minimal de machines virtuelles** pour le type de nœud principal est déterminé par le **niveau de fiabilité** que vous choisissez. La valeur par défaut du niveau de fiabilité est Silver. Faites défiler vers le bas pour plus d’informations sur le niveau de fiabilité et sur les valeurs qu’il peut prendre. 
+
+ 
+
 * Les services système de Service Fabric (par exemple, le service Gestionnaire de cluster ou le service Magasin d’images) sont placés sur le type de nœud principal et, par conséquent, la fiabilité et la durabilité du cluster sont déterminées par les valeurs de niveau correspondantes sélectionnées pour le type de nœud principal.
 
 ![Capture d’écran d’un cluster qui a deux types de nœuds ][SystemServices]
@@ -86,18 +92,73 @@ Le niveau de fiabilité peut prendre les valeurs suivantes.
 
  Vous pouvez choisir de mettre à jour la fiabilité de votre cluster d’un niveau à l’autre. Cette opération déclenche les mises à niveau de cluster nécessaires pour modifier le nombre de jeux de réplicas des services système. Attendez que la mise à niveau en cours se termine avant d’apporter d’autres modifications au cluster, comme l’ajout de nœuds, etc.  Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer ou en exécutant [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
+
+## <a name="primary-node-type---capacity-guidance"></a>Type de nœud principal - Recommandations en matière de capacité
+
+Voici nos recommandations pour planifier la capacité du type de nœud principal :
+
+1. **Nombre d’instances de machine virtuelle :** pour exécuter une charge de travail de production dans Azure, vous devez spécifier un niveau de fiabilité Argent ou plus élevé, ce qui se traduit ensuite par une taille minimale de 5 pour le type de nœud principal.
+2. **Référence de machine virtuelle :** comme les services système s’exécutent sur le type de nœud principal, votre choix de référence de machine virtuelle pour celui-ci doit prendre en compte la charge maximale globale que vous prévoyez de placer dans le cluster. Voici une analogie pour illustrer mon propos ici : considérez le type de nœud principal comme vos « poumons », qui alimentent votre cerveau en oxygène ; si le cerveau ne reçoit pas assez d’oxygène, votre corps souffre. 
+
+Les besoins en capacité d’un cluster sont déterminés entièrement par la charge de travail que vous prévoyez d’exécuter dans le cluster. Par conséquent, nous ne pouvons pas vous fournir de recommandations qualitatives pour votre charge de travail spécifique. Cependant, vous trouverez ci-dessous des recommandations générales qui vous aideront à bien démarrer.
+
+Pour les charges de travail de production 
+
+
+- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local.
+- La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local. 
+- Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
+- La référence Standard A1 n’est pas non plus prise en charge pour les charges de production pour des raisons de performances.
+
+
+## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail avec état
+
+Lisez les informations suivantes pour les charges de travail qui utilisent les collections fiables ou les Reliable Actors Service Fabric. Pour en savoir plus sur les modèles de programmation, consultez [cet article](service-fabric-choose-framework.md).
+
+1. **Nombre d’instances de machine virtuelle :** pour les charges de travail de production avec état, il est recommandé de les exécuter avec un nombre de réplicas minimal et cible de 5. Cela signifie qu’à l’état stationnaire, vous vous retrouverez avec un réplica (issu d’un jeu de réplicas) dans chaque domaine d’erreur et de mise à niveau. Le concept même de niveau de fiabilité pour les services système est en fait simplement un moyen de spécifier ce paramètre pour les services système.
+
+Pour les charges de travail de production, la taille minimale recommandée pour le type de nœud non principal est donc de 5 si vous exécutez des charges de travail avec état sur ce dernier.
+
+2. **Référence de machine virtuelle :** comme il s’agit du type de nœud sur lequel vos services d’application s’exécutent, votre choix de référence de machine virtuelle pour celui-ci doit prendre en compte la charge maximale que vous prévoyez de placer dans chaque nœud. Les besoins en capacité du type de nœud sont déterminés entièrement par la charge de travail que vous prévoyez d’exécuter dans le cluster. Par conséquent, nous ne pouvons pas vous fournir de recommandations qualitatives pour votre charge de travail spécifique. Cependant, vous trouverez ci-dessous des recommandations générales qui vous aideront à bien démarrer.
+
+Pour les charges de travail de production 
+
+- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local.
+- La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local. 
+- Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
+- La référence Standard A1 n’est pas non plus prise en charge pour les charges de production pour des raisons de performances.
+
+
+## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail sans état
+
+Lisez les informations suivantes pour les charges de travail sans état.
+
+**Nombre d’instances de machine virtuelle :** pour les charges de travail de production sans état, la taille minimale prise en charge pour le type de nœud non principal est de 2. Vous pouvez ainsi exécuter deux instances sans état de votre application, ce qui permet à votre service de continuer à fonctionner en cas de perte d’une instance de machine virtuelle. 
+
+> [!NOTE]
+> Si votre cluster est exécuté sur une version de Service Fabric antérieure à la version 5.6, en raison d’un défaut dans le runtime (dont la résolution est prévue dans la version 5.6), la diminution de la taille du type de nœud non principal pour une valeur inférieure à 5 donne lieu à une défaillance sur le plan de l’intégrité du cluster jusqu’à ce que vous appeliez [ServiceFabricNodeState-Remove cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) avec le nom de nœud approprié. Pour plus d’informations, consultez [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric](service-fabric-cluster-scale-up-down.md).
+> 
+>
+
+**Référence de machine virtuelle :** comme il s’agit du type de nœud sur lequel vos services d’application s’exécutent, votre choix de référence de machine virtuelle pour celui-ci doit prendre en compte la charge maximale que vous prévoyez de placer dans chaque nœud. Les besoins en capacité du type de nœud sont déterminés entièrement par la charge de travail que vous prévoyez d’exécuter dans le cluster. Par conséquent, nous ne pouvons pas vous fournir de recommandations qualitatives pour votre charge de travail spécifique. Cependant, vous trouverez ci-dessous des recommandations générales qui vous aideront à bien démarrer.
+
+Pour les charges de travail de production 
+
+
+- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent. 
+- La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent. 
+- Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
+- La référence Standard A1 n’est pas non plus prise en charge pour les charges de production pour des raisons de performances.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez terminé la planification de votre capacité et que vous avez configuré un cluster, lisez ce qui suit :
 
 * [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
 * [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
+* [Relation entre les types de nœuds et les groupes de machines virtuelles identiques](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

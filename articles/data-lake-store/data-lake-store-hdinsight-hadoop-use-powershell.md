@@ -1,6 +1,5 @@
 ---
-title: "Utiliser PowerShell pour créer Azure HDInsight et Data Lake Store | Microsoft Docs"
-description: "Utiliser Azure PowerShell pour créer et utiliser les clusters HDInsight avec Azure Data Lake"
+title: "PowerShell : cluster Azure HDInsight avec Data Lake Store comme stockage complémentaire | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: 
 author: nitinme
@@ -12,34 +11,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0fed9cff7a357c596d7e178ec756be449cd1dff0
-ms.openlocfilehash: aada6f72a3b20233fdeeb7adabf6545ce831d563
+ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
+ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Créer un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
+# <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Utiliser Azure PowerShell pour créer un cluster HDInsight avec Data Lake Store (comme stockage complémentaire)
 > [!div class="op_single_selector"]
 > * [Utilisation du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Utiliser PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Utilisation de PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Utilisation de PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Utilisation du gestionnaire des ressources](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight avec accès à Azure Data Lake Store. Pour les types de clusters pris en charge, Data Lake Store est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Store est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store. L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
+Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight avec Azure Data Lake Store **comme stockage supplémentaire**. Pour obtenir des instructions sur la création d’un cluster HDInsight avec Azure Data Lake Store comme stockage par défaut, voir [Créer un cluster HDInsight avec Data Lake Store comme stockage par défaut](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md).
 
-Quelques points importants à prendre en compte :
+Pour les types de clusters pris en charge, Data Lake Store est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Store est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store. L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
 
-* L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage par défaut est disponible si vous utilisez HDInsight version 3.5.
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Utilisation de Data Lake Store pour le stockage de cluster HDInsight
+
+Voici quelques considérations importantes à prendre en compte pour l’utilisation de HDInsight avec Data Lake Store :
 
 * L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage supplémentaire est disponible si vous utilisez HDInsight versions 3.2, 3.4 et 3.5.
 
 * Pour les clusters HBase (Windows et Linux), Data Lake Store n’est **pas pris en charge** comme option de stockage par défaut ou supplémentaire.
 
-
-Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire. Pour obtenir des instructions sur la création d’un cluster Hadoop avec Data Lake Store comme stockage par défaut, voir [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide de PowerShell, la procédure est la suivante :
 
@@ -161,8 +162,9 @@ Cette section décrit les étapes pour créer un principal du service pour une a
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
         Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path /vehicle1_09142014.csv -AceType User -Id $objectId -Permissions All
 
-## <a name="create-an-hdinsight-linux-cluster-with-authentication-to-data-lake-store"></a>Créer un cluster HDInsight Linux avec authentification à Data Lake Store
-Dans cette section, nous créons un cluster HDInsight Hadoop Linux. Pour cette version, le cluster HDInsight et le Data Lake Store doivent se situer au même emplacement.
+## <a name="create-an-hdinsight-linux-cluster-with-data-lake-store-as-additional-storage"></a>Créer un cluster Linux HDInsight avec Data Lake Store comme stockage par supplémentaire
+
+Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lake Store comme stockage supplémentaire. Pour cette version, le cluster HDInsight et le Data Lake Store doivent se situer au même emplacement.
 
 1. Commencez par récupérer l’ID du client de l’abonnement. Vous en aurez besoin ultérieurement.
 
@@ -248,9 +250,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modèle de tarification de Logic Apps
@@ -27,7 +28,7 @@ Toutes les actions effectuées lors de l’exécution d’une instance de l’ap
 ### <a name="what-are-action-executions"></a>Que sont les exécutions d’action ?
 Chaque étape dans une définition d’application logique est une action, ce qui inclut des déclencheurs, des étapes de flux de contrôle comme les conditions, des étendues, des boucles foreach et do until, ainsi que des appels aux connecteurs et aux actions natives.
 Les déclencheurs sont des actions spéciales qui sont conçues pour instancier une nouvelle instance d’une application logique lorsqu’un événement particulier se produit.  Les déclencheurs peuvent avoir différents comportements, qui peuvent affecter la manière dont l’application logique est mesurée.
-* **Déclencheur d’interrogation** : ce déclencheur interroge constamment un point de terminaison jusqu’à ce qu’il reçoive un message répondant aux critères de création d’une instance d’une application logique.  L’intervalle d’interrogation peut être configuré dans le déclencheur dans le concepteur d’applications logiques.  Chaque requête d’interrogation compte comme une exécution d’action, même si elle ne crée pas d’instance d’une application logique.
+* **Déclencheur d’interrogation** : ce déclencheur interroge constamment un point de terminaison jusqu’à ce qu’il reçoive un message répondant aux critères de création d’une instance d’une application logique.  L’intervalle d’interrogation peut être configuré dans le déclencheur, dans le concepteur d’applications logiques.  Chaque requête d’interrogation compte comme une exécution d’action, même si elle ne crée pas d’instance d’une application logique.
 * **Déclencheur webhook** : ce déclencheur attend qu’un client lui envoie une requête sur un point de terminaison particulier.  Chaque requête envoyée au point de terminaison webhook est considérée comme une exécution d’action. Le déclencheur de requête et le déclencheur Webhook HTTP sont tous deux des déclencheurs webhook.
 * **Déclencheur de périodicité** : ce déclencheur crée une instance de l’application logique en fonction de l’intervalle de périodicité configuré dans le déclencheur.  Par exemple, un déclencheur de périodicité peut être configuré pour s’exécuter tous les trois jours ou toutes les minutes.
 
@@ -58,10 +59,5 @@ Pour plus d’informations sur la tarification, voir la page de [tarification de
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d’ensemble de Logic Apps][whatis]
 * [Créer votre première application logique][création] [tarification] : https://azure.microsoft.com/fr-fr/pricing/details/logic-apps/ [whatis] : logic-apps-what-are-logic-apps.md [création] : logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

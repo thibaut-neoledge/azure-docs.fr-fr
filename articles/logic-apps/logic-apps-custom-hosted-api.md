@@ -1,6 +1,6 @@
 ---
-title: "Appeler une API personnalisée dans Azure Logic Apps | Microsoft Docs"
-description: "Utilisation de votre API personnalisée hébergée avec les applications logiques"
+title: "Appeler des API personnalisées dans Azure Logic Apps | Microsoft Docs"
+description: "Appelez vos propres API personnalisées hébergées sur Azure App Service avec Azure Logic Apps"
 author: stepsic-microsoft-com
 manager: anneta
 editor: 
@@ -15,90 +15,102 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: 32a2b4435761e8bc26c184ee00613539e4639552
+ms.sourcegitcommit: fc509ef8b30fadb6e026f346d4adbd6ef759624a
+ms.openlocfilehash: 74aae9f757f56e94b583069a1fdee7efaafe467c
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="using-your-custom-api-hosted-on-app-service-with-logic-apps"></a>Utilisation de votre API personnalisée hébergée sur App Service avec les applications logiques
-Bien que les applications logiques soient équipées d’un ensemble de plus de 40 connecteurs pour un large éventail de services, il se peut que vous deviez appeler votre propre API personnalisée pour exécuter votre propre code. L’un des moyens les plus simples et les plus évolutifs d’héberger vos propres API web personnalisées consiste à utiliser App Service. Cet article explique comment appeler une API web hébergée dans une application API App Service, une application web ou une application mobile.
+# <a name="call-custom-apis-hosted-on-azure-app-service-with-azure-logic-apps"></a>Appeler des API personnalisées hébergées sur Azure App Service avec Azure Logic Apps
 
-Pour plus d’informations sur la création d’API comme déclencheur ou action dans Logic Apps, consultez [cet article](../logic-apps/logic-apps-create-api-app.md).
+Bien qu’Azure Logic Apps offre plus de 40 connecteurs pour un large éventail de services, vous souhaiterez peut-être appeler votre propre API personnalisée pour exécuter votre propre code. Azure App Service offre l’un des moyens les plus simples et les plus évolutifs d’héberger vos propres API web personnalisées. Cet article explique comment appeler une API web hébergée dans une application API App Service, une application web ou une application mobile.
+Pour savoir comment générer des API sous forme de déclencheurs ou d’actions dans des applications logiques, consultez [cet article](../logic-apps/logic-apps-create-api-app.md).
 
-## <a name="deploy-your-web-app"></a>Déployer votre application web
-Tout d’abord, vous devez déployer votre API sous forme d’application web dans Service App. Les instructions fournies ici traitent du déploiement de base : [Créer une application web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).  Bien qu’il soit possible d’appeler une API à partir d’une application logique, nous vous recommandons d’ajouter des métadonnées Swagger pour une intégration aisée avec les actions des applications logiques.  Vous trouverez plus d’informations sur [l’ajout de swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
+## <a name="deploy-your-web-app"></a>Déployez votre application web
 
-### <a name="api-settings"></a>Paramètres de l’API
-Pour que le concepteur des applications logiques puisse analyser votre Swagger, il est important que vous activiez CORS et que vous définissiez les propriétés APIDefinition de votre application web.  Le portail Azure vous permet de les définir facilement.  Il vous suffit d’ouvrir le panneau des paramètres de votre application web et de définir « Définition API » sur l’URL de votre fichier swagger.json dans la section API (en général https://{name}.azurewebsites.net/swagger/docs/v1) et d’ajouter une stratégie CORS pour « * » afin d’autoriser les demandes du concepteur d’applications logiques.
+Tout d’abord, vous devez déployer votre API sous forme d’application web dans Azure App Service. Pour obtenir des informations sur le déploiement de base lors de la création d’une application web ASP.NET, consultez [cet article](../app-service-web/web-sites-dotnet-get-started.md). Bien qu’il soit possible d’appeler une API à partir d’une application logique, nous vous recommandons d’ajouter des métadonnées Swagger pour une intégration aisée avec les actions des applications logiques. La procédure d’ajout de métadonnées Swagger est présentée [ici](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
-## <a name="calling-into-the-api"></a>Appel dans l’API
-Dans le portail d’applications logiques, si vous avez défini CORS et les propriétés de la définition d’API, vous devriez être en mesure d’ajouter facilement des actions API personnalisées dans votre flux.  Dans votre concepteur, vous pouvez choisir de parcourir vos sites web d’abonnement pour répertorier les sites web avec une URL swagger définie.  Vous pouvez également utiliser l’action HTTP + Swagger pour pointer vers un swagger et répertorier les entrées et les actions disponibles.  Enfin, vous pouvez aussi créer une demande à l’aide de l’action HTTP pour appeler n’importe quelle API, y compris celles qui n’ont pas ou n’exposent pas de document swagger.
+### <a name="api-settings"></a>API settings
 
-Si vous voulez sécuriser votre API, il existe plusieurs façons de procéder :
+Pour que le Concepteur d’application logique analyse votre Swagger, vous devez activer CORS et définir les propriétés de la définition de l’API pour votre application web. 
 
-1. Aucune modification de code nécessaire : Azure Active Directory peut être utilisé pour protéger votre API sans nécessiter de modification du code ou de redéploiement.
-2. Appliquer l’authentification de base, l’authentification AAD ou l’authentification de certificat dans le code de votre API.
+1.    Dans le portail Azure, sélectionnez votre application web.
+2.    Dans le panneau qui s’ouvre, recherchez **API**, puis sélectionnez **Définition de l’API**. Définissez l’**emplacement de la définition de l’API** sur l’URL de votre fichier swagger.json.
 
-## <a name="securing-calls-to-your-api-without-a-code-change"></a>Sécurisation des appels à votre API sans modification de code
-Dans cette section, vous allez créer deux applications Azure Active Directory : une pour votre application logique, et une pour votre application web.  Vous devez authentifier des appels à votre application web à l’aide du principal de service (ID client et phrase secrète) associé à l’application AAD pour votre application logique. Enfin, vous devez inclure l’ID d’application dans votre définition d’application logique.
+    En général, cette URL est https://{nom}.azurewebsites.net/swagger/docs/v1).
 
-### <a name="part-1-setting-up-an-application-identity-for-your-logic-app"></a>Partie 1 : Configurer l’identité de l’application pour votre application logique
-C’est ce que l’application logique utilise pour s’authentifier sur Active Directory. Il vous *suffit* de le faire une fois pour votre répertoire. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez également créer des identités uniques si vous le souhaitez. Vous pouvez effectuer cette opération dans l’interface utilisateur ou utiliser PowerShell.
+3.    Pour autoriser les demandes à partir du Concepteur d’application logique, sous **API**, sélectionnez **CORS** et définissez une stratégie CORS pour « * ».
 
-#### <a name="create-the-application-identity-using-the-azure-classic-portal"></a>Créez l’identité de l’application en utilisant le portail Azure Classic
-1. Accédez à [Active Directory dans le portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez l’annuaire que vous utilisez pour votre application web
-2. Cliquez sur l’onglet **Applications**
-3. Sur la barre de commandes en bas de la page, cliquez sur **Ajouter** .
-4. Fournissez à votre identité un nom à utiliser, puis cliquez sur la flèche suivante.
-5. Insérez une chaîne unique formatée comme un domaine dans la zone de texte, puis cliquez sur la coche
-6. Cliquez sur l’onglet **Configurer** de l’application.
-7. Copie lez l’ **ID Client**, il sera utilisé dans votre application Logic
-8. Dans la section **Clés**, cliquez sur **Sélectionner une durée**, puis choisissez 1 an ou 2 ans
-9. Cliquez sur le bouton **Enregistrer** en bas de l’écran (vous devrez peut-être attendre quelques secondes)
-10. Veillez à copier la clé dans la zone. Elle sera également utilisée dans votre application logique
+## <a name="call-into-your-custom-api"></a>Appeler votre API personnalisée
+
+Si vous avez défini CORS et les propriétés de la définition de l’API, vous devriez être en mesure d’ajouter facilement des actions API personnalisées à votre flux dans le portail Logic Apps. Dans le Concepteur d’application logique, vous pouvez parcourir vos sites web d’abonnement pour répertorier les sites web qui ont une URL de Swagger définie. Vous pouvez également pointer vers un Swagger et répertorier les entrées et actions disponibles à l’aide de l’action HTTP + Swagger. Enfin, vous pouvez aussi créer une demande à l’aide de l’action HTTP pour appeler n’importe quelle API, y compris celles qui n’ont pas ou n’exposent pas de document Swagger.
+
+Pour sécuriser votre API, plusieurs options s’offrent à vous :
+
+*    Aucune modification de code requise : vous pouvez utiliser Azure Active Directory pour protéger votre API sans devoir effectuer de modification du code ou de redéploiement.
+*    Dans le code de votre API, implémentez l’authentification de base, l’authentification Azure Active Directory ou l’authentification par certificat.
+
+## <a name="secure-calls-to-your-api-without-changing-code"></a>Sécuriser les appels à votre API sans modifier le code
+
+Dans cette section, vous allez créer deux applications Azure Active Directory : une pour votre application logique, et l’autre pour votre application web. Authentifiez les appels à votre application web à l’aide du principal de service (ID client et phrase secrète) associé à l’application Azure Active Directory de votre application logique. Enfin, incluez les ID d’application dans votre définition d’application logique.
+
+### <a name="part-1-set-up-an-application-identity-for-your-logic-app"></a>Partie 1 : Configurer une identité d’application pour votre application logique
+
+Votre application logique utilise cette identité d’application pour s’authentifier auprès d’Azure Active Directory. Vous n’avez besoin de configurer cette identité qu’une seule fois. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez également créer des identités uniques pour chaque application logique. Vous pouvez configurer ces identités dans le portail Azure ou à l’aide de PowerShell.
+
+#### <a name="create-the-application-identity-in-the-azure-classic-portal"></a>Créer l’identité d’application dans le portail Azure Classic
+
+1. Dans le portail Azure Classic, accédez à votre répertoire [Azure Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory). 
+2. Sélectionnez le répertoire à utiliser pour votre application web.
+3. Choisissez l’onglet **Applications**. Dans la barre de commandes en bas de la page, sélectionnez **Ajouter**.
+5. Nommez votre identité d’application, puis cliquez sur la flèche Suivant.
+6. Sous **Propriétés de l’application**, insérez une chaîne unique formatée comme un domaine, puis cliquez sur la coche.
+7. Choisissez l’onglet **Configurer**. Accédez à **ID client**, puis copiez l’ID client à utiliser dans votre application logique.
+8. Sous **Clés**, ouvrez la liste **Sélectionner une durée**, puis choisissez la durée pour votre clé.
+9. En bas de la page, cliquez sur **Enregistrer**. Vous devrez peut-être patienter quelques secondes.
+10. Prenez soin de copier la clé qui apparaît désormais sous **Clés** afin de pouvoir l’utiliser dans votre application logique.
 
 #### <a name="create-the-application-identity-using-powershell"></a>Créer l’identité de l’application à l’aide de PowerShell
+
 1. `Switch-AzureMode AzureResourceManager`
 2. `Add-AzureAccount`
 3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://someranddomain.tld" -IdentifierUris "http://someranddomain.tld" -Password "Pass@word1!"`
-4. Veillez à copier **l’ID de locataire**, **l’ID d’application** et le mot de passe que vous avez utilisé
+4. Prenez soin de copier l’**ID de locataire**, l’**ID d’application** et le mot de passe que vous avez utilisé.
 
-### <a name="part-2-protect-your-web-app-with-an-aad-app-identity"></a>Partie 2: Protégez votre application web avec une identité d’application AAD
-Si votre application web est déjà déployée, vous pouvez simplement l’activer dans le portail. Autrement, vous pouvez activer le volet autorisation de votre déploiement Azure Resource Manager.
+### <a name="part-2-protect-your-web-app-with-an-azure-active-directory-app-identity"></a>Partie 2: Protéger votre application web avec une identité d’application Azure Active Directory
+
+Si votre application web est déjà déployée, vous pouvez activer l’autorisation dans le portail Azure. Autrement, vous pouvez activer l’autorisation dans le cadre de votre déploiement Azure Resource Manager.
 
 #### <a name="enable-authorization-in-the-azure-portal"></a>Activer l’autorisation dans le portail Azure
-1. Accédez à l’application web et cliquez sur **Paramètres** dans la barre de commandes.
-2. Cliquez sur **Autorisation/authentification**.
-3. Activez l’ **autorisation/authentification**.
 
-À ce stade, une application est automatiquement créée pour vous. Vous aurez besoin de l’ID client de cette application pour la partie 3, et vous devez donc :
+1. Recherchez et sélectionnez votre application web. Sous **Paramètres**, choisissez **Authentification/Autorisation**.
+2. Sous **Authentification App Service**, **activez** l’authentification, puis choisissez **Enregistrer**.
 
-1. Accédez à [Active Directory dans le portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) et sélectionnez votre annuaire.
-2. Rechercher l’application dans la zone de recherche
-3. Cliquez sur cette dernière dans la liste
-4. Cliquez sur l’onglet **Configurer**
-5. Vous devez en principe voir l’ **ID Client**
+À ce stade, une application est automatiquement créée pour vous. Vous aurez besoin de l’ID client de cette application pour la partie 3. Vous devez donc procéder comme suit :
 
-#### <a name="deploying-your-web-app-using-an-arm-template"></a>Déploiement de votre application web à l’aide d’un modèle ARM
-Tout d’abord, vous devez créer une application pour votre application web. Elle doit être différente de l’application utilisée pour votre application logique. Commencez en exécutant les étapes figurant dans la partie 1, mais désormais, pour la **page d’accueil** et **IdentifierUris**, utilisez **l’URL** https:// réelle de votre application web.
+1. Dans le portail Azure Classic, accédez à votre répertoire [Azure Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
+2.    Sélectionnez votre annuaire.
+3. Dans la zone de recherche, recherchez votre application.
+4. Dans la liste, sélectionnez votre application.
+5. Choisissez l’onglet **Configurer**, dans lequel l’**ID client** devrait être indiqué.
+
+#### <a name="deploy-your-web-app-using-an-azure-resource-manager-template"></a>Déployer votre application web à l’aide d’un modèle Azure Resource Manager
+
+Tout d’abord, vous devez créer pour votre application web une application différente de celle utilisée pour votre application logique. Commencez par suivre les étapes de la partie 1, mais pour **HomePage** et **IdentifierUris**, utilisez l’**URL** https:// réelle de votre application web.
 
 > [!NOTE]
-> Quand vous créez l’application pour votre application web, vous devez utiliser l’ [approche du portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), car l’applet de commande PowerShell ne configure pas les autorisations requises pour connecter les utilisateurs à un site web.
-> 
-> 
+> Lorsque vous créez l’application pour votre application web, vous devez utiliser le [portail Azure Classic](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory). L’applet de commande PowerShell ne configure pas les autorisations requises pour connecter les utilisateurs à un site web.
 
-Une fois que vous avez l’ID client et l’ID de locataire, définissez ce qui suit en tant que sous-ressource de l’application web dans votre modèle de déploiement :
+Une fois que vous disposez l’ID client et de l’ID de locataire, incluez cette partie en tant que sous-ressource de votre application web dans votre modèle de déploiement :
 
 ```
-"resources" : [
+"resources": [
     {
-        "apiVersion" : "2015-08-01",
-        "name" : "web",
-        "type" : "config",
-        "dependsOn" : [
-            "[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
-        ],
-        "properties" : {
+        "apiVersion": "2015-08-01",
+        "name": "web",
+        "type": "config",
+        "dependsOn": ["[concat('Microsoft.Web/sites/','parameters('webAppName'))]"],
+        "properties": {
             "siteAuthEnabled": true,
             "siteAuthSettings": {
               "clientId": "<<clientID>>",
@@ -109,60 +121,63 @@ Une fois que vous avez l’ID client et l’ID de locataire, définissez ce qui 
 ]
 ```
 
-Pour exécuter un déploiement automatique capable de déployer une application web vide et une application logique utilisant AAD ensemble, cliquez sur le bouton suivant :
+Pour exécuter automatiquement un déploiement qui déploie ensemble une application web et une application logique vides utilisant Azure Active Directory, cliquez sur **Deploy to Azure** (Déployer sur Azure) :
 
 [![Déploiement sur Azure](media/logic-apps-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-Pour voir le modèle terminé, consultez [Appels de Logic App dans une API personnalisée hébergée sur App Service et protégée par AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+Pour accéder au modèle complet, consultez [Appels de Logic App dans une API personnalisée hébergée sur App Service et protégée par Azure Active Directory](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
-### <a name="part-3-populate-the-authorization-section-in-the-logic-app"></a>Partie 3 : Remplir la section Autorisation dans l’application logique
-Dans la section **Autorisation** de l’opération **HTTP** : `{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
+### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Partie 3 : Remplir la section Autorisation dans votre application logique
+
+Dans la section **Autorisation** de l’action **HTTP** :
+
+`{"tenant":"<<tenantId>>", "audience":"<<clientID from Part 2>>", "clientId":"<<clientID from Part 1>>","secret": "<<Password or Key from Part 1>>","type":"ActiveDirectoryOAuth" }`
 
 | Élément | Description |
-| --- | --- |
-| type |Type d'authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est ActiveDirectoryOAuth. |
+| ------- | ----------- |
+| type |Type d'authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. |
 | locataire |L'identifiant du locataire est utilisé pour identifier le locataire Active Directory. |
 | audience |Obligatoire. Ressource à laquelle vous vous connectez. |
 | clientID |L'identifiant client pour l'application Azure AD. |
 | secret |Obligatoire. Secret du client qui demande le jeton. |
 
-Le modèle ci-dessus comporte déjà cette configuration, mais si vous créez l’application logique directement, vous devez inclure la section d’autorisation complète.
+Cette section d’autorisation est déjà configurée dans le modèle précédent, mais si vous créez l’application logique directement, vous devez inclure la section d’autorisation complète.
 
-## <a name="securing-your-api-in-code"></a>Sécurisation de votre API dans le code
-### <a name="certificate-auth"></a>Certificat d’autorisation
-Vous pouvez utiliser des certificats clients pour valider les demandes entrantes sur votre application web. Voir [Configuration de l’authentification mutuelle TLS pour une application web](../app-service-web/app-service-web-configure-tls-mutual-auth.md) pour savoir comment configurer votre code.
+## <a name="secure-your-api-in-code"></a>Sécuriser votre API dans le code
 
-Dans la section *Autorisation*, vous devez fournir : `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`.
+### <a name="certificate-authentication"></a>Authentification par certificat
+
+Vous pouvez utiliser des certificats clients pour valider les demandes entrantes parvenant à votre application web. Pour savoir comment configurer votre code, consultez [Configuration de l’authentification mutuelle TLS pour une application web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+
+Dans la section **Autorisation**, vous devez inclure : 
+
+`{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`
 
 | Élément | Description |
-| --- | --- |
-| type |Obligatoire. Type d’authentification. Pour les certificats client SSL, la valeur doit être ClientCertificate. |
+| ------- | ----------- |
+| type |Obligatoire. Type d'authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. |
 | pfx |Obligatoire. Contenu codé en base64 du fichier PFX. |
 | password |Obligatoire. Mot de passe pour accéder au fichier PFX. |
 
-### <a name="basic-auth"></a>Authentification de base
-Vous pouvez utiliser l’authentification de base (nom d’utilisateur et mot de passe) pour valider les demandes entrantes. L’authentification de base est un modèle courant et vous pouvez le faire dans n’importe quel langage servant à créer votre application.
+### <a name="basic-authentication"></a>Authentification de base
 
-Dans la section *Autorisation*, vous devez fournir : `{"type": "basic","username": "test","password": "test"}`.
+Pour valider les demandes entrantes, vous pouvez utiliser l’authentification de base avec un nom d’utilisateur et un mot de passe. L’authentification de base est une méthode courante que vous pouvez utiliser dans n’importe quel langage utilisé pour générer votre application.
+
+Dans la section **Autorisation**, vous devez inclure :
+
+`{"type": "basic","username": "test","password": "test"}`.
 
 | Élément | Description |
 | --- | --- |
-| type |Obligatoire. Type d'authentification. Pour l’authentification de base, la valeur doit être définie sur De base. |
+| type |Obligatoire. Type d'authentification. Pour l'authentification de base, la valeur doit être `Basic`. |
 | username |Obligatoire. Nom d'utilisateur à authentifier. |
 | password |Obligatoire. Mot de passe à authentifier. |
 
-### <a name="handle-aad-auth-in-code"></a>Gérer l’authentification AAD dans le code
-Par défaut, l’authentification Azure Active Directory que vous activez dans le portail n’affine pas les autorisations. Par exemple, elle ne verrouille pas votre API sur un utilisateur ou une application spécifique, mais uniquement sur un locataire particulier.
+### <a name="handle-azure-active-directory-authentication-in-code"></a>Gérer l’authentification Azure Active Directory dans le code
 
-Si vous souhaitez restreindre l’API à la seule application logique, par exemple, du code, vous pouvez extraire l’en-tête qui contient le jeton JWT, et contrôler l’identité de l’appelant en rejetant toutes les demandes ne correspondant pas.
+Par défaut, l’authentification Azure Active Directory que vous activez dans le portail Azure ne fournit pas une autorisation affinée. Par exemple, cette authentification ne verrouille pas votre API sur un utilisateur ou une application spécifique, mais uniquement sur un locataire particulier.
 
-Pour aller plus loin, si vous souhaitez le mettre en œuvre au sein de votre code en totalité, et ne pas exploiter la fonction de portail, vous pouvez lire l’article : [Utilisation d’Active Directory pour l’authentification dans Azure App Service](../app-service-web/web-sites-authentication-authorization.md).
+Pour limiter votre API à votre application logique, par exemple, extrayez l’en-tête qui possède le jeton JWT dans le code. Vérifiez l’identité de l’appelant et rejetez les demandes qui ne correspondent pas.
 
-Vous devez toujours exécuter les opérations ci-dessus pour créer une identité d’application pour votre application logique, puis l’utiliser pour l’API.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+Pour aller plus loin, si vous souhaitez implémenter cette authentification en totalité dans votre code et ne pas utiliser la fonctionnalité du portail Azure, consultez [Authentification avec Active Directory en local dans votre application Azure](../app-service-web/web-sites-authentication-authorization.md).
+Pour créer une identité d’application pour votre application logique, puis utiliser cette application pour appeler votre API, vous devez suivre les étapes précédentes.

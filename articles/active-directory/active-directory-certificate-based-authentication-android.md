@@ -14,8 +14,9 @@ ms.workload: identity
 ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: c22eb13206e629399c20b02fcaeb422d20ac0b21
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,8 +32,7 @@ La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d
 
 Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil Android pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business, Education et US Government. 
 
-Cette fonctionnalité est disponible en version préliminaire pour les plans Office 365 China, US Government Defense et US Government Federal. 
-
+Cette fonctionnalité est disponible en version préliminaire dans les plans Office 365 US Government Defense et US Government Federal.
 
 
 ## <a name="office-mobile-applications-support"></a>Prise en charge des applications mobiles Office
@@ -79,9 +79,4 @@ Si vous souhaitez configurer l’authentification par certificat dans votre envi
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

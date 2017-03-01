@@ -5,7 +5,7 @@ keywords: azure app service, application web, faq, linux, oss
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: d4a5260dde1994bbf4ef4467eddd2fb80a2199b0
-ms.openlocfilehash: 22c6c22ba3123555d279fac087a6be2f99bde8d7
+ms.sourcegitcommit: 831ef097027721146531e8d699fe3f67417a57ea
+ms.openlocfilehash: b88aa3d0ae89aec81c2b9144fb5de3210a0b8d1e
+ms.lasthandoff: 02/18/2017
 
 
 ---
 
 # <a name="azure-app-service-web-apps-on-linux-faq"></a>FAQ Azure App Service Web Apps sous Linux #
 
-Avec la mise en production d’Azure App Service sous Linux (actuellement en version préliminaire), nous travaillons à l’ajout de fonctionnalités et l’amélioration de notre plateforme. Voici quelques-unes des questions courantes que nos clients nous ont posées au cours des derniers mois.
+Avec la mise en production d’Azure App Service sous Linux (actuellement en version préliminaire), nous travaillons à l’ajout de fonctionnalités et l’amélioration de notre plateforme. Voici quelques-unes des questions que nos clients nous ont fréquemment posées au cours de ces derniers mois.
 Si vous avez une question, veuillez commenter l’article ; nous vous répondrons dès que possible.
 
 ## <a name="built-in-images"></a>Images prédéfinies ##
@@ -43,19 +44,25 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 **Q :** Puis-je me connecter à la machine virtuelle avec SSH ?
 
-**R :** Non, nous fournirons prochainement un moyen de se connecter au conteneur de l’application avec SSH.
+**R :** Non. Nous fournirons prochainement un moyen de vous connecter au conteneur de l’application avec SSH.
 
-## <a name="continous-integration--deployment"></a>Intégration continue / déploiement continu ##
+## <a name="continuous-integration--deployment"></a>Intégration continue/déploiement continu ##
 
 **Q :** Mon application web utilise toujours une ancienne image de conteneur Docker après la mise à jour de l’image sur DockerHub. Prenez-vous en charge l’intégration continue / le déploiement continu de conteneurs personnalisés ?
 
-**R :** Vous pouvez actualiser le conteneur soit en arrêtant puis en démarrant votre application web, soit en modifiant / ajoutant un paramètre d’application factice pour forcer l’actualisation de votre conteneur. Nous aurons prochainement une fonctionnalité d’intégration continue / déploiement continu pour les conteneurs personnalisés.
+**R :** Vous pouvez actualiser le conteneur soit en arrêtant puis en démarrant votre application web, soit en modifiant/ajoutant un paramètre d’application factice pour en forcer l’actualisation. Nous proposerons prochainement une fonctionnalité d’intégration continue/déploiement continu pour les conteneurs personnalisés.
 
 ## <a name="language-support"></a>Prise en charge des langages ##
 
 **Q :** Prenez-vous en charge les applications .NET Core non compilées ?
 
-**R :** Non, vous devez déployer l’application .NET Core compilée avec toutes les dépendances. Une expérience complète de déploiement et de génération sera prochainement proposée.
+**R :** Non. Vous devez déployer l’application .NET Core compilée avec toutes les dépendances. Une expérience complète de déploiement et de génération sera prochainement proposée.
+
+## <a name="built-in-images"></a>Images prédéfinies ##
+
+**Q :** Quelles sont les valeurs attendues de la section Fichier de démarrage lorsque je configure la pile d’exécution ?
+
+**R :** Pour Node.Js, vous pouvez spécifier le fichier de configuration PM2 ou votre fichier de script. Pour .Net Core, vous devez spécifier le nom de votre dll compilée. Pour Ruby, vous pouvez spécifier un script Ruby avec lequel initialiser votre application.
 
 ## <a name="custom-containers"></a>Conteneurs personnalisés ##
 
@@ -69,11 +76,15 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 
 **Q :** Puis-je apporter mon propre système de stockage ?
 
-**R :** Ce n’est pas pris en charge actuellement, mais la prise en charge est prévue sous peu.
+**R :** Ce n’est pas pris en charge à l’heure actuelle.
 
 **Q :** Je n’arrive pas à parcourir le système de fichiers de mon conteneur personnalisé à partir du site SCM. Pourquoi ?
 
 **R :** Le site SCM s’exécute dans un conteneur distinct ; vous ne pouvez pas vérifier le système de fichiers ou les processus en cours d’exécution du conteneur d’application.
+
+**Q :** Mon conteneur personnalisé écoute un autre port que le port 80. Comment puis-je configurer mon application pour acheminer les demandes vers ce port ?
+
+**R :** Vous pouvez spécifier un paramètre d’application appelé **PORT** et lui attribuer la valeur du numéro de port attendu.
 
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA ##
 
@@ -92,12 +103,6 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 **R :** Vous pouvez soumettre votre idée à cette adresse : https://aka.ms/webapps-uservoice. Ajoutez [Linux] au titre de votre idée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d’App Service sur Linux](./app-service-linux-intro.md) 
 * [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
-* [Création d’applications Web dans App Service sur Linux](./app-service-linux-how-to-create-a-web-app.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Création d’applications Web dans App Service sur Linux](app-service-linux-how-to-create-a-web-app.md)
 

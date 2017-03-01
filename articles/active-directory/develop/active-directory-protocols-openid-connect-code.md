@@ -1,5 +1,5 @@
 ---
-title: "Comprendre le flux du code d’authentification OpenID Connect dans Azure AD | Microsoft Docs"
+title: "Comprendre le flux de code d’authentification OpenID Connect dans Azure AD | Microsoft Docs"
 description: "Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et d’OpenID Connect."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,12 +26,37 @@ ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
 
 Nous recommandons OpenID Connect si vous concevez une application web hébergée sur un serveur et accessible par le biais d’un navigateur.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
+
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
 ## <a name="authentication-flow-using-openid-connect"></a>Flux d’authentification à l’aide d’OpenID Connect
 Le flux de connexion le plus simple comprend les étapes suivantes (chacune d’elles est décrite en détail ci-dessous).
 
 ![Flux d’authentification OpenID Connect](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
+
+## <a name="openid-connect-metadata-document"></a>Document de métadonnées OpenID Connect
+
+OpenID Connect décrit un document de métadonnées qui contient la plupart des informations nécessaires pour qu’une application effectue la connexion. Cela inclut des informations telles que les URL à utiliser et l’emplacement des clés de signature publiques du service. Le document de métadonnées OpenID Connect est disponible ici :
+
+```
+https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
+```
+Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net).
+
+```
+{
+    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "token_endpoint_auth_methods_supported":
+    [
+        "client_secret_post",
+        "private_key_jwt"
+    ],
+    "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
+    
+    ...
+}
+```
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 Lorsque votre application web a besoin d’authentifier l’utilisateur, elle doit le diriger vers le point de terminaison `/authorize`. Cette requête est similaire au premier tronçon du [flux de code d’autorisation OAuth 2.0](active-directory-protocols-oauth-code.md). Notons toutefois quelques distinctions importantes :
@@ -57,7 +83,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre |  | Description |
 | --- | --- | --- |
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
-| client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Il est disponible sur le Portail Azure Classic. Cliquez sur **Active Directory**, sélectionnez le répertoire, sélectionnez l’application et cliquez sur **Configurer** |
+| client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory**, puis sur **Inscriptions des applications**. Sélectionnez ensuite l’application et recherchez son identifiant sur la page de l’application. |
 | response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect.  Il peut inclure d’autres types de réponses, comme `code`. |
 | scope |required |Une liste d’étendues séparées par des espaces.  Pour OpenID Connect, vous devez inclure l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement.  Vous pouvez inclure d’autres étendues dans cette requête pour solliciter le consentement. |
 | nonce |required |Valeur incluse dans la demande (générée par l’application) qui est intégrée au jeton `id_token` obtenu sous la forme d’une revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons.  La valeur est généralement une valeur unique et aléatoire ou un GUID pouvant être utilisé pour identifier l’origine de la requête. |
@@ -142,6 +168,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion.  Si elle n’est pas incluse, l’utilisateur voit un message générique. |
 
+## <a name="single-sign-out"></a>Authentification unique
+Azure AD utilise les cookies pour identifier la session d’un utilisateur. Votre application web peut également définir les cookies servant à gérer les sessions au sein de votre application. Lorsqu’un utilisateur se connecte à une application pour la première fois, Azure AD définit un cookie dans son navigateur. Par la suite, lorsque l’utilisateur se connecte à une autre application, Azure AD ne l’authentifie pas à nouveau, mais vérifie le cookie pour déterminer s’il dispose d’une session d’authentification valide avec pour point de terminaison Azure AD.
+
+De même, lorsque l’utilisateur se déconnecte la première fois d’une application, Azure AD supprime le cookie du navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent Azure AD pour l’authentification. Pour garantir que l’utilisateur est bien déconnecté de toutes les applications, Azure AD envoie une requête HTTP GET à l’`LogoutUrl` de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant les cookies qui identifient la session de l’utilisateur. Vous pouvez activer la fonction `LogoutUrl` à partir du portail Azure.
+
+1. Accédez au [portail Azure](https://portal.azure.com).
+2. Sélectionnez votre client Active Directory en cliquant sur votre compte en haut à droite de la page.
+3. Dans le volet de navigation de gauche, choisissez **Azure Active Directory**, **Inscriptions des applications** puis sélectionnez votre application.
+4. Cliquez sur **Propriétés** et recherchez la zone de texte **URL de déconnexion**. 
+
 ## <a name="token-acquisition"></a>Acquisition de jeton
 Beaucoup d’applications web nécessitent une connexion de l’utilisateur, puis un accès au service web pour le compte de cet utilisateur à l’aide d’OAuth. Ce scénario utilise OpenID Connect pour l’authentification de l’utilisateur tout en récupérant un `authorization_code` pouvant être sollicité pour obtenir des jetons `access_tokens` à l’aide du flux de code d’autorisation OAuth.
 
@@ -200,8 +236,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Pour obtenir une description des codes d’erreur éventuels et connaître l’action client recommandée associée, consultez [Codes d’erreur pour les erreurs de point de terminaison d’autorisation](#error-codes-for-authorization-endpoint-errors).
 
 Une fois que vous avez obtenu une autorisation `code` et un `id_token`, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte.  Pour connecter l’utilisateur, vous devez valider le `id_token` conformément à la description indiquée ci-dessus. Pour obtenir des jetons d’accès, vous pouvez suivre la procédure décrite dans la section « Utiliser le code d’autorisation pour demander un jeton d’accès » de notre [documentation du protocole OAuth](active-directory-protocols-oauth-code.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

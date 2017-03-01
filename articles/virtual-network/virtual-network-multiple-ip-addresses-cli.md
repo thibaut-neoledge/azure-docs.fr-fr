@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
+ms.sourcegitcommit: 7e99731f6826e563109da734a80fcccfff85676a
+ms.openlocfilehash: 3deb0e1668aae15a7d9abe00791f4524ed49d77b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -128,9 +129,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 
 1. Ouvrez l’interface de ligne de commande Azure et effectuez les étapes restantes de cette section en une seule session CLI. Si l’interface de ligne de commande Azure n’est pas encore installée et configurée, suivez les étapes décrites dans l’article [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) et connectez-vous à votre compte Azure.
 
-2. Obtenez la version préliminaire en envoyant un e-mail à [Plusieurs adresses IP](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) en indiquant votre ID d’abonnement et l’utilisation prévue. N’essayez pas d’effectuer les étapes restantes :
-    - tant que vous n’avez pas reçu de message vous informant que vous avez été accepté dans la version préliminaire ;
-    - Sans suivre les instructions dans l’e-mail que vous recevez
+2. Inscrivez-vous pour recevoir la préversion publique. Pour cela, suivez les indications de l’étape 2, dans la section **Créer une machine virtuelle avec plusieurs adresses IP**.
 
 3. Suivez les étapes dans l’une des sections suivantes, selon vos besoins :
 
@@ -208,9 +207,4 @@ Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau e
 9. Ajoutez les adresses IP privées que vous avez ajoutées à l’interface réseau pour le système d’exploitation de la machine virtuelle en suivant les instructions fournies dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas les adresses IP publiques au système d’exploitation.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

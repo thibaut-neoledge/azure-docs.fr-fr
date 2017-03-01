@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
-ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 9742523c0a1743ff5982e746aa3c99aed8934499
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -42,7 +43,7 @@ Cette vidéo Microsoft Virtual Academy, plus longue, décrit les principaux conc
 </a></center>
 
 ## <a name="get-started-and-create-your-first-app"></a>Prise en main et création de votre première application 
-À l’aide des kits de développement logiciel (SDK) et des outils Service Fabric, vous pouvez développer des applications dans les environnements Windows, Linux ou MacOS et déployer ces applications sur des clusters fonctionnant sous Windows ou Linux.  Grâce aux guides suivants, vous pourrez déployer une application en quelques minutes.  Une fois que vous avez exécuté votre première application, nous vous invitons à télécharger et à exécuter quelques-uns de nos [exemples d’applications](http://aka.ms/servicefabricsamples).
+À l’aide des kits de développement logiciel (SDK) et des outils Service Fabric, vous pouvez développer des applications dans les environnements Windows, Linux ou MacOS et déployer ces applications sur des clusters fonctionnant sous Windows ou Linux.  Grâce aux guides suivants, vous pourrez déployer une application en quelques minutes.  Une fois que vous avez exécuté votre première application, nous vous invitons à télécharger et à exécuter quelques-uns de nos [exemples d’applications](http://aka.ms/servicefabricsamples). En particulier, nous vous recommandons de commencer par les [exemples de prise en main](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
 ### <a name="on-windows"></a>Sur Windows
 Le kit de développement logiciel Fabric Service inclut un complément à Visual Studio proposant des outils et des modèles pour la création, le déploiement et le débogage d’applications Service Fabric. Ces rubriques vous expliquent pas à pas comment créer votre première application dans Visual Studio et l’exécuter sur votre ordinateur de développement.
@@ -50,7 +51,9 @@ Le kit de développement logiciel Fabric Service inclut un complément à Visual
 [Configurer votre environnement de développement](service-fabric-get-started.md)
 [Créer votre première application (C#)](service-fabric-create-your-first-application-in-visual-studio.md)
 
-Essayez ces [travaux pratiques](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) pour vous familiariser avec le flux de développement de bout en bout pour Service Fabric.  Découvrez comment créer un service sans état, configurer des rapports de surveillance et d’intégrité, et effectuer la mise à niveau d’une application. 
+#### <a name="practical-hands-on-labs"></a>Exercices pratiques en laboratoire
+Essayez ces [travaux pratiques (1ère partie)](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) pour vous familiariser avec le flux de développement de bout en bout pour Service Fabric.  Découvrez comment créer un service sans état, configurer des rapports de surveillance et d’intégrité, et effectuer la mise à niveau d’une application. Après cela, passez aux [travaux pratiques (2e partie)](http://aka.ms/sflab2) qui développent les services avec état.
+
 
 La vidéo Channel9 suivante vous guide tout au long du processus de création d’une application C# dans Visual Studio :  
 <center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
@@ -138,9 +141,4 @@ Reposant sur Reliable Services, l’infrastructure [Reliable Actor](service-fabr
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

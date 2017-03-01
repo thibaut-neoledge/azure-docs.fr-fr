@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1b12d8ef3bbbfd2688f7bbd47968332e83a35252
-ms.openlocfilehash: 6cb5aee751e89ad1e825fae4fdfd460f1bfd8b6c
+ms.sourcegitcommit: d0d213e2cc52f43c11efd49c51270aa42f8fad36
+ms.openlocfilehash: 6c373adaee553e9eca94a978afc62d453f7db0f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-down-level-clients"></a>Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour les clients de bas niveau Windows 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour les clients de bas niveau Windows 
 
 Cette rubrique s’applique uniquement aux clients suivants : 
 
@@ -30,7 +31,7 @@ Cette rubrique s’applique uniquement aux clients suivants :
 - Windows Server 2012 R2 
  
 
-Pour Windows 10 ou Windows Server 2016, consultez [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour Windows 10 et Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
+Pour Windows 10 ou Windows Server 2016, voir [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour Windows 10 et Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
 
 Cette rubrique suppose que vous avez configuré l’inscription automatique d’appareils joints à un domaine comme décrit dans [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-get-started.md).
  
@@ -98,9 +99,4 @@ Vous pouvez également trouver les informations d’état dans le journal des é
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez le [FAQ sur l’inscription d’appareils automatique](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

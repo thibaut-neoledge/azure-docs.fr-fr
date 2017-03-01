@@ -5,7 +5,7 @@ keywords: azure app service, application web, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
-ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 19a42a8dc9a4026d93c10dd209e84d4e14b8f00a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -41,7 +42,7 @@ Une fois que vous avez créé l’application, vous pouvez modifier la pile d’
 ![Paramètres de l’application][3]
 
 ## <a name="deploy-your-web-app"></a>Déployez votre application web
-Les **options de déploiement** disponibles dans le portail de gestion vous donnent la possibilité d’utiliser un Git local ou un référentiel GitHub pour déployer votre application. Le reste de la procédure est identique à celle suivie pour une application web non Linux. Vous pouvez consulter ces instructions dans notre article sur le [déploiement Git local](app-service-deploy-local-git.md) ou sur le [déploiement continu](app-service-continuous-deployment.md) pour GitHub.
+Les **options de déploiement** disponibles dans le portail de gestion vous donnent la possibilité d’utiliser un Git local ou un référentiel GitHub pour déployer votre application. Les autres instructions sont similaires à celles d’une application non-Linux. Vous pouvez suivre les instructions de [déploiement Git local](app-service-deploy-local-git.md) ou [déploiement continu](app-service-continuous-deployment.md) pour déployer votre application.
 
 Vous pouvez également utiliser FTP pour télécharger votre application sur votre site. Vous pouvez obtenir le point de terminaison FTP de votre application web à partir de la section des journaux de diagnostics, comme illustré dans l’image suivante :
 
@@ -50,15 +51,12 @@ Vous pouvez également utiliser FTP pour télécharger votre application sur vot
 ## <a name="next-steps"></a>Étapes suivantes
 * [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
 * [Utilisation de la configuration PM2 pour Node.js dans les applications Web sur Linux](app-service-linux-using-nodejs-pm2.md)
+* [Utilisation de Ruby dans Azure App Service Web Apps sur Linux](app-service-linux-using-ruby.md)
+* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png
 [2]: ./media/app-service-linux-how-to-create-a-web-app/create-blade.png
 [3]: ./media/app-service-linux-how-to-create-a-web-app/application-settings-change-stack.png
 [4]: ./media/app-service-linux-how-to-create-a-web-app/diagnostic-logs-ftp.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

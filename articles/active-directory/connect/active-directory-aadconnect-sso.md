@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
-ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
+ms.sourcegitcommit: e208b2bf861d698901b287458a3969e833540e44
+ms.openlocfilehash: f8f67af3cb6adb333924714bd758609b950845af
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -68,6 +69,17 @@ Tout d’abord, l’utilisateur tente d’accéder à une ressource qui approuve
 5.    Azure AD déchiffre le ticket Kerberos à l’aide de la clé partagée précédemment. Puis Azure AD renvoie un jeton à l’utilisateur ou invite l’utilisateur à fournir des preuves supplémentaires (telles que l’authentification multifacteur), si la ressource l’exige.
 
 L’authentification unique est une fonctionnalité opportuniste, ce qui signifie que si elle échoue pour une raison quelconque, il suffit à l’utilisateur d’entrer son mot de passe sur la page de connexion, comme d’habitude.
+
+## <a name="single-sign-on-sso-prerequisites"></a>Composants d’authentification unique (SSO) requis
+Si vous activez l’option Authentification unique avec Authentification directe, il n’existe aucun composant requis supplémentaire au-delà de ce qui est nécessaire pour l’authentification directe.
+
+Si vous activez l’option Authentification unique avec Synchronisation du mot de passe et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
+- Le serveur Azure AD Connect peut communiquer avec *. msappproxy.net.
+- Azure AD Connect peut envoyer des requêtes HTTPS à Azure AD sur les ports ci-dessous :
+
+|Protocole|Numéro de port|Description
+| --- | --- | ---
+|HTTPS|9090|    Activez l’inscription SSO (obligatoire uniquement pour le processus d’inscription SSO).
 
 ## <a name="enabling-sso-with-pass-through-authentication-or-password-sync"></a>Activation de l’authentification unique avec l’authentification directe ou la synchronisation de mot de passe
 Azure AD Connect propose un processus simple pour activer l’authentification unique avec l’authentification directe ou la synchronisation de mot de passe. Vérifiez que vous disposez de droits d’administrateur de domaine sur l’un des domaines de chaque forêt que vous synchronisez, afin de pouvoir configurer les noms de principal du service (SPN) Kerberos sur le compte d’ordinateur. Le nom d’utilisateur et le mot de passe ne sont pas stockés dans Azure AD Connect ou Azure AD et sont utilisés uniquement pour cette opération.
@@ -132,9 +144,4 @@ Si l’audit des réussites est activé, une entrée est enregistrée dans le jo
       </Query>
     </QueryList>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

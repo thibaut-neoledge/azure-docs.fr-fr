@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 138197bab775ec854f2761a64c52a9a9c8baca60
-ms.openlocfilehash: dec7ebd834514a10d02d739264b03b01a65a4375
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -192,11 +193,11 @@ Pour supprimer une affectation de stratégie, utilisez :
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
 ### <a name="create-policy-definition"></a>Créer une définition de stratégie
 
-Vous pouvez créer une définition de stratégie à l’aide de l’interface de ligne de commande Azure 2.0 (version préliminaire) avec la commande de définition de stratégie. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
+Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI 2.0 et de la commande de définition de stratégie. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
@@ -292,10 +293,5 @@ azure policy assignment delete --name regionPolicyAssignment --scope /subscripti
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

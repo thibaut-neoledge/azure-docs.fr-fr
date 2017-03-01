@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 4b2cbf5f62ee63bada42b2a06506b793d4349fdb
-ms.openlocfilehash: 7db9a45a4c80ea8d01937837dfa7a15c171fb66b
+ms.sourcegitcommit: 274ed196cc7159e77f6de4d84328c3607b155ee9
+ms.openlocfilehash: 9bb528aa0172fb7179b5498be89aee9a92b788f8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -102,8 +103,7 @@ if ($oauth.access_token -ne $null) {
  * TotalUserCount = nombre de tous les objets utilisateur
  * OtherUserCount = nombre d’utilisateurs AAD Directory (utilisateurs non B2C)
  * LocalUserCount = nombre de comptes utilisateur B2C créés avec les informations d’identification locales au client B2C
-
-**AlternateIdUserCount** = nombre d’utilisateurs B2C inscrits auprès de fournisseurs d’identité externes (par exemple, Facebook, compte Microsoft, autres clients AAD - également appelé OrgId)
+ * AlternateIdUserCount** = nombre d’utilisateurs B2C inscrits auprès de fournisseurs d’identité externes (par exemple, Facebook, compte Microsoft, autres clients AAD - également appelé OrgId)
 
 **b2cAuthenticationCountSummary** : additionner le nombre journalier d’authentifications facturables au cours des 30 derniers jours, par jour et par type de flux d’authentification
 
@@ -140,9 +140,4 @@ $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

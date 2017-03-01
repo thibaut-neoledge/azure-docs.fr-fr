@@ -17,22 +17,23 @@ ms.workload: data-management
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: 23d4c00f9e4c719e2124ad3c8733269712a796f0
+ms.sourcegitcommit: 9b09383350284c8f1cd3e384c802c25c962b1226
+ms.openlocfilehash: 1fe15e7ad3667d42995cd487c793fae496216fca
+ms.lasthandoff: 02/16/2017
 
         
 ---
  
 # <a name="explore-azure-sql-database-tutorials"></a>Exploration des didacticiels relatifs à la base de données SQL Azure
-Utilisez les liens des tableaux suivants pour obtenir une vue d’ensemble de chaque fonctionnalité répertoriée et accéder à un didacticiel de démarrage simple pas à pas pour chaque domaine abordé. Pour consulter des démarrages rapides de solutions qui illustrent l’utilisation de la base de données SQL dans une solution complète à partir de scénarios réels, consultez [Démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md).
+Utilisez les liens des tableaux suivants pour obtenir une vue d’ensemble de chaque fonctionnalité répertoriée et accéder à un didacticiel de démarrage simple pas à pas pour chaque domaine abordé. 
 
 ## <a name="create-servers-databases-and-server-level-firewall-rules"></a>Créer des serveurs, des bases de données et des règles de pare-feu au niveau du serveur
 Les didacticiels ci-après vous apprennent à créer des serveurs, des bases de données et des règles de pare-feu au niveau du serveur, ainsi qu’à vous connecter et adresser des requêtes aux serveurs et aux bases de données.
 
 | Didacticiel | Description |
 | --- | --- | 
-| [Didacticiel de démarrage rapide : Votre première solution Azure SQL Database](sql-database-get-started.md) | Une fois ce didacticiel de démarrage rapide terminé, vous aurez un exemple de base de données et une base de données vide s’exécutant dans un groupe de ressources Azure, le tout attaché à un serveur logique. Vous créerez également deux règles de pare-feu de niveau serveur configurées pour permettre au principal au niveau du serveur de se connecter au serveur à partir de deux adresses IP spécifiées. Enfin, vous apprendrez à interroger une base de données dans le portail Azure, ainsi qu’à vous connecter et à effectuer des requêtes à l’aide de SQL Server Management Studio. |
-| [Didacticiel : Approvisionner une base de données Azure SQL et y accéder à l’aide de PowerShell](sql-database-get-started-powershell.md) | Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de données et une base de données vide en cours d’exécution dans un groupe de ressources Azure et attachés à un serveur logique. Vous aurez également une règle de pare-feu de niveau serveur configurée pour permettre au principal de niveau serveur de se connecter au serveur à partir d’une adresse IP spécifiée (ou d’une plage d’adresses IP). |
+| [Votre première base de données Azure SQL Database](sql-database-get-started.md) | Une fois ce didacticiel de démarrage rapide terminé, vous aurez un exemple de base de données et une base de données vide s’exécutant dans un groupe de ressources Azure, le tout attaché à un serveur logique. Vous créerez également deux règles de pare-feu de niveau serveur configurées pour permettre au principal au niveau du serveur de se connecter au serveur à partir de deux adresses IP spécifiées. Enfin, vous apprendrez à interroger une base de données dans le portail Azure, ainsi qu’à vous connecter et à effectuer des requêtes à l’aide de SQL Server Management Studio. |
+| [Approvisionner une base de données Azure SQL Database et y accéder à l’aide de PowerShell](sql-database-get-started-powershell.md) | Lorsque vous aurez terminé ce didacticiel, vous aurez un exemple de base de données et une base de données vide en cours d’exécution dans un groupe de ressources Azure et attachés à un serveur logique. Vous aurez également une règle de pare-feu de niveau serveur configurée pour permettre au principal de niveau serveur de se connecter au serveur à partir d’une adresse IP spécifiée (ou d’une plage d’adresses IP). |
 | [Utiliser C# pour créer une Base de données SQL avec la bibliothèque de base de données SQL pour .NET](sql-database-get-started-csharp.md)| Dans ce didacticiel, vous utilisez C# pour créer un serveur SQL Database, une règle de pare-feu et une base de données SQL. Vous créez également une application Active Directory (AD) et le principal du service requis pour authentifier l’application C#. |
 |  | |
 
@@ -41,7 +42,7 @@ Dans les didacticiels suivants, vous apprendrez à utiliser les [sauvegardes de 
 
 | Didacticiel | Description |
 | --- | --- | 
-| [Sauvegarde et restauration à l’aide du portail Azure](sql-database-get-started-backup-recovery.md) | Dans ce didacticiel, vous apprendrez à utiliser le portail Azure pour afficher les sauvegardes, restaurer une version antérieure, configurer une rétention de sauvegarde à long terme et restaurer à partir d’une sauvegarde du coffre Azure Recovery Services.
+| [Sauvegarde et restauration à l’aide du portail Azure](sql-database-get-started-backup-recovery-portal.md) | Dans ce didacticiel, vous apprendrez à utiliser le portail Azure pour afficher les sauvegardes, restaurer une version antérieure, configurer une rétention de sauvegarde à long terme et restaurer à partir d’une sauvegarde du coffre Azure Recovery Services.
 | [Sauvegarde et restauration à l’aide de PowerShell](sql-database-get-started-backup-recovery-powershell.md) | Dans ce didacticiel, vous apprendrez à utiliser PowerShell pour afficher les sauvegardes, restaurer une version antérieure, configurer une rétention de sauvegarde à long terme et restaurer à partir d’une sauvegarde du coffre Azure Recovery Services.
 |  | |
 
@@ -97,8 +98,12 @@ Dans les didacticiels suivants, vous découvrirez le développement d’applicat
 | --- | --- | 
 | [Créer un rapport à l’aide d’Excel](sql-database-connect-excel.md) |Ce didacticiel vous apprend à connecter Excel à une base de données SQL dans le cloud afin de pouvoir importer des données et créer des tables et des graphiques basés sur des valeurs de la base de données. |
 | [Développer une application à l’aide de SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |Ce didacticiel vous apprend à développer une application à l’aide de SQL Server. |
+| [Tables temporelles](sql-database-temporal-tables.md) | Ce didacticiel fournit des informations sur les tables temporelles.
 | [Utiliser Entity Framework avec des outils élastiques](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |Ce didacticiel présente les modifications d’une application Entity Framework requises pour l’intégration avec les outils des bases de données élastiques. |
 | [Adopter OLTP In-Memory](sql-database-in-memory-oltp-migration.md) | Ce didacticiel vous apprend à utiliser [OLTP In-Memory](sql-database-in-memory.md) pour améliorer les performances du traitement des transactions. |
+| [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) (Création d’une nouvelle base de données avec Code First) | Dans ce didacticiel, vous découvrez le développement de type Code  First.
+| [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) (Exemple d’application Tailspin Surveys) | Dans ce didacticiel, vous travaillez avec un exemple d’application Tailspon Surveys. |
+| [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) (Application de démonstration Contoso Clinic) | Dans ce didacticiel, vous travaillez avec une application de démonstration Contoso Clinic. |
 |  | |
 
 ## <a name="data-sync"></a>Synchronisation des données
@@ -109,11 +114,15 @@ Ce didacticiel fournit des informations relatives à la [synchronisation des don
 | [Prise en main d’Azure SQL Data Sync (version préliminaire)](sql-database-get-started-sql-data-sync.md) |Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’Azure SQL Data Sync avec le portail Azure. |
 |  | |
 
-## <a name="next-steps"></a>Étapes suivantes
-[Explorer les démarrages rapides de la solution de base de données SQL Azure](sql-database-solution-quick-starts.md)
+## <a name="monitor-and-tune"></a>Surveiller et régler
+Dans les didacticiels suivants, vous apprenez à surveiller et à paramétrer.
+| Didacticiel | Description |
+| --- | --- | 
+| [Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) (Télémétrie de pool élastique avec PowerShell)| Dans ce didacticiel, vous découvrez la collecte de télémétrie de pool élastique à l’aide de PowerShell. |
+| [Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Tableau de bord de pool élastique pour SaaS) | Dans ce didacticiel, vous apprenez à créer un tableau de bord personnalisé pour surveiller les pools élastiques. |
+| [Capture extended event to event file target](sql-database-xevent-code-event-file.md) (Capture d’événements étendus dans le fichier cible d’événements)| Dans ce didacticiel, vous apprenez à capturer des événements étendus dans un fichier cible d’événements.|
+| [Capture extended event to ring buffer target](sql-database-xevent-code-ring-buffer.md) (Capture d’événements étendus dans la cible de mémoire tampon en anneau)| Dans ce didacticiel, vous apprenez à capturer des événements étendus dans une cible de mémoire tampon en anneau.|
+|  | |
 
-
-
-<!--HONumber=Feb17_HO2-->
 
 

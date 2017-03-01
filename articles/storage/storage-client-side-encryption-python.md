@@ -3,7 +3,7 @@ title: "Chiffrement côté client avec Python pour Microsoft Azure Storage | Mic
 description: "La bibliothèque cliente de stockage Azure pour Python prend en charge le chiffrement côté client pour assurer une sécurité maximale à vos applications Azure Storage."
 services: storage
 documentationcenter: python
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -241,8 +242,3 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 ## <a name="next-steps"></a>Étapes suivantes
 * Télécharger la [bibliothèque cliente Azure Storage pour le package Java PyPi](https://pypi.python.org/pypi/azure-storage)
 * Télécharger la [bibliothèque cliente Azure Storage pour le code source Python à partir de GitHub](https://github.com/Azure/azure-storage-python)
-
-
-<!--HONumber=Nov16_HO3-->
-
-
