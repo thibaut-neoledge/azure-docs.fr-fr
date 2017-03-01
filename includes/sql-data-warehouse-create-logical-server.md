@@ -38,15 +38,10 @@
     ![server location](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > La case à cocher **Autoriser les services Azure à accéder au serveur** ne peut pas être modifiée dans ce panneau. Vous pouvez modifier ce paramètre dans le panneau de pare-feu du serveur. Pour plus d'informations, consultez [Prise en main de la sécurité](../articles/sql-database/sql-database-get-started-security.md).
+    > La case à cocher **Autoriser les services Azure à accéder au serveur** ne peut pas être modifiée dans ce panneau. Vous pouvez modifier ce paramètre dans le panneau de pare-feu du serveur. Pour plus d'informations, consultez [Prise en main de la sécurité](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. Cliquez sur **Create**.
 
     ![créer un bouton](./media/sql-data-warehouse-create-logical-server/create.png)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Découvrez le contenu du Kit de développement logiciel (SDK) des 
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8fa1b701-1c2b-4aec-940c-06c974ef5405
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -40,10 +41,5 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 
 ### <a name="overlay-folder"></a>Dossier /overlay
 * `EngagementPageOverlay.cs` : page de superposition responsable de l'ajout de l'interface utilisateur Engagement Reach dans l'application à son enfant.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

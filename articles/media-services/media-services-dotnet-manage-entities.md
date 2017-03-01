@@ -1,43 +1,38 @@
-
 ---
-title: Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
-description: Apprenez à gérer des éléments multimédias et leurs entités associées avec le Kit de développement logiciel (SDK) pour .NET.
+title: "Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET"
+description: "Apprenez à gérer des éléments multimédias et leurs entités associées avec le Kit de développement logiciel (SDK) pour .NET."
 author: juliako
-manager: dwrede
-editor: ''
+manager: erikre
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/12/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
+ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
+
 
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-.net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-Cette rubrique explique comment effectuer les tâches de gestion Media Services suivantes :
+Cette rubrique montre comment gérer les entités Azure Media Services avec .NET. 
 
-* Obtenir une référence pointant vers un élément multimédia 
-* Obtenir une référence pointant vers un travail 
-* Répertorier tous les éléments multimédias 
-* Répertorier les travaux et les éléments multimédias 
-* Répertorier toutes les stratégies d’accès 
-* Répertorier tous les localisateurs
-* Énumérer les grandes collections d'entités
-* Supprimer un élément multimédia 
-* Supprimer un travail 
-* Supprimer une stratégie d’accès 
+>[!NOTE]
+> À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 Consultez [Configuration de votre environnement](media-services-set-up-computer.md)
 
 ## <a name="get-an-asset-reference"></a>Obtenir une référence pointant vers un élément multimédia
@@ -55,24 +50,6 @@ L’exemple de code suivant utilise une requête Linq pour obtenir une référen
         IAsset asset = assetInstance.FirstOrDefault();
 
         return asset;
-    }
-
-## <a name="get-a-job-reference"></a>Obtenir une référence pointant vers un travail
-Lorsque vous utilisez des tâches de traitement dans le code de Media Services, vous devez souvent obtenir une référence pointant vers un travail existant basé sur un ID. L’exemple de code suivant montre comment obtenir une référence pointant vers un objet IJob à partir de la collection Jobs.
-Attention : il est possible que vous deviez obtenir une référence pointant vers un travail lors du démarrage d’un travail d’encodage à long terme et vérifier l’état du travail sur un thread. Dans ce cas, lorsque la méthode est retournée à partir d’un thread, vous devez récupérer une référence actualisée pointant vers le travail.
-
-    static IJob GetJob(string jobId)
-    {
-        // Use a Linq select query to get an updated 
-        // reference by Id. 
-        var jobInstance =
-            from j in _context.Jobs
-            where j.Id == jobId
-            select j;
-        // Return the job reference as an Ijob. 
-        IJob job = jobInstance.FirstOrDefault();
-
-        return job;
     }
 
 ## <a name="list-all-assets"></a>Répertorier tous les éléments multimédias
@@ -112,6 +89,26 @@ Lorsque le nombre d’éléments multimédias de votre stockage augmente, il est
 
         // Display output in console.
         Console.Write(builder.ToString());
+    }
+
+## <a name="get-a-job-reference"></a>Obtenir une référence pointant vers un travail
+
+Lorsque vous utilisez des tâches de traitement dans le code de Media Services, vous devez souvent obtenir une référence pointant vers un travail existant basé sur un ID. L’exemple de code suivant montre comment obtenir une référence pointant vers un objet IJob à partir de la collection Jobs.
+
+Il est possible que vous deviez obtenir une référence pointant vers un travail lors du démarrage d’un travail d’encodage à long terme et vérifier l’état du travail sur un thread. Dans ce cas, lorsque la méthode est retournée à partir d’un thread, vous devez récupérer une référence actualisée pointant vers le travail.
+
+    static IJob GetJob(string jobId)
+    {
+        // Use a Linq select query to get an updated 
+        // reference by Id. 
+        var jobInstance =
+            from j in _context.Jobs
+            where j.Id == jobId
+            select j;
+        // Return the job reference as an Ijob. 
+        IJob job = jobInstance.FirstOrDefault();
+
+        return job;
     }
 
 ## <a name="list-jobs-and-assets"></a>Répertorier les travaux et les éléments multimédias
@@ -211,6 +208,45 @@ L’exemple de code suivant montre comment répertorier toutes les stratégies d
 
         }
     }
+    
+## <a name="limit-access-policies"></a>Limiter les stratégies d’accès 
+
+>[!NOTE]
+> Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). 
+
+Par exemple, vous pouvez créer un ensemble générique de stratégies avec le code suivant qui ne s’exécute qu’une seule fois dans votre application. Vous pouvez enregistrer les ID dans un fichier journal pour une utilisation ultérieure :
+
+    double year = 365.25;
+    double week = 7;
+    IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
+    IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
+    IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
+
+    Console.WriteLine("One year policy ID is: " + policyYear.Id);
+    Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
+    Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+
+Ensuite, vous pouvez utiliser les ID existants dans votre code comme suit :
+
+    const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+
+
+    // Get the standard policy for 1 year read only
+    var tempPolicyId = from b in _context.AccessPolicies
+                       where b.Id == policy1YearId
+                       select b;
+    IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
+
+    // Get the existing asset
+    var tempAsset = from a in _context.Assets
+                where a.Id == assetID
+                select a;
+    IAsset asset = tempAsset.SingleOrDefault();
+
+    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+        policy1Year,
+        DateTime.UtcNow.AddMinutes(-5));
+    Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 
 ## <a name="list-all-locators"></a>Répertorier tous les localisateurs
 Un localisateur est une URL qui fournit un chemin d’accès direct pour accéder à un élément multimédia, ainsi que les autorisations pour accéder à l’élément multimédia, comme défini par la stratégie d’accès associée au localisateur. Chaque élément multimédia peut avoir une collection d’objets ILocator associée à sa propriété Locators. Le contexte de serveur possède également une collection Locators contenant tous les localisateurs.
@@ -238,9 +274,9 @@ Notez qu’un chemin d’accès de localisateur vers un élément multimédia es
     }
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Énumérer les grandes collections d'entités
-Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités. 
+Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser Skip et Take lors de l'énumération de grandes collections d'entités. 
 
-La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
+La fonction suivante effectue une itération sur toutes les tâches dans le compte Media Services fourni. Media Services renvoie 1 000 tâches dans Collection de tâches. La fonction utilise Skip et Take pour s'assurer que toutes les tâches sont énumérées (au cas où vous avez plus de 1 000 tâches dans votre compte).
 
     static void ProcessJobs()
     {
@@ -294,7 +330,8 @@ L’exemple suivant montre la suppression d’un élément multimédia.
 
 ## <a name="delete-a-job"></a>Supprimer un travail
 Pour supprimer un travail, vous devez vérifier l’état associé, comme indiqué dans la propriété State. Les travaux terminés ou annulés peuvent être supprimés, tandis que pour les travaux dans d’autres états, par exemple en file d’attente, planifiés ou en cours de traitement, il faut d’abord procéder à une annulation, puis supprimer le travail.
-L’exemple de code suivant montre une méthode de suppression de travail qui vérifie l’état des travaux, puis supprime ceux terminés ou annulés. Ce code est basé sur la section précédente de cette rubrique pour obtenir une référence pointant vers un travail : Obtenir une référence pointant vers un travail.
+
+L’exemple de code suivant montre une méthode de suppression de travail qui vérifie l’état des travaux, puis supprime ceux terminés ou annulés. Ce code est basé sur la section précédente de cette rubrique pour obtenir une référence pointant vers un travail : Obtenir une référence pointant vers un travail.
 
     static void DeleteJob(string jobId)
     {
@@ -367,6 +404,9 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

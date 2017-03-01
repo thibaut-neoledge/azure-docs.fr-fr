@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 19e8c9de137e10abb563fcd60cf89502dbf94cfd
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -102,7 +103,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu une de ces listes, nous émettons une requête unique à DocumentDB à l’aide de l’ [opérateur IN](documentdb-sql-query.md#where-clause) pour obtenir des pages de publications simultanément.
+Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu une de ces listes, nous émettons une requête unique à DocumentDB à l’aide de l’ [opérateur IN](documentdb-sql-query.md#WhereClause) pour obtenir des pages de publications simultanément.
 
 Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide de [files d’attente](../storage/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et de tâches webjobs déclenchées avec le [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md), implémentant la propagation ultérieure dans les flux basée sur notre propre logique personnalisée. 
 
@@ -230,10 +231,5 @@ La vérité est qu’il n’existe aucune solution parfaite pour ce type de scé
 En savoir plus sur la modélisation des données avec l’article [Modélisation des données dans DocumentDB](documentdb-modeling-data.md) . Si vous êtes intéressé par d’autres cas d’utilisation de DocumentDB, consultez [Cas d’utilisation courants de DocumentDB](documentdb-use-cases.md).
 
 Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

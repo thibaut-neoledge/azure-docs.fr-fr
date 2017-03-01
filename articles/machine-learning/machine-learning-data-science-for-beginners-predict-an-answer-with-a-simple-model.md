@@ -1,5 +1,5 @@
 ---
-title: "Prédire une réponse à l’aide d’un modèle simple - modèle de régression | Microsoft Docs"
+title: "Prédire une réponse à l’aide d’un modèle simple de régression - Azure | Microsoft Docs"
 description: "Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles."
 keywords: "créer un modèle,modèle simple,prédiction de prix,modèle de régression simple"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 
 ---
@@ -28,8 +28,8 @@ Découvrez comment créer un modèle de régression simple pour prédire le prix
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
@@ -135,7 +135,6 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: ebf876f946eceddce9c8c990d8b28fcb969bec23
-ms.openlocfilehash: 112226028c053cc91f9fb2bc0e5978f7cb2343ed
+ms.sourcegitcommit: 518d586a921926874cd959587ad2730ad346df71
+ms.openlocfilehash: cae3f0192d6b0e6204ede4c1855b731a2ffa4ae1
 
 
 ---
@@ -36,7 +36,7 @@ Il existe plusieurs facteurs à prendre en compte lorsque vous réglez les perfo
 
 Vous pouvez améliorer les performances en augmentant l’accès simultané aux E/S vers et à partir du d’Azure Data Lake Store.  
 Une topologie Storm possède un ensemble de configurations qui déterminent le parallélisme :
-* Nombre de processus worker : les workers sont répartis uniformément sur les machines virtuelles.
+* Nombre de processus worker : les workers sont répartis uniformément sur les machines virtuelles.
 * Nombre d’instances d’exécuteur de spout
 * Nombre d’instances d’exécuteur de bolt
 * Nombre de tâches de spout
@@ -144,6 +144,6 @@ Essayez cet exemple disponible sur [github](https://github.com/hdinsight/storm-p
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

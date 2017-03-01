@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
+ms.sourcegitcommit: f42e31c99bf43e8f034c8d6f4f98d777661c3d81
+ms.openlocfilehash: 204ec83dc1000bb1e10df6fecc303b6ac7795739
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -176,9 +177,6 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous 
 ### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Joindre un appareil Windows 7 à l’aide du service Azure Active Directory Device Registration
 Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le package logiciel d’inscription de l’appareil. Le package logiciel, appelé Jonction au lieu de travail pour Windows 7, est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). Les instructions relatives à l’utilisation du package sont disponibles dans [Configurer l’inscription automatique des appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
-### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Joindre un appareil Android à l’aide du service Azure Active Directory Device Registration
-La [rubrique Azure Authenticator pour Android](active-directory-conditional-access-azure-authenticator-app.md) comporte des instructions sur l’installation de l’application Azure Authenticator sur votre appareil Android et l’ajout d’un compte professionnel. Quand un compte professionnel est créé avec succès sur un appareil Android, ce dernier est joint à l’espace de travail de l’organisation.
-
 ## <a name="verify-registered-devices-are-written-back-to-active-directory"></a>Vérifier la réécriture des appareils inscrits dans Active Directory
 Vous pouvez utiliser LDP.exe et l’Éditeur ADSI pour afficher les objets d’appareil et ainsi vérifier qu’ils ont bien été réécrits dans votre service Active Directory. Ces deux outils sont disponibles dans les outils d’administrateur Active Directory.
 
@@ -234,10 +232,5 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

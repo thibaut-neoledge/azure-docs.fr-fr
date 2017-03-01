@@ -1,10 +1,10 @@
 ---
-title: "À propos des paramètres de passerelle VPN de réseau virtuel | Microsoft Docs"
-description: "Découvrir les paramètres de passerelle VPN pour réseau virtuel Azure."
+title: "Paramètres de la passerelle VPN pour les connexions Azure entre locaux | Microsoft Docs"
+description: "Découvrez les paramètres de passerelle VPN pour les passerelles de réseau virtuel Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
+ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
 
 
 ---
-# <a name="about-vpn-gateway-settings"></a>À propos des paramètres de la passerelle VPN
-Une solution de connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources afin d’envoyer le trafic réseau entre les réseaux virtuels et les emplacements locaux. Chaque ressource contient des paramètres configurables. La combinaison des ressources et des paramètres détermine le résultat de la connexion.
+# <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
+Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré entre votre réseau virtuel et votre emplacement local à travers une connexion publique. Vous pouvez également utiliser une passerelle VPN pour acheminer le trafic entre réseaux virtuels sur l’infrastructure Azure.
 
-Les sections de cet article présentent les ressources et les paramètres relatifs à une passerelle VPN dans le modèle de déploiement **Resource Manager** . Il est parfois utile de visualiser les configurations disponibles à l’aide de diagrammes de topologie de connexion. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans l’article [À propos la passerelle VPN](vpn-gateway-about-vpngateways.md) . 
+Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Les sections de cet article présentent les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans l’article [À propos la passerelle VPN](vpn-gateway-about-vpngateways.md).  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Types de passerelle
 Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel de chaque type. Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle convient pour votre configuration.
@@ -47,13 +47,13 @@ Exemple :
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>Configuration de la référence SKU de passerelle
-**Spécification de la référence SKU de passerelle dans le portail Azure**
+####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Spécification de la référence SKU de passerelle dans le portail Azure
 
 Si vous utilisez le portail Azure pour créer une passerelle de réseau virtuel Resource Manager, vous pouvez sélectionner la référence SKU de la passerelle dans la liste déroulante. Les options qui vous sont présentées correspondent au type de passerelle et au type de VPN sélectionnés.
 
 Par exemple, si vous sélectionnez le type de passerelle « VPN » et le type de VPN « Basé sur des stratégies », vous ne pouvez voir que la référence SKU « De base » parce que c’est la seule référence SKU disponible pour les VPN basés sur des stratégies. Si vous sélectionnez « Basé sur un itinéraire », vous pouvez sélectionner les références SKU De base, Standard et HighPerformance. 
 
-**Spécification de la référence SKU de passerelle à l’aide de PowerShell**
+####<a name="specifying-the-gateway-sku-using-powershell"></a>Spécification de la référence SKU de passerelle à l’aide de PowerShell
 
 L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que *Standard*.
 
@@ -61,7 +61,7 @@ L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que *Standard*
     -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-**Modification d’une référence SKU de passerelle**
+####<a name="changing-a-gateway-sku"></a>Modification d’une référence SKU de passerelle
 
 Si vous voulez mettre à niveau votre référence SKU de passerelle vers une référence SKU plus puissante (De base/Standard vers Hautes performances), vous pouvez utiliser l’applet de commande PowerShell `Resize-AzureRmVirtualNetworkGateway`. Vous pouvez également réduire la taille de référence SKU à l’aide de cet applet de commande.
 
@@ -107,11 +107,9 @@ L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased*.
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>Sous-réseau de passerelle
-Vous devez créer un sous-réseau de passerelle pour votre réseau virtuel afin de configurer une passerelle de réseau virtuel. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé *SousRéseau_Passerelle* . Ce nom indique à Azure que ce sous-réseau doit être utilisé pour la passerelle.
+Vous devez créer un sous-réseau de passerelle afin de configurer une passerelle de réseau virtuel pour votre réseau virtuel. Le sous-réseau de passerelle contient les adresses IP utilisées par les services de passerelle de réseau virtuel. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé *SousRéseau_Passerelle* . Ce nom indique à Azure que ce sous-réseau doit être utilisé pour la passerelle.
 
-La taille minimale de votre sous-réseau de passerelle dépend entièrement de la configuration que vous voulez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de passerelle de taille /28 ou supérieure (/28, /27, /26, etc.). 
-
-La création d’une passerelle de plus grande taille évite les problèmes liés aux limitations de la taille des passerelles. Par exemple, vous avez peut-être créé une passerelle de réseau virtuel avec une taille de sous-réseau de passerelle /29 pour une connexion S2S. Vous souhaitez à présent définir une configuration coexistante S2S/ExpressRoute. Cette configuration requiert une taille minimale de sous-réseau de passerelle /28. Pour créer votre configuration, vous devez modifier le sous-réseau de passerelle pour prendre en charge la configuration minimale requise pour la connexion, à savoir /28.
+Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d’adresses IP que contient le sous-réseau. Les adresses IP dans le sous-réseau de passerelle sont allouées au service de passerelle. Certaines configurations nécessitent d’allouer davantage d’adresses IP aux services de passerelle. Assurez-vous que votre sous-réseau de passerelle contient suffisamment d’adresses IP pour pouvoir évoluer au rythme de votre croissance future et prendre en charge d’éventuelles nouvelles configurations de connexion. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de passerelle de taille /28 ou supérieure (/28, /27, /26, etc.). Prenez connaissance des recommandations relatives à la configuration que vous souhaitez créer et vérifiez que votre sous-réseau de passerelle suit ces recommandations.
 
 L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé GatewaySubnet. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
 
@@ -145,6 +143,6 @@ Pour plus d’informations sur les configurations de connexion disponible, consu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

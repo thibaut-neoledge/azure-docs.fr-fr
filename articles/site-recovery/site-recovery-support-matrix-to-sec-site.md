@@ -1,5 +1,5 @@
 ---
-title: "Matrice de support Azure Site Recovery pour la réplication vers le site secondaire | Microsoft Docs"
+title: "Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery | Microsoft Docs"
 description: "Résume les systèmes d’exploitation et composants pris en charge pour Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -12,43 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/24/2017
+ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e858a70f2ce173eb6b99cbe7a130abb5fdc265e1
-ms.openlocfilehash: 0a2c3bec5fc6fb44b4baddc393d6f9387bbb5b94
+ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
+ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
 
 
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-to-customer-owned-secondary-site"></a>Matrice de support Azure Site Recovery pour la réplication vers un site secondaire appartenant au client
+# <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery
 
 > [!div class="op_single_selector"]
 > * [Réplication vers Azure](site-recovery-support-matrix-to-azure.md)
-> * [Réplication vers un site secondaire appartenant au client](site-recovery-support-matrix-to-sec-site.md)
+> * [Réplication vers un emplacement local](site-recovery-support-matrix-to-sec-site.md)
 
-Une liste des conditions préalables pour Azure Site Recovery est mentionnée [ici](site-recovery-best-practices.md) et l’article ci-dessous résume les configurations et les composants pris en charge pour Azure Site Recovery lors de la réplication et de la récupération pour un site secondaire appartenant au client.
+Cet article résume ce qui est pris en charge lorsque vous utilisez Azure Site Recovery pour répliquer sur un site secondaire local.
 
-## <a name="support-for-deployment-options"></a>Prise en charge des options de déploiement
+## <a name="deployment-options"></a>Options de déploiement
 
 **Déploiement** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
-**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le guide d’aide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) le guide d’utilisation d’InMage Scout. Non disponible dans le portail Azure | Non pris en charge | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire<br/><br/> Réplication Hyper-V standard uniquement, SAN non pris en charge
-**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Non pris en charge | Mode Maintenance uniquement.
-**PowerShell** | Non pris en charge. | Non pris en charge | Pris en charge
+**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Non pris en charge | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
+**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Non pris en charge | Mode Maintenance uniquement
+**PowerShell** | Non pris en charge | Non pris en charge | Pris en charge
 
+## <a name="on-premises-servers"></a>Serveurs locaux
 
-
-## <a name="support-for-datacenter-management-servers"></a>Prise en charge des serveurs de gestion du centre de données
-
-### <a name="virtualization-management-entities"></a>Entités de gestion de la virtualisation
+### <a name="virtualization-servers"></a>Serveurs de virtualisation
 
 **Déploiement** | **Support**
 --- | ---
 **Machine virtuelle VMware/serveur physique** | vSphere 6.0, 5.5 ou 5.1 avec les dernières mises à jour
-**Hyper-V (avec VMM)** | SCVMM 2016 et SCVMM 2012 R2
+**Hyper-V (avec VMM)** | VMM 2016 et VMM 2012 R2
 
   >[!Note]
-  > Les clouds SCVMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.
+  > Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.
 
 ### <a name="host-servers"></a>Serveurs hôtes
 
@@ -56,23 +54,23 @@ Une liste des conditions préalables pour Azure Site Recovery est mentionnée 
 --- | ---
 **Machine virtuelle VMware/serveur physique** | vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement) 
 **Hyper-V (sans VMM)** | Configuration non prise en charge pour la réplication vers un site secondaire
-**Hyper-V avec VMM** | Windows Server 2016, Windows Server 2012 R2 avec les dernières mises à jour<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par SCVMM 2016
+**Hyper-V avec VMM** | Windows Server 2016 et Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par VMM 2016.
 
-## <a name="support-for-replicated-machine-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
-Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est **applicable pour toutes les charges de travail** en cours d’exécution sur le système d’exploitation mentionné.
+## <a name="support-for-replicated-machine-os-versions"></a>Prise en charge des versions de système d’exploitation de machine répliquée
+Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est applicable pour toutes les charges de travail en cours d’exécution sur le système d’exploitation mentionné.
 
 **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | N’importe quel système d’exploitation invité [pris en charge par Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Tout système d’exploitation invité [pris en charge par Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 >[!Note]
->**Prise en charge du stockage pour les versions Linux** Système de fichiers (EXT3, ETX4, ReiserFS, XFS) Logiciel multichemin : Device Mapper (multichemin)) Gestionnaire de volumes : (LVM2) Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont **pas** pris en charge.
->Le système de fichiers ReiserFS est pris en charge uniquement sur SUSE Linux Enterprise Server 11 SP3.
+>Seules les machines Linux avec le stockage suivant peuvent être répliquées : système de fichiers (EXT3, ETX4, ReiserFS, XFS) ; logiciel Multipath - Mappeur d’appareil ; gestionnaire de volume (LVM2).
+>Les serveurs physiques avec stockage de contrôleur HP CCISS ne sont pas pris en charge.
+>Le système de fichiers ReiserFS n’est pris en charge que sur SUSE Linux Enterprise Server 11 SP3.
 
-## <a name="support-for-network"></a>Prise en charge du réseau
-Les tableaux suivants récapitulent la prise en charge de la configuration réseau dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery pour répliquer vers Azure.
+## <a name="network-configuration"></a>Configuration réseau
 
-### <a name="host-network-configuration"></a>Configuration du réseau hôte
+### <a name="hosts"></a>Hôtes
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
@@ -81,7 +79,7 @@ VLAN | Oui | Oui
 IPv4 | Oui | Oui
 IPv6 | Non | Non
 
-### <a name="guest-vm-network-configuration"></a>Configuration du réseau de machines virtuelles invitées
+### <a name="guest-vms"></a>MV invitées
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
@@ -93,58 +91,58 @@ Adresse IP statique (Linux) | Oui | Oui
 Plusieurs cartes réseau | Oui | Oui
 
 
-## <a name="support-for-storage"></a>Prise en charge du stockage
-Les tableaux suivants récapitulent la prise en charge de la configuration de stockage dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery pour répliquer vers Azure.
+## <a name="storage"></a>Storage
 
-### <a name="host-storage-configuration"></a>Configuration du stockage hôte
+### <a name="host-storage"></a>Stockage hôte
 
 **Stockage (hôte)** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-NFS | Oui | N/D
-SMB 3.0 | N/D | Oui
+NFS | Oui | N/A
+SMB 3.0 | N/A | Oui
 SAN (ISCSI) | Oui | Oui
 Chemins d’accès multiples (MPIO) | Oui | Oui
 
-### <a name="guest-physical-server-storage-configuration"></a>Configuration du stockage sur serveur physique/invité
+### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-VMDK | Oui | N/D
-VHD/VHDX | N/D | Oui (jusqu’à 16 disques)
-Machine virtuelle de 2e génération | N/D | Oui
+VMDK | Oui | N/A
+VHD/VHDX | N/A | Oui (jusqu’à 16 disques)
+Machine virtuelle de 2e génération | N/A | Oui
 Disque de cluster partagé | Oui  | Non
 Disque chiffré | Non | Non
-UEFI| Non | N/D
+UEFI| Non | N/A
 NFS | Non | Non
 SMB 3.0 | Non | Non
-RDM | Oui | N/D
+RDM | Oui | N/A
 Disque > 1 To | Non | Oui
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui | Oui
 Espaces de stockage | Non | Oui
 Ajout/suppression de disque à chaud | Non | Non
 Exclure le disque | Non | Non
-Chemins d’accès multiples (MPIO) | N/D | Oui
+Chemins d’accès multiples (MPIO) | N/A | Oui
 
-## <a name="support-for-recovery-services-vault-actions"></a>Prise en charge des actions de coffre Recovery Services
+## <a name="vaults"></a>Coffres
 
 **Action** | **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | --- | ---
-Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
+Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non | Non
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non | Non
 
-## <a name="support-for-provider-and-agent"></a>Prise en charge du fournisseur et de l’agent
+## <a name="provider-and-agent"></a>Fournisseur et agent
 
 **Nom** | **Description** | **Version la plus récente** | **Détails**
 --- | --- | --- | --- | ---
 **Fournisseur Azure Site Recovery** | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Installé sur des serveurs VMM locaux ou des serveurs Hyper-V, si aucun serveur VMM n’existe | 5.1.19 ([disponible sur le portail](http://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
-**Service de mobilité** | Coordonne la réplication entre les serveurs VMware/serveurs physiques et le site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | N/A (disponible sur le portail) | N/D
+**Service de mobilité** | Coordonne la réplication entre les serveurs VMware locaux ou les serveurs physiques et le site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer  | N/A (disponible sur le portail) | N/A
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Préparer le déploiement](site-recovery-best-practices.md)
+
+En savoir plus sur les [Conditions préalables au déploiement](site-recovery-prereq.md).
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

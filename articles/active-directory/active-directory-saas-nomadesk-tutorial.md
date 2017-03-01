@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3be980b1428c19c7f1f6eb2c165758281d6e46b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 44c1fcd28ab15ec91d07fcfe6510f6e8fc7a9d26
 
 
 ---
@@ -117,7 +117,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
    
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 5. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Nomadesk à l’adresse support@nomadesk.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Nomadesk pour configurer l’authentification unique de son côté.
 6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
@@ -236,6 +236,6 @@ Lorsque vous cliquez sur la vignette Nomadesk dans le volet d’accès, vous dev
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/20/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b2ffd922df97ea3873f0c8559a6e3db97e8632c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -70,7 +71,7 @@ Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virt
 Votre abonnement comporte des [limites de quota](../azure-subscription-service-limits.md) par défaut qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement. Les limites peuvent être augmentées en soumettant un ticket de support demandant leur hausse.
 
 ### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
-Les machines virtuelles utilisent des [disques durs virtuels](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
+Les machines virtuelles utilisent des [disques durs virtuels](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
 
 Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) à utiliser avec différentes versions et différents types de systèmes d’exploitation Windows Server. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier). 
 
@@ -148,10 +149,5 @@ Un [coffre Recovery Services](../backup/backup-introduction-to-azure-backup.md) 
 * Si votre objectif est d’utiliser des machines virtuelles Linux, consultez [Azure et Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour en savoir plus sur les instructions de configuration de votre infrastructure, consultez [Exploration d’un exemple d’infrastructure Azure](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Veillez à suivre les [meilleures pratiques d’exécution d’une machine virtuelle Windows sur Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

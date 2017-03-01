@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble d’Azure Monitoring | Microsoft Docs"
-description: "Présentation générale de la fonction Azure Monitor dans Microsoft Azure, y compris les alertes, les webhooks, l’échelle automatique et autres."
+title: "Vue d’ensemble d’Azure Monitor | Microsoft Docs"
+description: "Azure Monitor collecte des statistiques qui peuvent être utilisées dans les alertes, les webhooks, la mise à l’échelle automatique et l’automatisation. L’article liste également les autres options de surveillance de Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
-ms.openlocfilehash: 2d16a04bb261552dc9eb86bde301d4285dbf4434
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Vue d’ensemble de l’analyse dans Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Vue d’ensemble d’Azure Monitor
 Cet article fournit une vue d’ensemble conceptuelle de la surveillance des ressources Azure. Il propose des références vers des informations sur des types de ressources spécifiques.  Pour obtenir des informations générales sur l’analyse de votre application depuis une autre plate-forme qu’Azure, consultez [Guide de surveillance et de diagnostic](../best-practices-monitoring.md).
 
 La vidéo de procédure pas à pas d’Azure Monitor est disponible à l’adresse  
@@ -148,6 +148,6 @@ En savoir plus sur
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

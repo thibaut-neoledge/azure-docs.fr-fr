@@ -1,10 +1,10 @@
 ---
-title: "Intégration du Kit de développement logiciel (SDK) de Windows Universal"
+title: "Intégration du Kit de développement logiciel (SDK) universel Windows pour Azure Mobile Engagement | Microsoft Docs"
 description: "Intégration de Windows Universal pour le Kit de développement logiciel (SDK) pour Azure Engagement Mobile"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 Ce document décrit toutes les options d’intégration et de configuration disponibles pour le Kit de développement logiciel (SDK) Windows Universal pour Azure Engagement Mobile.
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de commencer ce didacticiel, vous devez suivre notre [didacticiel de 15 minutes](mobile-engagement-windows-store-dotnet-get-started.md).
+Avant de commencer ce didacticiel, vous devez suivre notre [didacticiel de&15; minutes](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Fonctionnalités avancées
 ### <a name="reporting-features"></a>Fonctionnalités de génération de rapports
@@ -40,10 +40,9 @@ Vous pouvez ajouter les fonctionnalités suivantes :
 [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application Windows Universal](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notes de publication
-### <a name="340-04192016"></a>3.4.0 (04/19/2016)
-* Améliorations de la superposition Reach
-* Ajout de l'API « TestLogLevel » aux journaux de console enable/disable/filter émis par le Kit de développement logiciel (SDK).
-* Correction de l’erreur où des notifications dans l’activité ciblant la première activité n’apparaissaient pas au démarrage de l'application.
+### <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* Améliorations de la stabilité.
 
 Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-store-release-notes.md)
 
@@ -78,6 +77,6 @@ Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

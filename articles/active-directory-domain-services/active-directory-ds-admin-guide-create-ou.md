@@ -12,16 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/07/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0707a8efd91d646bf7c417f881ccb9ebb6f2a470
+ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
+ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
 
 
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
 Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
+
+## <a name="before-you-begin"></a>Avant de commencer
+Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :
+
+1. Un **abonnement Azure**valide.
+2. Un **répertoire Azure AD** , synchronisé avec un répertoire local ou un répertoire cloud uniquement.
+3. **services de domaine Azure AD** , qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](active-directory-ds-getting-started.md).
+4. Une machine virtuelle jointe au domaine, qui vous permet d’administrer le domaine géré par les services de domaine Azure AD. Si vous ne disposez pas de cette machine, suivez toutes les tâches décrites dans l’article intitulé [Joindre une machine virtuelle Windows Server à un domaine géré](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Vous devez vous procurer les informations d’identification d’un **compte d’utilisateur appartenant au groupe « AAD DC Administrators »** dans votre répertoire, pour créer une UO personnalisée dans votre domaine géré.
 
 ## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Installer les outils d’administration Active Directory sur une machine virtuelle jointe à un domaine à des fins de gestion à distance
 Vous pouvez administrer à distance les domaines gérés par les services de domaine Azure Active Directory (AD) par l’intermédiaire des outils d’administration familiers d’Active Directory, par exemple le Centre d’administration Active Directory (ADAC, Active Directory Administrative Center) ou AD PowerShell. Les administrateurs clients ne disposent pas des privilèges permettant la connexion aux contrôleurs de domaine sur le domaine géré, via le Bureau à distance. Pour administrer le domaine géré, installez les outils d’administration Active Directory sur une machine virtuelle jointe au domaine géré. Pour savoir comment faire, voir [Administer an Azure AD Domain Services managed domain (Administrer un domaine géré par les services de domaine Azure AD)](active-directory-ds-admin-guide-administer-domain.md) .
@@ -69,12 +78,13 @@ Maintenant que vous avez créé une UO personnalisée, vous pouvez créer des ut
 
 ## <a name="related-content"></a>Contenu connexe
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
+* [Configurer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centre d’administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guide pas à pas des comptes de service (éventuellement en anglais)](https://technet.microsoft.com/library/dd548356.aspx)
 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

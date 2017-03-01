@@ -4,7 +4,7 @@ description: "Découvrez comment mettre à l’échelle des applications horizon
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: stefsch
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e7f816713cc74ca27dd7718e8071f48dd653e213
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -131,9 +132,4 @@ Documentation sur la [prise en charge Powershell Azure Resource Manager Traffic 
 [CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
 [DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

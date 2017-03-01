@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
-ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
+ms.sourcegitcommit: 244471c5e90a0e2d89c34b255f2da077a94f91cf
+ms.openlocfilehash: 1e87486dc7a186c0ab7147719ac47177c87be148
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -50,35 +51,6 @@ Le déploiement du SE invité du mois de novembre commence le 8 novembre 2016,
 ###### <a name="october-23-2016"></a>**23 octobre 2016**
 Windows Server 2016 sera publié en tant que famille du système d’exploitation 5 le 1er novembre 2016, avec prise en charge de .NET 4.6.
 
-###### <a name="september-13-2016"></a>**13 septembre 2016**
-Le déploiement du système d’exploitation invité du mois de septembre commence le 13 septembre 2016, et devrait être publié le 13 octobre 2016.
-
-###### <a name="august-9-2016"></a>**9 août 2016**
-Le déploiement du système d’exploitation invité du mois d’août commence le 9 août 2016, et devrait être publié le 8 septembre 2016. 
-
-###### <a name="july-13-2016"></a>**13 juillet 2016**
-Le déploiement du SE invité commence le 13 juillet 2016, et devrait être publié le 12 août 2016. 
-
-###### <a name="june-15-2016"></a>**15 juin 2016**
-Le déploiement du SE invité commence le 15 juin 2016, et devrait être publié le 14 juillet 2016. 
-
-###### <a name="may-17-2016"></a>**17 mai 2016**
-Le déploiement du SE invité du mois de mai commence le 17 mai 2016 et devrait être publié le 10 juin 2016. 
-
-###### <a name="april-18-2016"></a>**18 avril 2016**
-Le déploiement du SE invité du mois d’avril commence le 18 avril 2016, et devrait être publié le 12 mai 2016. 
-
-###### <a name="march-14-2016"></a>**14 mars 2016**
-Le déploiement du SE invité du mois de mars commence le 14 mars 2016, et devrait être publié le 8 avril 2016. 
-
-###### <a name="february-22-2016"></a>**22 février 2016**
-Le déploiement du SE invité du mois de février commence le 22 février 2016, et devrait être publié le 9 mars 2016.
-
-###### <a name="january-18-2016"></a>**18 janvier 2016**
-Le déploiement du SE invité du mois de janvier commence le 18 janvier 2016, et devrait être publié le 12 février 2016.
-
-###### <a name="january-4-2016"></a>**4 janvier 2016**
-Le déploiement du système d’exploitation invité de 201511-02 de novembre a été publié le 4 janvier 2016. Cette version du système d'exploitation n'étant pas définie comme système d'exploitation par défaut pour la mise à jour automatique, le délai d’approvisionnement du déploiement du système d’exploitation invité de 201511-02 de novembre devrait être légèrement plus long. 
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
@@ -251,10 +223,5 @@ La prise en charge et la stratégie de suppression du SE invité sont détaillé
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

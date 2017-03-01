@@ -4,7 +4,7 @@ description: "Instructions sur la méthode de diagnostic des problèmes courants
 services: notification-hubs
 documentationcenter: Mobile
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -239,10 +240,5 @@ Plus de détails ici :
 [fonctionnalité EnableTestSend]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
 [Accès par programme à la télémétrie]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Exemple d’accès à la télémétrie via les API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

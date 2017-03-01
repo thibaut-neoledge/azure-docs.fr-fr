@@ -4,7 +4,7 @@ description: "Créez une application multiniveau avec ASP.NET MVC et Azure. Le s
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 99cb9917-483a-45f8-a98d-07d19c68c753
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -724,9 +725,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 ### <a name="more-webjobs-documentation"></a>Plus de documentation relative à WebJobs
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

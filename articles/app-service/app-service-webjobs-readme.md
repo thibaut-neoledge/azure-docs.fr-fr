@@ -4,7 +4,7 @@ description: "Découvrez comment créer des tâches WebJobs pour exécuter des t
 services: app-service
 documentationcenter: 
 author: christopheranderson
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 85975432-04c9-4b83-b937-b30c082d52a1
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: chrande
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 45016e09e981bab6e4413048838c66f1108dc663
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -30,10 +31,5 @@ La création, le déploiement et la gestion des tâches web WebJobs sont parfait
 Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionnalités de gestion qui vous donnent un contrôle total sur l’exécution des tâches WebJobs, notamment la possibilité d’appeler des fonctions individuelles dans WebJobs. Le tableau de bord affiche également les runtimes de fonction et la sortie d'enregistrement.
 
 [!INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

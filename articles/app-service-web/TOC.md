@@ -3,6 +3,7 @@
 ## [Présentation d’App Service](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service sur Linux](app-service-linux-intro.md)
+## [FAQ pour App Service sur Linux](app-service-linux-faq.md)
 
 # Prise en main
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Application Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [portail Azure](app-service-web-app-azure-portal.md)
 ### [Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### Applications ASP.NET
 #### [Créer une application ASP.NET dans Azure à l’aide de Visual Studio](web-sites-dotnet-get-started.md)
 #### [Créer un service REST à l’aide de l’API web ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Création d’une application Web ASP.NET 5 dans Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Utilisation de .NET Core dans Web Apps sur Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Applications Node.js
 #### [Développement de Node.js pour App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Génération et déploiement à l’aide de WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### Applications PHP
-#### [Développer des applications PHP pour App Service](app-service-web-php-get-started.md) 
+#### [Développer des applications PHP pour App Service](app-service-web-php-get-started.md)    
 #### [Créer une application web PHP-SQL et la déployer avec Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Créer une application web WordPress dans Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Création et connexion à une base de données MySQL dans Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Flask et stockage de tables avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django et SQL Database sur Azure avec Python Tools 2.2 pour Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Applications Ruby
+#### [Utilisation de Ruby dans Web Apps sur Linux](app-service-linux-using-ruby.md)
 
 ### [Déployer votre première application web de base dans Azure en&5; minutes](app-service-web-get-started-html.md)
 ### [Prise en main de la fonction de test en production pour Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Configurer Python](web-sites-python-configure.md)
 #### [Configurer le démarrage de Node.js sur Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Domaines personnalisés
 #### [Acheter et configurer des domaines personnalisés](custom-dns-web-site-buydomains-web-app.md)
 #### [Mapper votre propre domaine personnalisé](web-sites-custom-domain-name.md)
+#### [Migrer un domaine personnalisé actif](app-service-custom-domain-name-migrate.md)
 #### [Configurer des domaines GoDaddy](web-sites-godaddy-custom-domain-name.md)
 #### [Domaines personnalisés avec Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -248,7 +257,7 @@
 ### [Résoudre les problèmes de performances d’une application Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Référence
-## [Version préliminaire d’Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -264,9 +273,3 @@
 # les ressources
 ## [meilleures pratiques](app-service-best-practices.md)
 ## [Liste des ressources WebJob](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

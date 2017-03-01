@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
-ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
+ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
+ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -71,7 +72,7 @@ Notez les points suivants :
 * Pour `accessRights`, les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur `listen`. Sinon, le runtime Functions pourrait essayer et faire échouer les opérations qui nécessitent des droits de gestion.
 
 ## <a name="trigger-behavior"></a>Comportement du déclencheur
-* **Thread unique** - Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `serviceBus.maxConcurrrentCalls` sur 1 dans *host.json*. 
+* **Thread unique** - Par défaut, le runtime Functions traite plusieurs messages simultanément. Pour que le runtime ne traite qu’un message de file d’attente ou de rubrique à la fois, définissez `serviceBus.maxConcurrentCalls` sur 1 dans *host.json*. 
   Pour plus d’informations sur *host.json*, consultez [Structure des dossiers](functions-reference.md#folder-structure) et [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestion des messages incohérents** - Service Bus assure sa propre gestion des messages incohérents. Il est impossible de la contrôler ou de la configurer dans la configuration ou le code d’Azure Functions. 
 * **Comportement de PeekLock** - Le runtime Functions reçoit un message en mode [`PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) et appelle `Complete` sur le message si la fonction se termine correctement. Si la fonction échoue, il appelle `Abandon`. 
@@ -299,10 +300,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

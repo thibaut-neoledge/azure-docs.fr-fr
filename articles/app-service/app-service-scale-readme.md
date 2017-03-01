@@ -5,7 +5,7 @@ keywords: "app service, azure app service, mise à l&quot;échelle, évolutif, p
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ Toutefois, la mise à l’échelle d’une application est un problème complexe
 Cette section vous aidera à comprendre tous les facteurs et à concevoir une stratégie tirant parti des fonctionnalités d’App Service nécessaires pour atteindre vos objectifs d’évolutivité.
 
 [!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

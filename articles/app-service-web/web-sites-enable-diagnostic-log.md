@@ -4,7 +4,7 @@ description: "Découvrez comment activer la journalisation de diagnostic et ajou
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -286,9 +287,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 ## <a name="whats-changed"></a>Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

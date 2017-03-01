@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
-ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
+ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
+ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
 
 
 ---
@@ -241,7 +241,7 @@ Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et d
 **Architecture du système d’exploitation invité** | 64 bits | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Taille du disque du système d’exploitation** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Nombre de disques du système d’exploitation** | 1 | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-**Nombre de disques de données** | 16 ou moins (la valeur maximale est fonction de la taille de la machine virtuelle créée. 16 = XL). | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
+**Nombre de disques de données** | 64 ou moins si vous répliquez des **machines virtuelles VMware sur Azure** ; 16 ou moins si vous répliquez des **machines virtuelles Hyper-V sur Azure** | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Taille du disque dur virtuel de données** | Jusqu’à 1 023 Go | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 **Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau. |
 **Adresse IP statique** | Pris en charge | Si la machine virtuelle principale utilise une adresse IP statique, vous pouvez spécifier l’adresse associée à la machine qui sera créée dans Azure.<br/><br/> Une adresse IP statique pour une **machine virtuelle Linux s’exécutant sur Hyper-V** n’est pas prise en charge.
@@ -265,6 +265,6 @@ Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

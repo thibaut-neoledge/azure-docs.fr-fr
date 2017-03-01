@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0135732e95279f2e717334d3dd39902b56b0aa90
-ms.openlocfilehash: 30a327f59b8149f41c3b5206e0b0c2fc859934a0
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
 
 
 ---
@@ -49,7 +49,7 @@ Pour plus d’informations sur les rôles et les actions autorisées dans Securi
 Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez au Centre de sécurité pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. La collecte des données est recommandée, mais vous pouvez refuser cette fonctionnalité en la [désactivant](#how-do-i-disable-data-collection) dans la stratégie de Security Center.
 
 ### <a name="how-do-i-disable-data-collection"></a>Comment désactiver la collecte des données ?
-Vous pouvez désactiver la **collecte des données** pour un abonnement dans la stratégie de sécurité à tout moment. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.)  Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la **collecte des données**. Pour supprimer des agents des machines virtuelles existantes, sélectionnez l’option **Supprimer des agents** dans le ruban supérieur.
+Vous pouvez désactiver la **collecte des données** pour un abonnement dans la stratégie de sécurité à tout moment. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.)  Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la **collecte des données**. Les agents de surveillance Azure sont automatiquement supprimés des machines virtuelles existantes de l’abonnement lorsque vous désactivez la collecte des données.
 
 > [!NOTE]
 > Vous pouvez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, mais vous devez sélectionner un abonnement pour désactiver la collecte des données.
@@ -71,7 +71,7 @@ La collecte des données peut être activée via l’agent de surveillance Azure
 L’agent et l’extension utilisent une quantité minime de ressources système et n’ont donc qu’un faible impact sur les performances. Pour en savoir plus sur l’impact sur les performances, l’agent et l’extension, consultez le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### <a name="where-is-my-data-stored"></a>Où sont stockées mes données ?
-Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Vous devez sélectionner le compte de stockage d’un abonnement dans la stratégie de sécurité. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.) Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre. Pour sélectionner une région, sélectionnez **Choisir des comptes de stockage**.
+Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Ainsi, vous pouvez stocker les données dans une même région pour garantir la confidentialité et la souveraineté des données. Vous devez sélectionner le compte de stockage d’un abonnement dans la stratégie de sécurité. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.) Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre. Pour sélectionner une région, sélectionnez **Choisir des comptes de stockage**. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata.
 
 > [!NOTE]
 > Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et de l’abonnement Azure, la sélection d’une région pour votre compte de stockage intervient uniquement au niveau de l’abonnement.
@@ -140,6 +140,7 @@ Les machines virtuelles Windows prises en charge sont les suivantes :
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 Les machines virtuelles Linux prises en charge sont les suivantes :
 
@@ -147,7 +148,7 @@ Les machines virtuelles Linux prises en charge sont les suivantes :
 * Debian versions 7 et 8
 * CentOS versions 6.\* et 7.*
 * Red Hat Enterprise Linux (RHEL) versions 6.\* et 7.*
-* SUSE Linux Enterprise Server (SLES) versions 11.\* et 12.*
+* SUSE Linux Enterprise Server (SLES) versions 11 SP4+ et 12.*
 * Oracle Linux versions 6.\*, 7.*
 
 Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
@@ -163,6 +164,6 @@ L’agent de machine virtuelle doit être installé sur les machines virtuelles 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

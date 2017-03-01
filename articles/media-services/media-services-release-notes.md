@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 17973d439023a1c32ea64a05e1442618da6de511
+ms.sourcegitcommit: 83881cda043fc9f1ef48281e8160a882c1f9bced
+ms.openlocfilehash: 5aa7353e681a16d2032fecaf8a2de50e241ac4ad
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 | Problème | Description |
 | --- | --- |
 | Plusieurs en-têtes HTTP courants ne sont pas fournis dans l'API REST. |Si vous développez des applications Media Services à l'aide de l'API REST, vous constaterez que certains champs d'en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour. |
-| L’encodage par pourcentage n’est pas autorisé. |Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier. |
+| L’encodage par pourcentage n’est pas autorisé. |Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un seul « . » pour l’extension de nom de fichier. |
 | La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue. |Media Services génère des URL SAS basées sur la version du [02/12/2012](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) . Si vous voulez utiliser le Kit de développement logiciel (SDK) d'Azure Storage pour répertorier les objets blob dans un conteneur d'objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) intégrée à la version 2.x de ce kit. La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échouera. |
 | Le mécanisme de limitation de Media Services restreint l'utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d'état HTTP Service indisponible (503). |Pour plus d’informations, reportez-vous à la description du code d’état HTTP 503 dans la rubrique [Codes d’erreur d’Azure Media Services](media-services-encoding-error-codes.md) . |
 | Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. |Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et cet exemple [d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -43,6 +44,10 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 
 ## <a name="a-idrestversionhistoryarest-api-version-history"></a><a id="rest_version_history"></a>Historique des versions de l’API REST
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
+
+## <a name="febuary-2017-release"></a>Version de février 2017
+
+À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Version de janvier 2017
 
@@ -99,6 +104,12 @@ Unités réservées d’encodage renommées pour éviter la confusion avec les n
 Les unités réservées d’encodage De base, Standard et Premium sont renommées S1, S2 et S3, respectivement.  Les clients qui utilisaient des unités réservées d’encodage De base, Standard ou Premium verront respectivement S1, S2 ou S3 comme étiquette dans le portail Azure (et dans la facture). 
 
 ## <a name="a-iddecchanges15adecember-2015-release"></a><a id="dec_changes_15"></a>Version de décembre 2015
+
+### <a name="azure-media-encoder-deprecation-announcement"></a>Annonce de désapprobation d’Azure Media Encoder
+
+Azure Media Encoder sera déconseillé dans 12 mois. Utilisez désormais l’encodeur [Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+
+### <a name="azure-sdk-for-php"></a>Kit de développement logiciel (SDK) Azure pour PHP
 L’équipe du Kit de développement logiciel (SDK) Azure a publié une nouvelle version du package [Kit de développement logiciel (SDK) Azure pour PHP](http://github.com/Azure/azure-sdk-for-php) qui contient des mises à jour et nouvelles fonctionnalités pour Microsoft Azure Media Services. En particulier, le Kit de développement logiciel (SDK) Azure Media Services pour PHP prend désormais en charge les dernières fonctionnalités de [protection du contenu](media-services-content-protection-overview.md) : chiffrement dynamique avec AES et DRM (PlayReady et Widevine), avec et sans restriction de jeton. Il prend également en charge la mise à l’échelle des [Unités d’encodage](media-services-dotnet-encoding-units.md).
 
 Pour plus d’informations, consultez :
@@ -531,10 +542,5 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Gestion des éléments multimédias Media Services sur plusieurs comptes de stockage]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

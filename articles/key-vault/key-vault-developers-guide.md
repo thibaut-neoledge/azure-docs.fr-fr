@@ -33,6 +33,7 @@ Pour des informations plus générales sur le coffre de clés Azure Key Vault, v
 ## <a name="videos"></a>Vidéos
 Cette vidéo vous montre comment créer votre propre coffre de clés et comment l'utiliser à partir de l'exemple d'application « Hello Key Vault ».
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 

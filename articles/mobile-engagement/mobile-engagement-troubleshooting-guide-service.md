@@ -4,7 +4,7 @@ description: "Guides de dépannage pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ Les éléments suivants sont des problèmes potentiels liés à l’exécution d
   * Utilisez une virgule « , » comme caractère de séparation (vous pouvez ouvrir une demande de service pour modifier le caractère de séparation .csv afin que ce ne soit plus une virgule (« , ») mais un autre caractère, par exemple un point-virgule « ; »).
   * Utilisez des minuscules pour les valeurs booléennes « true » et « false ».
   * Utilisez un fichier d'une taille inférieure à la taille maximale de 35 Mo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

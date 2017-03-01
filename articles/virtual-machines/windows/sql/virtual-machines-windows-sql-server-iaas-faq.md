@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: a7d1878931ccf45e8e3192d5d03a4292c5291366
+ms.sourcegitcommit: 42b3e222f24e9b5c1bb26f7e1e36b1e11c2f48b8
+ms.openlocfilehash: 7a8d1451fc1b5ace2996faec22090b1f872bf547
 
 
 ---
@@ -49,6 +49,10 @@ Cette rubrique fournit des réponses à la plupart des questions courantes sur l
 
     Non. Vous ne pouvez pas passer du mode de licence avec paiement à la minute à l’utilisation de votre propre licence. Créez une machine virtuelle Azure avec l’une des [images BYOL](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), puis migrez vos bases de données vers le nouveau serveur à l’aide des [techniques de migration de données](virtual-machines-windows-migrate-sql.md) standard.
 
+7. **Les instances de cluster de basculement (FCI) SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
+
+   Oui. Vous pouvez [créer un cluster de basculement Windows Server\(WSFC\) sur Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) et utiliser les espaces de stockage direct (S2D) pour le stockage du cluster. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+
 7. **Dois-je payer une licence SQL Server sur une machine virtuelle Azure si elle est utilisée uniquement pour le mode veille ou le basculement ?**
    
     Vous n’avez pas à payer une licence pour une instance SQL Server participant en tant que réplica secondaire passif dans un déploiement haute disponibilité, si vous disposez de Software Assurance et utilisez License Mobility comme décrit dans [FAQ sur les licences de machine virtuelle](http://azure.microsoft.com/pricing/licensing-faq/).
@@ -77,6 +81,6 @@ Les autres ressources incluent :
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

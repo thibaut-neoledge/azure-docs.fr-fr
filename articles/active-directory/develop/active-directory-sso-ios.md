@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d76491683d08bf9afd505eebfdede5812e87f458
+ms.sourcegitcommit: a63996ad3661b43bea83870c1fa88fa6d64c6c6a
+ms.openlocfilehash: bc2bb9916baa08b14dc5cfeb0e6d712b1c0522ef
 
 
 ---
@@ -277,10 +277,10 @@ Votre URI de redirection doit présenter la forme appropriée suivante :
 
 ex : *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
+Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure](https://portal.azure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Étape 3a : Ajouter un URI de redirection dans votre application et le portail de développement afin de prendre en charge l’authentification par certificat
-Pour assurer la prise en charge de l’authentification par certificat, vous devez inscrire un second msauth dans votre application et le [portail Azure Classic](https://manage.windowsazure.com/) afin de prendre en charge l’authentification par certificat, si vous souhaitez ajouter cette prise en charge dans votre application.
+Pour assurer la prise en charge de l’authentification par certificat, vous devez inscrire un second msauth dans votre application et le [portail Azure](https://portal.azure.com/) afin de prendre en charge l’authentification par certificat, si vous souhaitez ajouter cette prise en charge dans votre application.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -301,6 +301,6 @@ Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage a
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

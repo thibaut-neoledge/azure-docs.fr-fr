@@ -4,7 +4,7 @@ description: "Découvrez comment déployer des tâches web Azure dans Azure App 
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -175,10 +176,5 @@ Pour une tâche web indépendante, l'Assistant **Publier le site Web** utilisé 
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Étapes suivantes
 Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual Studio. Pour plus d’informations sur le déploiement d’Azure WebJobs, consultez la rubrique [Azure WebJobs - Ressources recommandées - Déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

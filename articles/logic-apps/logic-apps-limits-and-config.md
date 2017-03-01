@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ Voici les limites pour une instance d’application logique.
 
 |Name|Limite|Remarques|
 |----|----|----|
-|Exécutions d’actions par seconde|100|Peuvent distribuer au besoin des flux de travail entre plusieurs applications.|
+|Exécutions d’actions par seconde (rafales)|1&000;|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
+|Exécutions d’actions par heure (soutenues)|1 000 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
 
 ### <a name="definition-limits"></a>Limites de définition
 
@@ -180,9 +182,4 @@ Les appels effectués à partir d’un [connecteur](../connectors/apis-list.md) 
 - [Afficher des exemples et des scénarios courants](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Apprenez à intégrer vos systèmes avec Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

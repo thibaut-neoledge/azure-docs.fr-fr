@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
 ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -76,10 +77,5 @@ Pour les sources de données cloud :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md). Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

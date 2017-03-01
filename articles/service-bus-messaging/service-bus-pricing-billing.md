@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
 Service Bus est disponible en trois niveaux de service : De base, Standard, et [Premium](service-bus-premium-messaging.md). Vous pouvez choisir un niveau de service pour chaque espace de noms Service Bus que vous créez ; cette sélection s’applique à l’ensemble des entités créées dans cet espace de noms.
 
 > [!NOTE]
-> Pour obtenir des informations détaillées sur la tarification actuelle de Service Bus, consultez la [page de tarification Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) et la [FAQ de Service Bus](service-bus-faq.md#service-bus-pricing).
+> Pour obtenir des informations détaillées sur la tarification actuelle de Service Bus, consultez la [page de tarification Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) et la [FAQ de Service Bus](service-bus-faq.md#pricing).
 >
 >
 
@@ -39,7 +39,7 @@ Le niveau **premium** isole les ressources au niveau des couches processeur et m
 
 Les frais de base standards sont facturés en une seule fois par mois et par abonnement Azure. En d’autres termes, après avoir créé un espace de noms Service Bus de niveau standard ou premium, vous serez en mesure de créer autant d’espaces de noms standard ou premium que possible dans ce même abonnement Azure, sans encourir de frais de base supplémentaires.
 
-Tous les espaces de noms Service Bus existants créés avant le 1er novembre 2014 ont été automatiquement placés dans le niveau standard. Cette mesure garantit un accès à toutes les fonctionnalités actuellement disponibles avec Service Bus. Par la suite, vous pourrez utiliser le [portail Azure Classic][portail Azure Classic] pour passer au niveau De base si vous le souhaitez.
+Tous les espaces de noms Service Bus existants créés avant le 1er novembre 2014 ont été automatiquement placés dans le niveau standard. Cette mesure garantit un accès à toutes les fonctionnalités actuellement disponibles avec Service Bus. Par la suite, vous pourrez utiliser le [Portail Azure Classic][Azure classic portal] pour passer au niveau De base si vous le souhaitez.
 
 Le tableau suivant résume les différences fonctionnelles entre les niveaux de base et standard/premium.
 
@@ -55,7 +55,7 @@ Le tableau suivant résume les différences fonctionnelles entre les niveaux de 
 | Messages volumineux |Non |Oui |
 | ForwardTo |Non |Oui |
 | SendVia |Non |Oui |
-| Connexions réparties (incluses) |100 par espace de noms Service Bus |1 000 par abonnement Azure |
+| Connexions réparties (incluses) |100 par espace de noms Service Bus |1&000; par abonnement Azure |
 | Connexions réparties (dépassement autorisé) |Non |Oui (facturable) |
 
 ## <a name="messaging-operations"></a>Opérations de messagerie
@@ -77,13 +77,13 @@ Les prix suivants sont appliqués depuis le 1er novembre 2014 :
 | --- | --- |
 | Frais de base |10 $/mois |
 | Premières 12,5 millions d'opérations par mois |Inclus |
-| De 12,5 à 100 millions d'opérations par mois |0,80 $ par million d'opérations |
-| De 100 à 2 500 millions d'opérations par mois |0,50 $ par million d'opérations |
+| De&12;,5 à&100; millions d'opérations par mois |0,80 $ par million d'opérations |
+| De&100; à&2; 500 millions d'opérations par mois |0,50 $ par million d'opérations |
 | Plus de 2 500 millions d'opérations par mois |0,20 $ par million d'opérations |
 
 | Premium | Coût |
 | --- | --- |
-| Quotidien |Tarif fixe de 11,13 $ par unité de message |
+| Quotidien |Tarif fixe de&11;,13 $ par unité de message |
 
 ## <a name="brokered-connections"></a>Connexions réparties
 *Brokered connections* répondent aux modèles d’utilisation client qui impliquent un grand nombre d’expéditeurs/de destinataires « en permanence connectés » aux files d’attente, aux rubriques ou aux abonnements. Les expéditeurs/destinataires connectés de façon permanente sont ceux qui se connectent à l'aide d'AMQP ou de HTTP avec un délai d'expiration de réception non nul (par exemple, l'interrogation longue HTTP). Les expéditeurs et les destinataires HTTP qui utilisent un délai d'expiration immédiat ne génèrent pas de connexions réparties.
@@ -95,12 +95,12 @@ Le niveau de base inclut et est strictement limité à 100 connexions répartie
 | Connexions réparties (niveau standard) | Coût |
 | --- | --- |
 | Premières 1 000/mois |Incluses dans les frais de base |
-| De 1 000 à 100 000/mois |0,03 $ par connexion/mois |
-| De 100 000 à 500 000/mois |0,025 $ par connexion/mois |
+| De&1; 000 à&100; 000/mois |0,03 $ par connexion/mois |
+| De&100; 000 à&500; 000/mois |0,025 $ par connexion/mois |
 | Plus de 500 000/mois |0,015 $ par connexion/mois |
 
 > [!NOTE]
-> 1 000 connexions réparties sont incluses avec le niveau de messagerie Standard (avec les frais de base) et peuvent être partagées entre toutes les files d’attente, toutes les rubriques et tous les abonnements au sein de l’abonnement Azure associé.
+> 1&000; connexions réparties sont incluses avec le niveau de messagerie Standard (avec les frais de base) et peuvent être partagées entre toutes les files d’attente, toutes les rubriques et tous les abonnements au sein de l’abonnement Azure associé.
 >
 >
 
@@ -147,12 +147,12 @@ Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la tarification Service Bus, consultez la page [sur la tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
-* Pour plus d’informations sur Service Bus, consultez la [FAQ sur la tarification et la facturation de Service Bus](service-bus-faq.md#service-bus-pricing).
+* Pour plus d’informations sur Service Bus, consultez la [FAQ sur la tarification et la facturation de Service Bus](service-bus-faq.md#pricing).
 
-[portail Azure Classic]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

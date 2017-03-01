@@ -4,7 +4,7 @@ description: "Découvrez comment créer, déployer et consommer une application 
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -438,10 +439,5 @@ Si vous souhaitez créer des projets d’application API à partir de zéro, uti
 ![Modèle d’application API dans Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Choisir le modèle de projet d’**Application API Azure** revient à sélectionner le modèle ASP.NET 4.5.2 **Vide**, à cocher la case pour ajouter la prise en charge d’API web et à installer le package NuGet Swashbuckle. En outre, le modèle ajoute du code de configuration Swashbuckle conçu pour empêcher la création d’ID d’opération Swagger en double. Une fois le projet d’application API créé, vous pouvez le déployer dans une application API en procédant comme indiqué dans le didacticiel.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

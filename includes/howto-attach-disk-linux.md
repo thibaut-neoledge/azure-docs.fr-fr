@@ -1,5 +1,5 @@
 
-Pour plus d’informations sur les disques, consultez l’article [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour plus d’informations sur les disques, consultez l’article [À propos des disques et VHD pour machines virtuelles](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 > Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser le disque pour le stockage (pour plus d’informations sur l’initialisation du disque, consultez la procédure ci-après).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -4,7 +4,7 @@ description: "Dépannage des problèmes d’analyse, de surveillance, de segment
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -59,10 +60,5 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 ### <a name="causes"></a>Causes
 * Pour résoudre les problèmes d'incident d'application dans Analyse, Surveillance ou Tableau de bord, veillez à consulter les notes de publication pour les problèmes connus avec les versions précédentes du Kit de développement logiciel (SDK).
 * Pour mieux résoudre les incidents d'application, effectuez un événement à partir d'un périphérique de test avec votre application installée et recherchez l'ID de votre périphérique dans la section « Moniteur – Événements » de l'interface utilisateur d'Azure Mobile Engagement. Effectuez ensuite l'événement à l'origine de l'incident de votre application et cherchez des informations supplémentaires dans la section « Moniteur – Incident » de l'interface utilisateur d'Azure Mobile Engagement. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

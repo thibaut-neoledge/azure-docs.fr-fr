@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser le stockage de file d’attente Micros
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -578,9 +579,4 @@ Vous pouvez également désactiver et activer dynamiquement des fonctions pour c
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Étapes suivantes
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

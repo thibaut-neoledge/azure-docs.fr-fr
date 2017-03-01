@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 4d436776069bd950dd9ab240aeefd986822ee869
+ms.sourcegitcommit: 7e53a249e6a7ea87d7d5855d041db97b5df7053c
+ms.openlocfilehash: 1276506d77695f284c49d0e2f7d57a9162b38bd6
 
 
 ---
@@ -229,7 +229,7 @@ Votre URI de redirection doit présenter la forme appropriée suivante :
 
 ex. : *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure Classic](https://manage.windowsazure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
+Cet URI de direction doit être spécifié dans l’inscription de votre application avec le [portail Azure](https://portal.azure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](active-directory-how-to-integrate.md).
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3: Configurer les autorisations appropriées dans votre application
 Notre application de répartiteur dans Android utilise la fonctionnalité de gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Pour en savoir plus, consultez la [documentation Google pour la fonctionnalité AccountManager](http://developer.android.com/reference/android/accounts/AccountManager.html)
@@ -248,6 +248,6 @@ Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage a
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

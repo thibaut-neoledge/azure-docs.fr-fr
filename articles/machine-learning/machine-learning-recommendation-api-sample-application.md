@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: 9afbae9b7c24c72cbb2ef64e693f7a317dc81a46
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,7 +62,7 @@ Afin de permettre le scénario ci-dessus, procédez comme suit dans le service M
 En général, l'appel de la fonction Obtenez une recommandation dure un certain temps. En attendant, vous pouvez rediriger les données d’utilisation vers le système de recommandation de Machine Learning qui les ajoutera au conteneur de modèle spécifié. Lorsque vous avez suffisamment de données d’utilisation, vous pouvez déclencher une nouvelle génération de modèle de recommandation qui intègre les données d’utilisation supplémentaires. 
 
 ## <a name="prerequisites"></a>Composants requis
-* Visual Studio 2013
+* Visual Studio 2013 ou une version ultérieure
 * Accès à Internet 
 * Abonnement à l'API Recommandations (https://datamarket.azure.com/dataset/amla/recommendations).
 
@@ -90,10 +91,5 @@ Pour une description complète de l’API, consultez la documentation de Microso
 
 ## <a name="disclaimer"></a>Clause d'exclusion de responsabilité
 La version d’évaluation n’est pas conçue pour être exécutée dans un environnement de production. Les données fournies dans le catalogue ne sont pas nombreuses et ne fournissent pas un modèle de recommandation éloquent. Elles sont seulement fournies à titre de démonstration. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

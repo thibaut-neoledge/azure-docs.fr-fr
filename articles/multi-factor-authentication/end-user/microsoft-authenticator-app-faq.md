@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/10/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 45358e89561ef2265ca5d8ae522b823c4629b3fc
-ms.openlocfilehash: f869e456ef40d04f7dd085d4ce7c3d654cdf2091
+ms.sourcegitcommit: 28846f2effd26c5b7ca7a79fba52d8ba1cb4ea91
+ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
+
+Cet article répond aux questions courantes que nous recevons sur l’application Microsoft Authenticator. Si vous ne trouvez pas la réponse à votre question, consultez le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Nous avons également une autre FAQ sur une fonctionnalité de l’application en particulier, [FAQ Se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md).
+
 L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. Cette application est disponible pour Windows Phone, Android et iOS.
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
@@ -40,7 +43,7 @@ Si vous utilisez Microsoft Authenticator pour votre compte professionnel ou scol
 Non, les notifications push fonctionnent uniquement avec les comptes Microsoft et Azure Active Directory. Si votre entreprise ou école utilise des comptes Azure AD, vous pouvez désactiver cette fonctionnalité.  
 
 ### <a name="i-restored-my-device-from-a-backup-and-my-account-codes-are-missing-or-not-working-what-happened"></a>J’ai restauré mon appareil à partir d’une sauvegarde, et les codes de mon compte sont manquants ou ne fonctionnent pas. Que s’est-il passé ?
-Pour des raisons de sécurité, nous ne restaurons pas les comptes à partir de sauvegardes d’application. Si vous restaurez l’application iOS à partir d’une sauvegarde, vos comptes restent affichés, mais ils ne permettent pas de recevoir des vérifications de connexion ou de générer des codes de sécurité. Après la restauration de l’application, supprimez vos comptes et ajoutez-les à nouveau.
+Pour des raisons de sécurité, nous ne restaurons pas les comptes à partir de sauvegardes d’application.  Après la restauration de l’application, supprimez vos comptes et ajoutez-les à nouveau.
 
 ### <a name="i-got-a-new-device-how-do-i-remove-the-microsoft-authenticator-app-from-my-old-device-and-move-to-the-new-one"></a>Je possède un nouvel appareil. Comment supprimer l’application Microsoft Authenticator sur mon ancien appareil et le transférer vers un autre ?
 L’ajout de l’application Microsoft Authenticator à un nouvel appareil n’a pas pour effet de la supprimer automatiquement des autres appareils. Pour gérer les périphériques configurés pour votre compte, rendez-vous sur le site web qui vous permet de gérer la vérification en deux étapes, et choisissez de supprimer les anciennes applications.
@@ -52,10 +55,10 @@ Pour les comptes Microsoft personnels, ce site web correspond à votre page [sé
 * Windows Phone : dans l’écran principal, sélectionnez le bouton de menu, puis **Modifier les comptes**. Cliquez sur le symbole **X** en regard du nom de compte.
 * Android : dans l’écran principal, sélectionnez le bouton de menu, puis **Modifier les comptes**. Cliquez sur le symbole **X** en regard du nom de compte.
 
-Si vous utilisez un appareil Android qui est enregistré auprès de votre organisation, vous devrez peut-être effectuer une étape supplémentaire pour supprimer votre compte. Sur ces appareils, l’application Microsoft Authenticator est automatiquement enregistrée en tant qu’administrateur de l’appareil. Si vous souhaitez désinstaller complètement l’application, vous devez tout d’abord annuler l’inscription de l’application dans les paramètres d’application.
+Si vous utilisez un appareil enregistré auprès de votre organisation, vous devrez peut-être effectuer une étape supplémentaire pour supprimer votre compte. Sur ces appareils, l’application Microsoft Authenticator est automatiquement enregistrée en tant qu’administrateur de l’appareil. Si vous souhaitez désinstaller complètement l’application, vous devez tout d’abord annuler l’inscription de l’application dans les paramètres d’application.
 
 ### <a name="why-does-the-app-request-so-many-permissions"></a>Pourquoi l’application demande-t-elle autant d’autorisations ?
-Voici une liste complète des autorisations que nous vous demandons, et qui décrit la manière dont elles sont utilisées dans l’application :
+Voici la liste complète des autorisations que nous sommes susceptibles de vous demander, ainsi que la manière dont elles sont utilisées dans l’application. Les autorisations qui apparaissent dépendent du type de téléphone que vous utilisez.
 
 * **Appareil photo** : nous utilisons votre appareil photo pour analyser les codes QR lorsque vous ajoutez un compte professionnel, scolaire ou tiers.
 * **Contacts and phone (Contacts et téléphone)** : lorsque vous vous connectez à votre compte Microsoft personnel, nous essayons de simplifier le processus en recherchant les comptes existants que vous utilisez sur votre téléphone.
@@ -77,16 +80,17 @@ C’est normal. La vérification en deux étapes fait appel à deux éléments 
 ## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="contact-us"></a>Nous contacter
-Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la communauté, laissez un commentaire sur cette page ou [contactez le support technique](https://support.microsoft.com/contactus) et nous tâcherons de vous répondre dès que possible.
+Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour publier votre question et obtenir de l’aide de la part de la communauté ou laissez un commentaire sur cette page.
 
 
 ### <a name="related-topics"></a>Rubriques connexes
 * [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) pour les comptes Microsoft
 * Vous rencontrez des [difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) pour votre compte professionnel ou scolaire ?
+* [Utiliser Microsoft Authenticator pour se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md)
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

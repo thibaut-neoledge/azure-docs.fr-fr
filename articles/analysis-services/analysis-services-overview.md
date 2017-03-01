@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
 ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -119,10 +120,5 @@ Les classeurs Excel avec des connexions actives à un serveur Azure Analysis Ser
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous en savez plus sur Azure Analysis Services, il est temps de commencer. Découvrez comment [créer un serveur](analysis-services-create-server.md) dans Azure et [déployer un modèle tabulaire](analysis-services-deploy.md) sur celui-ci.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

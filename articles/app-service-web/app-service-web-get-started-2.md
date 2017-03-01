@@ -4,7 +4,7 @@ description: "Ajouter des fonctionnalités intéressantes à votre application w
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ En outre, découvrez comment en faire plus avec l’application déployée. Voic
   analysez votre application pour la protéger contre les menaces modernes à l’aide du service fourni par [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Exécuter des travaux en arrière-plan](../azure-functions/functions-overview.md) : exécutez des tâches pour le traitement de données, la création de rapports, etc.
 * [Découvrir le fonctionnement d’App Service](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

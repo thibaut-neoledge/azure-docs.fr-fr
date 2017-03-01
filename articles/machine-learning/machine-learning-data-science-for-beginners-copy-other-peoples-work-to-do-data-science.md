@@ -1,6 +1,6 @@
 ---
-title: "Copie de travail de science des données externe - Exemple avec Machine Learning | Microsoft Docs"
-description: "Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Consultez des exemples dans la galerie Cortana Analytics, notamment un exemple d’algorithme de clustering."
+title: "Copie d’exemples de science des données externe - Machine Learning - Azure | Microsoft Docs"
+description: "Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples Machine Learning à partir de la galerie Cortana Analytics."
 keywords: "exemples de science des données, exemple de machine learning, algorithme de clustering, exemple d’algorithme de clustering"
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: f0efc0b10d843c6105446b3960821609e10fd400
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
-L’une des pierres d’angle de la science des données est d’amener d’autres personnes à faire votre travail. Par exemple, trouver un exemple d’algorithme de clustering à utiliser pour votre propre expérience avec Machine Learning.
+L’une des pierres d’angle de la science des données est d’amener d’autres personnes à faire votre travail. Par exemple, trouver un exemple d’algorithme de clustering dans la galerie Cortana Analytics à utiliser pour votre propre expérience avec Machine Learning.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
@@ -84,7 +84,7 @@ J’ai maintenant un point de départ. Je peux remplacer leurs données par les 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Découvrir des expériences qui illustrent les techniques d’apprentissage automatique
 Il existe d’autres expériences dans la [galerie Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) fournies spécifiquement pour donner des exemples de procédures aux personnes novices en matière de science des données. Par exemple, il existe une expérience dans la galerie qui montre comment gérer les valeurs manquantes ([Méthodes de gestion des valeurs manquantes](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Elle vous guide dans les 15 façons de remplacer les valeurs vides et présente les avantages de chaque méthode et quand les utiliser.
 
-![Ouverture d’une expérience de galerie dans Machine Learning Studio - Méthodes pour les valeurs manquantes](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Ouverture d’expériences de galerie dans Machine Learning Studio - Méthodes pour les valeurs manquantes](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [La galerie Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) est l’endroit où trouver des expériences de travail que vous pouvez utiliser comme point de départ pour vos propres solutions.
 
@@ -96,7 +96,6 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des d
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 
