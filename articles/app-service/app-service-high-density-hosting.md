@@ -2,7 +2,7 @@
 title: "Hébergement haute densité sur Azure App Service | Microsoft Docs"
 description: "Hébergement haute densité sur Azure App Service"
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 services: app-service\web
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
 ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -152,10 +153,5 @@ Suivez ces étapes pour configurer un hébergement haute densité pour vos appli
 3. Définissez l’indicateur PerSiteScaling sur true dans le plan App Service.
 4. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
 5. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple, une application à utilisation élevée peut définir **numberOfWorkers** sur **3** afin d’avoir plus de capacité de traitement pour cette application, tandis que les applications à faible utilisation peuvent définir **numberOfWorkers** sur **1**.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

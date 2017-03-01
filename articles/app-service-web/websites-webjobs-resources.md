@@ -4,7 +4,7 @@ description: "Ressources recommandées pour apprendre à utiliser Azure WebJobs 
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -132,10 +133,5 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Site UserVoice d’Azure Web Apps](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Utilisez le hashtag #AzureWebJobs.
 * [Signaler un problème ou un bogue WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

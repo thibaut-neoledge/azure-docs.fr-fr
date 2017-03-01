@@ -4,7 +4,7 @@ description: En savoir plus sur la fonction de test en production dans Azure App
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4623468d-886e-4203-8012-8f86deb2790b
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: f9d423e87938e55daeb07268b11c930fb62755b6
 ms.openlocfilehash: 8fa7ca18fd2ea3a3f672854a0b2e0397cfdbb2bc
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -84,10 +85,5 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 * [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md)
 * [Développement logiciel agile avec Azure App Service](app-service-agile-software-development.md)
 * [Utiliser efficacement les environnements DevOps pour vos applications web](app-service-web-staged-publishing-realworld-scenarios.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

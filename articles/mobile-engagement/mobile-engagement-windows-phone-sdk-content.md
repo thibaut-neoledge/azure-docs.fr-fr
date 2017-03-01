@@ -4,7 +4,7 @@ description: "Découvrez le contenu du Kit de développement logiciel (SDK) Wind
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 * `EngagementIconCloseLight.png` : icône « Fermer » de la notification Reach de Mobile Engagement pour le thème clair Windows Phone.
 * `EngagementIconCloseDark.png` : icône « Fermer » de la notification Reach de Mobile Engagement pour le thème sombre Windows Phone.
 * `EngagementConfiguration.xml` : fichier de configuration de Mobile Engagement. C'est dans ce fichier que vous pouvez personnaliser les paramètres d'Engagement (chaîne de connexion Engagement, rapport sur les incidents, etc.).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

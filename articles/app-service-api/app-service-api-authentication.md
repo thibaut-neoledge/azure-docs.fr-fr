@@ -4,7 +4,7 @@ description: "En savoir plus sur les services d’authentification et d’autori
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -108,10 +109,5 @@ Pour plus d’informations sur Azure Active Directory, consultez les ressources 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article a décrit les fonctionnalités d’authentification et d’autorisation d’App Service que vous pouvez utiliser pour API Apps. Dans le prochain didacticiel de la série « Prise en main », vous allez apprendre à implémenter [l’authentification utilisateur dans App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

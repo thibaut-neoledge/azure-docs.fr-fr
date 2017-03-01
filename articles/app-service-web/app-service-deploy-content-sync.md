@@ -4,7 +4,7 @@ description: "Apprenez à déployer votre application dans Azure App Service via
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,10 +48,5 @@ Pour activer la synchronisation de contenu à partir du [portail Azure](https://
     ![Historique des déploiements](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 Vous trouverez plus d’informations pour le déploiement Dropbox sous [Déployer à partir de Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

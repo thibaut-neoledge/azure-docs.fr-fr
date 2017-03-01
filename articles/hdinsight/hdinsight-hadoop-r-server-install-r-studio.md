@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
 ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -112,10 +113,5 @@ Vous pouvez également taper `source(testhdi.r)` ou `source(testhdi_spark.r)` po
 ## <a name="see-also"></a>Voir aussi
 * [Calcul d’options de contexte pour R Server sur les clusters HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Options d’Azure Storage pour R Server sur HDInsight](hdinsight-hadoop-r-server-storage.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

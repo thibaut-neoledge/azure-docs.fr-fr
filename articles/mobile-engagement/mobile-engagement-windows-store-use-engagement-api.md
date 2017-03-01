@@ -4,7 +4,7 @@ description: "Comment utiliser l&quot;API Engagement sur Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: bb501fca-9cfe-4495-81df-b5efd6e0137b
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8a643b01057386722aa73df6fa3937c923c378ef
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -320,10 +321,5 @@ Ces journaux ne sont pas activés par défaut. Pour personnaliser ce résultat, 
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

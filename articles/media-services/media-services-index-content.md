@@ -4,7 +4,7 @@ description: "Azure Media Indexer permet de rendre le contenu de vos fichiers mu
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: adsolank;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dd0c9ce36fcb831b053b75b5fecd6f149b3bbb0e
 ms.openlocfilehash: 33e7cfdb4a2b4cd38e85b6f5e07c09a431a086c4
+ms.lasthandoff: 11/22/2016
 
 
 ---
@@ -278,10 +279,5 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 [Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 
