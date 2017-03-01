@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: aeaf8d06749d63d19e02573b5bf66ceac644cb3e
+ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
+ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -147,9 +148,9 @@ Le tableau 2 fournit un résumé des instructions relatives au serveur de traite
 
 | **Taux de modification des données** | **UC** | **Mémoire** | **Taille du disque cache** | **Débit du disque cache** | **Bande passante en entrée/sortie** |
 | --- | --- | --- | --- | --- | --- |
-| < 300 Go |4 processeurs virtuels (2 sockets * 2 cœurs @ 2,5 GHz) |4 Go |600 Go |7 à 10 Mo par seconde |30 Mbits/s /&21; Mbits/s |
-| 300 à 600 Go |8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz) |6 Go |600 Go |11 à 15 Mo par seconde |60 Mbits/s /&42; Mbits/s |
-| 600 Go à 1 To |12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz) |8 Go |600 Go |16 à 20 Mo par seconde |100 Mbits/s /&70; Mbits/s |
+| < 300 Go |4 processeurs virtuels (2 sockets * 2 cœurs à 2,5 GHz) |4 Go |600 Go |7 à 10 Mo par seconde |30 Mbits/s /&21; Mbits/s |
+| 300 à 600 Go |8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz) |6 Go |600 Go |11 à 15 Mo par seconde |60 Mbits/s /&42; Mbits/s |
+| 600 Go à 1 To |12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz) |8 Go |600 Go |16 à 20 Mo par seconde |100 Mbits/s /&70; Mbits/s |
 | > 1 To |Déployer un autre serveur de traitement | | | | |
 
 **Tableau 2**
@@ -201,7 +202,7 @@ Notez les points suivants :
 | **Stockage Azure** |Vous aurez besoin d’un compte Azure Storage pour stocker les données répliquées<br/><br/> Vous avez besoin d’un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage) ou d’un [compte de stockage premium](../storage/storage-premium-storage.md).<br/><br/> Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement. Nous ne prenons pas en charge le déplacement des comptes de stockage créés à l’aide du [nouveau Portail Azure](../storage/storage-create-storage-account.md) dans les groupes de ressources.<br/><br/> Pour en savoir plus, consultez [Introduction à Microsoft Azure Storage](../storage/storage-introduction.md). | |
 | **Réseau virtuel Azure** |Vous aurez besoin d'un réseau virtuel Azure sur lequel le serveur de configuration et le serveur cible maître seront déployés. Il doit être dans le même abonnement et la même région que le coffre Azure Site Recovery. Si vous souhaitez répliquer des données avec une connexion ExpressRoute ou VPN, le réseau virtuel Azure doit être connecté à votre réseau local par le biais d'une connexion ExpressRoute ou d'un VPN de site à site. | |
 | **Ressources Azure** |Assurez-vous d'avoir suffisamment de ressources Azure pour déployer tous les composants. En savoir plus sur les [limites d’abonnement Azure](../azure-subscription-service-limits.md). | |
-| **Azure Virtual Machines** |Les machines virtuelles à protéger doivent être conformes aux [conditions préalables requises pour Azure](site-recovery-best-practices.md).<br/><br/> **Nombre de disques** : un serveur protégé peut prendre en charge jusqu’à 31 disques.<br/><br/> **Taille des disques** : la capacité d’un disque ne doit pas dépasser 1023 Go.<br/><br/> **Clustering** : les serveurs en cluster ne sont pas pris en charge.<br/><br/> **Démarrage** : le démarrage UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) n’est pas pris en charge.<br/><br/> **Volumes** : les volumes chiffrés par Bitlocker ne sont pas pris en charge.<br/><br/> **Noms des serveurs**: les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure. | |
+| **Azure Virtual Machines** |Les machines virtuelles à protéger doivent être conformes aux [conditions préalables requises pour Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Nombre de disques** : un serveur protégé peut prendre en charge jusqu’à 31 disques.<br/><br/> **Taille des disques** : la capacité d’un disque ne doit pas dépasser 1023 Go.<br/><br/> **Clustering** : les serveurs en cluster ne sont pas pris en charge.<br/><br/> **Démarrage** : le démarrage UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) n’est pas pris en charge.<br/><br/> **Volumes** : les volumes chiffrés par Bitlocker ne sont pas pris en charge.<br/><br/> **Noms des serveurs**: les noms doivent contenir entre 1 et 63 caractères (lettres, chiffres et traits d’union). Le nom doit commencer par une lettre ou un chiffre et se terminer par une lettre ou un chiffre. Une fois qu'un ordinateur est protégé, vous pouvez modifier le nom Azure. | |
 | **Serveur de configuration** |Une machine virtuelle A3 standard basée sur une image de la galerie Azure Site Recovery Windows Server 2012 R2 est créée dans votre abonnement pour le serveur de configuration. Elle est créée comme première instance d'un nouveau service cloud. Si vous sélectionnez Internet public comme type de connectivité pour le serveur de configuration, le service cloud est créé avec une adresse IP publique réservée.<br/><br/> Le chemin d’installation doit contenir uniquement des caractères anglais. | |
 | **Serveur cible maître** |Machine virtuelle Azure, A4 standard, D14 standard ou DS4 standard.<br/><br/> Le chemin d’installation ne doit contenir que des caractères anglais. Par exemple, le chemin d’accès doit être **/usr/local/ASR** pour un serveur cible maître exécutant Linux. | |
 | **Serveur de traitement** |Vous pouvez déployer le serveur de traitement sur un ordinateur physique ou virtuel exécutant Windows Server 2012 R2 avec les dernières mises à jour. Installez-le sur C:/.<br/><br/> Nous vous recommandons de placer le serveur sur le même réseau et sous-réseau que les ordinateurs que vous souhaitez protéger.<br/><br/> Installez VMware vSphere CLI 5.5.0 sur le serveur de processus. Le composant VMware vSphere CLI est requis sur le serveur de processus pour permettre la découverte des machines virtuelles gérées par un serveur vCenter ou exécutées sur un hôte ESXi.<br/><br/> Le chemin d’installation doit contenir uniquement des caractères anglais.<br/><br/> Le système de fichiers ReFS n’est pas pris en charge. | |
@@ -739,9 +740,4 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

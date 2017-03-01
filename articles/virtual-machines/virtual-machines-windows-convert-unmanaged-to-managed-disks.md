@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ Vous ne pouvez pas convertir une machine virtuelle non gérée créée dans le m
 
 **Disques de données** :
 1.    Détachez le disque de données de la machine virtuelle.
-2.    Copiez le disque dur virtuel sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../storage/storage-use-azcopy.md) : `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copiez le disque dur virtuel sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../storage/storage-use-azcopy.md) : `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.    Attachez le disque copié à la machine virtuelle et convertissez cette dernière.
 
 **Disque du système d’exploitation** :
 1.    Arrêtez la libération de la machine virtuelle. Si nécessaire, enregistrez la configuration de la machine virtuelle.
-2.    Copiez le disque dur virtuel du système d’exploitation sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../storage/storage-use-azcopy.md) : `https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copiez le disque dur virtuel du système d’exploitation sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../storage/storage-use-azcopy.md) : `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Créez une machine virtuelle qui utilise des disques gérés et, lors de sa création, attachez ce fichier de disque dur virtuel en tant que disque du système d’exploitation.
 
 
@@ -176,10 +177,5 @@ Vous pouvez également utiliser un mélange de disques qui utilisent le stockage
 ## <a name="next-steps"></a>Étapes suivantes
 
 Créez une copie en lecture seule d’une machine virtuelle en utilisant des [captures instantanées](virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

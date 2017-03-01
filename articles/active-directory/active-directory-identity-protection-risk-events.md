@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dfd9690f2e3e017ca308649f79a84466d49d844
-ms.openlocfilehash: 91ee5da0885fc0b044150e524757eac659a003a4
+ms.sourcegitcommit: e37f1716b459ea8eb0f2d0a5a12e7a3a8ab2c083
+ms.openlocfilehash: e2ec0cefb6e009f22c3406ccd1570748dc467ed0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -135,7 +136,7 @@ Le tableau ci-dessous répertorie les différents types d’événements à risq
 | Connexions depuis des adresses IP anonymes |Connexions à partir de sources inconnues |
 | Connexions depuis des adresses IP avec des activités suspectes |Connexions depuis des adresses IP avec des activités suspectes |
 | Connexions depuis des emplacements non connus |- |
-| Événements de verrouillage |- |
+
 
 Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans Azure AD Identity Protection et ne sont donc pas disponibles via Identity Protection. Ces rapports sont toujours disponibles dans le portail Azure Classic. Cependant, ils seront déconseillés ultérieurement du fait de leur remplacement par des événements à risque dans Identity Protection.
 
@@ -149,10 +150,5 @@ Les rapports d’activités anormales d’Azure AD suivants ne sont pas inclus e
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
