@@ -94,7 +94,7 @@ Pour créer la règle suivante (ou vérifier les règles par défaut existantes)
 
 Créez une nouvelle règle et indiquez un nom, par exemple « WebTraffic ». 
 
-L'icône de la règle NAT de destination se présente ainsi :  ![Icône NAT de destination][2]
+L'icône de la règle NAT de destination se présente ainsi : ![Icône NAT de destination][2]
 
 La règle proprement dite se présente ainsi :
 

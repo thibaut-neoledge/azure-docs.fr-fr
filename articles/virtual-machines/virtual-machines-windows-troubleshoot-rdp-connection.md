@@ -1,5 +1,5 @@
 ---
-title: "Impossible d’établir une connexion RDP à une machine virtuelle Azure | Microsoft Docs"
+title: "Impossible de se connecter avec RDP à une machine virtuelle Windows dans Azure | Microsoft Docs"
 description: "Résolution des problèmes lorsque vous ne pouvez pas vous connecter à votre machine virtuelle Windows dans Azure à l’aide du Bureau à distance"
 keywords: "erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance"
 services: virtual-machines-windows
@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/26/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
+ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
+ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -40,7 +41,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 6. Redémarrez votre machine virtuelle.
 7. Redéployez votre machine virtuelle.
 
-Si vous avez besoin de procédures plus détaillées et d’explications, poursuivez la lecture.
+Si vous avez besoin de procédures plus détaillées et d’explications, poursuivez la lecture. Vérifiez que l’équipement réseau local, notamment les routeurs et les pare-feu, ne bloque pas le port TCP 3389 sortant, comme indiqué dans les [scénarios détaillés de dépannage RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > Si le bouton **Connecter** de votre machine virtuelle est grisé dans le portail et que vous n’êtes pas connecté à Azure avec une connexion [Express Route](../expressroute/expressroute-introduction.md) ou [réseau privé virtuel de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser le protocole RDP. Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [cet article](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
@@ -248,14 +249,7 @@ Vous pouvez recevoir un message d’erreur spécifique lorsque vous tentez de vo
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 Si aucune de ces erreurs ne s’est produite et que vous ne parvenez toujours pas à vous connecter à la machine virtuelle avec le Bureau à distance, consultez le [guide de résolution des problèmes du Bureau à distance](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-* [Package de diagnostic Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * Pour connaître les étapes de résolution des problèmes d’accès aux applications exécutées sur une machine virtuelle, consultez [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Si vous rencontrez des problèmes pour vous connecter à une machine virtuelle Linux dans Azure avec SSH (Secure Shell), consultez [Résolution des problèmes de connexions SSH à une machine virtuelle de Linux dans Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

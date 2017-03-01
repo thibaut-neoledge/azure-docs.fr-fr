@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
-ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
 
 
 ---
@@ -35,7 +35,7 @@ Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques e
 
 ![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/app-insights-metrics-explorer/03-range.png)
 
-Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Dans la version finale, les données peuvent mettre un certain temps pour passer du pipeline d'analyse au graphique.
+Si vous attendez des données qui ne sont pas encore affichées, cliquez sur Actualiser. Les graphiques s’actualisent régulièrement, mais plus les intervalles de temps sur lesquels ils portent sont étendus, plus les intervalles d’actualisation sont longs. Les données peuvent mettre un certain temps pour passer du pipeline d’analyse au graphique.
 
 Pour faire un zoom sur une partie d’un graphique, placez le curseur dessus :
 
@@ -115,6 +115,11 @@ La méthode par défaut de chaque mesure s’affiche lorsque vous créez un grap
 
 ![Désélectionnez toutes les métriques afin d’afficher les valeurs par défaut](./media/app-insights-metrics-explorer/06-total.png)
 
+## <a name="pin-y-axis"></a>Épingler l’axe des ordonnées 
+Par défaut, un graphique affiche les ordonnées à partir de zéro jusqu’aux valeurs maximales dans la plage de données, afin de donner une représentation visuelle du quantum des valeurs. Mais parfois, plus que le quantum, il peut être intéressant d’examiner visuellement les changements mineurs dans les valeurs. Pour ce genre de personnalisations, utilisez la fonction d’édition de la plage des ordonnées afin d’épingler la valeur Y minimale ou maximale à l’endroit souhaité.
+Activez la case à cocher « Paramètres avancés » pour afficher les paramètres de la plage des ordonnées.
+
+![Cliquez sur Paramètres avancés, sélectionnez une plage personnalisée et spécifiez les valeurs minimale et maximale.](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>Filtrer vos données
 Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélectionné :
@@ -158,23 +163,9 @@ Si vous modifiez un panneau, mais que vous souhaitez revenir à la configuration
 
 ![Dans les boutons en haut de Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## <a name="live-metrics-stream"></a>Flux de métriques temps réel
 
-## <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>Live Metrics Stream : mesures instantanées pour une analyse détaillée
-Live Metrics Stream indique les mesures de votre application à ce moment précis avec une latence en temps réel proche d’1 seconde. Cette fonctionnalité est très utile lorsque vous libérez une nouvelle build et souhaitez vous assurer que tout fonctionne comme prévu, ou examinez d’un incident en temps réel.
-
-![Dans le panneau Vue d'ensemble, cliquez sur Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
-
-Contrairement à Metrics Explorer, Live Metrics Stream affiche un ensemble fixe de mesures. Les données persistent uniquement tant qu’elles se trouvent sur le graphique et sont ensuite ignorées.
-
-### <a name="live-failures"></a>Échecs dynamiques
-
-Si des échecs ou des exceptions sont enregistrés, le flux temps réel en sélectionne un échantillon. Cliquez sur **Pause** pour conserver un échantillon spécifique, puis sélectionnez un événement pour en afficher les détails.
-
-![Échecs dynamiques échantillonnés](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-Le flux de métriques temps réel est disponible avec la dernière version du [Kit de développement logiciel (SDK) Application Insights pour le web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
+Pour obtenir une vue bien plus immédiate de votre télémétrie, ouvrez le [Flux temps réel](app-insights-live-stream.md). La plupart des mesures s’affichent au bout de quelques minutes en raison du processus d’agrégation. En revanche, les métriques temps réel sont optimisées pour avoir une faible latence. 
 
 ## <a name="set-alerts"></a>Définir des alertes
 Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
@@ -224,6 +215,6 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Guide de dépannage pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -114,10 +115,5 @@ Si vous ne parvenez pas à résoudre le problème vous-même, vous pouvez :
    * ID de périphérique
    * Version du kit de développement logiciel Mobile Engagement (par exemple, le kit de développement logiciel Android v2.1.0)
    * Détails de l’erreur avec message d’erreur exact et scénario
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

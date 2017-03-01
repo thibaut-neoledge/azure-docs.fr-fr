@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5f3881cb477c3cb90adfc53a57ff82a8d312d0f
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: ad15b1695ad4697aebc38ac39723a1dd1647c466
+ms.lasthandoff: 02/23/2017
 
 
 
@@ -19,11 +20,6 @@ Les bases de données ne doivent pas nécessairement être créées avec le port
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois vos collection et base de données créées, vous pouvez [ajouter des documents JSON](documentdb-view-json-document-explorer.md) à l’aide de l’Explorateur de documents du portail, [importer des documents](documentdb-import-data.md) dans la collection à l’aide de l’outil de migration de données DocumentDB ou encore utiliser l’un des [SDK DocumentDB](documentdb-sdk-dotnet.md) pour effectuer des opérations CRUD. DocumentDB possède les kits de développement logiciel (SDK) de .NET, Java, Python, Node.js et de l’API JavaScript. Pour obtenir des exemples de code .NET montrant comment créer, mettre à jour et supprimer des documents, consultez les [exemples de document .NET](documentdb-dotnet-samples.md#document-examples). Pour en savoir plus sur l’utilisation des documents à l’aide du Kit de développement logiciel (SDK) Node.js, consultez les [exemples de document Node.js](documentdb-nodejs-samples.md#document-examples). 
 
-Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-sql-queries) sur vos documents à l’aide de [l’Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [SDK](documentdb-sdk-dotnet.md). 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
+Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#ExecutingSqlQueries) sur vos documents à l’aide de [l’Explorateur de requête](documentdb-query-collections-query-explorer.md) du portail, de [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [SDK](documentdb-sdk-dotnet.md). 
 
 

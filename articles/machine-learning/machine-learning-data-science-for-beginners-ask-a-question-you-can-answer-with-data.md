@@ -1,7 +1,7 @@
 ---
-title: "Poser une question à laquelle les données permettent de répondre - formuler des questions | Microsoft Docs"
-description: "Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Inclut une comparaison des questions de classification et de régression."
-keywords: "questions de science des données, formuler des questions,questions de régression,questions de classification,question précise"
+title: "Poser une question à laquelle les données peuvent répondre - Problèmes de science des données - Azure | Microsoft Docs"
+description: "Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression."
+keywords: "problèmes de science des données,questions de science des données, formuler des questions,questions de régression,questions de classification,question précise"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 4e6a7a47f83b0db4380fe3bbf26efd292e4c8054
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants
-Découvrez comment formuler une question de science des données dans la vidéo Science des données pour les débutants nº 3. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
+Découvrez comment formuler un problème de science des données en une question dans la vidéo 3 Science des données pour les débutants. Cette vidéo inclut une comparaison des questions faisant appel aux algorithmes de classification et de régression.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en cinq petites vidéos.
@@ -100,7 +100,6 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 
 
 
-
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

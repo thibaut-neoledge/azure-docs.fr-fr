@@ -3,7 +3,7 @@ title: "Meilleures pratiques : Gestion des mots de passe Azure AD | Microsoft D
 description: "Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Déploiement de la gestion des mots de passe et formation des utilisateurs
 > [!IMPORTANT]
 > **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 L’étape qui suit l’activation de la réinitialisation de mot de passe consiste à autoriser les utilisateurs à utiliser le service dans votre organisation. Pour ce faire, vous devez vous assurer que vos utilisateurs sont configurés pour utiliser le service correctement et également qu’ils disposent de la formation nécessaire pour réussir à gérer leurs mots de passe. Cet article vous explique les concepts suivants :
 
@@ -122,11 +123,11 @@ Vous pouvez télécharger les données d’authentification via le [portail de g
 2. Cliquez sur l’onglet **Utilisateurs** .
 3. Sélectionnez l’utilisateur qui vous intéresse dans la liste.
 4. Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe.
-   
+
    ![][005]
 5. Cliquez sur l’onglet **Informations professionnelles** .
 6. Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**.  Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe.
-   
+
    ![][006]
 
 Pour voir comment chacune de ces propriétés peut être utilisée, consultez la section [Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) .
@@ -140,7 +141,7 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Liens vers la documentation de réinitialisation du mot de passe
+## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
 * **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
@@ -159,9 +160,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

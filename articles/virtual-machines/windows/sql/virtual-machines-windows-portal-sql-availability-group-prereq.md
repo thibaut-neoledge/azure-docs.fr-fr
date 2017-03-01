@@ -14,7 +14,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2016
+ms.date: 01/10/2017
 ms.author: mikeray
 translationtype: Human Translation
 ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
@@ -506,6 +506,7 @@ Répétez ces étapes sur le second serveur SQL.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un groupe de disponibilité Always On sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+
 
 
 <!--HONumber=Jan17_HO2-->

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 599b0bdaef2d0189bbe03153ff82489fbd32dd1b
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
 
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
+
 Découvrez comment activer la journalisation de diagnostic pour votre compte Data Lake Analytics et comment afficher les journaux collectés pour votre compte.
 
 Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Analytics, afin de collecter des pistes d’audit d’accès aux données. Ces journaux fournissent des informations comme :
@@ -30,47 +31,72 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 * La quantité de données stockées dans le compte.
 
 ## <a name="prerequisites"></a>Composants requis
+
 * **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Activation de votre abonnement Azure** pour la version préliminaire publique de Data Lake Analytics. Consultez les [instructions](data-lake-analytics-get-started-portal.md).
+
 * **Compte Azure Data Lake Analytics**. Suivez les instructions de [Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
-1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-2. Ouvrez votre compte Data Lake Analytics et dans le panneau de votre compte Data Lake Analytics, cliquez sur **Paramètres**, puis sur **Paramètres de diagnostic**.
-3. Dans le panneau **Diagnostic** , apportez les modifications suivantes pour configurer la journalisation de diagnostic.
 
-    ![Activer la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
+
+2. Ouvrez votre compte Data Lake Analytics et sélectionnez **Journaux de Diagnostic** dans la __section Surveillance__. Ensuite, sélectionnez __Activer les diagnostics__.
+
+    ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+
+3. Dans les __Paramètres de diagnostic__, définissez le statut sur __Activé__ et sélectionnez les options de journalisation.
+
+    ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
 
    * Définissez **État** sur **Activé** pour activer la journalisation de diagnostic.
+
    * Vous pouvez choisir de stocker/traiter les données de deux manières différentes.
-     * Sélectionnez **Exporter vers Event Hub** pour transmettre les données de journal à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations sur l’Event Hub Azure que vous souhaitez utiliser.
-     * Sélectionnez **Exporter vers un compte de stockage** pour stocker les journaux sur un compte de Stockage Azure. Utilisez cette option si vous souhaitez archiver les données. Si vous sélectionnez cette option, vous devez fournir un compte de Stockage Azure sur lequel enregistrer les journaux.
+
+     * Sélectionnez __Archive to a storage account (Archiver dans un compte de stockage)__ pour stocker les journaux dans un compte de stockage Azure. Utilisez cette option si vous souhaitez archiver les données. Si vous sélectionnez cette option, vous devez fournir un compte de stockage Azure dans lequel enregistrer les journaux.
+
+     * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
+
+     * Sélectionnez __Send to Log Analytics (Envoyer à Log Analytics)__ pour envoyer les données au service Log Analytics. Utilisez cette option si vous souhaitez utiliser Log Analytics pour collecter et analyser les journaux.
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
+
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées.
+
    * Cliquez sur **Save**.
 
-Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic** .
+        > [!NOTE]
+        > Vous devez sélectionner __Archive to a storage account (Archiver dans un compte de stockage)__, __Stream to an Event hub (Transmettre à un Event Hub)__ ou __Send to Log Analytics (Envoyer à Log Analytics)__ avant de cliquer sur le bouton __Enregistrer__.
+
+Une fois que vous avez activé les paramètres de diagnostic, vous pouvez revenir au panneau __Journaux de diagnostic__ pour afficher les journaux.
 
 ## <a name="view-logs"></a>afficher les journaux ;
+
 Il existe deux manières d’afficher les données de journal de votre compte Data Lake Analytics :
 
 * À partir des paramètres de compte Data Lake Analytics
 * À partir du compte de Stockage Azure dans lequel les données sont stockées
 
 ### <a name="using-the-data-lake-analytics-settings-view"></a>Utilisation de la vue des paramètres Data Lake Analytics
-1. Dans le panneau **Paramètres** de votre compte Data Lake Analytics, cliquez sur **Journaux de diagnostic**.
 
-    ![Afficher la journalisation de diagnostic](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de demande**.
+1. Dans le volet de votre compte Data Lake Analytics, sélectionnez **Journaux de diagnostic**, puis sélectionnez l’entrée pour laquelle afficher les journaux.
+
+    ![Afficher la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic")
+
+2. Les journaux sont classés par **journaux d’audit** et **journaux de requêtes**.
+
+    ![entrées de journal](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Les journaux de demande capturent chaque demande d’API effectuée sur le compte Data Lake Analytics.
    * Les journaux d’audit sont similaires aux journaux de demande, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Analytics. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
+
 3. Cliquez sur le lien **Télécharger** d’une entrée de journal pour le télécharger.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>À partir du compte de Stockage Azure qui contient des données de journal
-1. Ouvrez le panneau du compte de Stockage Azure associé à Data Lake Analytics pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service BLOB** répertorie deux conteneurs.
 
-    ![Afficher la journalisation de diagnostic](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+1. Ouvrez le panneau du compte de Stockage Azure associé à Data Lake Analytics pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
+
+    ![Afficher la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
 
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
    * Le conteneur **insights-logs-requests** contient les journaux de demande.
@@ -94,8 +120,6 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
 
    > [!NOTE]
    > Le panneau `##` dans le chemin d’accès contiennent l’année, le mois, le jour et l’heure auxquels le journal a été créé. Data Lake Analytics crée un fichier toutes les heures, par conséquent, `m=` contient toujours une valeur de `00`.
-   >
-   >
 
     Par exemple, le chemin d’accès complet à un journal d’audit peut être :
 
@@ -106,9 +130,11 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## <a name="log-structure"></a>Structure journal
+
 Les journaux d’audit et de demande sont au format JSON. Dans cette section, nous examinons la structure JSON des journaux de demande et d’audit.
 
 ### <a name="request-logs"></a>journaux de demande
+
 Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque objet blob a un objet racine appelé **enregistrements** qui contient un tableau d’objets du journal.
 
     {
@@ -140,6 +166,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
     }
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
@@ -153,6 +180,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | properties |JSON |Consultez la section suivante (Schéma des propriétés de journal de demande) pour plus d’informations |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
+
 | Name | Type | Description |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
@@ -163,6 +191,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | EndTime |Chaîne |L’heure à laquelle le serveur a envoyé une réponse. |
 
 ### <a name="audit-logs"></a>Journaux d’audit
+
 Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque objet blob a un objet racine appelé **records** qui contient un tableau d’objets du journal
 
     {
@@ -189,6 +218,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
     }
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
+
 | Name | Type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
@@ -206,6 +236,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 >
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
+
 | Name | Type | Description |
 | --- | --- | --- |
 | JobId |Chaîne |L’ID affecté à la tâche. |
@@ -218,10 +249,9 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** et **Parallelism** fournissent des informations sur une opération et contiennent uniquement une valeur si une opération a démarré ou s’est terminée. Par exemple, **SubmitTime** contient une valeur après **qu’operationName** indique **JobSubmitted**.
->
->
 
 ## <a name="process-the-log-data"></a>Traiter les données de journal
+
 Azure Data Lake Analytics fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -229,6 +259,6 @@ Azure Data Lake Analytics fournit un exemple de traitement et d’analyse des do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

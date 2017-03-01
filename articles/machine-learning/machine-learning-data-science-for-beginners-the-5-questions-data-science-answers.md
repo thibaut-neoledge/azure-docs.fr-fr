@@ -1,7 +1,7 @@
 ---
-title: "Les 5 questions de la science des données : Science des données pour les débutants | Microsoft Docs"
+title: "Les 5 questions de la science des données - Science des données pour les débutants - Azure | Microsoft Docs"
 description: "Découvrez une présentation rapide de la science des données avec la série Science des données pour les débutants, cinq courtes vidéos qui commencent par Les 5 questions auxquelles la science des données répond."
-keywords: "utiliser la science des données,débutants en science des données,science des données pour les débutants,types de questions,questions de science des données,vidéo de sciences de données"
+keywords: "utiliser la science des données,débutants en science des données,science des données pour les débutants,notions de base de la science des données,questions de science des données,vidéo de sciences de données,présentation de la science des données"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
+ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
+ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
 
 
 ---
@@ -27,8 +27,8 @@ Découvrez la science des données dans la série de cinq courtes vidéos de pr�
 Cette première vidéo concerne les types de questions auxquelles la science des données est capable de répondre. Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Autres vidéos de cette série
 *Science des données pour les débutants* offre une introduction rapide à la science des données en 25 minutes au total. Découvrez les quatre autres vidéos :
@@ -55,7 +55,7 @@ Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science 
 * Quelle quantité (ou combien) ?
 * Comment les données sont-elles organisées ?
 * Que dois-je faire ensuite ?
-  
+
   Un groupe spécifique de méthodes d’apprentissage automatique, appelées algorithmes, permet de répondre à ces questions.
 
 Le mieux est de considérer un algorithme comme une recette et vos données comme les ingrédients. Un algorithme indique comment combiner et associer les données afin d’obtenir une réponse. Les ordinateurs sont comme un mixeur. Ils prennent en charge une grande partie des tâches difficiles de l’algorithme, et ce assez rapidement.
@@ -143,7 +143,6 @@ Et voilà ! Ce sont les 5 questions auxquelles la science des données peut ré
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
-ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -127,7 +127,14 @@ Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - capture d’écran](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
-Pour créer un rôle personnalisé, utilisez la commande `New-AzureRmRoleDefinition` . Il existe deux méthodes pour structurer le rôle, avec PSRoleDefinitionObject ou avec un modèle JSON. 
+Pour créer un rôle personnalisé, utilisez la commande ```New-AzureRmRoleDefinition``` . Il existe deux méthodes pour structurer le rôle, avec PSRoleDefinitionObject ou avec un modèle JSON. 
+
+## <a name="get-actions-from-particular-resource-provider"></a>Récupérer des Actions auprès d’un fournisseur de ressources donné
+Si vous créez des rôles personnalisés de A à Z, il est important de connaître toutes les opérations possibles auprès des fournisseurs de ressources.
+Vous pouvez le faire avec la commande ```Get-AzureRMProviderOperation```. Par exemple, si vous souhaitez vérifier toutes les opérations disponibles pour la machine virtuelle, la commande sera :
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Création d’un rôle avec PSRoleDefinitionObject
 Lorsque vous créez un rôle personnalisé à l’aide de PowerShell, vous pouvez commencer de zéro ou utiliser un des [rôles intégrés](role-based-access-built-in-roles.md) comme point de départ, cette dernière méthode étant celle utilisée dans l’exemple. Modifiez les attributs et ajoutez les propriétés *Actions*, *notActions*, ou les *étendues* de votre choix, puis enregistrez les modifications sous un nouveau rôle.
@@ -276,6 +283,6 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

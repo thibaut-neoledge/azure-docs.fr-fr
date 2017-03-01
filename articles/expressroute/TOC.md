@@ -51,7 +51,7 @@
 ### [Obtention de tables ARP (classique)](expressroute-troubleshooting-arp-classic.md)
 
 # Référence
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classique)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -79,8 +79,3 @@
 ### [Faire évoluer votre infrastructure réseau pour la connectivité](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Partenariats hybrides : activation des scénarios locaux](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

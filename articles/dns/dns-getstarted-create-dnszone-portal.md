@@ -16,17 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: c9bebc8f54d3f732b3014f6885ee65a067e9d1d8
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 7119ce18e04b427c268d4d8636b1a5fa02ed0cc3
+ms.lasthandoff: 02/27/2017
 
 ---
 
 # <a name="create-a-dns-zone-in-the-azure-portal"></a>Créer une zone DNS dans le portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](dns-getstarted-create-dnszone-portal.md)
+> * [portail Azure](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
-> * [Interface de ligne de commande Azure](dns-getstarted-create-dnszone-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-dnszone-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-dnszone-cli.md)
 
 Cet article vous indique la procédure à suivre pour créer une zone DNS à l’aide du Portail Azure. Vous pouvez également créer une zone DNS à l’aide de PowerShell ou de l’interface de ligne de commande (CLI).
 
@@ -96,10 +98,5 @@ Veillez à indiquer le bon serveur de noms pour votre zone dans la commande ci-d
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir créé une zone DNS, [créez des jeux d’enregistrements et des enregistrements](dns-getstarted-create-recordset-portal.md) afin de créer des enregistrements DNS pour votre domaine Internet.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

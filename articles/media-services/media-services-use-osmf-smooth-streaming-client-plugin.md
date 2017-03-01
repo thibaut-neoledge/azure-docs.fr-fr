@@ -4,7 +4,7 @@ description: "Apprenez à utiliser le plug-in Smooth Streaming d&quot;Azure Medi
 services: media-services
 documentationcenter: 
 author: juliako
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 32b530e5234610363b1a160e22921f1b0ce8bdc0
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -392,10 +393,5 @@ Pour plus d'informations sur le développement avec OSMF, consultez la page offi
 
 ## <a name="see-also"></a>Voir aussi
 [Plug-in de diffusion en continu adaptative Microsoft pour la mise à jour OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

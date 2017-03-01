@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 02/07/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 67575bbbb7d99ffeef3cb5dab74f4a68065bacc1
+ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
+ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
 
 
 ---
@@ -40,6 +40,7 @@ Le tableau suivant vous permet de choisir entre l’utilisation des services de 
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Jonction de domaine**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Authentification de domaine à l’aide de NTLM et Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Délégation Kerberos contrainte**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basée sur la ressource|basée sur la ressource et basée sur le compte|
 | [**Structure d’unité d’organisation personnalisée**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Extensions de schéma**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**Approbations de domaine/forêt AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
@@ -57,6 +58,7 @@ Le domaine géré est verrouillé de façon sécurisée, conformément aux meill
 
 #### <a name="dns-server"></a>Serveur DNS
 Un domaine géré des services de domaine Azure AD inclut des services DNS gérés. Les membres du groupe « AAD DC Administrators » peuvent gérer DNS sur le domaine géré. Les membres de ce groupe bénéficient de privilèges d’administration DNS complets pour le domaine géré. La gestion du service DNS peut être effectuée à l’aide de la « console d’administration DNS » incluse dans le package des outils d’administration du serveur distant (RSAT).
+[Plus d’informations](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Privilèges d’administrateur de domaine ou d’entreprise
 Ces privilèges élevés ne sont pas proposés sur un domaine géré AAD-DS. Les applications dont l’installation/l’exécution nécessite ces privilèges élevés ne peuvent pas être exécutées sur des domaines gérés. Un sous-ensemble plus restreint de privilèges d’administration est disponible pour les membres du groupe d’administration déléguée appelé « AAD DC Administrators ». Ces privilèges incluent des autorisations pour configurer DNS, la stratégie de groupe, obtenir des privilèges d’administrateur sur les ordinateurs joints au domaine, etc.
@@ -67,8 +69,13 @@ Vous pouvez joindre des machines virtuelles au domaine géré de la même maniè
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Authentification de domaine à l’aide de NTLM et Kerberos
 Avec les services de domaine Azure AD, vous pouvez utiliser vos informations d’identification d’entreprise pour l’authentification sur le domaine géré. Les informations d’identification sont synchronisées avec votre client Azure AD. Pour les clients synchronisés, Azure AD Connect permet de s’assurer que les modifications apportées aux informations d’identification en local sont synchronisées avec Azure AD. Avec une configuration de domaine personnalisé, vous devrez peut-être configurer une relation d’approbation de domaine avec une forêt de comptes locaux pour permettre aux utilisateurs de s’authentifier avec leurs informations d’identification d’entreprise. Vous devrez peut-être également configurer la réplication AD pour vous assurer que les mots de passe des utilisateurs sont synchronisés avec les machines virtuelles du contrôleur de domaine Azure.
 
+#### <a name="kerberos-constrained-delegation"></a>Délégation Kerberos contrainte
+Sur un domaine managé Azure AD Domain Services, vous n’avez pas les privilèges « Administrateur de domaine ». Par conséquent, vous ne pouvez pas configurer la délégation Kerberos contrainte basée sur le compte (traditionnelle). Toutefois, vous pouvez configurer la délégation contrainte basée sur les ressources, qui est plus sécurisée.
+[Plus d’informations](active-directory-ds-enable-kcd.md)
+
 #### <a name="custom-ou-structure"></a>Structure d’unité d’organisation personnalisée
-Les membres du groupe « AAD DC Administrators » peuvent créer des unités d’organisation personnalisées dans le domaine géré.
+Les membres du groupe « AAD DC Administrators » peuvent créer des unités d’organisation personnalisées dans le domaine géré. Les utilisateurs qui créent des UO personnalisées bénéficient de privilèges administratifs complets sur l’UO. 
+[Plus d’informations](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>Extensions de schéma
 Vous ne pouvez pas étendre le schéma de base d’un domaine géré des services de domaine Azure AD. Par conséquent, les applications qui reposent sur les extensions de schéma AD (par exemple, les nouveaux attributs dans l’objet utilisateur) ne peuvent pas déplacées vers des domaines AAD-DS.
@@ -81,12 +88,14 @@ Le domaine géré prend en charge les charges de travail de lecture LDAP. Vous p
 
 #### <a name="secure-ldap"></a>LDAP sécurisé
 Vous pouvez configurer les services de domaine Azure AD pour fournir un accès LDAP sécurisé à votre domaine géré, notamment sur Internet.
+[Plus d’informations](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>Écriture LDAP
 Le domaine géré est en lecture seule pour les objets utilisateur. Par conséquent, les applications qui effectuent des opérations d’écriture LDAP sur les attributs de l’objet utilisateur ne fonctionnent pas dans un domaine géré. En outre, les mots de passe utilisateur ne peuvent pas être modifiés à partir du domaine géré. Un autre exemple : la modification des appartenances aux groupes ou des attributs de groupe dans le domaine géré n’est pas autorisée. Toutefois, les modifications apportées aux mots de passe ou aux attributs utilisateur dans Azure AD (via PowerShell/portail Azure) ou dans Active Directory sur site sont synchronisées avec le domaine géré AAD-DS.
 
 #### <a name="group-policy"></a>Stratégie de groupe
-Les constructions de stratégie de groupe complexes ne sont pas prises en charge sur le domaine géré AAD-DS. Par exemple, vous ne pouvez pas créer et déployer des objets de stratégie de groupe distincts pour chaque unité d’organisation personnalisée dans le domaine ou utiliser le filtrage WMI pour le ciblage de la stratégie de groupe. Il existe un objet GPO intégré pour les conteneurs « AADDC Computers » et « AADDC Users », qui peut être personnalisé pour configurer la stratégie de groupe.
+Il existe un objet GPO intégré pour les conteneurs « AADDC Computers » et « AADDC Users », qui peut être personnalisé pour configurer la stratégie de groupe. Les membres du groupe « Administrateurs AAD DC » peuvent également créer des GPO personnalisés et les lier à des UO existantes (notamment les UO personnalisées).
+[Plus d’informations](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### <a name="geo-dispersed-deployments"></a>Déploiements géographiquement dispersés
 Les domaines gérés des services de domaine Azure AD sont disponibles dans un seul réseau virtuel dans Azure. Pour les scénarios qui requièrent que des contrôleurs de domaine soient disponibles dans plusieurs régions Azure dans le monde, la configuration de contrôleurs de domaine sur des machines virtuelles IaaS Azure peut constituer la meilleure solution.
@@ -113,6 +122,6 @@ Nous avons publié des [Recommandations en matière de déploiement de Windows S
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

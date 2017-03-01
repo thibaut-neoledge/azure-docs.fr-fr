@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/23/2017
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
-ms.openlocfilehash: c3f547fade400ba35619217dac503ab7ea2fbb40
+ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
+ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
 
 ---
 
@@ -71,7 +71,10 @@ Les contrats de niveau de service (SLA) pour la Recherche Azure sont ciblés au 
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilité des index lors d’une reconstruction###
 
-La haute disponibilité pour Azure Search se rapporte aux requêtes et aux mises à jour d’index qui n’impliquent pas la reconstruction d’un index. Si vous ajoutez ou supprimez un champ, modifiez un type de données ou renommez un champ, vous devez reconstruire l’index. Pour reconstruire l’index, vous devez supprimer l’index, le recréer et recharger les données.
+La haute disponibilité pour Azure Search se rapporte aux requêtes et aux mises à jour d’index qui n’impliquent pas la reconstruction d’un index. Si vous supprimez un champ, modifiez un type de données ou renommez un champ, vous devez reconstruire l’index. Pour reconstruire l’index, vous devez supprimer l’index, le recréer et recharger les données.
+
+> [!NOTE]
+> Vous pouvez ajouter de nouveaux champs à un index Recherche Azure sans reconstruire l’index. La valeur du nouveau champ sera Null pour tous les documents déjà présents dans l’index.
 
 Pour maintenir la disponibilité de l’index pendant une reconstruction, vous devez disposer d’une copie de l’index avec un nom différent sur le même service ou d’une copie de l’index de même nom sur un autre service, et fournir la redirection ou la logique de basculement dans votre code.
 
@@ -122,6 +125,6 @@ Le coût par SU est déterminé par le niveau, avec un taux de facturation infé
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

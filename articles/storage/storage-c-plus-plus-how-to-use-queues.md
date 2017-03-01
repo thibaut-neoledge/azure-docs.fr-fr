@@ -3,7 +3,7 @@ title: Utilisation du stockage de files d&quot;attente (C++) | Microsoft Docs
 description: "Découvrez comment utiliser le service de stockage de files d’attente dans Azure. Les exemples sont écrits en C++."
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
 ms.openlocfilehash: ca4b5428279291c0b3fe4fb52f6dc4e2c1208bf2
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -271,8 +272,3 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 * [Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
 * [Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 * [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

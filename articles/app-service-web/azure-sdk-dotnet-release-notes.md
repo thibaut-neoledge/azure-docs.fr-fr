@@ -3,8 +3,7 @@ title: "Notes de publication du Kit de développement logiciel (SDK) Azure pour�
 description: "Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET"
 services: app-service/web
 documentationcenter: 
-author: Juliako
-manager: dwrede
+author: chrissfanos
 editor: 
 ms.assetid: f7724fdc-79b7-4b3c-ab31-6da4679a1264
 ms.service: app-service

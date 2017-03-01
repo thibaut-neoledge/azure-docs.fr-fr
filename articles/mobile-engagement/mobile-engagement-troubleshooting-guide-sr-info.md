@@ -4,7 +4,7 @@ description: "Informations de demande de service nécessaires à l&quot;équipe 
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 28d49915-d0c2-4fac-b07a-b3e9b6b8528a
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -40,10 +41,5 @@ Fournissez les informations suivantes lorsque vous ouvrez une demande de service
 * Version du Kit de développement logiciel (SDK) et plateforme de votre application (Android SDK 2.4.1, iOS 1.16.2, etc.)
 * Emplacement de téléchargement de votre application de production (ou les fichiers APK/TGZ de votre application de développement)
 * Fichier « AndroidManifest.xml » et/ou tout extrait de code de votre application liée à Azure Mobile Engagement (pour le dépannage avancé)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

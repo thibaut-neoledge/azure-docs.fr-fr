@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 Cet article décrit la façon dont vous pouvez utiliser l’activité de copie dans une Azure Data Factory pour copier des données depuis une base de données Cassandra locale vers n’importe quel magasin de données de la colonne du récepteur dans la section [Sources et récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données Cassandra vers les [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données depuis d’autres magasins de données vers une base de données Cassandra.
+
+## <a name="supported-versions"></a>Versions prises en charge
+Ce connecteur Cassandra prend en charge la version Cassandra 2.X.
 
 ## <a name="prerequisites"></a>Composants requis
 Pour permettre au service Azure Data Factory de se connecter à votre base de données Cassandra locale, vous devez installer ce qui suit :
@@ -275,8 +278,8 @@ Par exemple, « ExampleTable » ci-après est une table de base de données Cass
 
 | pk_int | Valeur | Énumérer | Mappage | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |« exemple de valeur 1 » |[« 1 », « 2 », « 3 »] |{« S1 » : « a », « S2 » : « b »} |{« A », « B », « C »} |
-| 3 |« exemple de valeur 3 » |[« 100 », « 101 », « 102 », « 105 »] |{« S1 » : « t »} |{« A », « E »} |
+| 1 |« exemple de valeur 1 » |[«&1; », «&2; », «&3; »] |{« S1 » : « a », « S2 » : « b »} |{« A », « B », « C »} |
+| 3 |« exemple de valeur 3 » |[«&100; », «&101; », «&102; », «&105; »] |{« S1 » : « t »} |{« A », « E »} |
 
 Le pilote génère plusieurs tables virtuelles pour représenter cette table. Les colonnes de clés étrangères dans les tables virtuelles font référence aux colonnes de clés primaires dans la table réelle, et indiquent à quelles lignes de la table réelle les lignes de la table virtuelle correspondent.
 
@@ -325,6 +328,6 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

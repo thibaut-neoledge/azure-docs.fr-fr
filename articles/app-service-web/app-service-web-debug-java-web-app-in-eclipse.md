@@ -4,7 +4,7 @@ description: "Ce didacticiel vous explique comment utiliser le Kit de ressources
 services: app-service\web
 documentationcenter: java
 author: selvasingh
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 321d2d19-9ce0-4165-8555-b6b15e671393
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: asirveda;robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 8a4f22442d030dae602171555bafb3733d61ebd7
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -94,9 +95,4 @@ Pour plus d’informations sur la création d’Azure Web Apps, consultez la [Vu
 [04]: ./media/app-service-web-debug-java-web-app-in-eclipse/04-debug-configurations.png
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

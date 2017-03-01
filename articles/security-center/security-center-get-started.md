@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
-ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 
 
 ---
@@ -61,7 +61,7 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
    ![Stratégie de sécurité][3]
 2. Dans le panneau **Stratégie de sécurité - Définir une stratégie par abonnement ou groupe de ressources**, sélectionnez un abonnement.
 3. Dans le panneau **Stratégie de sécurité**, l’option **Collecte des données** est activée pour la collecte automatique des journaux. L’extension de la surveillance est approvisionnée sur toutes les machines virtuelles actuelles et nouvelles dans l’abonnement. (Vous pouvez refuser la collecte de données en **désactivant** l’option **Collecte des données**, mais cette opération empêchera Security Center de vous fournir des recommandations et alertes en matière de sécurité.)
-4. Sur le panneau **Stratégie de sécurité**, sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, il est créé pour vous. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
+4. Sur le panneau **Stratégie de sécurité**, sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
 
    > [!NOTE]
    > Nous vous recommandons d’activer la collecte de données et de choisir en premier un compte de stockage au niveau de l’abonnement. Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et au niveau de l’abonnement Azure, la configuration de la collecte des données et du compte de stockage intervient uniquement au niveau de l’abonnement.
@@ -126,6 +126,6 @@ Cet article vous a présenté les composants de surveillance de sécurité et de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

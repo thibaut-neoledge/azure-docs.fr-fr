@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent 
 | imageVersion |Spécifie la version de l’image du SKU choisi |
 
 ## <a name="create-the-policy"></a>Création de la stratégie
-Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Application de la stratégie
-Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Vous pouvez en savoir plus sur la [création et l’affectation d’une stratégie](../azure-resource-manager/resource-manager-policy.md).
 

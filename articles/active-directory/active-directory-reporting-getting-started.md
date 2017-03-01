@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Activez ou désactivez la section Notification par courrier électronique des an
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Intégration avec l’API de création de rapports d’Azure AD
 Consultez la rubrique [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Application de l’authentification multifacteur aux utilisateurs
+### <a name="engage-multi-factor-authentication-on-users"></a>Application de l’authentification multifacteur aux utilisateurs
 Sélectionnez un utilisateur dans un rapport.
 
 Cliquez sur le bouton Activer l’authentification multifacteur en bas de l’écran.
@@ -139,10 +140,5 @@ Envoyez un message à [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@m
 > Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

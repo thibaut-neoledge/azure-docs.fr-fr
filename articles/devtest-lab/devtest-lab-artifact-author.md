@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ Vous définissez des paramètres avec la structure suivante.
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | type |Oui |Type de la valeur du paramètre. Consultez la liste ci-dessous pour découvrir les types autorisés : |
-| displayName    Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
+| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
 | Description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
@@ -129,10 +130,5 @@ Créez votre artefact personnalisé en suivant les étapes ci-dessous :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

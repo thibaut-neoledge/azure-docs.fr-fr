@@ -1,5 +1,5 @@
 ---
-title: "Vos données sont-elles prêtes pour la science des données ? Évaluation des données | Microsoft Docs"
+title: "Vos données sont-elles prêtes pour la science des données ? Évaluation des données - Azure | Microsoft Docs"
 description: "Découvrez les 4 critères indiquant que vos données sont prêtes pour la science des données. La vidéo 2 de la série Science des données pour les débutants contient des exemples concrets pour faciliter l’évaluation de données de base."
 keywords: "données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
 
 
 ---
@@ -113,6 +113,6 @@ Nous vous invitons à consulter les quatre autres vidéos de la série *« Scie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

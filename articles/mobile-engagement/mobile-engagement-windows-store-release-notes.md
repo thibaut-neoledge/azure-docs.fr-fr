@@ -1,10 +1,10 @@
 ---
-title: "Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal"
+title: "Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) des applications universelles Windows | Microsoft Docs"
 description: "Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: de938ce5-93d5-4218-9e33-10eef102bd61
 ms.service: mobile-engagement
@@ -12,15 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 388dab02f09aa306d92f61d47ab5a8e2478a2b9d
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
 
 
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
+## <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* Améliorations de la stabilité.
+
 ## <a name="340-04192016"></a>3.4.0 (04/19/2016)
 * Améliorations de la superposition Reach
 * Ajout de l'API « TestLogLevel » aux journaux de console enable/disable/filter émis par le Kit de développement logiciel (SDK).
@@ -63,6 +67,6 @@ ms.openlocfilehash: 388dab02f09aa306d92f61d47ab5a8e2478a2b9d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

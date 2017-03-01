@@ -1,6 +1,6 @@
 ---
-title: "Création d’un index de documents en plusieurs langues dans la Recherche Azure | Microsoft Docs"
-description: "  Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
+title: Recherche Azure multilingue | Microsoft Docs
+description: Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft.
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1cbb5209b85d14a313da764394069f835ef29176
+ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
+ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
 
 ---
 
@@ -39,10 +39,10 @@ Voici les captures d'écran des panneaux du portail Azure pour Azure Search qui 
 >
 
 ## <a name="define-a-new-field-definition"></a>Définir une nouvelle définition de champ
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
 2. Cliquez sur **Ajouter un index** dans la barre de commandes en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
 3. Le panneau Champs s'affiche. Il vous propose des options pour définir le schéma de l'index, y compris l'onglet Analyseur utilisé pour le choix d'un analyseur de langage.
-4. Dans le panneau Champs, démarrez une définition de champ en fournissant un nom, le choix du type de données et la définition des attributs pour marquer le champ en tant que texte intégral consultable, récupérable dans les résultats de recherche, utilisable dans des structures de navigation de facette, pouvant être trié, et ainsi de suite.
+4. Dans le panneau Champs, démarrez une définition de champ en fournissant un nom, le choix du type de données et la définition des attributs pour marquer le champ en tant que texte intégral consultable, récupérables dans les résultats de recherche, utilisable dans des structures de navigation de facette, pouvant être trié, et ainsi de suite.
 5. Avant de passer au champ suivant, ouvrez l'onglet **Analyseur** .
 
 ![][1]
@@ -94,6 +94,6 @@ Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyse
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

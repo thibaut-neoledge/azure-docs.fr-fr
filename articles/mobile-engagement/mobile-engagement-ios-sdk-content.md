@@ -4,7 +4,7 @@ description: "Dernières mises à jour et procédures du Kit de développement l
 services: mobile-engagement
 documentationcenter: mobile
 author: MehrdadMzfr
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 2566eeb6-be82-4d83-aaf6-ebdcb8841189
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8980a560f3459adf328afb9cc08ff27bde0c284b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -49,10 +50,5 @@ Ce document répertorie et décrit le contenu de l'archive du SDK.
 > Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

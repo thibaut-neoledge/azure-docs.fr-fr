@@ -1,6 +1,6 @@
 ---
 title: "Limites de service d’Azure Search | Microsoft Docs"
-description: "Limites du service permettant de planifier la capacité et les limites maximales des requêtes et réponses pour Azure Search."
+description: "Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
+ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
 
 
 ---
@@ -46,10 +46,10 @@ Il existe une correspondance biunivoque entre les limites sur les index et les l
 | Index : nombre maximal de champs par index |1 000 |100 <sup>1</sup> |1 000 |1 000 |1 000 |1 000 |
 | Index : nombre maximal de profils de score par index |16 |16 |16 |16 |16 |16 |
 | Index : nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |
-| Indexeurs : quantité maximale de charge d’indexation par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A <sup>2</sup> |
+| Indexeurs : quantité maximale de charge d’indexation par appel |10&000; documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A <sup>2</sup> |
 | Indexeurs : durée maximale d’exécution |3 minutes |24 heures |24 heures |24 heures |24 heures |N/A <sup>2</sup> |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A <sup>2</sup> |
-| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A <sup>2</sup> |
+| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32&000; |64&000; |4 millions |4 millions |4 millions |N/A <sup>2</sup> |
 
 <sup>1</sup> Le niveau de base est la seule référence soumise à une limite inférieure de 100 champs par index.
 
@@ -58,7 +58,7 @@ Il existe une correspondance biunivoque entre les limites sur les index et les l
 ## <a name="document-size-limits"></a>Limites de taille des documents
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Taille de chaque document par API d’index |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |< 16 Mo |
+| Taille de chaque document par API d’index |<&16; Mo |<&16; Mo |<&16; Mo |<&16; Mo |<&16; Mo |<&16; Mo |
 
 Indique la taille maximum du document lors de l’appel d’une API d’index. La taille du document est en fait une limite de taille du corps de requête de l’API d’index. Étant donné que vous pouvez transmettre en une seule fois un lot de plusieurs documents à l’API d’index, la limite de taille dépend en fait du nombre de documents dans le lot. Pour un lot comprenant un seul document, la taille maximale du document est de 16 Mo de JSON.
 
@@ -67,7 +67,7 @@ Pour réduire la taille du document, pensez à exclure de la requête les donné
 ## <a name="workload-limits-queries-per-second"></a>Limites de charge de travail (requêtes par seconde)
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| RPS |N/A  |~3 par réplica |~15 par réplica |~60 par réplica |Moins de 60 par réplica |Moins de 60 par réplica |
+| RPS |N/A  |~3 par réplica |~15 par réplica |~60 par réplica |Moins de&60; par réplica |Moins de&60; par réplica |
 
 Le nombre de requêtes par seconde (RPS) est une approximation basée sur une méthode heuristique. Il est calculé à l’aide de charges de travail client simulées et réelles pour obtenir des valeurs estimées. Le débit exact de requêtes par seconde varie en fonction de vos données et de la nature de la requête.
 
@@ -96,6 +96,6 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

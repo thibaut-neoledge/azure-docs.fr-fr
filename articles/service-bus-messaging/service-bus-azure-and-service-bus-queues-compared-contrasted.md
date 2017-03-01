@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/19/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: ea973dab1ec68324b24d067e7e07868983a5b151
+ms.sourcegitcommit: f236f6f2155e1bf7471eba8aedea5b77bb5995d0
+ms.openlocfilehash: fd86979339b0ff661dcc6447585ca594b680911d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -82,7 +83,6 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 
 ### <a name="additional-information"></a>Informations supplémentaires
 * Les messages dans les files d’attente de stockage se voient en général appliquer la méthode Premier entré, premier sorti. Mais ils peuvent parfois être dans le désordre. C’est le cas lorsque le délai de visibilité d’un message expire (par exemple, à cause du blocage d’une application cliente pendant le traitement). Lorsque le délai de visibilité expire, le message est de nouveau visible dans la file d'attente et un autre processus peut le retirer de la file d'attente. À ce stade, le message nouvellement visible peut être placé dans la file d'attente (pour en être de nouveau retiré) après un message qui se trouvait à l'origine dans la file d'attente après lui.
-* Si vous utilisez déjà des Tables ou des objets BLOB de stockage Azure et que vous commencez à utiliser les files d'attente, vous êtes assuré d'une disponibilité de 99,9 %. Si vous utilisez des Tables ou des objets BLOB de stockage avec des files d'attente Service Bus, la disponibilité sera inférieure.
 * Le modèle Premier entré, premier sorti garanti dans les files d'attente Service Bus requiert l'utilisation de sessions de messagerie. Dans le cas où l’application se bloque lors du traitement d’un message reçu en mode **Aperçu et verrouillage**, la prochaine fois qu’un destinataire de file d’attente acceptera une session de messagerie, celle-ci démarrera avec le message ayant échoué après que sa durée de vie ait expiré.
 * Les files d’attente de stockage sont conçues pour prendre en charge des scénarios de mise en file d’attente standard, tels que le découplage de composants d’application pour augmenter l’évolutivité et la tolérance aux pannes, le nivellement de charge et la création des workflows de processus.
 * Les files d’attente Service Bus prennent en charge la garantie de livraison *Au moins une fois*. En outre, la sémantique *Une fois au maximum* peut être prise en charge à l’aide de l’état de session pour stocker l’état de l’application et à l’aide de transactions pour recevoir atomiquement des messages et mettre à jour l’état de la session.
@@ -200,10 +200,5 @@ Les articles suivants fournissent des conseils et des informations sur l’utili
 * [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
