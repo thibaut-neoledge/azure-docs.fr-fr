@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 24cbe51ef5a453d06e9f70e1e2146479935c5bf5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -69,7 +70,7 @@ Si aucune entrée du cache ne correspond à la valeur de clé, aucune variable d
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-        <!— If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
     </when>
 </choose>
 ```
@@ -114,7 +115,7 @@ Il est important de comprendre que la récupération de données du cache est un
 La dernière étape du processus consiste à mettre à jour la réponse renvoyée avec nos informations de profil utilisateur.
 
 ```xml
-<!—Update response body with user profile-->
+<!-- Update response body with user profile-->
 <find-and-replace
     from='"$userprofile$"'
     to="@((string)context.Variables["userprofile"])" />
@@ -140,7 +141,7 @@ Une fois que l’on combine toutes ces étapes, on obtient une stratégie sembla
         <!-- If we don’t find it in the cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                <!—Make HTTP request to get user profile -->
+                <!-- Make HTTP request to get user profile -->
                 <send-request
                   mode="new"
                   response-variable-name="userprofileresponse"
@@ -152,12 +153,12 @@ Une fois que l’on combine toutes ces étapes, on obtient une stratégie sembla
                     <set-method>GET</set-method>
                 </send-request>
 
-                <!—Store response body in context variable -->
+                <!-- Store response body in context variable -->
                 <set-variable
                   name="userprofile"
                   value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 
-                <!—Store result in cache -->
+                <!-- Store result in cache -->
                 <cache-store-value
                   key="@("userprofile-" + context.Variables["enduserid"])"
                   value="@((string)context.Variables["userprofile"])"
@@ -167,7 +168,7 @@ Une fois que l’on combine toutes ces étapes, on obtient une stratégie sembla
         <base />
     </inbound>
     <outbound>
-        <!—Update response body with user profile-->
+        <!-- Update response body with user profile-->
         <find-and-replace
               from='"$userprofile$"'
               to="@((string)context.Variables["userprofile"])" />
@@ -280,10 +281,5 @@ L’utilisation du cache du service Azure API Management pour le stockage de n�
 
 ## <a name="next-steps"></a>Étapes suivantes
 Faites-nous part de vos commentaires dans le thread Disqus de cette rubrique si l’utilisation des stratégies décrites s’est révélée adaptée à d’autres scénarios, ou s’il existe des scénarios que vous souhaiteriez mettre en œuvre mais qu’il vous semble impossible de déployer actuellement.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
