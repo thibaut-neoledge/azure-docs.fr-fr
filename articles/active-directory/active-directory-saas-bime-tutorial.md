@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
+ms.sourcegitcommit: bd3dd077bef87a78904ffd5d2be469b6b8bc8959
+ms.openlocfilehash: 7857480d033e4d570aa48569e08bb30846b280f6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,17 +31,18 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1. Activation de l’intégration d’applications pour Bime
-2. Configuration de l'authentification unique
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+* Activation de l’intégration d’applications pour Bime
+* Configuration de l’authentification unique (SSO)
+* Configuration de l'approvisionnement des utilisateurs
+* Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-bime-tutorial/IC775552.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-bime"></a>Activation de l’intégration d’applications pour Bime
+## <a name="enable-the-application-integration-for-bime"></a>Activer l’intégration d’applications pour Bime
 Cette section décrit l’activation de l’intégration d’applications pour Bime.
 
-### <a name="to-enable-the-application-integration-for-bime-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour Bime, procédez comme suit :
+**Pour activer l’intégration d’applications pour Bime, suivez les étapes ci-dessous :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-bime-tutorial/IC700993.png "Active Directory")
@@ -61,14 +63,15 @@ Cette section décrit l’activation de l’intégration d’applications pour B
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
    
-   ## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Bime avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour Bime vous oblige à récupérer une valeur d’empreinte dans un certificat.  
-Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
-1. Dans la page d’intégration d’application **Bime** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+La configuration de l’authentification unique pour Bime vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+
+**Pour configurer l’authentification unique, procédez comme suit :**
+
+1. Sur la page d’intégration d’applications **Bime** du Portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC771709.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Bime**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
@@ -90,23 +93,24 @@ Si cette procédure ne vous est pas familière, consultez [Récupération de la 
    
    1. Sélectionnez **Activer l’authentification SAML**.
    2. Dans le portail Azure Classic, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bime**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
-   3. Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.  
+   3. Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.       
       
-      > [!TIP]
-      > Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI). 
       > 
    4. Cliquez sur **Save**.
 8. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775560.png "Configurer l’authentification unique")
    
-   ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les approvisionner dans Bime.  
-En l’occurrence, cet approvisionnement est une tâche manuelle.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+* En l’occurrence, cet approvisionnement est une tâche manuelle.
+
+**Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
+
 1. Connectez-vous à votre locataire **Bime** .
 2. Dans la barre d’outils, cliquez sur **Admin**, puis sur **Users**.
    
@@ -116,20 +120,19 @@ En l’occurrence, cet approvisionnement est une tâche manuelle.
    ![Utilisateurs](./media/active-directory-saas-bime-tutorial/IC775562.png "Utilisateurs")
 4. Dans la page de boîte de dialogue **User Details** , procédez comme suit :
    
-   ![Détails de l’utilisateur](./media/active-directory-saas-bime-tutorial/IC775563.png "Détails de l’utilisateur")
-   
-   1. Entrez le prénom, le nom, la connexion et l’adresse de messagerie d’un compte AAD valide que vous voulez approvisionner
-   2. Cliquez sur Enregistrer.
+   ![Détails de l’utilisateur](./media/active-directory-saas-bime-tutorial/IC775563.png "Détails de l’utilisateur")   
+  1. Entrez le prénom, le nom, la connexion et l’adresse de messagerie d’un compte AAD valide que vous voulez approvisionner
+  2. Cliquez sur Enregistrer.
 
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bime pour approvisionner des comptes d’utilisateur Azure Active Directory.
-> 
-> 
+>[!NOTE]
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Bime pour approvisionner des comptes d’utilisateur Azure Active Directory.
+>  
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-bime-perform-the-following-steps"></a>Pour affecter des utilisateurs à Bime, procédez comme suit :
+**Pour affecter des utilisateurs à Bime, suivez les étapes ci-dessous :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **Bime**, cliquez sur **Affecter des utilisateurs**.
    
@@ -139,10 +142,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
    ![Oui](./media/active-directory-saas-bime-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

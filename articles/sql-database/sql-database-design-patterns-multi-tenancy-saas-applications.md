@@ -4,7 +4,7 @@ description: "Cet article décrit la configuration requise et les modèles d’a
 keywords: 
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -90,7 +91,7 @@ Dans la Figure 2, l’axe Y indique le niveau d’isolation des locataires. L’
 
 Figure 2 : Modèles de données mutualisés courants
 
-Sur la figure 2, le quadrant inférieur droit montre un modèle d’application qui utilise une base de données autonome partagée potentiellement volumineuse et l’approche de la table partagée (ou du schéma distinct). C’est une bonne chose pour le partage de ressources, car tous les locataires utilisent les mêmes ressources de base de données (processeur, mémoire et entrée/sortie) dans une base de données unique. Cependant, l’isolation des locataires est limitée. Vous devrez peut-être prendre des mesures supplémentaires pour protéger les locataires les uns des autres au niveau de la couche application. Ces étapes supplémentaires peuvent augmenter considérablement le coût DevOps de développement et de gestion de l’application. L’évolutivité est limitée par la mise à l’échelle du matériel qui héberge la base de données.
+Dans la Figure 2, le quadrant inférieur droit montre un modèle d’application qui utilise une base de données unique partagée potentiellement volumineuse et l’approche de la table partagée (ou du schéma distinct). C’est une bonne chose pour le partage de ressources, car tous les locataires utilisent les mêmes ressources de base de données (processeur, mémoire et entrée/sortie) dans une base de données unique. Cependant, l’isolation des locataires est limitée. Vous devrez peut-être prendre des mesures supplémentaires pour protéger les locataires les uns des autres au niveau de la couche application. Ces étapes supplémentaires peuvent augmenter considérablement le coût DevOps de développement et de gestion de l’application. L’évolutivité est limitée par la mise à l’échelle du matériel qui héberge la base de données.
 
 Dans la Figure 2, le quadrant inférieur gauche illustre plusieurs locataires partitionnés entre plusieurs bases de données (en général, différentes unités d’échelle matérielles). Chaque base de données héberge un sous-ensemble de locataires, ce qui résout le problème d’évolutivité d’autres modèles. Si une capacité supplémentaire est requise pour d’autres locataires, vous pouvez placer ces derniers dans de nouvelles bases de données allouées à de nouvelles unités d’échelle matérielles. Toutefois, la quantité de partage des ressources est réduite. Seuls les locataires placés sur des unités d’échelle identiques partagent des ressources. Cette approche offre peu d’améliorations en termes d’isolation des locataires, car de nombreux locataires partagent toujours les mêmes emplacements sans être automatiquement protégés des actions des autres. L’application reste très complexe.
 
@@ -124,7 +125,7 @@ Dans SQL Database, les pools de base de données élastiques combinent l’isola
 | [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md): permet de gérer la distribution de données et de mapper les locataires sur les bases de données. | |
 
 ## <a name="shared-models"></a>Modèles partagés
-Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approche de modèle partagé peut engendrer des problèmes d’isolation des locataires, mais aussi compliquer le développement et la maintenance des applications. Toutefois, pour les applications mutualisées qui fournissent directement un service aux consommateurs, les exigences d’isolation des locataires peuvent ne pas être aussi prioritaires que le désir de minimiser les coûts. Il est possible de regrouper les locataires dans une ou plusieurs bases de données haute densité afin de réduire les coûts. Les modèles de base de données partagée qui utilisent une base de données autonome ou plusieurs bases de données partitionnées peuvent améliorer le partage des ressources et faire baisser les coûts globaux. Base de données SQL Azure fournit des fonctionnalités qui aident les clients à générer une isolation pour améliorer la sécurité et la gestion à grande échelle dans la couche de données.
+Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approche de modèle partagé peut engendrer des problèmes d’isolation des locataires, mais aussi compliquer le développement et la maintenance des applications. Toutefois, pour les applications mutualisées qui fournissent directement un service aux consommateurs, les exigences d’isolation des locataires peuvent ne pas être aussi prioritaires que le désir de minimiser les coûts. Il est possible de regrouper les locataires dans une ou plusieurs bases de données haute densité afin de réduire les coûts. Les modèles de base de données partagée qui utilisent une base de données unique ou plusieurs bases de données partitionnées peuvent améliorer le partage des ressources et faire baisser les coûts globaux. Base de données SQL Azure fournit des fonctionnalités qui aident les clients à générer une isolation pour améliorer la sécurité et la gestion à grande échelle dans la couche de données.
 
 | Exigences de l’application | Fonctionnalités de Base de données SQL |
 | --- | --- |
@@ -150,7 +151,7 @@ Créez un [tableau de bord personnalisé de pool élastique pour SaaS](https://g
 
 Utilisez les outils de Base de données SQL Azure pour [migrer les bases de données et augmenter la taille des instances](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Consultez notre didacticiel concernant la [création d’un pool élastique](sql-database-elastic-pool-create-portal.md).  
+Pour créer un pool élastique avec le portail Microsoft Azure, consultez [Création d’un pool élastique](sql-database-elastic-pool-manage-portal.md).  
 
 Découvrez comment [surveiller et gérer un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
@@ -160,14 +161,9 @@ Découvrez comment [surveiller et gérer un pool élastique](sql-database-elasti
 * [Applications mutualisées avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentification sur des applications mutualisées à l’aide d’Azure Active Directory et d’OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Démarrages rapides de solutions](sql-database-solution-quick-starts.md)
+
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
 Pour toute question, retrouvez-nous sur le [forum de Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Ajoutez une demande de fonctionnalité dans le [forum de commentaires de Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

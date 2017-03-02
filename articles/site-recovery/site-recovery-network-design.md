@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
+ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
+ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -34,11 +35,11 @@ Essentiels pour la planification de BCDR, un objectif de délai de récupérati
 
 Le basculement est rendu possible par ASR, qui copie initialement les machines virtuelles désignées du centre de données principal vers le centre de données secondaire ou vers Azure (en fonction du scénario), et qui actualise ensuite régulièrement les réplicas. Lors de la planification de l’infrastructure, la conception réseau doit être considérée comme un goulot d’étranglement potentiel, qui peut vous empêcher de remplir les objectifs RTO et RPO de la société.  
 
-Si un administrateur envisage de déployer une solution de récupération d’urgence, l’une des questions clés qu’il doit se poser concerne l’accessibilité de la machine virtuelle à l’issue du basculement. La récupération automatique du système (ASR) permet à l’administrateur de choisir le réseau auquel une machine virtuelle doit être connectée après basculement. Si le site principal est géré par un serveur VMM, cela est effectué à l’aide d’un mappage réseau. Pour plus de détails, voir [Préparer le mappage réseau](site-recovery-network-mapping.md) .
+Si un administrateur envisage de déployer une solution de récupération d’urgence, l’une des questions clés qu’il doit se poser concerne l’accessibilité de la machine virtuelle à l’issue du basculement. La récupération automatique du système (ASR) permet à l’administrateur de choisir le réseau auquel une machine virtuelle doit être connectée après basculement. Si le site principal est géré par un serveur VMM, cela est effectué à l’aide d’un mappage réseau. Pour plus de détails, voir [Préparer le mappage réseau](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) .
 
 Lors de la conception du réseau pour le site de récupération, l’administrateur a deux possibilités :
 
-* Utiliser une autre plage d’adresses IP pour le réseau sur le site de récupération. Dans ce scénario, à l’issue du basculement, la machine virtuelle obtient une nouvelle adresse IP, et l’administrateur doit effectuer une mise à jour DNS. Pour en savoir plus sur la procédure de mise à jour de DNS, cliquez [ici](site-recovery-vmm-to-vmm.md#step-7-test-your-deployment) 
+* Utiliser une autre plage d’adresses IP pour le réseau sur le site de récupération. Dans ce scénario, à l’issue du basculement, la machine virtuelle obtient une nouvelle adresse IP, et l’administrateur doit effectuer une mise à jour DNS. En savoir plus [ici](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover)
 * Utiliser la même plage d’adresses IP pour le réseau sur le site de récupération. Dans certains scénarios, les administrateurs préféreront conserver les adresses IP dont ils disposent sur le site principal, même après le basculement. Dans un scénario normal, un administrateur devrait mettre à jour les itinéraires pour indiquer le nouvel emplacement des adresses IP, mais dans le scénario où un réseau local virtuel étiré est déployé entre le site principal et les sites de récupération, conserver les adresses IP des machines virtuelles est alors une option intéressante. Conserver les mêmes adresses IP permet de simplifier le processus de récupération en supprimant les étapes post-basculement associées au réseau.
 
 Si un administrateur envisage de déployer une solution de récupération d’urgence, l’une des questions clés qu’il doit se poser concerne l’accessibilité des applications à l’issue du basculement. Dans une certaine mesure, les applications modernes sont presque toujours dépendantes de la mise en réseau. Par conséquent, le déplacement physique d’un service d’un site à un autre représente un défi pour la mise en réseau. Deux méthodes principales permettent de traiter ce problème dans les solutions de récupération d’urgence. La première approche consiste à conserver des adresses IP fixes. Malgré les déplacements de services et les serveurs d'hébergement qui se trouvent dans différents emplacements physiques, les applications prennent avec elles la configuration de l'adresse IP dans le nouvel emplacement. La seconde approche implique de changer complètement l’adresse IP lors de la transition vers le site récupéré. Chaque approche présente plusieurs variantes d’implémentation qui sont résumées ci-dessous.
@@ -163,10 +164,5 @@ Après le basculement, il est possible que la machine virtuelle de réplication 
 Le billet de blog [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) (Configuration de l’infrastructure de réseau de Microsoft Azure comme site de récupération d’urgence) explique comment configurer l’infrastructure de réseau d’Azure sans que la conservation des adresses IP soit nécessaire. Il commence par décrire l’application, examine la configuration de la mise en réseau localement et sur Azure, puis conclut par la procédure à suivre pour exécuter un test de basculement et un basculement planifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Découvrir](site-recovery-network-mapping.md) comment Site Recovery mappe les réseaux source et cible quand un serveur VMM est utilisé pour gérer le site principal.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[Découvrir](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) comment Site Recovery mappe les réseaux source et cible quand un serveur VMM est utilisé pour gérer le site principal.
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ Dans cet exemple, un utilisateur et un groupe sont ajoutés au rôle Utilisateur
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+
+Les administrateurs d’abonnement peuvent utiliser l’option **Contrôle d’accès** du panneau de contrôle pour configurer les rôles. Cette procédure est différente de celle appliquée aux administrateurs de serveur ou aux utilisateurs de base de données, dont la configuration s’effectue au niveau du serveur ou de la base de données (comme indiqué ci-dessus). 
+
+![Contrôle des accès dans le portail Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+Les rôles s’appliquent aux utilisateurs ou comptes qui doivent effectuer des tâches dans le portail ou à l’aide de modèles Azure Resource Manager. Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous n’avez pas déjà déployé un modèle tabulaire sur votre serveur, c’est le moment de le faire. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](analysis-services-deploy.md).
 
 Si vous avez déployé un modèle sur votre serveur, vous êtes prêt à vous connecter à celui-ci à l’aide d’un client ou d’un navigateur. Pour en savoir plus, voir [Obtenir les données du serveur Azure Analysis Services](analysis-services-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

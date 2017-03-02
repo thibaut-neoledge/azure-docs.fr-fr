@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 70f73577fdaf6efa74fe1516a8486c45ef76db31
+ms.sourcegitcommit: 2ab1a58aab138cc81b25731a9454b083d54ded81
+ms.openlocfilehash: eff408bc70288ada1039df7432f43b02420f2c37
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -39,15 +40,19 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 ## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Objectifs d'évolutivité pour les objets Blob, les files d'attente, les tables et les fichiers
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Objectifs d'évolutivité pour les disques de machines virtuelles
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
 Pour plus d’informations, consultez la page [Tailles des machine virtuelles dans Azure (Windows)](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tailles des machines virtuelles dans Azure (Linux)](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="standard-storage-accounts"></a>Comptes de stockage standard
+## <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
+
+## <a name="unmanaged-virtual-machine-disks"></a>Disques de machines virtuelles non gérées
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### <a name="premium-storage-accounts"></a>Comptes de stockage Premium
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## <a name="scalability-targets-for-azure-resource-manager"></a>Objectifs d'évolutivité pour Azure Resource Manager
@@ -78,10 +83,5 @@ Des recommandations détaillées pour la conception d’une stratégie de partit
 * [Réplication Azure Storage](storage-redundancy.md)
 * [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 * [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

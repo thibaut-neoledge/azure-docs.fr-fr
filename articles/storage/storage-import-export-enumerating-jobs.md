@@ -1,6 +1,6 @@
 ---
-title: "Énumération des travaux dans le service Azure Import/Export | MicrosoftDocs"
-description: "Découvrez comment énumérer tous les travaux d’un abonnement qui sont liés au service Azure Import/Export."
+title: Liste de tous vos travaux Azure Import/Export | Microsoft Docs
+description: "Découvrez comment répertorier tous les travaux d’un abonnement qui sont liés au service Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 65d8912c4eced92206ee1262f3e3307b3162cbd6
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: 5bbe99110b86cb15d23eadc48c1ea45bbab13daf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="enumerating-jobs"></a>Énumération des travaux
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Énumération des travaux dans le service Azure Import/Export
 Pour énumérer tous les travaux d’un abonnement, appelez l’opération [Répertorier les travaux](/rest/api/storageimportexport/jobs#Jobs_List). `List Jobs` retourne une liste de travaux, ainsi que les attributs suivants :
 
 -   le type de travail (importation ou exportation) ;
@@ -32,9 +33,4 @@ Pour énumérer tous les travaux d’un abonnement, appelez l’opération [Rép
 
 ## <a name="see-also"></a>Voir aussi
  [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4612c1f516dca51aea925343f79649761448c05d
+ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
+ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -74,18 +75,20 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |Version |Enregistre le numéro de version du jeton. <br><br> **Exemple de valeur JWT** : <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Jetons d’accès
+Si l’authentification réussit, Azure AD renvoie un jeton d’accès, qui peut être utilisé pour accéder aux ressources protégées. Le jeton d’accès est un jeton JSON Web Token (JWT) encodé en base 64 et son contenu peut être inspecté en l’exécutant via un décodeur.
 
 Si votre application *utilise* uniquement des jetons d’accès pour accéder aux API, vous pouvez (et devez) traiter les jetons d’accès de façon complètement opaque : ce sont simplement des chaînes que votre application peut transmettre à des ressources dans des requêtes HTTP.
 
 Quand vous demandez un jeton d’accès, Azure AD retourne également des métadonnées sur le jeton d’accès que votre application peut consommer.  Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide.  Votre application peut ainsi effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
 
-Si votre application est une API protégée par Azure AD qui attend des jetons d’accès dans les requêtes HTTP, vous devez effectuer une validation et une inspection des jetons que vous recevez. Pour plus d’informations sur la procédure à suivre avec .NET, consultez [Protéger une API Web à l’aide des jetons du porteur d’Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Si votre application est une API protégée par Azure AD qui attend des jetons d’accès dans les requêtes HTTP, vous devez effectuer une validation et une inspection des jetons que vous recevez. Votre application doit effectuer la validation du jeton d’accès avant de l’utiliser pour accéder aux ressources. Pour plus d’informations sur la validation, consultez [Validation des jetons](#validating-tokens).  
+Pour plus d’informations sur la procédure à suivre avec .NET, consultez [Protéger une API Web à l’aide des jetons du porteur d’Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## <a name="refresh-tokens"></a>Jetons d’actualisation
 
 Les jetons d’actualisation sont des jetons de sécurité que votre application peut utiliser pour acquérir de nouveaux jetons d’accès dans un flux OAuth 2.0.  Ils permettent à votre application d’obtenir un accès à long terme à des ressources au nom d’un utilisateur, et ce sans nécessiter l’intervention de l’utilisateur.
 
-Jetons d’actualisation sont multi-ressources, ce qui signifie qu’ils peuvent être reçus au cours d’une demande de jeton pour une ressource, mais échangés pour des jetons d’accès d’une ressource complètement différente. Pour spécifier des ressources multiples, définissez le paramètre `resource` sur la ressource cible dans la requête.
+Les jetons d’actualisation prennent en charge plusieurs ressources.  Cela signifie qu’un jeton d’actualisation reçu au cours d’une demande de jeton pour une ressource peut être échangé contre des jetons d’accès à une ressource complètement différente. Pour ce faire, définissez le paramètre `resource` sur la ressource cible dans la requête.
 
 Les jetons d’actualisation sont entièrement opaques pour votre application. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière.  Les jetons d’actualisation peuvent être rendus non valides à tout moment, et ce pour diverses raisons.  Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison de jeton d’Azure AD. C’est la seule façon de faire.
 
@@ -93,9 +96,9 @@ Quand vous échangez un jeton d’actualisation contre un nouveau jeton d’acc�
 
 ## <a name="validating-tokens"></a>Validation des jetons
 
-Pour valider un jeton id_token ou access_token, votre application doit valider à la fois la signature du jeton et les revendications.
+Pour valider un jeton id_token ou access_token, votre application doit valider à la fois la signature du jeton et les revendications. Afin de valider les jetons d’accès, votre application doit également valider l’émetteur, l’audience et les jetons de signature. Ces éléments doivent être validés d’après les valeurs du document de découverte OpenID. Par exemple, la version indépendant du locataire du document se trouve à l’adresse [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) pour en trouver un dans la langue de votre choix. Pour plus d’informations sur la validation explicite d’un jeton JWT, consultez l’[exemple de validation manuelle JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
-Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer facilement la validation des jetons et permettent de comprendre le processus sous-jacent.  Il existe également de plusieurs bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous à la section [Bibliothèques d’authentification Azure AD](active-directory-authentication-libraries.md).
+Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer facilement la validation des jetons. Les informations ci-dessous sont fournies simplement pour ceux qui souhaitent comprendre le processus sous-jacent.  Il existe également de nombreuses bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous à la section [Bibliothèques d’authentification Azure AD](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Validation de la signature
 
@@ -300,10 +303,4 @@ Outre les revendications, le jeton inclut un numéro de version dans **ver** et 
 ## <a name="related-content"></a>Contenu connexe
 * Consultez les [opérations de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) Azure AD Graph et [l’entité de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) pour en savoir plus sur la gestion des stratégies de durée de vie des jetons par le biais de l’API Azure AD Graph.
 * Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](../active-directory-configurable-token-lifetimes.md) (en anglais). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

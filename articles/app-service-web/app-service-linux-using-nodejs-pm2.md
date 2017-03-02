@@ -5,7 +5,7 @@ keywords: azure app service, application web, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
 ms.service: app-service
@@ -13,20 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Utiliser la configuration PM2 pour Node.js dans les applications Web sur Linux
-Si vous définissez la pile d’applications sur Node.js pour les applications web sous Linux, vous avez la possibilité de définir un fichier de démarrage Node.js, comme indiqué dans l’image suivante.
+Si vous définissez la pile d’applications sur Node.js pour les applications web sous Linux, vous avez la possibilité de définir un fichier de démarrage Node.js, comme indiqué dans l’image suivante :
 
 ![Définir un fichier de démarrage Node.js][1]
 
-Vous pouvez utiliser cette action pour effectuer l’une des tâches suivantes :
+Vous pouvez utiliser cette option pour effectuer l’une des tâches suivantes :
 
 * Spécifier le script de démarrage pour votre application Node.js (par exemple : /bin/server.js) ;
 * Spécifier le fichier de configuration PM2 à utiliser pour votre application Node.js (par exemple : /foo/process.json).
@@ -60,13 +61,9 @@ Les éléments importants à prendre en compte dans cette configuration sont les
 * Pour « watch_options », vous devez actuellement attribuer la valeur true à « usePolling » en raison de la façon dont le contenu de votre application est monté.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d’App Service sur Linux](app-service-linux-intro.md)
+* [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
+* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

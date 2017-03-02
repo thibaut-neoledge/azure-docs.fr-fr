@@ -1,6 +1,6 @@
 ---
-title: "Explorateur de scripts de DocumentDB, un éditeur JavaScript | Microsoft Docs"
-description: "Découvrez l’Explorateur de scripts de DocumentDB, un outil du portail Azure qui permet de gérer les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur."
+title: 'Outil du portail Azure DocumentDB : Explorateur de scripts SQL | Microsoft Docs'
+description: "Découvrez l’Explorateur de scripts de DocumentDB, un outil du portail Azure qui permet de gérer les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées JavaScript, les déclencheurs et les fonctions définies par l’utilisateur."
 keywords: "éditeur JavaScript"
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 Cet article fournit une présentation de l’Explorateur de scripts [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , éditeur JavaScript du portail Azure qui vous permet d’afficher et d’exécuter les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur. Pour plus d’informations sur la programmation DocumentDB côté serveur, consultez l’article [Procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur](documentdb-programming.md) .
 
 ## <a name="launch-script-explorer"></a>Lancer l’Explorateur de scripts
-1. Dans la barre de lancement du Portail Azure, cliquez sur **DocumentDB (NoSQL)**. Si l’option **Comptes DocumentDB** n’est pas affichée, cliquez sur **Plus de services**, puis sur **DocumentDB (NoSQL)**.
+1. Dans le [portail Azure](https://portal.azure.com), dans la barre de navigation à gauche, cliquez sur ![Icône d’Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Si **NoSQL (DocumentDB)** n’est pas visible, cliquez sur **Plus de services** en bas, puis cliquez sur ![Icône d’Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Dans le menu des ressources, cliquez sur **Explorateur de scripts**.
    
     ![Capture d'écran de la commande de l'Explorateur de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ Cet article fournit une présentation de l’Explorateur de scripts [Microsoft A
    
     ![Capture d'écran de l'Explorateur de scripts avec les résultats filtrés](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] La fonctionnalité de filtre de l’Explorateur de scripts filtre uniquement l’ensemble de scripts ***actuellement*** chargé et n’actualise pas automatiquement la collection actuellement sélectionnée.
+    > [!IMPORTANT] 
+    > La fonctionnalité de filtre de l’Explorateur de scripts filtre uniquement l’ensemble de scripts ***actuellement*** chargé et n’actualise pas automatiquement la collection actuellement sélectionnée.
 
 1. Pour actualiser la liste des scripts chargés par l'Explorateur de scripts, cliquez simplement sur la commande **Actualiser** en haut du panneau.
    
@@ -106,10 +110,5 @@ L’Explorateur de scripts dans le portail Azure n’est qu’un des moyens d’
 Pour plus d’informations sur la programmation côté serveur de DocumentDB, consultez l’article [Procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur](documentdb-programming.md) .
 
 Le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) est également une ressource utile pour vous guider au fil de votre apprentissage de DocumentDB.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

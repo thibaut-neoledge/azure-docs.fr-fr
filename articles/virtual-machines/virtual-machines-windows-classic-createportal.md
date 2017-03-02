@@ -13,28 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 20c19b9f2c725d1f7857ea116ad941fffc73e825
+ms.sourcegitcommit: 662145f825a26bac6fe3f94970f60eba576f2f56
+ms.openlocfilehash: 7ff027a99b880d43dd845d58562f1d8e5c6126a8
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Créer une machine virtuelle personnalisée exécutant Windows à l’aide du modèle de déploiement classique
-> [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour utiliser le nouveau portail Azure, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT]
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également [créer une machine virtuelle personnalisée sous Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) dans le portail Classic.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+## <a name="next-steps"></a>Étapes suivantes 
+Vous pouvez également [créer une machine virtuelle personnalisée exécutant Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

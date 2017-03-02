@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 977de9160be63a91b5926daa45528e5ee205e448
+ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
+ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -156,7 +157,7 @@ La valeur **name** représente le nom convivial de ce type de nœud particulier.
 * *applicationPorts* sont les ports qui sont utilisés par les applications Service Fabric. Ils doivent être un sous-ensemble des *ephemeralPorts* et suffir à couvrir les exigences en matière de points de terminaison de vos applications. Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
 * *reverseProxyEndpointPort* est un point de terminaison de proxy inverse facultatif. Consultez [Proxy inverse de Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus. 
 
-### <a name="other-settings"></a>Autres paramètres
+### <a name="log-settings"></a>Paramètres du journal
 La section **fabricSettings** vous permet de définir les répertoires racine des données et journaux Service Fabric. Vous pouvez personnaliser ces éléments uniquement lors de la création initiale du cluster. Voici un exemple d’extrait de cette section.
 
     "fabricSettings": [{
@@ -171,12 +172,19 @@ La section **fabricSettings** vous permet de définir les répertoires racine de
 
 Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Notez que si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
 
+### <a name="stateful-reliable-service-settings"></a>Paramètres Reliable Service avec état
+La section **KtlLogger** section vous permet de définir les paramètres de configuration globaux pour les Reliable Services. Pour plus d’informations sur ces paramètres, consultez [Configuration de services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md).
+L’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les Reliable Collections pour les services avec état.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md), puis passez à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

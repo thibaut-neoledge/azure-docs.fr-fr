@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services | Microsoft Docs
+title: Sauvegarde de machines virtuelles Azure | Microsoft Docs
 description: "Détectez, inscrivez et sauvegardez des machines virtuelles Azure dans un coffre Recovery Services."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
-ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
+ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
+ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,32 +45,57 @@ La stratégie de sauvegarde associée au coffre Recovery Services définit la fr
 
 Pour exécuter le travail de sauvegarde initial :
 
-1. Dans la mosaïque **Sauvegarde** du tableau de bord du coffre, cliquez sur **Machines virtuelles Azure**. <br/>
-    ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. Dans le tableau de bord du coffre, cliquez sur le numéro sous **Éléments de sauvegarde** ou sur la mosaïque **Éléments de sauvegarde**. <br/>
+  ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    Le panneau **Éléments de sauvegarde** s’ouvre.
-2. Dans le panneau **Éléments de sauvegarde**, cliquez avec le bouton droit sur le coffre à sauvegarder, puis cliquez sur **Sauvegarder maintenant**.
+  Le panneau **Éléments de sauvegarde** s’ouvre.
 
-    ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+  ![Éléments de sauvegarde](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-    Le travail de sauvegarde est déclenché. <br/>
+2. Sélectionnez l’élément dans le panneau **Éléments de sauvegarde**.
 
-    ![Travail de sauvegarde déclenché](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. Pour vérifier si votre sauvegarde initiale est terminée, dans la vignette **Travaux de sauvegarde** du tableau de bord du coffre, cliquez sur **Machines virtuelles Azure**.
+  ![Icône Paramètres](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+  La liste **Éléments de sauvegarde** s’ouvre. <br/>
 
-    Le panneau Travaux de sauvegarde s’ouvre.
-4. Le panneau **Travaux de sauvegarde** indique l’état de tous les travaux.
+  ![Travail de sauvegarde déclenché](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-    ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+3. Dans la liste **Éléments de sauvegarde**, cliquez sur le bouton de sélection **... ** pour ouvrir le menu contextuel.
 
-   > [!NOTE]
-   > Au cours de l’opération de sauvegarde, l’extension de sauvegarde de chaque machine virtuelle vide toutes les écritures et prend un instantané cohérent.
-   >
-   >
+  ![Menu contextuel](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-    Lorsque le travail de sauvegarde est terminé, l’état affiché est *Terminé*.
+  Le menu contextuel s’affiche.
+
+  ![Menu contextuel](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+
+4. Dans le menu contextuel, cliquez sur **Sauvegarder maintenant**.
+
+  ![Menu contextuel](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+
+  Le panneau Sauvegarder maintenant s’ouvre.
+
+  ![affiche le panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+5. Dans le panneau Sauvegarder maintenant, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **Sauvegarder**.
+
+  ![définir le dernier jour de conservation du point de récupération de Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  Des notifications de déploiement vous font savoir que la sauvegarde a été déclenchée et que vous pouvez surveiller la progression de la tâche sur la page Travaux de sauvegarde. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
+
+6. Pour afficher ou suivre l’état de la sauvegarde initiale, dans le tableau de bord du coffre, dans la mosaïque **Travaux de sauvegarde**, cliquez sur **En cours**.
+
+  ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+
+  Le panneau Travaux de sauvegarde s’ouvre.
+
+  ![Vignette Travaux de sauvegarde](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+
+  Le panneau **Travaux de sauvegarde** indique l’état de tous les travaux. Vérifiez si le travail de sauvegarde de votre machine virtuelle est en cours d’exécution ou s’il est terminé. Lorsqu’un travail de sauvegarde est terminé, son état affiché est *Terminé*.
+
+  > [!NOTE]
+  > Dans le cadre de l’opération de sauvegarde, le service Azure Backup émet une commande vers l’extension de sauvegarde de chaque machine virtuelle pour vider toutes les écritures et prendre un instantané cohérent.
+  >
+  >
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
 Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuelle, consultez [l’article sur le dépannage des machines virtuelles](backup-azure-vms-troubleshoot.md) pour obtenir de l’aide.
@@ -79,9 +105,4 @@ Vous avez protégé votre machine virtuelle. Vous pouvez maintenant consulter le
 
 * [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 * [Restauration des machines virtuelles](backup-azure-arm-restore-vms.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

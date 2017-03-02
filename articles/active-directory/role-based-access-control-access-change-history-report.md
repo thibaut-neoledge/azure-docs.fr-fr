@@ -1,5 +1,5 @@
 ---
-title: "Créer un rapport d’historique des modifications d’accès | Microsoft Docs"
+title: "Accès aux rapports - Contrôle d’accès en fonction du rôle Azure | Microsoft Docs"
 description: "Générez un rapport qui répertorie toutes les modifications d’accès à vos abonnements Azure avec contrôle d’accès basé sur les rôles au cours des 90 derniers jours."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -59,13 +60,8 @@ Pour enregistrer le rapport ou manipuler les données, exportez les modification
 
 ![ChangeLog affiché en tant que feuille de calcul - capture d’écran](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>Voir aussi
-* Prise en main du [contrôle d’accès basé sur les rôles Azure](role-based-access-control-configure.md)
+## <a name="next-steps"></a>Étapes suivantes
 * Utilisation des [rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* En savoir plus sur la gestion du [contrôle d’accès en fonction du rôle Azure avec PowerShell](role-based-access-control-manage-access-powershell.md)
 
 

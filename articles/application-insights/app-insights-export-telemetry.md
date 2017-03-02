@@ -11,18 +11,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/21/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 3b1654355ee84610d25da8b6ad4a66036285faba
+ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
+ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
 
-L’exportation continue est disponible dans le [modèle de tarification d’entreprise](http://azure.microsoft.com/pricing/details/application-insights/).
+L’utilisation de l’exportation continue peut entraîner des frais supplémentaires. Consultez votre [modèle de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Avant de configurer l’exportation continue, d’autres options doivent être prises en considération :
 
@@ -84,7 +85,7 @@ Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’export
 Les données incluent également les résultats de n’importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré. 
 
 > [!NOTE]
-> **Échantillonnage.**  Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
+> **Échantillonnage.** Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
 > 
 > 
 
@@ -143,7 +144,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
       }
     }
 
-Pour un exemple de code plus long, consultez [utilisation d’un rôle de travail][exportasa].
+Pour un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
 
 ## <a name="a-namedeleteadelete-your-old-data"></a><a name="delete"></a>Supprimer les anciennes données
 Notez que vous êtes responsable de la gestion de votre capacité de stockage et de la suppression des anciennes données si nécessaire. 
@@ -203,10 +204,5 @@ L’exportation continue redémarre.
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

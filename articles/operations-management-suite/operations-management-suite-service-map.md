@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
-ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
+ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
+ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -91,7 +92,10 @@ L'option Charger la carte du serveur permet d’accéder à une nouvelle carte a
 ### <a name="showhide-self-links"></a>Afficher/masquer les liens réflexifs
 L'option Afficher les liens réflexifs redessine le nœud du serveur, y compris les liens réflexifs, qui représentent les connexions TCP qui commencent et se terminent sur des processus au sein du serveur.  Si des liens réflexifs sont affichés, le menu passe à Masquer les liens réflexifs, permettant aux utilisateurs d'afficher ou de masquer les liens réflexifs.
 
+## <a name="computer-summary"></a>Résumé de l’ordinateur
+Le volet Résumé de l’ordinateur inclut une vue d’ensemble du système d’exploitation d’un serveur et du nombre de dépendances avec une grande variété de données issues d’autres solutions OMS, notamment les mesures de performances, le suivi des modifications, la sécurité, les mises à jour, etc.
 
+![Résumé de l’ordinateur](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriétés des ordinateurs et processus
 Lorsque vous parcourez un mappage Carte de service, vous pouvez sélectionner des ordinateurs et des processus afin d’obtenir un contexte supplémentaire sur leurs propriétés.  Les ordinateurs fournissent des informations sur le nom DNS, les adresses IPv4, la capacité en termes de processeur et de mémoire, le type de machine virtuelle, la version du système d’exploitation, l’heure du dernier redémarrage et les ID de leurs agents OMS et Carte de service.
@@ -106,10 +110,22 @@ Le volet Résumé du processus fournit des informations supplémentaires sur la 
 
 ![Résumé du processus](media/oms-service-map/process-summary.png)
 
-## <a name="computer-summary"></a>Résumé de l’ordinateur
-Le volet Résumé de l’ordinateur inclut une vue d’ensemble du système d’exploitation d’un serveur et du nombre de dépendances avec une grande variété de données issues d’autres solutions OMS, notamment les mesures de performances, le suivi des modifications, la sécurité, les mises à jour, etc.
+## <a name="oms-alerts-integration"></a>Intégration des alertes OMS
+Carte de service intègre les alertes OMS pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée.  Le serveur affiche une icône si des alertes sont en cours et le panneau d’alertes de la machine répertorie les alertes
 
-![Résumé de l’ordinateur](media/oms-service-map/machine-summary.png)
+![Panneau d’alertes de la machine](media/oms-service-map/machine-alerts.png)
+
+Pour que Carte de service puisse afficher les alertes pertinentes, la règle d’alerte doit être créée afin de se déclencher pour un ordinateur spécifique.  Pour créer des alertes appropriées :
+- Inclure une clause de regroupement par ordinateur : "by Computer interval 1minute"
+- Choisir d’alerter en fonction des mesures
+
+![Configuration des alertes](media/oms-service-map/alert-configuration.png)
+
+
+## <a name="oms-log-events-integration"></a>Intégration des événements du journal OMS
+Carte de service intègre la recherche dans les journaux pour afficher un nombre de tous les événements du journal disponibles pour le serveur sélectionné au cours de la période sélectionnée.  Vous pouvez cliquer sur n’importe quelle ligne dans la liste des événements pour passer à la recherche dans les journaux et consulter les événements du journal individuel.
+
+![Événements du journal](media/oms-service-map/log-events.png)
 
 ## <a name="oms-change-tracking-integration"></a>Intégration du suivi des modifications OMS
 L’intégration de Carte de service avec le suivi des modifications est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail OMS.
@@ -138,19 +154,6 @@ L’intégration de Carte de service avec la gestion des mises à jour est autom
 
 Le panneau de mises à jour de la machine affiche les données de la solution de gestion des mises à jour OMS pour le serveur sélectionné.  Le panneau affiche un résumé des mises à jour manquantes pour le serveur pendant la période sélectionnée.
 ![Volet de suivi des modifications de l’ordinateur](media/oms-service-map/machine-updates.png)
-
-
-## <a name="oms-alerts-integration"></a>Intégration des alertes OMS
-Carte de service intègre les alertes OMS pour afficher les alertes déclenchées pour le serveur sélectionné pendant la période sélectionnée.  Le serveur affiche une icône si des alertes sont en cours et le panneau d’alertes de la machine répertorie les alertes
-
-![Panneau d’alertes de la machine](media/oms-service-map/machine-alerts.png)
-
-Pour que Carte de service puisse afficher les alertes pertinentes, la règle d’alerte doit être créée afin de se déclencher pour un ordinateur spécifique.  Pour créer des alertes appropriées :
-- Inclure une clause de regroupement par ordinateur : "by Computer interval 1minute"
-- Choisir d’alerter en fonction des mesures
-
-![Configuration des alertes](media/oms-service-map/alert-configuration.png)
-
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 Les données d’inventaire des ordinateurs et processus Carte de service peuvent faire l’objet d’une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics.  Cela peut s’appliquer à de nombreux scénarios, y compris la planification de la migration, l’analyse de la capacité, la détection et la résolution des problèmes de performances ad hoc.
@@ -251,10 +254,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## <a name="rest-api"></a>API REST
+L’ensemble des données relatives au serveur, au processus et aux dépendances dans Carte de service est disponible via [l’API REST Carte de service](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
 Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Carte de service. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité du service Carte de service. Les données incluent des informations sur la configuration de votre logiciel (comme le système d’exploitation et la version) et également l’adresse IP, le nom DNS et le nom du poste de travail afin de fournir des fonctionnalités de dépannage précises et efficaces. Nous ne collectons pas votre nom, votre adresse, ni vos autres coordonnées.
 
-Pour plus d’informations sur l’utilisation et la collecte de données, consultez la [déclaration de confidentialité Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+Pour plus d’informations sur l’utilisation et la collecte de données, consultez la [déclaration de confidentialité Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -263,9 +270,4 @@ Pour plus d’informations sur l’utilisation et la collecte de données, consu
 
 ## <a name="feedback"></a>Commentaires
 Avez-vous des commentaires à nous transmettre à propos de la carte de service ou de sa documentation ?  Si c’est le cas, sachez que notre page [User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), vous permet de nous suggérer des fonctionnalités ou de voter pour les suggestions en cours.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

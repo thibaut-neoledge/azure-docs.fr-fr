@@ -1,5 +1,5 @@
 ---
-title: "Réparation d’un travail d’importation | Microsoft Docs"
+title: "Réparation d’un travail d’importation Azure | Microsoft Docs"
 description: "Apprenez comment réparer un travail d’importation qui a été créé et exécuté à l’aide du service d’importation/exportation."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: 9278256edd5c117de9b0e6b5b12f0ca37c612661
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,8 +37,8 @@ La commande de réparation d’un travail d’importation est **RepairImport**. 
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Lorsque vous démarrez une réparation pour un disque donné, vous accédez au chemin d’accès à un fichier de réparation qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez accéder au nom d’un fichier de réparation existant. Le fichier de réparation correspondant au disque cible doit toujours être spécifié.|  
-|**/logdir:**<LogDirectory\>|**Facultatif.** Répertoire contenant le journal. Les fichiers journaux détaillés seront créés dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
+|**/r:**<RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque lecteur ne doit avoir qu’un seul fichier de réparation. Lorsque vous démarrez une réparation pour un lecteur donné, vous transmettez le chemin d’accès à un fichier de réparation qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Le fichier de réparation correspondant au disque cible doit toujours être spécifié.|  
+|**/logdir:**<LogDirectory\>|**Facultatif.** Répertoire contenant le journal. Les fichiers journaux détaillés seront écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire courant est utilisé comme répertoire de journaux.|  
 |**/d:**<TargetDirectories\>|**Obligatoire.** Un ou plusieurs répertoires séparés par des points-virgules contenant les fichiers d’origine qui ont été importés. Le disque d’importation peut également être utilisé, mais il n’est pas obligatoire si d’autres emplacements de fichiers d’origine sont disponibles.|  
 |**/bk:**<BitLockerKey\>|**Facultatif.** Vous devez spécifier la clé BitLocker si vous souhaitez que l’outil déverrouille un disque chiffré dans lequel les fichiers d’origine sont disponibles.|  
 |**/sn:**<StorageAccountName\>|**Obligatoire.** Nom du compte de stockage du travail d’importation.|  
@@ -106,10 +107,5 @@ Après avoir mis les fichiers nécessaires à disposition de l’outil ou après
 [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
 [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)   
-[Résolution des problèmes associés à l’outil Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
 

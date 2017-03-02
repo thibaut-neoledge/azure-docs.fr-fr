@@ -1,5 +1,5 @@
 ---
-title: "Définition des propriétés et métadonnées pendant le processus d’importation | Microsoft Docs"
+title: "Définition des propriétés et des métadonnées avec Azure Import/Export | Microsoft Docs | Microsoft Docs"
 description: "Découvrez comment spécifier les propriétés et les métadonnées sur les objets blob de destination lors de l’exécution de l’outil Import/Export pour préparer vos disques."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: f49604cf6738da3576ed2a65ca96d083d5e8219b
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,7 +29,7 @@ Lorsque vous exécutez l’outil Microsoft Azure Import/Export pour préparer vo
   
 2.  Pour définir les métadonnées d’objets blob, créez un fichier texte sur votre ordinateur local qui spécifie les valeurs et les noms des métadonnées.  
   
-3.  Transférez le chemin complet d’accès à l’un ou aux deux fichiers à l’outil Azure Import/Export dans le cadre de l’opération `PrepImport`.  
+3.  Transférez le chemin d’accès complet de l’un ou des deux fichiers à l’outil Azure Import/Export dans le cadre de l’opération `PrepImport`.  
   
 > [!NOTE]
 >  Lorsque vous spécifiez un fichier de propriétés ou de métadonnées dans le cadre d’une session de copie, ces propriétés ou métadonnées sont définies pour chaque objet blob importé dans le cadre de cette session de copie. Si vous souhaitez spécifier un autre ensemble de propriétés ou de métadonnées pour certains des objets blob importés, vous devez créer une session de copie distincte avec des fichiers de propriétés ou de métadonnées différents.  
@@ -70,9 +71,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
   
 ## <a name="see-also"></a>Voir aussi  
 [Format du fichier de propriétés et de métadonnées du service Import-Export](storage-import-export-file-format-metadata-and-properties.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

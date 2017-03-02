@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -26,7 +27,11 @@ Le processeur multimédia **Azure Media Video Thumbnails** vous permet de créer
 
 Le processeur multimédia **Azure Media Video Thumbnail** est actuellement en version préliminaire.
 
-Cette rubrique donne des informations détaillées sur **Azure Media Video Thumbnail** et montre comment l’utiliser avec le SDK Media Services pour .NET
+Cette rubrique donne des informations détaillées sur **Azure Media Video Thumbnail** et montre comment l’utiliser avec le SDK Media Services pour .NET.
+
+## <a name="limitations"></a>Limites
+
+Dans certains cas, si votre vidéo n’est pas composée de scènes différentes, la sortie sera composée d’un seul plan.
 
 ## <a name="video-summary-example"></a>Exemple de synthèse d’une vidéo
 Voici quelques exemples de ce que le processeur Azure Media Video Thumbnails peut faire :
@@ -262,10 +267,5 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

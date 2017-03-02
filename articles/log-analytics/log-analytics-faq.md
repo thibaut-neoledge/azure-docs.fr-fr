@@ -1,6 +1,6 @@
 ---
 title: Log Analytics - FAQ | Microsoft Docs
-description: "Réponses aux questions fréquemment posées sur le service Log Analytics."
+description: "Réponses aux questions fréquemment posées sur le service Azure Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -90,6 +91,13 @@ Une icône d’avertissement jaune signifie que l’agent rencontre des problèm
 R : Dans SCOM, supprimez l’ordinateur de la liste gérée par OMS. Cela a pour effet d’arrêter toutes les communications via SCOM pour cet agent. Pour les agents connectés directement à OMS, vous pouvez interrompre leur communication avec OMS via : Panneau de configuration, Security & Settings (Sécurité et paramètres), **Microsoft Monitoring Agent**.
 Sous **Azure Log Analytics (OMS)**, supprimez tous les espaces de travail répertoriés.
 
+**Q : pourquoi est-ce que je reçois une erreur lorsque j’essaie de déplacer mon espace de travail d’un abonnement Azure vers un autre ?**
+
+R : lorsque vous ajoutez une solution, Azure crée une ressource dans l’abonnement Azure qui contient l’espace de travail.
+
+En règle générale, la personne qui ajoute l’abonnement est un administrateur ou collaborateur pour *l’abonnement Azure*. Le rôle d’administrateur ou de collaborateur dans le portail OMS ne suffit pas si l’utilisateur n’a pas également les mêmes autorisations dans le portail Azure pour l’abonnement Azure.
+
+
 ## <a name="agent-data"></a>Données de l’agent
 **Q. Quelle quantité de données puis-je envoyer via l’agent à Log Analytics ? Existe-t-il une quantité maximale de données par client ?**  
 R. Le forfait gratuit définit une limite quotidienne de 500 Mo par espace de travail. Les forfaits standard et premium ne présentent aucune limite concernant la quantité de données chargées. Comme un service cloud, Log Analytics dans OMS est conçu pour monter en puissance automatiquement afin de traiter le volume provenant d’un client, même si cela se chiffre en téraoctets par jour.
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Familiarisez-vous avec Log Analytics](log-analytics-get-started.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

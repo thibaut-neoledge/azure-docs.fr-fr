@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 2ea87726b06a0e8ab20515031424bf4e93f45a80
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,7 +36,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, c
 Pour configurer l’intégration d’Azure AD avec Proofpoint on Demand, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
-* Un abonnement Proofpoint on Demand avec authentification unique
+* Un abonnement Proofpoint on Demand avec authentification unique (SSO)
 
 Pour tester la procédure de ce didacticiel, suivez les recommandations ci-dessous :
 
@@ -47,8 +48,8 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajoutez Proofpoint on Demand à partir de la galerie.
-2. Configurez et testez l’authentification unique Azure AD.
+* Ajoutez Proofpoint on Demand à partir de la galerie.
+* Configurez et testez l’authentification unique Azure AD.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Ajouter Proofpoint on Demand à partir de la galerie
 Pour configurer l’intégration de Proofpoint on Demand à Azure AD, vous devez ajouter Proofpoint on Demand à partir de la galerie à votre liste d’applications SaaS gérées.
@@ -98,29 +99,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 3. Dans la page **Configurer les paramètres de l’application** , procédez comme suit :
    
     ![Page Configurer les paramètres de l’application avec les zones renseignées](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    a. Dans la zone **URL DE CONNEXION**, tapez l’URL via laquelle les utilisateurs se connectent à votre application Proofpoint on Demand. Utilisez le modèle suivant : **https://\<nomhôte\>.pphosted.com/ppssamlsp_nomhôte**
-   
-    b. Dans la zone **IDENTIFICATEUR**, tapez l’URL en utilisant le modèle suivant : **https://\<nomhôte/>.pphosted.com/ppssamlsp**
-   
-    c. Dans la zone **URL DE RÉPONSE**, tapez l’URL en utilisant le modèle suivant : **https://\<nomhôte/>.pphosted.com:numéroport/v1/samlauth/samlconsumer**
-   
-    d. Cliquez sur **Next**.
+   1. Dans la zone **URL DE CONNEXION**, tapez l’URL via laquelle les utilisateurs se connectent à votre application Proofpoint on Demand. Utilisez le modèle suivant : **https://\<nomhôte\>.pphosted.com/ppssamlsp_nomhôte**
+   2. Dans la zone **IDENTIFICATEUR**, tapez l’URL en utilisant le modèle suivant : **https://\<nomhôte/>.pphosted.com/ppssamlsp**
+   3. Dans la zone **URL DE RÉPONSE**, tapez l’URL en utilisant le modèle suivant : **https://\<nomhôte/>.pphosted.com:numéroport/v1/samlauth/samlconsumer**  
+   4. Cliquez sur **Suivant**.
 4. Sur la page **Configurer l’authentification unique sur Proofpoint on Demand**, procédez comme suit :
    
     ![Page Configurer l’authentification unique sur Proofpoint on Demand avec le bouton Télécharger le certificat](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
+   1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.   
+   2. Cliquez sur **Suivant**.
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Proofpoint on Demand et fournissez-lui les éléments suivants :
-   
-    • Le certificat téléchargé
-   
-    • L’ID d’entité
-   
-    • L’URL d’authentification unique SAML
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+   * Certificat téléchargé
+   * L’ID d’entité
+   * L’URL SSO SAML
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Case à cocher confirmant que vous avez configuré l’authentification unique][10]
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
@@ -142,34 +134,28 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **AJOUTER UN UTILISATEUR** figurant dans la barre d’outils en bas.
    
     ![Bouton AJOUTER UN UTILISATEUR](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
-5. Dans la page **Dites-nous en plus sur cet utilisateur**, suivez la procédure ci-dessous :  ![Page Dites-nous en plus sur cet utilisateur avec les zones renseignées](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
-   
-    a. Dans la zone **TYPE D’UTILISATEUR**, sélectionnez **Nouvel utilisateur dans votre organisation**.
-   
-    b. Dans la zone **NOM D’UTILISATEUR**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
-6. Dans la page **profil utilisateur**, suivez la procédure ci-dessous : ![Page Profil utilisateur avec les zones renseignées](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)
-   
-   a. Dans la zone **PRÉNOM**, tapez **Britta**.  
-   
-   b. Dans la zone **NOM**, tapez **Simon**.
-   
-   c. Dans la zone **NOM D’AFFICHAGE**, entrez **Britta Simon**.
-   
-   d. Dans la liste **RÔLE**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+5. Sur la page **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
+
+    ![Renseignez les champs de la page « Dites-nous en plus sur cet utilisateur »](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. Dans la zone **TYPE D’UTILISATEUR**, sélectionnez **Nouvel utilisateur dans votre organisation**.
+   2. Dans la zone **NOM D’UTILISATEUR**, entrez **BrittaSimon**.
+   3. Cliquez sur **Suivant**.
+6. Sur la page **Profil utilisateur** , procédez comme suit :
+
+  ![Renseignez les champs de la page « profil utilisateur »](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. Dans la zone **PRÉNOM**, tapez **Britta**.  
+   2. Dans la zone **NOM**, tapez **Simon**.
+   3. Dans la zone **NOM D’AFFICHAGE**, entrez **Britta Simon**.
+   4. Dans la liste **RÔLE**, sélectionnez **Utilisateur**.
+   5. Cliquez sur **Suivant**.
 7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**.
    
-    ![Bouton de création d’un mot de passe temporaire](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![Bouton de création d’un mot de passe temporaire](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. Dans la page **Obtenir un mot de passe temporaire**, suivez la procédure ci-dessous :
    
-    ![Page Obtenir un mot de passe temporaire avec les informations de mot de passe](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    a. Notez la valeur dans la zone **NOUVEAU MOT DE PASSE**.
-   
-    b. Cliquez sur **Terminé**.   
+   ![Page Obtenir un mot de passe temporaire avec les informations de mot de passe](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. Notez la valeur dans la zone **NOUVEAU MOT DE PASSE**.
+   2. Cliquez sur **Terminé**.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Créer un utilisateur de test Proofpoint on Demand
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Proofpoint on Demand. Collaborez avec l’équipe de support technique de Proofpoint on Demand pour ajouter des utilisateurs dans la plateforme Proofpoint on Demand.
@@ -219,9 +205,4 @@ Lorsque vous cliquez sur la mosaïque **Proofpoint on Demand** dans le volet d�
 [203]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

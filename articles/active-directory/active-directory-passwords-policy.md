@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
+ms.sourcegitcommit: fc73b667112fe35473872c33bc98423a424c5c65
+ms.openlocfilehash: d6bee5afea6afcd756b53f41baef5dd984423c0a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -48,8 +49,8 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe disponi
 | Délai d'expiration du mot de passe |<ul><li>Valeur par défaut : **90** jours </li><li>La valeur est configurable à l’aide de l’applet de commande Set-MsolPasswordPolicy à partir du Module Azure Active Directory pour Windows PowerShell.</li></ul> |
 | Notification d'expiration du mot de passe |<ul><li>Valeur par défaut : **14** jours (avant l’expiration du mot de passe)</li><li>La valeur est configurable à l’aide de l’applet de commande Set-MsolPasswordPolicy.</li></ul> |
 | Expiration du mot de passe |<ul><li>Valeur par défaut : **false** jours (indique que l’expiration du mot de passe est activée) </li><li>La valeur peut être configurée pour des comptes d'utilisateur individuels à l'aide de l'applet de commande Set-MsolUser. </li></ul> |
-| Historique du mot de passe |Le dernier mot de passe ne peut pas être réutilisé. |
-| Durée de l'historique du mot de passe |Toujours |
+| Historique de **modification** du mot de passe |L’ancien mot de passe **ne peut pas** être réutilisé lors de la **modification** du mot de passe. |
+| Historique de **réinitialisation** du mot de passe | L’ancien mot de passe **peut** être réutilisé lors de la **réinitialisation** d’un mot de passe oublié. |
 | Verrouillage de compte |Au bout de 10 tentatives de connexion infructueuses (mot de passe incorrect), l’utilisateur est bloqué pendant une minute. La durée de blocage de l’utilisateur augmente au fil des nouvelles tentatives de connexion incorrectes. |
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -63,9 +64,4 @@ Le tableau suivant décrit les paramètres de stratégie de mot de passe disponi
 * [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
 * [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
 * [En savoir plus](active-directory-passwords-learn-more.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

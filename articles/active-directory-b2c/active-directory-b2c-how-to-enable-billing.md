@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
-ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -74,7 +75,7 @@ Lorsque vous cliquez sur la ressource Client B2C, vous pouvez :
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
 - Consulter l’utilisation et la facturation dans l’abonnement Azure sélectionné
-- Consulter les rapports détaillés d’utilisation quotidienne à l’aide de l’API Usage Reporting (TBD)
+- Consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API Usage Reporting](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 
@@ -82,9 +83,4 @@ Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnemen
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

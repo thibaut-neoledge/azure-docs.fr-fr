@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
+ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
+ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,11 +29,13 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 
 * [Erreur de quota lors de la tentative d’ouverture d’un fichier](#quotaerror)
 * [Ralentissement des performances quand vous accédez au Stockage Fichier Azure depuis Windows ou Linux](#slowboth)
+* [Guide de traçage des opérations de lecture et d’écriture dans le stockage de fichiers Azure](#traceop)
 
 **Problèmes du client Windows**
 
 * [Ralentissement des performances quand vous accédez au Stockage Fichier Azure depuis Windows 8.1 ou Windows Server 2012 R2](#windowsslow)
 * [Erreur 53 lors de la tentative de montage d’un partage de fichiers Azure](#error53)
+* [Erreur 87 Le paramètre est incorrect lors de la tentative de montage d’un partage de fichiers Azure](#error87)
 * [Net use a réussi, mais je ne vois pas le partage Azure Files monté dans l’Explorateur Windows](#netuse)
 * [Mon compte de stockage contient « / » et la commande net use échoue](#slashfails)
 * [Mon application/service ne peut pas accéder au lecteur Azure Files monté.](#accessfiledrive)
@@ -41,28 +44,29 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 **Problèmes du client Linux**
 
 * [Erreur « Vous copiez un fichier vers une destination qui ne prend pas en charge le chiffrement » lors du chargement/de la copie des fichiers vers Azure Files](#encryption)
-* [Erreur « L’hôte est hors-service » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
+* [Erreur d’E/S intermittente : Erreur « L’hôte est hors-service » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
 * [Erreur de montage 115 lors de la tentative de montage Azure Files sur la machine virtuelle Linux](#error15)
 * [La machine virtuelle Linux connaît des retards aléatoires dans les commandes telles que « ls »](#delayproblem)
+* [Erreur 112 - erreur de délai d’expiration](#error112)
+
+**Accès depuis d'autres applications**
+
+* [Puis-je faire référence au partage de fichiers Azure pour mon application via une tâche Web ?](#webjobs)
 
 <a id="quotaerror"></a>
 
 ## <a name="quota-error-when-trying-to-open-a-file"></a>Erreur de quota lors de la tentative d’ouverture d’un fichier
 Sous Windows, vous recevez des messages d’erreur semblables aux suivants :
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Quota insuffisant pour traiter cette commande**
-
-**Valeur de handle non valide GetLastError : 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 Sous Linux, vous recevez des messages d’erreur semblables aux suivants :
 
-**<filename> [autorisation refusée]**
-
-**Quota de disque dépassé**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>Cause :
 Le problème se produit car vous avez atteint la limite supérieure de handles ouverts simultanément autorisés pour un fichier.
@@ -75,7 +79,9 @@ Réduisez le nombre de handles ouverts simultanément en fermant certains d’en
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Ralentissement des performances lors de l’accès au Stockage Fichier depuis Windows ou Linux
 * Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mo pour des performances optimales.
 * Si vous connaissez la taille finale d’un fichier que vous étendez avec des écritures, et si votre logiciel ne présente pas de problèmes de compatibilité avec la fin pas encore écrite du fichier contenant des zéros, définissez la taille du fichier à l’avance au lieu que chaque écriture soit une écriture d’extension.
-
+* Utilisez la méthode de copie appropriée :
+      * Utilisez AZCopy pour les transferts entre deux partages de fichiers. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
+      * Utilisez Robocopy entre un partage de fichiers et un ordinateur local. Pour plus d’informations, consultez [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/).
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Ralentissement des performances lors de l’accès au Stockage Fichier depuis Windows 8.1 ou Windows Server 2012 R2
@@ -87,14 +93,21 @@ Vous pouvez exécuter le script suivant pour vérifier si le correctif logiciel 
 
 Si le correctif logiciel est installé, la sortie suivante s’affiche :
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Les images de Windows Server 2012 R2 dans Azure Marketplace ont le correctif logiciel KB3114025 installé par défaut à compter de décembre 2015.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Guide de traçage des opérations de lecture et d’écriture dans le stockage de fichiers Azure
+
+[Microsoft Message Analyser](https://www.microsoft.com/en-us/download/details.aspx?id=44226) peut vous montrer la requête d’un client en texte clair, et il existe une bonne relation entre les requêtes d’écriture et les transactions (en supposant que SMB ici n’est pas REST).  L’inconvénient est que vous devez exécuter cette procédure sur chaque client, ce qui demande beaucoup de temps si vous avez beaucoup de workers de machines virtuelles IaaS.
+
+Si vous utilisez Message Analyze avec ProcMon, vous pouvez obtenir une bonne idée du code d’application en charge des transactions.
 
 <a id="additional"></a>
 
@@ -128,8 +141,9 @@ Pour plus d’informations sur l’utilisation de Portqry, consultez [Descriptio
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 Contactez votre service informatique pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>Cause 3
-Un message « Erreur système 53 » peut également s’afficher si la communication NTLMv1 est activée sur le client. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour Azure Files. Pour vérifier s’il s’agit de la cause de l’erreur, vérifiez que la sous-clé de Registre suivante est définie sur une valeur de 3 :
+Un message « Erreur système 53 ou Erreur système 87 » peut également s’afficher si la communication NTLMv1 est activée sur le client. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour Azure Files. Pour vérifier s’il s’agit de la cause de l’erreur, vérifiez que la sous-clé de Registre suivante est définie sur une valeur de 3 :
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -232,16 +246,33 @@ Cela peut se produire lorsque la commande de montage n’inclut pas l’option *
 ### <a name="solution"></a>Solution
 Vérifiez l’option **serverino** dans l’entrée « /etc/fstab » :
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Si l’option **serverino** n’est pas présente, démontez, puis remontez Azure Files avec l’option **serverino** sélectionnée.
+Vous pouvez également vérifier si cette option est utilisée simplement en exécutant la commande **sudo mount | grep cifs** et en observant la sortie :
 
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+
+Si l’option **serverino** n’est pas présente, démontez, puis remontez Azure Files avec l’option **serverino** sélectionnée.+
+
+<a id="error112"></a>
+## <a name="error-112---timeout-error"></a>Erreur 112 - erreur de délai d’expiration
+
+Cette erreur indique les échecs de communication qui empêchent de rétablir une connexion TCP avec le serveur lorsque l’option de montage « soft », la valeur par défaut, est utilisée.
+
+### <a name="cause"></a>Cause :
+
+Cette erreur peut être provoquée par un problème de reconnexion de Linux ou d’autres problèmes qui empêchent la reconnexion, comme les erreurs de réseau. Spécifier un montage forcé pousse le client à attendre jusqu'à ce qu’une connexion soit établie ou jusqu’à interruption explicite, et peut servir à empêcher les erreurs causées par les délais d’attente réseau. Toutefois, les utilisateurs doivent être conscients que cela peut entraîner une attente indéfinie et doit gérer l’arrêt d’une connexion si nécessaire.
+
+### <a name="workaround"></a>Solution de contournement
+
+Le problème de Linux a été résolu, mais pas encore porté sur les distributions Linux. Si le problème est provoqué par le problème de reconnexion sous Linux, vous pouvez contourner le problème en évitant le passage un état inactif. Pour ce faire, conservez dans le partage de fichiers Azure un fichier sur lequel vous écrirez pour toutes les 30 secondes ou moins. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la connexion.
+
+<a id="webjobs"></a>
+
+## <a name="accessing-from-other-applications"></a>Accès depuis d'autres applications
+### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Puis-je faire référence au partage de fichiers Azure pour mon application via une tâche Web ?
+Le montage de partages SMB dans le service d’application sandbox n’est pas possible. Pour résoudre ce problème, vous pouvez mapper le partage de fichiers Azure comme un lecteur mappé et permettre à l’application d’y accéder en tant que lettre de lecteur.
 ## <a name="learn-more"></a>En savoir plus
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 * [Prise en main d’Azure File Storage sur Linux](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

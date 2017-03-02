@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 603505ed07f7ab38470b669295acf08a35d9f38e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,25 +36,26 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration de Pacific Timesheet à Azure AD, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
-* Un abonnement **Pacific Timesheet** pour lequel l’authentification unique est activée
+* Un abonnement Pacific Timesheet pour lequel l’authentification unique (SSO) est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+>  
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
 
-1. Ajout de Pacific Timesheet à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-## <a name="adding-pacific-timesheet-from-the-gallery"></a>Ajout de Pacific Timesheet à partir de la galerie
+* Ajout de Pacific Timesheet à partir de la galerie
+* Configuration et test de l’authentification unique Azure AD
+
+## <a name="add-pacific-timesheet-from-the-gallery"></a>Ajouter Pacific Timesheet à partir de la galerie
 Pour configurer l’intégration de Pacific Timesheet à Azure AD, vous devez ajouter Pacific Timesheet à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Pacific Timesheet à partir de la galerie, procédez comme suit :**
@@ -78,20 +80,21 @@ Pour configurer l’intégration de Pacific Timesheet à Azure AD, vous devez aj
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Pacific Timesheet, avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Pacific Timesheet équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Pacific Timesheet associé.
+Pour que l’authentification unique (SSO) fonctionne, Azure AD doit savoir qui est l’utilisateur Pacific Timesheet équivalent dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Pacific Timesheet associé.
+
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Pacific Timesheet. Pour configurer et tester l’authentification unique Azure AD avec Pacific Timesheet, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Pacific Timesheet](#creating-a-pacific-timesheet-test-user)** pour avoir un équivalent de Britta Simon dans Pacific Timesheet lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Pacific Timesheet.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique (SSO) Azure AD dans le portail Azure Classic et de configurer l’authentification unique (SSO) dans votre application Pacific Timesheet.
 
 **Pour configurer l’authentification unique Azure AD avec Pacific Timesheet, procédez comme suit :**
 
@@ -107,25 +110,23 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 4. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, configurez l’application en **mode lancé par le fournisseur d’identité** en procédant comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_07.png)
+  1. Dans la zone de texte Identificateur, tapez une URL au format suivant : `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+  2. Dans la zone de texte URL de réponse, tapez une URL au format suivant : `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
+  3. Cliquez sur **Suivant**.
 
-    a. Dans la zone de texte Identificateur, tapez une URL au format suivant : `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. Dans la zone de texte URL de réponse, tapez une URL au format suivant : `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. Cliquez sur **Next**.
-
-1. Dans la page **Configurer l’authentification unique sur Pacific Timesheet**. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique sur Pacific Timesheet**. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_09.png)
-2. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Pacific Timesheet. Notez que vous devez envoyer un e-mail avec l’URL de l’émetteur, les valeurs d’URL d’authentification unique SAL de la page **Configurer l’authentification unique sur Pacific Timesheet**, et attacher un certificat téléchargé.
-3. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Pour que l’authentification unique soit configurée pour votre application, contactez l’équipe du support technique Pacific Timesheet. Notez que vous devez envoyer un e-mail avec l’URL de l’émetteur, les valeurs d’URL d’authentification unique SAL de la page **Configurer l’authentification unique sur Pacific Timesheet**, et attacher un certificat téléchargé.
+
+7. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
 4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 ![Créer un utilisateur Azure AD][20]
@@ -145,40 +146,30 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_06.png) 
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.   
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_07.png) 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-pacific-timesheet-test-user"></a>Création d’un utilisateur de test Pacific Timesheet
+### <a name="create-a-pacific-timesheet-test-user"></a>Créer un utilisateur de test Pacific Timesheet
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Pacific Timesheet. Contactez l’équipe de support technique Pacific Timesheet pour créer un utilisateur dans l’application.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Pacific Timesheet.
 
 ![Affecter des utilisateurs][200] 
@@ -199,7 +190,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette Pacific Timesheet dans le volet d’accès, vous êtes connecté automatiquement à votre application Pacific Timesheet.
@@ -228,9 +219,4 @@ Quand vous cliquez sur la vignette Pacific Timesheet dans le volet d’accès, v
 [203]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

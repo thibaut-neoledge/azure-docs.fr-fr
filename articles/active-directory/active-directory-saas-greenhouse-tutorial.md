@@ -11,36 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55a9a01414d930b40f60119318f5c023172141e1
+ms.sourcegitcommit: ad2e712cc1bcb7aea82b2c56a8a4a0f79e2ce1e0
+ms.openlocfilehash: cce21156d962c7678e2a32c0953586b786c1ad0f
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Didacticiel : Intégration d’Azure Active Directory avec Greenhouse
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Greenhouse.  
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
-* Un abonnement Greenhouse pour lequel l’authentification unique est activée
+* Un abonnement Greenhouse pour lequel l’authentification unique (SSO) est activée
 
 À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Greenhouse pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Greenhouse (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1. Activation de l’intégration d’application pour Greenhouse
-2. Configuration de l'authentification unique
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+* Activation de l’intégration d’application pour Greenhouse
+* Configuration de l’authentification unique (SSO)
+* Configuration de l'approvisionnement des utilisateurs
+* Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-greenhouse-tutorial/IC790783.png "Scenario")
+![Scénario](./media/active-directory-saas-greenhouse-tutorial/IC790783.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-greenhouse"></a>Activation de l’intégration d’application pour Greenhouse
+## <a name="enable-the-application-integration-for-greenhouse"></a>Activer l’intégration d’applications pour Greenhouse
 Cette section décrit l’activation de l’intégration d’application pour Greenhouse.
 
-### <a name="to-enable-the-application-integration-for-greenhouse-perform-the-following-steps"></a>Pour activer l’application de l’intégration pour Greenhouse, procédez comme suit :
+**Pour activer l’intégration d’applications pour Greenhouse, suivez les étapes ci-dessous :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-greenhouse-tutorial/IC700993.png "Active Directory")
@@ -50,91 +53,85 @@ Cette section décrit l’activation de l’intégration d’application pour Gr
    ![Applications](./media/active-directory-saas-greenhouse-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-greenhouse-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Add an application from gallerry")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-greenhouse-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, entrez **greenhouse**.
    
-   ![Galerie d’applications](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-greenhouse-tutorial/IC790784.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **Greenhouse**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![Greenhouse](./media/active-directory-saas-greenhouse-tutorial/IC790785.png "Greenhouse")
    
-   ## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Greenhouse avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **Greenhouse**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+**Pour configurer l’authentification unique, procédez comme suit :**
+
+1. Sur la page d’intégration d’applications **Greenhouse** du Portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Greenhouse**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790787.png "Configurer l’authentification unique")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL selon le modèle suivant *https://company.greenhouse.io*, puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configure App URL")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-greenhouse-tutorial/IC790788.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur Greenhouse**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790789.png "Configurer l’authentification unique")
 5. Transférez ce fichier de métadonnées à l’équipe de support de Greenhouse
-   
-   > [!NOTE]
-   > L’authentification unique doit être activée par l’équipe de support de Greenhouse.
-   > 
-   > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configure single sign-on")
-   
-   ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
-Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être approvisionnés dans Greenhouse.  
-Dans le cas de Greenhouse, l’approvisionnement est une tâche manuelle.
+>[!NOTE]
+>L’authentification unique doit être activée par l’équipe de support de Greenhouse.
+>
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+   
+   ![Configurer l’authentification unique](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configurer l’authentification unique")
+   
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+
+Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être approvisionnés dans Greenhouse. Dans le cas de Greenhouse, l’approvisionnement est une tâche manuelle.
+
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+
 1. Connectez-vous au site d’entreprise **Greenhouse** en tant qu’administrateur.
 2. Dans le menu situé en haut, cliquez sur **Configure (Configurer)**, puis sur **Users (Utilisateurs)**.
    
-   ![Utilisateurs](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Users")
+   ![Utilisateurs](./media/active-directory-saas-greenhouse-tutorial/IC790791.png "Utilisateurs")
 3. Cliquez sur **New Users**.
    
-   ![Nouvel utilisateur](./media/active-directory-saas-greenhouse-tutorial/IC790792.png "New User")
+   ![Nouvel utilisateur](./media/active-directory-saas-greenhouse-tutorial/IC790792.png "Nouvel utilisateur")
 4. Dans la section **Add New User** , procédez comme suit :
    
    ![Add New User](./media/active-directory-saas-greenhouse-tutorial/IC790793.png "Add New User")
-   
    1. Dans la zone de texte **Enter user emails** , tapez l’adresse de messagerie d’un compte Azure Active Directory valide à approvisionner.
-   2. Cliquez sur **Enregistrer**.
-      
-      > [!NOTE]
-      > Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
-      > 
-      > 
+   2. Cliquez sur **Enregistrer**.    
+   
+      >[!NOTE]
+      >Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
+      >  
 
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Greenhouse pour approvisionner des comptes d’utilisateur Azure Active Directory.
-> 
+>[!NOTE]
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Greenhouse pour approvisionner des comptes d’utilisateur Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-greenhouse-perform-the-following-steps"></a>Pour affecter des utilisateurs à Greenhouse, procédez comme suit :
+**Pour affecter des utilisateurs à Greenhouse, suivez les étapes ci-dessous :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’application **Greenhouse**, cliquez sur **Affecter des utilisateurs**.
+2. Sur la page d’intégration d’applications **Greenhouse**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Assign users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-greenhouse-tutorial/IC790794.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-greenhouse-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

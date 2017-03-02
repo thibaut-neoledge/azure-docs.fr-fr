@@ -1,5 +1,5 @@
 ---
-title: "Authentification de l’accès client à un cluster | Microsoft Docs"
+title: "Connexion sécurisée à un cluster Azure Service Fabric | Microsoft Docs"
 description: "Décrit comment authentifier l’accès client à un cluster Service Fabric et comment sécuriser les communications entre les clients et un cluster."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/03/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 9d5e2ce7ce8c27bc8fee75ee19236db268ee9281
-ms.openlocfilehash: 882b524929bd4b9d52ec3d13e6e11d931c0f1560
+ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
+ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -103,11 +104,18 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Connexion à un cluster sécurisé à l’aide de Windows Active Directory
+Si votre cluster autonome est déployé à l’aide de la sécurité d’Active Directory, connectez-vous au cluster en ajoutant le commutateur « WindowsCredential ».
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -WindowsCredential
+```
 
 <a id="connectsecureclusterfabricclient"></a>
 
 ## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Se connecter à un cluster à l’aide des API FabricClient
-Le Kit de développement logiciel (SDK) Service Fabric fournit la classe [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) pour la gestion de cluster. 
+Le Kit de développement logiciel (SDK) Service Fabric fournit la classe [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) pour la gestion de cluster. Pour utiliser les API FabricClient, obtenez le package NuGet Microsoft.ServiceFabric.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Se connecter à un cluster non sécurisé
 
@@ -125,9 +133,12 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Se connecter à un cluster sécurisé à l’aide d’un certificat client
 
-Les nœuds du cluster doivent présenter des certificats valides, dont le nom commun ou le nom DNS dans le SAN s’affichent dans la [propriété RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) définie sur [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Ce processus permet une authentification mutuelle entre le client et les nœuds du cluster.
+Les nœuds du cluster doivent présenter des certificats valides, dont le nom commun ou le nom DNS dans le SAN s’affichent dans la [propriété RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) définie sur [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Ce processus permet une authentification mutuelle entre le client et les nœuds du cluster.
 
 ```csharp
+using System.Fabric;
+using System.Security.Cryptography.X509Certificates;
+
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
@@ -146,22 +157,15 @@ catch (Exception e)
     Console.WriteLine("Connect failed: {0}", e.Message);
 }
 
-...
-
 static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
 {
-    var xc = new X509Credentials();
-
-    // Client certificate
+    X509Credentials xc = new X509Credentials();
     xc.StoreLocation = StoreLocation.CurrentUser;
-    xc.StoreName = "MY";
+    xc.StoreName = "My";
     xc.FindType = X509FindType.FindByThumbprint;
-    xc.FindValue = thumb;
-
-    // Server certificate
-    xc.RemoteCertThumbprints.Add(thumb);
+    xc.FindValue = clientCertThumb;
     xc.RemoteCommonNames.Add(name);
-
+    xc.RemoteCertThumbprints.Add(serverCertThumb);
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
 }
@@ -343,10 +347,5 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 * [Présentation du modèle d’intégrité de Service Fabric](service-fabric-health-introduction.md)
 * [Sécurité des applications et RunAs](service-fabric-application-runas-security.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Réparation d’un travail d’exportation | Microsoft Docs"
+title: "Réparation d’un travail d’importation | Microsoft Docs"
 description: "Apprenez à réparer un travail d’exportation qui a été créé et exécuté à l’aide du service Azure Import/Export."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 61bcbe23f9c747aeb486414fca6c1eb394098d11
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -82,7 +83,7 @@ Le fichier journal de copie indique qu’une défaillance s’est produite penda
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Utilisation de RepairExport pour valider le contenu du lecteur  
 Vous pouvez également utiliser Azure Import/Export avec l’option **RepairExport** pour vérifier que le contenu sur le lecteur est correct. Le fichier manifeste sur chaque lecteur d’exportation contient des MD5 pour le contenu du lecteur.  
   
-Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageservices/importexport/Get-Job3) une fois le travail terminé. Consultez la page [Format de fichier de manifeste du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md) pour plus d’informations sur le format d’un fichier manifeste de lecteur.  
+Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) une fois le travail terminé. Consultez la page [Format de fichier de manifeste du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md) pour plus d’informations sur le format d’un fichier manifeste de lecteur.  
   
 L’exemple suivant montre comment exécuter l’outil Azure Import/Export avec les paramètres **/ManifestFile** et **/CopyLogFile** :  
   
@@ -155,8 +156,4 @@ Tout composant dont la vérification échoue sera téléchargé par l’outil et
 [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
 [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
 [Résolution des problèmes associés à l’outil d’importation/d’exportation Azure](storage-import-export-tool-troubleshooting-v1.md)
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9b020c6175ba8f47cde5cba0f69a1c8c228479
-ms.openlocfilehash: 48d2274fff2fb1300406f48c8d3e772aefa9933f
+ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
+ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ Update 4 peut être appliquée à n’importe quel appareil StorSimple exécuta
 Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple.
 
 > [!IMPORTANT]
-> * Update 4 comprend le logiciel de l’appareil, le microprogramme USM, le pilote et le microprogramme LSI, le microprogramme du disque, Storport et Spaceport, la mise à jour de sécurité et d’autres mises à jour du système d’exploitation. L’installation de cette mise à jour prend entre 1 h 30 et 2 h. Nous vous recommandons d’appliquer cette mise à jour pour maintenir votre appareil à jour. 
+> * Update 4 comprend le logiciel de l’appareil, le microprogramme USM, le pilote et le microprogramme LSI, le microprogramme du disque, Storport et Spaceport, la mise à jour de sécurité et d’autres mises à jour du système d’exploitation. L’installation de cette mise à jour prend environ 4 heures. Nous vous recommandons d’appliquer cette mise à jour pour maintenir votre appareil à jour. 
 > * Pour les nouvelles versions, vous ne voyez pas immédiatement les mises à jour, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car elles seront bientôt disponibles.
 
 ## <a name="whats-new-in-update-4"></a>Nouveautés d’Update 4
@@ -91,10 +92,5 @@ Cette mise à jour ne peut pas s’appliquer à l’équipement cloud StorSimple
 ## <a name="next-step"></a>Étape suivante
 
 Découvrez comment [installer Update 4](storsimple-install-update-4.md) sur votre appareil StorSimple.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

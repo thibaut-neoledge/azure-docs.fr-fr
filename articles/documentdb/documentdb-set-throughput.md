@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
+
+**Puis-je définir mon débit sur une valeur inférieure à 400 unités de demande/s ?**
+
+400 unités de demande/s est le débit minimal disponible sur les collections à partition DocumentDB unique (2500 unités de demande/s est la valeur minimale pour les collections partitionnées). Les unités de demande sont définies par intervalles de 100 unités de demande/s, mais le débit ne peut pas avoir la valeur 100 unités de demande/s ou toute valeur inférieure à 400 unités de demande/s. Si vous recherchez une méthode économique pour développer et tester DocumentDB, vous pouvez utiliser gratuitement [l’Émulateur DocumentDB](documentdb-nosql-local-emulator.md), que vous pouvez déployer localement sans frais. 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec DocumentDB, voir [Partitionnement et mise à l’échelle dans Azure DocumentDB](documentdb-partition-data.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

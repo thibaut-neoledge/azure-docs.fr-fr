@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
+ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 1. Créez et exécutez l’exemple d’application de la rubrique **Prise en main des outils de base de données élastique** . Suivez la procédure jusqu’à l’étape 7 dans la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). À la fin de l’étape 7, vous verrez l’invite de commande suivante :
 
     ![invite de commande][1]
-2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
+2. Dans la fenêtre de commande, entrez «&1; » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez «&3; », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 3. Le [portail Azure](https://portal.azure.com) affiche alors trois nouvelles bases de données dans votre serveur v12 :
 
    ![Confirmation Visual Studio][2]
@@ -51,7 +52,9 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
     ![Portail Azure et tarification][3]
 
-    Remarque : vous pouvez utiliser une base de données existante. Si c’est le cas, il ne doit pas s’agir de l’une des partitions sur laquelle vous souhaitez exécuter les requêtes. Cette base de données sera utilisée pour la création d’objets de métadonnées pour une requête de base de données élastique.
+    > [!NOTE]
+    > Vous pouvez utiliser une base de données existante. Si c’est le cas, il ne doit pas s’agir de l’une des partitions sur laquelle vous souhaitez exécuter les requêtes. Cette base de données sera utilisée pour la création d’objets de métadonnées pour une requête de base de données élastique.
+    >
 
 ## <a name="create-database-objects"></a>Créez des objets de base de données
 ### <a name="database-scoped-master-key-and-credentials"></a>Clé principale et informations d’identification de la base de données
@@ -127,7 +130,16 @@ La fonction de requête de base de données élastique n’entraîne aucuns frai
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification - Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Étapes suivantes
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Pour une présentation des requêtes élastiques, consultez [Présentation des requêtes élastiques](sql-database-elastic-query-overview.md).
+* Pour le didacticiel sur le partitionnement vertical, consultez [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](sql-database-elastic-query-getting-started-vertical.md).
+* Pour la syntaxe et des exemples de requêtes pour des données partitionnées verticalement, consultez [Requêtes sur des données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md)
+* Pour la syntaxe et des exemples de requêtes pour des données partitionnées horizontalement, consultez [Requêtes sur des données partitionnées horizontalement](sql-database-elastic-query-horizontal-partitioning.md)
+* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -136,9 +148,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

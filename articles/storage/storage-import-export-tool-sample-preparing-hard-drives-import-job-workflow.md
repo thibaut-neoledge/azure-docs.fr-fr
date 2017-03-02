@@ -1,5 +1,5 @@
 ---
-title: "Exemple de workflow pour préparer des disques durs pour un travail d’importation Azure Import/Export | Microsoft Docs"
+title: "Exemple de workflow pour préparer des disques durs à un travail d’importation Azure | Microsoft Docs"
 description: "Obtenez la procédure pas à pas relative au processus de préparation des disques à un travail d’importation dans le service Azure Import/Export"
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: 763ad16242da2d895686934422e345555d5b0e05
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: ebed1f1d4cb6cca96e02322d2f76abd6e9810ecc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -135,9 +136,4 @@ Une fois les sessions de copie terminées, vous pouvez déconnecter les deux dis
 
 * [Préparation des disques durs pour un travail d’importation](storage-import-export-tool-preparing-hard-drives-import.md)
 * [Référence rapide pour les commandes fréquemment utilisées](storage-import-export-tool-quick-reference.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

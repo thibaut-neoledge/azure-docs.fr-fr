@@ -12,29 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7540b90327cf4c88d4e5937b10fcabb3d5b9c4fc
+ms.sourcegitcommit: f0e7890ba4c7ef281558886f8cb8bcc429944f06
+ms.openlocfilehash: 9c0c15c0bf876110fcf9dd01a7930d3b226dfbc4
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="add-new-users-to-azure-active-directory-preview"></a>Ajout de nouveaux utilisateurs à la version préliminaire d’Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-users-create-azure-portal.md)
-> * [portail Azure Classic](active-directory-create-users.md)
-> 
-> 
+> * [Portail Azure Classic](active-directory-create-users.md)
+>
+>
 
 Cet article explique comment ajouter de nouveaux utilisateurs de votre organisation à la préversion d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
-   
+
    ![Ouvrir la gestion des utilisateurs](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**, puis sélectionnez **Ajouter**.
-   
+
    ![Sélection de la commande Ajouter](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
 4. Entrez les détails de l’utilisateur, dont son **nom** et son **nom d’utilisateur**. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, « foo.onmicrosoft.com », ou un nom de domaine vérifié, non fédéré, comme « contoso.com ».
 5. Copiez ou notez d’une autre façon le mot de passe généré de sorte à pouvoir le fournir à l’utilisateur une fois ce processus terminé.
@@ -42,17 +43,11 @@ Cet article explique comment ajouter de nouveaux utilisateurs de votre organisat
 7. Dans le panneau **Utilisateur**, sélectionnez **Créer**.
 8. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
 
-## <a name="whats-next"></a>Étapes suivantes
+### <a name="next-steps"></a>Étapes suivantes
 * [Ajouter un utilisateur externe](active-directory-users-create-external-azure-portal.md)
 * [Réinitialiser le mot de passe d’un utilisateur dans le nouveau portail Azure](active-directory-users-reset-password-azure-portal.md)
 * [Modifier les informations de travail d’un utilisateur](active-directory-users-work-info-azure-portal.md)
 * [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 * [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
 * [Affecter un utilisateur à un rôle dans Azure AD](active-directory-users-assign-role-azure-portal.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

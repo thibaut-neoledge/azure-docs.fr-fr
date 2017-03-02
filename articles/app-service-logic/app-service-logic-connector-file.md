@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61b3644214a7cb067dbb59e8fbd1464af78ae3e1
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 35bd4561f6e8f4482cb084eb293b506eb9269cf7
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Utilisation et ajout du connecteur File dans votre application logique
 > [!NOTE]
 > Cette version de l’article s’applique à la version du schéma 2014-12-01-preview des applications logiques.
-> 
-> 
+>
+>
 
-Connectez-vous à un système de fichiers pour, entre autres, charger, télécharger vos fichiers sur un ordinateur hôte. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données. Vous pouvez ajouter le connecteur File à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique. 
+Connectez-vous à un système de fichiers pour, entre autres, charger, télécharger vos fichiers sur un ordinateur hôte. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données. Vous pouvez ajouter le connecteur File à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
 Le connecteur File utilise le Gestionnaire de connexion hybride pour la connectivité hybride vers le système de fichiers hôte.
 
@@ -39,7 +40,7 @@ Pour utiliser le connecteur File, vous devez d’abord créer une instance de l�
 4. Cliquez sur le bouton **Créer**
 5. Configurez le connecteur File comme suit :   
    ![][1]
-   
+
    * **Nom** : indiquez le nom du connecteur File.
    * **Paramètres du package**
      * **Dossier racine** : indiquez le chemin du dossier racine sur l’ordinateur hôte. par exemple D:\FileConnectorTest
@@ -59,7 +60,7 @@ Pour plus d'informations sur la configuration et le dépannage du Gestionnaire d
 Une fois votre application API créée, vous pouvez utiliser le connecteur File comme action pour votre application logique. Pour cela, vous devez procéder comme suit :
 
 1. Créez une application logique et choisissez le groupe de ressources qui contient le connecteur File. Suivez les instructions indiquées dans la rubrique [Création d’une application logique].
-2. Ouvrez « Déclencheurs et actions » dans l’application logique créée pour ouvrir le Concepteur d’applications logiques et configurez votre flux.
+2. Ouvrez « Déclencheurs et actions » dans l’application logique créée pour ouvrir le Concepteur d’application logique et configurez votre flux.
 3. Le connecteur File s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
 4. Vous pouvez déposer l’application API du connecteur File dans l’éditeur en cliquant sur « Connecteur File ». Le connecteur File expose un déclencheur et 4 actions :   
    ![][5]
@@ -69,8 +70,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur File 
 
 > [!NOTE]
 > Le déclencheur de fichier supprimera le fichier lorsque celui-ci sera correctement lu à partir du dossier.
-> 
-> 
+>
+>
 
 ## <a name="file-connector-rest-apis"></a>API REST du connecteur File
 Pour utiliser le connecteur hors d’une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d’API, sélectionnez Parcourir -> Application API -> Connecteur File. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur :   
@@ -79,16 +80,16 @@ Pour utiliser le connecteur hors d’une application logique, vous devez faire a
 Vous trouverez les détails de l’API dans la rubrique [Définition des API du connecteur File].
 
 ## <a name="do-more-with-your-connector"></a>En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-> 
-> 
+> Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://azure.microsoft.com/try/app-service/logic/), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>
+>
 
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la rubrique [Analyser vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -99,10 +100,5 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!-- Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 [File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
-[Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Utilisation du Gestionnaire de connexion hybride]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 

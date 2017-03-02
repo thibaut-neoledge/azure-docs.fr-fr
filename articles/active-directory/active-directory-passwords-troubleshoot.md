@@ -17,6 +17,7 @@ ms.author: asteen
 translationtype: Human Translation
 ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
 ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Si vous rencontrez une erreur lors de la configuration de la réinitialisation d
               <p>La section <strong>Stratégie de réinitialisation de mot de passe utilisateur</strong> est visible mais le seul indicateur qui apparaît dans cette section est l’indicateur <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong>.</p>
             </td>
             <td>
-              <p>Le reste de l’interface utilisateur s’affiche lorsque vous basculez l’indicateur <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> sur <strong>Oui.</strong></p>
+              <p>Le reste de l’interface utilisateur s’affiche lorsque vous basculez l’indicateur <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> sur <strong>Oui</strong>.</p>
             </td>
           </tr>
           <tr>
@@ -524,7 +525,7 @@ Tout le trafic via TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-Les connexions sortantes <br\><br\></li>
+Les connexions sortantes vers <br\><br\></li>
               </ul>
               <p>
 
@@ -582,7 +583,7 @@ Vous configurez Azure AD Connect pour le client abc.com (domaine vérifié) à l
                 <li>
 Vous modifiez ensuite les informations d’identification AAD du connecteur (à l’aide de l’ancienne interface utilisateur de synchronisation). (Notez qu’il s’agit du même client mais d’un nom de domaine différent). <br\><br\></li>
                 <li>
-Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que « abc.onmicrosoft.com – AAD », puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé portant ce nom.<br\><br\></li>
+Vous essayez à présent d’activer/de désactiver l’écriture différée des mots de passe. L’Assistant crée le nom du connecteur en utilisant les informations d’identification, telles que « abc.onmicrosoft.com – AAD », puis le passe à l’applet de commande d’écriture différée des mots de passe. Cette opération échoue, car il n’existe aucun connecteur créé à ce nom.<br\><br\></li>
               </ol>
               <p>Ce problème a été résolu dans nos versions les plus récentes. Si vous possédez une version plus ancienne, une solution de contournement consiste à utiliser l’applet de commande PowerShell pour activer ou désactiver la fonctionnalité. Consultez « Étape 2 : activer l’écriture différée du mot de passe sur votre ordinateur de synchronisation d’annuaires &amp; configurer des règles de pare-feu » dans <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Comment activer/désactiver l’écriture différée du mot de passe</a> pour plus d’informations sur la procédure à suivre.</p>
             </td>
@@ -787,7 +788,7 @@ Le compte de service de l’agent de gestion n’a pas les autorisations appropr
               </ul>
               <ul>
                 <li class="unordered">
-Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
+Le compte de l’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée du mot de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -870,7 +871,7 @@ Le compte de service de l’agent de gestion n’a pas les autorisations appropr
               </ul>
               <ul>
                 <li class="unordered">
-Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
+Le compte de l’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée du mot de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -925,7 +926,7 @@ Le compte de service de l’agent de gestion n’a pas les autorisations appropr
               </ul>
               <ul>
                 <li class="unordered">
-Le compte d’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
+Le compte de l’utilisateur est dans un groupe protégé, comme celui des administrateurs de domaine ou d’entreprise, ce qui n’autorise pas les opérations de définition de mots de passe.<br\><br\></li>
               </ul>
               <p>Consultez <a href="#troubleshoot-password-writeback">Résoudre les problèmes liés à l’écriture différée du mot de passe</a> pour en savoir plus sur les autres situations pouvant provoquer cette erreur.</p>
             </td>
@@ -1516,9 +1517,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

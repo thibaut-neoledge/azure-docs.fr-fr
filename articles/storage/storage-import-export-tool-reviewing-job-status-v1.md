@@ -1,5 +1,5 @@
 ---
-title: "Consultation de l’état du travail avec les fichiers journaux de copie | Microsoft Docs"
+title: "Vérification de l’état des travaux Azure Import/Export | Microsoft Docs"
 description: "Découvrez comment utiliser les fichiers journaux créés lors de l’exécution du travail d’importation ou d’exportation pour connaître l’état du travail Import-Export."
 author: muralikk
 manager: syadav
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 25cd0308115994463bd50562594d4e2bb88e8286
-ms.openlocfilehash: 66d7690249cb653dfb8d2e591d1ce66162d98a7e
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: f0d445e51ff91f6edc219522ec3c12a86dc4ee98
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="reviewing-job-status-with-copy-log-files"></a>Consultation de l’état du travail avec les fichiers journaux de copie
+# <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Vérification de l’état des travaux Azure Import/Export avec les copies des fichiers journaux
 Lorsque le service Microsoft Azure Import/Export traite des lecteurs associés à un travail d’importation ou d’exportation, il écrit les fichiers journaux de copie dans le compte de stockage dans ou à partir duquel vous importez ou exportez des objets blob. Le fichier journal contient l’état détaillé de chaque fichier importé ou exporté. L’URL de chaque fichier journal de copie est renvoyée lorsque vous interrogez l’état d’un travail effectué ; consultez la page [Get Job](/rest/api/storageservices`Get-Job3) pour plus d’informations.  
   
  Voici des exemples d’URL de fichiers journaux de copie pour un travail d’importation avec deux lecteurs :  
@@ -38,9 +39,4 @@ Lorsque le service Microsoft Azure Import/Export traite des lecteurs associés �
  [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
  [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)   
  [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

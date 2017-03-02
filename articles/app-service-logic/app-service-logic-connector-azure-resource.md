@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff72e6b0465f25be94c6852f3cdd3417817b8056
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Pour la configurer, vous devez définir un principal du service doté d’autori
 
 David Ebbo a rédigé un [formidable billet de blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sur la configuration de ce principal. Suivez toutes les instructions qui y figurent et obtenez votre **ID de locataire****ID client** et **Clé secrète**. Ces trois champs, ainsi que l’ **ID d’abonnement**, définissent les informations requises pour la configuration du connecteur.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Utilisation du connecteur de ressources Azure dans le concepteur d’applications logiques
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>Utilisation du connecteur de ressources Azure dans le Concepteur d’application logique
 ### <a name="trigger"></a>Déclencheur
 Deux déclencheurs sont pris en charge dans le connecteur :
 
@@ -93,10 +94,10 @@ Pour **Métriques** concernant les ressources, vous pouvez définir les actions 
 | Obtenir les métriques |Obtient un métrique pour un ID de ressource. |
 
 ## <a name="do-more-with-your-connector"></a>En faire plus avec votre connecteur
-Le connecteur étant créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Le connecteur étant créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://azure.microsoft.com/try/app-service/logic/), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 
@@ -105,10 +106,5 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 <!--References -->
 
 <!--Links -->
-[Création d’une application logique]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
