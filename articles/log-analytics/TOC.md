@@ -16,7 +16,7 @@
 #### [Agents Windows](log-analytics-windows-agents.md)
 #### [Agents Linux](log-analytics-linux-agents.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
-#### [Ressources Azure](log-analytics-azure-storage.md)
+#### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gestionnaire de configuration](log-analytics-sccm.md)
 #### [Passerelle OMS](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Données de requête
 ### [Présentation de la recherche dans les journaux](log-analytics-log-searches.md)
 ### [Référence sur la recherche](log-analytics-search-reference.md)
+#### [Expressions régulières](log-analytics-log-searches-regex.md)
 ### [Groupes d’ordinateurs](log-analytics-computer-groups.md)
-### [Alertes](log-analytics-alerts.md)
 ## Analyser des données
 ### [Tableaux de bord](log-analytics-dashboards.md)
 ### [Concepteur de vues](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [Évaluation d'AD](log-analytics-ad-assessment.md)
 #### [État de la réplication AD](log-analytics-ad-replication-status.md)
 #### [Gestion des alertes](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [Gestion de la capacité](log-analytics-capacity.md)
 #### [Suivi des modifications](log-analytics-change-tracking.md)
 #### [Conteneurs](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Données de communication](log-analytics-wire-data.md)
 #### [Évaluation SCOM](log-analytics-scom-assessment.md)
+## Créez des alertes
+### [Présentation des alertes](log-analytics-alerts.md)
+### [Actions d’alerte](log-analytics-alerts-actions.md)
+### Créer des règles d'alerte
+#### [Portail OMS](log-analytics-alerts-creating.md)
+#### [API REST](log-analytics-api-alerts.md)
+#### [modèle Azure Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Exemple d’action webhook](log-analytics-alerts-webhooks.md)
+### [Solution de gestion des alertes](log-analytics-solution-alert-management.md)
 ## Développement
 ### [API de collecte de données](log-analytics-data-collector-api.md)
 ### [Applets de commande PowerShell](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Mettre à niveau Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Tarification](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

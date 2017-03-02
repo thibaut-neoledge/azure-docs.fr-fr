@@ -4,8 +4,9 @@ hide_bc: true
 title: Documentation Microsoft Azure | Microsoft Docs
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 translationtype: Human Translation
-ms.sourcegitcommit: 39bebdc52aea8f4ee154c8369c1c564ffe8be95d
-ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
+ms.sourcegitcommit: a2f5d05e9911e0ceb9a3815245fb92704b0619a7
+ms.openlocfilehash: 989b9a20705290ed6764f2e5857cc1485ced39dc
+ms.lasthandoff: 02/28/2017
 
 ---
 <div id="main" class="v2">
@@ -274,6 +275,12 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -997,6 +1004,25 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Connexions de réseau privé dédiées par fibre optique à Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Surveiller et diagnostiquer les conditions au niveau d’un réseau</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2587,12 +2613,12 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Version préliminaire d’Azure CLI 2.0 </h3>
+                                                <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Prise en main</a>
+                                                    <a href="/cli/azure/overview">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Télécharger Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Télécharger Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Référence</a>
@@ -2906,9 +2932,4 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
         </ul>
     </div>
 </div>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

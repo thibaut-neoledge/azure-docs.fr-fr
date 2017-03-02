@@ -1,41 +1,29 @@
 ---
-title: "Documentation Azure Logic Apps - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à développer des applications logiques qui automatisent et simplifient les workflows métier en local et dans le cloud. Didacticiels, modèles et références d’API."
-services: logic-apps
-author: carolz
-manager: carolz
 layout: LandingPage
-ms.assetid: 
-ms.service: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
+description: "Découvrez comment utiliser Network Watcher pour surveiller et diagnostiquer les conditions au niveau d’un réseau."
 translationtype: Human Translation
-ms.sourcegitcommit: a0bb42ad612c47111c946afe280e5ed0b3acc2a7
-ms.openlocfilehash: 02ea87d181ede4a0a2d5934b7875f335a25d6ce3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7b51e3df9aa449bb3fdabd28ce80ac9d4fd7a951
+ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
+ms.lasthandoff: 02/22/2017
 
 ---
+# <a name="azure-network-watcher-documentation"></a>Documentation Azure Network Watcher
 
-# <a name="logic-apps-documentation"></a>Documentation Logic Apps
-
-Apprenez à développer des applications logiques qui simplifient et intègrent des workflows évolutifs dans le cloud. Des didacticiels, modèles et références d’API vous aident à concevoir et déployer des workflows métier automatisés en local et dans le cloud.
+Découvrez comment utiliser Network Watcher, un service qui vous permet de surveiller et de diagnostiquer les conditions au niveau d’un réseau. Les didacticiels, informations de référence sur les API et autres documents vous montrent comment obtenir des informations détaillées sur votre réseau Azure avec des outils tels que la capture de paquets, la topologie, etc.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
+        <a href="/azure/network-watcher/network-watcher-monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/logic-apps.svg" alt="" />
+                            <img src="media/index/network-watcher.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>En savoir plus sur Logic Apps</h3>
+                        <h3>En savoir plus sur Network Watcher</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +31,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=network-watcher">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +41,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Bibliothèque vidéo App Service</h3>
+                        <h3>Vidéothèque Network Watcher</h3>
                     </div>
                 </div>
             </div>
@@ -61,7 +49,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
         </a>
     </li>
     <li>
-        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
+        <a href="/azure/network-watcher/network-watcher-packet-capture-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -71,15 +59,15 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de la création d’une application logique connectant les services SaaS</h3>
+                        <h3>Prise en main de la capture de paquets</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
-        <a href="/azure/logic-apps/logic-apps-arm-provision">
+    </li> 
+     <li>
+        <a href="/azure/network-watcher/network-watcher-security-group-view-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +77,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de la création d’une application logique à l’aide d’un modèle</h3>
+                        <h3>Prise en main de l’affichage des groupes de sécurité</h3>
                     </div>
                 </div>
             </div>
@@ -97,7 +85,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
         </a>
     </li>
     <li>
-        <a href="/azure/logic-apps/logic-apps-create-api-app">
+        <a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,13 +95,51 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main de la création d’une API personnalisée à utiliser avec Logic Apps</h3>
+                        <h3>Prise en main de la vérification des flux IP</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/network-watcher/network-watcher-next-hop-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Prise en main du tronçon suivant</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
+     <li>
+        <a href="/azure/network-watcher/network-watcher-topology-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Prise en main de la topologie</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+   
 </ul>
 
 ---
@@ -126,7 +152,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -137,10 +163,9 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Historique de schéma</h3>
-                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
-                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Version préliminaire</a></p>
-                   </div>
+                        <h3>Langues</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,9 +176,7 @@ Apprenez à développer des applications logiques qui simplifient et intègrent 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/logic/definition-language">Langage de définition de flux de travail</a></p>
-                        <p><a href="/rest/api/logic/actions-and-triggers">Actions et déclencheurs de flux de travail</a></p>
-                        <p><a href="/rest/api/logic/">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/networkwatcher">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>
