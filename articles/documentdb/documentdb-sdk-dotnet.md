@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/15/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 44bc06506707e09ea2bbcbb18198bc1a10467d53
-ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
+ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
+ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -51,15 +52,20 @@ ms.openlocfilehash: 26567a3e935ad9162c366ee053ff846d2edadc38
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
+
 ### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
 * Résolution d’un problème causant l’échec de certaines requêtes entre partitions dans le processus hôte 32 bits.
 * Résolution d’un problème empêchant la mise à jour du conteneur de session à l’aide du jeton pour les requêtes ayant échoué en mode passerelle.
 * Résolution du problème causant l’échec ponctuel d’une requête avec des appels de fonctions définies par l’utilisateur en projection.
+* Correctifs des performances côté client permettant d’augmenter le débit de lecture et d’écriture des requêtes.
 
 ### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Résolution d’un problème empêchant la mise à jour du conteneur de session à l’aide du jeton pour les requêtes ayant échoué.
 * Prise en charge du Kit de développement logiciel (SDK) dans les processus hôtes 32 bits. Notez que si vous utilisez des requêtes entre les partitions, le processus hôte 64 bits est recommandé pour améliorer les performances.
 * Amélioration des performances pour les scénarios impliquant des requêtes avec un grand nombre de valeurs de clé de partition dans une expression IN.
+* Remplissage de diverses statistiques de quota de ressources dans ResourceResponse pour les requêtes de lecture sur la collection de documents lorsque l’option de requête PopulateQuotaInfo est définie.
 
 ### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Correction mineure des performances de l’API CreateDocumentCollectionIfNotExistsAsync introduit dans la version 1.11.0.
@@ -199,6 +205,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |15 février 2017 |--- |
 | [1.11.4](#1.11.4) |06 février 2017 |--- |
 | [1.11.3](#1.11.3) |26 janvier 2017 |--- |
 | [1.11.1](#1.11.1) |21 décembre 2016 |--- |
@@ -230,10 +237,5 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
