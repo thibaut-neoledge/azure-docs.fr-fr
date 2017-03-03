@@ -18,6 +18,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 3d24c0c29da8c97e5fcff524dc88746982fda77c
 ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
+ms.lasthandoff: 12/15/2016
 
 
 ---
@@ -32,7 +33,7 @@ Ce didacticiel utilise un appareil simulé Node.js simple pour générer la tél
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk_free_trial].
-* [Node.js] [ lnk-node] version 0.12.x ou ultérieure pour créer un appareil simulé.
+* [Node.js][lnk-node] version 0.12.x ou ultérieure pour créer un appareil simulé.
 * Microsoft Visual Studio 2015 pour modifier le serveur principal de la solution de préconfigurée avec vos nouvelles règles.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
@@ -231,8 +232,3 @@ Maintenant que vous avez vu comment créer des règles personnalisées, vous pou
 [lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 [lnk-logic-app]: iot-suite-logic-apps-tutorial.md
-
-
-<!--HONumber=Dec16_HO3-->
-
-
