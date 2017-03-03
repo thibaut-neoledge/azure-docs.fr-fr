@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
 ms.openlocfilehash: f744a29e12fb693dd422f359d0faacaae004351b
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -63,9 +64,4 @@ Pour utiliser des applets de commande Windows PowerShell, vous devez commencer p
 
 ## <a name="next-steps"></a>Étapes suivantes
 * **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 060e8cbbd812ed2495d1c589f29760d2453af51b
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 88c42ff541aac2e43724fe62f99e3ddea56afc3c
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="diagnostics-and-error-recovery-for-import-export-jobs"></a>Diagnostic et récupération d’erreur pour les travaux d’importation/exportation
+# <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostic et récupération d’erreur pour les travaux Azure Import/Export
 Pour chaque disque traité, le service Azure Import/Export crée un journal d’erreurs dans le compte de stockage associé. Vous pouvez également activer la journalisation documentée en définissant la propriété `LogLevel` sur `Verbose` lors de l’appel des opérations [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).
 
  Par défaut, les journaux sont écrits dans un conteneur nommé `waimportexport`. Vous pouvez spécifier un autre nom en définissant la propriété `DiagnosticsPath` lors de l’appel des opérations `Put Job` ou `Update Job Properties`. Les journaux sont stockés sous la forme d’objets blob de blocs avec la convention d’affectation de noms suivante : `waies/jobname_driveid_timestamp_logtype.xml`.
@@ -58,9 +59,4 @@ Il peut arriver que certaines parties d’un travail d’importation ou d’expo
 
 ## <a name="see-also"></a>Voir aussi
 [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

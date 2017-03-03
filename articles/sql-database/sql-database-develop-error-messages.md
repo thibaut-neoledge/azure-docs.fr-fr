@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
 ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -215,10 +216,5 @@ Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 ## <a name="related-links"></a>Liens connexes
 * [Fonctionnalités d’Azure SQL Database](sql-database-features.md)
 * [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

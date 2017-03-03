@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 02/13/2017
 ms.author: borisb
 translationtype: Human Translation
-ms.sourcegitcommit: 7ad71094cafb3d401797e8a8b3dd48a9aeeded9e
-ms.openlocfilehash: 34c4198c0b1b975caf2c198634bb18e0c4f2ab5b
+ms.sourcegitcommit: 6b54633b6beed738a93070aa4235ee4e24333b5e
+ms.openlocfilehash: e1867aa3c5339373b494744ba26c750bcc11b5b5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,21 +27,44 @@ Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (
 La liste de référentiels yum, gérée par RHUI, est configurée dans votre instance RHEL lors de l’approvisionnement. Vous n’avez pas besoin d’effectuer de configuration supplémentaire : exécutez `yum update` une fois que votre instance RHEL est prête à recevoir les dernières mises à jour.
 
 > [!NOTE]
-> L’infrastructure RHUI Azure a été récemment mise à jour (septembre 2016) et nécessite des changements de configuration de vos instances RHEL existantes pour un accès ininterrompu au à l’infrastructure RHUI Azure. Pour plus d’informations, voir la section Mise à jour de l’infrastructure RHUI Azure.
-> 
+> En septembre 2016, nous avons déployé une mise à jour de RHUI Azure, et en janvier 2017, nous avons progressivement désactivé l’ancienne version. Si vous avez utilisé les images RHEL (ou leurs instantanés) à partir de septembre 2016 ou après, il est probable qu’aucune action ne soit requise. Si toutefois vous avez des machines virtuelles/instantanés plus anciens, leur configuration doit être mise à jour pour un accès ininterrompu à RHUI Azure.
 > 
 
 ## <a name="rhui-azure-infrastructure-update"></a>Mise à jour de l’infrastructure RHUI Azure
-Depuis septembre 2016, Azure propose un nouvel ensemble de serveurs d’infrastructure de mise à jour de Red Hat (RHUI). Ces serveurs sont déployés avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) de sorte qu’un simple point de terminaison (rhui-1.micrsoft.com) peut être utilisé par n’importe quelle machine virtuelle, quelle que soit la région. Ils utilisent également un certificat SSL chaîné à une autorité de certification (Baltimore Root) bien connue. Rendre cette mise à jour automatique serait dangereux pour des clients ayant des listes de contrôle d’accès (ACL) ou des tables de routage personnalisées pour les serveurs de mise à jour RHUI. Cette mise à jour doit donc être acceptée. Les étapes manuelles pour l’intégration de ces nouveaux serveurs sont décrites dans cette page, ainsi qu’un script complet pour l’intégration de manière automatique (après vérification des différentes étapes). Les nouvelles images RHEL PAYG dans la Place de marché Azure (versions à partir de septembre 2016) pointent automatiquement vers les nouveaux serveurs RHUI Azure et ne nécessitent pas d’action supplémentaire.
+Depuis septembre 2016, Azure propose un nouvel ensemble de serveurs d’infrastructure de mise à jour de Red Hat (RHUI). Ces serveurs sont déployés avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) de sorte qu’un simple point de terminaison (rhui-1.micrsoft.com) peut être utilisé par n’importe quelle machine virtuelle, quelle que soit la région. Les nouvelles images RHEL avec paiement à l’utilisation (PAYG) dans la Place de marché Azure (versions à partir de septembre 2016) pointent vers les nouveaux serveurs RHUI Azure et ne nécessitent pas d’action supplémentaire.
 
-### <a name="the-new-azure-rhui-infrastructure-onboarding-timeline"></a>Chronologie de l’intégration de la nouvelle infrastructure RHUI Azure
-| Date | Remarque |
-| --- | --- |
-| 22 septembre 2016 |Serveurs RHUI et instructions d’installation disponibles. Les machines virtuelles déployées à l’aide des nouvelles images (datant de septembre 2016) RHEL PAYG de la Place de marché utilisent automatiquement les nouveaux serveurs RHUI, mais les machines virtuelles existantes doivent les accepter. |
-| 1er novembre 2016 |Les images de machines virtuelles RHEL PAYG héritées (qui utilisent les anciens serveurs RHUI Azure) seront supprimées de la galerie de la Place de marché Azure. |
-| 16 janvier 2017 |Les anciens serveurs RHUI Azure seront désaffectés. Mettez à jour toutes vos machines virtuelles PAYG RHEL affectées avant cette date pour maintenir l’accès à RHUI Azure. |
+### <a name="determine-if-action-is-required"></a>Déterminer si une action est requise
+Si vous rencontrez des problèmes de connexion à RHUI Azure à partir de votre machine virtuelle Azure RHEL PAYG, procédez comme suit
+1. Examen de la configuration de machine virtuelle pour le point de terminaison RHUI Azure
+
+    Vérifiez si le fichier `/etc/yum.repos.d/rh-cloud.repo` contient la référence à `rhui-[1-3].microsoft.com` dans la section baseurl `[rhui-microsoft-azure-rhel*]` du fichier. Si c’est le cas, vous utilisez la nouvelle version de RHUI Azure.
+
+    Si elle pointe vers un emplacement avec le modèle suivant `mirrorlist.*cds[1-4].cloudapp.net` - la mise à jour de la configuration est requise.
+
+    Si vous utilisez la nouvelle configuration et ne parvenez toujours pas à vous connecter à RHUI Azure, ouvrez une demande de support avec Microsoft ou Red Hat.
+
+    > [!NOTE]
+    > L’accès à l’infrastructure RHUI hébergée sur Azure est limité aux machines virtuelles figurant dans les [plages IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+    > 
+
+2. Si l’ancienne version de RHUI Azure est toujours disponible lorsque vous effectuez cette vérification et que vous souhaitez mettre à jour automatiquement la configuration, exécutez la commande suivante :
+
+    `sudo yum update RHEL6` ou `sudo yum update RHEL7` selon la version de famille RHEL que vous utilisez.
+
+3. Si vous ne vous connectez plus à l’ancien RHUI Azure, suivez les étapes manuelles décrites dans la section suivante.
+
+4. Veillez à mettre à jour la configuration de l’image source/l’instantané depuis lequel la machine virtuelle affectée a été configurée.
+
+### <a name="phased-shutdown-of-the-old-azure-rhui"></a>Arrêt progressif de l’ancienne version de RHUI Azure
+Pendant l’arrêt de l’ancienne version de RHUI Azure, nous restreignons l’accès comme suit :
+
+1. Restreignez davantage l’accès (ACL) aux adresses IP qui s’y connectent déjà. Effets indésirables possibles : si vous continuez à utiliser l’ancienne version de RHUI Azure, vos nouvelles machines virtuelles pourraient ne pas parvenir à s’y connecter. Les machines virtuelles RHEL avec des adresses IP dynamiques qui passent par la séquence arrêt/désallocation/démarrage peuvent recevoir une nouvelle IP et par conséquent ne pas pouvoir se connecter à l’ancienne version de RHUI Azure
+
+2. Arrêtez les serveurs de distribution du contenu de mise en miroir. Effets indésirables possibles : comme nous arrêtons plus de serveurs, vous pourriez noter un temps de service `yum update` plus long, plus d’expirations de délai jusqu’à ne plus pouvoir vous connecter à l’ancienne version de RHUI Azure.
 
 ### <a name="the-ips-for-the-new-rhui-content-delivery-servers-are"></a>Les adresses IP pour les nouveaux serveurs de distribution de contenu RHUI sont
+Si vous utilisez la configuration du réseau pour restreindre davantage l’accès à partir de machines virtuelles RHEL PAYG, assurez-vous que les adresses IP suivantes sont autorisées pour que `yum update` fonctionne en fonction de votre environnement. 
+
 ```
 # Azure Global
 13.91.47.76
@@ -138,7 +162,7 @@ sudo rpm -U azureclient.rpm
 
 Une fois l’installation terminée, vérifier que vous pouvez accéder à l’écran RHUI Azure de la machine virtuelle
 
-### <a name="all-in-one-script-for-automating-the-above-task"></a>Script tout-en-un pour l’automatisation de la tâche précédente
+### <a name="all-in-one-script-for-automating-the-preceding-task"></a>Script tout-en-un pour l’automatisation de la tâche précédente
 Si nécessaire, utilisez le script suivant pour automatiser la tâche de mise à jour des machines virtuelles affectées vers les nouveaux serveurs RHUI Azure.
 
 ```sh
@@ -190,9 +214,9 @@ L’infrastructure RHUI est disponible dans toutes les régions où les images R
 > 
 
 ## <a name="get-updates-from-another-update-repository"></a>Obtenir des mises à jour à partir d’un autre référentiel de mise à jour
-Si vous avez besoin d’obtenir des mises à jour à partir d’un référentiel de mise à jour différent (à la place de l’infrastructure RHUI hébergée sur Azure), vous devez annuler l’inscription de vos instances à l’infrastructure RHUI et les réinscrire auprès de l’infrastructure de mise à jour de votre choix (par exemple, Red Hat Satellite ou CDN Portail client Red Hat). Vous aurez besoin d’abonnements Red Hat appropriés pour ces services, et d’une inscription pour l’ [accès cloud Red Hat dans Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
+Si vous avez besoin d’obtenir des mises à jour à partir d’un référentiel de mise à jour différent (à la place de l’infrastructure RHUI hébergée sur Azure), vous devez annuler l’inscription de vos instances à l’infrastructure RHUI. Ensuite vous devez les réinscrire auprès de l’infrastructure de mise à jour de votre choix, telle que le Portail client Red Hat ou Red Hat Satellite. Vous aurez besoin d’abonnements Red Hat appropriés pour ces services, et d’une inscription pour l’ [accès cloud Red Hat dans Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
 
-Pour annuler l’inscription à l’infrastructure RHUI et recréer une inscription à votre infrastructure de mise à jour, suivez les étapes ci-dessous.
+Pour annuler l’inscription à l’infrastructure RHUI et recréer une inscription à votre infrastructure de mise à jour, suivez les étapes ci-dessous :
 
 1. Modifiez /etc/yum.repos.d/rh-cloud.repo et remplacez tous les `enabled=1` par `enabled=0`. Par exemple :
    
@@ -204,18 +228,12 @@ Pour annuler l’inscription à l’infrastructure RHUI et recréer une inscript
 3. Ensuite inscrivez-vous auprès de l’infrastructure de votre choix, telle que le Portail client Red Hat. Suivez le guide des solutions Red Hat pour savoir [comment inscrire et abonner un système au Portail client Red Hat](https://access.redhat.com/solutions/253273).
 
 > [!NOTE]
-> L’accès à l’infrastructure RHUI hébergée sur Azure est inclus dans le prix de l’image RHEL avec paiement à l’utilisation. Annuler l’inscription à l’infrastructure RHUI hébergée sur Azure d’une machine virtuelle RHEL avec paiement à l’utilisation ne convertit pas la machine virtuelle en une machine virtuelle de type BYOL (apportez votre propre licence) et, par conséquent, vous pouvez encourir des frais doubles si vous inscrivez la même machine virtuelle auprès d’une autre source de mises à jour. 
+> L’accès à l’infrastructure RHUI hébergée sur Azure est inclus dans le prix de l’image RHEL avec paiement à l’utilisation. Annuler l’inscription à l’infrastructure RHUI hébergée sur Azure d’une machine virtuelle RHEL avec paiement à l’utilisation ne convertit pas la machine virtuelle en une machine virtuelle de type BYOL (apportez votre propre licence). Si vous enregistrez la même machine virtuelle avec une autre source de mises à jour, vous pouvez encourir des frais doubles : la première fois pour les frais de logiciel Azure RHEL, et la seconde fois pour les abonnements Red Hat. 
 > 
 > Si vous devez systématiquement utiliser une infrastructure de mise à jour autre que l’infrastructure RHUI hébergée sur Azure, envisagez de créer et déployer vos propres images (de type BYOL), comme décrit dans l’article [Créer et télécharger une machine virtuelle basée sur Red Hat pour Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
-> 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image avec paiement à l’utilisation dans le service Place de marché Azure et tirer parti de l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/). Vous serez en mesure d’utiliser `yum update` dans votre instance RHEL sans aucun paramétrage supplémentaire.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
-ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
+ms.sourcegitcommit: 4dad4bd824f199562cb972c98cfcb452f2823828
+ms.openlocfilehash: b85b10b9504c5efa7ec05b92b544ad777e3abacc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -167,6 +168,26 @@ Non, pour l’instant, vous ne pouvez pas utiliser Exchange ActiveSync dans une 
 Actuellement, l’utilisateur est invité à utiliser l’authentification multifacteur, quel que soit l’appareil.
 
 
+## <a name="what-you-should-avoid-doing"></a>Ce que vous devez éviter
+
+L’infrastructure d’accès conditionnel vous offre une souplesse de configuration exceptionnelle. Toutefois, une grande souplesse signifie également que vous devez examiner chaque stratégie de configuration avant de la mettre en œuvre afin d’éviter des résultats indésirables. Dans ce contexte, prêtez une attention particulière à l’affectation de jeux complets comme par exemple **tous les utilisateurs / groupes / applications cloud**.
+
+Dans votre environnement, vous devez éviter les configurations suivantes :
+
+
+**Pour tous les utilisateurs, toutes les applications cloud :**
+
+- **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
+
+- **Exiger un appareil conforme** : pour les utilisateurs qui n’ont pas encore inscrit leurs appareils, cette stratégie bloque tout accès, notamment l’accès au portail Intune. Si vous êtes un administrateur sans appareil inscrit, cette stratégie vous bloque et vous ne pouvez pas retourner dans le portail Azure pour modifier la stratégie.
+
+- **Exiger la jonction de domaine** : ce blocage d’accès par stratégie peut également bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas encore d’appareil joint à un domaine.
+ 
+
+**Pour tous les utilisateurs, toutes les applications cloud, toutes les plates-formes d’appareils :** 
+
+- **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
+
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -193,9 +214,4 @@ De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

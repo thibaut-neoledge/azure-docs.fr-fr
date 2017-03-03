@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ La procédure est la suivante :
 7. En résumé, la location d’invitation est *toujours* responsable de l’authentification MFA de B2B Collaboration aux utilisateurs de l’organisation partenaire, et non l’organisation partenaire elle-même (même si elle a des fonctionnalités d’authentification MFA). Dans des futures versions, nous permettrons à l’organisation qui invite de faire confiance à l’authentification MFA d'organisations partenaires spécifiques au lieu d’utiliser l’authentification MFA de l'organisation qui invite.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configuration de MFA pour les utilisateurs de B2B Collaboration
-Pour découvrir combien il est facile de configurer l’authentification MFA pour les utilisateurs de B2B Collaboration, consultez [cette vidéo](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+Pour découvrir combien il est facile de configurer l’authentification MFA pour les utilisateurs de B2B Collaboration, consultez la vidéo suivante :
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Expérience MFA d’utilisation de l’invitation par des utilisateurs B2B Collaboration
-Regardez l’animation ci-dessous pour découvrir comment utiliser l'invitation, comme indiqué dans [cette vidéo](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Expérience MFA d'utilisation de l'invitation par des utilisateurs B2B
+Regardez l’animation ci-dessous pour découvrir comment utiliser l'invitation, comme indiqué dans la vidéo suivante :
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Réinitialisation de l'authentification MFA pour les utilisateurs de B2B de Collaboration
 Actuellement, l’administrateur peut exiger que les utilisateurs de B2B Collaboration s'authentifient à nouveau uniquement en utilisant les applets de commande PowerShell suivantes. Par conséquent, les applets de commande PowerShell suivantes doivent être utilisées si vous souhaitez réinitialiser la méthode d'authentification de l'utilisateur B2B Collaboration.
@@ -85,9 +90,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [API et personnalisation d’Azure Active Directory B2B Collaboration](active-directory-b2b-api.md)
 * [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

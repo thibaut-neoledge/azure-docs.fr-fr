@@ -19,6 +19,7 @@ ms.author: chrande
 translationtype: Human Translation
 ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
 ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -385,10 +386,5 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Test d’une fonction](functions-test-a-function.md)
 * [Mettre à l’échelle une fonction](functions-scale.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

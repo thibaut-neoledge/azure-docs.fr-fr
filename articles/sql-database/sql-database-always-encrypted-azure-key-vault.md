@@ -1,6 +1,6 @@
 ---
-title: "Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs"
-description: "Protéger les données sensibles de votre base de données SQL en quelques minutes."
+title: "Always Encrypted : SQL Database - Azure Key Vault | Microsoft Docs"
+description: "Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio. Il inclut également des instructions concernant le stockage de chaque clé de chiffrement dans Azure Key Vault."
 keywords: "chiffrement des données, clé de chiffrement, chiffrement cloud"
 services: sql-database
 documentationcenter: 
@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Chiffrement intégral : Protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans Azure Key Vault
-> [!div class="op_single_selector"]
-> * [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
-> * [Magasin de certificats Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il inclut également des instructions concernant le stockage de chaque clé de chiffrement dans Azure Key Vault.
 
@@ -62,7 +58,7 @@ Vous devez autoriser votre application cliente à accéder au service SQL Databa
 5. Pour **URL DE CONNEXION** et **URI ID D’APPLICATION**, vous pouvez simplement taper une URL valide (par exemple, *http://myClientApp*), puis continuer.
 6. Cliquez sur **CONFIGURER**.
 7. Copiez votre **ID CLIENT**. (vous aurez besoin cette valeur dans votre code ultérieurement).
-8. Dans la section **Clés**, dans la liste déroulante **Sélectionner une durée**, sélectionnez **1 an** (vous allez copier la clé après avoir enregistré à l’étape 14).
+8. Dans la section **Clés**, dans la liste déroulante **Sélectionner une durée**, sélectionnez **1 an** (vous copierez la clé après l’enregistrement à l’étape 13).
 9. Faites défiler et cliquez sur **Ajouter une application**.
 10. Laissez la valeur **AFFICHER** définie sur **Microsoft Apps**, puis sélectionnez **Microsoft Azure Service Management**. Cliquez sur la coche pour continuer.
 11. Dans la liste déroulante **Autorisations déléguées**, sélectionnez **Accéder à la gestion des services Azure**.
@@ -86,7 +82,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -98,7 +94,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Accédez à **Nouveau** > **Données + stockage** > **SQL Database**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, voir [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
@@ -646,10 +642,5 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog Chiffrement intégral](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: hascipio; avikova
 translationtype: Human Translation
 ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
 ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -102,7 +103,7 @@ Les nœuds enfants supplémentaires (non couverts par la documentation du langag
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** et **d:Namespace** : ce nœud décrit les espaces de noms qui sont définis dans le code XML renvoyé par l’importation de fonction (point de terminaison de l’URI). Le code XML qui est renvoyé par le service principal peut contenir n’importe quel nombre d’espaces de noms pour différencier le contenu qui est renvoyé. **Tous ces espaces de noms, s’ils sont utilisés dans des requêtes d:Map ou d:Match XPath doivent être répertoriés.**  Le nœud d:Namespaces contient un jeu/une liste de nœuds d:Namespace. Chacun d’eux répertorie un espace de noms utilisé dans la réponse du service du serveur principal. Les éléments suivants constituent l’attribut du nœud d:Namespace :
+**d:Namespaces** et **d:Namespace** : ce nœud décrit les espaces de noms qui sont définis dans le code XML renvoyé par l’importation de fonction (point de terminaison de l’URI). Le code XML qui est renvoyé par le service principal peut contenir n’importe quel nombre d’espaces de noms pour différencier le contenu qui est renvoyé. **Tous ces espaces de noms, s’ils sont utilisés dans des requêtes d:Map ou d:Match XPath doivent être répertoriés.** Le nœud d:Namespaces contient un jeu/une liste de nœuds d:Namespace. Chacun d’eux répertorie un espace de noms utilisé dans la réponse du service du serveur principal. Les éléments suivants constituent l’attribut du nœud d:Namespace :
 
 * **d:Prefix :** le préfixe de l’espace de noms, comme vu dans les résultats XML renvoyés par le service, p. ex., f:FirstName, f:LastName, où f est le préfixe.
 * **d:Uri :** l’URI complet de l’espace de noms utilisé dans le document de résultats. Il représente la valeur sur laquelle le préfixe est résolu lors de l’exécution.
@@ -118,17 +119,17 @@ Les nœuds enfants supplémentaires (non couverts par la documentation du langag
 **d:Title** *(facultatif)* : décrit le titre de la fonction. Provenance de la valeur pour le titre :
 
 * L’attribut de mappage facultatif (xpath) qui indique où trouver le titre dans la réponse renvoyée par la demande de service.
-* - ou - Le titre spécifié en tant que valeur du nœud.
+* -ou - Le titre spécifié en tant que valeur du nœud.
 
 **d:Rights** *(facultatif)* : les droits (p. ex., copyright) associés avec la fonction. Provenance de la valeur pour les droits :
 
 * L’attribut de mappage facultatif (xpath) qui indique où trouver les droits dans la réponse renvoyée par la demande de service.
-* - Ou - Les droits spécifiés en tant que valeur du nœud.
+* -Ou - Les droits spécifiés en tant que valeur du nœud.
 
 **d:Description** *(facultatif)* : une brève description de la fonction. Provenance de la valeur pour la description :
 
 * L’attribut de mappage facultatif (xpath) qui indique où trouver la description dans la réponse renvoyée par la demande de service.
-* - Ou - La description spécifiée en tant que valeur du nœud.
+* -Ou - La description spécifiée en tant que valeur du nœud.
 
 **d:EmitSelfLink** - *consultez l’exemple ci-dessus « FunctionImport pour la pagination » via les données renvoyées*
 
@@ -274,9 +275,4 @@ Les éléments suivants sont les types de paramètres et de propriétés pris en
 * Si vous souhaitez comprendre le processus de mappage OData global et son rôle, lisez l’article [Mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping.md) pour passer en revue des définitions, des structures et des instructions.
 * Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code, ainsi que pour comprendre la syntaxe et le contexte du code.
 * Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

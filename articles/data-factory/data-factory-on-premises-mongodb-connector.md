@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -355,9 +356,4 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la création d’un pipeline de données qui déplace les données à partir d’un magasin de données local vers un magasin de données Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

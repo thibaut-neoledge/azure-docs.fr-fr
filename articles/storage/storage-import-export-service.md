@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
 ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -264,7 +265,7 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
    
     Dans le cadre de l’exemple ci-dessus, le fichier 100M_1.csv.txt sera copié à la racine du conteneur nommé « containername ». Si le nom de conteneur « containername » n’existe pas, un conteneur de ce nom sera créé. Tous les fichiers et dossiers présents sous 50M_original seront copiés de manière récursive dans containername. La structure des dossiers sera conservée.
 
-    Vous trouverez plus d’informations sur la préparation du fichier CSV du jeu de données [ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+    Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de données ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
     **Attention**: par défaut, les données sont importées sous la forme d’objets blob de blocs. Vous pouvez utiliser la valeur du champ BlobType pour importer les données sous la forme d’objets blob de page. Par exemple, si vous importez des fichiers de disque dur virtuel qui seront montés comme des disques sur une machine virtuelle Azure, vous devez les importer en tant qu’objets blob de page.
 
@@ -282,7 +283,7 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 
     L’exemple ci-dessus part du principe que deux disques sont attachés et que des volumes NTFS de base présentant les lettres G:\ et H:\ ont été créés. L’outil formatera et chiffrera uniquement le disque contenant le volume H:\, le disque contenant le volume G:\ étant déjà formaté et chiffré.
 
-    Vous trouverez plus d’informations sur la préparation du fichier CSV du jeu de disques [ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
+    Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de disques ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
 6.  Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
 7.  Vous pouvez spécifier « Encrypt » pour le champ Encryption dans le fichier CSV du jeu de disques afin d’activer le chiffrement BitLocker sur le disque dur. Vous pouvez également activer le chiffrement BitLocker manuellement sur le disque dur, spécifier « AlreadyEncrypted » pour ce même champ et fournir la clé dans le fichier CSV du jeu de disques lors de l’exécution de l’outil.
@@ -499,10 +500,5 @@ Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Azur
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Exemple d’API REST Azure Import Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

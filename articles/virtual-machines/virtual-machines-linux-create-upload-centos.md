@@ -18,6 +18,7 @@ ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 1d4d27812b1c7cadbc70c3ede8fb10dfdc86b0ea
 ms.openlocfilehash: c8a5bfcb253300488e6bbd1cb89b23cabb181ca9
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -332,10 +333,5 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous êtes maintenant prêt à utiliser votre disque dur virtuel CentOS Linux pour créer des machines virtuelles dans Azure. S’il s’agit de la première fois que vous chargez le fichier .vhd sur Azure, consultez les étapes 2 et 3 dans [Création et chargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

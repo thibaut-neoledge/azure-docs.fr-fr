@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: da682645640d74485a1caaff82fd0483a0e3f149
-ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
+ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
+ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Automatisation de l’installation du service Mobilité à l’aide d’outils de déploiement de logiciels
@@ -83,8 +84,10 @@ Cet article fournit un exemple de l’utilisation de System Center Configuration
 | Ligne de commande | install.bat |
 | Le programme peut s’exécuter | Qu’un utilisateur ait ouvert une session ou non |
 9. Dans la page suivante, sélectionnez les systèmes d’exploitation cibles. Le service Mobilité ne peut être installé que sur Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Cliquez deux fois sur Suivant pour terminer l’Assistant.
+
 > [!NOTE]
 > Le script prend en charge les nouvelles installations des Agents du service Mobilité et les mises à niveau/à jour des Agents déjà installés.
 
@@ -199,9 +202,4 @@ En savoir plus sur les autres méthodes d’installation des services Mobilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous êtes désormais prêt à [activer la protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) de vos machines virtuelles.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

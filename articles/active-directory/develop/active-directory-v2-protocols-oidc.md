@@ -1,4 +1,3 @@
-
 ---
 title: Azure Active Directory v2.0 et le protocole OpenID Connect | Microsoft Docs
 description: "Créez des applications web à l’aide de l’implémentation v2.0 du protocole d’authentification OpenID Connect d’Azure AD."
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 1d81be4ba596f7bc0ed7d16cb8bb9b375bd1e223
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 4e43304c108fceb7df70fc37898ffcf989beb922
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -199,6 +199,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## <a name="single-sign-out"></a>Authentification unique
+Le point de terminaison v2.0 utilise les cookies pour identifier la session d’un utilisateur. Lorsqu’un utilisateur se connecte à une application pour la première fois, le point de terminaison v2.0 définit un cookie dans son navigateur. Par la suite, lorsque l’utilisateur se connecte à une autre application, Azure AD ne l’authentifie pas à nouveau, mais vérifie le cookie pour déterminer s’il dispose d’une session d’authentification valide avec pour point de terminaison Azure AD v2.0.
+
+De même, lorsque l’utilisateur se déconnecte la première fois d’une application, le point de terminaison v2.0 supprime le cookie du navigateur. Toutefois, l’utilisateur peut toujours être connecté à d’autres applications qui utilisent le point de terminaison v2.0 Azure AD pour l’authentification. Pour garantir que l’utilisateur est bien déconnecté de toutes les applications, le point de terminaison v2.0 envoie une requête HTTP GET à l’`LogoutUrl` de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant les cookies qui identifient la session de l’utilisateur. Vous pouvez activer la fonction `LogoutUrl` à partir du portail Azure.
+
+1. Accédez au [portail Azure](https://portal.azure.com).
+2. Sélectionnez votre client Active Directory en cliquant sur votre compte dans le coin supérieur droit de la page.
+3. Dans le volet de navigation de gauche, choisissez **Azure Active Directory**, **Inscriptions des applications** puis sélectionnez votre application.
+4. Cliquez sur **Propriétés** et recherchez la zone de texte **URL de déconnexion**. 
+
 ## <a name="protocol-diagram-token-acquisition"></a>Schéma de protocole : Acquisition de jeton
 Beaucoup d’applications web nécessitent une connexion de l’utilisateur, puis un accès au service web pour le compte de cet utilisateur à l’aide d’OAuth. Ce scénario utilise OpenID Connect pour l’authentification de l’utilisateur tout en récupérant un code d’autorisation vous permettant d'obtenir des jetons d’accès si vous utilisez le flux de code d’autorisation OAuth.
 
@@ -268,10 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Pour obtenir une description des codes d’erreur éventuels et connaître les réponses client recommandées associées, consultez [Codes d’erreur pour les erreurs de point de terminaison d’autorisation](#error-codes-for-authorization-endpoint-errors).
 
 Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](#validate-the-id-token). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du protocole OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

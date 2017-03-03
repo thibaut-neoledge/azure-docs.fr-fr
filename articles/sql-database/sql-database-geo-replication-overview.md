@@ -18,6 +18,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
 ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ Comme indiqué plus haut, la géo-réplication active peut aussi être gérée p
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md).
 * Pour en savoir plus sur les exigences d’authentification pour de nouveaux serveurs et bases de données primaires, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

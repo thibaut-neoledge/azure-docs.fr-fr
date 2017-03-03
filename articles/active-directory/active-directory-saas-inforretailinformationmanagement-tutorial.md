@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -65,7 +66,7 @@ Pour configurer l’intégration d’Infor Retail – Information Management dan
 
     ![Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Puis à **Toutes les applications**.
 
     ![Applications][2]
     
@@ -93,7 +94,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Infor Retail
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Infor Retail – Information Management](#creating-an-infor-retail---information-management-user)** pour associer un équivalent de Britta Simon dans Infor Retail – Information Management à sa représentation dans Azure AD.
+3. **[Création d’un utilisateur de test Infor Retail – Information Management](#creating-an-infor-retail---information-management-test-user)** pour associer un équivalent de Britta Simon dans Infor Retail – Information Management à sa représentation dans Azure AD.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
@@ -115,9 +116,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez l’URL au format suivant : `http://<company name>.mingle.infor.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.mingle.infor.com`
     
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.mingle.infor.com/sp/ACS.saml2`
     
 4. Si vous souhaitez configurer l’application en **Mode initié par SP**, dans la section **Domaine et URL Infor Retail – Information Management**, procédez comme suit :
     
@@ -125,14 +126,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur l’option **Afficher les paramètres d’URL avancés**.
 
-    b. Dans la zone de texte **URL de connexion**, tapez l’URL au format suivant : `https://<company name>.mingle.infor.com/<company code>`
+    b. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.mingle.infor.com/<company code>`
 
     > [!NOTE] 
-    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL d’authentification, l’identificateur et l’URL de réponse. Contactez l’[équipe de support d’Infor Retail – Information Management](http://www.infor.com/contact/) pour obtenir ces valeurs.
+    > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Contactez [Équipe de support Infor Retail – Information Management](mailto:innovate@infor.com) pour obtenir ces valeurs.
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Configurer l’authentification unique](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
 6. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Puis cliquez sur le bouton **Enregistrer**.
 
@@ -146,11 +147,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+9. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. Pour configurer l’authentification automatique pour votre application, contactez l’[équipe de support d’Infor Retail – Information Management](http://www.infor.com/contact/) et fournissez-lui le fichier de **métadonnées** téléchargé.
+10. Pour configurer l’authentification automatique pour votre application, contactez l’[équipe de support d’Infor Retail – Information Management](mailto:innovate@infor.com) et fournissez-lui le fichier de **métadonnées** téléchargé.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -160,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **Portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_01.png) 
 
@@ -172,13 +173,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_03.png) 
 
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+    a. Dans la zone de texte **Nom**, tapez **BrittaSimon**.
 
-    b. Dans la zone de texte **Nom d’utilisateur** , tapez l’**adresse de messagerie** de BrittaSimon.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse de messagerie** de Britta Simon.
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
@@ -188,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Création d’un utilisateur de test Infor Retail – Information Management
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans Infor Retail – Information Management. Travaillez avec [l’équipe de support d’Infor Retail – Information Management](http://www.infor.com/contact/) pour ajouter des utilisateurs dans la plateforme Infor Retail – Information Management.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans Infor Retail – Information Management. Travaillez avec [l’équipe de support d’Infor Retail – Information Management](mailto:innovate@infor.com) pour ajouter des utilisateurs dans la plateforme Infor Retail – Information Management.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
@@ -250,8 +251,3 @@ Lorsque vous cliquez sur la mosaïque Infor Retail – Information Management da
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

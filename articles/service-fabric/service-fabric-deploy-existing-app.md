@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2016
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,6 +34,10 @@ L’exécution d’un exécutable invité dans un cluster Service Fabric présen
 * Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si une application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.   
 * Gestion du cycle de vie des applications. Outre les mises à niveau sans temps d’arrêt, Service Fabric assure la restauration automatique de la version précédente en cas d’événement signalant un problème d’intégrité lors d’une mise à niveau.    
 * Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
+
+## <a name="samples"></a>Exemples
+* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Exemple de deux exéctuables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Vue d’ensemble des fichiers du manifeste de service et d’application
 Dans le cadre du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric tel que décrit dans [Modèle d’application](service-fabric-application-model.md). Le modèle d’empaquetage Service Fabric repose sur deux fichiers XML : les manifestes d’application et de service. La définition de schéma pour les fichiers ApplicationManifest.xml et ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -308,7 +313,7 @@ Le paramètre `InstanceCount` de l’applet de commande `New-ServiceFabricServic
 Cette configuration est utile pour les applications frontales (par exemple, un point de terminaison REST), car les applications clientes doivent simplement « se connecter » à l’un des nœuds du cluster afin d’utiliser le point de terminaison. Cette configuration peut également être utilisée lorsque, par exemple, tous les nœuds du cluster Service Fabric sont connectés à un équilibrage de charge. Le trafic client peut ensuite être distribué au sein du service qui s’exécute sur tous les nœuds du cluster.
 
 ## <a name="check-your-running-application"></a>Vérification de votre application en cours d'exécution
-Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud 1 :
+Dans l'Explorateur Service Fabric, identifiez le nœud sur lequel le service s'exécute. Dans cet exemple, il s’exécute sur le nœud&1; :
 
 ![Nœud sur lequel le service est en cours d’exécution](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
@@ -333,13 +338,9 @@ Yeoman aura créé un package d’application avec l’application et les fichie
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à empaqueter un exécutable invité et à le déployer dans Service Fabric. Consultez les articles suivants pour obtenir des informations supplémentaires et connaître les tâches connexes.
 
-* Consultez un [exemple indiquant comment empaqueter et déployer un exécutable invité sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), y compris un lien vers la version préliminaire de l’outil d’empaquetage.
+* [Exemple pour empaqueter et déployer un exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), avec un lien vers la version préliminaire de l’outil d’empaquetage
+* [Exemple de deux exéctuables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Déploiement de plusieurs exécutables invités](service-fabric-deploy-multiple-apps.md)
 * [Créez votre première application Service Fabric avec Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

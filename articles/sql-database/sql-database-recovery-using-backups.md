@@ -1,9 +1,9 @@
 ---
-title: "Continuité d’activité dans le cloud - Restauration d’une base de données supprimée - SQL Database | Microsoft Docs"
+title: "Restaurer une base de données SQL Azure à partir d’une sauvegarde | Microsoft Docs"
 description: "Apprenez-en plus sur la limite de restauration dans le temps, qui vous permet de restaurer une base de données SQL Azure à un point antérieur dans le temps (jusqu’à 35 jours)."
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: monicar
 ms.assetid: fd1d334d-a035-4a55-9446-d1cf750d9cf7
@@ -13,29 +13,27 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/11/2016
-ms.author: sstein
+ms.date: 02/20/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
-ms.openlocfilehash: e333c306d85d6eb571c3c1990188e67b18c8a6b1
+ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
+ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
-La base de données SQL fournit trois options pour la récupération de base de données à l’aide des [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md). Vous pouvez restaurer une base de données à partir des sauvegardes initiées par le service lors de leur [période de rétention](sql-database-service-tiers.md) vers :
+La base de données SQL fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md). Vous pouvez restaurer une base de données pendant leur [période de rétention](sql-database-service-tiers.md) vers :
 
 * Une nouvelle base de données sur le même serveur logique récupéré à un point spécifié dans le temps durant la période de rétention. 
 * Une base de données sur le même serveur logique récupéré à l’heure de suppression pour une base de données supprimée.
-* Une nouvelle base de données sur un serveur logique dans n’importe quelle région récupérée sur les sauvegardes quotidiennes plus récentes dans le stockage d’objets blob géo-répliqué (RA-GRS).
+* Une nouvelle base de données sur un serveur logique dans n’importe quelle région récupérée au point des sauvegardes quotidiennes les plus récentes dans le stockage d’objets blob géo-répliqué (RA-GRS).
 
 > [!TIP]
-> Pour obtenir un didacticiel, consultez la page [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md).
+> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery-portal.md)
 >
 
-Vous pouvez également utiliser les [sauvegardes automatisées SQL Database](sql-database-automated-backups.md) pour créer une [copie de base de données](sql-database-copy.md) sur n’importe quel serveur logique dans n’importe quelle région qui est cohérente au niveau transactionnel avec la base de données SQL actuelle. Vous pouvez utiliser la copie de base de données et [l’exporter vers un fichier BACPAC](sql-database-export.md) pour archiver une copie cohérente au niveau transactionnel d’une base de données pour le stockage à long terme au-delà de la période de rétention, ou pour transférer une copie de votre base de données vers une instance de machine virtuelle Azure ou locale de SQL Server.
-
-> [!IMPORTANT]
-> Vous pouvez configurer votre serveur logique de façon à stocker des sauvegardes hebdomadaires dans la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
+Vous pouvez également utiliser les [sauvegardes automatisées de base de données](sql-database-automated-backups.md) pour créer une [copie de base de données](sql-database-copy.md) sur n’importe quel serveur logique dans n’importe quelle région. Vous pouvez également configurer un serveur SQL Database pour stocker vos sauvegardes de Azure SQL Database dans un coffre Azure Recovery Services pendant jusqu’à 10 ans. Consultez [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="recovery-time"></a>Temps de récupération
 Le temps de récupération pour restaurer une base de données à l’aide des sauvegardes automatisées de bases de données est affecté par plusieurs facteurs : 
@@ -47,7 +45,7 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 * la bande passante du réseau, si la restauration s’effectue dans une autre région ; 
 * le nombre de demandes de restauration simultanées en cours de traitement dans la région cible. 
   
-  Pour une base de données de très grande taille et/ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de demandes de géo-restauration soient traitées par les autres régions. S’il y a un grand nombre de demandes, le temps de récupération des bases de données de cette région peut s’en trouver augmenté. La majorité des restaurations de bases de données se terminent dans un délai de 12 heures.
+  Pour une base de données de très grande taille et/ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de demandes de géo-restauration soient traitées par les autres régions. S’il y a un grand nombre de demandes, le temps de récupération des bases de données de cette région peut s’en trouver augmenté. La plupart des restaurations de bases de données se terminent dans un délai de 12 heures.
   
   Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
 
@@ -56,46 +54,42 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 > 
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
-La limite de restauration dans le temps vous permet de restaurer une base de données existante en tant que nouvelle base de données à un point antérieur dans le temps sur le même serveur logique à l’aide des [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md). Vous ne pouvez pas remplacer la base de données existante. Vous pouvez restaurer à un point antérieur dans le temps à l’aide du [Portail Azure](sql-database-point-in-time-restore.md), de [PowerShell ](sql-database-point-in-time-restore.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
+Vous pouvez restaurer une base de données existante à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du [Portail Azure](sql-database-point-in-time-restore-portal.md), de [PowerShell](sql-database-point-in-time-restore-powershell.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
-La base de données peut être restaurée vers n’importe quel niveau de performance ou pool élastique. Assurez-vous de disposer d’un quota DTU suffisant sur le serveur ou le pool élastique. N’oubliez pas que la restauration crée une nouvelle base de données, et que les performances et le niveau de service de la base de données restaurée peuvent être différents de ceux de la base de données d’origine. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne, facturée aux tarifs habituels en fonction de ses performances et de son niveau de service. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
+> [!IMPORTANT]
+> Vous ne pouvez pas remplacer la base de données existante lors de la restauration.
+>
+
+La base de données peut être restaurée à n’importe quel niveau de performances ou de service, et comme base de données unique ou dans un pool élastique. Assurez-vous d'avoir suffisamment de ressources sur le serveur logique ou dans le pool élastique vers lequel vous restaurez la base de données. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne. La base de données restaurée est facturée aux tarifs habituels en fonction de ses performances et de son niveau de service. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
 
 En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Dans ce cas, vous pouvez traiter la base de données restaurée comme remplacement de la base de données d’origine, ou l’utiliser pour en extraire des données afin de mettre à jour la base de données d’origine. 
 
 * ***Remplacement de la base de données :*** si la base de données restaurée est destinée à remplacer la base de données d’origine, vous devez vérifier que les performances et/ou le niveau de service sont appropriés, et effectuer une mise à l’échelle si nécessaire. Vous pouvez renommer la base de données d’origine, puis donner le nom d’origine à la base de données restaurée à l’aide de la commande ALTER DATABASE dans T-SQL. 
-* ***Récupération des données :*** si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur utilisateur ou d’application, vous devez écrire et exécuter les scripts de récupération de données nécessaires pour extraire les données à partir de la base de données restaurée et les transférer vers la base de données d’origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus. Si vous supprimez la base de données pendant la restauration, cela annule l’opération et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée. 
-
-Pour plus d’informations sur l’utilisation de la limite de restauration dans le temps pour récupérer suite à des erreurs utilisateur et d’applications, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
+* ***Récupération des données :*** si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur utilisateur ou d’application, vous devez écrire et exécuter les scripts de récupération de données nécessaires pour extraire les données à partir de la base de données restaurée et les transférer vers la base de données d’origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus de restauration. Si vous supprimez la base de données pendant la restauration, l’opération de restauration est annulée et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée. 
 
 ## <a name="deleted-database-restore"></a>Restauration d’une base de données supprimée
-La restauration d’une base de données supprimée vous permet de restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide des [sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md). 
+Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du [Portail Azure](sql-database-restore-deleted-database-portal.md), de [PowerShell](sql-database-restore-deleted-database-powershell.md) ou de [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Si vous supprimez une instance de serveur Azure SQL Database, toutes ses bases de données sont également supprimées et ne peuvent pas être récupérées. Il n'existe aucune prise en charge pour la restauration d'un serveur supprimé pour l'instant.
 > 
-> 
-
-Vous pouvez utiliser le même nom ou un nouveau nom de base de données pour la base de données restaurée. Vous pouvez utiliser le [portail Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) ou [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
-
 
 ## <a name="geo-restore"></a>Restauration géographique
-La restauration géographique vous permet de restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière [sauvegarde quotidienne automatisée](sql-database-automated-backups.md)géo-répliquée. La géo-restauration utilise une sauvegarde géo-redondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance. Vous pouvez utiliser le [portail Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) ou [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
+Vous pouvez restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière sauvegarde géo-répliquée complète ou différentielle. La géo-restauration utilise une sauvegarde géo-redondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance. Vous pouvez utiliser le [portail Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) ou [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) 
 
-
-La géo-restauration constitue l’option de récupération par défaut lorsque votre base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez utiliser la géo-restauration pour restaurer une base de données à partir de la sauvegarde la plus récente sur un serveur situé dans n’importe quelle autre région. Toutes les sauvegardes sont géo-répliquées et peuvent présenter un délai entre le moment où la sauvegarde est effectuée et celui où elle est géo-répliquée dans l’objet blob Azure dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données, c’est-à-dire que le RPO peut être égal à une heure. L’image ci-dessous illustre la restauration de la base de données à partir de la dernière sauvegarde quotidienne.
+La géo-restauration constitue l’option de récupération par défaut lorsque votre base de données est indisponible en raison d’un incident dans la région où la base de données est hébergée. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer une base de données à partir des sauvegardes géorépliquées sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où la sauvegarde différentielle est effectuée et celui où elle est géo-répliquée dans un objet blob Azure dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données. L’illustration ci-dessous illustre la restauration de la base de données à partir de la dernière sauvegarde disponible dans une autre région.
 
 ![Restauration géographique](./media/sql-database-geo-restore/geo-restore-2.png)
 
 Pour plus d’informations sur l’utilisation de la restauration géographique pour la récupération suite à une panne, consultez [Récupération après une panne](sql-database-disaster-recovery.md)
 
 > [!IMPORTANT]
-> Bien que la géo-restauration soit disponible pour tous les niveaux de service, il s’agit de la solution de récupération d’urgence la plus basique proposée dans la base de données SQL Azure, avec le RPO et le temps de récupération estimé (ERT) les plus longs. Pour les bases de données De base dont la taille ne dépasse pas 2 Go, la géo-restauration offre une solution de récupération d’urgence intéressante avec un ERT de 12 heures. Pour les bases de données Standard ou Premium plus volumineuses, vous pouvez utiliser la géoréplication active pour bénéficier de temps de récupération plus courts ou réduire le risque de perte de données. La géoréplication active offre un RPO et un ERT nettement inférieurs, car elle nécessite simplement l’initialisation d’un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
-> 
+> La récupération depuis les sauvegardes est la solution de récupération d’urgence la plus basique proposée dans la base de données SQL Azure, avec le RPO et le temps de récupération estimé (ERT) les plus longs. Pour les bases de données De base dont la taille ne dépasse pas 2 Go, la géo-restauration offre une solution de récupération d’urgence intéressante avec un ERT de 12 heures. Pour les bases de données Standard ou Premium plus volumineuses, vous pouvez utiliser la géoréplication active pour bénéficier de temps de récupération plus courts ou réduire le risque de perte de données. La géoréplication active offre un RPO et un ERT nettement inférieurs, car elle nécessite simplement l’initialisation d’un basculement vers une base de données secondaire répliquée en continu. Pour plus d’informations, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
 > 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Exécution par programme d’une récupération à l’aide des sauvegardes automatisées
-Comme indiqué précédemment, en plus du Portail Azure, la récupération de la base de données peut être effectuée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
+Comme indiqué précédemment, en plus du Portail Azure, la récupération de la base de données peut être effectuée par programme à l’aide d’Azure PowerShell ou de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
 
 ### <a name="powershell"></a>PowerShell
 | Applet de commande | Description |
@@ -114,17 +108,14 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 |  | |
 
 ## <a name="summary"></a>Résumé
-Les sauvegardes automatiques protègent vos bases de données des erreurs utilisateur et des erreurs d’application, de la suppression accidentelle d’une base de données et des interruptions prolongées. Cette solution gratuite et ne nécessitant aucune gestion est disponible pour toutes les bases de données SQL. 
+Les sauvegardes automatiques protègent vos bases de données des erreurs utilisateur et des erreurs d’application, de la suppression accidentelle d’une base de données et des interruptions prolongées. Cette fonctionnalité intégrée est disponible pour tous les niveaux de service et de performances. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
-* Pour configurer la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services, consultez la page [Configurer la rétention des sauvegardes à long terme](sql-database-configure-long-term-retention.md).
+* Pour plus d’informations sur la rétention des sauvegardes à long terme, consultez l’article décrivant la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md)
+* Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-manage-long-term-backup-retention-portal.md). 
+* Pour configurer, gérer et restaurer depuis la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 * Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)  
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

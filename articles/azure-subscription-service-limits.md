@@ -1,5 +1,5 @@
 ---
-title: Abonnement Microsoft Azure et limites, quotas et contraintes du service
+title: "Quotas et limites de l’abonnement Azure | Microsoft Docs"
 description: "Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cela inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales."
 services: 
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/17/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
-ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
+ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
+ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -60,11 +61,13 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Cloud Services](#cloud-services-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [Base de données de documents](#documentdb-limits)
-* [Hubs d'événements](#event-hubs-limits)
+* [Concentrateurs d'événements](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Key Vault](#key-vault-limits)
+* [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -72,7 +75,6 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Azure Multi-Factor Authentication](#multi-factor-authentication)
 * [Mise en réseau](#networking-limits)
 * [Service de hub de notification](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
 * [Groupe de ressources](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [action](#search-limits)
@@ -130,20 +132,23 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 ### <a name="storage-limits"></a>Limites de stockage
 Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et d’extensibilité Azure Storage](storage/storage-scalability-targets.md).
-
+<!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Limites de service de stockage
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Limites du nombre de disques de machine virtuelle
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>Limites du nombre de disques de machine virtuelle 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Pour plus d'informations, consultez [Tailles des machines virtuelles](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
-**Comptes de stockage standard**
+#### <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Disques de machines virtuelles non gérées
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**Comptes de stockage Premium**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -222,6 +227,9 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 ### <a name="data-lake-analytics-limits"></a>Limites Data Lake Analytics
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
+### <a name="data-lake-store-limits"></a>Limite Data Lake Store
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
 ### <a name="stream-analytics-limits"></a>Limites Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
@@ -234,7 +242,7 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 ### <a name="storsimple-system-limits"></a>Limites du système StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Limites Operational Insights
+### <a name="log-analytics-limits"></a>Limites de Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>Limites Azure Backup
@@ -270,10 +278,5 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 [Tailles de machines virtuelles et services cloud pour Microsoft Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Tailles de services cloud](cloud-services/cloud-services-sizes-specs.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

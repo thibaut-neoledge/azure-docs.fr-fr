@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
 ms.openlocfilehash: 1527896e4f512cdfa6a4e925bbdca88a1e6a8fe7
+ms.lasthandoff: 02/14/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>MirrorMaker permet de créer un réplica Kafka sur un cluster HDInsight (version préliminaire)
@@ -276,10 +277,5 @@ Dans ce document, vous avez appris à utiliser MirrorMaker pour créer un répli
 * [Prise en main d’Apache Kafka sur HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Utilisation d’Apache Spark avec Kafka sur HDInsight)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md) (Utilisation d’Apache Storm avec Kafka sur HDInsight)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

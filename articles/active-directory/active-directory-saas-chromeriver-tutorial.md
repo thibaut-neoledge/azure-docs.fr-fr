@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 88b450c61d382c3c3509f85a8015edc58e8d5139
+ms.sourcegitcommit: 90dcbc7744677703bf37469953a8ea2713765b40
+ms.openlocfilehash: 8345391d6bb84115284a990b302d764805ef209a
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Didacticiel : Intégration d’Azure Active Directory à Chromeriver
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Chromeriver.  
+
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure valide
@@ -30,17 +32,18 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
-1. Activation de l’intégration d’applications pour Chromeriver
-2. Configuration de l'authentification unique
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+* Activation de l’intégration d’applications pour Chromeriver
+* Configuration de l’authentification unique (SSO)
+* Configuration de l'approvisionnement des utilisateurs
+* Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-chromeriver-tutorial/IC802755.png "Scenario")
+![Scénario](./media/active-directory-saas-chromeriver-tutorial/IC802755.png "Scénario")
 
-## <a name="enabling-the-application-integration-for-chromeriver"></a>Activation de l’intégration d’applications pour Chromeriver
+## <a name="enable-the-application-integration-for-chromeriver"></a>Activer l’intégration d’applications pour Chromeriver
 Cette section décrit l’activation de l’intégration d’applications pour Chromeriver.
 
-### <a name="to-enable-the-application-integration-for-chromeriver-perform-the-following-steps"></a>Pour activer l’intégration d’applications pour Chromeriver, procédez comme suit :
+**Pour activer l’intégration d’applications pour Chromeriver, suivez les étapes ci-dessous :**
+
 1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-chromeriver-tutorial/IC700993.png "Active Directory")
@@ -50,78 +53,72 @@ Cette section décrit l’activation de l’intégration d’applications pour C
    ![Applications](./media/active-directory-saas-chromeriver-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-chromeriver-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-chromeriver-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Add an application from gallerry")
+      ![Ajouter une application à partir de la galerie](./media/active-directory-saas-chromeriver-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, tapez **Chromeriver**.
    
-   ![Galerie d’applications](./media/active-directory-saas-chromeriver-tutorial/IC802756.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-chromeriver-tutorial/IC802756.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **Chromeriver**, puis cliquez sur **Terminer** pour ajouter l’application.
    
-   ## <a name="configuring-single-sign-on"></a>Configuration de l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 Cette section explique comment permettre aux utilisateurs de s’authentifier sur Chromeriver avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
-1. Dans le portail Azure Classic, puis dans la page d’intégration d’applications **Chromeriver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+**Pour configurer l’authentification unique, procédez comme suit :**
+
+1. Sur la page d’intégration d’applications **Chromeriver** du Portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Chromeriver**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802758.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802758.png "Configurer l’authentification unique")
 3. Dans la page **Configurer les paramètres de l’application** , procédez comme suit :
    
-   ![Configurer les paramètres d’application](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configure App Settings")
+   ![Configurer les paramètres d’application](./media/active-directory-saas-chromeriver-tutorial/IC802759.png "Configurer les paramètres d’application")
    
    1. Dans la zone de texte **URL de réponse**, tapez votre **AssertionConsumerService URL** Chromeriver (par exemple : *https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911*).  
-      
-      > [!NOTE]
-      > L’équipe de support technique Chromeriver peut vous fournir cette valeur.
-      > 
-      > 
+   
+     >[!NOTE]
+     >L’équipe de support technique Chromeriver peut vous fournir cette valeur.
+     >  
    2. Cliquez sur **Suivant**
 4. Dans la page **Configurer l’authentification unique sur Chromeriver**, pour télécharger vos métadonnées, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802760.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802760.png "Configurer l’authentification unique")
 5. Envoyez le fichier de métadonnées téléchargé à l’équipe de support technique Chromeriver.
    
-   > [!NOTE]
-   > L’équipe de support technique Chromeriver doit se charger de la configuration de l’authentification unique.  
-   > Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
-   > 
-   > 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+ >[!NOTE]
+ >L’équipe de support technique Chromeriver doit se charger de la configuration de l’authentification unique. Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.
+ >
+
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802761.png "Configure Single Sign-On")
+   ![Configurer l’authentification unique](./media/active-directory-saas-chromeriver-tutorial/IC802761.png "Configurer l’authentification unique")
    
-   ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
+## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Chromeriver, vous devez les approvisionner dans Chromeriver.  
-En l’occurrence, les comptes d’utilisateur doivent être créés par l’équipe de support technique Chromeriver.
 
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Chromeriver pour approvisionner des comptes d’utilisateur Azure Active Directory.
-> 
+* En l’occurrence, les comptes d’utilisateur doivent être créés par l’équipe de support technique Chromeriver.
+
+>[!NOTE]
+>Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Chromeriver pour approvisionner des comptes d’utilisateur Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Affectation d’utilisateurs
+## <a name="assign-users"></a>Affecter des utilisateurs
 Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
 
-### <a name="to-assign-users-to-chromeriver-perform-the-following-steps"></a>Pour affecter des utilisateurs à Chromeriver, procédez comme suit :
+**Pour affecter des utilisateurs à Chromeriver, suivez les étapes ci-dessous :**
+
 1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’applications **Chromeriver**, cliquez sur **Affecter des utilisateurs**.
+2. Sur la page d’intégration d’applications **Chromeriver**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Assign Users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-chromeriver-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-chromeriver-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

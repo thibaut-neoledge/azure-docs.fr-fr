@@ -1,10 +1,10 @@
 ---
-title: "Sauvegarder un client Windows ou un serveur Windows Server dans Azure avec la Sauvegarde Azure et le modèle de déploiement Resource Manager | Microsoft Docs"
+title: Sauvegarde de Windows Server sur Azure (Resource Manager) | Microsoft Docs
 description: "Sauvegardez des serveurs ou clients Windows sur Azure en créant un coffre de sauvegarde, en téléchargeant des informations d’identification, en installant l’agent de sauvegarde et en effectuant une sauvegarde initiale de vos fichiers et dossiers."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 738b8e29fbc139753ea59f1a20416386383f942d
-ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: 018a1bde8163eda660fd50a41839b6c1ec622d79
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -165,7 +166,7 @@ Pour effectuer la sauvegarde initiale, vous devez utiliser l’agent Microsoft A
 6. Cliquez sur **Next**.
 7. Sur la page **Spécifier une planification de la sauvegarde**, spécifiez la **planification de la sauvegarde**, puis cliquez sur **Suivant**.
 
-    Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
+    Vous pouvez planifier des sauvegardes quotidiennes (au maximum&3; fois par jour) ou hebdomadaires.
 
     ![Éléments de sauvegarde de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
@@ -222,9 +223,4 @@ Pour plus d’informations sur la sauvegarde des machines virtuelles ou d’autr
 
 * Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos coffres et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

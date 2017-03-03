@@ -1,6 +1,6 @@
 ---
-title: "Chiffrement intégral : protéger les données sensibles dans Azure SQL Database avec le chiffrement de base de données | Microsoft Docs"
-description: "Protéger les données sensibles de votre base de données SQL en quelques minutes."
+title: "Always Encrypted : Azure SQL Database - Magasin de certificats Windows | Microsoft Docs"
+description: "Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant l’Assistant Always Encrypted dans SQL Server Management Studio (SSMS). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows."
 keywords: "chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral"
 services: sql-database
 documentationcenter: 
@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 66044ef8353e61f0de5afb8c61d91335ecd6dcbb
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
-> [!div class="op_single_selector"]
-> * [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
-> * [Magasin de certificats Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
 
@@ -54,7 +50,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Nouveau** > **Données + stockage** > **SQL Database**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, voir [Créer une base de données SQL en quelques minutes](sql-database-get-started.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-get-started.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
 
@@ -522,10 +518,5 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog Chiffrement intégral.](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

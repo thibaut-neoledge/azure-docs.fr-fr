@@ -17,6 +17,7 @@ ms.author: aungoo
 translationtype: Human Translation
 ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
 ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -119,10 +120,5 @@ Apprenez-en plus sur la création d’instantanés d’un objet blob et la plani
 
 * [Création d’un instantané d’objet blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planification de votre infrastructure de sauvegarde de machines virtuelles](../backup/backup-azure-vms-introduction.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

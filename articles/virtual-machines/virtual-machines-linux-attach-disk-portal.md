@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -99,9 +100,4 @@ Continuez en suivant les instructions pour attacher un [disque géré](#use-azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois le disque ajouté, vous devez le préparer pour utilisation. Pour plus d'informations, consultez [Initialisation d’un nouveau disque de données sous Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

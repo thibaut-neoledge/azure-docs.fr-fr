@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
 ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -316,9 +317,4 @@ Le tableau suivant dresse la liste des événements et des statuts (et états se
 Utilisez les boutons suivants (en rouge) pour modifier, supprimer ou désactiver une alerte.
 
 ![Boutons d’alertes](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

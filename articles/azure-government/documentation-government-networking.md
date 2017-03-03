@@ -17,6 +17,7 @@ ms.author: jawalte
 translationtype: Human Translation
 ms.sourcegitcommit: 8288ca2e85ec0cd1a1b53862b2d60fcb88e7be4b
 ms.openlocfilehash: c6b8c27299c1bfceb045ee7d82981654f3a446d8
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -102,10 +103,5 @@ Généralement, la passerelle VPN est disponible dans Azure Government. Pour plu
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, veuillez vous inscrire au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

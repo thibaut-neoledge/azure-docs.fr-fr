@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -140,7 +141,7 @@ La capture d’écran suivante montre un exemple :
    
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
-    b. Cliquez sur **Next**.
+    b. Cliquez sur **Suivant**.
 2. Pour que l’authentification unique soit configurée pour votre application, contactez votre équipe du support technique Lesson.ly à l’adresse dev@lessonly.com. Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe Lesson.ly pour configurer l’authentification unique de son côté.
 3. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
@@ -257,9 +258,4 @@ Lorsque vous cliquez sur la vignette Lesson.ly dans le volet d’accès, vous de
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

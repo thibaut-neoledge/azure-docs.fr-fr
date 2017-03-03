@@ -1,5 +1,5 @@
 ---
-title: "Intégrer des machines physiques et virtuelles pour en confier la gestion à Azure Automation DSC | Microsoft Docs"
+title: Gestion de machines avec Azure Automation DSC | Microsoft Docs
 description: "Comment configurer des machines pour les gérer avec Azure Automation DSC"
 services: automation
 documentationcenter: dev-center-name
@@ -14,8 +14,9 @@ ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 0832b5866b49800cc0aecda8f4e473f89b12139b
+ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
+ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -196,7 +197,7 @@ La machine à partir de laquelle cette commande est exécutée doit disposer de 
 
 ## <a name="generating-dsc-metaconfigurations"></a>Génération de métaconfigurations DSC
 
-Pour intégrer de manière générique n’importe quelle machine à Azure Automation DSC, une métaconfiguration DSC peut être générée qui, une fois appliquée, demande à l’agent DSC de la machine d’effectuer une extraction auprès d’Azure Automation DSC et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation DSC peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
+Pour intégrer de manière générique n’importe quelle machine à Azure Automation DSC, une [métaconfiguration DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) peut être générée qui, une fois appliquée, demande à l’agent DSC de la machine d’effectuer une extraction auprès d’Azure Automation DSC et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation DSC peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
 
 > [!NOTE]
 > Les métaconfigurations DSC contiennent les clés secrètes nécessaires à l’intégration d’une machine à un compte Automation à des fins de gestion. Veillez à protéger convenablement les métaconfigurations DSC que vous créez ou supprimez-les après utilisation.
@@ -319,7 +320,11 @@ Pour intégrer de manière générique n’importe quelle machine à Azure Autom
 
 3. Renseignez la clé d’inscription et l’URL de votre compte Automation, ainsi que les noms des machines à intégrer. Tous les autres paramètres sont facultatifs. Pour trouver la clé et l’URL d’enregistrement pour votre compte Automation, consultez la section [**Enregistrement sécurisé**](#secure-registration) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
 4. Si vous voulez que les machines adressent les informations d’état DSC à Azure Automation DSC sans toutefois extraire la configuration ou des modules PowerShell, affectez au paramètre **ReportOnly** la valeur true.
-5. Exécutez le script. Vous devez à présent avoir un dossier appelé **DscMetaConfigs** dans votre répertoire de travail contenant les métaconfigurations DSC PowerShell pour les machines à intégrer.
+5. Exécutez le script. Vous devez à présent avoir un dossier appelé **DscMetaConfigs** dans votre répertoire de travail contenant les métaconfigurations DSC PowerShell pour les machines à intégrer (en tant qu’administrateur) :
+
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### <a name="using-the-azure-automation-cmdlets"></a>Utilisation des applets de commande Azure Automation
 
@@ -338,13 +343,16 @@ Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShel
         ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
         OutputFolder = "$env:UserProfile\Desktop\";
     }
-
     # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
     # For more info about splatting, run: Get-Help -Name about_Splatting
     Get-AzureRmAutomationDscOnboardingMetaconfig @Params
-     ```
-
-    Vous devez à présent avoir un dossier appelé ***DscMetaConfigs***contenant les métaconfigurations DSC PowerShell pour les machines à intégrer.
+    ```
+    
+4. Vous devez à présent avoir un dossier appelé ***DscMetaConfigs***contenant les métaconfigurations DSC PowerShell pour les machines à intégrer (en tant qu’administrateur) :
+    
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## <a name="secure-registration"></a>Enregistrement sécurisé
 
@@ -384,9 +392,4 @@ L’inscription peut être renouvelée selon la procédure initiale, en utilisan
 * [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md)
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

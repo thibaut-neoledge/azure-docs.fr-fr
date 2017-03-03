@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,6 +67,13 @@ Avant de vous connecter, vous devez obtenir le nom du serveur. Dans **Portail Az
 
 La connexion au serveur Azure Analysis Services dans Excel est prise en charge grâce à la fonction Obtenir les données dans Excel 2016 ou Power Query dans les versions antérieures. Le [fournisseur MSOLAP.7](analysis-services-data-providers.md) est obligatoire. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge.
 
+> [!NOTE]
+> Certaines organisations déploient les mises à jour Office 365 sur le canal différé, ce qui signifie que des mises à jour de version sont retardées jusqu'à quatre mois après la version actuelle. Pour la version d’Excel 2016 build 1609.7369.2115 et versions antérieures, ou Excel 2013, vous pouvez créer un fichier Office Data Connection (.odc) et mettre à jour manuellement le fournisseur MSOLAP.7 pour se connecter à un serveur Azure Analysis Services. Pour en savoir plus, consultez [Créer un fichier .odc](analysis-services-odc.md).
+> 
+> 
+
+**Connexion à partir d'Excel 2016**
+
 1. Dans Excel 2016, sur le ruban **Données**, cliquez sur **Obtenir les données externes** > **À partir d’autres sources** > **À partir d’Analysis Services**.
 2. Dans l’Assistant de connexion de données, dans **Nom du serveur**, collez le nom du serveur à partir du Presse-papiers. Ensuite, dans **Informations d’identification d’ouverture de session**, sélectionnez **Utiliser le nom d’utilisateur et le mot de passe suivants**, puis tapez le nom d’utilisateur professionnel, par exemple nancy@adventureworks.com,, et le mot de passe.
 
@@ -94,10 +102,5 @@ L’authentification intégrée utilisera le cache d’informations d’identifi
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer votre serveur](analysis-services-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

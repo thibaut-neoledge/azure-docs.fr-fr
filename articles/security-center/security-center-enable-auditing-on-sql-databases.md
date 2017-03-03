@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: d36bb775d0b0fd732562b18787b65600c8fb5fa1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,12 +43,12 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 3. Dans le panneau **Audit et détection des menaces**, sélectionnez **ON** sous **Audit**.
 
    ![Activer l’audit et la détection des menaces][3]
-4. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection-get-started.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
+4. Suivez les étapes de la rubrique [Détection de menaces pour les bases de données SQL dans le portail Azure](../sql-database/sql-database-threat-detection-portal.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a montré comment implémenter la recommandation de Security Center « Activer l’audit sur les bases de données SQL ». Pour en savoir plus sur la sécurisation de votre base de données SQL, consultez les rubriques suivantes :
 
-* [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md)
+* [Sécurisation de votre base de données SQL](../sql-database/sql-database-security-overview.md)
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
@@ -63,9 +64,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Surveillance et gestion d’un pool de bases de données élastique avec le portail Azure | Microsoft Docs"
-description: "Découvrez comment utiliser le portail Azure et l’intelligence intégrée de la base de données SQL pour gérer, surveiller et redimensionner un pool de bases de données élastique évolutif pour optimiser les performances de la base de données et gérer les coûts."
+title: "Portail Azure : Créer et gérer un pool élastique SQL Database | Microsoft Docs"
+description: "Découvrez comment utiliser le Portail Azure et l’intelligence intégrée de la base de données SQL pour gérer, surveiller et redimensionner un pool élastique évolutif pour optimiser les performances de la base de données et gérer les coûts."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -17,38 +17,123 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: c17cedb24dacc6aeefa02a963b4dffcf22e246ec
-ms.openlocfilehash: 285be87188be8fa426e42d6ec43cd066100f423d
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: 52cc3c74e05dc3934e0536dea02b4870f6ed86c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-the-azure-portal"></a>Surveiller et gérer un pool de bases de données élastique avec le portail Azure
-> [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-elastic-pool-manage-portal.md)
-> * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-> * [C#](sql-database-elastic-pool-manage-csharp.md)
-> * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
+# <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Créer et gérer un pool élastique avec le Portail Azure
+Cette rubrique montre comment créer et gérer des [pools élastiques](sql-database-elastic-pool.md) évolutifs avec le portail Azure. Vous pouvez également créer et gérer un pool élastique Azure avec [PowerShell](sql-database-elastic-pool-manage-powershell.md), l’API REST ou [C#][Créer et gérer un pool élastique avec C#](sql-database-elastic-pool-manage-csharp.md). Vous pouvez également créer et déplacer des bases de données vers et depuis des pools élastiques à l’aide de [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+
+## <a name="create-an-elastic-pool"></a>Créer un pool élastique 
+
+Vous pouvez créer un pool élastique de deux façons. Vous pouvez le faire à partir de zéro si vous connaissez la configuration de pool souhaitée ou si vous commencez par une recommandation issue du service. La base de données SQL est dotée d’une intelligence intégrée qui recommande une configuration de pool élastique si cela semble plus économique pour vous en fonction de la dernière télémétrie d’utilisation de vos bases de données.
+
+Vous pouvez créer plusieurs pools sur un serveur, mais il est impossible d’ajouter des bases de données de différents serveurs dans le même pool. 
+
+> [!NOTE]
+> Les pools élastiques sont mis à la disposition générale dans toutes les régions Azure, à l’exception de l’Inde de l’Ouest, où ils sont actuellement en version préliminaire.  Les pools élastiques seront en disposition générale dès que possible dans cette région.
 >
 >
+
+### <a name="step-1-create-an-elastic-pool"></a>Étape 1 : Créer un pool élastique
+
+Créer un pool élastique à partir d’un panneau **serveur** existant dans le portail est le moyen le plus simple pour déplacer des bases de données existantes dans un pool élastique.
+
+> [!NOTE]
+> Vous pouvez également créer un pool élastique en recherchant **pool élastique SQL** sur le **Marketplace** ou en cliquant sur **+Ajouter** dans le panneau de recherche **Pools élastiques SQL**. Ce workflow d’approvisionnement de pool vous permet d’indiquer un nouveau serveur ou un serveur existant.
+>
+>
+
+1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Plus de services** **>** **Serveurs SQL**, puis sur le serveur qui contient les bases de données que vous souhaitez ajouter à un pool élastique.
+2. Cliquez sur **Nouveau pool**.
+
+    ![Ajouter un pool à un serveur](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+
+    **OU**
+
+    Il se peut qu’un message indiquant que des pools élastiques recommandés sont disponibles pour le serveur (V12 uniquement) s’affiche. Cliquez sur le message pour afficher les pools recommandés en fonction de la télémétrie de l’historique d’utilisation de base de données, puis cliquez sur le niveau pour afficher plus de détails et personnaliser le pool. Consultez la section [Comprendre les recommandations relatives au pool](#understand-pool-recommendations) plus loin dans cette rubrique pour savoir sur quoi repose la recommandation.
+
+    ![pool recommandé](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+
+3. Le panneau **Pool élastique** s’affiche pour vous permettre de spécifier les paramètres de votre pool. Si vous avez cliqué sur **Nouveau pool** à l’étape précédente, le niveau tarifaire par défaut est **Standard** et aucune base de données n’est sélectionnée. Vous pouvez créer un pool vide ou spécifier un ensemble de bases de données existantes à partir de ce serveur, pour les déplacer vers le pool. Si vous créez un pool recommandé, le niveau tarifaire recommandé, les paramètres de performances et la liste des bases de données sont préremplis, mais vous pouvez toujours les modifier.
+
+    ![Configurer un pool élastique](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
+
+4. Entrez un nom pour le pool élastique, ou conservez la valeur par défaut.
+
+### <a name="step-2-choose-a-pricing-tier"></a>Étape 2 : sélectionner un niveau tarifaire
+
+Le niveau de tarification du pool détermine les fonctionnalités disponibles pour les bases de données élastiques dans le pool, ainsi que le nombre maximal d'eDTU (eDTU MAX) et le stockage (Go) disponibles pour chaque base de données. Pour plus d’informations, voir Niveaux de service.
+
+Pour modifier le niveau tarifaire du pool, cliquez sur **Niveau tarifaire**, sur le niveau tarifaire de votre choix, puis sur **Sélectionner**.
+
+> [!IMPORTANT]
+> Une fois que vous avez choisi le niveau tarifaire et validé vos modifications en cliquant sur **OK** à la dernière étape, vous ne pouvez plus modifier le niveau tarifaire du pool. Pour modifier le niveau de tarification d’un pool élastique existant, créez un pool élastique dans le niveau de tarification souhaité et migrez les bases de données vers ce nouveau pool.
+>
+>
+
+![Sélectionner un niveau de tarification](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
+
+### <a name="step-3-configure-the-pool"></a>Étape 3 : configurer le pool
+
+Après avoir défini le niveau de tarification, cliquez sur Configurer le pool à l’endroit où vous ajoutez des bases de données, définissez la quantité d’eDTU et de stockage (Go de pool), et définissez les nombres minimum et maximum d’eDTU des bases de données élastiques dans le pool.
+
+1. Cliquez sur **Configurer le pool**
+2. Sélectionnez les bases de données que vous souhaitez ajouter au pool. Cette étape est facultative lors de la création du pool. Les bases de données peuvent être ajoutées après la création du pool.
+    Pour ajouter des bases de données, cliquez sur **Ajouter une base de données** et sur les bases de données que vous voulez ajouter, puis sur le bouton **Sélectionner**.
+
+    ![Ajouter des bases de données](./media/sql-database-elastic-pool-create-portal/add-databases.png)
+
+    Si les bases de données que vous utilisez contiennent suffisamment de données de télémétrie d’historique d’utilisation, le graphique **Utilisation estimée des eDTU et des Go** et le graphique à barres **Utilisation effective des eDTU** sont mis à jour pour vous aider à prendre des décisions en termes de configuration. Le service peut également vous envoyer un message de recommandation pour vous aider à rectifier la taille du pool. Voir [Recommandations dynamiques](#dynamic-recommendations).
+
+3. Utilisez les contrôles de la page **Configurer le pool** pour explorer les paramètres et configurer votre pool. Pour plus d’informations sur les limites de chaque niveau de service, consultez l’article décrivant les [limites des pools élastiques](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools). Pour obtenir des conseils détaillés sur le dimensionnement approprié d’un pool, consultez l’article fournissant des [considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md). Pour plus d’informations sur les paramètres du pool, consultez [Propriétés du pool élastique](sql-database-elastic-pool.md#elastic-pool-properties).
+
+    ![Configurer un pool élastique](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+
+4. Cliquez sur **Sélectionner** in the **Configure Pool** après avoir modifié des paramètres.
+5. Cliquez sur **OK** pour créer le pool.
+
+
+## <a name="understand-elastic-pool-recommendations"></a>Comprendre les recommandations relatives au pool élastique
+
+Le service SQL Database évalue l’historique d’utilisation et recommande un ou plusieurs pools lorsque cela est plus rentable que d’utiliser des bases de données uniques. Chaque recommandation est configurée avec un sous-ensemble unique de bases de données du serveur qui correspond le mieux au pool.
+
+![pool recommandé](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+
+La recommandation relative au pool comprend les éléments suivants :
+
+- Niveau de tarification du pool (De base, Standard ou Premium)
+- Valeur **eDTU du pool** appropriée (également appelée eDTU max par pool)
+- Paramètres **eDTU max** et **eDTU min** par base de données
+- Liste des bases de données recommandées pour le pool
+
+> ![IMPORTANT] Le service prend en compte les 30 derniers jours de télémétrie lors de la recommandation de pools. Pour qu’une base de données soit considérée comme candidate à un pool élastique, elle doit exister depuis au moins 7 jours. Les bases de données qui figurent déjà dans un pool élastique ne sont pas considérées comme candidates pour les recommandations de pool élastique.
+>
+
+Le service évalue les besoins en ressources et la rentabilité du déplacement des bases de données uniques dans chaque niveau de service vers des pools du même niveau. Par exemple, toutes les bases de données Standard d’un serveur sont évaluées pour leur compatibilité avec un pool élastique Standard. Cela signifie que le service n'effectue aucune recommandation multiniveau telle que le déplacement d'une base de données Standard dans un pool Premium.
+
+Après avoir ajouté des bases de données au pool, des recommandations sont générées de façon dynamique en fonction de l’historique d’utilisation des bases de données que vous avez sélectionnées. Ces recommandations sont affichées dans le graphique d’utilisation d’eDTU et de Go ainsi que dans la bannière de recommandation en haut du panneau **Configurer le pool**. Ces recommandations sont destinées à vous aider à créer un pool élastique optimisé pour vos bases de données spécifiques.
+
+![Recommandations dynamiques](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+
+## <a name="manage-and-monitor-an-elastic-pool"></a>Gérer et surveiller un pool élastique
 
 Vous pouvez utiliser le portail Azure pour surveiller et gérer un pool élastique et les bases de données du pool. Depuis le portail, vous pouvez surveiller l’utilisation d’un pool élastique et des bases de données que contient ce pool. Vous pouvez également apporter un ensemble de modifications à votre pool élastique et soumettre toutes les modifications en même temps. Ces modifications incluent l’ajout ou la suppression de bases de données, ainsi que le changement des paramètres du pool élastique ou des bases de données.
 
-La capture d’écran ci-dessous montre un exemple de pool élastique. L’affichage inclut :
+Le graphique suivant montre un exemple de pool élastique. L’affichage inclut :
 
 *  Des graphiques pour la surveillance de l’utilisation des ressources du pool élastique et des bases de données que contient ce pool.
 *  Le bouton **Configurer le pool** pour apporter des modifications au pool élastique.
-*  Le bouton **Créer une base de données** , qui permet de créer une base de données et de l’ajouter au pool élastique actuel.
+*  Le bouton **Créer une base de données**, qui crée une base de données et l’ajoute au pool élastique actuel.
 *  Des tâches élastiques, qui vous aident à gérer un grand nombre de bases de données en exécutant des scripts Transact SQL sur toutes les bases de données d’une liste.
 
 ![Affichage du pool][2]
 
-Pour effectuer les étapes décrites dans cet article, vous avez besoin d’un serveur SQL dans Azure avec au moins une base de données et un pool élastique. Si vous ne disposez pas d’un pool élastique, consultez [Créer un pool](sql-database-elastic-pool-create-portal.md) ; si vous ne disposez pas d’une base de données, consultez le [Didacticiel sur la base de données SQL](sql-database-get-started.md).
-
-## <a name="elastic-pool-monitoring"></a>Surveillance du pool élastique
-
 Vous pouvez accéder à un pool particulier pour consulter l’utilisation des ressources de ce dernier. Par défaut, le pool est configuré pour afficher l’utilisation du stockage et des eDTU au cours de la dernière heure. Le graphique peut être configuré pour afficher d’autres métriques sur différentes plages de temps.
 
-1. Sélectionnez un pool à utiliser.
+1. Sélectionnez un pool élastique à utiliser.
 2. Sous **Surveillance du pool élastique**, vous trouverez un graphique intitulé **Utilisation des ressources**. Cliquez sur ce graphique.
 
     ![Surveillance du pool élastique][3]
@@ -65,10 +150,10 @@ Vous pouvez modifier le graphique et le panneau Métrique pour afficher d’autr
 
     ![Cliquez sur Modifier][6]
 
-2. Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller.
+2. Dans le panneau **Modifier le graphique**, sélectionnez une plage de temps (dernière heure, aujourd’hui ou semaine dernière) ou cliquez sur **Personnalisé** pour sélectionner la plage de temps de votre choix au cours des deux dernières semaines. Sélectionnez le type de graphique (bâtons ou linéaire), puis sélectionnez les ressources à surveiller.
 
    > [!Note]
-   > Seules les mesures présentant la même unité peuvent figurer simultanément dans le graphique. Par exemple, si vous sélectionnez « Pourcentage eDTU », vous serez en mesure de sélectionner d’autres mesures de pourcentage.
+   > Seules les mesures présentant la même unité peuvent figurer simultanément dans le graphique. Par exemple, si vous sélectionnez « Pourcentage eDTU », vous pouvez sélectionner d’autres mesures de pourcentage.
    >
 
     ![Cliquez sur Modifier](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
@@ -77,8 +162,7 @@ Vous pouvez modifier le graphique et le panneau Métrique pour afficher d’autr
 
 3. Cliquez ensuite sur **OK**.
 
-
-## <a name="elastic-database-monitoring"></a>Surveillance de la base de données élastique
+## <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Gérer et surveiller des bases de données dans un pool élastique
 
 Il est également possible de surveiller des bases de données individuelles pour identifier des problèmes potentiels.
 
@@ -96,7 +180,7 @@ Il est également possible de surveiller des bases de données individuelles pou
 
     ![Cliquez sur Modifier le graphique](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
 
-2. Dans le panneau **Modifier le graphique**, sélectionnez une nouvelle plage de temps (dernière heure ou dernières 24 heures) ou cliquez sur **Personnalisé** pour sélectionner un autre jour au cours des 2 dernières semaines.
+2. Dans le panneau **Modifier le graphique**, sélectionnez une plage de temps (dernière heure ou dernières 24 heures) ou cliquez sur **Personnalisé** pour sélectionner un autre jour au cours des 2 dernières semaines.
 
     ![Cliquez sur Personnalisé](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
 
@@ -111,9 +195,9 @@ Dans la liste de base de données du panneau **Database Resource Utilization** (
 ![Recherchez les bases de données à surveiller][7]
 
 
-## <a name="add-an-alert-to-a-pool-resource"></a>Ajouter une alerte à une ressource de pool
+## <a name="add-an-alert-to-an-elastic-pool-resource"></a>Ajouter une alerte à une ressource de pool élastique
 
-Vous pouvez ajouter des règles à des ressources qui envoient des messages électroniques à des personnes ou des chaînes d’alertes à des points de terminaison d’URL quand la ressource atteint un seuil d’utilisation que vous configurez.
+Vous pouvez ajouter des règles à un pool élastique qui envoient des messages électroniques à des personnes ou des chaînes d’alertes à des points de terminaison d’URL quand le pool élastique atteint un seuil d’utilisation que vous configurez.
 
 > [!IMPORTANT]
 > La surveillance de l’utilisation des ressources pour les pools élastiques subit un décalage d’au moins 20 minutes. La définition d’alertes de moins de 30 minutes pour les pools élastiques n’est actuellement pas prise en charge. Les alertes définies pour les pools élastiques sur une période (paramètre appelé « -WindowSize » dans les API PowerShell) de moins de 30 minutes peuvent ne pas se déclencher. Assurez-vous que les alertes que vous définissez pour les pools élastiques utilisent une période (WindowSize) de 30 minutes ou plus.
@@ -130,8 +214,6 @@ Vous pouvez ajouter des règles à des ressources qui envoient des messages éle
 
 4. Choisissez une **condition** (supérieur à, inférieur à, etc.) et un **seuil**.
 5. Cliquez sur **OK**.
-
-
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Déplacer une base de données dans un pool élastique
 
@@ -176,43 +258,33 @@ Vous pouvez ajouter ou supprimer des bases de données dans un pool existant. Le
 
     ![Cliquez sur Enregistrer.](./media/sql-database-elastic-pool-manage-portal/click-save.png)
 
-## <a name="change-performance-settings-of-a-pool"></a>Modifier les paramètres de performances d’un pool
+## <a name="change-performance-settings-of-an-elastic-pool"></a>Modifier les paramètres de performances d'un pool élastique
 
-Lorsque vous surveillez l’utilisation des ressources d’un pool, vous pouvez constater que certains ajustements sont nécessaires. Les limites de performances ou de stockage du pool ont peut-être besoin d’être modifiées. Vous pouvez aussi vouloir modifier les paramètres des bases de données du pool. Vous pouvez modifier la configuration du pool à tout moment pour obtenir le meilleur compromis entre les performances et le coût. Pour plus d’informations, voir [Quand utiliser un pool de bases de données élastiques ?](sql-database-elastic-pool-guidance.md) .
+Lorsque vous surveillez l’utilisation des ressources d’un pool élastique, vous pouvez constater que certains ajustements sont nécessaires. Les limites de performances ou de stockage du pool ont peut-être besoin d’être modifiées. Vous pouvez aussi vouloir modifier les paramètres des bases de données du pool. Vous pouvez modifier la configuration du pool à tout moment pour obtenir le meilleur compromis entre les performances et le coût. Pour plus d’informations, consultez l’article [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md).
 
-**Pour modifier les eDTU ou les limites par pool et les eDTU par base de données :**
+Pour modifier les eDTU ou les limites par pool et les eDTU par base de données :
 
 1. Ouvrez le panneau **Configurer le pool** .
 
-    Sous **Paramètres du pool de bases de données élastiques**, utilisez l’un ou l’autre des curseurs pour modifier les paramètres du pool.
+    Dans les **paramètres du pool élastique**, utilisez l’un ou l’autre des curseurs pour modifier les paramètres du pool.
 
     ![Utilisation des ressources du pool élastique](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
 2. Lorsque le paramètre change, l’affichage indique le coût mensuel estimé de la modification.
 
-    ![Mise à jour d’un pool et nouveau coût mensuel](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
+    ![Mise à jour d’un pool élastique et nouveau coût mensuel](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
+## <a name="latency-of-elastic-pool-operations"></a>Latence des opérations du pool élastique
+* En général, le processus de modification du nombre minimal d’eDTU par base de données ou du nombre maximal d’eDTU par base de données prend 5 minutes au maximum.
+* Le processus de modification du nombre d’eDTU par pool dépend quant à lui de la quantité totale d’espace utilisé par toutes les bases de données du pool. Ce processus prend en moyenne 90 minutes au maximum, pour chaque tranche de 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de modification du nombre d’eDTU par pool prend 3 heures au maximum.
 
-## <a name="create-and-manage-elastic-jobs"></a>Créer et gérer des tâches élastiques
+## <a name="next-steps"></a>Étapes suivantes
 
-Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Vous pouvez créer de nouvelles tâches ou gérer les tâches existantes à l’aide du portail.
-
-![Créer et gérer des tâches élastiques][5]
-
-
-Avant d’utiliser des tâches, installez les composants de tâches élastiques et indiquez vos informations d’identification. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
-
-Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md): utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
-
-
-
-## <a name="additional-resources"></a>Ressources supplémentaires
-
-- [Pools élastiques de bases de données SQL](sql-database-elastic-pool.md)
-- [Créer un pool de bases de données élastique avec le portail](sql-database-elastic-pool-create-csharp.md)
-- [Créer un pool élastique de bases de données](sql-database-elastic-pool-create-powershell.md)
-- [Créer un pool de bases de données élastique avec C#](sql-database-elastic-pool-create-csharp.md)
-- [Considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md)
+- Pour comprendre ce que représente un pool élastique, consultez [Pool élastique de bases de données SQL](sql-database-elastic-pool.md).
+- Pour obtenir de l’aide sur l’utilisation des pools élastiques, consultez [Considérations sur les prix et performances pour les pools élastiques](sql-database-elastic-pool-guidance.md).
+- Pour utiliser des tâches élastiques afin d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool, consultez [Vue d’ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
+- Pour interroger les bases de données du pool, quel que soit leur nombre, consultez [Vue d’ensemble de l’interrogation d’un pool élastique](sql-database-elastic-query-overview.md).
+- Pour interroger les transactions de bases de données, quel que soit leur nombre, consultez [Transactions élastiques](sql-database-elastic-transactions-overview.md).
 
 
 <!--Image references-->
@@ -225,9 +297,4 @@ Consultez [Montée en charge avec la base de données SQL Azure](sql-database-el
 [7]: ./media/sql-database-elastic-pool-manage-portal/select-dbs.png
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

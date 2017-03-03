@@ -15,6 +15,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
 ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -364,9 +365,4 @@ Utilisez ce code pour chaque blob.
 
 * [Visite guidée d’Analytics dans Application Insights](app-insights-analytics-tour.md)
 * [Use *Logstash* to send data to Application Insights (Utiliser Logstash pour envoyer des données à Application Insights)](https://github.com/Microsoft/logstash-output-application-insights)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

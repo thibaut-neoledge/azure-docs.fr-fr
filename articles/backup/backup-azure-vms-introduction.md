@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
-ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
+ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
+ms.openlocfilehash: 4fae07988dea260776368162c03374d83bc55664
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,6 +33,11 @@ Une fois l’instantané réalisé, les données sont transférées par le servi
 ![Architecture de la sauvegarde des machines virtuelles Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
+
+> [!NOTE]
+> Azure Backup n’inclut pas de disque temporaire joint à la machine virtuelle lorsque vous effectuez la sauvegarde. En savoir plus sur le [disque temporaire](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+>
+>
 
 ### <a name="data-consistency"></a>Cohérence des données
 La sauvegarde et la restauration des données critiques d’entreprise sont compliquées par le fait qu’elles doivent être sauvegardées alors que les applications qui génèrent les données sont en cours d’exécution. Pour résoudre ce problème, Azure Backup fournit des sauvegardes cohérentes avec les charges de travail de Microsoft en utilisant le service VSS pour vous assurer que les données sont correctement inscrites dans le compte de stockage.
@@ -91,6 +97,10 @@ La majeure partie du temps de sauvegarde est consacrée à la lecture et la copi
 * Délai nécessaire à l’ [installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-vms.md).
 * Heure de l'instantané, qui est la durée nécessaire au déclenchement d’un instantané. Les instantanés sont déclenchés peu avant l’heure de sauvegarde planifiée.
 * Délai d’attente de file d’attente. Comme le service Backup traite les sauvegardes de plusieurs clients, il se peut que la copie de données de sauvegarde de l’instantané vers l’archivage Backup ou Recovery Services ne démarre pas immédiatement. Lors des pics de charge, les temps d’attente peuvent durer jusqu’à 8 heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
+* Le temps de transfert de données, le temps nécessaire pour que le service de sauvegarde calcule les modifications incrémentielles à partir d’une sauvegarde précédente de calcul et de transfère ces modifications dans l’archivage.
+
+### <a name="why-am-i-observing-longer15-hours-backup-time"></a>Pourquoi les temps de sauvegarde (>15 heures) semblent-ils plus longs ?
+La sauvegarde consiste en deux phases : la prise d’instantané et le transfert de l’instantané vers l’archivage. Lors de la deuxième phase, le transfert de données vers l’archivage, afin d’optimiser le stockage utilisé pour la sauvegarde, nous transférons uniquement les modifications incrémentielles à partir de l’instantané précédent. Pour ce faire, nous calculons la somme de contrôle des blocs et si un bloc est modifié, nous l’identifions pour envoyer ce bloc dans l’archivage. Là encore, nous observons le bloc en détail pour voir si nous pouvons réduire la quantité de données à transférer et fusionner tous les blocs modifiés et les envoyer vers l’archivage. Dans le cas de certaines applications héritées, nous avons observé que les écritures par les applications n’étaient pas optimales pour le stockage en raison d’écritures petites et fragmentées. Par conséquent, nous avons besoin de plus de temps pour traiter les données écrites par ces applications. La taille de bloc d’écriture d’application recommandée depuis Azure pour les applications exécutées dans la machine virtuelle est de 8 ko au minimum. Si votre application utilise un bloc de moins de 8 ko, les performances de sauvegarde seront affectées, car cela est inférieur au niveau recommandé par Azure. Nous vous invitons à consulter [Paramétrage des applications pour optimiser les performances du stockage Azure](../storage/storage-premium-storage-performance.md) et voir si vous pouvez adapter votre application pour écrire de manière optimale afin d’améliorer les performances de sauvegarde. Bien que l’article évoque le stockage Premium spécifiquement, il s’applique également aux disques en cours d’exécution sur le stockage Standard.
 
 ## <a name="total-restore-time"></a>Temps de restauration total
 Une opération de restauration se compose de deux sous-tâches principales : copie de données depuis un coffre vers le compte de stockage choisi et création de la machine virtuelle. La copie de données depuis un coffre dépend de l’endroit où les sauvegardes sont stockées en interne dans Azure et de l’endroit où le compte de stockage client est stocké. Le temps nécessaire pour copier des données dépend des paramètres suivants :
@@ -138,9 +148,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 * [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 * [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 * [Résoudre les problèmes de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
 ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -448,9 +449,4 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

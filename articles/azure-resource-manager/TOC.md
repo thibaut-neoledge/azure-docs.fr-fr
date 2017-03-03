@@ -17,6 +17,7 @@
 ### [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 ### [Fonctions des modèles de gestionnaire des ressources Azure](resource-group-template-functions.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
+### [Définir un nom et un type de ressource enfant](resource-manager-template-child-resource.md)
 ### [Créer plusieurs instances de types de ressource](resource-group-create-multiple.md)
 ### [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md)
 ### [Lier à d’autres modèles](resource-group-linked-templates.md)
@@ -27,7 +28,6 @@
 ### [Interface de ligne de commande Azure](resource-group-template-deploy-cli.md)
 ### [Portail](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
-### [Environnements de développement et de test](solution-dev-test-environments.md)
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Gérer
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -59,7 +59,7 @@
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
-## [Azure 2.0 CLI (version préliminaire)](/cli/azure/resource)
+## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -72,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

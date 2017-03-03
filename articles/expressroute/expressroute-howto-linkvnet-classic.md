@@ -18,6 +18,7 @@ ms.author: ganesr
 translationtype: Human Translation
 ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
 ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -159,10 +160,5 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

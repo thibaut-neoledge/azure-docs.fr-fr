@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 41c26ebb4737eaf0d198e920892b19da7c389a66
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 594760d5c52ac3724a0b8dd882e76ca3302ee8ba
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,6 +27,10 @@ Les requêtes de bases de données élastiques (en version préliminaire) pour b
 À l’issue du processus, vous serez capable de configurer et d’utiliser une base de données SQL Azure pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées. 
 
 Pour plus d’informations sur la fonctionnalité de requête de base de données élastique, consultez l’article [Vue d’ensemble de la requête de base de données élastique Azure SQL Database](sql-database-elastic-query-overview.md). 
+
+## <a name="prerequisites"></a>Composants requis
+
+Vous devez posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE. Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
 ## <a name="create-the-sample-databases"></a>Créer les exemples de bases de données
 Pour commencer, nous devons créer deux bases de données, **Customers** et **Orders**, dans les mêmes serveurs logiques ou non.   
@@ -100,14 +105,10 @@ Actuellement, la fonctionnalité de requête de base de données élastique est 
 
 Pour plus d’informations sur la tarification, voir [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database). 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Étapes suivantes
 
-<!--Image references-->
-
-<!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-
+* Pour une présentation des requêtes élastiques, consultez [Présentation des requêtes élastiques](sql-database-elastic-query-overview.md).
+* Pour la syntaxe et des exemples de requêtes pour des données partitionnées verticalement, consultez [Requêtes sur des données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md)
+* Pour commencer le didacticiel sur le partitionnement horizontal (sharding), consultez [Prise en main des requêtes élastiques pour le partitionnement horizontal (sharding)](sql-database-elastic-query-getting-started.md).
+* Pour la syntaxe et des exemples de requêtes pour des données partitionnées horizontalement, consultez [Requêtes sur des données partitionnées horizontalement](sql-database-elastic-query-horizontal-partitioning.md)
+* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.

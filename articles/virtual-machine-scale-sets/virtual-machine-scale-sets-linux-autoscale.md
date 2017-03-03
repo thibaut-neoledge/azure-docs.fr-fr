@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
 ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -591,10 +592,5 @@ azure group delete vmsstestrg1
 * Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Découvrez le modèle [Mettre à l’échelle automatiquement un groupe identique de machine virtuelle exécutant une application Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) qui configure une pile LAMP pour tester la fonctionnalité de mise à l’échelle automatique des groupes identiques de machines virtuelles.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

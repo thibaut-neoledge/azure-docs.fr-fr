@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: 3d7e28c1cd221d704cf9cfec66da535e079fb472
+ms.openlocfilehash: 30044abc0d7d42b11ddd210dfb9ea3eadb94dda6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -124,7 +125,7 @@ Ensuite, lancez une mise à niveau de la configuration. Pour plus d’informatio
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Flux de travail de mise à niveau de cluster
-1. Téléchargez la dernière version du package à partir du document [Create Service Fabric cluster for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Créer un cluster Service Fabric pour Windows Server). 
+1. Téléchargez la dernière version du package à partir du document [Create Service Fabric cluster for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Créer un cluster Service Fabric pour Windows Server).
 2. Connectez-vous au cluster à partir d’une machine virtuelle disposant d’un accès administrateur à toutes les machines qui sont répertoriées en tant que nœuds dans le cluster. L’ordinateur sur lequel ce script est exécuté ne doit pas nécessairement faire partie du cluster. 
    
     ```powershell
@@ -152,7 +153,7 @@ Ensuite, lancez une mise à niveau de la configuration. Pour plus d’informatio
 
     ```
 
-1. Inscrire le package copié 
+4. Inscrire le package copié 
    
     ```powershell
    
@@ -163,7 +164,7 @@ Ensuite, lancez une mise à niveau de la configuration. Pour plus d’informatio
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Lancez une mise à niveau du cluster vers l’une des versions disponibles. 
+5. Lancez une mise à niveau du cluster vers l’une des versions disponibles. 
    
     ```Powershell
    
@@ -184,6 +185,17 @@ Ensuite, lancez une mise à niveau de la configuration. Pour plus d’informatio
 
 Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau, en suivant la procédure décrite précédemment.
 
+
+## <a name="cluster-configuration-upgrade"></a>Mise à niveau de la configuration du cluster
+Pour effectuer la mise à niveau de la configuration du cluster, exécutez Start-ServiceFabricClusterConfigurationUpgrade. La mise à niveau de la configuration est traitée par domaine de mise à niveau.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment personnaliser certains [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +203,4 @@ Une fois que vous avez corrigé les problèmes entraînant la restauration, vous
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

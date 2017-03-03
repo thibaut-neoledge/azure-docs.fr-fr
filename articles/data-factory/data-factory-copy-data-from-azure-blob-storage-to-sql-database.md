@@ -1,5 +1,5 @@
 ---
-title: "Copie de données à partir du Stockage Blob vers une base de données SQL | Microsoft Docs"
+title: "Copie de données à partir du Stockage Blob vers une base de données SQ - Azure | Microsoft Docs"
 description: "Ce didacticiel vous montre comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données depuis Blob Storage vers une base de données SQL Azure."
 keywords: "blob sql, blob storage, copie de données"
 services: data-factory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 19436167ad8e82f47b147efc65c635d9bf2d2ae5
-ms.openlocfilehash: 0072e1db4758447445b97021e1624c2210fbd0a7
+ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
+ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -123,8 +124,7 @@ Vous avez terminé les étapes préalables requises. Créez une fabrique de donn
 * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+> [!NOTE]
+> Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Il ne transforme pas les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, voir [Didacticiel : Générer votre premier pipeline pour traiter les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 

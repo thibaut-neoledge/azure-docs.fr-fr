@@ -1,5 +1,5 @@
 ---
-title: "Utiliser des activités Machine Learning | Microsoft Docs"
+title: "Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs"
 description: "Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning."
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: cbd5ca0444a1d0f9ad67864ae9507d5659191a05
-ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
+ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
+ms.openlocfilehash: 1c8cd0a998d7224caf5dcc70061d288a8e3043ed
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-activities"></a>Créer des pipelines prédictifs à l’aide des activités Azure Machine Learning
+# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md) 
@@ -43,7 +44,7 @@ ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
 3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats pour le modèle.  
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le **déplacement** et la **transformation** des données. Vous pouvez créer des solutions d’intégration de données à l’aide du service Data Factory, qui peut ingérer des données provenant de différentes banques de données, transformer/traiter les données et publier les données résultantes dans les banques de données.
+Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le **déplacement** et la **transformation** des données. Vous pouvez créer des solutions d’intégration de données à l’aide du service Azure Data Factory, qui peut ingérer des données provenant de différentes banques de données, transformer/traiter les données et publier les données résultantes dans les banques de données.
 
 Le service Data Factory vous permet de créer des pipelines de données qui déplacent et transforment les données, puis d’exécuter ces pipelines selon une planification spécifique (une fois par heure, par jour, par semaine, etc.). Il fournit également des affichages élaborés pour visualiser le lignage et les dépendances entre vos pipelines de données, ainsi qu’une vue unifiée depuis laquelle vous pouvez surveiller l’ensemble de ces pipelines afin d’identifier les problèmes et de configurer des alertes d’analyse en toute simplicité.
 
@@ -57,12 +58,12 @@ Au fil du temps, les modèles prédictifs dans les expériences de notation Azur
 1. Publiez l’expérience de formation (et non l’expérience prédictive) comme un service web. Vous pouvez effectuer cette tâche dans Azure ML Studio comme vous l’avez fait pour exposer l’expérience prédictive en tant que service web dans le scénario précédent.
 2. Utilisez l’activité d’exécution par lots Azure ML pour appeler le service web pour l’expérience de formation. En fait, vous pouvez utiliser l’activité d’exécution par lots Azure ML pour appeler à la fois le service web de formation et le service web de notation.
 
-Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour Azure ML**. Consultez la section [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](#updating-models-using-update-resource-activity) pour plus d’informations.
+Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour Azure ML**. Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Appeler un service web à l’aide de l’activité d’exécution par lots
 Vous utilisez Azure Data Factory pour orchestrer le déplacement et le traitement des données, puis pour effectuer une exécution par lot à l’aide d’Azure Machine Learning. Voici les étapes principales :
 
-1. Créer un service lié Azure Machine Learning. Vous avez besoin des éléments suivants :
+1. Créer un service lié Azure Machine Learning. Vous avez besoin des valeurs suivantes :
 
    1. **URI DE DEMANDE** pour l’API d’exécution de lot. Pour trouver l’URI de demande, cliquez sur le lien **EXÉCUTION PAR LOT** dans la page des services web.
    2. **CLÉ API** pour le service web Azure Machine Learning publié. Vous trouverez la clé API en cliquant sur le service web que vous avez publié.
@@ -260,42 +261,42 @@ Nous vous recommandons de suivre le didacticiel [Créer votre premier pipeline a
     ```JSON
     {
         "name": "PredictivePipeline",
-        "properties": {
+         "properties": {
             "description": "use AzureML model",
-            "activities": [
-            {
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [
-                {
-                    "name": "DecisionTreeInputBlob"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "DecisionTreeResultBlob"
-                }
-                ],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
-                {
-                    "webServiceInput": "DecisionTreeInputBlob",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob"
-                    }                
-                },
-                "policy": {
+               "activities": [
+             {
+                   "name": "MLActivity",
+                   "type": "AzureMLBatchExecution",
+                   "description": "prediction analysis on batch input",
+                   "inputs": [
+                 {
+                       "name": "DecisionTreeInputBlob"
+                 }
+                   ],
+                   "outputs": [
+                 {
+                       "name": "DecisionTreeResultBlob"
+                 }
+                   ],
+                   "linkedServiceName": "MyAzureMLLinkedService",
+                   "typeProperties":
+                   {
+                       "webServiceInput": "DecisionTreeInputBlob",
+                       "webServiceOutputs": {
+                           "output1": "DecisionTreeResultBlob"
+                       }                
+                   },
+                   "policy": {
                     "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+                     "executionPriorityOrder": "NewestFirst",
+                     "retry": 1,
+                     "timeout": "02:00:00"
+                   }
+             }
+               ],
+               "start": "2016-02-13T00:00:00Z",
+               "end": "2016-02-14T00:00:00Z"
+         }
     }
     ```
 
@@ -543,293 +544,7 @@ Les **points importants** sont les suivants :
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour
-Au fil du temps, les modèles prédictifs dans les expériences de notation Azure ML doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service web de notation avec le modèle ML reformé. Les étapes classiques pour activer la reformation et la mise à jour des modèles Azure ML via les services web sont les suivantes :
-
-1. Créez une expérience dans [Azure ML Studio](https://studio.azureml.net).
-2. Lorsque vous êtes satisfait du modèle, utilisez Azure ML Studio pour publier des services web à la fois pour l’**expérience de formation** et l’expérience de notation/**prédictive**.
-
-Le tableau suivant décrit les services web utilisés dans cet exemple.  Pour plus d’informations, consultez [Reformation des modèles Machine Learning par programme](../machine-learning/machine-learning-retrain-models-programmatically.md) .
-
-- **Service Web de formation** - Reçoit les données d’apprentissage et produit les modèles formés. La sortie de la reformation est un fichier .ilearner dans un stockage d’objets blob Azure. Le **point de terminaison par défaut** est automatiquement créé pour vous lorsque vous publiez l’expérience de formation en tant que service web. Vous pouvez créer d’autres points de terminaison, mais l’exemple utilise uniquement le point de terminaison par défaut.
-- **Service Web de notation** - Reçoit des exemples de données sans étiquette et effectue des prédictions. La sortie de la prédiction peut prendre plusieurs formes, comme un fichier .csv ou des lignes dans une base de données SQL Azure, selon la configuration de l’expérience. Le point de terminaison par défaut est automatiquement créé pour vous lorsque vous publiez l’expérience prédictive comme un service web. 
-
-Le schéma suivant illustre la relation entre points de terminaison de formation et de notation dans Azure ML.
-
-![SERVICES WEB](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
-
-Vous pouvez appeler le **training web service** à l’aide du **activité d’exécution par lot Azure ML**. L’appel d’un service web de formation est similaire à l’appel d’un service web Azure ML (service web de notation) pour les données de notation. Les sections précédentes expliquent de manière détaillée comment appeler un service web Azure ML à partir d’un pipeline Azure Data Factory. 
-
-Vous pouvez appeler le **scoring web service** à l’aide du **activité des ressources de mise à jour Azure ML** pour mettre à jour le service web avec le modèle qui vient d’être formé. Les exemples suivants fournissent les définitions de service associé : 
-
-### <a name="scoring-web-service-is-a-classic-web-service"></a>Service web de notation est un service web classique
-Si le service web de notation est un **service classique web**, créez le deuxième **point de terminaison (qui n’est pas le point de terminaison par défaut) pouvant être mis à jour** à l’aide du [portail Azure](https://manage.windowsazure.com). Pour connaître les étapes, consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md). Après avoir créé le point de terminaison non par défaut pouvant être mis à jour, procédez comme suit :
-
-* Cliquez sur **EXÉCUTION PAR LOT** pour obtenir la valeur d’URI pour la propriété JSON **mlEndpoint**.
-* Cliquez sur le lien **RESSOURCE DE MISE À JOUR** pour obtenir la valeur d’URI pour la propriété JSON **updateResourceEndpoint**. La clé API est sur la page du point de terminaison même (dans le coin inférieur droit).
-
-![point de terminaison pouvant être mis à jour](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
-
-L’exemple suivant présente un exemple de définition JSON pour le service lié AzureML. Le service lié utilise apiKey pour l’authentification.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": "endpoint2Key",
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
-
-### <a name="scoring-web-service-is-a-new-type-of-web-service-azure-resource-manager"></a>Le service web de notification est un nouveau type de service web (Azure Resource Manager).
-Si le service web est un nouveau type de service web qui expose un point de terminaison Azure Resource Manager, vous n’avez pas besoin ajouter le second point de terminaison, **qui n’est pas celui par défaut** . Le **updateResourceEndpoint** du service lié est au format : 
-
-```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
-```
-
-Vous pouvez obtenir des valeurs pour les espaces réservés dans l’URL lors de l’interrogation du service web sur le [portail des services web Azure Machine Learning](https://services.azureml.net/). Le nouveau type de point de terminaison de ressource de mise à jour requiert un jeton AAD (Azure Active Directory). Spécifiez **servicePrincipalId** et **servicePrincipalKey**dans le service lié AzureML. Consultez [how to create service principal and assign permissions to manage Azure resource](../azure-resource-manager/resource-group-create-service-principal-portal.md) (comment créer le principal de service et affecter des autorisations de gestion de ressources Azure). Voici un exemple de définition de service lié AzureML : 
-
-```json
-{
-    "name": "AzureMLLinkedService",
-    "properties": {
-        "type": "AzureML",
-        "description": "The linked service for AML web service.",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
-            "apiKey": "xxxxxxxxxxxx",
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
-            "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
-            "servicePrincipalKey": "xxxxx",
-            "tenant": "mycompany.com"
-        }
-    }
-}
-```
-
-Le scénario suivant fournit plus de détails. Il présente un exemple de reformation et de mise à jour de modèles Azure ML à partir d’un pipeline Azure Data Factory.
-
-### <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scénario : reformation et mise à jour d’un modèle Azure ML
-Cette section fournit un exemple de pipeline qui utilise **l’activité d’exécution par lot Azure ML** pour reformer un modèle. Le pipeline utilise également **l’activité des ressources de mise à jour Azure ML** pour mettre à jour le modèle dans le service web de notation. La section fournit également des extraits de code JSON pour tous les services liés, jeux de données et éléments de pipeline dans l’exemple.
-
-Voici la vue schématique de l’exemple de pipeline. Comme vous pouvez le voir, l’activité d’exécution par lot Azure ML prend l’entrée de formation et génère une sortie de formation (fichier iLearner). L’activité des ressources de mise à jour Azure ML prend cette sortie de formation et met à jour le modèle dans le point de terminaison de service web de notation. L’activité des ressources de mise à jour ne génère aucune sortie. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
-
-![schéma du pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-#### <a name="azure-blob-storage-linked-service"></a>Service lié Azure Blob Storage :
-Azure Storage contient les données suivantes :
-
-* Données de formation. Les données d’entrée pour le service web de formation Azure ML.  
-* Fichier iLearner. La sortie du service web de formation Azure ML. Ce fichier est également l’entrée de l’activité des ressources de mise à jour.  
-
-Voici la définition d’exemple JSON du service lié :
-
-```JSON
-{
-    "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
-        }
-    }
-}
-```
-
-#### <a name="training-input-dataset"></a>Jeu de données d’entrée de formation
-Le jeu de données suivant représente les données de formation d’entrée pour le service web de formation Azure ML. L’activité d’exécution par lots Azure ML prend ce jeu de données comme entrée.
-
-```JSON
-{
-    "name": "trainingData",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "labeledexamples",
-            "fileName": "labeledexamples.arff",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "policy": {          
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
-}
-```
-
-#### <a name="training-output-dataset"></a>Jeu de données de sortie de formation :
-Le jeu de données suivant représente le fichier iLearner de sortie issu du service web de formation Azure ML. L’activité d’exécution par lots Azure ML génère ce jeu de données. Ce jeu de données est également l’entrée de l’activité des ressources de mise à jour Azure ML.
-
-```JSON
-{
-    "name": "trainedModelBlob",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "trainingoutput",
-            "fileName": "model.ilearner",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        }
-    }
-}
-```
-
-#### <a name="linked-service-for-azure-ml-training-endpoint"></a>Service lié pour le point de terminaison de formation Azure ML
-L’extrait de code JSON suivant définit un service lié Azure Machine Learning qui pointe vers le point de terminaison par défaut du service web de formation.
-
-```JSON
-{    
-    "name": "trainingEndpoint",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
-        }
-      }
-}
-```
-
-Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey** :
-
-1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
-2. Cliquez sur le **service web de formation** dans la liste des services web.
-3. Cliquez sur Copier regard de la zone de texte **Clé API** . Collez la clé copiée dans l’éditeur JSON Data Factory.
-4. Dans le **studio Azure ML**, cliquez sur le lien **EXÉCUTION PAR LOT**.
-5. Copiez l’**URI de demande** à partir de la section **Demande**, et collez-le dans l’éditeur JSON Data Factory.   
-
-#### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Service lié pour le point de terminaison de notation pouvant être mis à jour Azure ML :
-L’extrait de code JSON suivant définit un service lié Azure Machine Learning qui pointe vers le point de terminaison autre que par défaut pouvant être mis à jour du service web de notation.  
-
-```JSON
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/00000000eb0abe4d6bbb1d7886062747d7/services/00000000026734a5889e02fbb1f65cefd/jobs?api-version=2.0",
-            "apiKey": "sooooooooooh3WvG1hBfKS2BNNcfwSO7hhY6dY98noLfOdqQydYDIXyf2KoIaN3JpALu/AKtflHWMOCuicm/Q==",
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
-            "servicePrincipalId": "fe200044-c008-4008-a005-94000000731",
-            "servicePrincipalKey": "zWa0000000000Tp6FjtZOspK/WMA2tQ08c8U+gZRBlw=",
-            "tenant": "mycompany.com"
-        }
-    }
-}
-```
-
-#### <a name="placeholder-output-dataset"></a>Jeu de données de sortie de l’espace réservé
-L’activité des ressources de mise à jour Azure ML ne génère aucune sortie. Toutefois, Azure Data Factory requiert un jeu de données de sortie pour que la planification d’un pipeline fonctionne. Par conséquent, nous utilisons dans cet exemple un jeu de données factice/paramètre fictif.  
-
-```JSON
-{
-    "name": "placeholderBlob",
-    "properties": {
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "any",
-            "format": {
-                "type": "TextFormat"
-            }
-        }
-    }
-}
-```
-
-#### <a name="pipeline"></a>Pipeline
-Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource**. L’activité d’exécution par lot Azure ML prend les données d’apprentissage comme entrée et génère un fichier .iLearner comme sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
-
-![schéma du pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-```JSON
-{
-    "name": "pipeline",
-    "properties": {
-        "activities": [
-            {
-                "name": "retraining",
-                "type": "AzureMLBatchExecution",
-                "inputs": [
-                    {
-                        "name": "trainingData"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "typeProperties": {
-                    "webServiceInput": "trainingData",
-                    "webServiceOutputs": {
-                        "output1": "trainedModelBlob"
-                    }              
-                 },
-                "linkedServiceName": "trainingEndpoint",
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            },
-            {
-                "type": "AzureMLUpdateResource",
-                "typeProperties": {
-                    "trainedModelName": "Training Exp for ADF ML [trained model]",
-                    "trainedModelDatasetName" :  "trainedModelBlob"
-                },
-                "inputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "placeholderBlob"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "name": "AzureML Update Resource",
-                "linkedServiceName": "updatableScoringEndpoint2"
-            }
-        ],
-        "start": "2016-02-13T00:00:00Z",
-           "end": "2016-02-14T00:00:00Z"
-    }
-}
-```
+Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour Azure ML**. Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](data-factory-azure-ml-update-resource-activity.md) pour plus d’informations.
 
 ### <a name="reader-and-writer-modules"></a>Modules Lecteur et Enregistreur
 L'utilisation des paramètres de service web passe par un scénario commun : l'utilisation des lecteurs et enregistreurs SQL Azure. Le module lecteur est utilisé pour charger des données dans une expérience à partir des services de gestion des données en dehors d’Azure Machine Learning Studio. Le module enregistreur est utilisé pour enregistrer les données de vos expériences dans les services de gestion des données en dehors d’Azure Machine Learning Studio.  
@@ -917,9 +632,4 @@ Vous pouvez également utiliser les [fonctions de Data Factory](data-factory-fun
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

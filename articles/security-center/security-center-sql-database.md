@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
-ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ Security Center vous aide à protéger les données dans SQL Database en fournis
 * définir des stratégies pour l’audit et le chiffrement de SQL Database ;
 * surveiller la sécurité des ressources SQL Database dans tous vos abonnements ;
 * identifier et corriger rapidement les problèmes de sécurité ;
-* intégrer les alertes de la [détection de menaces Azure SQL Database](../sql-database/sql-database-threat-detection-get-started.md).
+* intégrer les alertes de la [détection de menaces Azure SQL Database](../sql-database/sql-database-threat-detection.md).
 
 En plus de vous aider à protéger vos ressources SQL Database, Security Center fournit également l’analyse de la sécurité et la gestion des machines virtuelles, services cloud, App Services et réseaux virtuels Azure, notamment. Pour en savoir plus sur Security Center, cliquez [ici](security-center-intro.md).
 
@@ -79,7 +80,7 @@ Pour afficher les recommandations pour vos ressources Azure, sélectionnez la vi
 Comme illustré ci-dessous, Security Center vous indique les serveurs SQL pour lesquels l’audit et la détection des menaces ne sont pas activés. Une fois que vous avez activé l’audit, vous pouvez configurer les paramètres de détection des menaces et de messagerie pour recevoir des alertes de sécurité. La détection des menaces vous alerte si des activités de base de données anormales, indiquant la présence potentielle de menaces de sécurité pour la base de données, sont détectées. Les alertes sont affichées dans le tableau de bord de Security Center.
 ![Audit et détection des menaces][5]
 
-Suivez les étapes de [Prise en main de la détection des menaces SQL Database](../sql-database/sql-database-threat-detection-get-started.md) pour activer et configurer la détection des menaces et configurer la liste des adresses électroniques qui recevront les alertes de sécurité en cas de détection d’activités anormales.
+Suivez les étapes de la rubrique [Détection de menaces pour les bases de données SQL dans le portail Azure](../sql-database/sql-database-threat-detection-portal.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
 Pour en savoir plus sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
@@ -90,7 +91,7 @@ Une fois que vous avez activé les [stratégies de sécurité](security-center-p
 Pour plus d’informations, consultez [Contrôle de l’intégrité de la sécurité](security-center-monitoring.md).
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Gérer et répondre aux alertes de sécurité
-Security Center collecte, analyse et intègre automatiquement les données de journaux provenant de la [Détection des menaces Azure SQL](../sql-database/sql-database-threat-detection-get-started.md), ainsi que d’autres ressources Azure, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier.
+Security Center collecte, analyse et intègre automatiquement les données de journaux provenant de la [Détection des menaces Azure SQL](../sql-database/sql-database-threat-detection.md), ainsi que d’autres ressources Azure, pour détecter les menaces réelles et réduire le nombre de faux positifs. Une liste hiérarchisée d’alertes de sécurité est affichée dans le Centre de sécurité, ainsi que les informations nécessaires pour trouver rapidement la cause d’une attaque et des recommandations sur la façon d’y remédier.
 
 Pour consulter les alertes, sélectionnez la vignette **Alertes de sécurité** dans le panneau Security Center. Dans le panneau **Alertes de sécurité**, sélectionnez une alerte de sécurité pour en savoir plus sur les événements qui l’ont déclenchée et, le cas échéant, les étapes à suivre pour y remédier. Dans cet exemple, nous allons sélectionner **Injection potentielle de code SQL**.
 ![Alertes de sécurité][7]
@@ -115,9 +116,4 @@ Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

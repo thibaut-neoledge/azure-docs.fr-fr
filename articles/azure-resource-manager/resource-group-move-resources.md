@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  Pour Azure CLI 2.0 (version préliminaire), utilisez :
+  Pour Azure CLI 2.0, utilisez :
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -80,7 +81,6 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * CDN
 * Cloud Services : consultez [Limitations relatives au déploiement Classic](#classic-deployment-limitations)
 * Cognitive Services
-* Service de conteneur
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -127,6 +127,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Application Gateway
 * Application Insights
 * BizTalk Services
+* Service de conteneur
 * ExpressRoute
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
@@ -319,7 +320,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli-20-preview"></a>Utilisez Azure CLI 2.0 (version préliminaire)
+## <a name="use-azure-cli-20"></a>Utiliser Azure CLI 2.0
 Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande `az resource move`. Fournissez les ID des ressources à déplacer. Vous pouvez obtenir les ID des ressources avec la commande suivante :
 
 ```azurecli
@@ -382,10 +383,5 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 * Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](resource-group-portal.md).
 * Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

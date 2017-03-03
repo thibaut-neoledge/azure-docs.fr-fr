@@ -17,6 +17,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
 ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
+ms.lasthandoff: 01/31/2017
 
 ---
 
@@ -145,9 +146,4 @@ Vous devez vous connecter à votre compte de stockage et récupérer les entrée
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Comprendre les sondes de l’équilibrage de charge](load-balancer-custom-probe-overview.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer des clusters HDInsight avec Azure Data Lake Store à l’aide de modèles Resource Manager | Microsoft Docs"
+title: "Utiliser des modèles Azure pour créer HDInsight et Data Lake Store | Microsoft Docs"
 description: "Utiliser des modèles Azure Resource Manager pour créer et utiliser les clusters HDInsight avec Azure Data Lake Store"
 services: data-lake-store,hdinsight
 documentationcenter: 
@@ -15,21 +15,28 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: ec8c45c567e83304757ad3f534aee1295a4f9e2b
+ms.sourcegitcommit: 98f1c50774c2ee70afd18a1e036b6e3264518552
+ms.openlocfilehash: b67be76eab9b6c467f8ab9760f7ea481f1d6db90
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Créer un cluster HDInsight avec Data Lake Store à l’aide d’un modèle Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Utilisation du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Utiliser PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Utilisation de PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Utilisation de PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Utilisation du gestionnaire des ressources](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
+>
 
-Apprenez à utiliser un modèle Azure Resource Manager pour configurer un cluster HDInsight avec accès à Azure Data Lake Store. Pour les types de clusters pris en charge, Data Lake Store est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Store est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store. L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
+Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight avec Azure Data Lake Store **comme stockage supplémentaire**. 
 
-Quelques points importants à prendre en compte :
+Pour les types de clusters pris en charge, Data Lake Store est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Store est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store. L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
+
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Utilisation de Data Lake Store pour le stockage de cluster HDInsight
+
+Voici quelques considérations importantes pour l’utilisation de HDInsight avec Data Lake Store :
 
 * L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage par défaut est disponible si vous utilisez HDInsight version 3.5.
 
@@ -209,9 +216,4 @@ Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fic
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Copier des données d’objets blob Stockage Azure vers Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -5,7 +5,7 @@ keywords: azure app service, application web, dotnet, core, linux, oss
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2016
-ms.author: aelnably
+ms.date: 02/16/2017
+ms.author: aelnably;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 317d6980d304cc503cc43358c4b91459d4abd1ba
-ms.openlocfilehash: a54b7413c2eb6ae67b7424a8966d0cd82cd1ce6a
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: 769de52a85d1d5078b2ba583e94cabd22b0fde65
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -33,20 +34,14 @@ Lors de la dernière mise à jour de notre serveur principal, nous avons introdu
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
-Notez que le fichier **aspnetcore.dll** correspond au dll de votre application. Vous pouvez utiliser le nom de votre choix dans votre application.
+Le fichier **aspnetcore.dll** correspond au dll de votre application. Vous pouvez utiliser le nom de votre choix dans votre application.
 
-Cette opération entraînera le chargement de l’image .Net Core et le démarrage de votre application web. Vous pouvez vérifier que les paramètres ont été correctement définis à l’aide de la commande **azure webapp config show**. Voici un exemple :
+Cette opération charge de l’image .Net Core et démarre votre application web. Vous pouvez vérifier que les paramètres ont été correctement définis à l’aide de la commande **azure webapp config show**. Voici un exemple :
 
         azure webapp config show --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Présentation d’App Service sur Linux](./app-service-linux-intro.md) 
 * [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
 * [Création d’applications Web dans App Service sur Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Interface de ligne de commande multiplateforme d’Azure Web Apps](app-service-web-app-azure-resource-manager-xplat-cli.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)

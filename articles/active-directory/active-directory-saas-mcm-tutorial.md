@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: 2a204ffbb915370328e574dc3cba6a617e97c87a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -70,15 +71,15 @@ Pour configurer l’intégration de MCM à Azure AD, vous devez ajouter MCM depu
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, tapez **MCM**.
    
-    ![Galerie d’applications](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+    ![Galerie d’applications](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Galerie d’applications")
 
 7. Dans le volet de résultats, sélectionnez **MCM**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -106,15 +107,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans la page d’intégration d’applications **MCM** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à MCM ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+    ![Authentification unique avec Microsoft Azure AD](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Authentification unique avec Microsoft Azure AD")
 
 3. Sur la page Configurer les paramètres d’application, procédez comme suit :
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configurer l’URL de l’application")
    
     a. Dans la zone de texte **URL d’authentification**, tapez `https://myaba.co.uk/client-access/<company name>/saml.php`.
    
@@ -122,17 +123,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Dans la page **Configurer l’authentification unique sur MCM**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de certificat sur votre ordinateur.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configurer l’authentification unique")
 
 5. Pour que l’authentification unique soit configurée pour votre application, contactez votre équipe du support technique MCM. Joignez le fichier de métadonnées téléchargé et partagez-le avec l’équipe MCM pour qu’elle configure l’authentification unique de son côté.
 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configurer l’authentification unique")
 
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configurer l’authentification unique")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
@@ -202,13 +203,13 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans M
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à MCM.
 
-![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assign users")
+![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Affecter des utilisateurs")
 
 **Pour affecter Britta Simon à MCM, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Pour ouvrir la vue des applications dans le portail Classic, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Affecter des utilisateurs")
 
 2. Dans la liste des applications, sélectionnez **MCM**.
    
@@ -216,13 +217,13 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Affecter des utilisateurs")
 
 4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Affecter des utilisateurs")
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
@@ -232,10 +233,5 @@ Lorsque vous cliquez sur la mosaïque MCM dans le volet d’accès, vous devez �
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

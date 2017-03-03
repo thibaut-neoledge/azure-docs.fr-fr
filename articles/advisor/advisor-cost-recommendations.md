@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: 39a882a8338ce820c6b9b98f58d1a9db7448c7be
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 7999398f69ed0ce5129dd38f8e9e1994db25f9a5
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Le conseiller identifie les instances de serveur SQL pouvant bénéficier de la 
 3. Dans le tableau de bord du conseiller, cliquez sur l’onglet **Coût**, sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations, puis cliquez sur **Obtenir des recommandations**
 
 > [!NOTE]
-> Le conseiller Azure génère des recommandations pour les abonnements pour lesquels le rôle de **propriétaire**, de **collaborateur** ou de **lecteur** vous est affecté.
+> Pour accéder aux recommandations du conseiller, vous devez d’abord **enregistrer** votre abonnement avec auprès du conseiller. Un abonnement est enregistré lorsque son **propriétaire** lance le tableau de bord du conseiller, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être **exécutée qu’une seule fois**. Lorsqu’un abonnement est enregistré, les recommandations du conseiller peuvent être consultées par les **propriétaire**s, **collaborateur**s, ou **lecteur**s d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -57,9 +58,4 @@ Pour en savoir plus sur les recommandations du conseiller, consultez les ressour
 -  [Recommandations du conseiller en matière de haute disponibilité](advisor-cost-recommendations.md)
 -  [Recommandations du conseiller en matière de sécurité](advisor-cost-recommendations.md)
 -  [Recommandations du conseiller en matière de performances](advisor-cost-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

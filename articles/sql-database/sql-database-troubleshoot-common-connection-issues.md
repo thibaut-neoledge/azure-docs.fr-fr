@@ -18,6 +18,7 @@ ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
 ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -89,10 +90,5 @@ Le tableau suivant répertorie les rubriques de problèmes de connexion qui s’
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Aide générale sur le traitement des erreurs temporaires](../best-practices-retry-general.md)
 * [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

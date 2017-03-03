@@ -1,6 +1,6 @@
 ---
 title: "Exploration et modélisation de données avec Spark | Microsoft Docs"
-description: "Présente les fonctionnalités de modélisation et d’exploration de données du kit d’outils Spark MLlib."
+description: "Présente les fonctionnalités de modélisation et d’exploration des données du kit d’outils Spark MLlib sur Azure."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3d594fe60204c3e6e595d0f20a47510b1785847
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: 76fb321dbe909730f72eba71042264caba407aed
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -43,7 +44,33 @@ Les étapes de modélisation contiennent également du code montrant comment for
 > 
 
 ## <a name="prerequisites"></a>Composants requis
-Vous avez besoin d’un compte Azure et d’un cluster Spark HDInsight. Vous avez besoin d’un cluster HDInsight 3.4 Spark 1.6 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. Le bloc-notes **pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb** contenant les exemples de code de cette rubrique est disponible dans [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
+Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 ou Spark 2.0 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
+
+## <a name="spark-clusters-and-notebooks"></a>Clusters et notebooks Spark
+Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Mais des notebooks Jupyter sont fournis pour les clusters HDInsight Spark 1.6 et Spark 2.0. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. Pour plus de commodité, voici les liens vers les notebooks Jupyter pour Spark 1.6 et 2.0 à exécuter dans le noyau pyspark du serveur du notebook Jupyter :
+
+### <a name="spark-16-notebooks"></a>Notebooks Spark 1.6
+
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb) : fournit des informations sur l’exploration des données, la modélisation et la notation avec plusieurs algorithmes différents.
+
+### <a name="spark-20-notebooks"></a>Notebooks Spark 2.0
+Les tâches de régression et de classification qui sont implémentées à l’aide d’un cluster Spark 2.0 utilisent un autre jeu de données et se trouvent dans des notebooks distincts :
+
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb) : ce fichier montre comment effectuer des opérations de retraitement, ou « wrangling », (Spark SQL et tableaux de données) et fournit des informations sur l’exploration, la modélisation et la notation à l’aide du jeu de données « NYC Taxi trip and fare » décrit [ici](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb) : ce fichier montre comment effectuer des opérations de retraitement, ou « wrangling », (Spark SQL et tableaux de données) et fournit des informations sur l’exploration, la modélisation et la notation à l’aide du jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Nous avons intégré le jeu de données de compagnies aériennes avec les données météorologiques des aéroports (vitesse du vent, température, altitude, etc.) avant la modélisation. Ces fonctionnalités météo peuvent donc à présent être incluses dans le modèle.
+
+<!-- -->
+
+> [!NOTE]
+> Le jeu de données de compagnies aériennes a été ajouté aux notebooks Spark 2.0 pour mieux illustrer l’utilisation des algorithmes de classification. Consultez les liens suivants pour plus d’informations sur le jeu de données sur les compagnies aériennes et celui sur les données météorologiques :
+
+>- Données sur les départs à l’heure des compagnies aériennes : [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+
+>- Données météorologiques des aéroports : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+> 
+> 
+
+<!-- -->
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -1064,10 +1091,5 @@ Maintenant que vous avez créé des modèles de régression et de classification
 **Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](machine-learning-data-science-spark-model-consumption.md).
 
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

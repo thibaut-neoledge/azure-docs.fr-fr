@@ -15,17 +15,13 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 225896e724717a00057be4c708ce485c8b785d45
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
-> [!div class="op_single_selector"]
-> * [Portail Azure](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
 
 Les API PowerShell pour les **tâches de bases de données élastiques** (en version préliminaire) vous permettent de définir quels scripts seront exécutés pour quel groupe de bases de données. Cet article vous montre comment créer et gérer des **tâches de bases de données élastiques** à l’aide de PowerShell. Voir [Vue d’ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md). 
 
@@ -649,9 +645,4 @@ Après la création d’un DACPAC dans les tâches de bases de données élastiq
 [1]: ./media/sql-database-elastic-jobs-powershell/cmd-prompt.png
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

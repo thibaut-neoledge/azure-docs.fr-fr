@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
 ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -87,10 +88,5 @@ Consultez les rubriques suivantes pour obtenir des présentations conceptuelles 
 * [Vue d’ensemble d’Azure Relay](relay-what-is-it.md)
 * [Architecture de Service Bus](../service-bus-messaging/service-bus-architecture.md)
 * [Concepts de base de Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

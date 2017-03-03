@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: c549676b2126448d52ed43af509671d0b593a064
+ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
+ms.openlocfilehash: a6c5ff034450c9c6a01feb4ae6d84cebd75a5682
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -51,9 +52,7 @@ Pour envoyer des messages à un Event Hub, nous allons écrire une application c
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Ajout du package NuGet Event Hubs
 
-1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
-
-2. Cliquez sur l’onglet **Parcourir**, puis recherchez « Microsoft Azure Event Hubs » et sélectionnez l’élément **Microsoft Azure Event Hubs**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
+* Ajoutez le package NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) à votre projet.
 
 ### <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Écriture de code pour envoyer des messages à un Event Hub
 
@@ -204,8 +203,3 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

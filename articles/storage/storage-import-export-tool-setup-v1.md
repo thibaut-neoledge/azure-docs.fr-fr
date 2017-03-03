@@ -1,6 +1,6 @@
 ---
-title: "Configuration de l’outil Azure Import-Export | Microsoft Docs"
-description: "Découvrez comment configurer l’outil de préparation et de réparation de disques pour l’outil Azure Import/Export"
+title: "Configuration de l’outil Azure Import-Export v1 | Microsoft Docs"
+description: "Découvrez comment configurer l’outil de préparation et de réparation de disques pour Azure Import/Export"
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: fbcc295284d060b9a8bc5cf1cb9f8b2fca566db4
-ms.openlocfilehash: 78151092d8987b7513b69e54f9dacb540c5c3278
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 2d30d0da6055a66b60ed5a836dd897a87d564237
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="setting-up-the-azure-import-export-tool"></a>Configuration de l’outil Azure Import/Export
+# <a name="setting-up-the-azure-importexport-tool"></a>Configuration de l’outil Azure Import/Export
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :  
   
 -   Avant de créer un travail d’importation, l’outil vous permet de copier des données sur des disques durs que vous allez envoyer à un centre de données Windows Azure.  
@@ -259,10 +260,5 @@ Examples:
  [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
  [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
  [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Résolution des problèmes associés à l’outil Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+ [Résolution des problèmes associés à l’outil Azure Import-Export](storage-import-export-tool-troubleshooting-v1.md)
 

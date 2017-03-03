@@ -10,27 +10,26 @@ ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 06/09/2016
+ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
-ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="securing-your-sql-database"></a>Sécurisation de votre base de données SQL
 
-Cet article présente les principes de la sécurisation de la couche Données d’une application à l’aide de la base de données SQL Microsoft Azure. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la protection des données, au contrôle d’accès et à la surveillance proactive. Le diagramme suivant illustre les couches de sécurité fournies par SQL Database.
-
-![Sécurité et conformité de SQL](./media/sql-database-security-overview/diagram.png)
+Cet article présente les principes de la sécurisation de la couche Données d’une application à l’aide de la base de données SQL Microsoft Azure. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la protection des données, au contrôle d’accès et à la surveillance proactive. 
 
 Pour obtenir une présentation complète des fonctionnalités de sécurité disponibles sur toutes les versions de SQL, consultez la section [Sécurité et protection (moteur de base de données)](https://msdn.microsoft.com/library/bb510589). Des informations supplémentaires sont également disponibles dans le [livre blanc technique sur la sécurité et la base de données SQL Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>Protéger les données
-SQL Database protège vos données grâce au chiffrement : il utilise [Transport Layer Security](https://support.microsoft.com/en-us/kb/3135244) pour les données en mouvement, [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) pour les données au repos et [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) pour les données en cours d’utilisation. Pour une description de l’utilisation de ces fonctionnalités de protection des données dans SQL Database, consultez [Protecting data within your SQL Database (Protection des données dans SQL Database)](sql-database-protect-data.md).
+SQL Database protège vos données grâce au chiffrement : il utilise [Transport Layer Security](https://support.microsoft.com/en-us/kb/3135244) pour les données en mouvement, [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) pour les données au repos et [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) pour les données en cours d’utilisation. 
 
 > [!IMPORTANT]
 >Toutes les connexions à la base de données SQL Microsoft Azure doivent être chiffrées à tout moment (via SSL/TLS) lorsque les données sont « en transit » depuis et vers la base de données. Dans la chaîne de connexion de votre application, vous devez spécifier des paramètres permettant de chiffrer la connexion et *non* d’approuver le certificat de serveur (le système effectue cette opération pour vous lorsque vous copiez la chaîne de connexion hors du portail Azure Classic). Dans le cas contraire, la connexion ne vérifie pas l’identité du serveur et peut être la cible d’attaques de type MITM (« Man-In-The-Middle »). Pour le pilote ADO.NET, par exemple, ces paramètres de chaîne de connexion sont les suivants : **Encrypt=True** et **TrustServerCertificate=False**. 
@@ -69,12 +68,10 @@ Le masquage des données dynamiques de base de données SQL limite l’expositio
 SQL Database protège vos données en fournissant des fonctionnalités d’audit et de détection des menaces. 
 
 ### <a name="auditing"></a>Audit
-L’audit SQL Database suit les activités de base de données et vous aide à maintenir la conformité réglementaire en enregistrant les événements de base de données dans un journal d’audit de votre compte de stockage Azure. L’audit vous permet de comprendre les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour en savoir plus, consultez [Prise en main de l’audit SQL Database](sql-database-auditing-get-started.md).  
+L’audit SQL Database suit les activités de base de données et vous aide à maintenir la conformité réglementaire en enregistrant les événements de base de données dans un journal d’audit de votre compte de stockage Azure. L’audit vous permet de comprendre les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour en savoir plus, consultez [Prise en main de l’audit SQL Database](sql-database-auditing.md).  
 
-### <a name="auditing--threat-detection"></a>Audit et détection des menaces 
-L’audit SQL Database suit les activités de base de données et vous aide à maintenir la conformité réglementaire en enregistrant les événements de base de données dans un journal d’audit de votre compte de stockage Azure. L’audit vous permet de comprendre les activités de base de données en cours, d’analyser et d’examiner l’historique des activités pour identifier les menaces potentielles ou les violations de sécurité et abus présumés. Pour en savoir plus, consultez [Prise en main de l’audit SQL Database](sql-database-auditing-get-started.md).  
- 
-La fonctionnalité de détection des menaces complète celle d’audit en fournissant une couche supplémentaire d’informations de sécurité intégrée dans le service Azure SQL Database. Elle fonctionne en permanence pour en apprendre davantage sur les activités de base de données anormales, en déterminer le profil et les détecter. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Vous pouvez répondre aux alertes en suivant les instructions pouvant donner lieu à une action et informatives fournies. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection-get-started.md).  
+### <a name="threat-detection"></a>Détection de menaces
+La fonctionnalité de détection des menaces complète celle d’audit en fournissant une couche supplémentaire d’informations de sécurité intégrée dans le service Azure SQL Database. Elle fonctionne en permanence pour en apprendre davantage sur les activités de base de données anormales, en déterminer le profil et les détecter. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Vous pouvez répondre aux alertes en suivant les instructions pouvant donner lieu à une action et informatives fournies. Pour en savoir plus, consultez [Prise en main de Threat Detection pour la base de données SQL](sql-database-threat-detection.md).  
  
 ### <a name="data-masking"></a>Masquage de données 
 Le masquage des données dynamiques de base de données SQL limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage de données dynamiques détecte automatiquement les données potentiellement sensibles dans Azure SQL Database et fournit des recommandations pouvant donner lieu à une action permettant de masquer ces champs, avec un impact minimal sur la couche d’application. Il dissimule les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées. Pour en savoir plus, voir [Prise en main du masquage de données dynamiques de base de données SQL (portail Azure)](sql-database-dynamic-data-masking-get-started.md).
@@ -84,12 +81,7 @@ Non seulement la base de données SQL Microsoft Azure propose les fonctions d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une description de l’utilisation des fonctionnalités de protection des données dans SQL Database, consultez [Protecting data within your SQL Database (Protection des données dans SQL Database)](sql-database-protect-data.md).
 - Pour une description de l’utilisation des fonctionnalités de contrôle d’accès dans SQL Database, consultez [Azure SQL Database access control (Contrôle d’accès d’Azure SQL Database)](sql-database-control-access.md).
-- Pour une discussion sur la surveillance proactive, consultez [Prise en main de l’audit SQL Database](sql-database-auditing-get-started.md) et [Prise en main de la détection des menaces pour SQL Database](sql-database-threat-detection-get-started.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+- Pour une présentation de l’audit de base de données, consultez [Audit de base de données SQL](sql-database-auditing.md).
+- Pour une description de la détection des menaces, consultez [Détection de menaces pour les bases de données SQL](sql-database-threat-detection.md).
 

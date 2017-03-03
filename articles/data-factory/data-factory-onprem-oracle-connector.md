@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
 ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -566,9 +567,4 @@ Lors du déplacement de données à partir d’Oracle, les mappages suivants son
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
-ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
+ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
+ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -98,7 +99,7 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 ## <a name="data-rate"></a>Débit de données
 Le volume d’envoi de données est limité de trois façons :
 
-* **Limite quotidienne.** Elle est fixée par défaut à 500 Go par jour. Lorsque votre application atteint le plafond, nous envoyons un courrier électronique et ignorons les données jusqu’à la fin de la journée. Pour la modifier, utilisez le panneau de gestion des volumes de données.
+* **Limite quotidienne.** La limite maximale est de 500 Go/jour. La valeur par défaut lors de la création d’une ressource Application Insights à partir de Visual Studio est faible (seulement 32,3 Mo/jour). Lors de la création d’une ressource Application Insights à partir du portail Azure, cette limite est définie à sa valeur maximale. Soyez prudent lorsque vous modifiez cette valeur car, si vous atteignez cette limite, vous risquez de perdre des données pour le reste de la journée. Pour modifier cette valeur, utilisez le panneau Limite quotidienne de volume, lié au panneau de gestion du volume de données.
 * **[Échantillonnage](app-insights-sampling.md).** Ce mécanisme peut réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques.
 * La **limitation** restreint le débit de données à 32 000 événements par seconde, avec une moyenne de 1 minute. 
 
@@ -117,12 +118,14 @@ En cas de limitation, vous en êtes informé par un avertissement.
 ## <a name="to-reduce-your-data-rate"></a>Pour réduire le débit de données
 Voici quelques opérations possibles pour réduire le volume de données :
 
-* Réduire la limite de volume quotidienne. La valeur par défaut est 500 Go/jour.
 * Utilisez l’ [échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre des éléments associés dans la recherche. Dans les applications serveurs, elle s’applique automatiquement.
 * [Limitez le nombre d’appels Ajax qui peuvent être signalés](app-insights-javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * Désactivez les modules de collecte dont vous n'avez pas besoin en [modifiant ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Diviser vos données de télémétrie pour séparer les clés d’instrumentation. 
-* Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Procédez à la pré-agrégation des métriques. Si vous avez placé des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Pour finir, vous pouvez réduire la limite du volume quotidien qui restreint les données collectées, mais cela entraînera une perte de données pour le reste de la journée. Pour modifier cette valeur, ouvrez **Fonctionnalités + tarifs**, **Gestion des données**.
+
+    ![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>échantillonnage
 [Sampling](app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes lors des recherches de diagnostic, ainsi que le décompte des événements corrects. 
@@ -172,10 +175,5 @@ Les applications existantes peuvent continuer à utiliser les anciens niveaux de
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

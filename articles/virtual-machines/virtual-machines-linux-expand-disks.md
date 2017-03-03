@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
 ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -69,9 +70,4 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin de stockage supplémentaire, vous pouvez également [ajouter des disques de données à une machine virtuelle Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour plus d’informations sur le chiffrement de disque, consultez la section [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

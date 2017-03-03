@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: f67ca5996fdde0f0939ac46c2f6280f9d89af3d0
-ms.openlocfilehash: a39a5555ce3af59b509a0522725addbb382ff7af
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 3c4f6d13dd43ae557b177883e14044e637bd803b
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -28,9 +29,9 @@ Découvrez Azure Advisor, ses principales fonctionnalités et les questions fré
 Azure Advisor est un conseiller personnalisé basé dans le cloud qui décrit les meilleures pratiques à suivre pour optimiser vos déploiements Azure. Il analyse votre télémétrie de configuration et d’utilisation des ressources et recommande des solutions qui peuvent vous aider à améliorer la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure.
 
 Avec Azure Advisor, vous pouvez :
--   bénéficier des recommandations en termes de meilleures pratiques proactives, interactives et personnalisées. 
--   améliorer les performances, la sécurité et la haute disponibilité de vos ressources tout en réduisant vos dépenses Azure globales.
--   obtenir des recommandations accompagnées d’actions intégrées
+-    bénéficier des recommandations en termes de meilleures pratiques proactives, interactives et personnalisées. 
+-    améliorer les performances, la sécurité et la haute disponibilité de vos ressources tout en réduisant vos dépenses Azure globales.
+-    obtenir des recommandations accompagnées d’actions intégrées
 
 Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard). Connectez-vous au [portail](https://portal.azure.com), sélectionnez **Parcourir**, puis faites défiler jusqu’à **Azure Advisor**). Le tableau de bord du conseiller affiche des recommandations personnalisées pour un abonnement sélectionné. Les recommandations sont divisées en quatre catégories. 
 
@@ -45,7 +46,7 @@ Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard)
   ![Types de recommandation du conseiller](./media/advisor-overview/advisor-all-tab-examples.png)
 
 > [!NOTE]
-> Le conseiller Azure génère des recommandations pour les abonnements pour lesquels le rôle de **propriétaire**, de **collaborateur** ou de **lecteur** vous est affecté.
+> Pour accéder aux recommandations du conseiller, vous devez d’abord **enregistrer** votre abonnement avec auprès du conseiller. Un abonnement est enregistré lorsque son **propriétaire** lance le tableau de bord du conseiller, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être **exécutée qu’une seule fois**. Lorsqu’un abonnement est enregistré, les recommandations du conseiller peuvent être consultées par les **propriétaire**s, **collaborateur**s, ou **lecteur**s d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
 
 Vous pouvez cliquer sur une recommandation pour prendre connaissance des informations supplémentaires. Vous pouvez également obtenir des informations sur les actions que vous pouvez effectuer pour tirer parti d’une opportunité ou résoudre un problème. Le conseiller fournit des recommandations accompagnées d’actions intégrées ou de liens vers de la documentation. Cliquez sur une action intégrée pour découvrir comment l’implémenter. Cliquez sur un lien de documentation pour accéder à la documentation qui décrit comment implémenter manuellement l’action. 
 
@@ -58,7 +59,7 @@ Vous pouvez accéder à Advisor via le portail Azure. Connectez-vous au portail,
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quelles autorisations dois-je avoir pour accéder au conseiller ?
 
-Pour afficher les recommandations du conseiller, vous devez avoir accès à au moins un abonnement. Votre rôle doit avoir la valeur **propriétaire**, **collaborateur**, ou **lecteur** pour l’abonnement. Les propriétaires d’abonnement et les collaborateurs peuvent calculer/générer des recommandations. Cependant, le rôle **lecteur**, permet d’afficher uniquement les recommandations du conseiller. 
+Pour accéder aux recommandations du conseiller, vous devez d’abord **enregistrer** votre abonnement avec auprès du conseiller. Un abonnement est enregistré lorsque son propriétaire lance le tableau de bord du conseiller, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être **exécutée qu’une seule fois**. Lorsqu’un abonnement est enregistré, les recommandations du conseiller peuvent être consultées par les **propriétaire**s, **collaborateur**s, ou **lecteur**s d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
 
 ### <a name="how-often-are-advisor-recommendations-updated"></a>A quelle fréquence les recommandations du conseiller sont-elles mises à jour ?
 
@@ -66,7 +67,7 @@ Les recommandations du conseiller sont mises à jour toutes les heures.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Pour quelles ressources le conseiller fournit-il des recommandations ?
 
-Le conseiller fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, App Services, les serveurs SQL, les bases de données SQL et le cache Redis.
+Le conseiller fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL, les bases de données SQL et le cache Redis.
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Puis-je répéter ou ignorer une recommandation ?
 
@@ -80,10 +81,5 @@ Pour en savoir plus sur les recommandations du conseiller, consultez les ressour
 -  [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 -  [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 -  [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
--  [Recommandations en matière de coûts du conseiller](advisor-cost-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
+-  [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
 

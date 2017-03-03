@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -203,11 +204,13 @@ Si la stratégie de suivi intégré des modifications SQL est recommandée, elle
 
 * Toutes les insertions spécifient une valeur pour la colonne.
 * Toutes les mises à jour d'un élément modifient également la valeur de la colonne.
-* La valeur de cette colonne augmente à chaque modification.
+* La valeur de cette colonne augmente à chaque insertion ou mise à jour.
 * Les requêtes utilisant les clauses WHERE et ORDER BY suivantes peuvent être exécutées efficacement : `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-Par exemple, une colonne **rowversion** indexée est un candidat idéal pour la colonne de limite supérieure.
-Pour utiliser cette stratégie, créez ou mettez à jour votre source de données comme suit :
+> [!IMPORTANT] 
+> Nous vous recommandons fortement d’utiliser une colonne **rowversion** pour le suivi des modifications. Si un autre type de données est utilisé, il n’est pas garanti que le suivi des modifications capture toutes les modifications en présence de transactions qui s’exécutent en même temps qu’une requête de l’indexeur.
+
+Pour utiliser une stratégie de limite supérieure, créez ou mettez à jour votre source de données comme suit :
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ Pour utiliser cette stratégie, créez ou mettez à jour votre source de donnée
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ R. : Oui. Cependant, seul un indexeur peut s'exécuter sur un nœud à la fois.
 **Q. :** L’exécution d’un indexeur affecte-t-il la charge de travail de mes requêtes ?
 
 R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et les ressources de ce nœud sont partagées entre l'indexation et le traitement du trafic de requêtes d’une part, et d’autres requêtes d’API d’autre part. Si vous exécutez des charges de travail intensives d'indexation et de requête et que vous rencontrez un taux élevé d'erreurs 503 ou des délais de réponse croissants, redimensionnez votre service de recherche.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

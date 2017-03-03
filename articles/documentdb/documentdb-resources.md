@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 02/15/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
-ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
+ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
+ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -406,14 +407,14 @@ Pour annuler l’enregistrement d’une fonction définie par l’utilisateur, i
 Bien que les extraits de code précédents aient montré l’enregistrement (POST), l’annulation de l’enregistrement (PUT), la lecture ou le tri (GET) et l’exécution (POST) via le [Kit de développement logiciel (SDK) JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou d’autres [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documents
-Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. DocumentDB n'impose aucun schéma et ne requiert pas d'index secondaire pour prendre en charge l'interrogation des documents dans une collection.   
+Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. DocumentDB n'impose aucun schéma et ne requiert pas d'index secondaire pour prendre en charge l'interrogation des documents dans une collection. Par défaut, la taille maximale d’un document est de 2 Mo.   
 
 En étant un service de base de données véritablement ouvert, DocumentDB n'invente pas de types de données spécialisés (par exemple, les valeurs de date et heure) ou d'encodage spécifique pour les documents JSON. Notez que DocumentDB ne requiert aucune convention JSON spéciale pour codifier les relations entre les différents documents. La syntaxe SQL de DocumentDB fournit des opérateurs de requête hiérarchiques et relationnels très puissants qui permettent d'interroger et de projeter des documents sans annotation spécifique ou obligation de codifier des relations entre les documents à l'aide de propriétés distinctes.  
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire, énumérer et interroger facilement les documents en utilisant les API REST ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). La suppression d'un document libère instantanément le quota correspondant à toutes les pièces jointes imbriquées. Le niveau de cohérence de lecture des documents respecte la stratégie de cohérence du compte de base de données. Vous pouvez remplacer cette stratégie en fonction de la demande, selon les besoins de cohérence des données de votre application. Lors d'une interrogation de documents, la cohérence de lecture respecte le mode d'indexation défini pour la collection. Par « cohérence », on entend la stratégie de cohérence du compte. 
 
 ## <a name="attachments-and-media"></a>Pièces jointes et éléments multimédias
-DocumentDB vous permet de stocker des objets blob ou des éléments multimédias binaires dans son propre magasin ou votre magasin d'éléments multimédias distant. Il vous permet également de représenter les métadonnées d'un élément multimédia dans les termes d'un document spécifique nommé « pièce jointe ». Dans DocumentDB, une pièce jointe correspond à un document (JSON) spécifique qui référence l'objet blob ou l'élément multimédia stocké ailleurs. Une pièce jointe est tout simplement un document spécifique qui capture les métadonnées (comme l'emplacement, l'auteur, etc.) d'un élément multimédia stocké dans un magasin d'éléments multimédias distant. 
+DocumentDB vous permet de stocker des objets blob ou des éléments multimédias binaires dans son propre magasin (jusqu’à 2 Go par compte) ou votre magasin d'éléments multimédias distant. Il vous permet également de représenter les métadonnées d'un élément multimédia dans les termes d'un document spécifique nommé « pièce jointe ». Dans DocumentDB, une pièce jointe correspond à un document (JSON) spécifique qui référence l'objet blob ou l'élément multimédia stocké ailleurs. Une pièce jointe est tout simplement un document spécifique qui capture les métadonnées (comme l'emplacement, l'auteur, etc.) d'un élément multimédia stocké dans un magasin d'éléments multimédias distant. 
 
 Imaginez une application de lecture sociale utilisant DocumentDB pour stocker des annotations manuscrites et des métadonnées incluant des commentaires, des recommandations, des signets, des évaluations, des « j'aime/je n'aime pas », etc. associés au livre électronique d'un utilisateur donné.   
 
@@ -460,10 +461,5 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

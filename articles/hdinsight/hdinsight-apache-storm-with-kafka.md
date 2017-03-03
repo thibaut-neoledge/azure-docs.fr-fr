@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Utilisation d’Apache Kafka (version préliminaire) avec Storm sur HDInsight
@@ -318,10 +319,5 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
 Pour plus d’exemples de topologies qui peuvent être utilisées avec Storm sur HDInsight, consultez [Exemples de topologies et composants Storm](hdinsight-storm-example-topology.md).
 
 Pour plus d’informations sur le déploiement et la surveillance des topologies sur HDInsight Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

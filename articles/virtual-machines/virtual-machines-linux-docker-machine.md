@@ -17,6 +17,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
 ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ Pour vérifier le conteneur en cours d'exécution, tapez `docker-machine ip <VM 
 Si vous le souhaitez, vous pouvez utiliser Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour effectuer la même opération à l'aide de l'interface de ligne de commande (CLI) Azure ou des modèles Azure Resource Manager. 
 
 Pour plus d’exemples sur l’utilisation de Docker, consultez [Utilisation de Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) à partir de la [démonstration](https://github.com/Microsoft/HealthClinic.biz) de 2015 Connect pour [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Pour d’autres démarrages rapides à partir de la démonstration pour HealthClinic.biz, consultez [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)(Démarrages rapides avec les outils de développement Azure).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

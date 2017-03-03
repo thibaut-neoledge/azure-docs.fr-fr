@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
 ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -123,10 +124,5 @@ Consultez [Azure Active Directory B2C : dépôt de demandes de support](active-d
 
 ## <a name="more-information"></a>Plus d’informations
 Vous pouvez également consulter les [limites, restrictions et contraintes de service actuelles](active-directory-b2c-limitations.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

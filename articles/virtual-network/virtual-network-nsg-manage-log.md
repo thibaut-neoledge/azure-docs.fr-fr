@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8d370f98a4ef2501afc692af8a19a0625f54b678
-ms.openlocfilehash: a087b74470a8aa0f70b56d74cd97fe0935d35bcd
+ms.sourcegitcommit: e657e901900b4879d649ac82d8de026957a409c2
+ms.openlocfilehash: 36a872e3e5bd3230dcfe2abdab9b4dbf25212cdb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,7 +32,14 @@ Vous pouvez activer les catégories de journaux de diagnostic suivantes pour les
 > [!NOTE]
 > Les journaux de diagnostic ne sont disponibles que pour les groupes de sécurité réseau déployés avec le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas activer la journalisation des diagnostics pour les groupes de sécurité réseau déployés via le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, reportez-vous à l’article [Présentation des modèles de déploiement Azure](../resource-manager-deployment-model.md).
 
-La journalisation des activités (anciennement appelée audit ou journaux des opérations) est activé par défaut pour les groupes de sécurité réseau créés via un modèle de déploiement d’Azure. Pour déterminer quelles opérations ont été effectuées sur les groupes de sécurité réseau dans le journal d’activité, recherchez les entrées qui contiennent les types de ressources suivants : Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups et Microsoft.Network/networkSecurityGroups/securityRules. Lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) pour en savoir plus sur les journaux d’activité. 
+La journalisation des activités (anciennement appelée audit ou journaux des opérations) est activé par défaut pour les groupes de sécurité réseau créés via un modèle de déploiement d’Azure. Pour déterminer les opérations qui ont été effectuées sur les groupes de sécurité réseau dans le journal d’activité, recherchez les entrées qui contiennent les types de ressources suivants : 
+
+- Microsoft.ClassicNetwork/networkSecurityGroups 
+- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+- Microsoft.Network/networkSecurityGroups
+- Microsoft.Network/networkSecurityGroups/securityRules 
+
+Lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) pour en savoir plus sur les journaux d’activité. 
 
 ## <a name="enable-diagnostic-logging"></a>Activer la journalisation des diagnostics
 
@@ -116,9 +124,4 @@ Ce fichier journal contient des informations sur chaque règle appliquée aux re
 ## <a name="view-and-analyze-logs"></a>Afficher et analyser les journaux
 
 Pour savoir comment voir les données du journal d’activité, lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Pour savoir comment voir les données des journaux de diagnostic, lisez l’article [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si vous envoyez les données de diagnostic à Log Analytics, vous pouvez utiliser la solution de gestion [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (préversion) pour obtenir des insights de meilleure qualité. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

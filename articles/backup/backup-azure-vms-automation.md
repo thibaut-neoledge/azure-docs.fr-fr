@@ -17,6 +17,7 @@ ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: 9b5cdc89985c43250e082518087d2ef209ff0217
 ms.openlocfilehash: 9574d30b228c9254ef57d0d3253cd5fc841efad4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -398,9 +399,4 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Il existe également un article PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

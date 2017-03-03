@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/16/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 855fd05d9addc2e57568067e4d434836ceeed570
-ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
+ms.sourcegitcommit: 2a04860ea7349798d5786e50dc1d564896341d60
+ms.openlocfilehash: 50f13ae0184e5b9609994d382acc126eb2868271
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -54,7 +55,11 @@ ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 Le Kit de développement logiciel (SDK) .NET Core de DocumentDB offre les mêmes fonctionnalités que la dernière version du [SDK .NET de DocumentDB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Pour obtenir une version préliminaire du Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP, envoyez un e-mail à l’adresse [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
+
+Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 
@@ -76,15 +81,11 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |16 février 2017 |--- |
 | [1.0.0](#1.0.0) |21 décembre 2016 |--- |
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
 ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -695,9 +696,4 @@ Contient les données de télémétrie envoyées par votre application à l’ai
 * [L’aide-mémoire des utilisateurs de SQL](https://aka.ms/sql-analytics) traduit les idiomes courants.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

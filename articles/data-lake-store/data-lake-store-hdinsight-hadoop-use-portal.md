@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2017
+ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f65661013ce7cb5987ba83fb824befe7b4d1f70b
-ms.openlocfilehash: 4c230046bb5314f5fbd3e6d65e1317cb056fa647
+ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
+ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-portal"></a>Créer un cluster HDInsight avec Data Lake Store à l'aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Utilisation du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Utiliser PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Utilisation de PowerShell (pour le stockage par défaut)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Utilisation de PowerShell (pour le stockage supplémentaire)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Utilisation du gestionnaire des ressources](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
 Apprenez à utiliser le portail Azure pour créer un cluster HDInsight avec accès à Azure Data Lake Store. Pour les types de clusters pris en charge, Data Lake Store est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Store est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Store. L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
 
-Quelques points importants à prendre en compte :
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Utilisation de Data Lake Store pour le stockage de cluster HDInsight
+
+Voici quelques considérations importantes pour l’utilisation de HDInsight avec Data Lake Store :
 
 * L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage par défaut est disponible si vous utilisez HDInsight version 3.5.
 
@@ -52,12 +56,6 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
     **Si vous n’êtes pas administrateur Azure AD**, vous ne pouvez pas effectuer les étapes nécessaires à la création d’un principal du service. Dans ce cas, votre administrateur Azure AD doit d’abord créer un principal du service. Vous pourrez ensuite créer un cluster HDInsight avec Data Lake Store. En outre, le principal du service doit être créé à l’aide d’un certificat, comme décrit dans [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) (Créer un principal du service avec certificat).
 
-## <a name="do-you-learn-faster-with-videos"></a>Les vidéos vous permettent-elles d’apprendre plus rapidement ?
-Regardez les vidéos suivantes pour savoir comment approvisionner des clusters HDInsight ayant accès à Data Lake Store.
-
-* [Créer un cluster HDInsight ayant accès à Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
-* Une fois le cluster configuré, [accédez aux données dans Data Lake Store à l’aide de scripts Hive et Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
-
 ## <a name="create-an-hdinsight-cluster-with-access-to-azure-data-lake-store"></a>Créer un cluster HDInsight ayant accès au Data Lake Store.
 Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data Lake Store comme stockage supplémentaire. Dans cette version, pour un cluster Hadoop, Data Lake Store ne peut être utilisé que comme stockage supplémentaire pour le cluster. Le stockage par défaut sera toujours les objets blob Azure Storage (WASB). Par conséquent, nous allons tout d'abord créer le compte de stockage et les conteneurs de stockage requis par le cluster.
 
@@ -65,14 +63,16 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 
 2. Suivez les étapes de la [Création de clusters Hadoop dans HDInsight](../hdinsight/hdinsight-provision-clusters.md) pour lancer l'approvisionnement d'un cluster HDInsight.
 
-3. Dans le panneau **Source de données**, spécifiez si vous souhaitez utiliser Azure Storage (WASB) ou Data Lake Store comme stockage par défaut. Si vous voulez utiliser Azure Data Lake Store comme stockage par défaut, passez à l’étape suivante.
+3. Dans le panneau **Stockage**, spécifiez si vous souhaitez utiliser Azure Storage (WASB) ou Data Lake Store comme stockage par défaut. Si vous voulez utiliser Azure Data Lake Store comme stockage par défaut, passez à l’étape suivante.
 
-    Si vous souhaitez utiliser Azure Storage Blobs comme stockage par défaut, pour **Type de stockage principal**, cliquez sur **Azure Storage**. Spécifiez les détails du compte de stockage et du conteneur de stockage, choisissez **Est des États-Unis 2** comme **Emplacement**, puis cliquez sur **Accès Data Lake Store**.
+    Si vous souhaitez utiliser Azure Storage Blobs comme stockage par défaut, pour **Type de stockage principal**, cliquez sur **Azure Storage**. Ensuite, pour **Méthode de sélection**, vous pouvez choisir **Mes abonnements** si vous souhaitez spécifier un compte de stockage qui fait partie de votre abonnement Azure, puis sélectionner le compte de stockage. Sinon, cliquez sur **Clé d’accès** et fournissez les informations du compte de stockage que vous souhaitez choisir en dehors de votre abonnement Azure. Pour **Conteneur par défaut**, vous pouvez choisir d’utiliser le nom de conteneur par défaut suggéré par le portail ou spécifier le vôtre. 
+
+    Lorsque vous utilisez les objets blob de stockage Azure comme stockage par défaut, vous pouvez toujours utiliser Azure Data Lake Store comme stockage par défaut pour le cluster. Pour ce faire, cliquez sur **Accès Data Lake Store**, puis passez à l’étape 5.
 
     ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Ajouter un principal du service à un cluster HDInsight")
 
 
-4. Si vous souhaitez utiliser Azure Data Lake Store comme stockage par défaut, pour **Type de stockage principal**, cliquez sur **Data Lake Storage**. Sélectionnez un compte Data Lake Store existant, indiquez le chemin du dossier racine où les fichiers spécifiques au cluster seront stockés (voir la remarque ci-dessous), choisissez **Est des États-Unis 2** comme **Emplacement**, puis cliquez sur **Accès Data Lake Store**. Vous pouvez utiliser cette option uniquement avec les clusters HDInsight 3.5 (édition Standard). Dans les clusters HDInsight 3.5, cette option n’est pas disponible pour le type de cluster HBase.
+4. Si vous souhaitez utiliser Azure Data Lake Store comme stockage par défaut, pour **Type de stockage principal**, cliquez sur **Data Lake Storage**. Sélectionnez un compte Data Lake Store existant, indiquez le chemin du dossier racine où les fichiers spécifiques au cluster seront stockés, choisissez **Est des États-Unis 2** comme **Emplacement**, puis cliquez sur **Accès Data Lake Store**. Vous pouvez utiliser cette option uniquement avec les clusters HDInsight 3.5 (édition Standard). Dans les clusters HDInsight 3.5, cette option n’est pas disponible pour le type de cluster HBase.
 
     Dans la capture d’écran ci-dessous, le chemin du dossier racine est /clusters/myhdiadlcluster, où **myhdiadlcluster** est le nom du cluster en cours de création. Dans ce cas, assurez-vous que le dossier **/clusters** existe déjà dans le compte Data Lake Store. Le dossier **myhdiadlcluster** sera créé pendant la création du cluster. De même, si le chemin racine a ét définie sur /hdinsight/clusters/data/myhdiadlcluter, vous devez vous assurer que **/hdinsight/clusters/data/** existe déjà dans le compte Data Lake Store.
 
@@ -158,9 +158,4 @@ Vous pouvez utiliser le Data Lake Store pour écrire des données à partir d’
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

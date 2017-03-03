@@ -18,6 +18,7 @@ ms.author: amitsriva
 translationtype: Human Translation
 ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
 ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -315,8 +316,3 @@ Pour en savoir plus sur les webhooks et sur la façon de les utiliser avec des a
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

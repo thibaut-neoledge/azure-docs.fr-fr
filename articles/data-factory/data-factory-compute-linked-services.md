@@ -1,5 +1,5 @@
 ---
-title: "Services liés de calcul | Microsoft Docs"
+title: Environnements de calcul pris en charge par Azure Data Factory | Microsoft Docs
 description: "En savoir plus sur environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory pour transformer/traiter les données."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: e651c6f081c14044602c1dc8f8e6d34ffddbf4ea
-ms.openlocfilehash: 7ce4151189eb6aaba3509878fb2e18d04f0c3e59
+ms.sourcegitcommit: 080376a50e4cde3d3f9f801408e4a02b75bc72da
+ms.openlocfilehash: 40da274d0dcbf1efb22afc474a1c365f7770fdcb
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="compute-linked-services"></a>Services liés de calcul
+# <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
 
 Le tableau suivant fournit une liste d’environnements de calcul pris en charge par Data Factory et les activités qui peuvent s’exécuter sur ces derniers. 
@@ -89,7 +90,7 @@ Pour utiliser un cluster HDInsight Windows, définissez **osType** sur **windows
 | clusterSize |Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4*4 pour les nœuds de travail + 2*4 pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). |yes |
 | timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété TimeToLive est correctement définie. |Oui |
 | version |Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cluster Windows et 3.2 pour le cluster Linux. |Non |
-| linkedServiceName |Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. |Oui |
+| linkedServiceName |Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. <p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store.</p>  | Oui |
 | additionalLinkedServiceNames |Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. |Non |
 | osType |Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. |Non |
 | hcatalogLinkedServiceName |Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant Azure SQL Database en tant que metastore. |Non |
@@ -173,7 +174,7 @@ Si vous souhaitez créer des nœuds principaux et des nœuds de travail de taill
 "dataNodeSize": "Standard_D4",
 ```
 
-Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer **l’erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code ’400’. (L’opération a échoué avec le code «&400; ».) Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez les noms d’**applet de commande et d’API** figurant dans le tableau référencé dans l’article ci-dessus.  
+Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’ **erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code ’400’. (L’opération a échoué avec le code «&400; ».) Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez les noms d’**applet de commande et d’API** figurant dans le tableau référencé dans l’article ci-dessus.  
 
 ## <a name="bring-your-own-compute-environment"></a>Apportez votre propre environnement de calcul
 Dans ce type de configuration, les utilisateurs peuvent inscrire un environnement de calcul existant en tant que service lié dans Data Factory. L'environnement de calcul est géré par l'utilisateur et le service Data Factory l'utilise pour exécuter les activités.
@@ -211,7 +212,7 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 | clusterUri |L'URI du cluster HDInsight. |Oui |
 | username |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |Oui |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui |
-| linkedServiceName |Nom du service lié pour le stockage d'objets blob utilisé par ce cluster HDInsight. |Oui |
+| linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p>  |Oui |
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 Vous pouvez créer un service lié Azure Batch pour inscrire un pool de machines virtuelles (VM) Batch à une fabrique de données. Vous pouvez exécuter des activités personnalisées .NET à l'aide d'Azure Batch ou Azure HDInsight.
@@ -368,10 +369,5 @@ Créez un service lié Azure SQL Data Warehouse et utilisez-le avec l’ [activ
 
 ## <a name="sql-server-linked-service"></a>Service SQL Server lié
 Créez un service lié à SQL Server et utilisez-le avec l’ [activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

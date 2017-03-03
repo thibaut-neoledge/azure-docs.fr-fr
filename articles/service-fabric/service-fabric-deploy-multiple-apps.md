@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2017
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 72fcad2957d6fc5466719c1d275ae0f86f7fa302
-ms.openlocfilehash: bf2e34a27806ca79f88db9a9f8d052cd7bfcc94d
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: 8ff5933239521f8ed986da5a12aced3110085376
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -26,6 +27,10 @@ Cet article montre comment empaqueter et déployer plusieurs exécutables sur Az
 Bien que cette procédure montre pas à pas comment déployer une application avec un serveur frontal Node.js utilisant MongoDB comme magasin de données, vous pouvez appliquer les étapes à n’importe quelle application ayant des dépendances dans une autre application.   
 
 Vous pouvez utiliser Visual Studio pour générer le package d’application qui contient plusieurs fichiers exécutables invités. Voir [Utilisation de Visual Studio pour empaqueter une application existante](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). Après avoir ajouté le premier exécutable invité, cliquez avec le bouton droit sur le projet d’application, puis sélectionnez **Ajouter -> nouveau service Service Fabric** pour ajouter le second projet exécutable invité à la solution. Remarque : si vous choisissez d’établir un lien vers la source dans le projet Visual Studio, assurez-vous lors de la création de la solution Visual Studio que votre package d’application est à jour avec les modifications de la source. 
+
+## <a name="samples"></a>Exemples
+* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Exemple de deux exéctuables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaqueter manuellement l’application exécutable invitée multiple
 Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, qui est disponible à l’adresse [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -210,13 +215,8 @@ Pour ajouter un autre service à une application déjà créée à l’aide de `
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
 2. Exécutez `yo azuresfguest:AddService` et fournissez les informations nécessaires.
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le déploiement de conteneurs avec [Service Fabric et vue d’ensemble des conteneurs](service-fabric-containers-overview.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Exemple de deux exéctuables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

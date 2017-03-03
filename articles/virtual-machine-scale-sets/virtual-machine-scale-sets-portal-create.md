@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+ms.sourcegitcommit: 35d4c8593dd9698017df85675395430f345f4e86
+ms.openlocfilehash: 17054073e921708cc0c9392ed1b94e9579a9f940
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -32,26 +33,28 @@ Tout d’abord, accédez au [portail Azure](https://portal.azure.com) dans un na
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-linux-virtual-machine"></a>Créer la machine virtuelle Linux
-Vous pouvez à présent utiliser les paramètres par défaut pour créer rapidement la machine virtuelle.
+## <a name="create-the-scale-set"></a>Création du jeu de mise à l’échelle
+Vous pouvez à présent utiliser les paramètres par défaut pour créer rapidement le jeu de mise à l’échelle.
 
 * Sur le panneau `Basics` , entrez un nom pour le jeu de mise à l’échelle. Ce nom constituant la base du nom de domaine complet (FQDN) de l’équilibreur de charge placé devant le jeu de mise à l’échelle, assurez-vous qu’il est unique dans Azure.
 * Sélectionnez le type de système d’exploitation souhaité, entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez. Si vous choisissez de définir un mot de passe, celui-ci doit compter au moins 12 caractères et remplir trois des quatre conditions suivantes : une lettre minuscule, une lettre majuscule, un chiffre et un caractère spécial. En savoir plus sur les [conditions requises pour les noms d’utilisateur et les mots de passe](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Si vous choisissez `SSH public key`, assurez-vous de coller uniquement votre clé publique, PAS votre clé privée :
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Choisissez si vous souhaitez limiter le jeu de mise à l’échelle à un seul groupe de placement ou s’il doit s’étendre sur plusieurs groupes de placement. Autoriser le jeu de mise à l’échelle à s’étendre aux groupes de placement permet d’utiliser des jeux de mise à l’échelle avec une capacité de plus de 100 machines virtuelles (jusqu'à 1 000), avec certaines limitations. Pour plus d’informations, consultez [cette documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Entrez le nom de groupe de ressources et l’emplacement de votre choix, puis cliquez sur `OK`.
 * Sur le panneau `Virtual machine scale set service settings` : entrez l’étiquette de nom de domaine de votre choix (servant de base au nom de domaine complet pour l’équilibreur de charge placé devant le jeu de mise à l’échelle). Cette étiquette doit être unique dans Azure.
 * Choisissez l’image de disque du système d’exploitation, le nombre d’instances et la taille de machine que vous souhaitez.
+* Choisissez votre type de disque souhaité : géré ou non géré. Pour plus d’informations, consultez [cette documentation](./virtual-machine-scale-sets-managed-disks.md). Si vous avez configuré le jeu de mise à l’échelle pour s’étendre sur plusieurs groupes de placement, cette option ne sera pas disponible car un disque géré est requis pour que les jeux de mise à l’échelle couvrent des groupes de placement.
 * Activez ou désactivez la mise à l’échelle automatique et configurez-la si elle est activée :
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* Sur le panneau `Summary`, une fois la validation terminée, cliquez sur `OK`.
-* Enfin, sur le panneau `Purchase`, cliquez sur `Purchase` pour démarrer le déploiement du jeu de mise à l’échelle.
+* Enfin, sur le panneau `Summary`, lorsque la validation est effectuée, cliquez sur `OK` pour démarrer le déploiement du jeu de mise à l’échelle.
+
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Se connecter à une machine virtuelle dans le jeu de mise à l’échelle
-Une fois votre jeu de mise à l’échelle déployé, accédez à la l’onglet `Inbound NAT Rules` de l’équilibreur de charge pour le jeu de mise à l’échelle :
+Si vous avez choisi de limiter votre jeu de mise à l’échelle à un seul groupe de placement, le jeu de mise à l’échelle est déployé avec des règles NAT configurées pour vous permettre de vous connecter au jeu de mise à l’échelle facilement (sinon, pour vous connecter aux machines virtuelles dans le jeu de mise à l’échelle, vous devez probablement créer une jumpbox sur le même réseau virtuel que le jeu de mise à l’échelle). Pour les voir, accédez à la l’onglet `Inbound NAT Rules` de l’équilibreur de charge pour le jeu de mise à l’échelle :
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
@@ -67,10 +70,5 @@ Pour obtenir de la documentation sur le déploiement de jeux de mise à l’éch
 Pour obtenir une documentation générale, voir la [page de présentation de la documentation relative aux jeux de mise à l’échelle](virtual-machine-scale-sets-overview.md).
 
 Pour des informations générales, voir la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

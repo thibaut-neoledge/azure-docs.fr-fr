@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
 ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -76,10 +77,5 @@ Utilisez la vue [sys.dm\_ db\_ resource\_stats](https://msdn.microsoft.com/libra
 Après avoir créé un pool élastique, vous pouvez gérer des bases de données élastiques du pool en créant des tâches élastiques. Les tâches élastiques facilitent l'exécution de scripts T-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md). 
 
 Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md): utilisez les outils de base de données élastique pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

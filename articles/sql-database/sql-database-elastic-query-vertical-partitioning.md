@@ -15,8 +15,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
+ms.lasthandoff: 02/22/2017
+
 
 
 ---
@@ -49,7 +51,7 @@ Les informations d'identification sont utilisées par la requête élastique pou
     [;]
 
 > [!NOTE]
-> Veillez à ce que `<username>` ne contienne pas le suffixe **"@servername"**. 
+> Veillez à ce que `<username>` ne contienne pas le suffixe **« @servername »**. 
 >
 
 ## <a name="create-external-data-sources"></a>Créer des sources de données externes
@@ -180,18 +182,17 @@ Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecte
 * Une requête élastique est mieux adaptée aux requêtes dont la plus grande partie du calcul peut être effectuée sur les bases de données distantes. De manière générale, vous obtenez les meilleures performances de requête avec des prédicats de filtres sélectifs pouvant être évalués sur les bases de données ou des jointures distantes pouvant être exécutées en totalité sur la base de données distante. D’autres modèles de requête peuvent nécessiter le chargement de grandes quantités de données de la base de données distante et s’exécuter de façon médiocre. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour interroger des bases de données partitionnées horizontalement, consultez [Requêtes sur plusieurs bases de données cloud partitionnées (horizontalement)](sql-database-elastic-query-horizontal-partitioning.md).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* Pour une présentation des requêtes élastiques, consultez [Présentation des requêtes élastiques](sql-database-elastic-query-overview.md).
+* Pour le didacticiel sur le partitionnement vertical, consultez [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](sql-database-elastic-query-getting-started-vertical.md).
+* Pour commencer le didacticiel sur le partitionnement horizontal (sharding), consultez [Prise en main des requêtes élastiques pour le partitionnement horizontal (sharding)](sql-database-elastic-query-getting-started.md).
+* Pour la syntaxe et des exemples de requêtes pour des données partitionnées horizontalement, consultez [Requêtes sur des données partitionnées horizontalement](sql-database-elastic-query-horizontal-partitioning.md)
+* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
 
 
 <!--anchors-->
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

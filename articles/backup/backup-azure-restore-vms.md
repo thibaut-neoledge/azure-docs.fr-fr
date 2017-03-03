@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
-ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
+ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
+ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -100,7 +101,7 @@ Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu,
 Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Restauration d’une machine virtuelle en cas de défaillance du centre de données Azure
-Azure Backup permet de restaurer des machines virtuelles sauvegardées sur le centre de données associé en cas de défaillance du centre de données principal sur lequel s’exécutent les machines virtuelles et si vous avez configuré le coffre de sauvegarde pour qu’il soit géo-redondant. Le cas échéant, vous devez sélectionner un compte de stockage qui est présent dans le centre de données associé et le reste du processus de restauration reste le même. Azure Backup utilise le service de calcul du centre de données géo-redondant associé pour créer la machine virtuelle restaurée. 
+Azure Backup permet de restaurer des machines virtuelles sauvegardées sur le centre de données associé en cas de défaillance du centre de données principal sur lequel s’exécutent les machines virtuelles et si vous avez configuré le coffre de sauvegarde pour qu’il soit géo-redondant. Le cas échéant, vous devez sélectionner un compte de stockage qui est présent dans le centre de données associé et le reste du processus de restauration reste le même. Azure Backup utilise le service de calcul du centre de données géo-redondant associé pour créer la machine virtuelle restaurée. En savoir plus sur la [résilience des centres de données Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Restauration de machines virtuelles d’un contrôleur de domaine
 Azure Backup prend en charge la sauvegarde de machines virtuelles d’un contrôleur de domaine. Vous devez toutefois faire preuve de prudence au cours du processus de restauration. L’expérience de restauration varie considérablement selon que les machines virtuelles se trouvent dans une configuration à un seul contrôleur de domaine ou dans une configuration à plusieurs contrôleurs de domaine.
@@ -153,10 +154,5 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 * [Gestion des machines virtuelles](backup-azure-manage-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

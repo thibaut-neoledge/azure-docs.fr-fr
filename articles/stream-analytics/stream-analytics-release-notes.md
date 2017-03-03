@@ -17,6 +17,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
 ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -143,9 +144,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

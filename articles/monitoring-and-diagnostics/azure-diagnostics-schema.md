@@ -1,22 +1,23 @@
 ---
 title: "Liste des versions de schémas de configuration Azure Diagnostics | Microsoft Docs"
 description: Elle permet de configurer la collection de compteurs de performances dans Azure Virtual Machines, VM Scale Sets, Service Fabric et Cloud Services.
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 2e1bc45b55cd79af8579a5ddaf43cf0db019c92f
+ms.sourcegitcommit: ac1ae46a165baad675c6b2445f91e05694eae6f9
+ms.openlocfilehash: 5d0894430dc915fc46d753a0b672de3b51ce3888
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ Cette page est un index des versions de schémas Azure Diagnostics fournies ave
 > Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques d’Azure Virtual Machines, de Virtual Machine Scale Sets, de Service Fabric et de Cloud Services.  Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 >
 
-Azure Diagnostics est utilisé conjointement avec d’autres produits de diagnostic Microsoft comme Azure Monitor, Application Insights et Log Analytics.
+Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft tels que Azure Monitor, Application Insights et Log Analytics.
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Graphique de commercialisation des versions des diagnostics et du kit de développement logiciel (SDK) Azure  
 
@@ -39,6 +40,10 @@ Azure Diagnostics est utilisé conjointement avec d’autres produits de diagno
 |2.6               |1.3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2,9               |1.6                         |"|
+|2.96              |1.7                         |"|
+
+
 
  La version des diagnostics Azure 1.0 est fournie avec un modèle de plug-in, ce qui signifie que lorsque vous avez installé le Kit de développement logiciel (SDK) Azure, vous disposez de la version des diagnostics Azure.  
 
@@ -51,10 +56,5 @@ Azure Diagnostics est utilisé conjointement avec d’autres produits de diagno
 
 [Schéma de configuration des diagnostics 1.2](azure-diagnostics-schema-1dot2.md)  
 
-[Schéma de configuration des diagnostics 1.3 à 1.5](azure-diagnostics-schema-1dot3-to-1dot5.md)  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[Diagnostics 1.3 et schéma de configuration ultérieur](azure-diagnostics-schema-1dot3-and-later.md)  
 

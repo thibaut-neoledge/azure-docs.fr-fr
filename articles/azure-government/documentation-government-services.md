@@ -1,10 +1,10 @@
 ---
-title: Services Azure Government | Microsoft Docs
+title: Services Azure Government disponibles | Microsoft Docs
 description: "Fournit une vue d’ensemble des services disponibles dans Azure Government."
 services: azure-government
 cloud: gov
 documentationcenter: 
-author: zakramer
+author: smichelotti
 manager: liki
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/29/2017
-ms.author: zakramer
+ms.date: 02/13/2017
+ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
-ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
+ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
+ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="azure-government-services"></a>Services Azure Government
-Azure Government développe en permanence les services disponibles.  Ces services sont déployés avec le même code que celui utilisé dans Public Azure.  Cette section décrit deux types clés d’informations :
+# <a name="available-services-on-azure-government"></a>Services disponibles dans Azure Government
+Azure Government développe en permanence les services disponibles.  Ces services sont déployés avec le même code que celui utilisé dans Public Azure.  Cette section décrit les services qui sont actuellement disponibles sur Azure Government, notamment deux types d’informations essentiels :
 
 * **Variantes :** variations en raison de fonctionnalités qui n’ont pas encore été déployées, ou de propriétés propres à l’environnement d’administration (par exemple, les URL).  
 * **Considérations :** informations d’implémentation spécifiques d’Azure Government afin de s’assurer que les données restent dans les limites de la conformité.
@@ -30,73 +31,124 @@ Tout ce que vous devez savoir sur ces services figure dans leur documentation g�
 
 Pour obtenir la liste actualisée des services, consultez les [produits par région](https://azure.microsoft.com/regions/services/). 
 
+Dans les tableaux ci-dessous, les services spécifiés comme compatibles avec Resource Manager ont des fournisseurs de ressources et peuvent être gérés à l’aide de PowerShell. Pour plus d’informations sur les fournisseurs Resource Manager, les versions d’API et les schémas, accédez [à cette page](../azure-resource-manager/resource-manager-supported-services.md). Les services spécifiés comme étant disponibles dans le portail peuvent être gérés dans [portail Azure Government](https://portal.azure.us/). 
+
+
 ## <a name="computedocumentation-government-computemd"></a>[Calcul](documentation-government-compute.md)
-* [Machines virtuelles Windows](documentation-government-compute.md#virtual-machines)
-* [Machines virtuelles Linux](documentation-government-compute.md#virtual-machines)
-* Services cloud
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [Machines virtuelles](documentation-government-compute.md#virtual-machines) | Oui | Oui |
+| Batch | Oui | Oui |
+| Services cloud | Oui | Oui |
+| Service Fabric | Oui | Oui |
+| Groupes de machines virtuelles identiques (VMSS) | Oui | Oui |
+
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Mise en réseau](documentation-government-networking.md)
-* [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
-* [Prise en charge des communautés BGP](documentation-government-networking.md#support-for-bgp-communities)
-* Réseau virtuel
-* [Équilibreur de charge](documentation-government-networking.md#support-for-load-balancer)
-* Application Gateway
-* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
-* [Passerelle VPN](documentation-government-networking.md#support-for-vpn-gateway)
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | Oui | Oui |
+| Réseau virtuel | Oui | Oui |
+| [Équilibreur de charge](documentation-government-networking.md#support-for-load-balancer) | Oui | Oui |
+| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Oui | Oui |
+| [Passerelle VPN](documentation-government-networking.md#support-for-vpn-gateway) | Oui | Oui |
+| Application Gateway | Oui | Oui |
+| ExpressRoute | Oui | Oui |
+
+
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Stockage](documentation-government-services-storage.md)
-* [Azure Storage](documentation-government-services-storage.md#azure-storage)
-* [Stockage d’objets blob](documentation-government-services-storage.md#azure-storage)
-* [Stockage de table](documentation-government-services-storage.md#azure-storage)
-* [Stockage de files d’attente](documentation-government-services-storage.md#azure-storage)
-* [Stockage de fichiers](documentation-government-services-storage.md#azure-storage)
-* [Stockage chaud/froid](documentation-government-services-storage.md#azure-storage)
-* [Storage Service Encryption](documentation-government-services-storage.md#azure-storage)
-* [Stockage Premium](documentation-government-services-storage.md#azure-storage)
-* [Importation/exportation d’objets blob](documentation-government-services-storage.md#azure-storage)
-* [StorSimple](documentation-government-services-storage.md)
-* [Sauvegarde](documentation-government-services-backup.md)
-* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Importation/Exportation
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [Stockage - Blobs](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Stockage - Tables](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Stockage - Files d’attente](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Stockage - Fichiers](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Stockage - Disques](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [StorSimple](documentation-government-services-storage.md) | Oui | Oui |
+| [Sauvegarde](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Site Recovery](documentation-government-services-storage.md#azure-storage) | Oui | Oui |
+| [Import/Export](documentation-government-services-storage.md#azure-storage) | Oui | Non |
+
+
 
 ## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web et mobilité](documentation-government-services-webandmobile.md)
-* [Services d’application](documentation-government-services-webandmobile.md#app-services)
-* Media Services
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [App Service - Web Apps](documentation-government-services-webandmobile.md#app-services) | Oui | Oui |
+| [App Service - API Apps](documentation-government-services-webandmobile.md#app-services) | Oui | Oui |
+| [App Service - Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Oui | Oui |
+| Media Services | Oui | Oui |
+
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Bases de données](documentation-government-services-database.md)
-* [Base de données SQL](documentation-government-services-database.md#sql-database)
-* SQL Server Stretch Database
-* [Cache Redis](documentation-government-services-database.md#azure-redis-cache)
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [Base de données SQL](documentation-government-services-database.md#sql-database) | Oui | Oui |
+| SQL Data Warehouse | Oui | Oui |
+| SQL Server Stretch Database | Oui | Oui |
+| [Cache Redis](documentation-government-services-database.md#azure-redis-cache) | Oui | Oui |
+
+
+
 
 ## <a name="internet-of-things-iot"></a>Internet des objets (IoT)
-* Event Hubs
-* Notification Hubs
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| Event Hubs | Oui | Oui |
+| Notification Hubs | Non | Non (accédez au [portail hérité](https://manage.windowsazure.us/)) |
+
 
 ## <a name="enterprise-integration"></a>Intégration d’entreprise
-* Service Bus
-* [StorSimple](documentation-government-services-storage.md)
-* SQL Server Stretch Database
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| Service Bus | Oui | Oui |
+| [StorSimple](documentation-government-services-storage.md) | Oui | Oui |
+| SQL Server Stretch Database | Oui | Oui |
+
+
 
 ## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Sécurité et identité](documentation-government-services-securityandidentity.md)
-* [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
-* Azure Active Directory
-* Azure Multi-Factor Authentication
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| Azure Active Directory | Oui | Oui |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Oui | Non (bientôt disponible) |
+| Multi-Factory Authentication | Oui | Oui |
+| InTune | Oui | Non |
+
+
+## <a name="intelligence--analytics"></a>Intelligence et analyse
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| Power BI | Oui | Non |
+| HDInsight | Oui | Oui |
+
+
 
 ## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)
-* [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* [Sauvegarde](documentation-government-services-backup.md) 
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Scheduler
-* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
-* Surveillance et diagnostics
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation) | Oui | Oui |
+| [Sauvegarde](documentation-government-services-backup.md) | Oui | Oui |
+| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Oui | Oui |
+| [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Oui | Oui |
+| Scheduler | Oui | Non |
+| Surveillance et diagnostics | Oui | Oui |
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au [blog Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

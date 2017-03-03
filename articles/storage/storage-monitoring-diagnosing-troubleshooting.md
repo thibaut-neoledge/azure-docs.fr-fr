@@ -1,5 +1,5 @@
 ---
-title: "Analyse, diagnostic et résolution des problèmes de stockage | Microsoft Docs"
+title: "Analyse, diagnostic et résolution des problèmes de stockage Azure | Microsoft Docs"
 description: "Utilisation de fonctionnalités telles que l’analyse du stockage, la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage."
 services: storage
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/16/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
-ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
+ms.sourcegitcommit: d755a94bc8c5165480291d891c5feb0cf3b26e75
+ms.openlocfilehash: e6915bf94b56b9c9ff3deb131d18d1d5457f0e85
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,8 +85,6 @@ Ce guide vous explique comment utiliser des fonctionnalités telles que Azure St
 
 ![][1]
 
-*Figure 1 Analyse, diagnostic et résolution des problèmes*
-
 Ce guide est destiné principalement aux développeurs de services en ligne qui utilisent les services Azure Storage et aux professionnels de l’informatique responsables de la gestion de tels services en ligne. Ce guide a pour objectifs de :
 
 * Vous aider à maintenir l'état d'intégrité et les performances de vos comptes Azure Storage.
@@ -119,7 +118,7 @@ Vous devez surveiller en permanence vos applications Azure afin de vous assurer 
 * Enregistrant les métriques horaires et en les utilisant pour analyser les valeurs moyennes telles que le nombre d'erreurs et le taux de demandes moyens.
 * Enquêtant sur les problèmes potentiels à l'aide des outils de diagnostic abordés plus bas dans la section «[Diagnostic des problèmes de stockage]».
 
-Les graphiques de la Figure3 ci-dessous illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d'activité. Les métriques horaires s'affichent pour indiquer un taux de demandes stable ; les métriques par minute révèlent les fluctuations réelles.
+Les graphiques de l’image suivante illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d'activité. Les métriques horaires s'affichent pour indiquer un taux de demandes stable ; les métriques par minute révèlent les fluctuations réelles.
 
 ![][3]
 
@@ -571,11 +570,11 @@ Le tableau suivant donne un exemple de message de journal côté serveur à part
 | Heure de début de la demande | 2014-05-30T06:17:48.4473697Z |
 | Type d'opération     | GetBlobProperties            |
 | État de la demande     | SASAuthorizationError        |
-| Code d'état HTTP   | 404                          |
+| Code d'état HTTP   | 404                            |
 | Type d'authentification| Sas                          |
 | Type de service       | Blob                         |
-| URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de la demande         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de la demande client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -890,9 +889,4 @@ Vous trouverez plus d’informations dans la [Présentation d’Application Insi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

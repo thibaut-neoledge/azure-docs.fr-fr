@@ -12,15 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/17/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 438ecec47e35619442ed2fdad4e835a674e1a2dc
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: 101b4e6a7bd5ded44334a4c3c9efee69669d9bcf
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="configure-stateful-reliable-services"></a>Configuration de services fiables (Reliable Services) avec état
+# <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
 
 ## <a name="global-configuration"></a>Configuration globale
@@ -35,14 +36,26 @@ La configuration de service fiable globale est spécifiée dans le manifeste de 
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SharedLogSizeInMB |Mo |8 192 |Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048. |
 
-### <a name="sample-cluster-manifest-section"></a>Exemple de section du manifeste de cluster
+Dans Azure ARM ou un modèle JSON local, l’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les Reliable Collections pour les services avec état.
+
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+
+### <a name="sample-local-developer-cluster-manifest-section"></a>Exemple de section du manifeste de cluster pour développeur local
+Si vous souhaitez modifier cette valeur dans votre environnement de développement local, vous devez modifier le fichier local clustermanifest.xml.
+
 ```xml
    <Section Name="KtlLogger">
+     <Parameter Name="SharedLogSizeInMB" Value="4096"/>
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
      <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
      <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
      <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
-     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
    </Section>
 ```
 
@@ -174,10 +187,5 @@ Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble po
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déboguer votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 * [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
