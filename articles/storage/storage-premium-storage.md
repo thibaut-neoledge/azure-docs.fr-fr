@@ -17,6 +17,7 @@ ms.author: ramankum
 translationtype: Human Translation
 ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
 ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -277,8 +278,3 @@ Pour plus d’informations sur Azure Storage Premium, voir les articles suivants
 ### <a name="blog-posts"></a>Billets de blog
 * [Mise à la disposition générale d’Azure Storage Premium](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Annonce de la série GS : ajout de prise en charge de Premium Storage pour les machines virtuelles les plus grandes dans le Cloud Public](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

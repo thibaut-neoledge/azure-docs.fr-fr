@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: edfbc0d94d9d5b33a25788772a98173187e394b8
 ms.openlocfilehash: 031a17d179cee8d6cceb9ed3aefd993add1958b8
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -116,10 +117,5 @@ Le script suivant part du principe que tous les groupes de ressources, les serve
 * [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 * [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Référence d’applet de commande PowerShell Azure SQL Database](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

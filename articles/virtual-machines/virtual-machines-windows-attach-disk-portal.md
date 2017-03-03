@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
 ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -94,10 +95,5 @@ fsutil behavior set DisableDeleteNotify 0
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

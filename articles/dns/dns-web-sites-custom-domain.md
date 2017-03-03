@@ -16,6 +16,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
 ms.openlocfilehash: a2a429873c30f526a0de05d4018f53f3a83bbe28
+ms.lasthandoff: 02/10/2017
 
 ---
 
@@ -201,9 +202,4 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 ## <a name="next-steps"></a>Étapes suivantes
 
 Suivez la procédure décrite dans [Configuration d’un nom de domaine personnalisé pour App Service](../app-service-web/web-sites-custom-domain-name.md) pour configurer votre application web pour l’utilisation d’un domaine personnalisé.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

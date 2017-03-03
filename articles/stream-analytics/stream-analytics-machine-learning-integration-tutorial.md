@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: d1ffb9aba0eb1e17d1efd913f536f6f3997fccbb
 ms.openlocfilehash: 7b635b1810536f5b3eb1371d687e9c355e604e41
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -152,10 +153,5 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
 * **Événements de fonction** indique le nombre d’événements dans la requête. Par défaut, chaque requête envoyée à un service web Machine Learning contient jusqu'à 1 000 événements.  
   
     ![Stream Analytics Machine Learning, affichage du moniteur Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

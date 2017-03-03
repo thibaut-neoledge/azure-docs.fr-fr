@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
 ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -593,9 +594,4 @@ En revanche, les propriétés disponibles dans la section typeProperties de l'ac
 Selon que le déplacement des données initial est programmé avec un gros volume de données d’historique ou une charge de données de production incrémentielle, Azure Data Factory propose des options pour améliorer les performances de ces tâches. Le paramètre de simultanéité fait partie de **l’activité de copie** et définit le nombre de fenêtres d’activité différentes traitées en parallèle. Le paramètre **parallelCopies** définit le parallélisme pour l’exécution d’activité unique. Il est important d’envisager l’utilisation de ces paramètres lors de la conception des pipelines de déplacement des données avec Azure Data Factory pour obtenir le meilleur débit.
 
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

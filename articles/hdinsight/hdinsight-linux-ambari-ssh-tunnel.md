@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
 ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -152,10 +153,5 @@ Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez 
 
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
