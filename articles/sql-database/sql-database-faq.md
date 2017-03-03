@@ -1,5 +1,5 @@
 ---
-title: "FAQ de base de données SQL Azure"
+title: Forum Aux Questions sur Azure SQL Database | Microsoft Docs
 description: "Réponses fréquemment posées sur les bases de données du cloud et Azure SQL Database, le système de gestion de base de données relationnelle Microsoft (SGBDR) et la base de données en tant que service dans cloud."
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: aba60bf5108a4e5ad95e3c634b9fcbca7393c700
+ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
+ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
+
+## <a name="what-is-the-current-version-of-sql-database"></a>Quelle est la version actuelle de la base de données SQL ?
+La version actuelle de la base de données SQL est la version&12;. La version&11; a été retirée.
+
+## <a name="what-is-the-sla-for-sql-database"></a>Quel est le contrat de niveau de service (SLA) de la base de données SQL ?
+Nous garantissons qu’au moins 99,99 % du temps, les clients disposeront d’une connectivité entre leur base de données Microsoft Azure SQL Database (niveaux De base, Standard ou Premium) unique ou élastique et notre passerelle Internet. Pour plus d’informations, consultez [Contrat de niveau de service](http://azure.microsoft.com/support/legal/sla/).
+
+## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Comment réinitialiser le mot de passe de l’administrateur du serveur ?
+Dans le [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**.
+
+## <a name="how-do-i-manage-databases-and-logins"></a>Comment gérer les bases de données et les connexions ?
+Consultez [Gestion des bases de données et des connexions](sql-database-manage-logins.md).
+
+## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Comment s’assurer que seules les adresses IP autorisées peuvent accéder à un serveur ?
+Voir [Configuration des paramètres de pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md).
+
 ## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>Comment l’utilisation de base de données SQL apparaît-elle sur ma facture ?
 La base de données SQL effectue sa facturation en utilisant un taux horaire prédéterminé basé sur le niveau de service ainsi qu’un niveau de performance pour des bases de données uniques ou des eDTU par pool élastique. L’utilisation réelle est calculée au pro-rata horaire, et il se peut que votre facture affiche des fractions d’heure. Par exemple, si une base de données existe pendant 12 heures au cours d’un mois, votre facture affiche une demi-journée d’utilisation. En outre, les niveaux de service et le niveau de performances et le nombre d’eDTU par pool sont séparés dans la facture afin que vous puissiez connaître aisément le nombre de jours pendant lequel vous avez utilisé la base de données chaque mois.
 
@@ -55,6 +72,7 @@ Les pools élastiques sont facturés en fonction des caractéristiques suivantes
 Le prix unitaire des eDTU d’un pool élastique est supérieur au prix unitaire des DTU d’une base de données unique au sein du même niveau de service. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 Pour comprendre les eDTU et les niveaux de service, consultez [Options et performances de la base de données SQL](sql-database-service-tiers.md).
+
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Comment l’utilisation de la géo-réplication active dans un pool élastique figurera-t-elle sur ma facture ?
 Contrairement aux bases de données uniques, la [géo-réplication active](sql-database-geo-replication-overview.md) avec les bases de données élastiques n’a pas un impact direct sur la facturation.  Vous êtes facturé pour les eDTU configurées pour chaque pool (pool principal et pool secondaire)
 
@@ -75,12 +93,10 @@ Avec les bases de données V12, vous pouvez modifier le niveau de service (entre
 Aussi souvent que vous le souhaitez.
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Combien de temps faut-il pour modifier le niveau de service ou le niveau de performances d’une base de données ou pour déplacer une base de données dans ou hors du pool élastique ?
-Le changement de niveau de service d’une base de données et le déplacement dans ou vers un pool exige que la base de données soit copiée sur la plateforme en tant qu’opération d’arrière-plan. Le changement de niveau de service peut prendre de quelques minutes à plusieurs heures en fonction de la taille de la base de données. Dans les deux cas, les bases de données restent en ligne et disponibles pendant le déplacement. Pour plus d’informations sur la modification de bases de données uniques, consultez [Modifier le niveau de service d’une base de données](sql-database-scale-up.md). 
+Le changement de niveau de service d’une base de données et le déplacement dans ou vers un pool exige que la base de données soit copiée sur la plateforme en tant qu’opération d’arrière-plan. Le changement de niveau de service peut prendre de quelques minutes à plusieurs heures en fonction de la taille de la base de données. Dans les deux cas, les bases de données restent en ligne et disponibles pendant le déplacement. Pour plus d’informations sur la modification de bases de données uniques, consultez [Modifier le niveau de service d’une base de données](sql-database-service-tiers.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quand dois-je choisir une base de données unique plutôt que des bases de données élastiques ?
-En général, les pools élastiques sont conçus pour un [modèle d’application logiciel en tant que service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) standard, où il existe une base de données par client ou par locataire. L’achat de bases de données individuelles et le sur-approvisionnement destiné à répondre aux pics de demandes variables de chaque base de données ne sont généralement pas rentables. Avec les pools, vous gérez les performances collectives du pool, et les bases de données se mettent à l’échelle automatiquement. 
-
-Le moteur intelligent d’Azure recommande un pool pour les bases de données quand un modèle d’utilisation l’exige. Pour plus d’informations, consultez [Recommandations relatives aux niveaux tarifaires des bases de données SQL](sql-database-service-tier-advisor.md). Pour obtenir des instructions détaillées sur le choix entre les bases de données uniques et élastiques, consultez [Considérations relatives aux prix et aux performances pour les pools élastiques](sql-database-elastic-pool-guidance.md).
+En général, les pools élastiques sont conçus pour un [modèle d’application logiciel en tant que service (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) standard, où il existe une base de données par client ou par locataire. L’achat de bases de données individuelles et le sur-approvisionnement destiné à répondre aux pics de demandes variables de chaque base de données ne sont généralement pas rentables. Avec les pools, vous gérez les performances collectives du pool, et les bases de données se mettent à l’échelle automatiquement. Le moteur intelligent d’Azure recommande un pool pour les bases de données quand un modèle d’utilisation l’exige. Pour plus d’informations, consultez [Conseils pour les pools élastiques](sql-database-elastic-pool-guidance.md).
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>Qu’est-ce que cela signifie si je possède jusqu’à 200 % du stockage de base de données configuré maximal pour le stockage de sauvegarde ?
 Le stockage de sauvegarde est le stockage associé à vos sauvegardes de bases de données automatisées qui sont utilisées pour la [restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) et la [géo-restauration](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépasse l’espace de stockage de sauvegarde fourni, vous pouvez choisir de réduire la période de rétention en contactant le Support technique Azure ou en achetant l’espace de stockage supplémentaire facturé au tarif RA-GRS (Read-Access Geo Redundant Microsoft Azure) standard. Pour plus d’informations sur la facturation RA-GRS, consultez la page Détails de tarification de stockage.
@@ -102,10 +118,5 @@ La zone géographique secondaire est un réplica asynchrone et nous n’essayons
 
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>Quels outils sont disponibles pour surveiller le décalage de réplication entre la base de données primaire et la zone géographique secondaire ?
 Nous exposons le décalage de réplication en temps réel entre la base de données primaire et la zone géographique secondaire par le biais d’une vue de gestion dynamique (DMV). Pour plus d’informations, consultez [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

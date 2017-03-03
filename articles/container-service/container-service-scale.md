@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/21/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
-ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Mise à l’échelle d’un cluster Azure Container Service
 Après le [déploiement d’un cluster Azure Container Service](container-service-deployment.md), vous devez peut-être modifier le nombre de nœuds de l’agent. Vous risquez par exemple d’avoir besoin de davantage d’agents afin de pouvoir exécuter davantage d’instances ou d’applications de conteneur. 
 
-Vous pouvez modifier le nombre de nœuds de l’agent dans le cluster à l’aide du portail Azure ou d’Azure CLI 2.0 (version préliminaire). La CLI Azure 2.0 (version préliminaire) est la [CLI nouvelle génération](/cli/azure/old-and-new-clis) pour le modèle de déploiement Resource Manager.
-
-> [!NOTE]
-> Actuellement, la mise à l’échelle de nœuds d’agent dans un cluster Kubernetes du service de conteneur n’est pas prise en charge.
-
+Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI 2.0. Azure CLI 2.0 est la [CLI nouvelle génération](/cli/azure/old-and-new-clis) pour le modèle de déploiement Resource Manager.
 
 ## <a name="scale-with-the-azure-portal"></a>Mise à l’échelle avec le portail Azure
 
@@ -43,9 +40,9 @@ Vous pouvez modifier le nombre de nœuds de l’agent dans le cluster à l’aid
 
 
 
-## <a name="scale-with-the-azure-cli-20-preview"></a>Mise à l’échelle avec la CLI Azure 2.0 (version préliminaire)
+## <a name="scale-with-the-azure-cli-20"></a>Mise à l’échelle avec la CLI Azure 2.0
 
-Assurez-vous d’avoir [installé](/cli/azure/install-az-cli2) la dernière version de la CLI Azure 2.0 (version préliminaire) et d’être connecté à un compte Azure (`az login`).
+Assurez-vous d’avoir [installé](/cli/azure/install-az-cli2) la dernière version de la CLI Azure 2.0 et d’être connecté à un compte Azure (`az login`).
 
 
 ### <a name="see-the-current-agent-count"></a>Affichage du nombre actuel d’agents
@@ -67,7 +64,7 @@ Par exemple, pour modifier le nombre d’agents dans le précédent cluster en 1
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-La CLI Azure 2.0 (version préliminaire) renvoie une chaîne JSON représentant la nouvelle configuration du service de conteneur, avec notamment le nouveau nombre d’agents.
+L’interface Azure CLI 2.0 renvoie une chaîne JSON représentant la nouvelle configuration du service de conteneur, avec notamment le nouveau nombre d’agents.
 
 Pour plus d’options de commande, exécutez `az acs scale --help`.
 
@@ -90,12 +87,7 @@ Pour plus d’options de commande, exécutez `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez d’[autres exemples](container-service-create-acs-cluster-cli.md) d’utilisation des commandes de la CLI Azure 2.0 (version préliminaire) avec Azure Container Service.
+* Consultez [d’autres exemples](container-service-create-acs-cluster-cli.md) d’utilisation des commandes de la CLI Azure 2.0 avec Azure Container Service.
 * En savoir plus sur les [pools d’agents contrôleur de domaine/système d’exploitation](container-service-dcos-agents.md) d’Azure Container Service.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

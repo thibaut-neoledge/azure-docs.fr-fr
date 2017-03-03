@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
 ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -351,10 +352,5 @@ Le kit de développement logiciel (SDK) côté client (JavaScript) participe à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [filtrage](app-insights-api-filtering-sampling.md) peut fournir un contrôle plus strict de ce que le Kit de développement logiciel (SDK) envoie.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

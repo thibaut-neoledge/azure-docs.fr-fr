@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: f8ce1215861da2db49f5148400195c4fefb9a01d
+ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
+ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +54,31 @@ Ou, en appelant :
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### <a name="changing-http-method-of-the-trigger"></a>Modification de la méthode HTTP du déclencheur
+Par défaut, le déclencheur de requête dans les applications logiques attend une requête HTTP POST. Mais vous pouvez configurer la méthode HTTP sous `Show advanced options`.
+
+ > [!NOTE]
+ > Un seul type de méthode est autorisé.
+
+### <a name="relative-trigger-url"></a>URL relative du déclencheur
+Vous pouvez également personnaliser le chemin d’accès relatif de l’URL de la demande pour accepter les paramètres.
+
+1. Développez `Show advanced options` du déclencheur **Requête**.
+ - Sous `Relative path`, entrez `customer/{customerId}`.
+
+  ![Déclencheur d’URL relative](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Mettez à jour l’action **Répondre** pour utiliser le paramètre.
+ - Vous devriez voir `customerId` s’afficher dans le sélecteur de jeton.
+ - Mettez à jour le corps de la réponse pour renvoyer `Hello {customerId}`.
+
+  ![Réponse d’URL relative](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Enregistrez l’application logique. Vous devriez remarquer que l’URL de requête de mise à jour contient le chemin d’accès relatif.
+
+4. Copiez la nouvelle URL de requête et collez-la dans une nouvelle fenêtre de navigateur. Remplacez `{customerId}` par `123`, puis appuyez sur Entrée.
+ - `Your customer Id is 123` devrait être renvoyé.
 
 ### <a name="security-for-the-trigger-url"></a>Sécurité pour l’URL du déclencheur
 Les URL de rappel Logic Apps sont générés de manière sécurisée via une signature d’accès partagé.  La signature est transmise comme paramètre de requête et doit être validée avant que l’application logique se déclenche.  Elle est générée par une combinaison unique de clé secrète par application logique, le nom du déclencheur et l’opération en cours d’exécution.  Sauf si un utilisateur dispose d’un accès à la clé secrète de l’application logique, ils ne seraient pas en mesure de générer une signature valide.
@@ -154,9 +180,4 @@ Cette fonctionnalité est disponible par le biais du service **Gestion des API**
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [2]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

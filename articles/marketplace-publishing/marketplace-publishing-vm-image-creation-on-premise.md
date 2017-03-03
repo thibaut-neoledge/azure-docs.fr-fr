@@ -17,6 +17,7 @@ ms.author: hascipio; v-divte
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -148,10 +149,5 @@ Avec [l’outil en ligne de commande Linux](https://docs.microsoft.com/cli/azure
 ## <a name="see-also"></a>Voir aussi
 * [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

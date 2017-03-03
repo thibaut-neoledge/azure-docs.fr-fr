@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2017
+ms.date: 02/16/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
+ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
+ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -96,15 +97,20 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 ### <a name="recent-and-upcoming-events"></a>Événements récents et à venir
 | Nom de l'événement | Intervenant | Emplacement | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Webinaire Wintellect : Présentation d'Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|En ligne|12 janvier 2017 13 h EST|n/a|
+|[Code Camp en Floride du Sud : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, Floride|11 mars 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
+|[Code Camp à Orlando : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, Floride|8 avril 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
+|[Camp d'entraînement Azure mondial : l’informatique sans serveur dans Azure avec Azure Functions et DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 avril 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
 
 ### <a name="previous-events-and-recordings"></a>Événements et enregistrements précédents
 | Nom de l'événement | Intervenant | Emplacement | Date | Enregistrement |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York |16-18 novembre 2016 |[Vidéos Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
-| [Groupe d’utilisateurs .NET Capitale](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, Floride |3 novembre 2016 |n/a |
+|[Ignite Australie : Hello DocumentDB : La base de données NoSQL extrêmement rapide à l’échelle de la planète d’Azure](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australie|Mercredi 15 février 2017|Prochainement|
+|[Ignite Australie : Découverte approfondie d’Azure DocumentDB : partitionnement, modélisation des données et réplication géographique](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australie|16 février 2017|Prochainement|
+| Webinaire Wintellect : Présentation d'Azure DocumentDB| [Josh Lane](https://twitter.com/jplane)|En ligne|12 janvier 2017 13 h EST|[Azure DocumentDB: votre arme NoSQL surpuissante propulsée par le cloud avec mise à l’échelle géographique... Caché à la vue de tous](https://www.youtube.com/watch?v=uVcWgIYtBoc)|
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |[Kirill Gavrylyuk](https://twitter.com/kirillg_msft) |New York |16-18 novembre 2016 |[Vidéos Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
+| [Groupe d’utilisateurs .NET Capitale](http://www.meetup.com/tally-dot-net/events/233768568/) |[Santosh Hari](https://twitter.com/_s_hari)|Tallahassee, Floride |3 novembre 2016 |n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |Équipe DocumentDB |Atlanta, GA |26-30 septembre 2016 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montréal, Canada |4-8 juillet 2016 |[NoSQL, No Problem, Using Azure DocumentDB (NoSQL, aucun problème avec Azure DocumentDB)](http://www.slideshare.net/KenCenerelli) |
 | [Intégration et IoT ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgique |30 juin 2016 |n/a |
@@ -234,10 +240,5 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
 Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

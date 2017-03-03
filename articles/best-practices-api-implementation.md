@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
+ms.sourcegitcommit: 066bc9911050c44fe5d8ce2d63bdb0f843e08176
+ms.openlocfilehash: 31dd351ae216e131c092447493ac9f3ae65ba10d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -1147,9 +1148,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 * La page [Application Insights - Prise en main d’ASP.NET](application-insights/app-insights-asp-net.md) du site web Microsoft fournit des informations détaillées sur l’installation et la configuration d’Application Insights dans un projet d’API web ASP.NET.
 * La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 * La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

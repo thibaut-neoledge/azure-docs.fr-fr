@@ -17,6 +17,7 @@ ms.author: garye;krishnan
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 62917bfb2124a2b8beb57e0ee38be93e8ca1c655
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -148,9 +149,4 @@ Après avoir configuré la passerelle, vous pouvez ajouter un module **Importer 
 Une fois l’expérimentation terminée, vous pouvez visualiser les données que vous avez importées à partir de la base de données en cliquant sur le port de sortie du module **Importer des données** et en sélectionnant **Visualiser**.
 
 Une fois que vous avez terminé le développement de votre expérience, vous pouvez déployer et opérationnaliser votre modèle. Grâce au service d’exécution de lots, les données de la base de données SQL Server locale configurées dans le module **Importer des données** seront lues et utilisées pour l’évaluation. Vous pouvez utiliser le service de réponse aux demandes pour l’évaluation des données locales, mais Microsoft recommande d’utiliser plutôt le [complément Excel](machine-learning-excel-add-in-for-web-services.md) . Actuellement, l’écriture dans une base de données SQL Server locale avec **Exporter des données** n’est pas prise en charge dans vos expériences ou dans les services web publiés.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

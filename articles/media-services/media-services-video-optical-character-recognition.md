@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
 ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -49,20 +50,25 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 | DetectRegions |(facultatif) Tableau d’objets DetectRegion spécifiant des zones au sein de l’image vidéo dans lesquelles détecter le texte.<br/>Un objet DetectRegion est constitué de quatre valeurs entières suivantes :<br/>Gauche – pixels à partir de la marge de gauche<br/>Haut – pixels à partir de la marge supérieure<br/>Largeur – largeur de la zone en pixels<br/>Height – hauteur de la zone en pixels |
 
 #### <a name="json-preset-example"></a>Exemple de présélection JSON
+
     {
-        'Version':'1.0', 
-        'Options': 
+        "Version":1.0, 
+        "Options": 
         {
-        'Language':'English', 
-            'TimeInterval':'00:00:01.5',
-            'DetectRegions': 
-             [
-                {'Left':'1','Top':'1','Width':'1','Height':'1'},
-                {'Left':'2','Top':'2','Width':'2','Height':'2'}
-             ],
-            'TextOrientation':'Up'
+            "Language":"English", 
+            "TimeInterval":"00:00:01.5",
+            "TextOrientation":"Up",
+            "DetectRegions": [
+                    {
+                       "Left": 10,
+                       "Top": 10,
+                       "Width": 100,
+                       "Height": 50
+                    }
+             ]
         }
     }
+
 
 #### <a name="xml-preset-example"></a>Exemple de présélection XML
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -72,10 +78,10 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>
              <DetectRegion>
-                   <Left>1</Left>
-                   <Top>1</Top>
-                   <Width>1</Width>
-                   <Height>1</Height>
+                   <Left>10</Left>
+                   <Top>10</Top>
+                   <Width>100</Width>
+                   <Height>50</Height>
             </DetectRegion>
        </DetectRegions>
        <TextOrientation>Up</TextOrientation>
@@ -342,10 +348,5 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 ## <a name="related-links"></a>Liens connexes
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

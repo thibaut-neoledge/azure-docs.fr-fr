@@ -1,6 +1,6 @@
 ---
 title: "Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure | Microsoft Docs"
-description: "Les paires régionales d’Azure permettent de maintenir la résilience des applications en cas de défaillance des centres de données."
+description: "Apprenez-en plus sur les paires régionales d’Azure, afin d’assurer la résilience des applications en cas de défaillance des centres de données."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 56fe2f8d65379c9e957e46e1f44195b3ad2d0055
-ms.openlocfilehash: 30ec787997c0c622e8ade6eec2b2dcc635a5a664
+ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
+ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -91,9 +92,4 @@ Conformément à la figure 2.
 
 ![Données](./media/best-practices-availability-paired-regions/9Orange.png)
 **Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

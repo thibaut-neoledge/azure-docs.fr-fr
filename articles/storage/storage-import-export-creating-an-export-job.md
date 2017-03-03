@@ -1,5 +1,5 @@
 ---
-title: "Création d’un travail d’exportation pour le service Azure Import/Export | Microsoft Docs"
+title: "Création d’un travail d’exportation pour Azure Import/Export | Microsoft Docs"
 description: "Découvrez comment créer un travail d’exportation pour le service Microsoft Azure Import/Export"
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 24b9d103ef1e53bddbf72f9867f134ed522aa497
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="creating-an-export-job"></a>Création d’un travail d’exportation
+# <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Création d’un travail d’exportation pour le service Azure Import/Export
 La création d’un travail d’exportation pour le service Microsoft Azure Import/Export à l’aide de l’API REST implique les étapes suivantes :
 
 -   Sélection des blobs à exporter.
@@ -56,7 +57,7 @@ La création d’un travail d’exportation pour le service Microsoft Azure Impo
 ## <a name="obtaining-your-shipping-location"></a>Obtention de votre emplacement d’expédition
 Avant de créer un travail d’exportation, vous devez obtenir un nom et une adresse d’emplacement d’expédition en appelant l’opération [Get Location](https://portal.azure.com) ou [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
 
-Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
+Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 
 -   Identifiez le nom de l’emplacement de votre compte de stockage. Cette valeur se trouve sous le champ **Emplacement** sur le **Tableau de bord** du compte de stockage dans le portail classique. Elle peut également être obtenue en utilisant l’opération de l’API Gestion des services [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
@@ -94,10 +95,5 @@ Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
  Une fois votre travail d’exportation traité, vos disques vous sont renvoyés avec vos données chiffrées. Vous pouvez récupérer la clé BitLocker pour chacun des disques en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). Cette clé vous permettra de déverrouiller le disque. Le fichier manifeste de disque sur chaque disque contient la liste des fichiers sur le disque, ainsi que l’adresse du blob d’origine pour chaque fichier.
 
 ## <a name="see-also"></a>Voir aussi
- [Using the Import/Export service REST API (Utilisation de l’API REST du service Import/Export)](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+ [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Annulation et suppression de travaux du service Azure Import/Export | Microsoft Docs
+title: "Annulation/Suppression d’un travail d’importation Azure Import/Export | Microsoft Docs"
 description: "Découvrez comment annuler et supprimer des travaux pour le service Microsoft Azure Import/Export"
 author: muralikk
 manager: syadav
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 640b814e4280f5cce029bea7324881bbfef4b1a4
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 26e06529cb9354030da32c235d3c4819d46d669d
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="cancelling-and-deleting-jobs"></a>Annulation et suppression de travaux
+# <a name="canceling-and-deleting-azure-importexport-jobs"></a>Annulation et suppression de travaux du service Azure Import/Export
 Vous pouvez demander qu’un travail soit annulé avant qu’il ne soit dans l’état `Packaging` en appelant l’opération [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) et en définissant l’élément `CancelRequested` sur `true`. Le travail sera annulé de manière optimale. Si des données sont en cours de transfert sur les disques, cette opération peut se poursuivre même après que l’annulation ait été demandée.
 
  Un travail annulé passe à l’état `Completed` et sera conservé pendant 90 jours, après quoi il sera supprimé.
@@ -30,9 +31,4 @@ Vous pouvez demander qu’un travail soit annulé avant qu’il ne soit dans l�
 
 ## <a name="see-also"></a>Voir aussi
  [Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

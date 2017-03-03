@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
 ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -64,10 +65,5 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
 * [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

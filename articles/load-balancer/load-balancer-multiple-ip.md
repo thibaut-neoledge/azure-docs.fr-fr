@@ -17,6 +17,7 @@ ms.author: annahar
 translationtype: Human Translation
 ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
 ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -167,9 +168,4 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
     ```
 
 13. Enfin, vous devez configurer les enregistrements de ressource DNS pour qu’ils pointent vers l’adresse IP frontale correspondante de l’équilibrage de charge. Vous pouvez héberger vos domaines dans Azure DNS. Pour plus d’informations sur l’utilisation d’Azure DNS avec un équilibrage de charge, voir [Utiliser Azure DNS avec d’autres services Azure](../dns/dns-for-azure-services.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,6 +15,7 @@
 ### [Protéger le serveur principal d’API web avec AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Se connecter à un réseau virtuel](api-management-using-with-vnet.md)
 ### [Se connecter à un réseau virtuel interne](api-management-using-with-internal-vnet.md)
+### [Intégrer Application Gateway à un réseau virtuel interne](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md)
 ## Configuration des stratégies
 ### [Mise en cache personnalisée](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Index de référence de stratégie](api-management-policy-reference.md)
 ### [Vue d’ensemble des stratégies](api-management-howto-policies.md)
 ### [Gérer les secrets à l’aide de propriétés](api-management-howto-properties.md)
+### [Sécuriser des API à l’aide de l’authentification du certificat client](api-management-howto-mutual-certificates-for-clients.md)
 ## Personnalisation de l’expérience de développement
-### [Personnalisation du portail des développeurs](api-management-customize-portal.md)
+### [Modifier la disposition et le contenu des pages](api-management-modify-content-layout.md)
+### [Personnaliser le style des éléments de page](api-management-customize-styles.md)
+### [Personnaliser les pages système à l’aide de modèles](api-management-developer-portal-templates.md)
 ### [Authentification avec AAD](api-management-howto-aad.md)
+### [Authentification avec AAD B2C](api-management-howto-aad-b2c.md)
 ### [Authentification déléguée](api-management-howto-setup-delegation.md)
 ### [Notifications électroniques et modèles](api-management-howto-configure-notifications.md)
 ### [Activer la prise en charge de la console OAuthActiver la prise en charge de la console OAuth](api-management-howto-oauth2.md)
-### [Personnaliser à l’aide de modèles](api-management-developer-portal-templates.md)
 ## Gérer en production
 ### [Gérer les groupes](api-management-howto-create-groups.md)
 ### [Déployer sur plusieurs régions Azure](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Fournir un accès RBAC à l’aide de l’API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Configurer PostMan pour appeler les API Gestion des API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Plug-in Gestion des API pour l’API SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

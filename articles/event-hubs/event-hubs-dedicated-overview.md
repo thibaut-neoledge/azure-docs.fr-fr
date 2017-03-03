@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 7547ff2f6db375644dccb9db4283d83a9837e826
+ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
+ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,11 +36,11 @@ Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’of
 | Stratégies d’éditeur | N/A | Oui | Oui |     
 | Groupes de consommateurs | 1 - par défaut | 20 | 20 |
 | Relecture des messages | Oui | Oui | Oui |
-| Unités de débit maximales | 20 | 20 (flexible jusqu’à 100)  | 1 unité de capacité≈200 |
+| Unités de débit maximales | 20 | 20 (flexible jusqu’à 100)    | 1 unité de capacité≈200 |
 | Connexions réparties | 100 inclus | 1 000 inclus | 100 K inclus |
 | Connexions négociées supplémentaires | N/A | Oui | Oui |
 | Rétention des messages | 1 jour inclus | 1 jour inclus | Jusqu’à 7 jours inclus |
-| Archive (version préliminaire) | N/A   | Paiement par heure | Inclus |
+| Archive (version préliminaire) | N/A    | Paiement par heure | Inclus |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Avantages de la capacité Event Hubs Dedicated
 
@@ -60,7 +61,7 @@ Ce service est destiné aux grands utilisateurs de télémétrie et est disponib
 
 ## <a name="how-to-onboard"></a>Intégration : mode d’emploi
 
-La plateforme Event Hubs Dedicated est proposée au public via un contrat d’entreprise dans différentes tailles d’unités de capacité. Chaque unité de capacité fournit environ l’équivalent de 200 unités de débit et est facturée 31 $/h. Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. 
+La plateforme Event Hubs Dedicated est proposée au public via un contrat d’entreprise dans différentes tailles d’unités de capacité. Chaque unité de capacité fournit environ l’équivalent de 200 unités de débit. Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité des Event Hubs Dedicated. Vous pouvez également en apprendre plus sur Event Hubs en consultant les liens suivants :
@@ -69,9 +70,4 @@ Pour plus d’informations sur la tarification, accédez aux liens suivants :
 
 - [Tarification d’Event Hubs Dedicated](https://azure.microsoft.com/pricing/details/event-hubs/). Vous pouvez également contacter votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité Event Hubs Dedicated.
 - L’article [FAQ sur les hubs d’événements](event-hubs-faq.md) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

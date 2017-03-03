@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
-ms.author: ryanwi;chackdan
+ms.date: 2/02/2017
+ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f7d2861512ba02e3b158db78fbee771da1c788b
-ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
+ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
+ms.openlocfilehash: 68474b24519a46db71fe59b5d0574cc4700efccb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
 Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ordinateurs Windows Server](service-fabric-cluster-creation-for-windows-server.md), les besoins de votre entreprise peuvent évoluer de sorte que vous devrez peut-être ajouter ou supprimer plusieurs nœuds de votre cluster. Cet article fournit des étapes détaillées pour atteindre cet objectif.
 
 ## <a name="add-nodes-to-your-cluster"></a>Ajouter des nœuds à votre cluster
-1. Préparez la machine virtuelle/l’ordinateur que vous souhaitez ajouter à votre cluster en suivant les étapes présentées dans la section [Préparer les machines à la configuration requise pour le déploiement de cluster](service-fabric-cluster-creation-for-windows-server.md#preparemachines) .
+1. Préparez la machine virtuelle/l’ordinateur que vous souhaitez ajouter à votre cluster en suivant les étapes présentées dans la section [Préparer les machines à la configuration requise pour le déploiement de cluster](service-fabric-cluster-creation-for-windows-server.md) .
 2. Prévoyez le domaine d’erreur et le domaine de mise à niveau auquel vous allez ajouter cette machine virtuelle ou cet ordinateur.
 3. Avec Bureau à distance (RDP), accédez à la machine virtuelle ou à l’ordinateur que vous souhaitez ajouter au cluster.
 4. Copiez ou [téléchargez le package autonome Service Fabric pour Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) sur cette machine virtuelle ou cet ordinateur et décompressez le package.
@@ -47,7 +48,9 @@ Selon le niveau de fiabilité choisi pour le cluster, vous ne pouvez pas supprim
 4. Exécutez le script *RemoveNode.ps1* dans PowerShell. L’exemple ci-dessous supprime le nœud actif du cluster. Le *ExistingClientConnectionEndpoint* est un point de terminaison de connexion client pour tout nœud restant dans le cluster. Choisissez l’adresse IP et le port de point de terminaison de *tout* **autre nœud** du cluster. Cet **autre nœud** mettra à jour à son tour la configuration du cluster pour le nœud supprimé. 
 
 ```
+
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
+
 ```
 
 > [!NOTE]
@@ -57,15 +60,18 @@ Selon le niveau de fiabilité choisi pour le cluster, vous ne pouvez pas supprim
 
 Même après la suppression d’un nœud, il peut apparaître comme défaillant dans des requêtes et dans SFX. Il s’agit d’un problème connu. Il sera résolu dans la prochaine version. 
 
+
+## <a name="remove-node-types-from-your-cluster"></a>Supprimer des types de nœuds de votre cluster
+La suppression d’un type de nœud nécessite une attention supplémentaire. Avant de supprimer un type de nœud, vérifiez s’il existe un nœud qui référence le type de nœud concerné.
+
+
+## <a name="replace-primary-nodes-of-your-cluster"></a>Remplacer les nœuds principaux de votre cluster
+Le remplacement des nœuds principaux doit être effectué un nœud à la fois, au lieu de supprimer, puis d’ajouter des nœuds par lots.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md)
-* [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md)
 * [Sécuriser un cluster autonome sur Windows à l’aide de certificats X509](service-fabric-windows-cluster-x509-security.md)
 * [Créer un cluster Service Fabric autonome avec des machines virtuelles Azure Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

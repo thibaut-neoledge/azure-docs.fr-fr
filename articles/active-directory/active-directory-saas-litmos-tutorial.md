@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 479425fe3e19b843fed2aeae94dcf1fd7e9a0a77
+ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
+ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Didacticiel : Intégration d’Azure Active Directory avec Litmos
 L’objectif de ce didacticiel est de vous montrer comment intégrer Litmos dans Azure AD (Azure Active Directory).  
+
 L’intégration de Litmos dans Azure AD vous offre les avantages suivants : 
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Litmos. 
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Litmos (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Litmos via l’authentification unique (SSO) avec leur compte Azure AD
 * Vous pouvez gérer vos comptes dans un emplacement central : Azure Active Directory. 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -36,9 +38,8 @@ Pour configurer l’intégration d’Azure AD avec Litmos, vous avez besoin des
 * Un abonnement Azure AD
 * Un abonnement Litmos pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -48,12 +49,13 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 ## <a name="scenario-description"></a>Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Litmos à partir de la galerie 
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-litmos-from-the-gallery"></a>Ajout de Litmos à partir de la galerie
+## <a name="add-litmos-from-the-gallery"></a>Ajouter Litmos à partir de la galerie
 Pour configurer l’intégration de Litmos avec Azure AD, vous devez ajouter Litmos à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Litmos à partir de la galerie, procédez comme suit :**
@@ -82,19 +84,22 @@ Pour configurer l’intégration de Litmos avec Azure AD, vous devez ajouter Li
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Litmos avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Litmos équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Litmos associé doit être établie.  
+
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Litmos.
 
 Pour configurer et tester l’authentification unique Azure AD avec Litmos, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Litmos](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Litmos lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer utilisateur de test Litmos](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Litmos lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure AD Classic et de configurer l’authentification unique dans votre application Litmos.  
+
 Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+
 Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 Dans le cadre de la configuration, vous devez personnaliser les **Attributs du jeton SAML** pour votre application Litmos.  
@@ -128,32 +133,30 @@ Dans le cadre de la configuration, vous devez personnaliser les **Attributs du j
    
     ![Authentification unique Azure AD][8] 
    
-    a. Dans la zone de texte **Identificateur**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Litmos (p. ex., *https://azureapptest.litmos.com/account/Login*).
+    1. Dans la zone de texte **Identificateur**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Litmos (p. ex., *https://azureapptest.litmos.com/account/Login*).
    
-    b. Dans la zone de texte **URL de réponse** , collez la valeur que vous avez copiée à partir de l’application Litmos à l’étape précédente.
+    2. Dans la zone de texte **URL de réponse** , collez la valeur que vous avez copiée à partir de l’application Litmos à l’étape précédente.
    
-    c. Cliquez sur **Suivant**.
+    3. Cliquez sur **Suivant**.
 9. Sur la page **Configurer l’authentification unique sur Litmos** , procédez comme suit :
    
     ![Authentification unique Azure AD][2] 
    
-    a. Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
+    * Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
 10. Dans votre application **Litmos** , procédez comme suit :
     
      ![Authentification unique Azure AD][25] 
     
-     a. Cliquez sur **Enable SAML**.
+     1. Cliquez sur **Enable SAML**.
     
-     b. Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+     2. Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+    >[!TIP]
+    >Pour plus d’informations, consultez [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+     >
+
+     3. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **SAML X.509 Certificate** .
     
-    > [!TIP]
-    > Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
-    
-     c. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **SAML X.509 Certificate** .
-    
-     d. Cliquez sur **Enregistrer les modifications**.
+     4. Cliquez sur **Enregistrer les modifications**.
 11. Dans le portail Azure AD Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. 
     
      ![Authentification unique Azure AD][10]
@@ -175,22 +178,18 @@ Dans le cadre de la configuration, vous devez personnaliser les **Attributs du j
     
     Pour chaque ligne de données dans le tableau ci-dessus, procédez comme suit :
     
-    a. Cliquez sur **Ajouter un attribut utilisateur**. 
-    
-    ![Configurer l’authentification unique][15]
-
-    a. Dans la zone de texte **Nom de l’attribut** , indiquez le **nom d’attribut** pour cette ligne.
-
-    b. Sélectionnez la **Valeur de l’attribut** affichée pour cette ligne.
-
-    c. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
+ 1. Cliquez sur **Ajouter un attribut utilisateur**.    
+   ![Configurer l’authentification unique][15]
+ 2. Dans la zone de texte **Nom de l’attribut** , indiquez le **nom d’attribut** pour cette ligne.
+ 3. Sélectionnez la **Valeur de l’attribut** affichée pour cette ligne.
+ 4. Cliquez sur **Terminé** pour fermer la boîte de dialogue **Ajouter un attribut utilisateur**.
 
 
 1. Cliquez sur **Appliquer les modifications**. 
    
    ![Configurer l’authentification unique][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.  
 
 ![Créer un utilisateur Azure AD][20]
@@ -211,23 +210,23 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)  
    
-    a. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
+    1. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
    
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+    2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
-    c. Cliquez sur **Suivant**.
+    3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit : 
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+   1. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
+   2. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+   3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   e. Cliquez sur **Suivant**.
+   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+   5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 
@@ -235,11 +234,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png) 
    
-    a. Notez la valeur du **Nouveau mot de passe**.
+    1. Notez la valeur du **Nouveau mot de passe**.
    
-    b. Cliquez sur **Terminé**.   
+    2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-litmos-test-user"></a>Création d’un utilisateur de test Litmos
+### <a name="create-a-litmos-test-user"></a>Créer un utilisateur de test Litmos
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Litmos.  
 L’application Litmos prend en charge l’approvisionnement juste-à-temps. Cela signifie qu’un compte d’utilisateur est automatiquement créé si nécessaire pendant la tentative d’accès à l’application à l’aide du volet d’accès.
 
@@ -261,7 +260,7 @@ L’application Litmos prend en charge l’approvisionnement juste-à-temps. Cel
    
     ![Authentification unique Azure AD][27] 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Litmos.
 
 ![Affecter des utilisateurs][200] 
@@ -282,8 +281,9 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+
 Lorsque vous cliquez sur la vignette Litmos dans le volet d’accès, vous devez être connecté automatiquement à votre application Litmos.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -337,10 +337,5 @@ Lorsque vous cliquez sur la vignette Litmos dans le volet d’accès, vous devez
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

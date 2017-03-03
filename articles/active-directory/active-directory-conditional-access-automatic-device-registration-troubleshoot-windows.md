@@ -11,30 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fe9fad2de3fbb63e51fa14215c6f240977c56c7b
-ms.openlocfilehash: c72cebd04216b4e2bba26dd306354a7cd4e6c49a
+ms.sourcegitcommit: d3688b6a71dcd9964839da3cda35413d00f362d1
+ms.openlocfilehash: 836d43b17515beb565748f28603069c7c6a52fbf
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-10-and-windows-server-2016"></a>Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour Windows 10 et Windows Server 2016
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016
 
 Cette rubrique s’applique aux clients suivants :
 
--   Windows 10
--   Windows Server 2016
+-    Windows 10
+-    Windows Server 2016
 
-Pour les autres clients Windows, consultez [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine Azure Active Directory pour les clients de bas niveau Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
+Pour les autres clients Windows, consultez [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine vers Azure AD pour les clients de bas niveau Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
 
 Cette rubrique suppose que vous avez configuré l’inscription d’appareils automatique joints à un domaine comme décrit dans [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-get-started.md) pour prendre en charge les scénarios suivants :
 
-1.  [Accès conditionnel basé sur les appareils](active-directory-conditional-access-automatic-device-registration-setup.md)
+1.    [Accès conditionnel basé sur les appareils](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-2.  [Itinérance d’entreprise des paramètres](active-directory-windows-enterprise-state-roaming-overview.md)
+2.    [Itinérance d’entreprise des paramètres](active-directory-windows-enterprise-state-roaming-overview.md)
 
-3.  [Windows Hello Entreprise](active-directory-azureadjoin-passport-deployment.md)
+3.    [Windows Hello Entreprise](active-directory-azureadjoin-passport-deployment.md)
 
 
 Ce document fournit des conseils sur la façon de résoudre les problèmes potentiels. 
@@ -80,23 +81,23 @@ Ce champ indique si l’appareil est inscrit auprès d’Azure AD. Si la valeur 
 
 **Causes possibles :**
 
-1.  Échec de l’authentification de l’ordinateur pour l’inscription.
+1.    Échec de l’authentification de l’ordinateur pour l’inscription.
 
-2.  Il existe un proxy HTTP dans l’organisation qui ne peut pas être détecté par l’ordinateur
+2.    Il existe un proxy HTTP dans l’organisation qui ne peut pas être détecté par l’ordinateur
 
-3.  L’ordinateur ne peut pas atteindre Azure AD pour l’authentification ou Azure DRS pour l’inscription
+3.    L’ordinateur ne peut pas atteindre Azure AD pour l’authentification ou Azure DRS pour l’inscription
 
-4.  L’ordinateur n’est peut-être pas sur le réseau interne de l’entreprise ou un réseau privé virtuel avec une vue directe sur un contrôleur de domaine AD local.
+4.    L’ordinateur n’est peut-être pas sur le réseau interne de l’entreprise ou un réseau privé virtuel avec une vue directe sur un contrôleur de domaine AD local.
 
-5.  Si l’ordinateur dispose d’un module de plateforme sécurisée, celui-ci est peut être en mauvais état.
+5.    Si l’ordinateur dispose d’un module de plateforme sécurisée, celui-ci est peut être en mauvais état.
 
-6.  Il peut y avoir un problème de configuration des services mentionnés plus haut dans ce document que vous devez vérifier à nouveau. Voici des exemples courants :
+6.    Il peut y avoir un problème de configuration des services mentionnés plus haut dans ce document que vous devez vérifier à nouveau. Voici des exemples courants :
 
-    1.  Votre serveur de fédération n’a pas de points de terminaison WS-Trust activés
+    1.    Votre serveur de fédération n’a pas de points de terminaison WS-Trust activés
 
-    2.  Votre serveur de fédération n’autorise peut-être pas l’authentification entrante à partir d’ordinateurs de votre réseau à l’aide de l’authentification Windows intégrée.
+    2.    Votre serveur de fédération n’autorise peut-être pas l’authentification entrante à partir d’ordinateurs de votre réseau à l’aide de l’authentification Windows intégrée.
 
-    3.  Il n’existe aucun objet de point de connexion de service qui pointe vers le nom de votre domaine vérifié dans Azure AD dans la forêt Active Directory à laquelle l’ordinateur appartient
+    3.    Il n’existe aucun objet de point de connexion de service qui pointe vers le nom de votre domaine vérifié dans Azure AD dans la forêt Active Directory à laquelle l’ordinateur appartient
 
 ---
 
@@ -116,17 +117,12 @@ Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant q
   
 Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil. Si la valeur affichée est « NO », voici quelques causes possibles :
 
-1.  Clé de stockage défectueuse (STK) dans le module de plateforme sécurisée associé à l’appareil lors de l’inscription (vérifiez KeySignTest en cours d’exécution avec élévation de privilèges).
+1.    Clé de stockage défectueuse (STK) dans le module de plateforme sécurisée associé à l’appareil lors de l’inscription (vérifiez KeySignTest en cours d’exécution avec élévation de privilèges).
 
-2.  ID de connexion de substitution
+2.    ID de connexion de substitution
 
-3.  Proxy HTTP introuvable
+3.    Proxy HTTP introuvable
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez le [FAQ sur l’inscription d’appareils automatique](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

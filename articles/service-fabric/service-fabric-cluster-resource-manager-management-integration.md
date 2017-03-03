@@ -17,6 +17,7 @@ ms.author: masnider
 translationtype: Human Translation
 ms.sourcegitcommit: b2428f93680c12c76000fa8eb1a7138f72a8efe7
 ms.openlocfilehash: 9d67f089f4aba03e846a8fe020a91b6b1ac6ea48
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -184,9 +185,4 @@ En règle générale, vous souhaitez que la mise à niveau se termine même si l
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez au début pour [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

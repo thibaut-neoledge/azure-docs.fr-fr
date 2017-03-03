@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
 ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -47,9 +48,4 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

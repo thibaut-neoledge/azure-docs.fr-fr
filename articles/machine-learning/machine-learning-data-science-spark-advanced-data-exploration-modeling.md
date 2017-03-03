@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c844eeb0e01422dac468484a8458f243a2afb87d
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: e6bf6bd3c905f077841ef166540337a251b91ad1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,9 +29,9 @@ Cette procédure utilise HDInsight Spark pour effectuer l’exploration des donn
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
 
-Les étapes de modélisation contiennent également du code montrant comment former, évaluer et enregistrer chaque type de modèle. La rubrique traite de certains des thèmes également abordés dans la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Elle est toutefois plus « avancée », dans la mesure où elle utilise également une validation croisée conjointement avec un balayage hyperparamétrique pour former des modèles de classification et de régression d’une précision optimale. 
+Les étapes de modélisation contiennent également du code montrant comment former, évaluer et enregistrer chaque type de modèle. La rubrique traite de certains des thèmes également abordés dans la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Elle est toutefois plus « avancée », dans la mesure où elle utilise également une validation croisée avec un balayage hyperparamétrique pour former des modèles de classification et de régression d’une précision optimale. 
 
-La **validation croisée** est une technique qui évalue la manière dont un modèle formé sur un jeu connu de données généralise pour prédire les caractéristiques d’un jeu de données sur lequel il n’a pas été formé. L’idée derrière cette technique est de former un modèle sur un jeu de données connues, puis d’évaluer la précision de ses prédictions sur un jeu de données indépendant. Une implémentation commune utilisée ici consiste à diviser un jeu de données en plis « K », puis de former le modèle par la méthode tourniquet (round robin) sur tous les plis sauf un. 
+La **validation croisée** est une technique qui évalue la manière dont un modèle formé sur un jeu connu de données généralise pour prédire les caractéristiques d’un jeu de données sur lequel il n’a pas été formé.  Une implémentation commune utilisée ici consiste à diviser un jeu de données en plis « K », puis de former le modèle par la méthode tourniquet (round robin) sur tous les plis sauf un. La capacité du modèle à offrir des prédictions précises est évaluée lorsqu’il est testé par rapport au jeu de données indépendant de ce pli.
 
 **optimisation hyperparamétrique** consiste à choisir un jeu d’hyperparamètres pour un algorithme d’apprentissage, généralement dans le but d’optimiser la mesure des performances de l’algorithme sur un jeu de données indépendant. **hyperparamètres** sont des valeurs qui doivent être spécifiées en dehors de la procédure de formation de modèle. Les hypothèses concernant ces valeurs peuvent avoir un impact sur la flexibilité et la précision des modèles. Les arbres de décision ont des hyperparamètres, tels que la profondeur voulue et le nombre de feuilles de l’arbre. Les machines à vecteurs de support nécessitent la configuration d’un terme de pénalité en cas d’erreur de classification. 
 
@@ -50,8 +51,16 @@ Le problème de classification binaire comporte des exemples de modélisation à
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
-Vous avez besoin d’un compte Azure et d’un cluster Spark HDInsight. Vous avez besoin d’un cluster HDInsight 3.4 Spark 1.6 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. Le bloc-notes **pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** contenant les exemples de code de cette rubrique est disponible dans [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuration : clusters et notebooks Spark
+Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Mais des notebooks Jupyter sont fournis pour les clusters HDInsight Spark 1.6 et Spark 2.0. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. Pour plus de commodité, voici les liens vers les notebooks Jupyter pour Spark 1.6 et 2.0 à exécuter dans le noyau pyspark du serveur du notebook Jupyter :
+
+### <a name="spark-16-notebooks"></a>Notebooks Spark 1.6
+
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : inclut les thèmes du notebook 1 et traite également du développement de modèles à l’aide de l’ajustement des hyperparamètres et de la validation croisée.
+
+### <a name="spark-20-notebooks"></a>Notebooks Spark 2.0
+
+[Spark2.0-pySpark3-machine-Learning-Data-science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : ce fichier fournit des informations sur l’exploration des données, la modélisation et la notation dans les clusters Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -191,9 +200,7 @@ Une fois les données intégrées dans Spark, l’étape suivante du processus d
 Ce code et les extraits de code suivants utilisent une commande magique SQL pour interroger l’exemple et une commande magique locale pour tracer les données.
 
 * **Commande magique SQL (`%%sql`)** Le noyau HDInsight PySpark prend en charge les requêtes HiveQL inline faciles exécutées sur sqlContext. L’argument (-o nom_variable) conserve la sortie de la requête SQL en tant que tableau de données Pandas sur le serveur Jupyter. Cela signifie qu’elle sera disponible en mode local.
-* La **`%%local`** est utilisée pour exécuter le code localement sur le serveur Jupyter, qui est le nœud principal du cluster HDInsight. En général, vous utilisez la commande magique `%%local` conjointement avec la commande magique `%%sql` avec le paramètre -o. Le paramètre -o conserve la sortie de la requête SQL localement, puis la commande magique %%local déclenche l’ensemble suivant d’extrait de code pour une exécution locale sur la sortie des requêtes SQL conservées localement.
-
-La sortie est affichée automatiquement après l’exécution du code.
+* La **`%%local`** est utilisée pour exécuter le code localement sur le serveur Jupyter, qui est le nœud principal du cluster HDInsight. En général, vous devez utiliser la commande magique `%%local` après la commande magique `%%sql -o` pour exécuter une requête. Le paramètre -o persiste dans la sortie de la requête SQL en local. La commande magique `%%local` déclenche l’ensemble suivant d’extraits de code à exécuter en local sur la sortie des requêtes SQL qui a été rendue persistante localement. La sortie est affichée automatiquement après l’exécution du code.
 
 Cette requête récupère le nombre de trajets par passager. 
 
@@ -298,15 +305,15 @@ Cette cellule de code utilise la requête SQL pour créer trois graphiques de do
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Conception des caractéristiques, transformation et préparation des données à modéliser
 Cette section décrit et fournit le code des procédures servant à préparer les données à utiliser dans la modélisation ML. Elle montre comment effectuer les opérations suivantes :
 
-* Créer une caractéristique en regroupant les heures dans des périodes de trafic
+* Créer une caractéristique en partitionnant les heures dans des périodes de trafic
 * Indexer et encoder des fonctionnalités catégorielles
 * Créer des objets point étiquetés à intégrer dans les fonctions ML
 * Créer un sous-échantillonnage aléatoire des données et le diviser en un jeu de formation et un jeu de test
 * Mise à l’échelle des caractéristiques
 * Mettre en cache des objets en mémoire
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Créer une caractéristique en regroupant les heures dans des périodes de trafic
-Ce code montre comment créer une nouvelle caractéristique en regroupant les heures dans des périodes de trafic et comment mettre en cache la trame de données obtenue en mémoire. Là où les jeux de données distribués résilients (RDD) et les trames de données sont utilisés de manière répétitive, la mise en cache réduit les temps d’exécution. Par conséquent, nous mettons en cache les RDD et les trames de données à plusieurs stades de la procédure.
+### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Créer une caractéristique en partitionnant les périodes de trafic dans les emplacements
+Ce code montre comment créer une nouvelle caractéristique en partitionnant les périodes de trafic et comment mettre en cache la trame de données obtenue en mémoire. La mise en cache réduit les temps d’exécution, là où les jeux de données distribués résilients (RDD) et les trames de données sont utilisés de manière répétitive. Par conséquent, nous mettons en cache les RDD et les trames de données à plusieurs stades de la procédure.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -383,7 +390,7 @@ Voici le code permettant d’indexer et d’encoder des caractéristiques catég
 Durée d’exécution de la cellule ci-dessus : 3,14 secondes
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Créer des objets point étiquetés à intégrer dans les fonctions ML
-Cette section contient le code qui montre comment indexer des données textuelles catégorielles en type point étiqueté et les encoder afin qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes ML dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.
+Cette section contient le code qui montre comment indexer les données catégoriques de texte comme type de données de point étiquetées et comment les encoder. Elles sont ainsi préparer pour l’apprentissage et le test de la régression logistique MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes ML dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.
 
 Voici le code qui permet d’indexer et d’encoder des caractéristiques textuelles pour la classification binaire.
 
@@ -432,7 +439,7 @@ Voici le code qui permet d’encoder des caractéristiques textuelles par catég
 
 
 ### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Créer un sous-échantillonnage aléatoire des données et le diviser en un jeu de formation et un jeu de test
-Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). Bien que ce ne soit pas nécessaire dans cet exemple en raison de la taille du jeu de données, nous vous montrons comment créer un échantillon ici afin de savoir comment l’utiliser pour votre problème en cas de nécessité. Lorsque les échantillons sont volumineux, cela permet de gagner beaucoup de temps pendant l’apprentissage des modèles. Ensuite, nous divisons l’échantillon en une partie d’apprentissage (75 % ici) et une partie de test (25 % ici) à utiliser dans la modélisation de la classification et de la régression.
+Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). Bien que ce ne soit pas nécessaire dans cet exemple en raison de la taille du jeu de données, nous vous montrons ici comment créer un échantillon. Vous saurez ainsi comment l’utiliser pour votre propre problème si nécessaire. Lorsque les échantillons sont volumineux, cela permet de gagner beaucoup de temps pendant l’apprentissage des modèles. Ensuite, nous divisons l’échantillon en une partie d’apprentissage (75 % ici) et une partie de test (25 % ici) à utiliser dans la modélisation de la classification et de la régression.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +483,7 @@ Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). B
 Durée d’exécution de la cellule ci-dessus : 0,31 seconde
 
 ### <a name="feature-scaling"></a>Mise à l’échelle des caractéristiques
-La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les caractéristiques à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).   
+La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les caractéristiques à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent). SGD est un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).   
 
 > [!TIP]
 > Nous avons découvert que l’algorithme LinearRegressionWithSGD est sensible à la mise à l’échelle des caractéristiques.   
@@ -563,7 +570,7 @@ Chaque section de code générateur de modèle est divisée en étapes :
 Nous présentons la validation croisée avec le balayage paramétrique de deux manières :
 
 1. À l’aide de code personnalisé **générique** pouvant être appliqué à n’importe quel algorithme de MLlib et à n’importe quel jeu de paramètres dans un algorithme. 
-2. À l’aide de la **fonction pipeline pySpark CrossValidator**. Notez que, bien que pratique, CrossValidator comporte certaines limitations par rapport à Spark 1.5.0 : 
+2. À l’aide de la **fonction pipeline pySpark CrossValidator**. Notez que CrossValidator présente quelques limitations pour Spark 1.5.0 : 
    
    * Les modèles de pipeline ne peuvent pas être enregistrés/conservés pour une consommation future.
    * Ne peut pas être utilisé pour chaque paramètre dans un modèle.
@@ -1436,10 +1443,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles.
 
 **Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](machine-learning-data-science-spark-model-consumption.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

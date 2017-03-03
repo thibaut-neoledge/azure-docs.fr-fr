@@ -45,9 +45,17 @@
 
 ## [Encodage de contenu](media-services-encode-asset.md)
 ### [Comparaison des encodeurs](media-services-compare-encoders.md)
-### [Codes d’erreur](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Codecs et formats standard de l’encodeur multimédia](media-services-media-encoder-standard-formats.md)
+#### [Utiliser MES pour générer automatiquement une échelle des vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Encoder avec Media Encoder Standard
+##### [Portail](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Fonctionnalités d’encodage avancées avec MES](media-services-advanced-encoding-with-mes.md)
+##### [Personnaliser des présélections Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Génération de miniatures à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md)
 #### Schémas MES
 ##### [Schéma Media Encoder Standard](media-services-mes-schema.md)
 ##### [Métadonnées d’entrée](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [H264 – Vitesse de transmission unique – 720 pixels pour Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264 – Vitesse de transmission unique haute qualité SD pour Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264 – Vitesse de transmission unique qualité faible SD pour Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Encoder avec Media Encoder Standard
-##### [Portail](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Fonctionnalités d’encodage avancées avec MES](media-services-advanced-encoding-with-mes.md)
-##### [Génération de miniatures à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md)
 ### Media Encoder Premium Workflow
 #### [Codecs et formats de Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md)
 #### Encoder avec Media Encoder Premium Workflow.
@@ -92,9 +93,11 @@
 ##### [Didacticiels de workflow Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail](media-services-workflow-designer.md)
 ##### [Workflow Premium avec plusieurs entrées](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Créer une tâche qui génère des segments fMP4](media-services-generate-fmp4-chunks.md)
 ### Processeurs multimédias
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Codes d’erreur](media-services-encoding-error-codes.md)
 ### Déconseillé
 #### [Empaquetage et chiffrement statiques](media-services-static-packaging.md)
 
@@ -195,7 +198,8 @@
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portail](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Stockage File d’attente pour surveiller les notifications de travaux](media-services-dotnet-check-job-progress-with-queues.md)
+### [Surveiller les notifications de travaux avec le Stockage File d’attente](media-services-dotnet-check-job-progress-with-queues.md)
+### [Surveiller les notifications de travaux avec WebHooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Résolution des problèmes
 ### [Forum Aux Questions (FAQ)](media-services-frequently-asked-questions.md)
@@ -214,8 +218,3 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Communauté Azure Media Services](media-services-community.md)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

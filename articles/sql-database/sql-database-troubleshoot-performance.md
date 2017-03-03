@@ -19,6 +19,7 @@ ms.author: v-shysun
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -39,10 +40,5 @@ Vous pouvez modifier le [niveau de service](sql-database-service-tiers.md) d’u
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Opérations servant à améliorer les performances de base de données avec davantage de ressources
 1. Pour les bases de données autonomes, vous pouvez [Modifier les niveaux de service](sql-database-service-tiers.md) à la demande pour améliorer les performances de la base de données.
 2. S’il existe plusieurs bases de données, envisagez d’utiliser des [pools élastiques](sql-database-elastic-pool-guidance.md) pour une mise à l’échelle automatique des ressources.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

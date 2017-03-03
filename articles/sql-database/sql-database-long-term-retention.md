@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
-ms.author: carlrab; sashan
+ms.date: 12/22/2016
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 8b13faf1f6cdac355cc4d22b825cc2362a50e8f9
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -32,7 +33,7 @@ La fonctionnalité de **rétention de sauvegarde à long terme** vous permet de 
 > 
 > 
 
-## <a name="how-does-sql-database-long-term-retention-work"></a>Comment fonctionne la rétention de SQL Database à long terme ?
+## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Comment fonctionne la rétention de sauvegarde SQL Database à long terme ?
 
 La rétention à long terme des sauvegardes vous permet d’associer un serveur Azure SQL Database à un coffre Azure Recovery Services. 
 
@@ -40,7 +41,11 @@ La rétention à long terme des sauvegardes vous permet d’associer un serveur 
 * Vous configurez ensuite une stratégie de rétention pour une base de données quelconque. La stratégie met en œuvre une copie hebdomadaire des sauvegardes complètes des bases de données dans le coffre Recovery Services et leur conservation pendant la période de rétention spécifiée (jusqu'à 10 ans). 
 * Vous pouvez ensuite restaurer l’une de ces sauvegardes dans une nouvelle base de données dans n’importe quel serveur de l’abonnement. La copie est effectuée par le stockage Azure à partir de sauvegardes existantes et n’a aucun impact sur les performances de la base de données existante.
 
-## <a name="how-do-i-enable-long-term-retention"></a>Comment activer la rétention à long terme ?
+
+> [!TIP]
+> Pour obtenir un didacticiel, consultez [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données avec le portail Azure](sql-database-get-started-backup-recovery-portal.md), ou [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données avec PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+
+## <a name="how-do-i-enable-long-term-backup-retention"></a>Comment activer la rétention de sauvegarde à long terme ?
 
 Pour configurer la rétention de sauvegarde d’une base de données à long terme :
 
@@ -49,7 +54,9 @@ Pour configurer la rétention de sauvegarde d’une base de données à long ter
 3. Créez une stratégie de Protection Azure Recovery Services
 4. Appliquez la stratégie de protection pour les bases de données nécessitant une rétention à long terme de la sauvegarde
 
-## <a name="how-do-i-restore-a-database-stored-with-the-long-term-retention-feature"></a>Comment restaurer une base de données stockée avec la fonctionnalité de rétention à long terme ?
+Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-manage-long-term-backup-retention-portal.md). Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+
+## <a name="how-do-i-restore-a-database-stored-with-the-long-term-backup-retention-feature"></a>Comment restaurer une base de données stockée avec la fonctionnalité de rétention de sauvegarde à long terme ?
 
 Pour restaurer à partir d’une sauvegarde conservée à long terme :
 
@@ -59,102 +66,17 @@ Pour restaurer à partir d’une sauvegarde conservée à long terme :
 4. Répertoriez les points de récupération disponibles pour la restauration
 5. Restaurez à partir du point de récupération sur le serveur cible dans votre abonnement
 
-## <a name="how-much-does-long-term-retention-cost"></a>Combien coûte la rétention à long terme ?
+Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-manage-long-term-backup-retention-portal.md). Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-La rétention à long terme d’une Azure SQL Database est facturée selon la [tarification des services de sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
+## <a name="how-much-does-long-term-backup-retention-cost"></a>Combien coûte la rétention de sauvegarde à long terme ?
+
+La rétention de sauvegarde à long terme d’une Azure SQL Database est facturée selon la [tarification des services de sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 Une fois que le serveur Azure SQL Database est inscrit dans le coffre, le stockage total utilisé par les sauvegardes hebdomadaires stockées dans le coffre vous est facturé.
 
-## <a name="configuring-long-term-retention-in-the-azure-portal"></a>Configuration de la rétention à long terme dans le portail Azure
+## <a name="view-available-backups-stored-in-long-term-backup-retention"></a>Afficher les sauvegardes disponibles stockées avec rétention à long terme
 
-Dans le panneau du serveur Azure SQL Database, vous pouvez configurer la durée de rétention à long terme et, si nécessaire, créer un coffre Azure Recovery Services.
-
-- Pour configurer la rétention à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services, consultez la page [Configurer la rétention des sauvegardes à long terme](sql-database-configure-long-term-retention.md).
-- Pour récupérer une base de données à partir d’une sauvegarde avec rétention à long terme, consultez la page [Récupérer à partir d’une sauvegarde avec rétention à long terme](sql-database-restore-from-long-term-retention.md).
-- Pour afficher les sauvegardes du coffre Azure Recovery Services, consultez la page [Afficher les sauvegardes avec rétention à long terme](sql-database-view-backups-in-vault.md).
-
-> [!TIP]
-> Pour obtenir un didacticiel, consultez la page [Prise en main des fonctionnalités de sauvegarde et de restauration pour la protection et la récupération des données](sql-database-get-started-backup-recovery.md).
->
-
-## <a name="configuring-long-term-retention-using-powershell"></a>Configuration de la rétention à long terme à l’aide de PowerShell
-
-Procédez comme suit pour configurer la rétention à long terme à l’aide de PowerShell.
-1. Créez un coffre Recovery Services
-   
-   ```
-   New-AzureRmResourceGroup -Name $ResourceGroupName –Location 'WestUS' 
-   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName $ResourceGroupName -Location 'WestUS' 
-   Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
-   ```
-2. Inscrivez votre serveur Azure SQL Database dans le coffre pour que des sauvegardes des bases de données dans le serveur puissent être stockées à long terme.
-   
-   ```
-   Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName 'RG1' -ServerName 'Server1' –ResourceId $vault.Id
-   ```
-3. Créez une stratégie de rétention pour le stockage des sauvegardes.
-   
-   ```
-   #retrieve the default in-memory policy object for AzureSQLServer workload and set the retention period
-   $RP1 = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
-   #Sets the retention value to two years
-   $RP1.RetentionDurationType='Years'
-   $RP1.RetentionCount=2
-   #register the policy for use with any SQL database
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-   $policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name 'SQLBackup1' –WorkloadType AzureSQLDatabase -retentionPolicy $RP1
-   ```
-4. Activez la rétention à long terme pour la SQL Database dont vous souhaitez que les sauvegardes soient stockées dans le coffre.
-   
-   ```
-   #for your database you can select any policy created in the vault with which your server is registered
-   Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
-   ```
-5. Répertoriez le serveur associé au coffre. Chaque serveur est associé à un conteneur spécifique dans le coffre. Vous pouvez lister les serveurs inscrits en exécutant les commandes suivantes :
-   
-   ```
-   #each server has an associated container in the vault
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-   $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL   
-   #each database has an associated backup item in the respective container
-   Get-AzureRmRecoveryServicesBackupItem –container $container
-   ```
-6. Répertoriez les bases de données qui ont une stratégie de rétention dans le conteneur. Chaque base de données a un élément de sauvegarde associé dans le conteneur correspondant. Le nom de l’élément de sauvegarde est dérivé du nom de la base de données.
-   
-    ```
-    #list the backup items in the container
-    Get-AzureRmRecoveryServicesBackupItem –container $container
-    ```
-
-## <a name="restore-from-a-long-term-retention-backup"></a>Restauration à partir d’une sauvegarde conservée à long terme
-
-Procédez comme suit pour restaurer une base de données depuis une sauvegarde dans le coffre Azure Recovery Service :
-
-1. Recherchez le conteneur Recovery Service associé à SQL server.
-   
-   ```
-   #the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
-   Set-AzureRMRecoveryServicesVaultContext -Vault $vault
-   $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -Name 'Sql;myresourcegroup;myserver'
-   ```
-2. Recherchez l’élément de sauvegarde associé à une base de données.
-   
-    ``` 
-    #the following command finds the backup item associated with the database 'mydb'
-    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name 'mydb' 
-    ```
-3. Recherchez la sauvegarde à partir de laquelle restaurer.
-   
-   ```
-   #The following command lists the backups (also known as the “recovery points”) created in the specific time period.
-   $RP=Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item –StartDate '2016-02-01' -EndDate '2016-02-20'
-   ```
-4. Restaurez à partir du point de récupération dans une nouvelle Azure SQL Database.
-   
-   ```
-   #This command restores from a selected backup. If there are multiple recovery points in the specified range $RP[0] refers to the first one.
-   Restore-AzureRMSqlDatabase –FromLongTermRetentionBackup –ResourceId $RP[0].ID TargetResourceGroupName 'RG2' -TargetServerName 'Server2' -TargetDatabaseName 'DB2' [-Edition <String>] [-ServiceObjectiveName <String>] [-ElasticPoolName <String>] [<CommonParameters>]
-   ```
+Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec le portail Azure, consultez [Gestion de la rétention de sauvegarde à long terme avec le portail Azure](sql-database-manage-long-term-backup-retention-portal.md). Pour configurer, gérer et restaurer depuis la rétention de sauvegarde à long terme des sauvegardes automatisées dans un coffre Azure Recovery Services avec PowerShell, consultez [Gestion de la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 ## <a name="disabling-long-term-retention"></a>Désactivation de la rétention à long terme
 
@@ -163,72 +85,67 @@ Recovery Service gère automatiquement le nettoyage des sauvegardes en fonction 
 * Pour arrêter l’envoi des sauvegardes d’une base de données spécifique dans le coffre, supprimez la stratégie de rétention pour cette base de données.
   
     ```
-    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
+    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
     ```
 
 > [!NOTE]
 > Les sauvegardes qui se trouvent déjà dans l’archivage ne sont pas affectées. Elles sont automatiquement supprimées par Recovery Service après l’expiration de leur période de rétention.
-> 
-> 
 
-## <a name="removing-backups-from-the-azure-recovery-services-vault"></a>Restauration d’une base de données à partir du coffre Azure Recovery Services
 
-Pour supprimer manuellement des sauvegardes du coffre :
+## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Suppression d’une sauvegarde de rétention de sauvegarde à long terme à partir du coffre Azure Recovery Services
 
-1. Identifiez le conteneur dans le coffre pour « myserver ».
-   
-    ```
-    Set-AzureRMRecoveryServicesVaultContext -Vault $vault 
-    $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
-    ```
-2. Identifiez l’élément de sauvegarde à supprimer.
-   
-    ``` 
-    $item=Get-AzureRmRecoveryServicesBackupItem –container $container -Name 'mydb'
-    ```
-3. Supprimez les éléments de sauvegarde (toutes les sauvegardes de la base de données « mydb »)
-   
-    ```
-    $job = Disable-AzureRmRecoveryServicesBackupProtection –item $item -Removerecoverypoints 
-    Wait-AzureRmRecoveryServicesBackupJob $job
-    ```
-4. Supprimez le conteneur associé à « myserver »
-   
-    ```
-    Unregister-AzureRmRecoveryServicesBackupContainer –Container $container $container
-    ```
+Pour supprimer du coffre les sauvegardes de rétention à long terme, consultez [Supprimer les sauvegardes de rétention à long terme](sql-database-manage-long-term-backup-retention-powershell.md)
 
-## <a name="long-term-retention-faq"></a>Forum aux questions sur la rétention à long terme :
+## <a name="long-term-backup-retention-faq"></a>Forum Aux Questions sur la rétention des sauvegardes à long terme :
 
 1. Q : Puis-je supprimer manuellement des sauvegardes spécifiques du coffre ?
-   R : Pas à ce stade. Le coffre nettoie automatiquement les sauvegardes une fois la période de rétention expirée.
+
+    R : Pas à ce stade. Le coffre nettoie automatiquement les sauvegardes une fois la période de rétention expirée.
 2. Q : Puis-je enregistrer mon serveur pour stocker des sauvegardes dans plus d’un coffre ?
-   R : Non, à ce jour vous ne pouvez stocker des sauvegardes que dans un coffre à la fois.
+
+    R : Non, à ce jour vous ne pouvez stocker des sauvegardes que dans un coffre à la fois.
 3. Q : Puis-je avoir un serveur et un coffre dans différents abonnements ?
-   R : Non. Le coffre et le serveur doivent se trouver dans le même abonnement et dans le même groupe de ressources.
+
+    R : Non. Le coffre et le serveur doivent se trouver dans le même abonnement et dans le même groupe de ressources.
 4. Q : Puis-je utiliser un coffre que j’ai créé dans une région différente de celle de mon serveur ?
-   R : Non, le coffre et le serveur doivent se trouver dans la même région afin de réduire les délais de copie et d’éviter les frais de trafic.
+
+    R : Non, le coffre et le serveur doivent se trouver dans la même région afin de réduire les délais de copie et d’éviter les frais de trafic.
 5. Q : Combien de bases de données puis-je stocker dans un coffre ?
-   R : Nous prenons actuellement en charge jusqu'à 1 000 de bases de données par coffre. 
-6. Q : Combien de coffres puis-je créer par abonnement ? R : Vous pouvez créer 25 coffres par abonnement.
-7. Q : Combien de bases de données puis-je configurer par jour par coffre ? A : Vous ne pouvez configurer que 200 bases de données par jour par coffre.
-8. Q : La rétention à long terme fonctionne-t-elle avec des pools élastiques ?
-   R. : Oui. Une base de données dans le pool peut être configurée avec la stratégie de rétention.
+
+    R : Nous prenons actuellement en charge jusqu'à 1 000 de bases de données par coffre. 
+6. Q : Combien de coffres puis-je créer par abonnement ?
+
+    R : Vous pouvez créer 25 coffres par abonnement.
+7. Q : Combien de bases de données puis-je configurer par jour par coffre ?
+
+    R : Vous ne pouvez configurer que 200 bases de données par jour par coffre.
+8. Q : La rétention de sauvegarde à long terme fonctionne-t-elle avec des pools élastiques ?
+
+    R. : Oui. Une base de données dans le pool peut être configurée avec la stratégie de rétention.
 9. Q : Puis-je choisir l’heure de création de la sauvegarde ?
-   R : Non, SQL Database contrôle la planification des sauvegardes afin de limiter l’impact sur les performances de vos bases de données.
-10. Q : J’ai activé TDE pour ma base de données. Puis-je utiliser TDE avec le coffre ? R : Oui, TDE est pris en charge. Même si la base de données d’origine n’existe plus, vous pouvez restaurer la base de données depuis le coffre.
-11. Q : Que se passe-t-il avec les sauvegardes dans le coffre si mon abonnement est interrompu ? R : Si votre abonnement est suspendu, nous conservons les bases de données et les sauvegardes existantes, mais les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations à partir de votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
+
+    R : Non, SQL Database contrôle la planification des sauvegardes afin de limiter l’impact sur les performances de vos bases de données.
+10. Q : J’ai activé TDE pour ma base de données. Puis-je utiliser TDE avec le coffre ? 
+
+    R : Oui, TDE est pris en charge. Même si la base de données d’origine n’existe plus, vous pouvez restaurer la base de données depuis le coffre.
+11. Q : Que se passe-t-il avec les sauvegardes dans le coffre si mon abonnement est interrompu ? 
+
+    R : Si votre abonnement est suspendu, nous conservons les bases de données et les sauvegardes existantes, mais les nouvelles sauvegardes ne sont pas copiées dans le coffre. Une fois l’abonnement réactivé, le service copie à nouveau les sauvegardes dans le coffre. Vous pouvez effectuer des restaurations à partir de votre coffre à l’aide de sauvegardes copiées avant la suspension de l’abonnement. 
 12. Q : Puis-je obtenir un accès aux fichiers de sauvegarde SQL Database afin de les télécharger / restaurer sur SQL Server ?
-   R : Non, pas actuellement.
+
+    R : Non, pas actuellement.
 13. Q : Est-il possible d’avoir plusieurs planifications (quotidienne, hebdomadaire, mensuelle, annuelle) au sein d’une stratégie de rétention SQL ?
-   R : Non, cette fonctionnalité est actuellement uniquement disponible pour les sauvegardes de machines virtuelles.
+
+    R : Non, cette fonctionnalité est actuellement uniquement disponible pour les sauvegardes de machines virtuelles.
+14. Q : Que se passe-t-il si nous configurons la rétention à long terme de la sauvegarde sur une base de données qui est une géo-réplication active secondaire ?
+
+    R : Actuellement, nous ne prenons pas en charge les sauvegardes sur des réplicas. Par conséquent, il n’existe aucune option de rétention de sauvegarde à long terme sur les réplicas secondaires. Toutefois, il est important pour un client de configurer la rétention à long terme de la sauvegarde sur une géo-réplication active secondaire pour les raisons suivantes :
+    - lorsqu’un basculement a lieu et que la base de données devient primaire, nous allons procéder à une sauvegarde complète, qui sera chargée dans un coffre.
+    - La configuration de cette rétention de sauvegarde à long terme n’entraîne aucun coût supplémentaire pour le client sur une réplica secondaire.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Pour en savoir plus sur les autres solutions de continuité des activités Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

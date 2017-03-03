@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5622ab215fd7fea4c24ad00ea7132d12ecabbcd5
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,9 +31,7 @@ Les professionnels de l’information peuvent utiliser le [panneau d’accès au
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Professionnels de l’information ajoutant des utilisateurs B2B Collaboration à une application
 Affectez des utilisateurs de B2B Collaboration à une application en tant que professionnels de l’information dans une organisation partenaire, comme indiqué dans la vidéo suivante :
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  Si cette vidéo n’est pas incorporée, vous pouvez la consulter [ici](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>Professionnels de l’information ajoutant des utilisateurs B2B Collaboration à un groupe
 
@@ -56,9 +55,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Authentification multifacteur pour les utilisateurs B2B Collaboration](active-directory-b2b-mfa-instructions.md)
 * [Ajouter des utilisateurs B2B Collaboration sans invitation](active-directory-b2b-add-user-without-invite.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

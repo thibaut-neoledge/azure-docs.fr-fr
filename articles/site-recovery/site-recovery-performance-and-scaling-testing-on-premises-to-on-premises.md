@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
+ms.sourcegitcommit: 1b95723ec9886835c5967c9efe95b4922390a847
+ms.openlocfilehash: 92b5200016b943c06ef7732344d4136bd3c491b7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -170,9 +171,4 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration de la protection entre des sites VMM locaux](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

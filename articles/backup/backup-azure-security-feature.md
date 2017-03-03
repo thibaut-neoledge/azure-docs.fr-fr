@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2016
+ms.date: 02/17/2017
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 4a846e86fa8cefbee04e1e30078a0d2aabdd834d
-ms.openlocfilehash: 1b7df71f103e8284bdcc7bc3a27fe44815b12305
+ms.sourcegitcommit: 5c49de40401235d38142efd60d22b0591752fe75
+ms.openlocfilehash: f17802bf455b82f0b5239356c35024ecde7f1f35
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,13 +30,14 @@ De plus en plus de clients sont confrontés à des problèmes de sécurité tels
 
 > [!NOTE]
 > Vous ne devez activer les fonctionnalités de sécurité que si vous utilisez : <br/>
-> * **Agent MAB** : version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez mettre à niveau vers cette version de l’agent pour effectuer des opérations critiques comme Modifier la phrase secrète, Arrêter la sauvegarde avec suppression des données <br/>
-> * **Serveur de sauvegarde Azure** : version minimale de l’agent MAB 2.0.9052 avec le serveur de sauvegarde Azure Mise à jour 1 <br/>
-> * **DPM** : n’activez pas ces fonctionnalités pour DPM. Ces fonctionnalités seront bientôt disponibles, donc leur activation n’aura aucun impact sur les fonctionnalités existantes. <br/>
+> * **Agent MAB** : version minimale de l’agent 2.0.9052. Une fois que vous avez activé ces fonctionnalités, vous devez mettre à niveau vers cette version de l’agent pour effectuer des opérations critiques comme Modifier la phrase secrète, Arrêter la sauvegarde avec suppression des données. <br/>
+> * **Serveur de sauvegarde Azure** : version minimale de l’agent MAB 2.0.9052 avec le serveur de sauvegarde Azure Mise à jour 1. <br/>
+> * **DPM** : version minimale de l’agent MAB 2.0.9052 avec DPM 2012 R2 UR12 ou DPM 2016 UR2. <br/>
 > * **Sauvegarde de machine virtuelle IaaS** : n’activez pas ces fonctionnalités pour la sauvegarde de machine virtuelle IaaS. Ces fonctionnalités ne sont pas encore disponibles pour la sauvegarde de machine virtuelle IaaS, donc leur activation n’aura aucun impact sur la sauvegarde de machine virtuelle IaaS.
-> * Une fois activées, les fonctionnalités de sécurité sont disponibles pour toutes les machines de l’Agent Azure Recovery Services (MARS) et tous les serveurs de sauvegarde Azure inscrits auprès du coffre. <br/>
+> * Ces fonctionnalités ne sont disponibles que pour le coffre Recovery Services.
+> * Tous les coffres Recovery Services nouvellement créés ont ces fonctionnalités activées par défaut. Pour les coffres Recovery Services existants, les utilisateurs doivent activer ces fonctionnalités à l’aide des étapes mentionnées dans la section ci-dessous.
+> * Une fois activées, les fonctionnalités de sécurité sont disponibles pour toutes les machines de l’Agent Azure Recovery Services (MARS), les serveurs de sauvegarde Azure et les serveurs DPM inscrits auprès du coffre. <br/>
 > * L’activation de ce paramètre ne s’effectue qu’une seule fois et vous ne pouvez pas désactiver ces fonctionnalités après leur activation. <br/>
-> * Cette fonctionnalité n’est disponible que pour le coffre Recovery Services.
 >
 >
 
@@ -70,13 +72,18 @@ Par mesure de sécurité, la Sauvegarde Azure conserve les données de sauvegard
 
 Pour les utilisateurs **Agent Microsoft Recovery Services (MARS)** :
 
-1. Si l’ordinateur sur lequel les sauvegardes étaient effectuées est toujours disponible, utilisez [Récupération des données sur le même ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-the-same-machine) dans l’Agent Microsoft Recovery Services (MARS) pour effectuer la récupération à partir de tous les anciens points de récupération.
+1. Si l’ordinateur sur lequel les sauvegardes étaient effectuées est toujours disponible, utilisez [Récupération des données sur le même ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) dans l’Agent Microsoft Recovery Services (MARS) pour effectuer la récupération à partir de tous les anciens points de récupération.
 2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Récupération sur un autre ordinateur](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) pour utiliser un autre ordinateur Agent Microsoft Recovery Services (MARS) afin d’obtenir ces données.
 
 Pour les utilisateurs **Serveur de sauvegarde Azure** :
 
 1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité Récupérer les données pour effectuer la récupération à partir de tous les anciens points de récupération.
 2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Récupérer les données à partir d’un autre serveur de sauvegarde Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser un autre serveur de sauvegarde Azure afin d’obtenir ces données.
+
+Pour les utilisateurs de **Data Protection Manager (DPM)** :
+
+1. Si le serveur sur lequel les sauvegardes étaient effectuées est toujours disponible, protégez à nouveau les sources de données supprimées et utilisez la fonctionnalité Récupérer les données pour effectuer la récupération à partir de tous les anciens points de récupération.
+2. Si l’ordinateur mentionné ci-dessus n’est pas disponible, utilisez [Ajouter un serveur DPM externe](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) pour utiliser un autre serveur DPM afin d’obtenir ces données.
 
 ## <a name="preventing-attacks"></a>Prévention des attaques
 Dans le cadre de cette fonctionnalité, des vérifications ont été ajoutées pour s’assurer que seuls les utilisateurs valides peuvent effectuer diverses opérations.
@@ -108,9 +115,5 @@ Les fonctionnalités de sécurité mentionnées dans cet article fournissent des
 * [Bien démarrer avec le coffre Azure Recovery Services](backup-azure-vms-first-look-arm.md) pour activer ces fonctionnalités
 * [Télécharger le dernier Agent Azure Recovery Services](http://aka.ms/azurebackup_agent) pour protéger les ordinateurs Windows et protéger vos données de sauvegarde contre les attaques
 * [Télécharger le dernier serveur de sauvegarde Azure](https://aka.ms/latest_azurebackupserver) pour protéger les charges de travail et protéger vos données de sauvegarde contre les attaques
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Téléchargez UR12 pour System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) ou [téléchargez UR2 pour System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) pour protéger les charges de travail et vos données de sauvegarde contre les attaques
 

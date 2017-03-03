@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -437,10 +438,5 @@ Certaines applications de base de données contiennent des charges de travail à
 * Pour plus d’informations sur les niveaux de service, consultez la section [Options et performances de la base de données SQL](sql-database-service-tiers.md)
 * Pour de plus amples informations sur les pools élastiques, consultez la page [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 * Pour plus d’informations sur les performances et les pools élastiques, consultez la page [Quand envisager d’utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

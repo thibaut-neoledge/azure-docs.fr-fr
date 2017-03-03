@@ -16,17 +16,20 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e5f2eaa55e92c9a630533a5594e1a659cc2192f1
-ms.openlocfilehash: 390195c8f07430e5fac6d53a77f6bb1aba53b197
+ms.sourcegitcommit: 44c1f6ddac328516d707cfe5d328e02e50652e5b
+ms.openlocfilehash: e66857cf6cc05aae2fa102173a2958564ec936e6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers des disques gérés dans Azure
 
-Avec les disques gérés Azure, il n’est plus nécessaire de gérer des [comptes de stockage](../storage/storage-introduction.md) pour les machines virtuelles Azure. Vous spécifiez simplement le type ([Premium](../storage/storage-premium-storage-performance.md) ou [Standard](../storage/storage-standard-storage.md)) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. 
+Les disques gérés du service Azure Managed Disks simplifient la gestion de votre stockage en éliminant la nécessité de gérer séparément les comptes de stockage.  Vous pouvez également migrer vos machines virtuelles Azure existantes vers des disques gérés afin de tirer parti de la fiabilité accrue des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter les points de défaillance uniques. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles. Selon vos besoins, vous avez le choix entre deux types d’options de stockage : 
+ 
+- Les [disques gérés Premium](../storage/storage-premium-storage.md) sont des supports basés sur des disques SSD (Solide State Drive) qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S. Vous pouvez tirer parti de la vitesse et des performances des disques gérés Premium en migrant vers ces disques.
 
-Si vous utilisez actuellement l’option de stockage Standard pour vos disques, vous pouvez migrer vers des disques gérés Premium afin de tirer parti de leur vitesse et de leurs performances. Les [disques gérés Premium](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) reposent sur des disques SSD (Solide State Drive), qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S.
+- Les [disques gérés Standard](../storage/storage-standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances. 
 
 Vous pouvez migrer vers des disques gérés dans les cas de figure suivants :
 
@@ -40,13 +43,7 @@ Vous pouvez migrer vers des disques gérés dans les cas de figure suivants :
 | Toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md), puis [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](virtual-machines-windows-convert-unmanaged-to-managed-disks.md) | 
 
 
-## <a name="overview-of-managed-disks"></a>Vue d’ensemble des disques gérés
 
-Les disques gérés du service Azure Managed Disks simplifient la gestion de votre stockage en éliminant la nécessité de gérer séparément les comptes de stockage.  Vous pouvez également migrer vos machines virtuelles Azure existantes vers des disques gérés afin de tirer parti de la fiabilité accrue des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter les points de défaillance uniques. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles. Selon vos besoins, vous avez le choix entre deux types d’options de stockage : 
- 
-- Les [disques gérés Premium](../storage/storage-premium-storage.md) sont des supports de stockage basés sur des disques SSD (Solide State Drive) qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S. Vous pouvez tirer parti de la vitesse et des performances des disques gérés Premium en migrant vers ces disques.
-
-- Les [disques gérés Standard](../storage/storage-standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances. 
 
 
 ## <a name="plan-for-the-conversion-to-managed-disks"></a>Planification de la conversion en disques gérés
@@ -100,9 +97,4 @@ Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-u
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [disques gérés](../storage/storage-managed-disks-overview.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

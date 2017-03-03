@@ -18,6 +18,7 @@ ms.author: garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: fa3de6226b59c4f80e71c55a0aad20c19693642d
 ms.openlocfilehash: ffb12a5a999372951827d31e7e24c6b38473cb35
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -41,9 +42,4 @@ Pendant le téléchargement, vous verrez un message indiquant que votre fichier 
 Une fois que vos données sont téléchargées, elles sont stockées dans un module de jeu de données et sont disponibles pour n'importe quelle expérience dans votre espace de travail.
 
 Quand vous éditez une expérimentation, les jeux de données que vous avez créés apparaissent sous **Mes jeux de données** dans la liste **Jeux de données enregistrés** de la palette des modules. Vous pouvez glisser-déplacer le jeu de données dans le canevas de l’expérience en vue d’affiner l’analyse et Machine Learning.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

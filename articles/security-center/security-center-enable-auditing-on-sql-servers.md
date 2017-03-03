@@ -1,6 +1,6 @@
 ---
 title: "Activation de l’audit sur les serveurs SQL dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Activer l’audit sur les serveurs SQL**."
+description: "Ce document vous explique comment implémenter la recommandation de l’Azure Security Center **Activer l’audit sur les serveurs SQL**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2a15377af6f6dee3b9d2b9043f9803923ab3f29b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,23 +30,26 @@ Cette recommandation s’applique uniquement au service SQL Azure, elle ne conce
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Activer l’audit sur les serveurs SQL**.  Cette opération ouvre le panneau **Activer l’audit sur les serveurs SQL** .
-   ![Enable auditing on SQL servers][1]
+
+   ![Activer l’audit sur les serveurs SQL][1]
 2. Sélectionnez un serveur SQL sur laquel activer l’audit. Cette opération ouvre le panneau **Paramètres d’audit** .
-   ![Auditing settings][2]
+
+   ![Paramètres d’audit][2]
 3. Sur le panneau **Paramètres d’audit**, sélectionnez **ON** sous **Auditing**.
+
    ![Activer l’audit des paramètres][3]
-4. Suivez les étapes de la rubrique [Prise en main de l’audit de base de données SQL](../sql-database/sql-database-auditing-get-started.md) pour configurer l’emplacement de stockage de vos journaux d’audit. Le compte de stockage de l’abonnement pour la collecte de données est le compte de stockage par défaut.
-5. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection-get-started.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
+4. Suivez les étapes de la rubrique [Audit de base de données SQL dans le portail Azure](../sql-database/sql-database-auditing-portal.md) pour configurer l’emplacement de stockage de vos journaux d’audit. Le compte de stockage de l’abonnement pour la collecte de données est le compte de stockage par défaut.
+5. Suivez les étapes de la rubrique [Prise en main de Threat Detection pour la base de données SQL](../sql-database/sql-database-threat-detection.md) pour activer et configurer la détection des menaces (Threat Detection) et configurer la liste des adresses électroniques qui recevront les alertes de sécurité lors de la détection d’activités anormales.
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a montré comment implémenter la recommandation de Security Center « Activer l’audit sur les serveurs SQL ». Pour en savoir plus sur la sécurisation de votre base de données SQL, consultez les rubriques suivantes :
 
-* [Sécurisation de votre base de données SQL](../sql-database/sql-database-security.md)
+* [Sécurisation de votre base de données SQL](../sql-database/sql-database-security-overview.md)
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
@@ -61,9 +65,4 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 02/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
+ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,6 +32,7 @@ Nous disposons actuellement des articles suivants sur les tendances et meilleure
 * [Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Meilleures pratiques Azure en matière de sécurité des limites](../best-practices-network-security.md)
 * [Implémentation d’une architecture réseau hybride sécurisée dans Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Meilleurs pratiques relatives à Azure PaaS] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure fournit une plateforme sécurisée sur laquelle vous pouvez créer vos solutions. Nous proposons également des services et des technologies pour sécuriser davantage vos solutions sur Azure. En raison de la multitude d’options disponibles, vous êtes nombreux à avoir demandé à Microsoft de recommander les meilleures pratiques et tendances pour améliorer la sécurité.
 
@@ -47,9 +49,4 @@ Pour chaque meilleure pratique, nous tentons d’expliquer les éléments suivan
 * Comment apprendre à utiliser la meilleure pratique
 
 Nous sommes impatients d’ajouter de nombreux autres articles sur l’architecture de sécurité Azure et les meilleures pratiques. Si vous souhaitez que nous incluions certaines rubriques, faites-le nous savoir dans la zone de discussion en bas de cette page.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

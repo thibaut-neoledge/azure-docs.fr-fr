@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7a25e030e8ade95db2ac9cd58fe4d94bbb7775ba
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: d6ce5ac0207ac94a4eb8e6dccedd36c7cb446d70
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -35,7 +36,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-kintone-tutorial/IC785859.png "Scenario")
+![Scénario](./media/active-directory-saas-kintone-tutorial/IC785859.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-kintone"></a>Activation de l’intégration d’application pour Kintone
 Cette section décrit l’activation de l’intégration d’application pour Kintone.
@@ -53,15 +54,15 @@ Cette section décrit l’activation de l’intégration d’application pour Ki
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-kintone-tutorial/IC749321.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-kintone-tutorial/IC749321.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-kintone-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-kintone-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, entrez **Kintone**.
    
-    ![Galerie d’applications](./media/active-directory-saas-kintone-tutorial/IC785867.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-kintone-tutorial/IC785867.png "Galerie d’applications")
 
 7. Dans le volet de résultats, sélectionnez **Kintone**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -74,41 +75,41 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’applications **Kintone** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Kintone**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Kintone**, tapez votre URL au format « *https://company.kintone.com* », puis cliquez sur **Suivant***.
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurer l’URL de l’application")
 
 4. Dans la page **Configurer l’authentification unique sur Kintone**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configurer l’authentification unique")
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Kintone** en tant qu’administrateur.
 
 6. Cliquez sur **Settings**.
    
-    ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Paramètres](./media/active-directory-saas-kintone-tutorial/IC785879.png "Paramètres")
 
 7. Cliquez sur **Users & System Administration**.
    
-    ![Users & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration")
+    ![Administration système et utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administration système et utilisateurs")
 
 8. Sous **System Administration \> Security**, cliquez sur **Login**.
    
-    ![Connexion](./media/active-directory-saas-kintone-tutorial/IC785881.png "Login")
+    ![Connexion](./media/active-directory-saas-kintone-tutorial/IC785881.png "Connexion")
 
 9. Cliquez sur **Enable SAML authentication**.
    
-    ![Authentification SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML Authentication")
+    ![Authentification SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Authentification SAML")
 
 10. Dans la section SAML Authentication, procédez comme suit :
     
-    ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
+    ![Authentification SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Authentification SAML")
     
     1. Dans la page de boîte de dialogue **Configurer l’authentification unique sur Kintone** du portail Azure Classic, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion**.
    
@@ -118,9 +119,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     
     4. Cliquez sur **Save**.
 
-11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+11. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configurer l’authentification unique")
     
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -132,23 +133,23 @@ Dans le cas de Kintone, l’approvisionnement est une tâche manuelle.
 
 2. Cliquez sur **Setting**.
    
-    ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Paramètres](./media/active-directory-saas-kintone-tutorial/IC785879.png "Paramètres")
 
 3. Cliquez sur **Users & System Administration**.
    
-    ![Administration système et utilisateur](./media/active-directory-saas-kintone-tutorial/IC785880.png "User & System Administration")
+    ![Administration système et utilisateur](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administration système et utilisateur")
 
 4. Sous **User Administration**, cliquez sur **Departments & Users**.
    
-    ![Département et utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785888.png "Department & Users")
+    ![Département et utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785888.png "Département et utilisateurs")
 
 5. Cliquez sur **New User**.
    
-    ![Nouveaux utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785889.png "New Users")
+    ![Nouveaux utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785889.png "Nouveaux utilisateurs")
 
 6. Dans la section **New User** , procédez comme suit :
    
-    ![Nouveaux utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785890.png "New Users")
+    ![Nouveaux utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785890.png "Nouveaux utilisateurs")
    
     1. Tapez le nom complet, le nom de connexion, le nouveau mot de passe et sa confirmation et l’adresse de messagerie d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Display Name**, **Login Name**, **New Password**, **Confirm Password** et **E-mail Address**.
  
@@ -167,17 +168,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 2. Dans la page d’intégration d’applications **Kintone**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785891.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-kintone-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-kintone-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

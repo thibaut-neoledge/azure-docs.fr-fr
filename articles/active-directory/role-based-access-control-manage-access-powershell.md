@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
 ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -279,10 +280,5 @@ Dans l’exemple suivant, le rôle personnalisé *Opérateur de machine virtuell
 ## <a name="see-also"></a>Voir aussi
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

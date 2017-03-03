@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
 ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -31,10 +32,5 @@ Vous pouvez consulter des informations plus détaillées sur les technologies ab
 * [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)  
 * [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)  
 * [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md) 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

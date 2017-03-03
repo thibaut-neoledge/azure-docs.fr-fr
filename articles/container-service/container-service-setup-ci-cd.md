@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ Ce didacticiel explique comment automatiser de bout en bout la création et le d
 ## <a name="get-started"></a>Prise en main
 Vous pouvez exécuter cette procédure pas à pas sous OS X, Windows ou Linux.
 - Vous avez besoin d’un abonnement Azure. Si vous n’en avez pas, vous pouvez vous [inscrire pour obtenir un compte](https://azure.microsoft.com/).
-- Installez les [outils en ligne de commande Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Installez [Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>Ce que nous allons créer
 Voici certains aspects clés de l’application et de son flux de déploiement que nous allons configurer :
@@ -319,7 +320,7 @@ Prochaines étapes :
 ## <a name="clean-up"></a>Nettoyer
 Pour limiter les frais de calcul associés à ce didacticiel, exécutez la commande suivante et notez les ressources du pipeline de déploiement associées à un cluster ACS :
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ Supprimez la définition de version VSTS :
 2. Dans la liste des définitions de version qui s’affiche à gauche, cliquez sur le menu déroulant en regard de la définition de version que vous souhaitez supprimer, puis sélectionnez **Supprimer**.
 
 `![Suppression de la définition de version VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

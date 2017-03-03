@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
-ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,6 +29,10 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 > 
 > 
 
+## <a name="ensure-tag-consistency-with-policies"></a>Garantir la cohérence des balises avec les stratégies
+
+Les stratégies de ressources vous permettent de créer des règles standard pour votre organisation. Vous pouvez créer des stratégies qui garantissent que les ressources sont balisées avec les valeurs appropriées. Pour plus d’informations, consultez [Appliquer des stratégies de ressources pour les balises](resource-manager-policy-tags.md).
+
 ## <a name="templates"></a>Modèles
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -38,9 +43,9 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Azure CLI 2.0 (version préliminaire) vous permet d’ajouter des balises à des ressources et groupes de ressources, ainsi que d’interroger des ressources à l’aide de valeurs de balise.
+Azure CLI 2.0 vous permet d’ajouter des balises à des ressources et groupes de ressources, ainsi que d’interroger des ressources à l’aide de valeurs de balise.
 
 Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes que vous souhaitez conserver. Pour ajouter des balises à :
 
@@ -110,10 +115,5 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 * Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](resource-group-portal.md)  
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

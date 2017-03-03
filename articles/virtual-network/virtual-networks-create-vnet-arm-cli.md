@@ -1,6 +1,6 @@
 ---
-title: "Création d’un réseau virtuel à l’aide d’Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l’aide d’Azure CLI | Resource Manager."
+title: "Création d’un réseau virtuel à l’aide d’Azure CLI 2.0 | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel à l’aide d’Azure CLI 2.0 | Resource Manager."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
+ms.sourcegitcommit: 617ac4672b24d339c5d4c0b671de7fb19cd9af91
+ms.openlocfilehash: 3cbb679048a0cc1121b221bda8fc1e3df0e307c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,8 +27,14 @@ ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure propose deux modèles de déploiement : Azure Resource Manager et classique. Microsoft recommande la création de ressources via le modèle de déploiement Resource Manager. Pour en savoir plus sur les différences entre deux modèles, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
+Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+
+- [Azure CLI 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
+- [Azure CLI 2.0 (version préliminaire)](#create-a-virtual-network) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
  
-Cet article explique comment créer un réseau virtuel dans le modèle de déploiement Resource Manager à l’aide de l’interface de ligne de commande Azure. Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
+    Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 - [Portail](virtual-networks-create-vnet-arm-pportal.md)
@@ -40,81 +47,149 @@ Cet article explique comment créer un réseau virtuel dans le modèle de déplo
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
+
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Pour créer un réseau virtuel à l’aide d’Azure CLI, procédez comme suit :
+Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme suit :
 
-1. Installez et configurez Azure CLI en suivant les étapes décrites dans l’article [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md).
+1. Installez et configurez la dernière version [d’Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
 
-2. Exécutez la commande suivante pour créer un réseau virtuel et un sous-réseau :
+2. Créez un groupe de ressources pour votre réseau virtuel à l’aide de commande [az group create](/cli/azure/group#create) avec les arguments `--name` et `--location` :
 
     ```azurecli
-    azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    az group create --name myVNet --location centralus
+    ```
+
+3. Créez un réseau virtuel et un sous-réseau :
+
+    ```azurecli
+    az network vnet create \
+        --name TestVNet \
+        --resource-group myVNet \
+        --location centralus \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name FrontEnd \
+        --subnet-prefix 192.168.1.0/24
     ```
 
     Sortie attendue :
    
-            info:    Executing command network vnet create
-            + Looking up network configuration
-            + Looking up locations
-            + Setting network configuration
-            info:    network vnet create command OK
+    ```json
+    {
+        "newVNet": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "192.168.0.0/16"
+            ]
+            },
+            "dhcpOptions": {
+            "dnsServers": []
+            },
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>",
+            "subnets": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "name": "FrontEnd",
+                "properties": {
+                "addressPrefix": "192.168.1.0/24",
+                "provisioningState": "Succeeded"
+                },
+                "resourceGroup": "myVNet"
+            }
+            ]
+        }
+    }
+    ```
 
     Paramètres utilisés :
 
-   * **--vnet**. Nom du réseau virtuel à créer. Pour notre scénario, *TestVNet*
-   * **-e (ou --address-space)**. Espace d'adressage du réseau virtuel. Pour notre scénario, *192.168.0.0*
-   * **-i (ou -cidr)**. Masque de réseau au format CIDR. Pour notre scénario, *16*.
-   * **-n (ou --subnet-name**). Nom du premier sous-réseau. Pour notre scénario, *FrontEnd*.
-   * **-p (ou --subnet-start-ip)**. Adresse IP de début pour le sous-réseau, ou espace d'adressage du sous-réseau. Pour notre scénario, *192.168.1.0*.
-   * **-r (ou --subnet-cidr)**. Masque de réseau au format CIDR pour le sous-réseau. Pour notre scénario, *24*.
-   * **-l (ou --location)**. Région Azure où le réseau virtuel doit être créé. Pour notre scénario, *Centre des États-Unis*.
-3. Exécutez la commande suivante pour créer un sous-réseau :
+    - `--name TestVNet` : Nom du réseau virtuel à créer.
+    - `--resource-group myVNet` : # Nom du groupe de ressources qui contrôle la ressource. 
+    - `--location centralus` : l’emplacement vers lequel effectuer le déploiement.
+    - `--address-prefix 192.168.0.0/16` : préfixe et bloc d’adresse source.  
+    - `--subnet-name FrontEnd` : nom du sous-réseau.
+    - `--subnet-prefix 192.168.1.0/24` : préfixe et bloc d’adresse source.
+
+    Pour répertorier les informations de base à utiliser dans la commande suivante, vous pouvez interroger le réseau virtuel à l’aide un [filtre de requête](/cli/azure/query-az-cli2) :
 
     ```azurecli
-    azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+    ```
+
+    Ce qui génère la sortie suivante :
+
+        Where      Name      Group
+        ---------  --------  -------
+        centralus  TestVNet  myVNet
+
+4. Créez un sous-réseau :
+
+    ```azurecli
+    az network vnet subnet create \
+        --address-prefix 192.168.2.0/24 \
+        --name BackEnd \
+        --resource-group myVNet \
+        --vnet-name TestVNet
     ```
    
     Sortie attendue :
 
-            info:    Executing command network vnet subnet create
-            + Looking up network configuration
-            + Creating subnet "BackEnd"
-            + Setting network configuration
-            + Looking up the subnet "BackEnd"
-            + Looking up network configuration
-            data:    Name                            : BackEnd
-            data:    Address prefix                  : 192.168.2.0/24
-            info:    network vnet subnet create command OK
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid> \"",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myVNet",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
 
     Paramètres utilisés :
 
-   * **-t (ou --vnet-name**. Nom du réseau virtuel où sera créé le sous-réseau. Pour notre scénario, *TestVNet*.
-   * **-n (ou --name)**. Nom du nouveau sous-réseau. Pour notre scénario, *BackEnd*.
-   * **-a (ou --address-prefix)**. Bloc CIDR de sous-réseau. Pour notre scénario, *192.168.2.0/24*.
-4. Exécutez la commande suivante pour afficher les propriétés du nouveau réseau virtuel :
+    - `--address-prefix 192.168.2.0/24` : bloc CIDR de sous-réseau.
+    - `--name BackEnd` : nom du nouveau sous-réseau.
+    - `--resource-group myVNet` : le groupe de ressources.
+    - `--vnet-name TestVNet` : le nom du réseau virtuel propriétaire.
+
+5. Interrogez les propriétés du nouveau réseau virtuel :
 
     ```azurecli
-    azure network vnet show
+    az network vnet show \
+    -g myVNET \
+    -n TestVNet \
+    --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
+    -o table
     ```
    
     Sortie attendue :
    
-            info:    Executing command network vnet show
-            Virtual network name: TestVNet
-            + Looking up the virtual network sites
-            data:    Name                            : TestVNet
-            data:    Location                        : Central US
-            data:    State                           : Created
-            data:    Address space                   : 192.168.0.0/16
-            data:    Subnets:
-            data:      Name                          : FrontEnd
-            data:      Address prefix                : 192.168.1.0/24
-            data:
-            data:      Name                          : BackEnd
-            data:      Address prefix                : 192.168.2.0/24
-            data:
-            info:    network vnet show command OK
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  centralus  myVNet   Succeeded              2
+
+6. Interrogez les propriétés des sous-réseaux :
+
+    ```azurecli
+    az network vnet subnet list \
+    -g myvnet \
+    --vnet-name testvnet \
+    --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
+    -o table
+    ```
+
+    Sortie attendue :
+
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -122,9 +197,4 @@ Apprenez à connecter :
 
 - Une machine virtuelle à un réseau virtuel en lisant l’article [Création d’une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Au lieu de créer un réseau virtuel et un sous-réseau comme indiqué dans les procédures de ces articles, vous pouvez sélectionner un réseau virtuel et un sous-réseau existants pour établir la connexion à une machine virtuelle.
 - Le réseau virtuel à d’autres réseaux virtuels en lisant l’article sur la [connexion des réseaux virtuels](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- Le réseau virtuel à un réseau local à l’aide d’un réseau privé virtuel (VPN) site à site ou d’un circuit ExpressRoute. Découvrez comment en lisant les articles [Connecter un réseau virtuel à un réseau local à l’aide d’un VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) et [Lier un réseau virtuel à un circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+- Le réseau virtuel à un réseau local à l’aide d’un réseau privé virtuel (VPN) site à site ou d’un circuit ExpressRoute. Découvrez comment en lisant [Connecter un réseau virtuel à un réseau local à l’aide d’un VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) et [Lier un réseau virtuel à un circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

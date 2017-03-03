@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 5afe1110944641daaeace5ef02b2c9fa8d2a8e05
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -80,6 +81,9 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation.
 > [!NOTE]
 > Il est important d’utiliser l’alimentation fournie dans le kit qui dispose d’une puissance d’au moins 2A pour vous assurer que votre Raspberry dispose d’une puissance suffisante pour fonctionner correctement.
 
+## <a name="enable-ssh"></a>Activation de SSH
+En date de la version de novembre 2016, Raspbian a le serveur SSH désactivé par défaut. Vous devez l’activer manuellement. Vous pouvez faire référence aux [instructions officielles](https://www.raspberrypi.org/documentation/remote-access/ssh/) ou connecter un écran et accéder à **Préférences-> Configuration de Raspberry Pi** pour activer SSH.
+
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Connexion de Raspberry Pi 3 au réseau
 Vous pouvez connecter Pi à un réseau câblé ou à un réseau sans fil. Assurez-vous que Pi est connecté au même réseau que votre ordinateur. Par exemple, vous pouvez connecter Pi au même commutateur que celui utilisé par votre ordinateur.
 
@@ -113,10 +117,5 @@ Dans cet article, vous avez appris à configurer Pi en installant Raspbian, en c
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Obtention des outils](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: jeffreyr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5aa9b594da6b9f386f88c667106c735ed4fd233b
+ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
+ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -142,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Définir des types de données immuables pour éviter les erreurs de programmation
-Dans l’idéal, nous voulons que le compilateur signale des erreurs lorsque vous produisez accidentellement un code qui modifie l’état d’un objet que vous êtes censé considérer comme immuable. Mais le compilateur C# ne permet pas de le faire. Par conséquent, pour éviter les éventuels bogues de programmation, il est vivement recommandé de définir les types vous utilisez avec les collections fiables comme des types immuables. Plus précisément, cela signifie que vous allez vous en tenir aux types de valeur de base (par exemple, des nombres [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, etc.). Et, bien sûr, vous pouvez également utiliser des chaînes. Il est préférable d’éviter les propriétés de collection car la sérialisation et les désérialisation de ces propriétés peut nuire aux performances. Toutefois, si vous souhaitez utiliser des propriétés de collection, nous vous recommandons d’utiliser la bibliothèque de collections immuables de .NET (System.Collections.Immutable). Cette bibliothèque est disponible au téléchargement sur http://nuget.org. Nous vous recommandons également de sceller vos classes et de définir les champs en lecture seule chaque fois que cela est possible.
+Dans l’idéal, nous voulons que le compilateur signale des erreurs lorsque vous produisez accidentellement un code qui modifie l’état d’un objet que vous êtes censé considérer comme immuable. Mais le compilateur C# ne permet pas de le faire. Par conséquent, pour éviter les éventuels bogues de programmation, il est vivement recommandé de définir les types vous utilisez avec les collections fiables comme des types immuables. Plus précisément, cela signifie que vous allez vous en tenir aux types de valeur de base (par exemple, des nombres [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, etc.). Et, bien sûr, vous pouvez également utiliser des chaînes. Il est préférable d’éviter les propriétés de collection car la sérialisation et les désérialisation de ces propriétés peut nuire aux performances. Toutefois, si vous souhaitez utiliser des propriétés de collection, nous vous recommandons d’utiliser la bibliothèque de collections immuables de .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Cette bibliothèque est disponible au téléchargement sur http://nuget.org. Nous vous recommandons également de sceller vos classes et de définir les champs en lecture seule chaque fois que cela est possible.
 
 Le type UserInfo ci-dessous montre comment définir un type immuable, en tirant parti des recommandations mentionnées précédemment.
 
@@ -216,9 +217,4 @@ Pour découvrir les meilleures pratiques relatives au contrôle de version des c
 Pour savoir comment implémenter des contrats de données à tolérance de version, consultez [Rappels de sérialisation avec tolérance de version](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Pour savoir comment fournir une structure de données capable d’interagir entre plusieurs versions, consultez [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

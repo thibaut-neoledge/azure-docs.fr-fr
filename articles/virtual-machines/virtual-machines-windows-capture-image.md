@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
+ms.sourcegitcommit: 7d3b927a1dc111c54efadadac469cf070596dd43
+ms.openlocfilehash: 9e4f80be051b9de05e9bb890259116071dba59c0
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
 Cet article vous montre comment utiliser Azure PowerShell pour créer une image à partir d’une machine virtuelle Azure généralisée. Vous pouvez ensuite utiliser l’image pour créer une autre machine virtuelle. L’image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. L’image n’inclut pas les ressources du réseau virtuel. Vous devez donc configurer les ressources lorsque vous créez la nouvelle machine virtuelle. 
 
 ## <a name="prerequisites"></a>Composants requis
-* Vous devez déjà avoir [généralisé la machine virtuelle](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La généralisation d’une machine virtuelle supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image.
+* Vous devez déjà avoir [généralisé la machine virtuelle](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La généralisation d’une machine virtuelle supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Vous pouvez également généraliser une machine virtuelle Linux à l’aide de `sudo waagent -deprovision+user`, puis utiliser PowerShell pour capturer la machine virtuelle. Pour plus d’informations sur l’utilisation de l’interface de ligne de commande pour capturer une machine virtuelle, consultez [Généraliser et capturer une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure](virtual-machines-linux-capture-image.md)
 * Vous devez disposer d’une installation d’Azure PowerShell version 1.0.x ou ultérieure. Si vous n’avez pas déjà installé PowerShell, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="log-in-to-azure-powershell"></a>Connexion à Azure PowerShell
@@ -82,10 +83,5 @@ Cet article vous montre comment utiliser Azure PowerShell pour créer une image 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez désormais [créer une machine virtuelle à partir de l’image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

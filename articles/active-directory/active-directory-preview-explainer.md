@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
 ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -36,9 +37,4 @@ L’expérience de la version préliminaire est optimisée pour les administrate
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez nous envoyer vos commentaires sur l’expérience de la version préliminaire dans la section portail d’administration du [forum de commentaires Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

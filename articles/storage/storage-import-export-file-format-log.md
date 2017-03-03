@@ -1,6 +1,6 @@
 ---
 
-title: "Format de fichier journal du service d’importation/exportation | Microsoft Docs"
+title: "Format de fichier journal d’Azure Import/Export | Microsoft Docs"
 description: "En savoir plus sur le format des fichiers journaux créés lors de l’exécution des étapes d’un travail du service d’importation/exportation"
 author: muralikk
 manager: syadav
@@ -13,22 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: fab36b750ec4ba518fad8392f611cd46d8155985
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="import-export-service-log-file-format"></a>Format de fichier journal du service d’importation/exportation
+# <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
   
 Il existe deux journaux pouvant être écrits par le service d’importation/exportation :  
   
 -   Le journal d’erreurs est toujours généré en cas d’erreur.  
   
--   Le journal détaillé n’est pas activé par défaut, mais il peut être activé en définissant la propriété `EnableVerboseLog` sur une opération [Put Job](/rest/api/storageservices/importexport/Put-Job) ou [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties).  
+-   Le journal détaillé n’est pas activé par défaut, mais il peut être activé en définissant la propriété `EnableVerboseLog` sur une opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).  
   
 ## <a name="log-file-location"></a>Emplacement du fichier journal  
 Les journaux sont écrits pour bloquer des objets blob dans le conteneur ou le répertoire virtuel spécifié par le paramètre `ImportExportStatesPath`, que vous pouvez définir sur une opération `Put Job`. L’emplacement dans lequel les journaux sont écrits dépend de la façon dont l’authentification est spécifiée pour le travail, ainsi que de la valeur spécifiée pour `ImportExportStatesPath`. L’authentification du travail peut être spécifiée via une clé de compte de stockage ou une SAP (signature d’accès partagé) de conteneur.  
@@ -44,7 +45,7 @@ Le tableau ci-dessous présente les options possibles :
 |SAP de conteneur|Valeur par défaut|Un répertoire virtuel nommé `waimportexport`, qui est le nom par défaut, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, l’emplacement du journal serait alors `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAP de conteneur|Valeur spécifiée par l’utilisateur|Un répertoire virtuel nommé par l’utilisateur, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` et le répertoire virtuel spécifié est nommé `mylogblobs`, l’emplacement du journal serait `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Vous pouvez récupérer l’URL de l’erreur et les journaux détaillés en appelant l’opération [Get Job](/rest/api/storageservices/importexport/Get-Job3). Les journaux sont disponibles dès que le traitement du lecteur est terminé.  
+Vous pouvez récupérer l’URL de l’erreur et les journaux détaillés en appelant l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Les journaux sont disponibles dès que le traitement du lecteur est terminé.  
   
 ## <a name="log-file-format"></a>Format de fichier journal  
 Le format de ces deux journaux est le même : un objet blob contenant des descriptions XML des événements qui se sont produits lors de la copie des objets blob entre le disque dur et le compte du client.  
@@ -358,10 +359,5 @@ Le journal d’erreurs suivant pour un travail d’exportation indique que le co
 ```
   
 ## <a name="see-also"></a>Voir aussi  
-[API REST d’importation/exportation de stockage](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[API REST d’importation/exportation de stockage](/rest/api/storageimportexport/)
 

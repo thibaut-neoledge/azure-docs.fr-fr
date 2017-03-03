@@ -12,16 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/02/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1dfcc57a23a473bae9417496bfbe4c0c209de564
+ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
+ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
+ms.lasthandoff: 02/17/2017
 
 
 ---
+
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4"></a>Didacticiel : Intégration d’Azure Active Directory à KnowBe4
 L’objectif de ce didacticiel est de vous montrer comment intégrer KnowBe4 dans Azure Active Directory (Azure AD).  
+
 L’intégration de KnowBe4 à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à KnowBe4.
@@ -34,11 +37,10 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à KnowBe4, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD
-* Un abonnement KnowBe4 pour lequel l’authentification unique est activée
+* Un abonnement KnowBe4 pour lequel l’authentification unique (SSO) est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -48,12 +50,13 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 ## <a name="scenario-description"></a>Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de KnowBe4 à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* Ajout de KnowBe4 à partir de la galerie
+* Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-knowbe4-from-the-gallery"></a>Ajout de KnowBe4 à partir de la galerie
+## <a name="add-knowbe4-from-the-gallery"></a>Ajouter KnowBe4 à partir de la galerie
 Pour configurer l’intégration de KnowBe4 à Azure AD, vous devez ajouter KnowBe4 à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter KnowBe4 à partir de la galerie, procédez comme suit :**
@@ -76,21 +79,22 @@ Pour configurer l’intégration de KnowBe4 à Azure AD, vous devez ajouter Kno
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_01.png)
 7. Dans le volet de résultats, sélectionnez **KnowBe4**, puis cliquez sur **Terminer** pour ajouter l’application.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec KnowBe4, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur KnowBe4 équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur KnowBe4 associé doit être établie.  
+
 Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans KnowBe4.
 
 Pour configurer et tester l’authentification unique Azure AD avec KnowBe4, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test KnowBe4](#creating-a-KnowBe4-test-user)** pour avoir un équivalent de Britta Simon dans KnowBe4, lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test KnowBe4](#creating-a-KnowBe4-test-user)** pour avoir un équivalent de Britta Simon dans KnowBe4, lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application KnowBe4.
 
 **Pour configurer l’authentification unique Azure AD avec KnowBe4, procédez comme suit :**
@@ -105,25 +109,23 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Configurer l’authentification unique](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_04.png) 
 
-    a. Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application KnowBe4 au format suivant : **https://\<nom_entreprise\>.knowbe4.com/auth/saml/aad168.ccsctp.net**.
+  * Dans la zone de texte URL de connexion, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application KnowBe4 au format suivant : **https://\<nom_entreprise\>.knowbe4.com/auth/saml/aad168.ccsctp.net**.
 
-
-1. Dans la page **Configurer l’authentification unique sur KnowBe4** , procédez comme suit :
+4. Dans la page **Configurer l’authentification unique sur KnowBe4** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_05.png) 
    
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
-2. Pour que l’authentification unique soit configurée pour votre application, contactez votre [équipe du support technique KnowBe4](mailto:support@knowbe4.com). Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe KnowBe4 pour configurer l’authentification unique de son côté.
-3. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+   1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur. 
+   2. Cliquez sur **Suivant**.
+5. Pour que l’authentification unique soit configurée pour votre application, contactez votre [équipe du support technique KnowBe4](mailto:support@knowbe4.com). Joignez le fichier de certificat téléchargé à votre courrier et partagez les URL des métadonnées (ID d’entité, URL d’authentification unique et URL de déconnexion) avec l’équipe KnowBe4 pour configurer l’authentification unique de son côté.
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
-4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
+7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.  
 
 ![Créer un utilisateur Azure AD][20]
@@ -144,24 +146,18 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_05.png) 
    
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+   1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.   
+   2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+   3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   1. Dans la zone de texte **First Name**, tapez **Britta**.  
+   2. Dans la zone de texte **Last Name**, tapez **Simon**.
+   3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+   4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+   5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_07.png) 
@@ -169,21 +165,19 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_08.png) 
    
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    1. Notez la valeur du **Nouveau mot de passe**.
+    2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-knowbe4-test-user"></a>Création d’un utilisateur de test KnowBe4
+### <a name="create-a-knowbe4-test-user"></a>Créer un utilisateur de test KnowBe4
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans KnowBe4. KnowBe4 prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut.
 
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à KnowBe4 s’il n’existe pas déjà. 
 
-> [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique KnowBe4.
-> 
-> 
+>[!NOTE]
+>Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique KnowBe4.
+>  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à KnowBe4.
 
     ![Assign User][200] 
@@ -204,7 +198,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
 Lorsque vous cliquez sur la vignette KnowBe4 dans le volet d’accès, vous devez être connecté automatiquement à votre application KnowBe4.
 
@@ -229,9 +223,4 @@ Lorsque vous cliquez sur la vignette KnowBe4 dans le volet d’accès, vous deve
 [203]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

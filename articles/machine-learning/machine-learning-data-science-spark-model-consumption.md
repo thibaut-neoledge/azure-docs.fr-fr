@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
 Cette rubrique décrit comment charger des modèles Machine Learning (ML) créés avec Spark MLlib et stockés dans Azure Blob Storage (WASB) et les noter avec des jeux de données également stockées dans WASB. Il montre comment prétraiter les données d’entrée, transformer les caractéristiques à l’aide des fonctions d’indexation et d’encodage du kit d’outils MLlib, et comment créer un objet de données point étiqueté, utilisable comme entrée de notation avec les modèles ML. Les modèles utilisés pour la notation sont les suivants : Régression linéaire, Régression logistique, Modèles de forêts aléatoires et Modèles GBT (Gradient Boosting Tree).
 
 ## <a name="prerequisites"></a>Composants requis
-1. Vous avez besoin d’un compte Azure et d’un cluster Spark HDInsight. Vous avez besoin d’un cluster HDInsight 3.4 Spark 1.6 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. Le bloc-notes **pySpark-machine-learning-data-science-spark-model-consumption.ipynb** contenant les exemples de code de cette rubrique est disponible dans [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
-2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation de données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md) .   
+
+1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 ou Spark 2.0 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
+2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. Notez que les notebooks Spark 2.0 utilisent un jeu de données supplémentaire pour la tâche de classification, le jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. 
+
+
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuration : clusters et notebooks Spark
+Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Le notebook [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) montre comment utiliser un modèle enregistré à l’aide de Python sur des clusters HDInsight. Pour modifier ce notebook Jupyter et l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -183,7 +189,7 @@ Cette section montre comment indexer les données catégorielles à l’aide d�
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) encode une colonne de libellés en une colonne d’index de libellés. Les index sont classés par fréquence de libellé. 
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappe une colonne d’index de libellés à une colonne de vecteurs binaires, contenant au plus une valeur 1. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques continues, comme la régression logistique, à des caractéristiques catégorielles.
+[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappe une colonne d’index de libellés à une colonne de vecteurs binaires, contenant au plus une valeur&1;. Cet encodage autorise les algorithmes qui appliquent des caractéristiques numériques continues, comme la régression logistique, à des caractéristiques catégorielles.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -579,10 +585,5 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 
 ## <a name="whats-next"></a>Et ensuite ?
 **Validation croisée et balayage hyperparamétrique**: consultez [Exploration et modélisation avancées des données avec Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) pour savoir comment effectuer la formation des modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

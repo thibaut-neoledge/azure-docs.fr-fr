@@ -1,22 +1,23 @@
 ---
 title: "Schéma de configuration Azure Diagnostics 1.0 | Microsoft Docs"
 description: "Applicable UNIQUEMENT si vous utilisez le Kit de développement logiciel (SDK) Azure 2.4 et les versions antérieures avec Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric ou Cloud Services."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: c749a0929d292913e03fa7340bbbebad411fb44d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 92bb7ca3414962f18da8505b87ca23f0b704e811
 > Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques d’Azure Virtual Machines, de Virtual Machine Scale Sets, de Service Fabric et de Cloud Services.  Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 >
 
-Azure Diagnostics est utilisé conjointement avec d’autres produits de diagnostic Microsoft comme Azure Monitor, Application Insights et Log Analytics.
+Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft tels que Azure Monitor, Application Insights et Log Analytics.
 
 Le fichier de configuration Azure Diagnostics définit les valeurs qui sont utilisées pour initialiser le moniteur de diagnostics. Ce fichier est utilisé pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
@@ -274,9 +275,4 @@ Attributs :
 |Attribut|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|string|Obligatoire. Expression XPath spécifiant le journal à collecter.|  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

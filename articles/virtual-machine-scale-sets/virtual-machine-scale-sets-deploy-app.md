@@ -18,6 +18,7 @@ ms.author: guybo
 translationtype: Human Translation
 ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
 ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -57,10 +58,5 @@ Les machines virtuelles du groupe identique deviennent un support stable pour le
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Comment déployer une mise à jour du système d’exploitation sur plusieurs domaines de mise à jour ?
 Supposons que vous souhaitez mettre à jour votre image de système d’exploitation tout en maintenant le fonctionnement du groupe identique de machines virtuelles. Pour cela, il est possible de mettre à jour les images des machines virtuelles, une machine virtuelle à la fois. Vous pouvez le faire avec PowerShell ou l’interface de ligne de commande Azure. Il existe des commandes distinctes pour mettre à jour le modèle du groupe identique de machines virtuelles (la façon dont sa configuration est définie) et pour émettre des appels de « mise à niveau manuelle » sur des machines virtuelles données. Le document Azure [Mettre à niveau un jeu de mise à l’échelle de machines virtuelles](./virtual-machine-scale-sets-upgrade-scale-set.md) fournit également plus d’informations sur les options disponibles pour effectuer des mises à niveau du système d’exploitation sur un groupe de machines virtuelles identiques.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

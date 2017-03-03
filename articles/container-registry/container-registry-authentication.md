@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>Authentification avec un Registre de conteneurs
@@ -59,7 +60,7 @@ Les principaux du service autorisent [l’accès en fonction du rôle](../active
 
 
 ## <a name="admin-account"></a>Compte d’administrateur
-Un compte d’administrateur est créé automatiquement pour chaque registre que vous créez. Le compte est désactivé par défaut, mais vous pouvez l’activer et gérer les informations d’identification, par exemple à l’aide du [portal](container-registry-get-started-portal.md#manage-registry-settings) ou des [commandes de la Version préliminaire d’Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Si le compte est activé, vous pouvez transmettre le nom d’utilisateur et le mot de passe à la commande `docker login` pour une authentification de base dans le registre. Par exemple :
+Un compte d’administrateur est créé automatiquement pour chaque registre que vous créez. Le compte est désactivé par défaut, mais vous pouvez l’activer et gérer les informations d’identification, par exemple à l’aide du [portal](container-registry-get-started-portal.md#manage-registry-settings) ou des [commandes d’Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Si le compte est activé, vous pouvez transmettre le nom d’utilisateur et le mot de passe à la commande `docker login` pour une authentification de base dans le registre. Par exemple :
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Transmettre votre première image à l’aide de l’interface de ligne de commande (CLI) Docker](container-registry-get-started-docker-cli.md).
 * Pour plus d’informations sur l’authentification dans la version préliminaire du Registre de conteneurs, consultez le [billet de blog](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

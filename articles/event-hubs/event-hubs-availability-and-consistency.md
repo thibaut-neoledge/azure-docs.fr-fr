@@ -1,0 +1,69 @@
+---
+title: "Disponibilité et cohérence dans Azure Event Hubs | Microsoft Docs"
+description: "Guide d’obtention de la quantité maximale de disponibilité et de cohérence avec Azure Event Hubs à l’aide de partitions."
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: 
+ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/21/2017
+ms.author: sethm;jotaub
+translationtype: Human Translation
+ms.sourcegitcommit: 7587b1bed2f809fa2c4bab78c54396eed778b9ef
+ms.openlocfilehash: df2d79fdb4a26509f3c7c1f8f3a8adcaa6b24f9d
+ms.lasthandoff: 02/21/2017
+
+---
+
+# <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
+
+## <a name="overview"></a>Vue d'ensemble
+Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-what-is-event-hubs.md#partitions) pour améliorer la disponibilité et la parallélisation dans un Event Hub unique. Par exemple, si un Event Hub a quatre partitions, et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pourrez envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs plus traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
+
+Pour expliquer le compromis entre classement et disponibilité, nous pouvons nous pencher sur [le théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Le théorème précise qu’il est nécessaire de choisir entre la cohérence, la disponibilité et la tolérance de la partition.
+
+Le théorème définit la cohérence et la disponibilité de la façon suivante :
+* Tolérance de la partition : la capacité d’un système de traitement de données à continuer le traitement des données même en cas de défaillance d’une partition.
+* Disponibilité : un nœud sans échec renvoie une réponse raisonnable dans un délai raisonnable (sans erreurs ou expirations de délai).
+* Cohérence : une lecture renvoie toujours la dernière écriture pour un client donné.
+
+## <a name="partition-tolerance"></a>Tolérance de la partition
+Event Hubs est basé sur un modèle partitionné. Vous pouvez configurer le nombre de partitions dans votre Event Hub pendant l’installation, mais vous ne pouvez pas modifier cette valeur ultérieurement. Étant donné que vous devez utiliser des partitions avec les Event Hubs, vous devez uniquement prendre une décision en matière de disponibilité et de cohérence de votre application.
+
+## <a name="availability"></a>Availability
+La méthode la plus simple de se familiariser avec les Event Hubs est le comportement par défaut. Si vous créez un nouveau `EventHubClient` et utilisez la fonction d’envoi, les événements sont automatiquement distribués entre les partitions dans votre Event Hub. Ce comportement offre le meilleur temps d’activité.
+
+Pour les cas d’utilisation qui exigent une disponibilité maximum, ce modèle est conseillé.
+
+## <a name="consistency"></a>Cohérence
+Dans certains scénarios, l’ordre des événements peut être important. Par exemple, vous souhaiterez peut-être que votre système principal traite une commande de mise à jour avant une commande de suppression. Dans ce cas, vous pouvez définir la clé de partition sur un événement, ou utiliser un `PartitionSender` pour envoyer uniquement les événements à une certaine partition. Cela garantit que lorsque ces événements sont lus dans l’ordre lorsqu’ils sont lus à partir de la partition.
+
+Avec ce type de configuration, vous devez garder à l’esprit que si la partition particulière vers laquelle vous envoyez les événements n’est pas disponible, vous recevrez une réponse d’erreur. À titre de comparaison, si vous n’avez pas d’affinité avec une partition unique, le service de Event Hubs envoie votre événement à la partition disponible suivante.
+
+Une solution possible pour garantir le classement, tout en optimisant aussi le temps d’activité consisterait à regrouper les événements dans le cadre de votre application de traitement des événements. Le moyen le plus simple pour y parvenir consisterait à marquer votre événement avec une propriété de numéro de séquence personnalisée. Vous trouverez ci-dessous un exemple de cela :
+
+```csharp
+// Get the latest sequence number from your application
+var sequenceNumber = GetNextSequenceNumber();
+// Create a new EventData object by encoding a string as a byte array
+var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+// Set a custom sequence number property
+data.Properties.Add("SequenceNumber", sequenceNumber);
+// Send single message async
+await eventHubClient.SendAsync(data);
+```
+
+L’exemple précédent envoie votre événement à une des partitions disponibles dans votre Event Hub et définit le numéro de séquence correspondant depuis votre application. Cette solution requiert que l’état soit conservé par votre application de traitement, mais offre à vos expéditeurs un point de terminaison plus susceptible d’être disponible.
+
+## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
+
+* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Créer un concentrateur d’événements](event-hubs-create.md)
+

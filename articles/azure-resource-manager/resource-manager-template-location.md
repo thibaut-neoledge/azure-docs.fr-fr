@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1f7d7ad6dcec3c7d3b6fec7abcad7c36d2c02b70
-ms.openlocfilehash: 6342b2e5f3efa498a911bb82a642fa4672f77180
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: b949318eb689eec9f0d08e91f2a9d0169d9d816f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ L’exemple suivant utilise PowerShell pour obtenir les emplacements pour le typ
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-L’exemple suivant utilise l’interface de ligne de commande Azure 2.0 (version préliminaire) pour obtenir les emplacements pour le type de ressource `Microsoft.Web\sites` :
+L’exemple suivant utilise Azure CLI 2.0 pour obtenir les emplacements pour le type de ressource `Microsoft.Web\sites` :
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -100,10 +101,5 @@ Si vous devez coder en dur l’emplacement dans votre modèle, indiquez le nom d
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](resource-manager-template-best-practices.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

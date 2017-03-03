@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: c350134e8cea5771900e2e88b02b572c20e9d5bd
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: d04c209894ab8ee35b92381f9679f68addd64f00
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -58,7 +59,7 @@ Pour plus d’informations sur les recommandations App Services, consultez [Meil
 3. Dans le tableau de bord du conseiller, cliquez sur l’onglet **Performances**, et sélectionnez l’abonnement pour lequel vous souhaitez recevoir des recommandations.
 
 > [!NOTE]
-> Le conseiller génère des recommandations pour les abonnements pour lesquels le rôle de **propriétaire, de collaborateur ou de lecteur** vous est affecté.
+> Pour accéder aux recommandations du conseiller, vous devez d’abord **enregistrer** votre abonnement avec auprès du conseiller. Un abonnement est enregistré lorsque son **propriétaire** lance le tableau de bord du conseiller, puis clique sur le bouton **Obtenir des recommandations**. Cette opération ne doit être **exécutée qu’une seule fois**. Lorsqu’un abonnement est enregistré, les recommandations du conseiller peuvent être consultées par les **propriétaire**s, **collaborateur**s, ou **lecteur**s d’un abonnement, d’un groupe de ressources ou d’une ressource spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -69,9 +70,4 @@ Pour en savoir plus sur les recommandations du conseiller, consultez les ressour
 -  [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 -  [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 -  [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

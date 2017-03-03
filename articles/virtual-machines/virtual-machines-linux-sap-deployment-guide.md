@@ -19,6 +19,7 @@ ms.author: sedusch
 translationtype: Human Translation
 ms.sourcegitcommit: 4a9c9b35b1b1740152214193eb5bb5ef951de781
 ms.openlocfilehash: cc75cfa43cd60628d9a4d51827bd14f72715d2b4
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -1074,9 +1075,4 @@ Les indicateurs de performance sur Azure sont collectés par un démon, qui obti
 Pour obtenir une liste complète et à jour des problèmes connus, consultez la note SAP [1999351], qui contient des informations de dépannage supplémentaires pour l’analyse Azure améliorée pour SAP.
 
 Si le recours à la note SAP [1999351] ne résout pas le problème, réexécutez le script de configuration `Set-AzureRmVMAEMExtension` comme décrit dans [Configurer l’extension d’analyse Azure améliorée pour SAP][deployment-guide-4.5]. Vous devrez peut-être attendre une heure, car il est possible que les compteurs d’analyse ou de diagnostics de stockage ne soient pas créés immédiatement après avoir été activés. Si le problème persiste, ouvrez un message de support client SAP sur le composant BC-OP-NT-AZR pour Windows ou BC-OP-LNX-AZR pour une machine virtuelle Linux.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

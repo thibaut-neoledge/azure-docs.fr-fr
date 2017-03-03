@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: a6e5253f9242ce5d9e1be06e24ab2e1a70d1b321
-ms.openlocfilehash: 4cc9e33c63d3fdf4a7d9368b11e802063c67bec7
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Résolution des problèmes associés à l’outil Azure Import-Export
+# <a name="troubleshooting-the-azure-import-export-tool"></a>Résolution des problèmes associés à l’outil d’importation/d’exportation Azure
 L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il rencontre des problèmes. Cette rubrique répertorie certains des problèmes courants que les utilisateurs peuvent rencontrer.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>Une session de copie échoue, que faire ?  
@@ -43,9 +44,4 @@ L’outil Microsoft Azure Import/Export renvoie des messages d’erreur s’il r
  [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
  [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)   
  [Réparation d’un travail d’exportation](storage-import-export-tool-repairing-an-export-job-v1.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

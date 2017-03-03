@@ -17,6 +17,7 @@ ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -196,10 +197,5 @@ Le [cycle de vie du processus TDSP](http://aka.ms/datascienceprocess) est constr
 
 ## <a name="next-steps"></a>Étapes suivantes
 Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) (Procédures pas à pas du processus TDSP (Team Data Science Process)) les répertorie et les décrit brièvement, en les accompagnant de liens.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

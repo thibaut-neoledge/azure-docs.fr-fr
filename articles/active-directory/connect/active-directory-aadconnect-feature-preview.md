@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
 ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -52,9 +53,4 @@ Un groupe Office 365 est représenté comme un groupe de distribution dans les v
 Poursuivez votre [installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

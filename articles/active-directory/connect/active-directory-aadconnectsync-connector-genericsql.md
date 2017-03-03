@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
 ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -284,9 +285,4 @@ Si vous choisissez l’option Requête SQL, l’exportation nécessite&3; procé
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 * Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

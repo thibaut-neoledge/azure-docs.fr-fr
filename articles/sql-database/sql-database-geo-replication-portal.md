@@ -3,7 +3,7 @@ title: "Configuration de la géo-réplication pour Azure SQL Database avec le po
 description: "Configuration de la géo-réplication pour Azure SQL Database à l’aide du portail Azure"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,21 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurer la géo-réplication pour Base de données SQL Azure avec le portail Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](sql-database-geo-replication-overview.md)
-> * [portail Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configuration de la géo-réplication active pour Base de données SQL Azure avec le portail Azure
 
 Cet article montre comment configurer la géo-réplication active pour la SQL Database à l’aide du [portail Azure](http://portal.azure.com).
 
@@ -39,7 +33,7 @@ Pour lancer un basculement avec le portail Azure, consultez [Lancer un basculeme
 > 
 > 
 
-Pour configurer la géo-réplication à l’aide du portail Azure, vous devez disposer des ressources suivantes :
+Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 
 * Une Azure SQL Database : la base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
@@ -90,10 +84,5 @@ Cette opération arrête définitivement la réplication vers la base de donnée
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md).
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 02/02/2017
+ms.author: subramar;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
-ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
+ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
+ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -34,7 +35,7 @@ Des services peuvent également être supprimés d’une application dans le cad
 
 Azure Service Fabric fournit plusieurs modes de mise à niveau pour prendre en charge les clusters de développement et de production. Les options de déploiement choisies peuvent être différentes pour différents environnements.
 
-La mise à niveau d’application propagée surveillée est la mise à niveau la plus courante à utiliser dans un environnement de production. Quand la stratégie de mise à niveau est spécifiée, Service Fabric s'assure que l'application est saine avant que la mise à niveau ne se poursuive.
+La mise à niveau d’application propagée surveillée est la mise à niveau la plus courante à utiliser dans l’environnement de production. Quand la stratégie de mise à niveau est spécifiée, Service Fabric s'assure que l'application est saine avant que la mise à niveau ne se poursuive.
 
  L’administrateur d’application peut utiliser le mode de mise à niveau d’application propagée manuelle pour contrôler totalement la progression de la mise à niveau à travers les différents domaines de mise à niveau. Ce mode est utile lorsqu’une stratégie d’évaluation d’intégrité personnalisée ou complexe est nécessaire ou dans le cas d’une mise à niveau non conventionnelle (par exemple, l’application est déjà dans une situation de perte de données).
 
@@ -99,9 +100,4 @@ Contrôlez les mises à niveau de votre application à l'aide des [Paramètres d
 Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
 Résolvez les problèmes courants de mise à niveau de l’application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

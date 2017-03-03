@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 35f75c6feba187b15857c8e01df02bf918662fae
 ms.openlocfilehash: 0c667a20ba813ac37e49805c339cccb52832fdf0
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -39,10 +40,5 @@ Cette rubrique décrit comment créer une machine virtuelle Linux avec Azure CLI
 
 ## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Création d’une machine virtuelle Linux à l’aide du modèle de déploiement Classic
 [!INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

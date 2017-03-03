@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -76,6 +77,8 @@ Pour plus d’informations sur les API de communication de client et de service 
 
 **Service de magasin d’images**: chaque cluster Service Fabric a un service de magasin d’images où sont conservés les packages d’application avec version déployés. Copiez un package d’application dans le magasin d’images, puis inscrivez le type d’application contenu dans ce package d’application. Une fois le type d’application configuré, créez des applications nommées à partir de celui-ci. Vous pouvez annuler l’inscription d’un type d’application dans le service de magasin d’images après que toutes ses applications nommées ont été supprimées.
 
+Consultez [Comprendre le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md) pour plus d’informations sur le service de magasin d’images.
+
 Pour plus d’informations sur le déploiement d’applications vers le service de magasin d’images, consultez l’article [Déployer une application](service-fabric-deploy-remove-applications.md) .
 
 ## <a name="built-in-programming-models"></a>Modèles de programmation intégrés
@@ -94,10 +97,5 @@ Pour en savoir plus sur Service Fabric :
 * [Vue d'ensemble de Service Fabric](service-fabric-overview.md)
 * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
 * [Scénarios d’application](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

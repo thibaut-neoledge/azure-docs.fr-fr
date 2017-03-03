@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -239,10 +240,5 @@ Noam Ben Zeev montre comment traiter des données exportées à l’aide de Stre
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

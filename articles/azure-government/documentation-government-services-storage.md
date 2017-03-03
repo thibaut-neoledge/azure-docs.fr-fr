@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
 ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -82,9 +83,4 @@ Les informations suivantes identifient les limites d’Azure Government pour le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au <a href="https://blogs.msdn.microsoft.com/azuregov/">blog Microsoft Azure Government</a>.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

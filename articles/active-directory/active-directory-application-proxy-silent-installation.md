@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -128,10 +129,5 @@ Vous pouvez effectuer cette étape à l’aide d’une des méthodes suivantes 
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
 * [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: msfussell
 translationtype: Human Translation
 ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
 ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -302,9 +303,4 @@ Maintenant que vous avez déployé un service en conteneur, découvrez comment g
 
 * [Vue d’ensemble de Service Fabric et des conteneurs](service-fabric-containers-overview.md)
 * Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

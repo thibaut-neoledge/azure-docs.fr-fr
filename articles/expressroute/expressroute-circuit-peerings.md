@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
 ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -85,10 +86,5 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
   * [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

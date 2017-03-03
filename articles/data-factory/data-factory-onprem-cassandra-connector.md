@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -325,9 +326,4 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

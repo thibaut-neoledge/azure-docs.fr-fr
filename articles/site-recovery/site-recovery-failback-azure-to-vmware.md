@@ -17,6 +17,7 @@ ms.author: ruturajd
 translationtype: Human Translation
 ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
 ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -243,9 +244,4 @@ Vous pouvez effectuer une restauration automatique à l’aide d’une connexion
 
 * La connexion ExpressRoute doit être configurée sur le réseau virtuel Azure vers lequel les machines sources basculent, et sur lequel les machines virtuelles Azure sont hébergées après le basculement.
 * Les données sont répliquées vers un compte de stockage Azure sur un point de terminaison public. Pour utiliser une connexion ExpressRoute, vous devez configurer une homologation publique dans ExpressRoute avec le centre de données cible pour la réplication Site Recovery.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

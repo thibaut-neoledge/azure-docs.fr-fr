@@ -18,6 +18,7 @@ ms.author: lbosq
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: aafc89ca958e4bdc2ba52bf1a7d379e3a4cddf1c
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -51,10 +52,5 @@ Consultez la [page de prise en main](sql-database-get-started.md) pour apprendre
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

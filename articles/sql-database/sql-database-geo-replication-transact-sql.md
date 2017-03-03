@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -160,10 +161,5 @@ En avril 2017 sera retiré le type secondaire non accessible en lecture et les b
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la géoréplication active, consultez [Géoréplication active](sql-database-geo-replication-overview.md)
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

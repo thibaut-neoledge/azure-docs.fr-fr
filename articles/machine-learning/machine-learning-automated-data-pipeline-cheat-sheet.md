@@ -17,6 +17,7 @@ ms.author: mithal;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -42,10 +43,5 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 * Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Ajouter des conditions et des déclencheurs pour exécuter les workflows - Azure Logic Apps | Microsoft Docs"
+title: "Ajouter une logique conditionnelle pour exécuter les workflows - Azure Logic Apps | Microsoft Docs"
 description: "Contrôlez le mode d’exécution des workflows dans Azure Logic Apps en ajoutant une logique conditionnelle, des déclencheurs, des actions et des paramètres."
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: 330359583346f7e1944b53ec3fd34104f10e1261
+ms.sourcegitcommit: 9f7d623ec213de6d46f59547aff9d4417ac95ede
+ms.openlocfilehash: 41aafe94d24f0e22fe2256ab213c7668b670764c
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="use-logic-apps-features"></a>Utiliser les fonctionnalités des applications logiques
-Dans la [rubrique précédente](../logic-apps/logic-apps-create-a-logic-app.md), vous avez créé votre première application logique. Nous allons maintenant voir comment créer un processus plus complet avec des applications logiques App Services. Cette rubrique présente les nouveaux concepts suivants liés aux applications logiques :
+Dans la [rubrique précédente](../logic-apps/logic-apps-create-a-logic-app.md), vous avez créé votre première application logique. Vous allez maintenant créer un processus plus complet avec Azure Logic Apps. Cette rubrique présente les nouveaux concepts Azure Logic Apps suivants :
 
 * logique conditionnelle, qui exécute une action uniquement si une certaine condition est remplie ;
 * mode code pour modifier une application logique existante ;
@@ -37,73 +38,89 @@ Les documents suivants peuvent vous être utiles :
 * [Types de déclencheurs et d'actions](https://msdn.microsoft.com/library/azure/mt643939.aspx) - les différents types d'actions et ce qu’elles prennent en entrée
 * [Vue d'ensemble d’App Service](../app-service/app-service-value-prop-what-is.md) - description des composants à choisir pour la création d’une solution
 
-## <a name="adding-conditional-logic"></a>Ajout d’une logique conditionnelle
-Bien que le flux d'origine fonctionne, certaines zones pourraient être améliorées.
+## <a name="add-conditional-logic-to-your-logic-app"></a>Ajouter la logique conditionnelle à votre application logique
+
+Bien que le flux d’origine de votre application logique fonctionne, nous pouvions améliorer certains domaines.
 
 ### <a name="conditional"></a>Logique conditionnelle
-Cette application logique risque de causer un grand volume d’e-mails. Les étapes suivantes ajoutent une logique pour s’assurer que vous recevez uniquement un message électronique lorsque le tweet provient d’une personne avec un certain nombre de followers.
 
-1. Cliquez sur le signe plus et recherchez l’action *Get User* pour Twitter.
-2. Transmettez le champ **Tweeted by** à partir du déclencheur pour obtenir les informations relatives à l’utilisateur Twitter.
+Votre première application logique pourra causer la réception d’un trop grand nombre de messages électroniques. Les étapes suivantes ajoutent une logique conditionnelle pour que vous receviez un e-mail uniquement lorsque le tweet provient d’une personne avec un certain nombre d’abonnés.
+
+0. Dans le concepteur d’applications logiques, choisissez **Nouvelle étape** (+) > **Ajouter une action**.
+0.    Recherchez et ajoutez l’action **Obtenir l’utilisateur** pour Twitter.
+0. Transmettez le champ **Tweeted by** à partir du déclencheur pour obtenir les informations relatives à l’utilisateur Twitter.
 
     ![Get User](media/logic-apps-use-logic-app-features/getuser.png)
-3. Cliquez sur le signe plus à nouveau, mais cette fois-ci, sélectionnez **Add Condition**
-4. Dans la première zone, cliquez sur **...** sous **Get User** (Obtenir un utilisateur) pour trouver le champ **Followers count** (Nombre d’abonnés).
-5. Dans la liste déroulante, sélectionnez **Greater than**
-6. Dans la deuxième zone, tapez le nombre de followers que les utilisateurs doivent avoir.
+
+0. Choisissez **Nouvelle étape** (+) > **Ajouter une condition**.
+0. Pour filtrer le nombre d’abonnés qu’ont les utilisateurs, sous **Nom de l’objet**, choisissez **Ajouter du contenu dynamique**. 
+0.    Dans la zone de recherche, recherchez et ajoutez le champ **Nombre d’abonnés**.
+0. Sous **Relation**, sélectionnez **est supérieur à**.
+0. Dans la zone **Valeur**, saisissez le nombre d’abonnés que les utilisateurs doivent avoir.
 
     ![Logique conditionnelle](media/logic-apps-use-logic-app-features/conditional.png)
-7. Enfin, effectuez un glisser-déplacer de la zone e-mail vers la zone **If Yes** . Cela signifie que vous ne recevrez des e-mails que lorsque le nombre de followers est atteint.
 
-## <a name="repeating-over-a-list-with-foreach"></a>Répétition sur une liste à l’aide de forEach
-La boucle forEach spécifie un tableau sur lequel répéter une action. Le flux échouera s’il ne se présente pas sous la forme d’un tableau. Par exemple, si action1 génère un tableau de messages et que vous souhaitez envoyer chaque message, vous pouvez inclure cette instruction forEach dans les propriétés de votre action : forEach : "@action('action1').outputs.messages"
+0. Enfin, effectuez un glisser-déplacer de la **Envoi d’e-mail** vers la zone **If Yes** . 
 
-## <a name="using-the-code-view-to-edit-a-logic-app"></a>Utilisation du mode code pour modifier une application logique
-Outre le concepteur, vous pouvez modifier directement le code qui définit une application logique en procédant comme suit.
+Maintenant, vous obtenez des messages électroniques uniquement lorsque le nombre d’abonnés répond à votre condition.
 
-1. Cliquez sur le bouton **Mode code** dans la barre de commandes.
+## <a name="repeat-actions-over-a-list-with-foreach"></a>Répétition des actions sur une liste à l’aide de forEach
+
+La boucle forEach spécifie un tableau sur lequel répéter une action. Le flux échouera s’il ne se présente pas sous la forme d’un tableau. Par exemple, si action1 génère un tableau de messages et que vous souhaitez envoyer chaque message, vous pouvez inclure cette instruction forEach dans les propriétés de votre action : `forEach : "@action('action1').outputs.messages"`
+
+## <a name="edit-the-code-definition-for-a-logic-app"></a>Modification de la définition du code pour une application logique
+
+Même si vous avez le concepteur d’applications logiques, vous pouvez modifier directement le code qui définit une application logique.
+
+1. Dans la barre de commandes, choisissez **Mode Code**.
 
     Cela ouvre un éditeur complet qui affiche la définition que vous venez de modifier.
 
     ![Mode code](media/logic-apps-use-logic-app-features/codeview.png)
 
-    À l'aide de l'éditeur de texte, vous pouvez copier et coller les actions de votre choix dans la même application logique ou d'une application logique vers une autre. Vous pouvez aussi ajouter ou supprimer facilement des sections entières de la définition et partager des définitions avec d'autres utilisateurs.
-2. Après avoir apporté vos modifications en mode code, cliquez simplement sur **Enregistrer**.
+    Dans l'éditeur de texte, vous pouvez copier et coller les actions de votre choix dans la même application logique ou d'une application logique vers une autre. 
+    Vous pouvez aussi ajouter ou supprimer facilement des sections entières de la définition et partager des définitions avec d'autres utilisateurs.
 
-### <a name="parameters"></a>Paramètres
-Certaines fonctionnalités des applications logiques ne peuvent être utilisées qu'en mode code. Les paramètres en constituent un exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
+2. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
-Le code suivant met à jour votre application logique existante pour utiliser des paramètres pour le terme de requête.
+### <a name="parameters"></a>parameters
 
-1. En mode code, recherchez l’objet `parameters : {}` et insérez l’objet de rubrique suivant :
+Certaines fonctionnalités de Logic Apps sont disponibles uniquement en mode code, les paramètres par exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
+
+Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez la [Documentation sur l’API REST](https://docs.microsoft.com/rest/api/logic).
+
+L’exemple montre comment mettre à jour votre application logique existante pour utiliser des paramètres pour le terme de requête.
+
+1. En mode code, recherchez l’objet `parameters : {}` et ajoutez un objet de rubrique :
 
         "topic" : {
             "type" : "string",
             "defaultValue" : "MicrosoftAzure"
         }
-2. Faites défiler la page jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `#@{parameters('topic')}`.
-    Vous pouvez également utiliser la fonction **concat** pour joindre deux ou plusieurs chaînes, par exemple : `@concat('#',parameters('topic'))` est identique à celle ci-dessus.
 
-Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez notre [Documentation sur l’API REST](https://msdn.microsoft.com/library/mt643787.aspx).
+2. Naviguez jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `#@{parameters('topic')}`. 
 
-À présent, quand vous cliquez sur **Enregistrer**, toutes les heures, les nouveaux tweets qui ont plus de 5 retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+    Pour joindre deux chaînes ou plus, vous pouvez également utiliser la fonction `concat`. 
+    Par exemple, `@concat('#',parameters('topic'))` fonctionne de la même façon que ci-dessus.
+
+3.    Une fois ces opérations effectuées, sélectionnez **Enregistrer**. 
+
+    À présent, toutes les heures, les nouveaux tweets qui ont plus de cinq retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
 
 Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](../logic-apps/logic-apps-author-definitions.md).
 
-## <a name="starting-a-logic-app-workflow"></a>Démarrage d'un flux de travail d'application logique
-Il existe plusieurs options pour démarrer le flux de travail défini dans votre application logique. Un flux de travail peut toujours être démarré à la demande dans le [portail Azure].
+## <a name="start-logic-app-workflows"></a>Démarrage de workflows d’application logique
+
+Vous avez plusieurs options pour démarrer le flux de travail défini dans votre application logique. Vous pouvez toujours démarrer un flux de travail à la demande dans le [portail Azure].
 
 ### <a name="recurrence-triggers"></a>Déclencheurs de périodicité
-Un déclencheur de périodicité s'exécute selon un intervalle que vous spécifiez. Quand le déclencheur a une logique conditionnelle, il détermine si le flux de travail doit s'exécuter. Un déclencheur indique qu’il doit s’exécuter en retournant un code d’état `200` . Quand il ne doit pas s’exécuter, il renvoie un code d’état `202` .
+
+Un déclencheur de périodicité s'exécute selon un intervalle que vous spécifiez. Quand le déclencheur a une logique conditionnelle, il détermine si le flux de travail doit s'exécuter ou non. Un déclencheur indique que le workflow doit s’exécuter en retournant un code d’état `200` . Lorsque le workflow n’a pas besoin de s’exécuter, le déclencheur renvoie un code d’état `202`.
 
 ### <a name="callback-using-rest-apis"></a>Rappel à l'aide des API REST
-Les services peuvent appeler un point de terminaison d'application logique pour démarrer un flux de travail. Pour plus d’informations, consultez la page [Applications logiques en tant que points de terminaison pouvant être appelés](../logic-apps/logic-apps-http-endpoint.md) . Pour démarrer ce type d’application logique à la demande, cliquez sur le bouton **Exécuter maintenant** dans la barre de commandes. 
+
+Pour démarrer un workflow, les services peuvent appeler un point de terminaison d'application logique. Pour démarrer ce type d’application logique à la demande, choisissez **Exécuter maintenant** dans la barre de commandes. Consultez la page [Démarrage des flux de travail en appelant les points de terminaison en tant que déclencheurs](../logic-apps/logic-apps-http-endpoint.md). 
 
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

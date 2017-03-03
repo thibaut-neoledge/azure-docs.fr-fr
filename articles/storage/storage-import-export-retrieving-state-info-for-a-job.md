@@ -1,5 +1,5 @@
 ---
-title: "Récupération des informations d’état d’un travail du service Azure Import/Export | Microsoft Docs"
+title: "Récupération des informations d’état d’un travail Azure Import/Export | Microsoft Docs"
 description: "Découvrez comment obtenir les informations d’état des travaux du service Microsoft Azure Import/Export"
 author: muralikk
 manager: syadav
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: c1626024262959d33e18dbceba74b89997972c98
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="retrieving-state-information-for-a-job"></a>Récupération des informations d’état d’un travail
+# <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
 Vous pouvez appeler l’opération [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) pour récupérer des informations sur les travaux d’importation et d’exportation. Les informations renvoyées incluent :
 
 -   L’état actuel du travail.
@@ -91,10 +92,5 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 Lorsqu’un travail ou un disque rencontre un échec au cours de son cycle de vie, le travail ou le disque est placé dans un état `Faulted`. À ce stade, l’équipe des opérations contacte le client par e-mail ou par téléphone. Une fois que le problème est résolu, l’état `Faulted` du travail ou du disque ayant rencontré un échec est remplacé par l’état approprié.
 
 ## <a name="see-also"></a>Voir aussi
-[Using the Import/Export service REST API (Utilisation de l’API REST du service Import/Export)](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Utilisation de l’API REST du service Import/Export](storage-import-export-using-the-rest-api.md)
 

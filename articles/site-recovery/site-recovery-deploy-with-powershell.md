@@ -17,6 +17,7 @@ ms.author: bsiva
 translationtype: Human Translation
 ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
 ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -404,9 +405,4 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Découvrez plus](https://msdn.microsoft.com/library/dn850420.aspx) d'informations sur les applets de commande PowerShell Azure Site Recovery. </a>.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Répliquer des machines virtuelles Hyper-V sur Azure dans le portail Classic | Microsoft Docs"
-description: "Cet article décrit comment répliquer des machines virtuelles Hyper-V vers Azure avec Azure Site Recovery lorsque les machines ne sont pas gérées dans des clouds VMM."
+description: "Cet article décrit comment répliquer des machines virtuelles Hyper-V vers Azure lorsque les machines ne sont pas gérées dans des clouds VMM."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2bd4b44bea641bcfcb576f0ba5d53564277dfe34
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -28,23 +29,16 @@ ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 >
 >
 
-Bienvenue dans le service Azure Site Recovery.
-
-Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence. Il orchestre la réplication des machines virtuelles et des serveurs physiques locaux vers le cloud (Azure) ou un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. Pour en savoir plus, voir [Qu’est-ce que Site Recovery ?](site-recovery-overview.md)
-
-Cet article explique comment répliquer des machines virtuelles Hyper-V locales dans Azure à l’aide d’Azure Site Recovery dans le Portail Azure. Dans ce scénario, les serveurs Hyper-V ne sont pas gérés dans des clouds VMM.
+Cet article explique comment répliquer des machines virtuelles Hyper-V locales sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md), dans le portail Azure. Dans ce scénario, les serveurs Hyper-V ne sont pas gérés dans des clouds VMM.
 
 Après avoir lu cet article, envoyez vos commentaires en bas ou posez vos questions techniques sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery dans le portail Azure
 
 Azure dispose de deux [modèles de déploiement](../resource-manager-deployment-model.md) différents pour créer et utiliser des ressources : le déploiement Azure Resource Manager et le déploiement classique. Azure offre également deux portails : le Portail Azure Classic et le Portail Azure.
 
-Cet article explique comment effectuer le déploiement dans le Portail Classic. Le portail classique peut être utilisé pour gérer les coffres existants. Il est impossible de créer des coffres à l’aide du portail Classic.
+Cet article explique comment effectuer le déploiement dans le Portail Classic. Le portail classique peut être utilisé pour gérer les coffres existants. Il est impossible de créer des coffres à l’aide du portail classique.
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery dans votre entreprise
 
@@ -67,7 +61,7 @@ Les organisations ont besoin d’une stratégie BCDR qui détermine la façon do
 * exécuter les correctifs décrits dans l’article [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## <a name="virtual-machine-prerequisites"></a>Configuration requise pour les machines virtuelles
-Les machines virtuelles à protéger doivent présenter la [configuration requise pour les machines virtuelles Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Les machines virtuelles à protéger doivent présenter la [configuration requise pour les machines virtuelles Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="provider-and-agent-prerequisites"></a>Conditions préalables requises par les fournisseurs et les agents
 Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez installer le fournisseur Azure Site Recovery et l’agent associé sur chaque serveur Hyper-V. Notez les points suivants :
@@ -248,7 +242,7 @@ Il existe deux manières d’exécuter un test de basculement vers Azure.
 
 Si vous souhaitez exécuter un test de basculement sans spécifier de réseau Azure, vous n’avez rien à préparer.
 
-Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). Lisez l’article [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md#run-a-test-failover) pour plus de détails.
+Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). Lisez l’article [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md) pour plus de détails.
 
 Pour pouvoir tester intégralement votre déploiement réseau et de réplication, vous devez configurer l’infrastructure afin que la machine virtuelle répliquée fonctionne comme prévu. Pour ce faire, vous pouvez par exemple configurer une machine virtuelle en tant que contrôleur de domaine avec DNS et la répliquer dans Azure à l’aide de Site Recovery pour la créer dans le réseau de test en exécutant un test de basculement.  [Lisez cet article](site-recovery-active-directory.md#test-failover-considerations) pour passer en revue les considérations relatives au test de basculement pour Active Directory.
 
@@ -283,9 +277,4 @@ Exécutez un test de basculement, en procédant comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

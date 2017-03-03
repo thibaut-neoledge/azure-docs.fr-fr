@@ -21,6 +21,7 @@
 ### [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilisation de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Charger des données à partir de sources hors connexion](data-lake-store-offline-bulk-data-upload.md)
+### [Migrer Azure Data Lake Store dans différentes régions](data-lake-store-migration-cross-region.md)
 
 ## Sécuriser les données
 ### [Présentation de la sécurité](data-lake-store-security-overview.md)
@@ -39,9 +40,10 @@
 ## Intégrer avec les services Azure
 ### [Accéder à partir de machines virtuelles dans un réseau virtuel Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Utiliser avec Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Créer un cluster HDInsight avec Data Lake Store à l’aide du portail](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Créer un cluster HDInsight avec Data Lake Store à l’aide de PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Créer un cluster HDInsight avec Data Lake Store à l’aide d’un modèle Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight avec Data Lake Store – Portail](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [HDInsight avec Data Lake Store en tant que stockage par défaut – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [HDInsight avec Data Lake Store en tant que stockage supplémentaire – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [HDInsight avec Data Lake Store – Modèle Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Utiliser avec Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Utiliser avec Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Utiliser avec Power BI](data-lake-store-power-bi.md)
@@ -69,8 +71,3 @@
 ## [Envoyer des commentaires sur UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog sur Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

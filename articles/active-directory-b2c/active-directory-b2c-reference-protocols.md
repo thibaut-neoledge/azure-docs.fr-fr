@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 24e86b2a0c47576eba67f74c88bf9b9a42394653
 ms.openlocfilehash: 556da1513345b3cadf4fda622bb351835c114845
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -66,10 +67,5 @@ Quand vous êtes prêt à examiner des exemples de requêtes, commencez à lire 
 * [Génération d’une application mobile et native avec OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Génération d’applications web avec Open ID Connect](active-directory-b2c-reference-oidc.md)
 * [Génération d'applications de page unique avec le flux implicite OAuth 2.0](active-directory-b2c-reference-spa.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
