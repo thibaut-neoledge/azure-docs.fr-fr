@@ -18,6 +18,7 @@ ms.author: raprasa
 translationtype: Human Translation
 ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
 ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,10 +59,5 @@ En cas de suppression accidentelle de vos données, vous pouvez [émettre un tic
 Pour répliquer votre base de données NoSQL dans plusieurs centres de données, consultez [distribuer vos données globalement avec DocumentDB](documentdb-distribute-data-globally.md). 
 
 Pour contacter le support technique Azure, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

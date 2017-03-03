@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -206,9 +207,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 * [Exceptions](app-insights-asp-net-exceptions.md)
 * [Données utilisateur et de page](app-insights-javascript.md)
 * [Disponibilité](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

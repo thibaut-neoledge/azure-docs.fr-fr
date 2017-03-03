@@ -17,6 +17,7 @@ ms.author: juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
 ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -304,10 +305,5 @@ Consultez les parcours d’apprentissage de Media Services.
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -18,6 +18,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
 ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -87,10 +88,5 @@ De nombreux outils de science des données populaires sont déjà installés et 
 ### <a name="for-the-linux-data-science-vm"></a>Pour la machine virtuelle Science des données Linux
 * Pour plus d’informations sur l’exécution des outils spécifiques disponibles sur la version Linux, consultez [Approvisionnement d’une machine virtuelle pour la science des données Linux](machine-learning-data-science-linux-dsvm-intro.md).
 * Pour une procédure montrant comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle Linux, consultez [Science des données sur la machine virtuelle de science des données Linux](machine-learning-data-science-linux-dsvm-walkthrough.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

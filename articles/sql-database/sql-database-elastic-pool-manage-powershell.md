@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
 ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -275,9 +276,4 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer des tâches élastiques](sql-database-elastic-jobs-overview.md) : les tâches élastiques vous permettent d’exécuter des scripts T-SQL, quel que soit le nombre de bases de données contenues dans le pool.
 * Consultez [Montée en charge avec la base de données SQL Azure](sql-database-elastic-scale-introduction.md): utilisez les outils élastiques pour monter en charge, déplacer des données, exécuter des requêtes ou créer des transactions.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

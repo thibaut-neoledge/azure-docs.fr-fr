@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
 ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -178,8 +179,3 @@ Pour en savoir plus sur la tarification et la gestion des données avec Azure Do
 2.  [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
 3.  [Unités de requête](documentdb-request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
 4.  [Modélisation des données dans DocumentDB](documentdb-modeling-data.md). Apprenez à modéliser vos données pour DocumentDB.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

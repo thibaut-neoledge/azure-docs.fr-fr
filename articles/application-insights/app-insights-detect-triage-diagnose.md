@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -228,9 +229,4 @@ Vous pouvez commencer de plusieurs façons, selon les caractéristiques de votre
 * Applications déjà déployées, hébergées sur [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) ou [Azure](app-insights-azure.md).
 * [Pages web](app-insights-javascript.md) (application à page unique ou page web ordinaire) : utilisez cette option seule ou en plus des options de serveur.
 * [Tests de disponibilité](app-insights-monitor-web-app-availability.md) pour tester votre application à partir de l’Internet public.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

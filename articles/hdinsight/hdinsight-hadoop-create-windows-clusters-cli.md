@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -139,10 +140,5 @@ Vous pouvez utiliser l’interface de ligne de commande pour créer des clusters
 * [Envoi de tâches Hadoop par programme](hdinsight-submit-hadoop-jobs-programmatically.md) : découvrez comment envoyer des tâches par programme à HDInsight
 * [Gestion des clusters Hadoop dans HDInsight à l'aide du portail Azure](hdinsight-administer-use-command-line.md)
 * [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
