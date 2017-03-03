@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -78,9 +79,4 @@ Azure Active Directory (AD) Privileged Identity Management est une fonctionnalit
 [Azure Key Vault avec Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat présente Azure Key Vault à Scott. Avec Azure Key Vault, vous pouvez chiffrer des clés et des secrets (tels que les mots de passe) avec des clés stockées dans des modules de sécurité matériels. C’est la gestion des secrets basée sur le cloud et sur le matériel de Microsoft Azure !
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

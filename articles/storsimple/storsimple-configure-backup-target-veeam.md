@@ -17,6 +17,7 @@ ms.author: hkanna
 translationtype: Human Translation
 ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
+ms.lasthandoff: 01/26/2017
 
 ---
 
@@ -552,9 +553,4 @@ Les documents référencés dans cet article sont les suivants :
 
 - En savoir plus sur la [restauration à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set-u2.md).
 - En savoir plus sur l’exécution [d’un basculement et d’une récupération d’urgence pour un appareil](storsimple-device-failover-disaster-recovery.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

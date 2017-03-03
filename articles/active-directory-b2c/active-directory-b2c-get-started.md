@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
 ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -86,10 +87,5 @@ Pour améliorer la détectabilité, nous avons ajouté un raccourci dans le pann
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment inscrire une application avec Azure AD B2C et créer une application de démarrage rapide en lisant [Azure Active Directory B2C : inscription de votre application](active-directory-b2c-app-registration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

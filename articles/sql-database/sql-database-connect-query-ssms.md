@@ -20,6 +20,7 @@ ms.author: sstein;carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -65,10 +66,5 @@ Cet article explique comment se connecter à une base de données SQL Azure avec
 - Pour bien démarrer avec l’authentification SQL Server, consultez le didacticiel [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md).
 - Pour bien démarrer avec l’authentification Azure Active Directory, consultez le didacticiel [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 - Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

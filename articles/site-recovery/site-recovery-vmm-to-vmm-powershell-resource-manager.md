@@ -17,6 +17,7 @@ ms.author: sutalasi
 translationtype: Human Translation
 ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
 ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -319,9 +320,4 @@ Utilisez les commandes suivantes pour suivre l’activité. Vous devez attendre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](https://msdn.microsoft.com/library/azure/mt637930.aspx) sur Azure Site Recovery avec les applets de commande PowerShell Azure Resource Manager.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

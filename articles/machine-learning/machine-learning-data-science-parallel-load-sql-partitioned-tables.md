@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -179,10 +180,5 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemple de processus d’analyse avancé et technologie en action
 Pour obtenir un exemple de procédure pas à pas complet utilisant le processus Cortana Analytics avec un jeu de données public, consultez [Processus Cortana Analytics en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

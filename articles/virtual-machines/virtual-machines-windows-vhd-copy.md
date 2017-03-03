@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: e5bacb7ce32845b97e06cb0d35cc62935a3c86f6
 ms.openlocfilehash: 79b597fb1d76ec0dd7bdfca701a16f885d245b94
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -97,10 +98,5 @@ Elapsed time:            00.00:13:07
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez créer une machine virtuelle en [joignant la copie du disque dur virtuel à une machine virtuelle en tant que disque du système d’exploitation](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
 ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -246,10 +247,5 @@ Oui. Les points de terminaison du service Office 365 sont accessibles via Inter
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 for Operations (précédemment appelé Dynamics AX Online) est-il accessible par le biais d’une connexion ExpressRoute ?
 Oui. [Dynamics 365 pour les opérations](https://www.microsoft.com/dynamics365/operations) est hébergé sur Azure. Vous pouvez activer l’homologation publique Azure sur votre circuit ExpressRoute pour vous y connecter. 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

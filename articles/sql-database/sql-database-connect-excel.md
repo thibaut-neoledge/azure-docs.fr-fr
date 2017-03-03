@@ -19,6 +19,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,10 +80,5 @@ Maintenant que vous avez établi la connexion et créé le fichier avec les donn
 * Découvrez comment [se connecter à la base de données SQL avec SQL Server Management Studio](sql-database-connect-query-ssms.md) pour une interrogation et une analyse avancées.
 * En savoir plus sur les avantages des [pools élastiques](sql-database-elastic-pool.md).
 * Découvrez comment [créer une application web qui se connecte à la base de données SQL sur le serveur principal](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
 ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
 ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -354,9 +355,4 @@ Une fois la restauration automatique effectuée, vous souhaiterez probablement r
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur](site-recovery-vmware-to-azure-classic.md) la réplication de machines virtuelles VMware et de serveurs physiques sur Azure à l’aide d’un déploiement amélioré.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

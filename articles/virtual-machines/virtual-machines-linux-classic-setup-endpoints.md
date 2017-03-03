@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -36,10 +37,5 @@ Lorsque vous créez une machine virtuelle Linux sur le portail Azure Classic, un
 ## <a name="next-steps"></a>Étapes suivantes
 * Vous pouvez également créer un point de terminaison de machine virtuelle à l’aide de l’ [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Exécutez la commande **azure vm endpoint create** .
 * Si vous avez créé une machine virtuelle dans le modèle de déploiement Resource Manager, vous pouvez utiliser l’interface CLI Azure en mode Resource Manager pour [créer des groupes de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-cli.md) afin de contrôler le trafic vers la machine virtuelle.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
