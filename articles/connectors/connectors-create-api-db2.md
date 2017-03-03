@@ -18,6 +18,7 @@ ms.author: plarsen
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -410,10 +411,5 @@ Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ain
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

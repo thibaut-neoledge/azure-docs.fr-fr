@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 1e23402cbc63aeb262bfb471745589cc0bbd734f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -157,10 +158,5 @@ Les actions et déclencheurs précédents peuvent renvoyer un ou plusieurs des c
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

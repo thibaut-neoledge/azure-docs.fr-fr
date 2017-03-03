@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e6f569355dd73919824f22c88ce3eead10e5b853
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -204,10 +205,5 @@ Obtenir le jeton du porteur pour accéder au déchiffrage de la vidéo.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
