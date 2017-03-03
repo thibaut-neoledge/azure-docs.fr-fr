@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
 ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -94,10 +95,5 @@ Azure SQL Database n’est pas une aubaine que pour les clients SpectrumNG, qui 
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure Service Bus, consultez [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Pour plus d’informations sur la mise à l’échelle automatique, consultez [Mise à l’échelle des services cloud](../cloud-services/cloud-services-how-to-scale.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
 ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -97,10 +98,5 @@ Après l’exécution de [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.c
 * Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Pour une description du processus complet de migration d’une base de données SQL Server, notamment les recommandations relatives aux performances, consultez [Migrer une base de données SQL Server vers Azure SQL Database](sql-database-cloud-migrate.md).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
