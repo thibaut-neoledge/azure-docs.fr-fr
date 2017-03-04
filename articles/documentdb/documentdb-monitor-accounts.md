@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
 ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -123,10 +124,5 @@ Si vos mosaïques d’analyse affichent le message **Aucune donnée disponible**
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la planification de la capacité de DocumentDB, consultez le [calculateur DocumentDB Capacity Planner](https://www.documentdb.com/capacityplanner).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
