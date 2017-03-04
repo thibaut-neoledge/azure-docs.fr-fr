@@ -17,6 +17,7 @@ ms.author: chkuhtz
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -135,9 +136,4 @@ Le type de règle faisant appel à l’adresse IP flottante constitue la base de
 * Avec la règle d’adresse IP flottante, votre application doit utiliser l’adresse IP dédiée pour les flux sortants. Si votre application se lie à l’adresse IP virtuelle configurée sur l’interface de bouclage du SE invité, SNAT n’est pas disponible pour réécrire le flux sortant et le flux échoue.
 * Les adresses IP publiques ont une incidence sur la facturation. Pour plus d’informations, voir la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Des limites d’abonnement s’appliquent. Pour plus d’informations, voir les [limites de service](../azure-subscription-service-limits.md#networking-limits) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 9af9f95e9638eda71fbc4508bea8e35ce5191734
 ms.openlocfilehash: 3caabe366db4def4f8332c64d08f86f271c31bb2
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -44,10 +45,5 @@ Les informations suivantes peuvent vous aider à configurer et utiliser efficace
   * Stockez les données partagées dans des emplacements de stockage externes au service, tels que les partages de fichiers locaux ou OneDrive.
   * Configurez les paramètres du système dans l'image de modèle plutôt que dans les machines virtuelles d'un service.
   * Désactivez les mises à jour logicielles automatiques pour les applications publiées. Appliquez-les plutôt manuellement à l'image de modèle et testez-les avant d'effectuer le déploiement à partir du modèle.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

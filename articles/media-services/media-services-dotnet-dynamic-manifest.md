@@ -17,6 +17,7 @@ ms.author: juliako;cenkdin
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -133,10 +134,5 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
