@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
 ms.openlocfilehash: 2c24699f6253fc7952b331ebcce4b937f1c83603
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -151,9 +152,4 @@ Vous trouverez ci-dessous plus d’informations sur la manière d’avancer le d
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 Essayez la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) dès maintenant. Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

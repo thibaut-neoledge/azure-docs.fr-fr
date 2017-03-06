@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -110,10 +111,5 @@ Les éléments suivants sont des champs d’entrée pour l’action Réponse HTT
 
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

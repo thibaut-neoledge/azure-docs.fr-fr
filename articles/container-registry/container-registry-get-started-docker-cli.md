@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Transmettre votre première image vers un Registre de conteneur à l’aide de l’interface de ligne de commande (CLI) Docker
@@ -33,7 +34,7 @@ Pour en savoir plus et connaître les concepts, consultez [What is Azure Contain
 > 
 
 ## <a name="prerequisites"></a>Composants requis
-* **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou la [version préliminaire d’Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Interface CLI Docker** : configurez votre ordinateur local comme un hôte Docker et accédez aux commandes de l’interface CLI Docker, installez le [moteur Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Se connecter à un Registre
@@ -114,10 +115,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Maintenant que vous connaissez les principes de base, vous êtes prêt à utiliser votre Registre. Par exemple, commencez à déployer les images du conteneur vers un cluster [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

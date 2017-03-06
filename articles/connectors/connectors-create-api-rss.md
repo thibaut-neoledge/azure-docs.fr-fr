@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5e13e126fecda66a453b4ced619016121af98b2c
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -120,10 +121,5 @@ Obtenir tous les éléments du flux RSS : obtient tous les éléments du flux RS
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

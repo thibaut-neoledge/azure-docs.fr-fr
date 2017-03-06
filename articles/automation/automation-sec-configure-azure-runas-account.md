@@ -13,11 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 02/24/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
-ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
+ms.sourcegitcommit: 6966befa56dc6a0feff4b8a821bde4e423a2b53a
+ms.openlocfilehash: 97853ce9f78078cc6bbccdfb5c5a06cae49e218c
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -38,16 +39,15 @@ Le processus s’en trouve ainsi simplifié, et vous êtes en mesure de commence
 
 > [!NOTE]
 > La [fonctionnalité d’intégration d’alertes](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) Azure associée aux Runbooks globaux requiert un compte Automation configuré avec un compte d’identification standard ou Classic. Vous pouvez sélectionner un compte Automation pour lequel un compte d’identification standard ou Classic est déjà défini ou choisir d’en créer un.
-> 
-> 
+>  
 
-Nous allons vous montrer comment créer un compte Automation à partir du portail Azure, le mettre à jour à l’aide de PowerShell et vous authentifier dans vos Runbooks.
+Nous allons vous montrer comment créer un compte Automation à partir du portail Azure, le mettre à jour à l’aide de PowerShell, gérer la configuration du compte et vous authentifier dans vos Runbooks.
 
 Avant de poursuivre, voici quelques points que vous devez comprendre et prendre en considération.
 
 1. Cela n’affecte pas les comptes Automation existants déjà créés dans le modèle de déploiement classique ou Resource Manager.  
 2. Cela fonctionne uniquement pour les comptes Automation créés via le portail Azure.  Si vous tentez de créer un compte à partir du portail Classic, la configuration du compte d’identification ne sera pas répliquée.
-3. Si vous disposez actuellement de Runbooks et de ressources (c’est-à-dire des planifications, des variables, etc.) créés précédemment pour gérer les ressources classiques, et que vous souhaitez que ces Runbooks soient authentifiés avec le nouveau compte d’identification Classic, vous devez les migrer vers le nouveau compte Automation ou mettre à jour votre compte existant à l’aide du script PowerShell indiqué ci-après.  
+3. Si vous disposez actuellement de Runbooks et de ressources (c’est-à-dire des planifications, des variables, etc.) créés précédemment pour gérer les ressources classiques, et que vous souhaitez que ces Runbooks soient authentifiés avec le nouveau compte d’identification Classic, vous devez créer un compte d’identification classique à l’aide de Gérer un compte d’identification classique ou mettre à jour votre compte existant à l’aide du script PowerShell indiqué ci-après.  
 4. Pour vous authentifier à l’aide du nouveau compte d’identification ou du compte Automation d’identification Classic, vous devez modifier les Runbooks existants avec l’exemple de code indiqué ci-dessous.  **Notez** que le compte d’identification est destiné à une authentification auprès des ressources Resource Manager à l’aide du principal du service basé sur les certificats, et que le compte d’identification Classic est destiné à une authentification auprès des ressources de gestion des services avec le certificat de gestion.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Créer un compte Automation à partir du portail Azure
@@ -55,7 +55,6 @@ Dans cette section, vous allez suivre une procédure qui vous permettra de crée
 
 > [!NOTE]
 > Pour effectuer cette procédure, vous devez posséder le rôle Administrateurs de services ou être coadministrateur de l’abonnement, ce qui permet d’accéder à l’abonnement de l’utilisateur. Vous devez également ajouter l’utilisateur en tant qu’utilisateur au domaine Active Directory par défaut de cet abonnement. Il est inutile d’attribuer le compte à un rôle privilégié. Les utilisateurs qui ne sont pas membres du domaine Active Directory de l’abonnement avant de recevoir le rôle Coadministrateur de l’abonnement seront ajoutés à Active Directory en tant qu’invités et verront l’avertissement « Vous ne disposez pas des autorisations nécessaires pour créer... » dans le panneau **Ajouter un compte Automation**. Les utilisateurs qui ont d’abord reçu le rôle Coadministrateur peuvent être supprimés des abonnements Active Directory puis rajoutés pour en faire des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**.  La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.  
-> 
 > 
 
 1. Connectez-vous au portail Azure avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
@@ -74,9 +73,9 @@ Dans cette section, vous allez suivre une procédure qui vous permettra de crée
    > Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**.  Même si le compte est créé dans le portail Azure, il n’aura pas d’identité d’authentification correspondante au sein de votre service d’annuaire des abonnements classique ou Resource Manager et n’aura donc pas accès aux ressources de votre abonnement.  Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
    > 
    > ![Avertissement Ajouter un compte Automation](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
-   >  Si le principal du service n’est pas créé, le rôle Collaborateur n’est pas attribué.
+   > Si le principal du service n’est pas créé, le rôle Collaborateur n’est pas attribué.
    > 
-   > 
+
 7. Pour suivre la progression de la création du compte Automation, accédez à l’onglet **Notifications** du menu.
 
 ### <a name="resources-included"></a>Ressources incluses
@@ -84,7 +83,7 @@ Une fois le compte Automation créé, plusieurs ressources vous sont automatique
 
 | Ressource | Description |
 | --- | --- |
-| Runbook AzureAutomationTutorial |Exemple de Runbook PowerShell qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
+| Runbook AzureAutomationTutorial |Exemple de Runbook Graphical qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Exemple de Runbook PowerShell qui illustre l’authentification à l’aide du compte d’identification et l’accès à l’ensemble des ressources Resource Manager. |
 | AzureRunAsCertificate |Ressource de certificat créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell ci-dessous pour un compte existant.  Elle vous permet de vous authentifier auprès d’Azure afin de pouvoir gérer les ressources Azure Resource Manager des Runbooks.  Ce certificat a une durée de vie d’un an. |
 | AzureRunAsConnection |Ressource de connexion créée automatiquement lors de la création du compte Automation ou à l’aide du script PowerShell ci-dessous pour un compte existant. |
@@ -93,8 +92,8 @@ Le tableau ci-dessous récapitule les ressources du compte d’identification Cl
 
 | Ressource | Description |
 | --- | --- |
-| Runbook AzureClassicAutomationTutorial |Exemple de Runbook qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
-| Runbook AzureClassicAutomationTutorialScript |Exemple de Runbook qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
+| Runbook AzureClassicAutomationTutorial |Exemple de Runbook Graphical qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
+| Runbook AzureClassicAutomationTutorialScript |Exemple de Runbook PowerShell qui accède à toutes les machines virtuelles Classic d’un abonnement à l’aide du compte d’identification Classic (certificat), puis indique leur nom et état. |
 | AzureClassicRunAsCertificate |Ressource de certificat créée automatiquement, qui est utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks.  Ce certificat a une durée de vie d’un an. |
 | AzureClassicRunAsConnection |Ressource de connexion créée automatiquement, qui est utilisée pour l’authentification auprès d’Azure afin que vous puissiez gérer les ressources Azure Classic des Runbooks. |
 
@@ -126,21 +125,51 @@ Nous allons à présent effectuer un test rapide afin de vérifier que vous ête
 9. Fermez le panneau **Sortie** pour revenir au panneau **Résumé du travail**.
 10. Fermez le panneau **Résumé du travail** et le panneau du Runbook **AzureClassicAutomationTutorialScript** correspondant.
 
+## <a name="managing-azure-run-as-account"></a>Gestion d’un compte d’identification Azure
+Pendant la durée de vie de votre compte Automation, vous devez renouveler le certificat avant qu’il n’arrive à expiration ou si vous pensez que le compte a été compromis, vous pouvez supprimer le compte d’identification et le recréer.  Cette section fournit les étapes pour effectuer ces opérations.  
+
+### <a name="certificate-renewal"></a>Renouvellement du certificat
+Le certificat créé pour le compte d’identification Azure peut être renouvelé à tout moment, jusqu'à ce qu’il arrive à expiration, ce qui correspond au délai d’une année à partir de la date de création.  Lorsque vous le renouvelez, l’ancien certificat valide est conservé afin de garantir que les Runbooks en file d’attente ou en cours d’exécution, qui s’authentifient avec le compte d’identification, ne sont pas affectés.  Le certificat continue d’exister jusqu’à son expiration.     
+
+1. Dans le portail Azure, ouvrez le compte Automation.  
+2. Dans le panneau du compte Automation, dans le panneau des propriétés du compte, sélectionnez **Comptes d’identification** sous la section **Paramètres de compte**.<br><br> ![Panneau des propriétés du compte Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)<br><br>
+3. Dans le panneau des propriétés des **Comptes d’identification**, sélectionnez le compte d’identification ou le compte d’identification classique pour lequel vous souhaitez renouveler le certificat, puis dans le panneau des propriétés du compte sélectionné, cliquez sur **Renouveler le certificat**.<br><br> ![Renouveler le certificat pour le compte d’identification](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)<br><br> Vous recevez une invite de confirmation de la suppression.  
+4. Pour suivre la progression du renouvellement du certificat, accédez à l’onglet **Notifications** du menu.
+
+### <a name="delete-run-as-account"></a>Supprimer un compte d’identification
+Les étapes suivantes décrivent comment supprimer et recréer votre compte d’identification ou compte d’identification classique Azure.  Lorsque vous effectuez cette opération, le compte Automation est conservé.  Après avoir supprimé le compte d’identification ou le compte d’identification classique, vous pouvez le recréer dans le portail.  
+
+1. Dans le portail Azure, ouvrez le compte Automation.  
+2. Dans le panneau du compte Automation, dans le panneau des propriétés du compte, sélectionnez **Comptes d’identification** sous la section **Paramètres de compte**.
+3. Dans le panneau des propriétés des **Comptes d’identification**, sélectionnez le compte d’identification ou le compte d’identification classique à supprimer, puis dans le panneau des propriétés du compte sélectionné, cliquez sur **Supprimer**.<br><br> ![Supprimer un compte d’identification](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Vous recevez une invite de confirmation de la suppression.
+4. Pour suivre la progression de la suppression du compte, accédez à l’onglet **Notifications** du menu.  Une fois la suppression terminée, vous pouvez recréer le compte à partir du panneau des propriétés **Comptes d’identification** et en sélectionnant l’option de création **Compte d’identification Azure**.<br><br> ![Recréer le compte d’identification Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+
+### <a name="misconfiguration"></a>Configuration incorrecte
+Si l’un des éléments de configuration nécessaires pour que le compte d’identification ou le compte d’identification classique fonctionne correctement est supprimé ou n’a pas été créé correctement lors de l’installation initiale, par exemple :
+
+* Ressource de certificat 
+* Ressource de connexion 
+* Compte d’identification supprimé du rôle Contributeur
+* Principal du service ou application dans Azure AD
+
+Automation détecte ces modifications et affiche une notification avec l’état **Incomplet** dans le panneau des propriétés **Comptes d’identification** du compte.<br><br> ![Message d’état Incomplet pour la configuration du compte d’identification](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>Lorsque vous sélectionnez le compte d’identification, l’avertissement suivant s’affiche dans le volet des propriétés du compte :<br><br> ![Message d’avertissement Incomplet pour la configuration du compte d’identification](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
+Si votre compte d’identification est mal configuré, vous pouvez rapidement résoudre ce problème en supprimant et recréant le compte d’identification.   
+
 ## <a name="update-an-automation-account-using-powershell"></a>Mise à jour d’un compte Automation à l’aide de PowerShell
 Nous vous permettons ici d’utiliser PowerShell pour mettre à jour votre compte Automation existant si :
 
 1. Vous avez créé un compte Automation sans compte d’identification.
-2. Vous possédez déjà un compte Automation pour gérer les ressources Resource Manager et vous voulez le mettre à jour pour inclure le compte d’identification pour l’authentification du Runbook.
-3. Vous possédez déjà un compte Automation pour gérer les ressources classiques et souhaitez le mettre à jour pour utiliser le compte d’identification Classic au lieu de créer un compte et d’y migrer vos Runbooks et ressources.   
+2. Vous devez créer un compte Automation dans le cloud Azure Government
+3. Vous possédez déjà un compte Automation pour gérer les ressources Resource Manager et vous voulez le mettre à jour pour inclure le compte d’identification pour l’authentification du Runbook.
+4. Vous possédez déjà un compte Automation pour gérer les ressources classiques et souhaitez le mettre à jour pour utiliser le compte d’identification Classic au lieu de créer un compte et d’y migrer vos Runbooks et ressources.   
 
 Avant de continuer, vérifiez que :
 
-1. Vous avez téléchargé et installé [Windows Management Framework 4.0 (WMF)](https://www.microsoft.com/download/details.aspx?id=40855) si vous utilisez Windows 7.   
-    Si vous utilisez Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 et Windows 7 SP1, [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) peut être installé.
-2. Azure PowerShell 1.0. Pour plus d’informations sur cette version et sur la méthode d’installation, voir l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Ce script prend en charge l’exécution uniquement sur Windows 10 et Windows Server 2016 avec les modules Azure Resource Manager 2.01 et versions ultérieures.  Il n’est pas pris en charge dans les versions antérieures de Windows.  
+2. Azure PowerShell 1.0 et versions ultérieures. Pour plus d’informations sur cette version et sur la méthode d’installation, voir l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. Vous avez créé un compte Automation.  Ce compte sera référencé en tant que valeur des paramètres –AutomationAccountName et –ApplicationDisplayName dans les deux scripts ci-dessous.
 
-Pour obtenir les valeurs des paramètres *SubscriptionID*, *ResourceGroup* et *AutomationAccountName*, qui sont requis pour les scripts, dans le portail Azure, sélectionnez votre compte Automation dans le panneau **Compte Automation** et sélectionnez **Tous les paramètres**.  Dans le panneau **Tous les paramètres**, sous **Paramètres du compte**, sélectionnez **Propriétés**.  Dans le panneau **Propriétés**, vous pouvez observer ces valeurs.<br> ![Propriétés du compte Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+Pour obtenir les valeurs des paramètres *SubscriptionID*, *ResourceGroup* et *AutomationAccountName*, qui sont requis pour les scripts, dans le portail Azure, sélectionnez votre compte Automation dans le panneau **Compte Automation** et sélectionnez **Tous les paramètres**.  Dans le panneau **Tous les paramètres**, sous **Paramètres du compte**, sélectionnez **Propriétés**.  Dans le panneau **Propriétés**, vous pouvez observer ces valeurs.<br><br> ![Propriétés du compte Automation](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-run-as-account-powershell-script"></a>Créer le script PowerShell d’un compte d’identification
 Le script PowerShell indiqué ci-dessous configure les éléments suivants :
@@ -172,9 +201,18 @@ Les étapes ci-dessous vous guident tout au long de l’exécution du script.
    
         [Parameter(Mandatory=$false)]
         [int] $NoOfMonthsUntilExpired = 12
+
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
         )
    
-        Login-AzureRmAccount
+        #Check to see which cloud environment to sign into.
+        Switch ($Environment)
+        {
+          "AzureCloud" {Login-AzureRmAccount}
+          "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+        }
         Import-Module AzureRM.Resources
         Select-AzureRmSubscription -SubscriptionId $SubscriptionId
    
@@ -195,9 +233,9 @@ Les étapes ci-dessous vous guident tout au long de l’exécution du script.
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= $EndDate
         $KeyCredential.KeyId = $KeyId
-        $KeyCredential.Type = "AsymmetricX509Cert"
-        $KeyCredential.Usage = "Verify"
-        $KeyCredential.Value = $KeyValue
+        #$KeyCredential.Type = "AsymmetricX509Cert"
+        #$KeyCredential.Usage = "Verify"
+        $KeyCredential.CertValue = $KeyValue
    
         # Use Key credentials
         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
@@ -229,8 +267,9 @@ Les étapes ci-dessous vous guident tout au long de l’exécution du script.
         Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+
 2. Sur votre ordinateur, démarrez **Windows PowerShell** dans l’écran **Démarrer** avec des droits de l’utilisateur élevés.
-3. À partir de l’interpréteur de commandes en ligne de commande PowerShell avec élévation de privilèges, accédez au dossier qui contient le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* et *-CertPlainPassword*.<br>
+3. À partir de l’interpréteur de commandes en ligne de commande PowerShell avec élévation de privilèges, accédez au dossier qui contient le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, *-CertPlainPassword* et *-Environment*.<br>
    
    > [!NOTE]
    > Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous devez vous connecter avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
@@ -241,7 +280,7 @@ Les étapes ci-dessous vous guident tout au long de l’exécution du script.
         -AutomationAccountName <NameofAutomationAccount> `
         -ApplicationDisplayName <DisplayNameofAutomationAccount> `
         -SubscriptionId <SubscriptionId> `
-        -CertPlainPassword "<StrongPassword>"  
+        -CertPlainPassword "<StrongPassword>" -Environment <valid values are AzureCloud or AzureUSGovernment>  
    <br>
 
 Une fois le script exécuté, reportez-vous à [l’exemple de code](#sample-code-to-authenticate-with-resource-manager-resources) ci-dessous pour vous authentifier auprès des ressources Resource Manager et valider la configuration des informations d’identification.
@@ -307,6 +346,7 @@ Le script crée un certificat de gestion auto-signé et l’enregistre dans le d
         Write-Host -ForegroundColor red "Please upload the cert $CertPathCer to the Management store by following the steps below."
         Write-Host -ForegroundColor red "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates."
         Write-Host -ForegroundColor red "Then click Upload and upload the certificate $CertPathCer"
+
 2. Sur votre ordinateur, démarrez **Windows PowerShell** dans l’écran **Démarrer** avec des droits de l’utilisateur élevés.  
 3. À partir de l’interpréteur de commandes en ligne de commande PowerShell avec élévation de privilèges, accédez au dossier qui contient le script créé à l’étape 1 et exécutez-le en modifiant les valeurs des paramètres *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* et *-CertPlainPassword*.<br>
    
@@ -333,7 +373,7 @@ Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’
        # Get the connection "AzureRunAsConnection "
        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-       "Logging in to Azure..."
+       "Signing in to Azure..."
        Add-AzureRmAccount `
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
@@ -354,7 +394,7 @@ Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’
     }
 
 
-Le script inclut deux lignes de code supplémentaires pour prendre en charge le référencement d’un contexte d’abonnement ; le travail entre plusieurs abonnements est ainsi facilité. Une ressource de variable nommée SubscriptionId contient l’ID de l’abonnement et, suite à l’instruction de l’applet de commande Add-AzureRmAccount, [l’applet de commande Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) est indiquée avec le jeu de paramètres *-SubscriptionId*. Si le nom de la variable est trop générique, vous pouvez modifier le nom de la variable afin que celui-ci comprenne un préfixe ou une autre convention d’affectation de noms pour faciliter son identification. Vous pouvez également utiliser le jeu de paramètres -SubscriptionName au lieu de -SubscriptionId avec la ressource de variable correspondante.  
+Le script inclut deux lignes de code supplémentaires pour prendre en charge le référencement d’un contexte d’abonnement ; le travail entre plusieurs abonnements est ainsi facilité. Une ressource de variable nommée SubscriptionId contient l’ID de l’abonnement et, suite à l’instruction de l’applet de commande Add-AzureRmAccount, [l’applet de commande Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) est indiquée avec le jeu de paramètres *-SubscriptionId*. Si le nom de la variable est trop générique, vous pouvez modifier le nom de la variable afin que celui-ci comprenne un préfixe ou une autre convention d’affectation de noms pour faciliter son identification. Vous pouvez également utiliser le jeu de paramètres -SubscriptionName au lieu de -SubscriptionId avec la ressource de variable correspondante.    
 
 Notez que l’applet de commande utilisée pour l’authentification ( **Add-AzureRmAccount**) dans le Runbook, utilise le jeu de paramètres *ServicePrincipalCertificate* .  Elle effectue l’authentification à l’aide du certificat du principal du service et non des informations d’identification.  
 
@@ -390,10 +430,5 @@ Vous pouvez utiliser l’exemple de code mis à jour ci-dessous, extrait de l’
 * Pour plus d’informations sur les principaux de service, consultez l’article [Objets Principal du service et Application](../active-directory/active-directory-application-objects.md).
 * Pour plus d’informations sur le contrôle d’accès en fonction du rôle dans Azure Automation, reportez-vous à l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 * Pour plus d’informations sur les certificats et les services Azure, consultez la page [Vue d’ensemble des certificats pour Azure Cloud Services](../cloud-services/cloud-services-certs-create.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

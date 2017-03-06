@@ -1,6 +1,6 @@
 ---
 title: "Prise en main des applets de commande PowerShell pour Azure Batch | Microsoft Docs"
-description: "Obtenir une brève présentation des applets de commande Azure PowerShell à utiliser pour gérer le service Azure Batch"
+description: "Brève présentation des applets de commande Azure PowerShell à utiliser pour gérer les ressources Batch."
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Prise en main des applets de commande Azure Batch PowerShell
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
+
 Avec les applets de commande Azure Batch PowerShell, vous pouvez effectuer pratiquement les mêmes tâches qu’avec les API Batch, le portail Azure et l’interface de ligne de commande Azure, et en écrire les scripts. Il s’agit d’une présentation rapide des applets de commande que vous pouvez utiliser pour gérer vos comptes Batch et travailler avec des ressources Batch telles que les pools, les travaux et les tâches.
 
 Pour obtenir une liste complète des applets de commande Batch et la syntaxe détaillée des applets de commande, consultez [Référence d’applet de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
@@ -236,10 +239,5 @@ Vous avez mis à jour les propriétés du pool dans le service Batch. Pour dépl
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour connaître la syntaxe détaillée des applets de commande et obtenir des exemples, consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 * Pour plus d’informations sur les applications et les packages d’application dans Batch, consultez [Déploiement d’applications avec des packages d’application Azure Batch](batch-application-packages.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

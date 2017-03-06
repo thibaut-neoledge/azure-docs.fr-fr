@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 0b2c783712419de1ab1897a0404429fc4ed4c688
 ms.openlocfilehash: 244c3320d673b884057b4200bed0c7858b1a2fea
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -607,9 +608,4 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
  Consultez le [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

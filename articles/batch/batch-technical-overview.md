@@ -1,5 +1,5 @@
 ---
-title: "Présentation du service Azure Batch | Microsoft Docs"
+title: "Azure Batch exécute des solutions de calcul parallèles à grande échelle dans le cloud | Microsoft Docs"
 description: "Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle"
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Notions de base d’Azure Batch
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Exécuter des charges de travail intrinsèquement parallèles avec Batch
+
 Azure Batch est une plateforme qui permet d’exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. Azure Batch planifie les travaux nécessitant une grande quantité de ressources système à exécuter sur une collection gérée de machines virtuelles. Il peut mettre automatiquement à l’échelle les ressources de calcul pour répondre aux besoins des tâches.
 
 Avec le Azure Batch, vous définissez facilement des ressources de calcul Azure pour exécuter vos applications en parallèle et à grande échelle. Vous n’avez pas à créer, configurer et gérer manuellement un cluster HPC, des machines virtuelles individuelles, des réseaux virtuels ou une infrastructure complexe de planification des tâches et des travaux. Azure Batch automatise ou simplifie ces tâches.
@@ -156,9 +159,4 @@ Maintenant que vous disposez d’une vue d’ensemble du service Batch, le momen
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

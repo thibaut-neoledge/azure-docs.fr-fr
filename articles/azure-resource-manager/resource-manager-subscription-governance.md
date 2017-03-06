@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
 ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -250,10 +251,5 @@ Parmi les plus grands blocages à l’adoption du cloud, on compte les préoccup
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Maintenant que vous connaissez mieux la gouvernance des abonnements, il est temps pour voir ces recommandations dans la pratique. Voir la rubrique [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Exemples d’implémentation de la gouvernance des abonnements Azure).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

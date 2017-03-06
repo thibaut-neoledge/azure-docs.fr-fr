@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ Examinons ces étapes plus attentivement pour nous assurer que vous comprenez le
 1. Connectez-vous à votre compte.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. Créez une application Active Directory en indiquant un nom d’affichage, l’URI décrivant votre application, les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
@@ -152,7 +153,7 @@ Maintenant, vous devez vous connecter en tant qu’application pour effectuer de
 4. Ouvrez une session en tant que principal du service en spécifiant que ce compte est un principal du service et en fournissant l’objet informations d’identification. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
@@ -234,7 +235,7 @@ Vous disposez maintenant de votre certificat et pouvez continuer à créer votre
 2. Connectez-vous à votre compte Azure.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. Créez une application Active Directory en indiquant un nom d’affichage, l’URI décrivant votre application, les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
    
@@ -304,7 +305,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 Pour vous authentifier dans votre script, spécifiez le compte principal du service et indiquez l’empreinte de certificat, l’ID d’application et l’ID client. Pour automatiser votre script, vous pouvez soit stocker ces valeurs en tant que variables d’environnement et les récupérer lors de l’exécution, soit les inclure dans votre script.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 Vous êtes maintenant authentifié en tant que principal du service pour l’application Active Directory que vous avez créée.
@@ -363,10 +364,5 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 * Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 * Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](../active-directory/active-directory-application-objects.md). 
 * Pour plus d’informations sur l’authentification Active Directory, consultez la rubrique [Scénarios d’authentification pour Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

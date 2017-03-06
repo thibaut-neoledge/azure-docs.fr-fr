@@ -17,6 +17,7 @@ ms.author: juliako;mingfeiy
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -425,10 +426,5 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 
 ## <a name="next-step"></a>Étape suivante
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md) .
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

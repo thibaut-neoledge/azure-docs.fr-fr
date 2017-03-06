@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -107,10 +108,5 @@ L’objectif immédiat de SnelStart est de continuer à faire croître sa base d
 * Pour plus d’informations sur les rôles Web et de travail, consultez [Rôles de travail](../fundamentals-introduction-to-azure.md#compute).    
 * Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Pour plus d’informations sur SnelStart, consultez [SnelStart](http://www.snelstart.nl).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

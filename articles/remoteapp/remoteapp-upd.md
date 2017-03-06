@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
 ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -145,10 +146,5 @@ Vous pouvez également enregistrer vos informations d'identification en exécuta
 
 
 Vous pouvez ainsi ignorer le paramètre -Credential dans l'applet de commande New-PSDrive.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

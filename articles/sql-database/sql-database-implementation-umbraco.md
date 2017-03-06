@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -129,10 +130,5 @@ Depuis le choix d’Azure comme partenaire cloud, Umbraco a pu fournir aux clien
 * Pour plus d’informations sur la sauvegarde et la récupération, consultez [Continuité d’activité](sql-database-business-continuity.md).    
 * Pour plus d’informations sur l’analyse des pools, consultez [Analyse des pools](sql-database-elastic-pool-manage-portal.md).    
 * Pour plus d’informations sur Umbraco-as-a-Service, consultez [Umbraco](https://umbraco.com/cloud).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

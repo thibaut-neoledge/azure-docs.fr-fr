@@ -19,6 +19,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
 ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -118,10 +119,5 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 - - -
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) dès maintenant. Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

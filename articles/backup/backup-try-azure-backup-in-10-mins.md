@@ -1,6 +1,6 @@
 ---
-title: "Sauvegarder des fichiers et des dossiers de Windows vers Azure avec Azure Backup à l’aide du modèle de déploiement Resource Manager | Microsoft Docs"
-description: "Apprenez à sauvegarder des fichiers et des dossiers Windows vers Azure dans un déploiement Resource Manager."
+title: Sauvegarde de fichiers et de dossiers Windows sur Azure (Resource Manager) | Microsoft Docs
+description: "Découvrez comment sauvegarder des fichiers et des dossiers Windows vers Azure dans un déploiement Resource Manager."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server
 
 Si vous souhaitez en savoir plus sur Azure Backup, lisez cette [présentation](backup-introduction-to-azure-backup.md).
 
-La sauvegarde des fichiers et dossiers sur Azure nécessite les activités suivantes :
-
-![Étape 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtenir un abonnement Azure (si vous n’en avez pas encore).<br>
-![Étape 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Créer un coffre Recovery Services.<br>
-![Étape 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Télécharger les fichiers nécessaires.<br>
-![Étape 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Installer et inscrire l’agent Recovery Services.<br>
-![Étape 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Sauvegarder vos fichiers et dossiers.
-
-![Comment sauvegarder votre ordinateur Windows avec Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Obtenir un abonnement Azure
 Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
@@ -70,6 +60,7 @@ Pour sauvegarder vos fichiers et dossiers, vous devez créer un archivage de Rec
   Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées.
+
 8. En bas du panneau du coffre Recovery Services, cliquez sur **créer**.
 
     La création du coffre Recovery Services peut prendre plusieurs minutes. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il apparaît dans la liste des archivages de Recovery Services. Si vous ne voyez pas votre coffre après quelques minutes, cliquez sur **Actualiser**.
@@ -229,9 +220,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
 * Maintenant que vous avez sauvegardé vos fichiers et vos dossiers, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

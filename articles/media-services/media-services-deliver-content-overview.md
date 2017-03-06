@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -184,10 +185,5 @@ Certains clients Smooth Streaming hérités peuvent ne pas prendre en charge les
 
 ## <a name="related-topics"></a>Rubriques connexes
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

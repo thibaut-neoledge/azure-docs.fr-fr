@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
 ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -407,9 +408,4 @@ L’outil WAImportExport lit et écrit les fichiers par lots, un lot contenant a
 **Fichier XML** : pour chaque disque dur que vous préparez avec l’outil WAImportExport, ce dernier crée un fichier journal nommé « &lt;DriveID&gt;.xml », où DriveID est le numéro de série lu par l’outil sur le disque. Vous devez avoir les fichiers journaux de tous vos disques pour créer le travail d’importation dans le portail Azure. Ce fichier journal permet également de reprendre la préparation du disque en cas d’interruption de l’outil.
 
 **Fichier JRN** : le fichier journal portant l’extension JRN contient l’état de toutes les sessions de copie pour un ensemble de disques durs. Il contient également les informations nécessaires à la création du travail d’importation. Vous devez toujours spécifier un fichier journal lorsque vous exécutez l’outil WAImportExport, ainsi qu’un ID de session de copie.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

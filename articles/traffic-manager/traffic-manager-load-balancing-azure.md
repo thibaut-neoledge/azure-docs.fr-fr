@@ -17,6 +17,7 @@ ms.author: limichel
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -210,9 +211,4 @@ Nous allons maintenant configurer l’adresse IP et le port frontal de l’équ
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Vue d’ensemble d’Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

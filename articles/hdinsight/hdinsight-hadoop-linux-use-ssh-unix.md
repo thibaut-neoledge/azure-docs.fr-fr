@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Utilisation de clés SSH avec un cluster Hadoop basé sur Linux, Unix ou OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ De nombreux systèmes d’exploitation fournissent des fonctionnalités de clien
 * __SSH__ : un client SSH général qui peut être utilisé pour établir une session de ligne de commande à distance et créer des tunnels.
 * __SCP__ : un utilitaire qui copie des fichiers entre les systèmes locaux et distants à l’aide du protocole SSH.
 
-Historiquement, Windows n’a jamais fourni de client SSH jusqu’à l’Édition anniversaire de Windows 10. Cette version de Windows inclut l’interpréteur de commandes sur la fonctionnalité de Windows 10 pour les développeurs, qui fournit `ssh`, `scp` et d’autres commandes Linux. Pour plus d’informations sur l’interpréteur de commandes pour Windows 10, consultez la page [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Interpréteur de commandes sous Ubuntu et Windows).
+Windows 10 Anniversary Edition fournit Bash en tant que fonctionnalité de développement. Il fournit `ssh`, `scp` et d’autres commandes Linux. Pour plus d’informations sur l’interpréteur de commandes pour Windows 10, consultez la page [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Interpréteur de commandes sous Ubuntu et Windows).
 
 Si vous utilisez Windows et que vous n’avez pas accès à un interpréteur de commandes Windows 10, nous vous recommandons les clients SSH suivants :
 
 * [GIT pour Windows](https://git-for-windows.github.io/):  fournit les utilitaires de ligne de commande `ssh` et `scp`.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) : fournit un client SSH graphique.
-* [MobaXterm](http://mobaxterm.mobatek.net/) : fournit un client SSH graphique.
 * [Cygwin](https://cygwin.com/) : fournit les utilitaires de ligne de commande `ssh` et `scp`.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ L’utilisation du chiffrement à clé publique implique la création d’une pa
 
 * La **clé privée** correspond à ce que vous présentez au cluster HDInsight pour vous connecter à l’aide d’un client SSH, afin de vérifier votre identité. Protégez cette clé privée. Ne la partagez pas.
 
-    Vous pouvez ajouter une sécurité supplémentaire en créant une phrase secrète pour la clé privée. Vous devez fournir cette phrase secrète avant de pouvoir utiliser la clé.
+    Vous pouvez ajouter une sécurité supplémentaire en créant une phrase secrète pour la clé privée. Si vous utilisez une phrase secrète, vous devez l’entrer lors de l’authentification avec SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Créer une clé publique et une clé privée
 
@@ -91,7 +90,7 @@ Une fois la commande terminée, vous aurez deux nouveaux fichiers :
 * __id\_rsa__ : ce fichier contient la clé privée.
 
     > [!WARNING]
-    > Vous devez limiter l’accès à ce fichier pour empêcher tout accès non autorisé aux services sécurisés par la clé publique.
+    > Limitez l’accès à ce fichier pour empêcher tout accès non autorisé aux services sécurisés par la clé publique.
 
 * __id\_rsa.pub__ : ce fichier contient la clé publique. Vous aurez besoin de ce fichier lors de la création d’un cluster HDInsight.
 
@@ -115,13 +114,13 @@ Pour plus d’informations sur la configuration SSH lors de la création du clus
 
 Même si les utilisateurs SSH supplémentaires peuvent être ajoutés au cluster après sa création, cette opération n’est pas recommandée.
 
-* Vous devez ajouter manuellement de nouveaux utilisateurs SSH à chaque nœud du cluster.
+* De nouveaux utilisateurs SSH doivent être ajoutés à chaque nœud du cluster.
 
 * Les nouveaux utilisateurs SSH ont le même accès à HDInsight que l’utilisateur par défaut. Il n’existe aucun moyen de limiter l’accès aux données ou aux tâches dans HDInsight en fonction du compte d’utilisateur SSH.
 
 Pour limiter l’accès par utilisateur, vous devez utiliser un cluster HDInsight joint à un domaine. Un cluster HDInsight joint à un domaine utilise Active Directory pour contrôler l’accès aux ressources de cluster.
 
-L’utilisation d’un cluster HDInsight joint à un domaine vous permet de vous authentifier à l’aide d’Active Directory après vous être connecté avec SSH. Plusieurs utilisateurs peuvent se connecter à l’aide de SSH, puis s’authentifier à leur compte Active Directory après la connexion. Consultez la section [HDInsight joint à un domaine](#domainjoined) pour plus d’informations.
+L’utilisation d’un cluster HDInsight joint à un domaine vous permet de vous authentifier à l’aide d’Active Directory après vous être connecté avec SSH. Plusieurs utilisateurs peuvent se connecter à l’aide de SSH, puis s’authentifier à leur compte Active Directory après la connexion. Pour en savoir plus, consultez la section [HDInsight joint à un domaine](#domainjoined).
 
 ##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Connexion à HDInsight
 
@@ -147,7 +146,7 @@ Si vous utilisez une clé publique pour sécuriser le compte SSH, vous devrez pe
 
 ### <a name="connect-to-other-nodes"></a>Connexion à d’autres nœuds
 
-Les nœuds de travail et Zookeeper ne sont pas directement accessibles depuis l’extérieur du cluster, mais ils sont accessibles à partir des nœuds principaux ou de périphérie du cluster. Pour y parvenir, procédez comme suit :
+Les nœuds de travail et Zookeeper ne sont pas directement accessibles depuis l’extérieur du cluster, mais ils sont accessibles à partir des nœuds principaux ou de périphérie du cluster. Pour vous connecter a d’autres nœuds, procédez comme suit :
 
 1. Utilisez SSH pour vous connecter au nœud principal ou de périphérie :
 
@@ -183,7 +182,7 @@ Si vous utilisez une clé SSH pour authentifier votre compte d’utilisateur, vo
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Si aucun élément n’est renvoyé, cela indique que `ssh-agent` n’est pas en cours d’exécution. Reportez-vous aux informations de scripts de démarrage de l’agent dans [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Utilisation de ssh agent avec SSH) ou consultez la documentation de votre client SSH pour connaître les étapes spécifiques concernant l’installation et la configuration de `ssh-agent`.
+    Si aucun élément n’est renvoyé, alors `ssh-agent` n’est pas en cours d’exécution. Reportez-vous aux informations de scripts de démarrage de l’agent dans [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Utilisation de ssh agent avec SSH) ou consultez la documentation de votre client SSH pour connaître les étapes spécifiques concernant l’installation et la configuration de `ssh-agent`.
 
 4. Après avoir vérifié que **ssh agent** est en cours d’exécution, utilisez la commande suivante pour ajouter votre clé privée SSH à l’agent :
 
@@ -196,7 +195,7 @@ Si vous utilisez une clé SSH pour authentifier votre compte d’utilisateur, vo
 
 [HDInsight joint à un domaine](hdinsight-domain-joined-introduction.md) intègre Kerberos avec Hadoop dans HDInsight. Étant donné que l’utilisateur SSH n’est pas un utilisateur de domaine Active Directory, vous ne pouvez pas exécuter des commandes Hadoop avant de vous authentifier auprès d’Active Directory. Utilisez les étapes suivantes pour authentifier votre session SSH auprès d’Active Directory :
 
-1. Connectez-vous à un cluster HDInsight joint à un domaine à l’aide de SSH, comme indiqué dans la section [Connexion à HDInsight](#connect). Par exemple, la commande suivante se connecte à un cluster HDInsight nommé __myhdi__ à l’aide du nom de compte SSH __sshuser__.
+1. Connectez-vous à un cluster HDInsight joint à un domaine à l’aide de SSH. Par exemple, la commande suivante se connecte à un cluster HDInsight nommé __myhdi__ à l’aide du nom de compte SSH __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,12 +211,12 @@ Une fois l’authentification effectuée à l’aide de la commande `kinit`, vou
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunneling SSH
 
-Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
+Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête est transmise au cluster, puis résolue au sein du cluster.
 
 > [!IMPORTANT]
 > Un tunnel SSH est requis pour accéder à l’interface utilisateur web de certains services Hadoop. Par exemple, l'interface utilisateur de l'historique des travaux ou de l'interface utilisateur du Gestionnaire de ressources est uniquement accessible à l'aide d'un tunnel SSH.
 
-Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez [Utiliser le tunneling SSH pour accéder à l’interface utilisateur web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
+Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez la rubrique [Utilisation de SSH Tunneling pour accéder à l’interface web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -228,9 +227,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

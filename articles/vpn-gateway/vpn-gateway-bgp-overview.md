@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
 ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -55,10 +56,5 @@ Le schéma suivant offre un exemple de topologie à tronçons multiples, avec pl
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez la page [Getting started with BGP on Azure VPN gateways](vpn-gateway-bgp-resource-manager-ps.md) (Prise en main du protocole BGP sur les passerelles VPN Azure) pour savoir comment configurer le protocole BGP pour vos connexions entre sites locaux et entre réseaux virtuels.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

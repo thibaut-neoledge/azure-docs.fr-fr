@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 6f336db8c8719b99420b353dca82e36a0d837769
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -168,10 +169,5 @@ Il n’existe aucun paramètre pour cet appel
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
