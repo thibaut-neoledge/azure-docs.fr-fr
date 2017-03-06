@@ -4,7 +4,7 @@ description: "Découvrez la facilité avec laquelle vous pouvez exécuter des ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 0458cc3b-b630-4632-8cd0-76e2ed96498b
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: cd4c048baff62deff42c4f8794aa7aac8eb1599d
+ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
+ms.openlocfilehash: 58683e50ab57e0d162dde92c2f9558d5c2379d5b
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-aspnet-web-app-to-azure-in-five-minutes"></a>Déployer votre première application web ASP.NET dans Azure en&5; minutes
-
-> [!div class="op_single_selector"]
-> * [Premier site HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [Première application .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Première application PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Première application Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Première application Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Première application Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 Dans ce didacticiel, vous découvrirez comment déployer une application web ASP.NET simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service permet de créer des applications web, des[back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Vous allez :
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](app-service-web-get-started-dotnet-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](app-service-web-get-started-dotnet.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](app-service-web-get-started-dotnet.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="prerequisites"></a>Composants requis
 * [Git](http://www.git-scm.com/downloads).
@@ -127,10 +119,5 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 * Essayez [d’autres méthodes de déploiement de votre code dans Azure](web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Dépôt Git local** dans **Options de déploiement**.
 * Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

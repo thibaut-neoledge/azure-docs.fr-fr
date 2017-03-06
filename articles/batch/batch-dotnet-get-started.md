@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel : utiliser la bibliothèque cliente Azure Batch pour .NET | Microsoft Docs"
-description: "Découvrez les concepts de base d’Azure Batch et la procédure de développement applicable au service Batch avec un scénario simple."
+description: "Découvrez les concepts de base d’Azure Batch et créez une solution simple à l’aide de .NET."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-library-for-net"></a>Prise en main de la bibliothèque Azure Batch pour .NET
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Bien démarrer avec la création de solutions avec la bibliothèque cliente Batch pour .NET
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -802,9 +805,4 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Informations d’identification de compte Batch dans le portail"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Informations d’identification de compte de stockage dans le portail"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flux de travail de la solution Batch (diagramme minimal)"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

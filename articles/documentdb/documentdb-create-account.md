@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Création d’un compte DocumentDB NoSQL à l’aide du Portail Azure
 > [!div class="op_single_selector"]
 > * [portail Azure](documentdb-create-account.md)
-> * [Interface de ligne de commande Azure et Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Pour créer une base de données avec Microsoft Azure DocumentDB, vous devez :
 
@@ -38,9 +39,9 @@ Vous pouvez créer un compte DocumentDB avec le Portail Azure, à l’aide de mo
 Vous débutez avec DocumentDB ? Regardez [cette](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vidéo de quatre minutes réalisée par Scott Hanselman pour voir comment effectuer les tâches les plus courantes dans le portail en ligne.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans la barre de lancement, cliquez sur **Nouveau**, **Bases de données**, puis sur **DocumentDB (NoSQL)**.
+2. Dans le panneau de navigation gauche, cliquez sur **Nouveau**, **Bases de données**, puis sur **NoSQL (DocumentDB)**.
 
-   ![Capture d’écran du portail Azure, proposant d’autres services et DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Capture d’écran du portail Azure montrant Autres services et NoSQL (DocumentDB)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. Dans le panneau **Nouveau compte** , indiquez la configuration souhaitée pour le compte DocumentDB.
 
     ![Capture d’écran du panneau Nouveau DocumentDB](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -80,16 +81,11 @@ Pour créer une collection et une base de données, utilisez au choix :
 
 Après avoir créé la base de données et la collection, vous devez [ajouter des documents](documentdb-view-json-document-explorer.md) aux collections.
 
-Une fois que vous avez des documents dans une collection, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-sql-queries) sur vos documents. Vous pouvez exécuter des requêtes à l’aide de [l’Explorateur de requêtes](documentdb-query-collections-query-explorer.md) dans le portail, [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md).
+Une fois que vous avez des documents dans une collection, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#ExecutingSqlQueries) sur vos documents. Vous pouvez exécuter des requêtes à l’aide de [l’Explorateur de requêtes](documentdb-query-collections-query-explorer.md) dans le portail, [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>En savoir plus
 Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 
 * [Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Modèle de ressources hiérarchiques et concepts de DocumentDB](documentdb-resources.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
