@@ -18,6 +18,7 @@ ms.author: plarsen
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -405,10 +406,5 @@ Ce connecteur prend en charge les versions IBM Informix ci-après en cas de conf
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

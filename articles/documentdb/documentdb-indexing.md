@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 02/16/2017
 
 
 
@@ -56,10 +57,5 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 * Télécharger [« Indexation du schéma non spécifié avec Azure DocumentDB »](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)qui sera présenté à la 41e conférence VLDB entre le 31 août et le 4 septembre 2015.
 * [Interrogation avec le langage SQL de DocumentDB](documentdb-sql-query.md)
 * Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

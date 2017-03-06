@@ -1,6 +1,6 @@
 ---
 title: "Déployer un cluster de conteneur Docker avec la CLI Azure | Microsoft Docs"
-description: "Déployer un cluster Azure Container Service à l’aide de la version préliminaire d’Azure CLI 2.0"
+description: "Déployer un cluster Azure Container Service à l’aide d’Azure CLI 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,24 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Utiliser Azure CLI 2.0 (version préliminaire) pour créer un cluster Azure Container Service
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Utiliser Azure CLI 2.0 pour créer un cluster Azure Container Service
 
-Utilisez les commandes `az acs` dans Azure CLI 2.0 (version préliminaire) pour créer et gérer des clusters dans Azure Container Service. Vous pouvez également déployer un cluster Azure Container Service à l’aide du [portail Azure](container-service-deployment.md) ou des API Azure Container Service.
+Utilisez les commandes `az acs` dans Azure CLI 2.0 pour créer et gérer des clusters dans Azure Container Service. Vous pouvez également déployer un cluster Azure Container Service à l’aide du [portail Azure](container-service-deployment.md) ou des API Azure Container Service.
 
 Pour obtenir de l’aide sur les commandes `az acs`, transmettez le paramètre `-h` dans une commande. Par exemple : `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Composants requis
-Pour créer un cluster Azure Container Service à l’aide d’Azure CLI 2.0 (version préliminaire), vous devez :
+Pour créer un cluster Azure Container Service à l’aide d’Azure CLI 2.0, vous devez :
 * disposer d’un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
-* avoir installé et configuré la version [Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2)
+* avoir installé et configuré [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Prise en main 
 ### <a name="log-in-to-your-account"></a>Se connecter à son compte
@@ -41,7 +42,7 @@ Pour créer un cluster Azure Container Service à l’aide d’Azure CLI 2.0 (ve
 az login 
 ```
 
-Suivez les invites pour vous connecter de manière interactive. Pour d’autres méthodes de connexion, consultez [Prise en main d’Azure CLI 2.0 (version préliminaire)](/cli/azure/get-started-with-az-cli2).
+Suivez les invites pour vous connecter de manière interactive. Pour d’autres méthodes de connexion, consultez [Prise en main d’Azure CLI 2.0](/cli/azure/get-started-with-az-cli2).
 
 ### <a name="set-your-azure-subscription"></a>Définir votre abonnement Azure
 
@@ -74,7 +75,7 @@ Les autres paramètres sont définis sur les valeurs par défaut (voir l’écra
 
 
 ### <a name="quick-acs-create-using-defaults"></a>`acs create` rapide à l’aide des valeurs par défaut
-Si vous disposez d’un fichier de clé publique SSH `id_rsa.pub` dans l’emplacement par défaut (ou que vous en avez créé un pour [OS X et Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), utilisez une commande semblable à ce qui suit :
+Si vous disposez d’un fichier de clé publique SSH RSA `id_rsa.pub` dans l’emplacement par défaut (ou que vous en avez créé un pour [OS X et Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), utilisez une commande semblable à ce qui suit :
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +144,3 @@ Cette commande ne supprime pas toutes les ressources (réseau et stockage) cré�
 * [Gestion de conteneur via l’API REST](container-service-mesos-marathon-rest.md)
 * [Gestion des conteneurs avec Docker Swarm](container-service-docker-swarm.md)
 * [Gestion des conteneurs avec Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

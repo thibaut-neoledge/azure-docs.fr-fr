@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -121,7 +122,7 @@ Pour bon nombre de services informatiques, répondre aux obligations de temps d�
 
 Pour **Azure SQL Database** , avec les niveaux de service De base, Standard et Premium, Microsoft fournit un contrat SLA dont la disponibilité est de 99,99 %. Pour obtenir les dernières informations, consultez [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/sql-database/). Pour obtenir les dernières informations sur les niveaux de service de SQL Database et les plans de continuité des activités pris en charge, consultez [Niveaux de service](sql-database-service-tiers.md).
 
-Pour **SQL Server sur les machines virtuelles Azure**, Microsoft fournit un SLA avec une disponibilité de 99,95 %, qui ne couvre que la machine virtuelle. Ce contrat SLA ne couvre pas les processus (comme SQL Server) exécutés sur la machine virtuelle et nécessite l’hébergement d’au moins deux instances de machine virtuelle dans un groupe à haute disponibilité. Pour plus d’informations, consultez le [contrat SLA de machine virtuelle](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pour obtenir une haute disponibilité de la base de données dans les machines virtuelles, vous devez configurer une des options de haute disponibilité prises en charge dans SQL Server, comme les [groupes de disponibilité AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). L’utilisation d’une option de haute disponibilité prise en charge ne fournit pas de SLA supplémentaire, mais vous pouvez atteindre une disponibilité de base de données > 99,99 %.
+Pour **SQL Server sur les machines virtuelles Azure**, Microsoft fournit un SLA avec une disponibilité de 99,95 %, qui ne couvre que la machine virtuelle. Ce contrat SLA ne couvre pas les processus (comme SQL Server) exécutés sur la machine virtuelle et nécessite l’hébergement d’au moins deux instances de machine virtuelle dans un groupe à haute disponibilité. Pour plus d’informations, consultez le [contrat SLA de machine virtuelle](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Pour obtenir une haute disponibilité de la base de données dans les machines virtuelles, vous devez configurer une des options de haute disponibilité prises en charge dans SQL Server, comme les [groupes de disponibilité AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). L’utilisation d’une option de haute disponibilité prise en charge ne fournit pas de SLA supplémentaire, mais vous pouvez atteindre une disponibilité de base de données >&99;,99 %.
 
 ### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Délai de mise sur le marché
 **SQL Database** est la solution idéale pour les applications cloud lorsque la productivité des développeurs et la rapidité de mise sur marché sont essentielles. Avec les fonctionnalités de programmation comme le DBA, il est parfait pour les architectes et les développeurs du cloud, car il tempère la nécessité de gérer le système d'exploitation et la base de données sous-jacents. Par exemple, vous pouvez utiliser [l’API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) et des [applets de commande PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) pour automatiser et gérer les opérations administratives de milliers de bases de données. Les fonctionnalités telles que les [pools élastiques](sql-database-elastic-pool.md) vous permettent de vous concentrer sur la couche Application et de mettre votre solution sur le marché plus rapidement.
@@ -142,14 +143,8 @@ Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivant
 * Vous disposez de ressources informatiques et vous pouvez bénéficier en fin de compte des correctifs, des sauvegardes et de la haute disponibilité de la base de données. Certaines fonctionnalités automatisées simplifient considérablement ces opérations. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la prise en main du service Base de données SQL, voir [Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide du portail Azure](sql-database-get-started.md) .
+* Pour prendre en main SQL Database, consultez la page [Votre première base de données Azure SQL Database](sql-database-get-started.md).
 * Voir [Tarification de Base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Pour plus d’informations sur la prise en main de SQL Server sur Azure Virtual Machines, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .
-* Consultez [Parcours d’apprentissage SQL Server sur une machine virtuelle Azure](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

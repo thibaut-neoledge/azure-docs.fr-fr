@@ -4,7 +4,7 @@ description: "Découvrez la facilité avec laquelle vous pouvez exécuter des ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Déployer votre première application web HTML dans Azure en 5 minutes (CLI 2.0 version préliminaire)
-
-> [!div class="op_single_selector"]
-> * [Premier site HTML](app-service-web-get-started-html.md)
-> * [Première application .NET](app-service-web-get-started-dotnet.md)
-> * [Première application PHP](app-service-web-get-started-php.md)
-> * [Première application Node.js](app-service-web-get-started-nodejs.md)
-> * [Première application Python](app-service-web-get-started-python.md)
-> * [Première application PHP](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Dans ce didacticiel, vous découvrirez comment déployer une application web HTML+CSS simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service permet de créer des applications web, des[back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Vous allez :
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](app-service-web-get-started-html.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](app-service-web-get-started-html.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="prerequisites"></a>Composants requis
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 * Essayez [d’autres méthodes de déploiement de votre code dans Azure](web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Dépôt Git local** dans **Options de déploiement**.
 * Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

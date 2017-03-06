@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau E
 * Routage dynamique entre votre réseau et Microsoft via des protocoles standard (BGP).
 * Redondance intégrée dans chaque emplacement d'homologation pour une plus grande fiabilité.
 * [SLA](https://azure.microsoft.com/support/legal/sla/)de disponibilité de la connexion.
-* QoS et prise en charge de plusieurs classes de service pour les applications spéciales, notamment Skype Entreprise.
+* Support de la qualité de service pour Skype Entreprise.
 
 Pour plus d’informations, consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
   * [Création d’un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configuration du routage](expressroute-howto-routing-portal-resource-manager.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

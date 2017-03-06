@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
+ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
+ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Activation d’une stratégie SSL de bout en bout sur la passerelle Application Gateway
+# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Présentation de la stratégie SSL et SSL de bout en bout sur la passerelle Application Gateway
 
 La passerelle Application Gateway prend en charge la terminaison SSL au niveau de la passerelle, après laquelle le trafic transite généralement de façon non chiffrée vers les serveurs principaux. Grâce à cette fonctionnalité, les serveurs web ne sont plus chargés des opérations coûteuses de chiffrement/déchiffrement. Mais pour certains clients, une communication non chiffrée vers les serveurs principaux n’est pas une option acceptable. Cette communication non chiffrée peut être due à des exigences de sécurité ou de conformité, ou au fait que l’application n’accepte que des connexions sécurisées. Pour de telles applications, la passerelle Application Gateway prend désormais en charge le chiffrement SSL de bout en bout.
 
@@ -53,9 +55,4 @@ Après avoir découvert le chiffrement SSL de bout en bout et la stratégie SSL,
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

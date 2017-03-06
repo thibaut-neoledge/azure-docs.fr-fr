@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
 ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -83,9 +84,4 @@ Par exemple, observez le compte décrit dans les informations de chaîne de conn
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez à [utiliser MongoChef](documentdb-mongodb-mongochef.md) avec un compte DocumentDB prenant en charge le protocole MongoDB.
 * Découvrez des [exemples](documentdb-mongodb-samples.md)de prise en charge du protocole MongoDB dans DocumentDB.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

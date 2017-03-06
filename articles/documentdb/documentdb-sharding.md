@@ -5,6 +5,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
+ms.lasthandoff: 02/16/2017
 
 
 
@@ -155,10 +156,5 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 * [Documentation du Kit de développement logiciel (SDK) DocumentDB .NET sur MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB avec des conseils relatifs aux performances](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

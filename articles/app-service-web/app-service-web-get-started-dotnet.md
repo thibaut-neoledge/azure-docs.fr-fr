@@ -4,7 +4,7 @@ description: "Découvrez la facilité avec laquelle vous pouvez exécuter des ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
@@ -15,22 +15,15 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5ce3d205ebdf5fa7e52ebe0a6402400556da0f64
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 1ac3af3af2dddb260dc957ef425eda1fefef53c1
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-aspnet-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Déployer votre première application web ASP.NET dans Azure en 5 minutes (CLI 2.0 version préliminaire)
 
-> [!div class="op_single_selector"]
-> * [Premier site HTML](app-service-web-get-started-html.md)
-> * [Première application .NET](app-service-web-get-started-dotnet.md)
-> * [Première application PHP](app-service-web-get-started-php.md)
-> * [Première application Node.js](app-service-web-get-started-nodejs.md)
-> * [Première application Python](app-service-web-get-started-python.md)
-> * [Première application Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Dans ce didacticiel, vous découvrirez comment déployer une application web ASP.NET simple dans [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service permet de créer des applications web, des[back-ends d’applications mobiles](/documentation/learning-paths/appservice-mobileapps/) et des [applications API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +42,7 @@ Vous allez :
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](app-service-web-get-started-dotnet-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](app-service-web-get-started-dotnet.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](app-service-web-get-started-dotnet.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="prerequisites"></a>Composants requis
 * [Git](http://www.git-scm.com/downloads).
@@ -62,7 +55,7 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 > 
 
 ## <a name="deploy-an-aspnet-web-app"></a>Déployer une application web ASP.NET
-1. Ouvrez une nouvelle invite de commandes Windows, une fenêtre PowerShell, un interpréteur de commandes Linux ou un terminal OS X. Exécutez `git --version` et `azure --version` pour vérifier que Git et l’interface de ligne de commande Azure sont installés sur votre ordinateur.
+1. Ouvrez une nouvelle invite de commandes Windows, une fenêtre PowerShell, un interpréteur de commandes Linux ou un terminal OS X. Exécutez `git --version` et `az --version` pour vérifier que Git et l’interface de ligne de commande Azure sont installés sur votre ordinateur.
    
     ![Tester l’installation des outils de l’interface de ligne de commande pour votre première application web dans Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -128,7 +121,7 @@ Félicitations, vous avez déployé votre application vers Azure App Service.
 ## <a name="see-your-app-running-live"></a>Exécuter votre application en temps réel
 Pour voir votre application en cours d’exécution dans Azure, exécutez cette commande à partir de n’importe quel répertoire de votre référentiel :
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Mettre à jour votre application
 Vous pouvez désormais utiliser Git pour transmettre votre code depuis la racine (référentiel) de votre projet dès que vous avez besoin d’apporter une mise à jour au site en ligne. Pour ce faire, il vous suffit de suivre la même procédure que pour le déploiement initial de votre code. Par exemple, chaque fois que vous voulez transmettre une nouvelle modification que vous avez testée localement, exécutez simplement les commandes suivantes depuis la racine (référentiel) de votre projet :
@@ -145,10 +138,5 @@ Ou faites-en plus avec votre première application web. Par exemple :
 
 * Essayez [d’autres méthodes de déploiement de votre code dans Azure](web-sites-deploy.md). Par exemple, pour effectuer un déploiement à partir de l’un de vos référentiels GitHub, sélectionnez simplement **GitHub** au lieu de **Dépôt Git local** dans **Options de déploiement**.
 * Donnez une nouvelle dimension à votre application Azure. Authentifiez vos utilisateurs. Faites évoluer sa capacité en fonction de la demande. Configurez des alertes de performance. Tout cela en seulement quelques clics. Consultez l’article [Ajouter des fonctionnalités à votre première application web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

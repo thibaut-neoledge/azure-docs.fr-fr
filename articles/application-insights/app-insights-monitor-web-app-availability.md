@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -29,7 +30,7 @@ Vous pouvez configurer des tests web pour n'importe quel point de terminaison H
 Il existe deux types de tests web :
 
 * [Test ping d’URL](#create): un test simple que vous pouvez créer dans le portail Azure.
-* [Test web multi-étapes](#multi-step-web-tests): que vous créez dans Visual Studio Ultimate ou Visual Studio Enterprise et que vous chargez sur le portail.
+* [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Enterprise et que vous chargez sur le portail.
 
 Vous pouvez créer jusqu’à 10 tests web par ressource d’application.
 
@@ -78,37 +79,20 @@ Ces graphiques combinent les résultats de tous les tests web de cette applicati
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Si vous constatez des erreurs
 Cliquez sur un point rouge.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Ou, faites défiler et cliquez sur un test affichant moins de 100 % de réussite.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+À partir d’un résultat de test web, vous pouvez :
 
-Les résultats de ce test s’affichent.
+* Vérifier la réponse reçue à partir de votre serveur.
+* Ouvrir la télémétrie envoyée par votre application serveur lors du traitement de l’instance de requête ayant échoué.
+* Enregistrer un problème ou un élément de travail dans Git ou VSTS pour suivre le problème. Le bogue contient un lien vers cet événement.
+* Ouvrir le résultat du test web dans Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Le test est exécuté à partir de plusieurs emplacements : choisissez-en un dont les résultats sont inférieurs à 100 %.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Faites défiler l’écran jusqu’à **Échecs de tests** et choisissez un résultat.
-
-Cliquez sur le résultat pour l’évaluer dans le portail et savoir pourquoi il a échoué.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Vous pouvez aussi télécharger le fichier de résultats et l’examiner dans Visual Studio.
 
 *Le résultat semble correct, mais une erreur est signalée ?* Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
 
-### <a name="open-the-server-request-and-exceptions"></a>Ouvrir la demande et les exceptions du serveur
-
-À partir des propriétés détaillées d’un test particulier, vous pouvez ouvrir le rapport côté serveur de la demande et tous les autres événements tels que les exceptions.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Si vous ne voyez pas d’éléments associés, cela peut signifier que [l’échantillonnage](app-insights-sampling.md) est en cours de fonctionnement.
+*Aucun élément connexe ?* Cela peut être dû au fait que [l’échantillonnage](app-insights-sampling.md) est en cours.
 
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
@@ -122,7 +106,7 @@ Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aid
 Notez que vous ne pouvez pas utiliser de fonctions codées dans vos tests : les étapes du scénario doivent figurer sous forme de script dans le fichier .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Enregistrement d’un scénario
-Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
+Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
 1. Créez un projet de test de performances web.
 
@@ -239,7 +223,7 @@ Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance
 Une fois le test terminé, les temps de réponse et les taux de réussite s’affichent.
 
 ## <a name="automation"></a>Automatisation
-* [Utilisez des scripts PowerShell pour configurer un test web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatiquement.
+* [Utilisez des scripts PowerShell pour configurer un test web](app-insights-powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
 
 ## <a name="questions-problems"></a>Des questions ? Des problèmes ?
@@ -291,9 +275,4 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

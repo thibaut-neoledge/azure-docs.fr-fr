@@ -136,7 +136,7 @@ Utilisez le [contrôle d’accès en fonction du rôle][rbac] (RBAC) pour contr�
 
 Un utilisateur peut être affecté à plusieurs rôles, et vous pouvez créer des rôles personnalisés pour d’autres autorisations plus affinées.
 
-> [!NOTE]
+d> [!NOTE]
 > Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.   
 > 
 > 
@@ -146,8 +146,7 @@ Utilisez les [journaux d’audit][audit-logs] pour voir les actions d’approvis
 Utilisez [Azure Disk Encryption][disk-encryption] si vous devez chiffrer les disques du système d’exploitation et de données. 
 
 ## <a name="solution-deployment"></a>Déploiement de la solution
-
-Un déploiement pour cette architecture de référence est disponible sur [GitHub][github-folder]. Il comprend un réseau virtuel, un groupe de sécurité réseau et une seule machine virtuelle. Pour déployer l’architecture, procédez comme suit : 
+Un déploiement m A pour cette architecture de référence est disponible sur [GitHub][github-folder]. Il comprend un réseau virtuel, un groupe de sécurité réseau et une seule machine virtuelle. Pour déployer l’architecture, procédez comme suit : 
 
 1. Cliquez avec le bouton droit sur le bouton ci-dessous, puis sélectionnez « Ouvrir le lien dans un nouvel onglet » ou « Ouvrir le lien dans une nouvelle fenêtre ».
    [![Déploiement sur Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
@@ -156,7 +155,7 @@ Un déploiement pour cette architecture de référence est disponible sur [GitHu
    * Le nom du **groupe de ressources** est déjà défini dans le fichier de paramètres ; sélectionnez **Créer nouveau** et entrez `ra-single-vm-rg` dans la zone de texte.
    * Sélectionnez la région à partir de la zone déroulante **Emplacement**.
    * Ne modifiez pas les zones de texte **Template Root Uri** (Uri racine de modèle) ou **Parameter Root Uri** (Uri racine de paramètre).
-   * Dans la zone de liste déroulante **Type de système d’exploitation**, sélectionnez **Linux**.
+.   * Sélectionnez **linux** dans la zone de liste déroulante **Type de système d’exploitation**.
    * Passez en revue les termes et conditions, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
    * Cliquez sur le bouton **Acheter**.
 3. Attendez la fin du déploiement.
@@ -176,7 +175,7 @@ Pour augmenter la disponibilité, déployez au moins deux machines virtuelles d
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -215,9 +214,4 @@ Pour augmenter la disponibilité, déployez au moins deux machines virtuelles d
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Architecture de machine virtuelle Linux unique dans Azure"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

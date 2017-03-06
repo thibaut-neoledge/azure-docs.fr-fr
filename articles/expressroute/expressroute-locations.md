@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
-ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
+ms.sourcegitcommit: 4f20e8d3d5774eb57038e40fac6a4bac2e17909e
+ms.openlocfilehash: 569786c864d5f8ceb93422c65ae1ffb47f66a787
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -55,7 +56,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- | --- |
-| **Cloud du gouvernement des États-Unis** |Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Virginie, US DoD Centre+, US DoD Est  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
+| **Cloud du gouvernement des États-Unis** |Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Virginie, US DoD Centre, US DoD Est  |Chicago, Dallas, New York, Silicon Valley, Washington DC |
 | **Chine** |Chine du Nord, Chine orientale |Beijing, Shanghai |
 | **Allemagne** |Allemagne centrale, Allemagne de l’est |Berlin, Francfort |
 
@@ -70,6 +71,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365 et CRM Online** | **Emplacements** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Pris en charge |Pris en charge |Melbourne, Sydney |
+| **Airtel** | Bientôt disponible | Bientôt disponible | Chennai, Mumbai |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Pris en charge |Pris en charge |Amsterdam, Dallas, Silicon Valley, Singapour, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Pris en charge |Pris en charge |Toronto |
@@ -79,16 +81,16 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Pris en charge |Pris en charge |Dallas, Montréal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Pris en charge |Pris en charge |Amsterdam, Dublin, Londres, Tokyo |
 | **Comcast** |Pris en charge |Pris en charge |Chicago, Silicon Valley, Washington DC |
-| **Console**| Pris en charge | Pris en charge |Silicon Valley |
+| **Console**| Pris en charge | Pris en charge |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Pris en charge |Pris en charge |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Pris en charge |Pris en charge |Amsterdam |
-| **Global Cloud Exchange (GCX)** | Bientôt disponible | Bientôt disponible | Chennai |
+| **Global CloudXchange (GCX)** | Pris en charge| Pris en charge | Chennai |
 | **GÉANT** |Pris en charge |Pris en charge |Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Pris en charge |Pris en charge |Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** |Pris en charge |Pris en charge |Amsterdam, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** |Pris en charge |Pris en charge |Amsterdam, Londres |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Pris en charge |Pris en charge |Amsterdam, Londres, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Pris en charge |Pris en charge |Amsterdam, Londres, Paris |
 | **Jisc** |Pris en charge |Pris en charge |Londres |
 | **KINX** |Pris en charge |Pris en charge |Séoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Pris en charge | Pris en charge | Amsterdam | 
@@ -150,7 +152,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
   * [Cologix](http://www.cologix.com/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
+  * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
@@ -162,21 +164,24 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **Fournisseur de connectivité** | **Microsoft Exchange** | **Emplacements** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapour |
+| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montréal |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londres
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montréal, Toronto |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londres |
+| **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londres, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Frankfort |  
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londres
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Francfort |  
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |Chicago, Silicon Valley, Washington DC |
-| **[XO Communications](http://www.xo.com/)** |Equinix |Silicon Valley |
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Niveau 3 | Madrid |
 
 
@@ -185,13 +190,16 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 | **Intégrateur système** | **Continent** |
 | --- | --- |
+| **[Altogee](http://www.altogee.be/expressroute)** | Europe |
 | **[Avanade Inc.](http://www.avanade.com/)** | Asie, Europe, Amérique du Nord, Amérique du Sud |
+| **Bright Skies GmbH** | Europe
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Amérique du Nord |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australie |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Allemagne) |
 | **[Nelite](http://nelite.com/)** | Europe |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asie |
+| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Amérique du Nord |
 | **[Project Leadership](http://www.projectleadership.net/azure)** | Amérique du Nord |
 
@@ -202,9 +210,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Carte géographique"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e30231bd576436ae69f4fa42d0e2ab312c3938d6
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -158,10 +159,5 @@ Ajouter un destinataire à une liste : ajouter un destinataire individuel à une
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
