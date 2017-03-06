@@ -1,6 +1,6 @@
 ---
-title: "Création d’une machine virtuelle Linux à l’aide de l’interface de ligne de commande (CLI) Azure | Microsoft Docs"
-description: "Créez une machine virtuelle Linux sur Azure à l’aide de l’interface de ligne de commande (CLI) Azure pour NodeJs."
+title: "Création d’une machine virtuelle Linux à l’aide d’Azure CLI 1.0 | Microsoft Docs"
+description: "Créer une machine virtuelle Linux sur Azure à l’aide de l’interface Azure CLI 1.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -9,23 +9,24 @@ editor:
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
-ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
+ms.sourcegitcommit: a0d80ae5a4fe5af6f46e97a8f5d9a0c0715361b8
+ms.openlocfilehash: 5643a7f792cdfd1a445e69ac18b149a736951991
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli"></a>Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)
+# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Création d'une machine virtuelle Linux à l’aide d’Azure CLI 1.0
 
 Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` dans l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle à l’intérieur d’une infrastructure sécurisée de base que vous pouvez utiliser comme prototype ou pour tester rapidement un concept.
 
 > [!NOTE]
-Pour créer une machine virtuelle à l’aide d’Azure CLI 2.0 (version préliminaire), consultez [Créer une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour créer une machine virtuelle à l’aide d’Azure CLI 2.0, consultez [Créer une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 L’article requiert :
 
@@ -211,9 +212,4 @@ La commande `azure vm quick-create` permet de déployer rapidement une machine v
 * [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Vous pouvez également [utiliser le pilote Azure `docker-machine` avec plusieurs commandes pour créer rapidement une machine virtuelle Linux comme hôte docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

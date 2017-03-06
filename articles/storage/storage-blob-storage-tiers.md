@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Stockage des objets blob Azure : niveaux de stockage chauds et froids
 ## <a name="overview"></a>Vue d'ensemble
-Le stockage Azure offre désormais deux niveaux de stockage d’objets blob afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage froid** Azure est optimisé pour le stockage des données rarement sollicitées et durables. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs sont des compromis acceptables pour des coûts de stockage beaucoup plus faibles.
+Le stockage Azure offre deux niveaux de stockage d’objets blob afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage froid** Azure est optimisé pour le stockage des données rarement sollicitées et durables. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs sont des compromis acceptables pour des coûts de stockage beaucoup plus faibles.
 
 Aujourd’hui, les données stockées dans le cloud connaissent une croissance exponentielle. Pour gérer les coûts liés à vos besoins de stockage en pleine expansion, il est utile d’organiser vos données selon des attributs tels que la fréquence d’accès et la période de rétention prévue. Les données stockées dans le cloud peuvent être différentes en termes de mode de génération, de traitement et d’accès tout au long de leur durée de vie. Certaines données sont activement sollicitées et modifiées tout au long de leur durée de vie. Certaines sont fréquemment sollicitées au début de leur durée de vie, puis les accès se raréfient considérablement à mesure qu’elles deviennent plus anciennes. D’autres sont inactives dans le cloud dès le départ et sont peu, voire pas sollicitées une fois stockées.
 
@@ -80,21 +81,21 @@ Le tableau suivant met en évidence la comparaison entre les deux niveaux de sto
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>niveau de stockage chaud</center></strong></td>
-    <td><strong><center>niveau de stockage froid</center></strong></td
+    <td><strong><center>Niveau de stockage chaud</center></strong></td>
+    <td><strong><center>Niveau de stockage froid</center></strong></td
 </tr>
 <tr>
-    <td><strong><center>Availability</center></strong></td>
-    <td><center>99,9 %</center></td>
-    <td><center>99 %</center></td>
+    <td><strong><center>Disponibilité</center></strong></td>
+    <td><center>99.9%</center></td>
+    <td><center>99%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Availability<br>(Lectures RA-GRS)</center></strong></td>
-    <td><center>99,99 %</center></td>
-    <td><center>99,9 %</center></td>
+    <td><strong><center>Disponibilité<br>(Lectures RA-GRS)</center></strong></td>
+    <td><center>99.99%</center></td>
+    <td><center>99.9%</center></td>
 </tr>
 <tr>
-    <td><strong><center>Frais d'utilisation</center></strong></td>
+    <td><strong><center>Frais d’utilisation</center></strong></td>
     <td><center>Coûts de stockage supérieurs<br>Coûts d’accès et de transaction inférieurs</center></td>
     <td><center>Coûts de stockage inférieurs<br>Coûts d’accès et de transaction supérieurs</center></td>
 </tr>
@@ -341,10 +342,5 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 
 [Parcourez et explorez vos comptes de stockage](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

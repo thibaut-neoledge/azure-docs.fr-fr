@@ -1,6 +1,6 @@
 ---
-title: "Créer un espace de noms Service Bus à l’aide du Portail Azure | Microsoft Docs"
-description: "Pour commencer à utiliser Service Bus, vous devez avoir un espace de noms. Voici comment en créer un à l’aide du Portail Azure."
+title: "Créer un espace de noms Service Bus dans le Portail Azure | Microsoft Docs"
+description: "Création d’un espace de noms Service Bus à l’aide du Portail Azure."
 services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: ba7093f8a2c06ab4cecf11207174a4871435ae64
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,9 +37,4 @@ Consultez les [exemples GitHub][github-samples], qui illustrent certaines des fo
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Cet article vise à vous aider à comprendre comment utiliser cett
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,6 +25,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 La solution de gestion des mises à jour dans OMS vous permet de gérer les mises à jour de vos ordinateurs Windows et Linux.  Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et lancer le processus d’installation des mises à jour requises pour les serveurs. 
 
 ## <a name="prerequisites"></a>Composants requis
+* La solution prend uniquement en charge les évaluations de mise à jour sur Windows Server 2008 et version ultérieure ainsi que la mise à jour de déploiements sur Windows Server 2012 et version ultérieure.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+* Les systèmes d’exploitation clients Windows ne sont pas pris en charge.  
 * Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update.  
   
   > [!NOTE]
@@ -36,7 +39,7 @@ La solution de gestion des mises à jour dans OMS vous permet de gérer les mis
 Procédez comme suit pour ajouter la solution de gestion des mises à jour à votre espace de travail OMS et pour ajouter des agents Linux. Les agents Windows sont automatiquement ajoutés, sans aucune configuration supplémentaire.
 
 > [!NOTE]
-> Actuellement, si vous activez cette solution, n’importe quel ordinateur Windows connecté à votre espace de travail OMS sera automatiquement configuré comme un Runbook Worker hybride pour prendre en charge les runbooks qui font partie de cette solution.  Toutefois, il n’est inscrit avec aucun groupe de Workers hybrides que vous avez créé dans votre compte Automation, et vous ne pouvez pas l’ajouter à un groupe de travail hybride pour exécuter vos propres runbooks.  Si un ordinateur Windows est déjà désigné comme un Runbook Worker hybride et est connecté à l’espace de travail OMS, vous devrez le supprimer de l’espace de travail OMS avant d’ajouter la solution afin de permettre aux runbooks de fonctionner comme prévu.  
+> Si vous activez cette solution, n’importe quel ordinateur Windows connecté à votre espace de travail OMS sera automatiquement configuré comme un Runbook Worker hybride pour prendre en charge les runbooks inclus dans cette solution.  Toutefois, il n’est inscrit avec aucun groupe de Workers hybrides que vous avez déjà défini dans votre compte Automation.  Vous pouvez l’ajouter à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des Runbooks Automation à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides.  Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.   
 
 1. Ajoutez la solution de gestion des mises à jour à votre espace de travail OMS en suivant la procédure décrite dans la rubrique [Pour ajouter une solution à l’aide de la galerie de solutions](../log-analytics/log-analytics-add-solutions.md).  
 2. Dans le portail OMS, sélectionnez **Paramètres**, puis **Sources connectées**.  Notez la valeur **ID de l’espace de travail** et la valeur **Clé primaire** ou **Clé secondaire**.
@@ -104,7 +107,9 @@ Cliquez sur la mosaïque **Gestion des mises à jour** pour ouvrir le tableau de
 ## <a name="installing-updates"></a>Installation des mises à jour
 Une fois les mises à jour évaluées pour tous les ordinateurs Windows dans votre environnement, vous pouvez lancer l’installation des mises à jour obligatoires en créant une opération de *déploiement de mises à jour*.  Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs Windows.  Vous pouvez spécifier la date et l’heure du déploiement en plus d’un ordinateur ou d’un groupe d’ordinateurs à inclure.  
 
-Les mises à jour sont installées par des Runbooks dans Azure Automation.  Actuellement vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration.  Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus.  Ce Runbook principal lance un Runbook enfant sur chaque agent Windows qui effectue l’installation des mises à jour obligatoires.  
+Les mises à jour sont installées par des Runbooks dans Azure Automation.  Vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration.  Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus.  Ce Runbook principal lance un Runbook enfant sur chaque agent Windows qui effectue l’installation des mises à jour obligatoires.  
+
+Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure.  Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distributions en ligne en tenant compte de leurs méthodes prises en charge.  
 
 ### <a name="viewing-update-deployments"></a>Affichage des déploiements de mises à jour
 Cliquez sur la mosaïque **Déploiement de mises à jour** pour afficher la liste des déploiements de mises à jour existants.  Ces déploiements sont regroupés par état : **Planifié**, **Exécution en cours** et **Terminé**.<br><br> ![Page de planification des déploiements de mises à jour](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -243,10 +248,5 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 * Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../log-analytics/log-analytics-dashboards.md) affichant la conformité des mises à jour de vos ordinateurs gérés.
 * [Créez des alertes](../log-analytics/log-analytics-alerts.md) lorsque des mises à jour critiques sont détectées comme manquantes sur des ordinateurs ou lorsque les mises à jour automatiques sont désactivées sur un ordinateur.  
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

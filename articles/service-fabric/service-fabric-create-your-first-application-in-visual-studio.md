@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -122,6 +123,19 @@ Par défaut, le cluster de développement local est configuré pour s’exécute
 
 Lorsque vous changez de mode de cluster, le cluster de développement se réinitialise, et toutes les applications approvisionnées ou en cours d’exécution sur le cluster sont supprimées.
 
+Vous pouvez également modifier le mode de cluster en utilisant PowerShell :
+
+1. Lancez une nouvelle fenêtre PowerShell en tant qu’administrateur.
+2. Exécutez le script de configuration de cluster à partir du dossier du kit de développement logiciel :
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    L’installation du cluster prend quelques instants. Une fois l’installation terminée, vous devriez obtenir un résultat similaire à ceci :
+   
+    ![Résultat de configuration du cluster][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Nettoyage
 Avant de conclure, il est important de se rappeler que le cluster local est réel. L’arrêt du débogueur supprime votre instance d’application et annule l’inscription du type d’application. Toutefois, le cluster continue de s’exécuter en arrière-plan. Vous disposez de plusieurs options pour gérer le cluster :
 
@@ -150,9 +164,5 @@ Avant de conclure, il est important de se rappeler que le cluster local est rée
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 

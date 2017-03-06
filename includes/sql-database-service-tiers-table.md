@@ -38,8 +38,4 @@ sql-database-service-tiers.md
 | Nombre maximal de sessions simultanées | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux.
-
-<!--HONumber=Feb17_HO2-->
-
-
+\* La taille maximale de la base de données correspond à la taille maximale des données dans la base de données.

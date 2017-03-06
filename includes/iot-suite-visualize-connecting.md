@@ -2,33 +2,32 @@
 Le tableau de bord de la solution de surveillance à distance permet d'afficher la télémétrie que vos appareils envoient au IoT Hub.
 
 1. Dans votre navigateur, revenez au tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
-2. Dans la **Liste de périphériques**, vous devez voir que l’état de votre périphérique est maintenant **En cours d’exécution**.
+2. Dans la **Liste d’appareils**, vous devez voir que l’état de votre appareil est maintenant **En cours d’exécution**. Sinon, cliquez sur **Activer l’appareil** dans le panneau **Détails de l’appareil**.
    
-    ![][18]
-3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
+    ![Afficher l’état de l’appareil][18]
+3. Cliquez sur **Tableau de bord** pour revenir au tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité.
    
-    ![][img-telemetry]
+    ![Afficher la télémétrie d’appareil][img-telemetry]
 
-## <a name="send-a-command-to-your-device"></a>Envoyer une commande à votre périphérique
-Le tableau de bord de la solution de surveillance à distance vous permet d’envoyer des commandes à vos appareils via IoT Hub. Par exemple, dans la solution de surveillance à distance, vous pouvez envoyer une commande pour définir la température interne d'un périphérique.
+## <a name="invoke-a-method-on-your-device"></a>Appel d’une méthode sur votre appareil
+Le tableau de bord de la solution de surveillance à distance vous permet d’appeler des méthodes sur vos appareils via IoT Hub. Par exemple, dans la solution de surveillance à distance, vous pouvez appeler une méthode pour simuler le redémarrage d’un appareil.
 
 1. Dans le tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
 2. Cliquez sur **ID de périphérique** pour votre périphérique dans la **Liste de périphériques**.
-3. Dans le panneau **Détails du périphérique**, cliquez sur **Commandes**.
+3. Dans le panneau **Détails de l’appareil**, cliquez sur **Méthodes**.
    
-    ![][13]
-4. Dans la liste déroulante **Commande**, sélectionnez **SetTemperature**, puis dans **Température**, saisissez une nouvelle valeur de température. Cliquez sur **Envoyer commande** pour envoyer la commande au périphérique.
+    ![Méthodes d’appareil][13]
+4. Dans la liste déroulante **Méthode**, sélectionnez **InitiateFirmwareUpdate**, puis dans **FWPACKAGEURI**, saisissez une URL factice. Cliquez sur **Appeler une méthode** pour appeler la méthode sur l’appareil.
    
-    ![][14]
+    ![Appel d’une méthode d’appareil][14]
    
-   > [!NOTE]
-   > L'historique affiche initialement l'état de la commande comme étant **En attente**. Lorsque le périphérique reconnaît la commande, l'état passe à **Réussite**.
-   > 
-   > 
-5. Dans le tableau de bord, vérifiez que le périphérique envoie désormais 75 comme nouvelle valeur de température.
+
+5. Vous voyez un message dans la console exécutant votre code d’appareil lorsque l’appareil traite la méthode. Les résultats de la méthode sont ajoutés à l’historique dans le portail de solution :
+
+    ![Affichage de l’historique des méthodes][img-method-history]
 
 ## <a name="next-steps"></a>Étapes suivantes
-L’article [Personnalisation des solutions préconfigurées][lnk-customize] décrit quelques méthodes pour étendre cet exemple. Les extensions incluent l'utilisation de capteurs réels et l'implémentation de commandes supplémentaires.
+L'article [Personnalisation des solutions préconfigurées][lnk-customize] décrit quelques méthodes pour étendre cet exemple. Les extensions incluent l'utilisation de capteurs réels et l'implémentation de commandes supplémentaires.
 
 Vous pouvez en savoir plus sur les [autorisations sur le site azureiotsuite.com][lnk-permissions].
 
@@ -36,10 +35,6 @@ Vous pouvez en savoir plus sur les [autorisations sur le site azureiotsuite.com]
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
+[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
-
-
-<!--HONumber=Nov16_HO3-->
-
-

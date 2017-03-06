@@ -1,6 +1,6 @@
 ---
-title: "Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire) | Microsoft Azure"
-description: "Créez une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)."
+title: "Création d’une machine virtuelle Linux à l’aide de l’interface Azure CLI 2.0 | Microsoft Azure"
+description: "Créez une machine virtuelle Linux à l’aide de l&quot;interface Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 version préliminaire (az.py)
-Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande [az vm create](/cli/azure/vm#create) au moyen de l’interface Azure CLI 2.0 (version préliminaire) et avec des disques gérés ainsi que des disques de comptes de stockage natifs.
-
-> [!NOTE] 
-> La version préliminaire d’Azure CLI 2.0 est notre interface de ligne de commande multiplateforme nouvelle génération. [Faites un essai.](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Pour créer une machine virtuelle à l’aide de l’interface Azure CLI 1.0 existante plutôt qu’avec la version préliminaire d’Azure CLI 2.0, consultez l’article [Créer une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Création d'une machine virtuelle Linux à l’aide de l'interface Azure CLI 2.0
+Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande [az vm create](/cli/azure/vm#create) au moyen de l’interface Azure CLI 2.0 et avec des disques gérés ainsi que des disques de comptes de stockage natifs. Vous pouvez également effectuer ces étapes à l’aide [d’Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour créer une machine virtuelle, vous devez disposer des éléments suivants : 
 
 * un compte Azure ([obtenir une version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/))
-* La version [Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) installée
+* l’interface [Azure CLI 2.0](/cli/azure/install-az-cli2) installée
 * Une connexion à votre compte Azure (par le biais de la commande [az login](/cli/azure/#login))
 
 (Vous pouvez également déployer une machine virtuelle Linux via le [portail Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -119,7 +115,7 @@ Pour savoir ce que vous pouvez faire d’autre avec votre nouvelle machine virtu
 
 ## <a name="using-unmanaged-disks"></a>Utilisation de disques non gérés 
 
-Les machines virtuelles qui utilisent des disques de stockage non gérés présentent des comptes de stockage non gérés. Tout d’abord, tapez [az groupe create](/cli/azure/group#create) pour créer votre groupe de ressources qui contiendra toutes les ressources déployées :
+Les machines virtuelles qui utilisent des disques de stockage non gérés ont des comptes de stockage non gérés. Commencez par taper la commande [az group create](/cli/azure/group#create) pour créer votre groupe de ressources contenant la totalité de vos ressources déployées :
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +138,7 @@ La sortie se présente comme suit (vous pouvez choisir une autre option `--outpu
 
 ### <a name="create-your-vm"></a>Créer votre machine virtuelle 
 
-Vous pouvez désormais créer votre machine virtuelle et son environnement. N’oubliez pas de remplacer la valeur `--public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
+Vous pouvez désormais créer votre machine virtuelle et son environnement. Utilisez l’indicateur `--use-unmanaged-disk` pour créer la machine virtuelle avec des disques non gérés. Un compte de stockage non géré est également créé. N’oubliez pas de remplacer la valeur `--public-ip-address-dns-name` par une valeur unique ; il est possible que celle ci-dessous soit déjà utilisée.
 
 ```azurecli
 az vm create \
@@ -153,7 +149,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 La sortie se présente comme suit. Notez la valeur `publicIpAddress` ou `fqdn` pour utiliser **ssh** dans votre machine virtuelle.
@@ -202,10 +198,5 @@ La commande `az vm create` permet de déployer rapidement une machine virtuelle 
 * [Création d’une machine virtuelle Linux sécurisée par SSH dans Azure à l’aide de modèles](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Vous pouvez également [utiliser le pilote Azure `docker-machine` avec plusieurs commandes pour créer rapidement une machine virtuelle Linux comme un hôte Docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et, si vous utilisez Java, essayez la méthode [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

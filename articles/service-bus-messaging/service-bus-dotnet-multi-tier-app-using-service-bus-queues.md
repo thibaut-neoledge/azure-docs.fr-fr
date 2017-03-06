@@ -1,5 +1,5 @@
 ---
-title: "Application multiniveau .NET utilisant les files d’attente Azure Service Bus | Microsoft Docs"
+title: "Application multiniveau .NET utilisant Azure Service Bus | Microsoft Docs"
 description: "Un didacticiel .NET qui vous permet de développer dans Azure une application multiniveau qui utilise les files d’attente de Service Bus pour communiquer entre les différents niveaux."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -61,11 +62,11 @@ Les sections qui suivent présentent le code de mise en œuvre de cette architec
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 Avant de commencer à développer votre application Azure, procurez-vous les outils et configurez votre environnement de développement.
 
-1. Installez le kit de développement logiciel Microsoft Azure SDK pour .NET depuis la page [Obtenir les outils et le Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/).
-2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de Visual Studio. Les étapes de ce didacticiel utilisent Visual Studio 2015.
+1. Installez le Kit de développement logiciel (SDK) Azure pour .NET depuis la page des [téléchargements SDK](https://azure.microsoft.com/downloads/).
+2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015.
 3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
 4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
-5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio. Si Visual Studio n’est pas installé, le Kit de développement logiciel (SDK) installe Visual Studio Express gratuitement.
+5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
 L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Le système génère automatiquement une clé SAP lors de la création d’un espace de noms. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
@@ -394,9 +395,4 @@ Pour en savoir plus sur les scénarios à plusieurs niveaux, voir :
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

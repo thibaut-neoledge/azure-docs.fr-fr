@@ -1,5 +1,5 @@
 ---
-title: "Configurer votre environnement de développement | Microsoft Docs"
+title: "Configurer un environnement de développement pour les microservices Azure | Microsoft Docs"
 description: "Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois l’installation terminée, vous serez prêt à créer des applications."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 02/14/2017
+ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
-ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
+ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
+ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -37,6 +38,7 @@ Les versions de système d’exploitation prises en charge pour le développemen
 * Windows 7
 * Windows 8 et Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -44,29 +46,33 @@ Les versions de système d’exploitation prises en charge pour le développemen
 > 
 > 
 
-## <a name="install-the-runtime-sdk-and-tools"></a>Installer le runtime, le SDK et les outils
-Web Platform Installer offre deux configurations pour le développement de Service Fabric.
+## <a name="install-the-sdk-and-tools"></a>Installer le Kit de développement logiciel (SDK) et les outils
+### <a name="to-use-visual-studio-2017-rc"></a>Pour utiliser Visual Studio 2017 RC
+Les outils Service Fabric font partie de la charge de travail de développement et de gestion Azure dans Visual Studio 2017 RC. Activez cette charge de travail dans le cadre de votre installation de Visual Studio.
+En outre, vous devez installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric, à l’aide de Web Platform Installer.
 
-Visual Studio 2017 (Azure Development and Management Workload doit être installé) :
+* [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
-* [Installer le runtime et le Kit de développement logiciel (SDK) Service Fabric (aucun outil Visual Studio)][core-sdk]
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Pour utiliser Visual Studio 2015 (requiert Visual Studio 2015 Update 2 ou une version ultérieure)
+Pour Visual Studio 2015, les outils Service Fabric sont installés avec le Kit de développement logiciel (SDK), à l’aide de Web Platform Installer :
 
-Visual Studio 2015 (requiert Visual Studio 2015 Update 2 ou une version ultérieure) :
+* [Installer le Kit de développement logiciel (SDK) et les outils de Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-* [Installer le runtime et le Kit de développement logiciel (SDK) Service Fabric, ainsi que les outils][full-bundle-vs2015]
-* [Installer uniquement le runtime et le Kit de développement logiciel (SDK) Service Fabric (aucun outil Visual Studio)][core-sdk]
+### <a name="sdk-installation-only"></a>Installation du Kit de développement logiciel (SDK) uniquement
+Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
+* [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
 > [!WARNING]
-> Les clients ont signalé des erreurs lors de l’installation par le biais de ces liens de lancement ou lors de l’utilisation de ces liens dans le navigateur Chrome. Ces problèmes liés à Web Platform Installer sont connus et sont en cours de résolution.  Pour contourner ces problèmes, essayez les opérations suivantes :
->- Lancez les liens ci-dessus dans les navigateurs Internet Explorer ou Edge, ou
+> Les clients ont signalé des erreurs lors de l’installation par le biais de ces liens de lancement ou lors de l’utilisation de ces liens dans le navigateur Chrome. Ces erreurs liées à Web Platform Installer sont connues et sont en cours de résolution.  Essayez les solutions de contournement suivantes :
+>- Lancez les liens précédents dans les navigateurs Internet Explorer ou Edge, ou
 >- Lancez Web Platform Installer à partir du menu Démarrer, recherchez « Service Fabric », puis installez le Kit de développement logiciel (SDK)
 > 
 > Veuillez nous excuser pour ce désagrément. 
 
 Les versions actuelles sont les suivantes :
-* Kit de développement logiciel (SDK) Service Fabric 2.4.145
-* Runtime Service Fabric 5.4.145
-* Outils Visual Studio 2015 1.4.41209
+* Service Fabric SDK 2.4.164
+* Service Fabric runtime 5.4.164
+* Outils Visual Studio 2015 1.4.50124
 
 Pour obtenir la liste des versions prises en charge, consultez l’article [Service Fabric support (Options de prise en charge de Service Fabric)](service-fabric-support.md).
 
@@ -94,9 +100,4 @@ Maintenant que vous avez fini de configurer votre environnement de développemen
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Lien WebPI Dev15"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Lien WebPI du Kit de développement logiciel principal"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

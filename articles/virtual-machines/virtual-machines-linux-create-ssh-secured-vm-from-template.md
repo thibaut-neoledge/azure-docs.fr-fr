@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Créer une machine virtuelle Linux à l’aide d’un modèle Azure
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Guide pratique de création d’une machine virtuelle Linux à l’aide d’un modèle Azure Resource Manager
 Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide d’un modèle Azure.  L’article requiert :
 
 * un compte Azure ([obtenir un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)).
@@ -78,10 +80,5 @@ Cet exemple a déployé une machine virtuelle en utilisant le paramètre `--temp
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez la [galerie de modèles](https://azure.microsoft.com/documentation/templates/) pour découvrir les infrastructures d’application à déployer ensuite.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

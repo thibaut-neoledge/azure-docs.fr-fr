@@ -1,5 +1,5 @@
 ---
-title: "Utiliser le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure | Microsoft Docs"
+title: "Contrôle d’accès en fonction du rôle dans le portail Azure Classic | Microsoft Docs"
 description: "Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations à vos ressources."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Gérer l’accès par utilisateur ou par groupe](role-based-access-control-manage-assignments.md)
 > * [Gérer l’accès par ressource](role-based-access-control-configure.md)
-> 
-> 
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail. Cet article vous aide à utiliser RBAC dans le portail Azure. Si vous souhaitez plus d’informations sur la gestion des droits d’accès avec RBAC, consultez [Prise en main de la gestion des accès dans le portail Azure](role-based-access-control-what-is.md).
 
@@ -44,8 +43,6 @@ Notez que les utilisateurs ont soit un accès **Attribué**, soit un accès **H�
 
 > [!NOTE]
 > Les administrateurs et coadministrateurs d’abonnement classiques sont considérés comme propriétaires de l’abonnement dans le nouveau modèle RBAC.
-> 
-> 
 
 ## <a name="add-access"></a>Ajout d’un accès
 Vous accordez l’accès à partir de la ressource, du groupe de ressources ou de l’abonnement qui correspond à l’étendue de l’attribution du rôle.
@@ -61,12 +58,11 @@ Vous accordez l’accès à partir de la ressource, du groupe de ressources ou d
 Une fois l’attribution de rôle ajoutée, elle apparaît dans le panneau **Utilisateurs** .
 
 ## <a name="remove-access"></a>Supprimer un accès
-1. Dans le panneau Contrôle d’accès, sélectionnez l’attribution de rôle.
-2. Sélectionnez **Supprimer** dans le panneau de détails de l’attribution.  
-3. Sélectionnez **Oui** pour confirmer la suppression.  
-    ![Panneau Utilisateurs - suppression du rôle (capture d’écran)](./media/role-based-access-control-configure/remove-access1.png)
+1. Utilisez les cases à cocher du panneau Contrôle d’accès pour sélectionner une ou plusieurs affectations de rôles.
+2. Sélectionnez **Supprimer**.  
+3. Une fenêtre contextuelle vous demandera de confirmer l’action. Sélectionnez **Oui** pour supprimer les affectations de rôles.
 
-Les attributions héritées ne peuvent pas être supprimées. Dans l’image ci-dessous, notez que le bouton Supprimer apparaît grisé. Surtout, examinez l’information **Affecté au niveau de** . Accédez à la ressource indiquée pour supprimer l’attribution de rôle.
+Les attributions héritées ne peuvent pas être supprimées. Si vous avez besoin de supprimer une affectation héritée, vous devez le faire au niveau de l’étendue où l’affectation de rôle a été créée. Dans la colonne **Étendue**, en regard de **Hérité**, un lien vous dirige vers les ressources auxquelles ce rôle a été affecté. Accédez à la ressource indiquée pour supprimer l’attribution de rôle.
 
 ![Panneau Utilisateurs - l’accès hérité désactive le bouton (capture d’écran)](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -81,10 +77,5 @@ Vous pouvez attribuer des rôles et gérer l’accès avec les commandes RBAC Az
 * [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md)
 * Consulter les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
 * Définissez vos propres [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 
