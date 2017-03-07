@@ -1,6 +1,6 @@
 
 ---
-title: "Création d’un environnement Linux complet à l’aide de l’interface de ligne de commande Azure 1.0 | Microsoft Docs"
+title: "Création d’un environnement Linux complet à l’aide de l’interface Azure CLI 1.0 | Microsoft Docs"
 description: "Créez un stockage, une machine virtuelle Linux, un réseau virtuel et un sous-réseau, un équilibreur de charge, une carte d’interface réseau, une adresse IP publique et un groupe de sécurité réseau à partir de zéro à l’aide de l’interface de ligne de commande Azure 1.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,12 +17,13 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 8c051aca8aa9eb0ebbd55098917218f6f874c1be
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-10"></a>Création d’un environnement Linux complet à l’aide de l’interface de ligne de commande 1.0 Azure
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Créer un environnement Linux complet à l’aide de l’interface Azure CLI 1.0
 Dans cet article, nous créons un réseau simple avec un équilibreur de charge et deux machines virtuelles à des fins de développement et de calcul simple. Nous suivons ce processus, commande par commande, jusqu’à ce que vous disposiez de deux machines virtuelles Linux sécurisées opérationnelles, auxquelles vous pouvez vous connecter à partir de n’importe quel emplacement via Internet. Vous pourrez ensuite créer des réseaux et des environnements plus complexes.
 
 Vous allez découvrir la hiérarchie des dépendances et la puissance que vous offre le modèle de déploiement Resource Manager. Une fois que vous avez compris la façon dont le système est créé, vous pouvez le reconstruire beaucoup plus rapidement en utilisant des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De même, après avoir compris la façon dont les différentes parties de votre environnement s’imbriquent, la création de modèles pour automatiser ces dernières se révèle plus simple.
@@ -42,7 +43,7 @@ Pour créer cet environnement personnalisé, [l’interface de ligne de commande
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#quick-commands) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0 (version préliminaire)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager
 
 
 ## <a name="quick-commands"></a>Commandes rapides
@@ -1292,9 +1293,4 @@ Vous pouvez lire la section contenant [plus de détails sur le déploiement à p
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous voici en mesure de commencer à utiliser plusieurs composants réseau et machines virtuelles. Vous pouvez utiliser cet exemple d’environnement pour générer votre application en utilisant les composants de base présentés ici.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

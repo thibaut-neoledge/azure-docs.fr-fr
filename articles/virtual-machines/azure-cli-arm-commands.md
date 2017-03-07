@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
-ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Cet article illustre les commandes du mode Resource Manager dans l’interface de ligne de commande Azure, parfois appelée Azure CLI 1.0. Pour travailler dans le modèle Resource Manager, vous pouvez également essayer l’[Interface de ligne de commande Azure 2.0 (version préliminaire)](/cli/azure/install-az-cli2), notre nouvelle génération d’interface CLI multi-plateformes.
+> Cet article illustre les commandes du mode Resource Manager dans l’interface de ligne de commande Azure, parfois appelée Azure CLI 1.0. Pour travailler dans le modèle Resource Manager, vous pouvez également essayer [Azure CLI 2.0](/cli/azure/install-az-cli2), notre nouvelle génération d’interface CLI multiplateforme.
 >En savoir plus sur [les ancienne et nouvelle interfaces de ligne de commande Azure](/cli/azure/old-and-new-clis).
 >
 
@@ -1863,9 +1864,4 @@ Options de paramètre :
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
