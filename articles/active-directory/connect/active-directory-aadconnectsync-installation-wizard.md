@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
-ms.lasthandoff: 01/27/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,8 +39,8 @@ Sélectionnez l’une des tâches et cliquez sur **Suivant** pour continuer.
 
 > [!IMPORTANT]
 > Tant que l’Assistant Installation est ouvert, toutes les opérations du moteur de synchronisation sont suspendues. Prenez soin de fermer l’Assistant Installation dès que vous avez terminé vos modifications de configuration.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>Afficher la configuration actuelle
 Cette option vous donne un aperçu rapide de vos options actuellement configurées.
@@ -82,7 +82,7 @@ Pour modifier l’état, sélectionnez cette option et cochez ou décochez la ca
 ## <a name="change-user-sign-in"></a>Modifier la connexion de l’utilisateur
 Cette option vous permet de passer de la synchronisation de mot de passe à la fédération ou l’inverse. Vous ne pouvez pas passer à **ne pas configurer**.
 
-Pour plus d’informations sur cette option, consultez [connexion de l’utilisateur](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Pour plus d’informations sur cette option, consultez [connexion de l’utilisateur](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le modèle de configuration utilisé par la synchronisation d’Azure AD Connect dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -91,5 +91,4 @@ Pour plus d’informations sur cette option, consultez [connexion de l’utilisa
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: 22e2e2ff15daa390a952b465f937e890169b95a8
+ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -339,7 +340,7 @@ Dans cette section, les sorties des commandes PowerShell précédentes sont util
 Des exemples de modèles Resource Manager sont disponibles dans [la galerie de modèles de démarrage rapide Azure sur GitHub][azure-quickstart-templates]. Ces modèles peuvent être utilisés comme point de départ pour votre modèle de cluster.
 
 ### <a name="create-the-resource-manager-template"></a>Créer le modèle Resource Manager
-Ce guide utilise l’exemple de modèle [cluster sécurisé à&5; nœuds][service-fabric-secure-cluster-5-node-1-nodetype-wad] et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
+Ce guide utilise l’exemple de modèle [cluster sécurisé à&5; nœuds][service-fabric-secure-cluster-5-node-1-nodetype] et ses paramètres du modèle. Téléchargez `azuredeploy.json` et `azuredeploy.parameters.json` sur votre ordinateur et ouvrez les deux fichiers dans votre éditeur de texte préféré.
 
 ### <a name="add-certificates"></a>Ajout de certificats
 Pour ajouter les certificats à un modèle Resource Manager de cluster, vous devez référencer le Key Vault qui contient les clés de certificat. Nous vous recommandons de placer les valeurs de Key Vault dans un fichier de paramètres de modèle Resource Manager. Le fichier de modèle Resource Manager sera ainsi réutilisable et exempt de valeurs propres à un déploiement.
@@ -667,7 +668,7 @@ FabricClient et FabricGateway effectuent une authentification mutuelle. Pendant 
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
-[service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
+[service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
@@ -679,9 +680,4 @@ FabricClient et FabricGateway effectuent une authentification mutuelle. Pendant 
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

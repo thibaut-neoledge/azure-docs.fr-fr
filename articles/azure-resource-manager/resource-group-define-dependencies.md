@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 5254ea3f072402e2fa4cffcdc23b2e9eae2aad57
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -59,7 +60,7 @@ Lors de la définition des dépendances, vous pouvez inclure l’espace de noms 
 ]
 ``` 
 
-Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pourrez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. En utilisant dependsOn, vous risquez d’avoir un impact sur le temps de déploiement, car Resource Manager ne déploie pas en parallèle deux ressources qui ont une dépendance. Pour documenter les relations entre les ressources, utilisez plutôt la [liaison de ressources](resource-group-link-resources.md).
+Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pourrez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. En utilisant dependsOn, vous risquez d’avoir un impact sur le temps de déploiement, car Resource Manager ne déploie pas en parallèle deux ressources qui ont une dépendance. Pour documenter les relations entre les ressources, utilisez plutôt la [liaison de ressources](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Ressources enfants
 La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur cinq niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressources enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn. 
@@ -158,10 +159,5 @@ Pour plus d’informations sur l’évaluation de l’ordre de déploiement et l
 * Pour en savoir plus sur la résolution des problèmes liés aux dépendances lors du déploiement, consultez [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

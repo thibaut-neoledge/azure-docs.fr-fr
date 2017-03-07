@@ -1,6 +1,6 @@
 ---
-title: "Exemple de script Azure CLI - Création de deux machines virtuelles avec un groupe de sécurité réseau interne et un groupe de sécurité réseau externe | Microsoft Docs"
-description: "Exemple de script Azure CLI - Création de deux machines virtuelles avec un groupe de sécurité réseau interne et un groupe de sécurité réseau externe"
+title: "Exemple de script Azure CLI - Créer deux machines virtuelles avec un groupe de sécurité réseau interne et un groupe de sécurité réseau externe | Microsoft Docs"
+description: "Exemple de script Azure CLI - Créer deux machines virtuelles avec un groupe de sécurité réseau interne et un groupe de sécurité réseau externe"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 9ef17544582e944fda2ab8ea8b8098bb83e2ab57
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 69a06ba68e9a92ab63fd7c86a80eb9c4718f6679
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -28,15 +28,15 @@ Ce script crée deux machines virtuelles et sécurise le trafic entrant vers les
 
 Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`. En outre, vous devez modifier la variable $AdminPassword au début du script afin de satisfaire les exigences de complexité de mots de passe uniques et de réunion.
 
-Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI sur Windows, consultez la page [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Utilisation de l’interface Azure CLI dans Windows).
+Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
-## <a name="create-vm-sample-with-a-network-security-group"></a>Créer un exemple de machine virtuelle avec un groupe de sécurité réseau
+## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "Création d’une machine virtuelle avec un groupe de sécurité réseau")]
+[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "Créer une machine virtuelle avec un groupe de sécurité réseau")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante peut être utilisée pour la suppression du groupe de ressources, de la machine virtuelle et de toutes les ressources associées.
+Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup --yes
@@ -51,9 +51,9 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Crée un réseau virtuel et un sous-réseau Azure. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) | Crée un sous-réseau. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée la machine virtuelle et la connecte à la carte réseau, au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crée la machine virtuelle et l’associe à la carte réseau, au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
 | [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) | Met à jour une règle de groupe de sécurité réseau. Dans cet exemple, la règle principale est mise à jour pour transférer le trafic uniquement à partir du sous-réseau frontal. |
-| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) | Renvoie des informations relatives à une règle de groupe de sécurité réseau. Dans cet exemple, le nom de la règle est stocké dans une variable à utiliser ultérieurement dans le script. |
+| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) | Renvoie les informations relatives à une règle de groupe de sécurité réseau. Dans cet exemple, le nom de la règle est stocké dans une variable à utiliser ultérieurement dans le script. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

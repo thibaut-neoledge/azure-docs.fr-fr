@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 223a7f808ae21ddf8e237e7c5ec2d7ba035e38e8
 ms.openlocfilehash: 82d91881e7f744471f4e60d1c6571e0ae2f7ee4e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -245,8 +246,3 @@ Notez que le chiffrement de vos données de stockage affecte les performances. L
 * Télécharger la [Bibliothèque cliente Azure Storage pour le package NuGet .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) d’Azure Key Vault  
 * Consulter la [documentation d’Azure Key Vault](../key-vault/key-vault-whatis.md)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rickstercdn
 translationtype: Human Translation
-ms.sourcegitcommit: 675d4fa48c5119a9b15a478d2b8105f8517bcac7
-ms.openlocfilehash: 4be594b87c0a94c33be7e417b2fb15bc94d649c6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 0ec8c8437e283f49cef27f241fe3d2059fc33898
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -28,15 +28,15 @@ L’exemple de script fourni ici crée une machine virtuelle Azure avec un syst�
 
 Avant d’exécuter ce script, vérifiez qu’une connexion avec Azure a bien été créée à l’aide de la commande `az login`. En outre, vous devez modifier la variable $AdminPassword au début du script afin de satisfaire les exigences de complexité de mots de passe uniques et de réunion.
 
-Cet exemple fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI sur Windows, consultez la page [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Utilisation de l’interface Azure CLI dans Windows).
+Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. Pour en savoir plus les options d’exécution de scripts Azure CLI dans Windows, consultez la page [Running the Azure CLI in Windows (Exécution d’Azure CLI dans Windows)](../virtual-machines-windows-cli-options.md).
 
-## <a name="create-vm-sample"></a>Créer un exemple de machine virtuelle
+## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-windows-vm-quick.sh "Création rapide de machine virtuelle")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
-Une fois l’exemple de script exécuté, la commande suivante peut être utilisée pour la suppression du groupe de ressources, de la machine virtuelle et de toutes les ressources associées.
+Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
 ```azurecli
 az group delete --name myResourceGroup --yes
