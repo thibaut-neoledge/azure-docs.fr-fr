@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -61,8 +62,8 @@ La société Litware Corporation a déployé [Azure AD Connect](../active-direct
 
 > [!NOTE]
 > **La synchronisation de mot de passe est obligatoire pour les entreprises hybrides qui veulent utiliser les services de domaine Azure AD**. Cette exigence est due au fait que les informations d’identification des utilisateurs sont obligatoires dans le domaine géré fourni par les services de domaine Azure AD afin d’authentifier les utilisateurs via les méthodes d’authentification NTLM ou Kerberos.
-> 
-> 
+>
+>
 
 ![Services de domaine Azure AD pour Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -82,10 +83,4 @@ Avec les services de domaine Azure AD, vous pouvez bénéficier des avantages su
 * **Intégré** : les services de domaine Azure AD s’intègrent parfaitement à votre locataire Azure AD. Désormais, vous pouvez utiliser Azure AD comme un annuaire d’entreprise dans le cloud intégré qui répond aux besoins de vos applications modernes ainsi qu’a ceux des applications de répertoires traditionnels.
 * **Compatible** : les Services de domaine Azure AD reposent sur l’infrastructure de niveau entreprise de Windows Server Active Directory. Ainsi, vos applications peuvent bénéficier d’une plus grande compatibilité avec les fonctionnalités de Windows Server Active Directory. Les fonctionnalités disponibles dans Windows Server Active Directory ne sont actuellement pas toutes disponibles pour les Services de domaine Azure AD. Toutefois, les fonctionnalités disponibles sont compatibles avec les fonctionnalités correspondantes de Windows Server Active Directory présentes dans votre infrastructure locale. Les fonctionnalités LDAP, Kerberos, NTLM, Stratégie de groupe et de jonction de domaine constituent une solution ayant fait ses preuves, qui a été testée et encore affinée sur plusieurs versions de Windows Server.
 * **Rentable** : avec les Services de domaine Azure AD, vous pouvez éviter les charges que représentent l’infrastructure et la gestion liées à la gestion de l’infrastructure d’identité associée aux applications orientées répertoire traditionnelles. Vous pouvez transférer ces applications vers les Services d’Infrastructure Azure et réaliser des économies substantielles sur les frais d’exploitation.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

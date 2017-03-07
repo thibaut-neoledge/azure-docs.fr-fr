@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 44be67cd5c59a57cafd244ce0a49a6fadf44bdda
 ms.openlocfilehash: 8abde97ecb906384cd6e62811fcbb833bdc8be51
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 2. Un **répertoire Azure AD** , synchronisé avec un répertoire local ou un répertoire cloud uniquement.
 3. **services de domaine Azure AD** , qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](active-directory-ds-getting-started.md).
 4. Un **certificat à utiliser pour activer le protocole LDAP sécurisé**.
-   
+
    * **Recommandé** - Procurez-vous un certificat auprès de votre autorité de certification publique de confiance. Cette option de configuration est plus sûre.
    * Le cas échéant, vous pouvez également [créer un certificat auto-signé](#task-1---obtain-a-certificate-for-secure-ldap) comme indiqué plus loin dans cet article.
 
@@ -47,8 +48,8 @@ Obtenez un certificat valide, en suivant les instructions ci-dessous, avant d’
 
 > [!NOTE]
 > **Autorités de certification d’entreprise :** pour l’instant, les services de domaine Azure Active Directory ne prennent pas en charge les certificats LDAP sécurisés émis par l’autorité de certification de votre entreprise. Ceci s’explique par le fait que le service ne reconnaît pas votre autorité de certification d’entreprise comme une autorité de certification racine. Nous prévoyons bientôt d’ajouter la prise en charge des autorités de certification d’entreprise. Si vous devez absolument utiliser les certificats émis par votre autorité de certification d’entreprise, [contactez-nous](active-directory-ds-contact-us.md) pour obtenir de l’aide.
-> 
-> 
+>
+>
 
 <br>
 
@@ -65,8 +66,8 @@ Quand vous demandez un certificat, assurez-vous de suivre les exigences détaill
 
 > [!NOTE]
 > Les ordinateurs clients qui doivent se connecter au domaine géré via le protocole LDAP sécurisé doivent approuver l’émetteur du certificat LDAP sécurisé.
-> 
-> 
+>
+>
 
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Option B : création d’un certificat auto-signé pour le protocole LDAP sécurisé
 Si vous ne prévoyez pas d’utiliser un certificat d’une autorité de certification publique, vous pouvez choisir de créer un certificat auto-signé pour le protocole LDAP sécurisé.
@@ -176,8 +177,8 @@ Exécutez les étapes de configuration suivantes pour activer le protocole LDAP 
 
    > [!NOTE]
    > L’activation du protocole LDAP sécurisé pour votre domaine géré dure 10 à 15 minutes. Si le certificat LDAP sécurisé fourni ne correspond pas aux critères requis, le protocole LDAP sécurisé n’est pas activé pour votre annuaire et une erreur s’affiche. Par exemple, le nom de domaine est incorrect, le certificat a expiré ou arrivera bientôt à expiration.
-   > 
-   > 
+   >
+   >
 
 9. Lorsque le protocole LDAP sécurisé est activé pour votre domaine géré, le message **En attente...** doit disparaître. Le Thumbprint du certificat doit être affiché.
 
@@ -233,9 +234,4 @@ Et voilà, vous êtes maintenant prêt à vous connecter au domaine géré à l�
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Gérer la stratégie de groupe sur un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-administer-group-policy.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

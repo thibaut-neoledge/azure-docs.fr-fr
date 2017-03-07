@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -35,10 +36,4 @@ Veillez à inclure les éléments suivants, pour nous permettre d’examiner le 
 Nous apprécions vos commentaires sur les Services de domaine Azure AD via le **[canal User Voice Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Veillez à ajouter les termes **« AADDS »**avant votre question ou commentaire, afin de nous permettre d’y accéder.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

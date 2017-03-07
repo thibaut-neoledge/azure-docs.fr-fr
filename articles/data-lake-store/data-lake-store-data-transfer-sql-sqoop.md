@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
 ms.openlocfilehash: d536ba2bd44941d036a00a74243cb37b8ae69abb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -143,9 +144,4 @@ Pour optimiser les performances de votre tâche Sqoop pour copier des données v
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

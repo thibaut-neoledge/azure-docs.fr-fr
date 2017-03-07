@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
 ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -109,8 +110,8 @@ Vous disposez peut-être de cas d’utilisation de déploiement où vous avez be
 
 > [!NOTE]
 > Vous pouvez décider qu’une option personnalisée est mieux adaptée à vos cas d’utilisation de déploiement. Pensez à [partager vos commentaires](active-directory-ds-contact-us.md) pour nous aider à comprendre quelles fonctionnalités vous aideraient à choisir les services de domaine Azure AD à l’avenir. Ces commentaires nous permettent de faire évoluer le service pour mieux répondre à vos besoins et cas d’utilisation de déploiement.
-> 
-> 
+>
+>
 
 Nous avons publié des [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) pour faciliter les installations personnalisées.
 
@@ -118,10 +119,4 @@ Nous avons publié des [Recommandations en matière de déploiement de Windows S
 * [Fonctionnalités - Services de domaine Azure AD](active-directory-ds-features.md)
 * [Scénarios de déploiement - Services de domaine Azure AD](active-directory-ds-scenarios.md)
 * [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

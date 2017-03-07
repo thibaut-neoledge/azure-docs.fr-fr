@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
 ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -24,15 +25,15 @@ ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
 > [!div class="op_single_selector"]
 > * [Portail Azure Classic - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Actuellement, les services de domaine Azure AD ne prennent pas en charge le modèle de gestionnaire de ressources.
-> 
-> 
+>
+>
 
 Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Windows à l'aide d'une approche modulaire. Ces étapes peuvent vous aider à créer une machine virtuelle Azure Windows et à la joindre à un domaine géré de services de domaine Azure AD.
 
@@ -156,10 +157,4 @@ Voici l'exemple de script complet pour créer la machine virtuelle Windows et la
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

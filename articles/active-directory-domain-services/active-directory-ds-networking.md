@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -29,7 +30,7 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * Les services de domaine Azure AD **ne peuvent pas être activés dans les réseaux virtuels créés à l’aide d’Azure Resource Manager**.
 * Vous pouvez connecter un réseau virtuel basé sur Resource Manager à un réseau virtuel Classic dans lequel les services de domaine Azure AD sont activés. Vous pouvez ensuite utiliser les services de domaine Azure AD dans le réseau virtuel basé sur Resource Manager. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
 * **Réseaux virtuels régionaux**: si vous prévoyez d’utiliser un réseau virtuel existant, assurez-vous qu’il s’agit d’un réseau virtuel régional.
-  
+
   * Les réseaux virtuels qui recourent au mécanisme des groupes d’affinités hérité ne peuvent pas être utilisés avec les services de domaine Azure AD.
   * Pour utiliser les services de domaine Azure AD, vous devez [migrer les réseaux virtuels hérités vers des réseaux virtuels régionaux](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -45,8 +46,8 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 
 > [!WARNING]
 > Vous ne pouvez pas déplacer les services de domaine vers un autre réseau virtuel une fois le service activé.
-> 
-> 
+>
+>
 
 ## <a name="network-security-groups-and-subnet-design"></a>Conception de groupes de sécurité et de sous-réseaux
 Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
@@ -61,8 +62,8 @@ Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.
 
 > [!WARNING]
 > Lorsque vous associez un groupe de sécurité réseau et un sous-réseau dans lequel les services de domaine Azure AD sont activés, vous pouvez affecter la capacité de Microsoft à gérer le domaine. En outre, la synchronisation entre votre client Azure AD et votre domaine géré est interrompue. **Le contrat de niveau de service (SLA) ne concerne pas les déploiements dans lesquels un groupe de sécurité réseau a été appliqué et qui empêche les services de domaine Azure AD de mettre à jour et de gérer votre domaine.**
-> 
-> 
+>
+>
 
 ### <a name="ports-required-for-azure-ad-domain-services"></a>Ports requis pour les services de domaine Azure AD
 Les ports suivants sont requis pour les services de domaine Azure AD pour l’entretien et la gestion de votre domaine géré. Assurez-vous que ces ports ne sont pas bloqués pour le sous-réseau dans lequel vous avez activé votre domaine géré.
@@ -92,14 +93,14 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 
 ### <a name="network-connection-options"></a>Options de connexion réseau
 * **Connexion entre deux réseaux virtuels à l’aide d’une connexion VPN de site à site**: la connexion entre deux réseaux virtuels est similaire à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE.
-  
+
     ![Connexion entre des réseaux virtuels à l’aide d’une passerelle VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-  
+
     [Plus d’informations : connecter des réseaux virtuels à l’aide d’une passerelle VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **Connexion entre deux réseaux virtuels à l’aide d’une homologation de réseaux virtuels**: l’homologation de réseaux virtuels est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
-  
+
     ![Connexion entre des réseaux virtuels à l’aide d’une homologation](./media/active-directory-domain-services-design-guide/vnet-peering.png)
-  
+
     [Plus d’informations : homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md)
 
 <br>
@@ -108,10 +109,4 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/virtual-networks-nsg.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
