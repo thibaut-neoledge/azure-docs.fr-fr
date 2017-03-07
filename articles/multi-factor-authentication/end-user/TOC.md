@@ -12,8 +12,3 @@
 ## Ouvrir l’application Microsoft Authenticator
 ### [Prise en main](microsoft-authenticator-app-how-to.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

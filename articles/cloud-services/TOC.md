@@ -115,8 +115,3 @@
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

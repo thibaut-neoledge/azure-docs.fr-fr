@@ -25,8 +25,3 @@
 # Rubriques connexes
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Contrôle d’accès en fonction du rôle](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-
