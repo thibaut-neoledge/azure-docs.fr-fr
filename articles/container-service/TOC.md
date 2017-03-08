@@ -36,8 +36,6 @@
 ### [Intégration continue de Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Référence
 ## [Azure CLI 2.0](/cli/azure/acs)
-## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
-## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
 # les ressources
 ## [Disponibilité des régions](https://azure.microsoft.com/regions/services/)
