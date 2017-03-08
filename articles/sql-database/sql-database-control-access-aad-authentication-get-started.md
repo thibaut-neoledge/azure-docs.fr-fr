@@ -17,13 +17,14 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 25de4caa583f128dd049899de288bd214e5918ba
-ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
+ms.lasthandoff: 02/18/2017
 
 
 ---
-# <a name="sql-database-tutorial-azure-ad-authentication-access-and-database-level-firewall-rules"></a>Didacticiel SQL Database : accès d’authentification Azure AD et règles de pare-feu au niveau de la base de données
-Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations aux bases de données et aux serveurs Azure SQL Database. Vous allez découvrir comment effectuer les actions suivantes :
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Authentification Azure AD, accès et règles de pare-feu au niveau de la base de données
+Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification Azure Active Directory, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations aux bases de données et aux serveurs Azure SQL Database. Vous allez découvrir comment effectuer les actions suivantes :
 
 - Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
 - Créer des connexions et des utilisateurs en fonction de l’authentification Azure Active Directory
@@ -36,17 +37,17 @@ Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utilise
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/free/) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
-* Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
+* Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
 
    > [!NOTE]
-   > Vous n’êtes pas obligé d’exécuter le didacticiel associé à l’authentification SQL Server, à savoir : [Didacticiel sur les bases de données SQL : authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Toutefois, certains concepts abordés dans ce didacticiel ne sont pas mentionnés ici. Les procédures décrites dans ce didacticiel, qui porte sur les pare-feu de niveau serveur et base de données, ne sont pas obligatoires si vous avez effectué ce didacticiel connexe sur les mêmes ordinateurs (avec la même adresse IP). C’est pour cette raison qu’ils sont indiqués comme étant facultatifs. En outre, les captures d’écran de ce didacticiel supposent que vous avez effectué ce didacticiel connexe. 
+   > Vous n’êtes pas obligé de suivre le didacticiel associé à l’authentification SQL Server, à savoir : [Authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Toutefois, certains concepts abordés dans ce didacticiel ne sont pas mentionnés ici. Les procédures décrites dans ce didacticiel, qui porte sur les pare-feu de niveau serveur et base de données, ne sont pas obligatoires si vous avez effectué ce didacticiel connexe sur les mêmes machines (avec la même adresse IP). C’est pour cette raison qu’ils sont indiqués comme étant facultatifs. En outre, les captures d’écran de ce didacticiel supposent que vous avez effectué ce didacticiel connexe. 
    >
 
-* Vous avez créé et rempli un annuaire Azure Active Directory. Pour en savoir plus, voir [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
+* Vous avez créé et rempli un annuaire Azure Active Directory. Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
 > Ce didacticiel vous permet de vous familiariser avec le contenu des rubriques suivantes : [Accès à la base de données SQL et contrôle](sql-database-control-access.md), [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md), [Principaux](https://msdn.microsoft.com/library/ms181127.aspx), [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx), [Règles de pare-feu de base de données SQL](sql-database-firewall-configure.md) et [Authentification Azure Active Directory](sql-database-aad-authentication.md). 
@@ -85,7 +86,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur la 
    ![Enregistrement du compte d’administrateur AAD sélectionné](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Pour passer en revue les informations de connexion à ce serveur, accédez à la zone [Afficher ou mettre à jour les paramètres du serveur](sql-database-view-update-server-settings.md). Pour cette série de didacticiels, le nom de serveur complet est « sqldbtutorialserver.database.windows.net ».
+> Pour passer en revue les informations de connexion à ce serveur, accédez à [Gérer les serveurs](sql-database-manage-servers-portal.md). Pour cette série de didacticiels, le nom de serveur complet est « sqldbtutorialserver.database.windows.net ».
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Se connecter au serveur SQL Server à l’aide de SQL Server Management Studio (SSMS)
@@ -256,7 +257,7 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Créer une règle de pare-feu au niveau de la base de données pour des utilisateurs de la base de données AdventureWorksLT
 
 > [!NOTE]
-> Vous n’avez pas besoin d’effectuer cette procédure si vous avez effectué les étapes équivalentes dans le didacticiel connexe pour l’authentification SQL Server, à savoir : [Didacticiel sur les bases de données SQL : authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md), et si vous utilisez le même ordinateur, avec la même adresse IP, pour votre formation.
+> Vous n’avez pas besoin de suivre cette procédure si vous avez suivi la procédure équivalente dans le didacticiel connexe pour l’authentification SQL Server, [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md) sur la même machine et avec la même adresse IP.
 >
 
 Dans cette section du didacticiel, vous tenterez de vous connecter à partir d’un ordinateur avec une adresse IP différente, en utilisant le nouveau compte d’utilisateur, puis de créer une règle de pare-feu au niveau de la base de données en tant qu’administrateur du serveur, puis de vous connecter à l’aide de cette nouvelle règle de pare-feu au niveau de la base de données. 
@@ -313,10 +314,5 @@ Dans cette section du didacticiel, vous tenterez de vous connecter à partir d�
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
 - Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
 - Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

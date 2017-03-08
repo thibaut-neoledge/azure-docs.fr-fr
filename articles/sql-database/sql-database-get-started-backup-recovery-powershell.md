@@ -17,8 +17,9 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d026933869d98c469855e02a6906ed74f8ee03a3
-ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -38,7 +39,7 @@ Ce didacticiel vous montre comment utiliser Azure PowerShell pour effectuer les
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/free/) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Vous devez vous connecter à Azure en utilisant un compte qui est membre du rôle Propriétaire de l’abonnement ou du rôle Collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
@@ -47,7 +48,7 @@ Ce didacticiel vous montre comment utiliser Azure PowerShell pour effectuer les
 * Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
 
 > [!TIP]
-> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide du [portail Azure](sql-database-get-started-backup-recovery.md).
+> Vous pouvez exécuter les mêmes tâches dans un didacticiel de prise en main à l’aide du [portail Azure](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +115,7 @@ Dans cette section du didacticiel, vous [configurez un coffre Azure Recovery S
 
 
 > [!TIP]
-> Pour supprimer des sauvegardes de rétention à long terme, consultez [Delete long-term retention backups (Supprimer les sauvegardes de rétention à long terme)](sql-database-long-term-retention-delete.md).
+> Pour supprimer les sauvegardes dans la rétention à long terme, consultez la page [Gérer la rétention de sauvegarde à long terme avec PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
@@ -378,9 +379,4 @@ $restoredDbFromLtr
 - Pour plus d’informations sur les sauvegardes automatiques générées par le service, consultez l’article relatif aux [sauvegardes automatiques](sql-database-automated-backups.md).
 - Pour plus d’informations sur la rétention des sauvegardes à long terme, consultez l’article décrivant la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
 - Pour plus d’informations sur la restauration à partir de sauvegardes, consultez l’article concernant la [restauration à l’aide de sauvegardes](sql-database-recovery-using-backups.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
     - Temps nécessaire pour recueillir et indexer les données
 - Liste de requêtes
 
+## <a name="understanding-nodes-for-oms-offers"></a>Présentation des nœuds pour les offres d’OMS
+
+Si vous utilisez le niveau tarifaire *par nœud (OMS)*, vous êtes facturé en fonction du nombre de nœuds et des solutions que vous avez activés. Vous pouvez voir le nombre de nœuds utilisés par offre dans la section *Offres* du tableau de bord d’utilisation.
+
+![tableau de bord utilisation](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Utilisation des données d’utilisation
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre abonnement Azure.
 2. Dans le menu **Hub**, cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Log Analytics**.  
@@ -63,9 +70,4 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez la section [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher les informations détaillées qui sont collectées et envoyées à OMS par les fonctionnalités et les solutions.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

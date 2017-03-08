@@ -1,6 +1,6 @@
 ---
-title: "Création d’un jeu de mise à l’échelle de machine virtuelle Windows à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Création d’un groupe identique de machines virtuelles à l’aide de PowerShell"
+title: "Créer un groupe de machines virtuelles identiques Azure à l’aide de PowerShell | Microsoft Docs"
+description: "Créer un groupe de machines virtuelles identiques Azure à l’aide de PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -56,47 +57,7 @@ Un jeu de mise à l'échelle de machine virtuelle doit figurer dans un groupe de
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### <a name="storage-account"></a>Compte de stockage
-Un compte de stockage est utilisé par une machine virtuelle pour stocker le disque du système d’exploitation et les données de diagnostic utilisées pour la mise à l’échelle. Lorsque cela est possible, il est recommandé d’utiliser un compte de stockage pour chaque machine virtuelle créée dans un jeu identique. Dans le cas contraire, ne prévoyez pas plus de 20 machines virtuelles par compte de stockage. L’exemple présenté dans cet article montre 3 comptes de stockage créés pour 3 machines virtuelles.
-
-1. Remplacez la valeur de **$stName** par le nom du compte de stockage. Testez l’unicité du nom choisi. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Si la réponse est **True**, le nom proposé est unique.
-2. Remplacez la valeur de **$saType** par le type de compte de stockage, puis créez la variable :  
-   
-        $saType = "storage account type"
-   
-    Les valeurs possibles sont : Standard_LRS, Standard_GRS, Standard_RAGRS ou Premium_LRS.
-3. Créez le compte :
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    Un résultat comme l’exemple suivant devrait s’afficher :
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Répétez les étapes 1 à 4 pour créer 3 comptes de stockage, par exemple myst1, myst2 et myst3.
-
-### <a name="virtual-network"></a>réseau virtuel
+### <a name="virtual-network"></a>Réseau virtuel
 Un réseau virtuel est requis pour les machines virtuelles dans le jeu de mise à l'échelle.
 
 1. Remplacez la valeur de **$subName** par le nom que vous souhaitez utiliser pour le sous-réseau du réseau virtuel, puis créez la variable : 
@@ -130,7 +91,7 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Cet exemple montre un jeu de mise à l’échelle créé avec 3 machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour trouver une taille adaptée à vos besoins.
+    Cet exemple montre un jeu de mise à l’échelle créé avec&3; machines virtuelles. Consultez la rubrique [Vue d’ensemble des groupes identiques dde machines virtuelles](virtual-machine-scale-sets-overview.md) pour en savoir plus sur la capacité des jeux de mise à l’échelle. Cette étape inclut également la définition de la taille (appelée SkuName) des machines virtuelles dans le jeu. Consultez la rubrique [Tailles des machines virtuelles dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour trouver une taille adaptée à vos besoins.
 5. Ajoutez la configuration de l’interface réseau à la configuration du jeu de mise à l’échelle :
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -173,12 +134,10 @@ Vous disposez de toutes les ressources dont vous avez besoin pour la configurati
         $imageSku = "2012-R2-Datacenter"
    
     Consultez [Parcourir et sélectionner des images de machines virtuelles Windows dans Azure avec l’interface CLI ou PowerShell](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour identifier les informations sur d’autres images à utiliser.
-3. Remplacez la valeur de **$vhdContainer** par le chemin d’accès dans lequel les disques durs virtuels sont stockés, tels que « https://mystorage.blob.core.windows.net/vhds », puis créez la variable :
+
+3. Créez le profil de stockage :
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Créez le profil de stockage :
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 Enfin, vous pouvez créer le jeu de la mise à l’échelle.
@@ -221,10 +180,5 @@ Utilisez ces ressources pour explorer le jeu de mise à l’échelle de machine 
 * Gérer le jeu de mise à l’échelle que vous avez créé à l’aide des informations figurant dans [Gérer des machines dans un groupe identique de machines virtuelles (en anglais)](virtual-machine-scale-sets-windows-manage.md)
 * Vous pouvez configurer la mise à l'échelle automatique de votre groupe identique à l'aide des informations fournies dans la rubrique [Mise à l’échelle automatique et groupes identiques de machines virtuelles](virtual-machine-scale-sets-autoscale-overview.md)
 * Pour en savoir plus sur la mise à l’échelle verticale, consultez l’article [Mise à l’échelle verticale avec des groupes identiques de machines virtuelles](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

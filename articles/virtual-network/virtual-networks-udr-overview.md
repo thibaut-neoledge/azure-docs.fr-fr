@@ -1,10 +1,10 @@
 ---
-title: "Présentation des itinéraires définis par l’utilisateur et du transfert IP"
-description: "Apprenez à utiliser les itinéraires définis des utilisateurs (UDR) et le transfert IP pour transférer le trafic vers des appliances virtuelles réseau dans Azure."
+title: "Itinéraires définis par l’utilisateur et transfert IP dans Azure | Microsoft Docs"
+description: "Apprenez à configurer les itinéraires définis des utilisateurs (UDR) et le transfert IP pour transférer le trafic vers des appliances virtuelles réseau dans Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Présentation des itinéraires définis par l’utilisateur et du transfert IP
+# <a name="user-defined-routes-and-ip-forwarding"></a>Itinéraires définis par l’utilisateur et transfert IP
+
 Lorsque vous ajoutez des machines virtuelles à un réseau virtuel dans Microsoft Azure, notez que les machines sont en mesure d’interagir automatiquement entre elles sur le réseau. Il est inutile de spécifier une passerelle, bien que les machines virtuelles soient hébergées dans des sous-réseaux différents. Cela vaut également pour la communication des machines virtuelles vers l’Internet public, et même vers votre réseau local en cas de connexion hybride de Microsoft Azure vers votre propre centre de données.
 
 Ce flux de communications est rendu possible par l’utilisation, par Microsoft Azure, d’une série d’itinéraires système régulant le trafic IP. Les itinéraires de système contrôlent le flux de communication dans les scénarios suivants :
@@ -53,8 +56,8 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
 | Propriété | Description | Contraintes | Considérations |
 | --- | --- | --- | --- |
 | Préfixe d’adresse |CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16. |Ceci doit être une plage CIDR valide représentant des adresses sur l’Internet public, le réseau virtuel Azure ou le centre de données local. |Assurez-vous que le **préfixe d’adresse** ne contient pas l’adresse de **l’adresse du tronçon suivant** ; dans le cas contraire, vos paquets entreront dans une boucle allant de la source au tronçon suivant sans jamais atteindre leur destination. |
-| Type de tronçon suivant |Type de tronçon Azure vers lequel le paquet doit être envoyé. |Il doit s’agir de l’une des valeurs suivantes :  <br/> **Réseau virtuel**. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant *Réseau virtuel*. <br/> **Passerelle de réseau virtuel**. Représente une passerelle VPN de site à site Azure. <br/> **Internet**. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure. <br/> **Appliance virtuelle**. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. <br/> **Aucun**. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés. |Envisagez d’utiliser un type **Aucun** afin de mettre fin au transit des paquets vers une destination donnée. |
-| adresse de tronçon suivant |L’adresse de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. |Doit être une adresse IP accessible dans le réseau virtuel où s’applique l’itinéraire défini par l’utilisateur. |Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. |
+| Type de tronçon suivant |Type de tronçon Azure vers lequel le paquet doit être envoyé. |Il doit s’agir de l’une des valeurs suivantes :  <br/> **Réseau virtuel**. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant *Réseau virtuel*. <br/> **Passerelle de réseau virtuel**. Représente une passerelle VPN de site à site Azure. <br/> **Internet**. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure. <br/> **Appliance virtuelle**. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. <br/> **Aucun**. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés. |Envisagez d’utiliser une **Appliance virtuelle** pour diriger le trafic vers une machine virtuelle ou une adresse IP Azure Load Balancer interne.  Ce type permet de spécifier une adresse IP, comme décrit ci-dessous. Envisagez d’utiliser un type **Aucun** afin de mettre fin au transit des paquets vers une destination donnée. |
+| adresse de tronçon suivant |L’adresse de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. |Doit être une adresse IP accessible dans le réseau virtuel où s’applique l’itinéraire défini par l’utilisateur. |Si l’adresse IP représente une machine virtuelle, veillez à activer le [transfert IP](#IP-forwarding) dans Azure pour la machine virtuelle. Si l’adresse IP représente l’adresse IP interne d’Azure Load Balancer, assurez-vous que vous disposez d’une règle d’équilibrage correspondante pour chaque port dont vous souhaitez équilibrer la charge.|
 
 Dans Azure PowerShell, certaines valeurs « NextHopType » ont des noms différents :
 
@@ -100,7 +103,7 @@ Si vous avez une connexion ExpressRoute entre votre réseau local et Azure, vous
 > 
 > 
 
-## <a name="ip-forwarding"></a>transfert IP
+## <a name="ip-forwarding"></a>Transfert IP
 Comme décrit ci-dessus, une des raisons principales pour créer un itinéraire défini par l’utilisateur est de transférer le trafic vers une appliance virtuelle. Une appliance virtuelle n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT.
 
 La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité.
@@ -108,10 +111,5 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](virtual-network-create-udr-arm-template.md) et les associer à des sous-réseaux. 
 * Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](virtual-network-create-udr-classic-ps.md) et les associer à des sous-réseaux.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec les files d’attente Service Bus | Microsoft Docs"
+title: "Écriture d’un programme qui utilise les files d’attente Azure Service Bus | Microsoft Docs"
 description: "Comment écrire une application de console C# pour la messagerie Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
-ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 83649bdad1d369cdfe4edf3c2bdaa67180db8668
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -31,8 +32,8 @@ Dans ce didacticiel, nous allons :
 3. Écrire une application de console pour envoyer un message.
 4. Écrire une application de console pour recevoir des messages.
 
-## <a name="prerequisites"></a>Conditions préalables
-1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2015.
+## <a name="prerequisites"></a>Composants requis
+1. [Visual Studio 2015 ou une version ultérieure](http://www.visualstudio.com). Les exemples de ce didacticiel utilisent Visual Studio 2015.
 2. Un abonnement Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -175,9 +176,4 @@ Consultez les [exemples fournis dans le dépôt GitHub](https://github.com/Azure
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

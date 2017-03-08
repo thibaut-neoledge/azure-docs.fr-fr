@@ -14,40 +14,45 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/17/2017
+ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 9d92b6401b70bbfce33fec053e3134a8bd7b4805
-ms.openlocfilehash: e86e20dbc38cc575542193002e6b86aa608e80e5
+ms.sourcegitcommit: c70b3b23fa95af6614c34bd951943f0559409220
+ms.openlocfilehash: cf43790c329ef156ae17579d2281c861533ec201
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="sql-database-tutorial-sql-server-authentication-access-and-database-level-firewall-rules"></a>Didacticiel SQL Database : accès d’authentification SQL Server et règles de pare-feu au niveau de la base de données
-Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification SQL Server, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations pour les serveurs Azure SQL Database et les bases de données. Vous allez découvrir comment effectuer les actions suivantes :
+# <a name="sql-server-authentication-access-and-database-level-firewall-rules"></a>Authentification SQL Server, accès et règles de pare-feu au niveau de la base de données
 
-- Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
+Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Studio pour travailler avec l’authentification SQL Server, les connexions, les utilisateurs et les rôles de base de données qui accordent accès et autorisations pour les serveurs Azure SQL Database et les bases de données. Après avoir suivi ce didacticiel, vous saurez :
+
 - Créer des connexions et des utilisateurs en fonction de l’authentification SQL Server
-- Accorder des autorisations au niveau du serveur et de la base de données spécifiques aux utilisateurs
-- Se connecter à une base de données utilisateur en tant qu’utilisateur non administrateur
-- Créer des règles de pare-feu au niveau de la base de données pour les utilisateurs de la base de données
-- Créer des règles de pare-feu au niveau du serveur pour les administrateurs de serveur
+- Ajouter des utilisateurs aux rôles et octroyer des autorisations aux rôles
+- Utiliser T-SQL pour créer une règle de pare-feu au niveau de la base de données et au niveau du serveur 
+- Vous connecter en tant qu’utilisateur à une base de données spécifique à l’aide de SSMS
+- Afficher les autorisations de l’utilisateur dans la base de données master et dans les bases de données utilisateur
 
 **Durée estimée** : ce didacticiel vous prendra environ 45 minutes (à condition que vous remplissiez déjà les conditions préalables).
 
-## <a name="prerequisites"></a>Composants requis
-
-* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
-
-* Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
-
-* Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
-
 > [!NOTE]
-> Ce didacticiel vous permet de découvrir le contenu des rubriques suivantes : [Accès à la base de données SQL et contrôle](sql-database-control-access.md), [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md), [Principaux](https://msdn.microsoft.com/library/ms181127.aspx), [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx) et [Règles de pare-feu de base de données SQL](sql-database-firewall-configure.md).
+> Ce didacticiel vous permet de découvrir le contenu des rubriques suivantes : [Contrôle d’accès à Azure SQL Database](sql-database-control-access.md), [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md), [Principaux](https://msdn.microsoft.com/library/ms181127.aspx), [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx) et [Règles de pare-feu de base de données SQL](sql-database-firewall-configure.md). Pour suivre un didacticiel sur l’authentification Azure Active Directory, consultez l’article [Getting started with Azure AD Authentication (Prise en main de l’authentification Azure AD)](sql-database-control-access-aad-authentication-get-started.md).
 >  
 
-## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Connectez-vous au portail Azure avec votre compte Azure
-À l’aide de votre [abonnement existant](https://account.windowsazure.com/Home/Index), suivez ces étapes pour vous connecter au portail Azure.
+## <a name="prerequisites"></a>Composants requis
+
+* **Un compte Azure**. Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/free/) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+
+* **Des autorisations de création Azure**. Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
+
+* **SQL Server Management Studio**. Pour télécharger et installer la dernière version de SQL Server Management Studio (SSMS), consultez l’article [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Utilisez toujours la dernière version de SSMS lorsque vous vous connectez à Azure SQL Database, car de nouvelles fonctionnalités sont continuellement publiées.
+
+* **Didacticiel de base effectué**. Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
+
+
+
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Se connecter au portail Azure avec un compte Azure
+Cette procédure vous indique comment vous connecter au portail Azure à l’aide de votre compte Azure (https://account.windowsazure.com/Home/Index).
 
 1. Ouvrez votre navigateur préféré et connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -58,53 +63,46 @@ Dans ce didacticiel dédié à la prise en main, vous allez apprendre à utilise
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="view-information-about-the-security-configuration-for-your-logical-server"></a>Afficher des informations sur la configuration de sécurité de votre serveur logique
+## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Afficher les informations relatives à la sécurité de serveur logique dans le portail Azure
 
-Dans cette section du didacticiel, vous pouvez afficher des informations sur la configuration de sécurité de votre serveur logique dans le portail Azure.
+Les étapes de cette procédure vous montrent comment afficher des informations sur la configuration de sécurité de votre serveur logique dans le portail Azure.
 
-1. Ouvrez le panneau **SQL Server** de votre serveur logique et affichez les informations de la page **Vue d’ensemble**.
+1. Ouvrez le panneau **SQL Server** de votre serveur et affichez les informations de la page **Vue d’ensemble**.
 
    ![Compte d’administrateur de serveur dans le portail Azure](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)
 
-2. Notez le nom du compte d’administrateur de serveur pour le serveur logique. Si vous avez oublié le mot de passe, cliquez sur **Réinitialiser mot de passe** pour définir un nouveau mot de passe.
+2. Prenez note du nom de l’administrateur du serveur sur votre serveur logique. 
 
-> [!NOTE]
-> Pour passer en revue les informations de connexion à ce serveur, accédez à [Afficher ou mettre à jour les paramètres du serveur](sql-database-view-update-server-settings.md). Pour cette série de didacticiels, le nom de serveur complet est « sqldbtutorialserver.database.windows.net ».
->
+3. Si vous avez oublié le mot de passe, cliquez sur **Réinitialiser mot de passe** pour définir un nouveau mot de passe.
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Se connecter au serveur SQL Server à l’aide de SQL Server Management Studio (SSMS)
+4. Si vous devez obtenir les informations de connexion de ce serveur, cliquez sur **Propriétés**.
 
-1. Si ce n’est déjà fait, téléchargez et installez la dernière version de SSMS via [Téléchargement de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Pour vous permettre de rester à jour, la dernière version de SSMS vous envoie une invite lorsqu’une nouvelle version est disponible au téléchargement.
+## <a name="view-server-admin-permissions-using-ssms"></a>Afficher les autorisations d’administrateur de serveur à l’aide de SSMS
 
-2. Une fois l’installation terminée, saisissez **Microsoft SQL Server Management Studio** dans la zone de recherche de Windows, puis cliquez sur **Entrée** pour ouvrir SSMS.
+Les étapes de cette procédure vous montrent comment afficher des informations sur le compte d’administrateur de serveur, ainsi que ses autorisations dans la base de données MASTER et dans les bases de données utilisateur.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-
-3. Dans la boîte de dialogue **Se connecter au serveur**, entrez les informations nécessaires pour vous connecter à votre serveur SQL Server à l’aide de l’authentification SQL Server et du compte d’administrateur de serveur.
+1. Ouvrez SQL Server Management Studio et connectez-vous à votre serveur en tant qu’administrateur du serveur à l’aide de l’authentification SQL Server et du compte d’administrateur de serveur.
 
    ![connect to server](./media/sql-database-get-started/connect-to-server.png)
 
-4. Cliquez sur **Connecter**.
+2. Cliquez sur **Connecter**.
 
    ![connected to server](./media/sql-database-get-started/connected-to-server.png)
 
-## <a name="view-the-server-admin-account-and-its-permissions"></a>Afficher le compte d’administrateur de serveur et ses autorisations 
-Dans cette section du didacticiel, vous pouvez afficher des informations sur le compte d’administrateur de serveur, ainsi que ses autorisations dans la base de données master et dans les bases de données utilisateur.
-
-1. Dans l’Explorateur d’objets, développez **Sécurité**, puis développez **Connexions** pour afficher les connexions existantes pour votre serveur de base de données SQL Azure. Une connexion apparaît pour le compte d’administrateur de serveur spécifié lors de la configuration (connexion sqladmin pour cette série de didacticiels).
+3. Dans l’Explorateur d’objets, développez **Sécurité**, puis **Connexions** pour afficher les connexions existantes de votre serveur ; la seule connexion sur un nouveau serveur est la connexion du compte d’administrateur de serveur.
 
    ![Connexion d’administrateur serveur](./media/sql-database-control-access-sql-authentication-get-started/server_admin_login.png)
 
-2. Dans l’Explorateur d’objets, développez **Bases de données**, **Bases de données système**, **Master**, **Sécurité**, puis **Utilisateurs**. Un compte d’utilisateur a été créé dans la base de données master pour la connexion d’administrateur serveur, avec le même nom pour le compte d’utilisateur que celui du compte de connexion (les noms ne doivent pas nécessairement correspondre, mais cela est recommandé afin d’éviter toute confusion).
+4. Dans l’Explorateur d’objets, développez **Bases de données**, **Bases de données système**, **master**, **Sécurité**, puis **Utilisateurs** pour afficher le compte d’utilisateur qui a été créé pour la connexion d’administrateur de serveur dans cette base de données.
 
    ![compte d’utilisateur de base de données master pour l’administrateur de serveur](./media/sql-database-control-access-sql-authentication-get-started/master_database_user_account_for_server_admin.png)
 
    > [!NOTE]
-   > Pour plus d’informations sur les autres comptes d’utilisateur qui s’affichent, consultez [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
+   > Pour plus d’informations sur les autres comptes d’utilisateurs qui s’affichent dans le nœud Utilisateurs, consultez [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
    >
 
-3. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données master.
-4. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. sqladmin est retourné pour le compte d’utilisateur exécutant cette requête (nous obtiendrons un résultat différent lorsque nous interrogerons une base de données utilisateur plus loin dans cette procédure).
+5. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données master.
+6. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. 
 
    ```
    SELECT USER;
@@ -112,7 +110,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
    ![sélectionner la requête de l’utilisateur dans la base de données master](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_master_database.png)
 
-5. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur sqladmin. sqladmin dispose des autorisations pour se connecter à la base de données master, créer des connexions et des utilisateurs, sélectionner des informations à partir de la table sys.sql_logins et ajouter des utilisateurs aux rôles de base de données dbmanager et dbcreator. Ces autorisations s’ajoutent aux autorisations accordées au rôle public depuis lequel tous les utilisateurs héritent des autorisations (telles que les autorisations pour sélectionner des informations à partir de certaines tables). Pour plus d’informations, consultez la page [Autorisations](https://msdn.microsoft.com/library/ms191291.aspx).
+7. Dans la fenêtre de requête, exécutez la requête suivante pour retourner des informations relatives aux autorisations de l’utilisateur sqladmin dans la base de données **MASTER**. 
 
    ```
    SELECT prm.permission_name
@@ -134,13 +132,17 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
    ![autorisations de l’administrateur de serveur dans la base de données master](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_master_database.png)
 
-6. Dans l’Explorateur d’objets, développez**blankdb**, **Sécurité**, puis **Utilisateurs**. Il n’existe aucun compte d’utilisateur appelé sqladmin dans cette base de données.
+   >[!NOTE]
+   > L’administrateur du serveur dispose des autorisations pour se connecter à la base de données MASTER, créer des connexions et des utilisateurs, sélectionner des informations dans la table sys.sql_logins et ajouter des utilisateurs aux rôles de base de données dbmanager et dbcreator. Ces autorisations s’ajoutent aux autorisations accordées au rôle public depuis lequel tous les utilisateurs héritent des autorisations (telles que les autorisations pour sélectionner des informations à partir de certaines tables). Pour plus d’informations, consultez la page [Autorisations](https://msdn.microsoft.com/library/ms191291.aspx).
+   >
+
+8. Dans l’Explorateur d’objets, développez **blankdb**, **Sécurité**, puis **Utilisateurs** pour afficher le compte d’utilisateur qui a été créé pour la connexion d’administrateur de serveur dans cette base de données (et dans chaque base de données utilisateur).
 
    ![comptes d’utilisateur dans blankdb](./media/sql-database-control-access-sql-authentication-get-started/user_accounts_in_blankdb.png)
 
-7. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **blankdb**, puis cliquez sur **Nouvelle requête**.
+9. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **blankdb**, puis cliquez sur **Nouvelle requête**.
 
-8. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête. Notez que dbo est renvoyée pour le compte d’utilisateur qui exécute cette requête (par défaut, la connexion d’administrateur serveur est mappée au compte d’utilisateur dbo dans chaque base de données utilisateur).
+10. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives à l’utilisateur exécutant la requête.
 
    ```
    SELECT USER;
@@ -148,7 +150,7 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
    ![Sélectionner la requête de l’utilisateur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_blankdb_database.png)
 
-9. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur dbo. Vous pouvez voir que dbo est membre du rôle public, mais également du rôle de base de données fixe db_owner. Pour en savoir plus, voir [Rôles au niveau de la base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+11. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur dbo. 
 
    ```
    SELECT prm.permission_name
@@ -170,26 +172,28 @@ Dans cette section du didacticiel, vous pouvez afficher des informations sur le 
 
    ![Autorisations de l’administrateur de serveur dans la base de données blankdb](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
 
-10. Le cas échéant, répétez les trois étapes précédentes pour la base de données utilisateur AdventureWorksLT.
+   > [!NOTE]
+   > L’utilisateur dbo est membre du rôle public, mais également du rôle de base de données fixe db_owner. Pour en savoir plus, voir [Rôles au niveau de la base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+   >
 
-## <a name="create-a-new-user-in-the-adventureworkslt-database-with-select-permissions"></a>Créer un utilisateur dans la base de données AdventureWorksLT avec des autorisations SELECT
+## <a name="create-a-new-user-with-select-permissions"></a>Créer un utilisateur avec les autorisations SELECT
 
-Dans cette section du didacticiel, vous allez créer un compte d’utilisateur dans la base de données AdventureWorksLT, tester les autorisations de cet utilisateur en tant que membre du rôle public, accorder à cet utilisateur des autorisations SELECT, puis tester à nouveau les autorisations de cet utilisateur.
+Les étapes de cette procédure vous montrent comment créer un utilisateur de base de données, tester les autorisations par défaut d’un nouvel utilisateur (par le biais du rôle public), accorder à un utilisateur les autorisations **SELECT** et afficher ces autorisations modifiées.
 
 > [!NOTE]
-> Les utilisateurs au niveau de la base de données ([utilisateurs contenus](https://msdn.microsoft.com/library/ff929188.aspx)) augmentent la portabilité de votre base de données, une fonctionnalité que nous explorerons dans d’autres didacticiels.
+> Les utilisateurs de base de données sont également appelés [utilisateurs contenus](https://msdn.microsoft.com/library/ff929188.aspx) et augmentent la portabilité de votre base de données. Pour plus d’informations sur les avantages de la portabilité, consultez l’article [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
 >
 
-1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **AdventureWorksLT**, puis sur **Nouvelle requête** pour ouvrir une fenêtre de requête connectée à la base de données AdventureWorksLT.
-2. Exécutez l’instruction suivante pour créer un utilisateur nommé user1 dans la base de données AdventureWorksLT.
+1. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **sqldbtutorialdb**, puis cliquez sur **Nouvelle requête**.
+2. Dans cette fenêtre de requête, exécutez l’instruction suivante pour créer un utilisateur nommé **user1** dans la base de données sqldbtutorialdb.
 
    ```
    CREATE USER user1
    WITH PASSWORD = 'p@ssw0rd';
    ```
-   ![nouvel utilisateur user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
+   ![nouvel utilisateur user1 dans la base de données sqldbtutorialdb](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
 
-3. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur user1. Vous pouvez voir que les seules autorisations dont dispose l’utilisateur user1 sont les autorisations héritées du rôle public.
+3. Dans la fenêtre de requête, exécutez la requête suivante pour renvoyer des informations relatives aux autorisations de l’utilisateur user1.
 
    ```
    SELECT prm.permission_name
@@ -211,7 +215,11 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 
    ![Autorisations du nouvel utilisateur dans une base de données utilisateur](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
 
-4. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
+   > [!NOTE]
+   > Un nouvel utilisateur dans une base de données dispose uniquement des autorisations héritées du rôle public.
+   >
+
+4. Exécutez les requêtes suivantes à l’aide de l’instruction **EXECUTE AS USER** pour tenter d’interroger la table SalesLT.ProductCategory dans la base de données sqldbtutorialdb en tant qu’utilisateur **user1** avec uniquement les autorisations héritées du rôle public.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -221,7 +229,11 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 
    ![Aucune autorisation select](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
 
-5. Exécutez l’instruction suivante pour accorder à l’utilisateur user1 des autorisations SELECT sur la table ProductCategory dans le schéma SalesLT.
+   > [!NOTE]
+   > Par défaut, le rôle public n’accorde pas les autorisations **SELECT** sur des objets utilisateur.
+   >
+
+5. Exécutez l’instruction suivante pour accorder des autorisations **SELECT** sur la table SalesLT.ProductCategory à l’utilisateur **user1**.
 
    ```
    GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
@@ -229,7 +241,7 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 
    ![Accorder des autorisations select](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
 
-6. Exécutez les requêtes suivantes pour tenter d’interroger une table dans la base de données AdventureWorksLT en tant qu’utilisateur user1.
+6. Exécutez les requêtes suivantes pour interroger avec succès la table SalesLT.ProductCategory de la base de données sqldbtutorialdb en tant qu’utilisateur **user1**.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -239,70 +251,67 @@ Dans cette section du didacticiel, vous allez créer un compte d’utilisateur d
 
    ![autorisations select](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
 
-## <a name="create-a-database-level-firewall-rule-for-an-adventureworkslt-database-user"></a>Créer une règle de pare-feu au niveau de la base de données pour un utilisateur de base de données AdventureWorksLT
+## <a name="create-a-database-level-firewall-rule-using-t-sql"></a>Créer une règle de pare-feu au niveau de la base de données à l’aide de T-SQL
 
-Dans cette section du didacticiel, vous tenterez de vous connecter à partir d’un ordinateur avec une adresse IP différente, de créer une règle de pare-feu au niveau de la base de données en tant qu’administrateur du serveur, puis de vous connecter à l’aide de cette nouvelle règle de pare-feu au niveau de la base de données. 
+Les étapes de cette procédure vous montrent comment créer une règle de pare-feu au niveau de la base de données à l’aide de la procédure stockée système [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx). Une règle de pare-feu au niveau de la base de données permet à un administrateur du serveur d’autoriser les utilisateurs via le pare-feu Azure SQL Database à accéder uniquement à des bases de données spécifiques.
 
 > [!NOTE]
-> Les [règles de pare-feu au niveau de la base de données](sql-database-firewall-configure.md) augmentent la portabilité de votre base de données, une fonctionnalité que nous explorerons dans d’autres didacticiels.
+> Les [règles de pare-feu au niveau de la base de données](sql-database-firewall-configure.md) augmentent la portabilité de votre base de données. Pour plus d’informations sur les avantages de la portabilité, consultez l’article [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
 >
 
-1. Sur un autre ordinateur pour lequel vous n’avez pas déjà créé une règle de pare-feu au niveau du serveur, ouvrez SQL Server Management Studio.
+> [!IMPORTANT]
+> Pour tester une règle de pare-feu au niveau de la base de données, connectez-vous à partir d’un autre ordinateur (ou supprimez la règle de pare-feu au niveau du serveur dans le portail Azure).
+>
 
-   > [!IMPORTANT]
-   > Utilisez toujours la dernière version de SSMS disponible sous [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
-   >
+1. Ouvrez SQL Server Management Studio sur un ordinateur pour lequel vous ne disposez pas d’une règle de pare-feu au niveau du serveur.
 
-2. Dans la fenêtre **Se connecter au serveur**, entrez le nom du serveur et les informations d’authentification pour vous connecter à l’aide de l’authentification SQL Server avec le compte user1. 
+2. Dans la fenêtre **Se connecter au serveur**, entrez le nom du serveur et les informations d’authentification pour vous connecter à l’aide de l’authentification SQL Server avec le compte **user1**. 
     
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Cliquez sur **Options** pour spécifier la base de données à laquelle vous souhaitez vous connecter, puis tapez **AdventureWorksLT** dans la zone de liste déroulante **Se connecter à la base de données** de l’onglet **Propriétés de connexion**.
+3. Cliquez sur **Options** pour spécifier la base de données à laquelle vous souhaitez vous connecter, puis tapez **sqldbtutorialdb** dans la zone de liste déroulante **Se connecter à la base de données** de l’onglet **Propriétés de connexion**.
    
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
-4. Cliquez sur **Connecter**. Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose d’aucune règle de pare-feu permettant l’accès à la base de données. La boîte de dialogue qui s’affiche comporte deux variantes selon les étapes que vous avez effectuées précédemment avec les pare-feu, mais c’est généralement la première boîte de dialogue qui apparaît.
+4. Cliquez sur **Connecter**. 
 
-   ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule3](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule3.png)
+   Une boîte de dialogue vous informe que l’ordinateur à partir duquel vous essayez de vous connecter à la base de données SQL ne dispose d’aucune règle de pare-feu permettant l’accès à la base de données. 
 
    ![Se connecter en tant qu’utilisateur user1 sans règle firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
 
-   > [!NOTE]
-   > Les dernières versions de SSMS comprennent une fonctionnalité autorisant les propriétaires d’abonnement et les collaborateurs à se connecter à Microsoft Azure et à créer une règle de pare-feu au niveau du serveur.
-   > 
 
-4. Copiez l’adresse IP du client à partir de cette boîte de dialogue pour une utilisation à l’étape 7.
-5. Cliquez sur **Annuler**, mais ne fermez pas la boîte de dialogue **Se connecter au serveur**.
-6. Passez sur un ordinateur pour lequel vous avez déjà créé une règle de pare-feu au niveau du serveur et connectez-vous à votre serveur à l’aide du compte d’administrateur de serveur.
-7. Dans une nouvelle fenêtre de requête connectée à la base de données AdventureWorksLT en tant qu’administrateur de serveur, exécutez l’instruction suivante pour créer un pare-feu au niveau de la base de données en exécutant [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) à l’aide de l’adresse IP de l’étape 4 :
+5. Copiez l’adresse IP du client indiquée dans cette boîte de dialogue pour l’utiliser à l’étape 8.
+6. Cliquez sur **OK** pour fermer la boîte de dialogue d’erreur, mais ne fermez pas la boîte de dialogue **Se connecter au serveur**.
+7. Passez sur un ordinateur pour lequel vous avez déjà créé une règle de pare-feu au niveau du serveur. 
+8. Connectez-vous à la base de données sqldbtutorialdb dans SSMS en tant qu’administrateur du serveur, puis exécutez l’instruction suivante pour créer un pare-feu au niveau de la base de données en utilisant l’adresse IP (ou la plage d’adresses) de l’étape 5.  
 
    ```
-   EXEC sp_set_database_firewall_rule @name = N'AdventureWorksLTFirewallRule', 
+   EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule', 
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
    ![Ajouter une règle de pare-feu](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
 
-8. Repassez sur l’autre ordinateur et cliquez sur **Connecter** dans la boîte de dialogue **Se connecter au serveur** pour vous connecter à AdventureWorksLT en tant qu’utilisateur user1. 
+9. Changez de nouveau d’ordinateur et cliquez sur **Connecter** dans la boîte de dialogue **Se connecter au serveur** pour vous connecter à la base de données sqldbtutorialdb en tant qu’utilisateur user1. 
+
+   > [!NOTE]
+   > Après avoir créé la règle de pare-feu au niveau de la base de données, son application peut prendre jusqu’à 5 minutes.
+   >
+
+10. Une fois la connexion établie, développez **Bases de données** dans l’Explorateur d’objets. Notez que l’utilisateur **user1** peut uniquement afficher la base de données **sqldbtutorialdb**.
 
    ![Se connecter en tant qu’utilisateur user1 avec une règle firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
-9. Dans l’Explorateur d’objets, développez **Bases de données**, **AdventureWorksLT**, puis **Tables**. L’utilisateur user1 a l’autorisation d’afficher une seule table : **SalesLT.ProductCategory**. 
+11. Développez **sqldbtutorialdb**, puis **Tables**. L’utilisateur user1 a l’autorisation d’afficher une seule table : **SalesLT.ProductCategory**. 
 
    ![Se connecter en tant qu’utilisateur user1 et afficher les objets objects1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
 
-10. Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **SalesLT.ProductCategory**, puis sur **Sélectionner les 1 000 premières lignes**.   
+## <a name="create-a-new-user-as-dbowner-and-a-database-level-firewall-rule"></a>Créer un utilisateur en tant que db_owner ainsi qu’une règle de pare-feu au niveau de la base de données
 
-   ![Requête query1 d’utilisateur user1](./media/sql-database-control-access-sql-authentication-get-started/user1_query1.png)
+Les étapes de cette procédure vous montrent comment créer un utilisateur dans une autre base de données disposant d’autorisations de rôle de base de données db_owner et comment créer un pare-feu au niveau de la base de données pour cette autre base de données. Ce nouvel utilisateur pourvu de l’appartenance au rôle **db_owner** peut uniquement se connecter à cette base de données unique et la gérer.
 
-   ![Résultats de la requête query1 d’utilisateur user1](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
-
-## <a name="create-a-new-user-in-the-blankdb-database-with-dbowner-database-role-permissions-and-a-database-level-firewall-rule"></a>Créer un utilisateur dans la base de données blankdb disposant d’autorisations de rôle de base de données db_owner et une règle de pare-feu au niveau de la base de données
-
-Dans cette section du didacticiel, vous créerez un utilisateur dans la base de données blankdb disposant d’autorisations de rôle de base de données db_owner, ainsi qu’un pare-feu au niveau de la base de données pour cette base de données à l’aide du compte d’administrateur de serveur. 
-
-1. Repassez sur l’ordinateur disposant d’une connexion à la base de données SQL à l’aide du compte d’administrateur de serveur.
-2. Ouvrez une fenêtre de requête connectée à la base de données blankdb et exécutez l’instruction suivante pour créer un utilisateur appelé blankdbadmin dans la base de données blankdb.
+1. Repassez sur l’ordinateur disposant d’une connexion à la base de données SQL Database à l’aide du compte d’administrateur de serveur.
+2. Ouvrez une fenêtre de requête connectée à la base de données **blankdb** et exécutez l’instruction suivante pour créer un utilisateur appelé blankdbadmin dans la base de données blankdb.
 
    ```
    CREATE USER blankdbadmin
@@ -330,17 +339,21 @@ Dans cette section du didacticiel, vous créerez un utilisateur dans la base de 
    WITH PASSWORD = 'p@ssw0rd';
    ```
  
-7. En fonction des besoins de votre environnement d’apprentissage, créez une règle supplémentaire de pare-feu au niveau de la base de données pour cet utilisateur. 
+7. En fonction des besoins de votre environnement d’apprentissage, créez une règle supplémentaire de pare-feu au niveau de la base de données pour cet utilisateur. Toutefois, si vous avez créé la règle de pare-feu au niveau de la base de données à l’aide d’une plage d’adresses IP, cela peut s’avérer inutile.
 
-## <a name="create-a-new-login-and-user-in-the-master-database-with-dbmanager-permissions-and-create-a-server-level-firewall-rule"></a>Créer une connexion et un utilisateur dans la base de données master avec des autorisations dbmanager et créer une règle de pare-feu au niveau du serveur
+## <a name="grant-dbmanager-permissions-and-create-a-server-level-firewall-rule"></a>Accorder des autorisations dbmanager et créer une règle de pare-feu au niveau du serveur
 
-Dans cette section du didacticiel, vous créerez une connexion et un utilisateur dans la base de données master avec des autorisations pour créer et gérer des bases de données utilisateur. Vous créerez également une règle supplémentaire de pare-feu au niveau du serveur à l’aide de Transact-SQL avec [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
+Les étapes de cette procédure vous montrent comment créer une connexion et un utilisateur dans la base de données MASTER avec des autorisations pour créer et gérer des bases de données utilisateur. Elles vous indiquent également comment créer une règle supplémentaire de pare-feu au niveau du serveur à l’aide de Transact-SQL avec [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx). 
 
-> [!NOTE]
-> La création de connexions dans la base de données master et la création d’un compte d’utilisateur à partir d’un compte de connexion sont requises pour que le titulaire du compte d’administrateur de serveur puisse déléguer les autorisations de création de base de données à un autre utilisateur. Cependant, la création de connexions et d’utilisateurs à partir de connexions diminue la portabilité de votre environnement (nous en détaillerons les conséquences dans d’autres didacticiels), y compris comment anticiper et gérer dans le cadre de la planification de la récupération d’urgence.
+> [!IMPORTANT]
+>La première règle de pare-feu au niveau du serveur doit toujours être créée dans Azure (dans le portail Azure, à l’aide de PowerShell ou de l’API REST).
 >
 
-1. Repassez sur l’ordinateur disposant d’une connexion à la base de données SQL à l’aide du compte d’administrateur de serveur.
+> [!IMPORTANT]
+> La création de connexions dans la base de données MASTER et la création d’un compte d’utilisateur à partir d’une connexion sont requises pour que l’administrateur du serveur puisse déléguer les autorisations de création de base de données à un autre utilisateur. Cependant, les créations successives de connexions et d’utilisateurs à partir des connexions diminuent la portabilité de votre environnement.
+>
+
+1. Repassez sur l’ordinateur disposant d’une connexion à la base de données SQL Database à l’aide du compte d’administrateur de serveur.
 2. Ouvrez une fenêtre de requête connectée à la base de données master et exécutez l’instruction suivante pour créer une connexion appelée dbcreator dans la base de données master.
 
    ```
@@ -361,7 +374,7 @@ Dans cette section du didacticiel, vous créerez une connexion et un utilisateur
    ALTER ROLE dbmanager ADD MEMBER dbcreator; 
    ```
 
-4. Dans la même fenêtre de requête, exécutez la requête suivante pour créer un pare-feu au niveau du serveur en exécutant [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) à l’aide d’une adresse IP adaptée à votre environnement :
+4. Dans la même fenêtre de requête, exécutez la requête suivante pour créer un pare-feu au niveau du serveur en exécutant [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) à l’aide d’une adresse IP adaptée à votre environnement :
 
    ```
    EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule', 
@@ -395,13 +408,13 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
 ```
 
-### <a name="adventureworkslt-database"></a>Base de données AdventureWorksLT
-Exécutez ces instructions dans la base de données AdventureWorksLT à l’aide du compte d’administrateur de serveur, en ajoutant les adresses IP ou la plage appropriées.
+### <a name="sqldbtutorialdb-database"></a>base de données sqldbtutorialdb
+Exécutez ces instructions dans la base de données sqldbtutorialdb à l’aide du compte d’administrateur de serveur, en ajoutant les adresses IP ou la plage appropriées.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
 GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
-EXEC sp_set_database_firewall_rule @name = N'AdventureWorksLTFirewallRule', 
+EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule', 
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
 ```
 
@@ -423,12 +436,7 @@ CREATE USER blankdbuser1
 - Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, voir [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
 - Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
-- Pour plus d’informations sur les règles de pare-feu dans la base de données SQL, consultez [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
-- Pour obtenir un didacticiel utilisant l’authentification Azure Active Directory, consultez le [Didacticiel sur les bases de données SQL : authentification SQL Server, connexions et comptes d’utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+- Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
+- Pour un didacticiel sur l’authentification Azure Active Directory, consultez [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff87afae1b468bef77947edd9806d330047f2ba6
-ms.openlocfilehash: 3b167db06ee30f7c3483eca30782437c61f8dcc8
+ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
+ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -117,6 +118,15 @@ Une fois connecté à la Place de marché Azure, suivez ces étapes pour finalis
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
+## <a name="resources"></a>Ressources
+
+Les ressources suivantes ont été évoquées dans cet article. 
+
+* [Plug-in de connexion de navigateur](http://downloads.asperasoft.com/connect2/)
+* [Guide de connexion](http://downloads.asperasoft.com/en/documentation/8)
+* [Client Aspera](http://downloads.asperasoft.com/en/downloads/2)
+* [Guide client](http://downloads.asperasoft.com/en/documentation/2)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez désormais [copier des objets blob d’un compte de stockage dans un compte AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
@@ -126,10 +136,5 @@ Vous pouvez désormais [copier des objets blob d’un compte de stockage dans un
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
