@@ -32,7 +32,7 @@ Cet article explique comment créer une machine virtuelle dans le modèle de dé
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
+## <a name = "create"></a>Créer une machine virtuelle avec plusieurs adresses IP
 
 Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 1.0 (cet article) ou d’[Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md). Les étapes qui suivent expliquent comment créer un exemple de machine virtuelle avec plusieurs adresses IP, comme décrit dans le scénario. Modifiez les noms des variables et les types d’adresses IP en fonction des besoins de votre implémentation.
 
@@ -122,7 +122,7 @@ Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 1.0 (cet article) o
     ```
 8. Ajoutez les adresses IP privées pour le système d’exploitation de la machine virtuelle en suivant les étapes pour votre système d’exploitation dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article.
 
-## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Ajouter des adresses IP à une machine virtuelle
+## <a name="add"></a>Ajouter des adresses IP à une machine virtuelle
 
 Vous pouvez ajouter des adresses IP privées et publiques à une carte réseau en suivant les étapes décrites ci-après. Les exemples reposent sur le [scénario](#Scenario) décrit dans cet article.
 
