@@ -5,7 +5,7 @@ description: "Fournit des informations sur les paramètres de stratégie de grou
 services: active-directory
 keywords: "quels sont les paramètres de stratégie de groupe et de MDM pour Enterprise State Roaming, Enterprise State Roaming, cloud windows"
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
@@ -19,6 +19,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
 ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -59,10 +60,5 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

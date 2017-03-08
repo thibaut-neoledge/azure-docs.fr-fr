@@ -18,10 +18,12 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
 ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
+ms.lasthandoff: 01/07/2017
 
 
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement 
+
 > [!NOTE]
 > La [géo-réplication active](sql-database-geo-replication-overview.md) est désormais disponible pour toutes les bases de données de tous les niveaux de service.
 >  
@@ -101,10 +103,5 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 * Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 * Pour plus d’informations sur l’utilisation et la configuration de la géo-réplication active, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)
 * Pour plus d’informations sur l’utilisation de la restauration géographique, consultez [Restauration géographique](sql-database-recovery-using-backups.md#geo-restore)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
