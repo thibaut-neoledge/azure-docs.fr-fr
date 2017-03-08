@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 translationtype: Human Translation
-ms.sourcegitcommit: 2de3e6d205dd126e1c3d9606ea1419669056d7f1
-ms.openlocfilehash: 51c6801fe99060b3f1f36dbf675b55b56d465e59
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: e6aedc1fae5d05d841e5af2f250fe17061ed6f0a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -38,7 +38,7 @@ L’extension Agent Network Watcher pour Windows peut être exécutée sur Windo
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-Certaines fonctionnalités de l’Agent Network Watcher requièrent que la machine virtuelle cible soit connectée à Internet. Sans la possibilité d’établir des connexions sortantes, certaines fonctionnalités de l’Agent Network Watcher risquent de mal fonctionner ou de devenir indisponibles. Pour plus d’informations, consultez la [documentation de Network Watcher](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Certaines fonctionnalités de l’Agent Network Watcher requièrent que la machine virtuelle cible soit connectée à Internet. Sans la possibilité d’établir des connexions sortantes, certaines fonctionnalités de l’Agent Network Watcher risquent de mal fonctionner ou de devenir indisponibles. Pour plus d’informations, consultez la [documentation de Network Watcher](../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
