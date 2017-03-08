@@ -28,20 +28,6 @@
 ### [Application Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Exemples courants
-## Exemples d’interface de ligne de commande
-### [Créer une application web et déployer le code à partir de GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Créer une application web avec un déploiement continu à partir de GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Créer une application web et déployer le code à partir d’un référentiel Git](./scripts/app-service-cli-deploy-local-git.md)
-### [Créer une application web et déployer le code dans un environnement intermédiaire](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Créer une application web ASP.NET Core dans un conteneur Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Mapper un domaine personnalisé à une application web](./scripts/app-service-cli-configure-custom-domain.md)
-### [Mettre à l’échelle une application web manuellement](./scripts/app-service-cli-scale-manual.md)
-### [Mettre à l’échelle une application web dans le monde entier avec une architecture haute disponibilité](./scripts/app-service-cli-scale-high-availability.md)
-### [Connecter une application web à une base de données SQL](./scripts/app-service-cli-app-service-sql.md)
-### [Connecter une application web à un compte de stockage](./scripts/app-service-cli-app-service-storage.md)
-### [Analyser une application web avec les journaux de serveur web](./scripts/app-service-cli-monitor.md)
-
 # Procédures
 
 ## Planifier et concevoir
@@ -160,7 +146,7 @@
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # les ressources
-## [portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Référence App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [meilleures pratiques](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Ressources WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
