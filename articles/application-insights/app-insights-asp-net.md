@@ -34,7 +34,7 @@ Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéresse
 * [Instrumentation d’une application web au moment de l’exécution](app-insights-monitor-performance-live-website-now.md)
 * [Services cloud Azure](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Étape 1 : ajout du Kit de développement logiciel (SDK) Application Insights
+## <a name="ide"></a> Étape 1 : ajout du Kit de développement logiciel (SDK) Application Insights
 
 Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Ajouter**, **Application Insights Telemetry...** ou **Configurer Application Insights**.
 
@@ -53,7 +53,7 @@ Passez à la page de configuration d’Application Insights :
 5. Vous pouvez également ajouter simplement le Kit de développement logiciel (SDK) Application Insights à votre application. Dans ce cas, vous serez en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Étape 2 : exécution de votre application
+## <a name="run"></a> Étape 2 : exécution de votre application
 Exécutez votre application en appuyant sur F5. Ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements consignés s’affiche dans Visual Studio.
@@ -124,7 +124,7 @@ Vous pouvez également continuer à analyser vos données de télémétrie dans 
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
+## <a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
 Application Insights envoie les données de télémétrie de votre application au portail Application Insights (qui est hébergé dans Azure).
 
 ![Diagramme du mouvement des données de télémétrie](./media/app-insights-asp-net/01-scheme.png)

@@ -10,5 +10,7 @@
 ## [Résolution des problèmes](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Supprimer des mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md)
 ## Ouvrir l’application Microsoft Authenticator
-### [Prise en main](microsoft-authenticator-app-how-to.md)
+### [Prise en main de l’application](microsoft-authenticator-app-how-to.md)
+### [Se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
+

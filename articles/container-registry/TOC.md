@@ -4,7 +4,7 @@
 
 # Prise en main
 ## [Créer un registre dans le portail](container-registry-get-started-portal.md)
-## [Créer un registre avec l’interface de ligne de commande](container-registry-get-started-azure-cli.md)
+## [Créer un registre avec Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Transmettre et extraire une image](container-registry-get-started-docker-cli.md)
 
 # Procédure
@@ -14,7 +14,7 @@
 
 # Référence
 
-## [Azure CLI 2.0 (version préliminaire)](/cli/azure/acr)
+## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # Rubriques connexes

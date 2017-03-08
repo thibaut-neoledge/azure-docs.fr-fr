@@ -50,7 +50,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * Azure PowerShell, **version 1.0.1 minimum**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`.  
 * Espace de stockage suffisant sur Azure pour vos journaux de coffre de clés.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Se connecter à vos abonnements
+## <a id="connect"></a>Se connecter à vos abonnements
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
     Login-AzureRmAccount
@@ -67,7 +67,7 @@ Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous all
 
 Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
+## <a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, nous allons en créer un nouveau qui sera dédié à vos journaux de coffre de clés. Pour plus de commodité, en prévision du moment où vous devrez le spécifier par la suite, nous allons enregistrer les détails dans une variable nommée **sa**.
 
 Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources qui contient votre coffre de clés. Dans le [didacticiel de mise en route](key-vault-get-started.md), ce groupe de ressources se nomme **ContosoResourceGroup** et nous allons continuer d’utiliser l’emplacement Asie orientale. Remplacez ces valeurs par les vôtres, selon le cas :
@@ -80,13 +80,13 @@ Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources q
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identification du coffre de clés pour vos journaux
+## <a id="identify"></a>Identification du coffre de clés pour vos journaux
 Dans notre didacticiel de prise en main, le nom de notre coffre de clés était **ContosoKeyVault**, donc nous allons continuer à utiliser ce nom et stocker les détails dans une variable nommée **kv** :
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Activation de la journalisation
+## <a id="enable"></a>Activation de la journalisation
 Pour activer la journalisation du coffre de clés, nous allons utiliser l’applet de commande Set-AzureRmDiagnosticSetting, ainsi que les variables que nous avons créées pour notre compte de stockage et notre coffre de clés. Nous allons également définir l’indicateur **-Enabled** sur **$true** et la catégorie sur AuditEvent (la seule catégorie pour la journalisation de Key Vault) :
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -117,7 +117,7 @@ Si vous le souhaitez, vous pouvez également définir une stratégie de rétenti
 * les opérations sur les clés et les clés secrètes dans le coffre de clés, notamment la création, la modification ou la suppression de ces clés ou ces clés secrètes ; les opérations telles que la signature, la vérification, le chiffrement, le déchiffrement, l’encapsulage et le désencapsulage des clés, l’obtention des clés secrètes, la liste des clés et des clés secrètes et leurs versions.
 * les requêtes non authentifiées qui génèrent une réponse 401. Par exemple, les requêtes qui ne possèdent pas de jeton de porteur, qui sont incorrectes, qui ont expiré ou qui comportent un jeton non valide.  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Accéder à vos journaux
+## <a id="access"></a>Accéder à vos journaux
 Les journaux de coffre de clés sont stockés dans le conteneur **insights-logs-auditevent** du compte de stockage que vous avez fourni. Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
 
     Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
@@ -172,7 +172,7 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 * Pour interroger l’état des paramètres de diagnostic de votre ressource de coffre de clés : `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Pour désactiver la journalisation de votre ressource de coffre de clés : `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Interpréter vos journaux Key Vault
+## <a id="interpret"></a>Interpréter vos journaux Key Vault
 Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Voici un exemple d’entrée de journal après l’exécution de `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -253,11 +253,11 @@ Le tableau suivant répertorie les éléments operationName et la commande API R
 | SecretList |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Utilisation de Log Analytics
+## <a id="loganalytics"></a>Utilisation de Log Analytics
 
 Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault. Pour plus d’informations, notamment sur la configuration, consultez la page [Solution Azure Key Vault dans Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Cet article contient également des instructions si vous devez migrer à partir de l’ancienne solution Key Vault qui proposée dans la version préliminaire de Log Analytics, où vous avez d’abord acheminé vos journaux vers un compte de stockage Azure et configuré Log Analytics pour lire à cet emplacement.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 Pour accéder à un didacticiel utilisant Azure Key Vault dans une application web, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](key-vault-use-from-web-application.md).
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
