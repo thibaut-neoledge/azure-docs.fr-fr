@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95a79ccb83d5a3ba386d5db2fd47f3887a03fa8a
-ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 01a19f1070c1096b41599705bba246bd0cc45d09
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,10 +28,10 @@ Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à pa
 ## <a name="prerequisites"></a>Composants requis
 Cet article requiert une machine virtuelle Linux existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
-- [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [Azure CLI 2.0 (version préliminaire)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Portail Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Vous avez également besoin des derniers [Azure CLI 1.0](../xplat-cli-install.md) ou [Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) installés et connectés à un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
+Vous avez également besoin des derniers [Azure CLI 2.0](/cli/azure/install-az-cli2) ou [Azure CLI 1.0](../xplat-cli-install.md) installés et connectés à un [compte Azure actif](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="quick-commands"></a>Commandes rapides
@@ -69,16 +70,7 @@ Définissez un mot de passe pour votre compte d’utilisateur si actuellement vo
 sudo passwd ops
 ```
 
-Quittez la session SSH vers votre machine virtuelle Linux. Pour créer une règle de groupe de sécurité réseau afin d’autoriser le trafic de bureau à distance, utilisez l’interface de ligne de commande Azure sur votre ordinateur local. L’exemple suivant utilise Azure CLI 1.0 pour créer une règle nommée `myNetworkSecurityGroupRule` dans `myNetworkSecurityGroup` pour autoriser le trafic sur le port TCP 3389 :
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-Autrement, utilisez [az network nsg rule create](/cli/azure/network/nsg/rule#create) avec Azure CLI 2.0 (version préliminaire) :
+Quittez la session SSH vers votre machine virtuelle Linux. Pour créer une règle de groupe de sécurité réseau afin d’autoriser le trafic de bureau à distance, utilisez l’interface de ligne de commande Azure sur votre ordinateur local. Utilisez [az network nsg rule create](/cli/azure/network/nsg/rule#create) avec Azure CLI 2.0. L’exemple suivant crée une règle nommée `myNetworkSecurityGroupRule` dans `myNetworkSecurityGroup` pour autoriser le trafic sur le port TCP 3389 :
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -87,6 +79,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+Ou, avec Azure CLI 1.0 :
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 Connectez-vous à votre machine virtuelle Linux à l’aide du client de bureau à distance de votre choix.
@@ -149,16 +150,7 @@ Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtue
 
 Les exemples suivants créent une règle de groupe de sécurité réseau nommée `myNetworkSecurityGroupRule` pour autoriser (`allow`) le trafic sur le port `tcp` `3389`.
 
-- Utilisez Azure CLI 1.0 :
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- Autrement, utilisez [az network nsg rule create](/cli/azure/network/nsg/rule#create) avec Azure CLI 2.0 (version préliminaire) :
+- Utilisez [az network nsg rule create](/cli/azure/network/nsg/rule#create) avec Azure CLI 2.0 :
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -169,6 +161,14 @@ Les exemples suivants créent une règle de groupe de sécurité réseau nommée
         --access allow
     ```
 
+- Ou bien Azure CLI 1.0 :
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Connexion de votre machine virtuelle Linux à un client Bureau à distance
 Ouvrez votre client Bureau à distance local et connectez-vous à l’adresse IP ou au nom DNS de votre machine virtuelle Linux. Entrez le nom d’utilisateur et le mot de passe du compte d’utilisateur sur votre machine virtuelle comme suit :
@@ -215,10 +215,5 @@ Si vous ne recevez pas de réponse dans votre client Bureau à distance et que v
 Pour plus d’informations sur la création et l’utilisation de clés SSH avec les machines virtuelles Linux, consultez [Create SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Création de clés SSH pour les machines virtuelles Linux dans Azure).
 
 Pour plus d’informations sur l’utilisation de SSH avec Windows, consultez la page [Utilisation de clés SSH avec Windows sur Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

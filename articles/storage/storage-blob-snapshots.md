@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
-ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+ms.sourcegitcommit: a8b570cfbab594e1a21417e081eaf6d34a4659d0
+ms.openlocfilehash: 40f10b1cb860ca0c018cc3589417c54588269b0c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,6 +37,10 @@ Un objet blob peut avoir plusieurs instantanés. Les instantanés sont conservé
 Lorsque vous créez un instantané d’un objet blob, les propriétés système de l’objet blob sont copiées dans l’instantané avec les mêmes valeurs. Les métadonnées de l’objet blob de base sont également copiées dans l’instantané, sauf si vous spécifiez des métadonnées distinctes pour l’instantané lorsque vous le créez.
 
 Aucun bail associé à l’objet blob de base n’a d’incidence sur l’instantané. Vous ne pouvez pas acquérir de bail pour un instantané.
+
+Un fichier de disque dur virtuel est utilisé pour stocker les informations et l’état actuels d’un disque de machine virtuelle. Vous pouvez détacher un disque de la machine virtuelle ou arrêter la machine virtuelle, puis prendre une capture instantanée de son fichier de disque dur virtuel. Vous pourrez par la suite utiliser ce fichier de capture instantanée pour récupérer le fichier de disque dur virtuel à ce moment précis et recréer la machine virtuelle.
+
+Si le chiffrement du service de stockage (SSE) est activé pour le compte de stockage dans lequel réside l’objet blob, toutes les captures instantanées de cet objet blob seront chiffrées au repos.
 
 ## <a name="create-a-snapshot"></a>Créer un instantané
 L’exemple de code suivant montre comment créer un instantané dans .NET. Cet exemple spécifie des métadonnées distinctes pour l’instantané lors de sa création.
@@ -163,10 +168,5 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples supplémentaires d’utilisation de Blob Storage, consultez [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Vous pouvez télécharger un exemple d’application et l’exécuter ou parcourir le code sur GitHub.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

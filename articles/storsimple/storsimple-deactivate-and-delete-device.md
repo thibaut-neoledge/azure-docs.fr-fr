@@ -4,7 +4,7 @@ description: "Explique comment supprimer un appareil StorSimple du service en le
 services: storsimple
 documentationcenter: 
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 155cda38-c5ae-45dc-b7e8-6444494afc9e
 ms.service: storsimple
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/27/2017
 ms.author: anbacker
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 014d4faeb478690168b44f88e7a0bda2b406cd4b
+ms.sourcegitcommit: 80fde4dfe7de89dffd39242d94fe46f68e41d611
+ms.openlocfilehash: 833dee54ef9de46c50e9e760594359baf4f89b5e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
-## <a name="overview"></a>Vue d’ensemble
+# <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Désactivation et suppression d’un appareil StorSimple série 8000 via le service StorSimple Manager
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez souhaiter mettre un appareil StorSimple hors service (par exemple, si vous voulez le remplacer ou le mettre à niveau, ou si vous ne voulez plus utiliser StorSimple). Dans ce cas, vous devez désactiver l’appareil avant de le supprimer. La désactivation interrompt la connexion entre l’appareil et le service StorSimple Manager correspondant. Ce didacticiel explique comment mettre un appareil StorSimple hors service en le désactivant, puis en le supprimant. 
 
 Si vous désactivez un appareil, les données stockées localement sur ce dernier ne seront plus accessibles. Seules les données associées à l’appareil qui a été stocké dans le cloud peuvent être récupérées.  
@@ -93,10 +95,5 @@ La désactivation entraîne ce qui suit :
 * Pour restaurer les paramètres d’usine de l’appareil désactivé, consultez [Rétablir les paramètres d’usine de l’appareil](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Pour obtenir une assistance technique, [contactez le support technique de Microsoft](storsimple-contact-microsoft-support.md).
 * Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

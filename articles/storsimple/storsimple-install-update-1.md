@@ -4,7 +4,7 @@ description: "Explique comment installer StorSimple série 8000 Update 1.2 sur
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+ms.sourcegitcommit: 56af9046fff24229298997b169aaf329e1692cc2
+ms.openlocfilehash: 80ff35cc47dfc38089f4c392ef4c90baf9ccc03e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="install-update-12-on-your-storsimple-device"></a>Installation d’Update 1.2 sur votre appareil StorSimple
+# <a name="install-update-12-on-your-storsimple-8000-series-device"></a>Installer Update 1.2 sur votre appareil StorSimple série 8000
 ## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel explique comment installer Update 1.2 sur un appareil StorSimple exécutant une version logicielle antérieure à Update 1. Ce didacticiel couvre également les étapes supplémentaires requises pour la mise à jour lorsqu’une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple.
 
@@ -59,7 +61,7 @@ Suivez la procédure suivante pour mettre à jour votre appareil vers [Update 1.
    
    Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil.
    
-   ![Page Maintenance](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
+   ![Page Maintenance](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Page Maintenance")
 2. Téléchargez les mises à jour en mode maintenance à l’aide de la procédure indiquée dans [Pour télécharger des correctifs logiciels](#to-download-hotfixes) pour rechercher et télécharger KB3063416, qui installe les mises à jour du microprogramme de disque (les autres mises à jour doivent déjà être installés à ce stade).
 3. Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfixes) pour installer ces mises à jour en mode maintenance.
 4. Dans le portail Azure Classic, accédez à la page **Maintenance** et en bas de la page, cliquez sur **Rechercher les mises à jour** pour vérifier la présence de mises à jour Windows, puis cliquez sur **Installer les mises à jour**. Vous avez terminé une fois que toutes les mises à jour sont installées correctement.
@@ -114,10 +116,5 @@ Effectuez les étapes suivantes pour désactiver l’interface réseau avec la p
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

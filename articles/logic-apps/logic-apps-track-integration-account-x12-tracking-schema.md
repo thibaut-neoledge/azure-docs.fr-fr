@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: 2470a8e7d82c6c01e9f32b062bc09f5a2f6ed1cd
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: c8c7642a28f1dc386a73d014abe13ec36c6cbe69
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="x12-tracking-schemas"></a>Schémas de suivi X12
+# <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Démarrage ou activation du suivi des messages X12 pour surveiller la réussite, les erreurs et les propriétés de message
 Vous pouvez utiliser ces schémas de suivi X12 dans votre compte d’intégration Azure pour surveiller les transactions B2B :
 
 * Schéma de suivi de document informatisé X12
@@ -355,9 +357,4 @@ Vous pouvez utiliser ces schémas de suivi X12 dans votre compte d’intégratio
 * En savoir plus sur les [schémas de suivi personnalisé B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
 * En savoir plus sur le [suivi de messages B2B dans le portail Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * En savoir plus sur [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

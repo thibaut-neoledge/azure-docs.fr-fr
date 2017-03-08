@@ -1,6 +1,6 @@
 ---
-title: "Connecter des ordinateurs Windows à Log Analytics | Microsoft Docs"
-description: "Cet article décrit les étapes à suivre pour connecter directement à OMS les ordinateurs Windows de votre infrastructure locale en utilisant une version personnalisée de Microsoft Monitoring Agent (MMA)."
+title: "Connecter des ordinateurs Windows à Azure Log Analytics | Microsoft Docs"
+description: "Cet article décrit les étapes à suivre pour connecter directement au service Log Analytics les ordinateurs Windows de votre infrastructure locale en utilisant une version personnalisée de Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
-ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-windows-computers-to-log-analytics"></a>Connecter des ordinateurs Windows à Log Analytics
+# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connecter des ordinateurs Windows au service Log Analytics dans Azure
 
-Cet article décrit les étapes à suivre pour connecter directement à des espaces de travail OMS les ordinateurs Windows de votre infrastructure locale en utilisant une version personnalisée de Microsoft Monitoring Agent (MMA). Vous devez installer et connecter les agents pour tous les ordinateurs que vous souhaitez intégrer à OMS afin qu’ils puissent envoyer des données à OMS, puis les afficher et agir sur ces données dans le portail OMS. Chaque agent peut fournir des rapports à plusieurs espaces de travail.
+Cet article décrit les étapes à suivre pour connecter à des espaces de travail OMS les ordinateurs Windows de votre infrastructure locale en utilisant une version personnalisée de Microsoft Monitoring Agent (MMA). Vous devez installer et connecter les agents pour tous les ordinateurs que vous souhaitez intégrer afin qu’ils puissent envoyer des données au service Log Analytics, puis les afficher et agir sur ces données. Chaque agent peut fournir des rapports à plusieurs espaces de travail.
 
 Vous pouvez installer des agents à l’aide du programme d’installation, de la ligne de commande, ou de la fonction Desired State Configuration (DSC) d’Azure Automation.  
 
@@ -107,10 +109,10 @@ Vous pouvez utiliser l’exemple de script suivant pour installer l’agent à l
 Cette procédure et cet exemple de script ne mettent pas à niveau un agent existant.
 
 1. Importez le module DSC xPSDesiredStateConfiguration à partir de [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) dans Azure Automation.  
-2.  Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail OMS Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
-3.  Utilisez le script ci-dessous et enregistrez-le sous le nom MMAgent.ps1.
-4.  Modifiez puis utilisez l’exemple suivant pour installer l’agent à l’aide de DSC dans Azure Automation. Importez MMAgent.ps1 dans Azure Automation à l’aide de l’interface ou de l’applet de commande Azure Automation.
-5.  Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifiera sa configuration et le MMA sera poussé vers le nœud.
+2.    Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail OMS Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
+3.    Utilisez le script ci-dessous et enregistrez-le sous le nom MMAgent.ps1.
+4.    Modifiez puis utilisez l’exemple suivant pour installer l’agent à l’aide de DSC dans Azure Automation. Importez MMAgent.ps1 dans Azure Automation à l’aide de l’interface ou de l’applet de commande Azure Automation.
+5.    Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifiera sa configuration et le MMA sera poussé vers le nœud.
 
 ```
 Configuration MMAgent
@@ -199,17 +201,17 @@ Une fois que les données des ordinateurs analysés ont été collectées par l�
 Si vous utilisez Operations Manager dans votre infrastructure informatique, vous pouvez également utiliser l’agent MMA en tant qu’agent Operations Manager.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>Configurer les agents afin qu’ils émettent des rapports dans un groupe d’administration Operations Manager
-1.  Sur l’ordinateur sur lequel l’agent est installé, ouvrez le **Panneau de configuration**.  
-2.  Ouvrez l’agent **Microsoft Monitoring Agent**, puis cliquez sur l’onglet **Operations Manager**.  
+1.    Sur l’ordinateur sur lequel l’agent est installé, ouvrez le **Panneau de configuration**.  
+2.    Ouvrez l’agent **Microsoft Monitoring Agent**, puis cliquez sur l’onglet **Operations Manager**.  
     ![onglet Operations Manager de Microsoft Monitoring Agent](./media/log-analytics-windows-agents/om-mg01.png)
-3.  Si vos serveurs Operations Manager sont intégrés à Active Directory, cliquez sur **Met à jour automatiquement les attributions du groupe d’administration à partir d’AD DS**.
-4.  Cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Ajouter un groupe d’administration**.  
+3.    Si vos serveurs Operations Manager sont intégrés à Active Directory, cliquez sur **Met à jour automatiquement les attributions du groupe d’administration à partir d’AD DS**.
+4.    Cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Ajouter un groupe d’administration**.  
     ![Microsoft Monitoring Agent Ajouter un groupe d’administration](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.  Dans la zone **Nom du groupe d’administration** , entrez le nom de votre groupe d’administration.
-6.  Dans la zone **Serveur d’administration principal** , entrez le nom d’ordinateur du serveur d’administration principal.
-7.  Dans la zone **Port du serveur d’administration** , entrez le numéro de port TCP.
-8.  Sous **Compte d’action d’agent**, choisissez le compte système local ou un compte de domaine local.
-9.  Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
+5.    Dans la zone **Nom du groupe d’administration** , entrez le nom de votre groupe d’administration.
+6.    Dans la zone **Serveur d’administration principal** , entrez le nom d’ordinateur du serveur d’administration principal.
+7.    Dans la zone **Port du serveur d’administration** , entrez le numéro de port TCP.
+8.    Sous **Compte d’action d’agent**, choisissez le compte système local ou un compte de domaine local.
+9.    Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
 
 ## <a name="optionally-configure-agents-to-use-the-oms-gateway"></a>Vous pouvez éventuellement configurer les agents afin qu’ils utilisent la passerelle OMS
 
@@ -226,9 +228,4 @@ Si les serveurs proxy ou les pare-feu de votre environnement limitent votre acc�
 
 - [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 - [Configurez les paramètres de proxy et de pare-feu dans Log Analytics](log-analytics-proxy-firewall.md) si votre organisation utilise un serveur proxy ou un pare-feu pour que les agents puissent communiquer avec le service Log Analytics.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

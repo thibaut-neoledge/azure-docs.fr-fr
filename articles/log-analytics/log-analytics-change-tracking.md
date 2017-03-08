@@ -1,7 +1,7 @@
 ---
-title: Solution de suivi des modifications dans Log Analytics | Microsoft Docs
-description: "Vous pouvez utiliser la solution de suivi des modifications de configuration dans Log Analytics pour vous aider à identifier facilement les logiciels et les modifications des services Windows qui se produisent dans votre environnement : l’identification de ces modifications de configuration peut vous aider à identifier les problèmes opérationnels."
-services: operations-management-suite
+title: Suivi des modifications avec Azure Log Analytics | Microsoft Docs
+description: "La solution de suivi des modifications dans Log Analytics permet d’identifier les modifications apportées aux logiciels et aux services Windows qui se produisent dans votre environnement."
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Solution de suivi des modifications dans Log Analytics
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
+
 Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
 Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées à des logiciels installés, aux services Windows et aux démons Linux sur les serveurs analysés sont lues, puis les données sont envoyées au service cloud Log Analytics pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
@@ -90,9 +93,4 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [recherches de journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

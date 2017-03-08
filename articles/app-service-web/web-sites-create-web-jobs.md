@@ -4,7 +4,7 @@ description: "Découvrez comment exécuter des tâches en arrière-plan dans les
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
-ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5d0d46447c3e0a3a1047e2bbedd44bbd46dd7f1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses t�
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-nameacceptablefilesaacceptable-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Types de fichier acceptables pour les scripts ou les programmes
+## <a name="acceptablefiles"></a>Types de fichier acceptables pour les scripts ou les programmes
 Les types de fichier suivants sont acceptés :
 
 * .cmd, .bat, .exe (en utilisant une commande Windows)
@@ -43,7 +44,7 @@ Les types de fichier suivants sont acceptés :
 * .js (en utilisant Node)
 * .jar (en utilisant Java)
 
-## <a name="a-namecreateondemandacreate-an-on-demand-webjob-in-the-portal"></a><a name="CreateOnDemand"></a>Création d’une tâche Web à la demande sur le portail
+## <a name="CreateOnDemand"></a>Création d’une tâche Web à la demande sur le portail
 1. Dans le panneau **Application web** du [portail Azure](https://portal.azure.com), cliquez sur **Tous les paramètres > Tâches web** pour afficher le panneau **Tâches web**.
    
     ![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
@@ -60,7 +61,7 @@ Les types de fichier suivants sont acceptés :
    
     ![Exécuter une tâche Web](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="a-namecreatecontinuousacreate-a-continuously-running-webjob"></a><a name="CreateContinuous"></a>Création d’une tâche Web exécutée en continu
+## <a name="CreateContinuous"></a>Création d’une tâche Web exécutée en continu
 1. Pour créer une tâche web exécutée en continu, procédez comme pour la création d’une tâche web à exécution unique, mais dans la zone **Mode d’exécution**, sélectionnez **Exécuter en continu**.
 2. Pour démarrer ou arrêter une tâche web exécutée en continu, cliquez avec le bouton droit sur la tâche web dans la liste, puis cliquez sur **Démarrer** ou **Arrêter**.
 
@@ -71,7 +72,7 @@ Les types de fichier suivants sont acceptés :
 > 
 > 
 
-## <a name="a-namecreatescheduledcronacreate-a-scheduled-webjob-using-a-cron-expression"></a><a name="CreateScheduledCRON"></a>Créer une tâche web planifiée à l’aide d’une expression CRON
+## <a name="CreateScheduledCRON"></a>Créer une tâche web planifiée à l’aide d’une expression CRON
 Cette technique est disponible dans Web Apps s’exécutant en mode De base, Standard ou Premium et suppose que le paramètre **Toujours actif** est activé sur l’application.
 
 Pour transformer une tâche web à la demande en une tâche web planifiée, il vous suffit d’inclure un fichier `settings.job` à la racine du fichier compressé de la tâche web. Ce fichier JSON doit inclure une propriété `schedule` avec une [expression CRON](https://en.wikipedia.org/wiki/Cron), comme ci-dessous.
@@ -95,7 +96,7 @@ Autres exemples de planification CRON :
 
 **Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme Copier si plus récent.
 
-## <a name="a-namecreatescheduledacreate-a-scheduled-webjob-using-the-azure-scheduler"></a><a name="CreateScheduled"></a>Créer une tâche web planifiée à l’aide d’Azure Scheduler
+## <a name="CreateScheduled"></a>Créer une tâche web planifiée à l’aide d’Azure Scheduler
 L’autre technique ci-après fait appel à Azure Scheduler. Dans ce cas, votre tâche web n’a aucune connaissance directe de la planification. Au lieu de cela, Azure Scheduler est configuré pour déclencher votre tâche web selon une planification. 
 
 Le portail Azure ne permet pas encore de créer une tâche web planifiée. Pour le moment, vous pouvez utiliser le [portail Classic](http://manage.windowsazure.com).
@@ -133,7 +134,7 @@ Le portail Azure ne permet pas encore de créer une tâche web planifiée. Pour 
     
     ![Liste des tâches][WebJobsListWithSeveralJobs]
 
-### <a name="a-nameschedulerascheduled-jobs-and-azure-scheduler"></a><a name="Scheduler"></a>Tâches planifiées et Azure Scheduler
+### <a name="Scheduler"></a>Tâches planifiées et Azure Scheduler
 Les tâches planifiées peuvent être configurées avec plus de précision sur les pages Azure Scheduler du [portail Classic](http://manage.windowsazure.com).
 
 1. Sur la page WebJobs, cliquez sur le lien **schedule** de la tâche pour accéder à la page du portail d'Azure Scheduler. 
@@ -146,7 +147,7 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
    
     ![Action de tâche PageInScheduler][JobActionPageInScheduler]
 
-## <a name="a-nameviewjobhistoryaview-the-job-history"></a><a name="ViewJobHistory"></a>Affichage de l’historique des tâches
+## <a name="ViewJobHistory"></a>Affichage de l’historique des tâches
 1. Pour afficher l’historique d’exécution d’une tâche, notamment celui des tâches créées avec le Kit de développement logiciel (SDK) WebJobs, cliquez sur le lien correspondant sous la colonne **Journaux** du panneau Tâches web. Vous pouvez utiliser l'icône de Presse-papiers pour copier l'URL de la page du fichier journal dans le Presse-papiers.
    
     ![Lien vers les journaux](./media/web-sites-create-web-jobs/wjbladelogslink.png)
@@ -167,15 +168,15 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
    
     En cliquant sur l'un de ces liens, vous pouvez accéder à la page Détails de WebJob pour la tâche sélectionnée.
 
-## <a name="a-namewhpnotesanotes"></a><a name="WHPNotes"></a>Remarques
+## <a name="WHPNotes"></a>Remarques
 * Les applications web en mode Gratuit peuvent expirer si, pendant 20 minutes, aucune requête à destination du site (de déploiement) SCM et du portail de l'application web n'est ouverte dans Azure. Cette situation ne sera pas annulée par les requêtes à destination du site actif.
 * Le code d'une tâche en continu doit être écrit pour s'exécuter dans une boucle infinie.
 * Les tâches en continu sont uniquement exécutées comme tel lorsque l’application web est opérationnelle.
 * Les modes Basique et Standard proposent la fonctionnalité Toujours actif qui, lorsqu’elle est activée, empêche les applications web de devenir inactives.
 * Vous pouvez uniquement déboguer les tâches Web qui s’exécutent en continu. Le débogage des tâches Web planifiées et à la demande n’est pas pris en charge.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Étapes suivantes
-Pour plus d’informations, consultez la page [Ressources recommandées pour Azure WebJobs][WebJobsRecommendedResources].
+## <a name="NextSteps"></a>Étapes suivantes
+Pour plus d’informations, consultez la page [Ressources Azure WebJobs][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
@@ -203,10 +204,5 @@ Pour plus d’informations, consultez la page [Ressources recommandées pour Azu
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

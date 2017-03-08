@@ -16,44 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
-ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+ms.sourcegitcommit: bb4f7c4977de290e6e148bbb1ae8b28791360f96
+ms.openlocfilehash: 1a385de3c00b9288d9e1245f04969a9099bf5b45
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-metadata-service---scheduled-events"></a>Azure Metadata Service - Événements planifiés
+# <a name="azure-metadata-service---scheduled-events-preview"></a>Service de métadonnées Azure - Événements planifiés (préversion)
 
-Azure Metadata Service vous permet d'obtenir des informations relatives à votre machine virtuelle hébergée dans Azure. Événements planifiés, une des catégories présentées, affiche des informations concernant les événements à venir (par exemple, un redémarrage) afin que votre application puisse s’y préparer et limiter ainsi l’interruption. Elle est disponible pour tous les types de machines virtuelles Azure, notamment PaaS et IaaS. Le service laisse à votre machine virtuelle le temps d'effectuer des tâches préventives et de réduire l'impact d’un événement. Par exemple, votre service peut vider des sessions, élire un nouveau leader ou copier des données après avoir observé qu’une instance est planifiée pour redémarrer afin d'éviter toute interruption.
+> [!NOTE] 
+> Les préversions sont à votre disposition, à condition que vous acceptiez les conditions d’utilisation. Pour plus d’informations, consultez la page [Conditions d’utilisation supplémentaires Microsoft Azure pour les préversions Microsoft Azure] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+>
 
+Les événements planifiés constituent l’un des sous-services du service de métadonnées Azure, qui affiche des informations concernant les événements à venir (par exemple, un redémarrage) afin que votre application puisse s’y préparer et limiter ainsi l’interruption. Il est disponible pour tous types de machines virtuelles Azure, notamment PaaS et IaaS. Les événements planifiés laissent à votre machine virtuelle le temps d’effectuer des tâches préventives et de réduire l’impact d’un événement. 
 
 
 ## <a name="introduction---why-scheduled-events"></a>Introduction - Pourquoi utiliser Événements planifiés ?
 
-Événements planifiés vous permet de prendre connaissance (découvrir) des événements à venir qui peuvent avoir un impact sur la disponibilité de votre machine virtuelle et d'effectuer des opérations proactives pour limiter cet impact sur votre service.
-Les charges de travail à instances multiples, qui utilisent des techniques de réplication pour maintenir l’état, peuvent être vulnérables si des pannes fréquentes affectent plusieurs instances. Ces pannes peuvent entraîner de tâches coûteuses (par exemple, la reconstruction des index) ou même une perte de réplica.
-Dans de nombreux autres cas, l'utilisation d'une séquence d’arrêt appropriée améliore la disponibilité globale du service. Par exemple, si vous terminez (ou annulez) des transactions en cours, réaffectez d'autres tâches à d’autres machines virtuelles du cluster (basculement manuel), la machine virtuelle est supprimée d’un pool d’équilibrage de charge.
-Dans certains cas, le fait d'avertir un administrateur d'un événement à venir, ou même de consigner un tel événement, facilite la gestion des applications hébergées dans le cloud.
-
-Azure Metadata Service traite les événements planifiés dans les cas d’utilisation suivants :
--   La plateforme a lancé une maintenance avec un fort impact (par exemple, le déploiement du système d’exploitation hôte)
--   La plateforme a lancé une maintenance sans réel impact (par exemple, la migration d'une machine virtuelle sur place)
--   Appels interactifs (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
-
+Avec les événements planifiés, vous pouvez prendre des mesures pour limiter l’impact sur votre service. Les charges de travail à instances multiples, qui utilisent des techniques de réplication pour maintenir l’état, peuvent être vulnérables si des pannes fréquentes affectent plusieurs instances. Ces pannes peuvent entraîner de tâches coûteuses (par exemple, la reconstruction des index) ou même une perte de réplica. Dans de nombreux autres cas, l'utilisation d'une séquence d’arrêt appropriée améliore la disponibilité globale du service. Par exemple, si vous terminez (ou annulez) des transactions en cours, réaffectez d'autres tâches à d’autres machines virtuelles du cluster (basculement manuel), la machine virtuelle est supprimée d’un pool d’équilibrage de charge. Dans certains cas, le fait d'avertir un administrateur d'un événement à venir, ou même de consigner un tel événement, facilite la gestion des applications hébergées dans le cloud.
+Le service de métadonnées Azure s’appuie sur les événements planifiés dans les cas d’utilisation suivants :
+-    La plateforme a lancé une maintenance (par exemple, le déploiement du système d’exploitation hôte)
+-    L’utilisateur a lancé des appels (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
 
 
 ## <a name="scheduled-events---the-basics"></a>Événements planifiés - Concepts de base  
 
 Azure Metadata Service présente des informations sur les machines virtuelles en cours d'exécution en utilisant un point de terminaison REST au sein de la machine virtuelle. Les informations sont disponibles via une adresse IP non routable pour ne pas s'afficher en dehors de la machine virtuelle.
 
-### <a name="scope"></a>Étendue 
-Les événements planifiés sont présentés à toutes les machines virtuelles dans un service cloud ou à toutes les machines virtuelles dans un groupe à haute disponibilité. Par conséquent, vous devez vérifier le champ **Ressources** de l’événement pour identifier les machines virtuelles qui seront affectées.
+### <a name="scope"></a>Étendue
+Les événements planifiés sont présentés à toutes les machines virtuelles dans un service cloud ou à toutes les machines virtuelles dans un groupe à haute disponibilité. Par conséquent, vous devez vérifier le champ **Ressources** de l’événement pour identifier les machines virtuelles qui seront affectées. 
 
 ### <a name="discover-the-endpoint"></a>Découvrir le point de terminaison
-Si une machine virtuelle est créée au sein d’un réseau virtuel (VNet), le service de métadonnées est disponible à partir de l’adresse IP non routable : 169.254.169.254
-
-Dans le cas où une machine virtuelle est utilisée pour les services cloud (PaaS), le point de terminaison du service de métadonnées peut être découvert à l'aide du registre.
-
-    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+Si une machine virtuelle est créée au sein d’un réseau virtuel (VNet), le service de métadonnées est disponible à partir de l’adresse IP non routable 169.254.169.254. Sinon, dans les cas par défaut des services cloud et des machines virtuelles classiques, une logique supplémentaire est requise pour détecter le point de terminaison à utiliser. Consultez cet échantillon pour apprendre à [détecter le point de terminaison hôte] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>Contrôle de version 
 Le service de métadonnées utilise une API dont la version est au format suivant : http://{ip}/metadata/{version}/scheduledevents. Il est recommandé que votre service utilise la dernière version disponible à l’adresse : http://{ip}/metadata/latest/scheduledevents
@@ -62,8 +56,11 @@ Le service de métadonnées utilise une API dont la version est au format suivan
 Lorsque vous interrogez le service de métadonnées, vous devez fournir l’en-tête suivant *Metadata: true*. 
 
 ### <a name="enable-scheduled-events"></a>Activer des événements planifiés
-La première fois que vous appelez des événements planifiés, Azure active implicitement la fonctionnalité sur votre machine virtuelle. Par conséquent, attendez-vous à un retard pouvant atteindre une minute dans la réponse à votre premier appel. 
+La première fois que vous appelez des événements planifiés, Azure active implicitement la fonctionnalité sur votre machine virtuelle. Par conséquent, attendez-vous à un retard pouvant atteindre deux minutes dans la réponse à votre premier appel.
 
+### <a name="testing-your-logic-with-user-initiated-operations"></a>Tester votre logique avec des opérations lancées par l’utilisateur
+Afin de tester votre logique, vous pouvez utiliser le Portail Azure, l’API, l’interface CLI ou PowerShell pour lancer des opérations aboutissant à des événements planifiés. Le redémarrage d’une machine virtuelle aboutit à un événement planifié de type Redémarrage. Le redéploiement d’une machine virtuelle aboutit à un événement planifié de type Redéploiement.
+Dans les deux cas, l’opération lancée par l’utilisateur prend plus longtemps dans la mesure où les événements planifiés laissent plus de temps à une application pour qu’elle s’arrête correctement. 
 
 ## <a name="using-the-api"></a>Utilisation de l’API
 
@@ -76,10 +73,11 @@ Une réponse contient un tableau d’événements planifiés. Un tableau vide si
 S'il existe des événements planifiés, la réponse contient un tableau d’événements : 
 
     {
+     "DocumentIncarnation":{IncarnationID},
      "Events":[
           {
                 "EventId":{eventID},
-                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
                 "ResourceType":"VirtualMachine",
                 "Resources":[{resourceName}],
                 "EventStatus":"Scheduled" | "Started",
@@ -89,7 +87,7 @@ S'il existe des événements planifiés, la réponse contient un tableau d’év
     }
 
 EventType indique l’impact attendu sur la machine virtuelle, où :
-- Pause : La machine virtuelle est planifiée pour se mettre en pause pendant quelques secondes. Il n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau
+- Freeze : la machine virtuelle est planifiée pour se mettre en pause pendant quelques secondes. Il n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau
 - Reboot : la machine virtuelle est planifiée pour redémarrer (la mémoire est effacée).
 - Redeploy : la machine virtuelle est planifiée pour être déplacée vers un autre nœud (tout disque éphémère est perdu). 
 
@@ -102,7 +100,7 @@ Une fois que vous avez pris connaissance d’un événement à venir et effectu�
 
 ## <a name="powershell-sample"></a>Exemple de code PowerShell 
 
-L’exemple suivant recherche sur le serveur de métadonnées les événements planifiés et les enregistre dans le journal des événements de l'application avant d’accuser réception.
+L’exemple suivant recherche les événements planifiés sur le serveur de métadonnées et les enregistre dans le journal des événements de l’application avant d’accuser réception.
 
 ```PowerShell
 $localHostIP = "169.254.169.254"
@@ -136,7 +134,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ## <a name="c-sample"></a>Exemple de code C\# 
-Le code ci-dessous désigne un client qui présente des API afin de communiquer avec le service de métadonnées
+L’exemple suivant désigne un client qui présente des API afin de communiquer avec le service de métadonnées
 ```csharp
    public class ScheduledEventsClient
     {
@@ -304,9 +302,4 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>Étapes suivantes 
 [Maintenance planifiée des machines virtuelles dans Azure](./virtual-machines-linux-planned-maintenance.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

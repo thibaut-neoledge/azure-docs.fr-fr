@@ -1,6 +1,6 @@
 ---
-title: "Créer des batteries de serveurs SharePoint | Microsoft Docs"
-description: "Créer rapidement une nouvelle batterie de serveurs SharePoint 2013 ou SharePoint 2016 dans Azure."
+title: "Créer des batteries de serveurs SharePoint dans Azure | Microsoft Docs"
+description: "Créez rapidement une nouvelle batterie de serveurs SharePoint 2013 ou SharePoint 2016 dans Azure à l’aide de la Place de marché du Portail Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: JoeDavies-MSFT
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: b668e32bf00ec32c7ffa77594bd1fb07440cf1ac
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-sharepoint-server-farms"></a>Création de batteries de serveurs SharePoint
+# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>Créer des batteries de serveurs SharePoint à l’aide de la Place de marché du Portail Azure
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -83,9 +85,4 @@ Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez d’autres [configurations de SharePoint](https://technet.microsoft.com/library/dn635309.aspx) dans les services d’infrastructure Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Créer un tableau de bord personnalisé dans Log Analytics | Microsoft Docs"
-description: "Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d&quot;afficher l&quot;ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement."
+title: "Créer un tableau de bord personnalisé dans Azure Log Analytics | Microsoft Docs"
+description: "Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-custom-dashboard-in-log-analytics"></a>Créer un tableau de bord personnalisé dans Log Analytics
+# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
 Ce guide vous aide à comprendre comment les tableaux de bord Log Analytics permettent d’afficher l’ensemble de vos recherches de journal enregistrées en proposant une vue unique de votre environnement.
 
 ![Exemple de tableau de bord](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
@@ -83,9 +85,4 @@ Pour supprimer une vignette, accédez à la vue Mon tableau de bord, puis clique
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Créez des [alertes](log-analytics-alerts.md) dans Log Analytics pour générer des notifications et corriger les problèmes.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

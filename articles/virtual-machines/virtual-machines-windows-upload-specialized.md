@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Charger un disque dur virtuel spécialisé dans Azure à utiliser pour la création d’une machine virtuelle
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>Guide pratique de téléchargement d’un disque dur virtuel spécialisé pour créer une machine virtuelle dans Azure
 
 Un disque dur virtuel spécialisé gère les comptes d’utilisateurs, les applications et les autres données d’état à partir de votre machine virtuelle d’origine. Vous pouvez charger un disque dur virtuel spécialisé dans Azure et l’utiliser pour créer une machine virtuelle qui utilise Managed Disks ou un compte de stockage non géré. Nous vous recommandons d’utiliser [Managed Disks](../storage/storage-managed-disks-overview.md) pour tirer parti de la gestion simplifiée et des fonctionnalités supplémentaires offertes par Managed Disks.
 
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

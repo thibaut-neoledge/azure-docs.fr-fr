@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
-ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
+ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
+ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Cet article explique comment acheter et configurer un certificat SSL pour votre 
 > 
 > 
 
-## <a name="a-namebkmkoverviewaoverview"></a><a name="bkmk_Overview"></a>Vue d’ensemble
+## <a name="bkmk_Overview"></a>Vue d’ensemble
 > [!NOTE]
 > N’essayez pas d’acheter un certificat SSL avec un abonnement qui n’est pas associé à une carte de crédit active. Cela pourrait entraîner la désactivation de votre abonnement. 
 > 
@@ -47,7 +48,7 @@ Pour activer le protocole HTTPS pour un domaine personnalisé comme contoso.com,
 
 Avant de demander un certificat SSL, vous devez déterminer les noms de domaine qui seront sécurisés par celui-ci, et par conséquent le type de certificat à demander. Si vous devez sécuriser un seul nom de domaine comme contoso.com ou www.contoso.com, un certificat Standard (de base) suffit. Si vous devez en sécuriser plusieurs, par exemple contoso.com, www.contoso.com et mail.contoso.com, vous pouvez obtenir un **[certificat générique](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
-## <a name="a-namebkmkpurchasecertastep-0-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Étape 0 : Passer une commande de certificat SSL
+## <a name="bkmk_purchasecert"></a>Étape 0 : Passer une commande de certificat SSL
 Dans cette étape, vous allez apprendre à passer une commande pour un certificat SSL de votre choix.
 
 1. Dans le **[portail Azure](https://portal.azure.com/)**, cliquez sur Parcourir et tapez « Certificats App Service » dans la barre de recherche, sélectionnez « Certificats App Service » dans les résultats, puis cliquez sur Ajouter. 
@@ -83,7 +84,7 @@ Dans cette étape, vous allez apprendre à passer une commande pour un certifica
 > 
 > 
 
-## <a name="a-namebkmkstorekeyvaultastep-1-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Étape 1 : Stocker le certificat dans Azure Key Vault
+## <a name="bkmk_StoreKeyVault"></a>Étape 1 : Stocker le certificat dans Azure Key Vault
 Dans cette étape, vous allez apprendre à placer un certificat SSL que vous avez acheté dans le coffre de clés Azure Key Vault de votre choix et à le stocker dans ce dernier.
 
 1. Une fois l’achat du certificat SSL terminé, vous devrez ouvrir manuellement le panneau des ressources **Certificats App Service** en y accédant à nouveau (voir l’étape 1 ci-dessus)   
@@ -104,7 +105,7 @@ Dans cette étape, vous allez apprendre à placer un certificat SSL que vous ave
    
     Cette opération doit terminer l’étape de stockage du certificat que vous avez acheté avec le coffre de clés Azure Key Vault de votre choix. Lors de l’actualisation du panneau, une coche verte doit également s’afficher en regard de cette étape.
 
-## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Étape 2 : Vérifier la propriété du domaine
+## <a name="bkmk_VerifyOwnership"></a>Étape 2 : Vérifier la propriété du domaine
 Dans cette étape, vous allez apprendre à effectuer la vérification de la propriété du domaine pour un certificat SSL que vous venez de commander. 
 
 1. Cliquez sur l’**Étape 2 : Vérifier** à partir du panneau **Configuration du certificat**. Il existe 3 types de vérification du domaine pris en charge par les certificats App Service.
@@ -121,14 +122,23 @@ Dans cette étape, vous allez apprendre à effectuer la vérification de la prop
      * Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bouton **« Renvoyer le message »** .
    * **Vérification manuelle**    
      
-      **Vérification d’enregistrement TXT DNS**
-        
-        * À l’aide de votre Gestionnaire DNS, créez un enregistrement TXT sur le sous-domaine **DZC** avec une valeur égale au **jeton de vérification du domaine.**
+      **Vérification de page web HTML (fonctionne uniquement avec la référence du certificat standard)**
+
+        * Créez un fichier HTML nommé **« starfield.html »**
+        * Le contenu de ce fichier doit être exactement identique au nom du jeton de vérification du domaine. (Vous pouvez copier le jeton dans le Panneau d’état de la vérification du domaine)
+        * Chargez ce fichier à la racine du serveur web qui héberge votre domaine **/.well-known/pki-validation/starfield.html**
         * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
           
-          Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte **\*.contosocertdemo.com** ou **\*.subdomain.contosocertdemo.com** et le jeton de vérification du domaine **cAGgQrKc**, vous devez créer un enregistrement TXT sur dzc.contosocertdemo.com avec la valeur **cAGgQrKc.**     
+          Par exemple, si vous achetez un certificat standard pour **contosocertdemo.com** avec le jeton de vérification de domaine **tgjgthq8d11ttaeah97s3fr2sh**, une requête web effectuée sur **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** doit retourner **tgjgthq8d11ttaeah97s3fr2sh**.
 
-## <a name="a-namebkmkassigncertificateastep-3-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Étape 3 : Attribuer un certificat à une application App Service
+      **Vérification d’enregistrement TXT DNS**
+        
+        * À l’aide de votre Gestionnaire DNS, créez un enregistrement TXT sur le sous-domaine **« @ »** avec une valeur égale au **jeton de vérification du domaine.**
+        * Cliquez sur **« Actualiser »** pour mettre à jour l’état du certificat une fois la vérification terminée. Cette vérification peut prendre quelques minutes.
+          
+          Par exemple, pour effectuer la validation d’un certificat générique portant le nom d’hôte **\*.contosocertdemo.com** ou **\*.subdomain.contosocertdemo.com** et le jeton de vérification du domaine **tgjgthq8d11ttaeah97s3fr2sh**, vous devez créer un enregistrement TXT sur **contosocertdemo.com** avec la valeur **tgjgthq8d11ttaeah97s3fr2sh**.     
+
+## <a name="bkmk_AssignCertificate"></a>Étape 3 : Attribuer un certificat à une application App Service
 Dans cette étape, vous allez apprendre à attribuer le certificat que vous venez d’acheter à vos applications App Service. 
 
 > [!NOTE]
@@ -163,7 +173,7 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnali
 1. À l’aide des outils fournis par votre bureau d’enregistrement, modifiez l’enregistrement A de votre nom de domaine personnalisé de manière à ce qu’il pointe vers l’adresse IP spécifiée lors de l’étape précédente.
    À ce stade, vous devez être en mesure de visiter votre application en utilisant HTTPS:// à la place de HTTP:// pour vérifier que le certificat a été configuré correctement.
 
-## <a name="a-namebkmkrekeyarekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Renouveler la clé du certificat et le synchroniser
+## <a name="bkmk_Rekey"></a>Renouveler la clé du certificat et le synchroniser
 1. Pour des raisons de sécurité, si vous avez besoin de renouveler la clé de votre certificat, sélectionnez simplement l’option **Recréer la clé et synchroniser** à partir du panneau **Propriétés du certificat**. 
 2. Cliquez sur le bouton **« Renouveler la clé »** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes. 
    
@@ -185,10 +195,5 @@ Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnali
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

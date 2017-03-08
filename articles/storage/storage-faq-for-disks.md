@@ -3,8 +3,8 @@ title: "Forum aux Questions (FAQ) sur les disques de machine virtuelle Azure Ia
 description: "Forum aux questions sur les disques de machines virtuelles et les disques Premium (gérés et non gérés) Azure IaaS"
 services: storage
 documentationcenter: 
-author: ramankumarlive
-manager: aungoo-msft
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0746c954e669bd739b8ecfcddaf287cb5172877f
-ms.openlocfilehash: 95b627738726f3c108fff38bfeda413303b2c718
+ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
+ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -120,6 +121,48 @@ Oui.
 
 Actuellement, Azure Managed Disks prend uniquement en charge le stockage localement redondant (LRS).
 
+## <a name="managed-disks-and-port-8443"></a>Managed Disks et port 8443
+
+**Pourquoi les clients doivent-ils débloquer le trafic sortant sur le port 8443 pour les machines virtuelles avec Azure Managed Disks ?**
+
+L’Agent de machine virtuelle Azure utilise le port 8443 pour signaler l’état de chaque extension de machine virtuelle à la plateforme Azure. Sans le déblocage de ce port, l’Agent de machine virtuelle ne pourra pas signaler l’état des extensions de machines virtuelles. Pour plus d’informations sur l’Agent de machine virtuelle, consultez [Vue d’ensemble de l’Agent de machine virtuelle Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+
+**Que se passe-t-il si une machine virtuelle est déployée avec extensions et que le port n’est pas débloqué ?**
+
+Le déploiement entraîne une erreur. 
+
+**Que se passe-t-il si une machine virtuelle est déployée sans extensions et que le port n’est pas débloqué ?**
+
+Il n’y aura aucun impact sur le déploiement. 
+
+**Que se passe-t-il si une extension est installée sur une machine virtuelle qui est déjà approvisionnée et en cours d’exécution et que le port 8443 n’est pas débloqué pour la machine virtuelle ?**
+
+Le déploiement de l’extension ne réussira pas. L’état de l’extension sera inconnu. 
+
+**Que se passe-t-il si un modèle ARM est utilisé pour approvisionner plusieurs machines virtuelles avec le port 8443 bloqué : une machine virtuelle avec extensions et une deuxième machine virtuelle qui dépend de la première machine virtuelle ?**
+
+Le déploiement de la première machine virtuelle apparaîtra comme un échec, car le déploiement des extensions n’a pas réussi. La deuxième machine virtuelle ne sera pas déployée. 
+
+**Cette exigence de déblocage du port s’appliquera-t-elle à toutes les extensions de machines virtuelles ?**
+
+Oui.
+
+**Les connexions entrantes et sortantes sur le port 8443 doivent-elles être débloquées ?**
+
+Non. Seules les connexions entrantes et sortantes sur le port 8443 doivent être débloquées. 
+
+**Est-il nécessaire de débloquer les connexions sortantes sur le port 8443 sur toute la durée de vie de la machine virtuelle ?**
+
+Oui.
+
+**Le déblocage de ce port affecte-t-il les performances de la machine virtuelle ?**
+
+Non.
+
+**Y a-t-il une date estimée de résolution de ce problème, qui permette de ne plus avoir à débloquer le port 8443 ?**
+
+Oui, à la fin du mois de mai 2017.
+
 ## <a name="premium-disks--both-managed-and-unmanaged"></a>Disques Premium - Gérés et non gérés
 
 **Si une machine virtuelle utilise une taille qui prend en charge le stockage Premium, comme DSv2, puis-je attacher des disques de données Standard et Premium ?** 
@@ -151,8 +194,3 @@ Le disque local SSD est un stockage temporaire inclus avec une machine virtuell
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article, dans les commentaires, ou dans le [forum du stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) du site MSDN afin de solliciter l’équipe du stockage Azure et d’autres membres de la communauté sur des problématiques autour de cet article.
 
 Pour soumettre une demande de fonctionnalité, transmettez vos questions et vos idées sur le [forum des commentaires du stockage Azure](https://feedback.azure.com/forums/217298-storage).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

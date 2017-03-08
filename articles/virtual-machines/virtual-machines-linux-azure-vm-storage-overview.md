@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ Lorsque vous créez une machine virtuelle à partir de l’interface `azure-cli`
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Création d’une machine virtuelle avec un disque géré
 
-L’exemple suivant nécessite Azure CLI 2.0 (version préliminaire) que vous pouvez installer [en cliquant ici].
+L’exemple suivant nécessite Azure CLI 2.0 que vous pouvez installer [en cliquant ici].
 
 Tout d’abord, créez un groupe de ressources pour gérer les ressources :
 
@@ -238,10 +239,5 @@ Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d
 
 ## <a name="storage-limits"></a>Limites de stockage
 * [Limites de service de stockage](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

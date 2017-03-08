@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
-ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bc2a8803bdc875e9f62d9263b16cdbb5cc70ecbf
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="migrate-from-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’AWS et d’autres plateformes vers Managed Disks dans Azure
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers Managed Disks dans Azure
 
-Vous pouvez charger des fichiers VHD à partir d’AWS ou de solutions de virtualisation locales vers Azure afin de créer des machines virtuelles qui tirent parti de Managed Disks. Avec Azure Managed Disks, il n’est plus nécessaire de gérer des comptes de stockage pour les machines virtuelles IaaS Azure. Vous spécifiez simplement le type (Premium ou Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. 
+Vous pouvez charger des fichiers VHD sur Azure à partir d’AWS ou de solutions de virtualisation locales afin de créer des machines virtuelles qui tirent parti de Managed Disks. Avec Azure Managed Disks, il n’est plus nécessaire de gérer des comptes de stockage pour les machines virtuelles IaaS Azure. Vous spécifiez simplement le type (Premium ou Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. 
 
 Vous pouvez charger des disques durs virtuels généralisés et spécialisés. 
 **Disque dur virtuel généralisé** : toutes les informations de votre compte personnel de ce type de disque ont été supprimées avec Sysprep. 
@@ -101,9 +103,4 @@ Consultez la [tarification des disques gérés](https://azure.microsoft.com/en-u
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Avant de charger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows ou un disque VHDX à charger sur Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
