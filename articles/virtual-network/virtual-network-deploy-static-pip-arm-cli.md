@@ -40,7 +40,7 @@ ms.lasthandoff: 02/28/2017
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## <a name="a-name--createacreate-the-vm"></a><a name = "create"></a>Créer la machine virtuelle
+## <a name = "create"></a>Créer la machine virtuelle
 
 Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) ou d’[Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Les valeurs des variables comprises entre symboles "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
 
@@ -135,13 +135,13 @@ Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) o
     - Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Consultez l’article [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
     - Des ressources de réseau virtuel, de sous-réseau, de carte réseau et d’adresse IP publique. Vous pouvez également utiliser des ressources *existantes* en matière de réseau virtuel, sous-réseau, carte réseau ou adresse IP publique. Pour savoir comment utiliser des ressources réseau existantes au lieu de créer des ressources supplémentaires, utilisez `az vm create -h`.
 
-## <a name="a-name--validateavalidate-vm-creation-and-public-ip-address"></a><a name = "validate"></a>Valider la création de la machine virtuelle et l’adresse IP publique
+## <a name = "validate"></a>Valider la création de la machine virtuelle et l’adresse IP publique
 
 1. Entrez la commande `az resource list --resouce-group IaaSStory --output table` pour afficher la liste des ressources créées par le script. La sortie retournée doit comporter&5; ressources : une interface réseau, un disque, une adresse IP publique, un réseau virtuel et une machine virtuelle.
 2. Entrez la commande `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Dans la sortie retournée, la valeur **IpAddress** et la valeur **PublicIpAllocationMethod** sont *Statique*.
 3. Avant d’exécuter la commande suivante, supprimez les <>, remplacez *Username* par le nom que vous avez utilisé pour la variable **Username** du script, et remplacez *ipAddress* par la valeur **ipAddress** de l’étape précédente. Entrez la commande suivante pour vous connecter à la machine virtuelle : `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 
-## <a name="a-name-clean-uparemove-the-vm-and-associated-resources"></a><a name= "clean-up"></a>Supprimer la machine virtuelle et les ressources associées
+## <a name= "clean-up"></a>Supprimer la machine virtuelle et les ressources associées
 
 Si vous avez créé un groupe de ressources uniquement dans le cadre de la procédure décrite dans cet article, vous pouvez supprimer toutes les ressources en supprimant le groupe de ressources par le biais de la commande `az group delete -n IaaSStory`.
 

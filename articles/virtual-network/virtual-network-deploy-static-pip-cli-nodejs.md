@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2017
 
 Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 1.0 (cet article) ou d’[Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
-## <a name="a-name--createastep-1---start-your-script"></a><a name = "create"></a>Étape 1 : Démarrer votre script
+## <a name = "create"></a>Étape 1 : Démarrer votre script
 Vous pouvez télécharger le script d'interpréteur de commandes complet utilisé [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Pour adapter le script à votre environnement, exécutez les étapes suivantes :
 
 Remplacez les valeurs des variables suivantes par celles que vous souhaitez utiliser pour votre déploiement. Les valeurs suivantes mappent au scénario utilisé dans cet article :
