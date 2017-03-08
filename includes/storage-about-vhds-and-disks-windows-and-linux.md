@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Persistance des disques 
+
+Le tableau suivant illustre les différents états des différents disques dans une machine virtuelle Azure et indique si les données sont persistantes ou non dans chaque état.
+
+| Disque | Démarrer | Arrêter/<br>Libérer | Suspendre | Re-<br>boot | Arrêter/<br>Éteindre | Supprimer | Échec | Redimensionner | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Disque de système d’exploitation | Oui | Oui  | Oui | Oui | Oui  | Non | Non  | Oui | 
+| RAM  | Oui | Oui | Oui | Oui | Non   | Non | Non | Non | 
+| Disque temporaire local | Oui | Non | Oui | Non | Non  | Non | Non | Non | 
+| Disque de données attaché | Oui | Oui | Oui | Oui | Oui  | Oui | Oui | Oui | 
+
 ## <a name="about-vhds"></a>À propos des VHD
 
 Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
@@ -47,14 +58,8 @@ Le tableau suivant offre une comparaison des niveaux Premium et Standard pour le
 |    | Disque Premium Azure | Disque Standard Azure |
 |--- | ------------------ | ------------------- |
 | Type de disque | SSD (Solid State Drive) | Disques durs  |
-| Vue d'ensemble  | Stockage hautes performances et à faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique | Stockage économique pour les machines virtuelles utilisées à des fins de développement/test |
+| Vue d'ensemble  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique | Stockage économique sur disque dur pour les machines virtuelles utilisées à des fins de développement/test |
 | Scénario  | Charges de travail de production et sensibles aux performances | Développement/test, non stratégique, <br>accès peu fréquent |
 | Taille du disque | P10 : 128 Go<br>P20 : 512 Go<br>P30 : 1 024 Go | Disques non gérés : 1 Go – 1 To <br><br>Disques gérés :<br> S4 : 32 Go <br>S6 : 64 Go <br>S10 : 128 Go <br>S20 : 512 Go <br>S30 : 1 024 Go |
 | Débit max. par disque | 200 Mo/s | 60 Mo/s |
 | Nb max. d’E/S par seconde par disque | 5 000 E/S par seconde | 500 E/S par seconde |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

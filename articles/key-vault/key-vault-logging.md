@@ -15,12 +15,13 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-key-vault-logging"></a> Journalisation d’Azure Key Vault
+# <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introduction
@@ -39,8 +40,6 @@ Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer 
 > Actuellement, vous ne pouvez pas configurer Azure Key Vault dans le portail Azure. Au lieu de cela, vous devez suivre ces instructions Azure PowerShell.
 > 
 > 
-
-Vous pouvez visualiser les journaux que vous collectez à l’aide de Log Analytics dans Operations Management Suite. Pour plus d’informations, consultez [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md)(Solution Azure Key Vault (version préliminaire) dans Log Analytics).
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ Le tableau suivant répertorie les éléments operationName et la commande API R
 | SecretList |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Utilisation de Log Analytics
+
+Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault. Pour plus d’informations, notamment sur la configuration, consultez la page [Solution Azure Key Vault dans Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Cet article contient également des instructions si vous devez migrer à partir de l’ancienne solution Key Vault qui proposée dans la version préliminaire de Log Analytics, où vous avez d’abord acheminé vos journaux vers un compte de stockage Azure et configuré Log Analytics pour lire à cet emplacement.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
 Pour accéder à un didacticiel utilisant Azure Key Vault dans une application web, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Pour les références de programmation, consultez le [guide du développeur de c
 Pour obtenir la liste des applets de commande Azure PowerShell 1.0 pour Azure Key Vault, consultez l’article [Azure Key Vault Cmdlets (Applets de commande Azure Key Vault)](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Pour accéder à un didacticiel sur la rotation des clés et les journaux d’audit avec Azure Key Vault, consultez l’article [Configuration du coffre de clés avec une rotation des clés et un audit de bout en bout](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Interfaces réseau dans Azure | Microsoft Docs"
-description: "En savoir plus sur les interfaces réseau Azure dans le modèle de déploiement Azure Resource Manager."
+description: "Découvrez plus d’informations sur les interfaces réseau Azure et la façon dont elles sont utilisées avec les machines virtuelles."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Interfaces réseau dans Azure
+# <a name="what-are-network-interfaces"></a>Que sont les interfaces réseau ?
+
 Une carte d’interface réseau (NIC) est l’interconnexion entre une machine virtuelle et le réseau logiciel sous-jacent. Cet article explique ce qu’est une interface réseau et comment elle est utilisée dans le modèle de déploiement Azure Resource Manager.
 
 Microsoft recommande de déployer de nouvelles ressources à l’aide du modèle de déploiement Resource Manager, mais vous pouvez également déployer des machines virtuelles avec une connectivité réseau dans le modèle de déploiement [classique](virtual-network-ip-addresses-overview-classic.md) . Si vous êtes familiarisé avec le modèle classique, il existe des différences importantes dans la mise en réseau de machines virtuelles par rapport au modèle de déploiement Resource Manager. Pour en savoir plus sur les différences, voir l’article [Mise en réseau de machine virtuelle - Classique](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) .
@@ -34,7 +37,7 @@ Dans Azure, une interface réseau :
 4. Peut être attachée à une machine virtuelle unique existant dans le même emplacement que la carte d’interface réseau.
 5. A une adresse MAC qui est conservée avec la carte d’interface réseau tant que celle-ci reste attachée à une machine virtuelle. L’adresse MAC est conservée si la machine virtuelle est redémarrée (à partir du système d’exploitation) ou arrêtée (désallouée) et démarrée à l’aide du portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure. Si la carte d’interface réseau est détachée d’une machine virtuelle, puis attachée à une autre, elle reçoit une adresse MAC différente. Si la carte d’interface réseau est supprimée, l’adresse MAC est affectée à une autre carte d’interface réseau.
 6. Une seule adresse IP statique ou dynamique **IPv4** *privée* peut lui être attribuée.
-7. Une seule ressource d’adresse IP publique peut lui être associée.
+7. Peut être associé à une ou plusieurs ressources d’adresse IP publique. Lisez la documentation [Plusieurs adresses IP par carte réseau](virtual-network-multiple-ip-addresses-portal.md) pour plus d’informations.
 8. Prend en charge l’accélération réseau avec virtualisation d’E/S d’une racine unique (SR-IOV) pour des tailles de machine virtuelle spécifiques exécutant des versions spécifiques du système d’exploitation Microsoft Windows Server. Pour en savoir plus sur cette fonctionnalité EN VERSION PRÉLIMINAIRE, voir l’article [Accélération réseau pour une machine virtuelle](virtual-network-accelerated-networking-powershell.md) .
 9. Peut recevoir du trafic non destiné à des adresses IP privées qui lui sont attribuées si le transfert IP est activé pour la carte d’interface réseau. Par exemple, si une machine virtuelle exécute un logiciel de pare-feu, elle route les paquets non destinés à ses propres adresses IP. La machine virtuelle doit toujours exécuter un logiciel capable de router ou transférer le trafic mais, pour ce faire, le transfert IP doit être activé pour une carte d’interface réseau.
 10. Est souvent créée dans le même groupe de ressources que la machine virtuelle à laquelle elle est attachée, ou le même réseau virtuel que celui auquel elle est connectée, même si ce n’est pas obligatoire.
@@ -52,10 +55,5 @@ Il est possible d’associer plusieurs cartes d’interface réseau à une machi
 * Apprenez à créer une machine virtuelle avec une seule carte d’interface réseau en lisant l’article [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md) .
 * Apprenez à créer une machine virtuelle avec plusieurs cartes d’interface réseau en lisant l’article [Créer une machine virtuelle avec plusieurs cartes d’interface réseau](virtual-network-deploy-multinic-arm-ps.md) .
 * Découvrez comment créer une carte d’interface réseau avec plusieurs configurations IP en lisant l’article [Adresses IP multiples pour les machines virtuelles](virtual-network-multiple-ip-addresses-powershell.md) .
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

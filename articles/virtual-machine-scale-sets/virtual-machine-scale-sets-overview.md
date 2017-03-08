@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Présentation des jeux de machines virtuelles mise à l’échelle
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Avec toutes les machines virtuelles configurées de la même façon, les groupes de machines virtuelles identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun préapprovisionnement de machine virtuelle n’est nécessaire) et faciliter ainsi la création de services à grande échelle pour le big compute, le big data et les charges de travail en conteneurs.
 
 Pour les applications nécessitant une mise à l’échelle des ressources de calcul internes et externes, les opérations de mise à l’échelle sont équilibrées de façon implicite sur plusieurs domaines d’erreur et de mise à jour. Pour accéder à une présentation des groupes identiques de machines virtuelles, reportez-vous à [l’Annonce du blog Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Cette section répertorie quelques scénarios de jeu de mise à l’échelle de 
 **Q.** Les jeux de mise à l’échelle de machine virtuelle fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
 **A.** Oui. Un groupe de machines virtuelles identiques est un groupe à haute disponibilité implicite avec 5 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Les groupes identiques de plus de 100 machines virtuelles couvrent plusieurs « groupes de placement » qui équivalent à plusieurs groupes à haute disponibilité. Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans le groupe à haute disponibilité et les nœuds de données dans le groupe identique.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

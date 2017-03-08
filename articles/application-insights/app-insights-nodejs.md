@@ -1,21 +1,22 @@
 ---
-title: "Ajout du Kit de développement logiciel (SDK) Application Insights à votre application Node.js | Microsoft Docs"
-description: "Analysez l&quot;utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
+title: "Surveiller votre application Node.js avec le Kit de développement logiciel (SDK) Azure Application Insights | Microsoft Docs"
+description: "Analysez l’utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,15 +32,14 @@ Le SDK collecte automatiquement les taux de demandes HTTP entrantes et les répo
 #### <a name="before-you-start"></a>Avant de commencer
 Ce dont vous avez besoin :
 
-* Visual Studio 2013 ou une version ultérieure. Il est préférable d’utiliser une version ultérieure.
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Créer une ressource Application Insights
-Connectez-vous au [portail Azure] [portal] et créez une ressource Application Insights. Dans Azure, un [rôle] de [ressource] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
+Connectez-vous au [portail Azure][portal] et créez une ressource Application Insights. Dans Azure, une [ressource][roles] correspond à l’instance d’un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Comme type d’application, choisissez Autre. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans les [Metrics Explorer] [métriques].
+Choisissez le type d’application Général. Le choix du type d’application définit le contenu par défaut des panneaux de ressource et les propriétés visibles dans [Metrics Explorer][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Copie de la clé d'instrumentation
 La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
@@ -74,13 +74,13 @@ Recherchez des données dans la page de présentation. Au début, seuls un ou de
 
 ![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-nodejs/12-first-perf.png)
 
-Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les métriques.][perf]
+Cliquez sur un des graphiques pour afficher des mesures plus détaillées. [En savoir plus sur les mesures.][perf]
 
 #### <a name="no-data"></a>Pas de données ?
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
 * Ouvrez la vignette [Rechercher](app-insights-diagnostic-search.md) pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
 * Attendez quelques secondes, puis cliquez sur **Actualiser**. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
-* Consultez [Résolution des problèmes][qna].
+* Consultez la rubrique [Résolution des problèmes][qna].
 
 ## <a name="publish-your-app"></a>Publier votre application
 À présent, déployez votre application sur IIS ou Azure et regardez les données s’accumuler.
@@ -192,14 +192,9 @@ server.on("listening", () => {
 <!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
-[métriques]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

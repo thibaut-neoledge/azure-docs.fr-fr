@@ -42,13 +42,35 @@ Chaque fois que vous appliquez des balises à une ressource ou un groupe de ress
   Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
   ```
 
-Pour appliquer toutes les balises d’un groupe de ressources aux ressources du groupe de ressources **sans conserver les balises existantes**, utilisez le script suivant :
+Pour appliquer toutes les balises d’un groupe de ressources à ses ressources **sans conserver les balises existantes**, utilisez le script suivant :
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups) 
 {
     Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+}
+```
+
+Pour appliquer toutes les balises d’un groupe de ressources à ses ressources et **conserver les balises existantes sur les ressources qui ne sont pas des doublons**, utilisez le script suivant :
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups) 
+{
+    if ($g.Tags -ne $null) {
+        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
+        foreach ($r in $resources)
+        {
+            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+            foreach ($key in $g.Tags.Keys)
+            {
+                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
+            }
+            $resourcetags += $g.Tags
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+    }
 }
 ```
 
@@ -69,9 +91,4 @@ Pour obtenir toutes les ressources contenant une balise et une valeur spécifiqu
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
