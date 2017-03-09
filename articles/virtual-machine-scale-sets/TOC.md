@@ -4,6 +4,7 @@
 # Prise en main
 ## [Créer un groupe de machines virtuelles identiques dans le portail](virtual-machine-scale-sets-portal-create.md)
 ## [Créer un groupe identique avec Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Créer un groupe identique à l’aide d’un modèle Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procédure
 ## Planifier et concevoir

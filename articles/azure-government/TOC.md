@@ -1,3 +1,4 @@
+
 # Vue d’ensemble
 ## [Qu’est-ce qu’Azure Government ?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Calcul](documentation-government-compute.md)
 ### [Stockage](documentation-government-services-storage.md)
 ### [Base de données](documentation-government-services-database.md)
+### [Intelligence et analyse](documentation-government-services-intelligenceandanalytics.md)
 ### [Mise en réseau](documentation-government-networking.md)
 ### [Sécurité et identité](documentation-government-services-securityandidentity.md)
 ### [Surveillance et gestion](documentation-government-services-monitoringandmanagement.md)

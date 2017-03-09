@@ -9,13 +9,13 @@
 ### [Meilleures pratiques en matière de chiffrement et de sécurité des données](azure-security-data-encryption-best-practices.md)
 ### [Guide sur la sécurité du stockage](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Sécurité des calculs](security-virtual-machines-overview.md)
+### [Meilleures pratiques pour les machines virtuelles Azure](azure-security-best-practices-vms.md)
 ### [Meilleures pratiques pour les charges de travail IaaS ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Chiffrement de disque](azure-security-disk-encryption.md)
 ### [Chiffrer une machine virtuelle Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Gestion et surveillance de la sécurité](security-management-and-monitoring-overview.md)
 ### [Gestion de la sécurité](azure-security-management.md)
-### [Meilleures pratiques en matière de mises à jour logicielles sur IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Centre de sécurité Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Intégration des journaux Azure](security-azure-log-integration-overview.md)
 #### [Prise en main](security-azure-log-integration-get-started.md)
@@ -52,8 +52,14 @@
 ## [Conseils sur la cybersécurité](azure-security-cyber-services.md)
 ## [Cours sur la sécurité proposés par Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Vidéos traitant de la sécurité sur Channel 9](security-channel-nine.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+## [Outil de modélisation des menaces](azure-security-threat-modeling-tool.md)
+###[Audit et journalisation](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Authentification](azure-security-threat-modeling-tool-authentication.md)
+###[Autorisation](azure-security-threat-modeling-tool-authorization.md)
+###[Sécurité des communications](azure-security-threat-modeling-tool-communication-security.md)
+###[Gestion des configurations](azure-security-threat-modeling-tool-configuration-management.md)
+###[Cryptographie](azure-security-threat-modeling-tool-cryptography.md)
+###[Gestion des exceptions](azure-security-threat-modeling-tool-exception-management.md)
+###[Validation des entrées](azure-security-threat-modeling-tool-input-validation.md)
+###[Données sensibles](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Gestion des sessions](azure-security-threat-modeling-tool-session-management.md)
