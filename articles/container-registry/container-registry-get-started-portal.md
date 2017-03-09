@@ -1,28 +1,7 @@
 ---
-title: "Créer un registre de conteneur Azure dans le portail | Microsoft Docs"
-description: "Prise en main de la création et de la gestion de registres de conteneur Azure avec le portail Azure"
-services: container-registry
-documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
-ms.service: container-registry
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2016
-ms.author: stevelas
-translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+title: Créer un registre de conteneur Azure dans le portail | Microsoft Docs description: Prise en main de la création et de la gestion des registres de conteneur Azure avec le Portail Azure services: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
 
----
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Créer un registre de conteneur à l’aide du portail Azure
-Utilisez le portail Azure pour créer un registre de conteneur et gérer ses paramètres. Vous pouvez également créer et gérer des registres de conteneur à l’aide des [commandes de la version préliminaire d’Azure CLI 2.0](container-registry-get-started-azure-cli.md) ou par programme avec [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---# Créer un registre de conteneur à l’aide du Portail Azure Utilisez le Portail Azure pour créer un registre de conteneur et en gérer les paramètres. Vous pouvez également créer et gérer des registres de conteneur à l’aide des [commandes de d’Azure CLI 2.0](container-registry-get-started-azure-cli.md) ou par programme avec [l’API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
 
 Pour en savoir plus et connaître les concepts, consultez [What is Azure Container Registry?](container-registry-intro.md) (Qu’est-ce qu’Azure Container Registry ?)
 
@@ -52,7 +31,9 @@ Pour en savoir plus et connaître les concepts, consultez [What is Azure Contain
    > [!IMPORTANT]
    > En plus de fournir l’accès via un compte d’utilisateur Admin, les registres de conteneur prennent en charge l’authentification supportée par les principaux du service Azure Active Directory. Pour plus d’informations et pour connaître les éléments à prendre en considération, consultez la section relative à [l’authentification auprès d’un conteneur](container-registry-authentication.md).
    
-    e. **Compte de stockage** : utilisez le paramètre par défaut pour créer un [compte de stockage](../storage/storage-introduction.md), ou sélectionnez un compte de stockage existant dans le même emplacement. Notez que les comptes de stockage Premium et classiques ne sont pas pris en charge.
+
+    e. **Compte de stockage** : utilisez le paramètre par défaut pour créer un [compte de stockage](../storage/storage-introduction.md), ou sélectionnez un compte de stockage existant dans le même emplacement. Pour l’instant, l’offre Stockage Premium n’est pas prise en charge.
+
 
 ## <a name="manage-registry-settings"></a>Gérer les paramètres du registre
 Après avoir créé le registre, recherchez ses paramètres en commençant par le panneau des **Registres de conteneur** dans le portail. Par exemple, vous aurez peut-être besoin des paramètres pour vous connecter à votre registre, ou vous souhaiterez peut-être activer ou désactiver l’utilisateur Admin.
@@ -72,11 +53,5 @@ Après avoir créé le registre, recherchez ses paramètres en commençant par l
 ## <a name="next-steps"></a>Étapes suivantes
 * [Effectuer un push de votre première image à l’aide de l’interface CLI Docker](container-registry-get-started-docker-cli.md)
 
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
