@@ -16,15 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 4b05e12c2b30f1e8aa3efc7cd47cb79c4958dc1e
+ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
+ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du modèle de déploiement classique et de PowerShell
 > [!div class="op_single_selector"]
-> * [PowerShell - Resource Manager](expressroute-howto-add-gateway-resource-manager.md)
-> * [PowerShell - Classique](expressroute-howto-add-gateway-classic.md)
+> * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+> * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -41,10 +43,5 @@ Vérifiez que vous avez installé les applets de commande Azure PowerShell néce
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez créé la passerelle de réseau virtuel, vous pouvez lier votre réseau virtuel à un circuit ExpressRoute. Consultez [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

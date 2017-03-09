@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -61,22 +62,27 @@ Pour configurer l’intégration de RightScale à Azure AD, vous devez ajouter R
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+
 3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
    
     ![Applications][2]
+
 4. Cliquez sur **Ajouter** en bas de la page.
    
     ![Applications][3]
+
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
     ![Applications][4]
+
 6. Dans la zone de recherche, tapez **RightScale**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+
 7. Dans le volet des résultats, sélectionnez **RightScale**, puis cliquez sur **Terminer** pour ajouter l’application.
    
-    ![Sélection de l’application dans la galerie](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec RightScale avec un utilisateur de test appelé « Britta Simon ».
@@ -99,9 +105,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 1. Dans le portail classique, dans la page d’intégration d’application **RightScale**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
     ![Configurer l’authentification unique][6] 
+
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à RightScale**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
@@ -117,13 +125,15 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     a. Dans la zone de texte URL d’authentification, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application RightScale, au format suivant : `https://login.rightscale.com/`
    
     b. Cliquez sur **Suivant**
+
 2. Dans la page **Configurer l’authentification unique sur RightScale**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
    
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat encodé en base 64 sur votre ordinateur.
+    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat encodé en base&64; sur votre ordinateur.
    
     b. Cliquez sur **Next**.
+
 3. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire RightScale en tant qu’administrateur.
    
     a. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
@@ -154,14 +164,16 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
    
-    g. Cliquez sur le bouton **Explorateur** pour télécharger le certificat que vous avez téléchargé à l’étape 4.
+    g. Cliquez sur le bouton **Explorateur** pour télécharger le certificat que vous avez téléchargé à l’étape&4;.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
    
     h. Cliquez sur **Save**.
+
 4. Dans le portail classique, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
+
 5. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
@@ -176,13 +188,17 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+
 2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+
 3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
+
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
+
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
@@ -192,22 +208,25 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
    
     c. Cliquez sur **Next**.
+
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
    
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
+    a. Dans la zone de texte **First Name**, tapez **Britta**.  
    
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
    
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
    
-   e. Cliquez sur **Next**.
+    e. Cliquez sur **Next**.
+
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
@@ -229,13 +248,17 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 1. Pour ouvrir l’affichage des applications dans le portail classique, dans l’affichage du répertoire, cliquez sur l’option **Applications** figurant dans le menu supérieur.
    
     ![Affecter des utilisateurs][201] 
+
 2. Dans la liste des applications, sélectionnez **RightScale**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
 3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
    
     ![Affecter des utilisateurs][203] 
+
 4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
 5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
    
     ![Affecter des utilisateurs][205]
@@ -265,9 +288,4 @@ Quand vous cliquez sur la mosaïque RightScale dans le volet d’accès, vous de
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
