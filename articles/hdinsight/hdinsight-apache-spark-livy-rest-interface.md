@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,7 +167,7 @@ Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins loc
 3. Sous **livy-default**, ajoutez le nom de la propriété `livy.file.local-dir-whitelist` et définissez sa valeur sur **"/"** si vous souhaitez autoriser un accès complet au système de fichiers. Si vous souhaitez autoriser uniquement l’accès à un répertoire spécifique, indiquez comme valeur le chemin d’accès à ce répertoire.
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Voir aussi
+## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
@@ -190,10 +191,5 @@ Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins loc
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
 ms.openlocfilehash: 19bd7971e172f32367ee2dae903389e52709a306
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -206,10 +207,5 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
     ![Oui](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

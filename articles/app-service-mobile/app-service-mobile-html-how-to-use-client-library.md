@@ -4,7 +4,7 @@ description: "Utilisation de v pour Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -31,7 +31,7 @@ Nous limitons la prise en charge aux versions actuelles, ainsi qu’aux dernièr
 
 Le package est distribué comme un module JavaScript universel et prend donc en charge les format Globals, AMD et CommonJS.
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuration et conditions préalables
+## <a name="Setup"></a>Configuration et conditions préalables
 Ce guide part du principe que vous avez créé un serveur principal avec une table. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels.
 
 Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps à partir de la commande `npm` :
@@ -57,14 +57,14 @@ Vous pouvez également utiliser une version du Kit de développement logiciel (S
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="a-nameauthahow-to-authenticate-users"></a><a name="auth"></a>Procédure : authentification des utilisateurs
+## <a name="auth"></a>Procédure : authentification des utilisateurs
 Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification] .
 
 Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="a-nameconfigure-external-redirect-urlsahow-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes.
+### <a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes.
 Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
 
 * Exécuter votre service en local

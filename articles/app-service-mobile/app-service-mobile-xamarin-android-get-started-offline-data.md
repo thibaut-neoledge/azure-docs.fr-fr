@@ -3,7 +3,7 @@ title: Activation de la synchronisation hors connexion pour votre application Az
 description: "Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Xamarin Android"
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
@@ -39,7 +39,7 @@ Les fonctionnalités hors connexion de l’application mobile Azure vous permett
 2. Ouvrez le fichier ToDoActivity.cs et supprimez les marques de commentaire de la définition `#define OFFLINE_SYNC_ENABLED`.
 3. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application cliente. L’application fonctionne comme elle le faisait avant l’activation de la synchronisation hors connexion. Toutefois, la base de données locale est maintenant remplie avec des données qui peuvent être utilisées dans un scénario hors connexion.
 
-## <a name="a-nameupdate-syncaupdate-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
+## <a name="update-sync"></a>Mise à jour de l’application pour se déconnecter du serveur principal
 Dans cette section, vous rompez la connexion avec l’application mobile afin de simuler un scénario hors connexion. Lorsque vous ajouterez des éléments de données, votre gestionnaire d’exceptions signalera que l’application est en mode hors connexion. Dans cet état, les éléments ajoutés au magasin local sont synchronisés avec le serveur principal de l’application mobile lorsqu’un envoi est exécuté en état connecté.
 
 1. Modifiez ToDoActivity.cs dans le projet partagé. Modifiez la variable **applicationURL** afin de pointer vers une URL non valide :
@@ -53,7 +53,7 @@ Dans cette section, vous rompez la connexion avec l’application mobile afin de
 5. (Facultatif) Dans Visual Studio, ouvrez l’ **Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu. Vérifiez que les données dans la base de données backend n’ont pas changé.
 6. (Facultatif) Utilisez un outil REST tel que Fiddler ou Postman pour interroger votre serveur principal mobile, à l’aide d’une requête GET au format `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="a-nameupdate-online-appaupdate-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’applications mobiles
+## <a name="update-online-app"></a>Mettre à jour l’application pour la reconnecter à votre backend d’applications mobiles
 Dans cette section, reconnectez l’application au serveur principal d’applications mobiles. Lors de la première exécution de l’application, le gestionnaire d’événements `OnCreate` appelle `OnRefreshItemsSelected`. Cette méthode appelle `SyncAsync` pour synchroniser votre magasin local avec la base de données du serveur principal.
 
 1. Ouvrez ToDoActivity.cs dans le projet partagé et annulez votre modification de la propriété **applicationURL**.
