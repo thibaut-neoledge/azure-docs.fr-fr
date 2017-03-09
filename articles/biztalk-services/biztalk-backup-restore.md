@@ -17,6 +17,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,7 +51,7 @@ Une sauvegarde peut être effectuée à tout moment et vous la contrôlez compl�
 
 [Planification d'une sauvegarde](#backupschedule)
 
-#### <a name="a-namebackupnowaon-demand-backup"></a><a name="backupnow"></a>Sauvegarde à la demande
+#### <a name="backupnow"></a>Sauvegarde à la demande
 1. Dans le portail Azure Classic, sélectionnez **BizTalk Services**, puis le service BizTalk que vous souhaitez sauvegarder.
 2. Sous l’onglet **Tableau de bord**, sélectionnez **Sauvegarder** en bas de la page.
 3. Entrez un nom de sauvegarde. Par exemple, entrez *monServiceBizTalk*BU*Date*.
@@ -58,7 +59,7 @@ Une sauvegarde peut être effectuée à tout moment et vous la contrôlez compl�
 
 Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indiqué est créé dans le compte de stockage. Ce conteneur comprend la configuration de sauvegarde de votre service BizTalk.
 
-#### <a name="a-namebackupscheduleaschedule-a-backup"></a><a name="backupschedule"></a>Planification d'une sauvegarde
+#### <a name="backupschedule"></a>Planification d'une sauvegarde
 1. Dans le Portail Azure Classic, sélectionnez **BizTalk Services**, puis le nom du service BizTalk pour lequel vous souhaitez planifier la sauvegarde et enfin l’onglet **Configurer**.
 2. Définissez **État de la sauvegarde** sur **Automatique**. 
 3. Sélectionnez le **Compte de stockage** dans lequel stocker la sauvegarde, puis entrez la **Fréquence** de création des sauvegardes et la durée pendant laquelle vous souhaitez les conserver (**Jours de rétention**) :
@@ -79,7 +80,7 @@ Si le tableau de bord du service BizTalk indique l'état **Échec** :
 
 Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution des problèmes à l'aide des journaux des opérations](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-## <a name="restore"></a>Restauration
+## <a name="restore"></a>Restore
 Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’ [API REST Restaurer le service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l’aide du portail Azure Classic.
 
 #### <a name="before-restoring-a-backup"></a>Avant de restaurer une sauvegarde
@@ -109,7 +110,7 @@ Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’ [A
 
 Une fois la restauration terminée, un nouveau service BizTalk est répertorié comme étant dans un état interrompu sur la page BizTalk Services du portail Azure Classic.
 
-### <a name="a-namepostrestoreaafter-restoring-a-backup"></a><a name="postrestore"></a>Après avoir restauré une sauvegarde
+### <a name="postrestore"></a>Après avoir restauré une sauvegarde
 Le service BizTalk est systématiquement restauré dans un état **Suspendu** . Dans cet état, vous pouvez apporter des modifications à la configuration avant que le nouvel environnement ne soit fonctionnel :
 
 * Si vous avez créé des applications de service BizTalk à l'aide du Kit de développement logiciel (SDK) Azure BizTalk Services, vous devrez peut-être mettre à jour les informations d'identification Access Control (ACS) qui s'y rapportent pour qu'elles fonctionnent dans l'environnement restauré.
@@ -206,13 +207,8 @@ Pour créer des services Azure BizTalk Services dans le portail Azure Classic, a
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
-[Restauration]: ./media/biztalk-backup-restore/restore-ui.png
+[Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
