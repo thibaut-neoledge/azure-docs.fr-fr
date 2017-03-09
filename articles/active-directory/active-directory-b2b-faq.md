@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -41,9 +41,6 @@ Vous pouvez personnaliser pratiquement tous les éléments du processus de l’i
 
 ### <a name="can-the-invited-external-user-leave-the-organization-to-which-he-was-invited"></a>L’utilisateur externe invité peut-il quitter l’organisation à laquelle il a été invité ?
 Ce n'est pas possible actuellement dans l’actualisation de cette version préliminaire publique.
-
-### <a name="can-i-use-my-microsoft-account-johncontosomicrosoftacctcom-to-sign-in-to-resources"></a>Puis-je utiliser mon compte Microsoft (John@contosomicrosoftacct.com) pour me connecter à des ressources ?
-Il n’est pas possible d'utiliser votre compte Microsoft dans cette actualisation de la version préliminaire publique. Si vous avez un suffixe de compte Microsoft non standard (peut-être pour une messagerie d’entreprise comme @contoso.com),), un locataire Azure Active Directory sera créé pour votre usage.
 
 ### <a name="now-that-multi-factor-authentication-mfa-is-available-for-guest-users-can-they-also-reset-their-mfa-method"></a>Maintenant que l’authentification multifacteur (Multi-Factor Authentication, MFA) est disponible pour les utilisateurs invités, peuvent-ils également réinitialiser leur méthode d’authentification MFA ?
 Oui, la même façon que les utilisateurs standard.
