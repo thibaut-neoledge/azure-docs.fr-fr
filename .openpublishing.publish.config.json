@@ -1,4 +1,4 @@
-{
+﻿{
   "build_entry_point": "docs",
   "need_generate_pdf": false,
   "need_generate_intellisense": false,
@@ -47,7 +47,7 @@
        "branch": "live",
        "branch_mapping": {}
     },
-      {
+    {
       "path_to_root": "cli_scripts",
       "url": "https://github.com/Azure/azure-docs-cli-python-samples.git",
       "branch": "master"
