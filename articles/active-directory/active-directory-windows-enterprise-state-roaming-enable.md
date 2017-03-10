@@ -5,7 +5,7 @@ description: "Foire aux questions sur les paramètres Enterprise State Roaming
 services: active-directory
 keywords: enterprise state roaming, cloud windows, comment activer enterprise state roaming
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4

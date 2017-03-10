@@ -5,7 +5,7 @@ description: "Fournit des informations sur les paramètres de stratégie de grou
 services: active-directory
 keywords: "quels sont les paramètres de stratégie de groupe et de MDM pour Enterprise State Roaming, Enterprise State Roaming, cloud windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252

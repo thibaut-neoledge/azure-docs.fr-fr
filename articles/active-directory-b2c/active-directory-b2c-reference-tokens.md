@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
 ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -122,7 +123,7 @@ Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Cela 
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-où `fabrikamb2c.onmicrosoft.com` est le répertoire B2C utilisé pour authentifier l’utilisateur et `b2c_1_sign_in` est la stratégie utilisée pour acquérir le jeton. Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel extraire les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `acr` sera le nom de la stratégie qui a été utilisée pour émettre le jeton.  L'autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l'émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les 2 méthodes sont valides.
+où `fabrikamb2c.onmicrosoft.com` est le répertoire B2C utilisé pour authentifier l’utilisateur et `b2c_1_sign_in` est la stratégie utilisée pour acquérir le jeton. Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel extraire les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `acr` sera le nom de la stratégie qui a été utilisée pour émettre le jeton.  L'autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l'émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les&2; méthodes sont valides.
 
 Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Celles-ci incluent l’emplacement des points de terminaison requis pour effectuer l’authentification OpenID Connect. Elles comprennent également un `jwks_uri`qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser `jwks_uri`:
 
@@ -149,13 +150,8 @@ Les durées de vie du jeton suivantes sont fournies afin d’approfondir vos con
 
 | Jeton | Durée de vie | Description |
 | --- | --- | --- |
-| Jetons d’ID |1 heure |Les jetons d’ID sont généralement valides 1 heure. Votre application web peut utiliser cette durée de vie pour conserver ses propres sessions avec les utilisateurs (recommandé). Vous pouvez également choisir une durée de vie de session différente. Si votre application a besoin d’obtenir un nouveau jeton d’ID, elle doit simplement faire une nouvelle demande de connexion auprès d’Azure AD. Si l’utilisateur dispose d’une session de navigateur valide avec Azure AD, il se peut qu’il ne soit pas obligé de retaper ses informations d’identification. |
+| Jetons d’ID |1 heure |Les jetons d’ID sont généralement valides&1; heure. Votre application web peut utiliser cette durée de vie pour conserver ses propres sessions avec les utilisateurs (recommandé). Vous pouvez également choisir une durée de vie de session différente. Si votre application a besoin d’obtenir un nouveau jeton d’ID, elle doit simplement faire une nouvelle demande de connexion auprès d’Azure AD. Si l’utilisateur dispose d’une session de navigateur valide avec Azure AD, il se peut qu’il ne soit pas obligé de retaper ses informations d’identification. |
 | Jetons d’actualisation |Jusqu’à 14 jours |Un jeton d’actualisation est valide pendant 14 jours au maximum. Toutefois, un jeton d’actualisation peut devenir non valide à tout moment pour différentes raisons. Votre application doit continuer à essayer d’utiliser un jeton d’actualisation jusqu’à ce que la demande échoue, ou jusqu’à ce que votre application remplace le jeton d’actualisation par un autre.  Un jeton d’actualisation peut devenir non valide si 90 jours se sont écoulés depuis que l’utilisateur a entré ses informations d’identification pour la dernière fois. |
 | Codes d’autorisation |5 minutes |La durée de vie des codes d’autorisation est intentionnellement limitée. Ils doivent être utilisés immédiatement après réception pour les jetons d’accès, les jetons d’ID ou les jetons d’actualisation. |
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

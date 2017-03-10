@@ -4,7 +4,7 @@ description: "Fournit des informations sur les paramètres Enterprise State Roam
 services: active-directory
 keywords: "Qu’est-ce que Enterprise State Roaming, la synchronisation d’entreprise et Windows cloud"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0

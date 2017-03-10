@@ -3,7 +3,7 @@ title: "Inscription à Azure en tant qu’organisation"
 description: "Découvrez comment vous pouvez utiliser un compte professionnel ou scolaire pour tirer parti des comptes d’utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 manager: femila
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
-ms.author: markvi
+ms.date: 03/09/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -34,10 +35,5 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 * [Blog Microsoft Azure](https://azure.microsoft.com/blog/)
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

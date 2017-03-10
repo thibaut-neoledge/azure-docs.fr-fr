@@ -4,7 +4,7 @@ description: "Répond à certaines questions que les administrateurs informatiqu
 services: active-directory
 keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
