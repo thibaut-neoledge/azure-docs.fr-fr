@@ -1,4 +1,3 @@
-
 ---
 title: "Vue d’ensemble du contrôle d’accès dans Data Lake Store | Microsoft Docs"
 description: "Comprendre le fonctionnement du contrôle d’accès dans Azure Data Lake Store"
@@ -13,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 756d51e41c43be2e80f8fce1c3965e1723f7cec8
 ms.openlocfilehash: 7cd0c60b3eaaf6c2fd702d4e4b580299cb71c5fc
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -339,9 +339,4 @@ Non.
 ## <a name="see-also"></a>Voir aussi
 
 * [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

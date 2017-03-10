@@ -1,11 +1,11 @@
 ---
-title: "Présentation des partenaires et d’Enterprise Integration Pack | Microsoft Docs"
-description: "Découvrez comment utiliser les partenaires avec Enterprise Integration Pack et vos applications logiques"
+title: "Création de partenaires pour les messages d’entreprise à entreprise (B2B) - Azure Logic Apps | Microsoft Docs"
+description: "Découvrez comment ajouter des partenaires à votre compte d’intégration avec Enterprise Integration Pack et Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: estfan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2549531d21c8e15e5bbb4321c4119e6aaac53e96
-ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="partners-in-b2b-scenarios"></a>Partenaires dans les scénarios B2B
+# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Ajout ou mise à jour des partenaires dans les contrats d’entreprise à entreprise de votre flux de travail
 
 Les partenaires sont des entités qui participent aux transactions d’entreprise à entreprise (B2B) et qui échangent des messages entre eux. Avant de pouvoir créer des partenaires qui vous représentent et qui représentent une autre organisation dans le cadre de ces transactions, vous devez partager des informations qui identifient et valident les messages envoyés par chacun. Après avoir discuté de ces détails et quand vous serez prêt à initier cette relation commerciale, vous pouvez créer des partenaires dans votre compte d’intégration pour vous représenter, ainsi que l’organisation.
 
@@ -89,10 +91,5 @@ Les paramètres de réception et d’envoi sont basés du point de vue du parten
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

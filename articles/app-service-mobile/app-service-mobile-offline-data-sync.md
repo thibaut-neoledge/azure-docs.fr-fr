@@ -3,7 +3,7 @@ title: "Synchronisation des données hors connexion dans Azure Mobile Apps | Mic
 description: "Référence conceptuelle et présentation de la fonctionnalité de synchronisation des données hors connexion pour Azure Mobile Apps"
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -62,7 +62,7 @@ Un *contexte de synchronisation* est associé à un objet client mobile (comme `
 
 Un magasin local est associé au contexte de synchronisation à l’aide d’une méthode d’initialisation comme `IMobileServicesSyncContext.InitializeAsync(localstore)` dans le [Kit de développement logiciel (SDK) client .NET].
 
-## <a name="a-namehow-sync-worksahow-offline-synchronization-works"></a><a name="how-sync-works"></a>Fonctionnement de la synchronisation hors connexion
+## <a name="how-sync-works"></a>Fonctionnement de la synchronisation hors connexion
 Quand vous utilisez des tables de synchronisation, votre code client détermine à quel moment les modifications locales sont synchronisées avec une application principale Azure Mobile App. Rien n’est envoyé au backend tant que n’a pas été émis un appel pour *envoyer* les modifications locales. De même, le magasin local n’est rempli avec de nouvelles données que si un appel pour *extraire* les données est émis.
 
 * **Envoi**: l’envoi est une opération sur le contexte de synchronisation et consiste à envoyer toutes les modifications CUD qui se sont produites depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre application principale Azure Mobile App qui, à son tour, modifie votre base de données serveur.

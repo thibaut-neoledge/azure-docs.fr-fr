@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
+ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -70,8 +71,8 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 
 | Interroger | Description |
 |:--- |:--- |
-| Type=IISLog |Tous les enregistrements de journaux IIS. |
-| Type=IISLog EventLevelName=error |Tous les événements Windows avec la gravité de l'erreur. |
+| Type=W3CIISLog |Tous les enregistrements de journaux IIS. |
+| Type=W3CIISLog scStatus=500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | Type=W3CIISLog &#124; Measure count() by cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
@@ -80,10 +81,5 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

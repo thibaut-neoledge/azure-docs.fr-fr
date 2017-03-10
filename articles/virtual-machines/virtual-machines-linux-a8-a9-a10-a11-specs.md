@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
-ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
-
+ms.sourcegitcommit: f3b1593a80e6eedc08005988d485a317951efd33
+ms.openlocfilehash: ad2beff5bbc6aaa18247939ccfe310460f9ccdee
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>About H-series and compute-intensive A-series VMs for Linux (À propos des machines virtuelles de série H ou de calcul intensif de série A pour Linux)
 Cet article fournit des informations et quelques considérations générales sur l’utilisation de la nouvelle série H Azure et des tailles A8, A9, A10 et A11 antérieures, également appelées instances *nécessitant beaucoup de ressources système* . Cet article se concentre sur l’utilisation de ces tailles pour les machines virtuelles Linux. Cet article est également disponible pour les [machines virtuelles Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, consultez l’article [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -128,10 +129,5 @@ done
 * Pour plus d’informations sur la disponibilité et la tarification des tailles nécessitant beaucoup de ressources système, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Pour plus d’informations sur les capacités de stockage et sur les disques, consultez [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour commencer à déployer et à utiliser des tailles nécessitant beaucoup de ressources système avec RDMA sur Linux, consultez [Configurer un cluster RDMA Linux pour exécuter des applications MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

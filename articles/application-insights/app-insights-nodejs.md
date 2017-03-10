@@ -34,7 +34,7 @@ Ce dont vous avez besoin :
 
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Créer une ressource Application Insights
+## <a name="add"></a>Créer une ressource Application Insights
 Connectez-vous au [portail Azure][portal] et créez une ressource Application Insights. Dans Azure, une [ressource][roles] correspond à l’instance d’un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
 
 ![Cliquez sur Nouveau > Application Insights](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 
 ![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installer le Kit de développement logiciel (SDK) dans votre application
+## <a name="sdk"></a> Installer le Kit de développement logiciel (SDK) dans votre application
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ La clé d’instrumentation peut également être définie dans la variable d’
 
 Vous pouvez tester le SDK sans envoyer de données de télémétrie, en définissant la clé d’instrumentation sur une chaîne non vide.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Exécution de votre projet
+## <a name="run"></a> Exécution de votre projet
 Exécutez votre application et essayez-la : ouvrez différentes pages pour générer des données de télémétrie.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Affichage de vos données de télémétrie
+## <a name="monitor"></a> Affichage de vos données de télémétrie
 Revenez au [portail Azure](https://portal.azure.com) et accédez à votre ressource Application Insights.
 
 Recherchez des données dans la page de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :

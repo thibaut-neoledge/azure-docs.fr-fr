@@ -1,5 +1,5 @@
 ---
-title: Recherches de journal dans Log Analytics | Microsoft Docs
+title: "Recherche de données à l’aide de recherches de journal dans Azure Log Analytics | Microsoft Docs"
 description: "Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Recherches de journal dans Log Analytics
+# <a name="find-data-using-log-searches"></a>Recherche de données à l’aide de recherches de journal
+
 La fonctionnalité de recherche de journal se trouve au cœur de Log Analytics et vous permet de combiner et de mettre en corrélation des données machine de plusieurs sources dans votre environnement. Des solutions sont également alimentées par la recherche de journal pour vous proposer des mesures cernant un domaine problématique en particulier.
 
 Sur la page Recherche, vous pouvez créer une requête, puis lorsque vous effectuez une recherche, vous pouvez filtrer les résultats en utilisant des contrôles de facette. Vous pouvez également créer des requêtes avancées pour la transformation, le filtrage et les rapports relatifs aux résultats.
@@ -43,12 +46,12 @@ Les filtres les plus simples que vous pouvez utiliser sont des *mots clés*tels 
     ![Vignette Rechercher](./media/log-analytics-log-searches/oms-overview-log-search.png)
 2. Dans le champ de requête, tapez `error` puis cliquez sur **Rechercher**.  
     ![Recherche d’erreur](./media/log-analytics-log-searches/oms-search-error.png)  
-     Par exemple, la requête pour `error` dans l’image suivante a retourné 100 000 enregistrements **Événement** (collectés par la gestion des journaux), 18 enregistrements **ConfigurationAlert** (générés par l’évaluation de la configuration), et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications).    
+    Par exemple, la requête pour `error` dans l’image suivante a retourné 100 000 enregistrements **Événement** (collectés par la gestion des journaux), 18 enregistrements **ConfigurationAlert** (générés par l’évaluation de la configuration), et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications).    
     ![Recherche de résultats](./media/log-analytics-log-searches/oms-search-results01.png)  
 
 Ces filtres ne sont pas vraiment des classes/types d'objet. *Type* est simplement une balise, une propriété ou une chaîne/un nom/une catégorie associés à un élément de données. Certains documents dans le système sont balisés en tant que **Type:ConfigurationAlert**, d’autres en tant que **Type:Perf** ou **Type:Event**, et ainsi de suite. Chaque résultat de recherche, document, enregistrement ou entrée affiche toutes les propriétés brutes et leurs valeurs pour chacun de ces éléments de données. Vous pouvez utiliser ces noms de champs pour préciser dans le filtre lorsque vous souhaitez récupérer uniquement les enregistrements dont le champ a cette valeur donnée.
 
-Type* est en fait simplement un champ que tous les enregistrements ont. Il n’est pas différent des autres champs. Cela a été établi suivant la valeur du champ Type. Cet enregistrement aura une autre forme. À ce propos, **Type=Perf** ou **Type=Event** constituent également la syntaxe dont vous avez besoin pour apprendre à interroger des données ou événements de performances.
+Le *type* est simplement un champ que tous les enregistrements ont. Il n'est pas différent des autres champs. Cela a été établi suivant la valeur du champ Type. Cet enregistrement aura une autre forme. À ce propos, **Type=Perf** ou **Type=Event** constituent également la syntaxe dont vous avez besoin pour apprendre à interroger des données ou événements de performances.
 
 Vous pouvez utiliser les deux-points (:) ou le signe égal (=) après le nom du champ et avant la valeur. Les notations **Type:Event** et **Type=Event** ont la même signification. Vous pouvez donc choisir le style qui vous convient.
 
@@ -574,9 +577,4 @@ Pour plus d’informations sur les recherches de journal, consultez les ressourc
 
 * Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
 * Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

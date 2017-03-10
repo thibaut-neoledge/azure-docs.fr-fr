@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 91eb30aaa1ab3891d8e97d48a9a0fe9fa9b2b82b
-ms.openlocfilehash: 3130104427b2a1873690617c6d726375c89876cf
+ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
+ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -79,8 +80,8 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 | Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message AS2. Réussite = réception ou envoi d’un message AS2 valide, aucune notification d’état du message (MDN) configurée ; Réussite = réception ou envoi d’un message AS2 valide, notification d’état du message configurée et reçue ou notification d’état du message envoyée ; Échec = réception d’un message AS2 non valide, aucune notification d’état du message configurée ; En attente = réception ou envoi d’un message AS2 valide, notification d’état du message configurée, en attente d’un accusé de réception fonctionnel. |
-| Ack | État du message de notification d’état du message. |
+| État | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 correct, aucun MDN n’est configuré <br>Success = a reçu ou envoyé un message AS2 correct, le MDN est configuré et reçu ou un MDN est envoyé <br>Failed = a reçu un message AS2 incorrect, aucun MDN n’est configuré <br>Pending = a reçu ou envoyé un message AS2 correct, le MDN est configuré et un accusé de réception fonctionnel est attendu |
+| Ack | État du message de notification d’état du message <br>Accepted = a reçu ou envoyé un MDN positif <br>Pending = en attente de réception ou d’envoi d’un MDN <br>Rejected = a reçu ou envoyé un MDN négatif <br>Not Required = le MDN n’est pas configuré dans l’accord |
 | Direction | Direction du message AS2. |
 | ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
 | ID de message |  ID du message AS2 dans les en-têtes du message AS2. |
@@ -93,8 +94,8 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 | Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat AS2. |
 | Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message X12. Réussite = réception ou envoi d’un message X12 valide, aucun accusé de réception fonctionnel (ack) configuré ; Réussite = réception ou envoi d’un message X12 valide, accusé de réception fonctionnel (ack) configuré et reçu ou accusé de réception fonctionnel envoyé ; Échec = réception ou envoi d’un message X12 non valide ; En attente = réception ou envoi d’un message X12 valide, accusé de réception fonctionnel (ack) configuré, en attente d’un accusé de réception fonctionnel. |
-| Ack | État de l’accusé de réception fonctionnel (997).  Accepté = réception ou envoi d’un accusé de réception fonctionnel (ack) positif ; Rejeté = réception ou envoi d’un accusé de réception fonctionnel négatif ; En attente = en attente d’un accusé de réception fonctionnel, aucun accusé reçu ; En attente = génération d’un accusé de réception fonctionnel, mais impossible de l’envoyer au partenaire. |
+| État | État du message X12 <br>Success = a reçu ou envoyé un message X12 correct, aucun accusé de réception fonctionnel n’est configuré <br>Success = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et reçu ou un accusé de réception fonctionnel est envoyé <br>Failed = a reçu ou envoyé un message X12 incorrect <br>Pending = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et un accusé de réception fonctionnel est attendu. |
+| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif <br>Rejected = a reçu ou envoyé un accusé de réception négatif <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu <br>Pending = a généré un accusé de réception fonctionnel mais ne l’a pas envoyé au partenaire <br>Not Required = l’accusé de réception fonctionnel n’est pas configuré |
 | Direction | Direction du message X12. |
 | ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
 | Type de message |  Type de message X12 EDI. |
@@ -130,9 +131,4 @@ Sur la page de recherche, vous pouvez créer une requête. Lorsque vous effectue
 [Schéma de suivi AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [Schéma de suivi X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

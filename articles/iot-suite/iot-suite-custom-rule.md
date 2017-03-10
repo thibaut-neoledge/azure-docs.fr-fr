@@ -229,6 +229,6 @@ Maintenant que vous avez vu comment créer des règles personnalisées, vous pou
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#view-alarms
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 [lnk-logic-app]: iot-suite-logic-apps-tutorial.md

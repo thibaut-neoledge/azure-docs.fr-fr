@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
 ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
+ms.lasthandoff: 01/30/2017
 
 ---
 
@@ -40,6 +41,7 @@ L’authentification directe peut être configurée par le biais d’Azure AD Co
 >La prise en charge des environnements à plusieurs forêts est possible s’il existe des approbations entre les forêts et que le routage du suffixe de leurs noms est configuré correctement.
 
 ## <a name="supported-clients-in-the-preview"></a>Clients pris en charge dans la version préliminaire
+
 L’authentification directe est prise en charge par les clients basés sur le navigateur web et les clients Office qui prennent en charge l’[authentification moderne](https://aka.ms/modernauthga). Pour les clients qui ne sont pas pris en charge, par exemple les clients Office hérités ou la synchronisation active Exchange (c’est-à-dire des clients de messagerie natifs sur des appareils mobiles), les clients sont encouragés à utiliser l’authentification moderne équivalente. Ces clients permettent non seulement l’authentification directe, mais aussi l’application d’un accès conditionnel (par exemple l’authentification multifacteur).
 
 Pour les clients utilisant Windows 10 joint à Azure AD, l’authentification directe n’est actuellement pas prise en charge. Cependant, les clients peuvent utiliser la synchronisation de mot de passe comme solution de secours automatique pour Windows 10, en plus des autres clients hérités.
@@ -154,9 +156,4 @@ Les autres erreurs signalées sur l’écran de connexion Azure AD sont détaill
 |AADSTS80004|Le nom d’utilisateur envoyé au connecteur n’était pas valide|Vérifiez que l’utilisateur tente de se connecter avec le nom d’utilisateur correct.
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Cette erreur est un problème temporaire. relancez la requête. Si l’erreur se reproduit, contactez le support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux du connecteur pour plus d’informations et vérifiez qu’Active Directory fonctionne comme prévu.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

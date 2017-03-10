@@ -4,7 +4,7 @@ description: "Suivez ce didacticiel pour commencer à utiliser des backends d’
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 tags: 
 keywords: cordova, javascript, mobile, client
@@ -19,6 +19,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
 ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -81,9 +82,4 @@ Découvrez comment utiliser les Kits de développement logiciel.
 [Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Kit de développement logiciel du serveur Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

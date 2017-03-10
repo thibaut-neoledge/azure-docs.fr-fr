@@ -3,7 +3,7 @@ title: "Se connecter à Azure Storage dans votre application Xamarin.Forms"
 description: "Ajouter des images à l’application mobile Xamarin.Forms todo list en vous connectant au stockage d’objets blob Azure"
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: bb1a1437-0a31-46bb-9237-1b692b0ede21
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c8568846837f404eee0293be284c70bd27f06380
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -53,7 +54,7 @@ Vous devez ajouter un nouveau contrôleur à votre projet de serveur, qui pourra
 * [Routes inscrites par le contrôleur de stockage](#routes-registered)
 * [Communication client et serveur](#client-communication)
 
-### <a name="a-nameadd-controller-codeaadd-a-storage-controller-to-your-server-project"></a><a name="add-controller-code"></a>Ajoutez un contrôleur de stockage à votre projet de serveur.
+### <a name="add-controller-code"></a>Ajoutez un contrôleur de stockage à votre projet de serveur.
 1. Dans Visual Studio, ouvrez votre projet de serveur .NET. Ajoutez le package NuGet [Microsoft.Azure.Mobile.Server.Files]. Veillez à sélectionner **Inclure la version préliminaire**.
 2. Dans Visual Studio, ouvrez votre projet de serveur .NET. Cliquez avec le bouton droit sur le dossier **Contrôleurs** et sélectionnez **Ajouter** -> **Contrôleur** -> **Contrôleur Web API 2 - Vide**. Nommez le contrôleur `TodoItemStorageController`.
 3. Ajoutez les instructions using suivantes :
@@ -95,7 +96,7 @@ Vous devez ajouter un nouveau contrôleur à votre projet de serveur, qui pourra
         config.MapHttpAttributeRoutes();
 7. Publiez votre projet de serveur sur votre backend d’application mobile.
 
-### <a name="a-nameroutes-registeredaroutes-registered-by-the-storage-controller"></a><a name="routes-registered"></a>Routes inscrites par le contrôleur de stockage
+### <a name="routes-registered"></a>Routes inscrites par le contrôleur de stockage
 La nouvelle classe `TodoItemStorageController` expose deux sous-ressources sous l’enregistrement qu’elle gère :
 
 * StorageToken
@@ -112,7 +113,7 @@ La nouvelle classe `TodoItemStorageController` expose deux sous-ressources sous 
     
       `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
-### <a name="a-nameclient-communicationaclient-and-server-communication"></a><a name="client-communication"></a>Communication client et serveur
+### <a name="client-communication"></a>Communication client et serveur
 Notez que la classe `TodoItemStorageController` ne dispose *pas* d’une route précise permettant de transférer ou télécharger un blob. Pour effectuer ces opérations, en effet, un client mobile interagit *directement* avec Blob Storage après avoir obtenu un jeton de signature d’accès partagé (SAS) pour pouvoir accéder en toute sécurité à un blob ou conteneur donné. Il s’agit d’un aspect de conception architecturale important, car dans d’autres circonstances, l’accès au stockage serait limité par l’extensibilité et la disponibilité du backend mobile. Mais grâce à une connexion directe à Azure Storage, le client mobile peut tirer parti de certaines de ses fonctionnalités, telles que le partitionnement automatique et la distribution géographique.
 
 Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Cela vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations, sans partager les clés d’accès de votre compte. Pour plus d’informations, consultez [Présentation des signatures d’accès partagé].
@@ -138,7 +139,7 @@ Ouvrez le projet de démarrage rapide Xamarin.Forms dans Visual Studio ou Xamar
 > 
 > 
 
-### <a name="a-nameadd-nugetaadd-nuget-packages"></a><a name="add-nuget"></a>Ajout de packages NuGet
+### <a name="add-nuget"></a>Ajout de packages NuGet
 Cliquez avec le bouton droit sur la solution et sélectionnez **Gérer les packages NuGet pour la solution**. Ajoutez les packages NuGet suivants à **tous** les projets dans la solution. Veillez à cocher la case **Inclure la version préliminaire**.
 
 * [Microsoft.Azure.Mobile.Client.Files]
@@ -149,7 +150,7 @@ Pour plus de commodité, cet exemple utilise la bibliothèque [PCLStorage] , bie
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
-### <a name="a-nameadd-iplatformaadd-iplatform-interface"></a><a name="add-iplatform"></a>Ajouter l’interface IPlatform
+### <a name="add-iplatform"></a>Ajouter l’interface IPlatform
 Créez une interface `IPlatform` dans le projet de bibliothèque portable principal. Cette interface suit le modèle [Xamarin.Forms DependencyService] pour charger la classe adaptée à la plateforme au moment de l’exécution. Vous ajouterez ultérieurement des implémentations spécifiques à votre plateforme dans chaque projet client.
 
 1. Ajoutez les instructions using suivantes :
@@ -170,7 +171,7 @@ Créez une interface `IPlatform` dans le projet de bibliothèque portable princi
             Task DownloadFileAsync<T>(IMobileServiceSyncTable<T> table, MobileServiceFile file, string filename);
         }
 
-### <a name="a-nameadd-filehelperaadd-filehelper-class"></a><a name="add-filehelper"></a>Ajouter la classe FileHelper
+### <a name="add-filehelper"></a>Ajouter la classe FileHelper
 1. Créez une classe `FileHelper` dans le projet de bibliothèque portable principal. Ajoutez les instructions using suivantes :
    
         using System.IO;
@@ -226,7 +227,7 @@ Créez une interface `IPlatform` dans le projet de bibliothèque portable princi
             }
         }
 
-### <a name="a-namefile-sync-handlera-add-a-file-sync-handler"></a><a name="file-sync-handler"></a> Ajouter un gestionnaire de synchronisation de fichiers
+### <a name="file-sync-handler"></a> Ajouter un gestionnaire de synchronisation de fichiers
 Créez une classe `TodoItemFileSyncHandler` dans le projet de bibliothèque portable principal. Cette classe contient des rappels en provenance du SDK Azure afin de notifier votre code en cas d’ajout ou de suppression d’un fichier.
 
 Le Kit de développement logiciel (SDK) du client Azure Mobile ne stocke pas réellement les données de fichier : il appelle l’implémentation de `IFileSyncHandler` qui détermine ensuite si et de quelle manière les fichiers sont stockés sur l’appareil local.
@@ -266,7 +267,7 @@ Le Kit de développement logiciel (SDK) du client Azure Mobile ne stocke pas ré
             }
         }
 
-### <a name="a-nameupdate-todoitemmanageraupdate-todoitemmanager"></a><a name="update-todoitemmanager"></a>Mettre à jour TodoItemManager
+### <a name="update-todoitemmanager"></a>Mettre à jour TodoItemManager
 1. Dans **TodoItemManager.cs**, supprimez les marques de commentaire de la ligne `#define OFFLINE_SYNC_ENABLED`.
 2. Dans **TodoItemManager.cs**, ajoutez les instructions using suivantes :
    
@@ -312,7 +313,7 @@ Le Kit de développement logiciel (SDK) du client Azure Mobile ne stocke pas ré
             return await this.todoTable.GetFilesAsync(todoItem);
         }
 
-### <a name="a-nameadd-details-viewaadd-a-details-view"></a><a name="add-details-view"></a>Ajouter une vue de détails
+### <a name="add-details-view"></a>Ajouter une vue de détails
 Dans cette section, vous allez ajouter une nouvelle vue de détails pour un élément todo. La vue est créée lorsque l’utilisateur sélectionne un élément todo et permet d’ajouter de nouvelles images à un élément.
 
 1. Ajoutez une nouvelle classe **TodoItemImage** au projet de bibliothèque portable avec l’implémentation suivante :
@@ -438,7 +439,7 @@ Dans cette section, vous allez ajouter une nouvelle vue de détails pour un él�
             }
         }
 
-### <a name="a-nameupdate-main-viewaupdate-the-main-view"></a><a name="update-main-view"></a>Mettre à jour la vue principale
+### <a name="update-main-view"></a>Mettre à jour la vue principale
 Mettez à jour la vue principale pour ouvrir la vue de détails lorsqu’un élément todo est sélectionné.
 
 Dans le fichier **TodoList.xaml.cs**, remplacez l’implémentation de `OnSelected` par le code suivant :
@@ -456,7 +457,7 @@ Dans le fichier **TodoList.xaml.cs**, remplacez l’implémentation de `OnSelect
         todoList.SelectedItem = null;
     }
 
-### <a name="a-nameupdate-androidaupdate-the-android-project"></a><a name="update-android"></a>Mettre à jour le projet Android
+### <a name="update-android"></a>Mettre à jour le projet Android
 Ajoutez au projet Android le code spécifique à la plateforme, y compris le code permettant de télécharger un fichier et d’utiliser l’appareil photo pour capturer une nouvelle image. 
 
 Ce code utilise le modèle [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) de Xamarin.Forms pour charger la classe adaptée à la plateforme au moment de l’exécution.
@@ -525,7 +526,7 @@ Ce code utilise le modèle [DependencyService](https://developer.xamarin.com/gui
    
         App.UIContext = this;
 
-### <a name="a-nameupdate-iosaupdate-the-ios-project"></a><a name="update-ios"></a>Mettre à jour le projet iOS
+### <a name="update-ios"></a>Mettre à jour le projet iOS
 Ajoutez au projet iOS le code spécifique à la plateforme.
 
 1. Ajoutez le composant **Xamarin.Mobile** au projet iOS.
@@ -585,7 +586,7 @@ Ajoutez au projet iOS le code spécifique à la plateforme.
         }
 3. Modifiez le fichier **AppDelegate.cs** et supprimez les marques de commentaire de l’appel à `SQLitePCL.CurrentPlatform.Init()`.
 
-### <a name="a-nameupdate-windowsaupdate-the-windows-project"></a><a name="update-windows"></a>Mettre à jour le projet Windows
+### <a name="update-windows"></a>Mettre à jour le projet Windows
 1. Installez l’extension de Visual Studio [SQLite pour Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). 
    Pour plus d’informations, consultez le didacticiel [Activation de la synchronisation hors connexion pour votre application Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
 2. Modifiez le fichier **Package.appxmanifest** et vérifiez la fonctionnalité **Webcam**.
@@ -688,9 +689,4 @@ Dans cet article, vous avez appris à utiliser la prise en charge de nouveaux fi
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
 [Présentation des signatures d’accès partagé]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Créer un compte Azure Storage]:  ../storage/storage-create-storage-account.md#create-a-storage-account
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

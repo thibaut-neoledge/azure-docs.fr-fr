@@ -3,7 +3,7 @@ title: "Connecter des appareils joints au domaine à Azure AD pour des expérien
 description: "Explique comment les administrateurs peuvent configurer une stratégie de groupe pour permettre à des appareils d’être joints à un domaine du réseau d’entreprise."
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: 
 tags: azure-classic-portal
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 7d141adf04cfb99e57c63ba62de4a7dad9ab8326
 ms.openlocfilehash: 290645b920bc4a83c610e80266854450b6e1509a
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -63,10 +64,5 @@ Pour effectuer le déploiement, procédez comme indiqué dans [Configuration de 
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

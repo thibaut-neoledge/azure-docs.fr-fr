@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ La version 0.10.5 des outils en ligne de commande multiplateformes Microsoft Azu
 Pour en savoir plus sur la gestion des groupes de ressources, voir [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md) (Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure). 
 
 > [!NOTE] 
-> Essayez également [Azure CLI 2.0 (version préliminaire)](https://github.com/Azure/azure-cli), une interface de ligne de commande nouvelle génération écrite en Python pour le modèle de déploiement Resource Manager.
+> Essayez également [Azure CLI 2.0](https://github.com/Azure/azure-cli), une interface de ligne de commande nouvelle génération écrite en Python pour le modèle de déploiement Resource Manager.
 >
 >
 
@@ -178,9 +179,4 @@ Pour supprimer des liaisons de noms d’hôte, utilisez :
 * Pour en savoir plus sur la prise en charge de l’interface de ligne de commande Azure Resource Manager, voir [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md) (Utiliser l’interface de ligne de commande Azure pour gérer les ressources et les groupes de ressources Azure).
 * Pour en savoir plus sur la gestion d’App Service à l’aide de PowerShell, voir [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps](app-service-web-app-azure-resource-manager-powershell.md) (Utilisation de PowerShell basé sur Azure Resource Manager pour gérer Azure Web Apps).
 * Pour en savoir plus sur Azure App Service sur Linux, voir [Présentation d’App Service sur Linux](app-service-linux-intro.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

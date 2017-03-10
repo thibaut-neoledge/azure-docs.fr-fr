@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
 ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -30,7 +31,7 @@ Si c’est la première fois que vous utilisez Mobile Apps, commencez par suivre
 
 Pour en savoir plus sur la fonctionnalité de synchronisation hors connexion, consultez [Synchronisation des données hors connexion dans Mobile Apps].
 
-## <a name="a-namereview-syncareview-the-client-sync-code"></a><a name="review-sync"></a>Examiner le code de synchronisation client
+## <a name="review-sync"></a>Examiner le code de synchronisation client
 Le projet client que vous avez téléchargé pour le didacticiel [Créer une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Mobile Apps].
 
 La fonctionnalité de synchronisation des données hors connexion de Mobile Apps permet aux utilisateurs d’interagir avec une base de données locale quand le réseau n’est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous devez initialiser le contexte de synchronisation de `MSClient` et référencer un magasin local. Ensuite, référencez votre table par le biais de l’interface **MSSyncTable**.
@@ -48,6 +49,7 @@ Avant de pouvoir effectuer des opérations de table, le magasin local doit être
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**. Dans la méthode **ToDoTableViewController.viewDidLoad** :
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
@@ -135,7 +137,7 @@ L’application Swift se synchronise quand l’utilisateur effectue le mouvement
 
 Comme l’application se synchronise quand les données sont modifiées (Objective-C) ou à chaque démarrage de l’application (Objective-C et Swift), l’application suppose que l’utilisateur est en ligne. Dans une section ultérieure, vous mettrez à jour l’application pour que les utilisateurs puissent les modifier même s’ils sont hors connexion.
 
-## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>Examen du modèle de données de base
+## <a name="review-core-data"></a>Examen du modèle de données de base
 Quand vous utilisez le magasin hors connexion Core Data, vous devez définir certaines tables et certains champs dans le modèle de données. L'exemple d'application comprend déjà un modèle de données avec le format correct. Dans cette section, nous allons passer en revue ces tables pour voir comment elles sont utilisées.
 
 Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies : trois sont utilisées par le SDK et la dernière est utilisée pour les éléments de tâche :
@@ -202,7 +204,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 | updatedAt | Date | (facultatif) Correspond à la propriété système **updatedAt** |
 | version | String | (facultatif) Permet de détecter les conflits, correspond à version |
 
-## <a name="a-namesetup-syncachange-the-sync-behavior-of-the-app"></a><a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
+## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
 Dans cette section, vous modifiez l’application pour qu’elle ne se synchronise pas au démarrage de l’application ou quand vous insérez et mettez à jour des éléments. Elle se synchronise uniquement quand le mouvement d’actualisation est effectué.
 
 **Objective-C**:
@@ -231,7 +233,7 @@ Dans `viewDidLoad`, dans **ToDoTableViewController.swift**, commentez les deux l
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>Test de l’application
+## <a name="test-app"></a>Test de l’application
 Dans cette section, vous allez vous connecter à une URL incorrecte pour simuler un scénario hors connexion. Quand vous ajoutez des éléments de données, ceux-ci sont placés dans le magasin Core Data local, mais ils ne sont pas synchronisés avec le backend de l’application mobile.
 
 1. Remplacez l’URL de l’application mobile dans **QSTodoService.m** par une URL non valide, puis réexécutez l’application :
@@ -285,9 +287,4 @@ Pour synchroniser le magasin local avec le serveur, nous avons utilisé la méth
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

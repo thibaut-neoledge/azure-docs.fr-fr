@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
 ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -721,7 +722,7 @@ L’exemple suivant montre comment combiner deux tableaux.
         }
      },
      "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
      }
 
 
@@ -1217,10 +1218,5 @@ L’exemple suivant montre la fonction subscription appelée dans la section out
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
 * Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

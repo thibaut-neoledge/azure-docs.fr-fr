@@ -14,8 +14,9 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
+ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
+ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -42,6 +43,10 @@ Dans cette version, aucune modification importante n’a été apportée au Kit�
 ### <a name="windows-server-2016-virtual-machines"></a>Machines virtuelles Windows Server 2016
 
 - Visual Studio prend désormais en charge le déploiement de services Cloud sur les machines virtuelles de famille 5 du système d’exploitation (Windows Server 2016). Pour les services cloud existants, vous pouvez modifier vos paramètres de manière à cibler la nouvelle famille du système d’exploitation. Lors de la création de nouveaux services cloud, si vous décidez de créer le service à l’aide de .net 4.6 ou d’une version antérieure, le service utilisera par défaut la famille 5 du système d’exploitation.  Pour plus d’informations, passez en revue le [tableau de prise en charge de la famille de SE invité](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+
+#### <a name="known-issues"></a>Problèmes connus
+
+- Azure .NET SDK 2.9.6 a introduit une restriction qui bloque le déploiement des projets qui utilisent des infrastructures .NET non prises en charge (par exemple .NET 4.6) vers n’importe quel système d’exploitation < 5. Une solution de contournement est fournie [ici](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
  
 ### <a name="azure-in-role-cache"></a>In-Role Cache Azure 
@@ -86,10 +91,5 @@ Cette version ajoute la prise en charge de [KeyVault](../azure-resource-manager/
 
 ## <a name="see-also"></a>Voir aussi
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
-ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 6964ff18532ccf4b67eecfe12122bc16819a7b4b
+ms.openlocfilehash: 9b2e0797317c6e0268e8ae90f4091fea96c78726
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Il existe 3 types de déclencheurs qui peuvent recevoir des requêtes :
 Dans le reste de cet article, nous utiliserons **request** comme exemple. Toutefois, tous les principes s’appliquent de la même manière aux 2 autres types de déclencheurs.
 
 ## <a name="adding-a-trigger-to-your-definition"></a>Ajout d’un déclencheur à votre définition
-La première étape consiste à ajouter à la définition de votre application logique un déclencheur qui peut recevoir des requêtes entrantes.  Dans le concepteur, vous pouvez rechercher « demande HTTP » pour ajouter la carte de déclencheur. Vous pouvez définir un schéma JSON de corps de requête ; le concepteur génère des jetons pour vous aider à analyser et transmettre des données à partir du déclenchement manuel, via le flux de travail.  Je recommande un outil tel que [jsonschema.net](http://jsonschema.net) pour générer un schéma JSON à partir d’un exemple de charge utile du corps.
+La première étape consiste à ajouter à la définition de votre application logique un déclencheur qui peut recevoir des requêtes entrantes.  Dans le concepteur, vous pouvez rechercher « demande HTTP » pour ajouter la carte de déclencheur. Vous pouvez définir un schéma JSON de corps de requête ; le concepteur génère des jetons pour vous aider à analyser et transmettre des données à partir du déclenchement manuel, via le flux de travail. Si vous n’avez pas de schéma prêt, sélectionnez `Use sample payload to generate schema` pour générer un schéma JSON à partir d’un exemple de charge utile.
 
 ![Carte de déclencheur de requête][2]
 

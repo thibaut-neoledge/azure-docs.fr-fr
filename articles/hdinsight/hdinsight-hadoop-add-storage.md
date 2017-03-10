@@ -12,16 +12,17 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage Azure supplémentaires à HDInsight
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
 Découvrez comment utiliser des actions de script pour ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant utilisant Linux comme système d’exploitation.
 
@@ -44,7 +45,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 * Il vérifie que le compte de stockage existe et est accessible à l’aide de la clé.
 
-* Il chiffre la clé à l’aide des informations d’identification du cluster. Cela empêche les utilisateurs HDInsight de facilement extraire et utiliser la clé de compte de stockage à partir d’Ambari.
+* Il chiffre la clé à l’aide des informations d’identification du cluster.
 
 * Il ajoute le compte de stockage dans le fichier core-site.xml.
 
@@ -76,7 +77,7 @@ Lorsque vous utilisez les informations fournies dans le document de personnalisa
 
 Lorsque vous affichez le cluster HDInsight dans le portail Azure, les comptes de stockage ajoutés à l’aide de cette action de script ne s’affichent pas lorsque vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__. Azure PowerShell et l’interface de ligne de commande Azure n’affichent pas non plus les comptes de stockage supplémentaires.
 
-Ce problème est dû au fait que le script modifie uniquement la configuration core-site.xml du cluster. Ces informations ne sont pas utilisées pour l’instant lors de la récupération des informations du cluster à l’aide des API de gestion Azure.
+Les informations de stockage n’apparaissent pas car le script modifie uniquement la configuration core-site.xml du cluster. Ces informations ne sont pas utilisées lors de la récupération des informations du cluster à l’aide des API de gestion Azure.
 
 Pour afficher les informations des comptes de stockage ajoutés au cluster à l’aide de ce script, utilisez l’API REST Ambari. La commande suivante montre comment utiliser [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) et [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) pour récupérer et analyser des données JSON à partir d’Ambari :
 
@@ -96,13 +97,11 @@ Ce texte est un exemple de clé chiffrée, utilisée pour accéder au compte de 
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Impossible d’accéder au stockage après avoir modifié la clé
 
-Si vous modifiez la clé d’un compte de stockage, HDInsight ne pourra plus accéder au compte de stockage.
+Si vous modifiez la clé d’un compte de stockage, HDInsight ne peut plus accéder au compte de stockage. HDInsight utilise une copie de la clé mise en cache dans le fichier core-site.xml pour le cluster. Cette copie mise en cache doit être mise à jour pour correspondre à la nouvelle clé.
 
-Ce problème est dû au fait que la clé stockée dans le fichier core-site.xml du cluster est l’ancienne clé.
+Si vous exécutez de nouveau l’action de script, la clé n’est __pas__ mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. Si une entrée existe déjà, aucune modification n’est apportée.
 
-Si vous exécutez de nouveau l’action de script, la clé ne sera __pas__ mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. Le cas échéant, il n’apporte aucune modification.
-
-Pour contourner ce problème, vous devez supprimer l’entrée existante pour le compte de stockage. Pour ce faire, vous pouvez procéder comme suit :
+Pour contourner ce problème, vous devez supprimer l’entrée existante pour le compte de stockage. Procédez comme suit pour supprimer l’entrée existante :
 
 1. Dans un navigateur web, ouvrez l’interface utilisateur web Ambari pour votre cluster HDInsight. L’URI est https://CLUSTERNAME.azurehdinsight.net. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
 
@@ -131,9 +130,4 @@ Si le compte de stockage se trouve dans une région différente de celle du clus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+Vous avez découvert comment ajouter des comptes de stockage Azure supplémentaires à un cluster HDInsight existant. Pour plus d’informations sur les actions de script, consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).

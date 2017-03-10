@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
+
 1. Connectez-vous [portail Azure](https://portal.azure.com) > **Site Recovery**.
 2. Cliquez sur **Nouveau** > **Gestion** >.
 3. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez-en un.

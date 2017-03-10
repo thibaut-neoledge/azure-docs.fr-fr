@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d81b20ca17ddf723dcc11148f7b44e763dde100b
-ms.openlocfilehash: 1af0f36ce1161b35a2f75d74774ed145c8bc9328
-
+ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
+ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="storsimple-system-limits"></a>Limites du système StorSimple
-## <a name="overview"></a>Vue d'ensemble
+# <a name="what-are-storsimple-8000-series-system-limits"></a>Quelles sont les limites système de l’appareil StorSimple série 8000 ?
+## <a name="overview"></a>Vue d’ensemble
 StorSimple fournit un stockage évolutif et flexible pour votre centre de données. Toutefois, il existe certaines limites dont vous devez tenir compte lorsque vous planifiez, déployez et exploitez votre solution StorSimple. Le tableau suivant décrit ces limites et fournit quelques recommandations afin que vous puissiez tirer parti de votre solution StorSimple.
 
 | Identificateur de la limite | Limite | Commentaires |
@@ -56,10 +57,5 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 
 ## <a name="next-steps"></a>Étapes suivantes
 Relisez les [Conditions requises pour le système StorSimple](storsimple-system-requirements.md). 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

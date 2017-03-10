@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 71ad04b10bc49500197db6fecdcc0305a1ea0dd2
-ms.openlocfilehash: ecb1c385de6c1b12674326afe7d5a0ebf6cd9ad0
+ms.sourcegitcommit: 8c96cacadb34a3d4eca1fe523d8a159c69a0ebe3
+ms.openlocfilehash: 01c855972d66d8ae2e975b206791ab8f9abcec41
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -83,16 +84,9 @@ Une fois connecté avec ce compte utilisateur, vous pouvez exécuter les command
 Vous pouvez éventuellement obtenir un interpréteur de commandes root avec `sudo -s`.
 
 ## <a name="known-issues"></a>Problèmes connus
-1. Il existe actuellement un problème avec FreeBSD 11.0 sur Hyper-V (et Azure) qui peut provoquer l’échec du démarrage des machines virtuelles si le système d’exploitation est corrigé à l’aide de `freebsd-update`. Le [correctif proposé](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) est inclus dans les images FreeBSD sur Azure Marketplace. Toutefois, il n’a pas été fusionné en amont par l’équipe FreeBSD. L’exécution de `freebsd-update` remplace donc le noyau par un noyau non corrigé. Il est recommandé aux utilisateurs Azure de ne pas installer les correctifs pour FreeBSD 11.0 jusqu’à ce que le correctif soit publié sous forme d’ERRATA.
-
-2. L’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.2 présente un problème [connu] (https://github.com/Azure/WALinuxAgent/pull/517) qui provoque l’échec de l’approvisionnement pour la machine virtuelle FreeBSD sur Azure. Il est recommandé que les utilisateurs de machines virtuelles FreeBSD sur Azure utilisent la version 2.2.1 ou une version antérieure. Le correctif sera capturé par l’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.3. 
+1. L’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) version 2.2.2 présente un problème [connu] (https://github.com/Azure/WALinuxAgent/pull/517) qui provoque l’échec de l’approvisionnement pour la machine virtuelle FreeBSD sur Azure. Le correctif a été capturé par l’[Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) 2.2.3 et versions ultérieures. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Accédez à [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) pour créer une machine virtuelle FreeBSD.
 * Si vous souhaitez utiliser votre propre FreeBSD dans Azure, consultez [Créer et charger un VHD FreeBSD dans Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

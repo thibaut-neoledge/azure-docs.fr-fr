@@ -16,13 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: f7562c2bb6ad354ece3aa3c51fdaabad8e878fa9
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: a221f3bc9e058a46e46edf8f7177d21151ae3595
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
+# <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Augmenter la disponibilité des machines virtuelles en créant un groupe à haute disponibilité Azure 
 Les groupes à haute disponibilité assurent la redondance de votre application. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
@@ -94,10 +95,5 @@ Pour plus d’informations, consultez [New-AzureRmAvailabilitySet](/powershell/n
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ajout de stockage supplémentaire à votre machine virtuelle en ajoutant un [disque de données](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)supplémentaire.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

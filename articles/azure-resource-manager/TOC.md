@@ -36,8 +36,6 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
-### [Lier aux ressources connexes](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Contrôler l’accès
 ### [Créer un principal du service avec PowerShell](resource-group-authenticate-service-principal.md)
 ### [Créer un principal du service avec l’interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)

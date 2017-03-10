@@ -4,7 +4,7 @@ description: "Décrit comment gérer les enregistrements de contrôle d’accès
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 11252938-5b97-4178-8c37-f58eaa3d00b1
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037da7a5647f5b3d2b0cf1364fab050406be3b62
+ms.sourcegitcommit: f45d8e2b848e930a790e7bf38c2b09fbdaaf2fab
+ms.openlocfilehash: 30b6aedd9b4b7913f6862b34582f3ae96c9eae5f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès pour le StorSimple Virtual Array
+# <a name="use-storsimple-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Utiliser StorSimple Manager pour gérer les enregistrements de contrôle d’accès pour StorSimple Virtual Array
+
 ## <a name="overview"></a>Vue d'ensemble
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur le StorSimple Virtual Array (également appelé appareil virtuel local StorSimple). Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Quand un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom IQN et, s’il existe une correspondance, la connexion est établie. La section des **enregistrements de contrôle d’accès** de la page **Configurer** affiche tous les enregistrements de contrôle d’accès avec les noms complets iSCSI (IQN) des hôtes correspondants.
 
@@ -103,10 +106,5 @@ Pour supprimer un enregistrement de contrôle d’accès, procédez comme suit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter des volumes et configurer les enregistrements de contrôle d’accès](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Créer et modifier le routage le routage pour un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portail Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> * [PowerShell - Classique](expressroute-howto-routing-classic.md)
+> * [Gestionnaire des ressources - Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Classic - PowerShell](expressroute-howto-routing-classic.md)
+> * [Vidéo - Homologation privée](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Homologation publique](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Homologation Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -36,7 +40,7 @@ Cet article vous guide tout au long des étapes de création et de gestion de la
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
-* Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+* Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](https://azure.microsoft.com/downloads/). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
@@ -306,10 +310,5 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 
 * Pour plus d'informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 * Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

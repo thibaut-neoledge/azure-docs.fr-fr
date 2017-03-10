@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c625fdf679c282bb62fdcbc864cd5b65d1014231
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d75f6a9db55595ab6b40052b8609709eacf30d4e
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,36 +31,36 @@ Les étapes sont différentes selon que votre organisation a un client Azure AD 
 > [!div class="op_single_selector"]
 > * [Client Azure AD dans le cloud uniquement](active-directory-ds-getting-started-password-sync.md)
 > * [Client Azure AD synchronisé](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-> 
-> 
+>
+>
 
 <br>
 
-## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloudonly-azure-ad-tenant"></a>Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD dans le cloud uniquement
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Tâche 5 : activer la synchronisation de mot de passe pour les services de domaine AAD pour un client Azure AD dans le cloud uniquement
 Services de domaine Azure AD exige que les hachages d’informations d’identification soient dans un format approprié pour l’authentification NTLM et Kerberos, afin d’authentifier les utilisateurs sur le domaine géré. À moins que vous activiez Services de domaine AAD pour votre client, Azure AD ne génère pas et ne stocke pas les hachages d’informations d’identification dans le format requis pour l’authentification NTLM ou Kerberos. Pour des raisons évidentes de sécurité, Azure AD ne stocke pas non plus d’informations d’identification dans un format en texte clair. Par conséquent, Azure AD n’a pas la capacité de générer ces hachages d’informations d’identification NTLM ou Kerberos en fonction des informations d’identification existantes des utilisateurs.
 
 > [!NOTE]
 > Si votre organisation a un client Azure AD uniquement dans le cloud, les utilisateurs ayant besoin d’utiliser Services de domaine Azure AD doivent modifier leur mot de passe.
-> 
-> 
+>
+>
 
 Ce processus de modification du mot de passe entraîne la génération, dans Azure AD, des hachages des informations d’identification dont ont besoin les services de domaine Azure AD pour l’authentification Kerberos et NTLM. Vous pouvez faire expirer les mots de passe de tous les utilisateurs dans le locataire qui doivent recourir aux services de domaine Azure AD, ou demander à ces utilisateurs de modifier leur mot de passe.
 
-### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloudonly-azure-ad-tenant"></a>Activer la génération du hachage des informations d’identification NTLM et Kerberos pour un client Azure AD dans le cloud uniquement
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Activer la génération du hachage des informations d’identification NTLM et Kerberos pour un client Azure AD dans le cloud uniquement
 Voici les instructions que vous devez fournir aux utilisateurs finaux pour qu’ils modifient leur mot de passe :
 
 1. Accédez à la page du volet d’accès Azure AD pour votre organisation sur [http://myapps.microsoft.com](http://myapps.microsoft.com).
 2. Dans cette page, sélectionnez l’onglet **profil** .
 3. Cliquez sur la vignette **Modifier le mot de passe** dans cette page.
-   
+
     ![Créer un réseau virtuel pour les services de domaine Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
-   
+
    > [!NOTE]
    > Si vous ne voyez pas l’option **Modifier le mot de passe** sur la page du volet d’accès, vérifiez que votre organisation a configuré la [gestion des mots de passe dans Azure AD](../active-directory/active-directory-passwords-getting-started.md).
-   > 
-   > 
+   >
+   >
 4. Dans la page **Modifier le mot de passe** , tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le. Cliquez sur **Envoyer**.
-   
+
     ![Créer un réseau virtuel pour les services de domaine Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
 Une fois que vous avez modifié votre mot de passe, le nouveau mot de passe est rapidement utilisable dans Services de domaine Azure AD. Après quelques minutes (généralement environ 20 minutes), vous pouvez vous connecter aux ordinateurs joints au domaine géré à l’aide du nouveau mot de passe.
@@ -73,10 +74,4 @@ Une fois que vous avez modifié votre mot de passe, le nouveau mot de passe est 
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Joindre une machine virtuelle Windows à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Joindre une machine virtuelle Linux Red Hat Enterprise à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

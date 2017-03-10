@@ -1,6 +1,6 @@
 ---
-title: "Créer une passerelle Azure Application Gateway - Interface de ligne de commande Azure | Microsoft Docs"
-description: "Découvrez comment créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure dans Resource Manager"
+title: "Créer une passerelle Azure Application Gateway - Azure CLI 2.0 | Microsoft Docs"
+description: "Découvrez comment créer une passerelle Application Gateway à l’aide d’Azure CLI 2.0 dans Resource Manager"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: d376cd1f62f99d3f611d0d5ccc613c4b649e5c3c
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Créer une passerelle Application Gateway à l’aide de l’interface de ligne de commande Azure
+# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Créer une passerelle Application Gateway à l’aide d’Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [portail Azure](application-gateway-create-gateway-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interface de ligne de commande Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
+> * [Modèle Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
 La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées et prise en charge de plusieurs sites.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Condition préalable : installer l’interface de ligne de commande Azure
+## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)](../xplat-cli-install.md) et [ouvrir une session sur Azure](../xplat-cli-connect.md). 
+Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
+
+* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager.
+* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+
+## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
+
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Si vous n’avez pas de compte Azure, vous devez vous en procurer un. Inscrivez-vous à un [essai gratuit ici](../active-directory/sign-up-organization.md).
@@ -66,8 +73,10 @@ La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsqu
 Ouvrez **l’invite de commandes Microsoft Azure**et connectez-vous. 
 
 ```azurecli
-azure login
+az login -u "username"
 ```
+
+>[REMARQUE] Vous pouvez également utiliser `az login` sans le switch destiné à la connexion de l’appareil et qui nécessite la saisie d’un code sur aka.ms/devicelogin.
 
 Une fois que vous avez tapé l’exemple précédent, un code est fourni. Accédez à https://aka.ms/devicelogin dans un navigateur pour continuer le processus de connexion.
 
@@ -81,34 +90,26 @@ Une fois que vous êtes connecté, fermez le navigateur pour poursuivre le scén
 
 ![Connexion réussie][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Basculer en mode Resource Manager
-
-```azurecli
-azure config mode arm
-```
-
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
 Avant de créer la passerelle Application Gateway, un groupe de ressources est créé pour contenir cette dernière. Voici la commande.
 
 ```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+az resource group create --name myresourcegroup --location "West US"
 ```
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="create-a-virtual-network-and-subnet"></a>Créer un réseau virtuel et un sous-réseau
 
-Une fois le groupe de ressources créé, un réseau virtuel est créé pour la passerelle Application Gateway.  Dans l’exemple suivant, l’espace d’adressage était 10.0.0.0/16 tel que défini dans les notes du scénario précédent.
-
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
-```
-
-## <a name="create-a-subnet"></a>Créer un sous-réseau
-
-Une fois le réseau virtuel créé, un sous-réseau est ajouté pour la passerelle Application Gateway.  Si vous envisagez d’utiliser la passerelle Application Gateway avec une application web hébergée dans le même réseau virtuel que la passerelle Application Gateway, veillez à laisser suffisamment de place pour un autre sous-réseau.
+Une fois le groupe de ressources créé, un réseau virtuel est créé pour la passerelle Application Gateway.  Dans l’exemple suivant, l’espace d’adressage est 10.0.0.0/16 pour le réseau virtuel et 10.0.0.0/28 pour le sous-réseau, comme indiqué dans les notes du scénario précédent.
 
 ```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+az network vnet create \
+--name AdatumAppGatewayVNET \
+--address-prefix 10.0.0.0/16 \
+--subnet-name Appgatewaysubnet \
+--subnet-prefix 10.0.0.0/28 \
+--resource-group AdatumAppGateway \
+--location eastus
 ```
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
@@ -116,11 +117,30 @@ azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v Ad
 Une fois le réseau virtuel et le sous-réseau créés, les conditions préalables pour la passerelle Application Gateway sont remplies. En outre, un certificat .pfx exporté précédemment et le mot de passe de ce dernier sont requis pour l’étape suivante. Les adresses IP utilisées pour le backend sont celles de votre serveur principal. Ces valeurs peuvent être des adresses IP privées dans le réseau virtuel, des adresses IP publiques ou des noms de domaine complets pour vos serveurs principaux.
 
 ```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+az network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group AdatumAppGatewayRG \
+--vnet-name AdatumAppGatewayVNET \
+--vnet-address-prefix 10.0.0.0/16 \
+--subnet Appgatewaysubnet \
+--subnet-address-prefix 10.0.0.0/28 \
+--servers 10.0.0.4 10.0.0.5 \
+--cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
+--cert-password P@ssw0rd \
+--capacity 2 \
+--sku-tier Standard \
+--sku-name Standard_Small \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-protocol Http \
+--frontend-port 443 \
+--routing-rule-type Basic \
+--http-settings-port 80
+
 ```
 
 > [!NOTE]
-> Pour obtenir la liste de paramètres pouvant être fournis lors de la création, exécutez la commande suivante : **azure network application-gateway create --help**.
+> Pour obtenir la liste de paramètres pouvant être fournis lors de la création, exécutez la commande suivante : **az network application-gateway create --help**.
 
 Cet exemple crée une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Cela configure également le déchargement SSL. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi.
 Si vous avez déjà défini votre application web avec le pool principal aux étapes précédentes, une fois la création effective, l’équilibrage de charge commence.
@@ -137,9 +157,4 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 [1]: ./media/application-gateway-create-gateway-cli/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli/figure3.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

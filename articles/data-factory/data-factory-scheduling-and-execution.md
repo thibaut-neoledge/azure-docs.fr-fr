@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
 ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -756,7 +757,7 @@ Pour générer la tranche de jeu de données [**début**, **fin**], une fonction
 
 ```
 DatasetSlice = [start, end]
-DependecyPeriod = [f(start, end), g(start, end)]
+DependencyPeriod = [f(start, end), g(start, end)]
 ```
 
 **F** et **g** sont des fonctions de mappage qui calculent le début et la fin de la période de dépendance pour chaque activité d’entrée.
@@ -855,10 +856,5 @@ Notez les points suivants :
 * La **disponibilité** des jeux de données d’entrée et de sortie est spécifiée (**fréquence** et **intervalle**) même si les valeurs ne sont pas utilisées par Data Factory.  
 * La vue schématique n’affiche pas les pipelines à usage unique (onetime). Ce comportement est normal.
 * Les pipelines à usage unique ne peuvent pas être mis à jour. Vous pouvez cloner un pipeline à usage unique, le renommer, mettre à jour ses propriétés et le déployer pour en créer un autre.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

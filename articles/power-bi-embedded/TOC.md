@@ -32,8 +32,3 @@
 ## [Exemples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/powerbi)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

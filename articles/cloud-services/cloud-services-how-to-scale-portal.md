@@ -12,35 +12,41 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
-
+ms.sourcegitcommit: 51338924f5c8eff4234c7d57f7efc0619316bb38
+ms.openlocfilehash: 157a5130755f2092d044f3361e4fb5bc3a7a1053
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="how-to-auto-scale-a-cloud-service"></a>Mise à l’échelle automatique d’un service cloud
+
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 > [!div class="op_single_selector"]
-> * [Portail Azure](cloud-services-how-to-scale-portal.md)
+> * [portail Azure](cloud-services-how-to-scale-portal.md)
 > * [Portail Azure Classic](cloud-services-how-to-scale.md)
-> 
-> 
 
 Des conditions peuvent être définies pour un rôle de travail de service cloud qui déclenchent une opération de diminution et d’augmentation de la taille des instances. Les conditions pour le rôle peuvent être basées sur le processeur, le disque ou la charge réseau du rôle. Vous pouvez également définir une condition basée sur une file d’attente de messages ou sur des mesures d’une autre ressource Azure associée à votre abonnement.
 
 > [!NOTE]
 > Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Vous pouvez mettre à l’échelle une machine virtuelle standard en l’associant à un [groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) et en l’activant ou la désactivant manuellement.
-> 
-> 
 
 ## <a name="considerations"></a>Considérations
 Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :
 
-* L'utilisation des cœurs a une incidence sur la mise à l'échelle. Le nombre de cœurs utilisés varie en fonction de la taille des instances de rôle. Vous pouvez mettre à l’échelle une application uniquement dans la limite des cœurs de votre abonnement. Par exemple, si la limite de votre abonnement est de vingt cœurs et que vous exécutez une application avec deux services cloud de taille moyenne (quatre cœurs au total), vous pouvez faire monter en charge les autres déploiements de service cloud de votre abonnement de seize cœurs seulement. Pour plus d’informations sur les tailles, consultez [Tailles de services cloud](cloud-services-sizes-specs.md) .
+* L'utilisation des cœurs a une incidence sur la mise à l'échelle.
+
+    Le nombre de cœurs utilisés varie en fonction de la taille des instances de rôle. Vous pouvez mettre à l’échelle une application uniquement dans la limite des cœurs de votre abonnement. Par exemple, si la limite de votre abonnement est de 20 cœurs. Si vous exécutez une application avec deux services cloud de taille moyenne (4 cœurs au total), vous pouvez seulement faire monter en charge les autres déploiements de service cloud de votre abonnement des 16 cœurs restants. Pour plus d’informations sur les tailles, consultez [Tailles de services cloud](cloud-services-sizes-specs.md).
+
 * Vous pouvez mettre à l’échelle en fonction d’un seuil de messages de file d’attente. Pour plus d’informations sur l’utilisation des files d’attente, consultez la rubrique sur [l’utilisation du service Queue Storage](../storage/storage-dotnet-how-to-use-queues.md).
+
 * Vous pouvez également mettre à l’échelle d’autres ressources associées à votre abonnement.
+
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> La mise à l’échelle automatique ne fonctionne qu’avec les comptes de stockage Azure Classic. Elle ne fonctionne pas avec les comptes de stockage Azure Resource Manager.
+
 
 ## <a name="where-scale-is-located"></a>Emplacement de la mise à l’échelle
 Une fois votre service cloud sélectionné, le panneau du service cloud doit s’afficher.
@@ -103,17 +109,12 @@ Accédez aux [Paramètres de mise à l’échelle](#where-scale-is-located) et d
 
 ![Paramètres de mise à l’échelle de services cloud avec profil et règle](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Cela supprime la mise à l’échelle automatique du rôle, et vous pouvez définir le nombre d’instances directement. 
+Ce paramètre supprime la mise à l’échelle automatique du rôle, et vous pouvez définir le nombre d’instances directement. 
 
 1. L’option de mise à l’échelle (manuelle ou automatique).
 2. Un curseur de nombre d’instances de rôle pour définir les instances de mise à l’échelle.
 3. Nombre d’instances pour la mise à l’échelle du rôle.
 
 Après avoir configuré les paramètres de mise à l’échelle, sélectionnez l’icône **Enregistrer** en haut.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

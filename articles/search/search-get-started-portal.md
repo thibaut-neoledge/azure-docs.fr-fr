@@ -57,7 +57,7 @@ De nombreux clients commencent avec le service gratuit. Cette version est limit�
 > ![Vignettes Indexeurs et Sources de données][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Créer un index et charger des données
+## <a name="create-index"></a> Créer un index et charger des données
 Les requêtes de recherche se répètent sur un *index* contenant les données de recherche, les métadonnées et les constructions utilisées pour l’optimisation de certains comportements de recherche.
 
 Pour conserver cette tâche sur le portail, nous utilisons un exemple de jeu de données intégré qui est analysable à l’aide d’un indexeur par le biais de l’Assistant **Importer des données**. 
@@ -100,7 +100,7 @@ Pour surveiller le processus d’importation des données, revenez au tableau de
 
    ![Message de progression de l’indexeur][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Interroger l’index
+## <a name="query-index"></a> Interroger l’index
 Vous disposez maintenant d’un index de recherche prêt à être interrogé. **Explorateur de recherche** est un outil de requête intégré au portail. Il comporte une zone de recherche qui vous permet de vérifier si les résultats de la recherche répondent à vos attentes. 
 
 > [!TIP]

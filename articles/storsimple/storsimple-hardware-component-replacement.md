@@ -4,7 +4,7 @@ description: "Décrit comment remplacer de façon sécurisée les PCM, la batter
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/11/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
+ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-hardware-component-replacement"></a>Remplacement des composants matériels StorSimple
+# <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Remplacer un composant matériel sur votre appareil StorSimple série 8000
+
 ## <a name="overview"></a>Vue d'ensemble
 Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple 8000 series et les étapes nécessaires pour les retirer et les remplacer. Cet article décrit les icônes de sécurité, oriente vers les didacticiels détaillés et répertorie les composants remplaçables.
 
@@ -67,7 +70,7 @@ Les principaux composants matériels de votre appareil sont résumés dans les t
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
 | Contrôleurs principaux |2 |Oui |[Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-controller-replacement.md) |
-| PCM (Module d’alimentation et de refroidissement) 764 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+| PCM (Module d’alimentation et de refroidissement)&764; W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Batterie de secours |2 |Oui |[Remplacer le module de batterie de secours sur votre appareil StorSimple](storsimple-battery-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -79,7 +82,7 @@ Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-chassis-replacement.md) |
 | Contrôleurs EBOD |2 |Oui |[Remplacer un contrôleur EBOD sur votre appareil StorSimple](storsimple-ebod-controller-replacement.md) |
-| PCM (Module d’alimentation et de refroidissement) 580 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
+| PCM (Module d’alimentation et de refroidissement)&580; W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-disk-drive-replacement.md) |
 
 **Table 2** : Composants matériels dans le boîtier EBOD
@@ -122,8 +125,8 @@ Le boîtier principal et le boîtier EBOD ont tous deux des modules de support d
 Les unités remplaçables sur site suivantes sont disponibles pour votre appareil StorSimple :
 
 * Châssis (y compris le panneau de commande intégré)
-* Module d’alimentation et de refroidissement (PCM) en courant alternatif 764 W
-* Module d’alimentation et de refroidissement (PCM) en courant alternatif 580 W
+* Module d’alimentation et de refroidissement (PCM) en courant alternatif&764; W
+* Module d’alimentation et de refroidissement (PCM) en courant alternatif&580; W
 * Lecteur de disque dur avec module de support de lecteur
 * Module de contrôleur
 * Module de contrôleur du boîtier EBOD
@@ -134,10 +137,5 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 
 ## <a name="next-steps"></a>Étapes suivantes
 Passez en revue toutes les [informations de sécurité](storsimple-safety.md) avant d’essayer de remplacer un composant matériel StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

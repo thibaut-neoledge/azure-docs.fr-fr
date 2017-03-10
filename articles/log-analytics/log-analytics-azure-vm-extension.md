@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Connecter des machines virtuelles Azure à Log Analytics
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Connecter des machines virtuelles Azure à Log Analytics avec un agent Log Analytics
+
 Pour les ordinateurs Windows et Linux, la méthode recommandée pour collecter des journaux et des métriques est d’installer l’agent Log Analytics.
 
 Le moyen le plus simple pour installer l’agent de Log Analytics sur des machines virtuelles Azure consiste à utiliser l’extension de machine virtuelle Log Analytics.  L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
@@ -34,8 +37,8 @@ Lorsque vous utilisez une collecte basée sur agent pour les données de journal
 
 > [!IMPORTANT]
 > Si vous configurez Log Analytics pour indexer les données de journal à l’aide des [diagnostics Azure](log-analytics-azure-storage.md), et configurez l’agent pour collecter les mêmes journaux, les journaux sont collectés deux fois. Vous êtes facturé pour les deux sources de données. Si l’agent est installé, vous devriez collecter les données de journal uniquement à l’aide de l’agent. Ne configurez pas Log Analytics pour collecter les données de journal à partir des diagnostics Azure.
-> 
-> 
+>
+>
 
 Il existe trois méthodes simples pour activer l’extension de machine virtuelle Log Analytics :
 
@@ -400,10 +403,4 @@ Pour des ordinateurs qui ne sont pas dans Azure, vous pouvez installer l’agent
 
 * [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md)
 * [Connecter des ordinateurs Linux à Log Analytics](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

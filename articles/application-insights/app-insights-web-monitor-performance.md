@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
 ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -28,7 +29,7 @@ Application Insights peut surveiller les services WCF, ainsi que les application
 
 Côté client, Application Insights peut récupérer les données télémétriques des pages web et d’un large éventail d’appareils, notamment des applications iOS, Android et Windows Store.
 
-## <a name="a-namesetupaset-up-performance-monitoring"></a><a name="setup"></a>Configurer la surveillance des performances
+## <a name="setup"></a>Configurer la surveillance des performances
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
 * [Applications web ASP.NET](app-insights-asp-net.md)
@@ -37,7 +38,7 @@ Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inc
 * [Applications web J2EE](app-insights-java-get-started.md)
   * [Ajout de la surveillance des dépendances](app-insights-java-agent.md)
 
-## <a name="a-nameviewaexploring-performance-metrics"></a><a name="view"></a>Exploration des mesures de performances
+## <a name="view"></a>Exploration des mesures de performances
 Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
 
 Cliquez sur n’importe quel graphique pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
@@ -53,7 +54,7 @@ Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un 
 > 
 > 
 
-## <a name="a-namemetricsawhat-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>Signification Vignettes de performances et rapports
+## <a name="metrics"></a>Signification Vignettes de performances et rapports
 Vous pouvez accéder à de multiples métriques de performances. Commençons par celles qui s'affichent par défaut dans le volet de l'application.
 
 ### <a name="requests"></a>Demandes
@@ -106,14 +107,14 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 
 *Je ne vois pas apparaître le bouton Ajouter une alerte.*  - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
 
-## <a name="a-namediagnosisadiagnosing-issues"></a><a name="diagnosis"></a>Problèmes de diagnostic
+## <a name="diagnosis"></a>Problèmes de diagnostic
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
 * Configurez les [tests Web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site Web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
 * [Insérez et recherchez des déclarations de trace][diagnostic] dans votre code afin de vous aider à identifier les problèmes.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Étapes suivantes
+## <a name="next"></a>Étapes suivantes
 [Tests Web][availability] : faites envoyer des tests Web à votre application à intervalles réguliers et depuis n'importe où dans le monde.
 
 [Capture et recherche de traces de diagnostic][diagnostic] : insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.
@@ -123,7 +124,7 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 [Résolution des problèmes][qna] et questions et réponses
 
 ## <a name="video"></a>Vidéo
-> [VIDÉO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
+> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->
@@ -136,10 +137,5 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: 33c658bc15ee266d519a2ca403d2fc0d057b36fd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -27,7 +28,7 @@ Pour ouvrir un port ou créer un point de terminaison sur une machine virtuelle 
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](#quick-commands) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
-- [Azure CLI 2.0 (version préliminaire)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager
 
 
 ## <a name="quick-commands"></a>Commandes rapides
@@ -83,10 +84,5 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 * [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md)
 * [Présentation d’Azure Resource Manager](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

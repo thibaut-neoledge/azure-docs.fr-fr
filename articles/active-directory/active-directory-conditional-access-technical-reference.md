@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
-ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -24,16 +24,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="services-enabled-with-conditional-access"></a>Services activés avec accès conditionnel
 Les règles d’accès conditionnel sont prises en charge sur différents types d’application Azure AD. Cette liste comprend les éléments suivants :
 
-* Applications fédérées dans la galerie d’applications Azure AD
-* Application d’authentification unique par mot de passe dans la galerie d’applications Azure AD
+
 * Applications inscrites auprès du proxy d’application Azure
-* Applications métiers et mutualisées développées inscrites auprès d’Azure AD
-* Visual Studio Online
 * Application distante Azure
+* Applications métiers et mutualisées développées inscrites auprès d’Azure AD
 * Dynamics CRM
+* Applications fédérées dans la galerie d’applications Azure AD
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (y compris OneDrive Entreprise)
+* Microsoft Power BI 
+* Application d’authentification unique par mot de passe dans la galerie d’applications Azure AD
+* Visual Studio Online
+
 
 ## <a name="enable-access-rules"></a>Activer les règles d’accès
 Chaque règle peut être activée ou désactivée sur la base de l’application. Lorsque les règles sont activées ( **ON** ), elles s’appliquent à tous les utilisateurs qui accèdent à l’application. Lorsqu’elles sont désactivées ( **OFF** ), elles ne sont pas utilisées et n’ont aucun impact sur l’expérience de connexion de l’utilisateur.

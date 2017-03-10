@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: squillace
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50f3c56daaa28b1f28e201ec0502a91804313e5f
-ms.openlocfilehash: 111a80548982a1dab529d9dd6fb46eb759b7f908
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -36,7 +36,7 @@ Afin que votre déploiement puisse bénéficier de notre contrat de niveau de se
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0 (version préliminaire)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
  
 Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur Managed Disks, voir la page [Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
  
@@ -80,29 +80,18 @@ Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impac
 ## <a name="partners"></a>Partenaires
 Microsoft travaille en étroite collaboration avec nos partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur nos partenaires, consultez leurs pages marketplace ci-dessous.
 
-Linux sur Azure : [Distributions approuvées](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-SUSE : [Place de marché Microsoft Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-
-Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-
-Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
-
-Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-
-FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-
-CoreOS - [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
-
-RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
-
-Bitnami - [Bitnami Library pour Azure](https://azure.bitnami.com/)
-
-Mesosphere - [Azure Marketplace - Mesosphere DC/OS sur Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-
-Docker - [Azure Marketplace - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-
-Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Linux sur Azure : [Distributions approuvées](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* SUSE : [Place de marché Microsoft Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
+* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* CoreOS - [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
+* RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
+* Bitnami - [Bitnami Library pour Azure](https://azure.bitnami.com/)
+* Mesosphere - [Azure Marketplace - Mesosphere DC/OS sur Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
+* Docker - [Azure Marketplace - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
 ## <a name="getting-setup-on-azure"></a>Installation sur Azure
 Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’interface de ligne de commande Azure installée et d’une paire de clés SSH (publique et privée).
@@ -111,7 +100,7 @@ Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’i
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
 ### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI 2.0 (version préliminaire) ](/cli/azure/install)sur votre station de travail Mac ou Linux.
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [l’interface de ligne de commande Azure 2.0 ](/cli/azure/install)sur votre station de travail Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour activer les connexions sans mot de passe et améliorer la sécurité.

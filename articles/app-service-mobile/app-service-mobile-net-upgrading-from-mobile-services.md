@@ -4,7 +4,7 @@ description: "Découvrez comment facilement mettre à niveau votre application M
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -44,7 +44,7 @@ La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile A
 * Prise en charge d'autres itinéraires et types de projets ASP.NET. Vous pouvez désormais héberger des contrôleurs d'API web et MVC dans votre projet de backend mobile.
 * Prise en charge de nouvelles fonctionnalités d'authentification App Service. Cela vous permet d'utiliser une configuration d'authentification commune à vos applications mobiles et web.
 
-## <a name="a-nameoverviewabasic-upgrade-overview"></a><a name="overview"></a>Présentation de la mise à niveau de base
+## <a name="overview"></a>Présentation de la mise à niveau de base
 Dans de nombreux cas, la mise à niveau consiste simplement à basculer vers le nouveau SDK serveur Mobile Apps et à republier votre code dans une nouvelle instance Mobile Apps. Il existe toutefois des scénarios qui nécessitent une configuration supplémentaire, tels que les scénarios d'authentification avancée et l'utilisation de tâches planifiées. Ils sont couverts individuellement dans les sections ultérieures.
 
 > [!TIP]
@@ -63,7 +63,7 @@ Le processus de mise à niveau est le suivant :
 3. Publier une nouvelle version de votre application cliente
 4. (Facultatif) Supprimer l’instance originale qui a migré
 
-## <a name="a-namemobile-app-versionacreating-a-second-application-instance"></a><a name="mobile-app-version"></a>Création d’une seconde instance d’application
+## <a name="mobile-app-version"></a>Création d’une seconde instance d’application
 La première étape de la mise à niveau consiste à créer la ressource Mobile Apps qui hébergera la nouvelle version de votre application. Si vous avez déjà migré un service mobile existant, vous voulez créer cette version sur le même plan d’hébergement. Ouvrez le [portail Azure] et accédez à votre application migrée. Notez le plan App Service sur lequel elle s’exécute.
 
 Ensuite, créez la seconde instance d’application en suivant les [instructions de création d’un serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quand vous êtes invité à sélectionner votre plan App Service ou « plan d’hébergement », choisissez celui de votre application qui a migré.
@@ -215,7 +215,7 @@ De même, la journalisation s’effectue désormais avec le traçage ASP.NET sta
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-## <a name="a-nameauthenticationaauthentication-considerations"></a><a name="authentication"></a>Considérations relatives à l’authentification
+## <a name="authentication"></a>Considérations relatives à l’authentification
 Les composants d’authentification de Mobile Services sont maintenant déplacés vers la fonctionnalité d’authentification/autorisation App Service. Pour en savoir plus sur l’activation de cette fonctionnalité pour votre site, consultez la rubrique [Ajouter l’authentification à votre application mobile](app-service-mobile-ios-get-started-users.md) .
 
 Pour certains fournisseurs, comme AAD, Facebook et Google, vous devez être en mesure d’exploiter l’inscription existante à partir de l’application de votre copie. Il vous suffit simplement d’accéder au portail du fournisseur d’identité et d’ajouter une nouvelle URL de redirection à l’inscription. Ensuite, configurez l’authentification/autorisation App Service avec l’ID client et le secret.
@@ -238,7 +238,7 @@ si votre application accepte les dépendances vis-à-vis des ID utilisateur, il 
 ### <a name="custom-authentication"></a>Authentification personnalisée
 Si votre application utilise une solution d’authentification personnalisée, assurez-vous que le site mis à niveau a accès au système. Suivez les nouvelles instructions liées à l’authentification personnalisée indiquées dans [Présentation du Kit de développement logiciel (SDK) serveur .NET] pour intégrer votre solution. Notez que les composants d’authentification personnalisée sont encore en version préliminaire.
 
-## <a name="a-nameupdating-clientsaupdating-clients"></a><a name="updating-clients"></a>Mise à jour des clients
+## <a name="updating-clients"></a>Mise à jour des clients
 Une fois que vous avez un serveur principal Mobile App opérationnel, vous pouvez travailler sur une nouvelle version de votre application cliente qui la consomme. Mobile Apps inclut également une nouvelle version des Kits de développement logiciel (SDK) clients, et comme pour la mise à niveau serveur ci-dessus, vous devez supprimer toutes les références aux Kits de développement logiciel (SDK) Mobile Services avant d’installer les versions Mobile Apps.
 
 L’une des principales modifications entre les versions a trait aux constructeurs qui n’exigent plus de clé d’application. Désormais, vous passez simplement l’URL de votre application mobile. Par exemple, sur les clients .NET, le constructeur `MobileServiceClient` est désormais :

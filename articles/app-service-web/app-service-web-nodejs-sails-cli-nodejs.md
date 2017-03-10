@@ -4,7 +4,7 @@ description: "Découvrez comment déployer une application Node.js dans Azure Ap
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 08b4cd3fe4a246bc62fb4a6cc596630968d7f9d7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,7 +40,7 @@ Vous devriez avec une bonne connaissance de Sails.js. Ce didacticiel n’est pas
 Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
 
 - [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](app-service-web-nodejs-sails.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
+- [Azure CLI 2.0](app-service-web-nodejs-sails.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager
 
 ## <a name="prerequisites"></a>Composants requis
 * [Node.JS](https://nodejs.org/)
@@ -258,9 +259,4 @@ Pour vous connecter à une base de données dans Azure, créez la base de donné
 ## <a name="more-resources"></a>Autres ressources
 * [Prise en main des applications web Node.js dans Azure App Service](app-service-web-nodejs-get-started.md)
 * [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

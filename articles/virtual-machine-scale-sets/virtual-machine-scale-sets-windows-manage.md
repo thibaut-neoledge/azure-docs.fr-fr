@@ -3,7 +3,7 @@ title: "Gérer des machines virtuelles dans un groupe de machines virtuelles ide
 description: "Gérez des machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle à l&quot;aide d&quot;Azure PowerShell."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5b959ce0a0dae23714586756bba83bcc50671874
-ms.openlocfilehash: 914a985eb98b77542ab867a4adf2645e870d54c0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -26,7 +27,7 @@ Utilisez les tâches décrites dans cet article pour gérer les machines virtuel
 
 La plupart des tâches qui impliquent la gestion d’une machine virtuelle dans un groupe identique nécessitent de connaître l’ID d’instance de la machine que vous souhaitez gérer. Vous pouvez utiliser [Azure Resource Explorer](https://resources.azure.com) pour rechercher l'ID d'instance d'une machine virtuelle dans un jeu de mise à l'échelle. Vous utilisez également Resource Explorer pour vérifier l'état des tâches que vous avez terminées.
 
-Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="display-information-about-a-scale-set"></a>Affichage des informations relatives à un groupe identique
 Vous pouvez obtenir des informations générales sur un jeu de mise à l'échelle, également appelé la vue d'instance. Ou vous pouvez obtenir des informations plus spécifiques, par exemple des informations sur les ressources du groupe identique.
@@ -212,10 +213,5 @@ Vous pouvez ajouter ou supprimer des machines virtuelles en modifiant la capacit
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Si vous supprimez des machines virtuelles du groupe identique, les machines virtuelles possédant les ID le plus élevés sont supprimées en premier.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

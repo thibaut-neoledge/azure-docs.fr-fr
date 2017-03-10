@@ -81,9 +81,10 @@
 #### [Minuteries et rappels](service-fabric-reliable-actors-timers-reminders.md)
 #### [Événements](service-fabric-reliable-actors-events.md)
 #### [Gestion des états](service-fabric-reliable-actors-state-management.md)
-#### [Configurer le fournisseur d’état](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Configurer KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Sérialisation de type](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Configurer les paramètres de communication](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Configurer ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Migrer à partir de Services cloud
 ### [Comparer Services cloud et Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Portail Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio et Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Modèles de mise en réseau de cluster](service-fabric-patterns-networking.md)
 #### [Types de nœud et groupes de machines virtuelles identiques dans le cluster](service-fabric-cluster-nodetypes.md)
 #### [Mise à l'échelle d'un cluster](service-fabric-cluster-scale-up-down.md)
 #### [Mettre à niveau un cluster](service-fabric-cluster-upgrade.md)

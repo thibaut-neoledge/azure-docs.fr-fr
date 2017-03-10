@@ -1,6 +1,7 @@
+
 ---
 title: Agent et extensions de machine virtuelle Linux dans Azure | Microsoft Docs
-description: "Propose une vue d’ensemble de l’agent et des extensions et indique comment installer l’agent, à l’aide du modèle de déploiement classique."
+description: "Propose une vue d’ensemble de l’agent et des extensions et indique comment installer l’agent, à l’aide du modèle de déploiement classique sur une machine virtuelle Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -13,23 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 03/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 383e32eca05888c8bf08f80a413c0b64a9b4fb46
+ms.sourcegitcommit: 4e96285a093dffd43d78071f33cc28763be24804
+ms.openlocfilehash: 96a188344cd75d2e4a097fde9df09e9c302ea679
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-the-virtual-machine-agent-and-extensions"></a>À propos de l'agent de machine virtuelle et des extensions
-> [!IMPORTANT] 
+# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>À propos de l'agent de machine virtuelle et des extensions pour Linux
+> [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur les agents et les extensions de machines virtuelles avec Resource Manager, suivez [ce lien](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

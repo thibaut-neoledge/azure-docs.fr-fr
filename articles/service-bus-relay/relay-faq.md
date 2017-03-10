@@ -17,6 +17,7 @@ ms.author: jotaub;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
 ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -91,7 +92,7 @@ Vous pouvez utiliser les commandes PowerShell (voir [cet article](../service-bus
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Quelles sont les exceptions générées par les API Azure Relay et les actions recommandées ?
-L’article [Exceptions Relay][Exceptions RelayRelay exceptions] décrit certaines de ces exceptions, ainsi que les actions recommandées.
+L’article [Exceptions Relay][Relay exceptions] décrit certaines de ces exceptions, ainsi que les actions recommandées.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages prennent en charge la génération d’une signature ?
 Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
@@ -107,9 +108,4 @@ Oui. Le client Relay établit des connexions au service Relay à l’aide des no
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

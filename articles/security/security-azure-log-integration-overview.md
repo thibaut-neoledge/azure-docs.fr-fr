@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
+ms.sourcegitcommit: 4652795b8bef910b4e5eb83ef836e7b75621ab8a
+ms.openlocfilehash: bbea6700f7abc7822c3530f151c224cb59104cb1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -44,7 +45,7 @@ Si vous avez des questions sur l’intégration des journaux Azure, envoyez un e
 Ce document vous a présenté une vue d’ensemble de l’intégration des journaux Azure. Pour plus d’informations sur l’intégration des journaux Azure et les types de journaux pris en charge, consultez les rubriques suivantes :
 
 * [Intégration de journaux Microsoft Azure pour les journaux Azure (Version préliminaire)](https://www.microsoft.com/download/details.aspx?id=53324) : centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration de journaux Azure.
-* [Prise en main de l’intégration des journaux Azure](security-azure-log-integration-get-started.md) : ce didacticiel vous guide dans la procédure d’installation de l’intégration des journaux Azure et d’intégration des journaux d’audit Azure et des alertes du Security Center.
+* [Prise en main de l’intégration des journaux Azure](security-azure-log-integration-get-started.md) : ce didacticiel vous guide dans la procédure d’installation de l’intégration des journaux Azure et d’intégration des journaux du stockage Azure WAD, des journaux d’activité Azure, des alertes Azure Security Center et des journaux d’audit Azure Active Directory.
 * [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar.
 * [FAQ de l’intégration des journaux Azure](security-azure-log-integration-faq.md) : ce forum aux questions répond aux questions sur l’intégration des journaux Azure.
 * [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’audit Azure dans leur solution SIEM ou Log Analytics.
@@ -52,9 +53,4 @@ Ce document vous a présenté une vue d’ensemble de l’intégration des journ
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

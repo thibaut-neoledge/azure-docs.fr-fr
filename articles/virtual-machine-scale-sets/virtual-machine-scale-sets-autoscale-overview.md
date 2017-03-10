@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: adegeo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
-ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+ms.sourcegitcommit: 3f1fdddcf382026e25ac6bca0b835e560152be9f
+ms.openlocfilehash: 98b302c26867d2fb2ade296e6983306266fa6f63
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Mise à l’échelle automatique et groupes identiques de machines virtuelles
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Mise à l’échelle automatique et groupes identiques de machines virtuelles
 La mise à l’échelle automatique de machines virtuelles dans un jeu de mise à l’échelle consiste à créer ou à supprimer des machines dans l’ensemble en fonction des exigences de performances. Au fur et à mesure de l’évolution du volume de travail, une application peut nécessiter des ressources supplémentaires afin d’exécuter les tâches de manière efficace.
 
 La mise à l’échelle automatique est un processus automatisé qui allège les contraintes de gestion. En réduisant la surcharge, vous n’avez pas besoin de surveiller en permanence les performances du système ou de décider de la manière de gérer les ressources. La mise à l’échelle est un processus élastique. Vous pouvez ajouter des ressources supplémentaires à mesure que la charge augmente et, lorsque la demande diminue, vous pouvez supprimer des ressources afin de réduire les coûts tout en maintenant les niveaux de performances.
@@ -220,10 +222,5 @@ Pour voir un exemple d’utilisation du portail Azure pour configurer la mise à
 * Pour en savoir plus sur les fonctionnalités de notification, consultez [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Découvrez comment [utiliser les journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * En savoir plus sur les [scénarios avancés de mise à l’échelle automatique](virtual-machine-scale-sets-advanced-autoscale.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

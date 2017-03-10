@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -46,10 +47,5 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

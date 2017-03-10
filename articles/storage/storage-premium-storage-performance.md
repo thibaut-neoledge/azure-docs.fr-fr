@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: d72a191cceaa90f9dae69b5c2698fae1a9fb95a7
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Cet article vous aidera à répondre à certaines questions courantes relatives 
 
 Ces instructions vous sont spécifiquement fournies pour Premium Storage, car les charges de travail exécutées sur Premium Storage sont extrêmement sensibles aux performances. Nous vous proposons des exemples lorsque cela s’y prête. Vous pouvez également appliquer certaines de ces instructions aux applications qui s’exécutent sur des machines virtuelles IaaS avec des disques de stockage Standard.
 
-Avant de commencer, si vous ne connaissez pas Premium Storage, lisez tout d’abord l’article [Premium Storage : stockage haute performance pour les charges de travail Azure Virtual Machines](storage-premium-storage.md) et la publication [Objectifs de performance et évolutivité d’Azure Premium Storage](storage-scalability-targets.md#premium-storage-accounts).
+Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Stockage Premium : stockage haute performance pour les charges de travail des machines virtuelles Azure](storage-premium-storage.md) et [Objectifs de performance et évolutivité du Stockage Azure](storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 Pour évaluer le degré de performances d’une application, nous nous appuyons sur divers indicateurs de performances, par exemple la vitesse à laquelle une application traite une demande utilisateur, la quantité de données qu’une application est capable de traiter pour chaque demande, le nombre de requêtes traitées par une application dans un intervalle donné, ou encore le temps d’attente que doit subir l’utilisateur avant d’obtenir une réponse à sa demande. Sur le plan technique, ces indicateurs de performances s’expriment en termes d’E/S par seconde, de débit (ou bande passante) et de latence.
@@ -593,9 +594,4 @@ Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleu
 
 * [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
