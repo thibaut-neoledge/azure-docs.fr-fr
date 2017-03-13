@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
-ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
+ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
 ms.lasthandoff: 03/01/2017
 
 
@@ -42,7 +42,8 @@ Storage Service Encryption : Files Preview SSE est désormais disponible pour le
 Pour participer à Files Preview SSE, contactez ssediscussions@microsoft.com.
 
 Pour plus d’informations, consultez la FAQ.
-Disponibilité pour le Stockage Fichier : Storage Service Encryption pour le Stockage Fichier est actuellement disponible dans les région Asie de l’Est, Europe du Nord et Est des États-Unis 2.
+### <a name="availability-for-file-storage"></a>Disponibilité pour Stockage Fichier
+Le chiffrement du service de stockage pour Stockage Fichier est actuellement disponible dans les régions Asie de l’Est, Europe du Nord et Est des États-Unis 2.
 
 
 Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://azure.portal.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.

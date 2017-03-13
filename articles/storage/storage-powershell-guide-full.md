@@ -11,12 +11,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
-ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -693,8 +693,7 @@ Le stockage de fichiers Azure propose un stockage partagé pour les applications
 Pour plus d’informations sur le stockage de fichiers Azure, consultez [Prise en main du stockage de fichiers Azure sous Windows](storage-dotnet-how-to-use-files.md) et [API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>Définition et interrogation de Storage Analytics
-Vous pouvez utiliser [Azure Storage Analytics](storage-analytics.md) pour recueillir des mesures de vos comptes de stockage Azure et enregistrer des données de journaux concernant les demandes envoyées à votre compte de stockage. Vous pouvez utiliser des mesures de stockage pour analyser l’intégrité d’un compte de stockage et utiliser la journalisation de stockage pour diagnostiquer et résoudre les problèmes de votre compte de stockage.
-Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance par le biais du portail Azure ou de Windows PowerShell, ou par programme au moyen de la bibliothèque cliente de stockage. La journalisation du stockage se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes.
+Vous pouvez utiliser [Azure Storage Analytics](storage-analytics.md) pour recueillir des mesures de vos comptes de stockage Azure et enregistrer des données de journaux concernant les demandes envoyées à votre compte de stockage. Vous pouvez utiliser des mesures de stockage pour analyser l’intégrité d’un compte de stockage et utiliser la journalisation de stockage pour diagnostiquer et résoudre les problèmes de votre compte de stockage. Vous pouvez configurer la surveillance en utilisant le portail Azure ou Windows PowerShell, ou par programmation en utilisant la bibliothèque cliente de stockage. La journalisation du stockage se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes.
 
 Pour savoir comment activer et afficher les données de mesure de stockage à l’aide de PowerShell, consultez la page [Comment activer Storage metrics avec PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 

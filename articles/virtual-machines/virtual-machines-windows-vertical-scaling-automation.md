@@ -1,6 +1,6 @@
 ---
-title: "Mise à l’échelle verticale des machines virtuelles Azure avec Azure Automation | Microsoft Docs"
-description: "Mettre à l’échelle verticalement une machine virtuelle Windows en réponse aux alertes avec Azure Automation"
+title: "Utiliser Azure Automation pour mettre à l’échelle verticalement des machines virtuelles Windows | Microsoft Docs"
+description: "Mettre à l’échelle verticalement une machine virtuelle Windows en réponse à des alertes de surveillance avec Azure Automation"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -17,13 +17,15 @@ ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
-ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 861552da68c2268c42122b0da6633c7935bb3502
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Guide pratique de la mise à l’échelle verticale de machines virtuelles avec Azure Automation
+
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Mettre à l’échelle verticalement des machines virtuelles Windows avec Azure Automation
+
 La mise à l’échelle verticale consiste à augmenter ou à réduire les ressources d’un ordinateur en réponse à la charge de travail. Dans Azure, cette opération est possible en modifiant la taille de la machine virtuelle. Cela peut vous aider dans les scénarios suivants
 
 * Si la machine virtuelle n’est pas souvent utilisée, vous pouvez la réduire pour réduire les coûts mensuels
