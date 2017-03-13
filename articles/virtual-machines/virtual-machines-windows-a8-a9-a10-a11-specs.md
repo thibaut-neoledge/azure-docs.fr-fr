@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5a46b53f42fce7577485517e9d345cf2ad3f0926
-ms.openlocfilehash: d4d0a221d531c4f6eda7bb6410fbc4dcebf5074b
+ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
+ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>About H-series and compute-intensive A-series VMs for Linux (À propos des machines virtuelles de série H ou de calcul intensif de série A pour Windows)
 Cet article fournit des informations et quelques considérations générales sur l’utilisation de la nouvelle série H Azure et des instances A8, A9, A10 et A11 antérieures, également appelées instances *nécessitant beaucoup de ressources système* . Cet article se concentre sur l’utilisation de ces instances pour les machines virtuelles Windows. Il est également disponible pour les [machines virtuelles Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, consultez l’article [Tailles de machines virtuelles](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -63,10 +65,5 @@ Pour plus d’informations et pour obtenir les listes de vérification afin d’
 * Pour plus d’informations sur les capacités de stockage et sur les disques, consultez [Tailles de machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour commencer à déployer et à utiliser des instances nécessitant beaucoup de ressources système avec HPC Pack sur Windows, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Pour plus d’informations sur l’utilisation d’instances nécessitant beaucoup de ressources système afin d’exécuter des applications MPI avec Azure Batch, consultez [Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Azure Batch](../batch/batch-mpi.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

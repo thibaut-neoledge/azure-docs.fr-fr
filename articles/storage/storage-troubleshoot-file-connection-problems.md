@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ Cela peut se produire lorsque la commande de montage n’inclut pas l’option *
 ### <a name="solution"></a>Solution
 Vérifiez l’option **serverino** dans l’entrée « /etc/fstab » :
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Vous pouvez également vérifier si cette option est utilisée simplement en exécutant la commande **sudo mount | grep cifs** et en observant la sortie :
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Si l’option **serverino** n’est pas présente, démontez, puis remontez Azure Files avec l’option **serverino** sélectionnée.+
+
+La désactivation de la mise en cache peut également entraîner une baisse des performances. Pour vérifier si la mise en cache est activée, recherchez "cache=".  *cache=none* indique que la mise en cache est désactivée. Veuillez remonter le partage avec la commande de montage par défaut ou ajouter explicitement l’option **cache=strict** à la commande de montage pour vérifier l’activation de la mise en cache par défaut ou du mode de mise en cache « strict ».
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>Erreur 112 - erreur de délai d’expiration
@@ -263,9 +265,10 @@ Cette erreur indique les échecs de communication qui empêchent de rétablir un
 
 Cette erreur peut être provoquée par un problème de reconnexion de Linux ou d’autres problèmes qui empêchent la reconnexion, comme les erreurs de réseau. Spécifier un montage forcé pousse le client à attendre jusqu'à ce qu’une connexion soit établie ou jusqu’à interruption explicite, et peut servir à empêcher les erreurs causées par les délais d’attente réseau. Toutefois, les utilisateurs doivent être conscients que cela peut entraîner une attente indéfinie et doit gérer l’arrêt d’une connexion si nécessaire.
 
+
 ### <a name="workaround"></a>Solution de contournement
 
-Le problème de Linux a été résolu, mais pas encore porté sur les distributions Linux. Si le problème est provoqué par le problème de reconnexion sous Linux, vous pouvez contourner le problème en évitant le passage un état inactif. Pour ce faire, conservez dans le partage de fichiers Azure un fichier sur lequel vous écrirez pour toutes les 30 secondes ou moins. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la connexion.
+Le problème de Linux a été résolu, mais pas encore porté sur les distributions Linux. Si le problème est provoqué par le problème de reconnexion sous Linux, vous pouvez contourner le problème en évitant le passage un état inactif. Pour ce faire, conservez dans le partage de fichiers Azure un fichier sur lequel vous écrirez pour toutes les 30 secondes ou moins. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la connexion. Voici la liste des noyaux Linux populaires concernés et autres correctifs de reconnexion : 4.4.40+ 4.8.16+ 4.9.1+
 
 <a id="webjobs"></a>
 

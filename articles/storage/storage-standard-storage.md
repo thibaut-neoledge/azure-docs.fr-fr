@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ Pour une prise en main du stockage Standard Azure, consultez [Évaluation d’un
 Pour plus d’informations sur la création d’une machine virtuelle avec disques gérés, consultez l’un des articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Fonctionnalités du stockage Standard 
 
@@ -138,9 +139,9 @@ Pour plus d’informations sur la tarification du stockage Standard, des machine
 
 ## <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup 
 
-Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide d’Azure Backup. [Détails supplémentaires](../backup/backup-azure-vms-first-look-arm.md).
+Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide de Sauvegarde Azure. [Détails supplémentaires](../backup/backup-azure-vms-first-look-arm.md).
 
-Vous pouvez également utiliser le service Azure Backup avec des disques gérés pour créer un travail de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Utilisation du service Azure Backup pour les machines virtuelles avec disques gérés).
+Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Vous pouvez en savoir plus sur ce point dans [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Utilisation du service Azure Backup pour les machines virtuelles avec disques gérés).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -152,9 +153,4 @@ Vous pouvez également utiliser le service Azure Backup avec des disques gérés
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0 (version préliminaire)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

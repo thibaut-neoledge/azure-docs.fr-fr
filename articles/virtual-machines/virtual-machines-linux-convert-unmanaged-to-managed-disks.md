@@ -1,6 +1,6 @@
 ---
 title: "Convertir une machine virtuelle Linux dans Azure à partir de disques non gérés vers des disques gérés | Microsoft Docs"
-description: "Procédure de conversion d’une machine virtuelle à partir de disques non gérés vers Azure Managed Disks à l’aide d’Azure CLI 2.0 (version préliminaire)"
+description: "Procédure de conversion d’une machine virtuelle à partir de disques non gérés vers Azure Managed Disks à l’aide d’Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ef59fc785847f09706a565dc0a0471f8c08e7955
-ms.openlocfilehash: 71e0bfb230cc0c385a09243fa195e918bbade865
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -98,9 +99,4 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les options de stockage, voir la page [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

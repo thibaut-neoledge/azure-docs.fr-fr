@@ -4,7 +4,7 @@ description: "Liste complète de tous les paramètres destinés à l’itinéran
 services: active-directory
 keywords: "Enterprise State Roaming, Cloud windows"
 documentationcenter: 
-author: markvi
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
 ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -164,9 +165,4 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Dépannage](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

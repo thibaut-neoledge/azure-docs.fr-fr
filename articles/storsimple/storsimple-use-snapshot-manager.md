@@ -4,7 +4,7 @@ description: "Décrit l’interface utilisateur de gestionnaire d’instantanés
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 88abde99af417f325c12aa2f8790d711fd7fd533
+ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
+ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-snapshot-manager-user-interface"></a>Interface utilisateur du gestionnaire d’instantanés StorSimple
+# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
+
 ## <a name="overview"></a>Vue d'ensemble
 StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
@@ -448,10 +451,5 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter à des appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ Cet article décrit comment déployer une application Azure App Service (applica
 
 ## <a name="prerequisites"></a>Composants requis
 * Consultez la rubrique [Configuration requise de Visual Studio] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) pour installer et configurer Visual Studio 2015 et le Kit de développement logiciel (SDK) Azure.
-* Suivez [ces instructions] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio) pour configurer Visual Studio pour se connecter au compte Azure Government.
+* Suivez [ces instructions] (documentation-government-manage-subscriptions.md) pour configurer Visual Studio pour se connecter au compte Azure Government.
 
 ## <a name="open-app-project-in-visual-studio"></a>Ouvrez le projet d’application dans Visual Studio
 * Ouvrez une solution ou un projet d’application dans Visual Studio, créez un projet en appliquant [ces instructions] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) ou téléchargez un exemple d’application en appliquant [cette procédure] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
@@ -42,9 +43,4 @@ Cet article décrit comment déployer une application Azure App Service (applica
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations supplémentaires et des mises à jour, inscrivez-vous au [blog Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

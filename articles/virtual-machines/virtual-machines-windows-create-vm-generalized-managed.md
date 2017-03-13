@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: f6fdbfcccd0bb44643d79ce866a3fa96410b298e
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -158,7 +159,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 Indiquez le type de stockage (PremiumLRS ou StandardLRS) et la taille du disque du système d’exploitation. Cet exemple définit le type de compte sur **PremiumLRS**, la taille du disque sur **128 Go** et la mise en cache du disque sur **Lecture/écriture**.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm  -StorageAccountType PremiumLRS -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
@@ -185,10 +186,5 @@ Lorsque vous avez terminé, vous devez voir la machine virtuelle nouvellement cr
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour gérer votre nouvelle machine virtuelle avec Azure PowerShell, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

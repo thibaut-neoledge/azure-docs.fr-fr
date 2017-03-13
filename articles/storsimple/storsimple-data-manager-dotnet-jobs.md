@@ -17,6 +17,7 @@ ms.author: vidarmsft
 translationtype: Human Translation
 ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
 ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
+ms.lasthandoff: 12/23/2016
 
 ---
 
@@ -177,9 +178,4 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

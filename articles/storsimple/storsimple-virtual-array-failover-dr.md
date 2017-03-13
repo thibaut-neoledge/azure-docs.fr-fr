@@ -4,7 +4,7 @@ description: En savoir plus sur le basculement de votre StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
+ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
+ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Basculement d'appareil et  récupération d'urgence pour votre StorSimple Virtual Array
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cet article décrit la récupération d’urgence pour votre Microsoft Azure StorSimple Virtual Array, notamment la procédure détaillée pour basculer vers un autre Virtual Array. Un basculement vous permet de déplacer vos données depuis un appareil *source* du centre de données vers un appareil *cible*. L’appareil cible peut se trouver dans le même ou un autre emplacement géographique. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
 Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d’un appareil de la gamme 8000, consultez [Basculement d’appareil et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
@@ -178,10 +180,5 @@ S'il existe des appareils StorSimple inscrits juste avant un incident, ces appar
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

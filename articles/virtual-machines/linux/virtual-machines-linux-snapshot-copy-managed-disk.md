@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ Prenez une capture instantanée d’un disque géré pour la sauvegarde ou crée
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Utilisez le portail Azure ou Azure CLI 2.0 (version préliminaire) pour prendre une capture instantanée du disque géré.
+Utilisez le Portail Azure ou Azure CLI 2.0 pour prendre une capture instantanée du disque géré.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Utiliser Azure CLI 2.0 (version préliminaire) pour prendre une capture instantanée
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Utiliser Azure CLI 2.0 pour prendre une capture instantanée
 
 > [!NOTE] 
-> L’exemple suivant nécessite l’installation d’Azure CLI 2.0 (version préliminaire) et la connexion à votre compte Azure.
+> L’exemple suivant nécessite l’installation d’Azure CLI 2.0 et la connexion à votre compte Azure.
 
 Les étapes suivantes montrent comment obtenir et prendre une capture instantanée d’un disque de système d’exploitation géré en utilisant la commande `az snapshot create` avec le paramètre `--source-disk`. L’exemple suivant suppose qu’il existe une machine virtuelle nommée `myVM` créée avec un disque de système d’exploitation géré dans le groupe de ressources `myResourceGroup`.
 
@@ -80,10 +81,5 @@ Le résultat suivant doit s’afficher :
 
 Si vous envisagez d’utiliser la capture instantanée pour créer un disque géré et l’attacher à une machine virtuelle qui doit être hautement performante, utilisez le paramètre `--sku Premium_LRS` avec la commande `az snapshot create`. Cela permet de créer la capture instantanée et de la stocker en tant que disque géré Premium. Les disques gérés Premium sont plus performants, car il s’agit de disques SSD, mais ils coûtent plus cher que des disques Standard (HDD).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

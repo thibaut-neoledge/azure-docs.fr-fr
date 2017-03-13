@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Installation de SAP HANA sur SAP HANA sur Azure (grandes instances)
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
 L’installation de SAP HANA relève de votre responsabilité. Vous pouvez l’effectuer immédiatement après la remise d’un nouveau serveur SAP HANA sur Azure (grandes instances). Veuillez noter que, conformément à la stratégie de SAP, l’installation de SAP HANA doit être effectuée par un installateur SAP HANA certifié, c’est-à-dire par une personne qui a passé la certification Certified SAP Technology Associate – SAP HANA Installation, ou par un intégrateur système certifié SAP.
 
@@ -80,10 +82,5 @@ SAP est très sensible aux écarts temporels entre les différents composants qu
 
 Pour SAP HANA sur Azure (grandes instances), la synchronisation de l’heure effectuée dans Azure ne s’applique pas aux unités de calcul dans les tampons de grandes instances. Cela ne concerne pas les applications SAP qui s’exécutent en mode natif dans Azure (sur des machines virtuelles), car Azure garantit la bonne synchronisation de l’heure des systèmes. Par conséquent, un serveur temporel distinct doit être configuré pour être utilisé par les serveurs d’applications SAP s’exécutant sur des machines virtuelles Azure et les instances de base de données SAP HANA s’exécutant sur des grandes instances HANA. L’heure de l’infrastructure de stockage dans les tampons de grandes instances est synchronisée avec les serveurs NTP.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

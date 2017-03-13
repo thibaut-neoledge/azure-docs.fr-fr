@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: f197d3070e4265ff1633d6d167412d242a366ccf
-ms.openlocfilehash: 26d670a66fb6a7d4a1f0d50de93bea233c35db6b
+ms.sourcegitcommit: 28dfc25fc58afda13732aa8608c42f7e42c649d6
+ms.openlocfilehash: e51c843a59e8a59de68ee5370cb33d9bef206c19
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -565,11 +566,11 @@ Le tableau suivant donne un exemple de message de journal côté serveur à part
 | Heure de début de la demande | 2014-05-30T06:17:48.4473697Z |
 | Type d'opération     | GetBlobProperties            |
 | État de la demande     | SASAuthorizationError        |
-| Code d'état HTTP   | 404                          |
+| Code d'état HTTP   | 404                            |
 | Type d'authentification| Sas                          |
 | Type de service       | Blob                         |
-| URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de la demande         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de la demande client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -884,9 +885,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b04ce0fe0db7649cebc7a1eeb2a35f1d53bf9636
-ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
+ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
+ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -23,7 +24,7 @@ ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
 
 La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gestion des API) en utilisant des certificats client. Actuellement, vous pouvez vérifier l’empreinte numérique d’un certificat client par rapport à une valeur souhaitée. Vous pouvez également vérifier l’empreinte numérique par rapport aux certificats existants téléchargés dans la gestion des API.  
 
-Pour plus d’informations sur la sécurisation de l’accès au service principal d’une API à l’aide de certificats clients (par exemple, gestion des API vers service principal), consultez [Comment sécuriser les services principaux à l'aide d'une authentification par certificat client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Pour plus d’informations sur la sécurisation de l’accès au service principal d’une API à l’aide de certificats clients (par exemple, gestion des API vers service principal), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
 
 ## <a name="checking-a-thumbprint-against-a-desired-value"></a>Vérification d’une empreinte par rapport à une valeur souhaitée
 
@@ -59,10 +60,5 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 
 *  [Comment sécuriser les services principaux à l'aide d'une authentification par certificat client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [Comment télécharger des certificats](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

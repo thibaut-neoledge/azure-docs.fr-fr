@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>Déployer un cluster Deis à 3 nœuds
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Déployer et configurer un cluster Deis à 3 nœuds dans Azure
 Cet article vous détaille l’approvisionnement d’un cluster [Deis](http://deis.io/) sur Azure. Il aborde toutes les étapes, de la création des certificats requis au déploiement et à la mise à l’échelle d’un exemple d’application **Go** sur le cluster qui vient d’être approvisionné.
 
 Le diagramme suivant représente l’architecture du système déployé. Un administrateur système gère le cluster à l’aide d’outils Deis, comme **deis** et **deisctl**. Les connexions sont établies via un équilibreur de charge Azure, qui transfère les connexions à l’un des nœuds membres du cluster. Les clients accèdent aux applications déployées via l’équilibreur de charge, également. Dans ce cas, l’équilibreur de charge envoie le trafic à un maillage de routeur Deis, qui achemine le trafic vers des conteneurs Docker hébergés sur le cluster.
@@ -251,9 +253,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

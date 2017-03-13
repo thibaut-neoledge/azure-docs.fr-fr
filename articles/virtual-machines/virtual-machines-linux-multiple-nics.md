@@ -1,6 +1,6 @@
 ---
-title: "Créer une machine virtuelle Linux avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0 (version préliminaire) | Microsoft Docs"
-description: "Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau à l’aide d’Azure CLI 2.0 (version préliminaire) ou des modèles Resource Manager."
+title: "Créer une machine virtuelle Linux avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0 | Microsoft Docs"
+description: "Découvrez comment créer une machine virtuelle Linux dotée de plusieurs cartes réseau avec Azure CLI 2.0 ou des modèles Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,27 +15,23 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 368c79b001495e0fb000a4b280023b2299256435
-ms.openlocfilehash: a854a15a9119f289344a75638d1042ee6779bb46
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: e50f9ce362177a2aff8da5b1d516973c41d1149e
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-with-multiple-nics-using-the-azure-cli-20-preview"></a>Créer une machine virtuelle Linux avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0 (version préliminaire)
+# <a name="create-a-linux-vm-with-multiple-nics"></a>Créer une machine virtuelle Linux avec plusieurs cartes réseau
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consisterait à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article fournit des commandes rapides pour créer une machine virtuelle avec plusieurs cartes d’interface réseau. Pour plus d’informations, notamment sur la création de plusieurs cartes réseau dans vos propres scripts Bash, consultez la page consacrée au [déploiement de machines virtuelles avec plusieurs cartes d’interface réseau](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , pensez à dimensionner la vôtre en conséquence.
+
+Cet article explique comment créer une machine virtuelle avec plusieurs cartes réseau à l’aide d’Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!WARNING]
 > Vous devez attacher plusieurs cartes réseau quand vous créez une machine virtuelle ; vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous pouvez [créer une machine virtuelle basée sur les disques virtuels d’origine](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et créer plusieurs cartes réseau quand vous déployez la machine virtuelle.
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
-
-- [Azure CLI 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](#create-supporting-resources) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
-
-
 ## <a name="create-supporting-resources"></a>Créer des ressources de support
-Installez la dernière version [d’Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
+Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `myVM`.
 
@@ -120,10 +116,5 @@ Vous pouvez consulter un exemple complet de la [création de plusieurs cartes r�
 Veillez à consulter les [tailles des machines virtuelles Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) si vous créez une machine virtuelle avec plusieurs cartes réseau. Faites attention au nombre maximal de cartes réseau pris en charge par chaque taille de machine virtuelle. 
 
 N’oubliez pas que vous ne pouvez pas ajouter de cartes réseau à une machine virtuelle existante. Vous devez créer toutes les cartes réseau quand vous déployez la machine virtuelle. Quand vous planifiez vos déploiements, vérifiez que vous disposez de toute la connectivité réseau nécessaire dès le départ.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

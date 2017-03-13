@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 02/16/2017
 ms.author: ryanwi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -98,10 +99,5 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 * [Mise à niveau de l’application](service-fabric-application-upgrade.md)
 * [Vue d’ensemble de la testabilité](service-fabric-testability-overview.md)
 * [Échantillon de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Décrit les conditions et la gravité des alertes StorSimple Virtu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 33b14d56b8d3622ba4e7bfb553e86055e57362fb
+ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
+ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes liées au StorSimple Virtual Array
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité Alertes dans le service StorSimple Device Manager vous permet d’examiner et d’effacer en temps réel les alertes relatives au StorSimple Virtual Array. Vous pouvez utiliser les alertes du panneau **Résumé de service** afin de surveiller de manière centralisée les problèmes d’état d’intégrité de vos instances StorSimple Virtual Array et de la solution globale Microsoft Azure StorSimple.
 
@@ -142,8 +144,8 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| Impossible d’effectuer la sauvegarde de <*nom de l’appareil*>. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>  Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
-| Impossible d’effectuer le clonage de <*nom de l’appareil*>. |Échec du travail de clonage. |La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
+| Impossible d’effectuer la sauvegarde de <*nom de l’appareil*>. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
+| Impossible d’effectuer le clonage de <*nom de l’appareil*>. |Échec du travail de clonage. |La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
 
 ### <a name="performance-alerts"></a>Alertes de performances
 
@@ -168,10 +170,5 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

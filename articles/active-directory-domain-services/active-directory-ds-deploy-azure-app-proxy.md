@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
 ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -104,7 +105,7 @@ Activez l’authentification unique pour vos applications avec l’authentificat
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Activer la délégation Kerberos contrainte basée sur la ressource pour le connecteur de proxy d’application Azure AD
-Le connecteur de proxy d’application Azure doit être configuré pour la délégation Kerberos contrainte (KCD), pour pouvoir emprunter l’identité des utilisateurs sur le domaine managé. Sur un domaine managé Azure AD Domain Services, vous n’avez pas les privilèges d’administrateur de domaine. Par conséquent, **la KCD traditionnelle au niveau des comptes ne peut pas être configurée sur un domaine managé**. 
+Le connecteur de proxy d’application Azure doit être configuré pour la délégation Kerberos contrainte (KCD), pour pouvoir emprunter l’identité des utilisateurs sur le domaine managé. Sur un domaine managé Azure AD Domain Services, vous n’avez pas les privilèges d’administrateur de domaine. Par conséquent, **la KCD traditionnelle au niveau des comptes ne peut pas être configurée sur un domaine managé**.
 
 Utilisez plutôt la KCD basée sur la ressource, comme décrit dans cet [article](active-directory-ds-enable-kcd.md).
 
@@ -130,9 +131,4 @@ Si vous avez déployé plusieurs connecteurs de proxy d’application sur votre 
 * [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
 * [Configurer la délégation Kerberos contrainte sur un domaine managé](active-directory-ds-enable-kcd.md)
 * [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

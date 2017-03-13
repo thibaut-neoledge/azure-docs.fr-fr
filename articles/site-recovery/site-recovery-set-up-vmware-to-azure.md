@@ -17,6 +17,7 @@ ms.author: anoopkv
 translationtype: Human Translation
 ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
 ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.lasthandoff: 02/13/2017
 
 ---
 
@@ -34,7 +35,7 @@ Cet article suppose que vous avez déjà créé les éléments suivants :
 - Un compte dédié dans votre serveur VMware vCenter qui peut être utilisé pour la [découverte automatique](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
 - Une machine virtuelle sur laquelle installer le serveur de configuration.
 
-### <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
+## <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
 Le logiciel du serveur de configuration doit être déployé sur une machine virtuelle VMware à haute disponibilité. Le tableau suivant présente la configuration minimale requise pour le matériel, le logiciel et le réseau pour un serveur de configuration.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -97,9 +98,4 @@ Sélectionnez **+vCenter** pour connecter un serveur VMware vCenter ou un ordina
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Configurez votre environnement cible](./site-recovery-prepare-target-vmware-to-azure.md) dans Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

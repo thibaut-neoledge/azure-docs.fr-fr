@@ -33,7 +33,7 @@ ms.lasthandoff: 02/28/2017
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du [modèle de déploiement classique](virtual-network-deploy-multinic-classic-cli.md).
 >
 
-## <a name="a-namecreateacreate-the-vm"></a><a name="create"></a>Créer la machine virtuelle
+## <a name="create"></a>Créer la machine virtuelle
 
 Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) ou d’[Azure CLI 1.0](virtual-network-deploy-multinic-cli-nodejs.md). Les valeurs des variables comprises entre "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
 
@@ -163,14 +163,14 @@ Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) o
     - Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Consultez l’article [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
     - Un réseau virtuel avec deux sous-réseaux et une seule adresse IP publique. Vous pouvez également utiliser des ressources *existantes* en matière de réseau virtuel, sous-réseau, carte réseau ou adresse IP publique. Pour savoir comment utiliser des ressources réseau existantes au lieu de créer des ressources supplémentaires, utilisez `az vm create -h`.
 
-## <a name="a-name--validateavalidate-vm-creation-and-nics"></a><a name = "validate"></a>Valider la création d’une machine virtuelle et de cartes réseau
+## <a name = "validate"></a>Valider la création d’une machine virtuelle et de cartes réseau
 
 1. Entrez la commande `az resource list --resouce-group Multi-NIC-VM --output table` pour afficher la liste des ressources créées par le script. La sortie retournée doit afficher six ressources : deux cartes réseau, un disque, une adresse IP publique, un réseau virtuel et une machine virtuelle.
 2. Entrez la commande `az network public-ip show --name PIP-WEB --resource-group Multi-NIC-VM --output table`. Dans la sortie retournée, la valeur **IpAddress** et la valeur **PublicIpAllocationMethod** sont *Statique*.
 3. Avant d’exécuter la commande suivante, supprimez les <>, remplacez *Username* par le nom que vous avez utilisé pour la variable **Username** du script, et remplacez *ipAddress* par la valeur **ipAddress** de l’étape précédente. Entrez la commande suivante pour vous connecter à la machine virtuelle : `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
 4. Une fois la connexion à la machine virtuelle établie, exécutez la commande `sudo ifconfig` pour afficher les interfaces *eth0* et *eth1*. Les adresses IP privées statiques spécifiées dans le script par les serveurs Azure DHCP sont attribuées à chaque carte réseau. Les adresses IP et MAC attribuées aux cartes réseau ne changent pas tant que la machine virtuelle n’est pas supprimée. Nous vous recommandons de ne pas modifier l’adressage IP dans un système d’exploitation, car cela peut désactiver la connexion à l’ordinateur. Les adresses IP publiques n’apparaissent pas dans le système d’exploitation, car il s’agit d’adresses réseau converties en et à partir d’adresses IP privées par l’infrastructure Azure.
 
-## <a name="a-name-clean-uparemove-the-vm-and-associated-resources"></a><a name= "clean-up"></a>Supprimer la machine virtuelle et les ressources associées
+## <a name= "clean-up"></a>Supprimer la machine virtuelle et les ressources associées
 
 Si vous avez créé un groupe de ressources uniquement dans le cadre de la procédure décrite dans cet article, vous pouvez supprimer toutes les ressources en supprimant le groupe de ressources par le biais de la commande `az group delete --name Multi-NIC-VM`.
 

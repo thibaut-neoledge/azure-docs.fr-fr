@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
+ms.sourcegitcommit: d72ff7449a87dfa9223b7c5e77446de23502eb84
+ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>Déploiement de StorSimple Virtual Array - Configuration de votre appareil virtuel en tant que serveur iSCSI
+# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
 ![flux du processus d'installation iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
@@ -193,7 +194,7 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 4. Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Cibles**, recherchez les **cibles découvertes**. (Chaque volume sera une cible découverte). L’appareil doit apparaître comme **inactif**.
    
     ![cibles découvertes](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. (Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez la rubrique [Installation et configuration de l’initiateur Microsoft iSCSI][1]).
+5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. (Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez la rubrique [Installation et configuration de l’initiateur Microsoft iSCSI][1].
    
     ![sélectionner un appareil cible](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Sur l’hôte Windows, appuyez sur la touche de logo Windows + X, puis cliquez sur **Exécuter**.
@@ -244,10 +245,5 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

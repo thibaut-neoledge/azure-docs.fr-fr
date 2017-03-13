@@ -186,7 +186,7 @@
 
 ## Notes de publication
 ### [Update 4 - en cours](storsimple-update4-release-notes.md)
-### [Update 3 - en cours](storsimple-update3-release-notes.md)
+### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 ### [Update 2 ](storsimple-update2-release-notes.md)
 ### [Update 1 ](storsimple-update1-release-notes.md)
@@ -235,10 +235,5 @@
 ## [Blog sur le support technique](http://blogs.msdn.com/b/storsimple/)
 ## [Mentions tierces](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

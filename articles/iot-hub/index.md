@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7d0766cfafb471898cb1463df27075516af5e8e8
-ms.openlocfilehash: 779159765c2b8c117e7a950aef541bdfb045be26
+ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
+ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -139,8 +140,10 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
                         <h3>Langues</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (appareils)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (service)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (appareils)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (service)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (appareils)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Nœud (Service)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Nœud (Appareils)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Kits de développement logiciel (SDK) Azure IoT</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Kit de développement logiciel (SDK) Gateway</a></p>
                     </div>
@@ -165,10 +168,5 @@ Apprenez à utiliser IoT Hub pour connecter, surveiller et contrôler des millia
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

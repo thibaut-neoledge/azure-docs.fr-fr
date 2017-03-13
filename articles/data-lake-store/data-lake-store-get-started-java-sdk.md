@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -50,7 +51,7 @@ Dans ce didacticiel, nous utilisons une clé secrète client d’application Azu
 2. Récupérez l’ID client, la clé secrète client et le point de terminaison du jeton pour l’application web Azure AD.
 3. Configurez l’accès pour l’application web Azure AD sur le fichier/dossier Data Lake Store auquel vous souhaitez accéder à partir de l’application Java que vous créez.
 
-Pour obtenir des instructions sur la façon d’effectuer ces étapes, consultez [Créer une application Active Directory](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Pour obtenir des instructions sur la façon d’effectuer ces étapes, consultez [Créer une application Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 Azure Active Directory offre d’autres options pour récupérer un jeton. Vous pouvez choisir parmi différents mécanismes d’authentification en fonction de votre scénario, par exemple, une application s’exécutant dans un navigateur, une application distribuée en tant qu’application de bureau, ou une application serveur exécutée localement ou dans une machine virtuelle Azure. Vous pouvez également choisir parmi différents types d’informations d’identification comme des mots de passe, des certificats, l’authentification à 2 facteurs, etc. En outre, Azure Active Directory vous permet de synchroniser vos utilisateurs d’Active Directory locaux avec le cloud. Pour plus de détails, consultez [Scénarios d’authentification pour Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 
@@ -158,10 +159,5 @@ Notez que les fichiers sont lus et écrits en utilisant des flux Java standard. 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

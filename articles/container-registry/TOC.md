@@ -1,0 +1,27 @@
+# Vue d'ensemble
+
+## [Qu’est-ce que Container Registry ?](container-registry-intro.md)
+
+# Prise en main
+## [Créer un registre dans le portail](container-registry-get-started-portal.md)
+## [Créer un registre avec Azure CLI 2.0](container-registry-get-started-azure-cli.md)
+## [Transmettre et extraire une image](container-registry-get-started-docker-cli.md)
+
+# Procédure
+
+## [Créer un principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
+## [S’authentifier avec un registre](container-registry-authentication.md)
+
+# Référence
+
+## [Azure CLI 2.0](/cli/azure/acr)
+## [REST](/rest/api/containerregistry)
+
+# Rubriques connexes
+
+## [Service de conteneur](/azure/container-service/)
+
+# les ressources
+## [Disponibilité des régions](https://azure.microsoft.com/regions/services/)
+## [Tarification](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Mises à jour de service](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)

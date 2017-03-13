@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 52fa2ceb13e6c14d0dd4ba72a76328a2a9356bab
-ms.openlocfilehash: 79acdf2c29c3520fc38adf6270bcae68e87aac18
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-b2b-messages"></a>Surveiller des messages B2B
+# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Démarrage ou activation de la journalisation des messages AS2, X12 et EDIFACT pour surveiller la réussite, les erreurs et les propriétés de message
 
-La communication B2B implique des échanges de messages entre deux processus ou applications métier en cours d’exécution. La relation définit un accord entre les processus métier. Une fois la communication établie, vous pouvez définir la surveillance des messages afin de vous assurer du bon fonctionnement de la communication.
-Pour plus de détails et pour bénéficier d’un meilleur débogage, définissez les diagnostics pour votre compte d’intégration.
+La communication B2B implique des échanges de messages entre deux processus ou applications métier en cours d’exécution. La relation définit un accord entre les processus métier. Une fois la communication établie, vous pouvez définir la surveillance des messages afin de vous assurer du bon fonctionnement de la communication. Pour plus de détails et pour bénéficier d’un meilleur débogage, définissez les diagnostics pour votre compte d’intégration.
 
 Le suivi des messages est disponible pour ces protocoles B2B : AS2, X12 et EDIFACT. 
 
@@ -94,10 +95,5 @@ Nous prenons en charge ces types de schéma de suivi, qui sont tous fixes, à l�
 [Suivi des messages B2B dans le portail OMS](logic-apps-track-b2b-messages-omsportal.md "Suivi des messages B2B")
 
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

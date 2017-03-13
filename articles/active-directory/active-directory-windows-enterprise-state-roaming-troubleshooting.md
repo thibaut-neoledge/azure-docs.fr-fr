@@ -4,7 +4,7 @@ description: "Répond à certaines questions que les administrateurs informatiqu
 services: active-directory
 keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
 documentationcenter: 
-author: femila
+author: tanning
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
 ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -59,9 +60,9 @@ Cette section propose des suggestions de résolution et de diagnostic des probl�
 ### <a name="verify-the-device-registration-status"></a>Vérifier l’état de l’inscription d’appareils
 Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure AD. Bien que non spécifique à Enterprise State Roaming, le respect des instructions ci-dessous peut vous aider à vérifier si le client de Windows 10 est inscrit, et à vérifier l’empreinte, l’URL des paramètres Azure AD, l’état NGC et d’autres informations encore.
 
-1.  Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
-2.  Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
-3.  Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
+1.    Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
+2.    Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
+3.    Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
 
 **Problème potentiel** : la valeur des champs **WamDefaultSet** et **AzureAdJoined** est « NO », l’appareil était joint au domaine et inscrit auprès d’Azure AD, et l’appareil n’est pas synchronisé. Si ce problème apparaît, il est possible que l’appareil attente l’application de la stratégie ou que l’authentification de l’appareil a échoué lors de la connexion à Azure AD. Il est possible que l’utilisateur doive patienter quelques heures avant que la stratégie ne soit appliquée. D’autres étapes de résolution des problèmes peuvent inclure une nouvelle tentative d’inscription automatique en se déconnectant et en se reconnectant, ou en lançant la tâche dans le Planificateur de tâches. Dans certains cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
@@ -144,7 +145,7 @@ Connectez l’appareil à un réseau d’entreprise afin que la synchronisation 
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID d’événement 6065:80070533 Cet utilisateur ne peut pas se connecter car ce compte est actuellement désactivé    
 Dans l’Observateur d’événements, dans les journaux SettingSync/Debug, cette erreur peut apparaître lorsqu’AzureRMS n’a pas été configuré automatiquement sur le locataire. 
 
 **Action recommandée**  
@@ -152,8 +153,8 @@ Effectuez les étapes répertoriées dans [KB3193791](https://support.microsoft.
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID d’événement 1098 : Erreur : Échec de l’opération de service Broker de jeton 0xCAA5001C  
-Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID d’événement 1098 : Erreur : Échec de l’opération de service Broker de jeton 0xCAA5001C    
+Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette erreur peut apparaître avec l’événement 1104 : le jeton Get de l’appel du plug-in AAD Cloud AP a renvoyé une erreur : 0xC000005F. Ce problème se produit si des autorisations ou des attributs de propriété sont manquants.     
 
 **Action recommandée**  
 Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.com/kb/3196528).  
@@ -172,9 +173,4 @@ Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.
 * [FAQ sur l’itinérance des paramètres et des données](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Référence des paramètres d’itinérance Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

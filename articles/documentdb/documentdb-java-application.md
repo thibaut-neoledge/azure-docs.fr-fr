@@ -18,6 +18,7 @@ ms.author: denlee
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -761,9 +762,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 22. Pour déployer votre projet sur un site web Azure, consultez l'[Étape 6. déploiement de votre application sur Azure Websites](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 03/06/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 774feff39bee6f34b1fb292f130d8240ec070c81
+ms.lasthandoff: 03/07/2017
 
 
 
@@ -194,8 +195,6 @@ Le [logiciel anti-programme malveillant Microsoft](azure-security-antimalware.md
 
 **Installer les dernières mises à jour de sécurité** Parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vous hébergez dans Azure des machines virtuelles exécutant des applications ou des services qui doivent être accessibles par Internet, vous devez être vigilant sur les mises à jour correctives. N’oubliez pas que cela va au-delà de la mise à jour corrective du système d’exploitation. Des vulnérabilités non corrigées sur des applications tierces peuvent également provoquer des problèmes qui auraient pu être facilement évités si une gestion efficace des correctifs avait été mise en place.
 
-Pour plus d’informations sur la gestion des correctifs dans Azure IaaS, consultez [Meilleures pratiques de mise à jour des logiciels sur Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md).
-
 **Déployer et tester une solution de sauvegarde**
 
 Tout comme les mises à jour de sécurité, la sauvegarde doit être gérée de la même façon que les autres opérations. Cela s’applique aux systèmes qui font partie de votre environnement de production étendu au cloud. Les systèmes de développement et de test doivent suivre des stratégies de sauvegarde capables de fournir des capacités de restauration similaires à ce à quoi les utilisateurs se sont habitués au cours de leur expérience avec des environnements sur site.
@@ -243,9 +242,4 @@ La capture d’écran ci-dessous montre un exemple du type d’informations qui 
 * [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 * [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

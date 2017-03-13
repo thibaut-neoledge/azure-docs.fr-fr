@@ -1,10 +1,10 @@
 ---
-title: "Création d’un réseau virtuel à l’aide d’un modèle Resource Manager | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l’aide d’un modèle | Resource Manager."
+title: "Création d’un réseau virtuel | Modèle Azure Resource Manager | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel à l’aide d’un modèle Azure Resource Manager."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: be3fbc2c14be06cac2b9213ee2da58545e34fc0e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 1e1ca336987082e06f172f7eb89036c64d1fec37
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-virtual-network-using-a-template"></a>Créer un réseau virtuel à l’aide d’un modèle
+# <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Créer un réseau virtuel à l’aide d’un modèle Azure Resource Manager
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
@@ -241,9 +243,4 @@ Apprenez à connecter :
 - Une machine virtuelle (VM) à un réseau virtuel en lisant les articles [Créer une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Créer une machine virtuelle Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Au lieu de créer un réseau virtuel et un sous-réseau comme indiqué dans les procédures de ces articles, vous pouvez sélectionner un réseau virtuel et un sous-réseau existants pour établir la connexion à une machine virtuelle.
 - Le réseau virtuel à d’autres réseaux virtuels en lisant l’article sur la [connexion des réseaux virtuels](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Le réseau virtuel à un réseau local à l’aide d’un réseau privé virtuel (VPN) site à site ou d’un circuit ExpressRoute. Découvrez comment en lisant les articles [Connecter un réseau virtuel à un réseau local à l’aide d’un VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) et [Lier un réseau virtuel à un circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

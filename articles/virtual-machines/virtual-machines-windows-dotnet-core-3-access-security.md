@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
-
+ms.sourcegitcommit: 8eeeef0bb33b5b8ed265532d160829c076190fc4
+ms.openlocfilehash: 91c4550f9caadc790d1b6aea8f037e2089ebec3c
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Accès et sécurité dans les modèles Azure Resource Manager
+# <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Accès et sécurité dans les modèles Azure Resource Manager pour les machines virtuelles Windows
+
 Les applications hébergées dans Azure doivent probablement être accessibles via Internet ou un réseau privé virtuel (VPN)/une connexion ExpressRoute avec Azure. Avec l’exemple d’application du Store musique, le site web est accessible sur Internet avec une adresse IP publique. Avec un accès établi, les connexions à l’application et l’accès aux ressources de machine virtuelle doivent être sécurisés. Cette sécurité d’accès est assurée à l’aide d’un groupe de sécurité réseau. 
 
 Ce document décrit en détail comment l’application du Store musique est sécurisée dans l’exemple de modèle Azure Resource Manager. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour accéder au modèle complet, consultez [Déploiement du Store musique sous Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -139,10 +141,5 @@ Pour plus d’informations sur les groupes de sécurité réseau, consultez [Pr�
 <hr>
 
 [Étape 3 : disponibilité et mise à l’échelle dans les modèles Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

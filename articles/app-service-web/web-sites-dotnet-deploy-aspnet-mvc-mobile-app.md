@@ -4,7 +4,7 @@ description: "Didacticiel expliquant comment déployer une application web dans 
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 0752c802-8609-4956-a755-686116913645
 ms.service: app-service
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin;riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b23dfdcf99cab46bb4cedc690e00d29d37b3a044
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Déployer une application web mobile ASP.NET MVC 5 dans Azure App Service
-Ce didacticiel aborde les bases de la conception d’une application web ASP.NET MVC 5 adaptée aux appareils mobiles et de son déploiement dans Azure App Service. Pour ce didacticiel, vous avez besoin de [Visual Studio Express 2013 pour le Web][Visual Studio Express 2013] ou de l’édition professionnelle de Visual Studio si vous l’avez déjà. Vous pouvez utiliser [Visual Studio 2015] , mais les captures d'écran seront différentes et vous devrez utiliser les modèles ASP.NET 4.x.
+Ce didacticiel aborde les bases de la conception d’une application web ASP.NET MVC 5 adaptée aux appareils mobiles et de son déploiement dans Azure App Service. Pour ce didacticiel, vous avez besoin de [Visual Studio Express 2013 pour le Web][Visual Studio Express 2013] ou de l’édition professionnelle de Visual Studio si vous l’avez déjà. Vous pouvez utiliser [Visual Studio 2015] , mais les captures d'écran seront différentes et vous devrez utiliser les modèles ASP.NET 4.x.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -30,7 +31,7 @@ Pour ce didacticiel, vous devrez ajouter des fonctionnalités mobiles à l’app
 
 ![][FixedSessionsByTag]
 
-Vous pouvez utiliser les Outils de développement F12 d’Internet Explorer 11 et [l’outil Fiddler][Fiddler] pour vous aider à déboguer votre application. 
+Vous pouvez utiliser les outils destinés aux développeurs F12 d’Internet Explorer 11 et [l’outil Fiddler][Fiddler] pour vous aider à déboguer votre application. 
 
 ## <a name="skills-youll-learn"></a>Compétences
 Vous apprendrez les compétences suivantes :
@@ -43,21 +44,21 @@ Vous apprendrez les compétences suivantes :
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 Configurez l’environnement de développement en installant le Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 ou version ultérieure. 
 
-1. Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le lien ci-dessous. Si Visual Studio 2013 n'est pas encore installé, il le sera par l'intermédiaire de ce lien. Ce didacticiel requiert Visual Studio 2013. [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][AzureSDKVs2013]
+1. Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le lien ci-dessous. Si Visual Studio 2013 n'est pas encore installé, il le sera par l'intermédiaire de ce lien. Ce didacticiel requiert Visual Studio 2013. [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][AzureSDKVs2013]
 2. Dans la fenêtre Web Platform Installer, cliquez sur **Installer** , puis poursuivez l'installation.
 
 Vous aurez également besoin d'un émulateur de navigateur mobile. Vous pouvez utiliser l'un des émulateurs suivants :
 
-* Émulateur de navigateur dans les [Outils de développement F12 d’Internet Explorer 11][EmulatorIE11] (utilisé dans toutes les captures d’écran de navigateur mobile). Il dispose de présélections de chaîne d'agent utilisateur pour Windows Phone 8, Windows Phone 7 et l'iPad d'Apple.
-* Émulateur de navigateur dans [Google Chrome DevTools][EmulatorChrome]. Il inclut des présélections pour de nombreux périphériques Android, ainsi que pour l'iPhone d'Apple, l'iPad d'Apple et le Kindle Fire d'Amazon. Il émule également des événements tactiles.
-* [Émulateur Opera Mobile][EmulatorOpera]
+* Émulateur de navigateur dans les [outils de développement F12 d’Internet Explorer 11][EmulatorIE11] (utilisés dans toutes les captures d’écran de navigateurs mobiles). Il dispose de présélections de chaîne d'agent utilisateur pour Windows Phone 8, Windows Phone 7 et l'iPad d'Apple.
+* Émulateur de navigateur de [Google Chrome DevTools][EmulatorChrome]. Il inclut des présélections pour de nombreux périphériques Android, ainsi que pour l'iPhone d'Apple, l'iPad d'Apple et le Kindle Fire d'Amazon. Il émule également des événements tactiles.
+* [Émulateur mobile Opera][EmulatorOpera]
 
 Des projets Visual Studio avec code source C\# sont disponibles pour cette rubrique :
 
 * [Téléchargement du projet de départ][StarterProject]
 * [Téléchargement du projet terminé][CompletedProject]
 
-## <a name="a-namebkmkdeploystarterprojectadeploy-the-starter-project-to-an-azure-web-app"></a><a name="bkmk_DeployStarterProject"></a>Déploiement du projet de départ dans une application Web Azure
+## <a name="bkmk_DeployStarterProject"></a>Déploiement du projet de départ dans une application Web Azure
 1. Téléchargez le [projet de départ][StarterProject] de l’application de listes de conférence.
 2. Dans l’Explorateur Windows, cliquez avec le bouton droit sur le fichier ZIP téléchargé, puis sélectionnez *Propriétés*.
 3. Dans la boîte de dialogue **Propriétés**, cliquez sur le bouton **Débloquer**. Le déblocage empêche l’apparition d’un avertissement de sécurité, qui s’affiche normalement lorsque vous essayez d’utiliser un fichier *.zip* téléchargé à partir d’Internet.
@@ -106,7 +107,7 @@ Cliquez sur le lien **ASP.NET** .
 
 La vue avec balises ASP.NET s’adapte à l’écran, ce que Bootstrap effectue pour vous automatiquement. Cependant, vous pouvez optimiser cette vue pour une meilleure adaptation au navigateur mobile. Par exemple, la colonne **Date** n’est pas très lisible. Plus loin dans ce didacticiel, vous modifierez la vue *AllTags* pour l’adapter aux appareils mobiles.
 
-## <a name="a-namebkmkbootstrapa-bootstrap-css-framework"></a><a name="bkmk_bootstrap"></a> Infrastructure CSS Bootstrap
+## <a name="bkmk_bootstrap"></a> Infrastructure CSS Bootstrap
 La prise en charge de Bootstrap intégrée est une nouveauté du modèle MVC 5. Vous avez déjà vu comment cette prise en charge améliore les différentes vues dans votre application. Par exemple, la barre de navigation dans la partie supérieure se réduit automatiquement lorsque la largeur du navigateur est inférieure. Sur le navigateur de bureau, essayez de redimensionner la fenêtre du navigateur et observez le comportement de la barre de navigation. Il s'agit de la conception de sites web réactive intégrée à Bootstrap.
 
 Pour voir à quoi ressemblerait l’application web sans Bootstrap, ouvrez le fichier *App\_Start\\BundleConfig.cs* et placez les lignes qui contiennent *bootstrap.js* et *bootstrap.css* en commentaire. Le code ci-après indique les deux dernières instructions de la méthode `RegisterBundles` après la modification :
@@ -134,7 +135,7 @@ Pour plus d’informations sur Bootstrap, rendez-vous sur le site [Bootstrap][Bo
 
 La section suivante vous indique comment proposer des vues spécialement adaptées aux navigateurs mobiles.
 
-## <a name="a-namebkmkoverrideviewsa-override-the-views-layouts-and-partial-views"></a><a name="bkmk_overrideviews"></a> Remplacement des vues, des dispositions et des vues partielles
+## <a name="bkmk_overrideviews"></a> Remplacement des vues, des dispositions et des vues partielles
 Vous pouvez remplacer toutes les vues (y compris les dispositions et les vues partielles) des navigateurs mobiles en général, mais aussi d’un navigateur mobile particulier ou encore d’un navigateur spécifique. Pour fournir un affichage mobile, vous pouvez copier un fichier de vue et ajouter *.Mobile* au nom du fichier. Par exemple, pour créer une vue mobile *Index*, vous pouvez copier *Views\\Home\\Index.cshtml* vers *Views\\Home\\Index.Mobile.cshtml*.
 
 Dans cette section, vous allez créer un fichier de disposition mobile.
@@ -162,7 +163,7 @@ En revanche, l’affichage du Bureau n’a pas changé (avec des titres de *\_La
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-## <a name="a-namebkmkbrowserviewsa-create-browser-specific-views"></a><a name="bkmk_browserviews"></a> Création de vues spécifiques du navigateur
+## <a name="bkmk_browserviews"></a> Création de vues spécifiques du navigateur
 Outre les vues mobiles et de bureau, vous pouvez créer des vues pour un navigateur en particulier. Par exemple, il est possible de créer des vues spécialement adaptées aux navigateurs de l'iPhone et sous Android. Dans cette section, vous allez créer une disposition pour le navigateur de l’iPhone et une version pour iPhone de la vue *AllTags* .
 
 Ouvrez le fichier *Global.asax* et ajoutez le code suivant comme dernière ligne de la méthode `Application_Start`.
@@ -229,7 +230,7 @@ Vous pouvez désactiver le mode d’affichage cohérent dans une vue spécifique
 Dans cette section, nous avons vu comment créer des dispositions mobiles et des vues, ainsi que des dispositions et des vues pour des appareils spécifiques tels que l’iPhone.
 Toutefois, le principal avantage de l'infrastructure d'amorçage (Bootstrap) CSS est la disposition réactive, ce qui signifie qu'une seule feuille de style peut être appliquée sur les navigateurs de bureau, de téléphone et de tablette pour créer une apparence cohérente. La section suivante vous indique comment tirer parti de Bootstrap pour créer des vues adaptées aux appareils mobiles.
 
-## <a name="a-namebkmkimprovespeakerslista-improve-the-speakers-list"></a><a name="bkmk_Improvespeakerslist"></a> Amélioration de la liste Intervenants
+## <a name="bkmk_Improvespeakerslist"></a> Amélioration de la liste Intervenants
 Comme vous venez de le voir, la vue *Speakers* est lisible, mais les liens sont petits et il est difficile de les sélectionner sur un appareil mobile. Dans cette section, vous allez adapter la vue *AllSpeakers* aux appareils mobiles. Les liens seront plus grands, faciles à sélectionner et contiendront une zone de recherche pour trouver des intervenants rapidement.
 
 Vous pouvez utiliser le style [linked list group][linked list group] pour améliorer la vue *Speakers*. Dans *Views\\Home\\AllSpeakers.cshtml*, remplacez le contenu du fichier Razor par le code ci-dessous.
@@ -255,7 +256,7 @@ Actualisez le navigateur mobile. L'affichage actualisé ressemble à ceci :
 
 ![][AllSpeakersFixed]
 
-Avec le style [linked list group][linked list group] Bootstrap, toute la zone de chaque lien est cliquable, ce qui confère un confort d’utilisation optimal. Basculez vers l’affichage de bureau et observez l’homogénéité de l’apparence.
+Avec le style [linked list group][linked list group] Bootstrap, toute la zone de chaque lien est cliquable, ce qui confère un expérience utilisateur bien supérieure. Basculez vers l’affichage de bureau et observez l’homogénéité de l’apparence.
 
 ![][AllSpeakersFixedDesktop]
 
@@ -326,7 +327,7 @@ Actualisez le navigateur mobile et accédez à l'affichage *AllSpeakers* . Dans 
 
 ![][AllSpeakersFixedSearchBySC]
 
-## <a name="a-namebkmkimprovetagsa-improve-the-tags-list"></a><a name="bkmk_improvetags"></a> Amélioration de la liste Balises
+## <a name="bkmk_improvetags"></a> Amélioration de la liste Balises
 À l’instar de la vue *Speakers*, la vue *Tags* est lisible, mais les liens sont petits et il est difficile de les sélectionner sur un appareil mobile. Vous pouvez optimiser la vue *Tags* de la même façon que vous l’avez fait avec la vue *Speakers*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode `Html.ActionLink` dans *Views\\Home\\AllTags.cshtml* :
 
     @Html.ActionLink(tag, 
@@ -347,7 +348,7 @@ Quant au navigateur mobile actualisé, il se présente ainsi :
 > 
 > 
 
-## <a name="a-namebkmkimprovedatesa-improve-the-dates-list"></a><a name="bkmk_improvedates"></a> Amélioration de la liste Dates
+## <a name="bkmk_improvedates"></a> Amélioration de la liste Dates
 Vous pouvez optimiser la vue *Dates* de la même façon que vous l’avez fait avec les vues *Speakers* et *Tags*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode suivante `Html.ActionLink` dans *Views\\Home\\AllDates.cshtml* :
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
@@ -395,7 +396,7 @@ Basculez vers le navigateur de bureau. Remarquez l'aspect cohérent.
 
 ![][AllDatesFixed2Desktop]
 
-## <a name="a-namebkmkimprovesessionstablea-improve-the-sessionstable-view"></a><a name="bkmk_improvesessionstable"></a> Amélioration de la vue SessionsTable
+## <a name="bkmk_improvesessionstable"></a> Amélioration de la vue SessionsTable
 Dans cette section, vous allez faire en sorte que la vue *SessionsTable* soit mieux adaptée aux appareils mobiles. Cette modification est plus importante que les précédentes.
 
 Dans le navigateur mobile, appuyez sur le bouton **Balise**, puis entrez `asp` dans la zone de recherche.
@@ -441,9 +442,9 @@ Comme vous pouvez le constater, l’affichage se fait sous forme de tableau, act
 
 Le code se compose de trois étapes :
 
-* Il utilise le style [groupe personnalisé de liste liée][groupe personnalisé de liste liée] Bootstrap pour mettre en forme les informations de session de façon verticale. Ainsi, toutes ces informations sont lisibles sur un navigateur mobile (à l’aide de classes telles que list-group-item-text).
-* Il applique le [système de grille][système de grille] à la disposition, afin que les éléments de session s’affichent à l’horizontale dans le navigateur de bureau et à la verticale dans le navigateur mobile (à l’aide de la classe col-md-4).
-* Il utilise les [utilitaires réactifs][utilitaires réactifs] pour masquer les balises de session lorsqu’elles s’affichent dans le navigateur mobile (à l’aide de la classe hidden-xs).
+* Il utilise le style [custom linked list group][custom linked list group] Bootstrap pour mettre en forme les informations de session de façon verticale. Ainsi, toutes ces informations sont lisibles sur un navigateur mobile (à l’aide de classes telles que list-group-item-text).
+* Il applique le [système de grille][grid system] à la disposition, afin que les éléments de session s’affichent à l’horizontale dans le navigateur de bureau et à la verticale dans le navigateur mobile (à l’aide de la classe col-md-4).
+* Il utilise les [utilitaires réactifs][responsive utilities] pour masquer les balises de session lorsqu’elles s’affichent dans le navigateur mobile (à l’aide de la classe hidden-xs).
 
 Vous pouvez aussi appuyer sur le lien d'un titre pour accéder à la session associée. L'image qui suit reflète les changements réalisés à l'aide du code.
 
@@ -455,7 +456,7 @@ Le système de grille Bootstrap que vous avez automatiquement appliqué permet d
 
 Dans le navigateur de bureau, vous remarquez que les balises s'affichent désormais. De même, vous pouvez constater que le système de grille Bootstrap que vous avez appliqué classe les éléments de session en deux colonnes. Si vous agrandissez le navigateur, l’organisation s’étend sur trois colonnes.
 
-## <a name="a-namebkmkimprovesessionbycodea-improve-the-sessionbycode-view"></a><a name="bkmk_improvesessionbycode"></a> Amélioration de la vue SessionByCode
+## <a name="bkmk_improvesessionbycode"></a> Amélioration de la vue SessionByCode
 Dernière étape, vous allez optimiser la vue *SessionByCode* pour l'adapter aux périphériques mobiles.
 
 Dans le navigateur mobile, appuyez sur le bouton **Balise**, puis entrez `asp` dans la zone de recherche.
@@ -531,28 +532,28 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 ## <a name="see-also"></a>Voir aussi
 * [9 principes de base de la conception web réactive (en anglais)](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 * [Bootstrap][BootstrapSite]
-* [Blog Bootstrap officiel (en anglais)][Blog Bootstrap officiel (en anglais)]
-* [Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)][Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)]
-* [The Bootstrap Playground (en anglais)][The Bootstrap Playground (en anglais)]
-* [Bonnes pratiques pour les applications Web mobiles des recommandations W3C (en anglais)][Bonnes pratiques pour les applications Web mobiles des recommandations W3C (en anglais)]
-* [Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)][Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)]
+* [Blog Bootstrap officiel (en anglais)][Official Bootstrap Blog]
+* [Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)][Twitter Bootstrap Tutorial from Tutorial Republic]
+* [The Bootstrap Playground (en anglais)][The Bootstrap Playground]
+* [Bonnes pratiques pour les applications web mobiles des recommandations W3C (en anglais)][W3C Recommendation Mobile Web Application Best Practices]
+* [Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)][W3C Candidate Recommendation for media queries]
 
 ## <a name="whats-changed"></a>Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- Internal Links -->
-[Déploiement du projet de départ dans une application Web Azure]: #bkmk_DeployStarterProject
-[Infrastructure CSS Bootstrap]: #bkmk_bootstrap
-[Remplacement des vues, des dispositions et des vues partielles]: #bkmk_overrideviews
-[Création de vues spécifiques du navigateur]:#bkmk_browserviews
-[Amélioration de la liste Intervenants]: #bkmk_Improvespeakerslist
-[Amélioration de la liste Balises]: #bkmk_improvetags
-[Amélioration de la liste Dates]: #bkmk_improvedates
-[Amélioration de la vue SessionsTable]: #bkmk_improvesessionstable
-[Amélioration de la vue SessionByCode]: #bkmk_improvesessionbycode
+[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
+[Bootstrap CSS Framework]: #bkmk_bootstrap
+[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Create Browser-Specific Views]:#bkmk_browserviews
+[Improve the Speakers List]: #bkmk_Improvespeakerslist
+[Improve the Tags List]: #bkmk_improvetags
+[Improve the Dates List]: #bkmk_improvedates
+[Improve the SessionsTable View]: #bkmk_improvesessionstable
+[Improve the SessionByCode View]: #bkmk_improvesessionbycode
 
 <!-- External Links -->
-[Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
 [Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
@@ -566,14 +567,14 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [linked list group]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
 [panels]: http://getbootstrap.com/components/#panels
-[groupe personnalisé de liste liée]: http://getbootstrap.com/components/#list-group-custom-content
-[système de grille]: http://getbootstrap.com/css/#grid
-[utilitaires réactifs]: http://getbootstrap.com/css/#responsive-utilities
-[Blog Bootstrap officiel (en anglais)]: http://blog.getbootstrap.com/
-[Tutoriel Bootstrap Twitter de Tutorial Republic (en anglais)]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-[The Bootstrap Playground (en anglais)]: http://www.bootply.com/
-[Bonnes pratiques pour les applications Web mobiles des recommandations W3C (en anglais)]: http://www.w3.org/TR/mwabp/
-[Candidat à la recommandation du W3C concernant les requêtes de média (en anglais)]: http://www.w3.org/TR/css3-mediaqueries/
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[grid system]: http://getbootstrap.com/css/#grid
+[responsive utilities]: http://getbootstrap.com/css/#responsive-utilities
+[Official Bootstrap Blog]: http://blog.getbootstrap.com/
+[Twitter Bootstrap Tutorial from Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+[The Bootstrap Playground]: http://www.bootply.com/
+[W3C Recommendation Mobile Web Application Best Practices]: http://www.w3.org/TR/mwabp/
+[W3C Candidate Recommendation for media queries]: http://www.w3.org/TR/css3-mediaqueries/
 
 <!-- Images -->
 [DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
@@ -608,10 +609,5 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

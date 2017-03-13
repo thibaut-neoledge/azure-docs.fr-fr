@@ -1,10 +1,10 @@
 ---
-title: "Créer une machine virtuelle (Classic) avec plusieurs cartes réseau à l’aide d’Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer une machine virtuelle avec plusieurs cartes réseau selon le modèle de déploiement Classic en utilisant Azure CLI."
+title: "Création d’une machine virtuelle (Classic) avec plusieurs cartes réseau - Azure CLI 1.0 | Microsoft Docs"
+description: "Découvrez comment créer une machine virtuelle (Classic) avec plusieurs cartes réseau à l’aide de l’interface Azure CLI 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli"></a>Créer une machine virtuelle (Classic) avec plusieurs cartes réseau en utilisant Azure CLI
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Créer une machine virtuelle (Classic) avec plusieurs cartes réseau en utilisant Azure CLI 1.0
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 Vous pouvez créer des machines virtuelles (VM) dans Azure et joindre plusieurs cartes d’interface réseau (NIC) à chacune d’elles. Plusieurs cartes réseau permettent la séparation des types de trafic entre les cartes réseau. Par exemple, une carte réseau peut communiquer avec Internet, tandis qu’une autre communique uniquement avec des ressources internes non connectées à Internet. La possibilité de séparer le trafic réseau entre plusieurs cartes réseau est requise pour de nombreuses appliances virtuelles réseau, telles que Application Delivery Network et les solutions d’optimisation WAN.
@@ -186,9 +189,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

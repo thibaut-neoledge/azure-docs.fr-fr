@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory** E:\vCenter1
 
 **To meet RPO 90% of the time :** en raison de la tarification haut débit ou pour toute autre raison si vous ne pouvez pas configurer la bande passante nécessaire pour atteindre votre RPO souhaité 100 % du temps, vous pouvez choisir de configurer une quantité de bande passante inférieure pouvant satisfaire au RPO souhaité 90 % du temps. Pour comprendre les implications de la configuration de cette bande passante réduite, le rapport fournit une analyse par simulation du nombre et de la durée de violations de RPO à attendre.
 
-**Achieved Throughput :** il s’agit du débit du serveur sur lequel vous avez exécuté la commande GetThroughput pour la région Microsoft Azure où se trouve le compte de stockage Azure. Il indique le débit approximatif qui peut être obtenu si vous protégez les machines virtuelles compatibles à l’aide d’Azure Site Recovery, sous réserve que les caractéristiques de réseau et de stockage du serveur de configuration/serveur de processus demeurent identiques à celles du serveur à partir duquel vous avez exécuté l’outil. Le débit atteint correspond au débit du serveur sur lequel vous avez exécuté la commande GetThroughput pour la région Microsoft Azure où se trouve le compte de stockage Azure. Il indique le débit approximatif qui peut être obtenu si vous protégez les machines virtuelles compatibles à l’aide d’Azure Site Recovery, sous réserve que les caractéristiques de réseau et de stockage du serveur de configuration/serveur de processus demeurent identiques à celles du serveur à partir duquel vous avez exécuté l’outil.
+**Achieved Throughput :** il s’agit du débit du serveur sur lequel vous avez exécuté la commande GetThroughput pour la région Microsoft Azure où se trouve le compte de stockage Azure. Il indique le débit approximatif qui peut être obtenu si vous protégez les machines virtuelles compatibles à l’aide d’Azure Site Recovery, sous réserve que les caractéristiques de réseau et de stockage du serveur de configuration/serveur de processus demeurent identiques à celles du serveur à partir duquel vous avez exécuté l’outil.    
 
 Pour la réplication, vous devez configurer la bande passante qui est recommandée pour atteindre le RPO 100 % du temps. Même après la configuration de la bande passante appropriée, si vous ne constatez pas d’augmentation du débit atteint signalé par l’outil, vérifiez les points suivants :
 

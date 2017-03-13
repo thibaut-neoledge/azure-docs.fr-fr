@@ -1,6 +1,6 @@
 ---
-title: Analyser vos applications logiques dans Azure | Microsoft Docs
-description: Comment voir ce que vos applications logiques ont fait
+title: "Activation de la journalisation et d’alertes, consultation de l’historique d’exécution, suivi des entrées et sorties - Azure Logic Apps | Microsoft Docs"
+description: "Surveillance de l’état des flux de travail de votre application logique à l’aide de la journalisation, du suivi et de l’affichage de l’historique et des diagnostics"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: db3684fc5cc4ae7933454a02d8440d1eb4948828
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-your-logic-apps"></a>Analyser vos applications logiques
+# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Affichage des performances et démarrage de la journalisation des diagnostics et des alertes de vos flux de travail dans les applications logiques
 Une fois que vous avez [créé une application logique](../logic-apps/logic-apps-create-a-logic-app.md), vous pouvez consulter l’historique complet de son exécution dans le Portail Azure.  Vous pouvez également configurer des services tels que les diagnostics Azure et les alertes Azure pour analyser les événements en temps réel, et vous alerter en cas d’événements du type « échec de plus de 5 exécutions en une heure ».
 
 ## <a name="monitor-in-the-azure-portal"></a>Analyser dans le portail Azure
@@ -137,10 +139,5 @@ Vous pouvez tirer parti de ces données de télémétrie de l’Event Hub ou du 
 * [Exemples et scénarios courants pour les applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Création d’un modèle de déploiement d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md)
 * [Fonctionnalités d’intégration d'entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

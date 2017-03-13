@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cd25b99d8d94d57638806317ef35d850adcad17b
-ms.openlocfilehash: fc1129efaf03d9d96804146294f5ad4e105d7411
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 17486fd41b471356648656b65ca66e1234313d4c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="logic-app-templates"></a>Modèles d’application logique
+# <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-to-get-started-quickly"></a>Configuration d’un flux de travail à l’aide d’un modèle prédéfini pour démarrer rapidement
+
 ## <a name="what-are-logic-app-templates"></a>Qu’est-ce qu’un modèle d’application logique ?
 Un modèle d’application logique est une application logique prédéfinie que vous pouvez utiliser pour commencer rapidement à créer votre propre flux de travail. 
 
@@ -67,10 +70,5 @@ Une fois que vous avez chargé votre modèle et effectué les modifications souh
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
 Si vous souhaitez plus d’informations sur l’ajout d’étapes supplémentaires à un modèle d’application logique existant, ou l’apport de modifications générales, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)pour en savoir plus.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

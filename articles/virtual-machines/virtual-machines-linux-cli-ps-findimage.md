@@ -15,20 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dc0797927d75a06117d72f52d7065927e65678b4
-ms.openlocfilehash: 76d6288832b50d187c729afaee9118923517eb94
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: e9be064425ae6b9048098333cc664310e7128314
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Sélectionner des images de VM Linux avec l’interface de ligne de commande Azure
+# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Rechercher des images de machine virtuelle Linux avec l’interface Azure CLI
 Cette rubrique décrit comment rechercher des éditeurs, des offres, des références SKU et des versions pour chaque emplacement vers lequel vous souhaitez effectuer un déploiement. 
 
 
-## <a name="use-azure-cli-20-preview"></a>Utilisez Azure CLI 2.0 (version préliminaire)
+## <a name="use-azure-cli-20"></a>Utiliser Azure CLI 2.0
 
-Une fois que vous avez [installé Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2), utilisez la commande `az vm image list` pour afficher une liste d’images de machine virtuelle populaires mise en cache. Par exemple, l’exemple de commande `az vm image list -o table` suivant affiche :
+Une fois que vous avez [installé Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), utilisez la commande `az vm image list` pour afficher une liste d’images de machine virtuelle populaires mise en cache. Par exemple, l’exemple de commande `az vm image list -o table` suivant affiche :
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

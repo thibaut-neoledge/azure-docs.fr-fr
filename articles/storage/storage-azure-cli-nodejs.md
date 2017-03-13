@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
-ms.openlocfilehash: bc90832422a8643afda292d6897a275280cfe690
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -240,12 +241,7 @@ Vous pouvez trouver la référence des commandes de la CLI Azure 1.0 pour trava
 * [Commandes de la CLI Azure en mode Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
 * [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../xplat-cli-install.md)
 
-Vous pouvez également essayer [Azure CLI 2.0 (version préliminaire)](storage-azure-cli.md), une interface de ligne de commande nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
+Vous pouvez également essayer [Azure CLI 2.0](storage-azure-cli.md), une interface Azure CLI nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

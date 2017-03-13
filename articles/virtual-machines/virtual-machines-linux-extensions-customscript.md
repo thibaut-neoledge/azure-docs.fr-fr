@@ -18,6 +18,7 @@ ms.author: nepeters
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 09c1ace33461eff30fbd4b277e1397934fe5a98a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -207,7 +208,7 @@ Lors de l’exécution de l’extension de script personnalisé, le script est c
 L’extension de script Azure génère un journal qui se trouve ici.
 
 ```bash
-/var/log/azure/customscript/handler.log
+/var/log/azure/custom-script/handler.log
 ```
 
 L’état d’exécution de l’extension de script personnalisé peut également être récupéré avec l’interface de ligne de commande Azure.
@@ -230,10 +231,5 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres extensions de script de machine virtuelle, consultez [Vue d’ensemble de l’extension de script Azure pour Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -4,7 +4,7 @@ description: "En savoir plus sur la restauration d’une sauvegarde de votre Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restaurer à partir d’une sauvegarde de votre StorSimple Virtual Array
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Restauration à partir d’un jeu de sauvegarde de partages et de volumes sur votre StorSimple Virtual Array
+
 ## <a name="overview"></a>Vue d'ensemble
 Cet article s’applique à Microsoft Azure StorSimple Virtual Array (également appelé appareil virtuel StorSimple local ou appareil virtuel StorSimple) exécutant la version de mise à la disposition générale (mars 2016) ou des versions ultérieures. Cet article décrit étape par étape comment effectuer une restauration à partir d’un jeu de sauvegarde de vos partages ou volumes sur votre StorSimple Virtual Array. L'article détaille également le fonctionnement de la récupération au niveau de l’élément sur votre StorSimple Virtual Array configuré comme un serveur de fichiers.
 
@@ -104,10 +107,5 @@ Regardez la vidéo pour voir comment vous pouvez créer des partages, sauvegarde
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [gestion de StorSimple Virtual Array à l’aide de l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Créer des définitions d’application logique | Microsoft Docs"
-description: "Apprenez à écrire la définition JSON pour les applications logiques"
+title: "Définir des workflows avec JSON - Azure Logic Apps | Microsoft Docs"
+description: "Procédure d’écriture de définitions de workflow au format JSON pour les applications logiques"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,22 +12,27 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 08b59b7aaa28339c4168e736105fdbe7295f5255
+ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
+ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="author-logic-app-definitions"></a>Créer des définitions d'application logique
-Cette rubrique montre comment utiliser les définitions [Azure Logic Apps](logic-apps-what-are-logic-apps.md) , qui constituent un langage JSON déclaratif simple. Si nécessaire, commencez par consulter [comment créer une application logique](logic-apps-create-a-logic-app.md) . Vous pouvez également lire les [documents de référence complets du langage de définition sur MSDN](http://aka.ms/logicappsdocs).
+# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Créer des définitions de workflow pour les applications logiques à l’aide de JSON
 
-## <a name="several-steps-that-repeat-over-a-list"></a>Plusieurs étapes qui se répètent dans une liste
-Vous pouvez utiliser le [type foreach](logic-apps-loops-and-scopes.md) pour répéter des éléments sur un tableau pouvant comprendre 10 000 éléments et effectuer une action pour chacun d’eux.
+Vous pouvez créer des définitions de workflow pour [Azure Logic Apps](logic-apps-what-are-logic-apps.md) à l’aide d’un langage JSON déclaratif simple. Si vous ne l’avez pas encore fait, commencez par consulter l’article décrivant la [procédure de création de votre première application logique avec le concepteur d’application logique](logic-apps-create-a-logic-app.md). Vous pouvez également lire la [référence complète du langage de définition de workflow](http://aka.ms/logicappsdocs).
 
-## <a name="a-failure-handling-step-if-something-goes-wrong"></a>Une étape de gestion des erreurs en cas de problème
-En général, vous voulez être en mesure d’écrire une *étape de correction* , une logique qui s’exécute, si, **et seulement si**, un ou plusieurs de vos appels échouent. Dans cet exemple, nous obtenons des données à partir de différents emplacements mais, si l’appel échoue, je veux PUBLIER un message quelque part afin de pouvoir pister cet échec ultérieurement :  
+## <a name="repeat-steps-over-a-list"></a>Répéter des étapes dans une liste
+
+Pour itérer au sein d’un tableau comportant plus de 10 000 éléments et exécuter une action sur chaque élément, utilisez le [type foreach](logic-apps-loops-and-scopes.md).
+
+## <a name="handle-failures-if-something-goes-wrong"></a>Gérer les échecs en cas de problème
+
+Vous souhaitez généralement inclure une *étape de correction*, c’est-à-dire une logique qui s’exécute *si et seulement si* un ou plusieurs de vos appels échouent. Cet exemple obtient des données provenant de différents emplacements, mais si l’appel échoue, nous voulons PUBLIER un message à un endroit quelconque de façon à pouvoir repérer cet échec par la suite :  
 
 ```
 {
@@ -60,12 +65,13 @@ En général, vous voulez être en mesure d’écrire une *étape de correction*
 }
 ```
 
-Vous pouvez utiliser la propriété `runAfter` pour indiquer que l’élément `postToErrorMessageQueue` doit s’exécuter uniquement lorsque `readData` est à l’état d’**échec**.  Il peut s’agir également d’une liste de valeurs possibles, ce qui signifie que `runAfter` peut avoir la valeur `["Succeeded", "Failed"]`.
+Pour indiquer que l’action `postToErrorMessageQueue` s’exécute uniquement si l’action `readData` présente l’état `Failed`, utilisez la propriété `runAfter`, par exemple pour spécifier une liste de valeurs possibles, de sorte que `runAfter` peut présenter les valeurs `["Succeeded", "Failed"]`.
 
-Enfin, étant donné que vous avez désormais géré l'erreur, nous n'indiquons plus l'exécution en tant qu' **Échec**. Comme vous pouvez le voir, cette exécution est indiquée comme **Réussie** même si une étape a échoué, car j'ai écrit l'étape de façon à ce qu'elle gère cet échec.
+Enfin, étant donné que cet exemple gère désormais l’erreur, nous n’identifions plus l’exécution avec l’état `Failed`. Puisque nous avons ajouté l’étape de gestion de cet échec dans cet exemple, l’exécution est indiquée comme `Succeeded`, même si une étape a présenté l’état `Failed`.
 
-## <a name="two-or-more-steps-that-execute-in-parallel"></a>Deux étapes (ou plus) qui s’exécutent en parallèle
-Pour permettre l’exécution de plusieurs actions en parallèle, la propriété `runAfter` doit être équivalente à l’exécution. 
+## <a name="execute-two-or-more-steps-in-parallel"></a>Exécuter au moins deux étapes en parallèle
+
+Pour exécuter plusieurs actions en parallèle, la propriété `runAfter` doit être équivalente au moment de l’exécution. 
 
 ```
 {
@@ -104,14 +110,13 @@ Pour permettre l’exécution de plusieurs actions en parallèle, la propriété
 }
 ```
 
-Comme vous pouvez le voir dans l’exemple ci-dessus, `branch1` et `branch2` sont définis pour s’exécuter après `readData`. Par conséquent, ces deux branches seront exécutées en parallèle :
+Dans cet exemple, les éléments `branch1` et `branch2` sont tous deux définis comme devant s’exécuter après l’action `readData`. Par conséquent, les deux branches s’exécutent en parallèle. Ces deux branches présentent le même horodateur.
 
 ![Parallèle](media/logic-apps-author-definitions/parallel.png)
 
-Vous pouvez voir que l'horodatage pour les deux branches est identique. 
-
 ## <a name="join-two-parallel-branches"></a>Joindre deux branches parallèles
-Vous pouvez joindre deux actions qui ont été définies pour s’exécuter en parallèle en ajoutant des éléments à la propriété `runAfter` comme indiqué ci-dessus.
+
+Vous pouvez joindre deux actions définies comme devant s’exécuter en parallèle en ajoutant des éléments à la propriété `runAfter`, comme dans l’exemple précédent.
 
 ```
 {
@@ -182,8 +187,9 @@ Vous pouvez joindre deux actions qui ont été définies pour s’exécuter en p
 
 ![Parallèle](media/logic-apps-author-definitions/join.png)
 
-## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>Mappage d'éléments dans une liste à une autre configuration
-Ensuite, supposons que nous voulions obtenir du contenu complètement différent selon une valeur d'une propriété. Nous pouvons créer un mappage des valeurs aux destinations en tant que paramètre :  
+## <a name="map-list-items-to-a-different-configuration"></a>Mapper les éléments d’une liste sur une autre configuration
+
+À présent, supposons que nous voulions obtenir un contenu différent selon la valeur d’une propriété. Nous pouvons créer un mappage des valeurs aux destinations en tant que paramètre :  
 
 ```
 {
@@ -234,14 +240,19 @@ Ensuite, supposons que nous voulions obtenir du contenu complètement différent
 }
 ```
 
-Dans ce cas, nous obtenons d'abord une liste d'articles, puis la deuxième étape recherche dans un mappage, en fonction de la catégorie définie en tant que paramètre, l'URL à partir de laquelle obtenir le contenu. 
+Dans ce cas, nous commençons par obtenir une liste d’articles. Selon la catégorie définie en tant que paramètre, la deuxième étape utilise un mappage pour rechercher l’URL à partir de laquelle obtenir le contenu.
 
-Il existe deux éléments auxquels il faut prêter attention : la fonction [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) est utilisée pour vérifier si la catégorie correspond à l'une des catégories connues définies. Ensuite, une fois que nous obtenons la catégorie, nous pouvons extraire l'élément de la carte à l'aide de crochets : `parameters[...]`. 
+Tenez compte des points suivants : 
 
-## <a name="working-with-strings"></a>Utilisation des chaînes
-Il existe diverses fonctions qui peuvent être utilisées pour manipuler les chaînes. Prenons l'exemple où nous avons une chaîne à transmettre à un système, mais nous ne sommes pas certains que l'encodage de caractères sera correctement géré. Une option consiste à encoder cette chaîne en base64. Toutefois, pour éviter la séquence d'échappement dans une URL, nous allons remplacer plusieurs caractères. 
+*    La fonction [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) vérifie si la catégorie correspond ou non à l’une des catégories définies connues.
 
-Nous voulons également une sous-chaîne du nom de la commande, car les 5 premiers caractères ne sont pas utilisés.
+*    Une fois que nous avons obtenu la catégorie, nous pouvons extraire l’élément du mappage à l’aide de crochets : `parameters[...]`
+
+## <a name="process-strings"></a>Traiter des chaînes
+
+Différentes fonctions vous permettent de manipuler les chaînes. Par exemple, supposons que nous souhaitions transmettre une chaîne à un système, mais que nous ne soyons pas certains de l’encodage de caractères à utiliser. Une option consiste à encoder cette chaîne en base64. Toutefois, pour éviter la séquence d’échappement dans une URL, nous allons remplacer plusieurs caractères. 
+
+Nous voulons également disposer d’une sous-chaîne du nom de la commande, car les cinq premiers caractères ne sont pas utilisés.
 
 ```
 {
@@ -275,17 +286,23 @@ Nous voulons également une sous-chaîne du nom de la commande, car les 5 premie
 }
 ```
 
-De l'intérieur vers l'extérieur, voici ce que l'on a :
+Voici le déroulement des opérations de l’intérieur vers l’extérieur :
 
-1. Obtenez la [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) du nom de la commande, ceci renvoie le nombre total de caractères
-2. Soustrayez 5 (car nous voulons une chaîne plus courte)
-3. Prenez la [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . Nous commençons à l'index `5` et suivons le reste de la chaîne.
-4. Convertissez cette sous-chaîne en une chaîne [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64)
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) tous les caractères `+` par `-`
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) tous les caractères `/` par `_`
+1. Nous obtenons l’élément [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) pour le nom de la commande afin de récupérer le nombre total de caractères.
 
-## <a name="working-with-date-times"></a>Utilisation des dates
-Les dates peuvent être utiles, particulièrement lorsque vous tentez d'extraire des données à partir d'une source de données qui ne prend pas naturellement en charge les **déclencheurs**.  Vous pouvez également utiliser les dates pour déterminer combien de temps différentes étapes prennent. 
+2. Nous soustrayons la valeur 5, car nous voulons une chaîne plus courte.
+
+3. Nous utilisons l’élément [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Nous commençons à l'index `5` et suivons le reste de la chaîne.
+
+4. Nous convertissons cette sous-chaîne en une chaîne [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
+
+5. Nous exécutons l’action [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) pour remplacer tous les caractères `+` par des caractères `-`.
+
+6. Nous exécutons l’action [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) pour remplacer tous les caractères `/` par des caractères `_`.
+
+## <a name="work-with-date-times"></a>Utiliser des dates
+
+Les dates peuvent vous être utiles, particulièrement lorsque vous tentez d’extraire des données à partir d’une source de données qui ne prend pas naturellement en charge les *déclencheurs*. Vous pouvez également utiliser les dates pour déterminer la durée d’exécution des différentes étapes.
 
 ```
 {
@@ -337,16 +354,20 @@ Les dates peuvent être utiles, particulièrement lorsque vous tentez d'extraire
 }
 ```
 
-Dans cet exemple, nous extrayons la `startTime` de l'étape précédente. Puis, nous obtenons l’heure actuelle et soustrayons une seconde : [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (vous pouvez utiliser d’autres unités de temps, comme `minutes` ou `hours`). Enfin, nous pouvons comparer ces deux valeurs. Si la première est inférieure à la seconde, alors cela signifie que plus d'une seconde s'est écoulée depuis que la commande a été placée. 
+Dans cet exemple, nous extrayons l’élément `startTime` de l’étape précédente. Puis nous obtenons l’heure actuelle, et nous lui soustrayons une seconde :
 
-Notez également que nous pouvons utiliser des formateurs de chaîne pour formater les dates : dans la chaîne de requête j'utilise [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) pour obtenir RFC1123. Le formatage des dates [est décrit sur MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-## <a name="using-deployment-time-parameters-for-different-environments"></a>Utilisation de paramètres au moment du déploiement pour des environnements différents
-Il est courant d'avoir un cycle de vie de déploiement où vous avez un environnement de développement, un environnement intermédiaire et un environnement de production. Dans tous ces environnements, vous pouvez vouloir la même définition, tout en utilisant des bases de données différentes, par exemple. De même, vous pouvez vouloir utiliser la même définition dans plusieurs régions pour une disponibilité élevée, tout en voulant que chaque instance de l'application logique communique avec la base de données de cette région. 
+Vous pouvez utiliser d’autres unités de temps, par exemple `minutes` ou `hours`. Enfin, nous pouvons comparer ces deux valeurs. Si la première valeur est inférieure à la seconde, plus d’une seconde s’est écoulée depuis que la commande a été passée.
 
-Notez que ceci diffère de la prise de paramètres différents au moment de l’*exécution* ; pour cela, vous devez utiliser la fonction `trigger()` comme indiqué ci-dessus. 
+Pour formater les dates, nous pouvons utiliser des formateurs de chaîne. Par exemple, pour obtenir RFC1123, nous utilisons [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Pour plus d’informations sur le formatage des dates, consultez l’article [Workflow Definition Language](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) (Langage de définition de workflow).
 
-Vous pouvez commencer avec une définition très simple comme celle-ci :
+## <a name="deployment-parameters-for-different-environments"></a>Paramètres de déploiement pour différents environnements
+
+Généralement, les cycles de vie de déploiement comprennent un environnement de développement, un environnement intermédiaire et un environnement de production. Par exemple, vous pouvez mettre en œuvre la même définition dans tous ces environnements, tout en utilisant des bases de données distinctes. De même, vous pouvez faire en sorte d’utiliser la même définition dans plusieurs régions à des fins de haute disponibilité, tout en souhaitant que chaque instance de l’application logique communique avec la base de données d’une région spécifique.
+Ce scénario diffère de l’utilisation de paramètres au moment de *l’exécution* dans lequel vous devez plutôt utiliser la fonction `trigger()`, comme indiqué dans l’exemple précédent.
+
+Vous pouvez commencer par une définition de base comme celle-ci :
 
 ```
 {
@@ -375,7 +396,7 @@ Vous pouvez commencer avec une définition très simple comme celle-ci :
 }
 ```
 
-Ensuite, dans la requête `PUT` réelle pour l'application logique, vous pouvez fournir le paramètre `uri`. Comme il n'y a plus de valeur par défaut, ce paramètre est obligatoire dans la charge utile d'application logique :
+Puis, dans la requête `PUT` réelle pour les applications logiques, vous pouvez fournir le paramètre `uri`. Étant donné qu’il n’existe plus de valeur par défaut, la charge utile d’application logique nécessite le paramètre suivant :
 
 ```
 {
@@ -393,13 +414,7 @@ Ensuite, dans la requête `PUT` réelle pour l'application logique, vous pouvez 
 }
 ``` 
 
-Dans chaque environnement, vous pouvez ensuite fournir une valeur différente pour le paramètre `connection` . 
+Vous pouvez fournir une valeur différente pour le paramètre `connection` dans chaque environnement. 
 
-Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques. 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques, consultez la [documentation de l’API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
 

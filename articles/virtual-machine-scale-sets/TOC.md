@@ -3,6 +3,8 @@
 
 # Prise en main
 ## [Créer un groupe de machines virtuelles identiques dans le portail](virtual-machine-scale-sets-portal-create.md)
+## [Créer un groupe identique avec Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Créer un groupe identique à l’aide d’un modèle Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procédure
 ## Planifier et concevoir
@@ -10,6 +12,7 @@
 
 ## Déployer
 ### [Groupes de machines virtuelles identiques avec le portail](virtual-machine-scale-sets-portal-create.md)
+### [Groupe de machines virtuelles identiques avec des disques gérés](virtual-machine-scale-sets-managed-disks.md)
 ### [Groupe de machines virtuelles identiques avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Groupe de machines virtuelles identiques avec PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Groupe de machines virtuelles identiques avec l’interface de ligne de commande Azure](virtual-machine-scale-sets-linux-create-cli.md)
@@ -19,6 +22,7 @@
 ### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)
 ### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
+
 
 
 ## Gérer
@@ -36,15 +40,10 @@
 # Référence
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Interface de ligne de commande Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # les ressources
 ## Tarification 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
