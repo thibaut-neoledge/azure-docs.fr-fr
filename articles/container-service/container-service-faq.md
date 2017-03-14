@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Forum aux questions : Azure Container Service
+# <a name="container-service-frequently-asked-questions"></a>Forum aux questions : Container Service
 
 
 ## <a name="orchestrators"></a>Orchestrators
@@ -82,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Vous pouvez retrouver des URL fréquemment utilisées pour votre cluster dans le portail Azure, Azure Resource Explorer ou d’autres outils Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Comment savoir quelle version d’Orchestrator est en cours d’exécution dans mon cluster ?
+
+* DC/OS : Consultez la [documentation Mésosphère](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm : Exécuter `docker version`
+* Kubernetes : Exécuter `kubectl version`
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Comment mettre à jour l’Orchestrator après le déploiement ?
+
+Actuellement, Azure Container Service ne fournit aucun outil permettant la mise à niveau de la version de l’orchestrateur que vous avez déployé sur votre cluster. Si Container Service prend en charge une version ultérieure, vous pouvez déployer un nouveau cluster. Une autre option consiste à utiliser les outils spécifiques Orchestrator s’ils sont disponibles pour mettre à niveau un cluster sur place. Par exemple, consultez [mise à niveau DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Où trouver la chaîne de connexion SSH à mon cluster ?
 

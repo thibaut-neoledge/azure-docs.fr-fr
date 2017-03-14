@@ -16,14 +16,16 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 284bf43ceae0c42b88d6ea3fe8a2e68e7530e5fe
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="a-nametoc395783175abuild-a-nodejs-web-application-using-documentdb"></a><a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
+# <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET pour MongoDB](documentdb-mongodb-application.md)
 > * [Node.JS](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -36,7 +38,7 @@ Ce didacticiel Node.js vous montre comment utiliser le service Azure DocumentDB
 
 Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète ? Vous pouvez obtenir facilement l’exemple de solution complet sur [GitHub][GitHub]. Lire simplement le fichier [Lisez-moi](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) pour obtenir des instructions sur l’exécution de l’application.
 
-## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Configuration requise
+## <a name="_Toc395783176"></a>Configuration requise
 > [!TIP]
 > Ce didacticiel Node.js part du principe que vous avez déjà utilisé Node.js et Sites Web Azure.
 > 
@@ -53,14 +55,14 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 * [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 * [Git][Git].
 
-## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
+## <a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
 Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur DocumentDB pour ce didacticiel, vous pouvez passer à [l’Étape 2 : Création d’une application Node.js](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Étape 2 : Création d’une application Node.js
+## <a name="_Toc395783178"></a>Étape 2 : Création d’une application Node.js
 Voyons maintenant comment créer un projet Node.js « Hello World » de base à l’aide de l’infrastructure [Express](http://expressjs.com/) .
 
 1. Ouvrez votre terminal préféré, par exemple l’invite de commande Node.js.
@@ -81,7 +83,7 @@ Voyons maintenant comment créer un projet Node.js « Hello World » de base �
 
     Ensuite, pour arrêter l’application, appuyez sur CTRL + C dans la fenêtre de terminal, puis saisissez **y** pour arrêter le traitement par lots.
 
-## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Étape 3 : installation de modules supplémentaires
+## <a name="_Toc395783179"></a>Étape 3 : installation de modules supplémentaires
 Le fichier **package.json** est l'un des fichiers créés à la racine du projet. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Node.js. Ensuite, lorsque vous déployez cette application vers un site web Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour prendre en charge votre application. Nous avons besoin d'installer deux autres packages pour ce didacticiel.
 
 1. De retour dans le terminal, installez le module **async** via npm.
@@ -114,7 +116,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
    
     Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
 
-## <a name="a-nametoc395783180astep-4-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
+## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
 Ceci concerne l'ensemble de l'installation et de la configuration initiales. Venons-en à présent à la raison de notre présence ici, à savoir écrire du code avec Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Création du modèle
@@ -428,7 +430,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 5. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l’aide des valeurs lues dans **config.js**), initialisent l’objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
 6. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
 
-## <a name="a-nametoc395783181astep-5-build-a-user-interface"></a><a name="_Toc395783181"></a>Étape 5 : création d'une interface utilisateur
+## <a name="_Toc395783181"></a>Étape 5 : création d'une interface utilisateur
 Intéressons-nous à présent à la création de l'interface utilisateur pour permettre à un utilisateur d'interagir réellement avec notre application. L'application Express que nous avons créée utilise **Jade** comme moteur de vue. Pour plus d'informations sur Jade, consultez la page [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté. 
@@ -519,8 +521,8 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
    
     Enregistrez et fermez ce fichier **style.css** .
 
-## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
-1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost: 3000](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :
+## <a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
+1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost:&3000;](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :
    
     ![Capture d'écran de l'application MyTodo List dans une fenêtre de navigateur](./media/documentdb-nodejs-application/image18.png)
 
@@ -535,7 +537,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 5. Pour arrêter l’application, appuyez sur CTRL + C dans la fenêtre de terminal, puis saisissez **Y** pour arrêter le traitement par lots.
 
-## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
+## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la marche à suivre dans la rubrique [Déploiement Git local vers Azure App Service](../app-service-web/app-service-deploy-local-git.md) .
 2. Ajoutez votre site web Azure en tant que git distant.
    
@@ -549,7 +551,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
     Si vous souhaitez télécharger ou vous référer à l’application de référence complète de ce didacticiel, vous pouvez la télécharger à partir de [GitHub][GitHub].
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Étapes suivantes
+## <a name="_Toc395637775"></a>Étapes suivantes
 
 * Vous souhaitez effectuer un test des performances et de la mise à l’échelle avec DocumentDB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure DocumentDB](documentdb-performance-testing.md)
 * Apprenez à [surveiller un compte DocumentDB](documentdb-monitor-accounts.md).
@@ -559,10 +561,5 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
