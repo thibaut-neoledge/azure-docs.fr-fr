@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
@@ -32,7 +32,7 @@ L'exemple d'application concerne un panneau d'affichage publicitaire. Les utilis
 
 Cet exemple d’application fonctionne avec des [files d’attente Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) et [objets blob Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). Ce didacticiel montre comment déployer l’application sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et sur la [base de données SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
-## <a name="a-idprerequisitesaprerequisites"></a><a id="prerequisites"></a>Configuration requise
+## <a id="prerequisites"></a>Configuration requise
 Ce didacticiel suppose que vous savez utiliser les projets [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) dans Visual Studio.
 
 Ce didacticiel a été écrit pour Visual Studio 2013. Si vous ne disposez pas de Visual Studio, l’installation sera lancée pour vous automatiquement, lors de l’installation du Kit de développement logiciel (SDK) Azure pour .NET.
@@ -49,7 +49,7 @@ Le didacticiel peut être utilisé avec Visual Studio 2015. Toutefois, avant d�
 >
 >
 
-## <a name="a-idlearnawhat-youll-learn"></a><a id="learn"></a>Contenu
+## <a id="learn"></a>Contenu
 Ce didacticiel explique comment effectuer les tâches suivantes :
 
 * configuration de votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;
@@ -59,7 +59,7 @@ Ce didacticiel explique comment effectuer les tâches suivantes :
 * téléchargement et enregistrement de fichiers dans le service Blob Azure ;
 * utilisation du Kit de développement logiciel (SDK) Azure WebJobs avec des files d'attente et des objets blob Azure Storage.
 
-## <a name="a-idcontosoadsaapplication-architecture"></a><a id="contosoads"></a>Architecture de l’application
+## <a id="contosoads"></a>Architecture de l’application
 L'exemple d'application utilise le [modèle de travail centré sur les files d'attente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) pour décharger le travail de création de vignettes exigeant en ressources vers un processus principal.
 
 L'application stocke les publicités dans une base de données SQL et utilise Entity Framework Code First pour créer les tables et accéder aux données. Pour chaque publicité, la base de données stocke deux URL, une pour l’image à taille réelle et l’autre pour la miniature.
@@ -74,7 +74,7 @@ Lorsqu’un utilisateur charge une image, l’application web la stocke dans un 
 
 Les instructions du didacticiel s’appliquent au Kit de développement logiciel (SDK) Azure pour .NET 2.7.1 ou pour une version ultérieure.
 
-## <a name="a-idstorageacreate-an-azure-storage-account"></a><a id="storage"></a>Création d'un compte de stockage Azure
+## <a id="storage"></a>Création d'un compte de stockage Azure
 Un compte de stockage Azure fournit des ressources pour stocker les données de file d'attente et d'objet blob dans le cloud. Le Kit de développement logiciel (SDK) WebJobs l'utilise également pour enregistrer les données de journalisation du tableau de bord.
 
 Dans une application réelle, on crée généralement des comptes distincts pour les données d'application et de journalisation, et des comptes distincts pour les données de test et de production. Pour ce didacticiel, vous allez utiliser un seul compte.
@@ -100,7 +100,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
     ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a name="a-iddownloadadownload-the-application"></a><a id="download"></a>Télécharger l’application
+## <a id="download"></a>Télécharger l’application
 1. Téléchargez et décompressez la [solution terminée](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 2. Démarrez Visual Studio.
 3. Dans le menu **Fichier**, sélectionnez **Ouvrir > Projet/Solution**, accédez à l’emplacement où vous avez téléchargé la solution, puis ouvrez le fichier de la solution.
@@ -109,7 +109,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
     Par défaut, Visual Studio restaure automatiquement le contenu du package NuGet, qui n'était pas inclus dans le fichier *.zip* . Si les packages ne sont pas restaurés, installez-les manuellement en ouvrant la boîte de dialogue **Gérer les packages NuGet pour la solution** et en cliquant sur le bouton **Restaurer** en haut à droite.
 5. Dans l'**Explorateur de solutions**, vérifiez que **ContosoAdsWeb** est sélectionné comme projet de démarrage.
 
-## <a name="a-idconfigurestorageaconfigure-the-application-to-use-your-storage-account"></a><a id="configurestorage"></a>Configurer l’application pour utiliser votre compte de stockage
+## <a id="configurestorage"></a>Configurer l’application pour utiliser votre compte de stockage
 1. Ouvrez le fichier d'application *Web.config* dans le projet ContosoAdsWeb.
 
     Ce fichier contient des chaînes de connexion SQL et de stockage Azure pour utiliser des objets blob et des files d'attente.
@@ -153,7 +153,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 7. Remplacez les chaînes de connexion de stockage par la chaîne de connexion que vous avez copiée précédemment.
 8. Enregistrez vos modifications.
 
-## <a name="a-idrunarun-the-application-locally"></a><a id="run"></a>Exécuter l’application localement
+## <a id="run"></a>Exécuter l’application localement
 1. Pour démarrer le programme web frontal de l'application, appuyez sur Ctrl+F5.
 
     Le navigateur par défaut ouvre la page d'accueil. Le projet web s'exécute, car vous l'avez défini comme projet de démarrage.
@@ -183,7 +183,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 Vous avez exécuté l'application sur votre ordinateur local. Elle utilise une base de données SQL Server sur votre ordinateur, mais travaille sur des files d'attente et des objets blob dans le cloud. Dans la section suivante, vous allez exécuter l'application dans le cloud en utilisant une base de données du cloud ainsi que des objets blob et des files d'attente du cloud.  
 
-## <a name="a-idrunincloudarun-the-application-in-the-cloud"></a><a id="runincloud"></a>Exécuter l’application dans le cloud
+## <a id="runincloud"></a>Exécuter l’application dans le cloud
 Pour exécuter l'application dans le cloud, procédez comme suit :
 
 * Procédez au déploiement dans Web Apps. Visual Studio crée automatiquement une application web dans App Service et une instance Base de données SQL.
@@ -308,7 +308,7 @@ Dans cette section, vous utilisez l’ **Explorateur de serveurs** pour définir
 >
 >
 
-## <a name="a-idcreateacreate-the-application-from-scratch"></a><a id="create"></a>Créer l’application intégralement
+## <a id="create"></a>Créer l’application intégralement
 Dans cette section, vous effectuerez les tâches suivantes :
 
 * création d'une solution Visual Studio avec un projet web ;
@@ -407,7 +407,7 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 Vous pouvez maintenant générer, exécuter et déployer l'application en suivant les instructions fournies précédemment dans ce didacticiel. Toutefois, avant cela, arrêtez la tâche web toujours en cours d’exécution dans la première application web dans laquelle vous l’avez déployée. Dans le cas contraire, cette tâche web traitera les messages de file d’attente créés localement ou par l’application en cours d’exécution dans une nouvelle application web, car ils utilisent tous le même compte de stockage.
 
-## <a name="a-idcodeareview-the-application-code"></a><a id="code"></a>Vérifier le code de l’application
+## <a id="code"></a>Vérifier le code de l’application
 Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure.
 
 > [!NOTE]
@@ -636,7 +636,7 @@ Un élément `<input>` indique au navigateur de fournir une boîte de dialogue d
 
         <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### <a name="a-idprogramcsacontosoadswebjob---programcs"></a><a id="programcs"></a>ContosoAdsWebJob - Program.cs
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 Lorsque la tâche web démarre, la méthode `Main` appelle la méthode `JobHost.RunAndBlock` du Kit de développement logiciel (SDK) WebJobs pour commencer l’exécution des fonctions déclenchées sur le thread actuel.
 
         static void Main(string[] args)
@@ -645,7 +645,7 @@ Lorsque la tâche web démarre, la méthode `Main` appelle la méthode `JobHost.
             host.RunAndBlock();
         }
 
-### <a name="a-idgeneratethumbnailacontosoadswebjob---functionscs---generatethumbnail-method"></a><a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Méthode GenerateThumbnail
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - Méthode GenerateThumbnail
 Le Kit de développement logiciel (SDK) WebJobs appelle cette méthode lorsqu'un message de file d'attente est reçu. Cette méthode crée une vignette et place son URL dans la base de données.
 
         public static void GenerateThumbnail(

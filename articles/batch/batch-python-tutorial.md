@@ -215,7 +215,7 @@ Dans le cadre de l’opération de chargement des fichiers, *python_tutorial_cli
 
 À l’aide de la compréhension de liste, la fonction `upload_file_to_container` est appelée pour chaque fichier dans les groupes et les deux groupes [ResourceFile][py_resource_file] sont remplis. La fonction `upload_file_to_container` apparaît ci-dessous :
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Étape 8 : supprimer les conteneurs
 Dans la mesure où les données qui résident dans Azure Storage vous sont facturées, il est toujours judicieux de supprimer tous les objets blob dont vous n’avez plus besoin pour vos travaux Batch. Dans *python_tutorial_client.py*, cela se fait par le biais de trois appels vers [BlockBlobService.delete_container][py_delete_container] :
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)
