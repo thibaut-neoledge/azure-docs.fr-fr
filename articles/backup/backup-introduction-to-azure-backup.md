@@ -1,6 +1,6 @@
 ---
-title: "Qu’est-ce qu’Azure Backup ? | Microsoft Docs"
-description: "Grâce à la sauvegarde Azure Backup et à Recovery Services, vous pouvez sauvegarder et restaurer des données et des applications à partir de serveurs et de stations de travail Windows, de serveurs et de charges de travail System Center DPM, et de machines virtuelles Azure."
+title: "Qu’est-ce qu’Azure Backup ? | Microsoft Docs"
+description: "Utilisez la sauvegarde Azure pour sauvegarder et restaurer les données et les charges de travail depuis les serveurs Windows Server, les stations de travail Windows, les serveurs System Center DPM et les machines virtuelles Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,16 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
+ms.date: 2/27/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
-ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
+ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
+# <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants Azure Backup (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre de sauvegarde au sein d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
 
 [Regarder une vidéo de présentation d’Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -94,17 +95,15 @@ Le tableau suivant montre les composants Azure Backup prenant en charge Linux.
 | Sauvegarde des machines virtuelles IaaS Azure |Oui |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation des machines virtuelles Premium Storage avec Azure Backup
-Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur Stockage Premium, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
+Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
-Lors de la sauvegarde de machines virtuelles Premium Storage, le service Backup crée un emplacement temporaire intermédiaire dans le compte Premium Storage. L'emplacement intermédiaire, nommé « AzureBackup- », est égal à la taille totale des données des disques Premium attachés à la machine virtuelle. Vérifiez si l’espace libre est suffisant pour un stockage temporaire intermédiaire sur le compte de stockage. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de cet emplacement intermédiaire est égale à la taille de l’instantané de point de récupération. Vérifiez que le compte de stockage dispose d’espace libre pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Évitez de modifier l'emplacement intermédiaire.
 >
 >
-
-Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### <a name="restore-premium-storage-vms"></a>Restaurer des machines virtuelles Premium Storage
 Les machines virtuelles Stockage Premium peuvent être restaurées dans Stockage Premium ou dans le stockage standard. La restauration d'un point de récupération de machines virtuelles Premium Storage dans Premium Storage est le processus de restauration classique. Toutefois, il peut être rentable de restaurer un point de récupération de machines virtuelles Premium Storage dans le stockage standard. Ce type de restauration peut être utilisé si vous avez besoin d'un sous-ensemble de fichiers de la machine virtuelle.

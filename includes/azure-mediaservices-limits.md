@@ -4,20 +4,20 @@
 | Ressource | Limite par défaut | 
 | --- | --- | 
 | Comptes AMS (Azure Media Services) dans un seul abonnement | 25 (fixe) |
-| Unités réservées de média (RU) par compte AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Travaux par compte AMS | 50 000<sup>2</sup> |
+| Unités réservées de média (RU) par compte AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Travaux par compte AMS | 50,000<sup>(2)</sup> |
 | Tâches chaînées par travail | 30 (fixe) |
 | Actifs par compte AMS | 1 000 000|
 | Actifs par tâche | 50 |
 | Actifs par travail | 100 |
-| Localisateurs uniques associés à un actif à un moment donné | 5<sup>4</sup> |
+| Localisateurs uniques associés à un actif à un moment donné | 5<sup>(4)</sup> |
 | Canaux en direct par compte AMS  |5|
 | Programmes dans un état Arrêté par canal  |50|
 | Programmes en cours d’exécution par canal  |3|
 | Points de terminaison de diffusion en continu en cours d’exécution par compte AMS|2|
 | Unités de diffusion en continu par point de terminaison de diffusion en continu  |10 |
-| Comptes de stockage | 1 000<sup>5</sup> (fixe) |
-| Stratégies | 1,000,000<sup>6</sup> |
+| Comptes de stockage | 1 000<sup>(5)</sup> (fixe) |
+| Stratégies | 1,000,000<sup>(6)</sup> |
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
   
 <sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest.
@@ -44,8 +44,3 @@
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

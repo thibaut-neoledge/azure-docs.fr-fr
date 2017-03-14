@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 841257fe74dad05d6a25ec35a62e415d6c1917b4
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="handling-security-incident-in-azure-security-center"></a>Gestion des incidents de sécurité dans Azure Security Center
+# <a name="handling-security-incidents-in-azure-security-center"></a>Gestion des incidents de sécurité dans Azure Security Center
 Procéder au triage et à l’examen des alertes de sécurité peut prendre beaucoup de temps, même pour le plus compétent des analystes de sécurité, et bien souvent il est difficile de savoir par où commencer. En utilisant les [fonctions d’analyse](security-center-detection-capabilities.md) pour connecter les informations entre différentes [alertes de sécurité](security-center-managing-and-responding-alerts.md), le Centre de sécurité peut vous fournir une vue unique d’une campagne d’attaque et de l’ensemble des alertes associées. Vous pouvez donc rapidement savoir quelles actions l’attaquant a effectuées et quelles ressources ont été affectées.
 
 Ce document explique comment utiliser la fonction d’alerte de sécurité dans le Centre de sécurité pour vous aider à gérer les incidents de sécurité.
@@ -61,9 +62,4 @@ Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion de
 * [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md)
 * [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/): trouvez des billets de blog sur la sécurité et la conformité Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
-ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-Le kit de développement logiciel Fabric Service inclut un complément à Visual Studio proposant des outils et des modèles pour la création, le déploiement et le débogage d’applications Service Fabric. Cette rubrique vous guide tout au long du processus de création de votre première application dans Visual Studio.
+Le kit de développement logiciel Fabric Service inclut un complément à Visual Studio proposant des outils et des modèles pour la création, le déploiement et le débogage d’applications Service Fabric. Cette rubrique vous guide tout au long du processus de création de votre première application dans Visual Studio 2017 ou Visual Studio 2015.
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md).
@@ -66,7 +66,7 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
    
    * **Profils de publication**: permet de gérer les préférences d’outils pour différents environnements.
    * **Scripts**: contient un script PowerShell de déploiement/mise à niveau de votre application. Visual Studio utilise le script en arrière-plan. Le script peut également être appelé directement dans la ligne de commande.
-   * **Définition d’application**: inclut le manifeste d’application dans le dossier *ApplicationPackageRoot*. Les fichiers de paramètres d’application associés, qui définissent l’application et vous permettent de la configurer spécifiquement pour un environnement donné, se trouvent dans le dossier *ApplicationParameters*.
+   * **Définition d’application** : inclut le manifeste d’application dans le dossier *ApplicationPackageRoot*. Les fichiers de paramètres d’application associés, qui définissent l’application et vous permettent de la configurer spécifiquement pour un environnement donné, se trouvent dans le dossier *ApplicationParameters*.
      
      Pour avoir une vue d’ensemble du contenu du projet de service, consultez l’article [Prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md).
 
