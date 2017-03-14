@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 8245c9d86d7a37bfb12c06b1cb2cbe9dae01d653
-ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
+ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
+ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -59,14 +60,22 @@ Voici les détails de la requête HTTP 1.1 pour exécuter une [méthode directe
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+La condition de requête peut également être un ID d’appareil unique ou figurer sur une liste d’ID comme illustré ci-dessous
+
+**Exemples**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+Le [langage de requête IoT Hub][lnk-query] couvre le langage de requête IoT Hub plus en détail.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Travaux de mise à jour les propriétés d’une représentation d’appareil
 Voici les détails de la requête HTTP 1.1 pour mettre à jour les propriétés d’une représentation d’appareil à l’aide d’un travail :
@@ -82,8 +91,7 @@ Voici les détails de la requête HTTP 1.1 pour mettre à jour les propriétés 
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -120,7 +128,8 @@ Voici une liste de propriétés et de descriptions correspondantes qui peuvent �
 | **running** : le travail est actuellement actif. | |
 | **cancelled** : le travail a été annulé. | |
 | **failed** : échec de la tâche. | |
-| **completed** : le travail est terminé.. | |
+| <seg>
+  **completed** : le travail est terminé..</seg> | |
 | **deviceJobStatistics** |Statistiques relatives à l’exécution du travail. |
 
 Propriétés **deviceJobStatistics**.
@@ -159,9 +168,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
