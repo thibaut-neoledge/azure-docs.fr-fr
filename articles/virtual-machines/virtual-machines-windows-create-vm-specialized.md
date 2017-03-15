@@ -75,7 +75,6 @@ Pour établir la communication avec la machine virtuelle dans le réseau virtuel
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Créer le groupe de sécurité réseau et une règle RDP
 Pour pouvoir vous connecter à votre machine virtuelle avec le protocole RDP, vous devez disposer d’une règle de sécurité qui autorise l’accès RDP sur le port 3389. Du fait que le disque dur virtuel de la nouvelle machine virtuelle a été créé à partir d’une machine virtuelle spécialisée, une fois que la machine virtuelle est créée, vous pouvez utiliser un compte existant à partir de la machine virtuelle source qui a l’autorisation de se connecter à l’aide de RDP.
-
 Cet exemple définit le nom du groupe de sécurité réseau sur **myNsg** et le nom de règle RDP sur **myRdpRule**.
 
 ```powershell
@@ -85,7 +84,6 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
@@ -96,7 +94,6 @@ Pour plus d’informations sur les points de terminaison et les règles NSG, con
 ## <a name="set-the-vm-name-and-size"></a>Définir le nom et la taille de machine virtuelle
 
 Cet exemple définit « myVM » en tant que nom de la machine virtuelle et « Standard_A2 » pour sa taille.
-
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -134,7 +131,7 @@ ou
 2. Ajoutez le disque du système d’exploitation à la configuration. Cet exemple définit la taille du disque sur **128 Go** et attache le disque géré en tant que disque de système d’exploitation **Windows**.
     
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 

@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f76277ab93c58098648ee65ea5aba0757495da68
-ms.openlocfilehash: 1222a670a1bf530871a19c79b7da441c03f8df51
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,11 +39,18 @@ Ces notes de publication récapitulent les modifications par rapport aux précé
 | Le mécanisme de limitation de Media Services restreint l'utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d'état HTTP Service indisponible (503). |Pour plus d’informations, reportez-vous à la description du code d’état HTTP 503 dans la rubrique [Codes d’erreur d’Azure Media Services](media-services-encoding-error-codes.md) . |
 | Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. |Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et cet exemple [d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette](media-services-deliver-content-overview.md#known-issues) section. |
-| Les objets du Kit de développement logiciel (SDK) Azure Media Services ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec Azure Caching. |Si vous essayez de sérialiser l'objet AssetCollection du Kit de développement logiciel (SDK) pour l'ajouter à Azure Caching, une exception est levée. |
+| Les objets du kit SDK Azure Media Services ne peuvent pas être sérialisés et, par conséquent, ne fonctionnent pas avec Azure Caching. |Si vous essayez de sérialiser l'objet AssetCollection du kit SDK pour l'ajouter à Azure Caching, une exception est levée. |
 | Les travaux d’encodage échouent avec une chaîne de message « Étape : DownloadFile. Code : System.NullReferenceException ». |Le flux de travail d’encodage classique consiste à charger un ou des fichiers vidéo d’entrée vers une ressource d’entrée et à envoyer un ou plusieurs travaux d’encodage pour cette ressource d’entrée, sans la modifier davantage. Si toutefois vous la modifiez (par exemple, par ajout / suppression / renommage de fichiers dans la ressource), les travaux suivants peuvent échouer avec une erreur DownloadFile. La solution de contournement consiste à supprimer la ressource d’entrée et à recharger le ou les fichiers d’entrée vers une nouvelle ressource. |
 
 ## <a id="rest_version_history"></a>Historique des versions de l’API REST
 Pour des informations sur l'historique des versions de l'API REST, consultez la page [Référence de l'API REST d'Azure Media Services].
+
+## <a name="march-2017-release"></a>Version de mars 2017
+
+Vous pouvez désormais utiliser Azure Media Standard pour [générer automatiquement une échelle de vitesse de transmission](media-services-autogen-bitrate-ladder-with-mes.md) en spécifiant la chaîne prédéfinie « Diffusion en continu adaptative » lors de la création d’une tâche d’encodage. « Diffusion en continu adaptative » est l’option prédéfinie recommandée si vous voulez encoder une vidéo pour du streaming avec Media Services. Si vous devez personnaliser un encodage prédéfini pour votre scénario spécifique, vous pouvez commencer par [ces options](media-services-mes-presets-overview.md) prédéfinies.
+
+Vous pouvez désormais utiliser Azure Media Standard ou Media Encoder Premium Workflow pour [créer une tâche d’encodage qui génère des segments fMP4](media-services-generate-fmp4-chunks.md). 
+
 
 ## <a name="febuary-2017-release"></a>Version de février 2017
 
@@ -109,12 +116,12 @@ Les unités réservées d’encodage De base, Standard et Premium sont renommée
 
 Azure Media Encoder sera déconseillé environ 12 mois après le lancement de la version Media Encoder Standard.
 
-### <a name="azure-sdk-for-php"></a>Kit de développement logiciel (SDK) Azure pour PHP
-L’équipe du Kit de développement logiciel (SDK) Azure a publié une nouvelle version du package [Kit de développement logiciel (SDK) Azure pour PHP](http://github.com/Azure/azure-sdk-for-php) qui contient des mises à jour et nouvelles fonctionnalités pour Microsoft Azure Media Services. En particulier, le Kit de développement logiciel (SDK) Azure Media Services pour PHP prend désormais en charge les dernières fonctionnalités de [protection du contenu](media-services-content-protection-overview.md) : chiffrement dynamique avec AES et DRM (PlayReady et Widevine), avec et sans restriction de jeton. Il prend également en charge la mise à l’échelle des [Unités d’encodage](media-services-dotnet-encoding-units.md).
+### <a name="azure-sdk-for-php"></a>Kit SDK Azure pour PHP
+L’équipe du kit SDK Azure a publié une nouvelle version du package [kit SDK Azure pour PHP](http://github.com/Azure/azure-sdk-for-php) qui contient des mises à jour et nouvelles fonctionnalités pour Microsoft Azure Media Services. En particulier, le kit SDK Azure Media Services pour PHP prend désormais en charge les dernières fonctionnalités de [protection du contenu](media-services-content-protection-overview.md) : chiffrement dynamique avec AES et DRM (PlayReady et Widevine), avec et sans restriction de jeton. Il prend également en charge la mise à l’échelle des [Unités d’encodage](media-services-dotnet-encoding-units.md).
 
 Pour plus d’informations, consultez :
 
-* Le blog [Kit de développement logiciel (SDK) Microsoft Azure Media Services pour PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) .
+* Le blog [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
 * Les [exemples de code](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants pour vous aider à commencer rapidement :
   * **vodworkflow_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique AES 128 et le service de remise de clés. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-aes128.md) article.
   * **vodworkflow_aes.php** : fichier PHP indiquant comment utiliser le chiffrement dynamique PlayReady et le service de remise de licences. Il est basé sur l’exemple .NET expliqué dans [cet](media-services-protect-with-drm.md) article.
@@ -148,7 +155,7 @@ Azure Media Services (AMS) est désormais également disponible dans les centres
     Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) .
 
 ## <a id="august_changes_15"></a>Version d’août 2015
-* Le Kit de développement logiciel (SDK) Azure Media Services pour Java V0.8.0 et de nouveaux exemples sont désormais disponibles. Pour plus d'informations, consultez les pages suivantes :
+* Le kit SDK Azure Media Services pour Java V0.8.0 et de nouveaux exemples sont désormais disponibles. Pour plus d'informations, consultez les pages suivantes :
   
   * [Billet de blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Référentiel d’exemples Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -161,8 +168,8 @@ Azure Media Services (AMS) est désormais également disponible dans les centres
     Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que, lorsque vous utilisez une présélection pour les encodages 4K, vous devez obtenir le type d’unité réservée **Premium** . Pour plus d’informations, consultez [Mise à l’échelle de l’encodage](media-services-scale-media-processing-overview.md).
 * Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, consultez [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
-### <a name="media-services-net-sdk-updates"></a>Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
-La version du Kit de développement logiciel (SDK) .NET Azure Media Services est maintenant 3.4.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :  
+### <a name="media-services-net-sdk-updates"></a>Mises à jour du kit SDK .NET de Media Services
+La version du kit SDK .NET Azure Media Services est maintenant 3.4.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :  
 
 * Prise en charge implémentée d'une archive en direct. Notez que vous ne pouvez pas télécharger un actif contenant une archive en direct.
 * Prise en charge implémentée des filtres dynamiques.
@@ -171,8 +178,8 @@ La version du Kit de développement logiciel (SDK) .NET Azure Media Services est
 * **Workflow d’encodeur multimédia premium** activé.
 
 ## <a id="june_changes_15"></a>Version de juin 2015
-### <a name="media-services-net-sdk-updates"></a>Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
-Le Kit de développement logiciel (SDK) Azure Media Services en est maintenant à la version 3.3.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :  
+### <a name="media-services-net-sdk-updates"></a>Mises à jour du kit SDK .NET de Media Services
+Le kit SDK Azure Media Services en est maintenant à la version 3.3.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :  
 
 * prise en charge de la spécification OpenId Connect Discovery,
 * prise en charge de la gestion du renouvellement de clés côté fournisseur d’identité. 

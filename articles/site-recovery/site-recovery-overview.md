@@ -12,28 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/23/2017
+ms.date: 02/26/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 31c0d8a3b525d24861090adb0edf0351fae7467e
-ms.openlocfilehash: de89ea7309736ac1636e7950d1cd7e68f9ec2f0e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
+ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Qu’est-ce que Site Recovery ?
 
-Bienvenue dans le service Azure Site Recovery.
+Bienvenue dans le service Azure Site Recovery. Cet article offre une vue d’ensemble du service et des liens vers des informations complémentaires.
 
-Cet article offre une vue d’ensemble du service Azure Site Recovery et des liens vers des informations complémentaires.
+Les interruptions d’activité sont dues à des événements naturels et à des défaillances opérationnelles. Votre organisation a besoin d’une stratégie de continuité des activités et de récupération d’urgence qui assure la disponibilité des applications et la sécurité des données pendant les temps d’arrêt prévus et imprévus et qui puisse rétablir au plus vite des conditions de travail normales.
 
-Les interruptions d’activité sont dues à des événements naturels et à des défaillances opérationnelles. Votre organisation a besoin d’une stratégie de continuité d’activité et de récupération d’urgence qui assure la disponibilité et la sécurité des applications et des données pendant les temps d’arrêt prévus et imprévus et qui puisse les rétablir au plus vite aux conditions de travail normales.
+Azure Recovery Services contribue à votre stratégie de continuité des activités et de récupération d’urgence. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) préserve la sécurité et la capacité de récupération de vos données. Site Recovery réplique, bascule et récupère les charges de travail, afin qu’elles restent disponibles en cas de panne.
 
-Azure Recovery Services contribue à votre stratégie de continuité d’activité et de récupération d’urgence. Utilisez la [Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/) pour préserver la sécurité et la capacité de récupération des données. Utilisez Site Recovery pour répliquer, basculer et récupérer des charges de travail, afin qu’elles restent disponibles en cas de défaillance.
-
-## <a name="benefits"></a>Avantages
-
-Voici comment Site Recovery contribue à votre stratégie de continuité d’activité et de récupération d’urgence :
+## <a name="what-does-site-recovery-provide"></a>À quoi sert Site Recovery ?
 
 - **Récupération d’urgence dans le cloud** : vous pouvez répliquer des charges de travail qui s’exécutent sur des machines virtuelles et des serveurs physiques vers Azure, plutôt que vers un site secondaire. Ceci réduit le coût et la complexité de gestion d’un centre de données secondaire.
 - **Réplication flexible pour les environnements hybrides** : vous pouvez répliquer des charges de travail s’exécutant sur des machines virtuelles locales Hyper-V et VMware prises en charge, et sur des serveurs physiques Windows/Linux.
@@ -45,33 +41,31 @@ Les données répliquées sont stockées dans le Stockage Azure, avec la résili
 - **Cohérence au niveau de l’application** : réplication des machines utilisant des captures instantanées cohérentes au niveau de l’application. En plus de capturer des données de disque, ces instantanés capturent toutes les données en mémoire, et toutes les transactions en cours.
 - **Tests sans perturbations** : vous pouvez facilement exécuter des tests de basculement pour prendre en charge la marche à suivre en cas de récupération d’urgence, sans affecter les environnements de production.
 - **Basculement et récupération flexibles** : vous pouvez exécuter des basculements planifiés pour les interruptions attendues, sans perte de données, ou des basculements non planifiés avec une perte de données minimale (en fonction de la fréquence de réplication) pour les incidents inattendus. Vous pouvez effectuer en toute simplicité une restauration automatique vers votre site principal dès qu’il est à nouveau disponible.
-- **Fournit des plans de récupération enrichis** : les plans de récupération vous permettent de modéliser et de personnaliser le basculement et la récupération des applications multicouches réparties sur plusieurs machines virtuelles. Vous pouvez trier les groupes parmi les plans et ajouter des scripts et des actions manuelles. Les plans de récupération peuvent être intégrés à des runbooks Azure Automation.
+- **Plans de récupération personnalisés** : les plans de récupération vous permettent de modéliser et de personnaliser le basculement et la récupération des applications multicouches réparties sur plusieurs machines virtuelles. Vous pouvez trier les groupes parmi les plans et ajouter des scripts et des actions manuelles. Les plans de récupération peuvent être intégrés à des runbooks Azure Automation.
 - **Applications multiniveaux** : vous pouvez créer des plans de récupération pour le basculement séquencé et la récupération d’applications multiniveaux. Vous pouvez regrouper des machines de différents niveaux (par exemple les niveaux base de données, web, application) au sein d’un plan de récupération, et personnaliser le basculement et le démarrage de chaque groupe.
 * **Intégration aux technologies existantes de continuité d’activité et de récupération d’urgence** : Site Recovery s’intègre avec d’autres technologies de continuité d’activité et de récupération d’urgence. Par exemple, vous pouvez utiliser Site Recovery pour protéger le serveur principal SQL Server de charges de travail d’entreprise, notamment la prise en charge native de SQL Server AlwaysOn pour gérer le basculement des groupes de disponibilité.
 * **Intégration à la bibliothèque d’automatisation** : une bibliothèque Azure Automation avancée qui fournit des scripts propres à chaque application et prêts pour la production, qui peuvent être téléchargés et intégrés avec Site Recovery.
 * **Gestion réseau simple** : la gestion réseau avancée dans Site Recovery et Azure simplifie les conditions requises du réseau d’application, notamment la réservation d’adresses IP, la configuration d’équilibreurs de charge et l’intégration d’Azure Traffic Manager pour les commutations réseau efficaces.
 
-## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery dans le portail Azure
+## <a name="which-azure-portal"></a>Quel portail Azure utiliser ?
 
 * Site Recovery peut être déployé dans le nouveau [Portail Azure](https://portal.azure.com) et sur le [Portail Azure Classic](https://manage.windowsazure.com/).
 * Dans le portail Azure Classic, vous pouvez prendre en charge Site Recovery avec le modèle de gestion des services classique.
 * Sur le Portail Azure, vous pouvez prendre en charge le modèle Classic, ou le nouveau [modèle de déploiement Ressource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 - Le Portail Classic doit uniquement être utilisé pour maintenir les déploiements Site Recovery existants. Il est impossible de créer de nouveaux coffres à l’aide du Portail Classic.
 
-Les informations contenues dans cet article s’appliquent aux déploiements classiques et de portail Azure. Nous avons indiqué les différences, le cas échéant.
-
-## <a name="whats-supported"></a>Opérations prises en charge
+## <a name="whats-supported"></a>Prise en charge
 
 **Pris en charge** | **Détails**
 --- | ---
-**Quelles sont les régions prises en charge ?** | [Régions prises en charge](https://azure.microsoft.com/en-us/regions/services/) |
+**Quelles sont les régions prises en charge pour Site Recovery ?** | [Régions prises en charge](https://azure.microsoft.com/en-us/regions/services/) |
 **Que puis-je répliquer ?** | Machines virtuelles VMware locales, machines virtuelles Hyper-V et serveurs physiques Windows et Linux.
-**Quels sont les systèmes d’exploitation pris en charge pour les machines répliquées ?** | [Systèmes d’exploitation](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pour les machines virtuelles VMware<br/><br/> Pour les machines virtuelles Hyper-V, tous les [SE invités](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pris en charge par Azure et Hyper-V sont pris en charge.<br/><br/> [Systèmes d’exploitation](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pour les serveurs physiques
-**Vers où puis-je effectuer la réplication ?** | Centre de données Azure ou secondaire<br/><br/> Seules les machines virtuelles sur des hôtes Hyper-V gérés dans des clouds System Center VMM peuvent être répliquées vers un centre de données secondaire.
+**De quels systèmes d’exploitation ont besoin les machines répliquées ?** | [Systèmes d’exploitation pris en charge](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pour les machines virtuelles VMware<br/><br/> Pour les machines virtuelles Hyper-V, tous les [SE invités](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pris en charge par Azure et Hyper-V sont pris en charge.<br/><br/> [Systèmes d’exploitation](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) pour les serveurs physiques
+**Vers où puis-je effectuer la réplication ?** | Vers le stockage Azure ou à un centre de données secondaire<br/><br/> Pour Hyper-V, seules les machines virtuelles sur des hôtes Hyper-V gérés dans des clouds System Center VMM peuvent être répliquées vers un centre de données secondaire.
 **De quels serveurs/hôtes VMware ai-je besoin ?** | Les machines virtuelles VMware que vous souhaitez répliquer peuvent être gérées par les [hôtes vSphere / serveurs vCenter pris en charge](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-**Quelles charges de travail puis-je répliquer ?** | Vous pouvez répliquer toutes les charges de travail qui s’exécutent sur une machine de réplication prise en charge.
+**Quelles charges de travail puis-je répliquer ?** | Vous pouvez répliquer toutes les charges de travail qui s’exécutent sur une machine de réplication prise en charge. En outre, l’équipe de Site Recovery a effectué des tests pour un [certain nombre d’applications](site-recovery-workload.md#workload-summary).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus, consultez la page [Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?](site-recovery-workload.md)
-* Pour en savoir plus sur l’architecture de Site Recovery, consultez l’article [Comment Azure Site Recovery fonctionne-t-il ?](site-recovery-components.md)
+* En savoir plus sur la [prise en charge de la charge de travail](site-recovery-workload.md)
+* En savoir plus sur [l’architecture et les composants de Site Recovery](site-recovery-components.md).
 

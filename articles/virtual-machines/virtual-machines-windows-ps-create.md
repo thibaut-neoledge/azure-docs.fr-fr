@@ -1,6 +1,6 @@
 ---
 title: "Création d&quot;une machine virtuelle Azure à l&quot;aide de PowerShell | Microsoft Docs"
-description: "Utilisez Azure PowerShell et Azure Resource Manager pour créer facilement une machine virtuelle exécutant Windows Server."
+description: "Utilisez Azure PowerShell et Azure Resource Manager pour créer une machine virtuelle Windows Server."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Création d'une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Création d’une machine virtuelle Windows à l’aide d’Azure Resource Manager et de PowerShell
 
-Cet article vous montre comment créer rapidement une machine virtuelle Azure exécutant Windows Server et les ressources dont elle a besoin à l’aide de [Resource Manager](../azure-resource-manager/resource-group-overview.md) et d’Azure PowerShell.  
+Cet article montre comment créer rapidement une machine virtuelle Azure exécutant Windows Server et les ressources dont elle a besoin à l’aide [d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) et d’Azure PowerShell.  
 
-Toutes les étapes décrites dans cet article sont nécessaires pour créer une machine virtuelle. La procédure globale dure environ 30 minutes. Remplacez les exemples de valeurs de paramètre dans les commandes par des noms appropriés à votre environnement.
+Toutes les étapes décrites dans cet article sont nécessaires pour créer une machine virtuelle. De plus, vous avez besoin de 10 minutes environ pour copier, coller et exécuter les commandes.
 
 ## <a name="step-1-install-azure-powershell"></a>Étape 1 : installer Azure PowerShell
 
@@ -79,7 +79,7 @@ Lorsque vous créez une machine virtuelle, vous pouvez actuellement choisir si v
 
 ## <a name="step-4-create-a-virtual-network"></a>Étape 4 : création d'un réseau virtuel
 
-Toutes les machines virtuelles font partie d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md).
+Toutes les machines virtuelles font partie d’un [réseau virtuel](virtual-machines-windows-network-overview.md).
 
 1. Créez un sous-réseau pour le réseau virtuel. Cette commande crée un sous-réseau nommé **mySubnet** avec le préfixe d’adresse 10.0.0.0/24.
    

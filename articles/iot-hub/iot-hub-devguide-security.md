@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
-ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,10 +42,10 @@ Vous pouvez accorder des [autorisations](#iot-hub-permissions) de différentes m
 * **Stratégies d’accès partagé au niveau d’IoT Hub**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#iot-hub-permissions). Vous pouvez définir des stratégies dans le [Portail Azure][lnk-management-portal] ou par programmation à l’aide des [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis]. Un hub IoT qui vient d’être créé a les stratégies par défaut suivantes :
   
   * **iothubowner**: stratégie jouissant de toutes les autorisations.
-  * **service**: stratégie jouissant de l’autorisation ServiceConnect.
-  * **device**: stratégie jouissant de l’autorisation DeviceConnect.
-  * **registryRead**: stratégie jouissant de l’autorisation RegistryRead.
-  * **registryReadWrite**: stratégie jouissant des autorisations RegistryRead et RegistryWrite.
+  * **service** : stratégie jouissant de l’autorisation **ServiceConnect**.
+  * **device** : stratégie jouissant de l’autorisation **DeviceConnect**.
+  * **registryRead** : stratégie jouissant de l’autorisation **RegistryRead**.
+  * **registryReadWrite** : stratégie jouissant des autorisations **RegistryRead** et RegistryWrite.
   * **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre des identités][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre des identités, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
 Par exemple, dans une solution IoT classique :
@@ -54,6 +54,9 @@ Par exemple, dans une solution IoT classique :
 * Le composant de processeur d’événements utilise la stratégie *service* .
 * Le composant de logique métier des appareils d’exécution utilise la stratégie *service*.
 * Les appareils individuels se connectent à l’aide d’informations d’identification stockées dans le registre des identités du hub IoT.
+
+> [!NOTE]
+> Pour plus d’informations, consultez la page [Autorisations](#iot-hub-permissions).
 
 ## <a name="authentication"></a>Authentification
 Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un jeton par rapport aux stratégies d’accès partagé et aux informations d’identification de sécurité du registre des identités.
@@ -370,10 +373,10 @@ Le tableau suivant répertorie les autorisations que vous pouvez utiliser pour c
 
 | Autorisation | Remarques |
 | --- | --- |
-| **RegistryRead**. |Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. |
-| **RegistryReadWrite**. |Accorde l’accès en lecture et en écriture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. |
-| **ServiceConnect**. |Accorde l’accès à la communication de services cloud et à la surveillance des points de terminaison. Par exemple, elle permet aux services cloud principaux de recevoir des messages appareil-à-cloud, d’envoyer des messages cloud-à-appareil et de récupérer les accusés de remise correspondants. |
-| **DeviceConnect**. |Accorde l’accès aux points de terminaison côté appareil. Par exemple, elle permet d’envoyer des messages appareil-à-cloud et de recevoir des messages cloud-à-appareil. Cette autorisation est utilisée par les appareils. |
+| **RegistryRead**. |Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
+| **RegistryReadWrite**. |Accorde l’accès en lecture et en écriture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
+| **ServiceConnect**. |Accorde l’accès à la communication de services cloud et à la surveillance des points de terminaison. <br/>Accorde l’autorisation de recevoir des messages de l’appareil vers le cloud, d’envoyer des messages du cloud vers l’appareil et de récupérer les accusés de remise correspondants. <br/>Accorde l’autorisation de récupérer les accusés de remise pour les chargements de fichiers. <br/>Accorde l’autorisation d’accéder aux jumeaux d’appareil pour mettre à jour les balises et les propriétés voulues, de récupérer les propriétés signalées et d’exécuter des requêtes. <br/>Cette autorisation est utilisée par les services cloud principaux. |
+| **DeviceConnect**. |Accorde l’accès aux points de terminaison côté appareil. <br/>Accorde l’autorisation d’envoyer des messages de l’appareil vers le cloud et de recevoir des messages du cloud vers l’appareil. <br/>Accorde l’autorisation d’effectuer un chargement de fichiers à partir d’un appareil. <br/>Accorde l’autorisation de recevoir des notifications de propriétés voulues pour les jumeaux d’appareil et de mettre à jour les propriétés signalées pour les jumeaux d’appareil. <br/>Accorde l’autorisation d’effectuer des chargements de fichiers. <br/>Cette autorisation est utilisée par les appareils. |
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
@@ -381,13 +384,13 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
 * La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
+* La rubrique [Langage de requête d’IoT Hub pour les jumeaux d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous savez comment contrôler l’accès à IoT Hub, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
-* [Utiliser des représentations d’appareil pour synchroniser les données d’état et de configuration][lnk-devguide-device-twins]
+* [Utiliser des jumeaux d’appareil pour synchroniser les données d’état et de configuration][lnk-devguide-device-twins]
 * [Appeler une méthode directe sur un appareil][lnk-devguide-directmethods]
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]
 

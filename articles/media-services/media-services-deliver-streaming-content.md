@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
    
    Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource.  
 4. Création d’URL vers le fichier manifeste ou les fichiers MP4. 
+
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="use-media-services-net-sdk"></a>Utilisation du Kit de développement logiciel (SDK) .NET de Media Services
 Création d’URL de diffusion 
@@ -173,10 +178,5 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 ## <a name="see-also"></a>Voir aussi
 [Télécharger des ressources](media-services-deliver-asset-download.md)
 [Configurer la stratégie de distribution d’éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

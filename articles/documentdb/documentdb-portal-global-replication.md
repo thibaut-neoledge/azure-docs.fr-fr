@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/24/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 691e2e9156a825e64890f035b23cb2526d502107
-ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,15 +28,10 @@ Découvrez comment utiliser le portail Azure afin de répliquer les données dan
 
 Pour plus d’informations sur le fonctionnement de la réplication de base de données mondiale dans DocumentDB, consultez la section [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md). Pour plus d’informations sur l’exécution de la réplication de base de données mondiale par programme, consultez la section [Développement avec des comptes DocumentDB à plusieurs régions](documentdb-developing-with-multiple-regions.md).
 
-> [!NOTE]
-> La distribution mondiale des bases de données DocumentDB est généralement disponible et activée automatiquement pour tous les comptes DocumentDB nouvellement créés. Nous travaillons à l’activation de la distribution mondiale sur tous les comptes existants, mais en attendant, si vous souhaitez que la distribution mondiale soit activée sur votre compte, veuillez [contacter le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et nous l’activerons pour vous.
-> 
-> 
-
-## <a name="a-idaddregionaadd-global-database-regions"></a><a id="addregion"></a>Ajouter des régions de base de données mondiale
+## <a id="addregion"></a>Ajouter des régions de base de données mondiale
 DocumentDB est disponible dans la plupart des [régions Azure][azureregions]. Après avoir sélectionné le niveau de cohérence par défaut pour votre compte de base de données, vous pouvez associer une ou plusieurs régions (en fonction de votre choix de niveau de cohérence par défaut et de vos besoins de distribution mondiale).
 
-1. Dans la barre de lancement du [Portail Azure](https://portal.azure.com/), cliquez sur **NoSQL (DocumentDB)**.
+1. Dans la barre à gauche du [portail Azure](https://portal.azure.com/), cliquez sur **NoSQL (DocumentDB)**.
 2. Dans le panneau **NoSQL (DocumentDB)** , sélectionnez le compte de base de données à modifier.
 3. Dans le panneau du compte, cliquez sur **Répliquer les données globalement** à partir du menu.
 4. Dans le panneau **Répliquer les données globalement**, sélectionnez les régions à ajouter ou à supprimer, puis cliquez sur **Enregistrer**. L’ajout de régions est payant. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/) ou l’article [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md).
@@ -45,7 +41,7 @@ DocumentDB est disponible dans la plupart des [régions Azure][azureregions]. Ap
 Une fois que vous ajoutez une deuxième région, l’option **basculement manuel** est activée sur le panneau **Répliquer les données localement** dans le portail. Vous pouvez utiliser cette option pour tester le processus de basculement. Une fois que vous ajoutez une troisième région, l’option **Priorités de basculement** est activée sur le même panneau afin que vous puissiez modifier l’ordre de basculement pour les lectures.  
 
 ### <a name="selecting-global-database-regions"></a>Sélection de régions de base de données mondiale
-Lors de la configuration de deux régions ou plus, nous vous recommandons de sélectionner les régions en fonction des paires de régions décrites dans l’article [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure][bcdr].
+Lors de la configuration de plusieurs régions, nous vous recommandons de sélectionner les régions en fonction des paires de régions décrites dans l’article [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure][bcdr].
 
 En particulier, lors de la configuration de plusieurs régions, veillez à sélectionner le même nombre de régions (+/-1 pour pair/impair) à partir de chacune des colonnes de la région associée. Par exemple, si vous voulez déployer vers quatre régions des États-Unis, vous sélectionnez deux régions des États-Unis dans la colonne de gauche et deux autres dans la colonne de droite. La configuration suivante devrait donc être appropriée : États-Unis de l’Ouest, États-Unis de l’Est, Nord du centre des États-Unis et Sud du centre des États-Unis.
 
@@ -65,7 +61,7 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 Découvrez comment gérer la cohérence de votre compte répliqué à l’échelle mondiale en lisant la section [Niveaux de cohérence dans DocumentDB](documentdb-consistency-levels.md).
 
 Pour plus d’informations sur le fonctionnement de la réplication de base de données mondiale dans DocumentDB, consultez la section [Distribution mondiale des données avec DocumentDB](documentdb-distribute-data-globally.md). Pour plus d’informations sur la réplication des données par programme dans plusieurs régions, consultez la section [Développement avec des comptes DocumentDB à plusieurs régions](documentdb-developing-with-multiple-regions.md).
@@ -80,9 +76,4 @@ Pour plus d’informations sur le fonctionnement de la réplication de base de d
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/en-us/regions/#services
 [offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

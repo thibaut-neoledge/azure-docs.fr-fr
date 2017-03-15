@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
-ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -165,13 +165,13 @@ Cliquer sur le lien pour les **Paramètres de diagnostic** fera apparaître le p
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Schéma et services pris en charge pour les journaux de diagnostic
 Le schéma pour les journaux de diagnostic varie en fonction de la ressource et de la catégorie de journal. Vous trouverez ci-dessous les services pris en charge et leur schéma.
 
-| de diffusion en continu | Schéma et documentation |
+| Service | Schéma et documentation |
 | --- | --- |
-| Équilibreur de charge |[Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Analyse des journaux de l’équilibreur de charge Azure (version préliminaire)](../load-balancer/load-balancer-monitor-log.md) |
 | Groupes de sécurité réseau |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
-| Azure Search |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
+| Recherche Azure |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
 | Data Lake Store |[Accès aux journaux de diagnostic d’Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Data Lake Analytics |[Accès aux journaux de diagnostic d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
@@ -179,7 +179,7 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Event Hubs |[Journaux de diagnostic d’Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Stream Analytics |[Journaux de diagnostic des travaux](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Service Bus |Aucun schéma disponible. |
+| Service Bus |[Journaux de diagnostic Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
@@ -199,8 +199,8 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibrage de charge|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibrage de charge|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|

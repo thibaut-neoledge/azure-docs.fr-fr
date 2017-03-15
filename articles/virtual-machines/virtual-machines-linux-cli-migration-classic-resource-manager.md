@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
 ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -100,7 +101,7 @@ Si vous voulez migrer les machines virtuelles vers un réseau virtuel créé à 
 
 Si vous voulez procéder à leur migration vers un réseau virtuel existant dans le modèle de déploiement Resource Manager, utilisez la commande suivante.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 Une fois l’opération de préparation réussie, vous pouvez consulter la sortie détaillée pour voir l’état de la migration des machines virtuelles et vous assurer que leur état est `Prepared` .
 
@@ -159,10 +160,5 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 ## <a name="next-steps"></a>Étapes suivantes
 * [Migration prise en charge par la plateforme de ressources IaaS de l’environnement Classic vers Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

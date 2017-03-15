@@ -1,5 +1,5 @@
 ---
-title: "API Python et ressources du Kit de développement logiciel (SDK) pour Azure DocumentDB | Microsoft Docs"
+title: API, SDK et ressources Python Azure DocumentDB | Microsoft Docs
 description: "Découvrez l&quot;API et le Kit de développement logiciel (SDK) Python, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Python DocumentDB."
 services: documentdb
 documentationcenter: python
@@ -14,13 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4c83bcbf3e5849afd15060947ef5f0faab17ce19
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>API DocumentDB et Kits de développement logiciel (SDK)
+# <a name="documentdb-python-sdk-release-notes-and-resources"></a>SDK Python DocumentDB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 > 
 > 
 
-## <a name="documentdb-python-api-and-sdk"></a>API et Kit de développement logiciel (SDK) Python DocumentDB
 <table>
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
@@ -138,10 +139,5 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

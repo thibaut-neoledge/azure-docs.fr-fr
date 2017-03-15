@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/8/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
-ms.openlocfilehash: bb5065d0b541c7f8a51cd4c508b2d5455cc82957
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2e086311a509432454a7b5e188591605d27c6999
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-with-the-azure-cli-20"></a>Ouverture de ports et de points de terminaison sur une machine virtuelle Linux dans Azure avec Azure CLI 2.0
+# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Ouvrir des ports et des points de terminaison sur une machine virtuelle Linux dans Azure avec Azure CLI
 Pour ouvrir un port ou créer un point de terminaison sur une machine virtuelle dans Azure, créez un filtre réseau sur un sous-réseau ou une interface réseau de machine virtuelle. Vous placez ces filtres, qui contrôlent le trafic entrant et sortant, dans un groupe de sécurité réseau associé à la ressource qui reçoit le trafic. Nous allons utiliser un exemple courant de trafic web sur le port 80. Cet article vous montre comment ouvrir un port sur une machine virtuelle avec Azure CLI 2.0. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 

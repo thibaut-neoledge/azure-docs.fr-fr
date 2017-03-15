@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0b5bdb5036024cc0e05b3845e0073b2ea66a0a73
-ms.openlocfilehash: 9f615c3936cf3207ace787dd7293f94d2b760149
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d5c8972e539ace9440a166eaed6c95fe93e2792a
+ms.openlocfilehash: 792e6c0d70a4786535174fa9c5f863a72da41143
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -200,7 +200,7 @@ Voici la lecture qu’il faut en faire **(service = Informatique) OU (service = 
 
 Dans les exemples et étapes ci-après, vous vous servez de l’objet utilisateur en guise d’exemple, mais vous pouvez l’utiliser pour tous les types d’objets.
 
-Dans les exemples suivants, la valeur de précédence commence à 500. Cela permet de s’assurer que ces règles sont évaluées après les règles par défaut (précédence plus faible, valeur numérique plus élevée).
+Dans les exemples suivants, la valeur de précédence commence à 50. Il peut s’agir de n’importe quel nombre non utilisé, mais la valeur doit être inférieure à 100.
 
 #### <a name="negative-filtering-do-not-sync-these"></a>Filtrage négatif : « ne pas synchroniser »
 Dans l’exemple qui suit, vous excluez (ne synchronisez pas) tous les utilisateurs dont l’élément **extensionAttribute15** présente la valeur **NoSync**.
@@ -208,7 +208,7 @@ Dans l’exemple qui suit, vous excluez (ne synchronisez pas) tous les utilisate
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins** .
 2. Lancez **Éditeur de règles de synchronisation** à partir du menu **Démarrer**.
 3. Assurez-vous que l’option **Entrante** est sélectionnée, puis cliquez sur **Ajouter une nouvelle règle**.
-4. Attribuez à la règle un nom descriptif, par exemple «*Entrée depuis AD – Utilisateur DoNotSyncFilter*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 500), puis cliquez sur **Suivant**.  
+4. Attribuez à la règle un nom descriptif, par exemple «*Entrée depuis AD – Utilisateur DoNotSyncFilter*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 50), puis cliquez sur **Suivant**.  
    ![1 description entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. Dans la zone **Filtre d’étendue**, cliquez sur **Ajouter un groupe**, puis sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **ExtensionAttribute15**. Vérifiez que la zone **Opérateur** est définie sur **EQUAL**, puis tapez la valeur **NoSync** dans la zone **Valeur**. Cliquez sur **Suivant**.  
    ![2 étendue entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
@@ -218,7 +218,7 @@ Dans l’exemple qui suit, vous excluez (ne synchronisez pas) tous les utilisate
 8. Pour terminer la configuration, vous devez exécuter une **synchronisation complète**. Poursuivez votre lecture de la section [Appliquer et vérifier les modifications](#apply-and-verify-changes).
 
 #### <a name="positive-filtering-only-sync-these"></a>Filtrage positif : « synchroniser uniquement ces éléments »
-L’expression d’un filtrage positif peut se révéler plus complexe, car vous devez également prendre en compte des objets qui ne sont pas évidents à synchroniser, notamment les salles de conférence.
+L’expression d’un filtrage positif peut se révéler plus complexe, car vous devez également prendre en compte des objets qui ne sont pas évidents à synchroniser, notamment les salles de conférence. Vous allez également remplacer le filtre par défaut dans la règle prête à l’emploi **In from AD - User Join**. Lorsque vous créez votre filtre personnalisé, veillez à ne pas inclure les objets système critiques, les objets de conflit de réplication, les boîtes aux lettres spéciales et les comptes de service pour Azure AD Connect.
 
 L’option de filtrage positif nécessite deux règles de synchronisation : une (ou plusieurs) règles présentant l’étendue correcte des objets à synchroniser, ainsi qu’une deuxième règle de synchronisation fourre-tout excluant tous les objets qui n’ont pas encore été identifiés en tant qu’objets à synchroniser.
 
@@ -227,7 +227,7 @@ Dans l’exemple suivant, vous synchronisez uniquement les objets utilisateur do
 1. Connectez-vous au serveur qui exécute Azure AD Connect Sync en utilisant un compte membre du groupe de sécurité **ADSyncAdmins** .
 2. Lancez **Éditeur de règles de synchronisation** à partir du menu **Démarrer**.
 3. Assurez-vous que l’option **Entrante** est sélectionnée, puis cliquez sur **Ajouter une nouvelle règle**.
-4. Attribuez à la règle un nom descriptif, par exemple «*Entrée depuis AD - Sync Ventes utilisateur*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 501), puis cliquez sur **Suivant**.  
+4. Attribuez à la règle un nom descriptif, par exemple «*Entrée depuis AD - Sync Ventes utilisateur*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 51), puis cliquez sur **Suivant**.  
    ![4 description entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. Dans la zone **Filtre d’étendue**, cliquez sur **Ajouter un groupe**, puis sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **department**. Vérifiez que l’opérateur est défini sur **EQUAL**, puis tapez la valeur **Sales** dans la zone **Valeur**. Cliquez sur **Suivant**.  
    ![5 étendue entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
@@ -235,7 +235,7 @@ Dans l’exemple suivant, vous synchronisez uniquement les objets utilisateur do
 7. Cliquez sur **Ajouter une transformation**, sélectionnez la valeur **Constante** dans la zone **Type de flux**, puis sélectionnez l’attribut **cloudFiltered** dans la zone **Attribut cible**. Dans la zone **Source**, tapez **False**. Cliquez sur **Ajouter** pour enregistrer la règle.  
    ![6 transformation entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png)  
    Il s’agit d’un cas particulier dans lequel vous définissez explicitement cloudFiltered sur la valeur **False**.
-8. Nous devons maintenant créer la règle de synchronisation fourre-tout. Donnez à la règle un nom descriptif, par exemple «*Entrée depuis Active Directory - Filtre fourre-tout utilisateur*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 600). Vous avez sélectionné une valeur de précédence supérieure (précédence moindre) à la règle de synchronisation précédente. Toutefois, vous avez également laissé de la place de façon à pouvoir ajouter des règles de synchronisation de filtrage par la suite si vous souhaitez procéder à la synchronisation de services supplémentaires. Cliquez sur **Suivant**.  
+8. Nous devons maintenant créer la règle de synchronisation fourre-tout. Donnez à la règle un nom descriptif, par exemple «*Entrée depuis Active Directory - Filtre fourre-tout utilisateur*». Sélectionnez la forêt appropriée, puis sélectionnez **Utilisateur** en tant que **Type d’objet système connecté**, et **Personne** en tant que **Type d’objet de métaverse**. Dans **Type de lien**, sélectionnez **Jointure**. Dans la zone **Précédence**, tapez une valeur actuellement non utilisée par une autre règle de synchronisation (par exemple, 99). Vous avez sélectionné une valeur de précédence supérieure (précédence moindre) à la règle de synchronisation précédente. Toutefois, vous avez également laissé de la place de façon à pouvoir ajouter des règles de synchronisation de filtrage par la suite si vous souhaitez procéder à la synchronisation de services supplémentaires. Cliquez sur **Suivant**.  
    ![7 description entrante](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)  
 9. Laissez l’option **Filtre d’étendue** vide, puis cliquez sur **Suivant**. Un filtre vide indique que la règle doit être appliquée à tous les objets.
 10. Laissez les règles de **Jointure**, puis cliquez sur **Suivant**.

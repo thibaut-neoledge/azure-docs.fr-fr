@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
-ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -101,8 +101,8 @@ Concentrons-nous sur les requêtes qui ont renvoyé un code de résultat particu
 L’opérateur `where` utilise une expression booléenne. Voici quelques points clés les concernant :
 
 * `and`, `or` : opérateurs booléens
-* `==`, `<>` : égal à et différent de
-* `=~`, `!=` : chaîne ne respectant pas la casse (égal à et différent de). Il existe de nombreux autres opérateurs de comparaison de chaîne.
+* `==`, `<>`, `!=` : égal à et différent de
+* `=~`, `!~` : chaîne ne respectant pas la casse (égal à et différent de). Il existe de nombreux autres opérateurs de comparaison de chaîne.
 
 Consultez l’ensemble des informations sur les [expressions scalaires](app-insights-analytics-reference.md#scalars).
 
@@ -687,7 +687,7 @@ Appels de dépendance à partir du serveur :
 Les résultats de la dépendance côté serveur indiquent toujours `success==False` si l’agent Application Insights n’est pas installé. Toutefois, les autres données sont correctes.
 
 ### <a name="traces-table"></a>Table des traces
-Contient les données de télémétrie envoyées par votre application à l’aide de TrackTrace(),ou [d’autres frameworks de journalisation](app-insights-asp-net-trace-logs.md).
+Contient les données de télémétrie envoyées par votre application à l’aide de TrackTrace(), ou [d’autres frameworks de journalisation](app-insights-asp-net-trace-logs.md).
 
 
 

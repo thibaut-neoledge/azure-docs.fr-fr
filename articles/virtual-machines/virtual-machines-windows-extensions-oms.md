@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
-ms.openlocfilehash: 63e2509b92b4d97bfdc98629cc356816839b03b5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 140dd5f165b88a1b0d0771b0360769a340d082cf
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -35,7 +36,7 @@ L’extension de l’agent OMS pour Windows nécessite que la machine virtuelle 
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible.
+Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extension nécessite l’ID et la clé de l’espace de travail OMS cible, qui sont disponibles dans le portail OMS. La clé de l’espace de travail devant être traitée comme une donnée sensible, elle est stockée dans une configuration protégée. Les données du paramètre de protection de l’extension de machine virtuelle Azure sont chiffrées et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **workspaceId** et **workspaceKey** respectent la casse.
 
 ```json
 {
@@ -69,7 +70,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent OMS. L’extens
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId (par exemple) | 6f680a37-00C6-41C7-a93f-1437e3462574 |
+| workspaceId (par exemple) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
@@ -114,9 +115,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 ### <a name="support"></a>Support
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/en-us/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

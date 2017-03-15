@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: d7cb13d751bc9153669ce0d96b42fcda3024f6f0
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows 
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
 Les extensions de machine virtuelle Azure sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle requiert l’installation d’un logiciel, une protection antivirus ou une configuration de Docker, il est possible d’effectuer ces tâches à l’aide d’une extension de machine virtuelle. Les extensions de machine virtuelle Azure peuvent être exécutées à l’aide de l’interface de ligne de commande Azure, de PowerShell, de modèles Azure Resource Manager et du portail Azure. Les extensions peuvent être associées à un nouveau déploiement de machine virtuelle ou s’exécuter sur tout système existant.
 
@@ -93,7 +93,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-L’exemple suivant utilise l’extension de script personnalisé pour télécharger un script sur la machine virtuelle cible depuis un référentiel GitHub, puis pour exécuter le script. Pour plus d’informations sur l’extension de script personnalisé, consultez [Vue d’ensemble de l’extension de script personnalisé](virtual-machines-windows-extensions-customscript.md).
+L’exemple suivant utilise l’extension de script personnalisé pour télécharger un script sur la machine virtuelle cible depuis un dépôt GitHub, puis pour exécuter le script. Pour plus d’informations sur l’extension de script personnalisé, consultez [Vue d’ensemble de l’extension de script personnalisé](virtual-machines-windows-extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -121,7 +121,7 @@ Une extension de machine virtuelle peut être appliquée à une machine virtuell
 
 L’image suivante illustre l’installation de l’extension Microsoft Antimalware à partir du portail Azure.
 
-![Extension Antimalware](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Installer l’extension Antimalware](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 

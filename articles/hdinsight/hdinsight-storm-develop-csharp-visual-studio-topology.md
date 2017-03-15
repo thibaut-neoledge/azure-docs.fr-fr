@@ -13,18 +13,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1336f95809712779ca5c4c68237a3a8c6d630af4
-ms.openlocfilehash: 337e1c185ef8989345ec3abb60f6b255dbc9ef4f
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c2a92e3be7616d241eba3c6690c8f10326d8004c
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio
 
-Apprenez à créer une topologie Storm C# à l’aide des outils HDInsight pour Visual Studio. Ce didacticiel vous guide dans le processus de création d’un nouveau projet Storm dans Visual Studio, de test local et de déploiement vers Apache Storm sur un cluster HDInsight.
+Apprenez à créer une topologie Storm C# à l’aide des outils HDInsight pour Visual Studio. Ce document vous guide dans le processus de création d’un projet Storm dans Visual Studio, de test local et de déploiement vers Apache Storm sur un cluster HDInsight.
 
 Vous apprendrez également à créer des topologies hybrides qui utilisent des composants Java et C#.
 
@@ -48,6 +48,7 @@ Vous apprendrez également à créer des topologies hybrides qui utilisent des c
   * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * Visual Studio 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+  * Visual Studio 2017 (toute édition)
 
 * Azure SDK 2.9.5 ou version ultérieure
 
@@ -78,7 +79,7 @@ Les outils HDInsight pour Visual Studio fournissent les modèles suivants :
 | Exemple Storm hybride |Utilisation d’un composant Java |
 | Exemple Storm |Une topologie de base des statistiques |
 
-Dans les étapes de ce document, vous allez utiliser le type de projet Application Storm de base pour créer une topologie.
+Dans les étapes de ce document, vous allez utiliser le type de projet Application Storm de base pour créer une topologie.
 
 ### <a name="hbase-templates-notes"></a>Remarques sur les modèles HBase
 
@@ -97,19 +98,19 @@ Pour un exemple de topologie qui utilise ce composant et fonctionne avec Storm s
 
 2. Ouvrez Visual Studio, sélectionnez **Fichier ** > **Nouveau**, puis **Projet**.
 
-3. Dans la boîte de dialogue **Nouveau projet**, développez **Installé** > **Modèles**, puis sélectionnez **HDInsight**. Dans la liste des modèles, sélectionnez **Application Storm**. En bas de la boîte de dialogue, entrez **Statistiques** comme nom d’application.
+3. Dans l’écran **Nouveau projet**, développez **Installé** > **Modèles**, puis sélectionnez **Azure Data Lake**. Dans la liste des modèles, sélectionnez **Application Storm**. En bas de la boîte de dialogue, entrez **Statistiques** comme nom d’application.
    
     ![image](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
 4. Une fois le projet créé, vous devez avoir les fichiers suivants :
    
-   * **Program.cs**: définit la topologie de votre projet. Notez que, par défaut, une topologie consistant en un seul spout et un seul bolt est créée.
+   * **Program.cs** : ce fichier définit la topologie de votre projet. Par défaut, une topologie consistant en un seul spout et un seul bolt est créée.
 
    * **Spout.cs**: un spout d’exemple émettant des nombres aléatoires.
 
    * **Bolt.cs**: un bolt d’exemple qui conserve un décompte des nombres émis par le spout.
      
-     Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents sont téléchargés à partir de NuGet.
+     Dans le cadre de la création du projet, le [package SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) le plus récent est téléchargé à partir de NuGet.
      
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
@@ -121,11 +122,11 @@ Dans les sections suivantes, vous allez modifier ce projet en une application de
    
    * **NextTuple**: appelé par Storm lorsque le spout est autorisé à émettre de nouveaux tuples.
 
-   * **Accusé** (topologie transactionnelle uniquement) : gère les accusés de réception initiés par d’autres composants dans la topologie, pour les tuples envoyés depuis ce spout. Un accusé de réception de tuple permet au spout de savoir qu’il a été correctement traité par les composants en aval.
+   * **Accusé** (topologie transactionnelle uniquement) : gère les accusés de réception initiés par d’autres composants dans la topologie, pour les tuples envoyés depuis le spout. Un accusé de réception de tuple permet au spout de savoir qu’il a été correctement traité par les composants en aval.
 
-   * **Fail** (topologie transactionnelle uniquement) : gère les tuples qui ne parviennent pas à traiter d’autres composants de la topologie. Cela permet d’émettre le tuple à nouveau afin qu’il puisse être traité une nouvelle fois.
+   * **Fail** (topologie transactionnelle uniquement) : gère les tuples qui ne parviennent pas à traiter d’autres composants de la topologie. L’implémentation d’une méthode Fail permet d’émettre le tuple à nouveau afin qu’il puisse être traité une nouvelle fois.
 
-2. Remplacez le contenu de la classe **spout** par ce qui suit. Cela créera un spout qui émettra une phrase au hasard dans la topologie.
+2. Remplacez le contenu de la classe **Spout** par le texte suivant. Ce spout émet une phrase au hasard dans la topologie.
     
     ```csharp
     private Context ctx;
@@ -191,16 +192,16 @@ Dans les sections suivantes, vous allez modifier ce projet en une application de
 
 1. Supprimez le fichier **Bolt.cs** du projet.
 
-2. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Ajouter** > **Nouvel élément**. Dans la liste, sélectionnez **Bolt Storm**, entrez **Splitter.cs** comme nom. Répétez cela pour créer un deuxième bolt nommé **Counter.cs**.
+2. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Ajouter** > **Nouvel élément**. Dans la liste, sélectionnez **Bolt Storm**, entrez **Splitter.cs** comme nom. Répétez ce processus pour créer un deuxième bolt nommé **Counter.cs**.
    
    * **Splitter.cs**: implémente un bolt qui fractionne les phrases en mots et émet un nouveau flux de mots.
 
    * **Counter.cs**: implémente un bolt qui compte chaque mot et émet un nouveau flux de mots ainsi que le décompte de chaque mot.
      
      > [!NOTE]
-     > Bien que ces bolts lisent et écrivent simplement dans des flux, vous pouvez également utiliser un bolt pour communiquer avec une base de données, un service, etc.
+     > Bien que ces bolts lisent et écrivent dans des flux, vous pouvez également utiliser un bolt pour communiquer avec une base de données, un service, etc.
 
-3. Ouvrez **Splitter.cs**. Notez qu’il n’a qu’une seule méthode par défaut : **Execute**. Elle est appelée lorsque le bolt reçoit un tuple à traiter. Ici, vous pouvez lire et traiter des tuples entrants et émettre des tuples sortants.
+3. Ouvrez **Splitter.cs**. Il n’a qu’une seule méthode par défaut : **Execute**. Elle est appelée lorsque le bolt reçoit un tuple à traiter. Ici, vous pouvez lire et traiter des tuples entrants et émettre des tuples sortants.
 
 4. Remplacez le contenu de la classe **Splitter** par le code suivant :
     
@@ -314,7 +315,7 @@ Les spouts et les bolts sont organisés dans un graphique, qui définit la circu
 
 Des phrases sont émises par le spout, puis distribuées à des instances du bolt de fractionnement. Le bolt de fractionnement fractionne les phrases en mots, qui sont distribués au bolt de décompte.
 
-Étant donné que le nombre de mots est conservé localement dans l'instance de décompte Counter, il convient de s'assurer que des mots donnés sont transmis à la même instance de bolt de décompte Counter, afin de garantir qu'une seule instance suit un mot donné. Toutefois, pour le bolt de fractionnement Splitter, peu importe quel bolt reçoit les phrases, nous souhaitons uniquement équilibrer la charge de phrases entre les instances.
+Étant donné que le nombre de mots est conservé localement dans l’instance de décompte Counter, il convient de s’assurer que des mots donnés sont transmis à la même instance de bolt de décompte Counter, afin de garantir que chaque instance suit un mot donné. Comme le bolt de fractionnement ne gère aucun état, il n’est pas important de savoir quelle instance du fractionnement reçoit quelle phrase.
 
 Ouvrez **Program.cs**. La méthode importante ici est **GetTopologyBuilder**, qui est utilisée pour définir la topologie qui est envoyée à Storm. Remplacez le contenu de **GetTopologyBuilder** par le code suivant pour implémenter la topologie décrite précédemment :
 
@@ -391,7 +392,7 @@ Prenez un moment pour lire les commentaires afin de comprendre ce que fait ce co
    > [!NOTE]
    > Vous pouvez également afficher les **Topologies Storm** à partir de **l’Explorateur de serveurs** en développant **Azure** > **HDInsight**, puis en cliquant avec le bouton droit sur Storm dans un cluster HDInsight et en sélectionnant **Afficher les topologies Storm**.
 
-    Utilisez les liens pour les spouts et les bolts pour afficher des informations sur ces composants. Une nouvelle fenêtre s’ouvre pour chaque élément sélectionné.
+    Pour afficher des informations sur les composants de la topologie, double-cliquez sur le composant dans le diagramme.
 
 4. À partir de l’affichage **Résumé de la topologie**, cliquez sur **Supprimer** pour arrêter la topologie.
    
@@ -400,21 +401,21 @@ Prenez un moment pour lire les commentaires afin de comprendre ce que fait ce co
 
 ## <a name="transactional-topology"></a>Topologie transactionnelle
 
-La précédente ci-dessus est non transactionnelle. Les composants de la topologie n’implémentent aucune fonctionnalité de relecture des messages en cas d’échec de traitement par un composant dans la topologie. Pour un exemple de topologie transactionnelle, créez un nouveau projet et sélectionnez **Exemple Storm** comme type de projet.
+La précédente ci-dessus est non transactionnelle. Les composants de la topologie n’implémentent aucune fonctionnalité de relecture des messages. Pour un exemple de topologie transactionnelle, créez un projet et sélectionnez **Exemple Storm** comme type de projet.
 
 Les topologies transactionnelles implémentent les opérations suivantes pour prendre en charge la relecture des données :
 
 * **Mise en cache des métadonnées**: le spout doit stocker les métadonnées relatives aux données émises, afin que les données puissent être récupérées et émises à nouveau en cas de défaillance. Dans la mesure où les données émises par l’exemple sont petites, les données brutes de chaque tuple sont stockées dans un dictionnaire pour la relecture.
 
-* **Accusé** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Lorsque tous les bolts ont signalé le traitement du tuple, la méthode `Ack` du spout est appelée. Cela permet au spout de supprimer les données mises en cache pour la relecture, étant donné que les données ont été entièrement traitées.
+* **Accusé** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Lorsque tous les bolts ont signalé le traitement du tuple, la méthode `Ack` du spout est appelée. La méthode `Ack` permet au spout de supprimer les données mises en cache pour la relecture.
 
 * **Échec** : chaque bolt peut appeler `this.ctx.Fail(tuple)` pour indiquer que le traitement d’un tuple a échoué. L’échec se propage à la méthode `Fail` du spout, où le tuple peut être relu à l’aide des métadonnées mises en cache.
 
-* **ID de séquence**: lors de l’émission d’un tuple, un ID de séquence peut être spécifié. Il doit s’agir d’une valeur qui identifie le tuple pour le traitement de la relecture (accusé de réception et échec). Par exemple, le spout dans le projet **Exemple Storm** utilise les éléments suivants lors de l’émission de données :
+* **ID de séquence** : lors de l’émission d’un tuple, un ID de séquence unique peut être spécifié. Cette valeur identifie le tuple pour le traitement de la relecture (accusé de réception et échec). Par exemple, le spout dans le projet **Exemple Storm** utilise les éléments suivants lors de l’émission de données :
   
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
   
-    Il émet un nouveau tuple contenant une phrase dans le flux par défaut, avec la valeur d’ID de séquence contenue dans **lastSeqId**. Dans cet exemple, **lastSeqId** est simplement incrémenté pour chaque tuple émis.
+    Ce code émet un tuple contenant une phrase dans le flux par défaut, avec la valeur d’ID de séquence contenue dans **lastSeqId**. Dans cet exemple, **lastSeqId** est incrémenté pour chaque tuple émis.
 
 Comme illustré dans le project **Exemple Storm** , un composant peut être défini comme transactionnel ou non lors de l’exécution, en fonction de la configuration.
 
@@ -422,7 +423,7 @@ Comme illustré dans le project **Exemple Storm** , un composant peut être déf
 
 Les outils HDInsight pour Visual Studio peuvent également être utilisés pour créer des topologies hybrides, où certains composants sont en C# et d’autres en Java.
 
-Pour un exemple de topologie hybride, créez un nouveau projet, puis sélectionnez **Exemple Storm hybride**. Cela créera un exemple commenté contenant plusieurs topologies qui illustrent les éléments suivants :
+Pour un exemple de topologie hybride, créez un projet, puis sélectionnez **Exemple Storm hybride**. Cet exemple de type illustre les concepts suivants :
 
 * **Spout Java** et **bolt C#** : définis dans **HybridTopology_javaSpout_csharpBolt**
   
@@ -444,7 +445,7 @@ Pour basculer entre la topologie utilisée lorsque le projet est soumis, il suff
 
 Les éléments suivants sont utilisés lors de la création et de la soumission d'une topologie hybride :
 
-* **JavaComponentConstructor** doit être utilisé pour créer une nouvelle instance de la classe Java pour un spout ou un bolt.
+* **JavaComponentConstructor** doit être utilisé pour créer une instance de la classe Java pour un spout ou un bolt.
 
 * **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** doit être utilisé pour sérialiser des données dans et à l’extérieur des composants Java à partir d’objets Java vers JSON.
 
@@ -452,18 +453,18 @@ Les éléments suivants sont utilisés lors de la création et de la soumission 
 
 ### <a name="azure-event-hubs"></a>Hubs d’événements Azure
 
-SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l’utilisation du spout Event Hubs (spout Java qui lit à partir d’Event Hubs). Lorsque vous créez une topologie qui utilise ce spout, utilisez les méthodes suivantes :
+SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l’utilisation du spout Event Hubs (spout Java qui lit à partir d’Event Hubs). Quand vous créez une topologie qui utilise un spout Event Hubs, utilisez les méthodes suivantes :
 
 * Classe **EventHubSpoutConfig** : crée un objet qui contient la configuration du composant de spout.
 
 * Méthode **TopologyBuilder.SetEventHubSpout** : ajoute le composant spout Event Hubs à la topologie.
 
 > [!NOTE]
-> Bien qu’il soit plus facile d’utiliser le spout Event Hubs que les autres composants Java, vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par spout.
+> Vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par le spout.
 
-## <a name="a-idconfigurationmanagerausing-configurationmanager"></a><a id="configurationmanager"></a>Utilisation de ConfigurationManager
+## <a id="configurationmanager"></a>Utilisation de ConfigurationManager
 
-N’utilisez pas ConfigurationManager pour récupérer des valeurs de configuration des composants bolt et spout ; cela est susceptible d’entraîner une exception de pointeur null. À la place, la configuration de votre projet est transmise dans la topologie Storm comme une paire clé/valeur dans le contexte de topologie. Chaque composant qui repose sur des valeurs de configuration doit les récupérer à partir du contexte lors de l’initialisation.
+N’utilisez pas ConfigurationManager pour récupérer des valeurs de configuration des composants bolt et spout. Cela est susceptible d’entraîner une exception de pointeur null. À la place, la configuration de votre projet est transmise dans la topologie Storm comme une paire clé/valeur dans le contexte de topologie. Chaque composant qui repose sur des valeurs de configuration doit les récupérer à partir du contexte lors de l’initialisation.
 
 Le code suivant montre comment récupérer ces valeurs :
 
@@ -507,7 +508,7 @@ Les dernières versions de SCP.NET prennent en charge la mise à niveau du pack
 2. Dans le Gestionnaire de package, sélectionnez **Mises à jour**. Si une mise à jour est disponible, elle est affichée. Cliquez sur le bouton **Mettre à jour** du package pour l'installer.
 
 > [!IMPORTANT]
-> Si votre projet a été créé avec l’une des versions précédentes de SCP.NET qui n’utilisaient pas NuGet pour les mises à jour de package, vous devez procéder comme suit pour effectuer la mise à jour vers la nouvelle version :
+> Si votre projet a été créé avec une version précédente de SCP.NET qui n’utilisait pas NuGet, vous devez effectuer les étapes suivantes pour procéder à la mise à jour vers une version plus récente :
 > 
 > 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
 > 2. Dans le champ **Rechercher**, recherchez, puis ajoutez **Microsoft.SCP.Net.SDK** au projet.
@@ -516,11 +517,11 @@ Les dernières versions de SCP.NET prennent en charge la mise à niveau du pack
 
 ### <a name="null-pointer-exceptions"></a>Exceptions de pointeur null
 
-Lorsque vous utilisez une topologie C# avec un cluster HDInsight basé sur Linux, les composants bolt et spout qui utilisent ConfigurationManager pour lire les paramètres de configuration au moment de l’exécution peuvent retourner des exceptions de pointeur null. Cela se produit, car la configuration pour le domaine chargé n’est pas issue de l’assembly qui contient votre projet.
+Lorsque vous utilisez une topologie C# avec un cluster HDInsight basé sur Linux, les composants bolt et spout qui utilisent ConfigurationManager pour lire les paramètres de configuration au moment de l’exécution peuvent retourner des exceptions de pointeur null.
 
-La configuration de votre projet est transmise dans la topologie Storm comme une paire clé/valeur dans le contexte de topologie et peut être récupérée à partir de l’objet dictionnaire qui est transmis à vos composants lorsqu’ils sont initialisés.
+La configuration de votre projet est transmise dans la topologie Storm comme une paire clé/valeur dans le contexte de topologie. Elle peut être récupérée à partir de l’objet dictionnaire qui est transmis à vos composants quand ils sont initialisés.
 
-L’exemple suivant montre comment charger les valeurs de configuration à partir du contexte de topologie ; consultez la section [ConfigurationManager](#configurationmanager) de ce document.
+Pour plus d’informations, consultez la section [ConfigurationManager](#configurationmanager) du présent document.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
@@ -528,7 +529,7 @@ Lorsque vous utilisez une topologie C# avec un cluster HDInsight basé sur Linux
 
     System.TypeLoadException: Failure has occurred while loading a type.
 
-En général, cela se produit lorsque vous utilisez un fichier binaire qui n’est pas compatible avec la version de .NET prise en charge par Mono.
+Cette erreur se produit quand vous utilisez un fichier binaire qui n’est pas compatible avec la version de .NET prise en charge par Mono.
 
 Pour les clusters HDInsight basés sur Linux, vous devez vous assurer que votre projet utilise des fichiers binaires compilés pour .NET 4.5.
 
@@ -537,7 +538,7 @@ Pour les clusters HDInsight basés sur Linux, vous devez vous assurer que votre 
 Bien qu’il soit facile de déployer une topologie sur un cluster, dans certains cas, il sera peut-être nécessaire de tester une topologie localement. Utilisez les étapes suivantes pour exécuter et tester localement l’exemple de topologie de ce didacticiel localement dans votre environnement de développement.
 
 > [!WARNING]
-> Le test local fonctionne uniquement pour les topologies de base en C#. N’employez pas le test local pour les topologies hybrides ou celles qui utilisent plusieurs flux de données.
+> Le test local fonctionne uniquement pour les topologies de base en C#. Vous ne pouvez pas employer le test local pour les topologies hybrides ou celles qui utilisent plusieurs flux de données.
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**. Dans les propriétés du projet, modifiez le **Type de sortie** sur **Application Console**.
    
@@ -554,7 +555,7 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
     using Microsoft.SCP;
     ```
 
-4. Utilisez le code suivant comme contenu pour la classe **LocalTest** :
+4. Utilisez le code suivant comme contenu de la classe **LocalTest** :
     
     ```csharp
     // Drives the topology components
@@ -663,9 +664,6 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
    > [!NOTE]
    > Les chaînes de données sont conservées sous forme de tableau de valeurs décimales dans ces fichiers. Par exemple, le résultat \[[97,103,111]] dans le fichier **splitter.txt** correspond au mot « and ».
 
-
-Le test local d'une application de statistiques de base est relativement simple. Toutefois la valeur réelle apparaît lorsque vous disposez d'une topologie complexe qui communique avec des sources de données externes ou effectue l'analyse de données complexes. Lorsque vous travaillez sur un tel projet, vous devrez peut-être définir des points d’arrêt et parcourir le code de vos composants afin d’isoler les problèmes.
-
 > [!NOTE]
 > Veillez à définir le **Type de projet** sur **Bibliothèque de classes** avant le déploiement vers un Storm sur un cluster HDInsight.
 
@@ -680,7 +678,7 @@ Context.Logger.Info("Component started");
 Les informations enregistrées peuvent être affichées dans le **journal du service Hadoop**, qui se trouve dans **l’Explorateur de serveurs**. Développez l’entrée pour votre Storm sur le cluster HDInsight , puis le **journal du service Hadoop**. Enfin, sélectionnez le fichier journal à afficher.
 
 > [!NOTE]
-> Les journaux sont stockés dans le compte de stockage Azure utilisé par votre cluster. S’il s’agit d’un abonnement différent de celui avec lequel vous êtes connecté à Visual Studio, vous devez vous ouvrir une session dans l’abonnement contenant le compte de stockage pour afficher ces informations.
+> Les journaux sont stockés dans le compte de stockage Azure utilisé par votre cluster. Vous devez vous connecter à l’abonnement Azure contenant le compte de stockage pour afficher les journaux dans Visual Studio.
 
 ### <a name="view-error-information"></a>Afficher les informations relatives aux erreurs
 
@@ -704,13 +702,13 @@ Remplacez __sshuser__ par le compte d’utilisateur SSH du cluster. Remplacez __
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à développer et à déployer des topologies Storm à partir des outils HDInsight pour Visual Studio, découvrez comment [traiter les événements à partir du hub d’événements Azure avec Storm sur HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+Pour obtenir un exemple de traitement des données à partir des Event Hubs, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 Pour obtenir un exemple de topologie C# qui fractionne les données de flux en plusieurs flux de données, consultez la rubrique [Exemple c# Storm](https://github.com/Blackmist/csharp-storm-example).
 
 Pour plus d’informations sur la création de topologies C#, accédez à [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
-Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir davantage d’exemples Storm sur HDinsight, consultez les rubriques suivantes :
+Pour plus d’informations sur l’utilisation de HDInsight et pour obtenir davantage d’exemples Storm sur HDinsight, consultez les documents suivants :
 
 **Microsoft SCP.NET**
 

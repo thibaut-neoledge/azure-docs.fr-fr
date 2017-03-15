@@ -4,7 +4,7 @@ description: "Découvrez PolyBase et apprenez comment utiliser cette solution av
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: cakarst;barbkess
+ms.date: 03/01/2017
+ms.author: cakarst
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1e3cd48aebf6f00802863c1a1b20fcb625e03c25
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,7 +45,7 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants
 
 * Une base de données SQL Data Warehouse
 * Un compte de stockage Azure de type stockage redondant local standard (LRS-Standard), stockage géo-redondant Standard (Standard-GRS) ou stockage géo-redondant avec accès en lecture Standard (Standard-RAGRS)
-* L’utilitaire de ligne de commande AzCopy Téléchargez et installez la [version la plus récente d’AzCopy][latest version of AzCopy] qui est installée avec les outils Microsoft Azure Storage.
+* L’utilitaire de ligne de commande AzCopy Téléchargez et installez la [version la plus récente d’AzCopy][latest version of AzCopy] qui est installée avec les outils Stockage Microsoft Azure.
   
     ![Outils Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -127,9 +128,9 @@ PolyBase utilise les tables externes pour accéder des données dans le stockage
 
 Dans cette étape, l’exemple utilise les instructions Transact-SQL pour créer une table externe.
 
-* [Créer une clé principale (Transact-SQL)][Create Master Key (Transact-SQL)] pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
+* [Créer une clé principale (Transact-SQL)][Create Master Key (Transact-SQL)] pour chiffrer le secret de vos informations d’identification de niveau base de données.
 * [Créer des informations d’identification de niveau base de données (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] pour spécifier les informations d’authentification de votre compte de stockage Azure.
-* [Créer une source de données externe (Transact-SQL)][Create External Data Source (Transact-SQL)] pour spécifier l’emplacement de votre stockage d’objets blobs Azure.
+* [Créer une source de données externe (Transact-SQL)][Create External Data Source (Transact-SQL)] pour spécifier l’emplacement de votre stockage d’objets blob Azure.
 * [Créer un format de fichier externe (Transact-SQL)][Create External File Format (Transact-SQL)] pour spécifier le format de vos données.
 * [Créer une table externe (Transact-SQL)][Create External Table (Transact-SQL)] pour spécifier la définition de la table et l’emplacement des données.
 
@@ -241,7 +242,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 Pour en savoir plus, consultez la section [Statistiques][Statistics].  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez le [guide PolyBase][PolyBase guide] pour obtenir d’autres informations sur le développement d’une solution qui utilise PolyBase.
+Consultez le [guide PolyBase][PolyBase guide] pour obtenir d’autres informations sur le développement d’une solution utilisant PolyBase.
 
 <!--Image references-->
 
@@ -275,9 +276,4 @@ Consultez le [guide PolyBase][PolyBase guide] pour obtenir d’autres informatio
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
-ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
+ms.lasthandoff: 03/06/2017
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
+
 <center>![MFA en local](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Maintenant que nous avons déterminé s’il fallait utiliser le serveur Multi-Factor Authentication local, nous pouvons commencer. Cette page vous indique comment installer le serveur et le configurer avec votre Active Directory local. Si vous avez déjà installé Phonefactor et que vous souhaitez découvrir cette procédure de mise à niveau, consultez la rubrique [Mise à niveau vers le serveur Azure Multi-Factor](multi-factor-authentication-get-started-server-upgrade.md). Si vous souhaitez, par contre, obtenir simplement des informations sur l’installation du service Web, consultez la rubrique [Déploiement du service Web d’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+Maintenant que nous avons déterminé s’il fallait utiliser le serveur Multi-Factor Authentication local, nous pouvons commencer. Cette page vous indique comment installer le serveur et le configurer avec votre Active Directory local. Si le serveur MFA est déjà installé et que vous souhaitez effectuer une mise à niveau, voir [Mise à niveau vers le serveur Azure Multi-Factor Authentication le plus récent](multi-factor-authentication-server-upgrade.md). Pour plus d’informations sur l’installation du service web, voir [Déploiement du service web de l’application mobile pour le serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+ 
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Téléchargement du serveur Azure Multi-Factor Authentication
 Vous pouvez télécharger le serveur Azure Multi-Factor Authentication de deux manières différentes : Les deux sont exécutées via le portail Azure. La première consiste à gérer le fournisseur d'authentification multifacteur directement. La seconde utilise les paramètres du service. La seconde option requiert un fournisseur d’authentification multifacteur ou une licence Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.
@@ -87,7 +89,7 @@ Si les pare-feu sortants sont limités sur le port 443, ouvrez les plages d'adre
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
 | 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
 
-Si vous n’utilisez pas la fonctionnalité de Confirmation d’événement et que les utilisateurs ne se servent pas d’applications mobiles pour vérifier à partir d’appareils sur le réseau d’entreprise, les adresses IP peuvent être réduites aux plages suivantes :
+Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et que les utilisateurs ne se servent pas d’applications mobiles pour effectuer des vérifications à partir des appareils sur le réseau de l’entreprise, vous avez uniquement besoin des plages suivantes :
 
 | Sous-réseau IP | Masque réseau | Plage d’adresses IP |
 |:--- |:--- |:--- |
@@ -97,14 +99,14 @@ Si vous n’utilisez pas la fonctionnalité de Confirmation d’événement et q
 
 ### <a name="to-install-and-configure-the-azure-multi-factor-authentication-server"></a>Pour installer et configurer le serveur Azure Multi-Factor Authentication
 
-1. Double-cliquez sur le fichier exécutable. Cela lance l’installation.
+Pour une installation rapide via l’Assistant de configuration, veuillez suivre ces étapes. Si vous ne voyez pas l’Assistant ou que vous souhaitez l’exécuter de nouveau, sélectionnez-le à partir du menu **Outils** sur le serveur.
+
+1. Double-cliquez sur le fichier exécutable. 
 2. Sur l'écran Sélectionner le dossier d’installation, assurez-vous que le dossier est correct, puis cliquez sur **Suivant**.
 3. Une fois l'installation terminée, cliquez sur **Terminer**.  L'Assistant de configuration démarre.
-4. Sur l’écran d’accueil de l’Assistant Configuration, cochez l’option **Ignorer l’Assistant Configuration de l’authentification**, puis cliquez sur **Suivant**.  Cela ferme l’Assistant et démarre le serveur.
+4. Sur l’écran d’accueil de l’Assistant Configuration, cochez l’option **Ignorer l’Assistant Configuration de l’authentification**, puis cliquez sur **Suivant**.  La fermeture de l’Assistant intervient et le serveur démarre.
     ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Revenez à la page à partir de laquelle vous avez téléchargé le serveur, puis cliquez sur le bouton **Générer des informations d’identification d’activation** . Copiez ces informations dans les zones appropriées du serveur Azure MFA, puis cliquez sur **Activer**.
-
-Pour une installation rapide via l'Assistant de configuration, veuillez suivre les étapes mentionnées ci-dessus.  Vous pouvez réexécuter l'Assistant d'authentification en le sélectionnant sur le serveur, dans le menu Outils.
 
 ## <a name="import-users-from-active-directory"></a>Importation des utilisateurs à partir d'Active Directory
 Maintenant que le serveur est installé et configuré, vous pouvez importer très rapidement des utilisateurs sur le serveur Azure MFA.
@@ -117,9 +119,9 @@ Maintenant que le serveur est installé et configuré, vous pouvez importer trè
 ![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>Envoi d’un e-mail aux utilisateurs
-Maintenant que vous avez importé vos utilisateurs sur le serveur MFA, nous vous recommandons de leur envoyer un e-mail les informant qu’ils ont été inscrits pour la vérification en deux étapes.
+Maintenant que vous avez importé les utilisateurs sur le serveur MFA, envoyez un e-mail les informant qu’ils ont été inscrits pour la vérification en deux étapes.
 
-L’e-mail que vous envoyez doit être déterminé par la façon dont vous avez configuré vos utilisateurs pour la vérification en deux étapes. Par exemple, si vous avez pu importer les numéros de téléphone des utilisateurs à partir du répertoire de l’entreprise, l’e-mail doit inclure les numéros de téléphone par défaut afin que les utilisateurs sachent à quoi s’attendre. De même, si les numéros de téléphone des utilisateurs n’ont pas été importés ou que les utilisateurs sont configurés pour utiliser l’application mobile, envoyez-leur un e-mail qui leur demande de terminer l’inscription de leur compte via un lien hypertexte vers le portail utilisateur Multi-Factor Authentication.
+L’e-mail que vous envoyez doit être déterminé par la façon dont vous avez configuré vos utilisateurs pour la vérification en deux étapes. Par exemple, si vous avez pu importer les numéros de téléphone à partir du répertoire de l’entreprise, l’e-mail doit inclure les numéros de téléphone par défaut afin que les utilisateurs sachent à quoi s’attendre. De même, si vous n’avez pas importé les numéros de téléphone ou si les utilisateurs vont utiliser l’application mobile, envoyez-leur un e-mail leur demandant de terminer l’inscription de leur compte via un lien hypertexte permettant d’accéder au portail utilisateur Azure Multi-Factor Authentication.
 
 Le contenu de l’e-mail varie en fonction de la méthode de vérification définie pour l'utilisateur (appel téléphonique, SMS ou application mobile).  Par exemple, si l'utilisateur doit saisir un code confidentiel pour s'authentifier, l’e-mail lui indique le code confidentiel initial qui a été défini.  Les utilisateurs doivent modifier leur code PIN lors de leur première vérification.
 
@@ -150,18 +152,18 @@ Lorsque vous utilisez le serveur Multi-Factor Authentication (MFA) sur site, les
 En plus des champs ci-dessus, le résultat de la vérification (réussite/échec) et le motif de refus sont également stockés avec les données d'authentification et disponibles dans les rapports d'utilisation/d'authentification.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’installation et la configuration avancées, cliquez sur les liens du tableau suivant :
 
-| Méthode | Description |
-|:--- |:--- |
-| [Portail de l'utilisateur](multi-factor-authentication-get-started-portal.md) |Informations sur l'installation et la configuration du portail utilisateur, notamment le déploiement et libre-service utilisateur. |
-| [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) |Informations sur la configuration d'Azure Multi-Factor Authentication avec AD FS. |
-| [Authentification RADIUS](multi-factor-authentication-get-started-server-radius.md) |Informations sur l'installation et la configuration du serveur Azure MFA avec RADIUS. RADIUS vous permet d’intégrer différents systèmes tiers avec un serveur Azure MFA. |
-| [Authentification IIS](multi-factor-authentication-get-started-server-iis.md) |Informations sur l'installation et la configuration du serveur Azure MFA avec IIS. IIS vous permet d’intégrer différents systèmes tiers avec un serveur Azure MFA. |
-| [Authentification Windows](multi-factor-authentication-get-started-server-windows.md) |Informations sur l'installation et la configuration du serveur Azure MFA avec l’authentification Windows. |
-| [Authentification LDAP](multi-factor-authentication-get-started-server-ldap.md) |Informations sur l'installation et la configuration du serveur Azure MFA avec l’authentification LDAP. LDAP vous permet d’intégrer différents systèmes tiers avec un serveur Azure MFA. |
-| [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](multi-factor-authentication-get-started-server-rdg.md) |Informations sur l'installation et la configuration du serveur Azure MFA avec Passerelle des services Bureau à distance et RADIUS. |
-| [Synchronisation avec Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md) |Informations sur l’installation et la configuration de la synchronisation entre Active Directory et le serveur Azure MFA. |
-| [Déploiement du service Web de l’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md) |Informations sur l'installation et la configuration du service Web du serveur Azure MFA. |
-| [Scénarios avancés avec l'authentification multifacteur Azure et des VPN tiers](multi-factor-authentication-advanced-vpn-configurations.md) | Guides de configuration détaillés pour les appliances Cisco, Citrix et Juniper. |
+- Installez et configurez le [portail utilisateur](multi-factor-authentication-get-started-portal.md) pour une utilisation en libre-service.
+
+- Configurez Azure Multi-Factor Authentication avec les [services AD FS (Active Directory Federation Services)](multi-factor-authentication-get-started-adfs.md).
+
+- Installez et configurez le serveur Azure MFA avec [l’authentification RADIUS](multi-factor-authentication-get-started-server-radius.md). RADIUS vous permet d’intégrer différents systèmes tiers avec un serveur Azure MFA. 
+
+- Installez et configurez le serveur Azure MFA avec [l’authentification Windows](multi-factor-authentication-get-started-server-windows.md).
+
+- Installez et configurez la [passerelle des services Bureau à distance et Azure Multi-Factor Authentication Server avec RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
+
+- [Déployez le service web de l’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+
+- [Scénarios avancés avec Azure Multi-Factor Authentication et des VPN tiers](multi-factor-authentication-advanced-vpn-configurations.md).
 

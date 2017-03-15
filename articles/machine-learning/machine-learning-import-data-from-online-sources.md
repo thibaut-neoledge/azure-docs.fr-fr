@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
-ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
+ms.lasthandoff: 12/20/2016
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importation de vos données Azure Machine Learning Studio à partir de différentes sources de données en ligne avec le module Importer les données
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 Cet article décrit le support pour l'importation en ligne de données provenant de plusieurs sources et les informations nécessaires au déplacement depuis ces sources vers l’expérience Azure Machine Learning.
 
 > [!NOTE]
@@ -34,8 +32,10 @@ Cet article décrit le support pour l'importation en ligne de données provenant
 
 <!-- -->
 
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 ## <a name="introduction"></a>Introduction
-Vous pouvez accéder aux données d’Azure Machine Learning Studio à partir d’une des nombreuses sources de données en ligne pendant que votre expérience s’exécute à l’aide du module [Importer les données][import-data] :
+Vous pouvez accéder aux données à partir d’une des nombreuses sources de données en ligne pendant que votre expérience s’exécute dans [Azure Machine Learning Studio](https://studio.azureml.net/Home) à l’aide du module [Importer les données][import-data] :
 
 * Une URL web avec HTTP
 * Hadoop avec HiveQL
@@ -45,7 +45,7 @@ Vous pouvez accéder aux données d’Azure Machine Learning Studio à partir d�
 * Base de données SQL Server locale
 * Un fournisseur de flux de données, actuellement, OData
 
-Le flux de travail pour l’exécution d’expériences dans Azure Machine Learning Studio consiste à glisser-déposer des composants sur le canevas. Pour accéder aux sources de données en ligne, ajoutez le module [Importer les données][import-data] à votre expérience, sélectionnez la **source de données**, puis indiquez les paramètres nécessaires pour accéder aux données. Les sources de données en ligne prises en charge sont détaillées dans le tableau ci-dessous. Ce tableau récapitule également les formats de fichier pris en charge et les paramètres qui sont utilisés pour accéder aux données.
+Pour accéder aux sources de données en ligne lors de votre expérience Studio, ajoutez le module [Importer les données][import-data] à votre expérience, sélectionnez la **source de données**, puis indiquez les paramètres nécessaires pour accéder aux données. Les sources de données en ligne prises en charge sont détaillées dans le tableau ci-dessous. Ce tableau récapitule également les formats de fichier pris en charge et les paramètres qui sont utilisés pour accéder aux données.
 
 Notez que ces données étant accessibles pendant l’exécution de votre expérience, elles ne sont disponibles que pour cette expérience. En revanche, les données stockées dans un module de jeu de données sont disponibles pour n’importe dans votre espace de travail.
 
@@ -80,9 +80,4 @@ Le module **Importer les données** d’Azure Machine Learning prend en charge l
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

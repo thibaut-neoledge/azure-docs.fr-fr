@@ -37,7 +37,7 @@ Affectez des utilisateurs de B2B Collaboration à une application en tant que pr
 
 Les professionnels de l’information peuvent, de manière similaire, ajouter des utilisateurs B2B Collaboration à un groupe attribué qui est activé pour la gestion de groupes en libre-service.
 > [!NOTE]
-Vous ne pouvez pas ajouter d'utilisateurs B2B Collaboration à un groupe dynamique ou à un groupe synchronisé sur un Active Directory local.
+> Vous ne pouvez pas ajouter d'utilisateurs B2B Collaboration à un groupe dynamique ou à un groupe synchronisé sur un Active Directory local.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

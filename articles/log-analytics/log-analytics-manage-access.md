@@ -1,6 +1,6 @@
 ---
-title: "Gérer les espaces de travail | Microsoft Docs"
-description: "Gérez les espaces de travail dans Azure Log Analytics avec diverses tâches administratives sur les utilisateurs, comptes, espaces de travail et comptes Azure."
+title: "Gérer les espaces de travail dans Azure Log Analytics et sur le portail OMS | Microsoft Docs"
+description: "Vous pouvez gérer les espaces de travail dans Azure Log Analytics et sur le portail OMS avec diverses tâches administratives sur les utilisateurs, comptes, espaces de travail et comptes Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Procédez comme suit pour supprimer un utilisateur d’un espace de travail. Not
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Liaison d’un espace de travail existant à un abonnement Azure
 Tous les espaces de travail créés après le 26 septembre 2016 doivent être liés à un abonnement Azure lors de la création. Vous devez lier les espaces de travail créés avant cette date lors de votre prochaine connexion. Lorsque vous créez l’espace de travail à partir du portail Azure ou que vous liez votre espace de travail à un abonnement Azure, votre répertoire Azure Active Directory est lié en tant que compte d’organisation.
 
-![link Azure subscription](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> Pour que vous puissiez lier un espace de travail, votre compte Azure doit déjà y avoir accès.  En d’autres termes, le compte que vous utilisez pour accéder au portail Azure doit être **le même** que celui que vous utilisez pour accéder à votre espace de travail. Si ce n’est pas le cas, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Pour lier un espace de travail à un abonnement Azure dans le portail OMS
-Pour lier un espace de travail à un abonnement Azure dans le portail OMS, l’utilisateur connecté doit disposer d’un compte Azure payant.
 
-1. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
-2. Cliquez sur l’onglet **Comptes**, puis sur l’onglet **Azure Subscription & Data Plan** (Forfait de données et abonnement Azure).
-3. Cliquez sur le forfait de données que vous voulez utiliser.
-4. Cliquez sur **Save**.  
-   ![forfaits d’abonnement et de données](./media/log-analytics-manage-access/subscription-tab.png)
+- Lorsque vous vous connectez au portail OMS, vous êtes invité à sélectionner un abonnement Azure. Sélectionnez l’abonnement que vous souhaitez lier à votre espace de travail, puis cliquez sur **Lier**.  
+    ![lier un abonnement Azure](./media/log-analytics-manage-access/required-link.png)
 
-Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en haut de votre page web.
+    > [!IMPORTANT]
+    > Pour que vous puissiez lier un espace de travail, votre compte Azure doit déjà y avoir accès.  En d’autres termes, le compte que vous utilisez pour accéder au portail Azure doit être **le même** que celui que vous utilisez pour accéder à votre espace de travail. Si ce n’est pas le cas, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
 
-![Ruban OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Pour lier un espace de travail à un abonnement Azure dans le portail Azure
 1. Connectez-vous au [portail Azure](http://portal.azure.com).
@@ -236,7 +227,7 @@ Si vous disposez d’un engagement monétaire Azure dans le cadre de l’inscri
 
 Si vous devez modifier l’abonnement Azure auquel l’espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Migrer un espace de travail vers un niveau tarifaire payant
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Migrer un espace de travail vers un niveau tarifaire payant dans le portail Azure
 1. Connectez-vous au [portail Azure](http://portal.azure.com).
 2. Recherchez **Log Analytics** et sélectionnez-le.
 3. Vous voyez la liste des espaces de travail existants. Sélectionnez un espace de travail.  
@@ -250,6 +241,21 @@ Si vous devez modifier l’abonnement Azure auquel l’espace de travail est li�
 > Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Modifier votre forfait de données dans le portail OMS
+
+Pour modifier un forfait de données à l’aide du portail OMS, l’utilisateur connecté doit déjà disposer d’un compte Azure.
+
+1. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
+2. Cliquez sur l’onglet **Comptes**, puis sur l’onglet **Azure Subscription & Data Plan** (Forfait de données et abonnement Azure).
+3. Cliquez sur le forfait de données que vous voulez utiliser.
+4. Cliquez sur **Save**.  
+   ![forfaits d’abonnement et de données](./media/log-analytics-manage-access/subscription-tab.png)
+
+Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en haut de votre page web.
+
+![Ruban OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Modifier la durée de stockage des données par Log Analytics
 
@@ -266,8 +272,8 @@ Pour modifier la durée de conservation des données :
 2. Recherchez **Log Analytics** et sélectionnez-le.
 3. Vous voyez la liste des espaces de travail existants. Sélectionnez un espace de travail.  
 4. Dans le panneau Espace de travail, sous **Général**, cliquez sur **Rétention**.  
-5. Utilisez le curseur pour augmenter ou diminuer le nombre de jours de rétention, puis cliquez **Enregistrer**
-![modifier la durée de rétention](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Utilisez le curseur pour augmenter ou diminuer le nombre de jours de rétention, puis cliquez sur **Enregistrer**.  
+    ![modifier la durée de rétention](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Modifier une organisation Azure Active Directory pour un espace de travail
 

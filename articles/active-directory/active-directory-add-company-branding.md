@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Si votre langue préférée est l’allemand, vous voyez le logo de bannière pa
 
 Bien que vous puissiez configurer un jeu pour chaque langue prise en charge par Azure AD, nous vous recommandons de limiter le nombre de variantes, pour des raisons de performances et de maintenance.
 
+> [!IMPORTANT]
+> Yammer n’affiche la page de connexion personnalisée Azure AD qu’une fois que l’utilisateur s’est connecté. L’utilisateur voit d’abord la page de connexion générique Office 365, avant de voir la page personnalisée.   
+ 
+ 
 **Pour ajouter la marque de votre société à votre répertoire, procédez comme suit :**
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en tant qu’administrateur de l’annuaire que vous voulez personnaliser.
@@ -148,7 +153,7 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en tant qu’administrateur de l’annuaire que vous voulez personnaliser.
 2. Sélectionnez le répertoire que vous voulez personnaliser.
-3. Dans la barre d’outils située en haut, cliquez sur **Configurer**.
+fs3. Dans la barre d’outils située en haut, cliquez sur **Configurer**.
 4. Cliquez sur **Personnaliser la marque**.
 5. Cliquez sur **Ajouter des paramètres de marque pour une langue spécifique**.
 6. Sélectionnez la langue pour laquelle vous souhaitez personnaliser le logo, puis cliquez sur **Suivant**.
@@ -221,9 +226,4 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

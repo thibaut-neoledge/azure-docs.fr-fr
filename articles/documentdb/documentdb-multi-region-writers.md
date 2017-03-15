@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 788a1b9ef6a470c8f696228fd8fe51052c4f7007
-ms.openlocfilehash: 15c5a8be1097253e88af3a9f36b9067f0e2fbba3
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="multi-master-database-architectures-with-azure-documentdb"></a>Architectures de base de données multimaîtres avec Azure DocumentDB
+# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>Architectures de base de données multimaîtres répliquées de façon globale avec DocumentDB
 DocumentDB prend en charge la [réplication globale](documentdb-distribute-data-globally.md) clé en main, qui vous permet de distribuer les données dans plusieurs régions avec accès à faible latence n’importe où dans la charge de travail. Ce modèle est généralement utilisé pour les charges de travail éditeur/consommateur, où un enregistreur existe dans une région géographique unique et des lecteurs sont distribués mondialement dans d’autres régions (lecture). 
 
 Vous pouvez également utiliser la prise en charge de la réplication globale de DocumentDB pour créer des applications dans lesquels des enregistreurs et des lecteurs sont distribués mondialement. Ce document décrit un modèle qui permet d’obtenir un accès en écriture locale et en lecture locale pour les enregistreurs utilisant Azure DocumentDB.
 
-## <a name="a-idexamplescenarioacontent-publishing---an-example-scenario"></a><a id="ExampleScenario"></a>Publication de contenu : un exemple de scénario
+## <a id="ExampleScenario"></a>Publication de contenu : un exemple de scénario
 Examinons un scénario réel pour décrire la manière dont vous pouvez utiliser des modèles de lecture/écriture mondialement distribués multirégions/multimaîtres avec DocumentDB. Envisagez une plateforme de contenu reposant sur DocumentDB. Voici certaines exigences que cette plateforme doit respecter pour une expérience utilisateur exceptionnelle pour les éditeurs et les consommateurs.
 
 * Les auteurs et les abonnés sont répartis dans le monde entier 
@@ -39,7 +41,7 @@ En supposant qu’il y a des millions de consommateurs et d’éditeurs avec des
 
 Si vous souhaitez en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement et mise à l’échelle dans Azure DocumentDB](documentdb-partition-data.md).
 
-## <a name="a-idmodelingnotificationsamodeling-notifications"></a><a id="ModelingNotifications"></a>Modélisation des notifications
+## <a id="ModelingNotifications"></a>Modélisation des notifications
 Les notifications sont des flux de données spécifiques à un utilisateur. Par conséquent, les modèles d’accès pour les documents de notifications sont toujours destinés à un utilisateur unique. Ainsi, vous pouvez « publier une notification à un utilisateur » ou « extraire toutes les notifications pour un utilisateur donné ». Ainsi, le choix optimal de clé de partitionnement pour ce type est `UserId`.
 
     class Notification 
@@ -66,7 +68,7 @@ Les notifications sont des flux de données spécifiques à un utilisateur. Par 
         public string ArticleId { get; set; } 
     }
 
-## <a name="a-idmodelingsubscriptionsamodeling-subscriptions"></a><a id="ModelingSubscriptions"></a>Modélisation des abonnements
+## <a id="ModelingSubscriptions"></a>Modélisation des abonnements
 Les abonnements peuvent être créés selon différents critères comme une catégorie spécifique d’articles d’intérêt ou un éditeur spécifique. Par conséquent, `SubscriptionFilter` constitue un bon choix pour la clé de partition.
 
     class Subscriptions 
@@ -89,7 +91,7 @@ Les abonnements peuvent être créés selon différents critères comme une cat�
         } 
     }
 
-## <a name="a-idmodelingarticlesamodeling-articles"></a><a id="ModelingArticles"></a>Modélisation des articles
+## <a id="ModelingArticles"></a>Modélisation des articles
 Une fois qu’un article est identifié par le biais des notifications, les requêtes suivantes sont généralement basés sur `ArticleId`. En choisissant `ArticleID` en tant que partition, la clé fournit la meilleure distribution pour le stockage des articles à l’intérieur d’une collection DocumentDB. 
 
     class Article 
@@ -118,7 +120,7 @@ Une fois qu’un article est identifié par le biais des notifications, les requ
         //... 
     }
 
-## <a name="a-idmodelingreviewsamodeling-reviews"></a><a id="ModelingReviews"></a>Modélisation des avis
+## <a id="ModelingReviews"></a>Modélisation des avis
 Les avis sont principalement écrits et lus dans le contexte de l’article. Choisir `ArticleId` en tant que clé de partition fournit une meilleure distribution et un accès efficace aux avis associés à l’article. 
 
     class Review 
@@ -144,7 +146,7 @@ Les avis sont principalement écrits et lus dans le contexte de l’article. Cho
         public int Rating { get; set; } }
     }
 
-## <a name="a-iddataaccessmethodsadata-access-layer-methods"></a><a id="DataAccessMethods"></a>Méthodes de couche d’accès aux données
+## <a id="DataAccessMethods"></a>Méthodes de couche d’accès aux données
 Maintenant, examinons les méthodes d’accès aux données principales que nous devons mettre en œuvre. Voici une liste des méthodes dont `ContentPublishDatabase` a besoin :
 
     class ContentPublishDatabase 
@@ -160,7 +162,7 @@ Maintenant, examinons les méthodes d’accès aux données principales que nous
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a name="a-idarchitectureadocumentdb-account-configuration"></a><a id="Architecture"></a>Configuration du compte DocumentDB
+## <a id="Architecture"></a>Configuration du compte DocumentDB
 Pour garantir les lectures et écritures locales, nous devons partitionner les données, non seulement sur la clé de partition de clé, mais également selon le modèle d’accès géographique dans les régions. Le modèle repose sur l’existence d’un compte de base de données Azure DocumentDB géo-répliqué pour chaque région. Voici, par exemple, une configuration pour les écritures multirégions avec deux régions :
 
 | Nom du compte | Région d’écriture | Région de lecture |
@@ -200,7 +202,7 @@ Avec la configuration précédente, la couche d’accès aux données peut trans
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
-## <a name="a-iddataaccessimplementationadata-access-layer-implementation"></a><a id="DataAccessImplementation"></a>Mise en œuvre de la couche d’accès aux données
+## <a id="DataAccessImplementation"></a>Mise en œuvre de la couche d’accès aux données
 Maintenant, examinons la mise en œuvre de la couche d’accès aux données pour une application avec deux régions en écriture. La couche d’accès aux données doit mettre en œuvre les opérations suivantes :
 
 * Créer plusieurs instances de `DocumentClient` pour chaque compte. Avec deux régions, chaque instance de la couche d’accès aux données possède un `writeClient` et `readClient`. 
@@ -309,15 +311,10 @@ Pour lire les notifications et les avis, vous devez lire à partir des régions 
 
 Par conséquent, en choisissant une bonne clé de partitionnement et le partitionnement statique basé sur les comptes, vous pouvez effectuer des lectures et écritures locales multirégions à l’aide d’Azure DocumentDB.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Étapes suivantes
+## <a id="NextSteps"></a>Étapes suivantes
 Dans cet article, nous avons décrit comment vous pouvez utiliser des modèles lecture/écriture multirégions mondialement distribué avec DocumentDB à l’aide de la publication de contenu comme exemple de scénario.
 
 * Découvrez-en plus sur la manière dont DocumentDB prend en charge la [distribution mondiale](documentdb-distribute-data-globally.md)
 * En savoir plus sur les [Basculements manuels et automatiques dans Azure DocumentDB](documentdb-regional-failovers.md)
 * Découvrez-en plus sur [la cohérence globale avec DocumentDB](documentdb-consistency-levels.md)
 * Développez en mode multirégions à l’aide du [Kit de développement logiciel (SDK) Azure DocumentDB](documentdb-developing-with-multiple-regions.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

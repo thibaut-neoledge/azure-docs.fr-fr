@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
 ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -31,7 +32,7 @@ Ce document explique comment accéder aux journaux des applications YARN (Yet An
 * Un cluster HDInsight sous Linux
 * Vous devez [créer un tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) avant d’accéder à l’interface utilisateur web des journaux ResourceManager.
 
-## <a name="a-nameyarntimelineserverayarn-timeline-server"></a><a name="YARNTimelineServer"></a>YARN Timeline Server
+## <a name="YARNTimelineServer"></a>YARN Timeline Server
 Le serveur [YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) fournit des informations génériques sur les applications terminées, ainsi que des informations sur les applications spécifiques à l’infrastructure, via deux interfaces différentes. Plus précisément :
 
 * Le stockage et la récupération d’informations génériques sur les applications sur les clusters HDInsight sont activés dans les versions 3.1.1.374 ou ultérieures.
@@ -44,13 +45,13 @@ Les informations génériques sur les applications comprennent les données suiv
 * Informations sur les tentatives effectuées afin de terminer l’application
 * Conteneurs utilisés par toute tentative d’application donnée
 
-## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Applications et journaux YARN
+## <a name="YARNAppsAndLogs"></a>Applications et journaux YARN
 
 YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont MapReduce) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN se compose d’un gestionnaire de ressources (RM, *Resource Manager*) global, de gestionnaires de nœuds (NM, *Node Manager*) pour chaque nœud de travail, ainsi que de maîtres d’application (AM, *Application Master*) pour chaque application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
 
 Chaque application peut comporter plusieurs *tentatives d’application*. Cela permet à une application de relancer une opération en cas d’incident ou de perte de communication entre un maître d’application et un gestionnaire de ressources. Chaque tentative est exécutée dans un conteneur. D’une certaine manière, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN. Tout le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud Worker auquel le conteneur a été alloué. Pour plus d’informations, consultez la rubrique [Concepts relatifs à YARN][YARN-concepts].
 
-Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux] de YARN fournit une infrastructure adaptée à la collecte, à l’[agrégationlog-aggregation] et au stockage des journaux des applications. La fonction d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud Worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un fichier journal par nœud Worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
+Les journaux des applications (et les journaux des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux][log-aggregation] de YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications. La fonction d’agrégation de journaux rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux de tous les conteneurs exécutés sur un nœud Worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un fichier journal par nœud Worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight (versions 3.0 et ultérieures) et les journaux agrégés figurent dans le conteneur par défaut de votre cluster à l’emplacement suivant :
 
     wasbs:///app-logs/<user>/logs/<applicationId>
 
@@ -92,9 +93,4 @@ Une fois que vous avez créé un tunnel SSH, procédez comme suit pour afficher 
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

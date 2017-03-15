@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
-ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -67,7 +68,7 @@ Le tableau suivant répertorie certains des attributs communs et décrit comment
 | Historique des SID des utilisateurs et groupes |SID d’utilisateur et de groupe principal local |L’attribut SidHistory pour les utilisateurs et groupes dans votre domaine géré est défini de sorte à correspondre au SID de groupe ou d’utilisateur principal correspondant sur votre domaine local. Cette fonctionnalité permet de faciliter la migration des applications sur site vers le domaine géré, étant donné que vous n’avez pas besoin de redéfinir les ACL des ressources. |
 
 > [!NOTE]
-> **Se connecter au domaine géré en utilisant le format UPN :** l’attribut SAMAccountName peut être généré automatiquement pour certains comptes d’utilisateurs dans votre domaine géré. Si plusieurs utilisateurs ont le même attribut mailNickname ou que des utilisateurs ont des préfixes UPN anormalement longs, la valeur SAMAccountName pour ces utilisateurs peut être générée automatiquement. Par conséquent, le format SAMAccountName (par exemple, « CONTOSO100\joeuser ») n’est pas toujours une méthode fiable pour se connecter au domaine. La valeur de SAMAccountName générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier. Utilisez le format UPN (par exemple, 'joeuser@contoso100.com') pour vous connecter correctement au domaine géré.
+> **Se connecter au domaine géré en utilisant le format UPN :** l’attribut SAMAccountName peut être généré automatiquement pour certains comptes d’utilisateurs dans votre domaine géré. Si plusieurs utilisateurs ont le même attribut mailNickname ou que des utilisateurs ont des préfixes UPN anormalement longs, la valeur SAMAccountName pour ces utilisateurs peut être générée automatiquement. Par conséquent, le format SAMAccountName (par exemple, « CONTOSO100\joeuser ») n’est pas toujours une méthode fiable pour se connecter au domaine. La valeur de SAMAccountName générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier. Utilisez le format UPN (par exemple, 'joeuser@contoso100.com') pour vous connecter de manière fiable au domaine managé.
 >
 >
 
@@ -121,9 +122,4 @@ Comme décrit dans une section précédente de cet article, il n’existe aucune
 * [Scénarios de déploiement - Services de domaine Azure AD](active-directory-ds-scenarios.md)
 * [Considérations relatives à la mise en réseau pour les services de domaine Azure AD](active-directory-ds-networking.md)
 * [Prise en main des services de domaine Azure AD](active-directory-ds-getting-started.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

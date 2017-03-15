@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/24/2017
 
 Dans le Portail Azure, partez d’un exemple de jeu de données prédéfini pour générer rapidement un index à l’aide de l’Assistant **Importer des données**. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
 
-Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
+Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
 
 + Acquisition d’une expérience pratique en un minimum de temps
 + Création d’un prototype d’index avant l’écriture du code dans l’Assistant **Importer des données**
@@ -35,11 +35,13 @@ Cette présentation dénuée de code est destinée à vous familiariser avec les
 
 **Durée estimée :** 15 minutes environ, mais davantage de temps si une inscription à un compte ou à un service est également requise. 
 
-Une autre possibilité consiste à visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+Vous pouvez également commencer en vous aidant d’une [introduction à la programmation basée sur le code du service Recherche Azure dans .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
 Ce didacticiel repose sur le principe que vous disposez [d’un abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) et du [service Recherche Azure](search-create-service-portal.md). 
+
+Si vous ne voulez pas effectuer une mise en service immédiatement, vous pouvez visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel. Pour cela, accédez à la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138), à partir de la 3e minute environ.
 
 ## <a name="find-your-service"></a>Recherche de votre service
 1. Connectez-vous au [portail Azure](https://portal.azure.com).

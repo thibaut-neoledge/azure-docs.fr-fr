@@ -18,6 +18,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
 ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -74,7 +75,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 où :
 
 * *&lt;vm-cloudservice name&gt;* est le nom de la machine virtuelle qui deviendra l’ordinateur hôte du conteneur Docker dans Azure
-* *&lt;nom_utilisateur&gt;* is the nom_utilisateur of the default root user of the VM
+* *&lt;username&gt;* est le nom de l'utilisateur racine par défaut de la machine virtuelle
 * *&lt;password&gt;* est le mot de passe du compte *username* remplissant les conditions de complexité Azure
 
 > [!NOTE]
@@ -181,9 +182,4 @@ Le démon Docker sur l’hôte est configuré pour écouter et authentifier les 
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
 
 [Prise en main de Docker et Compose pour définir et exécuter une application à conteneurs multiples sur une machine virtuelle Azure]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

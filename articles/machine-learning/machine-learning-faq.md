@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Il existe trois façons de télécharger des données dans une expérience Machi
 
 Pour en savoir plus sur les formats de fichiers pris en charge, voir [Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Quelle est la taille maximale du jeu de données de mes modules ?
+#### <a id="ModuleLimit"></a>Quelle est la taille maximale du jeu de données de mes modules ?
 Les modules de Machine Learning Studio prennent en charge les jeux de données d’une taille maximale de 10 Go de données numériques denses pour les scénarios d’utilisation courants. Si un module accepte plusieurs entrées, le total de toutes les tailles d’entrée est de 10 Go. Vous pouvez également échantillonner des jeux de données plus importants par le biais de requêtes Hive ou Azure SQL Database ou encore via un prétraitement Learning by Counts avant l’ingestion.  
 
 Les types de données suivants peuvent être développés en jeux de données plus importants au moment de la normalisation des fonctionnalités et ils sont limités à moins de 10 Go :
@@ -101,7 +102,7 @@ Les modules suivants sont limités à des jeux de données inférieurs à 10 Go 
 * Modules dont la taille des données de sortie peut être supérieure à la taille des données d’entrée, comme Join ou Feature Hashing
 * Validation croisée, réglage des hyperparamètres de modèle, régression ordinale et plusieurs classes de un contre tous, lorsque le nombre d’itérations est très élevé
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Quelles sont les limites de téléchargement de données ?
+#### <a id="UploadLimit"></a>Quelles sont les limites de téléchargement de données ?
 Pour les tailles de jeux de données supérieures à quelques gigaoctets, chargez les données dans le stockage Azure ou Azure SQL Database. Vous pouvez aussi utiliser Azure HDInsight au lieu d’effectuer un chargement directement à partir d’un fichier local.
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
@@ -429,7 +430,11 @@ Nous vous recommandons de commencer par le niveau Standard S1 et de surveiller 
 
 **Dans quelles régions les nouveaux profils sont-ils disponibles ?**
 
-Pour plus d’informations sur la disponibilité régionale, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+Les nouveaux profils de facturation sont disponibles dans les trois régions de production dans lesquelles nous prenons en charge les nouveaux services web :
+
+* Centre-Sud des États-Unis
+* Europe de l'Ouest
+* Asie du Sud-Est
 
 **J’ai des services web dans plusieurs régions. Dois-je avoir un profil pour chaque région ?**
 
@@ -464,7 +469,13 @@ Oui. Les services web Classic sont toujours disponibles dans Azure Machine Lear
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Niveaux Gratuit et Standard d’Azure Machine Learning
 **Qu’est-ce qui est inclus dans le niveau Gratuit d’Azure Machine Learning ?**
 
-Le niveau Gratuit d’Azure Machine Learning offre une introduction complète à Azure Machine Learning Studio. Il vous suffit d'un compte Microsoft pour vous inscrire. Le niveau Gratuit inclut un accès gratuit à un espace de travail Azure Machine Learning Studio par [compte Microsoft](https://www.microsoft.com/account/default.aspx). Dans ce niveau, vous pouvez utiliser jusqu’à 10 Go de stockage et rendre des modèles opérationnels en tant qu’API intermédiaires. Les charges de travail du niveau Gratuit ne sont couvertes par aucun contrat de niveau de service et sont uniquement destinées au développement et à une utilisation personnelle. Les charges de travail du niveau Gratuit ne peuvent pas accéder aux données en se connectant à un serveur SQL Server local.
+Le niveau Gratuit d’Azure Machine Learning offre une introduction complète à Azure Machine Learning Studio. Il vous suffit d'un compte Microsoft pour vous inscrire. Le niveau Gratuit inclut un accès gratuit à un espace de travail Azure Machine Learning Studio par [compte Microsoft](https://www.microsoft.com/account/default.aspx). Dans ce niveau, vous pouvez utiliser jusqu’à 10 Go de stockage et rendre des modèles opérationnels en tant qu’API intermédiaires. Les charges de travail du niveau Gratuit ne sont couvertes par aucun contrat de niveau de service et sont uniquement destinées au développement et à une utilisation personnelle. 
+
+Les espaces de travail du niveau Gratuit présentent les limites suivantes :
+
+* Les charges de travail ne peuvent pas accéder aux données en se connectant à un serveur SQL Server local.
+* Vous ne pouvez pas déployer de nouveaux services web basés sur Resource Manager.
+
 
 **Qu’est-ce qui est inclus dans le niveau et les plans Standard d'Azure Machine Learning ?**
 
@@ -546,9 +557,4 @@ L’accès invité offre une expérience d’évaluation limitée. Vous pouvez c
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

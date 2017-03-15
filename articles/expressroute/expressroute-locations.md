@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f20e8d3d5774eb57038e40fac6a4bac2e17909e
-ms.openlocfilehash: 569786c864d5f8ceb93422c65ae1ffb47f66a787
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38fb1cd513823c39184508cc61e4928e2b8a76a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 
 Les tables de cet article offrent des informations sur les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Fournisseurs de connectivité ExpressRoute
+## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
 ![Carte des emplacements][0]
@@ -62,7 +62,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Emplacements de fournisseur de connectivité
+## <a name="locations"></a>Emplacements de fournisseur de connectivité
 
 Le tableau suivant présente les emplacements, en fonction de chaque fournisseur de services. Si vous souhaitez afficher les fournisseurs disponibles par emplacement, consultez la liste des [fournisseurs de services par emplacement](expressroute-locations-providers.md#locations).
 
@@ -106,13 +106,13 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Sejong Telecom** |Pris en charge |Pris en charge |Busan, Séoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Pris en charge |Pris en charge |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Pris en charge |Pris en charge |Singapour |
-| **Softbank** |Pris en charge |Pris en charge |Osaka, Tokyo |
+| **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Pris en charge |Pris en charge |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Pris en charge |Pris en charge |Amsterdam, Chennai, Hong Kong, Londres, Mumbai, Silicon Valley, Singapour, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Pris en charge |Pris en charge |Amsterdam, Dublin, Londres |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Pris en charge |Pris en charge |São Paulo |
 | **Telenor** |Pris en charge |Pris en charge |Amsterdam, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Pris en charge |Pris en charge |Melbourne, Sydney |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Pris en charge |Non pris en charge |Londres |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Pris en charge |Pris en charge |Chicago, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
 
@@ -145,7 +145,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | **Interxion** |Pris en charge |Non pris en charge |Francfort |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Pris en charge  | Non pris en charge | Berlin |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
+## <a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
 Si votre fournisseur de connectivité ne se trouve pas dans la liste des sections précédentes, vous pouvez quand même créer une connexion.
 
 * Vérifiez auprès de votre fournisseur de connectivité s’il est connecté à l’un des échanges dans le tableau ci-dessous. Vous pouvez consulter les liens ci-dessous pour recueillir des informations supplémentaires sur les services proposés par les fournisseurs d’échange. Plusieurs fournisseurs de connectivité sont déjà connectés à des échanges Ethernet.

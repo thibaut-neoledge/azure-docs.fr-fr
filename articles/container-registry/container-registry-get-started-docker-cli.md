@@ -1,6 +1,6 @@
 ---
-title: Authentification avec un Registre de conteneurs Azure | Microsoft Docs
-description: "Transmettre et extraire des images Docker vers un Registre de conteneur Azure à l’aide de l’interface de ligne de commande (CLI) Docker"
+title: "Transmission push de l’image Docker au Registre Azure privé | Microsoft Docs"
+description: "Transmission et extraction des images Docker à un Registre de conteneur privé dans Azure à l’aide de l’interface de ligne de commande (CLI) Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Transmettre votre première image vers un Registre de conteneur à l’aide de l’interface de ligne de commande (CLI) Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 Un Registre de conteneur Azure stocke et gère les images privées du conteneur [Docker](http://hub.docker.com), de la même manière que [Docker Hub](https://hub.docker.com/) stocke les images publiques du Docker. Vous pouvez utiliser [l’interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/cli/) (interface CLI Docker) pour la [connexion](https://docs.docker.com/engine/reference/commandline/login/), la [transmission](https://docs.docker.com/engine/reference/commandline/push/), [l’extraction](https://docs.docker.com/engine/reference/commandline/pull/) et d’autres opérations sur le Registre du conteneur. 
 
-Pour en savoir plus et connaître les concepts, consultez [What is Azure Container Registry?](container-registry-intro.md) (Qu’est-ce qu’Azure Container Registry ?)
+Pour plus d’informations, notamment sur les concepts, voir la [page de présentation](container-registry-intro.md)
 
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
 title: Utiliser MongoChef pour MongoDB avec Azure DocumentDB | Microsoft Docs
-description: "Découvrez comment utiliser MongoChef avec un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire)."
+description: "Découvrez comment utiliser MongoChef avec un compte DocumentDB : API pour MongoDB."
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
@@ -13,30 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Utiliser MongoChef avec un compte DocumentDB prenant en charge le protocole MongoDB
-Pour vous connecter à un compte Azure DocumentDB prenant en charge le protocole MongoDB à l’aide de MongoChef, vous devez :
+# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>Utiliser MongoChef avec un compte DocumentDB : API pour MongoDB
+
+Pour vous connecter à un compte Azure DocumentDB : API pour MongoDB, vous devez :
 
 * Télécharger et installer [MongoChef](http://3t.io/mongochef)
-* Posséder un compte DocumentDB avec les informations de la [chaîne de connexion](documentdb-connect-mongodb-account.md) pour la prise en charge du protocole MongoDB
+* Disposer des informations de [chaîne de connexion](documentdb-connect-mongodb-account.md) de votre compte DocumentDB : API pour MongoDB
 
 ## <a name="create-the-connection-in-mongochef"></a>Créer la connexion dans MongoChef
-Pour ajouter votre compte DocumentDB prenant en charge le protocole MongoDB au gestionnaire de connexions MongoChef, procédez comme suit.
+Pour ajouter votre compte DocumentDB : API pour MongoDB au gestionnaire de connexions MongoChef, procédez comme suit.
 
-1. Récupérez votre compte DocumentDB avec les informations de connexion pour la prise en charge du protocole MongoDB à l’aide de [ces instructions](documentdb-connect-mongodb-account.md).
+1. Récupérez les informations de connexion DocumentDB : API pour MongoDB à l’aide des instructions [ici](documentdb-connect-mongodb-account.md).
 
     ![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Cliquez sur **Connexion** pour ouvrir le gestionnaire de connexions, puis cliquez sur **Nouvelle connexion**.
 
     ![Capture d’écran du Gestionnaire de connexions MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. Sous l’onglet **Serveur** de la fenêtre **Nouvelle connexion**, entrez l’HÔTE (FQDN) du compte DocumentDB prenant en charge le protocole MongoDB et le PORT.
+3. Sous l’onglet **Serveur** de la fenêtre **Nouvelle connexion**, entrez l’HÔTE (FQDN) du compte DocumentDB : API pour MongoDB et le PORT.
 
     ![Capture d’écran de l’onglet Serveur du Gestionnaire de connexions MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. Dans la fenêtre **Nouvelle connexion**, sous l’onglet **Authentification**, choisissez le mode d’authentification **Standard (MONGODB-CR ou SCARM-SHA-1)** et entrez les NOM D’UTILISATEUR et MOT DE PASSE.  Acceptez la base de données d’authentification par défaut (admin) ou indiquez votre propre valeur.
@@ -114,10 +116,5 @@ Pour créer une base de données, une collection et des documents à l’aide de
     ![Capture d’écran des résultats de requête MongoChef](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez des [exemples](documentdb-mongodb-samples.md)de prise en charge du protocole MongoDB dans DocumentDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Explorez les [exemples](documentdb-mongodb-samples.md) DocumentDB : API pour MongoDB.
 

@@ -1,7 +1,7 @@
 ---
-title: "Développement d’une application Web Python Flask avec DocumentDB | Microsoft Docs"
+title: "Didacticiel de l’application web Python Flask avec DocumentDB | Microsoft Docs"
 description: "Passez en revue un didacticiel de base de données qui explique comment utiliser DocumentDB pour stocker des données et y accéder à partir d’une application web Python Flask hébergée sur Azure. Trouvez des solutions de développement d’applications."
-keywords: "Développement d’application, didacticiel de base de données, python flask, application web python, développement web python, documentdb, azure, Microsoft azure"
+keywords: "Développement d’applications, Python Flask, application web Python, développement web Python"
 services: documentdb
 documentationcenter: python
 author: syamkmsft
@@ -15,15 +15,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="python-flask-web-application-development-with-documentdb"></a>Développement d’une application Python Flask avec DocumentDB
+# <a name="build-a-python-flask-web-application-using-documentdb"></a>Développez une application web Python Flask à l’aide de DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
+> * [.NET pour MongoDB](documentdb-mongodb-application.md)
 > * [Node.JS](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -71,7 +74,7 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 <br/>
- Voyons à présent comment créer une application web Python Flask de A à Z.
+Voyons à présent comment créer une application web Python Flask de A à Z.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>Étape 2 : Création d’une application web Python Flask
 1. Dans Visual Studio, dans le menu **Fichier**, pointez sur **Nouveau**, puis cliquez sur **Projet**.
@@ -410,9 +413,4 @@ Pour d’autres didacticiels Python Flask, consultez [The Flask Mega-Tutorial, P
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

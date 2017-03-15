@@ -4,7 +4,7 @@ description: "Apprendre à utiliser les outils Azure Data Lake pour Visual Studi
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 599aeb1f38c804c2edf6590140e739c9705ab1ab
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,7 +31,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 * Hortonworks Sandbox en cours d’exécution sur une machine virtuelle sur votre environnement de développement. Ce document a été écrit et testé avec le bac à sable en cours d’exécution dans Oracle VirtualBox, qui a été configuré à l’aide des informations contenues dans le document [Prise en main de l’écosystème Hadoop](hdinsight-hadoop-emulator-get-started.md) .
 
-* Visual Studio 2013 ou 2015, toute édition.
+* Visual Studio 2013, 2015 ou 2017, toute édition.
 
 * [SDK Azure pour .NET](https://azure.microsoft.com/downloads/) 2.7.1 ou ultérieure.
 
@@ -38,7 +39,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configuration des mots de passe pour le bac à sable
 
-Assurez-vous que Hortonworks Sandbox est en cours d’exécution, puis suivez les étapes du document [Prise en main de l’écosystème Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) pour configurer le mot de passe pour le compte SSH `root` et le compte Ambari `admin`. Ces mots de passe seront utilisés lors de la connexion au bac à sable à partir de Visual Studio.
+Vérifiez que Hortonworks Sandbox est en cours d’exécution, puis suivez les étapes du document [Prise en main de l’écosystème Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Ces étapes permettent de configurer le mot de passe pour le compte SSH `root` et le compte Ambari `admin`. Ces mots de passe sont utilisés lors de la connexion au bac à sable à partir de Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connexion des outils au bac à sable
 
@@ -78,7 +79,7 @@ Une fois ces étapes terminées, vous avez maintenant une entrée « Cluster HDI
 
 ## <a name="write-a-hive-query"></a>Écriture d’une requête Hive
 
-Hive fournit un langage de requête de type SQL (HiveQL), pour travailler avec les données structurées. Utilisez les étapes suivantes pour apprendre à exécuter des requêtes ad hoc sur le cluster local.
+Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des données structurées. Utilisez les étapes suivantes pour apprendre à exécuter des requêtes ad hoc sur le cluster local.
 
 1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur l’entrée du cluster local que vous avez ajouté précédemment, puis sélectionnez **Écrire une requête Hive**.
 
@@ -86,7 +87,7 @@ Hive fournit un langage de requête de type SQL (HiveQL), pour travailler avec l
 
     Cette opération ouvre une nouvelle fenêtre de requête qui vous permet de saisir et de soumettre rapidement une requête au cluster local.
 
-2. Entrez les informations suivantes dans la fenêtre de requête :
+2. Dans la nouvelle fenêtre de requête, entrez la commande suivante :
 
         select count(*) from sample_08;
 
@@ -94,11 +95,11 @@ Hive fournit un langage de requête de type SQL (HiveQL), pour travailler avec l
 
     ![fenêtre de requête et bouton Envoyer](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    Notez que vous pouvez également utiliser le menu déroulant en regard **d’Envoyer** pour sélectionner **Avancé**. Cette opération ouvre une boîte de dialogue qui vous permet de sélectionner des options supplémentaires lors de l’envoi de la tâche.
+    Vous pouvez également utiliser le menu déroulant en regard **d’Envoyer** pour sélectionner **Avancé**. Les options avancées vous permettent d’indiquer des options supplémentaires lors de l’envoi de la tâche.
 
     ![envoi avancé](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Une fois que vous avez envoyé la requête, l’état de la tâche s’affiche. Il comprend des informations sur la tâche telle qu’elle est traitée par Hadoop. L’entrée **Job State (État de la tâche)** indique l’état actuel de la tâche. Cet état sera mis à jour régulièrement. Vous pouvez également utiliser l’icône d’actualisation pour rafraîchir l’état manuellement.
+3. Une fois que vous avez envoyé la requête, l’état de la tâche s’affiche. Cet état comprend des informations sur la tâche telle qu’elle est traitée par Hadoop. L’entrée **État de la tâche** indique l’état actuel de la tâche. Cet état est mis à jour régulièrement. Vous pouvez également utiliser l’icône d’actualisation pour rafraîchir l’état manuellement.
 
     ![État de la tâche](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
@@ -113,16 +114,16 @@ Hive fournit un langage de requête de type SQL (HiveQL), pour travailler avec l
 
     ![Requête interactive](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    Cette opération affiche le journal de sortie généré lors du traitement dans la fenêtre **HiveServer2 Output (Sortie HiveServer2)**.
+    Une requête interactive affiche le journal de sortie généré lors du traitement dans la fenêtre **HiveServer2 Output** (Sortie HiveServer2).
 
     > [!NOTE]
-    > Ces informations sont également disponibles dans le lien **Journal de la tâche** une fois la tâche terminée.
+    > Ces informations sont identiques à celles qui sont disponibles dans le lien **Journal de la tâche** une fois la tâche terminée.
 
     ![HiveServer2 Output (Sortie HiveServer2)](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## <a name="create-a-hive-project"></a>Création d’un projet Hive
 
-Vous pouvez également créer un projet qui contient plusieurs scripts Hive. C’est utile lorsque vous avez plusieurs scripts liés que vous devez conserver ensemble ou gérer à l’aide d’un système de contrôle de versions.
+Vous pouvez également créer un projet qui contient plusieurs scripts Hive. Un projet est utile quand vous avez plusieurs scripts liés que vous devez conserver ensemble ou gérer à l’aide d’un système de contrôle de versions.
 
 1. Dans Visual Studio, sélectionnez **Fichier**, **Nouveau**, puis__Project__.
 
@@ -134,13 +135,13 @@ Le projet **Hive Sample (Exemple Hive)** contient deux scripts, **WebLogAnalysis
 
 ## <a name="create-a-pig-project"></a>Création d’un projet Pig
 
-Contrairement à Hive qui offre un langage de type SQL pour travailler avec des données structurées, Pig fournit un langage (Pig Latin) permettant de développer un pipeline des transformations appliquées à vos données. Utilisez les étapes suivantes pour utiliser Pig avec le cluster local.
+Contrairement à Hive qui offre un langage de type SQL pour travailler avec des données structurées, Pig effectue des transformations sur les données. Pig fournit un langage (Pig Latin) permettant de développer un pipeline des transformations. Suivez les étapes ci-dessous pour utiliser Pig avec le cluster local :
 
 1. Ouvrez Visual Studio, sélectionnez **Fichier**, **Nouveau**, puis **Projet**. Dans la liste des projets, développez **Modèles**, **Azure Data Lake**, puis sélectionnez **Pig (HDInsight)**. Dans la liste des modèles, sélectionnez **Pig Application (Application Pig)**. Entrez un nom et un emplacement, puis sélectionnez **OK**.
 
     ![Projet Pig (HDInsight)](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
-2. Entrez les informations suivantes comme contenu du fichier **script.pig** créé dans le cadre de ce projet.
+2. Entrez le texte suivant comme contenu du fichier **script.pig** créé dans le cadre de ce projet.
 
         a = LOAD '/demo/data/Website/Website-Logs' AS (
             log_id:int,
@@ -165,7 +166,7 @@ Contrairement à Hive qui offre un langage de type SQL pour travailler avec des 
 
 Les outils Azure Data Lake vous permettent également d’afficher facilement les informations sur les tâches qui ont été exécutées sur Hadoop. Utilisez les étapes suivantes pour afficher les tâches qui ont été exécutées sur le cluster local.
 
-1. Dans **l’Explorateur de serveurs**, cliquez avec le bouton droit sur le cluster local, puis sélectionnez **Afficher les tâches**. Cette opération affichera la liste des tâches qui ont été soumises au cluster.
+1. Dans **l’Explorateur de serveurs**, cliquez avec le bouton droit sur le cluster local, puis sélectionnez **Afficher les tâches**. Une liste des tâches qui ont été soumises au cluster s’affiche.
 
     ![Affichage des tâches](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
@@ -179,7 +180,7 @@ Les outils Azure Data Lake vous permettent également d’afficher facilement le
 
 ## <a name="view-hive-databases"></a>Affichage des bases de données Hive
 
-1. Dans **l’Explorateur de serveurs**, développez l’entrée **cluster local HDInsight**, puis développez **Bases de données Hive**. Cette commande affiche les bases de données **Par défaut** et **xademo** sur le cluster local. Le développement d’une base de données révèle les tables qu’elle contient.
+1. Dans **l’Explorateur de serveurs**, développez l’entrée **cluster local HDInsight**, puis développez **Bases de données Hive**. Les bases de données **Par défaut** et **xademo** sur le cluster local sont affichées. Le développement d’une base de données révèle les tables qu’elle contient.
 
     ![bases de données développées](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
@@ -189,9 +190,9 @@ Les outils Azure Data Lake vous permettent également d’afficher facilement le
 
 ### <a name="database-and-table-properties"></a>Propriétés des bases de données et des tables
 
-Vous avez peut-être remarqué que vous pouvez choisir d’afficher les **propriétés** d’une base de données ou d’une table. Cette commande affichera les détails de l’élément sélectionné dans la fenêtre Propriétés.
+Vous avez peut-être remarqué que vous pouvez choisir d’afficher les **propriétés** d’une base de données ou d’une table. La sélection de **Propriétés** affiche les détails de l’élément sélectionné dans la fenêtre Propriétés.
 
-![propriétés](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Propriétés](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
 ### <a name="create-a-table"></a>Création d’une table
 
@@ -207,9 +208,4 @@ Vous pouvez ensuite créer la table à l’aide d’un formulaire. Vous pouvez a
 
 * [Se familiariser avec Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Didacticiel Hadoop - Prise en main de HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

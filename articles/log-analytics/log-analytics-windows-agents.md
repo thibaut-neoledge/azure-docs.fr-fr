@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,7 @@ Avant d’installer ou de déployer des agents, passez en revue les informations
 8. Lorsque vous avez terminé, **Microsoft Monitoring Agent** apparaît dans le **Panneau de configuration**. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Operational Insights (OMS). Une fois connecté à OMS, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installation de l’agent à l’aide de la ligne de commande
-- Modifiez, puis utilisez l’exemple suivant pour installer l’agent à l’aide de la ligne de commande.
+- Modifiez, puis utilisez l’exemple suivant pour installer l’agent à l’aide de la ligne de commande. L’exemple effectue une installation entièrement sans assistance.
 
     >[!NOTE]
     Si vous souhaitez mettre à niveau un agent, vous devez utiliser l’API de script Log Analytics. Pour mettre à niveau un agent, consultez la section suivante.
@@ -84,6 +84,8 @@ Avant d’installer ou de déployer des agents, passez en revue les informations
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+L’agent utilise IExpress comme son auto-extracteur à l’aide de la commande `/c`. Vous pouvez afficher les commutateurs de ligne de commande à la page [Commutateurs de ligne de commande pour les packages de mise à jour logicielle IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages), puis mettre à jour l’exemple pour répondre à vos besoins.
 
 ## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>Mettre à niveau l’agent et ajouter un espace de travail à l’aide d’un script
 Vous pouvez mettre à niveau un agent et ajouter un espace de travail à l’aide de l’API de script Log Analytics avec l’exemple PowerShell suivant.

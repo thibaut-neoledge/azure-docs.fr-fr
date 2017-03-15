@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: e32d21ca410d4107f68f8b72353ca400a26c4523
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -37,40 +38,27 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
   > [!IMPORTANT]
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Visual Studio 2012, 2013 ou 2015.
+* Visual Studio 2012, 2013, 2015 ou 2017.
 
-## <a name="create-the-application"></a>Création de l'application
+## <a name="create-the-application"></a>Création de l’application
 
 Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. 
 
 1. Dans le menu **Fichier** de Visual Studio, sélectionnez **Nouveau**, puis **Projet**.
 
-2. Pour le nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+2. Pour le nouveau projet, tapez ou sélectionnez les valeurs suivantes :
    
-    <table>
-    <tr>
-    <th>Propriété</th>
-    <th>Valeur</th>
-    </tr>
-    <tr>
-    <th>Catégorie</th>
-    <th>Modèles/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Modèle</th>
-    <th>Application console</th>
-    </tr>
-    <tr>
-    <th>Nom</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | Propriété | Valeur |
+   | ------ | ------ |
+   | Catégorie | Modèles/Visual C#/Windows |
+   | Modèle | Application console |
+   | Nom | SubmitPigJob |
 
 3. Cliquez sur **OK** pour créer le projet.
 
 4. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package Nuget**, puis sélectionnez **Console du gestionnaire de package**.
 
-5. Exécutez la commande suivante dans la console pour installer les packages du Kit de développement logiciel (SDK) .NET.
+5. Pour installer les packages du Kit de développement logiciel (SDK) .NET, utilisez la commande suivante :
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -129,9 +117,9 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
     }
     ```
     
-7. Appuyez sur **F5** pour lancer l’application.
+7. Pour démarrer l’application, appuyez sur **F5**.
 
-8. Appuyez sur **Entrée** pour quitter l’application.
+8. Pour quitter l’application, appuyez sur **Entrée**.
 
 ## <a name="summary"></a>Résumé
 
@@ -139,19 +127,12 @@ Comme vous pouvez le voir, le Kit de développement logiciel (SDK) .NET pour Had
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir des informations générales sur Pig sur HDInsight.
+Pour plus d’informations sur Pig dans HDInsight, consultez [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md).
 
-* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
-
-Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight.
+Pour plus d’informations sur l’utilisation de Hadoop sur HDInsight, consultez les documents suivants :
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

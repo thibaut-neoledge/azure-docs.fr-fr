@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
 ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -51,6 +52,7 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
 
 **Service lié OData**. Cet exemple utilise l’authentification anonyme. Consultez la section [Service lié OData](#odata-linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -63,10 +65,11 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
                }
            }
     }
-
+```
 
 **Service lié Azure Storage**
 
+```json
     {
           "name": "AzureStorageLinkedService",
         "properties": {
@@ -76,11 +79,13 @@ L'exemple copie toutes les heures les données provenant de l’interrogation d'
             }
           }
     }
+```
 
 **Jeu de données d’entrée OData**
 
 La définition de « external » : « true» informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory et non produit par une activité dans Data Factory.
 
+```json
     {
         "name": "ODataDataset",
         "properties":
@@ -104,6 +109,7 @@ La définition de « external » : « true» informe le service Data Factory qu
             }
         }
     }
+```
 
 La spécification d’un **chemin d’accès** dans la définition du jeu de données est facultative.
 
@@ -111,6 +117,7 @@ La spécification d’un **chemin d’accès** dans la définition du jeu de don
 
 Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
+```json
     {
         "name": "AzureBlobODataDataSet",
         "properties": {
@@ -164,13 +171,14 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
             }
         }
     }
-
+```
 
 
 **Pipeline avec activité de copie**
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **RelationalSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **query** sélectionne les dernières (nouvelles) données de la source OData.
 
+```json
     {
         "name": "CopyODataToBlob",
         "properties": {
@@ -214,7 +222,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
             "end": "2016-02-03T19:00:00Z"
         }
     }
-
+```
 
 La spécification de la **requête** dans la définition du pipeline est facultative. L’ **URL** que le service Data Factory utilise pour récupérer les données est : URL spécifiée dans le service lié (obligatoire) + chemin d'accès spécifié dans le jeu de données (facultatif) + requête dans le pipeline (facultatif).
 
@@ -232,6 +240,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir de la source OData locale. |Non |
 
 ### <a name="using-basic-authentication"></a>Utilisation de l’authentification de base
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -246,8 +255,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
            }
        }
     }
+```
 
 ### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -260,8 +271,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
            }
        }
     }
+```
 
 ### <a name="using-windows-authentication-accessing-on-premises-odata-source"></a>Utilisation de l’authentification Windows pour accéder à la source OData locale
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -277,8 +290,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
            }
        }
     }
+```
 
 ### <a name="using-oauth-authentication-accessing-cloud-odata-source"></a>Utilisation de l’authentification OAuth pour accéder à la source OData dans le cloud
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -286,12 +301,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
             "type": "OData",
                "typeProperties":
             {
-               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc">",
+               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
                "authenticationType": "OAuth",
                "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
            }
        }
     }
+```
 
 ## <a name="odata-dataset-type-properties"></a>Propriétés de type du jeu de données OData
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -329,9 +345,4 @@ Lorsque que déplacez des données à partir de magasins de données OData, les 
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

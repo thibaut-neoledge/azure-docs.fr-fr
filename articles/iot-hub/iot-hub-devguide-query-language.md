@@ -244,7 +244,7 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 
 À l’aide des [itinéraires appareil-à-cloud][lnk-devguide-messaging-routes], vous pouvez configurer IoT Hub pour distribuer les messages appareil-à-cloud sur différents points de terminaison sur la base d’expressions évaluées par rapport à des messages individuels.
 
-La [condition] [ lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de représentation et de travail. Les conditions d’itinéraire sont évaluées sur les propriétés du message en supposant que la représentation JSON suivante est utilisée :
+La [condition][lnk-query-expressions] d’itinéraire utilise le même langage de requête IoT Hub que les conditions des requêtes de représentation et de travail. Les conditions d’itinéraire sont évaluées sur les propriétés du message en supposant que la représentation JSON suivante est utilisée :
 
         {
             "$messageId": "",
@@ -286,7 +286,7 @@ Les fonctions et expressions booléennes sont également prises en charge. Cette
 
         messageType = 'alerts' AND as_number(severity) <= 2
 
-Reportez-vous à la section [Expression et conditions] [ lnk-query-expressions] pour obtenir la liste complète des fonctions et opérateurs pris en charge.
+Reportez-vous à la section [Expression et conditions][lnk-query-expressions] pour obtenir la liste complète des fonctions et opérateurs pris en charge.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
 Chaque requête IoT Hub se compose de clauses SELECT et FROM et, en option, de clauses WHERE et GROUP BY. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des représentations d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec les agrégations, les résultats de cette étape sont regroupés comme spécifié dans la clause GROUP BY, puis, pour chaque groupe, une ligne est générée comme spécifié dans la clause SELECT.

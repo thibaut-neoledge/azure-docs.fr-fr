@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services avec .NET | Microsoft Docs
-description: "Découvrez comment utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET."
+description: "Découvrez comment utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le kit SDK Media Services pour .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a13850cf09424f7e4402204d97d1f6755d691550
-ms.openlocfilehash: 0d3f6dc80141d26cace60f177b35d527fd294261
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,8 +30,8 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 ultérieur
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+* .NET Framework 4.0 ou version ultérieure.
+* Visual Studio.
 * Comprendre [l’utilisation des fonctions Azure](../azure-functions/functions-overview.md). Consultez également [Liaisons HTTP et webhook d’Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
 
 Cette rubrique explique comment effectuer les opérations suivantes
@@ -46,7 +46,7 @@ Cette rubrique explique comment effectuer les opérations suivantes
     
 * Ajouter un webhook à votre tâche d’encodage et spécifier l’URL et la clé secrète du webhook auxquelles ce webhook répond. Dans l’exemple présenté ici, le code qui crée la tâche d’encodage est une application console.
 
-## <a name="getting-webhook-notifications"></a>Obtention de notifications Webhook
+## <a name="setting-up-webhook-notification-azure-functions"></a>Configuration des fonctions Azure de « notifications webhook »
 
 Le code de cette section illustre l’implémentation d’une fonction Azure correspondant à un webhook. Dans cet exemple, la fonction attend le rappel du webhook à partir des notifications Media Services et publie la ressource en sortie une fois que le travail se termine.
 
@@ -56,7 +56,20 @@ Dans le code suivant, la méthode **VerifyWebHookRequestSignature** effectue la 
 
 Vous trouverez la définition de la fonction Media Services .NET Azure suivante [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
-La liste de codes suivante affiche les définitions de trois fichiers qui sont associés à la fonction Azure : function.json, project.json et run.csx.
+La liste de codes suivante affiche les définitions des paramètres de fonction Azure et de trois fichiers qui sont associés à la fonction Azure : function.json, project.json et run.csx.
+
+### <a name="application-settings"></a>Paramètres de l’application 
+
+Le tableau suivant montre les paramètres qui sont utilisés par la fonction Azure définie dans cette section. 
+
+|Nom|Définition|Exemple| 
+|---|---|---|
+|AMSAccount|Nom de votre compte AMS. |juliakomediaservices|
+|AMSKey |Clé de votre compte AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |Nom du compte de stockage associé à votre compte AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Clé du compte de stockage associé à votre compte AMS.|
+|SigningKey |Clé de signature.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Adresse de point de terminaison webhook. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
@@ -410,7 +423,6 @@ Dans cette section, le code qui ajoute une notification webhook à une tâche es
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.None);
-
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(newAsset);

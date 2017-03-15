@@ -1,5 +1,5 @@
 ---
-title: "Configurer des écouteurs de groupes de disponibilité Always On – Microsoft Azure"
+title: "Configurer des écouteurs de groupe de disponibilité Always On - Microsoft Azure | Microsoft Docs"
 description: "Configurez les écouteurs de groupe de disponibilité sur le modèle Azure Resource Manager, à l’aide d’un équilibreur de charge interne avec une ou plusieurs adresses IP."
 services: virtual-machines
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: dd6eb530f715d98c39ab8730ee33922887d5f9cc
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1430807db46326779866f57bca3982e5f9448951
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -98,7 +99,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="a-nameadd-ipa-example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Exemple de script : Ajouter une adresse IP à un équilibreur de charge existant à l’aide de PowerShell
+## <a name="Add-IP"></a> Exemple de script : Ajouter une adresse IP à un équilibreur de charge existant à l’aide de PowerShell
 Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP requiert une règle d’équilibrage de charge, un port de sonde et un port frontal propres.
 
 Le port frontal est le port que les applications utilisent pour se connecter à l’instance SQL Server. Les adresses IP de groupes de disponibilité différents peuvent utiliser le même port frontal.
@@ -300,9 +301,4 @@ Utilisez les applets de commande PowerShell suivantes pour créer un équilibreu
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) permet de créer une configuration de pool d’adresses principales pour un équilibreur de charge. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) permet de créer une configuration de sonde pour un équilibreur de charge.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) permet de supprimer un équilibreur de charge à partir d’un groupe de ressources Azure.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

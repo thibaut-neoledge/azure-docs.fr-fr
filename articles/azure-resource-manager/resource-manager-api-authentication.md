@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: cacb2ce368a09c71c6f02548c5a1836ad77f540a
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 32f5959a9b96318208c46789ec406d614081bc8d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,7 +28,7 @@ Si, en tant que développeur de logiciels, vous souhaitez créer une application
 Votre application peut accéder à ces API de différentes manières :
 
 1. **Accès de l’utilisateur et de l’application**: pour les applications qui accèdent aux ressources pour le compte d’un utilisateur connecté. Cette approche fonctionne pour les applications, telles que les applications web et les outils en ligne de commande, qui n’assurent que la « gestion interactive » des ressources Azure.
-2. **Accès de l’application uniquement**: pour les applications qui exécutent des services démons et des tâches planifiées. L’identité de l’application se voit octroyer un accès direct aux ressources. Cette approche fonctionne pour les applications qui nécessitent un accès « hors connexion » prolongé à Azure.
+2. **Accès de l’application uniquement**: pour les applications qui exécutent des services démons et des tâches planifiées. L’identité de l’application se voit octroyer un accès direct aux ressources. Cette approche fonctionne pour les applications qui nécessitent un accès sans affichage (sans assistance) prolongé à Azure.
 
 Cette rubrique explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Elle montre comment effectuer chaque étape avec l’API REST ou C#. L’application MVC ASP.NET complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
@@ -362,10 +363,5 @@ Tout comme vous avez permis à l’utilisateur de connecter des abonnements à v
 La méthode [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) de l’exemple d’application MVC ASP.NET implémente cet appel.
 
 Et voilà ! Les utilisateurs peuvent maintenant se connecter et gérer facilement leurs abonnements Azure avec votre application.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

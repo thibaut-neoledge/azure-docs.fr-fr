@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
-ms.openlocfilehash: 8248e0a02cb0775a87f0c8130e53b98f8bcfe581
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 ## <a name="introduction"></a>Introduction
 Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée de *surveillance à distance* se connecte et surveille vos appareils. Cela vous permet d’analyser le flux de données de vos appareils et d’améliorer les résultats de l’entreprise grâce à des processus qui répondent automatiquement à ce flux de données.
 
-Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution préconfigurée. Vous pouvez accéder à la plupart de ces fonctionnalités à partir du tableau de bord de solution déployé avec la solution préconfigurée :
+Ce didacticiel montre comment configurer la solution préconfigurée de surveillance à distance. Il présente également les fonctionnalités de base de la solution préconfigurée. Vous pouvez accéder à la plupart de ces fonctionnalités à partir du *tableau de bord* de solution déployé avec la solution préconfigurée :
 
 ![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
 
@@ -39,36 +39,58 @@ Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
+## <a name="scenario-overview"></a>Présentation du scénario
+
+Lorsque vous déployez la solution préconfigurée de surveillance à distance, elle est préremplie avec les ressources qui vous permettent de parcourir un scénario courant de surveillance à distance. Dans ce scénario, plusieurs appareils connectés à la solution présentent des valeurs de température inattendues. Les sections suivantes vous montrent comment :
+
+* identifier les appareils qui envoient des valeurs de température inattendues ;
+* configurer ces appareils pour envoyer des données de télémétrie plus détaillées ;
+* résoudre le problème en mettant à jour le microprogramme sur ces appareils ;
+* vérifier que votre action a résolu le problème.
+
+Une fonctionnalité clé de ce scénario est que vous pouvez effectuer toutes ces actions à distance à partir du tableau de bord de solution. Vous n’avez pas besoin d’un accès physique aux appareils.
+
 ## <a name="view-the-solution-dashboard"></a>Afficher le tableau de bord de solution
+
 Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Par exemple, vous pouvez afficher les données de télémétrie, ajouter des appareils et configurer des règles.
 
-1. Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, cliquez sur **Lancer** pour ouvrir le portail de votre solution de surveillance à distance dans un nouvel onglet.
-   
-   ![Lancer la solution préconfigurée][img-launch-solution]
-2. Par défaut, le portail de solution affiche le *tableau de bord de solution*. Vous pouvez sélectionner d’autres vues à partir du menu de gauche.
-   
-   ![Tableau de bord de solution préconfigurée de surveillance à distance][img-dashboard]
+1. Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, choisissez **Lancer** pour ouvrir le portail de votre solution de surveillance à distance dans un nouvel onglet.
+
+    ![Lancer la solution préconfigurée][img-launch-solution]
+
+1. Par défaut, le portail de solution affiche le *tableau de bord*. Vous pouvez accéder à d’autres zones du portail de solution à l’aide du menu sur le côté gauche de la page.
+
+    ![Tableau de bord de solution préconfigurée de surveillance à distance][img-menu]
 
 Le tableau de bord affiche les informations suivantes :
 
-* La carte affiche l'emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, quatre appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte.
-* Le panneau **Historique de télémétrie** trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
-* Le panneau **Historique des alertes** affiche les alarmes récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
-* Le panneau **Tâches** affiche des informations sur les tâches planifiées. Vous pouvez planifier vos propres tâches sur la page **Gestion des tâches**.
+* Une carte qui affiche l’emplacement de chaque appareil connecté à la solution. Lors de la première exécution de la solution, 25 appareils sont simulés. Les appareils simulés sont implémentés en tant qu’Azure WebJobs, et la solution utilise l'API Bing Maps pour tracer les informations sur la carte. Consultez le [FAQ] [ lnk-faq] pour savoir comment rendre le mappage dynamique.
+* Un panneau **Historique de télémétrie** qui trace la télémétrie de l’humidité et de la température d’un appareil sélectionné en temps quasi-réel et affiche les données d’agrégation telles que l’humidité maximale, minimale et moyenne.
+* Un panneau **Historique des alertes** qui affiche les alarmes récentes lorsqu’une valeur de télémétrie a dépassé un seuil défini. Vous pouvez définir vos propres alarmes en plus des exemples créés par la solution préconfigurée.
+* Un panneau **Tâches** qui affiche des informations sur les travaux planifiés. Vous pouvez planifier vos propres tâches sur la page **Gestion des tâches**.
 
-## <a name="view-the-device-list"></a>Afficher la liste des appareils
-La *liste des appareils* montre tous les appareils inscrits dans la solution. Dans la liste des appareils, vous pouvez consulter et modifier les métadonnées des appareils, ajouter ou supprimer des appareils et appeler des méthodes sur les appareils.
+## <a name="view-alarms"></a>Afficher les alarmes
 
-1. Cliquez sur **Appareils** dans le menu de gauche pour accéder à la liste des appareils de cette solution.
-   
-   ![Liste des appareils dans le tableau de bord][img-devicelist]
-2. La liste des appareils montre au départ quatre appareils simulés créés par le processus de déploiement. Vous pouvez ajouter des appareils physiques et simulés supplémentaires à la solution.
-3. Vous pouvez personnaliser les informations affichées dans la liste des appareils en cliquant sur **Éditeur de colonne**. Vous pouvez ajouter et supprimer des colonnes dans lesquelles figurent des valeurs de balises et de propriétés signalées. Vous pouvez également réorganiser et renommer les colonnes :
-   
-   ![Éditeur de colonne dans le tableau de bord][img-columneditor]
-4. Pour afficher les détails concernant un appareil, cliquez sur l’appareil dans la liste.
-   
-   ![Détails de l’appareil dans le tableau de bord][img-devicedetails]
+Le panneau Historique des alarmes montre que cinq appareils signalent des valeurs de télémétrie plus élevées que celles attendues.
+
+![TODO Historique des alarmes dans le tableau de bord de solution][img-alarms]
+
+> [!NOTE]
+> Ces alarmes sont générées par une règle qui est incluse dans la solution préconfigurée. Cette règle génère une alerte lorsque la valeur de température envoyée par un appareil dépasse 60. Vous pouvez définir vos propres règles et actions en choisissant [Règles](#add-a-rule) et [Actions](#add-an-action) dans le menu de gauche.
+
+## <a name="view-devices"></a>Afficher les appareils
+
+La liste des *appareils* montre tous les appareils inscrits dans la solution. Dans la liste des appareils, vous pouvez consulter et modifier les métadonnées des appareils, ajouter ou supprimer des appareils et appeler des méthodes sur les appareils. Vous pouvez filtrer et trier la liste des appareils dans la liste. Vous pouvez également personnaliser les colonnes affichées dans la liste des appareils.
+
+1. Choisissez **Appareils** pour afficher la liste des appareils pour cette solution.
+
+   ![Affichage de la liste des appareils dans le portail de solution][img-devicelist]
+
+1. La liste des appareils montre au départ 25 appareils simulés créés par le processus de déploiement. Vous pouvez ajouter des appareils physiques et simulés supplémentaires à la solution.
+
+1. Pour afficher les détails d’un appareil, choisissez un appareil dans la liste.
+
+   ![Affichage des détails de l’appareil dans le portail de solution][img-devicedetails]
 
 Le volet **Détails de l’appareil** comprend six sections :
 
@@ -79,215 +101,242 @@ Le volet **Détails de l’appareil** comprend six sections :
 * La section **Propriétés de l’appareil** contient des informations du registre des identités, telles que l’ID de l’appareil et ses clés d’authentification.
 * La section **Tâches récentes** inclut des informations sur toutes les tâches qui ont récemment ciblé cet appareil.
 
-## <a name="customize-the-device-icon"></a>Personnaliser l’icône de l’appareil
+## <a name="filter-the-device-list"></a>Filtrer la liste des appareils
+
+Vous pouvez utiliser un filtre pour afficher uniquement les appareils qui envoient des valeurs de température inattendues. La solution préconfigurée de surveillance à distance inclut le filtre **Appareils défectueux** pour afficher les appareils ayant une valeur de température moyenne supérieure à 60. Vous pouvez également [créer vos propres filtres](#add-a-filter).
+
+1. Choisissez **Ouvrir un filtre enregistré** pour afficher la liste des filtres disponibles. Puis choisissez **Appareils défectueux** pour appliquer le filtre :
+
+    ![Affichage de la liste des filtres][img-unhealthy-filter]
+
+1. La liste des appareils indique à présent uniquement les appareils ayant une valeur de température moyenne supérieure à 60.
+
+    ![Affichage de la liste des appareils filtrée montrant les appareils défectueux][img-filtered-unhealthy-list]
+
+## <a name="update-desired-properties"></a>Mettre à jour les propriétés souhaitées
+
+Vous avez désormais identifié un ensemble d’appareils nécessitant une correction. Toutefois, vous décidez que la fréquence de données de 15 secondes n’est pas suffisante pour un diagnostic clair du problème. La modification de la fréquence de télémétrie à cinq secondes pour vous fournir plus de données permet de mieux diagnostiquer le problème. Vous pouvez transmettre cette modification de configuration aux appareils distants à partir du portail de la solution. Vous pouvez effectuer cette modification une fois, évaluer l’impact et ensuite agir en fonction des résultats.
+
+Procédez comme suit pour exécuter un travail qui modifie la propriété souhaitée **TelemetryInterval** pour les appareils affectés. Lorsque les appareils reçoivent la nouvelle valeur de propriété **TelemetryInterval**, ils modifient leur configuration pour envoyer la télémétrie toutes les 5 secondes au lieu de 15 :
+
+1. Pendant que vous visualisez la liste des appareils défectueux dans la liste des appareils, choisissez **Planificateur de travaux**, puis **Modifier le jumeau d’appareil**.
+
+1. Appelez le travail **Modification de l’intervalle de télémétrie**.
+
+1. Modifiez la valeur du nom de la **propriété souhaitée** **desired.Config.TelemetryInterval** à cinq secondes.
+
+1. Choisissez **Planification**.
+
+    ![Modification de la propriété TelemetryInterval à cinq secondes][img-change-interval]
+
+1. Vous pouvez surveiller la progression du travail sur la page **Gestion des tâches** du portail.
+
+> [!NOTE]
+> Si vous souhaitez modifier une valeur de propriété souhaitée pour un appareil en particulier, utilisez la section **Propriétés souhaitées** dans le panneau **Détails de l’appareil** au lieu d’exécuter un travail.
+
+Ce travail définit la valeur de la propriété souhaitée **TelemetryInterval** dans le jumeau d’appareil pour tous les appareils sélectionnés par le filtre. Les appareils extraient cette valeur du jumeau d’appareil et mettent à jour leur comportement. Lorsqu’un appareil récupère et traite une propriété souhaitée à partir d’un jumeau d’appareil, il définit la propriété de la valeur signalée correspondante.
+
+## <a name="invoke-methods"></a>Appeler des méthodes
+
+Pendant l’exécution du travail, vous remarquez dans la liste des appareils défectueux que tous ces appareils possèdent une version ancienne de microprogramme (antérieur à la version 1.6).
+
+![Affichage de la version du microprogramme signalée pour les appareils défectueux][img-old-firmware]
+
+Cette version du microprogramme peut être la cause de valeurs de température inattendues, car vous savez que d’autres appareils sains ont récemment été mis à jour vers la version 2.0. Vous pouvez utiliser le filtre **Appareils avec ancien microprogramme** pour identifier tous les appareils dotés d’anciennes versions du microprogramme. À partir du portail, vous pouvez ensuite mettre à jour à distance tous les appareils exécutant toujours d’anciennes versions du microprogramme :
+
+1. Choisissez **Ouvrir un filtre enregistré** pour afficher la liste des filtres disponibles. Puis choisissez **Appareils avec ancien microprogramme** pour appliquer le filtre :
+
+    ![Affichage de la liste des filtres][img-old-filter]
+
+1. La liste des appareils indique à présent uniquement les appareils avec d’anciennes versions du microprogramme. Cette liste inclut les cinq appareils identifiés par le filtre **Appareils défectueux** et trois appareils supplémentaires :
+
+    ![Affichage de la liste des appareils filtrée montrant les anciens appareils][img-filtered-old-list]
+
+1. Choisissez **Planificateur de travaux**, puis **Appeler une méthode**.
+
+1. Définissez le **Nom du travail** sur **Mise à jour du microprogramme vers la version 2.0**.
+
+1. Choisissez **InitiateFirmwareUpdate** comme **méthode**.
+
+1. Définissez le paramètre **FwPackageUri** sur **https://iotrmassets.blob.core.windows.net/firmwares/FW20.bin**.
+
+1. Choisissez **Planification**. La valeur par défaut pour le travail est une exécution immédiate.
+
+    ![Création de travail pour mettre à jour le microprogramme des appareils sélectionnés][img-method-update]
+
+> [!NOTE]
+> Si vous souhaitez appeler une méthode sur un appareil en particulier, choisissez **Méthodes** dans le panneau **Détails de l’appareil** au lieu d’exécuter un travail.
+
+Ce travail appelle la méthode directe **InitiateFirmwareUpdate** sur tous les appareils sélectionnés par le filtre. Les appareils répondent immédiatement à IoT Hub puis lancent le processus de mise à jour du microprogramme de façon asynchrone. Les appareils fournissent des informations d’état sur le processus de mise à jour du microprogramme via les valeurs de propriété signalées, comme indiqué dans les captures d’écran suivantes. Choisissez l’icône **Actualiser** pour mettre à jour les informations dans les listes d’appareils et de travaux :
+
+![Liste de travaux affichant la liste de mises à jour de microprogramme en cours d’exécution][img-update-1]
+![Liste des appareils affichant l’état de mise à jour du microprogramme][img-update-2]
+![Liste de travaux montrant la liste de mise à jour de microprogramme terminée][img-update-3]
+
+> [!NOTE]
+> Dans un environnement de production, vous pouvez planifier des travaux à exécuter pendant une fenêtre de maintenance désignée.
+
+## <a name="scenario-review"></a>Analyse du scénario
+
+Dans ce scénario, vous avez identifié un problème potentiel avec certains de vos appareils à distance à l’aide de l’historique des alarmes sur le tableau de bord et d’un filtre. Vous avez ensuite utilisé le filtre et un travail pour configurer à distance les appareils pour fournir plus d’informations pour vous aider à diagnostiquer le problème. Enfin, vous avez utilisé un filtre et un travail pour planifier la maintenance sur les appareils affectés. Si vous retournez au tableau de bord, vous pouvez vérifier qu’il ne reste aucune alarme provenant des appareils de votre solution. Vous pouvez utiliser un filtre pour vérifier que le microprogramme est à jour sur tous les appareils de votre solution et qu’il ne reste aucun appareil défectueux :
+
+![Filtre indiquant que tous les appareils disposent d’un microprogramme à jour][img-updated]
+
+![Filtre indiquant que tous les appareils sont sains][img-healthy]
+
+## <a name="other-features"></a>Autres fonctionnalités
+
+Les sections suivantes décrivent quelques fonctionnalités supplémentaires de la solution préconfigurée de surveillance à distance qui ne sont pas décrites dans le cadre du scénario précédent.
+
+### <a name="customize-columns"></a>Personnaliser les colonnes
+
+Vous pouvez personnaliser les informations affichées dans la liste des appareils en choisissant **Éditeur de colonne**. Vous pouvez ajouter et supprimer des colonnes dans lesquelles figurent des valeurs de balises et de propriétés signalées. Vous pouvez également réorganiser et renommer les colonnes :
+
+   ![Icône de l’éditeur de colonne dans la liste des appareils][img-columneditor]
+
+### <a name="customize-the-device-icon"></a>Personnaliser l’icône de l’appareil
 
 Vous pouvez personnaliser l’icône de l’appareil qui apparaît dans la liste des appareils à partir du volet **Détails de l’appareil**, en procédant comme suit :
 
-1. Cliquez sur l’icône représentant un crayon pour ouvrir le volet **Modifier une image** pour un appareil :
-   
+1. Choisissez l’icône représentant un crayon pour ouvrir le volet **Modifier une image** pour un appareil :
+
    ![Ouvrir l’éditeur d’image d’appareil][img-startimageedit]
-2. Téléchargez une nouvelle image ou utilisez une image existante, puis cliquez sur **Enregistrer** :
-   
+
+1. Téléchargez une nouvelle image ou utilisez une image existante, puis choisissez **Enregistrer** :
+
    ![Modifier l’éditeur d’image d’appareil][img-imageedit]
-3. L’image que vous avez sélectionnée s’affiche dans la colonne **Icône** de l’appareil.
+
+1. L’image que vous avez sélectionnée s’affiche dans la colonne **Icône** de l’appareil.
 
 > [!NOTE]
 > L’image est enregistrée dans le stockage Blob. Une balise du jumeau d’appareil contient un lien vers l’image dans le stockage Blob.
-> 
-> 
 
-## <a name="invoke-a-method-on-a-device"></a>Appeler une méthode sur un appareil
-Dans le volet **Détails de l’appareil**, vous pouvez appeler des méthodes sur l’appareil. Lors du premier démarrage d’un appareil, ce dernier envoie des informations sur les méthodes qu’il prend en charge à la solution.
+### <a name="add-a-device"></a>Ajout d’un appareil
 
-1. Cliquez sur **Méthodes** dans le volet **Détails de l’appareil** correspondant à l’appareil sélectionné :
-   
-   ![Méthodes d’appareil dans le tableau de bord][img-devicemethods]
-2. Sélectionnez **Redémarrer** dans la liste des méthodes.
-3. Cliquez sur **Appeler une méthode**.
-4. L’état de l’appel de méthode est indiqué dans l’historique de la méthode.
-   
-   ![État de la méthode dans le tableau de bord][img-pingmethod]
-
-La solution effectue le suivi de l’état de chaque méthode qu’elle appelle. Lorsque l’appareil exécute la méthode, une nouvelle entrée apparaît dans la table d’historique de la méthode.
-
-Certaines méthodes lancent des tâches asynchrones sur l’appareil. Par exemple, la méthode **InitiateFirmwareUpdate** démarre une tâche asynchrone pour effectuer la mise à jour. L’appareil utilise des propriétés signalées pour indiquer l’état de la mise à jour du microprogramme à mesure qu’elle progresse.
-
-## <a name="send-a-command-to-a-device"></a>Envoyer une commande à un appareil
-Dans le volet **Détails de l’appareil**, vous pouvez envoyer des commandes à l’appareil. Lors du premier démarrage d'un appareil, ce dernier envoie des informations sur les commandes qu'il prend en charge à la solution.
-
-1. Cliquez sur **Commandes** dans le volet **Détails de l’appareil** correspondant à l’appareil sélectionné :
-   
-   ![Commandes de l’appareil dans le tableau de bord][img-devicecommands]
-2. Sélectionnez **PingDevice** dans la liste de commandes.
-3. Cliquez sur **Envoyer la commande**.
-4. Vous pouvez visualiser l’état de la commande dans l’historique des commandes.
-   
-   ![État de la commande dans le tableau de bord][img-pingcommand]
-
-La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat prend la valeur **Réussite**.
-
-## <a name="add-a-new-simulated-device"></a>Ajouter un nouvel appareil simulé
-Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement quatre exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil physique à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
+Lorsque vous déployez la solution préconfigurée, vous approvisionnez automatiquement 25 exemples d’appareils que vous pouvez voir dans la liste des appareils. Ces appareils sont des *simulations d’appareils* en cours d’exécution dans un Azure WebJob. Les appareils simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des appareils physiques réels. Si vous ne souhaitez pas connecter un appareil physique à la solution, consultez le didacticiel [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
 
 Les étapes suivantes vous montrent comment ajouter un appareil simulé à la solution :
 
 1. Retournez à la liste des appareils.
-2. Pour ajouter un appareil, cliquez sur **+ Ajouter un appareil** dans le coin inférieur gauche.
-   
+
+1. Pour ajouter un appareil, choisissez **+ Ajouter un appareil** dans le coin inférieur gauche.
+
    ![Ajouter un appareil à la solution préconfigurée][img-adddevice]
-3. Cliquez sur **Ajouter un nouveau** sur la vignette **Appareil simulé**.
-   
+
+1. Choisissez **Ajouter un nouveau** sur la vignette **Appareil simulé**.
+
    ![Définir les détails du nouvel appareil dans le tableau de bord][img-addnew]
-   
+
    Outre la création d’un appareil simulé, vous pouvez également ajouter un appareil physique si vous choisissez de créer un **appareil personnalisé**. Pour plus d’informations sur la connexion d’appareils physiques à la solution, consultez [Connexion de votre appareil à la solution préconfigurée de surveillance à distance][lnk-connect-rm].
-4. Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil_01**.
-5. Cliquez sur **Create**.
-   
+
+1. Sélectionnez **Me laisser définir mon propre ID d’appareil** et ajoutez un nom unique d’ID d’appareil, par exemple **monappareil_01**.
+
+1. Cliquez sur **Créer**.
+
    ![Enregistrer un nouvel appareil][img-definedevice]
-6. À l’étape 3 de la procédure **Ajouter un appareil simulé**, cliquez sur **Terminé** pour revenir à la liste des appareils.
-7. Vous pouvez vérifier que votre appareil est **En cours d’exécution** dans la liste des appareils.
-   
+
+1. À l’étape 3 de la procédure **Ajouter un appareil simulé**, choisissez **Terminé** pour revenir à la liste des appareils.
+
+1. Vous pouvez vérifier que votre appareil est **En cours d’exécution** dans la liste des appareils.
+
     ![Afficher le nouvel appareil dans la liste des appareils][img-runningnew]
-8. Vous pouvez également afficher les données de télémétrie provenant de votre nouvel appareil sur le tableau de bord :
-   
+
+1. Vous pouvez également afficher les données de télémétrie provenant de votre nouvel appareil sur le tableau de bord :
+
     ![Afficher la télémétrie du nouvel appareil][img-runningnew-2]
 
-## <a name="device-properties"></a>Propriétés de l’appareil
-La solution préconfigurée de surveillance à distance utilise les [jumeaux d’appareil][lnk-device-twin] pour synchroniser les métadonnées des appareils entre les appareils et le serveur principal de solution. Un jumeau d’appareil est un document JSON stocké dans IoT Hub et dans lequel sont enregistrées les valeurs des propriétés d’un appareil. Les appareils envoient régulièrement des métadonnées au serveur principal de solution en tant que *propriétés signalées* à stocker dans le jumeau d’appareil. Le serveur principal de solution peut définir des *propriétés souhaitées* dans le jumeau d’appareil de façon à ce que les mises à jour des métadonnées soient envoyées aux appareils. Les propriétés signalées indiquent les valeurs de métadonnées les plus récentes envoyées par l’appareil. Pour plus d’informations, consultez [Registre d’identité des appareils, jumeau d’appareil et DocumentDB][lnk-devicemetadata].
+### <a name="disable-and-delete-a-device"></a>Désactiver et supprimer un appareil
 
-> [!NOTE]
-> La solution utilise également une base de données DocumentDB pour stocker les données de l’appareil relatives aux commandes et aux méthodes.
-> 
-> 
-
-1. Retournez à la liste des appareils.
-2. Sélectionnez votre nouvel appareil dans la **Liste des appareils**, puis cliquez sur **Modifier** pour modifier **Jumeau d’appareil - Propriétés souhaitées** :
-   
-   ![Modifier les propriétés souhaitées de l’appareil][img-editdevice]
-3. Définissez le **nom de la propriété souhaitée** sur **Latitude** et sa valeur sur **47.639521**. Cliquez ensuite sur **Enregistrer les modifications dans le registre de l’appareil** :
-   
-    ![Modifier la propriété souhaitée de l’appareil][img-editdevice2]
-4. Dans le volet **Détails de l’appareil**, la nouvelle valeur de latitude apparaît initialement comme propriété souhaitée, tandis que l’ancienne valeur de latitude apparaît comme propriété signalée :
-   
-    ![Afficher la propriété signalée][img-editdevice3]
-5. Actuellement, les appareils simulés dans la solution préconfigurée traitent uniquement les propriétés souhaitées **Desired.Config.TemperatureMeanValue** et **Desired.Config.TelemetryInterval**. Un périphérique réel doit lire toutes les propriétés souhaitées à partir de IoT Hub, apporter les modifications à la configuration et déclarer les nouvelles valeurs à IoT Hub en tant que propriétés signalées.
-
-Dans le volet **Détails de l’appareil**, vous pouvez également modifier **Jumeau d’appareil - Balises** de la même façon que vous avez modifié **Jumeau d’appareil - Propriétés souhaitées**. Toutefois, contrairement aux propriétés souhaitées, les balises ne se synchronisent pas avec l’appareil. Les balises se trouvent uniquement dans le jumeau d’appareil sur IoT Hub. Les balises sont utiles pour créer des filtres personnalisés dans la liste des appareils.
-
-## <a name="sort-the-device-list"></a>Trier la liste des appareils
-
-Vous pouvez trier la liste des appareils en cliquant à côté des titres de colonne. En cliquant une fois, le tri se fait par ordre croissant ; en cliquant deux fois, le tri se fait par ordre décroissant :
-
-![Trier la liste des appareils][img-sortdevices]
-
-## <a name="filter-the-device-list"></a>Filtrer la liste des appareils
-
-Dans la liste des appareils, vous pouvez créer, enregistrer et recharger des filtres pour afficher une liste personnalisée des appareils connectés à votre hub. Pour créer un filtre :
-
-1. Cliquez sur l’icône de modification de filtre au-dessus de la liste des appareils :
-   
-   ![Ouvrir l’éditeur de filtre][img-editfiltericon]
-2. Dans l’**éditeur de filtre**, ajoutez les champs, les opérateurs et les valeurs permettant de filtrer la liste des appareils. Vous pouvez ajouter plusieurs clauses pour affiner votre filtre. Cliquez sur **Filtrer** pour appliquer le filtre :
-   
-   ![Créer un filtre][img-filtereditor]
-3. Dans cet exemple, la liste est filtrée par fabricant et numéro de modèle :
-   
-   ![Liste de filtrage][img-filterelist]
-4. Pour enregistrer votre filtre avec un nom personnalisé, cliquez sur l’icône **Enregistrer sous** :
-   
-   ![Enregistrer un filtre][img-savefilter]
-5. Pour réappliquer un filtre que vous avez enregistré précédemment, cliquez sur l’icône **Ouvrir un filtre enregistré** :
-   
-   ![Ouvrir un filtre][img-openfilter]
-
-Vous pouvez créer des filtres en fonction de l’id de l’appareil, de son état, des propriétés souhaitées, des propriétés signalées et des balises.
-
-> [!NOTE]
-> Dans l’**éditeur de filtre**, vous pouvez utiliser la **vue avancée** pour modifier directement le texte de la requête.
-> 
-> 
-
-## <a name="add-a-rule-for-the-new-device"></a>Ajouter une règle pour le nouvel appareil
-Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans cette section, vous allez ajouter une règle qui déclenche une alarme lorsque la température signalée par le nouvel appareil dépasse 47 degrés. Avant de commencer, notez que l'historique de télémétrie pour le nouvel appareil sur le tableau de bord affiche que la température de l’appareil ne dépasse jamais 45 degrés.
-
-1. Retournez à la liste des appareils.
-2. Pour ajouter une règle concernant un nouvel appareil, sélectionnez ce dernier dans la **liste des appareils**, puis cliquez sur **Ajouter une règle**.
-3. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
-   
-    ![Ajouter une règle d’appareil][img-adddevicerule]
-4. Pour enregistrer vos modifications, cliquez sur **Enregistrer et afficher les règles**.
-5. Cliquez sur **Commandes** dans le volet Détails du nouvel appareil.
-   
-   ![Ajouter une règle d’appareil][img-adddevicerule2]
-6. Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Cliquez ensuite sur **Envoyer la commande**:
-   
-   ![Ajouter une règle d’appareil][img-adddevicerule3]
-7. Retournez au tableau de bord de la solution. Rapidement s’affiche une nouvelle entrée dans le volet **Historique des alarmes** , lorsque la température signalée par votre nouvel appareil dépasse le seuil de 47 degrés :
-   
-   ![Ajouter une règle d’appareil][img-adddevicerule4]
-8. Vous pouvez consulter et modifier toutes les règles dans le tableau de bord **Règles** :
-   
-    ![Répertorier les règles d’appareil][img-rules]
-9. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
-   
-    ![Répertorier les actions d’appareil][img-actions]
-
-> [!NOTE]
-> Il est possible de définir des actions pouvant envoyer un message électronique ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps]. Pour plus d’informations consultez [Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite][lnk-logicapptutorial].
-> 
-> 
-
-## <a name="disable-and-remove-devices"></a>Désactiver et supprimer des appareils
 Vous pouvez désactiver un appareil puis le supprimer :
 
 ![Désactiver et supprimer un appareil][img-disable]
 
-## <a name="run-jobs"></a>Exécuter des tâches
-Vous pouvez planifier des tâches pour exécuter des opérations en bloc sur vos appareils. Vous créez une tâche pour une liste d’appareils. Cette liste peut contenir tous vos appareils ou il peut s’agir d’une liste filtrée que vous avez créée à l’aide des [outils de filtre](#filter-the-device-list) dans la liste des appareils. Une tâche peut appeler une méthode sur chaque appareil de la liste ou elle peut mettre à jour le jumeau de chaque appareil de la liste des appareils.
+### <a name="add-a-rule"></a>Ajouter une règle
 
-### <a name="create-a-job-to-invoke-a-method"></a>Créer une tâche pour appeler une méthode
+Il n'existe aucune règle pour le nouvel appareil que vous venez d'ajouter. Dans cette section, vous allez ajouter une règle qui déclenche une alarme lorsque la température signalée par le nouvel appareil dépasse 47 degrés. Avant de commencer, notez que l'historique de télémétrie pour le nouvel appareil sur le tableau de bord affiche que la température de l’appareil ne dépasse jamais 45 degrés.
 
-Les étapes suivantes vous expliquent comment créer une tâche qui appelle la méthode de mise à jour du microprogramme sur chaque appareil d’une liste. La méthode est appelée uniquement sur les appareils qui la prennent en charge :
+1. Retournez à la liste des appareils.
 
-1. Utilisez les outils de filtre dans la liste des appareils pour créer une liste d’appareils qui doivent recevoir la mise à jour du microprogramme :
-   
-   ![Ouvrir l’éditeur de filtre][img-editfiltericon]
-2. Dans votre liste filtrée, cliquez sur **Planificateur de travaux** :
-   
-   ![Ouvrir le planificateur de travaux][img-clickjobscheduler]
-3. Dans le volet **Planifier le travail**, cliquez sur **Appeler une méthode**.
-4. Sur la page **Appeler une méthode**, entrez les détails de la méthode à appeler, puis cliquez sur **Planifier** :
-   
-   ![Configurer la tâche de méthode][img-invokemethodjob]
+1. Pour ajouter une règle concernant un nouvel appareil, sélectionnez ce dernier dans la **liste des appareils**, puis choisissez **Ajouter une règle**.
 
-La méthode **InitiateFirmwareUpdate** démarre une tâche de façon asynchrone sur l’appareil et revient immédiatement. Le processus de mise à jour du microprogramme utilise ensuite les propriétés signalées pour créer un rapport sur la mise à jour pendant son exécution.
+1. Créez une règle qui utilise **Température** comme champ de données et **AlarmTemp** en tant que sortie lorsque la température dépasse 47 degrés :
 
-### <a name="create-a-job-to-edit-the-device-twin"></a>Créer une tâche pour modifier le jumeau d’appareil
+    ![Ajouter une règle d’appareil][img-adddevicerule]
 
-Les étapes suivantes vous expliquent comment créer une tâche qui modifie le jumeau de chaque appareil d’une liste :
+1. Pour enregistrer vos modifications, choisissez **Enregistrer et afficher les règles**.
 
-1. Utilisez les outils de filtre dans la liste des appareils pour créer une liste d’appareils dont les jumeaux doivent être modifiés :
-   
-   ![Ouvrir l’éditeur de filtre][img-editfiltericon]
-2. Dans votre liste filtrée, cliquez sur **Planificateur de travaux** :
-   
-   ![Ouvrir le planificateur de travaux][img-clickjobscheduler]
-3. Dans le volet **Planifier le travail**, cliquez sur **Modifier le jumeau d’appareil**.
-4. Sur la page **Modifier le jumeau d’appareil** , entrez les informations sur les **propriétés souhaitées** et les **balises** à modifier, puis cliquez sur **Planifier** :
-   
-   ![Configurer la tâche de méthode][img-edittwinjob]
+1. Choisissez **Commandes** dans le volet Détails du nouvel appareil.
 
-### <a name="monitor-the-job"></a>Surveiller la tâche
-Vous pouvez surveiller le statut des tâches que vous planifiez sur la page **Gestion des tâches**. Le volet **Détails de la tâche** fournit des informations relatives à la tâche sélectionnée :
-   
-   ![Afficher le statut de la tâche][img-jobstatus]
+    ![Ajouter une règle d’appareil][img-adddevicerule2]
 
-Vous pouvez également consulter des informations sur les tâches sur le **tableau de bord** :
-   
-   ![Afficher les tâches sur le tableau de bord][img-jobdashboard]
+1. Sélectionnez **ChangeSetPointTemp** dans la liste de commandes et définissez **SetPointTemp** sur 45. Puis choisissez **Envoyer la commande** :
 
+    ![Ajouter une règle d’appareil][img-adddevicerule3]
+
+1. Revenez au tableau de bord. Rapidement s’affiche une nouvelle entrée dans le volet **Historique des alarmes** , lorsque la température signalée par votre nouvel appareil dépasse le seuil de 47 degrés :
+
+    ![Ajouter une règle d’appareil][img-adddevicerule4]
+
+1. Vous pouvez consulter et modifier toutes les règles dans le tableau de bord **Règles** :
+
+    ![Répertorier les règles d’appareil][img-rules]
+
+1. Vous pouvez consulter et modifier toutes les mesures qui peuvent être prises en réponse à une règle sur le tableau de bord **Actions** :
+
+    ![Répertorier les actions d’appareil][img-actions]
+
+> [!NOTE]
+> Il est possible de définir des actions pouvant envoyer un message électronique ou un SMS en réponse à une règle ou s’intégrer à un système métier par le biais d’une [application logique][lnk-logic-apps]. Pour plus d’informations consultez [Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite][lnk-logicapptutorial].
+
+### <a name="manage-filters"></a>Gérer les filtres
+
+Dans la liste des appareils, vous pouvez créer, enregistrer et recharger des filtres pour afficher une liste personnalisée des appareils connectés à votre hub. Pour créer un filtre :
+
+1. Choisissez l’icône de modification de filtre au-dessus de la liste des appareils :
+
+    ![Ouvrir l’éditeur de filtre][img-editfiltericon]
+
+1. Dans l’**éditeur de filtre**, ajoutez les champs, les opérateurs et les valeurs permettant de filtrer la liste des appareils. Vous pouvez ajouter plusieurs clauses pour affiner votre filtre. Choisissez **Filtrer** pour appliquer le filtre :
+
+    ![Créer un filtre][img-filtereditor]
+
+1. Dans cet exemple, la liste est filtrée par fabricant et numéro de modèle :
+
+    ![Liste de filtrage][img-filterelist]
+
+1. Pour enregistrer votre filtre avec un nom personnalisé, choisissez l’icône **Enregistrer sous** :
+
+    ![Enregistrer un filtre][img-savefilter]
+
+1. Pour réappliquer un filtre que vous avez enregistré précédemment, choisissez l’icône **Ouvrir un filtre enregistré** :
+
+    ![Ouvrir un filtre][img-openfilter]
+
+Vous pouvez créer des filtres en fonction de l’id de l’appareil, de son état, des propriétés souhaitées, des propriétés signalées et des balises. Vous ajoutez vos propres balises personnalisées à un appareil dans la section **Balises** du panneau **Détails de l’appareil** ou exécutez un travail pour mettre à jour les balises sur plusieurs appareils.
+
+> [!NOTE]
+> Dans l’**éditeur de filtre**, vous pouvez utiliser la **vue avancée** pour modifier directement le texte de la requête.
+
+### <a name="commands"></a>Commandes
+
+Dans le volet **Détails de l’appareil**, vous pouvez envoyer des commandes à l’appareil. Lors du premier démarrage d'un appareil, ce dernier envoie des informations sur les commandes qu'il prend en charge à la solution. Pour une explication des différences entre les commandes et les méthodes, consultez [Options cloud vers appareil Azure IoT Hub][lnk-c2d-guidance].
+
+1. Choisissez **Commandes** dans le panneau **Détails de l’appareil** correspondant à l’appareil sélectionné :
+
+   ![Commandes de l’appareil dans le tableau de bord][img-devicecommands]
+
+1. Sélectionnez **PingDevice** dans la liste de commandes.
+
+1. Choisissez **Envoyer la commande**.
+
+1. Vous pouvez visualiser l’état de la commande dans l’historique des commandes.
+
+   ![État de la commande dans le tableau de bord][img-pingcommand]
+
+La solution effectue le suivi de l'état de chaque commande qu'elle envoie. Initialement, le résultat est **En attente**. Lorsque l’appareil signale qu’il a correctement exécuté la commande, le résultat prend la valeur **Réussite**.
 
 ## <a name="behind-the-scenes"></a>Dans les coulisses
+
 Lorsque vous déployez une solution préconfigurée, le processus de déploiement crée plusieurs ressources dans l’abonnement Azure sélectionné. Vous pouvez afficher ces ressources dans le [portail][lnk-portal] Azure. Le processus de déploiement crée un **groupe de ressources** avec un nom basé sur celui que vous avez choisi pour votre solution préconfigurée :
 
 ![Solution préconfigurée dans le portail Azure][img-portal]
@@ -304,10 +353,9 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 
 > [!NOTE]
 > Pour vous assurer que vous supprimez tout ce qui concerne la solution préconfigurée, supprimez cette dernière sur le site [azureiotsuite.com][lnk-azureiotsuite] ; ne supprimez pas le groupe de ressources dans le portail.
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 À présent que vous avez déployé une solution préconfigurée opérationnelle, vous pouvez poursuivre la prise en main d’IoT Suite en lisant les articles suivants :
 
 * [Présentation de la solution préconfigurée de surveillance à distance][lnk-rm-walkthrough]
@@ -316,21 +364,18 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
+[img-menu]: media/iot-suite-getstarted-preconfigured-solutions/menu.png
 [img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
+[img-alarms]: media/iot-suite-getstarted-preconfigured-solutions/alarms.png
 [img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
 [img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
-[img-devicemethods]: media/iot-suite-getstarted-preconfigured-solutions/devicemethods.png
 [img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
-[img-pingmethod]: media/iot-suite-getstarted-preconfigured-solutions/pingmethod.png
 [img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
 [img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
 [img-runningnew-2]: media/iot-suite-getstarted-preconfigured-solutions/runningnew2.png
 [img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
-[img-editdevice]: media/iot-suite-getstarted-preconfigured-solutions/editdevice.png
-[img-editdevice2]: media/iot-suite-getstarted-preconfigured-solutions/editdevice2.png
-[img-editdevice3]: media/iot-suite-getstarted-preconfigured-solutions/editdevice3.png
 [img-adddevicerule]: media/iot-suite-getstarted-preconfigured-solutions/addrule.png
 [img-adddevicerule2]: media/iot-suite-getstarted-preconfigured-solutions/addrule2.png
 [img-adddevicerule3]: media/iot-suite-getstarted-preconfigured-solutions/addrule3.png
@@ -341,17 +386,23 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 [img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
 [img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
 [img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
-[img-sortdevices]: media/iot-suite-getstarted-preconfigured-solutions/sortdevices.png
 [img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
 [img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
 [img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
 [img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
 [img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
-[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
-[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
-[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
-[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
-[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
+[img-unhealthy-filter]: media/iot-suite-getstarted-preconfigured-solutions/unhealthyfilter.png
+[img-filtered-unhealthy-list]: media/iot-suite-getstarted-preconfigured-solutions/unhealthylist.png
+[img-change-interval]: media/iot-suite-getstarted-preconfigured-solutions/changeinterval.png
+[img-old-firmware]: media/iot-suite-getstarted-preconfigured-solutions/noticeold.png
+[img-old-filter]: media/iot-suite-getstarted-preconfigured-solutions/oldfilter.png
+[img-filtered-old-list]: media/iot-suite-getstarted-preconfigured-solutions/oldlist.png
+[img-method-update]: media/iot-suite-getstarted-preconfigured-solutions/methodupdate.png
+[img-update-1]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate1.png
+[img-update-2]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate2.png
+[img-update-3]: media/iot-suite-getstarted-preconfigured-solutions/jobupdate3.png
+[img-updated]: media/iot-suite-getstarted-preconfigured-solutions/updated.png
+[img-healthy]: media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -359,10 +410,9 @@ Lorsque vous avez terminé, vous pouvez supprimer la solution préconfigurée à
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-device-twin-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-faq]: iot-suite-faq.md

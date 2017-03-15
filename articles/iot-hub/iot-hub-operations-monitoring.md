@@ -1,6 +1,6 @@
 ---
 title: "Surveillance des opérations Azure IoT Hub | Microsoft Docs"
-description: "Guide pratique d’utilisation des opérations d’Azure IoT Hub pour la surveillance des opérations IoT Hub afin de surveiller l’état des opérations sur votre hub IoT en temps réel."
+description: "Découvrez comment utiliser la surveillance des opérations Azure IoT Hub pour surveiller l’état des opérations sur votre hub IoT en temps réel."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
-ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,7 +28,7 @@ IoT Hub surveille six catégories d’événements :
 
 * Opérations d’identité des appareils
 * Télémétrie d’appareil
-* Messages Cloud vers appareil
+* Messages Cloud à appareil
 * Connexions
 * Chargements de fichiers
 * Routage de messages
@@ -165,6 +165,26 @@ La catégorie de routage des messages assure le suivi des erreurs qui se produis
         "details": "ExternalEndpointDisabled"
     }
 
+## <a name="view-events"></a>Visualiser les événements
+
+Vous pouvez utiliser l’outil *iothub-explorer* pour vérifier rapidement que votre IoT Hub génère des événements de surveillance. Pour installer l’outil, consultez les instructions dans le dépôt [iothub-explorer][lnk-iothub-explorer] GitHub.
+
+1. Vérifiez que la catégorie de surveillance **Connexions** a la valeur **Verbose** (Mode détaillé) dans le portail.
+
+1. À une invite de commandes, exécutez la commande suivante pour lire le point de terminaison de surveillance :
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. Dans une autre invite de commandes, exécutez la commande suivante pour simuler un appareil envoyant des messages de l’appareil au cloud :
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. La première invite de commandes affiche les événements de surveillance quand l’appareil simulé se connecte à votre IoT Hub.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
@@ -182,4 +202,5 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 

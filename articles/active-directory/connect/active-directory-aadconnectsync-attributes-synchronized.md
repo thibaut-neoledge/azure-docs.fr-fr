@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,8 +33,8 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 
 > [!WARNING]
 > Lorsque vous désélectionnez des attributs, prenez garde à ne désélectionner que ceux qu’il est absolument impossible de synchroniser. Désélectionner d’autres attributs peut avoir un impact négatif sur les fonctionnalités.
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nom de l'attribut | Utilisateur | Commentaire |
@@ -421,7 +422,7 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 
 | Nom de l'attribut | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016 et Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Archive en ligne : permet aux clients d’archiver le courrier. |
 | msExchBlockedSendersHash |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
 | msExchSafeRecipientsHash |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
@@ -458,10 +459,4 @@ Les objets d’appareil sont créés dans Active Directory. Ces objets peuvent �
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
