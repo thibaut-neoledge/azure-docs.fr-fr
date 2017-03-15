@@ -12,27 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
-ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: e9ff351232f68c81122efb74275a1f255b51b72f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>Prolongez votre expérience avec R
-Vous pouvez étendre les fonctionnalités de ML Studio grâce au langage R en utilisant le module[Exécuter le script R][execute-r-script].
+Comment étendre les fonctionnalités d’Azure Machine Learning Studio en utilisant le langage R et le module [Exécuter le script R][execute-r-script].
 
-Ce module accepte plusieurs jeux de données d'entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
+Ce module accepte plusieurs jeux de données d’entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
 
 Pour accéder à chaque port d'entrée du module, utilisez un code semblable au suivant :
 
     dataset1 <- maml.mapInputPort(1)
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## <a name="listing-all-currently-installed-packages"></a>Liste de tous les packages actuellement installés
-La liste des packages installés peut changer. Pour obtenir la liste complète et à jour des packages installés, avec une description de chaque package, entrez le code suivant dans le module [Exécuter le Script R][execute-r-script] :
+La liste des packages installés peut changer. Vous trouverez une liste des packages actuellement installés dans [R Packages Supported by Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx) (Packages R pris en charge par Azure Machine Learning).
+
+Vous pouvez également obtenir la liste complète et à jour des packages installés en entrant le code suivant dans le module [Exécuter le Script R][execute-r-script] :
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
@@ -42,17 +43,20 @@ Pour afficher la liste des packages, connectez un module de conversion comme [Co
 
 ![Télécharger la sortie du module « Convertir en CSV »](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## <a name="importing-packages"></a>Importation de packages
-Vous pouvez également importer des packages qui ne sont pas déjà installés à partir d’un référentiel ML Studio intermédiaire à l’aide des commandes suivantes dans le module [Exécuter le script R][execute-r-script], ainsi que dans l’archive du package zippé :
+Vous pouvez importer des packages qui ne sont pas encore installés en utilisant les commandes suivantes dans le module [Exécuter le Script R][execute-r-script] :
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
 
-où `my_favorite_package.zip` contient le fichier zip de votre package.
+où le fichier `my_favorite_package.zip` contient votre package.
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <!--
 
@@ -511,9 +515,4 @@ To get the complete list of packages that are currently available, see the secti
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
