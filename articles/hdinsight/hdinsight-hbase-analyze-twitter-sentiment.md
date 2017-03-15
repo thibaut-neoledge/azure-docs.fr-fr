@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
-ms.openlocfilehash: dd47e9c8f5c440c72acb60877d556476fe187ddf
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 8f8b84d600082336fe3659cefa6598210861ce86
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +55,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     <tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
     </table>
 
-* **Un poste de travail** où Visual Studio 2013 a été installé. Pour les instructions, voir la section [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **Un poste de travail** où Visual Studio 2013/2015/2017 a été installé. Pour les instructions, voir la section [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## <a name="create-a-twitter-application-id-and-secrets"></a>Création de l'ID et des secrets d'une application Twitter
 Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser les demandes. Pour utiliser OAuth, la première étape consiste à créer une nouvelle application sur le site du développeur Twitter.

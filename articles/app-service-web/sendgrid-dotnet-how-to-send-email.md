@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 translationtype: Human Translation
-ms.sourcegitcommit: 9e62ed235d872738bc1a99ad33d977745c8b2d08
-ms.openlocfilehash: 417ea0aa6315683f72239fafed0caad5c71ad2d6
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 10f07b5eb649739ff1288ebb2703186fd75930cc
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionna
 * transfert des demandes de renseignements des clients.
 * traitement des messages électroniques entrants.
 
-Pour plus d’informations, consultez le site [https://sendgrid.com](https://sendgrid.com) ou la [bibliothèque C#][sendgrid-csharp] de SendGrid dans le référentiel GitHub.
+Pour plus d’informations, consultez le site [https://sendgrid.com](https://sendgrid.com) ou la [bibliothèque C#][sendgrid-csharp] de SendGrid dans le dépôt GitHub.
 
 ## <a name="create-a-sendgrid-account"></a>Création d'un compte SendGrid
 [!INCLUDE [sendgrid-sign-up](../../includes/sendgrid-sign-up.md)]
@@ -163,7 +163,7 @@ Les applications peuvent être appliquées aux messages électroniques **SendGri
 
 Les exemples suivants montrent les filtres de pied de page et de suivi des clics :
 
-### <a name="footer"></a>Pied de page
+### <a name="footer-settings"></a>Paramètres de pied de page
     msg.SetFooterSetting(
                          true,
                          "Some Footer HTML",

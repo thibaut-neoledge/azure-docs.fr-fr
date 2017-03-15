@@ -1,5 +1,5 @@
 ---
-title: "Applets de commande de la version préliminaire d’Azure Active Directory PowerShell pour la gestion des groupes dans Azure AD | Microsoft Docs"
+title: Applets de commande Azure Active Directory PowerShell pour la gestion des groupes dans Azure AD | Microsoft Docs
 description: "Cette page fournit des exemples PowerShell pour vous aider à gérer vos groupes dans Azure Active Directory"
 keywords: Azure AD, Azure Active Directory, PowerShell, Groupes, Gestion des groupes
 services: active-directory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 >
 >
 
-Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD).  Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
+Le document suivant fournit des exemples montrant comment utiliser PowerShell pour gérer des groupes dans Azure Active Directory (Azure AD).  Il fournit également des informations sur la configuration du module de la version préliminaire d’Azure AD PowerShell. Vous devez tout d’abord [télécharger le module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Installation du module Azure AD PowerShell
-Pour installer le module de la version préliminaire d’Azure AD PowerShell, utilisez les commandes suivantes :
+Pour installer le module PowerShell Azure AD, utilisez les commandes suivantes :
 
-    PS C:\Windows\system32> install-module azureadpreview
+    PS C:\Windows\system32> install-module azuread
 
 Pour vérifier que le module de la version préliminaire a été installé, utilisez la commande suivante :
 
@@ -44,10 +45,10 @@ Pour vérifier que le module de la version préliminaire a été installé, util
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande dans le module de la version préliminaire d’Azure AD, consultez la [documentation de référence en ligne](https://msdn.microsoft.com/library/azure/mt757216.aspx).
+Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la [documentation de référence en ligne](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 ## <a name="connecting-to-the-directory"></a>Connexion au répertoire
-Avant de pouvoir gérer des groupes à l’aide des applets de commande de la version préliminaire d’Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous souhaitez gérer. Pour ce faire, utilisez la commande suivante :
+Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous voulez gérer. Pour ce faire, utilisez la commande suivante :
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -57,7 +58,7 @@ L’applet de commande vous demande de fournir les informations d’identificati
     -------                       ----------- ------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
-À présent, vous pouvez commencer à utiliser les applets de commande de la version préliminaire d’Azure AD pour gérer des groupes dans votre répertoire.
+À présent, vous pouvez commencer à utiliser les applets de commande Azure AD pour gérer des groupes dans votre répertoire.
 
 ## <a name="retrieving-groups"></a>Récupération des groupes
 Pour récupérer des groupes existants à partir de votre répertoire, vous pouvez utiliser l’applet de commande Get-AzureADGroups. Pour récupérer tous les groupes dans le répertoire, utilisez l’applet de commande sans paramètres :
@@ -225,13 +226,8 @@ Si vous souhaitez supprimer un propriétaire d’un groupe, utilisez Remove-Azur
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
+Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

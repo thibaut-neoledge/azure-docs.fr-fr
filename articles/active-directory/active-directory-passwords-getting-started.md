@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, 
 
    ![][003]
 
-5. Sous l’onglet **Configurer**, faites défiler vers le bas jusqu’à la section **Stratégie de réinitialisation du mot de passe utilisateur**.  Dans cette section, vous pouvez configurer chaque aspect de la stratégie de réinitialisation du mot de passe pour un annuaire donné. *Si vous ne voyez pas l’onglet Configurer, assurez-vous que vous êtes inscrit à Azure Active Directory Premium ou De base et que vous avez **affecté une licence** au compte administrateur qui configure cette fonctionnalité.*  
+5. Sous l’onglet **Configurer**, faites défiler vers le bas jusqu’à la section **Stratégie de réinitialisation du mot de passe utilisateur**.  Dans cette section, vous pouvez configurer chaque aspect de la stratégie de réinitialisation du mot de passe pour un annuaire donné. *Si vous ne voyez pas l’onglet Configurer, vérifiez que vous êtes inscrit à Azure Active Directory Premium ou De base et que vous avez __affecté une licence__ au compte administrateur qui configure cette fonctionnalité.*  
 
    > [!NOTE]
    > **La stratégie qui vous avez définie s’applique uniquement aux utilisateurs finaux de votre organisation, et non aux administrateurs**. Pour des raisons de sécurité, Microsoft contrôle la stratégie de réinitialisation du mot de passe pour les administrateurs. La stratégie actuelle pour les administrateurs exige deux tests : Téléphone mobile et Adresse de messagerie.
-
-   >
-   >
 
    ![][004]
 6. Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, définissez le paramètre **Utilisateurs autorisés à réinitialiser leur mot de passe** sur **Oui**.  Cette action permet d’afficher plusieurs autres contrôles qui vous permettent de configurer le fonctionnement de cette fonctionnalité dans votre annuaire.  N’hésitez pas à personnaliser la réinitialisation du mot de passe selon vos besoins.  Si vous souhaitez en savoir plus sur le fonctionnement de chaque contrôle de la stratégie de réinitialisation du mot de passe, consultez la page [Personnalisation de la gestion de mot de passe Azure AD](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ Vous pouvez également vérifier que le service a été correctement installé e
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Étape 3 : configuration de votre pare-feu
-Une fois que vous avez activé l’écriture différée du mot de passe, vous devez vous assurer que la machine exécutant Azure AD Connect peut atteindre les services de cloud computing Microsoft pour recevoir les demandes d’écriture différée du mot de passe. Cette étape implique la mise à jour des règles de connexion dans vos appliances réseau (serveurs proxy, pare-feu, etc.) pour autoriser les connexions sortantes à certaines URL appartenant à Microsoft et adresses IP sur des ports réseau spécifiques. Ces modifications peuvent varier selon la version de l’outil Azure AD Connect. Pour approfondir le contexte, vous pouvez lire les articles décrivant le [fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#how-password-writeback-works) et le [modèle de sécurité de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model).
+Une fois que vous avez activé l’écriture différée du mot de passe, vous devez vous assurer que la machine exécutant Azure AD Connect peut atteindre les services de cloud computing Microsoft pour recevoir les demandes d’écriture différée du mot de passe. Cette étape implique la mise à jour des règles de connexion dans vos appliances réseau (serveurs proxy, pare-feu, etc.) pour autoriser les connexions sortantes à certaines [URL appartenant à Microsoft et adresses IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) sur des ports réseau spécifiques. Ces modifications peuvent varier selon la version de l’outil Azure AD Connect. Pour approfondir le contexte, vous pouvez lire les articles décrivant le [fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#how-password-writeback-works) et le [modèle de sécurité de l’écriture différée du mot de passe](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>De quels éléments dois-je disposer pour effectuer cette opération ?
 
 Pour que l’écriture différée du mot de passe fonctionne correctement, la machine exécutant Azure AD Connect doit être en mesure d’établir des connexions HTTPS sortantes à **.servicebus.windows.net* et à une adresse IP spécifique utilisée par Azure, tel que défini dans la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Pour la version 1.0.8667.0 et les versions ultérieures de l’outil Azure AD Connect :
+Pour la version **1.1.439.0** et les versions ultérieures de l’outil Azure AD Connect :
+
+- La version la plus récente de l’outil Azure AD Connect a besoin d’un accès **HTTPS sortant** à :
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Pour les versions **1.0.8667.0** à **1.1.380.0** de l’outil Azure AD Connect :
 
 - **Option 1 :** autorisez toutes les connexions HTTPS sortantes sur le port 443 (utilisant l’URL ou l’adresse IP).
     - Quand utiliser cette option :
@@ -298,6 +301,9 @@ Pour la version 1.0.8667.0 et les versions ultérieures de l’outil Azure AD Co
 > Si vous utilisez une version d’Azure AD Connect antérieure à la version 1.0.8667.0, Microsoft vous recommande vivement de procéder à une mise à niveau vers la [dernière version d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), qui intègre diverses améliorations en matière de mise en réseau de l’écriture différée afin de faciliter la configuration.
 
 Une fois que les appliances réseau ont été configurées, redémarrez la machine exécutant l’outil Azure AD Connect.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Connexion inactives sur Azure AD Connect (version 1.1.439.0 et ultérieure)
+L’outil Azure AD Connect envoie des pings/appels keepalives périodiques aux points de terminaison ServiceBus pour garantir que les connexions restent actives. Si l’outil détecte la suppression d’un trop grand nombre de connexions, il augmente automatiquement la fréquence des pings adressés au point de terminaison. L’« intervalle de pings » le plus faible possible est de 1 ping toutes les 60 secondes. Toutefois, **nous recommandons vivement de configurer les proxys/pare-feux pour qu’ils autorisent les connexions inactives pendant au moins 2 à 3 minutes.** \*Pour les versions antérieures, nous suggérons 4 minutes ou plus.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Étape 4 : définition des autorisations Active Directory adéquates
 Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime`, et les droits **Autorisations en écriture** sur `pwdLastSet` sur l’objet racine de chaque domaine dans cette forêt. Le droit doit être marqué comme hérité par tous les objets utilisateur.  

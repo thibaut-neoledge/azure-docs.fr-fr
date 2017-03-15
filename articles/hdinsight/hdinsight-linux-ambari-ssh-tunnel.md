@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -52,9 +52,17 @@ Lorsque vous utilisez un tunnel SSH pour le trafic Web, vous devez disposer des 
   > [!NOTE]
   > Si vous souhaitez utiliser un client SSH autre que `ssh` ou PuTTY, veuillez consulter la documentation de votre client qui explique comment établir un tunnel SSH.
 
-* Un navigateur Web qui peut être configuré pour utiliser un proxy SOCKS
+* Un navigateur web qui peut être configuré pour utiliser un proxy SOCKS5.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Création d’un tunnel à l'aide de la commande SSH
+    > [!WARNING]
+    > La prise en charge du proxy SOCKS intégrée à Windows ne prend pas en charge SOCKS5 et ne fonctionnera pas dans le cadre des étapes décrites dans ce document. Les navigateurs suivants s’appuient sur les paramètres de proxy Windows et ne fonctionnent pas dans le cadre des étapes décrites dans ce document :
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome repose également sur les paramètres de proxy Windows. Toutefois, vous pouvez installer des extensions qui prennent en charge SOCKS5. Nous vous recommandons [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+
+## <a name="usessh"></a>Création d’un tunnel à l'aide de la commande SSH
 
 Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande `ssh` . Remplacez **USERNAME** par un utilisateur SSH de votre cluster HDInsight et **CLUSTERNAME** par le nom de votre cluster HDInsight
 
@@ -77,7 +85,7 @@ Si vous avez configuré le cluster avec une clé SSH, il vous faudra peut-être 
 
 Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local est acheminé via SSL au nœud principal du cluster et semble provenir de celui-ci.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
+## <a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
 
 Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
@@ -101,8 +109,8 @@ Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Utilisation du tunnel à partir de votre navigateur
 
-> [!NOTE]
-> Dans les étapes de cette section, nous utilisons le navigateur FireFox, car il est disponible gratuitement pour les systèmes d’exploitation Linux, Unix, Macintosh OS X et Windows. D’autres navigateurs modernes prenant en charge l’utilisation d’un proxy SOCKS fonctionnent également.
+> [!IMPORTANT]
+> Les étapes décrites dans cette section utilisent le navigateur Mozilla FireFox, car il fournit les mêmes paramètres de proxy sur toutes les plateformes. D’autres navigateurs modernes, tels que Google Chrome, peuvent nécessiter une extension du type FoxyProxy pour fonctionner avec le tunnel.
 
 1. Configurez le navigateur pour qu’il utilise **localhost** et le port que vous avez utilisé lors de la création du tunnel en tant que proxy **SOCKS v5**. Voici comment se présentent les paramètres Firefox : si vous avez utilisé un port autre que 9876, modifiez le port par celui que vous avez utilisé :
    
@@ -145,6 +153,7 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
    > 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous avez appris à créer et utiliser un tunnel SSH, consultez les articles suivants pour plus d'informations sur la surveillance et la gestion de votre cluster à l'aide d’Ambari :
 
 * [Gestion des clusters HDInsight à l'aide d’Ambari](hdinsight-hadoop-manage-ambari.md)

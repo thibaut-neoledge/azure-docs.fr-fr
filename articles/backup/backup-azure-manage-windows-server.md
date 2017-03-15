@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 3/9/2017
 ms.author: markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
 ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
+ms.lasthandoff: 01/23/2017
 
 
 ---
@@ -320,9 +321,4 @@ R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réd
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 * Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
 * Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

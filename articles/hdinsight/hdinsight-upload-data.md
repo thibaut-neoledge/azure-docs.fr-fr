@@ -13,22 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f52049cb946b0ed7e721389de8f9d086b856e00
-ms.openlocfilehash: af20126e1a2ab5d468bd3883d5ece8e1ecdc3a5f
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
-Azure HDInsight fournit un système HDFS (Hadoo Distributed File System) complet pour le stockage d'objets blob Azure. Il est conçu en tant qu’extension HDFS pour fournir une expérience transparente aux clients. Il permet à l'ensemble des composants de l'écosystème Hadoop de fonctionner directement sur les données qu'il gère. Le stockage d'objets blob Azure et HDFS sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l’utilisation du Stockage Blob Azure, consultez la page [Utilisation du Stockage Blob Azure avec HDInsight][hdinsight-storage].
+Azure HDInsight fournit un système HDFS (Hadoo Distributed File System) complet pour le stockage d'objets blob Azure. Il est conçu en tant qu’extension HDFS pour fournir une expérience transparente aux clients. Il permet à l'ensemble des composants de l'écosystème Hadoop de fonctionner directement sur les données qu'il gère. Le stockage d'objets blob Azure et HDFS sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l’utilisation du stockage d’objets blob Azure, consultez la page [Utilisation du stockage d’objets blob Azure avec HDInsight][hdinsight-storage].
 
 **Configuration requise**
 
 Notez la configuration requise avant de démarrer :
 
-* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight][hdinsight-get-started] ou la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
+* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight][hdinsight-get-started] ou la rubrique [Mise en service de clusters HDInsight][hdinsight-provision].
 
 ## <a name="why-blob-storage"></a>Qu'est-ce que le stockage d'objets blob ?
 Les clusters Azure HDInsight sont généralement déployés pour exécuter des tâches MapReduce et sont supprimés une fois ces tâches terminées. Conserver les données dans les clusters HDFS une fois les calculs terminés serait une façon onéreuse de stocker ces données. Le stockage d'objets blob Azure constitue une option de stockage à long terme économique, partageable, hautement évolutive et disponible pour les données qui doivent être traitées à l'aide de HDInsight. Le stockage de données dans un objet blob permet de libérer en toute sécurité les clusters HDInsight utilisés pour les calculs, sans perte de données.
@@ -58,7 +59,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le stockage d'objets bl
 >
 >
 
-### <a name="a-idxplatcliaazure-cli"></a><a id="xplatcli"></a>Interface CLI Azure
+### <a id="xplatcli"></a>Interface CLI Azure
 L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les services Azure. Pour télécharger des données vers le stockage d'objets blob Azure, procédez comme suit :
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -97,14 +98,14 @@ L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les
 >
 >
 
-### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>Azure PowerShell
-Azure PowerShell est un environnement de création de scripts qui vous permet de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez l'article [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
+### <a id="powershell"></a>Azure PowerShell
+Azure PowerShell est un environnement de création de scripts qui vous permet de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez l'article [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Téléchargement d'un fichier local vers un stockage d'objets blob Azure**
 
-1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la section [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
+1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la section [Installation et configuration d'Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Définissez les valeurs des cinq premières variables dans le script suivant :
 
         $resourceGroupName = "<AzureResourceGroupName>"
@@ -125,22 +126,22 @@ Azure PowerShell est un environnement de création de scripts qui vous permet de
 
 Pour des exemples de scripts PowerShell créés pour fonctionner avec HDInsight, consultez les [outils HDInsight](https://github.com/blackmist/hdinsight-tools).
 
-### <a name="a-idazcopyaazcopy"></a><a id="azcopy"></a>AzCopy
+### <a id="azcopy"></a>AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour simplifier la tâche de transfert de données à destination et en provenance d'un compte Azure Storage. Vous pouvez l'utiliser comme un outil indépendant ou l'incorporer dans une application existante. [Téléchargement d’AzCopy][azure-azcopy-download].
 
 La syntaxe d'AzCopy est :
 
     AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
-Pour plus d’informations, consultez la page [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Azure][azure-azcopy].
+Pour plus d’informations, consultez la page [AzCopy : téléchargement de fichiers pour les objets blob Azure][azure-azcopy].
 
-### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Ligne de commande Hadoop
+### <a id="commandline"></a>Ligne de commande Hadoop
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le stockage d'objets blob quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
 Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
 
 * **HDInsight Windows**: [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight Linux** : connexion à l’aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **HDInsight Linux** : connexion à l’aide de SSH ([commande SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
@@ -178,10 +179,10 @@ Plusieurs applications fournissent également une interface graphique pour utili
 ### <a name="visual-studio-tools-for-hdinsight"></a>Outils Visual Studio pour HDInsight
 Pour plus d’informations, consultez [Accéder aux ressources liées](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
-### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Azure Storage Explorer
+### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* est un outil utile pour examiner et modifier les données de l’objet blob. Il s’agit d’un outil gratuit que vous pouvez télécharger depuis la page [http://storageexplorer.com/](http://storageexplorer.com/). Le code source est également disponible à partir de ce lien.
 
-Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d’obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de l’article [Création, gestion et suppression d’un compte de stockage][azure-create-storage-account].  
+Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d’obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de l’article [Création, gestion et suppression d’un compte de stockage][azure-create-storage-account].
 
 1. Exécutez Azure Storage Explorer. Si vous exécutez l’Explorateur de stockage pour la première fois, vous êtes invité à saisir le **_Nom du compte de stockage** et la **Clé du compte de stockage**. Si vous avez déjà exécuté l’Explorateur de stockage, utilisez le bouton **Ajouter** pour ajouter un nom et une clé de compte de stockage.
 
@@ -209,10 +210,10 @@ Azure Data Factory permet de déplacer des données dans le stockage d'objets bl
 
 Pour plus d'informations, consultez la [Documentation Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQ Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR.
 
-Pour plus d’informations, consultez la rubrique [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
+Pour plus d’informations, consultez [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
 
 ## <a name="development-sdks"></a>Kits de développement logiciel (SDK) de développement
 Le stockage d'objets blob Azure est également accessible à l'aide d'un kit de développement logiciel (SDK) Azure dans les langages de programmation suivants :
@@ -227,7 +228,7 @@ Le stockage d'objets blob Azure est également accessible à l'aide d'un kit de 
 Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
-### <a name="a-idstorageexceptionastorage-exception-for-write-on-blob"></a><a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
+### <a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
 **Symptômes** : lorsque vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -299,7 +300,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [azurecli]: ../xplat-cli-install.md
 
@@ -307,9 +308,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

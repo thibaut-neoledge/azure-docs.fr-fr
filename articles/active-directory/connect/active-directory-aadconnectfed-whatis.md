@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
-ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -38,6 +39,7 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | [Ajout d’un nouveau serveur AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Extension de batterie de serveurs AD FS avec l’ajout d’un serveur AD FS après l’installation initiale |
 | [Ajout d’un nouveau serveur WAP AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Extension de batterie de serveurs AD FS avec l’ajout d’un serveur WAP après l’installation initiale |
 | [Ajouter un nouveau domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain) |Ajout d’un domaine à fédérer avec Azure AD |
+| [Mettre à jour le certificat SSL](active-directory-aadconnectfed-ssl-update.md)| Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)|
 | **Tâches postérieures à l’installation** | |
 | [Ajout du logo / de l’illustration personnalisé(e) de la société](active-directory-aadconnect-federation-management.md#customlogo) |Modifier l’expérience de connexion via la spécification du logo personnalisé qui apparaîtra sur la page de connexion AD FS |
 | [Ajouter une description de connexion](active-directory-aadconnect-federation-management.md#addsignindescription) |Modification de la description de la connexion sur la page de connexion AD FS |
@@ -47,9 +49,4 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 * [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

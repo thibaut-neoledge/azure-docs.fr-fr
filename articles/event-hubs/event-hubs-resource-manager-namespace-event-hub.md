@@ -12,16 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 0085e71eb44b95f6eb5308f1974379ad3a74984b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 271eca35ad18725306410d1e8b81bdf06712db1f
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Event Hubs avec un Event Hub et un groupe de consommateurs. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms de type Event Hubs avec un Event Hub et un groupe de consommateurs. L’article montre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -135,7 +136,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
@@ -153,9 +154,4 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

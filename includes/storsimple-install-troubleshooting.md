@@ -19,8 +19,8 @@ Exécutez l’applet de commande sur les deux contrôleurs.
 
 Si vous avez vérifié l’existence de la connectivité et que le problème persiste, sollicitez le Support Microsoft pour connaître la procédure à suivre.
 
+**Que faire si les deux contrôleurs exécutent la mise à jour 4 et si l’installation de celle-ci sur votre appareil échoue ?**
 
+Depuis la mise à jour 4, si la mise à jour échoue alors que les deux contrôleurs exécutent la même version du logiciel, ces derniers n’entrent pas en mode de récupération. Cette situation survient si le correctif logiciel de l’appareil (1ère mise à jour de commande) est correctement appliqué aux deux contrôleurs, mais que d’autres correctifs (2e et 3e commandes) ne sont pas encore appliqués. Depuis la mise à jour 4, les deux contrôleurs entrent en mode de récupération uniquement s’ils exécutent des versions logicielles différentes. 
 
-<!--HONumber=Nov16_HO3-->
-
-
+Si vous constatez un échec de la mise à jour alors que les deux contrôleurs exécutent la mise à jour 4, nous vous recommandons de patienter quelques minutes, puis de retenter la mise à jour. Si cette nouvelle tentative n’aboutit pas, contactez le Support Microsoft.

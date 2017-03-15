@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider;
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: 0bf0755d1c3155ce0203e8070995c298f50bd4db
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8ecde1ba2c7a18d0237b92a404eeb1e2d7348378
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -63,7 +64,7 @@ Les Services fiables dans Service Fabric sont différents des services que vous
 Que votre service soit avec état ou sans état, Reliable Services fournit un cycle de vie simple qui vous permet de rattacher rapidement votre code et de vous lancer.  Il vous suffit d’implémenter une ou deux méthodes pour que votre service soit opérationnel.
 
 * **CreateServiceReplicaListeners/CreateServiceInstanceListeners** : cette méthode correspond à l’emplacement dans lequel le service définit la ou les piles de communication qu’il souhaite utiliser. La pile de communication, par exemple [l’API Web](service-fabric-reliable-services-communication-webapi.md), définit le point de terminaison d’écoute ou les points de terminaison du service (mode d’accès des clients au service). Elle définit également comment les messages qui s’affichent interagissent avec le reste du code de service.
-* **RunAsync** : cette méthode correspond à l’emplacement dans lequel votre service exécute sa logique métier et où il lance les tâches d’arrière-plan qui doivent s’exécuter pendant toute la durée de vie du service. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si le service doit extraire des messages d’une File d’attente fiable et les traiter, `RunAsync()` correspond à l’emplacement où se passe ce travail.
+* **RunAsync** : cette méthode correspond à l’emplacement dans lequel votre service exécute sa logique métier et où il lance les tâches d’arrière-plan qui doivent s’exécuter pendant toute la durée de vie du service. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si le service doit extraire des messages d’une file d’attente fiable et les traiter, c’est à cet emplacement que se passe ce travail.
 
 Continuez votre lecture si vous débutez dans l’utilisation de Reliable Services. Si vous recherchez une procédure détaillée du cycle de vie de Reliable Services, vous pouvez consulter [cet article](service-fabric-reliable-services-lifecycle.md).
 
@@ -75,18 +76,22 @@ Un service sans état est un service dans lequel l’état n’est pas conservé
 
 Prenons pour exemple une calculatrice dépourvue de mémoire et qui reçoit tous les termes et les opérations à effectuer simultanément.
 
-Dans ce cas, la méthode `RunAsync()` du service peut être vide, car le service n’a besoin d’effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un `ICommunicationListener` (par exemple, [API Web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d’écoute sur un port. Ce point de terminaison d’écoute se raccorde aux différentes méthodes de calcul (exemple : « Add(n1, n2) ») qui définissent l’API publique de la calculatrice.
+Dans ce cas, la méthode `RunAsync()` (C#) ou `runAsync()` (Java) du service peut être vide, car ce dernier n’a besoin d’effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un `ICommunicationListener` (C#) ou un `CommunicationListener` (Java) (par exemple [API web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d’écoute sur un port. Ce point de terminaison d’écoute se raccorde aux différentes méthodes de calcul (exemple : « Add(n1, n2) ») qui définissent l’API publique de la calculatrice.
 
 Lorsqu’un appel est effectué à partir d’un client, la méthode appropriée est appelée ; le service Calculatrice effectue les opérations sur les données fournies et renvoie le résultat. Il ne stocke aucun état.
 
 Le fait de ne pas stocker d’état interne rend cet exemple de calculatrice simple, mais la plupart des services ne sont pas réellement sans état. Ils externalisent leur état vers un autre magasin. (Par exemple, toute application web qui s’appuie sur la conservation de l’état de session dans un magasin de stockage ou un cache n’est pas sans état.)
 
-Un exemple courant illustrant comment les services sans état sont utilisés dans Service Fabric est celui d'un serveur frontal qui expose l'API publique pour une application Web. Le service frontal communique ensuite avec les services avec état pour terminer une demande d’utilisateur. Dans ce cas, les appels des clients sont dirigés vers un port connu, comme le port 80, où le service sans état écoute. Ce service sans état reçoit l’appel et détermine s’il provient d’une partie de confiance, et le service auquel il est destiné.  Le service sans état transfère alors l’appel vers la partition correcte du service avec état et attend une réponse. Lorsqu’il reçoit une réponse, il répond au client d’origine. Vous trouverez un exemple de ce type de service [ici](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService). Il ne s’agit que d’un seul exemple de ce modèle dans les exemples, vous en trouverez également d’autres dans d’autres exemples.
+Un exemple courant illustrant comment les services sans état sont utilisés dans Service Fabric est celui d'un serveur frontal qui expose l'API publique pour une application Web. Le service frontal communique ensuite avec les services avec état pour terminer une demande d’utilisateur. Dans ce cas, les appels des clients sont dirigés vers un port connu, comme le port 80, où le service sans état écoute. Ce service sans état reçoit l’appel et détermine s’il provient d’une partie de confiance, et le service auquel il est destiné.  Le service sans état transfère alors l’appel vers la partition correcte du service avec état et attend une réponse. Lorsqu’il reçoit une réponse, il répond au client d’origine. Vous trouverez un exemple de ce type de service dans nos exemples [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Il ne s’agit que d’un seul exemple de ce modèle dans les exemples, vous en trouverez également d’autres dans d’autres exemples.
 
 ### <a name="stateful-reliable-services"></a>Services fiables avec état
 Un service avec état est un service qui doit avoir une partie de l'état sans cesse cohérente et présente pour que le service fonctionne. Prenons pour exemple un service qui calcule constamment une moyenne mobile d’une valeur en fonction des mises à jour qu’il reçoit. Pour ce faire, il doit disposer de l’ensemble actuel des requêtes entrantes qu’il doit traiter et la moyenne actuelle. Tout service qui récupère, traite et stocke des informations dans un magasin externe (comme un magasin de tables ou d’objets blob Azure) est un service avec état. Il conserve seulement son état dans le magasin d’état externe.
 
 Actuellement, la plupart des services stockent leur état en externe, car le magasin externe fournit la fiabilité, la disponibilité, l’évolutivité et la cohérence pour cet état. Dans Service Fabric, les services ne sont pas obligés de stocker leur état en externe. Service Fabric s’occupe de ces exigences pour le code de service et l’état du service.
+
+> [!NOTE]
+> La prise en charge de Reliable Services avec état n’est pas encore disponible sur Linux (pour C# ou Java).
+>
 
 Supposons que nous souhaitions écrire un service qui traite des images. Pour ce faire, le service récupère une image et la série de conversions à effectuer sur cette image. Ce service renvoie un écouteur de communication (par exemple, une API Web) qui expose une API telle que `ConvertImage(Image i, IList<Conversion> conversions)`. Lorsqu’il reçoit une requête, le service la stocke dans une `IReliableQueue` et renvoie un ID au client pour suivre la requête.
 
@@ -113,9 +118,4 @@ Si l’un des éléments suivants correspond aux besoins de votre service d’ap
 * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Utilisation avancée de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Modèle de programmation Reliable Actors](service-fabric-reliable-actors-introduction.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

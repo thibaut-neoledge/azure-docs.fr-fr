@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 969e6bd55ca69e293f13b66f1a51f1d5fd1996b7
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-net"></a>Mise en route d’Azure IoT Hub (.NET)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Connexion du périphérique simulé à votre hub IoT à l’aide de .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 À la fin de ce didacticiel, vous disposerez de trois applications console .NET :
@@ -36,7 +38,7 @@ ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 ou Visual Studio 2017.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -46,7 +48,7 @@ Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la ch
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
 Dans cette section, vous allez créer une application console .NET qui crée une identité d’appareil dans le registre d’identités de votre IoT Hub. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section Registre d’identité du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. Lorsque vous exécutez cette application de console, elle génère un ID d’appareil et une clé uniques que votre appareil peut utiliser pour s’identifier pour lorsqu’il envoie des messages appareil-à-cloud à IoT Hub.
 
-1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **CreateDeviceIdentity**.
+1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à une nouvelle solution en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **CreateDeviceIdentity** et nommez la solution **IoTHubGetStarted**.
    
     ![Nouveau projet Visual C# Bureau classique Windows][10]
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **CreateDeviceIdentity**, puis cliquez sur **Gérer les packages Nuget**.
@@ -101,9 +103,9 @@ Dans cette section, vous allez créer une application console .NET qui lit les m
 > 
 > 
 
-1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **ReadDeviceToCloudMessages**.
+1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **ReadDeviceToCloudMessages**.
    
-    ![Nouveau projet Visual C# Bureau classique Windows][10]
+    ![Nouveau projet Visual C# Bureau classique Windows][10a]
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ReadDeviceToCloudMessages**, puis cliquez sur **Gérer les packages Nuget**.
 3. Dans la fenêtre **Gestionnaire de package Nuget**, recherchez **WindowsAzure.ServiceBus**, cliquez sur **Installer** et acceptez les conditions d’utilisation. Cette procédure lance le téléchargement, l’installation et ajoute une référence à [Azure Service Bus][lnk-servicebus-nuget] avec toutes ses dépendances. Ce package permet à l'application de se connecter au point de terminaison compatible Event Hubs sur votre IoT hub.
 4. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
@@ -158,9 +160,9 @@ Dans cette section, vous allez créer une application console .NET qui lit les m
 ## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 Dans cette section, vous allez créer une application console .NET qui simule un appareil envoyant des messages des appareils vers le cloud à un IoT Hub.
 
-1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **SimulatedDevice**.
+1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.5.1 ou supérieur. Nommez le projet **SimulatedDevice**.
    
-    ![Nouveau projet Visual C# Bureau classique Windows][10]
+    ![Nouveau projet Visual C# Bureau classique Windows][10b]
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulatedDevice**, puis cliquez sur **Gérer les packages NuGet**.
 3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **Microsoft.Azure.Devices.Client**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices.Client**, puis acceptez les conditions d’utilisation. Cette procédure lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Device SDK NuGet][lnk-device-nuget] et ses dépendances.
 4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
@@ -245,6 +247,8 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
+[10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
 [11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
@@ -267,9 +271,4 @@ Pour découvrir comment étendre votre solution IoT et traiter les messages appa
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

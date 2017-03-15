@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 1622566c34c1ff9c8e83f0356e04743f8a890e96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Node.js pour MongoDB](documentdb-mongodb-samples.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>Étape 2 : configurer votre solution Visual Studio
+## <a id="SetupVS"></a>Étape 2 : configurer votre solution Visual Studio
 1. Ouvrez **Visual Studio 2015** sur votre ordinateur.
 2. Dans le menu **Fichier**, sélectionnez **Nouveau**, puis choisissez **Projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Modèles** / **Visual C#** / **Application console**, nommez votre projet, puis cliquez sur **OK**.
@@ -81,7 +83,7 @@ Créons un compte DocumentDB. Si vous avez déjà un compte que vous souhaitez u
 
 Parfait ! L’installation étant terminée, nous pouvons passer à l’écriture du code. Vous trouverez le projet de code complet de ce didacticiel dans [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Étape 3 : se connecter à un compte DocumentDB
+## <a id="Connect"></a>Étape 3 : se connecter à un compte DocumentDB
 Tout d’abord, ajoutez ces références au début de votre application C#, dans le fichier Program.cs :
 
     using System;
@@ -214,7 +216,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé une base de données DocumentDB.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Étape 5 : créer une collection
+## <a id="CreateColl"></a>Étape 5 : créer une collection
 > [!WARNING]
 > **CreateDocumentCollectionAsync** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -271,7 +273,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez créé une collection de documents DocumentDB.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Étape 6 : Création de documents JSON
+## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
 Vous pouvez créer un [document](documentdb-resources.md#documents) à l’aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents correspondent à du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](documentdb-import-data.md) de DocumentDB pour importer les données dans une base de données.
 
 Nous devons tout d’abord créer une classe **Family** représentant les objets stockés dans DocumentDB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que les documents doivent avoir une propriété **Id** sérialisée comme **id** dans JSON. Créez ces classes en ajoutant les sous-classes internes suivantes après la méthode **GetStartedDemo** .
@@ -432,7 +434,7 @@ Félicitations ! Vous avez créé deux collections de documents DocumentDB.
 
 ![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application de console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Étape 7 : interroger les ressources DocumentDB
+## <a id="Query"></a>Étape 7 : interroger les ressources DocumentDB
 DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection.  L'exemple de code suivant affiche différentes requêtes (à l'aide de la syntaxe SQL de DocumentDB et de LINQ) que nous pouvons exécuter sur les documents insérés à l'étape précédente.
 
 Copiez et collez la méthode **ExecuteSimpleQuery** après votre méthode **CreateFamilyDocumentIfNotExists**.
@@ -490,7 +492,7 @@ Le diagramme suivant montre comment la syntaxe de requête SQL de DocumentDB est
 
 Le mot clé [FROM](documentdb-sql-query.md#FromClause) est facultatif dans la requête, car les requêtes DocumentDB sont déjà étendues à une collection unique. Par conséquent, « FROM Families f » peut être remplacé par «FROM root r » ou par tout autre nom de variable que vous choisissez. DocumentDB déduira que Families, root ou le nom de variable choisi fait par défaut référence à la collection actuelle.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
+## <a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
 DocumentDB prend en charge le remplacement des documents JSON.  
 
 Copiez et collez la méthode **ReplaceFamilyDocument** après votre méthode **ExecuteSimpleQuery**.
@@ -527,7 +529,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez remplacé un document DocumentDB.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
+## <a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
 DocumentDB prend en charge la suppression des documents JSON.  
 
 Copiez et collez la méthode **DeleteFamilyDocument** après votre méthode **ReplaceFamilyDocument**.
@@ -559,7 +561,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez supprimé un document DocumentDB.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
+## <a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
 
 Copiez et collez le code suivant dans votre méthode **GetStartedDemo** après la suppression du document, pour supprimer la base de données et toutes ses ressources enfants.
@@ -576,7 +578,7 @@ Appuyez sur **F5** pour exécuter votre application.
 
 Félicitations ! Vous avez supprimé une base de données DocumentDB.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Étape 11 : exécuter votre application de console C#
+## <a id="Run"></a>Étape 11 : exécuter votre application de console C#
 Appuyez sur F5 dans Visual Studio pour générer l'application en mode débogage.
 
 La sortie de votre application de prise en main doit s’afficher. Celle-ci doit présenter les résultats des requêtes que nous avons ajoutées, qui doivent correspondre au texte d'exemple ci-dessous.
@@ -604,7 +606,7 @@ La sortie de votre application de prise en main doit s’afficher. Celle-ci doit
 
 Félicitations ! Vous avez terminé ce didacticiel NoSQL et que vous disposez d’une application de console C# qui fonctionne !
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> Obtenir la solution complète du didacticiel NoSQL
+## <a id="GetSolution"></a> Obtenir la solution complète du didacticiel NoSQL
 Si vous n’avez pas le temps de suivre les étapes de ce didacticiel, ou que vous voulez simplement télécharger les exemples de code, vous pouvez l’obtenir à partir de [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Pour générer la solution GetStarted, vous aurez besoin des éléments suivants :

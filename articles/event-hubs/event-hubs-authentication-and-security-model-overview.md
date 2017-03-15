@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
-ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 930b3da630b88eecdec56e86d621daee53070257
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ Le modèle de sécurité Azure Event Hubs remplit les conditions suivantes :
 * Il est possible d'empêcher un appareil non fiable d'envoyer des données à un hub d'événements.
 
 ## <a name="device-authentication"></a>Authentification des appareils
-Le modèle de sécurité du hub d’événements est basé sur une combinaison de jetons de [signature d’accès partagé (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) et d’*éditeurs d’événements*. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
+Le modèle de sécurité du hub d’événements est basé sur une combinaison de jetons de [signature d’accès partagé (SAS)](../service-bus-messaging/service-bus-sas.md) et d’*éditeurs d’événements*. Un éditeur d'événements définit un point de terminaison virtuel pour un hub d'événements. L'éditeur ne peut être utilisé que pour envoyer des messages à un hub d'événements. Il n'est pas possible de recevoir des messages à partir de l'éditeur.
 
 En règle générale, un hub d'événements utilise un seul éditeur par appareil. Tous les messages qui sont envoyés à un éditeur d'un hub d'événements sont empilés dans celui-ci. Les éditeurs permettent un contrôle d’accès précis et une limitation.
 
@@ -102,17 +103,12 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
-* [Vue d’ensemble des concentrateurs d’événements]
-* [Vue d’ensemble SAS]
-* Un [exemple d’application complet qui utilise Event Hubs]
+* [Vue d’ensemble des hubs d’événements]
+* [Présentation des signatures d’accès partagé]
+* [Exemples d’applications qui utilisent des Event Hubs]
 
-[Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
-[exemple d’application complet qui utilise Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Vue d’ensemble SAS]: ../service-bus-messaging/service-bus-sas-overview.md
-
-
-
-
-<!--HONumber=Feb17_HO3-->
+[Vue d’ensemble des hubs d’événements]: event-hubs-what-is-event-hubs.md
+[Exemples d’applications qui utilisent des Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Présentation des signatures d’accès partagé]: ../service-bus-messaging/service-bus-sas.md
 
 

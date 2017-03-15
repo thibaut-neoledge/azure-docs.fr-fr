@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
@@ -44,7 +44,7 @@ public class Program
 
 Le référentiel azure-webjobs-sdk-samples sur GitHub.com contient un [exemple de code complet Service Bus](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) .
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> Conditions préalables
+## <a id="prerequisites"></a> Conditions préalables
 Pour utiliser Service Bus, vous devez installer le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) en plus des autres packages du Kit de développement logiciel (SDK) WebJobs. 
 
 Vous devez aussi définir la chaîne de connexion AzureWebJobsServiceBus en plus des chaînes de connexion de stockage.  Pour cela, vous pouvez utiliser la section `connectionStrings` du fichier App.config, comme illustré dans l’exemple suivant :
@@ -59,7 +59,7 @@ Pour un exemple de projet incluant la valeur de la chaîne de connexion de Servi
 
 Les chaînes de connexion peuvent également être définies dans l’environnement d’exécution Azure, qui remplace ensuite les valeurs de App.config quand la tâche web s’exécute dans Azure. Pour plus d’informations, consultez [Prise en main du SDK WebJobs](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> Déclenchement d’une fonction durant la réception d’un message en file d’attente Service Bus
+## <a id="trigger"></a> Déclenchement d’une fonction durant la réception d’un message en file d’attente Service Bus
 Pour écrire une fonction que le Kit de développement logiciel (SDK) WebJobs appelle durant la réception d’un message en file d’attente, utilisez l’attribut `ServiceBusTrigger` . Le constructeur d’attribut prend un paramètre qui spécifie le nom de la file d’attente à interroger.
 
 ### <a name="how-servicebustrigger-works"></a>Fonctionnement de ServiceBusTrigger
@@ -99,7 +99,7 @@ Si votre code qui crée le message de la file d'attente n'utilise pas le SDK Web
 ### <a name="types-servicebustrigger-works-with"></a>Types utilisés par ServiceBusTrigger
 Outre les types d’objet POCO et `string`, vous pouvez utiliser l’attribut `ServiceBusTrigger` avec un tableau d’octets ou un objet `BrokeredMessage`.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> Création de messages de file d’attente Service Bus
+## <a id="create"></a> Création de messages de file d’attente Service Bus
 Pour écrire une fonction qui crée un message de file d’attente, utilisez l’attribut `ServiceBus` et transmettez le nom de la file d’attente au constructeur d’attribut. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Création d’un message de file d’attente unique dans une fonction non asynchrone
@@ -136,7 +136,7 @@ Pour créer plusieurs messages, utilisez l’attribut `ServiceBus` avec `ICollec
 
 Chaque message de file d’attente est créé immédiatement après l’appel de la méthode `Add` .
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>Utilisation des rubriques Service Bus
+## <a id="topics"></a>Utilisation des rubriques Service Bus
 Pour écrire une fonction que le Kit de développement logiciel (SDK) appelle au moment où un message est reçu sur une rubrique Service Bus, utilisez l’attribut `ServiceBusTrigger` avec le constructeur qui prend le nom de rubrique et le nom d’abonnement, comme illustré dans l’exemple de code suivant :
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -157,7 +157,7 @@ Les fonctionnalités suivantes ont été ajoutées dans la version 1.1 :
 * Personnalisation facile de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
 * Autoriser la spécification des [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) sur `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (pour les scénarios où vous ne disposez pas des droits de gestion). 
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente de stockage
+## <a id="queues"></a>Sujets connexes traités dans l’article de procédure relatif aux files d’attente de stockage
 Pour en savoir plus sur les scénarios de Kit de développement logiciel (SDK) WebJobs non spécifiques de Service Bus, voir [Utilisation du stockage de file d’attente Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Les sujets abordés dans cet article sont les suivants :
@@ -171,7 +171,7 @@ Les sujets abordés dans cet article sont les suivants :
 * Déclenchement manuel d’une fonction
 * Écriture de journaux
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Étapes suivantes
+## <a id="nextsteps"></a> Étapes suivantes
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation d’Azure Service Bus. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
 

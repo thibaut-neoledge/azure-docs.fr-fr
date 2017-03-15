@@ -1,5 +1,5 @@
 ---
-title: "Cluster de conteneur Docker dans le cloud Azure | Microsoft Docs"
+title: "Hébergement du conteneur Docker dans Azure Cloud | Microsoft Docs"
 description: "Azure Container Service offre un moyen de simplifier la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur."
 services: container-service
 documentationcenter: 
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: a11b133794f7aedfa6740757fd8c1e89da665744
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 04fabadb1c713deb007b740369496b61bb5f424f
+ms.lasthandoff: 03/02/2017
+
 
 
 ---
-# <a name="azure-container-service-introduction"></a>Présentation d’Azure Container Service
+# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduction aux solutions d’hébergement de conteneur Docker solutions avec Azure Container Service 
 Azure Container Service simplifie la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Ce service utilise une configuration optimisée d’outils de planification et d’orchestration open source bien connus. Il vous permet d’exploiter vos compétences existantes ou de faire appel à une large communauté d’experts toujours plus nombreux pour déployer et gérer des applications en conteneur sur Microsoft Azure.
 
 ![Azure Container Service offre un moyen de gérer les applications en conteneur sur plusieurs hôtes dans Azure.](./media/acs-intro/acs-cluster-new.png)

@@ -16,8 +16,9 @@ ms.workload: tbd
 ms.date: 11/30/2016
 ms.author: v-six
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00b09be636a01872070a1bec5f0f19885496bbcc
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,7 +28,7 @@ Cet article examine certaines des causes courantes entraînant des problèmes de
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Dépendances d'exécution manquantes
-Si un rôle dans votre application repose sur un assembly qui ne fait pas partie du.NET Framework ou de la bibliothèque gérée Azure, vous devez inclure explicitement cet assembly dans le package d'application. N'oubliez pas que les autres infrastructures Microsoft ne sont pas disponibles par défaut dans Azure. Si votre rôle repose sur une telle infrastructure, vous devez ajouter ces assemblys au package d'application.
+Si un rôle dans votre application repose sur un assembly qui ne fait pas partie du .NET Framework ou de la bibliothèque gérée Azure, vous devez inclure explicitement cet assembly dans le package d'application. N'oubliez pas que les autres infrastructures Microsoft ne sont pas disponibles par défaut dans Azure. Si votre rôle repose sur une telle infrastructure, vous devez ajouter ces assemblys au package d'application.
 
 Avant de générer et de mettre en package votre application, vérifiez les éléments suivants :
 
@@ -55,7 +56,7 @@ Pour vous assurer que votre paramètre `DiagnosticsConnectionString` est correct
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Si vous développez votre application à l’aide d’outils Azure pour Microsoft Visual Studio, vous pouvez utiliser les [pages de propriétés](https://msdn.microsoft.com/library/ee405486) pour définir cette valeur.
+  Si vous développez votre application à l’aide d’outils Azure pour Microsoft Visual Studio, vous pouvez utiliser les pages de propriétés pour définir cette valeur.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>Le certificat exporté ne contient aucune clé privée
 Pour exécuter un rôle web sous SSL, vous devez vous assurer que votre certificat de gestion exporté inclut la clé privée. Si vous utilisez le *gestionnaire de certificats Windows* pour exporter le certificat, veillez à sélectionner **Oui** pour l’option **Exporter la clé privée**. Le certificat doit être exporté au format PFX, l’unique format actuellement pris en charge.
@@ -69,9 +70,4 @@ Affichez d’autres scénarios de recyclage des rôles dans la [série du blog d
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

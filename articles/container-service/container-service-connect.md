@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 320285d97b3ef723ec2b5715fd02580d058cbbcf
-ms.openlocfilehash: 2304c85177cefa6505d92679ec7f791cb87e69e4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Connexion à un cluster Azure Container Service
+# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Connexion à distance à un cluster Kubernetes, DC/OS ou Docker Swarm
 Après avoir créé un cluster Azure Container Service, vous devez vous connecter au cluster pour déployer et gérer des charges de travail. Cet article décrit comment se connecter à la machine virtuelle principale du cluster à partir d’un ordinateur distant. 
 
 Tous les clusters Kubernetes, DC/OS et Docker Swarm fournissent des points de terminaison HTTP localement. Pour Kubernetes, ce point de terminaison est exposé en toute sécurité sur Internet et vous pouvez y accéder en exécutant l’outil en ligne de commande `kubectl` depuis n’importe quel ordinateur connecté à Internet. 

@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
+ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -232,6 +232,13 @@ Cette section explique comment sécuriser les données pendant leur transfert ve
 Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d’activation de ce service pour un compte de stockage, qui a pour effet de chiffrer automatiquement les objets blob de bloc, les objets blog de pages et les objets blob d’ajout quand ils sont écrits dans Azure Storage. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
 
 * [Guide de sécurité du Stockage Azure](../storage/storage-security-guide.md)
+
+## <a name="temporary-disk"></a>Disque temporaire
+Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou quand vous [redéployez une machine virtuelle](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
+
+Sur les machines virtuelles Linux, le disque se nomme généralement **/dev/sdb**, et est formaté et monté sur **/mnt** par l’agent Linux Azure. La taille du disque temporaire varie en fonction de la taille de la machine virtuelle. Pour plus d’informations, consultez [Taille des machines virtuelles Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+
+Pour plus d’informations sur l’utilisation du disque temporaire par Azure, voir [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## <a name="cost-savings"></a>Réduction des coûts
 * [Coût de stockage](https://azure.microsoft.com/pricing/details/storage/)

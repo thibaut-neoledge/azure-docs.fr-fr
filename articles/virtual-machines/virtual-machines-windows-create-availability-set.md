@@ -18,13 +18,13 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
-ms.openlocfilehash: a221f3bc9e058a46e46edf8f7177d21151ae3595
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 2f4ea765df71ed9aac7e8657e6be3706b635407e
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Augmenter la disponibilité des machines virtuelles en créant un groupe à haute disponibilité Azure 
-Les groupes à haute disponibilité assurent la redondance de votre application. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+Les groupes à haute disponibilité assurent la redondance pour votre application. Nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d’informations, consultez le [SLA pour Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
 > Les machines virtuelles doivent être créées dans le même groupe de ressources que le groupe à haute disponibilité.

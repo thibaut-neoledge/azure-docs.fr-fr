@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 5e531c6c23c510936fe7e4e844db2ec3afb170dc
-ms.openlocfilehash: 32d79cf050968738764c2239cbd79c73734ee855
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41be26b5dc3b7333521f02053ecb4b6ae1b17f73
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -32,7 +32,7 @@ Xamarin permet aux développeurs d’utiliser un code base C# partagé pour cré
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>Création d’une application Xamarin
-Pour la prise en main, nous allons créer une application qui cible Windows, iOS et Android. Cette application créera simplement un conteneur et chargera un objet blob dans ce conteneur. Nous utiliserons Visual Studio sous Windows pour la prise en main, mais les mêmes méthodes peuvent être appliquées lors de la création d’une application à l’aide de Xamarin Studio sous Mac OS.
+Pour ce didacticiel, nous allons créer une application qui cible Windows, iOS et Android. Cette application créera simplement un conteneur et chargera un objet blob dans ce conteneur. Nous utiliserons Visual Studio sur Windows, mais les mêmes méthodes peuvent être appliquées lors de la création d’une application à l’aide de Xamarin Studio sur Mac OS.
 
 Procédez comme suit pour créer votre application :
 
@@ -242,7 +242,7 @@ Vous pouvez maintenant exécuter cette application dans un émulateur Android ou
 Une fois que vous exécutez votre application, elle crée le conteneur `mycontainer` dans votre compte de stockage. Il doit contenir l’objet blob, `myblob`, qui présente le texte, `Hello, world!`. Vous pouvez le vérifier à l’aide de [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cette prise en main, vous avez appris à créer une application multiplateforme dans Xamarin qui utilise le stockage Azure. Cette prise en main est spécifiquement axée sur un seul scénario dans le stockage Blob. Toutefois, vous pouvez en faire beaucoup plus, non seulement le Stockage Blob, mais également avec Table, Fichier et Stockage File d’attente. Pour en savoir plus, voir les articles suivants :
+Dans ce didacticiel, vous avez appris à créer une application multiplateforme dans Xamarin qui utilise le stockage Azure, en traitant en particulier un scénario dans le stockage Blob. Toutefois, vous pouvez en faire beaucoup plus, non seulement avec le stockage Blob, mais également avec le stockage Table, le stockage Fichier et le stockage File d’attente. Pour en savoir plus, voir les articles suivants :
 
 * [Prise en main du stockage d’objets blob Azure à l’aide de .NET](storage-dotnet-how-to-use-blobs.md)
 * [Prise en main d’Azure Table Storage à l’aide de .NET](storage-dotnet-how-to-use-tables.md)

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9b18af35dc0a70c7335fd54477a6d8f57048b685
-ms.openlocfilehash: 5bf418af22746610e96712ed33fd389998e4fa46
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 278caf2afa889466736f3d98ff4ad292f72e5098
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 Les tables de cet article offrent des informations sur les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
 
-## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Fournisseurs de connectivité ExpressRoute
+## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
 
 ![Carte des emplacements][0]
@@ -61,7 +61,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
-## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Emplacements de fournisseur de connectivité
+## <a name="locations"></a>Emplacements de fournisseur de connectivité
 
 Le tableau suivant présente les emplacements de connectivité et les fournisseurs de services pour chaque emplacement. Si vous souhaitez afficher les fournisseurs de service et les lieux pour lesquels ils peuvent fournir le service, consultez la page [Lieux par fournisseur de services](expressroute-locations.md#locations). 
 
@@ -73,8 +73,8 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS+, Sejong Telecom |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
+| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
 | **Dublin** |Colt, Telecity Group |
 | **Hong Kong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -125,7 +125,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Francfort** |Colt, Equinix, Interxion |
 
-## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
+## <a name="nonpartners"></a>Connectivité via des fournisseurs de services non répertoriés
 Si votre fournisseur de connectivité ne se trouve pas dans la liste des sections précédentes, vous pouvez quand même créer une connexion.
 
 * Vérifiez auprès de votre fournisseur de connectivité s’il est connecté à l’un des échanges dans le tableau ci-dessous. Vous pouvez consulter les liens ci-dessous pour recueillir des informations supplémentaires sur les services proposés par les fournisseurs d’échange. Plusieurs fournisseurs de connectivité sont déjà connectés à des échanges Ethernet.

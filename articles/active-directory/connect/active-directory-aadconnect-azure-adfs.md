@@ -17,12 +17,12 @@ ms.date: 02/27/2017
 ms.author: anandy;billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
+ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="deloying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
 Le déploiement d’AD FS dans Azure présente toute une série d’avantages, notamment :
 

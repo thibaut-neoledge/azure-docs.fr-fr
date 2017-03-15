@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -125,7 +126,7 @@ Maintenant que les messages s’ajoutent dans la file d’attente, vous pouvez c
 
     ![Ajouter une liaison à une table de stockage Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Entrez `TableItem` pour **Nom de la table** et `functionbindings` pour **Nom du paramètre de table**, choisissez une **Connexion du compte de stockage** ou créez-en une, puis cliquez sur **Enregistrer**.
+2. Entrez `functionbindings` pour **Nom de la table** et `myTable` pour **Nom du paramètre de table**, choisissez une **Connexion du compte de stockage** ou créez-en une, puis cliquez sur **Enregistrer**.
 
     ![Configurer la liaison de table de stockage](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,9 +181,9 @@ Maintenant que les messages s’ajoutent dans la file d’attente, vous pouvez c
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Functions, consultez ces rubriques.
+Pour plus d’informations sur Azure Functions, consultez les rubriques suivantes :
 
-* [Référence du développeur Azure Functions](functions-reference.md)  
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
   décrit plusieurs outils et techniques permettant de tester vos fonctions.
@@ -190,10 +191,5 @@ Pour plus d’informations sur Azure Functions, consultez ces rubriques.
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

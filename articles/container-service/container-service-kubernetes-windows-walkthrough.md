@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
-ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
+ms.lasthandoff: 03/06/2017
 
 
 ---
 
-# <a name="get-started-with-windows-containers-in-a-kubernetes-cluster"></a>Prise en main de conteneurs Windows dans un cluster Kubernetes
+# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Prise en main des conteneurs Kubernetes et Windows dans Container Service
 
 
 Cet article montre comment créer un cluster Kubernetes dans Azure conteneur de Service qui contient les nœuds Windows pour exécuter des conteneurs Windows. 
@@ -59,10 +60,16 @@ Toutes les machines virtuelles figurent dans le même réseau privé virtuel et 
 Vous pouvez utiliser le portail Azure pour [créer un cluster Kubernetes](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) avec des nœuds d’agent Windows. Notez les paramètres suivants lors de la création du cluster :
 
 * Dans le panneau **Fonctions de base**,dans **Orchestrator**, sélectionnez **Kubernetes**. 
-* Dans le panneau de **configuration du maître**, entrez les informations d’identification utilisateur et du principal du service des nœuds Linux principaux Linux.
+
+  ![Sélection de l’orchestrateur Kubernetes](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* Dans le panneau de **configuration du maître**, entrez les informations d’identification utilisateur et du principal du service des nœuds Linux principaux Linux. Choisissez 1, 3 ou 5 maîtres.
+
 * Dans le panneau**Configuration de l’agent**, sous **Système d’exploitation**, sélectionnez **Windows (version préliminaire)**. Entrez les informations d’identification d’administrateur pour les nœuds d’agent Windows.
 
-Pour en savoir plus, consultez la rubrique[Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
+  ![Sélection des agents Windows](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
+
+Pour plus d’informations, voir [Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 

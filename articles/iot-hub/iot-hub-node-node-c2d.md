@@ -12,11 +12,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 05ccc7f419a420cb80f9fd71d5c59912468eb8f8
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 312e9081c8597f59c32e99d594f2e729410986d8
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -53,7 +54,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 Dans cette section, vous modifiez l’application pour appareil simulée que vous avez créée dans [Prise en main d’IoT Hub] pour recevoir des messages cloud-à-appareil à partir d’IoT Hub.
 
 1. À l’aide d’un éditeur de texte, ouvrez le fichier SimulatedDevice.js.
-2. Modifiez la fonction **connectCallback** pour gérer les messages envoyés à partir d’IoT Hub. Dans cet exemple, l’appareil appelle toujours la fonction **complete** afin de notifier IoT Hub qu’il a traité le message. La nouvelle version de la fonction **connectCallback** ressemble à ceci :
+2. Modifiez la fonction **connectCallback** pour gérer les messages envoyés à partir d’IoT Hub. Dans cet exemple, l’appareil appelle toujours la fonction **complete** afin de notifier IoT Hub qu’il a traité le message. La nouvelle version de la fonction **connectCallback** ressemble à l’extrait de code suivant :
    
     ```
     var connectCallback = function (err) {
@@ -167,7 +168,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     node SendCloudToDeviceMessage.js 
     ```
    
-    ![Exécutez l’application pour envoyer la commande c2d][img-send-command]
+    ![Exécutez l’application pour envoyer la commande cloud-à-appareil][img-send-command]
    
    > [!NOTE]
    > Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](Gestion des erreurs temporaires).
@@ -192,13 +193,8 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portail Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

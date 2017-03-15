@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: 6854ebe781220dfdf957fa1d89ec19d32e6febea
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -34,7 +35,7 @@ Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à
 Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
 
@@ -347,9 +348,4 @@ Lorsque vous avez terminé, vous devez voir la machine virtuelle nouvellement cr
 
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

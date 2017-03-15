@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2017
 ms.author: tvoellm
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 224897c09073fe36c7d4f9f8c965212c25297271
-ms.openlocfilehash: 3f89e192052bb633190610a4dffbefb930dbc01c
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 5f2fd8810041d47be2ef0b21e1487426a643d541
+ms.lasthandoff: 03/07/2017
 
 
 ---
 
-# <a name="export-the-documentdb-emulator-certificates"></a>Exporter les certificats de l’émulateur DocumentDB
+# <a name="export-the-documentdb-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur DocumentDB pour une utilisation avec Java, Python et Node.js
 
-[**Téléchargement de l’émulateur**](https://aka.ms/documentdb-emulator)
+[**Téléchargement de l'émulateur**](https://aka.ms/documentdb-emulator)
 
 L’ émulateur Azure DocumentDB fournit un environnement local qui émule le service Azure DocumentDB à des fins de développement, notamment pour l’utilisation des connexions SSL. Cet article vous explique comment exporter les certificats SSL pour une utilisation dans les langages et les runtimes qui ne s’intègrent pas avec le magasin de certificats Windows, comme Java, qui utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python, qui utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html) et Node.js qui utilise [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Pour en savoir plus sur l’émulateur, consultez l’article [Utilisation de l'émulateur Azure DocumentDB pour le développement et le test](./documentdb-nosql-local-emulator.md).
 
@@ -89,9 +91,4 @@ Par défaut, le [Kit de développement logiciel (SDK) Node.js (version 1.10.1 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur DocumentDB, consultez la rubrique [Présentation d’Azure DocumentDB](documentdb-introduction.md)
 * Pour vous initier au développement de l’émulateur DocumentDB, téléchargez un des [Kits de développement logiciel (SDK) DocumentDB pris en charge](documentdb-sdk-dotnet.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

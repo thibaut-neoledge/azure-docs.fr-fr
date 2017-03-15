@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,8 +129,8 @@ Lancez la fonction Prise en main en sélectionnant le mode de déploiement de Si
 ## <a name="step-1-choose-your-protection-goals"></a>Étape 1 : sélectionner vos objectifs en matière de protection
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 
-1. Dans le panneau **Coffres Recovery Services**, choisissez votre coffre et cliquez sur **Paramètres**.
-2. Dans **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
+1. Dans le panneau **coffres Recovery Services**, sélectionnez le coffre.
+2. Dans **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
 
     ![Sélectionner des objectifs](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. Dans la zone **Protection goal (Objectif de la protection)**, sélectionnez **To Azure (Vers Azure)**, puis **Yes, with Hyper-V (Oui, avec Hyper-V)**. Sélectionnez **Oui** pour confirmer votre utilisation de VMM pour gérer les hôtes Hyper-V et le site de récupération. Cliquez ensuite sur **OK**.
@@ -143,17 +143,17 @@ Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez c
 1. Cliquez sur **Étape 2 : Préparer l’infrastructure** > **Source**.
 
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. Dans **Préparer la source**, cliquez sur **+ VMM** pour ajouter un serveur VMM.
 
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. Dans le panneau **Ajouter un serveur**, vérifiez que **Serveur System Center VMM** s’affiche dans le champ **Type de serveur** et que le serveur VMM répond à la [configuration requise et aux exigences concernant les URL](#on-premises-prerequisites).
 4. Téléchargez le fichier d’installation du fournisseur Azure Site Recovery.
 5. Téléchargez la clé d’inscription. Vous en aurez besoin lorsque vous exécuterez le programme d’installation. Une fois générée, la clé reste valide pendant&5; jours.
 
     ![Configurer la source](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Installez le fournisseur Azure Site Recovery sur le serveur VMM.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Configurer le fournisseur Azure Site Recovery
@@ -180,7 +180,7 @@ Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez c
 9. Si vous souhaitez synchroniser les métadonnées de l’ensemble des clouds sur le serveur VMM avec le coffre, activez l’option **Synchroniser les métadonnées du cloud**. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM. Cliquez sur **Register** pour terminer le processus.
 
     ![Enregistrement du serveur](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. L’inscription débute. Une fois l’inscription terminée, le serveur s’affiche sur le panneau **Paramètres** > **Serveurs** du coffre.
+10. L’inscription débute. Une fois l’inscription terminée, le serveur s’affiche dans **Infrastructure Site Recovery** >  **Serveurs VMM**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installation du fournisseur Azure Site Recovery via la ligne de commande
 Le fournisseur Azure Site Recovery peut être installé à partir de la ligne de commande. Vous pouvez utiliser cette méthode pour installer le fournisseur sur un module Server Core pour Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 
 Configurez le mappage comme suit :
 
-1. Dans **Paramètres** > **Infrastructure Site Recovery** > **Mappages réseau** > **Mappage réseau**, cliquez sur l’icône **+Mappage réseau**.
+1. Dans **Infrastructure Site Recovery** > **Mappages réseau** > **Mappage réseau**, cliquez sur l’icône**+Mappage réseau**.
 
     ![Mappage réseau](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Dans la zone **Ajouter un mappage réseau**, sélectionnez le serveur VMM source et choisissez **Azure** comme cible.
@@ -295,7 +295,7 @@ Voici le processus exécuté lorsque le mappage réseau démarre :
 7. Dans **Chiffrer les données stockées sur Azure**, indiquez si les données au repos doivent être chiffrées dans Azure Storage. Cliquez ensuite sur **OK**.
 
     ![Stratégie de réplication](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles qu’ils contiennent) à cette stratégie de réplication en cliquant sur **Paramètres** > **Réplication** > nom de la stratégie > **Associate VMM Cloud** (Associer un cloud VMM).
+8. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles correspondantes) à cette stratégie de réplication en cliquant sur **Réplication** > Nom de la stratégie > **Associer un Cloud VMM**.
 
     ![Stratégie de réplication](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ La valeur de registre **UploadThreadsPerVM** détermine le nombre de threads uti
     >
 
 
-8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications appliquées sont utilisées pour les nouvelles machines et celles dont la réplication est en cours.
+8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications appliquées sont utilisées pour les nouvelles machines et celles dont la réplication est en cours.
 
    ![Activer la réplication](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+Vous pouvez suivre la progression du travail **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 ### <a name="view-and-manage-vm-properties"></a>Afficher et gérer les propriétés des machines virtuelles
 Nous vous recommandons de vérifier les propriétés de la machine source. N’oubliez pas que le nom de la machine virtuelle Azure doit respecter la [configuration requise pour les machines virtuelles Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Cliquez sur **Paramètres** > **Éléments protégés** > **Éléments répliqués** et sélectionnez la machine dont vous souhaitez afficher les détails.
+1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués**, sélectionnez la machine pour afficher ses détails.
 
     ![Activer la réplication](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. Dans **Propriétés**, vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
@@ -438,10 +438,10 @@ Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux aprè
 ## <a name="step-7-test-your-deployment"></a>Étape 7 : tester votre déploiement
 Pour tester le déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou un plan de récupération qui contient une ou plusieurs machines virtuelles.
 
-1. Pour effectuer le basculement d’une seule machine virtuelle, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur **+Test de basculement**.
-1. Pour effectuer le basculement d’un plan de récupération, dans **Paramètres** > **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
+1. Pour effectuer le basculement d’une seule machine virtuelle, dans **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur **+Test de basculement**.
+1. Pour effectuer le basculement d’un plan de récupération, dans **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
 1. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure se connectent après le basculement.
-1. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant la tâche **Test de basculement** dans **Paramètres** > **Travaux Site Recovery**.
+1. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans **Travaux Site Recovery**.
 1. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
 1. Si vous avez [préparé les connexions après le basculement](#prepare-to-connect-to-Azure-VMs-after-failover), vous devez être à même de vous connecter à la machine virtuelle Azure.
 1. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines virtuelles qui ont été créés au cours du test de basculement.
@@ -454,9 +454,9 @@ Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètr
 1. Cliquez sur le nom du coffre pour accéder au tableau de bord **Essentials** . Ce tableau affiche l’état de la réplication, les tâches, les plans de récupération, l’intégrité du serveur et les événements Site Recovery.  Vous pouvez personnaliser **Essentials** de manière afficher les vignettes et les dispositions qui sont les plus utiles, y compris l’état des autres coffres Site Recovery et Backup.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. Dans *Intégrité**, vous pouvez surveiller les problèmes affectant les serveurs locaux (VMM ou serveurs de configuration), ainsi que les événements signalés par Site Recovery au cours des dernières 24 heures.
-3. Vous pouvez gérer et surveiller la réplication dans les mosaïques **Éléments répliqués**, **Plans de récupération** et **Travaux Site Recovery**. Vous pouvez accéder au détail des travaux dans **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+2. Dans **Intégrité**, vous pouvez surveiller les problèmes affectant les serveurs locaux (VMM ou serveurs de configuration), ainsi que les événements signalés par Site Recovery au cours des dernières 24 heures.
+3. Vous pouvez gérer et surveiller la réplication dans les mosaïques **Éléments répliqués**, **Plans de récupération** et **Travaux Site Recovery**. Vous pouvez accéder au détail des travaux dans **Travaux** > **Travaux Site Recovery**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md) .
+Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 

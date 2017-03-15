@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
-ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 Dans cet article, vous utilisez Microsoft Visual Studio pour créer votre première fabrique de données Azure. Pour suivre le didacticiel avec d’autres outils/Kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante.
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Didacticiel : Copier des données de Blob Storage vers une base de données SQL).
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
 
@@ -78,7 +79,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter** puis cliquez sur **Nouvel élément**.
 2. Sélectionnez **Service lié à la demande HDInsight** puis cliquez sur **Ajouter**.
-3. Remplacez le code **JSON** par ce qui suit :
+3. Remplacez le code **JSON** par le code JSON suivant :
 
     ```JSON
     {
@@ -98,11 +99,11 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
    | Propriété | Description |
-   | --- | --- |
-   |  Version |Indique que la version de service HDInsight doit être la version 3.2. |
-   |  ClusterSize |Spécifie la taille du cluster HDInsight. |
-   |  TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
-   |  linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight |
+   | -------- | ----------- |
+   | Version | Indique que la version de service HDInsight doit être la version 3.2. |
+   | ClusterSize |Spécifie la taille du cluster HDInsight. |
+   | TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
+   | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux générés par HDInsight |
 
     Notez les points suivants :
 
@@ -110,7 +111,7 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
    * Vous pouvez utiliser votre **propre cluster HDInsight** au lieu d’utiliser un cluster HDInsight à la demande. Pour plus d’informations, voir [Service lié Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) .
    * Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight disponible à la demande, un cluster HDInsight est créé dès qu’une tranche est traitée, à moins qu’il n’existe un cluster actif (**timeToLive**). Ce cluster est supprimé, une fois le traitement terminé.
 
-       Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « **nomdevotrefabriquededonnéesadf**-**nomduservicelié**-horodatage ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+       Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
      Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 4. Enregistrez le fichier **HDInsightOnDemandLinkedService1.json** .
@@ -121,9 +122,9 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 #### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Tables**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 2. Sélectionnez **Objet blob Azure** dans la liste, changez le nom du fichier en **InputDataSet.json**, puis cliquez sur **Ajouter**.
-3. Remplacez le **code JSON** dans l’éditeur par ce qui suit :
+3. Remplacez le code **JSON** dans l’éditeur par l’extrait de code JSON suivant :
 
-    Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobInput** , qui représente les données d’entrée pour une activité dans le pipeline. En outre, vous spécifiez que les données d’entrée se trouvent dans le conteneur d’objets blob nommé **adfgetstarted** et dans le dossier nommé **inputdata**
+    Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobInput** , qui représente les données d’entrée pour une activité dans le pipeline. En outre, vous indiquez que les données d’entrée se trouvent dans le conteneur d’objets blob nommé `adfgetstarted` et dans le dossier nommé `inputdata`.
 
     ```JSON
     {
@@ -151,7 +152,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
    | Propriété | Description |
-   |:--- |:--- |
+   | -------- | ----------- |
    | type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
    | linkedServiceName |fait référence au service AzureStorageLinkedService1 que vous avez créé précédemment. |
    | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité. |
@@ -166,9 +167,9 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Tables**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
 2. Sélectionnez **Objet blob Azure** dans la liste, changez le nom du fichier en **OutputDataset.json**, puis cliquez sur **Ajouter**.
-3. Remplacez le **code JSON** dans l’éditeur par ce qui suit :
+3. Remplacez le code **JSON** dans l’éditeur par le code JSON suivant :
 
-    Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput**et spécifiez la structure des données produites par le script Hive. Indiquez aussi que les résultats sont stockés dans le conteneur d’objets blob appelé **adfgetstarted** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
+    Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput**et spécifiez la structure des données produites par le script Hive. En outre, vous indiquez que les résultats sont stockés dans le conteneur d’objets blob nommé `adfgetstarted` et dans le dossier nommé `partitioneddata`. La section **availability** spécifie que le jeu de données de sortie est produit tous les mois.
 
     ```JSON
     {
@@ -252,7 +253,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
     ```
      Dans l’extrait de code JSON, vous créez un pipeline qui se compose d’une seule activité utilisant Hive pour traiter des données sur un cluster HDInsight.
 
-    Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService1**) et dans le dossier **script** du conteneur **adfgetstarted**.
+    Le fichier script Hive (**partitionweblogs.hql** est stocké dans le compte de stockage Azure (spécifié par scriptLinkedService, appelé **AzureStorageLinkedService1**), dans le dossier `script`, dans le conteneur `adfgetstarted`.
 
     La section **defines** est utilisée pour spécifier les paramètres d’exécution passés au script Hive comme valeurs de configuration Hive (par exemple ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -269,7 +270,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
 1. Cliquez avec le bouton droit sur **Dépendances** dans la fenêtre **Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Élément existant**.  
 2. Accédez au dossier **C:\ADFGettingStarted**, sélectionnez les fichiers **partitionweblogs.hql** et **input.log**, puis cliquez sur **Ajouter**. Vous avez créé ces deux fichiers dans le cadre de la configuration requise dans la [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md).
 
-Quand vous publiez la solution à l’étape suivante, le fichier **partitionweblogs.hql** est chargé dans le dossier scripts du conteneur d’objets blob **adfgetstarted**.   
+Quand vous publiez la solution à l’étape suivante, le fichier **partitionweblogs.hql** est chargé dans le dossier scripts du conteneur d’objets blob `adfgetstarted`.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>Publier/déployer des entités Data Factory
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
@@ -277,7 +278,7 @@ Quand vous publiez la solution à l’étape suivante, le fichier **partitionweb
 3. La boîte de dialogue suivante doit s’afficher :
 
    ![Boîte de dialogue Publier](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. Dans la page **Configurer une fabrique de données** , procédez comme suit :
+4. Dans la page **Configurer une fabrique de données**, procédez comme suit :
 
    1. Sélectionnez l’option **Créer une fabrique de données** .
    2. Entrez un **nom** unique pour la fabrique de données. Par exemple : **FirstDataFactoryUsingVS09152016**. Le nom doit être globalement unique.
@@ -310,7 +311,7 @@ Quelques points importants à prendre en compte :
 
 ## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
 ### <a name="monitor-pipeline-using-diagram-view"></a>Surveillance d’un pipeline à l’aide de la Vue de diagramme
-1. Connectez-vous au [portail Azure](https://portal.azure.com/)et procédez comme suit :
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et procédez comme suit :
    1. Cliquez sur **Plus de services**, puis sur **Fabriques de données**.
        
         ![Parcourir les fabriques de données](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
@@ -331,7 +332,7 @@ Quelques points importants à prendre en compte :
     ![Vue Ouvrir un pipeline](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     Pour revenir à la vue précédente, cliquez sur **Fabrique de données** dans le menu de navigation du haut.
-6. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobInput**. Vérifiez que l’état du segment est **Prêt** . Plusieurs minutes peuvent être nécessaires avant que le segment n’apparaisse avec l’état Prêt. Si rien ne se produit au bout d’un moment, vérifiez que le fichier d’entrée (input.log) est placé dans le conteneur (adfgetstarted) et le dossier (inputdata) appropriés.
+6. Dans la **Vue de diagramme**, double-cliquez sur le jeu de données **AzureBlobInput**. Vérifiez que l’état du segment est **Prêt** . Plusieurs minutes peuvent être nécessaires avant que le segment n’apparaisse avec l’état Prêt. Si rien ne se produit au bout d’un moment, vérifiez que le fichier d’entrée (input.log) est bien placé dans le conteneur (`adfgetstarted`) et le dossier (`inputdata`) appropriés.
 
    ![Segment d’entrée dans l’état Prêt](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. Cliquez sur **X** pour fermer le panneau **AzureBlobInput**.
@@ -346,7 +347,7 @@ Quelques points importants à prendre en compte :
    >
 
     ![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. Quand l’état du segment est **Prêt**, vérifiez la présence des données de sortie dans le dossier **partitioneddata** du conteneur **adfgetstarted** de votre stockage d’objets blob.  
+10. Lorsque la tranche indique l’état **Prêt**, vérifiez le dossier `partitioneddata` dans le conteneur `adfgetstarted` de votre stockage d’objets blob pour les données de sortie.  
 
     ![données de sortie](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. Cliquez sur la tranche pour en afficher les détails dans le panneau **Tranche de données** .
@@ -373,7 +374,7 @@ Vous pouvez également utiliser l’application de surveillance et de gestion po
     ![Détails de la fenêtre d’activité](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> Le fichier d’entrée sera supprimé lorsque la tranche est traitée avec succès. Par conséquent, si vous souhaitez réexécuter la tranche ou refaire le didacticiel, chargez le fichier d’entrée (input.log) dans le dossier inputdata du conteneur adfgetstarted.
+> Le fichier d’entrée sera supprimé lorsque la tranche est traitée avec succès. Par conséquent, si vous souhaitez réexécuter la tranche ou refaire le didacticiel, chargez le fichier d’entrée (input.log) dans le dossier `inputdata` du conteneur `adfgetstarted`.
 >
 >
 
@@ -387,7 +388,7 @@ Vous pouvez également utiliser l’application de surveillance et de gestion po
     ![Exporter la fabrique de données](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Mettre à jour des outils Data Factory pour Visual Studio
-Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procédez comme suit :
+Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procédez comme suit :
 
 1. Dans le menu, cliquez sur **Outils**, puis sélectionnez **Extensions et mises à jour**.
 2. Dans le volet de gauche, sélectionnez **Mises à jour**, puis **Galerie Visual Studio**.
@@ -523,9 +524,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 | [Activités de transformation des données](data-factory-data-transformation-activities.md) |Cet article fournit une liste des activités de transformation de données (par exemple, la transformation Hive HDInsight que vous avez utilisée dans ce didacticiel) prises en charge par Azure Data Factory. |
 | [Planification et exécution](data-factory-scheduling-and-execution.md) |Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. |
 | [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et gestion.](data-factory-monitor-manage-app.md) |Cet article décrit comment surveiller, gérer et déboguer les pipelines à l’aide de l’application de surveillance et gestion. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

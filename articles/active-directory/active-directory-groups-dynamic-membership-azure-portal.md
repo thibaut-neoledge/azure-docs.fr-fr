@@ -1,5 +1,6 @@
 ---
-title: "Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+
+title: "Appartenance à un groupe dynamique basé sur les attributs dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
 description: "Procédure de création de règles avancées pour une adhésion de groupe dynamique incluant des paramètres et des opérateurs de règle d’expression pris en charge."
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
-ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: aa6ab3d2133019203a75b07853908059684bbaae
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans la version préliminaire d’Azure Active Directory
-Le portail Azure vous permet de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes de la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Cet article détaille les attributs de règle et la syntaxe pour créer ces règles avancées.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans la version préliminaire d’Azure Active Directory
+Le portail Azure vous permet de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes de la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md). 
+
+Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques.
 
 ## <a name="to-create-the-advanced-rule"></a>Pour créer une règle avancée
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
@@ -85,7 +90,7 @@ Le tableau suivant répertorie les erreurs potentielles et la méthode pour les 
 | --- | --- | --- |
 | Erreur : attribut non pris en charge. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>La propriété doit correspondre à l’une de celles figurant dans la [liste des propriétés prises en charge](#supported-properties). |
 | Erreur : l’opérateur n’est pas pris en charge sur l’attribut. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/>La propriété est de type booléen. Utilisez les opérateurs pris en charge (-eq ou -ne) sur un type booléen dans la liste ci-dessus. |
-| Erreur : erreur de compilation de la requête. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L’opérateur logique doit correspondre à une des valeurs de la liste des propriétés prises en charge ci-dessus. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error dans l’expression régulière. |
+| Erreur : erreur de compilation de la requête. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>L’opérateur logique doit correspondre à l’une des valeurs de la liste des propriétés prises en charge ci-dessus. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error dans l’expression régulière. |
 | Erreur : l’expression binaire n’est pas au format correct. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 | Erreur : une erreur inconnue s’est produite lors de la configuration des appartenances dynamiques. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La requête comporte plusieurs erreurs. Une parenthèse n’est pas au bon endroit. |
 
@@ -186,14 +191,27 @@ Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attr
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Utilisation d’attributs pour créer des règles pour les objets d’appareil
 Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Les attributs d’appareil suivants peuvent être utilisés :
 
-| Propriétés | Valeurs autorisées | Usage |
-| --- | --- | --- |
-| displayName |Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Toute valeur de chaîne. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Toute valeur de chaîne. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| Propriétés              | Valeurs autorisées                  | Usage                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | Toute valeur de chaîne.                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Toute valeur de chaîne.                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Toute valeur de chaîne.                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | Toute valeur de chaîne.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Toute valeur de chaîne.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Toute valeur de chaîne.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Toute valeur de chaîne.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Toute valeur de chaîne.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Toute valeur de chaîne.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | Toute valeur de chaîne.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Toute valeur de chaîne.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | un deviceId valide                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes dans Azure Active Directory.
@@ -203,9 +221,4 @@ Ces articles fournissent des informations supplémentaires sur les groupes dans 
 * [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
 * [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 * [Gérer les règles dynamiques pour les utilisateurs dans un groupe](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

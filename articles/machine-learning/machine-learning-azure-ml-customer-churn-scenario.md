@@ -12,23 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
+ms.sourcegitcommit: 80bede0dc3ad3934d63feabb946744aeb45f334d
+ms.openlocfilehash: f239a2a270df00cecbe263fa61b84af06af817db
+ms.lasthandoff: 12/15/2016
 
 
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
-## <a name="overview"></a>Vue d'ensemble
-Cette rubrique présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio. Elle aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous avons également mesuré la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
+## <a name="overview"></a>Vue d’ensemble
+Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous avons également mesuré la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
 Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
-> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) dans la galerie [Cortana Intelligence](http://gallery.cortanaintelligence.com/)
+> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans la galerie [Cortana Intelligence](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
@@ -93,7 +94,7 @@ Pour simplifier, les processus de nettoyage des données et ETL ne sont pas util
 
 La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans ML Studio, nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.    
 
-Nous avons également collecté des informations temporelles portant sur les 6 derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
+Nous avons également collecté des informations temporelles portant sur les&6; derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
 
 Ce qui importe le plus, c’est que le processus dans son ensemble (y compris ETL, la sélection de caractéristiques et la modélisation) a été implémenté dans ML Studio, en utilisant des sources de données dans Microsoft Azure.   
 
@@ -250,9 +251,4 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

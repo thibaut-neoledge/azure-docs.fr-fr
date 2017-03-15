@@ -1,6 +1,6 @@
 ---
-title: Utilisez Robomongo pour MongoDB avec Azure DocumentDB | Microsoft Docs
-description: "Découvrez comment utiliser Robomongo avec un compte DocumentDB prenant en charge le protocole MongoDB (actuellement disponible en version préliminaire)."
+title: Utiliser Robomongo pour MongoDB avec Azure DocumentDB | Microsoft Docs
+description: "Découvrez comment utiliser Robomongo avec un compte DocumentDB : API pour MongoDB"
 keywords: robomongo
 services: documentdb
 author: AndrewHoh
@@ -13,24 +13,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 141154f9e8236e595f77bd4880c4f63d480da445
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: a8db7fbde5d6cd01b558ec351719bae361710efd
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-robomongo-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Utiliser Robomongo avec un compte DocumentDB prenant en charge le protocole MongoDB
-Pour vous connecter à un compte Azure DocumentDB prenant en charge le protocole MongoDB à l’aide de Robomongo, vous devez :
+# <a name="use-robomongo-with-a-documentdb-api-for-mongodb-account"></a>Utiliser Robomongo avec un compte DocumentDB : API pour MongoDB
+Pour vous connecter à un compte Azure DocumentDB : API pour MongoDB avec Robomongo, vous devez :
 
 * Télécharger et installer [Robomongo](https://robomongo.org/)
-* Posséder un compte DocumentDB avec les informations de la [chaîne de connexion](documentdb-connect-mongodb-account.md) pour la prise en charge du protocole MongoDB
+* Disposer des informations de [chaîne de connexion](documentdb-connect-mongodb-account.md) de votre compte DocumentDB : API pour MongoDB
 
 ## <a name="connect-using-robomongo"></a>Connexion à l’aide de Robomongo
-Pour ajouter votre compte DocumentDB prenant en charge le protocole MongoDB aux connexions Robomongo MongoDB, procédez comme suit.
+Pour ajouter votre compte DocumentDB : API pour MongoDB aux connexions Robomongo MongoDB, procédez comme suit.
 
-1. Récupérez votre compte DocumentDB avec les informations de connexion pour la prise en charge du protocole MongoDB à l’aide de [ces instructions](documentdb-connect-mongodb-account.md).
+1. Récupérez les informations de connexion du compte DocumentDB : API pour MongoDB à l’aide des instructions [ici](documentdb-connect-mongodb-account.md).
 
     ![Capture d’écran du panneau Chaîne de connexion](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. Exécutez *Robomongo.exe*
@@ -50,10 +51,5 @@ Le **Nom d’utilisateur** et le **Mot de passe** figurent tous deux dans vos in
 7. Enfin, cliquez sur **Test** pour vérifier que vous êtes en mesure de vous connecter, puis sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez des [exemples](documentdb-mongodb-samples.md)de prise en charge du protocole MongoDB dans DocumentDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Explorez les [exemples](documentdb-mongodb-samples.md) DocumentDB : API pour MongoDB.
 

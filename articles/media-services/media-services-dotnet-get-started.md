@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,8 +33,8 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 * Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 ultérieur
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
+* .NET Framework 4.0 ou version ultérieure.
+* Visual Studio.
 
 Ce didacticiel comprend les tâches suivantes :
 
@@ -81,7 +81,7 @@ Pour démarrer le point de terminaison de streaming, procédez comme suit :
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
-1. Créez une nouvelle application console C# dans Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1. Entrez le **nom**, **l’emplacement** et le **nom de solution**, puis cliquez sur **OK**.
+1. Créez une application console C# dans Visual Studio. Entrez le **nom**, **l’emplacement** et le **nom de solution**, puis cliquez sur **OK**.
 2. Utilisez le package NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) pour installer les **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET**.  Les extensions du Kit de développement logiciel (SDK) Media Services pour .NET sont un ensemble de méthodes d'extension et de fonctions d'assistance qui simplifient votre code et le développement avec les Services de média. L'installation de ce package installe également le **Kit de développement logiciel (SDK) Media Services pour .NET** et ajoute toutes les autres dépendances requises.
 
     Pour ajouter des références à l’aide de NuGet, procédez comme suit : dans l’Explorateur de solutions, cliquez avec le bouton droit de la souris sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**. Ensuite, recherchez **windowsazure.mediaservices.extensions** et cliquez sur **Installer**.

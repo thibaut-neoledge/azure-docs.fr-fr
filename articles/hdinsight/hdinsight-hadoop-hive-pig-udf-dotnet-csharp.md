@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
-ms.openlocfilehash: cb94febf8f58eda3c56755d60fd49e3dd265d3c3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 257138fddc75b39985ba974b1314e978a554b1e2
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,13 +43,18 @@ Dans ce document, découvrez comment utiliser C# avec Hive et Pig.
 
   * Visual Studio 2015
 
+  * Visual Studio 2017
+
 * Hadoop sur un cluster HDInsight - Consultez la page [Approvisionnement d’un cluster HDInsight](hdinsight-provision-clusters.md) pour connaître les étapes de création d’un cluster
 
-* Outils Hadoop pour Visual Studio. Consultez la page [Prise en main des outils HDInsight Hadoop pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
+* Outils Hadoop pour Visual Studio ou Data Lake Tools pour Visual Studio. Consultez la page [Prise en main des outils HDInsight Hadoop pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
+
+    > [!NOTE]
+    > Les outils Data Lake Tools sont installés dans Visual Studio 2017 en sélectionnant la charge de travail __Développement Azure__ lors de l’installation.
 
 ## <a name="net-on-hdinsight"></a>.NET sur HDInsight
 
-Le Common Language Runtime .NET (CLR) et les infrastructures sont installés par défaut sur les clusters HDInsight basés sur Windows. Cela vous permet d’utiliser des applications C# avec une diffusion en continu Hive et Pig (données transmises entre Hive/Pig et l’application C# via stdout/stdin).
+Le Common Language Runtime .NET (CLR) et les infrastructures sont installés par défaut sur les clusters HDInsight basés sur Windows. Le CLR .NET vous permet d’utiliser des applications C# avec une diffusion en continu Hive et Pig (données transmises entre Hive/Pig et l’application C# via stdout/stdin).
 
 > [!NOTE]
 > Il n’existe actuellement aucune prise en charge pour l’exécution des fonctions définies par l’utilisateur .NET Framework sur les clusters HDInsight basés sur Linux.
@@ -56,15 +62,15 @@ Le Common Language Runtime .NET (CLR) et les infrastructures sont installés par
 
 ## <a name="net-and-streaming"></a>.NET et diffusion en continu
 
-La diffusion en continu exige que Hive et Pig transmettent des données à une application externe via stdout et reçoivent les résultats via stdin. Pour les applications C#, cela est plus facilement réalisable via `Console.ReadLine()` et `Console.WriteLine()`.
+La diffusion en continu exige que Hive et Pig transmettent des données à une application externe via stdout et reçoivent les résultats via stdin. Pour les applications C#, utilisez `Console.ReadLine()` et `Console.WriteLine()`.
 
-Étant donné que Hive et Pig doivent appeler l’application au moment de l’exécution, le modèle **Application console** doit être utilisé pour vos projets C#.
+Étant donné que Hive et Pig doivent appeler l’application au moment de l’exécution, le modèle **Application console (.NET Framework)** doit être utilisé pour vos projets C#.
 
 ## <a name="hive-and-c35"></a>Hive et C&#35;
 
 ### <a name="create-the-c-project"></a>Création du projet C#
 
-1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console**, puis nommez le nouveau projet **HiveCSharp**.
+1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console (.NET Framework)**, puis nommez le nouveau projet **HiveCSharp**.
 
 2. Remplacez le contenu de **Program.cs** par le code suivant :
 
@@ -131,12 +137,12 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
     ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-5. Double-cliquez sur **Conteneur par défaut** pour le cluster. Cette opération permet d’ouvrir une nouvelle fenêtre qui affiche le contenu du conteneur par défaut.
+5. Double-cliquez sur **Conteneur par défaut** pour le cluster. Cette opération permet d’afficher le contenu du conteneur par défaut.
 6. Cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** du projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
     ![icône télécharger](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
-7. Une fois le téléchargement terminé, vous pouvez utiliser l’application à partir d’une requête Hive.
+7. Une fois le chargement terminé, vous pouvez utiliser l’application à partir d’une requête Hive.
 
 ### <a name="hive-query"></a>Requête Hive
 
@@ -146,7 +152,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 3. Cliquez avec le bouton droit sur le cluster dans lequel vous avez déployé l’application **HiveCSharp**, puis sélectionnez **Écrire une requête Hive**.
 
-4. Pour la requête Hive, utilisez les éléments suivants :
+4. Pour la requête Hive, utilisez le texte suivant :
 
     ```hiveql
     add file wasbs:///HiveCSharp.exe;
@@ -158,7 +164,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
     ORDER BY clientid LIMIT 50;
     ```
 
-    Cela permet de sélectionner les champs `clientid`, `devicemake` et `devicemodel` dans `hivesampletable`, puis de les transmettre à l’application HiveCSharp.exe. La requête s’attend à ce que l’application renvoie les trois champs, qui sont stockés en tant que `clientid`, `phoneLabel` et `phoneHash`. Elle s’attend également à trouver HiveCSharp.exe à la racine du conteneur de stockage par défaut (`add file wasbs:///HiveCSharp.exe`).
+    Cette requête permet de sélectionner les champs `clientid`, `devicemake` et `devicemodel` dans `hivesampletable`, puis de les transmettre à l’application HiveCSharp.exe. La requête s’attend à ce que l’application renvoie les trois champs, qui sont stockés en tant que `clientid`, `phoneLabel` et `phoneHash`. Elle s’attend également à trouver HiveCSharp.exe à la racine du conteneur de stockage par défaut (`add file wasbs:///HiveCSharp.exe`).
 
 5. Cliquez sur **Envoyer** pour envoyer la tâche au cluster HDInsight. La fenêtre **Résumé de la tâche Hive** s’ouvre.
 
@@ -170,7 +176,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console**, puis nommez le nouveau projet **PigUDF**.
 
-2. Remplacez le contenu du fichier **Program.cs** par le code suivant :
+2. Remplacez le contenu du fichier **Program.cs** par le code suivant :
 
     ```csharp
     using System;
@@ -222,7 +228,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
     Une invite `grunt>` s’affiche.
     
-3. Entrez la commande suivante pour exécuter une tâche Pig simple à l’aide de l’application .NET Framework :
+3. Entrez la commande suivante pour exécuter une tâche Pig à l’aide de l’application .NET Framework :
 
         DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
         LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -235,7 +241,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
     > [!NOTE]
     > Le nom d’application utilisé pour la diffusion en continu doit être entouré du caractère \` (accent grave) s’il s’agit d’un alias ou du caractère ’ (apostrophe) en cas d’utilisation avec `SHIP`.
 
-4. Après avoir entré la dernière ligne, la tâche doit démarrer. Elle renvoie une sortie semblable à celle-ci :
+4. Après avoir entré la dernière ligne, la tâche doit démarrer. Elle retourne un résultat semblable au texte suivant :
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -247,14 +253,9 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 Dans ce document, vous avez appris à utiliser une application .NET Framework à partir de Hive et Pig sur HDInsight. Si vous souhaitez apprendre à utiliser Python avec Hive et Pig, consultez la page [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md).
 
-Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’utilisation de MapReduce, consultez les rubriques suivantes :
+Pour connaître d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’utilisation de MapReduce, consultez les documents suivants :
 
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

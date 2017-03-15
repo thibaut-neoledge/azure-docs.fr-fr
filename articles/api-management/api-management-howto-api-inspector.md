@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
@@ -237,7 +238,7 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 ## <a name="next-steps"> </a>Étapes suivantes
 * Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
 
-> [VIDÉO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]
 > 
 > 
 
@@ -264,10 +265,5 @@ Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir 
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

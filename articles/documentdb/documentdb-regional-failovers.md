@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
-ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="regional-failovers-in-azure-documentdb"></a>Basculements régionaux dans Azure DocumentDB
+# <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>Basculements régionaux automatiques pour la continuité des activités dans DocumentDB
 Azure DocumentDB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multi-régions](documentdb-distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes DocumentDB offrent des capacités de haute disponibilité, des latences inférieures à&10; millisecondes, des[niveaux de cohérence bien définis](documentdb-consistency-levels.md), un basculement régional transparent avec des API à hébergement multiple et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
 
 Azure DocumentDB prend en charge des basculements explicites et basés sur des stratégies qui vous permettent de contrôler le comportement du système de bout en bout en cas de défaillance. Dans cet article, nous allons répondre aux questions suivantes :
@@ -33,7 +35,7 @@ Vous pouvez également découvrir les basculements régionaux dans cette vidéo 
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Configuration d'applications multi-régions
+## <a id="ConfigureMultiRegionApplications"></a>Configuration d'applications multi-régions
 Avant de nous plonger dans les modes de basculement, nous allons examiner comment vous pouvez configurer une application pour tirer parti de plusieurs régions disponibles et être résilient face aux basculements régionaux.
 
 * Tout d’abord, déployez votre application multi-régions
@@ -69,7 +71,7 @@ Le diagramme d’architecture suivant montre un déploiement d’application mul
 
 À présent, nous allons voir comment le service DocumentDB gère les défaillances régionales par le biais de basculements automatiques. 
 
-## <a name="a-idautomaticfailoversaautomatic-failovers"></a><a id="AutomaticFailovers"></a>Basculements automatiques
+## <a id="AutomaticFailovers"></a>Basculements automatiques
 Dans des cas rares de panne régionale Azure, DocumentDB déclenche automatiquement le basculement de tous les comptes DocumentDB présents dans la région affectée. 
 
 **Que se passe-t-il si une région de lecture connaît une panne ?**
@@ -96,7 +98,7 @@ Une fois que la région affectée récupère après une panne, tous les comptes 
 * Vous pouvez interroger cette région pour calculer toutes les opérations d'écriture non répliquées pendant une panne en les comparant avec les données disponibles dans la région d'écriture en cours. En fonction des besoins de votre application, vous pouvez effectuer une fusion et/ou une résolution de conflit et écrire l’ensemble final des modifications apportées à la zone d’écriture en cours. 
 * Une fois que vous avez effectué la fusion des modifications, vous pouvez remettre la région affectée en ligne en la supprimant et en la réajoutant à votre compte DocumentDB. Une fois la région à nouveau ajoutée, vous pouvez la configurer de nouveau comme zone d’écriture en effectuant un basculement manuel par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
-## <a name="a-idmanualfailoversamanual-failovers"></a><a id="ManualFailovers"></a>Basculements manuels
+## <a id="ManualFailovers"></a>Basculements manuels
 
 Outre les basculements automatiques, la région d’écriture en cours d’un compte DocumentDB donné peut être modifiée manuellement de manière dynamique en l'une des régions de lecture existantes. Les basculements manuels peuvent être lancés par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
@@ -114,15 +116,10 @@ Voici certains des scénarios courants où le basculement manuel peut être util
 
 Dans cet article, nous avons examiné le fonctionnement des basculements manuels et automatiques dans Azure DocumentDB et comment vous pouvez configurer vos comptes DocumentDB et les applications de manière à ce qu'ils soient disponibles au niveau mondial. Avec la prise en charge de la réplication au niveau mondial d’Azure DocumentDB, vous pouvez améliorer la latence de bout en bout et garantir une haute disponibilité même en cas de défaillance de la région. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Étapes suivantes
+## <a id="NextSteps"></a>Étapes suivantes
 * Découvrez-en plus sur la manière dont DocumentDB rend en charge la [distribution mondiale](documentdb-distribute-data-globally.md)
 * Découvrez-en plus sur [la cohérence globale avec DocumentDB](documentdb-consistency-levels.md)
 * Développez en mode multi-régions à l’aide du [Kit de développement logiciel (SDK) Azure DocumentDB](documentdb-developing-with-multiple-regions.md)
 * Découvrez comment créer [des architectures d'écriture multi-régions](documentdb-multi-region-writers.md) avec Azure DocumentDB
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

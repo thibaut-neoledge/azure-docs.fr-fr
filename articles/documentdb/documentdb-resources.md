@@ -1,5 +1,5 @@
 ---
-title: "Modèle de ressources hiérarchiques et concepts de DocumentDB | Microsoft Docs"
+title: "Modèle de ressource et concepts Azure DocumentDB | Microsoft Docs"
 description: "Découvrez notamment le modèle hiérarchique des bases de données, collections, fonctions définies par l’utilisateur, documents et autorisations de DocumentDB pour gérer les ressources."
 keywords: "Modèle hiérarchique, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Modèle de ressources hiérarchiques et concepts de DocumentDB
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Modèle de ressource hiérarchique et principaux concepts DocumentDB
 Les entités de base de données que gère DocumentDB sont appelées des **ressources**. Chaque ressource est identifiée de manière unique par un URI logique. Vous pouvez interagir avec ces ressources en utilisant des verbes HTTP standard, des en-têtes de demande/réponse et des codes d'état. 
 
 En lisant cet article, vous serez en mesure de répondre aux questions suivantes :

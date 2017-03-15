@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 05122f59de5a1c888fd6aa90e1f3466badef4fe9
+ms.sourcegitcommit: 3598f490752fa275d7c9c5a7d924c315e92f5b33
+ms.openlocfilehash: e1f1dc43af2096fb9affc1d12433f091dd28c69c
+ms.lasthandoff: 12/13/2016
 
 
 ---
 
-# <a name="pricing-information"></a>Informations sur la tarification
+# <a name="azure-iot-hub-pricing-information"></a>Informations sur la tarification Azure IoT Hub
 
 La [tarification d’Azure IoT Hub][lnk-pricing] fournit les informations générales sur les différentes références et la tarification d’IoT Hub. Cet article contient des informations supplémentaires sur la manière dont les différentes fonctionnalités d’IoT Hub sont mesurées en tant que messages par IoT Hub.
 
@@ -30,17 +31,18 @@ La [tarification d’Azure IoT Hub][lnk-pricing] fournit les informations géné
 | Opération | Informations de facturation | 
 | --------- | ------------------- |
 | Opérations du registre d’identité <br/> (créer, récupérer, répertorier, mettre à jour, supprimer) | Non facturé. |
-| Messages Appareil vers cloud | Les messages envoyés sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
-| Messages Cloud vers appareil | Les messages envoyés sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
+| Messages Appareil vers cloud | Les messages envoyés avec succès sont facturés en blocs de 4 Ko lors de l’entrée dans IoT Hub ; par exemple, un message de 6 Ko est facturé 2 messages. |
+| Messages Cloud vers appareil | Les messages envoyés avec succès sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
 | Chargements de fichiers | Le transfert de fichiers vers le stockage Azure n’est pas mesuré par IoT Hub. Les messages de lancement et d’exécution du transfert de fichiers sont facturés en tant que messages, par incréments de 4 Ko. Par exemple, le transfert d’un fichier de 10 Mo est facturé 2 messages, en plus du coût du stockage Azure. |
 | Méthodes directes | Les requêtes réussies de méthodes sont facturées par blocs de 4 Ko, tandis que les réponses comportant des corps non vides sont elles aussi facturées par blocs de 4 Ko, en tant que messages supplémentaires. Les requêtes dirigées vers des appareils déconnectés sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, une méthode comportant un corps de 6 Ko entraînant une réponse sans corps de l’appareil est facturée en tant que deux messages ; un message présentant un corps de 6 Ko entraînant une réponse d’1 Ko de l’appareil est facturé en tant que deux messages, plus un autre message pour la réponse. |
 | Lectures de représentations d’appareil | Les lectures de représentations d’appareil de l’appareil et du serveur principal de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un appareil de 6 Ko est facturée en tant que 12 messages. |
 | Mises à jour de représentations d’appareil (balises et propriétés) | Les mises à jour de représentations d’appareil de l’appareil et du serveur principal sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un appareil de 6 Ko est facturée en tant que 12 messages. |
 | Requêtes de représentations d’appareil | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 512 octets. |
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | Non facturé. |
-| Opérations de travaux par appareil | Une tarification standard s’applique aux opérations de travaux (comme les mises à jour de représentations d’appareil, et les méthodes). Par exemple, un travail entraînant 1 000 appels de méthode avec des requêtes d’1 Ko et des réponses à corps vide est facturée en tant que 1 000 messages. |
+| Opérations de travaux par appareil | Une tarification standard s’applique aux opérations de travaux (comme les mises à jour de représentations d’appareil, et les méthodes). Par exemple, un travail entraînant 1000 appels de méthode avec des requêtes d’1 Ko et des réponses à corps vide est facturée en tant que 1000 messages. |
 
-> AZURE.NOTE L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). En présence de messages (présentant des propriétés et un corps), la taille est calculée sans protocole, tel que décrit dans le [guide du développeur de la messagerie IoT Hub][lnk-message-size].
+> [!NOTE]
+> L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). En présence de messages (présentant des propriétés et un corps), la taille est calculée sans protocole, tel que décrit dans le [guide du développeur de la messagerie IoT Hub][lnk-message-size].
 
 ## <a name="example-1"></a>Exemple 1
 
@@ -60,8 +62,4 @@ Au total, l’appareil et le serveur principal de la solution consomment 185 me
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-message-size]: iot-hub-devguide-messaging.md#message-size
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
-ms.openlocfilehash: bf69d2fdfb80395f9af58d113e4f8838c6bb93be
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -86,9 +87,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 Notez que les deux informations utilisées pour créer l’objet proxy d’acteur sont l’ID d’acteur et le nom d’application. L’ID d’acteur identifie de façon unique l’acteur, tandis que le nom d’application identifie l’ [application Service Fabric](service-fabric-reliable-actors-platform.md#application-model) dans laquelle l’acteur est déployé.
 
-La classe `ActorProxy` côté client effectue la résolution nécessaire pour localiser l’acteur par ID et ouvrir un canal de communication avec lui. La classe `ActorProxy` retente également de localiser l’acteur en cas d’échec de communication et de basculement. Par conséquent, la remise des messages présente les caractéristiques suivantes :
+La classe `ActorProxy`(C#) / `ActorProxyBase`(Java) côté client effectue la résolution nécessaire pour localiser l’acteur par ID et ouvrir un canal de communication avec lui. Cette classe retente également de localiser l’acteur en cas d’échecs de communication et de basculements. Par conséquent, la remise des messages présente les caractéristiques suivantes :
 
 * La remise de messages est conseillée.
 * Les acteurs peuvent recevoir des messages en double provenant du même client.
@@ -122,7 +135,7 @@ Quelques points importants à prendre en compte :
 * Pendant que *Method1* s’exécute pour le compte *d’ActorId2* en réponse à la demande du client *xyz789*, une autre demande du client (*abc123*) arrive et nécessite également que *Method1* soit exécutée par *ActorId2*. Toutefois, la seconde exécution de *Method1* ne commence pas tant que l’exécution précédente n’est pas terminée. De même, un rappel enregistré par *ActorId2* se déclenche lors de l'exécution de *Method1* en réponse à la demande du client *xyz789*. Le rappel de rappel est exécuté uniquement une fois que les deux exécutions de *Method1* sont terminées. Cela s'explique par l'application de l'accès concurrentiel en alternance à *ActorId2*.
 * De même, l’accès concurrentiel en alternance est également appliqué à *ActorId1*, comme l’illustrent l’exécution en série de *Method1* / *Method2* et le rappel de minuterie pour le compte *d’ActorId1*.
 * L'exécution de *Method1* pour le compte *d'ActorId1* se chevauche avec son exécution pour le compte *d'ActorId2*. En effet, l’accès concurrentiel en alternance est appliqué uniquement au sein d’un acteur et non entre les acteurs.
-* Dans certaines exécutions de méthode/rappel, `Task` retourné par la méthode/le rappel se termine après le retour de la méthode. Dans d’autres exécutions, `Task` est déjà terminé au moment du retour de la méthode/du rappel. Dans les deux cas, le verrou par acteur n’est relâché qu’après le retour de la méthode/du rappel et la fin de `Task` .
+* Dans certaines exécutions de méthode/de rappel, le `Task`(C#)/`CompletableFuture` (Java) retourné par la méthode/le rappel se termine après le retour de la méthode. Dans d’autres exécutions, l’opération asynchrone est déjà terminée au moment du retour de la méthode/du rappel. Dans les deux cas, le verrou par acteur n’est relâché qu’après le retour de la méthode/du rappel et la fin de l’opération asynchrone.
 
 #### <a name="reentrancy"></a>Réentrance
 Le runtime Actors autorise la réentrance par défaut. Cela signifie que, si une méthode de *l’acteur A* appelle une méthode sur *l’acteur B*, qui appelle à son tour une autre méthode sur *l’acteur A*, cette méthode peut s’exécuter. En effet, elle fait partie du même contexte de chaîne d’appel logique. Tous les appels du minuteur et du rappel démarrent avec le nouveau contexte d'appel logique. Pour plus d’informations, consultez [Réentrance Reliable Actors](service-fabric-reliable-actors-reentrancy.md) .
@@ -145,9 +158,4 @@ Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situatio
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
