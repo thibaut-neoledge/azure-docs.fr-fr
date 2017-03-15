@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 7587b1bed2f809fa2c4bab78c54396eed778b9ef
-ms.openlocfilehash: df2d79fdb4a26509f3c7c1f8f3a8adcaa6b24f9d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: e293dcfc872ba95ca7a0d0faed9b4a824d3fa42c
+ms.openlocfilehash: ee9a19c8ae85867a0dfcb896b9c33fd4c51be7fa
+ms.lasthandoff: 02/27/2017
 
 ---
 
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
 ## <a name="overview"></a>Vue d'ensemble
-Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-what-is-event-hubs.md#partitions) pour améliorer la disponibilité et la parallélisation dans un Event Hub unique. Par exemple, si un Event Hub a quatre partitions, et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pourrez envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs plus traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
+Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-what-is-event-hubs.md#partitions) pour améliorer la disponibilité et la parallélisation dans un Event Hub unique. Par exemple, si un Event Hub a quatre partitions, et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pouvez envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs pour traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
 
-Pour expliquer le compromis entre classement et disponibilité, nous pouvons nous pencher sur [le théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Le théorème précise qu’il est nécessaire de choisir entre la cohérence, la disponibilité et la tolérance de la partition.
+Pour expliquer le compromis entre classement et disponibilité, reportez-vous au [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Ce théorème précise qu’il est nécessaire de choisir entre la cohérence, la disponibilité et la tolérance de la partition.
 
-Le théorème définit la cohérence et la disponibilité de la façon suivante :
+Le théorème de Brewer définit la cohérence et la disponibilité de la façon suivante :
 * Tolérance de la partition : la capacité d’un système de traitement de données à continuer le traitement des données même en cas de défaillance d’une partition.
 * Disponibilité : un nœud sans échec renvoie une réponse raisonnable dans un délai raisonnable (sans erreurs ou expirations de délai).
 * Cohérence : une lecture renvoie toujours la dernière écriture pour un client donné.
@@ -37,7 +37,7 @@ Le théorème définit la cohérence et la disponibilité de la façon suivante�
 Event Hubs est basé sur un modèle partitionné. Vous pouvez configurer le nombre de partitions dans votre Event Hub pendant l’installation, mais vous ne pouvez pas modifier cette valeur ultérieurement. Étant donné que vous devez utiliser des partitions avec les Event Hubs, vous devez uniquement prendre une décision en matière de disponibilité et de cohérence de votre application.
 
 ## <a name="availability"></a>Availability
-La méthode la plus simple de se familiariser avec les Event Hubs est le comportement par défaut. Si vous créez un nouveau `EventHubClient` et utilisez la fonction d’envoi, les événements sont automatiquement distribués entre les partitions dans votre Event Hub. Ce comportement offre le meilleur temps d’activité.
+La méthode la plus simple pour se familiariser avec les Event Hubs est d’utiliser le comportement par défaut. Si vous créez un nouveau `EventHubClient` et utilisez la fonction d’envoi, les événements sont automatiquement distribués entre les partitions dans votre Event Hub. Ce comportement offre le meilleur temps d’activité.
 
 Pour les cas d’utilisation qui exigent une disponibilité maximum, ce modèle est conseillé.
 
