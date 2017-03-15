@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de données géographiques dans Azure DocumentDB | Microsoft Docs"
+title: "Utilisation de données géospatiales dans Azure DocumentDB | Microsoft Docs"
 description: "Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Utilisation de données géospatiales dans Azure DocumentDB
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Utilisation de données d’emplacement géospatiales et GeoJSON dans DocumentDB
 Cet article est une introduction aux fonctionnalités géospatiales dans [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 * Comment puis-je stocker des données spatiales dans Azure DocumentDB ?
@@ -148,7 +150,7 @@ DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortiu
 
 <table>
 <tr>
-  <td><strong>Usage</strong></td>
+  <td><strong>Utilisation</strong></td>
   <td><strong>Description</strong></td>
 </tr>
 <tr>
@@ -165,11 +167,11 @@ DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortiu
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Retourne une valeur booléenne indiquant si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide.</td>
+  <td>Renvoie une valeur booléenne indiquant si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Retourne une valeur JSON contenant une valeur booléenne si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide et, si elle est non valide, le motif sous forme de valeur de chaîne.</td>
+  <td>Renvoie une valeur JSON contenant une valeur booléenne si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide et, dans le cas contraire, le motif sous forme de valeur de chaîne.</td>
 </tr>
 </table>
 
@@ -387,10 +389,5 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 * Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 * En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

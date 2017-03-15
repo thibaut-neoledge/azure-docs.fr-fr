@@ -1,6 +1,6 @@
 ---
-title: "Gérer des machines virtuelles à l’aide du Gestionnaire de ressources et PowerShell | Microsoft Docs"
-description: "Gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell"
+title: "Gérer des machines virtuelles Azure avec PowerShell | Microsoft Docs"
+description: "Gérez des machines virtuelles Azure avec PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -13,144 +13,281 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: b54a95c4f81d9a981912e1b596a817dc6ad56334
-ms.openlocfilehash: 52684fe3212454abbfb0cf9d1c67759fce9a1549
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4a78ea285b844f13f0c8e28029835f123f589c12
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-resource-manager-and-powershell"></a>Gestion des machines virtuelles Azure à l’aide de modèles Resource Manager et de PowerShell
-## <a name="install-azure-powershell"></a>Installation d'Azure Powershell
+# <a name="manage-azure-virtual-machines-using-powershell"></a>Gérer des machines virtuelles Azure avec PowerShell
+
+Cet article vous présente des tâches de gestion courantes que vous pouvez effectuer sur une machine virtuelle Azure.
+
 Pour plus d’informations sur l’installation de la version la plus récente d’Azure PowerShell, la sélection de votre abonnement et la connexion à votre compte, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="set-variables"></a>Définition des variables
-Toutes les commandes de l’article nécessitent le nom du groupe de ressources dans lequel se trouve la machine virtuelle et le nom de la machine virtuelle à gérer. Remplacez la valeur de **$rgName** avec le nom du groupe de ressources qui contient la machine virtuelle. Remplacez la valeur de **$vmName** avec le nom de la machine virtuelle. Créez les variables.
+> [!NOTE]
+> Vous devrez peut-être réinstaller Azure PowerShell pour utiliser les fonctionnalités de cet article. Les fonctionnalités Managed Disks sont disponibles dans la version 3.5 et ultérieure.
+> 
+> 
 
-    $rgName = "resource-group-name"
-    $vmName = "VM-name"
+Créez les variables suivantes pour faciliter l’exécution des commandes, et modifiez les valeurs pour les faire correspondre à votre environnement :
+    
+```powershell
+$myResourceGroup = "myResourceGroup"
+$myVM = "myVM"
+$location = "centralus"
+```
 
 ## <a name="display-information-about-a-virtual-machine"></a>Affichage des informations relatives à une machine virtuelle
-Obtenez les informations relatives à la machine virtuelle.
 
-    Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Obtenez des informations relatives à une machine virtuelle.
+
+```powershell
+Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM -DisplayHint Expand
+```
 
 Un résultat tel que cet exemple est renvoyé :
 
-    ResourceGroupName        : rg1
-    Id                       : /subscriptions/{subscription-id}/resourceGroups/
-                               rg1/providers/Microsoft.Compute/virtualMachines/vm1
-    Name                     : vm1
-    Type                     : Microsoft.Compute/virtualMachines
-    Location                 : centralus
-    Tags                     : {}
-    AvailabilitySetReference : {
-                                  "id": "/subscriptions/{subscription-id}/resourceGroups/
-                                  rg1/providers/Microsoft.Compute/availabilitySets/av1"
-                               }
-    Extensions               : []
-    HardwareProfile          : {
-                                  "vmSize": "Standard_A0"
-                               }
-    InstanceView             : null
-    NetworkProfile           : {
-                                  "networkInterfaces": [
-                                    {
-                                      "properties.primary": null,
-                                      "id": "/subscriptions/{subscription-id}/resourceGroups/
-                                      rg1/providers/Microsoft.Network/networkInterfaces/nc1"
-                                    }
-                                  ]
-                               }
-    OSProfile                : {
-                                  "computerName": "vm1",
-                                  "adminUsername": "myaccount1",
-                                  "adminPassword": null,
-                                  "customData": null,
-                                  "windowsConfiguration": {
-                                    "provisionVMAgent": true,
-                                    "enableAutomaticUpdates": true,
-                                    "timeZone": null,
-                                    "additionalUnattendContents": [],
-                                    "winRM": null
-                                  },
-                                  "linuxConfiguration": null,
-                                  "secrets": []
-                               }
-    Plan                     : null
-    ProvisioningState        : Succeeded
-    StorageProfile           : {
-                                  "imageReference": {
-                                    "publisher": "MicrosoftWindowsServer",
-                                    "offer": "WindowsServer",
-                                    "sku": "2012-R2-Datacenter",
-                                    "version": "latest"
-                                  },
-                                  "osDisk": {
-                                    "osType": "Windows",
-                                    "encryptionSettings": null,
-                                    "name": "osdisk",
-                                    "vhd": {
-                                      "Uri": "http://sa1.blob.core.windows.net/vhds/osdisk1.vhd"
-                                    }
-                                    "image": null,
-                                    "caching": "ReadWrite",
-                                    "createOption": "FromImage"
-                                  }
-                                  "dataDisks": [],
-                               }
-    DataDiskNames            : {}
-    NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/
-                                rg1/providers/Microsoft.Network/networkInterfaces/nc1}
+    ResourceGroupName             : myResourceGroup
+    Id                            : /subscriptions/{subscription-id}/resourceGroups/
+                                    myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+    VmId                          : #########-####-####-####-############
+    Name                          : myVM
+    Type                          : Microsoft.Compute/virtualMachines
+    Location                      : centralus
+    Tags                          : {}
+    DiagnosticsProfile            :
+      BootDiagnostics             :
+      Enabled                     : True
+      StorageUri                  : https://mystorage1.blob.core.windows.net/
+    AvailabilitySetReference      : 
+      Id                          : /subscriptions/{subscription-id}/resourceGroups/
+                                    myResourceGroup/providers/Microsoft.Compute/availabilitySets/myAV1
+    Extensions[0]                 :
+      Id                          : /subscriptions/{subscription-id}/resourceGroups/
+                                    myResourceGroup/providers/Microsoft.Compute/
+                                    virtualMachines/myVM/extensions/BGInfo
+      Name                        : BGInfo
+      Type                        : Microsoft.Compute/virtualMachines/extensions
+      Location                    : centralus
+      Publisher                   : Microsoft.Compute
+      VirtualMachineExtensionType : BGInfo
+      TypeHandlerVersion          : 2.1
+      AutoUpgradeMinorVersion     : True
+      ProvisioningState           : Succeeded
+    HardwareProfile               : 
+      VmSize                      : Standard_DS1_v2
+    NetworkProfile          
+      NetworkInterfaces[0]        :
+        Id                        : /subscriptions/{subscription-id}/resourceGroups/
+                                    myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+    OSProfile                     : 
+      ComputerName                : myVM
+      AdminUsername               : myaccount1
+      WindowsConfiguration        :
+        ProvisionVMAgent          : True
+         EnableAutomaticUpdates   : True
+    ProvisioningState             : Succeeded
+    StorageProfile                :
+      ImageReference              :
+        Publisher                 : MicrosoftWindowsServer
+        Offer                     : WindowsServer
+        Sku                       : 2012-R2-Datacenter
+        Version                   : latest   
+      OsDisk                      :
+        OsType                    : Windows
+        Name                      : myosdisk
+        Vhd                       : 
+          Uri                     : http://mystore1.blob.core.windows.net/vhds/myosdisk.vhd
+        Caching                   : ReadWrite
+        CreateOption              : FromImage
+    NetworkInterfaceIDs[0]        : /subscriptions/{subscription-id}/resourceGroups/
+                                    myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
 
 ## <a name="stop-a-virtual-machine"></a>Arrêt d’une machine virtuelle
-Arrêtez la machine virtuelle en cours d’exécution.
 
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Vous pouvez arrêter une machine virtuelle de deux manières. Vous pouvez arrêter une machine virtuelle et conserver tous ses paramètres, mais continuer à être facturé, ou arrêter une machine virtuelle et la libérer. Lorsqu’une machine virtuelle est libérée, toutes les ressources qui lui sont associées sont également libérées et la facturation de la machine virtuelle prend fin.
+
+### <a name="stop-and-deallocate"></a>Arrêter et libérer
+    
+```powershell
+Stop-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
+```
 
 Vous êtes invité à confirmer l’opération :
 
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"):
+ 
+    Enter **Y** to stop the virtual machine.
 
+Un résultat tel que cet exemple doit s’afficher après quelques minutes :
+
+    OperationId :
+    Status      : Succeeded
+    StartTime   : 9/13/2016 12:11:57 PM
+    EndTime     : 9/13/2016 12:14:40 PM
+    Error       :
+
+### <a name="stop-and-stay-provisioned"></a>Arrêter et rester configuré
+
+```powershell
+Stop-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM -StayProvisioned
+```
+
+Vous êtes invité à confirmer l’opération :
+
+    Virtual machine stopping operation
+    This cmdlet will stop the specified virtual machine. Do you want to continue?
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"):
+ 
 Saisissez **Y** pour arrêter la machine virtuelle.
 
 Un résultat tel que cet exemple doit s’afficher après quelques minutes :
 
-    StatusCode : Succeeded
-    StartTime  : 9/13/2016 12:11:57 PM
-    EndTime    : 9/13/2016 12:14:40 PM
+    OperationId :
+    Status      : Succeeded
+    StartTime   : 9/13/2016 12:11:57 PM
+    EndTime     : 9/13/2016 12:14:40 PM
+    Error       :
 
 ## <a name="start-a-virtual-machine"></a>Démarrage d'une machine virtuelle
-Démarrez la machine virtuelle si elle est arrêtée.
+ 
+Démarrez une machine virtuelle si elle est arrêtée.
 
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+```powershell
+Start-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
+```
 
 Un résultat tel que cet exemple doit s’afficher après quelques minutes :
 
-    StatusCode : Succeeded
-    StartTime  : 9/13/2016 12:32:55 PM
-    EndTime    : 9/13/2016 12:35:09 PM
+    OperationId :
+    Status      : Succeeded
+    StartTime   : 9/13/2016 12:32:55 PM
+    EndTime     : 9/13/2016 12:35:09 PM
+    Error       :
 
 Si vous souhaitez redémarrer une machine virtuelle en cours d’exécution, utilisez la commande **Restart-AzureRmVM** décrite ci-après.
 
 ## <a name="restart-a-virtual-machine"></a>Redémarrage d’une machine virtuelle
-Redémarrez la machine virtuelle en cours d’exécution.
 
-    Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+Redémarrez une machine virtuelle en cours d’exécution.
+
+```powershell
+Restart-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
+```
 
 Un résultat tel que cet exemple est renvoyé :
 
-    StatusCode : Succeeded
-    StartTime  : 9/13/2016 12:54:40 PM
-    EndTime    : 9/13/2016 12:55:54 PM
+    OperationId :
+    Status      : Succeeded
+    StartTime   : 9/13/2016 12:54:40 PM
+    EndTime     : 9/13/2016 12:55:54 PM
+    Error       :    
+
+## <a name="add-a-data-disk-to-a-virtual-machine"></a>Ajout d’un disque de données à une machine virtuelle
+    
+### <a name="managed-data-disk"></a>Disque de données géré
+
+```powershell
+$diskConfig = New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128
+$dataDisk = New-AzureRmDisk -DiskName "myDataDisk1" -Disk $diskConfig -ResourceGroupName $myResourceGroup
+$vm = Get-AzureRmVM -Name $myVM -ResourceGroupName $myResourceGroup
+Add-AzureRmVMDataDisk -VM $vm -Name "myDataDisk1" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
+Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
+```
+
+Après avoir exécuté Add-AzureRmVMDataDisk, un résultat semblable à l’exemple suivant doit s’afficher :
+
+    ResourceGroupName        : myResourceGroup
+    Id                       : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
+                               Microsoft.Compute/virtualMachines/myVM
+    VmId                     : ########-####-####-####-############
+    Name                     : myVM
+    Type                     : Microsoft.Compute/virtualMachines
+    Location                 : centralus
+    Tags                     : {}
+    AvailabilitySetReference : {Id}
+    DiagnosticsProfile       : {BootDiagnostics}
+    HardwareProfile          : {VmSize}
+    NetworkProfile           : {NetworkInterfaces}
+    OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+    ProvisioningState        : Succeeded
+    StorageProfile           : {ImageReference, OsDisk, DataDisks}
+    DataDiskNames            : {myDataDisk1}
+    NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
+                               Microsoft.Network/networkInterfaces/myNIC}
+
+Après avoir exécuté Update-AzureRmVM, un résultat semblable à l’exemple suivant doit s’afficher :
+
+    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+    --------- ------------------- ---------- ------------
+                             True         OK OK
+
+### <a name="unmanaged-data-disk"></a>Disque de données non gérés
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
+Add-AzureRmVMDataDisk -VM $vm -Name "myDataDisk1" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
+Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
+```
+
+Après avoir exécuté Add-AzureRmVMDataDisk, un résultat semblable à l’exemple suivant doit s’afficher :
+
+    ResourceGroupName        : myResourceGroup
+    Id                       : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
+                               Microsoft.Compute/virtualMachines/myVM
+    VmId                     : ########-####-####-####-############
+    Name                     : myVM
+    Type                     : Microsoft.Compute/virtualMachines
+    Location                 : centralus
+    Tags                     : {}
+    AvailabilitySetReference : {Id}
+    DiagnosticsProfile       : {BootDiagnostics}
+    HardwareProfile          : {VmSize}
+    NetworkProfile           : {NetworkInterfaces}
+    OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+    ProvisioningState        : Succeeded
+    StorageProfile           : {ImageReference, OsDisk, DataDisks}
+    DataDiskNames            : {myDataDisk1}
+    NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
+                               Microsoft.Network/networkInterfaces/myNIC}
+
+Après avoir exécuté Update-AzureRmVM, un résultat semblable à l’exemple suivant doit s’afficher :
+
+    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+    --------- ------------------- ---------- ------------
+                             True         OK OK
+
+## <a name="update-a-virtual-machine"></a>Mise à jour d’une machine virtuelle
+
+Cet exemple montre comment mettre à jour la taille de la machine virtuelle.
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
+$vm.HardwareProfile.vmSize = "Standard_DS2_v2"
+Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
+```
+
+Un résultat tel que cet exemple est renvoyé :
+
+    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+    ---------  -------------------  ----------  ------------
+                              True          OK  OK
+
+Consultez la rubrique [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour obtenir la liste des tailles disponibles pour une machine virtuelle.
 
 ## <a name="delete-a-virtual-machine"></a>Suppression d'une machine virtuelle
+
 Supprimez la machine virtuelle.  
 
-    Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
+```powershell
+Remove-AzureRmVM -ResourceGroupName $myResourceGroup –Name $myVM
+```
 
 > [!NOTE]
 > Utilisez le paramètre **-Force** pour ignorer l’invite de confirmation.
@@ -161,37 +298,17 @@ Si vous n’avez pas utilisé le paramètre -Force, vous êtes invité à confir
 
     Virtual machine removal operation
     This cmdlet will remove the specified virtual machine. Do you want to continue?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+    [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"):
 
 Un résultat tel que cet exemple est renvoyé :
 
     RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
     ---------  -------------------  ----------  ------------
                               True          OK  OK
-
-## <a name="update-a-virtual-machine"></a>Mise à jour d’une machine virtuelle
-Cet exemple montre comment mettre à jour la taille de la machine virtuelle.
-
-    $vmSize = "Standard_A1"
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    $vm.HardwareProfile.vmSize = $vmSize
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-
-Un résultat tel que cet exemple est renvoyé :
-
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
-
-Consultez la rubrique [Tailles des machines virtuelles dans Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour obtenir la liste des tailles disponibles pour une machine virtuelle.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous rencontrez des problèmes lors d’un déploiement, nous vous conseillons de consulter la section [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+- Si vous rencontrez des problèmes lors d’un déploiement, nous vous conseillons de consulter la section [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+- Découvrez comment utiliser Azure PowerShell pour créer une machine virtuelle dans [Création d’une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Tirez parti de l’utilisation d’un modèle pour créer une machine virtuelle en utilisant les informations contenues dans [Création d’une machine virtuelle Windows avec un modèle Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

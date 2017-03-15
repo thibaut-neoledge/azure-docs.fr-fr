@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
-ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -100,6 +100,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 |[Code Camp en Floride du Sud : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, Floride|11 mars 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Code Camp à Orlando : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, Floride|8 avril 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Camp d'entraînement Azure mondial : l’informatique sans serveur dans Azure avec Azure Functions et DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 avril 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You’re Probably Not Using (Yet) (Conférence des développeurs norvégiens - Olso 2017 : Azure DocumentDB : la meilleures base de données NoSQL que vous n’utilisez probablement pas (encore))](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norvège|14 juin 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askdocdb@microsoft.com) en quoi nous pouvons vous aider !*
 
@@ -185,7 +186,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Document
 | Data Exposed |Ryan Crawcour |8 avril 2015 |[DocumentDB General Availibility and What's New!](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
 | Data Exposed |Andrew Liu |17 mars 2015 |[Java SDK for DocumentDB](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
 | #DevHangout |Gustavo Alzate Sandoval |11 mars 2015 |[DocumentDB, base de données NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| Données d’architecture virtuelle chapitre PASS |Ike Ellis |Février 25, 2015 |[Présentation de DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| Données d’architecture virtuelle chapitre PASS |Ike Ellis |25 février 2015 |[Présentation de DocumentDB](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
 
 ### <a name="online-classes"></a>Classes en ligne
 | Partenaire d’apprentissage | Description |

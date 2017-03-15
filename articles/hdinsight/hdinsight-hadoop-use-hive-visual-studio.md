@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8b35b5c49141ba90e65b4e07b1e67ae5315a087a
-ms.openlocfilehash: 18447962966eca67e914d0bd8cd6c25c5f2ccc3b
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,9 +39,11 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 * Visual Studio (l'une des versions suivantes) :
   
-    Visual Studio 2013 Community/Professional/Premium/Ultimate avec [mise à jour 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate avec [mise à jour 4](https://www.microsoft.com/download/details.aspx?id=44921)
   
-    Visual Studio 2015 (Community/Enterprise)
+    * Visual Studio 2015 (toute édition)
+
+    * Visual Studio 2017 (toute édition)
 
 * Outils HDInsight pour Visual Studio ou Outils Azure Data Lake pour Visual Studio. Consultez la page [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
 

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,15 +36,15 @@ L’analyse, la détection, le diagnostic et la résolution des problèmes perme
 
 ## <a name="debugging-service-fabric-java-applications"></a>Débogage des applications Java Service Fabric
 
-Pour les applications Java, [plusieurs frameworks de journalisation](http://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l’option par défaut avec l’environnement JRE, elle est également utilisée pour les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  La suite de cette section explique comment configurer le framework `java.util.logging` . 
- 
-À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local. 
+Pour les applications Java, [plusieurs frameworks de journalisation](http://en.wikipedia.org/wiki/Java_logging_framework) sont disponibles. Comme `java.util.logging` est l’option par défaut avec l’environnement JRE, elle est également utilisée pour les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  La suite de cette section explique comment configurer le framework `java.util.logging` .
 
-L’extrait de code suivant contient un exemple de configuration : 
+À l’aide de java.util.logging, vous pouvez rediriger vos journaux d’application vers la mémoire, des flux de sortie, des fichiers de console ou des sockets. Pour chacune de ces options, des gestionnaires par défaut sont déjà fournis dans le framework. Vous pouvez créer un fichier `app.properties` pour configurer le gestionnaire de fichiers de votre application de sorte qu’il redirige tous les journaux dans un fichier local.
 
-```java 
+L’extrait de code suivant contient un exemple de configuration :
+
+```java
 handlers = java.util.logging.FileHandler
- 
+
 java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
@@ -54,13 +54,17 @@ java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 
 Le dossier vers lequel pointe le fichier `app.properties` doit exister. Une fois le fichier `app.properties` créé, vous devez également modifier votre script de point d’entrée, `entrypoint.sh`, dans le dossier `<applicationfolder>/<servicePkg>/Code/` afin de définir la propriété `java.util.logging.config.file` sur le fichier `app.propertes`. L’entrée doit se présenter comme l’extrait de code suivant :
 
-```sh 
+```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
- 
- 
-Cette configuration se traduit par la collecte des journaux suivant une rotation dans `/tmp/servicefabric/logs/`. **%u** et **%g** permettent de créer des fichiers avec les noms de fichier mysfapp0.log, mysfapp1.log, etc. Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
- 
+
+
+Cette configuration se traduit par la collecte des journaux suivant une rotation dans `/tmp/servicefabric/logs/`. Dans ce cas, le fichier journal est nommé mysfapp%u.%g.log, où :
+* **%u** est un nombre unique utilisé pour résoudre les conflits entre des processus Java simultanés.
+* **%g** est le numéro de génération permettant de différencier des journaux de rotation.
+
+Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux sont accessible sous /var/log/syslog.
+
 Pour plus d’informations, consultez les [exemples de code dans GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
@@ -78,7 +82,7 @@ La première étape consiste à inclure System.Diagnostics.Tracing afin que vous
 Vous pouvez utiliser un EventListener personnalisé pour écouter l’événement de service, puis le rediriger de manière appropriée vers des fichiers de trace. L’extrait de code suivant montre un exemple d’implémentation de la journalisation à l’aide d’EventSource et d’un EventListener personnalisé :
 
 
-```c#
+```csharp
 
  public class ServiceEventSource : EventSource
  {
@@ -93,7 +97,7 @@ Vous pouvez utiliser un EventListener personnalisé pour écouter l’événemen
                 this.Message(finalMessage);
             }
         }
-        
+
         // TBD: Need to add method for sample event.
 
 }
@@ -101,7 +105,7 @@ Vous pouvez utiliser un EventListener personnalisé pour écouter l’événemen
 ```
 
 
-```
+```csharp
    internal class ServiceEventListener : EventListener
    {
 
@@ -112,7 +116,7 @@ Vous pouvez utiliser un EventListener personnalisé pour écouter l’événemen
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        {  
+        { 
                  // report all event information               
           Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
@@ -130,11 +134,11 @@ Vous pouvez utiliser un EventListener personnalisé pour écouter l’événemen
 
 L’extrait de code précédent sort les journaux dans un fichier `/tmp/MyServiceLog.txt`. Ce nom de fichier doit être correctement mis à jour. Au cas où vous souhaitez rediriger les journaux vers la console, utilisez l’extrait de code suivant dans votre classe EventListener personnalisée :
 
-```
+```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Les exemples dans [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) utilisent EventSource et un EventListener personnalisé pour consigner des événements dans un fichier. 
+Les exemples dans [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) utilisent EventSource et un EventListener personnalisé pour consigner des événements dans un fichier.
 
 
 

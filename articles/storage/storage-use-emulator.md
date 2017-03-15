@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: e207c221a7294d1288e38c377d64327d889b29de
-ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fe1d7abf3585efab67a7dbc10afa7bf3c4d466e5
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
 L'émulateur de stockage Microsoft Azure fournit un environnement local qui émule les services BLOB, de File d'attente et de Table Azure à des fins de développement. L’émulateur de stockage vous permet de tester localement votre application sur les services de stockage, sans souscrire d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur, vous pouvez commencer à utiliser un compte de stockage Azure dans le cloud.
 
 > [!NOTE]
-> L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Pour configurer l'émulateur de stockage, vous devez disposer de privilèges d'administrateur sur l'ordinateur.
+> L’émulateur de stockage fait partie du [Kit de développement logiciel (SDK) Microsoft Azure](https://azure.microsoft.com/downloads/). Vous pouvez également installer l’émulateur de stockage en tant que [programme d’installation autonome](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Pour installer l’émulateur de stockage, vous devez disposer de privilèges administratifs sur l’ordinateur.
 >
 > Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows.
 >
@@ -88,10 +89,10 @@ La première fois que vous exécutez l'émulateur de stockage, l'environnement d
 L’émulateur de stockage est installé par défaut dans le répertoire C:\Program Files(x86)\Microsoft SDKs\Microsoft Azure\Storage Emulator\.
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL
-Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockage pour initialiser l’émulateur de stockage afin qu’il pointe vers une instance de base de données SQL autre que l’instance LocalDB par défaut. Vous devez exécuter l’outil de ligne de commande avec des privilèges d’administration afin d’initialiser la base de données principale pour l’émulateur de stockage :
+Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockage pour initialiser l’émulateur de stockage afin qu’il pointe vers une instance de base de données SQL autre que l’instance LocalDB par défaut :
 
 1. Cliquez sur le bouton **Démarrer** ou appuyez sur la touche **Windows**. Commencez à taper `Azure Storage Emulator` et sélectionnez le résultat correspondant lorsqu’il apparaît pour afficher l’outil en ligne de commande de l’émulateur de stockage.
-2. Dans la fenêtre d’invites de commandes, tapez la commande suivante, où `<SQLServerInstance>` est le nom de l’instance SQL Server. Pour utiliser LocalDb, spécifiez `(localdb)\v11.0` comme instance SQL Server.
+2. Dans la fenêtre d’invites de commandes, tapez la commande suivante, où `<SQLServerInstance>` est le nom de l’instance SQL Server. Pour utiliser LocalDb, spécifiez `(localdb)\MSSQLLocalDb` comme instance SQL Server.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
@@ -160,7 +161,7 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 | **Stop** |Permet d’arrêter l’émulateur de stockage. |`AzureStorageEmulator stop` | |
 | **État** |Permet d’imprimer l’état de l’émulateur de stockage. |`AzureStorageEmulator status` | |
 | **Clear** |Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. |`AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    ` |*blob*: efface les données d’objet blob. <br/>*queue*: efface les données de file d’attente. <br/>*table*: efface les données de table. <br/>*all*: efface toutes les données de tous les services. |
-| **Init** |Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server serverName\instanceName*: spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName*: spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate*: force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-inprocess*: effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus en cours avec des autorisations élevées pour exécuter l’initialisation. |
+| **Init** |Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: spécifie le serveur qui héberge l’instance SQL. <br/>*-sqlinstance instanceName*: spécifie le nom de l’instance SQL à utiliser dans l’instance de serveur par défaut. <br/>*-forcecreate*: force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-skipcreate* : ignore la création de la base de données SQL. Cet argument est prioritaire sur -forcecreate.<br/>*-reserveports* : tente de réserver les ports HTTP associés aux services.<br/>*-reserveports* : tente de supprimer les réservations des ports HTTP associés aux services. Cet argument est prioritaire sur -reserveports.<br/>*-inprocess*: effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Vous devez lancer le processus actuel avec des autorisations élevées en cas de modification des réservations des ports. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Différences entre l’émulateur de stockage et Azure Storage
 L’émulateur de stockage étant un environnement émulé exécuté dans une instance SQL locale, il existe des différences de fonctionnalités entre l’émulateur et un compte de stockage Azure dans le cloud :
@@ -195,6 +196,18 @@ Les différences suivantes s’appliquent au stockage de tables dans l’émulat
 Le stockage de files d’attente dans l’émulateur ne présente aucune différence spécifique.
 
 ## <a name="storage-emulator-release-notes"></a>Notes de publication de l’émulateur de stockage
+### <a name="version-51"></a>Version 5.1
+* Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
+
+### <a name="version-50"></a>Version 5.0
+* Le programme d’installation de l’émulateur de stockage ne vérifie plus s’il existe déjà des installations de MSSQL et de .NET Framework.
+* Le programme d’installation de l’émulateur de stockage ne crée plus la base de données dans le cadre de l’installation.  Si nécessaire, la base de données sera toujours créée dans le cadre du démarrage.
+* La création de la base de données ne nécessite plus une élévation de privilèges.
+* Les réservations de ports ne sont plus nécessaires pour le démarrage.
+* Ajout des options suivantes à *init* : -reserveports (élévation de privilèges nécessaire), -unreserveports (élévation de privilèges nécessaire), -skipcreate.
+* L’option d’interface utilisateur Émulateur de stockage de la barre d’état système lance maintenant l’interface de ligne de commande.  L’ancienne interface graphique utilisateur (GUI) n’est plus disponible.
+* Certaines DLL ont été supprimées ou renommées.
+
 ### <a name="version-46"></a>Version 4.6
 * L’émulateur de stockage prend maintenant en charge la version 2016-05-31 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
 
@@ -231,9 +244,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 * L’émulateur de stockage Azure n’est plus inclus dans le même package que l’émulateur de calcul.
 * L’interface graphique de l’émulateur de stockage est remplacée par une interface de ligne de commande scriptable. Pour plus d’informations sur l’interface de ligne de commande, consultez la section Référence de l’outil en ligne de commande de l’émulateur de stockage. L’interface graphique est toujours présente dans la version 3.0, mais elle est uniquement accessible lorsque l’émulateur de calcul est installé en cliquant avec le bouton droit sur l’icône de la zone de notification, puis en sélectionnant Afficher l’IU de l’émulateur de stockage.
 * La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Prise en charge du protocole DocumentDB pour MongoDB | Microsoft Docs
-description: "Prise en charge du protocole DocumentDB pour MongoDB Elle vous permet d’utiliser Azure DocumentDB, un service cloud géré, comme magasin de données pour des applications écrites pour MongoDB."
+title: "Qu’est-ce que DocumentDB : API pour MongoDB ? | Microsoft Docs"
+description: "En savoir plus sur DocumentDB : API pour MongoDB et comment vous pouvez facilement exécuter des applications MongoDB existantes dans le cloud Azure"
 keywords: "qu’est-ce que MongoDB"
 services: documentdb
 author: AndrewHoh
@@ -13,26 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2de367287a4bee05694070dbeeb4d4a458d47f11
-ms.openlocfilehash: 38d811a7a08a6f8a6dd07a29e9a49bb34810ee91
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6c143a18883c99a24264d3174df7ec214d696fb5
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="what-is-documentdb-protocol-support-for-mongodb"></a>Prise en charge du protocole DocumentDB pour MongoDB
+# <a name="what-is-documentdb-api-for-mongodb"></a>Qu’est-ce que DocumentDB : API pour MongoDB ?
 
 Les bases de données DocumentDB peuvent désormais être utilisées comme magasins de données pour les applications écrites pour MongoDB. Cela signifie qu’en utilisant les [pilotes](https://docs.mongodb.org/ecosystem/drivers/) existants pour les bases de données MongoDB, votre application écrite pour MongoDB peut désormais communiquer avec DocumentDB et utiliser des bases de données DocumentDB au lieu de bases de données MongoDB. Dans de nombreux cas, vous pouvez passer de MongoDB à DocumentDB en modifiant simplement une chaîne de connexion. Cette fonctionnalité en version préliminaire permet aux clients de générer et exécuter facilement des applications de base de données MongoDB dans le cloud Azure (en tirant parti des bases de données NoSQL évolutives et entièrement gérées de DocumentDB), tout en continuant à exploiter leurs outils et compétences existants pour MongoDB.
 
-## <a name="what-is-the-benefit-of-using-documentdb-protocol-support-for-mongodb"></a>Quels sont les avantages liés à l’utilisation de la prise en charge du protocole DocumentDB pour MongoDB ?
+## <a name="what-is-the-benefit-of-using-documentdb-api-for-mongodb"></a>Quels sont les avantages liés à l’utilisation de DocumentDB : API pour MongoDB ?
 **Aucun serveur de gestion** : DocumentDB est un service entièrement géré, ce qui signifie que vous n’avez pas d’infrastructure ou de machines virtuelles à gérer. DocumentDB est disponible dans plus de 20 [Régions Azure](https://azure.microsoft.com/regions/services/).
 
 **Mise à l’échelle illimitée** : vous pouvez mettre à l’échelle le débit et le stockage de façon indépendante et en toute flexibilité. Vous pouvez ajouter de la capacité afin de pouvoir répondre aisément à des millions de demandes par seconde.
 
 **Qualité professionnelle** : DocumentDB prend en charge plusieurs réplicas locaux pour fournir une disponibilité de 99,99 % et une protection des données en cas de défaillances locales et régionales. DocumentDB offre des [certifications de conformité](https://www.microsoft.com/trustcenter) et des fonctionnalités de sécurité de qualité professionnelle. 
 
-**Compatibilité avec MongoDB** : la prise en charge du protocole DocumentDB pour MongoDB est conçue pour assurer la compatibilité avec MongoDB. Vous pouvez utiliser votre code, vos applications, vos pilotes et vos outils existants pour travailler avec DocumentDB. 
+**Compatibilité avec MongoDB** : DocumentDB : API pour MongoDB est conçu pour assurer la compatibilité avec MongoDB. Vous pouvez utiliser votre code, vos applications, vos pilotes et vos outils existants pour travailler avec DocumentDB. 
 
 En savoir plus dans cette vidéo Azure Friday avec Scott Hanselman et Kirill Gavrylyuk, responsable principal de l’ingénierie DocumentDB.
 
@@ -41,21 +42,15 @@ En savoir plus dans cette vidéo Azure Friday avec Scott Hanselman et Kirill Gav
 
 
 ## <a name="how-to-get-started"></a>Pour commencer
-Créez un compte DocumentDB avec prise en charge du protocole pour MongoDB dans le [portail Azure](https://portal.azure.com), puis permutez la connexion vers votre nouveau compte. 
+Créez un compte DocumentDB : API pour MongoDB dans le [portail Azure](https://portal.azure.com), puis permutez la connexion vers votre nouveau compte. 
 
 *Et c’est tout !*
 
 Pour plus des instructions plus détaillées, suivez [Créer un compte](documentdb-create-mongodb-account.md) et [Se connecter à votre compte](documentdb-connect-mongodb-account.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour créer un compte DocumentDB, suivez le didacticiel [Créer un compte DocumentDB avec prise en charge de protocole pour MongoDB](documentdb-create-mongodb-account.md).
-* Pour savoir comment obtenir les informations de chaîne de connexion de votre compte, suivez le didacticiel [Se connecter à un compte DocumentDB avec prise en charge de protocole pour MongoDB](documentdb-connect-mongodb-account.md).
-* Pour savoir comment créer une connexion entre votre base de données DocumentDB et l’application MongoDB dans MongoChef, suivez le didacticiel [Utiliser MongoChef avec un compte DocumentDB prenant en charge le protocole MongoDB](documentdb-mongodb-mongochef.md).
-* Découvrez des [exemples](documentdb-mongodb-samples.md)de prise en charge du protocole MongoDB dans DocumentDB.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+* Pour savoir comment obtenir les informations de chaîne de connexion de votre compte, suivez le didacticiel [Se connecter à un compte MongoDB](documentdb-connect-mongodb-account.md).
+* Pour savoir comment créer une connexion entre votre base de données DocumentDB et l’application MongoDB dans MongoChef, suivez le didacticiel [Utiliser MongoChef avec DocumentDB](documentdb-mongodb-mongochef.md).
+* Explorez les [exemples](documentdb-mongodb-samples.md) DocumentDB : API pour MongoDB.
 
 

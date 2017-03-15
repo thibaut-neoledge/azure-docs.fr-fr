@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42b3e222f24e9b5c1bb26f7e1e36b1e11c2f48b8
-ms.openlocfilehash: 7a8d1451fc1b5ace2996faec22090b1f872bf547
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 6df28527f502fe2191ee0127a3f9d467ca53c5b5
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="sql-server-on-azure-virtual-machines-faq"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Azure
+# <a name="frequently-asked-questions-for-sql-server-on-azure-virtual-machines"></a>Forum Aux Questions (FAQ) relatives à SQL Server sur les machines virtuelles Azure
 Cette rubrique fournit des réponses à la plupart des questions courantes sur l’exécution de [SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
@@ -57,7 +58,7 @@ Cette rubrique fournit des réponses à la plupart des questions courantes sur l
    
     Vous n’avez pas à payer une licence pour une instance SQL Server participant en tant que réplica secondaire passif dans un déploiement haute disponibilité, si vous disposez de Software Assurance et utilisez License Mobility comme décrit dans [FAQ sur les licences de machine virtuelle](http://azure.microsoft.com/pricing/licensing-faq/).
     
-8. **Comment les mises à jour et les service packs sont-ils appliqués sur une machine virtuelle SQL Server ?**
+8. **Comment les mises à jour et les Service Packs sont-ils appliqués sur une machine virtuelle SQL Server ?**
    
     Les machines virtuelles vous permettent de contrôler la machine hôte, y compris quand et comment appliquer les mises à jour. Pour le système d’exploitation, vous pouvez appliquer manuellement les mises à jour Windows, ou activer un service de planification appelé [Mise à jour corrective automatisée](virtual-machines-windows-sql-automated-patching.md). La mise à jour corrective automatisée installe toutes les mises à jour importantes, y compris les mises à jour de SQL Server de cette catégorie. Les autres mises à jour SQL Server facultatives doivent être installées manuellement.
 9. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
@@ -77,10 +78,5 @@ Les autres ressources incluent :
 * [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
 * [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md)
 * [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

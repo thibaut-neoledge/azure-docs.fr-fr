@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -74,7 +75,7 @@ Consultez la page [Réseau virtuel](http://azure.microsoft.com/documentation/ser
 ### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Les adresses IP doivent être configurées à l’aide d’Azure PowerShell.
 Les adresses dynamiques sont allouées par défaut, mais vous pouvez utiliser l’applet de commande Set-AzureStaticVNetIP pour attribuer une adresse IP statique. Cette applet de commande définit une adresse IP statique qui persistera pendant la réparation de service et l’arrêt/le redémarrage de la machine virtuelle. Pour plus d’informations, consultez [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)(Adresse IP interne statique pour les machines virtuelles).
 
-## <a name="a-namebkmkglossaryaterms-and-definitions"></a><a name="BKMK_Glossary"></a>Termes et définitions
+## <a name="BKMK_Glossary"></a>Termes et définitions
 Voici une liste non exhaustive de termes référencés dans le présent article concernant diverses technologies Azure.
 
 * **Machines virtuelles Azure**: offre IaaS dans Azure qui permet aux clients de déployer des machines virtuelles exécutant pratiquement n’importe quelle charge de travail classique de serveur local.
@@ -107,7 +108,7 @@ Pour plus d’informations sur la manière dont les contrôleurs de domaine peuv
 Depuis Windows Server 2012, [des dispositifs de protection supplémentaires sont intégrés aux services AD DS](https://technet.microsoft.com/library/hh831734.aspx). Ces dispositifs protègent les contrôleurs de domaine virtualisés contre les problèmes susmentionnés, à condition que la plateforme de l’hyperviseur sous-jacent prenne en charge VM-GenerationID. Azure prend en charge VM-GenerationID, ce qui signifie que les contrôleurs de domaine qui exécutent Windows Server 2012 ou version ultérieure sur des machines virtuelles Azure disposent de dispositifs de protection supplémentaires.
 
 > [!NOTE]
-> Il est recommandé d’éteindre et redémarrer une machine virtuelle exécutant le rôle de contrôleur de domaine dans Azure depuis le système d’exploitation invité plutôt que d’utiliser l’option **Arrêter** du portail Azure Classic. Aujourd’hui, l’utilisation du portail Azure Classic pour arrêter une machine virtuelle a pour effet d’annuler l’allocation de cette dernière. Une machine virtuelle qui n’est plus allouée présente l’avantage de ne pas entraîner de frais ; pour autant, elle a pour effet de réinitialiser le VM-GenerationID, ce qui n’est pas souhaitable pour un contrôleur de domaine. Lorsque le VM-GenerationID est réinitialisé, l’invocationID de la base de données AD DS est également réinitialisé, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, consultez l’article [Présentation de la virtualisation des services de domaine Active Directory (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) et la rubrique [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualisation DFSR sécurisée).
+> Il est recommandé d’éteindre et de redémarrer une machine virtuelle exécutant le rôle de contrôleur de domaine dans Azure à partir du système d’exploitation invité plutôt que d’utiliser l’option **Arrêter** du portail Azure ou du portail Classic. Aujourd’hui, l’utilisation du portail pour arrêter une machine virtuelle a pour effet d’annuler l’allocation de cette dernière. Une machine virtuelle qui n’est plus allouée présente l’avantage de ne pas entraîner de frais ; pour autant, elle a pour effet de réinitialiser le VM-GenerationID, ce qui n’est pas souhaitable pour un contrôleur de domaine. Lorsque le VM-GenerationID est réinitialisé, l’invocationID de la base de données AD DS est également réinitialisé, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, consultez l’article [Présentation de la virtualisation des services de domaine Active Directory (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) et la rubrique [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualisation DFSR sécurisée).
 > 
 > 
 
@@ -205,7 +206,7 @@ Cette option présente un inconvénient : vous devez configurer les ACL réseau
 
 Une autre option consiste à utiliser l’appliance [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) pour contrôler le trafic entre les serveurs proxy AD FS et les serveurs AD FS. Cette option est conforme aux meilleures pratiques en matière de sécurité et de haute disponibilité et nécessite moins d’efforts d’administration après la configuration initiale, car l’appliance Barracuda NG Firewall fournit un mode d’autorisation par liste d’approbation pour l’administration du pare-feu et peut être installée directement sur un réseau virtuel Azure. Cela permet de supprimer la nécessité de configurer les ACL réseau chaque fois qu’un nouveau serveur est ajouté au déploiement. Néanmoins, cette option ajoute un certain degré de complexité au déploiement initial et entraîne des coûts supplémentaires.
 
-Dans ce cas, deux réseaux virtuels sont déployés au lieu d’un seul. Nous les appellerons le réseau virtuel 1 et le réseau virtuel 2. Le réseau virtuel 1 contient les proxys et le réseau virtuel 2 comprend les STS et la connexion réseau vers le réseau d’entreprise. Le réseau virtuel 1 est donc physiquement (bien que virtuellement) isolé du réseau virtuel 2 et du réseau d’entreprise. Le réseau virtuel 1 est ensuite connecté au réseau virtuel 2 via une technologie de tunneling spéciale appelée architecture de réseau d’information des télécommunications (Transport Independent Network Architecture, TINA). Le tunnel TINA est associé à chacun des réseaux virtuels à l’aide d’un pare-feu Barracuda NG (avec un pare-feu Barracuda sur chaque réseau virtuel).  Pour bénéficier d’une haute disponibilité, nous vous recommandons de déployer deux pare-feu Barracuda sur chaque réseau virtuel ; l’un actif, l’autre passif. Ils offrent des capacités de pare-feu très complètes qui nous permettent de reproduire le fonctionnement d’un réseau de périmètre local traditionnel dans Azure.
+Dans ce cas, deux réseaux virtuels sont déployés au lieu d’un seul. Nous les appellerons le réseau virtuel&1; et le réseau virtuel&2;. Le réseau virtuel&1; contient les proxys et le réseau virtuel&2; comprend les STS et la connexion réseau vers le réseau d’entreprise. Le réseau virtuel&1; est donc physiquement (bien que virtuellement) isolé du réseau virtuel&2; et du réseau d’entreprise. Le réseau virtuel&1; est ensuite connecté au réseau virtuel&2; via une technologie de tunneling spéciale appelée architecture de réseau d’information des télécommunications (Transport Independent Network Architecture, TINA). Le tunnel TINA est associé à chacun des réseaux virtuels à l’aide d’un pare-feu Barracuda NG (avec un pare-feu Barracuda sur chaque réseau virtuel).  Pour bénéficier d’une haute disponibilité, nous vous recommandons de déployer deux pare-feu Barracuda sur chaque réseau virtuel ; l’un actif, l’autre passif. Ils offrent des capacités de pare-feu très complètes qui nous permettent de reproduire le fonctionnement d’un réseau de périmètre local traditionnel dans Azure.
 
 ![ADFS sur Azure avec pare-feu.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
@@ -219,7 +220,7 @@ Le tableau suivant compare les processus de connexion avec et sans le déploieme
 | Authentification unique Office 365 avec AD FS et DirSync | Connexion à Office 365 identique avec DirSync + synchronisation de mots de passe |
 | --- | --- |
 | 1. L’utilisateur se connecte à un réseau d’entreprise et est authentifié à Windows Server Active Directory. |1. L’utilisateur se connecte à un réseau d’entreprise et est authentifié à Windows Server Active Directory. |
-| 2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com)). |2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com)). |
+| 2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com). |2. L’utilisateur tente d’accéder à Office 365 (je suis @contoso.com). |
 | 3. Office 365 redirige l’utilisateur vers Azure AD. |3. Office 365 redirige l’utilisateur vers Azure AD. |
 | 4. Dans la mesure où Azure AD ne peut pas authentifier l’utilisateur et comprend qu’il existe une approbation avec AD FS en local, il redirige l’utilisateur vers AD FS. |4. Azure AD ne peut pas accepter de tickets Kerberos directement et aucune relation d’approbation n’existe. L’utilisateur est donc invité à saisir des informations d’identification. |
 | 5. L’utilisateur envoie un ticket Kerberos au STS AD FS. |5. L’utilisateur saisit le même mot de passe local et Azure AD le valide en fonction du nom d’utilisateur et du mot de passe qui ont été synchronisés par DirSync. |
@@ -254,7 +255,7 @@ La section suivante décrit les scénarios courants de déploiement et met l’a
    
     Par exemple, une application compatible LDAP qui prend en charge l’authentification Windows intégrée et utilise Windows Server AD DS en tant que référentiel pour les données de profil utilisateur et de configuration est déployée sur une machine virtuelle Azure. Il est souhaitable que l’application tire parti du Windows Server AD DS d’entreprise existant et fournisse une authentification unique. L’application ne prend pas en charge les revendications.
 
-### <a name="a-namebkmkcloudonlya1-ad-ds-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. AD DS : déployer une application compatible AD DS ne nécessitant pas de connectivité au réseau d’entreprise
+### <a name="BKMK_CloudOnly"></a>1. AD DS : déployer une application compatible AD DS ne nécessitant pas de connectivité au réseau d’entreprise
 ![Déploiement AD DS dans le cloud seulement](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figure 1**
 
@@ -274,7 +275,7 @@ SharePoint est déployé sur une machine virtuelle Azure et l’application n’
 * [Emplacement de la base de données Windows Server AD DS et SYSVOL](#BKMK_PlaceDB): ajoutez un disque de données aux contrôleurs de domaine exécutés en tant que machines virtuelles Azure, afin de stocker la base de données Windows Server Active Directory, les journaux et SYSVOL.
 * [Sauvegarde et restauration](#BKMK_BUR): déterminez l’endroit où vous souhaitez stocker les sauvegardes de l’état du système. Si nécessaire, ajoutez un autre disque de données à la machine virtuelle du contrôleur de domaine pour stocker les sauvegardes.
 
-### <a name="a-namebkmkcloudonlyfeda2-ad-fs-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2 AD FS : étendre une application frontale locale prenant en charge les revendications à Internet
+### <a name="BKMK_CloudOnlyFed"></a>2 AD FS : étendre une application frontale locale prenant en charge les revendications à Internet
 ![Fédération avec connectivité intersite](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figure 2**
 
@@ -298,7 +299,7 @@ Dans le but de simplifier et de répondre aux besoins de déploiement et de conf
 
 Pour plus d’informations, consultez le [Guide de déploiement d’AD DS](https://technet.microsoft.com/library/cc753963).
 
-### <a name="a-namebkmkhybridexta3-ad-ds-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. AD DS : déployer une application compatible Windows Server AD DS qui nécessite une connexion au réseau d’entreprise
+### <a name="BKMK_HybridExt"></a>3. AD DS : déployer une application compatible Windows Server AD DS qui nécessite une connexion au réseau d’entreprise
 ![Déploiement AD DS dans différents locaux](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figure 3**
 
@@ -344,12 +345,12 @@ Par exemple, si vous déployez un contrôleur de domaine réplica dans un résea
 | [Configuration requise du serveur de fédération pour l’adressage IP privé et public (adresse IP dynamique et adresse IP virtuelle)](#BKMK_FedReqVIPDIP) |<li>L’instance Windows Server AD FS doit-elle être accessible directement depuis Internet ?</li> <li>L’application déployée dans le cloud doit-elle avoir ses propres port et adresse IP accessibles sur Internet ?</li> |Créer un service cloud pour chaque adresse IP virtuelle requise par votre déploiement |
 | [Configuration de la haute disponibilité de Windows Server AD FS](#BKMK_ADFSHighAvail) |<li>Combien y a-t-il de nœuds dans ma batterie de serveurs Windows Server AD FS ?</li> <li>Combien y a-t-il de nœuds à déployer dans ma batterie de serveurs proxy Windows Server AD FS ?</li> |Résilience et tolérance de pannes |
 
-### <a name="a-namebkmknetworktopologyanetwork-topology"></a><a name="BKMK_NetworkTopology"></a>Topologie du réseau
+### <a name="BKMK_NetworkTopology"></a>Topologie du réseau
 Pour respecter les exigences de cohérence des adresses IP et de DNS de Windows Server AD DS, vous devez d’abord créer un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) auquel vous attacherez vos machines virtuelles. Lors de sa création, vous devez décider d’étendre ou non la connectivité à votre réseau d’entreprise local, qui connecte les machines virtuelles Azure de façon transparente à des ordinateurs locaux. Cette opération est effectuée à l’aide de technologies VPN classiques et nécessite l’exposition d’un point de terminaison VPN sur le périmètre du réseau d’entreprise. Autrement dit, le VPN est lancé à partir d’Azure sur le réseau d’entreprise, pas l’inverse.
 
 Notez que des frais supplémentaires s’appliquent lors de l’extension d’un réseau virtuel sur votre réseau local, en plus des frais standard appliqués pour chaque machine virtuelle. Plus précisément, il existe des frais pour le temps processeur de la passerelle de réseau virtuel Azure et le trafic sortant généré par chaque machine virtuelle communiquant avec des ordinateurs locaux sur le VPN. Pour plus d’informations sur les frais de trafic réseau, voir [Aperçu rapide de la tarification Azure](http://azure.microsoft.com/pricing/).
 
-### <a name="a-namebkmkdeploymentconfigadc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>Configuration du déploiement du contrôleur de domaine
+### <a name="BKMK_DeploymentConfig"></a>Configuration du déploiement du contrôleur de domaine
 La manière dont vous configurez le contrôleur de domaine dépend de la configuration du service que vous souhaitez exécuter sur Azure. Par exemple, vous pouvez déployer une nouvelle forêt isolée de votre propre forêt d’entreprise pour tester une preuve de concept, une nouvelle application ou un autre projet à court terme qui nécessite des services d’annuaire, mais pas un accès spécifique aux ressources d’entreprise internes.
 
 L’avantage est qu’un contrôleur de domaine de forêt isolée ne peut pas être répliqué avec des contrôleurs de domaine locaux, ce qui diminue le trafic réseau sortant généré par le système lui-même, réduisant directement les coûts. Pour plus d’informations sur les frais de trafic réseau, voir [Aperçu rapide de la tarification Azure](http://azure.microsoft.com/pricing/).
@@ -360,7 +361,7 @@ Si vous créez une nouvelle forêt, choisissez s’il faut utiliser les [approba
 
 Les exigences de disponibilité et de tolérance de pannes ont également une répercussion sur votre choix. Par exemple, si le lien est interrompu, les applications exploitant une approbation Kerberos ou une approbation de fédération risquent d’être totalement isolées, sauf si vous avez déployé une infrastructure suffisante sur Azure. Les autres configurations de déploiement telles que les contrôleurs de domaine réplica (accessibles en écriture ou en lecture seule) augmentent la probabilité de tolérance aux pannes de liens.
 
-### <a name="a-namebkmkadsitetopologyawindows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Topologie du site Windows Server Active Directory
+### <a name="BKMK_ADSiteTopology"></a>Topologie du site Windows Server Active Directory
 Vous devez définir correctement les sites et les liens des sites afin d’optimiser le trafic et de réduire les coûts. Les sites, les liens des sites et les sous-réseaux affectent la topologie de réplication entre les contrôleurs de domaine et le flux du trafic d’authentification. Tenez compte des frais de trafic suivants, puis déployez et configurez des contrôleurs de domaine selon les besoins de votre scénario de déploiement :
 
 * La passerelle elle-même implique des frais nominaux par heure :
@@ -376,7 +377,7 @@ Vous devez définir correctement les sites et les liens des sites afin d’optim
 * Si la réduction des coûts est une priorité, vérifiez que la réplication est planifiée et que la notification de modification n’est pas activée. Il s’agit de la configuration par défaut lors de la réplication entre les sites. Cela n’est pas important si vous déployez un contrôleur de domaine en lecture seule sur un réseau virtuel car ce type de contrôleur de domaine ne réplique aucune modification sortante. Par contre, si vous déployez un contrôleur de domaine accessible en écriture, vous devez vous assurer que le lien de sites n’est pas configuré pour répliquer les mises à jour à une fréquence inutile. Si vous déployez un serveur de catalogue global (GC), assurez-vous que chaque autre site contenant un GC réplique les partitions de domaine à partir d’un contrôleur de domaine source dans un site connecté avec un lien de sites ou des liens de sites dont le coût est inférieur au GC du site Azure.
 * Il est possible de réduire encore le trafic réseau généré par la réplication entre les sites en modifiant l’algorithme de compression de la réplication. L’algorithme de compression est contrôlé par l’algorithme de compression HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Replicatorde l’entrée de registre REG_DWORD. La valeur par défaut est 3, qui effectue la corrélation avec l’algorithme de compression Xpress. Vous pouvez remplacer la valeur par 2, ce qui modifie l’algorithme en MSZip. Dans la plupart des cas, la compression augmente, au détriment de l’utilisation du processeur. Pour plus d’informations, voir [How Active Directory replication topology works](https://technet.microsoft.com/library/cc755994)(Fonctionnement de la topologie de réplication Active Directory).
 
-### <a name="a-namebkmkipaddressdnsaip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>Adressage IP et DNS
+### <a name="BKMK_IPAddressDNS"></a>Adressage IP et DNS
 Par défaut, des « adresses avec bail DHCP » sont allouées aux machines virtuelles Azure. Dans la mesure où les adresses dynamiques de réseau virtuel Azure persistent avec la machine virtuelle pendant toute sa durée de vie, les exigences de Windows Server AD DS sont satisfaites.
 
 En conséquence, lorsque vous utilisez une adresse dynamique sur Azure, vous utilisez en fait une adresse IP statique car elle est routable pendant la durée du bail, et la durée du bail est égale à la durée de vie du service cloud.
@@ -395,7 +396,7 @@ Les machines virtuelles inscrivent leur nom DNS automatiquement au démarrage ou
 
 Pour plus d’informations sur cet exemple et un autre exemple qui montre comment configurer la première machine virtuelle et installer AD DS dessus, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour plus d’informations sur l’utilisation de Windows PowerShell, voir [Installer Azure PowerShell](/powershell/azureps-cmdlets-docs) et [Azure Management Cmdlet](https://msdn.microsoft.com/library/azure/jj152841) (Applets de commande de gestion Azure).
 
-### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Contrôleurs de domaine géolocalisés
+### <a name="BKMK_DistributedDCs"></a>Contrôleurs de domaine géolocalisés
 Azure présente des avantages lors de l’hébergement de plusieurs contrôleurs de domaine sur différents réseaux virtuels :
 
 * Tolérance de pannes sur plusieurs sites
@@ -403,7 +404,7 @@ Azure présente des avantages lors de l’hébergement de plusieurs contrôleurs
 
 Pour plus d’informations sur la configuration d’une communication directe entre les réseaux virtuels, voir [Configurer une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-### <a name="a-namebkmkrodcaread-only-dcs"></a><a name="BKMK_RODC"></a>Contrôleurs de domaine en lecture seule
+### <a name="BKMK_RODC"></a>Contrôleurs de domaine en lecture seule
 Vous devez choisir entre le déploiement de contrôleurs de domaine accessibles en lecture seule ou en écriture. Vous pouvez être tenté de déployer des contrôleurs de domaine en lecture seule parce que cela vous éviter d’avoir à les contrôler physiquement. Or, ces contrôleurs sont conçus pour être déployés dans des sites où ils sont exposés aux risques, par exemple les filiales.
 
 Azure ne présente pas le risque de sécurité physique d’une filiale, mais les contrôleurs de domaine en lecture seule peuvent tout de même s’avérer plus efficaces, car les fonctionnalités qu’ils fournissent sont bien adaptées à ces environnements, quoique pour des raisons très différentes. Par exemple, les contrôleurs de domaine en lecture seule ne génèrent pas de réplication sortante et peuvent renseigner sélectivement des secrets (mots de passe). En revanche, si de tels secrets ne sont pas connus, le trafic sortant à la demande peut avoir à les valider chaque fois qu’un utilisateur ou un ordinateur s’authentifie. Toutefois, il est possible de pré-renseigner et mettre en cache les secrets de manière sélective.
@@ -412,14 +413,14 @@ Les contrôleurs de domaine accessibles en lecture seule fournissent un avantage
 
 Assurez-vous que les applications sont compatibles avec les contrôleurs que vous prévoyez d’utiliser. De nombreuses applications compatibles avec Windows Server Active Directory fonctionnent bien avec les contrôleurs de domaine en lecture seule, mais certaines peuvent être inefficaces ou échouer si elles n’ont pas accès à un contrôleur de domaine accessible en écriture. Pour plus d’informations, voir [Compatibilité des applications avec les contrôleurs de domaine en lecture seule](https://technet.microsoft.com/library/cc755190).
 
-### <a name="a-namebkmkgcaglobal-catalog"></a><a name="BKMK_GC"></a>Catalogue global
+### <a name="BKMK_GC"></a>Catalogue global
 Vous devez choisir d’installer ou non un catalogue global (GC). Dans une forêt de domaine unique, vous devez configurer tous les contrôleurs de domaine comme des serveurs de catalogue global. Cela n’augmente pas les coûts car aucun trafic de réplication supplémentaire n’est généré.
 
 Dans une forêt multidomaine, les catalogues globaux sont nécessaires pour développer des appartenances au groupe universel pendant le processus d’authentification. Si vous ne déployez pas un catalogue global, les charges de travail sur le réseau virtuel authentifiées auprès d’un contrôleur de domaine sur Azure génèrent indirectement un trafic d’authentification sortant pour interroger les catalogues globaux locaux lors de chaque tentative d’authentification.
 
 Les coûts associés aux catalogues globaux sont moins prévisibles, car ils hébergent chaque domaine (en partie). Si la charge de travail héberge un service accessible sur Internet et authentifie les utilisateurs via Windows Server AD DS, les coûts peuvent être totalement imprévisibles. Pour réduire les requêtes de catalogue global en dehors du site du cloud pendant l’authentification, vous pouvez [activer la mise en cache d’appartenance au groupe universel](https://technet.microsoft.com/library/cc816928).
 
-### <a name="a-namebkmkinstallmethodainstallation-method"></a><a name="BKMK_InstallMethod"></a>Méthode d’installation
+### <a name="BKMK_InstallMethod"></a>Méthode d’installation
 Vous devez choisir comment installer les contrôleurs de domaine sur le réseau virtuel :
 
 * Promouvoir de nouveaux contrôleurs de domaine. Pour plus d’informations, voir [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md).
@@ -429,7 +430,7 @@ Utilisez uniquement des machines virtuelles Azure pour les contrôleurs de domai
 
 N’utilisez pas SYSPREP pour déployer ou cloner des contrôleurs de domaine. La capacité de clonage des contrôleurs de domaine est uniquement disponible à partir de Windows Server 2012. La fonctionnalité de clonage nécessite la prise en charge de VMGenerationID dans l’hyperviseur sous-jacent. Hyper-V dans Windows Server 2012 et les réseaux virtuels Azure prennent tous deux en charge VMGenerationID, tout comme les fournisseurs de logiciels de virtualisation tiers.
 
-### <a name="a-namebkmkplacedbaplacement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Emplacement de la base de données Windows Server AD DS et de SYSVOL
+### <a name="BKMK_PlaceDB"></a>Emplacement de la base de données Windows Server AD DS et de SYSVOL
 Choisissez où placer la base de données Windows Server AD DS, les journaux et SYSVOL. Ils doivent être déployés sur des disques de données Azure.
 
 > [!NOTE]
@@ -446,14 +447,14 @@ Pour les contrôleurs de domaine virtuels, nous vous recommandons la bonne prati
 * Sur le disque de données Azure, définissez le paramètre Préférences de cache d’hôte sur AUCUN. Cela évite les problèmes de cache d’écriture pour les opérations AD DS.
 * Stockez la base de données, les journaux et SYSVOL sur le même disque de données ou sur des disques de données distincts. Généralement, il s’agit d’un disque distinct du disque utilisé pour le système d’exploitation. L’essentiel à retenir est que la base de données Windows Server AD DS et SYSVOL ne doivent pas être stockés sur un type de disque Système d’exploitation Azure. Par défaut, le processus d’installation AD DS installe ces composants dans le dossier %systemroot%, qui n’est PAS recommandé pour Azure.
 
-### <a name="a-namebkmkburabackup-and-restore"></a><a name="BKMK_BUR"></a>Sauvegarde et restauration
+### <a name="BKMK_BUR"></a>Sauvegarde et restauration
 Soyez attentif à ce qui est pris en charge ou non dans le cadre de la sauvegarde et de la restauration des contrôleurs de domaine, en particulier ceux qui sont exécutés sur une machine virtuelle. Voir [Observations sur la sauvegarde et la restauration des contrôleurs de domaine virtualisés](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers).
 
 Créez des sauvegardes d’état en utilisant seulement des logiciels de sauvegarde compatibles avec les exigences de sauvegarde de Windows Server AD DS, telles que Sauvegarde Windows Server.
 
 Ne copiez ou ne clonez pas les fichiers des disques durs virtuels des contrôleurs de domaine au lieu d’effectuer des sauvegardes régulières. Si une restauration doit être effectuée, vous introduirez des bulles USN en utilisant pour cela des disque durs virtuels clonés ou copiés sans Windows Server 2012 et un hyperviseur pris en charge.
 
-### <a name="a-namebkmkfedsrvconfigafederation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>Configuration du serveur de fédération
+### <a name="BKMK_FedSrvConfig"></a>Configuration du serveur de fédération
 La configuration des serveurs de fédération (STS) Windows Server AD FS dépend en partie de la nécessité pour les applications déployées sur Azure d’accéder aux ressources de votre réseau local.
 
 Si les applications répondent aux critères suivants, vous pouvez déployer les applications de manière isolée à partir de votre réseau local.
@@ -479,15 +480,15 @@ Cette configuration présente l’avantage de réduire l’exposition des ressou
 
 Notez que dans les deux cas, vous pouvez établir des relations d’approbation avec d’autres fournisseurs d’identité, si une collaboration d’entreprise à entreprise est requise.
 
-### <a name="a-namebkmkcloudsvcconfigacloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>Configuration des services cloud
+### <a name="BKMK_CloudSvcConfig"></a>Configuration des services cloud
 Les services cloud sont nécessaires si vous souhaitez exposer une machine virtuelle directement à Internet ou exposer une application d’équilibrage de charge accessible sur Internet. Cela est possible car chaque service cloud propose une seule adresse IP virtuelle configurable.
 
-### <a name="a-namebkmkfedreqvipdipafederation-server-requirements-for-public-and-private-ip-addressing-dynamic-ip-vs-virtual-ip"></a><a name="BKMK_FedReqVIPDIP"></a>Configuration requise du serveur de fédération pour l’adressage IP privé et public (adresse IP dynamique et adresse IP virtuelle)
+### <a name="BKMK_FedReqVIPDIP"></a>Configuration requise du serveur de fédération pour l’adressage IP privé et public (adresse IP dynamique et adresse IP virtuelle)
 Chaque machine virtuelle Azure reçoit une adresse IP dynamique. Une adresse IP dynamique est une adresse privée accessible uniquement dans Azure. Dans la plupart des cas, toutefois, il est nécessaire de configurer une adresse IP virtuelle pour vos déploiements Windows Server AD FS. L’adresse IP virtuelle est nécessaire pour exposer des points de terminaison Windows Server AD FS à Internet, et est utilisée par les clients et partenaires fédérés pour l’authentification et la gestion continue. Une adresse IP virtuelle est une propriété d’un service cloud qui contient une ou plusieurs machines virtuelles Azure. Si l’application prenant en charge les revendications déployée sur Azure et Windows Server AD FS sont accessibles sur Internet et partagent des ports communs, ils doivent avoir leur propre adresse IP virtuelle. Il est donc nécessaire de créer un service cloud pour l’application et un autre pour Windows Server AD FS.
 
 Pour connaître les définitions des termes adresse IP virtuelle et adresse IP dynamique, voir [Termes et définitions](#BKMK_Glossary).
 
-### <a name="a-namebkmkadfshighavailawindows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Configuration de la haute disponibilité de Windows Server AD FS
+### <a name="BKMK_ADFSHighAvail"></a>Configuration de la haute disponibilité de Windows Server AD FS
 Bien qu’il soit possible de déployer des services de fédération Windows Server AD FS autonomes, il est recommandé de déployer une batterie de serveurs avec au moins deux nœuds pour les STS et les serveurs proxy AD FS dans les environnements de production.
 
 Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.com/library/gg982489) (Observations concernant la topologie du déploiement AD FS 2.0) dans le [AD FS 2.0 Design Guide](https://technet.microsoft.com/library/dd807036) (Guide de conception AD FS 2.0) pour choisir les options de configuration du déploiement les plus adaptées à vos besoins particuliers.
@@ -497,10 +498,5 @@ Voir [AD FS 2.0 deployment topology considerations](https://technet.microsoft.co
 > L’équilibrage de la charge réseau (NLB) de Windows Server n’est pas pris en charge sur Azure.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

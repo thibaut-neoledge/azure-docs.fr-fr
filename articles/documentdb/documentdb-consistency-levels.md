@@ -1,5 +1,5 @@
 ---
-title: "Niveaux de cohérence dans DocumentDB | Microsoft Docs"
+title: "Niveaux de cohérence dans Azure DocumentDB | Microsoft Docs"
 description: "DocumentDB offre quatre niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence."
 keywords: "cohérence éventuelle, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>Niveaux de cohérence dans DocumentDB
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>Niveaux de cohérence des données analysables dans DocumentDB
 Azure DocumentDB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible, un SLA de disponibilité à 99,99 % et plusieurs modèles de cohérence souples bien définis. Pour le moment, DocumentDB prend en charge quatre niveaux de cohérence : Fort, Obsolescence limitée, Session et Éventuel. Outre les modèles de cohérence **fort** et **éventuel** souvent offerts par d’autres bases de données NoSQL, DocumentDB propose deux modèles de cohérence soigneusement codifiés et mis en œuvre (**obsolescence limitée** et **session**) dont l’utilité a été validée dans des conditions d’utilisation réelles. Ensemble, ces quatre niveaux de cohérence vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. 
 
 ## <a name="scope-of-consistency"></a>Portée de la cohérence
@@ -116,9 +118,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

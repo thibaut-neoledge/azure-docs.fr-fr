@@ -1,6 +1,6 @@
 ---
 title: Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect | Microsoft Docs
-description: "Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et Powershell."
+description: "Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et PowerShell."
 keywords: "AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance"
 services: active-directory
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: 4ed22092621949d53da5b8c961a080270dde1db7
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: da3b8a375d380a0e2f1c2e243a475f2f3ff94bfc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,6 +32,7 @@ Cet article présente différentes tâches associées à AD FS qu’il est possi
 | [Ajout d’un serveur AD FS](#addadfsserver) |Extension de la batterie de serveurs AD FS à l’aide d’un serveur AD FS supplémentaire |
 | [Ajout d’un serveur proxy d’application web AD FS](#addwapserver) |Extension de la batterie de serveurs AD FS à l’aide d’un serveur WAP supplémentaire |
 | [Ajout d’un domaine fédéré](#addfeddomain) |Ajout d’un domaine fédéré |
+| [Mettre à jour le certificat SSL](active-directory-aadconnectfed-ssl-update.md)| Mettre à jour le certificat SSL pour une batterie de serveurs Active Directory Federation Services (AD FS)|
 | **Personnalisation d’AD FS** | |
 | [Ajout d’une illustration ou d’un logo de société personnalisé](#customlogo) |Personnalisation de la page de connexion AD FS à l’aide d’une illustration ou d’un logo de société |
 | [Ajout d’une description de connexion](#addsignindescription) |Ajout d’une description de la page de connexion |
@@ -39,7 +41,7 @@ Cet article présente différentes tâches associées à AD FS qu’il est possi
 ## <a name="ad-fs-management"></a>Gestion AD FS.
 Azure AD Connect intègre différentes tâches liées à AD FS qu’il est possible d’effectuer à l’aide de l’Assistant Azure AD Connect, avec une intervention minime de l’utilisateur. Une fois que vous avez terminé l’installation d’Azure AD Connect à l’aide de l’Assistant, vous pouvez à nouveau exécuter l’Assistant pour effectuer des tâches supplémentaires.
 
-### <a name="repair-the-trust-a-namerepairthetrusta"></a>Réparation de l’approbation <a name=repairthetrust></a>
+## Réparation de l’approbation <a name=repairthetrust></a>
 Azure AD Connect peut vérifier l’intégrité de l’approbation des services AD FS et Azure Active Directory, et prendre les mesures appropriées pour la réparer. Pour réparer l’approbation des services Azure AD et AD FS, procédez comme suit :
 
 1. Sélectionnez **Réparer la confiance AAD et ADFS** dans la liste des tâches disponibles.
@@ -63,7 +65,8 @@ Azure AD Connect peut vérifier l’intégrité de l’approbation des services 
 >
 >
 
-### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>Ajout d’un serveur AD FS <a name=addadfsserver></a>
+## Ajout d’un serveur AD FS <a name=addadfsserver></a>
+
 > [!NOTE]
 > Azure AD Connect requiert le fichier de certificat PFX pour ajouter un serveur AD FS. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
 >
@@ -86,7 +89,8 @@ Azure AD Connect peut vérifier l’intégrité de l’approbation des services 
 
     ![Installation terminée](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>Ajout d’un serveur proxy d’application web AD FS <a name=addwapserver></a>
+## Ajout d’un serveur proxy d’application web AD FS <a name=addwapserver></a>
+
 > [!NOTE]
 > Azure AD Connect requiert le fichier de certificat PFX pour ajouter un serveur proxy d’application web. Par conséquent, vous ne pouvez effectuer cette opération que si vous avez configuré la batterie de serveurs AD FS à l’aide d’Azure AD Connect.
 >
@@ -109,7 +113,8 @@ Azure AD Connect peut vérifier l’intégrité de l’approbation des services 
 7. Cliquez sur **Installer** pour terminer la configuration. Une fois la configuration terminée, l’Assistant vous permet de vérifier la connectivité aux serveurs. Cliquez sur **Vérifier** pour vérifier la connectivité.
    ![Installation terminée](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>Ajout d’un domaine fédéré <a name=addfeddomain></a>
+## Ajout d’un domaine fédéré <a name=addfeddomain></a>
+
 Il est facile d’ajouter un domaine à fédérer avec Azure AD à l’aide d’Azure AD Connect. Azure AD Connect ajoute le domaine de la fédération et modifie les règles de revendication pour identifier correctement l’émetteur lorsque plusieurs domaines sont fédérés avec Azure AD.
 
 1. Pour ajouter un domaine fédéré, sélectionnez la tâche **Ajout d’un domaine Azure AD supplémentaire**.
@@ -128,11 +133,11 @@ Il est facile d’ajouter un domaine à fédérer avec Azure AD à l’aide d’
 ## <a name="ad-fs-customization"></a>Personnalisation d’AD FS
 Les sections suivantes fournissent des informations concernant certaines tâches courantes que vous devrez peut-être effectuer pour personnaliser votre page de connexion AD FS.
 
-### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>Ajout d’une illustration ou d’un logo de société personnalisé <a name=customlogo></a>
+## Ajout d’une illustration ou d’un logo de société personnalisé <a name=customlogo></a>
 Pour changer le logo de la société affiché sur la page **Connexion** , utilisez l’applet de commande et la syntaxe Windows PowerShell suivantes.
 
 > [!NOTE]
-> Les dimensions recommandées pour le logo sont 260 x 35 @ 96 PPP avec une taille de fichier maximale de 10 Ko.
+> Les dimensions recommandées pour le logo sont 260 x 35 à 96 PPP avec une taille de fichier maximale de 10 Ko.
 >
 >
 
@@ -143,17 +148,17 @@ Pour changer le logo de la société affiché sur la page **Connexion** , utilis
 >
 >
 
-### <a name="add-a-sign-in-description-a-nameaddsignindescriptiona"></a>Ajout d’une description de connexion <a name=addsignindescription></a>
+## Ajout d’une description de connexion <a name=addsignindescription></a>
 Pour ajouter une description de la **page de connexion**, utilisez l’applet de commande et la syntaxe Windows PowerShell suivantes.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>Modification des règles de revendication AD FS <a name=modclaims></a>
+## Modification des règles de revendication AD FS <a name=modclaims></a>
 AD FS prend en charge un langage complet, qui permet de créer des règles de revendication personnalisées. Pour plus d’informations, consultez [Rôle du langage de règle de revendication](https://technet.microsoft.com/library/dd807118.aspx).
 
 Les sections suivantes décrivent comment écrire des règles personnalisées pour certains scénarios se rapportant à la fédération des services Azure AD et AD FS.
 
-#### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>ID non modifiable à condition que la valeur soit présente dans l’attribut
+### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>ID non modifiable à condition que la valeur soit présente dans l’attribut
 Azure AD Connect vous permet de spécifier un attribut à utiliser comme ancre source, lorsque les objets sont synchronisés avec Azure AD. Si la valeur de l’attribut personnalisé n’est pas vide, vous souhaiterez peut-être émettre une revendication d’ID non modifiable. Par exemple, vous pouvez sélectionner **ms-ds-consistencyguid** comme attribut de l’ancre source et émettre **ms-ds-consistencyguid** comme **ImmutableID**, si l’attribut a une valeur. Si l’attribut n’a pas de valeur, émettez l’ID non modifiable **objectGuid** .  Vous pouvez construire le jeu de règles de revendication personnalisées, comme indiqué dans la section suivante.
 
 **Règle 1 : attributs de la requête**
@@ -192,7 +197,7 @@ Dans cette règle, vous vérifiez simplement l’indicateur temporaire **idflag*
 >
 >
 
-#### <a name="sso-with-a-subdomain-upn"></a>Authentification unique avec un UPN de sous-domaine
+### <a name="sso-with-a-subdomain-upn"></a>Authentification unique avec un UPN de sous-domaine
 Vous pouvez ajouter plusieurs domaines à fédérer à l’aide d’Azure AD Connect, comme indiqué dans [Ajout d’un domaine fédéré](active-directory-aadconnect-federation-management.md#addfeddomain). Vous devez modifier la revendication UPN pour faire correspondre l’ID de l’émetteur au domaine racine et non au sous-domaine, car le domaine racine fédéré englobe également l’enfant.
 
 Par défaut, la règle de revendication pour l’ID de l’émetteur est définie telle quelle :
@@ -221,9 +226,4 @@ Pour n’avoir que le domaine racine dans la valeur de revendication de l’éme
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

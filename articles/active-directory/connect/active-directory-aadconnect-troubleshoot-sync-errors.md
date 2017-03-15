@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
-ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -193,7 +194,7 @@ Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié 
 4. L’attribut UserPrincipalName n’est pas mis à jour et cause une erreur de synchronisation « DataValidationFailed ».
 
 #### <a name="how-to-fix"></a>Procédure de résolution
-Si le suffixe pour l’attribut UserPrincipalName d’un utilisateur a été mis à jour de bob@**contoso.com** vers bob@**fabrikam.com**, où **contoso.com** et **fabrikam.com** sont tous deux des **domaines fédérés**, suivez ces étapes pour corriger l’erreur de synchronisation
+Si le suffixe UserPrincipalName d’un utilisateur a été mis en remplaçant bob@**contoso.com** par bob@**fabrikam.com**, où **contoso.com** et **fabrikam.com** sont des **domaines fédérés**, procédez comme suit pour corriger l’erreur de synchronisation.
 
 1. Replacez le UserPrincipalName de l’utilisateur dans Azure AD bob@contoso.com par bob@contoso.onmicrosoft.com. Vous pouvez utiliser la commande PowerShell suivante avec le Module Azure AD PowerShell : `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permettez au cycle de synchronisation suivant de tenter de synchronisation. Cette fois la synchronisation sera réussie et mettra à jour l’attribut UserPrincipalName de Bob sur bob@fabrikam.com, comme prévu.
@@ -206,23 +207,20 @@ Si le suffixe pour l’attribut UserPrincipalName d’un utilisateur a été mis
 Lorsqu’un attribut dépasse la limite de taille autorisée, la longueur maximale ou le nombre défini par le schéma Azure Active Directory, l’opération de synchronisation cause l’erreur de synchronisation **LargeObject** ou **ExceededAllowedLength**. Cette erreur se produit généralement pour les attributs suivants
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Scénarios possibles
-1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite stricte est de 50 certificats, mais il est recommandé d’avoir moins de 25 certificats.
-2. L’attribut thumbnailPhoto de Bob défini dans Active Directory est trop volumineux pour être synchronisé dans Azure AD.
-3. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de&500; ProxyAddresses.
+1. L’attribut userCertificate de Bob stocke de trop nombreux certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
+2. L’attribut userSMIMECertificate de Bob stocke un trop grand nombre de certificats affectés à Bob. Ceux-ci peuvent inclure des certificats plus anciens, expirés. La limite matérielle est de 15 certificats.
+3. L’attribut thumbnailPhoto de Bob défini dans Active Directory est trop volumineux pour être synchronisé dans Azure AD.
+4. Lors du remplissage automatique de l’attribut ProxyAddresses dans Active Directory, un objet s’est vu affecter plus de&500; ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Procédure de résolution
 1. Assurez-vous que l’attribut à l’origine de l’erreur est dans la limite autorisée.
 
 ## <a name="related-links"></a>Liens connexes
-* [Recherche dobjets Active Directory dans le centre d’administration Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
+* [Recherche d’objets Active Directory dans le centre d’administration Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
 * [Comment faire pour interroger Azure Active Directory pour un objet à l’aide d’Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
-ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="performance-levels-in-documentdb"></a>Niveaux de performances dans DocumentDB
+# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Mise hors service des niveaux de performances S1, S2 et S3 dans DocumentDB
 
 > [!IMPORTANT] 
 > Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouvelles collections DocumentDB.
@@ -175,7 +176,7 @@ Les clients Contrat Entreprise bénéficieront d’une protection en matière de
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
 
-1.  [Partitionnement des données dans DocumentDB](documentdb-partition-data.md). Découvrez la différence entre les collections à partition unique et les collections partitionnées et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
-2.  [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
-3.  [Unités de requête](documentdb-request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
-4.  [Modélisation des données dans DocumentDB](documentdb-modeling-data.md). Apprenez à modéliser vos données pour DocumentDB.
+1.    [Partitionnement des données dans DocumentDB](documentdb-partition-data.md). Découvrez la différence entre les collections à partition unique et les collections partitionnées et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+2.    [Tarification de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
+3.    [Unités de requête](documentdb-request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
+4.    [Modélisation des données dans DocumentDB](documentdb-modeling-data.md). Apprenez à modéliser vos données pour DocumentDB.

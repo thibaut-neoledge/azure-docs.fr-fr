@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,13 +29,10 @@ Ce document présente les modifications d'une application Entity Framework requi
 Pour télécharger le code utilisé dans cet article :
 
 * Visual Studio 2012 ou une version ultérieure est nécessaire. 
+* Téléchargez l[’exemple Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) à partir de MSDN. Décompressez l’exemple à l’emplacement de votre choix.
 * Démarrez Visual Studio. 
-* Dans Visual Studio, sélectionnez Fichier -> Nouveau projet. 
-* Dans la boîte de dialogue « Nouveau projet », accédez aux **Exemples en ligne** pour **Visual C#** et tapez « elastic db » dans la zone de recherche située en haut à droite.
-  
-    ![Exemple d'application de base de données souples et d’Entity Framework][1] 
-  
-    Sélectionnez l’exemple **Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework**. Une fois la licence acceptée, l'exemple se charge. 
+* Dans Visual Studio, sélectionnez Fichier -> Ouvrir un projet/une solution. 
+* Dans la boîte de dialogue **Ouvrir un projet**, accédez à l’exemple que vous avez téléchargé, puis sélectionnez **EntityFrameworkCodeFirst.sln** pour ouvrir l’exemple. 
 
 Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Base de données SQL Azure :
 
@@ -59,7 +57,7 @@ Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire 
 
 La bibliothèque cliente de base de données permet de définir des partitions pour les données de votre application. Ces partitions sont nommées shardlets. Les shardlets sont identifiés par une clé de partitionnement et sont mappés vers des bases de données spécifiques. Une application peut avoir autant de bases de données que nécessaire et distribuer les shardlets pour fournir suffisamment de capacité ou de performances selon les besoins de l'entreprise. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API clientes de la base de données élastique. Nous appelons cette fonctionnalité **Gestion des cartes de partitions**, ou GCP. La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Nous appelons cette fonction **routage dépendant des données**. 
 
-Le gestionnaire des cartes de partitions empêche tout affichage incohérent des données shardlet pouvant perturber les utilisateurs lors des opérations de gestion de shardlet simultanées (par exemple, le déplacement des données d'une partition à l'autre). Pour ce faire, la partition gérée par la bibliothèque cliente mappe dans le service Broker les connexions de base de données pour une application. Ainsi, la fonctionnalité de carte de partitions peut automatiquement arrêter une connexion de base de données si des opérations de gestion de partition peuvent affecter le shardlet pour lequel la connexion a été créée. Cette approche doit s'intégrer à certaines fonctionnalités d'Entity Framework, telles que la création de connexions à partir d'une connexion existante pour vérifier l'existence de la base de données. Nous constatons qu'en général, les constructeurs DbContext standard fonctionnent uniquement de façon fiable pour les connexions de base de données fermées pouvant être clonées en toute sécurité pour Entity Framework. Le principe de conception de la base de donnée élastique consiste plutôt à utiliser uniquement le service Broker sur les connexions ouvertes. On pourrait penser que la fermeture d'une connexion demandée par la bibliothèque cliente avant son transfert vers le DbContext EF peut résoudre ce problème. Cependant, si l'on ferme la connexion et que l'on s'appuie sur Entity Framework pour la rouvrir, la bibliothèque n'effectue ni la validation, ni les contrôles de cohérence. Par contre, la fonctionnalité de migrations d'Entity Framework utilise ces connexions pour gérer le schéma de base de données sous-jacent de façon transparente pour l'application. Idéalement, il faudrait conserver et combiner toutes les capacités de la bibliothèque cliente de base de données élastique et d'Entity Framework dans la même application. La section suivante décrit en détail ces propriétés et les éléments requis. 
+Le gestionnaire des cartes de partitions empêche tout affichage incohérent des données shardlet pouvant perturber les utilisateurs lors des opérations de gestion de shardlet simultanées (par exemple, le déplacement des données d'une partition à l'autre). Pour ce faire, la partition gérée par la bibliothèque cliente mappe dans le service Broker les connexions de base de données pour une application. Ainsi, la fonctionnalité de carte de partitions peut automatiquement arrêter une connexion de base de données si des opérations de gestion de partition peuvent affecter le shardlet pour lequel la connexion a été créée. Cette approche doit s'intégrer à certaines fonctionnalités d'Entity Framework, telles que la création de connexions à partir d'une connexion existante pour vérifier l'existence de la base de données. Nous constatons qu'en général, les constructeurs DbContext standard fonctionnent uniquement de façon fiable pour les connexions de base de données fermées pouvant être clonées en toute sécurité pour Entity Framework. Le principe de conception de la base de données élastique consiste plutôt à utiliser uniquement le service Broker sur les connexions ouvertes. On pourrait penser que la fermeture d'une connexion demandée par la bibliothèque cliente avant son transfert vers le DbContext EF peut résoudre ce problème. Cependant, si l'on ferme la connexion et que l'on s'appuie sur Entity Framework pour la rouvrir, la bibliothèque n'effectue ni la validation, ni les contrôles de cohérence. Par contre, la fonctionnalité de migrations d'Entity Framework utilise ces connexions pour gérer le schéma de base de données sous-jacent de façon transparente pour l'application. Idéalement, il faudrait conserver et combiner toutes les capacités de la bibliothèque cliente de base de données élastique et d'Entity Framework dans la même application. La section suivante décrit en détail ces propriétés et les éléments requis. 
 
 ## <a name="requirements"></a>Conditions requises
 Lors de l’utilisation des API de la bibliothèque cliente de la base de données élastique et de Entity Framework, nous souhaitons conserver les propriétés suivantes : 
@@ -266,9 +264,4 @@ En suivant les procédures décrites dans ce document, les applications Entity F
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 44c2c181b1ca463c5d2bd92b77e4b92604964ba2
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0bbbc4f61c37fe4d296221c372bfdf6dd429a32b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -35,6 +36,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 * Dans votre solution Visual Studio, sélectionnez **Outils** --> **Gestionnaire de package NuGet** -->  **Gérer les packages NuGet pour la solution**. 
 * (Visual Studio 2013) Dans le volet gauche, sélectionnez **Mises à jour**, puis cliquez sur le bouton **Mettre à jour** dans le package **Bibliothèque cliente de la mise à l’échelle élastique de base de données SQL Azure** qui s’affiche dans la fenêtre.
 * (Visual Studio 2015) Définissez la zone de filtre sur **Mise à niveau disponible**. Sélectionnez le package à mettre à jour puis cliquez sur le bouton **Mettre à jour** .
+* (Visual Studio 2017) En haut de la boîte de dialogue, sélectionnez **Mises à jour**. Sélectionnez le package à mettre à jour puis cliquez sur le bouton **Mettre à jour** .
 * Générez et déployez les applications. 
 
 **2. Mettez à niveau vos scripts.** Si vous utilisez des scripts **PowerShell** pour gérer des partitions, [téléchargez la nouvelle version de la bibliothèque](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) et copiez-la dans le répertoire à partir duquel vous exécutez ces scripts. 
@@ -68,7 +70,7 @@ Une autre solution consiste à créer une application Visual Studio qui ouvre vo
 
 Ces méthodes de mise à niveau des métadonnées peuvent être appliquées plusieurs fois sans risque. Par exemple, si une version antérieure du client crée une partition à tort après la mise à jour, vous pouvez effectuer une nouvelle mise à niveau des métadonnées de toutes les partitions pour vous assurer que votre infrastructure contient bien la dernière version des métadonnées. 
 
-**Remarque :** les nouvelles versions de la bibliothèque cliente publiées à ce jour continuent de fonctionner avec les versions antérieures des métadonnées du Gestionnaire de mappages de partitions sur Azure SQL DB et inversement.   Toutefois, pour tirer parti de certaines nouvelles fonctionnalités de la dernière version client, les métadonnées doivent être mis à niveau.   Notez que les mises à niveau des métadonnées n’affectent pas les données utilisateur ou les données spécifiques à l’application, mais uniquement les objets créés et utilisés par le Gestionnaire de mappages de partitions.  Et les applications continuent de fonctionner à travers la séquence de mise à niveau décrite ci-dessus. 
+**Remarque :** les nouvelles versions de la bibliothèque cliente publiées à ce jour continuent de fonctionner avec les versions antérieures des métadonnées du Gestionnaire de mappages de partitions sur Azure SQL DB et inversement.   Toutefois, pour tirer parti de certaines nouvelles fonctionnalités de la dernière version client, les métadonnées doivent être mises à niveau.   Notez que les mises à niveau des métadonnées n’affectent pas les données utilisateur ou les données spécifiques à l’application, mais uniquement les objets créés et utilisés par le Gestionnaire de mappages de partitions.  Et les applications continuent de fonctionner à travers la séquence de mise à niveau décrite ci-dessus. 
 
 ## <a name="elastic-database-client-version-history"></a>Historique des versions du client des bases de données élastiques
 Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
@@ -77,10 +79,5 @@ Pour l’historique des versions, accédez à [Microsoft.Azure.SqlDatabase.Elast
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

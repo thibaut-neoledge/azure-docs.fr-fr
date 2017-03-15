@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
-ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 * [Ralentissement des performances quand vous accédez au Stockage Fichier Azure depuis Windows 8.1 ou Windows Server 2012 R2](#windowsslow)
 * [Erreur 53 lors de la tentative de montage d’un partage de fichiers Azure](#error53)
 * [Erreur 87 Le paramètre est incorrect lors de la tentative de montage d’un partage de fichiers Azure](#error87)
-* [Net use a réussi, mais je ne vois pas le partage Azure Files monté dans l’Explorateur Windows](#netuse)
+* [Net use a réussi, mais je ne vois pas le partage de fichiers Azure monté ou la lettre de lecteur dans l’interface utilisateur de l’Explorateur Windows](#netuse)
 * [Mon compte de stockage contient « / » et la commande net use échoue](#slashfails)
 * [Mon application/service ne peut pas accéder au lecteur Azure Files monté.](#accessfiledrive)
 * [Recommandations supplémentaires pour optimiser les performances](#additional)
+* [Erreur « Vous copiez un fichier vers une destination qui ne prend pas en charge le chiffrement » lors du chargement/de la copie des fichiers vers Azure Files](#encryption)
 
 **Problèmes du client Linux**
 
-* [Erreur « Vous copiez un fichier vers une destination qui ne prend pas en charge le chiffrement » lors du chargement/de la copie des fichiers vers Azure Files](#encryption)
-* [Erreur d’E/S intermittente : Erreur « L’hôte est hors-service » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
+* [Erreur d’E/S intermittente : Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lors de l’exécution de listes de commandes sur le point de montage](#errorhold)
 * [Erreur de montage 115 lors de la tentative de montage Azure Files sur la machine virtuelle Linux](#error15)
-* [La machine virtuelle Linux connaît des retards aléatoires dans les commandes telles que « ls »](#delayproblem)
-* [Erreur 112 - erreur de délai d’expiration](#error112)
+* [Partage de fichiers Azure monté sur la machine virtuelle Linux subissant une baisse des performances](#delayproblem)
+
 
 **Accès depuis d'autres applications**
 
@@ -193,7 +193,7 @@ Les lecteurs sont montés par l’utilisateur. Si votre application ou service s
 ### <a name="solution"></a>Solution
 Montez le lecteur à partir du compte d’utilisateur sous lequel se trouve l’application. Vous pouvez le faire à l’aide d’outils tels que psexec.
 
-Vous pouvez également créer un utilisateur qui possède les mêmes privilèges que le service réseau ou le compte système, puis exécuter **cmdkey** et **net use** sous ce compte. Le nom d’utilisateur doit être le nom du compte de stockage, et le mot de passe doit être la clé du compte de stockage. Autre option pour **net use** : transmettre le nom du compte de stockage et la clé dans les paramètres de nom d’utilisateur et de mot de passe de la commande **net use**.
+Autre option pour **net use** : transmettre le nom du compte de stockage et la clé dans les paramètres de nom d’utilisateur et de mot de passe de la commande **net use**.
 
 Après avoir suivi ces instructions, le message d’erreur suivant peut s’afficher : « Une erreur système 1312 s’est produite. Une session ouverte spécifiée n’existe pas. Elle est peut-être déjà terminée. » lorsque vous exécutez **net use** pour le compte de service système/réseau. Si cela se produit, vérifiez que le nom d’utilisateur transmis à **net use** inclut des informations de domaine (par exemple : « [nom du compte de stockage]..file.core.windows.net »).
 
@@ -219,14 +219,34 @@ Toutefois, notez que la définition de la clé de Registre affecte toutes les op
 
 <a id="errorhold"></a>
 
-## <a name="host-is-down-error-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Erreur « L’hôte est hors-service » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque lorsque vous exécutez des listes de commandes sur le point de montage
+## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Erreur « L’hôte est hors service (Erreur 112) » sur les partages de fichiers existants, ou l’interpréteur de commandes se bloque quand vous exécutez des listes de commandes sur le point de montage
 ### <a name="cause"></a>Cause :
-Cette erreur se produit sur le client Linux, lorsque le client a été inactif pendant une période prolongée. Lorsque cette erreur se produit, le client se déconnecte et la connexion au client expire.
+Cette erreur se produit sur le client Linux, lorsque le client a été inactif pendant une période prolongée. Quand le client est inactif pendant un long moment, le client se déconnecte et la connexion expire. 
+
+La connexion peut être inactive pour diverses raisons. Les échecs de communication qui empêchent le rétablissement d’une connexion TCP avec le serveur quand l’option de montage « soft » (valeur par défaut) est utilisée constituent l’une de ces raisons.
+
+Des correctifs de reconnexion ne figurant pas dans des noyaux plus anciens peuvent en être une autre.
 
 ### <a name="solution"></a>Solution
-Ce problème a été corrigé dans le noyau Linux dans le cadre de [l’ensemble de modifications](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93), en attendant de le rétroporter dans la distribution Linux.
 
-Pour contourner ce problème, maintenez la connexion et évitez d’entrer dans un état d’inactivité, conservez un fichier dans le partage Azure Files dans lequel vous écrivez régulièrement. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la connexion.
+Spécifier un montage forcé pousse le client à attendre jusqu'à ce qu’une connexion soit établie ou jusqu’à interruption explicite, et peut servir à empêcher les erreurs causées par les délais d’attente réseau. Toutefois, les utilisateurs doivent être conscients que cela peut entraîner une attente indéfinie et doit gérer l’arrêt d’une connexion si nécessaire.
+
+Ce problème de reconnexion dans le noyau Linux est maintenant résolu dans le cadre des ensembles de modifications suivants :
+
+* [Résoudre le problème de reconnexion pour ne pas différer la reconnexion de la session SMB3 longtemps après la reconnexion du socket](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+
+* [Appeler le service d’écho immédiatement après la reconnexion du socket](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+
+* [CIFS : Corriger une éventuelle corruption de la mémoire lors de la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+
+* [CIFS : Corriger un éventuel double verrouillage du mutex lors de la reconnexion - pour les noyaux v4.9 et versions ultérieures](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) 
+
+Toutefois, cette modification ne peut pas encore être transférées aux distributions Linux. Voici la liste des noyaux Linux populaires connus et autres correctifs de reconnexion : 4.4.40+ 4.8.16+ 4.9.1+.
+Vous pouvez accéder aux versions du noyau recommandées ci-dessus pour sélectionner le correctif le plus récent.
+
+### <a name="workaround"></a>Solution de contournement
+Si vous ne parvenez pas à accéder aux dernières versions du noyau, vous pouvez contourner ce problème en conservant un fichier dans le partage Azure File dans lequel vous écrivez toutes au maximum toutes les 30 secondes. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la reconnexion. 
+
 
 <a id="error15"></a>
 
@@ -239,40 +259,25 @@ Si le client SMB Linux utilisé ne prend pas en charge le chiffrement, montez Az
 
 <a id="delayproblem"></a>
 
-## <a name="linux-vm-experiencing-random-delays-in-commands-like-ls"></a>La machine virtuelle Linux connaît des retards aléatoires dans les commandes telles que « ls »
-### <a name="cause"></a>Cause :
-Cela peut se produire lorsque la commande de montage n’inclut pas l’option **serverino**. Sans **serverino**, la commande ls exécute une commande **stat** sur chaque fichier.
+## <a name="azure-file-share-mounted-on-linux-vm-experiencing-slow-performance"></a>Partage de fichiers Azure monté sur la machine virtuelle Linux subissant une baisse des performances
 
-### <a name="solution"></a>Solution
-Vérifiez l’option **serverino** dans l’entrée « /etc/fstab » :
+La désactivation de la mise en cache peut entraîner une baisse des performances. Pour vérifier si la mise en cache est activée, recherchez "cache=".  *cache=none* indique que la mise en cache est désactivée. Veuillez remonter le partage avec la commande de montage par défaut ou ajouter explicitement l’option **cache=strict** à la commande de montage pour vérifier l’activation de la mise en cache par défaut ou du mode de mise en cache « strict ».
+
+Dans certains scénarios, l’option de montage serverino peut entraîner l’exécution de stat par la commande ls sur chaque entrée de répertoire. Ce comportement entraîne une dégradation des performances lors de l’énumération d’un répertoire volumineux. Vous pouvez vérifier les options de montage dans l’entrée « /etc/fstab » :
 
 `//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Vous pouvez également vérifier si cette option est utilisée simplement en exécutant la commande **sudo mount | grep cifs** et en observant la sortie :
+Vous pouvez également vérifier si les options appropriées sont utilisées en exécutant simplement la commande **sudo mount | grep cifs**, puis en examinant sa sortie :
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Si l’option **serverino** n’est pas présente, démontez, puis remontez Azure Files avec l’option **serverino** sélectionnée.+
-
-La désactivation de la mise en cache peut également entraîner une baisse des performances. Pour vérifier si la mise en cache est activée, recherchez "cache=".  *cache=none* indique que la mise en cache est désactivée. Veuillez remonter le partage avec la commande de montage par défaut ou ajouter explicitement l’option **cache=strict** à la commande de montage pour vérifier l’activation de la mise en cache par défaut ou du mode de mise en cache « strict ».
-
-<a id="error112"></a>
-## <a name="error-112---timeout-error"></a>Erreur 112 - erreur de délai d’expiration
-
-Cette erreur indique les échecs de communication qui empêchent de rétablir une connexion TCP avec le serveur lorsque l’option de montage « soft », la valeur par défaut, est utilisée.
-
-### <a name="cause"></a>Cause :
-
-Cette erreur peut être provoquée par un problème de reconnexion de Linux ou d’autres problèmes qui empêchent la reconnexion, comme les erreurs de réseau. Spécifier un montage forcé pousse le client à attendre jusqu'à ce qu’une connexion soit établie ou jusqu’à interruption explicite, et peut servir à empêcher les erreurs causées par les délais d’attente réseau. Toutefois, les utilisateurs doivent être conscients que cela peut entraîner une attente indéfinie et doit gérer l’arrêt d’une connexion si nécessaire.
-
-
-### <a name="workaround"></a>Solution de contournement
-
-Le problème de Linux a été résolu, mais pas encore porté sur les distributions Linux. Si le problème est provoqué par le problème de reconnexion sous Linux, vous pouvez contourner le problème en évitant le passage un état inactif. Pour ce faire, conservez dans le partage de fichiers Azure un fichier sur lequel vous écrirez pour toutes les 30 secondes ou moins. Il doit s’agir d’une opération d’écriture, telle que la réécriture de la date de création/modification du fichier. Sinon, vous pouvez obtenir des résultats mis en cache et votre opération peut ne pas déclencher la connexion. Voici la liste des noyaux Linux populaires concernés et autres correctifs de reconnexion : 4.4.40+ 4.8.16+ 4.9.1+
+Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
 
 <a id="webjobs"></a>
 
-## <a name="accessing-from-other-applications"></a>Accès depuis d'autres applications
+## <a name="accessing-from-other-applications"></a>Accès depuis d’autres applications
 ### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Puis-je faire référence au partage de fichiers Azure pour mon application via une tâche Web ?
 Le montage de partages SMB dans le service d’application sandbox n’est pas possible. Pour résoudre ce problème, vous pouvez mapper le partage de fichiers Azure comme un lecteur mappé et permettre à l’application d’y accéder en tant que lettre de lecteur.
 ## <a name="learn-more"></a>En savoir plus
