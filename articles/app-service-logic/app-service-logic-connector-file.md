@@ -99,6 +99,6 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 
 <!-- Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
-[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
+[Définition des API du connecteur File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 
