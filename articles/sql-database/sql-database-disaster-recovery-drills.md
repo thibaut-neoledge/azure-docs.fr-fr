@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un or
 
 #### <a name="recovery"></a>Récupérer
 * Vérifiez que la configuration de l’application dans la région de récupération d’urgence pointe vers l’ancienne base de données secondaire qui deviendra la nouvelle base de données principale entièrement accessible.
-* Exécutez un [basculement planifié](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) pour que la base de données secondaire devienne la nouvelle base de données primaire.
+* Exécutez un [basculement planifié](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) pour que la base de données secondaire devienne la nouvelle base de données primaire.
 * Suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour effectuer la restauration.
 
 #### <a name="validation"></a>Validation
@@ -64,9 +65,4 @@ Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un or
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
 * Pour en savoir plus sur les options de récupération plus rapides, consultez [Géo-réplication active](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
