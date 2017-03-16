@@ -1,6 +1,6 @@
 ---
 
-title: Prise en main de la gestion des licences Azure Active Directory dans le portail Azure | Microsoft Docs
+title: "Prise en main de la gestion des licences dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
 description: "Description de la gestion des licences Azure Active Directory, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Basic"
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dbe9072cd561f550883cd514a6d25381d095ba8
-ms.openlocfilehash: 648b1d51a5e414e67bda475dcef1419ee1692868
+ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
+ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="get-started-with-azure-active-directory-licensing-in-the-azure-portal"></a>Prise en main de la gestion des licences Azure Active Directory dans le portail Azure
+# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Accorder une licence à vos utilisateurs et à vous-même dans la version préliminaire d’Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [portail Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -152,9 +154,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 * [Attribution de groupe aux applications](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
