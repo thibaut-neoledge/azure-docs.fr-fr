@@ -76,7 +76,7 @@ La configuration de l’authentification unique pour Bonus.ly vous oblige à ré
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Bonus.ly ?**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
    ![Configurer l’authentification unique](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configurer l’authentification unique")
-*3. Sur la page **Configurer l’URL de l’application**, dans la zone de texte **URL de client Bonus.ly**, tapez votre URL au format **https://\<nom_client\>.Bonus.ly**, puis cliquez sur **Suivant** : 
+*3. Sur la page **Configurer l’URL de l’application**, dans la zone de texte **URL de client Bonus.ly** , tapez votre URL au format **https://\<nom_client\>.Bonus.ly**, puis cliquez sur **Suivant** : 
    
    ![Configurer l’URL de l’application](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur Bonus.ly**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous **c:\\Bonusly.cer**.
