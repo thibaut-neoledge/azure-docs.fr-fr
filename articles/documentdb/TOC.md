@@ -4,6 +4,7 @@
 ## [Qu’est-ce que DocumentDB : API pour MongoDB ?](documentdb-protocol-mongodb.md)
 ## [Concepts fondamentaux](documentdb-resources.md)
 ## [Diffusion mondiale](documentdb-distribute-data-globally.md)
+## [Sécurité](documentdb-nosql-database-security.md)
 ## [Analyse du coût total de possession de NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scénarios
 ### [Cas d’utilisation courants](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [Application console .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Application console Java](documentdb-java-get-started.md)
 ### [Exécution de l’application console](documentdb-nodejs-get-started.md)
-### [Application de console Node.js pour les API MongoDB](documentdb-mongodb-samples.md)
+### [Application de console Node.js pour l’API MongoDB](documentdb-mongodb-samples.md)
 ### [Application console C++](documentdb-cpp-get-started.md)
 ## Créer une application web
 ### [Application web .NET](documentdb-dotnet-application.md)
-### [Application web .NET pour les API MongoDB](documentdb-mongodb-application.md)
+### [Application web .NET pour l’API MongoDB](documentdb-mongodb-application.md)
 ### [Application web Node.js](documentdb-nodejs-application.md)
 ### [Applications web Java](documentdb-java-application.md)
 ### [Application web Python Flask](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Écritures et lectures rentables](documentdb-key-value-store-cost.md)
 
 ## Gérer
+### [Unités de demande](documentdb-request-units.md)
 ### [Importer vos données](documentdb-import-data.md)
 ### [Importer dans l’API pour MongoDB](documentdb-mongodb-migrate.md)
 ### [Se connecter à votre compte MongoDB](documentdb-connect-mongodb-account.md)
 ### [Utilisation de MongoChef](documentdb-mongodb-mongochef.md)
 ### [Utilisation de Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modéliser vos données](documentdb-modeling-data.md)
-### [Utiliser les données géospatiales](documentdb-geospatial.md)
-### [Développer pour plusieurs régions](documentdb-developing-with-multiple-regions.md)
-### [Basculements régionaux](documentdb-regional-failovers.md)
 ### [Faire expirer les données automatiquement](documentdb-time-to-live.md)
-### [Personnaliser vos index](documentdb-indexing-policies.md)
-### [Sécuriser l’accès aux données](documentdb-secure-access-to-data.md)
 ### [Sauvegarder et restaurer](documentdb-online-backup-and-restore.md)
+### [Basculements régionaux](documentdb-regional-failovers.md)
+### Automatisation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Interface de ligne de commande Azure 1.0 : Créer un compte](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Interface de ligne de commande Azure 1.0 : Ajouter ou supprimer des régions](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Sécurité
+#### [Sécuriser l’accès aux données](documentdb-secure-access-to-data.md)
+#### [Prise en charge de pare-feu](documentdb-firewall-support.md)
 ### [Mettre hors service S1, S2, S3](documentdb-performance-levels.md)
-### [Unités de demande](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Créer un compte](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Ajouter ou supprimer des régions](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Prise en charge de pare-feu](documentdb-firewall-support.md)
 
 ## Développement
 ### [SQL query](documentdb-sql-query.md)
 ### [procédures stockées, déclencheurs et fonctions définies par l'utilisateur](documentdb-programming.md)
+### [Personnaliser vos index](documentdb-indexing-policies.md)
+### [Développement dans plusieurs régions](documentdb-developing-with-multiple-regions.md)
 ### [Suivre les modifications avec Change Feed](documentdb-change-feed.md)
+### [Utiliser les données géospatiales](documentdb-geospatial.md)
 ### [Tests de performances](documentdb-performance-testing.md)
 ### [Conseils sur les performances](documentdb-performance-tips.md)
 ### Meilleures pratiques

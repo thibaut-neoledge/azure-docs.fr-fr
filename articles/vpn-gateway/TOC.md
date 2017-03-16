@@ -39,9 +39,10 @@
 ## [Configurer BGP pour les passerelles VPN Azure à l’aide de PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configurer les connexions haut actif-actif](vpn-gateway-activeactive-rm-powershell.md)
 ## [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Vérification de la connexion à une passerelle](vpn-gateway-verify-connection-resource-manager.md)
-## [Réinitialiser une passerelle VPN Azure](vpn-gateway-resetgw-classic.md)
-## [Utilisation des certificats auto-signés pour les connexions de point à site](vpn-gateway-certificates-point-to-site.md)
+## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
+## [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
+## [Supprimer une passerelle VPN](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Créer des certificats racine auto-signés pour les connexions P2S](vpn-gateway-certificates-point-to-site.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Référence
@@ -64,8 +65,3 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [CONTRAT SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

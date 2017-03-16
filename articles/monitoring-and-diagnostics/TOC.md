@@ -26,10 +26,10 @@
 ### [Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Utiliser le journal d’activité
-### [Afficher les événements et le journal d’activité](../monitoring-and-diagnostics/insights-debugging-with-events.md)
+### [Afficher des événements dans le journal d’activité](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Configurer un webhook sur une alerte de journal d’activité](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archiver le journal d’activité](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
-### [Transférer le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [Diffuser en continu le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Gérer les journaux de diagnostic
 ### [Archive](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
@@ -37,6 +37,8 @@
 ### [Activer les paramètres de diagnostic à l’aide de modèles Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Utiliser l’API REST
 ### [Procédure pas à pas : Utilisation de l’API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Utiliser Diagnostics Azure
+### [Envoyer à Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
