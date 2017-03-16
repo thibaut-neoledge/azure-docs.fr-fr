@@ -75,7 +75,7 @@ Pour associer le client Office 365 à l’abonnement Azure, procédez comme suit
    
     ![Capture d’écran du tableau de bord](./media/billing-add-office-365-tenant-to-azure-subscription/s314_office-365-tenant-appear-in-azure.png)
 
-### <a name="a-namestep2astep-2-change-the-directory-associated-with-the-azure-subscription"></a><a name="Step2"></a>Étape 2 : modifier l’annuaire associé à votre abonnement Azure
+### <a name="Step2"></a>Étape 2 : modifier l’annuaire associé à votre abonnement Azure
    
 1. Sélectionnez **Paramètres**.
    
@@ -103,7 +103,7 @@ Pour associer le client Office 365 à l’abonnement Azure, procédez comme suit
    
     ![Capture d’écran de l’onglet Administrateurs dans les paramètres du portail Azure Classic](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
    
-2. Entrez un compte professionnel de votre client Office 365, sélectionnez l’abonnement Azure, puis sélectionnez **Terminer![ **icône Terminer](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
+2. Entrez un compte professionnel de votre client Office 365, sélectionnez l’abonnement Azure, puis sélectionnez **Terminer** ![icône Terminer](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
    
     ![Capture d’écran de la boîte de dialogue d’ajout de coadministrateur Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s320_azure-add-co-administrator.png)
    
