@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,9 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
    
     Vous devez enregistrer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+
+    >[!NOTE]
+    >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ## <a name="access-control-address"></a>Adresse de contrôle d’accès
 L’adresse de contrôle d’accès de Media Services est https://wamsprodglobal001acs.accesscontrol.windows.net (à l’exception de la région Chine du Nord, où l’adresse est https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn).
@@ -182,10 +186,5 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

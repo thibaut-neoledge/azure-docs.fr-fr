@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
-ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -59,6 +59,9 @@ Pour fournir un élément multimédia avec chiffrement de stockage, vous devez c
 
 ### <a name="access-policy"></a>Stratégie d’accès
 La stratégie d’accès ( [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) ) définit les autorisations (telles que lecture, écriture et énumération) et la durée d’accès à un élément multimédia. En général, vous passez un objet AccessPolicy à un localisateur qui est ensuite utilisé pour accéder aux fichiers contenus dans un élément multimédia.
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="blob-container"></a>Conteneur d’objets blob
 Un conteneur d’objets blob regroupe un ensemble d’objets blob. Les conteneurs d’objets blob sont utilisés dans Media Services comme points de limite de contrôle d’accès et comme localisateurs de signature d’accès partagé (SAS, Shared Access Signature) sur les éléments multimédias. Un compte de stockage Azure peut contenir un nombre illimité de conteneurs d’objets blob. Un conteneur peut stocker un nombre illimité d’objets blob.
