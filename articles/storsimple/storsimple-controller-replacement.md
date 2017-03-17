@@ -4,7 +4,7 @@ description: "Explique comment retirer et remplacer un module de contrôleur, ou
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -106,7 +107,8 @@ En cas d’échec de l’un des contrôleurs de votre appareil Microsoft Azure S
 
 > [!NOTE]
 > Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s’affiche pas dans un délai de deux heures après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-contact-microsoft-support.md).
-> 
+>
+> À partir d’Update 4, vous pouvez également utiliser l’applet de commande `Get-HCSControllerReplacementStatus` dans l’interface Windows PowerShell de l’appareil pour surveiller l’état du processus de remplacement du contrôleur.
 > 
 
 ## <a name="replace-both-controllers"></a>Remplacer les deux contrôleurs
@@ -241,15 +243,10 @@ Si ce voyant clignote, le contrôleur est actif et l’autre contrôleur est en 
 
 | Étiquette | Description |
 |:--- |:--- |
-| 1 à 6 |Ports réseau DATA 0 – 5 |
+| 1 à&6; |Ports réseau DATA 0 – 5 |
 | 7 |Voyant LED bleu |
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

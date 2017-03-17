@@ -17,11 +17,12 @@ ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 427a1e8c6bfb11ace38fcf84b7cda89d2d01d091
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Utiliser Azure Data Factory avec SQL Data Warehouse
-Azure Data Factory offre une méthode entièrement gérée pour orchestrer le transfert de données et l’exécution de procédures stockées dans SQL Data Warehouse.  Cela vous permettra de configurer et de planifier plus facilement des procédures ETL (« Extract, Transform, Load ») via SQL Data Warehouse. Pour consulter une présentation complète de Microsoft Azure Data Factory, accédez à la [documentation relative à ce logiciel]documentation relative à [Azure Data Factory].
+Azure Data Factory offre une méthode entièrement gérée pour orchestrer le transfert de données et l’exécution de procédures stockées dans SQL Data Warehouse.  Cela vous permettra de configurer et de planifier plus facilement des procédures ETL (« Extract, Transform, Load ») via SQL Data Warehouse. Pour consulter une présentation complète de Microsoft Azure Data Factory, accédez à la [documentation relative à ce logiciel][Documentation Azure Data Factory].
 
 ## <a name="data-movement"></a>Déplacement des données
 Azure Data Factory permet le déplacement des données entre des sources locales, mais également entre divers services Microsoft Azure.  De manière générale, le processus d’intégration actuel avec Microsoft Azure Data Factory prend en charge le déplacement de données depuis et vers les emplacements suivants :
@@ -52,10 +53,5 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 [Documentation Azure Data Factory]:https://azure.microsoft.com/documentation/services/data-factory/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

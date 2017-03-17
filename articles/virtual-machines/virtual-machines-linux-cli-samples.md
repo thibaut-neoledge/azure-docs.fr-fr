@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73094c90b2a7400a664a827e07d5ada2184952
-ms.openlocfilehash: 372f6413903fbf7344871a136ffcddcadfc81782
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: ea2124e01753b914ebd1691e5d89091ac5cd5859
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="azure-virtual-machine-cli-samples"></a>Exemples d’interface de ligne de commande de machine virtuelle Azure
+# <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux
 
 Le tableau suivant contient des liens vers des scripts Bash créés à l’aide de l’interface de ligne de commande Azure.
 
@@ -39,6 +39,8 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Sécuriser le trafic réseau entre les machines virtuelles](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée deux machines virtuelles, toutes les ressources associées, ainsi qu’un groupe de sécurité réseau interne et un groupe de sécurité réseau externe. |
 |**Surveiller les machines virtuelles**||
 | [Surveiller une machine virtuelle avec Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée une machine virtuelle, installe l’agent Operations Management Suite et inscrit la machine virtuelle dans un espace de travail OMS.  |
+|**Redémarrer les machines virtuelles**||
+| [Redémarrer les machines virtuelles](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | Crée des machines virtuelles et les redémarre. |
 |**Résoudre les problèmes liés aux machines virtuelles**||
 | [Résoudre les problèmes liés au disque du système d’exploitation de machines virtuelles](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Monte le disque du système d’exploitation d’une machine virtuelle en tant que disque de données sur une seconde machine virtuelle. |
 | | |

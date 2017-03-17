@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4234def6200b8beb6db7e4bd96ca1b8ebcc11c03
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 4234def6200b8beb6db7e4bd96ca1b8ebcc11c03
 > 
 
 ## <a name="overview"></a>Vue d'ensemble
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-rest-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif. Si votre contenu est chiffré, configurez la stratégie de livraison d’éléments multimédias (comme le décrit [cette](media-services-rest-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur. 
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-rest-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif. Si votre contenu est chiffré, configurez la stratégie de livraison d’éléments multimédias (comme décrit dans [cette](media-services-rest-configure-asset-delivery-policy.md) rubrique) avant de créer un localisateur. 
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
 
@@ -49,6 +50,10 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
 5. Notez que vous ne pouvez créer un localisateur de diffusion en continu en utilisant une stratégie d’accès qui inclut des autorisations d’écriture ou de suppression.
 
 ### <a name="create-an-access-policy"></a>Définition d’une stratégie d’accès.
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 Demande :
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
@@ -154,7 +159,7 @@ exemple :
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a name="a-idtypesaenum-types"></a><a id="types"></a>Types Enum
+## <a id="types"></a>Types Enum
     [Flags]
     public enum AccessPermissions
     {
@@ -180,10 +185,5 @@ exemple :
 
 ## <a name="see-also"></a>Voir aussi
 [Configurer une stratégie de distribution d’éléments multimédias](media-services-rest-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

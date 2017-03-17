@@ -38,7 +38,8 @@
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
 ## Contrôler l’accès
 ### [Créer un principal du service avec PowerShell](resource-group-authenticate-service-principal.md)
-### [Créer un principal du service avec l’interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)
+### [Créer un principal de service avec l’interface de ligne de commande Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Créer un principal de service avec l’interface de ligne de commande Azure 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Créer un principal du service avec le portail](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)

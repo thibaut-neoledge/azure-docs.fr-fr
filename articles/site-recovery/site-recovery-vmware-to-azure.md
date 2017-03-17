@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 9eb2d7f4b431c01983620cb0cfcffd63a9f4d4e2
-ms.openlocfilehash: f7251dffc3dd922a6abeba0faca90843de64430f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,9 +34,9 @@ Cet article explique comment répliquer des machines virtuelles VMware locales s
 
 Publiez des commentaires et des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="steps"></a>Étapes
+## <a name="deployment-summary"></a>Résumé du déploiement
 
-Voici ce que vous devez faire :
+Voici ce que vous devez faire :
 
 1. Vérifiez les conditions préalables et les limitations.
 2. Configurez des comptes de réseau et de stockage Azure.
@@ -103,6 +103,7 @@ Voici ce que vous devez faire :
     - Si vous souhaitez ajouter l’entrée de registre pour Windows à partir d’une interface CLI, saisissez :  ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - Pour Linux, le compte doit être un utilisateur racine sur le serveur Linux source.
 
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -110,11 +111,11 @@ Voici ce que vous devez faire :
 
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 
-1. Cliquez sur **Coffres Recovery Services** > coffre.
-2. Dans le menu Ressource, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
+1. Cliquez sur **Coffres Recovery Services** > <vault name>.
+2. Dans **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
 
     ![Sélectionner des objectifs](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. Dans **Objectif de la protection**, sélectionnez **Vers Azure** puis **Oui, avec hyperviseur vSphere VMware**.
+3. Dans **Sur quelle cible souhaitez-vous répliquer vos machines ?**, sélectionnez **Vers Azure** et, dans **Vos machines sont-elles virtualisées**, sélectionnez **Oui, avec un hyperviseur VMware vSphere**.
 
     ![Sélectionner des objectifs](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -122,16 +123,16 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 
 Configurez le serveur de configuration, inscrivez-le dans le coffre et découvrez les machines virtuelles.
 
-1. Cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Source**.
+1. Dans **Étape 1 : Préparer l’infrastructure**, cliquez sur **Source**.
 2. Si vous n’avez pas de serveur de configuration, cliquez sur **+Serveur de configuration**.
 
     ![Configurer la source](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
-4. Téléchargez le fichier d’installation unifiée de Site Recovery.
-5. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant&5; jours.
+4. Téléchargez le fichier d’installation de la **Configuration unifiée de Microsoft Azure Site Recovery**.
+5. Téléchargez la clé d’inscription du coffre. Vous aurez besoin de cette clé lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant&5; jours.
 
    ![Configurer la source](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. Sur la machine virtuelle du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [serveur horaire](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service), puis exécutez le programme d’installation unifiée pour installer le serveur de configuration, le serveur de traitement et le serveur cible maître.
+6. Sur la machine du serveur de configuration, assurez-vous que l’horloge système est synchronisée avec un [serveur horaire](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time), puis exécutez le programme d’installation unifiée pour installer le serveur de configuration, le serveur de traitement et le serveur cible maître.
 
 ## <a name="run-site-recovery-unified-setup"></a>Exécuter le programme d’installation unifiée Site Recovery
 
@@ -147,7 +148,7 @@ Exécutez ensuite le fichier d’installation du programme d’installation unif
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Le serveur de configuration peut être installé via la ligne de commande. Pour plus d’informations, consultez [Installation du serveur de configuration à l’aide des outils en ligne de commande](http://aka.ms/installconfigsrv).
+> Le serveur de configuration peut être installé via la ligne de commande. [En savoir plus](http://aka.ms/installconfigsrv).
 
 ### <a name="add-the-account-for-automatic-discovery"></a>Ajouter le compte pour la découverte automatique
 
@@ -257,7 +258,7 @@ Par défaut, tous les disques d’une machine sont répliqués. Vous pouvez excl
     * Nous vous recommandons de rassembler les machines virtuelles et les serveurs physiques afin qu’ils reflètent vos charges de travail. L’activation de la cohérence multimachine virtuelle peut affecter les performances de la charge de travail. Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence.
 
     ![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+13. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 Une fois que vous activez la réplication, le service Mobilité est installé si vous avez configuré l’installation Push. Une fois que le service Mobilité bénéficie d’une installation Push sur une machine virtuelle, une tâche de protection démarre et échoue. Après cet échec, vous devez redémarrer manuellement chaque machine. Ensuite, la tâche de protection recommence et la réplication initiale se produit.
 
@@ -291,15 +292,15 @@ Nous vous recommandons de vérifier les propriétés de la machine virtuelle et 
 Après avoir terminé la configuration, exécutez un test de basculement afin de vérifier que tout fonctionne bien.
 
 
-1. Pour effectuer le basculement d’une seule machine, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur l’icône **+Test de basculement**.
+1. Pour effectuer le basculement d’une seule machine, cliquez sur la machine virtuelle dans **Éléments répliqués**, puis sur l’icône **+Test de basculement**.
 
     ![Test de basculement](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. Pour effectuer le basculement d’un plan de récupération, dans **Paramètres** > **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).  
+1. Pour effectuer le basculement d’un plan de récupération, cliquez avec le bouton droit sur le plan dans **Plans de récupération** et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).  
 
 1. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure seront connectées après le basculement.
 
-1. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom de l’archivage > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+1. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom du coffre > > **Travaux** > **Travaux Site Recovery**.
 
 1. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez peut-être vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
 

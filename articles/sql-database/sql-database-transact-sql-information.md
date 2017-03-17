@@ -11,40 +11,34 @@ ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/22/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 3f9077733725174f1eed61d37d544e4f36822f6e
-ms.openlocfilehash: d935571ccd18bc15baa000fb8c07fed11b66ba6c
+ms.sourcegitcommit: a08d9f2ef29002f10473b0e041737c9c607f3ca0
+ms.openlocfilehash: 7d6de93c99141248ea970ea668fb0b2191267b62
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-sql-database-transact-sql-differences"></a>Différences dans le langage Transact-SQL Azure SQL Database.   
 La plupart des fonctionnalités Transact-SQL que les applications utilisent sont prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques, de curseur, etc., fonctionnent comme dans SQL Server.
 
-## <a name="why-some-transact-sql-is-not-supported"></a>Pourquoi certaines fonctionnalités Transact-SQL ne sont-elles pas prises en charge ?
+# <a name="why-some-transact-sql-is-not-supported"></a>Pourquoi certaines fonctionnalités Transact-SQL ne sont-elles pas prises en charge ?
 Azure SQL Database est conçu pour isoler les fonctionnalités des dépendances sur la base de données Master et le système d’exploitation. Par conséquent, de nombreuses activités au niveau du serveur sont inappropriées pour SQL Database. Des instructions Transact-SQL sont généralement indisponibles si elles configurent des options au niveau du serveur et des composants du système d’exploitation, ou spécifient la configuration du système de fichiers. Lorsque des fonctionnalités extérieures à la base de données utilisateur sont nécessaires, une alternative appropriée est souvent disponible en procédant différemment à partir de SQL Database ou d’un autre service ou fonctionnalité Azure. 
 
-Par exemple, la fonctionnalité AlwaysOn est remplacée par Géo-réplication active. Pour cette raison, aucune des instructions Transact-SQL relatives aux groupes de disponibilité n’est prise en charge par SQL Database, et les vues de gestion dynamique liées à Always On ne sont pas prises en charge.  
+Par exemple, la fonctionnalité Toujours actif ne s’applique pas à Azure SQL Database, puisque la haute disponibilité est conçue dans le service : chaque base de données est hautement disponible. Pour cette raison, aucune des instructions Transact-SQL relatives aux groupes de disponibilité n’est prise en charge par SQL Database, et les vues de gestion dynamique liées à Always On ne sont pas prises en charge.  
 
 Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, voir [Considérations, directives et fonctionnalités relatives à Azure SQL Database](sql-database-features.md).
 
-La syntaxe déconseillée dans SQL Server n’est généralement pas prise en charge dans SQL Database.
 
 ## <a name="transact-sql-syntax-partially-supported-in-sql-database"></a>Syntaxe Transact-SQL partiellement prises en charge dans SQL Database
-SQL Database prend en charge certains arguments qui existent dans les instructions Transact-SQL correspondantes pour SQL Server 2016. Par exemple, l’instruction `CREATE PROCEDURE` est disponible, tandis que toutes les options de `CREATE PROCEDURE` sont indisponibles. Décrire la syntaxe complète ici serait inapproprié et redondant. Reportez-vous aux rubriques sur la syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
+SQL Database prend en charge certains arguments qui existent dans les instructions Transact-SQL correspondantes pour SQL Server 2016 afin de gérer les bases de données et les connexions. Par exemple, l’instruction `CREATE DATABASE` est disponible dans Azure SQL Database, mais toutes les options prises en charge dans SQL Server ne le sont pas dans Azure SQL Database et vice versa. Reportez-vous aux rubriques sur la syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
 
-- Bases de données : [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)   
-- Fonctions : [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)   
+- Bases de données : [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/mt574871.aspx)   
 - Connexions : [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)   
-- Procédures stockées : [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)   
-- Tables : [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)   
-- Types (personnalisés) : [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
-- Utilisateurs : [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)   
-- Vues : [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)   
 
 ## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>Syntaxe Transact-SQL non prise en charge dans SQL Database   
 En plus des instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans [Considérations, directives et fonctionnalités relatives à Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge.
@@ -65,8 +59,8 @@ En plus des instructions Transact-SQL liées aux fonctionnalités non prises en 
 - Syntaxe pour les paramètres du serveur relatifs au matériel : mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc. Utilisez plutôt les niveaux de service.
 - `HAS_DBACCESS`
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT` et noms en quatre parties
--  [Intégration du CLR avec SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` et noms en quatre parties
+- [Intégration du CLR avec SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Recherche sémantique
 - Informations d’identification du serveur. Utilisez à la place les informations d’identification de niveau base de données.
 - Éléments au niveau du serveur : les rôles de serveur, `IS_SRVROLEMEMBER`, `sys.login_token`, `GRANT`, `REVOKE` et `DENY` des autorisations de niveau serveur ne sont pas disponibles, bien que certains soient remplacés par des autorisations au niveau base de données. Certaines vues de gestion dynamique utiles au niveau du serveur ont des vues de gestion dynamique équivalentes au niveau de la base de données.
@@ -90,9 +84,4 @@ Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transac
 La référence sur Transact-SQL comprend des rubriques relatives aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de la rubrique se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indique que l’instruction s’applique à **SQL Server (à partir de 2012)**. L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, à la base de données SQL Azure, à Azure SQL Data Warehouse ou à Parallel Data Warehouse.
 
 Dans certains cas, le sujet général d'une rubrique peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans la rubrique comme il convient.
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2eba5ecc41342b62601750c19e4bffd8b6e78b51
-ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
+ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
+ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -135,135 +136,9 @@ Pour référence, cette capture indique ce que vous devez obtenir :
 Pour plus d'informations sur la sécurité et FIPS, consultez [Synchronisation, cryptage et conformité à la norme FIPS du mot de passe AAD](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## <a name="troubleshooting-password-synchronization"></a>Dépannage de la synchronisation du mot de passe
-Si les mots de passe ne se synchronisent pas comme prévu, il peut s’agir d’un sous-ensemble d’utilisateurs ou de tous les utilisateurs.
-
-* Si vous rencontrez un problème avec des objets individuels, voir [Dépanner un objet qui bloque la synchronisation des mots de passe](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-* Si vous rencontrez un problème qui bloque la synchronisation des mots de passe, voir [Résoudre les problèmes bloquant la synchronisation des mots de passe](#troubleshoot-issues-where-no-passwords-are-synchronized).
-
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Dépanner un objet qui bloque la synchronisation des mots de passe
-Vous pouvez résoudre facilement les problèmes liés à la synchronisation des mots de passe en consultant l’état d’un objet.
-
-Lancez **Utilisateurs et ordinateurs Active Directory**. Recherchez l’utilisateur et vérifiez que la case **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session** n’est pas cochée.
-
-![Mots de passe productifs Active Directory](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-Si elle est cochée, demandez à l’utilisateur de se connecter et de modifier son mot de passe. Les mots de passe temporaires ne se synchronisent pas sur Azure AD.
-
-Si tout semble correct dans Active Directory, passez à l’étape suivante qui consiste à suivre l’utilisateur dans le moteur de synchronisation. En suivant l’utilisateur depuis le répertoire Active Directory local vers Azure AD, vous pouvez voir si un message d’erreur descriptif apparaît sur l’objet.
-
-1. Lancez **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Cliquez sur **Connecteurs**.
-3. Sélectionnez le **connecteur Active Directory** dans lequel se trouve l’utilisateur.
-4. Sélectionnez **Search Connector Space**(Rechercher espace connecteur).
-5. Localisez l’utilisateur que vous recherchez.
-6. Sélectionnez l’onglet **lignage** et assurez-vous qu’au moins une règle de synchronisation utilise la valeur **True** pour **Synchronisation de mot de passe**. Dans la configuration par défaut, le nom de la règle de synchronisation est **In from AD - User AccountEnabled**.  
-    ![Informations de lignage sur un utilisateur](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Vous devez également [suivre l’utilisateur](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) par le biais du métaverse vers l’espace connecteur Azure AD. L’objet d’espace connecteur doit avoir une règle sortante avec une **synchronisation de mot de passe** définie sur **True**. Dans la configuration par défaut, le nom de la règle de synchronisation est **Out to AAD - User Join**.  
-    ![Propriétés d’espace de connecteur d’un utilisateur](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. Pour afficher les détails de synchronisation de mot de passe de l’objet pour la semaine écoulée, cliquez sur **Journal...**.  
-    ![Détails d’un journal objet](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-    Si le journal de l’objet est vide, cela signifie qu’Azure AD Connect n’a pas pu lire le hachage de mot de passe à partir d’Active Directory. Recherchez des erreurs dans le journal des événements.
-
-La colonne Statut peut avoir les valeurs suivantes :
-
-| État | Description |
-| --- | --- |
-| Succès |Le mot de passe a été correctement synchronisé. |
-| FilteredByTarget |Le mot de passe est défini sur **L'utilisateur doit changer de mot de passe à la prochaine connexion**. Mot de passe n'a pas été synchronisé. |
-| NoTargetConnection |Aucun objet dans le métaverse ou dans l'espace de connecteur Azure AD. |
-| SourceConnectorNotPresent |Aucun objet trouvé dans l'espace de connecteur Active Directory local. |
-| TargetNotExportedToDirectory |L'objet dans l'espace de connecteur Azure AD n'a pas encore été exporté. |
-| MigratedCheckDetailsForMoreInfo |L'entrée de journal a été créée avant la version 1.0.9125.0 et est affichée dans son état hérité. |
-
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Résoudre les problèmes bloquant la synchronisation des mots de passe
-Commencez par exécuter le script dans la section [Obtenir l’état des paramètres de synchronisation de mot de passe](#get-the-status-of-password-sync-settings). Cela vous donne une vue d’ensemble de la configuration de la synchronisation de mot de passe.  
-![Sortie de script PowerShell à partir des paramètres de synchronisation de mot de passe](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-Si cette fonction n’est pas activée dans Azure AD ou si l’état du canal de synchronisation n’est pas activé, exécutez l’Assistant Installation d’Azure AD Connect. Sélectionnez **Personnaliser les options de synchronisation** et décochez la synchronisation de mot de passe. Cette modification désactive temporairement la fonction. Réexécutez l’Assistant, puis réactivez la synchronisation de mot de passe. Réexécutez le script pour vérifier que la configuration est correcte.
-
-Si le script indique qu’il n’y a aucune pulsation, exécutez le script [Déclencher une synchronisation complète de tous les mots de passe](#trigger-a-full-sync-of-all-passwords). Ce script peut également être utilisé pour d’autres scénarios dans lesquels la configuration est correcte, mais les mots de passe ne sont pas synchronisés.
-
-Si vous avez installé Azure AD Connect avec des paramètres personnalisés, vérifiez que vous avez accordé au compte utilisé par le connecteur Active Directory les autorisations « Répliquer les changements de répertoire » et « Répliquer tous les changements de répertoire ». Consultez la page sur les [comptes et autorisations](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) pour connaître toutes les autorisations requises par ce compte. Sans ces autorisations, le compte n’est pas autorisé à lire les hachages de mot de passe dans Active Directory.
-
-Consultez ensuite le journal des événements de l’application. S’il existe un problème général avec la synchronisation de mot de passe et que le service est opérationnel, comme vérifié au moyen des étapes précédentes, une erreur avec plus de détails doit s’afficher.
-
-#### <a name="get-the-status-of-password-sync-settings"></a>Obtenir l’état des paramètres de synchronisation de mot de passe
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Déclencher une synchronisation complète de tous les mots de passe
-Vous pouvez déclencher une synchronisation complète de tous les mots de passe à l’aide du script suivant :
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+Si vous avez des problèmes avec la synchronisation de mot de passe, consultez [Résolution des problèmes de synchronisation du mot de passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

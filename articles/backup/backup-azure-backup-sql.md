@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Sauvegarde Azure pour les charges de travail SQL Server à l'aide de DPM
+# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide de la Sauvegarde Azure.
 
 Pour sauvegarder des bases de données SQL Server dans Azure, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -158,9 +159,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 ### <a name="next-steps"></a>Étapes suivantes :
 •    [Sauvegarde Azure - FAQ](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

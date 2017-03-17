@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e95d00d0ff9bcb825bfe3fcc787386c8c8133c69
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ## <a name="account-for-growth"></a>Prendre la croissance en compte
 Vous pouvez calculer le nombre de nœuds en fonction de la valeur DB_Size que votre service doit atteindre selon vous, en plus de la valeur DB_Size avec laquelle vous avez commencé. Vous pouvez ensuite augmenter le nombre de nœuds à mesure que votre service se développe afin de ne pas surapprovisionner le nombre de nœuds. Toutefois, le nombre de partitions doit être basé sur le nombre de nœuds qui sont nécessaires quand vous exécutez votre service à croissance maximale.
 
-Il est judicieux d’avoir des ordinateurs supplémentaires disponibles à tout moment afin de pouvoir gérer les pics ou les défaillances inattendus (si, par exemple, plusieurs machines virtuelles tombent en panne).  Bien que la capacité supplémentaire doive être déterminée à l’aide de vos pics attendus, un bon point de départ consiste à réserver quelques machines virtuelles supplémentaires (5 à 10 % supplémentaires).
+Il est judicieux d’avoir des ordinateurs supplémentaires disponibles à tout moment afin de pouvoir gérer les pics ou les défaillances inattendus (si, par exemple, plusieurs machines virtuelles tombent en panne).  Bien que la capacité supplémentaire doive être déterminée à l’aide de vos pics attendus, un bon point de départ consiste à réserver quelques machines virtuelles supplémentaires (5 à&10; % supplémentaires).
 
 La proposition ci-dessus suppose un seul service avec état. Si vous avez plus d’un service avec état, vous devez ajouter la valeur DB_Size associée aux autres services dans l’équation. Vous pouvez également calculer le nombre de nœuds séparément pour chaque service avec état.  Votre service peut avoir des réplicas ou des partitions qui ne sont pas équilibrés. N’oubliez pas que certaines partitions peuvent également contenir plus de données que d’autres. Pour plus d’informations sur le partitionnement, consultez [l’article sur les meilleures pratiques de partitionnement](service-fabric-concepts-partitioning.md). Toutefois, l’équation précédente ne tient pas compte des partitions et des réplicas, car Service Fabric garantit que les réplicas sont répartis entre les nœuds de manière optimisée.
 
@@ -59,16 +60,11 @@ Ensuite, nous entrons une taille de machine virtuelle et le coût mensuel. Selon
 ![Feuille de calcul pour le calcul des coûts][Image1]
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez le [Partitionnement des services Service Fabric][10] pour en savoir plus sur le partitionnement de votre service.
+Consultez la page [Partitionnement des services Service Fabric][10] pour en savoir plus sur le partitionnement de votre service.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

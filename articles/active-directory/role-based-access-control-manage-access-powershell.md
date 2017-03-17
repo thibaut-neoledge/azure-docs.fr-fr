@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
-ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -26,12 +26,10 @@ ms.lasthandoff: 02/15/2017
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 Le contrôle d'accès en fonction du rôle (RBAC) dans l'API du portail Azure et l'API de gestion de ressources Azure permet une gestion très fine de l'accès à votre abonnement. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
-Avant d’utiliser PowerShell pour gérer le contrôle d’accès en fonction du rôle (RBAC), vous devez disposer des composants suivants :
+Pour pouvoir utiliser PowerShell afin de gérer le contrôle d’accès en fonction du rôle (RBAC), vous devez disposer des composants suivants :
 
 * Azure PowerShell, version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Applets de commande Azure Resource Manager. Installez les [applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) dans PowerShell.
@@ -132,13 +130,15 @@ Pour créer un rôle personnalisé, utilisez la commande ```New-AzureRmRoleDefin
 
 ## <a name="get-actions-from-particular-resource-provider"></a>Récupérer des Actions auprès d’un fournisseur de ressources donné
 Si vous créez des rôles personnalisés de A à Z, il est important de connaître toutes les opérations possibles auprès des fournisseurs de ressources.
-Vous pouvez le faire avec la commande ```Get-AzureRMProviderOperation```. Par exemple, si vous souhaitez vérifier toutes les opérations disponibles pour la machine virtuelle, la commande sera :
+Utilisez la commande ```Get-AzureRMProviderOperation``` pour obtenir ces informations.
+Par exemple, si vous souhaitez vérifier toutes les opérations disponibles pour la machine virtuelle, utilisez cette commande :
 
-```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
-
+```
+Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
+```
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Création d’un rôle avec PSRoleDefinitionObject
-Lorsque vous créez un rôle personnalisé à l’aide de PowerShell, vous pouvez commencer de zéro ou utiliser un des [rôles intégrés](role-based-access-built-in-roles.md) comme point de départ, cette dernière méthode étant celle utilisée dans l’exemple. Modifiez les attributs et ajoutez les propriétés *Actions*, *notActions*, ou les *étendues* de votre choix, puis enregistrez les modifications sous un nouveau rôle.
+Lorsque vous utilisez PowerShell pour créer un rôle personnalisé, vous pouvez commencer de zéro ou utiliser un des [rôles intégrés](role-based-access-built-in-roles.md) comme point de départ. L’exemple de cette section commence par un rôle intégré, puis le personnalise avec des privilèges supplémentaires. Modifiez les attributs et ajoutez les propriétés *Actions*, *notActions*, ou les *étendues* de votre choix, puis enregistrez les modifications sous un nouveau rôle.
 
 L’exemple suivant commence par le rôle *Collaborateur de machine virtuelle* et l’utilise pour créer un rôle personnalisé appelé *Opérateur de machine virtuelle*. Le nouveau rôle accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network*, ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements.
 
@@ -166,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Création d’un rôle avec le modèle JSON
-Un modèle JSON peut servir de définition source pour le rôle personnalisé. L’exemple suivant crée un rôle personnalisé qui autorise l’accès en lecture au stockage et aux ressources de calcul, ainsi que l’accès au support, et ajoute ce rôle à deux abonnements. Créez un fichier `C:\CustomRoles\customrole1.json` avec le contenu suivant. Notez que l’ID doit être défini sur `null` lors de la création du rôle, étant donné qu’un nouvel ID sera généré. 
+Un modèle JSON peut servir de définition source pour le rôle personnalisé. L’exemple suivant crée un rôle personnalisé qui autorise l’accès en lecture au stockage et aux ressources de calcul, ainsi que l’accès au support, et ajoute ce rôle à deux abonnements. Créez un fichier `C:\CustomRoles\customrole1.json` avec le contenu suivant. L’ID doit être défini sur `null` lors de la création du rôle, étant donné qu’un nouvel ID est automatiquement généré. 
 
 ```
 {
@@ -221,7 +221,7 @@ Set-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ### <a name="modify-role-with-json-template"></a>Modification d’un rôle avec le modèle JSON
-À l’aide du modèle JSON précédent, vous pouvez facilement modifier un rôle personnalisé existant pour ajouter ou supprimer des actions. Mettez à jour le modèle JSON et ajoutez l’action de lecture pour la mise en réseau comme indiqué ci-dessous. Notez que les définitions figurant dans le modèle ne sont pas cumulativement appliquées à une définition existante, ce qui veut dire que le rôle s’affiche exactement comme vous le spécifiez dans le modèle. Notez également que vous devez aussi mettre à jour l’ID avec l’ID du rôle. Si vous n’êtes pas certain de cette valeur, vous pouvez utiliser l’applet de commande `Get-AzureRmRoleDefinition` pour obtenir ces informations.
+À l’aide du modèle JSON précédent, vous pouvez facilement modifier un rôle personnalisé existant pour ajouter ou supprimer des actions. Mettez à jour le modèle JSON et ajoutez l’action de lecture pour la mise en réseau, comme l’indique l’exemple suivant. Les définitions figurant dans le modèle ne sont pas cumulativement appliquées à une définition existante, ce qui veut dire que le rôle s’affiche exactement comme vous le spécifiez dans le modèle. Vous devez aussi mettre à jour le champ ID avec l’ID du rôle. Si vous n’êtes pas certain de cette valeur, vous pouvez utiliser l’applet de commande `Get-AzureRmRoleDefinition` pour obtenir ces informations.
 
 ```
 {

@@ -4,7 +4,7 @@ description: "Décrit les bonnes pratiques de déploiement et de gestion de la b
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 242951777b80d249cb2e0ef4ec497c3447246c19
+ms.sourcegitcommit: 48f89fd53f88f7bd757265d248e5aa6e53ae8d38
+ms.openlocfilehash: 27cfc75c90a5ba0699af0491f52747e8a1ea711a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -48,7 +49,7 @@ Lorsque vous dimensionnez votre baie virtuelle StorSimple Virtual Array, tenez c
 
 * Réservation locale pour des volumes ou des partages. Environ 12 % de l’espace est réservé au niveau local pour chaque volume hiérarchisé et chaque partage à plusieurs niveaux alloué. Environ 10 % de l’espace est également réservé pour un volume épinglé localement pour le système de fichiers.
 * Charge des instantanés. Environ 15 % de l’espace au niveau local est réservé pour les instantanés.
-* Besoins liés aux restaurations. Si la restauration s’effectue en tant que nouvelle opération, le dimensionnement doit prendre en compte l’espace nécessaire pour la restauration. La restauration s’effectue sur un partage ou un volume de taille identique ou supérieure.
+* Besoins liés aux restaurations. Si la restauration s’effectue en tant que nouvelle opération, le dimensionnement doit prendre en compte l’espace nécessaire pour la restauration. La restauration s’effectue sur un partage ou un volume de même taille.
 * Une certaine mémoire tampon doit être allouée pour toute croissance inattendue.
 
 En fonction des facteurs précédents, les exigences de dimensionnement peuvent être représentées par l’équation suivante :
@@ -157,9 +158,9 @@ Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnemen
 
 * La taille des fichiers par rapport à la taille configurée d’un partage hiérarchisé peut affecter les performances de hiérarchisation. L'utilisation de fichiers volumineux peut entraîner une montée en charge lente. Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage.
 * Au plus, 16 volumes/partages peuvent être créés sur la baie virtuelle. S’ils sont épinglés localement, les volumes/partages peuvent avoir une taille comprise entre 50 Go et 2 To. S’ils sont hiérarchisés, les volumes/partages doivent avoir une taille comprise entre 500 Go et 20 To. 
-* Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Le volume ne peut pas être développé ultérieurement, mais vous pouvez toujours effectuer une restauration sur un volume plus important.
+* Lorsque vous créez un volume, tenez compte de la consommation des données attendue, ainsi que de la croissance future. Il ne sera pas possible de développer le volume par la suite.
 * Une fois que le volume a été créé, vous ne pouvez pas réduire la taille du volume sur StorSimple.
-* Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif que vous preniez des mesures correctives, en supprimant par exemple les données du volume ou en restaurant le volume sur un plus grand volume (l’expansion des volumes n’est pas prise en charge actuellement).
+* Lors de l’écriture sur un volume hiérarchisé sur StorSimple, lorsque les données du volume atteignent un certain seuil (par rapport à l’espace local réservé pour le volume), les E/S sont limitées. Continuer à écrire sur ce volume ralentit considérablement les E/S. Bien que vous puissiez écrire sur un volume hiérarchisé au-delà de sa capacité déployée (nous n’empêchons pas activement l’utilisateur d’écrire au-delà de la capacité déployée), une notification d’alerte apparaît lorsque vous effectuez une demande trop importante. Quand cette alerte apparaît, il est impératif de prendre des mesures correctives, en supprimant par exemple les données du volume (l’expansion des volumes n’est pas prise en charge actuellement).
 * Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO. 
 
 #### <a name="volumeshare-type"></a>Type de volume/partage
@@ -285,10 +286,5 @@ Il peut être nécessaire de déployer plusieurs baies virtuelles pour prendre e
 
 ## <a name="see-also"></a>Voir aussi
 Découvrez la [gestion de votre baie virtuelle StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) par le biais du service StorSimple Manager.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

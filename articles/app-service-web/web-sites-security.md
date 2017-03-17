@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,7 +55,7 @@ L’une des méthodes les plus simples pour démarrer les tests de vulnérabilit
 
 Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://security-forms.azure.com/penetration-testing/terms) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> Sécurisation des communications avec les clients
+## <a name="https"></a> Sécurisation des communications avec les clients
 Si vous utilisez le nom de domaine **\*.azurewebsites.net** créé pour votre application App Service, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine **\*.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](web-sites-custom-domain-name.md), vous pouvez charger un certificat SSL et [activer HTTPS](web-sites-configure-ssl-certificate.md) pour le domaine personnalisé.
 
 L’activation du protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protège la communication entre votre application et ses utilisateurs contre les attaques de l’intercepteur.
@@ -65,7 +65,7 @@ App Service est hautement intégré dans la base de données SQL, de sorte que t
 
 Si vous utilisez un fournisseur de base de données tiers, tels que ClearDB, vous devez consulter directement la documentation du fournisseur quant aux meilleures pratiques de sécurité.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> Déploiement et développement sécurisés
+## <a name="develop"></a> Déploiement et développement sécurisés
 ### <a name="publishing-profiles-and-publish-settings"></a>Profils et paramètres de publication
 Pendant le développement d’applications, la réalisation de tâches de gestion ou l’automatisation de tâches à l’aide d’utilitaires tels que **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou l’**interface de ligne de commande Azure (CLI Azure)**, vous pouvez utiliser un fichier de *paramètres de publication* ou de *profil de publication*. Les deux types de fichier vous authentifient auprès d’Azure et doivent être sécurisés pour empêcher tout accès non autorisé.
 

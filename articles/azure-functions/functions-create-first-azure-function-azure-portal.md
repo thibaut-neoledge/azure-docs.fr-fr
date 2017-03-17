@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: 996fc80ff926117dc12180efe1949b3dbeba3f91
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 4ee741cbec8db6b6400ff9f27daa2a0120bd2618
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,7 +46,12 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 
 3. Cliquez sur **Créer** pour configurer et déployer la nouvelle Function App.  
 
-Maintenant que la Function App est configurée, vous pouvez créer votre première fonction.
+### <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
+
+Lorsque vous créez une application de fonction, vous devez créer ou lier un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table. En interne, les fonctions Azure utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau du compte de stockage lors de la création d’une nouvelle application de fonction.
+Lorsque vous utilisez le plan d’hébergement de la consommation, le contenu de l’application de fonction (par exemple, les fichiers de code de fonction et la configuration de liaison) est stocké sur des partages de fichiers Azure dans le compte de stockage principal. Si vous supprimez le compte de stockage principal, ce contenu sera supprimé et ne peut pas être récupéré.
+
+Pour en savoir plus sur les types de compte de stockage, consultez la page [Présentation des services de stockage Azure] (.. / storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="create-a-function"></a>Créer une fonction
 Les étapes suivantes permettent de créer une fonction à partir du démarrage rapide Azure Functions.
@@ -56,6 +61,7 @@ Les étapes suivantes permettent de créer une fonction à partir du démarrage 
     ![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
 
 2. (Facultatif) À ce stade du démarrage rapide, vous pouvez suivre une visite rapide des fonctionnalités Azure Functions dans le portail.    Après avoir terminé ou ignoré la visite, vous pouvez tester votre nouvelle fonction à l’aide du déclencheur HTTP.
+
 
 ## <a name="test-the-function"></a>Tester la fonction
 [!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]

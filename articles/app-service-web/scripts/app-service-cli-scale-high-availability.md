@@ -16,9 +16,9 @@ ms.workload: web
 ms.date: 02/21/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: c23bab16ee8bf771f4af44abc94e958f512d5390
-ms.openlocfilehash: db94d24e6f4efc0e49e0adbcc7a8de851be87586
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 47f728b2ad730fe7b0907cda461e5a6d349da34f
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -34,13 +34,7 @@ Cet exemple fonctionne dans une interface d’interpréteur de commandes Bash. P
 
 [!code-azurecli[principal](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Échelle géographique")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
-
-Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, l’application App Service et toutes les ressources associées.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explication du script
 

@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 82e359621b18f6fd2f90b34799212006426cbc94
-ms.openlocfilehash: acd226c2eee8216843b68e322f6880de45a26b9a
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -39,13 +40,13 @@ HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
-* [cURL][curl]. Pour l’installer, consultez la page [Versions et téléchargements de cURL][curl-download].
+* [cURL][curl] est facultatif. Pour l’installer, consultez [Versions et téléchargements de cURL][curl-download].
   
   > [!NOTE]
   > Lorsque vous utilisez la commande cURL sous Windows, remplacez les guillemets simples par des guillemets doubles pour exprimer la valeur des options.
   > 
   > 
-* Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement de clusters, consultez le didacticiel [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+* Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement des clusters, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
   
   | Propriété du cluster | Nom de la variable Azure PowerShell | Valeur | Description |
   | --- | --- | --- | --- |
@@ -147,7 +148,7 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 * [Gestion des clusters HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Gestion des clusters HDInsight à l’aide d’Azure PowerShell][hdinsight-admin-powershell]
-* [Gestion des clusters HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
+* [Gestion de clusters HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Documentation HDInsight][hdinsight-documentation]
 * [Prise en main de HDInsight][hdinsight-get-started]
 
@@ -159,7 +160,7 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
@@ -170,9 +171,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

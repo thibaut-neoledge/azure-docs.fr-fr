@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/11/2016
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: a8e374c247be49d4b1390fb4061b4c9b1311f58a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -104,6 +104,20 @@ Voici les composants nécessaires pour la récupération d’urgence de machines
 | --- | --- |
 | **Virtual Machine Manager** |  Nous vous recommandons de déployer un serveur Virtual Machine Manager sur le site principal et un serveur Virtual Machine Manager sur le site secondaire.<br/><br/> Vous pouvez [effectuer la réplication entre des clouds sur un seul serveur VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Pour ce faire, vous avez besoin d’au moins deux clouds configurés sur le serveur VMM.<br/><br/> Les serveurs VMM doivent exécuter au moins System Center 2012 SP1 avec les dernières mises à jour.<br/><br/> Chaque serveur VMM doit être associé à un ou plusieurs clouds configurés. Le profil Capacité Hyper-V doit être défini pour tous les clouds. <br/><br/>Les clouds doivent comporter un ou plusieurs groupes d’hôtes Virtual Machine Manager. Pour plus d’informations sur la configuration des clouds VMM, voir [Préparer le déploiement d’Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Les serveurs Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.<br/><br/> Un serveur Hyper-V doit contenir au moins une machine virtuelle.<br/><br/>  Les serveurs hôtes Hyper-V doivent être situés dans des groupes hôtes dans les clouds VMM principaux et secondaires.<br/><br/> Si vous exécutez Hyper-V dans un cluster Windows Server 2012 R2, nous vous recommandons d’installer la [mise à jour 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si vous exécutez Hyper-V dans un cluster sous Windows Server 2012, notez que le répartiteur de clusters n’est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Vous devez configurer manuellement le répartiteur de clusters. Pour plus d’informations sur le répartiteur de clusters, consultez [Configure replica broker role cluster to cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) (Configurer la réplication de cluster à cluster du rôle du service Broker de réplication). |
-
 | **Fournisseur** | Pendant un déploiement de Site Recovery, installez le fournisseur Azure Site Recovery sur les serveurs VMM. Le fournisseur communique avec Site Recovery sur le port HTTPS 443 pour orchestrer la réplication. La réplication des données a lieu entre les serveurs Hyper-V principaux et secondaires via le réseau local ou une connexion VPN.<br/><br/> Le fournisseur exécuté sur le serveur VMM doivent accéder aux URL suivantes :<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Le fournisseur doit autoriser la communication à travers le pare-feu entre les serveurs VMM et les [plages IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et autoriser le protocole HTTPS (443). |
+
+
+## <a name="url-access"></a>Accès URL
+Ces URL doivent être disponibles depuis VMware, VMM et les serveurs hôtes Hyper-V.
+
+|**URL** | **VMM vers VMM** | **VMM vers Azure** | **Hyper-V vers Azure** | **VMware vers Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | AUTORISER | Autoriser | Autoriser | Autoriser |
+|``*.backup.windowsazure.com`` | Non requis | Autoriser | Autoriser | Autoriser |
+|``*.hypervrecoverymanager.windowsazure.com`` | Autoriser | Autoriser | Autoriser | Autoriser |
+|``*.store.core.windows.net`` | Autoriser | Autoriser | Autoriser | Autoriser |
+|``*.blob.core.windows.net`` | Non requis | Autoriser | Autoriser | Autoriser |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Non requis | Non requis | Non requis | Autoriser le téléchargement SQL |
+|``time.windows.com`` | AUTORISER | Autoriser | Autoriser | Autoriser|
+|``time.nist.gov`` | Autoriser | Autoriser | Autoriser | AUTORISER |
 

@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser Azure App Service et Azure Notificatio
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f8c46fa5fba1e69382a383ff94700de07db4ab
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 5c9dd6bd1f9e6338c297af07bfcd1c22f8d6405d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -34,25 +35,25 @@ Ce didacticiel requiert les éléments suivants :
 * Un compte Google actif. Vous pouvez vous connecter à un compte Google sur [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * Le composant client [Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurer un nouveau hub de notification
+## <a name="configure-hub"></a>Configurer un nouveau hub de notification
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a name="a-idregisteraenable-firebase-cloud-messaging"></a><a id="register"></a>Activation de Firebase Cloud Messaging
+## <a id="register"></a>Activation de Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-azure-to-send-push-requests"></a>Configuration d’Azure pour l’envoi de demandes push
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a name="a-idupdate-serveraupdate-the-server-project-to-send-push-notifications"></a><a id="update-server"></a>Mettre à jour le projet de serveur pour l’envoi de notifications Push
+## <a id="update-server"></a>Mettre à jour le projet de serveur pour l’envoi de notifications Push
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="a-idconfigure-appaconfigure-the-client-project-for-push-notifications"></a><a id="configure-app"></a>Configurer le projet client pour les notifications push
+## <a id="configure-app"></a>Configurer le projet client pour les notifications push
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a name="a-idadd-pushaadd-push-notifications-code-to-your-app"></a><a id="add-push"></a>Ajouter le code des notifications push à votre application
+## <a id="add-push"></a>Ajouter le code des notifications push à votre application
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Tester les notifications push dans votre application
+## <a name="test"></a>Tester les notifications push dans votre application
 Vous pouvez tester l’application à l’aide d’un appareil virtuel dans l’émulateur. Des étapes de configuration supplémentaires sont requises lors de l’exécution sur un émulateur.
 
 1. Assurez-vous de procéder au déploiement ou au débogage sur un périphérique virtuel sur lequel les API Google sont définis comme cible, comme indiqué dans le Gestionnaire d’appareil virtuel Android (AVD).
@@ -66,12 +67,7 @@ Vous pouvez tester l’application à l’aide d’un appareil virtuel dans l’
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 <!-- URLs. -->
-[Démarrage rapide Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-[Composant Client Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
+[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 

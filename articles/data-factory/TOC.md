@@ -62,12 +62,12 @@
 ### [Activité Pig HDInsight](data-factory-pig-activity.md)
 ### [Activité MapReduce HDInsight](data-factory-map-reduce.md)
 ### [Activité de diffusion en continu HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Activité HDInsight Spark](data-factory-spark.md)
 ### [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 ### [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 ### [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 ### [Activité personnalisée .NET](data-factory-use-custom-activities.md)
-### [Appeler des programmes Spark](data-factory-spark.md)
 ### [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Développement
 ### [Modèle Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 3/01/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 > [!div class="op_single_selector"]
 > * [Gérer l’accès par utilisateur ou par groupe](role-based-access-control-manage-assignments.md)
 > * [Gérer l’accès par ressource](role-based-access-control-configure.md)
-> 
-> 
 
 Avec le contrôle d’accès en fonction du rôle (RBAC), intégré à la version préliminaire d’Azure Active Directory, vous pouvez gérer l’accès à vos ressources Azure. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
 
@@ -48,7 +47,7 @@ Pour rechercher les affectations d’accès d’un utilisateur ou d’un groupe 
 4. Sélectionnez **Ressources Azure** sur le panneau de l’utilisateur. Toutes les affectations d’accès de cet utilisateur s’affichent.
 
 ### <a name="read-permissions-to-view-assignments"></a>Autorisations de lecture pour afficher les affectations
-Cette page affiche uniquement les affectations d’accès que vous êtes autorisé à lire. Par exemple, vous avez un accès en lecture à l’abonnement A et vous allez sur le panneau des ressources Azure pour consulter les affectations d’un utilisateur. Vous pouvez voir ses affectations d’accès pour l’abonnement A, mais vous ne verrez pas qu’il a également des affectations d’accès à l’abonnement B.
+Cette page affiche uniquement les affectations d’accès que vous êtes autorisé à lire. Par exemple, vous avez un accès en lecture à l’abonnement A et vous allez sur le panneau des ressources Azure pour consulter les affectations d’un utilisateur. Vous pouvez voir ses affectations d’accès pour l’abonnement A, mais vous ne pouvez pas voir qu’il a également des affectations d’accès dans l’abonnement B.
 
 ## <a name="delete-access-assignments"></a>Supprimer des affectations d’accès
 Sur ce panneau, vous pouvez supprimer les affectations d’accès affectées directement à un utilisateur ou un groupe. Si l’affectation d’accès a été héritée d’un groupe parent, vous devez accéder à la ressource ou l’abonnement et y gérer l’affectation.
@@ -57,13 +56,9 @@ Sur ce panneau, vous pouvez supprimer les affectations d’accès affectées dir
 2. Sélectionnez **Supprimer**, puis **Oui** pour confirmer.
     ![Supprimer l’affectation de l’accès - capture d’écran](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="related-topics"></a>Rubriques connexes
+## <a name="next-steps"></a>Étapes suivantes
+
 * Familiarisez-vous avec le contrôle d’accès en fonction du rôle afin [d’Utiliser les affectations de rôle pour gérer l’accès à vos ressources d’abonnement Azure](role-based-access-control-configure.md)
 * Consultez les [rôles RBAC intégrés](role-based-access-built-in-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

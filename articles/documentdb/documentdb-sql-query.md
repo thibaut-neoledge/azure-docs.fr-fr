@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/22/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
+ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
+ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,62 +40,65 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 
 Revenez ensuite à cet article où nous commencerons avec un didacticiel sur les requêtes SQL pour vous montrer quelques documents JSON et commandes SQL simples.
 
-## <a name="getting-started-with-sql-commands-in-documentdb"></a>Prise en main des commandes du langage SQL (Structured Query Language) dans DocumentDB
+## <a id="GettingStarted"></a>Prise en main des commandes du langage SQL (Structured Query Language) dans DocumentDB
 Pour voir comment le langage SQL de DocumentDB fonctionne, nous allons commencer par quelques documents JSON simples sur lesquels nous allons appliquer certaines requêtes simples. Prenez ces deux documents JSON relatifs à deux familles. Notez qu'avec DocumentDB, nous n'avons pas besoin de créer de schéma ou d'index secondaire de façon explicite. Nous devons simplement insérer les documents JSON dans une collection DocumentDB et ensuite les interroger. Nous avons ici un document JSON simple pour la famille Andersen, les parents, les enfants (et leurs animaux), l'adresse et les informations d'enregistrement. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées. 
 
 **Document**  
 
-    {
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }
-
+```JSON
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow", 
+         "gender": "female", 
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 Voici un second document comportant une différence subtile : `givenName` et `familyName` sont utilisés au lieu de `firstName` et `lastName`.
 
 **Document**  
 
-    {
-        "id": "WakefieldFamily",
-        "parents": [
-            { "familyName": "Wakefield", "givenName": "Robin" },
-            { "familyName": "Miller", "givenName": "Ben" }
-        ],
-        "children": [
-            {
-                "familyName": "Merriam", 
-                "givenName": "Jesse", 
-                "gender": "female", "grade": 1,
-                "pets": [
-                    { "givenName": "Goofy" },
-                    { "givenName": "Shadow" }
-                ]
-            },
-            { 
-                "familyName": "Miller", 
-                 "givenName": "Lisa", 
-                 "gender": "female", 
-                 "grade": 8 }
-        ],
-        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-        "creationDate": 1431620462,
-        "isRegistered": false
-    }
-
-
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 À présent, appliquons quelques requêtes sur ces données pour comprendre certains aspects clés du langage SQL de DocumentDB. Par exemple, la requête suivante va retourner les documents dans lesquels le champ ID correspond à `AndersenFamily`. Comme il s’agit d’un `SELECT *`, le résultat de la requête est le document JSON complet :
 
@@ -168,7 +172,7 @@ Nous aimerions attirer votre attention sur quelques aspects importants du langag
 * DocumentDB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Reportez-vous à la [spécification JSON](http://www.json.org/) pour plus de détails.  
 * Une collection DocumentDB est un conteneur sans schéma pour vos documents JSON. Les relations des entités de données dans et entre les documents d'une collection sont capturées de façon implicite par le contenant et non par les relations de clé primaire et de clé étrangère. Cet aspect est important dans le cadre des liaisons entre documents (ce sujet est abordé plus loin dans cet article).
 
-## <a name="documentdb-indexing"></a>Indexation DocumentDB
+## <a id="Indexing"></a> Indexation DocumentDB
 Avant d’aborder la syntaxe SQL de DocumentDB, nous allons présenter la conception de l’indexation de DocumentDB. 
 
 L'objectif des index de base de données est de servir les requêtes dans leurs différents formulaires et formes tout en consommant un minimum de ressources (comme le temps processeur ou les E/S) et en fournissant un bon débit et une faible latence. Souvent, le choix des index adéquats pour l'interrogation d'une base de données requiert une planification et une expérimentation importantes. Cette approche constitue un défi pour les bases de données sans schéma, où les données ne sont pas conformes à un schéma strict et évoluent rapidement. 
@@ -183,16 +187,16 @@ C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de Docum
 
 Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la syntaxe SQL de DocumentDB.
 
-## <a name="basics-of-a-documentdb-sql-query"></a>Principes de base d’une requête SQL DocumentDB
+## <a id="Basics"></a>Principes de base d’une requête SQL DocumentDB
 Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facultatives conformes aux normes ANSI-SQL. Généralement, pour chaque requête, la source de la clause FROM est énumérée. Puis le filtre de la clause WHERE est appliqué sur la source pour extraire un sous-ensemble de documents JSON. Finalement, la clause SELECT est utilisée pour projeter les valeurs JSON demandées dans la liste sélectionnée.
 
-    SELECT [TOP <top_expression>] <select_list> 
+    SELECT <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
 
 
-## <a name="from-clause"></a>Clause FROM
+## <a id="FromClause"></a>Clause FROM
 La clause `FROM <from_specification>` est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. L'objectif de cette clause est de spécifier la source des données à partir de laquelle la requête doit fonctionner. Généralement, l'intégralité de la collection est la source, mais parfois, il peut s'agir plutôt d'un sous-ensemble de la collection. 
 
 Une requête telle que `SELECT * FROM Families` indique que l’intégralité de la collection Families est la source de l’énumération. Un identificateur ROOT spécial peut être utilisé pour représenter la collection au lieu d'utiliser le nom de la collection. La liste suivante contient les règles appliquées par requête :
@@ -255,7 +259,7 @@ Même si la source est un tableau dans l'exemple précédent, il est possible d'
     ]
 
 
-## <a name="where-clause"></a>Clause WHERE
+## <a id="WhereClause"></a>Clause WHERE
 La clause WHERE (**`WHERE <filter_condition>`**) est facultative. Elle indique les conditions que doivent respecter les documents JSON fournis par la source pour être inclus dans le résultat. Chaque document JSON doit évaluer les conditions indiquées sur « true » pour être inclus dans le résultat. La clause WHERE est utilisée par la couche d'index pour déterminer le sous-ensemble le plus petit absolu de documents sources pouvant appartenir au résultat. 
 
 La requête suivante demande des documents qui contiennent une propriété name dont la valeur est `AndersenFamily`. Tous les documents n’ayant pas la propriété name ou ceux dont la valeur de la propriété name ne correspond pas à `AndersenFamily` sont exclus. 
@@ -586,7 +590,7 @@ Vous pouvez utiliser l’opérateur Coalesce (?) pour vérifier la présence d�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a name="quoted-property-accessor"></a>Accesseur de propriété entre guillemets
+### <a id="EscapingReservedKeywords"></a>Accesseur de propriété entre guillemets
 Vous pouvez également accéder aux propriétés à l’aide de l’opérateur de propriété entre guillemets `[]`. Par exemple, `SELECT c.grade` and `SELECT c["grade"]` sont équivalentes. Cette syntaxe est utile si vous devez placer dans une séquence d’échappement une propriété qui contient des espaces, des caractères spéciaux, ou qui partage le même nom qu’un mot clé SQL ou un mot réservé.
 
     SELECT f["lastName"]
@@ -594,7 +598,7 @@ Vous pouvez également accéder aux propriétés à l’aide de l’opérateur d
     WHERE f["id"] = "AndersenFamily"
 
 
-## <a name="select-clause"></a>Clause SELECT
+## <a id="SelectClause"></a>Clause SELECT
 La clause SELECT (**`SELECT <select_list>`**) est obligatoire et indique les valeurs à récupérer à partir de la requête, comme dans ANSI-SQL. Le sous-ensemble filtré au début des documents source est transmis à la phase de projection, où les valeurs JSON spécifiées sont récupérées et un nouvel objet JSON est construit, pour chaque entrée qui lui est transmise. 
 
 L'exemple ci-dessous illustre une requête SELECT classique. 
@@ -771,7 +775,7 @@ Une autre fonctionnalité clé du langage SQL de DocumentDB est la possibilité 
       }
     ]
 
-### <a name="value-keyword"></a>Mot clé VALUE
+### <a id="ValueKeyword"></a>Mot clé VALUE
 Le mot clé **VALUE** fournit une méthode pour renvoyer une valeur JSON. Par exemple, la requête indiquée ci-dessous renvoie le scalaire `"Hello World"` au lieu de `{$1: "Hello World"}`.
 
 **Requête**
@@ -851,7 +855,7 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
         "isRegistered": true
     }]
 
-### <a name="top-operator"></a>Opérateur TOP
+### <a id="TopKeyword"></a>Opérateur TOP
 Le mot clé TOP peut être utilisé pour limiter le nombre de valeurs provenant d'une requête. Lorsque TOP est utilisé conjointement avec la clause ORDER BY, le jeu de résultats est limité aux N premières valeurs ordonnées ; sinon, il retourne les N premiers résultats dans un ordre non défini. En tant que meilleure pratique, dans une instruction SELECT, utilisez toujours une clause ORDER BY avec la clause TOP. Il s'agit de la seule façon d'indiquer de manière prévisible les lignes qui sont affectées par TOP. 
 
 **Requête**
@@ -881,7 +885,64 @@ Le mot clé TOP peut être utilisé pour limiter le nombre de valeurs provenant 
 
 L’opérateur TOP peut être utilisé avec une valeur constante (comme indiqué ci-dessus) ou avec une valeur variable à l'aide de requêtes paramétrables. Pour plus d'informations, consultez les requêtes paramétrables ci-dessous.
 
-## <a name="order-by-clause"></a>Clause ORDER BY
+### <a id="Aggregates"></a>Fonctions d’agrégation
+Vous pouvez également effectuer des agrégations dans la clause `SELECT`. Les fonctions d’agrégation effectuent un calcul sur un ensemble de valeurs et renvoient une valeur unique. Par exemple, la requête suivante renvoie le nombre de documents de famille que contient la collection.
+
+**Requête**
+
+    SELECT COUNT(1) 
+    FROM Families f 
+
+**Résultats**
+
+    [{
+        "$1": 2
+    }]
+
+Vous pouvez également renvoyer la valeur scalaire de l’agrégation à l’aide du mot clé `VALUE`. Par exemple, la requête suivante renvoie le nombre de valeurs sous forme de nombre unique :
+
+**Requête**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f 
+
+**Résultats**
+
+    [ 2 ]
+
+Vous pouvez également effectuer des agrégations en appliquant des filtres simultanément. Par exemple, la requête suivante renvoie le nombre de documents avec une adresse dans l’état de Washington.
+
+**Requête**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f
+    WHERE f.address.state = "WA" 
+
+**Résultats**
+
+    [{
+        "$1": 1
+    }]
+
+Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans DocumentDB. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null. 
+
+| Usage | Description |
+|-------|-------------|
+| COUNT | Renvoie le nombre d’éléments que contient l’expression. |
+| SUM   | Renvoie la somme de toutes les valeurs de l’expression. |
+| MIN   | Renvoie la valeur minimale de l’expression. |
+| MAX   | Renvoie la valeur maximale de l’expression. |
+| MOY   | Renvoie la moyenne des valeurs de l’expression. |
+
+Il est également possible d’effectuer des agrégations sur les résultats d’une itération de tableau. Pour plus d’informations, consultez [Itération de tableau dans les requêtes](#Iteration).
+
+> [!NOTE]
+> Lorsque vous utilisez l’Explorateur de requêtes du portail Azure, notez que les requêtes d’agrégation peuvent renvoyer les résultats partiellement agrégés sur une page de requête. Les kits de développement logiciel (SDK) génèreront une valeur cumulée unique sur toutes les pages. 
+> 
+> Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du SDK .NET 1.12.0, du SDK .NET Core 1.1.0 ou du SDK Java 1.9.5 ou version ultérieure.    
+>
+
+## <a id="OrderByClause"></a>Clause ORDER BY
 Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés.
 
 Par exemple, voici une requête qui récupère les familles dans l'ordre de la ville de résidence.
@@ -926,8 +987,9 @@ Et voici une requête qui récupère les familles suivant l'ordre de la date de 
       }
     ]
 
-## <a name="advanced-database-concepts-and-sql-queries"></a>Concepts avancés de base de données et requêtes SQL
-### <a name="iteration"></a>Itération
+## <a id="Advanced"></a>Concepts avancés de base de données et requêtes SQL
+
+### <a id="Iteration"></a>Itération
 Une nouvelle construction a été ajoutée via le mot clé **IN** de SQL DocumentDB pour prendre en charge l’itération sur les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
 
 **Requête**
@@ -1006,7 +1068,22 @@ Cette utilisation peut être généralisée pour filtrer chaque entrée du table
       "givenName": "Lisa"
     }]
 
-### <a name="joins"></a>Jointures
+Vous pouvez également effectuer une agrégation sur le résultat de l’itération de tableau. Par exemple, la requête suivante compte le nombre d’enfants parmi toutes les familles.
+
+**Requête**
+
+    SELECT COUNT(child) 
+    FROM child IN Families.children
+
+**Résultats**  
+
+    [
+      { 
+        "$1": 3
+      }
+    ]
+
+### <a id="Joins"></a>Jointures
 Dans une base de données relationnelle, il est très important de joindre les tables. Ceci est la conséquence logique de la conception de schémas normalisés. Au contraire, DocumentDB traite les modèles de données dénormalisés de documents sans schéma. Il s'agit de l'équivalent logique d'une « jointure réflexive ».
 
 La syntaxe prise en charge par le langage est la suivante : <from_source1> JOIN <from_source2> JOIN… JOIN <from_sourceN>. D’une façon générale, ceci renvoie un ensemble de **N**-tuples (un tuple avec **N** valeurs). Les valeurs de chaque tuple sont produites par l'itération de tous les alias de la collection sur leurs ensembles respectifs. En d'autres termes, il s'agit d'un produit croisé complet des ensembles participants à la jointure.
@@ -1155,13 +1232,13 @@ L’exemple suivant ajoute un filtre supplémentaire sur `pet`. Ceci exclut tous
     ]
 
 
-## <a name="javascript-integration"></a>Intégration JavaScript
+## <a id="JavaScriptIntegration"></a>Intégration JavaScript
 DocumentDB fournit un modèle de programmation pour l'exécution de la logique d'application JavaScript directement sur les collections en termes de procédures stockées et de déclencheurs. Ceci permet pour les deux :
 
 * La possibilité d'effectuer des CRUD transactionnels à hautes performances et d'interroger les documents d'une collection grâce à l'intégration approfondie de l'exécution JavaScript directement dans le moteur de base de données. 
 * Une modélisation naturelle du flux de contrôle, de l'étendue des variables, de l'attribution et de l'intégration des primitives de gestion d'exception avec des transactions de base de données. Pour plus de détails sur la prise en charge DocumentDB pour l'intégration JavaScript, veuillez consulter la documentation sur la programmation côté serveur de JavaScript.
 
-### <a name="user-defined-functions-udfs"></a>Fonctions définies par l'utilisateur
+### <a id="UserDefinedFunctions"></a>Fonctions définies par l’utilisateur
 En plus des types déjà définis dans cet article, SQL de DocumentDB prend en charge les fonctions définies par l'utilisateur. En particulier, les fonctions définies par l'utilisateur scalaires sont prises en charge pour que les développeurs puissent transmettre de nombreux arguments ou aucun, puis renvoyer un seul argument en retour. La légalité des valeurs JSON de chacun de ces arguments est vérifiée.  
 
 La syntaxe du langage SQL de DocumentDB est étendue pour prendre en charge la logique d’application personnalisée à l’aide de ces fonctions définies par l’utilisateur. Ces dernières peuvent être enregistrées avec DocumentDB, puis référencées dans le cadre d'une requête SQL. En fait, les fonctions définies par l'utilisateur sont conçues avec soin pour pouvoir être appelées par des requêtes. En conséquence, les fonctions définies par l'utilisateur ne peuvent pas accéder à l'objet de contexte que possèdent les autres types JavaScript (procédures stockées, déclencheurs). Comme les requêtes s'exécutent en lecture seule, elles peuvent démarrer sur des réplicas principaux ou secondaires. Par conséquent, les fonctions définies par l'utilisateur sont conçues pour être exécutées sur des réplicas secondaires, contrairement à d'autres types JavaScript.
@@ -1310,7 +1387,7 @@ L'argument de l’opérateur TOP peut être défini à l'aide de requêtes param
 
 Les valeurs de paramètres peuvent être n'importe quel format JSON valide (chaînes, nombres, valeurs booléennes, null, même des tableaux ou des valeurs JSON imbriquées). De plus, comme DocumentDB est sans schéma, les paramètres ne sont pas validés par rapport à un type.
 
-## <a name="built-in-functions"></a>Fonctions intégrées
+## <a id="BuiltinFunctions"></a>Fonctions intégrées
 DocumentDB prend également en charge plusieurs fonctions intégrées pour des opérations courantes. Ces fonctions s'utilisent dans les requêtes comme les fonctions définies par l'utilisateur.
 
 | Groupe de fonctions          | Opérations                                                                                                                                          |
@@ -1319,7 +1396,7 @@ DocumentDB prend également en charge plusieurs fonctions intégrées pour des o
 | Fonctions de vérification du type | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED et IS_PRIMITIVE                                                           |
 | Fonctions de chaîne        | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING et UPPER       |
 | Fonctions de tableau         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH et ARRAY_SLICE                                                                                         |
-|  Fonctions spatiales      | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID et ST_ISVALIDDETAILED                                                                           | 
+| Fonctions spatiales       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID et ST_ISVALIDDETAILED                                                                           | 
 
 Si vous utilisez actuellement une fonction définie par l'utilisateur pour laquelle une fonction intégrée est désormais disponible, remplacez-la par la fonction intégrée correspondante, car celle-ci s'exécutera plus rapidement et sera plus performante. 
 
@@ -1535,7 +1612,7 @@ DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortiu
 
 <table>
 <tr>
-  <td><strong>Usage</strong></td>
+  <td><strong>Utilisation</strong></td>
   <td><strong>Description</strong></td>
 </tr>
 <tr>
@@ -1576,7 +1653,7 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
 
 Pour plus d’informations sur la prise en charge géospatiale dans DocumentDB, consultez [Utilisation de données géospatiales dans Azure DocumentDB](documentdb-geospatial.md). Cela inclut les fonctions spatiales et la syntaxe SQL pour DocumentDB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la syntaxe que nous avons vue jusqu’à présent.
 
-## <a name="linq-to-documentdb-sql"></a>LINQ vers le langage SQL de DocumentDB
+## <a id="Linq"></a>LINQ vers le langage SQL de DocumentDB
 LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requête sur des flux d'objets. DocumentDB fournit une bibliothèque côté client pour interagir avec LINQ en facilitant la conversion entre les objets JSON et .NET et un mappage à partir d'un sous-ensemble de requêtes LINQ vers des requêtes DocumentDB. 
 
 L'image suivante illustre l'architecture de prise en charge des requêtes LINQ à l'aide de DocumentDB.  En utilisant le client DocumentDB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de DocumentDB, qui traduit alors les requêtes LINQ en requêtes DocumentDB. Ces requêtes sont ensuite transmises au serveur DocumentDB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
@@ -1685,13 +1762,13 @@ D'abord, pour le système de type, nous prenons en charge tous les types JSON pr
      new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an étant un type anonyme avec 2 champs              
      new int[] { 3, child.grade, 5 };
 
-### <a name="list-of-supported-linq-operators"></a>Liste des opérateurs LINQ pris en charge
+### <a id="SupportedLinqOperators"></a>Liste des opérateurs LINQ pris en charge
 Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inclus avec le Kit de développement logiciel .NET DocumentDB.
 
 * **Select**: les projections sont traduites en SQL SELECT, y compris la construction d'objets
 * **Where** : les filtres sont traduits en SQL WHERE et prennent en charge la traduction entre && , || et ! vers les opérateurs SQL
 * **SelectMany**: autorise le déroulement de tableaux vers la clause SQL JOIN. Peut être utilisé pour associer/imbriquer des expressions afin de filtrer les éléments de tableau
-* **OrderBy et OrderByDescending**: se traduit par ORDER BY croissant ou décroissant :
+* **OrderBy et OrderByDescending** : se traduit par ORDER BY dans l’ordre croissant/décroissant
 * **CompareTo**: se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes car ils ne sont pas comparables dans .NET
 * **Take**: se traduit par SQL TOP pour limiter les résultats provenant d'une requête
 * **Math Functions**: prend en charge la traduction de .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan et Truncate vers les fonctions SQL intégrées équivalentes.
@@ -1700,6 +1777,11 @@ Voici une liste des opérateurs LINQ pris en charge dans le fournisseur LINQ inc
 * **Geospatial Extension Functions**: prend en charge la traduction des méthodes stub Distance, Within, IsValid et IsValidDetailed vers les fonctions SQL intégrées équivalentes.
 * **User Defined Function Extension Function**: prend en charge la traduction de la méthode stub UserDefinedFunctionProvider.Invoke vers la fonction définie par l’utilisateur correspondante.
 * **Miscellaneous**: prend en charge la traduction des opérateurs conditionnels et coalesce. Peut traduire Contains en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
+
+> [!NOTE]
+> Les opérateurs d’agrégation **COUNT, SUM, MIN, MAX et AVG** ne sont pas pris en charge pour le moment, mais ils seront disponibles dans les versions ultérieures du Kit de développement logiciel (SDK).  
+> 
+> 
 
 ### <a name="sql-query-operators"></a>Opérateurs de requête SQL
 Voici certains exemples illustrant comment certains des opérateurs de requête LINQ standard sont traduits en requêtes DocumentDB.
@@ -1892,12 +1974,12 @@ Dans une requête imbriquée, la requête interne est appliquée à chaque élé
     WHERE c.familyName = f.parents[0].familyName
 
 
-## <a name="executing-sql-queries"></a>Exécution de requêtes SQL
+## <a id="ExecutingSqlQueries"></a>Exécution de requêtes SQL
 DocumentDB expose les ressources via une API REST qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, DocumentDB offre des bibliothèques de programmation pour plusieurs langages populaires comme .NET, Node.js, JavaScript et Python. L'API REST et les différentes bibliothèques prennent toutes en charge l'interrogation via SQL. Le Kit de développement logiciel (SDK) .NET prend en charge l'interrogation LINQ en plus du SQL.
 
 Les exemples suivants montrent comment créer une requête et la soumettre par rapport à un compte de base de données DocumentDB.
 
-### <a name="rest-api"></a>API REST
+### <a id="RestAPI"></a>API REST
 DocumentDB fournit un modèle de programmation RESTful ouvert sur HTTP. Vous pouvez approvisionner vos comptes de bases de données en utilisant un abonnement Azure. Le modèle de ressource de DocumentDB se compose d’ensembles de ressources sous un compte de base de données, toutes adressables via un URI stable et logique. Dans ce document, de tels ensembles de ressources sont désignés sous le nom de « flux ». Un compte de base de données se compose d'un ensemble de bases de données. Chacune d'elles contient plusieurs collections et chaque collection contient des documents, des fonctions définies par l'utilisateur et d'autres types de ressources.
 
 Le modèle d'interaction de base avec ces ressources consiste à utiliser des verbes HTTP, tels que GET, PUT, POST et DELETE avec leur interprétation standard. Le verbe POST permet de créer une ressource, d'exécuter une procédure stockée ou d'émettre une requête DocumentDB. Les requêtes sont toujours des opérations en lecture seule sans effets secondaires.
@@ -2024,13 +2106,13 @@ Le deuxième exemple illustre une requête plus complexe qui renvoie plusieurs r
     }
 
 
-Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de liaison via l’en-tête de réponse `x-ms-continuation-token` . Les clients peuvent paginer les résultats en incluant l'en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l'en-tête de nombre `x-ms-max-item-count` .
+Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de liaison via l’en-tête de réponse `x-ms-continuation-token` . Les clients peuvent paginer les résultats en incluant l'en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l'en-tête de nombre `x-ms-max-item-count` . Si la requête spécifiée inclut une fonction d’agrégation telle que `COUNT`, la page de requête peut renvoyer une valeur partiellement agrégée sur la page de résultats. Les clients doivent effectuer une agrégation de deuxième niveau sur ces résultats pour produire les résultats finaux, par exemple, effectuer la somme des nombres renvoyés dans les pages individuelles pour renvoyer le nombre total.
 
 Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme pour toutes les requêtes d’API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. Notez que la stratégie d'indexation de la collection interrogée peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d'indexation par défaut, les collections de l'index sont toujours actualisées par rapport aux contenus du document et les résultats de la requête correspondront à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour plus d’informations, consultez la rubrique [Niveaux de cohérence dans DocumentDB][consistency-levels].
 
 Si la stratégie d'indexation configurée pour la collection ne peut pas prendre en charge la requête spécifiée, le serveur DocumentDB renvoie le code d'état 400 « Demande incorrecte ». Ce code est renvoyé pour les requêtes de plage par rapport aux chemins d'accès configurés pour les recherches (d'égalité) de hachage et pour les chemins d'accès explicitement exclus de l'indexation. L’en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
 
-### <a name="c-net-sdk"></a>Kit de développement logiciel (SDK) C# (.NET)
+### <a id="DotNetSdk"></a>Kit de développement logiciel (SDK) C# (.NET)
 Le Kit de développement logiciel (SDK) .NET prend en charge l'interrogation LINQ et SQL. L'exemple suivant illustre l'exécution d'une simple requête de filtre présentée précédemment dans ce document.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
@@ -2121,7 +2203,11 @@ Vous pouvez également contrôler explicitement la pagination en créant `IDocum
 
 Reportez-vous aux [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net) pour obtenir plus d’exemples de requête. 
 
-### <a name="javascript-server-side-api"></a>API JavaScript côté serveur
+> [!NOTE]
+> Pour effectuer des requêtes d’agrégation, vous avez besoin du SDK 1.12.0 ou version ultérieure. LINQ n’est pas pris en charge pour les fonctions d’agrégation mais il le sera dans le SDK .NET 1.13.0.
+>
+
+### <a id="JavaScriptServerSideApi"></a>API JavaScript côté serveur
 DocumentDB fournit un modèle de programmation pour l'exécution de la logique d'application JavaScript directement sur les collections utilisant des procédures stockées et des déclencheurs. La logique JavaScript enregistrée au niveau d'une collection peut alors émettre des opérations de base de données sur les opérations des documents d'une collection donnée. Ces opérations sont encapsulées dans les transactions ACID ambiantes.
 
 L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript côté serveur pour créer des requêtes depuis l'intérieur des procédures stockées et des déclencheurs.
@@ -2156,19 +2242,7 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
             });
     }
 
-## <a name="aggregate-functions"></a>Fonctions d’agrégation
-Nous travaillons sur la prise en charge native pour les fonctions d’agrégation, mais si vous avez besoin de fonctionnalités count ou sum en attendant, vous pouvez obtenir le même résultat à l’aide de différentes méthodes.  
-
-Sur le chemin de lecture :
-
-* Vous pouvez exécuter des fonctions d’agrégation en extrayant les données et en effectuant le décompte localement. Il est conseillé d’utiliser une projection de requête peu onéreuse comme `SELECT VALUE 1` plutôt qu’un document complet comme `SELECT * FROM c`. Cela permet de maximiser le nombre de documents traités dans chaque page de résultats, évitant ainsi les allers-retours supplémentaires vers le service si nécessaire.
-* Vous pouvez également utiliser une procédure stockée pour réduire la latence du réseau pour les allers-retours répétés. Pour un exemple de procédure stockée qui calcule le décompte d’une requête de filtre donnée, consultez [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). La procédure stockée peut permettre aux utilisateurs de combiner une logique d’entreprise riche et l’exécution d’agrégations de manière efficace.
-
-Sur le chemin d’écriture :
-
-* Une autre solution commune consiste à pré-agréger les résultats dans le chemin d’écriture. Cela est particulièrement intéressant lorsque le volume des demandes de lecture est supérieur à celui des demandes d’écriture. Une fois pré-agrégés, les résultats sont disponibles avec une requête de lecture à point unique.  La meilleure façon de pré-agréger dans DocumentDB consiste à définir un déclencheur qui est appelé avec chaque écriture et mettre à jour un document de métadonnées qui contient les derniers résultats de la requête qui est en cours de création. Par exemple, consultez l’exemple [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), qui met à jour les valeurs minSize, maxSize et totalSize du document de métadonnées pour la collection. L’exemple peut être étendu pour mettre à jour un compteur, une somme, etc.
-
-## <a name="references"></a>Références
+## <a id="References"></a>Références
 1. [Présentation d’Azure DocumentDB][introduction]
 2. [Spécification du langage SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Exemples .NET DocumentDB](https://github.com/Azure/azure-documentdb-net)
@@ -2186,10 +2260,4 @@ Sur le chemin d’écriture :
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

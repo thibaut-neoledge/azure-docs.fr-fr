@@ -15,9 +15,9 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -25,13 +25,13 @@ ms.lasthandoff: 02/21/2017
 Azure Government développe en permanence les services disponibles.  Ces services sont déployés avec le même code que celui utilisé dans Public Azure.  Cette section décrit les services qui sont actuellement disponibles sur Azure Government, notamment deux types d’informations essentiels :
 
 * **Variantes :** variations en raison de fonctionnalités qui n’ont pas encore été déployées, ou de propriétés propres à l’environnement d’administration (par exemple, les URL).  
-* **Considérations :** informations d’implémentation spécifiques d’Azure Government afin de s’assurer que les données restent dans les limites de la conformité.
+* **Considérations :** informations d’implémentation propres à Government afin de s’assurer que les données restent dans les limites de la conformité.
 
 Tout ce que vous devez savoir sur ces services figure dans leur documentation générale.
 
 Pour obtenir la liste actualisée des services, consultez les [produits par région](https://azure.microsoft.com/regions/services/). 
 
-Dans les tableaux ci-dessous, les services spécifiés comme compatibles avec Resource Manager ont des fournisseurs de ressources et peuvent être gérés à l’aide de PowerShell. Pour plus d’informations sur les fournisseurs Resource Manager, les versions d’API et les schémas, accédez [à cette page](../azure-resource-manager/resource-manager-supported-services.md). Les services spécifiés comme étant disponibles dans le portail peuvent être gérés dans [portail Azure Government](https://portal.azure.us/). 
+Dans les tableaux suivants, les services spécifiés comme compatibles avec Resource Manager ont des fournisseurs de ressources et peuvent être gérés à l’aide de PowerShell. Pour plus d’informations sur les fournisseurs Resource Manager, les versions d’API et les schémas, consultez [cette page](../azure-resource-manager/resource-manager-supported-services.md). Les services spécifiés comme étant disponibles dans le portail peuvent être gérés dans [portail Azure Government](https://portal.azure.us/). 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[Calcul](documentation-government-compute.md)
@@ -95,6 +95,12 @@ Dans les tableaux ci-dessous, les services spécifiés comme compatibles avec Re
 | [Cache Redis](documentation-government-services-database.md#azure-redis-cache) | Oui | Oui |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[Intelligence et analyse](documentation-government-services-intelligenceandanalytics.md)
+
+| Service | Resource Manager activé | Portail |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Oui | Oui |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | Non | Non (Portail d’administration Office 365) |
 
 
 ## <a name="internet-of-things-iot"></a>Internet des objets (IoT)
@@ -122,7 +128,6 @@ Dans les tableaux ci-dessous, les services spécifiés comme compatibles avec Re
 | Azure Active Directory | Oui | Oui |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Oui | Non (bientôt disponible) |
 | Multi-Factory Authentication | Oui | Oui |
-| InTune | Oui | Non |
 
 
 ## <a name="intelligence--analytics"></a>Intelligence et analyse

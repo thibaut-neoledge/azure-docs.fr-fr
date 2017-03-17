@@ -1,6 +1,7 @@
 ---
-title: "Transfert de propriété d’un abonnement Azure | Microsoft Docs"
-description: "Comment transférer un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
+title: "Transfert de la propriété de l’abonnement Azure à un autre compte | Microsoft Docs"
+description: "Décrit comment transférer un abonnement Azure à un autre utilisateur et Forum Aux Questions (FAQ) concernant la procédure"
+keywords: "transférer abonnement azure, azure transfert abonnement, déplacer un abonnement azure vers un autre compte, changer abonnement azure, transférer abonnement azure à un autre compte"
 services: 
 documentationcenter: 
 author: genlin
@@ -13,15 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/28/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1faa99b774d5f6cc4e4939ee465809710fd31524
-ms.openlocfilehash: 0cb3237f923faa32d77285775dafde55d678c7db
-
+ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
+ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="transferring-ownership-of-an-azure-subscription"></a>Transfert de propriété d’un abonnement Azure
+# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
 Vous pouvez transférer votre abonnement à un autre utilisateur pour les abonnements de type paiement à l’utilisation, Visual Studio, Action Pack ou BizSpark dans le centre des comptes. Nous prenons en charge le transfert de services externes Azure également pour ces types d’abonnements. 
 
@@ -34,7 +36,7 @@ Vous pouvez envisager de transférer la propriété d’un abonnement Azure :
 
 Pour modifier votre abonnement et changer d’offre, consultez la page [Changer d’offre pour votre abonnement Azure](billing-how-to-switch-azure-offer.md). 
 
-## <a name="how-to-transfer-ownership-of-an-azure-subscription"></a>Comment transférer la propriété d’un abonnement Azure
+## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfert de la propriété d’un abonnement Azure
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
@@ -46,7 +48,7 @@ Pour modifier votre abonnement et changer d’offre, consultez la page [Changer 
 3. Cliquez sur l’option **Transférer un abonnement** . Si vous ne voyez pas apparaître la commande, cliquez sur [FAQ](#no-button).
 
    ![Onglet Abonnements du compte Azure](./media/billing-subscription-transfer/image1.png)
-4. Suivez les invites pour spécifier le destinataire.
+4. Spécifiez le destinataire.
 
    ![Boîte de dialogue Transférer un abonnement](./media/billing-subscription-transfer/image2.PNG)
 5. Le destinataire reçoit automatiquement un e-mail contenant un lien d’acceptation.
@@ -58,6 +60,26 @@ Pour modifier votre abonnement et changer d’offre, consultez la page [Changer 
 
    ![Page web de transfert du deuxième abonnement](./media/billing-subscription-transfer/image5.png)
 7. Vous avez réussi ! L’abonnement est à présent transféré.
+
+## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transférer la propriété de l’abonnement pour les clients Contrat Entreprise (EA)
+L’administrateur d’entreprise peut transférer la propriété des abonnements au sein d’une inscription. Pour commencer, consultez la rubrique [Transférer la propriété du compte](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) dans le portail EA.
+
+## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Étapes suivantes après avoir accepté la propriété d’un abonnement
+1. Vous êtes désormais l’administrateur de compte. Examinez et mettez à jour l’administrateur du service et les coadministrateurs. Gérez les administrateurs dans le [portail Azure Classic](https://manage.windowsazure.com) en accédant aux paramètres. [En savoir plus sur les rôles d’administrateur](billing-add-change-azure-subscription-administrator.md).
+
+2. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour votre abonnement et vos services. Visitez le [portail Azure](https://portal.azure.com). [Pour en savoir plus sur le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)
+
+3. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
+   
+   * Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   
+   * Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
+   
+   * Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
+
+4. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 
+
+5. Si vous collaborez avec un partenaire, envisagez de mettre à jour son ID de partenaire pour cet abonnement. Vous pouvez mettre à jour l’ID partenaire dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
@@ -73,7 +95,7 @@ Pour modifier votre abonnement et changer d’offre, consultez la page [Changer 
 
 * **Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?**
 
-  Oui, toutes les ressources telles que les machines virtuelles, les disques, et les sites Wew sont transférées vers le nouveau propriétaire. Toutefois, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés. 
+  Oui, toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées vers le nouveau propriétaire. Toutefois, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés. 
 
 * <a id="no-button"></a>**Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?**
 
@@ -95,7 +117,7 @@ Pour modifier votre abonnement et changer d’offre, consultez la page [Changer 
   * Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez la rubrique [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
   * Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure.
 
-  Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
+ Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour en procédant comme suit :
 
     1. Accédez au [portail Azure](https://portal.azure.com).
     2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
@@ -124,40 +146,16 @@ Pour modifier votre abonnement et changer d’offre, consultez la page [Changer 
 
 * **Le transfert d’un abonnement Azure a-t-il des conséquences sur le mode de paiement ?**
 
-  Afin d’accepter un transfert d’abonnement, une carte de crédit ou un mode de paiement similaire doit être fourni pour le paiement de l’abonnement. Par exemple, si Bob transfère un abonnement à Jane et que Jane accepte le transfert, Jane doit également fournir un mode de paiement qu’elle a utilisé pour payer l’abonnement. Une fois le transfert terminé, Bob n’est plus facturé pour l’abonnement qu’il a transféré à Jane.
+  Afin d’accepter un transfert d’abonnement, une carte de crédit ou un mode de paiement similaire doit être fourni pour le paiement de l’abonnement. Par exemple, si Bob transfère un abonnement à Jane et que Jane accepte le transfert, Jane doit également fournir un mode de paiement qu’elle a utilisé pour payer l’abonnement. Une fois le transfert terminé, Jane reçoit une facture pour l’abonnement, et non Bob.
 
 * **Comment migrer des données et des services de mon abonnement Azure vers un nouvel abonnement ?**
 
   Si vous ne pouvez pas transférer la propriété de l’abonnement, vous pouvez migrer vos ressources manuellement. Consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transférer la propriété de l’abonnement pour les clients Contrat Entreprise (EA)
-L’administrateur d’entreprise peut transférer la propriété des abonnements au sein d’une inscription. Pour commencer, consultez la rubrique [Transférer la propriété du compte](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) dans le portail EA.
-
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Étapes suivantes après avoir accepté la propriété d’un abonnement
-1. Vous êtes désormais l’administrateur de compte. Examinez et mettez à jour l’administrateur du service et les coadministrateurs. Gérez les administrateurs dans le [portail Azure Classic](https://manage.windowsazure.com) en accédant aux paramètres. [En savoir plus sur les rôles d’administrateur](billing-add-change-azure-subscription-administrator.md).
-
-2. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour votre abonnement et vos services. Visitez le [portail Azure](https://portal.azure.com). [Pour en savoir plus sur le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)
-
-3. Mettez à jour les informations d’identification associées aux services de cet abonnement. Il s’agit des actions suivantes :
-   
-   * Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
-   
-   * Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
-   
-   * Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
-
-4. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 
-
-5. Si vous collaborez avec un partenaire, envisagez de mettre à jour son ID de partenaire pour cet abonnement. Vous pouvez mettre à jour l’ID partenaire dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème. 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
+ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
+ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Vous pouvez exécuter l’outil de deux manières :
 2. Déterminer le taux de modification (l’évolution) quotidienne des données répliquées. Pour ce faire :
 
    * Si vous répliquez des machines virtuelles Hyper-V, téléchargez [l’outil de planification de la capacité Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) pour obtenir le taux de modification. [En savoir plus](site-recovery-capacity-planning-for-hyper-v-replication.md) sur cet outil. Nous vous recommandons d’exécuter cet outil sur une semaine pour enregistrer les moyennes.
-   * Si vous répliquez des machines virtuelles VMware, utilisez l’ [équipement de planification de capacité vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) pour déterminer le taux d’évolution.
+   * Si vous répliquez des machines virtuelles VMware, utilisez [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) pour déterminer le taux de variation.
    * Si vous répliquez des serveurs physiques, vous devez effectuer les estimations manuellement.
 
 ## <a name="run-the-quick-planner"></a>Exécutez Quick Planner
@@ -49,7 +50,7 @@ Vous pouvez exécuter l’outil de deux manières :
 3. Dans la feuille de calcul **Capacity Planner**, saisissez les informations requises. Vous devez renseigner tous les champs cerclés de rouge de la capture d’écran ci-dessous.
 
    * Dans **Sélectionner votre scénario**, choisissez **Hyper-V to Azure** (Hyper-V vers Azure) ou **VMware/Physical to Azure** (VMware/Physique vers Azure).
-   * Dans **Taux de modification de données moyen par jour (%)**, entrez les informations que vous recueillez à l’aide de [l’outil de planification de la capacité Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou [l’équipement de planification de capacités vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+   * Dans **Taux de modification de données moyen par jour (%)**, entrez les informations que vous recueillez à l’aide de l’[outil de planification de la capacité Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou d’[Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
    * **compression** s’applique uniquement à la compression proposée lors de la réplication des machines virtuelles VMware ou des serveurs physiques vers Azure. Notre estimation est 30 % ou plus, mais vous pouvez modifier ce paramètre en fonction de vos besoins. Pour répliquer des machines virtuelles Hyper-V vers la compression Azure, vous pouvez utiliser un équipement tiers, tel que Riverbed.
    * Dans **Retention Inputs** (Entrées de rétention), spécifiez la durée de conservation des réplicas. Si vous répliquez des éléments VMware ou des serveurs physiques, saisissez la valeur en jours. Si vous répliquez des éléments Hyper-V, spécifiez la durée en heures.
    * Dans **Number of hours in which initial replication for the batch of virtual machines should complete** (Nombre d’heures prévu pour la réplication initiale du lot de machines virtuelles) et **Number of virtual machines per initial replication batch** (Nombre de machines virtuelles par lot de réplication initiale), vous devez saisir les paramètres de saisie utilisés pour calculer les exigences de réplication initiales.  Lorsque vous déployez Site Recovery, vous devez charger l’intégralité du jeu de données initial.
@@ -119,16 +120,11 @@ Exemple : pour les six machines virtuelles avec les valeurs indiquées dans le 
     > Le nombre d’E/S par seconde sur les comptes de stockage standard et Premium est calculé au niveau de la machine virtuelle et non à celui du disque. Une machine virtuelle standard peut gérer jusqu’à 500 E/S par seconde par disque. Si le nombre d’E/S par seconde pour un disque est supérieur à 500, le stockage Premium est nécessaire. Toutefois, si le nombre d’E/S par seconde pour un disque est supérieur à 500, mais que le nombre d’E/S par seconde pour l’ensemble des disques de machine virtuelle ne dépasse pas les limites établies pour les machines virtuelles Azure standard (taille de machine virtuelle, nombre de disques, nombre d’adaptateurs, processeur, mémoire), le planificateur choisit une machine virtuelle standard et non une machine virtuelle des séries DS ou GS. Vous devez mettre à jour manuellement la cellule Mapping Azure size avec la machine virtuelle de série DS ou GS appropriée.
 
 
-1. Une fois tous les détails fournis, cliquez sur **Submit data to the planner tool** (Envoyer des données à l’outil Planificateur) pour ouvrir **Capacity Planner**. Les charges de travail sont mises en surbrillance, afin d’indiquer si elles sont éligibles ou non à la protection.
+Une fois tous les détails fournis, cliquez sur **Submit data to the planner tool** (Envoyer des données à l’outil Planificateur) pour ouvrir **Capacity Planner**. Les charges de travail sont mises en surbrillance, afin d’indiquer si elles sont éligibles ou non à la protection.
 
 ### <a name="submit-data-in-the-capacity-planner"></a>Envoyer des données dans Capacity Planner.
 1. Lorsque vous ouvrez la feuille de calcul **Capacity Planner** , elle est remplie en fonction des paramètres que vous avez spécifiés. Le mot « Workload » apparaît dans la cellule **Infra inputs source** (Source des entrées Infra) pour indiquer les entrées de la feuille de calcul **Workload Qualification** (Qualification de la charge de travail).
 2. Si vous souhaitez apporter des modifications, vous devez modifier la feuille de calcul **Workload Qualification** (Qualification de la charge de travail) et cliquer de nouveau sur **Submit data to the planner tool** (Envoyer les données à l’outil de planification).  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,12 +36,12 @@ Pour configurer la récupération de base de données entre deux sites locaux, 
 ![Déploiement d’un site VMM (Virtual Machine Manager) à répliquer entre des sites locaux](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### <a name="virtual-machine-manager-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Déploiement d’un site VMM (Virtual Machine Manager) à répliquer entre des sites locaux et Azure
-Lorsque vous configurez la récupération de base de données entre des sites locaux et Azure, vous devez télécharger le fournisseur Azure Site Recovery et l’installer sur le serveur Virtual Machine Manager. Vous devez également installer Azure Recovery Services Agent qui doit être installé sur chaque hôte Hyper-V. Pour plus d’informations, consultez [Vue d’ensemble de la protection entre un site et Azure](site-recovery-understanding-site-to-azure-protection.md).
+Lorsque vous configurez la récupération de base de données entre des sites locaux et Azure, vous devez télécharger le fournisseur Azure Site Recovery et l’installer sur le serveur Virtual Machine Manager. Vous devez également installer Azure Recovery Services Agent qui doit être installé sur chaque hôte Hyper-V. [Cliquez ici](site-recovery-hyper-v-azure-architecture.md) pour plus d’informations.
 
 ![Déploiement d’un site VMM (Virtual Machine Manager) à répliquer entre des sites locaux et Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Déploiement d’un site Hyper-V à répliquer entre des sites locaux et Azure
-Ce processus est similaire au déploiement de Virtual Machine Manager. La seule différence réside dans le fait que le fournisseur Azure Site Recovery et Azure Recovery Services Agent sont installés sur l’hôte Hyper-V lui-même. Pour plus d’informations, consultez [Vue d’ensemble de la protection entre un site et Azure](site-recovery-understanding-site-to-azure-protection.md).
+Ce processus est similaire au déploiement de Virtual Machine Manager. La seule différence réside dans le fait que le fournisseur Azure Site Recovery et Azure Recovery Services Agent sont installés sur l’hôte Hyper-V lui-même. [En savoir plus](site-recovery-hyper-v-azure-architecture.md). .
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>Surveillance des opérations de configuration, de protection et de récupération
 Chaque opération dans Azure Site Recovery est auditée et suivie sous l’onglet **TÂCHES**. En cas d’erreur de configuration, de protection ou de récupération, accédez à l’onglet **TÂCHES** et recherchez les défaillances.
@@ -80,8 +81,8 @@ Comme le montre la capture d’écran précédente, l’état de la machine virt
 
 > [!NOTE]
 > Si des opérations actives sont en cours ou ont échoué, accédez à la vue **TÂCHES** comme indiqué précédemment pour afficher l’erreur d’une tâche spécifique.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-on-premises-hyper-v-issues"></a>Résolution des problèmes Hyper-V locaux
 Connectez-vous à la console du gestionnaire Hyper-V local, sélectionnez la machine virtuelle et vérifiez l’intégrité de la réplication.
@@ -194,10 +195,4 @@ Les erreurs suivantes et leurs résolutions sont courantes. Chaque erreur est do
 Si le bouton **Connecter** du portail est grisé et si vous n’êtes pas connecté à Azure avec une connexion Express Route ou VPN virtuel de site à site, vous devez créer votre machine virtuelle et lui attribuer une adresse IP publique pour pouvoir utiliser Bureau à distance/Shared Shell. Vous pouvez ensuite ajouter une adresse IP publique sur l’interface réseau de la machine virtuelle.  
 
 ![Ajout d’une adresse IP publique sur l’interface réseau de la machine virtuelle basculée](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

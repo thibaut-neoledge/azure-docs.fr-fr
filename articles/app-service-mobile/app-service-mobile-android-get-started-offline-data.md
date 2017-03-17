@@ -3,7 +3,7 @@ title: Activation de la synchronisation hors connexion pour votre application Az
 description: "Découvrez comment utiliser Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Android"
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 services: app-service\mobile
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: app-service-mobile
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00d800dda92c3cd9bb4a6c7edbb11647726f9883
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6135c042010147270e06740038afe80efc738f2d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -85,7 +86,7 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche en arrière-plan démarr
 2. Ajoutez des *tâches* , ou marquez-en certaines comme terminées. Quittez l’appareil ou le simulateur (ou forcez la fermeture de l’application) et redémarrez. Vérifiez que vos modifications persistent sur l’appareil, car elles sont stockées dans le magasin SQLite local.
 3. Affichez le contenu de la table *TodoItem* d’Azure avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*. Vérifiez que les nouveaux éléments n’ont *pas* été synchronisés avec le serveur
    
-       + Pour un backend Node.js, accédez au [Portail Azure](https://portal.azure.com/), puis dans votre backend d’application mobile, cliquez sur **Tables faciles** > **TodoItem** pour afficher le contenu de la table `TodoItem`.
+       + Pour un backend Node.js, accédez au [portail Azure](https://portal.azure.com/), puis dans votre backend d’application mobile, cliquez sur **Tables faciles** > **TodoItem** pour afficher le contenu de la table `TodoItem`.
        + Pour un backend .NET, affichez le contenu de la table avec un outil SQL, par exemple *SQL Server Management Studio* ou un client REST, comme *Fiddler* ou *Postman*.
 4. Activez le Wi-Fi sur le simulateur ou l’appareil. Appuyez ensuite sur le bouton **Actualiser** .
 5. Affichez à nouveau les données TodoItem sur le portail Azure. Les nouveaux éléments TodoItems et ceux modifiés doivent maintenant s'afficher.
@@ -101,11 +102,6 @@ Lorsque vous appuyez sur ce bouton, une nouvelle tâche en arrière-plan démarr
 [Création d’une application Android]: app-service-mobile-android-get-started.md
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 

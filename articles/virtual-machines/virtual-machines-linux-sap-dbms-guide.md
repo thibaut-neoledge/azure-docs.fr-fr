@@ -16,13 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: db6d4de6f88672f2258fdeac8416c795bc0c4613
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c6310e7d30321ef8d66956d650db4cee9249cbb8
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="sap-netweaver-on-azure-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver sur machines virtuelles Azure – Guide de déploiement SGBD
+# <a name="sap-netweaver-on-azure-linux-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver sur machines virtuelles Linux Azure – Guide de déploiement SGBD
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -314,7 +316,7 @@ Les différences abordées dans ce document portent sur les points généraux su
 * Utilisation de différents types d’images pour le déploiement.
 * Haute disponibilité dans Azure IaaS.
 
-## <a name="a-name65fa79d6-a85f-47ee-890b-22e794f51a64astructure-of-a-rdbms-deployment"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure d’un déploiement SGBDR
+## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure d’un déploiement SGBDR
 Pour pouvoir suivre ce chapitre, il est nécessaire de comprendre le contenu de [ce][deployment-guide-3] chapitre du [Guide de déploiement][deployment-guide]. Vous devez savoir ce qui distingue les différentes séries de machines virtuelles et connaître les différences entre les offres de stockage Azure Standard et Premium Storage avant de lire ce chapitre.
 
 Jusqu’à mars 2015, la taille des disques durs virtuels Azure contenant un système d’exploitation était limitée à 127 Go. Cette limitation a été levée en mars 2015 (pour plus d’informations, voir <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). Depuis lors, les disques durs virtuels contenant le système d’exploitation peuvent présenter la même taille que n’importe quel autre disque dur virtuel. Cependant, nous continuons à privilégier une structure de déploiement dans laquelle le système d’exploitation, le SGBD et les fichiers binaires SAP éventuels sont séparés des fichiers de base de données. Les systèmes SAP exécutés dans Azure Virtual Machines doivent donc avoir la même machine virtuelle (ou le même disque dur virtuel) de base installée avec le système d’exploitation, les exécutables du système de gestion de base de données et les exécutables SAP. Les fichiers de données et journaux du SGBD seront stockés dans Azure Storage (Standard ou Premium Storage) dans des fichiers de disques durs virtuels distincts et attachés en tant que disques logiques à la machine virtuelle image du système d’exploitation Azure d’origine. 
@@ -357,7 +359,7 @@ Selon la série de machines virtuelles Azure, les disques locaux du nœud de cal
 
 Les chiffres donnés ci-dessus s’appliquent aux types de machines virtuelles certifiés pour SAP. Les séries de machines virtuelles présentant un nombre d’E/S par seconde et un débit excellents sont adaptées à certaines fonctionnalités de SGBD, telles que tempdb ou l’espace de table temporaire.
 
-### <a name="a-namec7abf1f0-c927-4a7c-9c1d-c7b5b3b7212facaching-for-vms-and-vhds"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Mise en cache pour les machines virtuelles et les disques durs virtuels
+### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Mise en cache pour les machines virtuelles et les disques durs virtuels
 Lorsque nous créons ces disques/disques durs virtuels via le portail ou montons les disques durs virtuels téléchargés sur des machines virtuelles, nous pouvons choisir de mettre ou non en cache le trafic d’E/S entre la machine virtuelle et ces disques durs virtuels situés dans le stockage Azure. Azure Standard et Premium Storage font appel à deux technologies différentes pour ce type de mise en cache. Dans les deux cas, la mise en cache est soutenue par des disques sur le même lecteur que le disque temporaire (D:\ dans Windows ou/mnt/resource dans Linux) de la machine virtuelle.
 
 Pour le stockage Azure Standard, les types de mise en cache possibles sont les suivantes :
@@ -375,7 +377,7 @@ Pour le stockage Azure Premium Storage, les options de mise en cache suivantes s
 
 Pour le stockage Premium Azure, il est recommandé d’exploiter la **mise en cache en écriture pour les fichiers de données** de la base de données SAP et de choisir **Aucune mise en cache pour les disques durs virtuels des fichiers journaux**.
 
-### <a name="a-namec8e566f9-21b7-4457-9f7f-126036971a91asoftware-raid"></a><a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>RAID logiciel
+### <a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>RAID logiciel
 Comme nous l’avons déjà indiqué plus haut, vous devez équilibrer le nombre d’E/S par seconde nécessaire pour les fichiers de base de données en fonction du nombre de disques durs virtuels configurables et du nombre maximal d’E/S par seconde qu’une machine virtuelle offrira par disque dur virtuel ou type de disque Premium Storage. Le moyen le plus simple pour gérer la charge d’E/S sur les disques durs virtuels consiste à créer un RAID logiciel avec les différents disques durs virtuels, puis à placer un certain nombre de fichiers de données du SGBD SAP sur les LUN issus du RAID logiciel. En fonction des exigences, il peut être également préférable d’utiliser le stockage Premium Storage. En effet, deux des trois différents disques Storage Premium offrent un quota d’E/S par seconde supérieur à celui des disques durs virtuels basés sur le stockage Standard. De plus, Azure Premium Storage garantit une latence d’E/S nettement inférieure. 
 
 Il en va de même pour le journal des transactions des différents systèmes de SGBD. Le fait qu’un grand nombre d’entre eux ajoutent simplement d’autres fichiers Tlog n’aide en rien, car les systèmes de SGBD écrivent dans un seul fichier à la fois. Si des taux d’E/S par seconde supérieurs à ce qu’un disque dur virtuel basé sur le stockage Standard peut offrir sont requis, vous pouvez entrelacer plusieurs disques durs virtuels Standard ou utiliser un type de disque Premium Storage plus grand qui en plus de taux d’E/S par seconde supérieurs assure également une latence plusieurs fois inférieure pour l’écriture des E/S dans le journal des transactions.
@@ -409,7 +411,7 @@ Les considérations pour tirer parti de séries de machines virtuelles compatibl
 
 Comme le stockage Azure sous-jacent réplique chaque disque dur virtuel sur au moins trois nœuds de stockage, un simple entrelacement RAID 0 peut être utilisé. Il est inutile d’utiliser RAID&5; ou RAID&1;.
 
-### <a name="a-name10b041ef-c177-498a-93ed-44b3441ab152amicrosoft-azure-storage"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage
+### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage
 Microsoft Azure Storage stocke la base machine virtuelle de base (avec le système d’exploitation) et les disques durs virtuels ou des objets blob sur au moins trois nœuds de stockage distincts. Lors de la création d’un compte de stockage, plusieurs options de protection sont proposées :
 
 ![Géoréplication activée pour le compte Azure Storage][dbms-guide-figure-100]
@@ -475,7 +477,7 @@ En ce qui concerne le contenu de base de données utilisé par l’application S
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a>Déplacement d’une machine virtuelle locale vers Azure avec un disque non généralisé
 Vous envisagez de déplacer un système SAP spécifique local vers Azure (développement et transfert). Pour ce faire, vous pouvez charger le disque dur virtuel qui contient le système d’exploitation, les fichiers binaires SAP et les éventuels fichiers binaires du SGBD, ainsi que les disques durs virtuels contenant les fichiers de données et les fichiers journaux du SGBD vers Azure. Contrairement au scénario 2 ci-dessus, vous conservez le nom d’hôte, le SID SAP et les comptes utilisateur SAP dans la machine virtuelle Azure tels qu’ils ont été configurés dans l’environnement local. Par conséquent, il n’est pas nécessaire de généraliser l’image. Ce cas s’applique tout particulièrement pour les scénarios de déploiement entre différents locaux dans lesquels une partie du paysage SAP est exécutée en local et une autre sur Azure.
 
-## <a name="a-name871dfc27-e509-4222-9370-ab1de77021c3ahigh-availability-and-disaster-recovery-with-azure-vms"></a><a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure
+## <a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Haute disponibilité et récupération d’urgence avec les machines virtuelles Azure
 Azure offre les fonctionnalités de haute disponibilité et de récupération d’urgence suivantes, qui s’appliquent à différents composants utilisés pour des déploiements SAP et SGBD.
 
 ### <a name="vms-deployed-on-azure-nodes"></a>Machines virtuelles déployées sur des nœuds Azure
@@ -515,7 +517,7 @@ Pour une utilisation productive des applications SAP dans Azure Virtual Machines
 
 Pour plus d’informations concernant le déploiement de composants qui fournissent des données d’hôte à SAPOSCOL et SAPHostAgent et la gestion du cycle de vie de ces composants, voir le [Guide de déploiement][deployment-guide].
 
-## <a name="a-name3264829e-075e-4d25-966e-a49dad878737aspecifics-to-microsoft-sql-server"></a><a name="3264829e-075e-4d25-966e-a49dad878737"></a>Caractéristiques de Microsoft SQL Server
+## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Caractéristiques de Microsoft SQL Server
 ### <a name="sql-server-iaas"></a>IaaS SQL Server
 À partir de Microsoft Azure, vous pouvez facilement migrer vos applications SQL Server existantes créées sur la plateforme Windows Server vers les machines virtuelles Azure. Dans une machine virtuelle, SQL Server vous permet de réduire le coût total de possession lié au déploiement, à la gestion et à la maintenance des applications d’entreprise en les migrant en toute simplicité vers Microsoft Azure. Avec SQL Server dans une machine virtuelle Azure, les administrateurs et développeurs peuvent utiliser les outils de développement et d’administration disponibles en local. 
 
@@ -595,7 +597,7 @@ Vous pouvez sauvegarder des données SQL Server sur Azure Storage de trois mani�
 2. Les versions de SQL Server antérieures à SQL 2012 CU4 peuvent exploiter une fonctionnalité de redirection pour sauvegarder leurs données sur un disque VHD et déplacer le flux d’écriture vers un emplacement Azure Storage qui a été configuré. Voir le chapitre [SQL Server 2012 SP1 CU3 et versions antérieures[dbms-guide-5.5.2].
 3. La dernière méthode consiste à effectuer une sauvegarde de données SQL Server classique à commande disque sur une unité de disque VHD.  Cette procédure, identique à celle du modèle de déploiement local, n’est pas détaillée dans ce document.
 
-#### <a name="a-name0fef0e79-d3fe-4ae2-85af-73666a6f7268asql-server-2012-sp1-cu4-and-later"></a><a name="0fef0e79-d3fe-4ae2-85af-73666a6f7268"></a>SQL Server 2012 SP1 CU4 et versions ultérieures
+#### <a name="0fef0e79-d3fe-4ae2-85af-73666a6f7268"></a>SQL Server 2012 SP1 CU4 et versions ultérieures
 Cette fonctionnalité vous permet de sauvegarder directement les données sur le stockage d’objets blob Azure. Sans cette méthode, vous devez sauvegarder les données sur d’autres disques VHD Azure, ce qui monopolise la capacité des disques VHD ainsi que les E/S par seconde. L’idée de base est la suivante :
 
  ![Utilisation de la sauvegarde SQL Server 2012 sur l’objet blob Microsoft Azure Storage][dbms-guide-figure-400]
@@ -618,7 +620,7 @@ Dans l’exemple ci-dessus, les sauvegardes ne peuvent pas être effectuées sur
 
 Les objets blob sur lesquels les sauvegardes sont directement écrites ne sont pas inclus dans le nombre de disques VHD d’une machine virtuelle. Par conséquent, il est possible d’augmenter le nombre maximal de disques VHD montés qui sont associés à la SKU de machine virtuelle spécifique pour le fichier journal de transactions et les données, tout en étant à même d’exécuter une sauvegarde sur un conteneur de stockage. 
 
-#### <a name="a-namef9071eff-9d72-4f47-9da4-1852d782087basql-server-2012-sp1-cu3-and-earlier-releases"></a><a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 et versions antérieures
+#### <a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 et versions antérieures
 La première étape à effectuer pour exécuter une sauvegarde directement sur Azure Storage consiste à télécharger le fichier msi lié à [cet article](https://www.microsoft.com/download/details.aspx?id=40740) de la Base de connaissances.
 
 Téléchargez le fichier d’installation x64 et la documentation associée. Ce fichier installe un programme appelé Microsoft SQL Server Backup to Microsoft Azure Tool. Lisez attentivement la documentation du produit.  De manière générale, cet outil fonctionne de la façon suivante :
@@ -666,7 +668,7 @@ Si vous voulez gérer les sauvegardes vous-même, il y a une exigence à respect
 [comment]: <> (VMs within the SAP system can be backed up using Azure Virtual Machine Backup functionality. La fonctionnalité de sauvegarde de machine virtuelle Azure Backup a été commercialisée au début de l’année 2015. Elle permet de stocker les sauvegardes dans Azure et de restaurer une machine virtuelle.) 
 [comment]: <> (VMs that run databases can be backed up in a consistent manner as well if the DBMS systems supports the Windows VSS (Volume Shadow Copy Service - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) as e.g. SQL Server does. L’utilisation de la fonctionnalité de sauvegarde de machine virtuelle Azure peut permettre d’obtenir une sauvegarde de base de données SAP susceptible d’être restaurée. L’utilisation de la fonctionnalité de sauvegarde de machine virtuelle Azure peut permettre d’obtenir une sauvegarde de base de données SAP susceptible d’être restaurée. Par conséquent, il est recommandé d’effectuer des sauvegardes de bases de données avec un système SGBD (système de gestion de base de données) plutôt que de compter sur la sauvegarde de machines virtuelles Azure.) [comment]: <> (To get familiar with Azure Virtual Machine Backup please start here <https://azure.microsoft.com/documentation/services/backup/>)
 
-### <a name="a-name1b353e38-21b3-4310-aeb6-a77e7c8e81c8ausing-a-sql-server-images-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Utilisation d’images SQL Server issues de Microsoft Azure Marketplace
+### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Utilisation d’images SQL Server issues de Microsoft Azure Marketplace
 Dans Azure Marketplace, Microsoft propose des machines virtuelles qui contiennent déjà des versions de SQL Server. Pour les clients SAP qui requièrent des licences pour SQL Server et Windows, cela peut être l’occasion de répondre aux besoins de base en termes de licences, en configurant des machines virtuelles déjà dotées de SQL Server. Pour pouvoir utiliser ces images pour SAP, vous devez tenir compte des considérations suivantes :
 
 * Les versions de SQL Server autres que les versions d’évaluation nécessitent des frais d’acquisition plus élevés que les simples machines virtuelles uniquement dotées de Windows qui sont déployées depuis Microsoft Azure Marketplace. Pour comparer les prix,consultez les articles suivants : <https://azure.microsoft.com/pricing/details/virtual-machines/> et <https://azure.microsoft.com/pricing/details/virtual-machines/#Sql>. 
@@ -761,7 +763,7 @@ Vous devez trouver l’équilibre entre l’installation d’AlwaysOn et la mise
 * meilleure extensibilité ;
 * possibilités de disposer de plusieurs réplicas secondaires.
 
-### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Résumé – SQL Server général pour SAP sur Azure
+### <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Résumé – SQL Server général pour SAP sur Azure
 Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcourir plusieurs fois avant de planifier votre déploiement Azure. Cependant, de manière générale, vous devez suivre les dix points principaux spécifiques à la fonction SGBD (système de gestion de base de données) sur Azure :
 
 [comment]: <> (2.3 higher throughput than what? Than one VHD?)
@@ -1136,7 +1138,7 @@ Il est vivement recommandé d’utiliser la version la plus récente du système
 Vous trouverez la liste mise à jour de la documentation SAP MaxDB dans la Note de SAP suivante [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration SAP MaxDB pour les installations SAP sur des machines virtuelles Azure
-#### <a name="a-nameb48cfe3b-48e9-4f5b-a783-1d29155bd573astorage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuration du stockage
+#### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuration du stockage
 Les bonnes pratiques de stockage Azure pour SAP MaxDB suivent les recommandations générales mentionnées dans le chapitre [Structure d’un déploiement SGBDR][dbms-guide-2].
 
 > [!IMPORTANT]
@@ -1155,12 +1157,12 @@ En bref, voici que vous avez à faire :
 
 ![Configuration de référence de la machine virtuelle IaaS Azure pour SGBD SAP MaxDB][dbms-guide-figure-600]
 
-#### <a name="a-name23c78d3b-ca5a-4e72-8a24-645d141a3f5dabackup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Sauvegarde et restauration
+#### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Sauvegarde et restauration
 Lors du déploiement de SAP MaxDB dans Azure, vous devez passer en revue votre méthodologie de sauvegarde. Même si le système n’est pas un système productif, la base de données SAP hébergée par SAP MaxDB doit être sauvegardée régulièrement. Étant donné qu’Azure Storage conserve trois images, une sauvegarde est désormais moins importante en termes de protection de votre système contre les défaillances de stockage, ou les défaillances opérationnelles ou administratives plus sérieuses. La raison principale du maintien d’un plan de sauvegarde et de restauration approprié est que vous pouvez compenser les erreurs logiques ou manuelles en fournissant des fonctionnalités de récupération jusqu’à une date et heure. Par conséquent, l’objectif est soit d’utiliser les sauvegardes pour restaurer la base de données à un certain point dans le temps, soit d’utiliser les sauvegardes dans Azure pour amorcer un autre système en copiant la base de données existante. Par exemple, vous avez la possibilité de transférer des données depuis une configuration SAP de niveau 2 vers une configuration système de niveau 3 du même système en restaurant une sauvegarde.
 
 La sauvegarde et la restauration d’une base de données dans Azure fonctionnent de la même manière que pour les systèmes locaux. Vous pouvez donc utiliser les outils de sauvegarde/restauration SAP MaxDB standard décrits dans l’un des documents de la documentation SAP MaxDB répertoriée dans la Note de SAP [767598]. 
 
-#### <a name="a-name77cd2fbb-307e-4cbf-a65f-745553f72d2caperformance-considerations-for-backup-and-restore"></a><a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Considérations sur les performances de sauvegarde et de restauration
+#### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Considérations sur les performances de sauvegarde et de restauration
 À l’instar des déploiements sur système nu, les performances de sauvegarde et de restauration dépendent du nombre de volumes pouvant être lus en parallèle et du débit de ces volumes. En outre, la consommation d’UC par la compression de sauvegarde peut jouer un rôle significatif sur les machines virtuelles avec jusqu’à 8 threads UC. Par conséquent, on peut partir des hypothèses suivantes :
 
 * Moins il y a de disques durs virtuels utilisés pour stocker les unités de base de données, plus le débit de lecture global est réduit
@@ -1178,7 +1180,7 @@ Pour augmenter le nombre de cibles d’écriture, vous pouvez utiliser deux opti
 
 L’agrégation d’un volume par bandes sur plusieurs disques durs virtuels montés a été évoquée précédemment dans le chapitre [RAID logiciel][dbms-guide-2.2] de ce document. 
 
-#### <a name="a-namef77c1436-9ad8-44fb-a331-8671342de818aother"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Autres
+#### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Autres
 Tous les autres sujets généraux, tels que les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent également avec la base de données SAP MaxDB comme décrit dans les trois premiers chapitres dans ce document pour les déploiements de machines virtuelles.
 D’autres paramètres spécifiques à SAP MaxDB sont transparents pour les machines virtuelles Azure et sont décrits dans différents documents figurant dans la Note de SAP [767598] et dans les Notes de SAP suivantes :
 
@@ -1390,10 +1392,5 @@ N’utilisez pas la géoréplication Azure Store. Pour plus d’informations, vo
 Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent avec IBM DB2 pour LUW comme décrit dans les trois premiers chapitres dans ce document pour les déploiements de machines virtuelles.
 
 Voir également le chapitre [Résumé – SQL Server général pour SAP sur Azure][dbms-guide-5.8].
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

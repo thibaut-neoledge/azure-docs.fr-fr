@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1c8f8a958a6ea6ea096d4a55479879aab7c7e96d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilité et scalabilité dans les modèles Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-linux-vms"></a>Disponibilité et scalabilité dans les modèles Azure Resource Manager pour les machines virtuelles Linux
+
 La disponibilité et la scalabilité font référence au temps de fonctionnement et à la capacité de répondre à la demande. Si une application doit être opérationnelle pendant jusqu’à 99,9 % du temps, elle doit présenter une architecture permettant l’utilisation de plusieurs ressources de calcul simultanées. Par exemple, au lieu d’avoir un seul site web, une configuration avec un niveau supérieur de disponibilité comprend plusieurs instances du même site, avec une technologie d’équilibrage placée devant celles-ci. Dans cette configuration, une instance de l’application peut être retirée à des fins de maintenance, tandis que les autres continuent de fonctionner. Par ailleurs, la scalabilité fait référence à la capacité d’une application à répondre à la demande. Avec une application dont la charge est équilibrée, l’ajout ou la suppression d’instances du pool permet la scalabilité d’une application pour répondre à la demande.
 
 Ce document décrit en détail comment l’exemple de déploiement du Store musique est configuré pour la disponibilité et la scalabilité. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour le modèle complet, consultez [Déploiement du Store musique sur Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -261,10 +264,5 @@ Pour plus d’informations sur l’utilisation de la fonction de copie, consulte
 <hr>
 
 [Étape 4 : Déploiement d’application avec des modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

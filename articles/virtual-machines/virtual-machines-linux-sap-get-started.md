@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e64fc5425db5ffde6af493e961edfcac527b6df
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Utilisation de SAP sur des machines virtuelles Azure
+# <a name="using-sap-on-azure-linux-virtual-machines-vms"></a>Utilisation de SAP sur des machines virtuelles Azure Linux
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -330,7 +331,7 @@ Mise à jour : septembre 2016
 
 [Ce guide est disponible ici](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planification et mise en œuvre
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planification et mise en œuvre
 Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de planification et d’implémentation
 
 Résumé : commencez par étudier ce document si vous envisagez d’exécuter SAP NetWeaver sur Azure Virtual Machines. Ce guide de planification et d’implémentation vous aidera à évaluer si un système existant ou planifié, basé sur SAP NetWeaver peut être déployé dans un environnement Azure Virtual Machines. Il comprend plusieurs scénarios de déploiement de SAP NetWeaver et inclut des configurations SAP spécifiques d’Azure. Il répertorie et décrit toutes les informations de configuration de SAP/Azure dont vous avez besoin pour exécuter dans un environnement SAP hybride. Il traite décrit également les mesures à prendre pour assurer une haute disponibilité des systèmes basés sur SAP NetWeaver déployés dans une infrastructure IaaS.
@@ -339,7 +340,7 @@ Mise à jour : mars 2016
 
 [Ce guide est disponible ici][planning-guide]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Déploiement
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Déploiement
 Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement
 
 Résumé : ce document décrit la procédure de déploiement du logiciel SAP NetWeaver sur des machines virtuelles dans Azure. Ce document aborde trois scénarios de déploiement spécifiques, en mettant l’accent sur l’activation des extensions d’analyse Azure pour SAP, et inclut des conseils de dépannage concernant ces dernières. Ce document suppose que vous avez lu le guide de planification et d’implémentation.
@@ -348,7 +349,7 @@ Mise à jour : mars 2016
 
 [Ce guide est disponible ici][deployment-guide]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guide de déploiement SGBD
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guide de déploiement SGBD
 Titre : SAP NetWeaver sur machines virtuelles Linux – Guide de déploiement SGBD
 
 Résumé : ce document porte sur les éléments à prendre en compte pour la planification et l’implémentation des systèmes de gestion de base de données qui doivent s’exécuter conjointement avec SAP. La première partie répertorie et présente les considérations générales. Les parties suivantes du document concernent des déploiements de SGBD différents dans Azure pris en charge par SAP. Les autres SGBD présentés sont SQL Server, SAP ASE et Oracle. Ces sections présentent les éléments à prendre en compte lors de l’exécution de systèmes SAP sur Azure avec ces systèmes de gestion de base de données. D’autres sections présentent les méthodes de sauvegarde et de haute disponibilité prises en charge par les différents systèmes de gestion de base de données sur Azure dans le cadre d’une utilisation avec des applications SAP.

@@ -35,8 +35,3 @@ articles/sql-data-warehouse-get-started-provision.md
 > [!Tip]
 > Pour trouver un didacticiel, consultez [Didacticiel sur la base de données SQL : création d’un serveur, d’une règle de pare-feu de niveau serveur, d’un exemple de base de données, d’une règle de pare-feu de niveau base de données et connexion à SQL Server](../articles/sql-database/sql-database-get-started.md).    
 >
-
-
-<!--HONumber=Jan17_HO1-->
-
-

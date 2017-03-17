@@ -16,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: acb04a648115c6de0b5699d404ebbf24a2edeb08
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="authenticate-with-a-container-registry"></a>Authentification avec un Registre de conteneurs
+# <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 Pour utiliser des images de conteneur dans un Registre de conteneurs Azure, vous vous connectez à l’aide de la commande `docker login`. Vous pouvez vous connecter en utilisant un **[principal du service Azure Active Directory](../active-directory/active-directory-application-objects.md)** ou un **compte d’administrateur** spécifique à un registre. Cet article fournit des détails sur ces identités. 
 
 

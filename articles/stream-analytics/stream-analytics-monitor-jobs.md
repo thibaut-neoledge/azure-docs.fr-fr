@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 183cc2025bd909ea4450564bc3598c2694b1c0db
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 37797743df0e2ce029b65f267a7cea5c8d793773
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -29,8 +30,8 @@ ms.openlocfilehash: 183cc2025bd909ea4450564bc3598c2694b1c0db
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* Visual Studio 2012 ou 2013.
-* Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/).
+* Visual Studio 2017 ou 2015.
+* Téléchargez et installez le [Kit SDK Azure .NET](https://azure.microsoft.com/downloads/).
 * Un travail Stream Analytics existant pour lequel la surveillance doit être activée.
 
 ## <a name="setup-a-project"></a>Configuration d'un projet
@@ -179,10 +180,5 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

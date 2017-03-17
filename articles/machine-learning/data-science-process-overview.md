@@ -154,7 +154,7 @@ Nous fournissons avec le processus TDSP un [outil de modélisation et de créati
 ### <a name="artifacts"></a>Artefacts
 Les artefacts générés au cours de cette phase sont les suivants :
 
-* [**Jeux de caractéristiques **](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : les caractéristiques développées pour la modélisation sont décrites dans la section Feature Set (Jeu de caractéristiques) du rapport Data Definition (Définition des données). Elle contient des pointeurs vers le code permettant de générer les caractéristiques et indique comment la caractéristique a été générée.
+* [**Jeux de caractéristiques**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : les caractéristiques développées pour la modélisation sont décrites dans la section Feature Set (Jeu de caractéristiques) du rapport Data Definition (Définition des données). Elle contient des pointeurs vers le code permettant de générer les caractéristiques et indique comment la caractéristique a été générée.
 * [**Rapport de modélisation**](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) : pour chaque modèle tenté, un rapport standard suivant un modèle TDSP spécifié est généré.
 * **Décision de point de contrôle** : déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
   * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 

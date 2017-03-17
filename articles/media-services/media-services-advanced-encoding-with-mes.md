@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
+ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
+ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,18 +28,7 @@ ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
 
 Cette rubrique montre comment personnaliser des présélections Media Encoder Standard. La rubrique [Encodage avec Media Encoder Standard à l’aide de présélections personnalisées](media-services-custom-mes-presets-with-dotnet.md) explique comment utiliser .NET pour créer une tâche de codage et une tâche qui exécute cette tâche. Une fois que vous avez personnalisé une présélection, fournissez les présélections personnalisées pour la tâche d’encodage. 
 
-Cette rubrique présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes :
-
-- [Génération de miniatures](#thumbnails)
-- [Rognage d’une vidéo (extrait)](#trim_video)
-- [Création d’une superposition](#overlay)
-- [Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son](#silent_audio)
-- [Désactiver le désentrelacement automatique](#deinterlacing)
-- [Présélections audio uniquement](#audio_only)
-- [Concaténation de deux fichiers vidéo ou plus](#concatenate)
-- [Rogner des vidéos avec l’encodeur multimédia standard](#crop)
-- [Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo](#no_video)
-- [Faire pivoter une vidéo](#rotate_video)
+Cette rubrique présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes.
 
 ## <a name="support-for-relative-sizes"></a>Prise en charge des tailles relatives
 
@@ -52,7 +42,7 @@ Lors de la génération de miniatures, il est inutile de toujours spécifier la 
     <Width>100%</Width>
     <Height>100%</Height>
 
-## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Génération de miniatures
+## <a id="thumbnails"></a>Génération de miniatures
 
 Cette section montre comment personnaliser une présélection qui génère des miniatures. La présélection définie ci-dessous contient des informations sur la façon dont vous souhaitez encoder votre fichier, ainsi que les informations nécessaires à la génération des miniatures. Vous pouvez utiliser l’une des présélections MES documentées dans [cette](media-services-mes-presets-overview.md) section et ajouter le code qui génère des miniatures.  
 
@@ -65,7 +55,7 @@ Pour plus d’informations sur le schéma, consultez [cette](media-services-mes-
 
 Assurez-vous d’examiner la section [Considérations](#considerations) .
 
-### <a name="a-idjsonajson-preset"></a><a id="json"></a>Présélection JSON
+### <a id="json"></a>Présélection JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -165,7 +155,7 @@ Assurez-vous d’examiner la section [Considérations](#considerations) .
     }
 
 
-### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>Présélection XML
+### <a id="xml"></a>Présélection XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -255,12 +245,12 @@ Les considérations suivantes s'appliquent :
   * La configuration par défaut est « Start:{Best} ».
 * Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
-## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Rognage d’une vidéo (extrait)
+## <a id="trim_video"></a>Rognage d’une vidéo (extrait)
 Cette section explique comment modifier les présélections de l’encodeur pour découper ou rogner la vidéo d’entrée, dans laquelle l’entrée est ce que l’on appelle un fichier mezzanine ou un fichier à la demande. L’encodeur peut également servir à découper ou rogner un élément multimédia capturé ou archivé à partir d’un streaming en direct. Pour obtenir des détails à ce sujet, consultez [ce blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES documentées dans [cette](media-services-mes-presets-overview.md) section et modifier l’élément **Sources** (comme indiqué ci-dessous). La valeur de StartTime doit correspondre aux horodatages absolus de la vidéo d'entrée. Par exemple, si la première image de la vidéo d'entrée a un horodatage de 12:00:10.000, la valeur de StartTime doit être égale ou supérieure à 12:00:10.000. Dans l'exemple ci-dessous, nous supposons que la vidéo d'entrée a un horodatage de début égal à zéro. **Sources** doit être placé au début de la présélection.
 
-### <a name="a-idjsonajson-preset"></a><a id="json"></a>Présélection JSON
+### <a id="json"></a>Présélection JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -497,7 +487,7 @@ Pour découper vos vidéos, vous pouvez utiliser l’une des présélections MES
       </Outputs>
     </Preset>
 
-## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Création d’une superposition
+## <a id="overlay"></a>Création d’une superposition
 
 Media Encoder Standard vous permet de superposer une image sur une vidéo existante. Les formats suivants sont actuellement pris en charge : png, jpg, gif et bmp. La présélection définie ci-dessous illustre un exemple de superposition vidéo de base.
 
@@ -707,7 +697,7 @@ Si vous utilisez .NET, ajoutez les deux fonctions suivantes à l’exemple .NET 
     </Preset>
 
 
-## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
+## <a id="silent_audio"></a>Insertion d’une piste audio en mode silencieux lorsque l’entrée ne produit pas de son
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de la vidéo (sans contenu audio), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données vidéo. Certains lecteurs ne sont peut-être pas capables de gérer ces flux de sortie. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste audio en mode silencieux.
 
 Pour forcer l’encodeur à produire un élément multimédia contenant une piste audio en mode silencieux lorsque l’entrée ne comporte pas de son, spécifiez la valeur « InsertSilenceIfNoAudio ».
@@ -730,7 +720,7 @@ Vous pouvez utiliser l’une des présélections MES documentées dans [cette](m
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>Désactiver le désentrelacement automatique
+## <a id="deinterlacing"></a>Désactiver le désentrelacement automatique
 Si les clients souhaitent que le contenu d’entrelacement soit automatiquement désentrelacé, aucune action n’est nécessaire. Quand le désentrelacement automatique est activé (par défaut), MES détecte automatiquement les images entrelacées et désentrelace uniquement les images marquées comme entrelacées.
 
 Vous pouvez désactiver le désentrelacement automatique. Cette option n’est pas recommandée.
@@ -758,7 +748,7 @@ Vous pouvez désactiver le désentrelacement automatique. Cette option n’est p
     </Sources>
 
 
-## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>Présélections audio uniquement
+## <a id="audio_only"></a>Présélections audio uniquement
 Cette section présente deux présélections MES audio uniquement : Audio AAC et Bonne qualité audio AAC.
 
 ### <a name="aac-audio"></a>Audio AAC
@@ -805,7 +795,7 @@ Cette section présente deux présélections MES audio uniquement : Audio AAC et
       ]
     }
 
-## <a name="a-idconcatenateaconcatenate-two-or-more-video-files"></a><a id="concatenate"></a>Concaténation de deux fichiers vidéo ou plus
+## <a id="concatenate"></a>Concaténation de deux fichiers vidéo ou plus
 
 L'exemple suivant décrit comment générer une présélection pour concaténer deux fichiers vidéo ou plus. Le scénario le plus courant consiste à ajouter une amorce de début ou de fin à la vidéo principale. Dans le cadre de l’utilisation prévue, les fichiers vidéo en cours de modification conjointe partagent des propriétés (résolution vidéo, fréquence d’images, nombre de pistes audio, etc.). Vous devez prendre soin de ne pas mélanger des vidéos de différentes fréquences d’images ou comportant un nombre différent de pistes audio.
 
@@ -915,10 +905,10 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
       ]
     }
 
-## <a name="a-idcropacrop-videos-with-media-encoder-standard"></a><a id="crop"></a>Rogner des vidéos avec l’encodeur multimédia standard
+## <a id="crop"></a>Rogner des vidéos avec l’encodeur multimédia standard
 Consultez la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md) .
 
-## <a name="a-idnovideoainsert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
+## <a id="no_video"></a>Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données audio. Certains lecteurs, y compris Azure Media Player (consultez [ceci](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) peuvent ne pas être en mesure de gérer ces flux. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste vidéo monochrome.
 
 > [!NOTE]
@@ -927,7 +917,7 @@ Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de
 >
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Insertion de vidéo uniquement avec le débit le plus bas
-Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](https://msdn.microsoft.com/library/mt269960.aspx) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome au plus faible débit uniquement, et non à toutes les vitesses de transmission de sortie. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideoBottomLayerOnly ».
+Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](media-services-mes-preset-h264-multiple-bitrate-720p.md) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome au plus faible débit uniquement, et non à toutes les vitesses de transmission de sortie. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideoBottomLayerOnly ».
 
 Vous pouvez utiliser l’une des présélections MES documentées dans [cette](media-services-mes-presets-overview.md) section et apporter la modification suivante :
 
@@ -966,7 +956,7 @@ Vous pouvez utiliser l’une des présélections MES documentées dans [cette](m
     <StretchMode>AutoSize</StretchMode>
     <Condition>InsertBlackIfNoVideo</Condition>
 
-## <a name="a-idrotatevideoarotate-a-video"></a><a id="rotate_video"></a>Faire pivoter une vidéo
+## <a id="rotate_video"></a>Faire pivoter une vidéo
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) prend en charge les angles de rotation 0, 90,180 et 270. Le comportement par défaut est « Auto », ce qui signifie qu’il tente de détecter les métadonnées de rotation dans le fichier vidéo entrant et de les compenser. Incluez l’élément **Sources** suivant dans l’une des présélections définies dans [cette](media-services-mes-presets-overview.md) section :
 
 ### <a name="json-preset"></a>Présélection JSON
@@ -1003,9 +993,4 @@ Vous pouvez utiliser la valeur « 0 » pour indiquer à l’encodeur d’ignor
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

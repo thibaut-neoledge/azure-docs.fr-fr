@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 764ef15f631166bf720c846aa3b4f4b6936054d9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Architecture d’application avec des modèles Azure Resource Manager
+# <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Architecture d’application avec des modèles Azure Resource Manager pour les machines virtuelles Linux
+
 Lors du développement d’un déploiement Azure Resource Manager, les exigences de calcul doivent être mappées aux services et ressources Azure. Si une application comprend plusieurs points de terminaison http, une base de données, et un service de mise en cache de données, les ressources Azure hébergeant ces composants doivent être rationalisées. Ainsi, l’exemple d’application du Store musique comprend une application web hébergée sur une machine virtuelle, et une base de données SQL hébergée dans Azure SQL Database. 
 
 Ce document décrit en détail la manière dont les ressources de calcul du Store musique sont configurées dans l’exemple de modèle Azure Resource Manager. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour le modèle complet, consultez [Déploiement du Store musique sur Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
@@ -270,10 +273,5 @@ Pour plus d’informations sur le déploiement d’Azure SQL Database, voir la [
 <hr>
 
 [Étape 2 : accès et sécurité dans les modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

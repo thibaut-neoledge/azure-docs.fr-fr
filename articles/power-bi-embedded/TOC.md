@@ -13,8 +13,11 @@
 
 ## Gérer
 ### [Se connecter à une source de données](power-bi-embedded-connect-datasource.md)
-### [Incorporer un rapport Power BI avec un IFrame](power-bi-embedded-iframe.md)
+### [Incorporer un rapport Power BI](power-bi-embedded-embed-report.md)
 ### [Interagir avec les rapports](power-bi-embedded-interact-with-reports.md)
+### [Créer un rapport à partir d’un jeu de données](power-bi-embedded-create-report-from-dataset.md)
+### [Enregistrer des rapports](power-bi-embedded-save-reports.md)
+### [Basculer entre l’affichage et la modification](power-bi-embedded-toggle-mode.md)
 
 ## Sécuriser
 ### [Authentification et autorisation](power-bi-embedded-app-token-flow.md)
@@ -22,13 +25,17 @@
 
 # Référence
 ## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
-## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+## [API REST de gestion](/rest/api/powerbiembedded/)
+## [API REST](https://msdn.microsoft.com/library/azure/mt711507.aspx)
 
 
-# les ressources
-## [Exemples](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+# Ressources
+## [Exemple d’application](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+## [Référentiel Git JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Référentiel Git Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/powerbi)

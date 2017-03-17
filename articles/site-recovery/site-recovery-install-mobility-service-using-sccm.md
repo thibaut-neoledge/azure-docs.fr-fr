@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 93ac6629df82b1a5b8d14a1ad289e1e462b49b17
-ms.openlocfilehash: 8883b2d15592ea5e0c286bd6e6fc7c38134326a7
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 310f2a2fe793601d22952bf516a812bf4867bbec
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Automatisation de l’installation du service Mobilité à l’aide d’outils de déploiement de logiciels
@@ -199,6 +199,30 @@ En savoir plus sur les autres méthodes d’installation des services Mobilité.
 * [Installation manuelle à l’aide de la ligne de commande](http://aka.ms/mobsvcmanualinstallcli)
 * [Installation Push à l’aide du serveur de configuration](http://aka.ms/pushinstall)
 * [Installation automatisée à l’aide d’Azure Automation et de la Configuration de l’état souhaité](http://aka.ms/mobsvcdscinstall)
+
+## <a name="uninstall-mobility-service"></a>Désinstaller le service Mobilité
+Comme pour l’installation, vous pouvez créer des packages SCCM pour désinstaller le service Mobilité. Utilisez le script ci-dessous pour désinstaller le service Mobilité.
+
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous êtes désormais prêt à [activer la protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) de vos machines virtuelles.

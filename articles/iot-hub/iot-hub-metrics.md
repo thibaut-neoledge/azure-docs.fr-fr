@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e8cac4af4b971320429cc4c76b8d806e314e1143
+ms.sourcegitcommit: 3f3ff3d196e9c640e9bd7cf01f9f1218c774ec6b
+ms.openlocfilehash: c06c43d430760a56d08dc0c2f9d158f4124db6d3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,24 +38,59 @@ Les métriques sont activées par défaut. Vous pouvez afficher les métriques d
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métriques IoT Hub et instructions d’utilisation
 IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de l’intégrité de votre hub et du nombre total d’appareils connectés. Vous pouvez combiner les informations de plusieurs métriques pour obtenir une image plus grande de l’état du hub IoT. Le tableau suivant décrit les métriques dont chaque hub IoT effectue le suivi et la relation de chacune avec l’état global du hub IoT.
 
-| Mesure | Description de la métrique | Finalité de la métrique |
-| --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol | Nombre de messages envoyés sur tous les appareils | Données globales sur les envois de messages |
-| d2c.telemetry.ingress.success | Nombre total de messages parvenant correctement au hub | Vue d’ensemble de l’entrée des messages réussis dans le hub |
-| d2c.telemetry.egress.success | Nombre d’écritures réussies sur un point de terminaison | Vue d’ensemble de la distribution ramifiée des messages basée sur les itinéraires de l’utilisateur |
-| d2c.telemetry.egress.invalid | Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison | Vue d’ensemble des échecs écrivant dans le jeu de points de terminaison de l’utilisateur. Des valeurs élevées peuvent indiquer des points de terminaison incorrectement configurés. |
-| d2c.telemetry.egress.dropped | Nombre de messages ignorés car un point de terminaison était défectueux | Vue d’ensemble du nombre de messages supprimés en fonction de la configuration actuelle de l’IoT Hub |
-| d2c.telemetry.egress.fallback | Nombre de messages correspondant à l’itinéraire de secours | Pour les utilisateurs qui dirigent tous les messages vers les points de terminaison autres que le point de terminaison prédéfini, cette métrique affiche les écarts dans la configuration de routage |
-| d2c.telemetry.egress.orphaned | Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris | Vue d’ensemble du nombre de messages orphelins en fonction de la configuration actuelle de l’IoT Hub |
-| d2c.endpoints.latency.eventHubs | Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes | La répartition permet aux utilisateurs d’identifier une mauvaise configuration du point de terminaison |
-| d2c.endpoints.latency.serviceBusQueues | Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes | La répartition permet aux utilisateurs d’identifier une mauvaise configuration du point de terminaison |
-| d2c.endpoints.latency.serviceBusTopic | Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes | La répartition permet aux utilisateurs d’identifier une mauvaise configuration du point de terminaison |
-| d2c.endpoints.latency.builtIn.events | Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes | La répartition permet aux utilisateurs d’identifier une mauvaise configuration du point de terminaison |
-| c2d.commands.egress.complete.success | Nombre total de messages de commande effectués par l’appareil de réception sur tous les appareils |Combiné aux métriques d’abandon et de rejet, donne une vue d’ensemble du taux de réussite global des commandes cloud-à-appareil |
-| c2d.commands.egress.abandon.success | Nombre total de messages correctement abandonnés par l’appareil de réception sur tous les appareils |Met en évidence des problèmes potentiels si la fréquence d’abandon de messages est anormalement élevée |
-| c2d.commands.egress.reject.success | Nombre total de messages correctement rejetés par l’appareil de réception sur tous les appareils |Met en évidence des problèmes potentiels si la fréquence de rejet de messages est anormalement élevée |
-| devices.totalDevices | Nombre d’appareils enregistrés auprès de l’IoT Hub |Nombre d’appareils enregistrés auprès du hub |
-| devices.connectedDevices.allProtocol | Nombre d’appareils connectés simultanément |Vue d’ensemble du nombre d’appareils connectés au hub |
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|
+|d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|
+|c2d.commands.egress.complete.success|Commandes terminées|Count|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|
+|c2d.commands.egress.abandon.success|Commandes abandonnées|Count|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|
+|c2d.commands.egress.reject.success|Commandes rejetées|Count|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|
+|devices.totalDevices|Nombre total d’appareils|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|
+|devices.connectedDevices.allProtocol|Appareils connectés|Count|Total|Nombre d’appareils connectés à votre hub IoT|
+|d2c.telemetry.egress.success|Messages de télémétrie remis|Nombre|Total|Nombre de fois où des messages ont été écrits aux points de terminaison (total)|
+|d2c.telemetry.egress.dropped|Messages supprimés|Count|Total|Nombre de messages supprimés parce qu’ils ne correspondaient pas aux itinéraires et que l’itinéraire de secours était désactivé|
+|d2c.telemetry.egress.orphaned|Messages orphelins|Count|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|
+|d2c.telemetry.egress.invalid|Messages non valides|Count|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|
+|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Count|Total|Nombre de messages écrits au point de terminaison de secours|
+|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|
+|d2c.endpoints.latency.eventHubs|Latence des messages des points de terminaison Event Hub|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes|
+|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|
+|d2c.endpoints.latency.serviceBusQueues|Latence des messages des points de terminaison de files d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes|
+|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|
+|d2c.endpoints.latency.serviceBusTopics|Latence des messages des points de terminaison de rubriques Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes|
+|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Count|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|
+|d2c.endpoints.latency.builtIn.events|Latence de message pour le point de terminaison intégré (messages/événements)|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes |
+|d2c.twin.read.success|Lectures de représentations réussies d’appareils|Count|Total|Total des lectures de représentations réussies initiées par un appareil.|
+|d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Count|Total|Total des lectures de représentations en échec initiées par un appareil.|
+|d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|
+|d2c.twin.update.success|Mises à jour de représentations réussies d’appareils|Count|Total|Total des mises à jour de représentations réussies initiées par un appareil.|
+|d2c.twin.update.failure|Mises à jour de représentations d’appareils en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un appareil.|
+|d2c.twin.update.size|Taille des mises à jour de représentations d’appareils|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un appareil.|
+|c2d.methods.success|Appels de méthode directe réussis|Count|Total|Total des appels de méthode directe réussis.|
+|c2d.methods.failure|Appels de méthode directe en échec|Count|Total|Total des appels de méthode directe en échec.|
+|c2d.methods.requestSize|Taille de demande des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les demandes de méthode directe réussies.|
+|c2d.methods.responseSize|Taille de réponse des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les réponses de méthode directe réussies.|
+|c2d.twin.read.success|Lectures de représentations réussies de serveur principal|Count|Total|Total des lectures de représentations réussies initiées par un serveur principal.|
+|c2d.twin.read.failure|Lectures de représentations de serveur principal en échec|Count|Total|Total des lectures de représentations en échec initiées par un serveur principal.|
+|c2d.twin.read.size|Taille de la réponse des lectures de représentations de serveur principal|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un serveur principal.|
+|c2d.twin.update.success|Mises à jour de représentations réussies de serveur principal|Count|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|
+|c2d.twin.update.failure|Mises à jour de représentations de serveur principal en échec|Count|Total|Total des mises à jour de représentations en échec initiées par un serveur principal.|
+|c2d.twin.update.size|Taille des mises à jour de représentations de serveur principal|Octets|Moyenne|Taille moyenne, minimale et maximale de toutes les mises à jour de représentations réussies initiées par un serveur principal.|
+|twinQueries.success|Requêtes de représentations réussies|Count|Total|Total des requêtes de représentations réussies.|
+|twinQueries.failure|Requêtes de représentations en échec|Count|Total|Total des requêtes de représentations en échec.|
+|twinQueries.resultSize|Taille du résultat des requêtes de représentations|Octets|Moyenne|Moyenne, minimum et maximum de la taille du résultat de toutes les requêtes de représentations réussies.|
+|jobs.createTwinUpdateJob.success|Créations réussies des travaux de mises à jour de représentations|Count|Total|Total des créations réussies de travaux de mises à jour de représentations.|
+|jobs.createTwinUpdateJob.failure|Créations des travaux de mises à jour de représentations en échec|Count|Total|Total des créations en échec des travaux de mises à jour de représentations.|
+|jobs.createDirectMethodJob.success|Créations réussies des travaux d’appel de méthode|Count|Total|Total des créations réussies des travaux d’appel de méthode directe.|
+|jobs.createDirectMethodJob.failure|Créations des travaux d’appel de méthode en échec|Count|Total|Total des créations en échec des travaux d’appel de méthode directe.|
+|jobs.listJobs.success|Appels réussis pour répertorier les travaux|Count|Total|Total des appels réussis pour répertorier les travaux.|
+|jobs.listJobs.failure|Appels en échec pour répertorier les travaux|Count|Total|Total des appels en échec pour répertorier les travaux.|
+|jobs.cancelJob.success|Annulations de travaux réussies|Count|Total|Total des appels réussis pour annuler un travail.|
+|jobs.cancelJob.failure|Annulations de travaux en échec|Count|Total|Total des appels en échec pour annuler un travail.|
+|jobs.queryJobs.success|Requêtes de travaux réussies|Count|Total|Total des appels réussis pour interroger les travaux.|
+|jobs.queryJobs.failure|Requêtes de travaux en échec|Count|Total|Total des appels en échec pour interroger les travaux.|
+|jobs.completed|Travaux terminés|Count|Total|Total des travaux terminés.|
+|jobs.failed|Travaux en échec|Count|Total|Total des travaux en échec.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les métriques d’IoT Hub n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
@@ -79,9 +115,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

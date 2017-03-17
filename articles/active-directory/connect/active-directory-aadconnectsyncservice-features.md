@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: af5a8b4dd87d041282d6a857a505ad6c167caac0
-ms.openlocfilehash: ab1879cc1ef998f889a86ea7e2d4e7143e6c1cc4
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +40,6 @@ Les paramètres suivants peuvent être configurés par `Set-MsolDirSyncFeature`:
 
 | DirSyncFeature | Commentaire |
 | --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Permet aux objets d’être joints sur userPrincipalName en plus de l’adresse SMTP principale. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName pour les utilisateurs gérés/licenciés(non fédérés). |
 
@@ -56,12 +56,13 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md) |
+| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
 | PasswordSync |[Implémentation de la synchronisation de mot de passe avec Azure AD Connect Sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge pour le moment. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
-Au lieu de rencontrer des problèmes lors de l’approvisionnement des UPN/proxyAddresses en double, l’attribut en double est « mis en quarantaine » et une valeur temporaire lui est attribuée. Lorsque le conflit est résolu, l’UPN temporaire est automatiquement converti dans la valeur correcte. Ce comportement peut être activé pour l’UPN et proxyAddress séparément. Pour plus d’informations, voir [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
+Au lieu de rencontrer des problèmes lors de l’approvisionnement des UPN/proxyAddresses en double, l’attribut en double est « mis en quarantaine » et une valeur temporaire lui est attribuée. Lorsque le conflit est résolu, l’UPN temporaire est automatiquement converti dans la valeur correcte. Pour plus d’informations, voir [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="userprincipalname-soft-match"></a>Correspondance souple UserPrincipalName
 Lorsque cette fonctionnalité est activée, la correspondance souple est activée pour l’UPN ainsi que pour l’ [adresse SMTP principale](https://support.microsoft.com/kb/2641663), qui est toujours activée. La correspondance souple est utilisée pour faire correspondre les utilisateurs existants du cloud dans Azure AD avec les utilisateurs locaux.
@@ -107,10 +108,5 @@ Après avoir activé cette fonctionnalité, les valeurs existantes userPrincipal
 ## <a name="see-also"></a>Voir aussi
 * [Synchronisation d’Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

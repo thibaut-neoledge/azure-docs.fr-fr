@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 3/15/2017
 ms.author: ahgyger
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -149,9 +150,4 @@ Après la configuration de l’espace de travail, vous pouvez également automat
 
 
 <!--Link references-->
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

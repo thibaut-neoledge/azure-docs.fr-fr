@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
-ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 248bc4c309ed61ae00ef144ebdb4c820f285783d
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-c"></a>Prise en main d’Intel Edison (C)
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-c"></a>Connecter votre appareil Intel Edison à votre IoT Hub à l’aide de C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions
 [receive-cloud-to-device-messages]:iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

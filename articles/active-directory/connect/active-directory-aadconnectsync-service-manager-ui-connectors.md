@@ -1,5 +1,5 @@
 ---
-title: "Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Docs"
+title: "Connecteurs dans l’interface utilisateur d’Azure AD Synchronization Service Manager | Microsoft Docs"
 description: "Comprendre l’onglet Connecteurs dans Synchronization Service Manager pour Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: f6fece979025cb9d4bb3cefdadcdbc929ed12719
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 55adbf800c6312371d937ed2da98a4a5ce704e51
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Synchronisation d’Azure AD Connect : Synchronization Service Manager
+# <a name="using-connectors-with-the-auzre-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -112,9 +113,4 @@ Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#c
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

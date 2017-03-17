@@ -8,14 +8,11 @@
 
 # Prise en main
 ## [Prise en main d’Advisor](advisor-get-started.md)
-
+# Référence
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 # Rubriques connexes
 ## [Centre de sécurité](https://azure.microsoft.com/services/security-center/)
 ## [Gestionnaire de base de données SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Cache Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [Services d’application](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
  
-
-<!--HONumber=Nov16_HO4-->
-
-

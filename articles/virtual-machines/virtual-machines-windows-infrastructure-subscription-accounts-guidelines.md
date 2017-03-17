@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 09c87e78aaccae4f70b2ff61cfc2a0a174dbdfaf
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 5b4b039c8f706a4b113cbe76c01e8330f5cebf3a
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-subscription-and-accounts-guidelines"></a>Instructions pour les abonnements et les comptes Azure
+# <a name="azure-subscription-and-accounts-guidelines-for-windows-vms"></a>Instructions pour les abonnements et les comptes Azure pour machines virtuelles Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension de l’approche de la gestion des abonnements et des comptes lorsque votre environnement et votre base d’utilisateurs augmentent.
@@ -65,10 +68,5 @@ Nous fournissons une facturation détaillée au moyen d’un fichier télécharg
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

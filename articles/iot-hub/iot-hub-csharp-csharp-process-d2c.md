@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -42,7 +43,7 @@ Ce didacticiel s’appuie sur le code indiqué dans le didacticiel [Prise en mai
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 ou Visual Studio 2017.
 * Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 
 Vous devez avoir une connaissance de base de [Stockage Azure] et d’[Azure Service Bus].
@@ -129,7 +130,7 @@ Pour plus d’informations sur la façon de traiter les messages des files d’a
 ## <a name="read-from-the-queue-endpoint"></a>Lecture à partir du point de terminaison de la file d’attente
 Dans cette section, vous allez lire les messages à partir du point de terminaison de la file d’attente.
 
-1. Dans la solution Visual Studio actuelle, créez un projet Windows Visual C# à l’aide du modèle de projet **d’application de console** . Nommez le projet **ReadCriticalQueue**.
+1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application console (.NET Framework)**. Nommez le projet **ReadCriticalQueue**.
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ReadCriticalQueue**, puis cliquez sur **Gérer les packages NuGet**. Cela affiche la fenêtre **Gestionnaire de packages NuGet**.
 
@@ -225,9 +226,4 @@ Pour en savoir plus sur le routage des messages dans IoT Hub, consultez [Envoyer
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

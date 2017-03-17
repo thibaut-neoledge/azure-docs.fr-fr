@@ -49,6 +49,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modèle](virtual-networks-create-vnetpeering-arm-template-click.md)
 
+### [Interfaces réseau](virtual-network-network-interface.md)
+
+### [Adresses IP publiques](virtual-network-public-ip-address.md)
+
 ### Machines virtuelles
 
 #### Adresses IP publiques statiques
@@ -123,9 +127,9 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Référence
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (classique)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Interface de ligne de commande Azure](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (classique)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Interface de ligne de commande Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj157182.aspx)

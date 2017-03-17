@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
-ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -75,6 +75,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 | 3 |Package de prise en charge |Dans la version précédente, des problèmes liés au package de prise en charge qui provoquaient une exception System.OutOfMemory ou d’autres erreurs entraînaient l’échec de création du package de prise en charge. Ces bogues ont été résolus dans cette version. |Oui |Oui |
 | 4 |Analyse |Dans la version précédente, un problème lié aux graphiques de surveillance des volumes épinglés localement entraînait l’affichage de la consommation dans EB. Ce bogue a été résolu dans cette version. |Oui |Oui |
 | 5 |Migration |Dans la version précédente, plusieurs problèmes étaient liés à la fiabilité de la migration des appareils de la série 5000-7000 vers la série 8000. Ces problèmes ont été résolus dans cette version. |Oui |Oui |
+| 6 |Mettre à jour |Dans les versions précédentes, en cas d’échec d’une mise à jour, les contrôleurs entraient en mode de récupération ; par conséquent, l’utilisateur ne pouvait pas poursuivre la mise à jour et devait contacter le Support Microsoft. <br> Ce comportement a été modifié dans cette version. Si l’utilisateur rencontre un échec de mise à jour une fois que les deux contrôleurs exécutent la même version (Update 4), ces derniers n’entrent pas en mode de récupération. Si l’utilisateur rencontre cette erreur, nous recommandons d’attendre un peu et de recommencer la mise à jour. La nouvelle tentative peut réussir. Si cette nouvelle tentative échoue, contactez le Support Microsoft. |Oui |Oui |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problèmes connus dans Update 4 depuis les versions précédentes

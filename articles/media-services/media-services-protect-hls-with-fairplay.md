@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 61ac849c20fa21181bd41289da896b4d53e0b9c3
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: a6f9e1ceb7dfbb13f2f365acf49e09f1c015f4e3
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -135,7 +135,7 @@ Les considérations suivantes s'appliquent :
 * Le type de chiffrement ne doit pas être spécifié dans l’url si un seul chiffrement a été appliqué à la ressource.
 * Le type de chiffrement ne tient pas compte de la casse.
 * Les types de chiffrement suivants peuvent être spécifiés :  
-  * **cenc** : Common Encryption (Playready ou Widevine)
+  * **cenc** : chiffrement commun (Playready ou Widevine)
   * **des CBC-aapl**: Fairplay
   * **cbc**: chiffrement de l’enveloppe AES.
 
@@ -165,6 +165,9 @@ L'exemple suivant illustre la fonctionnalité introduite dans le kit SDK Azure M
               </appSettings>
         </configuration>
 7. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
+
+    >[!NOTE]
+    >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
         using System;
         using System.Collections.Generic;
@@ -277,20 +280,10 @@ L'exemple suivant illustre la fonctionnalité introduite dans le kit SDK Azure M
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }

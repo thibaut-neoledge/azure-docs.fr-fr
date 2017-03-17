@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: aea6f0fedb447e953b9db40342e5091bd35486af
-ms.openlocfilehash: 9b80ae8c247480e69025b86fac322166a4d5cb4c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b334ba6bbec1d0a7e23a514174bffae01c7fff05
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +60,13 @@ Voici quelques-uns des attributs clés de la fonctionnalité HTTPS :
 >[!IMPORTANT] 
 >Vous devez effectuer la validation de domaine avant que le protocole HTTPS soit activé sur votre domaine personnalisé. Vous disposez de 6 jours ouvrables pour approuver le domaine. La demande sera annulée si aucune approbation n’intervient dans ce délai.  
 
-Une fois le protocole HTTPS activé sur votre domaine personnalisé, notre fournisseur de certificat HTTPS DigiCert validera la propriété de votre domaine en contactant l’inscrit pour ce domaine, en fonction des informations sur l’inscrit WHOIS, par e-mail (par défaut) ou par téléphone. Si les informations sur l’inscrit sont privées, DigiCert envoie le message de vérification à **admin@*<votre-nom-domaine.com>***.
+Une fois le protocole HTTPS activé sur votre domaine personnalisé, notre fournisseur de certificat HTTPS DigiCert validera la propriété de votre domaine en contactant l’inscrit pour ce domaine, en fonction des informations sur l’inscrit WHOIS, par e-mail (par défaut) ou par téléphone. DigiCert enverra également l’e-mail de vérification aux adresses suivantes. Si les informations sur l’inscrit whois sont privées, vérifiez que vous pouvez effectuer directement l’approbation à partir de ces adresses.
+
+>admin@<votre-nom-de-domaine.com> administrator@<votre-nom-de-domaine.com>  
+>webmaster@<votre-nom-de-domaine.com>  
+>hostmaster@<votre-nom-de-domaine.com>  
+>postmaster@<votre-nom-de-domaine.com>
+
 
 Lors de la réception de l’e-mail, vous avez deux options de vérification :
 
@@ -104,10 +111,5 @@ Une fois que le nom de domaine est validé, cela prendra jusqu’à 6 à 8 heur
 
 - Découvrez comment configurer un [domaine personnalisé sur votre point de terminaison Azure CDN](./cdn-map-content-to-custom-domain.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6c711fd3a843604d62d6589d0a742f03a049bc5c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Déploiement de la gestion des mots de passe et formation des utilisateurs
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -74,8 +74,8 @@ Voici les étapes de déploiement générales pour la réinitialisation de mot d
 2. Attribuez les licences appropriées à chaque utilisateur auquel vous souhaitez proposer la réinitialisation de mot de passe en accédant à l’onglet **Licences** dans le [portail de gestion Azure](https://manage.windowsazure.com).
 3. Vous pouvez éventuellement restreindre la réinitialisation de mot de passe à un groupe d’utilisateurs pour déployer la fonctionnalité lentement au fil du temps en définissant le commutateur **Limiter l’accès à la réinitialisation de mot de passe** sur **Oui** et en sélectionnant un groupe de sécurité pour activer la réinitialisation de mot de passe. Notez que ces utilisateurs doivent tous avoir des licences.
 4. Demandez à vos utilisateurs d’utiliser la réinitialisation de mot de passe soit en leur envoyant un courrier électronique leur indiquant de s’inscrire, soit en activant l’inscription forcée dans le panneau d’accès, soit en chargeant les données d’authentification appropriées pour ces utilisateurs via DirSync, PowerShell ou le [portail de gestion Azure](https://manage.windowsazure.com).  Vous trouverez plus d’informations ci-dessous.
-5. Au fil du temps, passez en revue les utilisateurs qui s’inscrivent en accédant à l’onglet Rapports et en affichant le rapport [**Activité d’inscription à la réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6. Une fois qu’un bon nombre d’utilisateurs est inscrit, passez en revue leur utilisation de la réinitialisation de mot de passe en accédant à l’onglet Rapports et en affichant le rapport [**Activité de réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+5. Au fil du temps, passez en revue les utilisateurs qui s’inscrivent en accédant à l’onglet Rapports et en affichant le rapport [**Activité d’inscription à la réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal).
+6. Une fois qu’un bon nombre d’utilisateurs est inscrit, passez en revue leur utilisation de la réinitialisation de mot de passe en accédant à l’onglet Rapports et en affichant le rapport [**Activité de réinitialisation de mot de passe**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal).
 
 Il existe plusieurs façons d’informer vos utilisateurs qu’ils peuvent s’inscrire à la réinitialisation de mot de passe et l’utiliser dans votre organisation.  Elles sont détaillées ci-dessous.
 
@@ -84,7 +84,7 @@ L’approche la plus simple pour informer vos utilisateurs qu’ils peuvent s’
 
   ![][001]
 
-Vous pouvez [télécharger le modèle de courrier électronique ici](http://1drv.ms/1xWFtQM).
+Vous pouvez [télécharger le modèle de courrier électronique ici](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
 
 ### <a name="creating-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 Une stratégie adaptée aux clients de taille importante qui déploient des fonctionnalités de gestion de mot de passe consiste à créer un « portail de mot de passe » grâce auquel les utilisateurs peuvent gérer, en un emplacement unique, tous les éléments liés à leurs mots de passe.  
@@ -144,7 +144,7 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.

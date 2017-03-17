@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -24,6 +25,9 @@ ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias chargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l’évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN).
 
 Cet exemple montre comment télécharger des éléments multimédias depuis Media Services sur un ordinateur local. Le code lance une requête sur les tâches associées au compte Media Services par ID de tâche et accède à l'ensemble **OutputMediaAssets** du compte (qui regroupe un ou plusieurs éléments multimédias en sortie, suite à l'exécution d'une tâche). Cet exemple indique comment télécharger des éléments multimédias en sortie depuis une tâche, mais il est possible d’appliquer la même approche pour télécharger d’autres éléments.
+
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
@@ -84,10 +88,5 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 
 ## <a name="see-also"></a>Voir aussi
 [de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

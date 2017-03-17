@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 5b81c3cdabe7b02a2049d7d1a5e227f5886bdbad
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3d292501fba980edcb567e7da7c79e8f1d90d1dd
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -71,12 +71,12 @@ Le reste de cette rubrique fournit des explications détaillées, des exemples d
 ## <a name="current-limitations"></a>Limitations actuelles
 Si vous ajoutez ou mettez à jour la stratégie de remise de votre ressource, vous devez supprimer le localisateur existant (le cas échéant) et en créer un nouveau.
 
-## <a name="a-idcreateassetacreate-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia
+## <a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia
 Pour gérer, encoder et diffuser vos vidéos, vous devez d'abord télécharger votre contenu dans Microsoft Azure Media Services. Une fois téléchargé, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu. 
 
 Pour plus d’informations, consultez [Charger des fichiers vers un compte Media Services](media-services-dotnet-upload-files.md).
 
-## <a name="a-idencodeassetaencode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Encoder l’élément multimédia contenant le fichier selon le débit binaire MP4 défini
+## <a id="encode_asset"></a>Encoder l’élément multimédia contenant le fichier selon le débit binaire MP4 défini
 Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez la rubrique [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
@@ -86,17 +86,17 @@ Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia
 
 Pour savoir comment encoder, consultez [Encodage d’un élément multimédia à l’aide de Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
+## <a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
 Dans Media Services, la clé de contenu contient la clé que vous souhaitez utiliser pour chiffrer un élément multimédia.
 
 Pour plus d’informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurez la stratégie d’autorisation de la clé de contenu.
+## <a id="configure_key_auth_policy"></a>Configurez la stratégie d’autorisation de la clé de contenu.
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client (lecteur) afin que la clé soit remise au client. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP.
 
 Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’éléments multimédia
+## <a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’éléments multimédia
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments que la configuration de la stratégie de remise de l'élément multimédia inclut :
 
 * L'URL d'acquisition de la clé. 
@@ -106,7 +106,7 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 
 Pour plus d’informations, consultez [Configurer la stratégie de distribution d’éléments multimédia ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
+## <a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
 Vous devrez fournir aux utilisateurs l'URL de diffusion en continu pour Smooth, DASH ou HLS.
 
 > [!NOTE]
@@ -132,7 +132,7 @@ Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la st
 
 Vous pouvez utiliser le [lecteur AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
 
-## <a name="a-idclientrequestahow-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Comment votre client peut-il demander une clé à partir du service de distribution des clés ?
+## <a id="client_request"></a>Comment votre client peut-il demander une clé à partir du service de distribution des clés ?
 Dans l'étape précédente, vous avez construit l'URL qui pointe vers un fichier manifeste. Votre client doit extraire les informations nécessaires à partir des fichiers manifeste de diffusion en continu afin d'effectuer une demande au service de distribution des clés.
 
 ### <a name="manifest-files"></a>Fichiers manifeste
@@ -220,7 +220,7 @@ Le code suivant montre comment envoyer une requête au service de distribution d
         return key;
     }
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Exemple
+## <a id="example"></a>Exemple
 1. Créez un projet Console.
 2. Utilisez NuGet pour installer et ajouter les extensions du Kit de développement logiciel (SDK) .NET Azure Media Services. L’installation de ce package installe également le Kit de développement logiciel (SDK) Media Services pour .NET et ajoute toutes les autres dépendances requises.
 3. Ajoutez le fichier de configuration qui contient le nom du compte et les informations sur la clé :
@@ -241,7 +241,10 @@ Le code suivant montre comment envoyer une requête au service de distribution d
         </configuration>
 
 1. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
-   
+ 
+    >[!NOTE]
+    >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
     Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
         using System;
@@ -372,20 +375,11 @@ Le code suivant montre comment envoyer une requête au service de distribution d
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }

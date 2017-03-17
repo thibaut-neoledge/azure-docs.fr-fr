@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,9 +28,9 @@ Quand vous reformez un nouveau service web, vous mettez à jour la définition d
 Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> L’expérience prédictive doit être déployée comme un service web Machine Learning basé sur Azure Resource Manager (nouveau). 
-> 
-> 
+> L’expérience prédictive doit être déployée comme un service web Machine Learning basé sur Azure Resource Manager (nouveau). Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
+
 
 Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -108,10 +109,5 @@ Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://msdn
 
 * Nouvel apprentissage périodique d’un modèle avec de nouvelles données.
 * Distribution d’un modèle auprès des clients dans le but de leur permettre d’effectuer à nouveau l’apprentissage du modèle avec leurs propres données.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
