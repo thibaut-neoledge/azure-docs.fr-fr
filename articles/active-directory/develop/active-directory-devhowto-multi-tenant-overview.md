@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -25,7 +26,7 @@ Si vous proposez une application SaaS (Software as a Service) à de nombreuses o
 
 Si vous avez une application existante qui possède son propre système de compte, ou qui prend en charge d’autres types de connexion à partir d’autres fournisseurs de cloud, l’ajout d’une connexion Azure AD à partir de n’importe quel client est aussi simple que l’inscription de votre application, l’ajout d’une connexion dans le code via OAuth2, OpenID Connect ou SAML, et l’ajout d’un bouton Microsoft Se connecter à votre application. Cliquez sur le bouton ci-dessous pour en savoir plus sur la personnalisation de votre application.
 
-[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Cet article suppose que vous êtes déjà familiarisé avec la création d’une application à client unique pour Azure AD.  Si ce n’est pas le cas, retournez à la [page d’accueil du guide du développeur][AAD-Dev-Guide] et testez l’un de nos démarrages rapides !
 
@@ -60,7 +61,7 @@ La réponse de connexion envoyée à l’application contient un jeton représen
 
 Comme mentionné précédemment, les applications mutualisées doivent également fournir une expérience de connexion cohérente aux utilisateurs en suivant les directives de personnalisation des applications Azure Active Directory. Cliquez sur le bouton ci-dessous pour en savoir plus sur la personnalisation de votre application.
 
-[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Intéressons-nous désormais de plus près à l’utilisation du point de terminaison /common et à l’implémentation de votre code.
 
@@ -163,6 +164,10 @@ Le consentement est pris en charge dans Azure AD via les protocoles OAuth, OpenI
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Applications mutualisées et mise en cache des jetons d’accès
 Les applications mutualisées peuvent également obtenir des jetons d’accès pour appeler des API protégées par Azure AD.  Une erreur courante lors de l’utilisation de la bibliothèque d’authentification Active Directory (ADAL) avec une application mutualisée consiste à demander initialement un jeton pour un utilisateur à l’aide du paramètre /common, à recevoir une réponse, puis à demander un nouveau jeton pour ce même utilisateur également à l’aide de /common.  Comme la réponse d’Azure AD provient d’un client et non de /common, ADAL met en cache le jeton comme provenant du client. L’appel suivant à /common pour obtenir un jeton d’accès pour l’utilisateur manque l’entrée du cache, et l’utilisateur est invité à se reconnecter.  Pour éviter de manquer le cache, assurez-vous que les appels suivants pour un utilisateur déjà connecté sont effectués vers le point de terminaison du client.
 
+## <a name="next-steps"></a>Étapes suivantes
+Cet article vous a montré comment créer une application pouvant connecter un utilisateur à partir de n’importe quel client Azure Active Directory. Après l’activation de l’authentification unique sur entre votre application et Azure Active Directory, vous pouvez également mettre à jour votre application pour accéder aux API exposées par les ressources de Microsoft, comme Office 365. Par conséquent, vous pouvez proposer une expérience personnalisée dans votre application, par exemple en affichant des informations contextuelles aux utilisateurs, comme leur photo de profil ou leur prochain rendez-vous de calendrier. Pour en savoir plus sur les appels d’API aux services Azure Active Directory et Office 365 comme Exchange, SharePoint, OneDrive, OneNote, Planner, Excel et bien plus encore, visitez : [API Microsoft Graph][MSFT-Graph-overview].
+
+
 ## <a name="related-content"></a>Contenu connexe
 * [Exemples d’applications mutualisées][AAD-Samples-MT]
 * [Directives de personnalisation des applications][AAD-App-Branding]
@@ -170,7 +175,7 @@ Les applications mutualisées peuvent également obtenir des jetons d’accès p
 * [Objets principal du service et application][AAD-App-SP-Objects]
 * [Intégration d’applications dans Azure Active Directory][AAD-Integrating-Apps]
 * [Vue d’ensemble de l’infrastructure de consentement][AAD-Consent-Overview]
-* [Étendues des autorisations de l’API Graph Microsoft][MSFT-Graph-AAD]
+* [Étendues des autorisations de l’API Graph Microsoft][MSFT-Graph-permision-scopes]
 * [Étendues des autorisations de l’API Graph Azure AD][AAD-Graph-Perm-Scopes]
 
 Utilisez la section de commentaires ci-dessous pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
@@ -189,7 +194,8 @@ Utilisez la section de commentaires ci-dessous pour fournir des commentaires et 
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -235,10 +241,5 @@ Utilisez la section de commentaires ci-dessous pour fournir des commentaires et 
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

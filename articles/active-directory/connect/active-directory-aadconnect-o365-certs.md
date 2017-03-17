@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -55,7 +56,7 @@ Azure AD tente d’analyser les métadonnées de fédération et de mettre à jo
 >
 >
 
-## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>Vérifiez si les certificats doivent être mis à jour <a name="managecerts"></a>
+## Vérifiez si les certificats doivent être mis à jour <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Étape 1 : vérifier l’état de AutoCertificateRollover
 Sur votre serveur AD FS, ouvrez Powershell. Vérifiez que la valeur de AutoCertificateRollover est définie sur True.
 
@@ -95,7 +96,7 @@ Dans la sortie de Get-MsolFederationProperty ou Get-AdfsCertificate, vérifiez l
 
 \[-]  N’a pas d’importance
 
-## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>Renouveler le certificat de signature de jetons automatiquement (recommandé) <a name="autorenew"></a>
+## Renouveler le certificat de signature de jetons automatiquement (recommandé) <a name="autorenew"></a>
 Vous n’avez pas besoin de suivre de procédure manuelle si les deux affirmations suivantes sont vraies :
 
 * Vous avez déployé le proxy d’application Web, qui permet d’accéder aux métadonnées de fédération à partir de l’extranet.
@@ -113,7 +114,7 @@ où `(your_FS_name) `est remplacé par le nom d’hôte du service de fédérati
 
 Exemple : https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>Renouveler le certificat de signature de jetons manuellement <a name="manualrenew"></a>
+## Renouveler le certificat de signature de jetons manuellement <a name="manualrenew"></a>
 Vous pouvez choisir le renouvellement manuel des certificats de signature de jeton. Par exemple, il se peut que les scénarios fonctionnent mieux pour le renouvellement manuel :
 
 * Les certificats de signature de jeton ne sont pas auto-signés. Le plus souvent, ceci s’explique par le fait que votre organisation gère les certificats AD FS inscrits auprès d’une autorité de certification d’organisation.
@@ -160,13 +161,8 @@ Mettez Office 365 à jour avec les nouveaux certificats de signature de jeton de
 >
 >
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Réparer l’approbation Azure AD à l’aide d’Azure AD Connect <a name="connectrenew"></a>
+## Réparer l’approbation Azure AD à l’aide d’Azure AD Connect <a name="connectrenew"></a>
 Si vous avez configuré votre batterie de serveurs AD FS et l’approbation Azure AD à l’aide d’Azure AD Connect, vous pouvez utiliser Azure AD Connect afin de vérifier si vous devez agir ou non pour vos certificats de signature de jeton. Si vous devez renouveler les certificats, vous pouvez le faire à l’aide d’Azure AD Connect.
 
 Pour plus d’informations, consultez [Réparation de l’approbation](active-directory-aadconnect-federation-management.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

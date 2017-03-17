@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ Le planificateur est toujours en cours d’exécution, mais il peut être config
 ## <a name="scheduler-configuration"></a>Configuration du planificateur
 Pour afficher vos paramètres de configuration en cours, accédez à PowerShell et exécutez `Get-ADSyncScheduler`. Vous obtenez un écran semblable à celui-ci :
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 Si le message **La commande de synchronisation ou l’applet de commande n’est pas disponible** apparaît lorsque vous exécutez cette applet de commande, le module PowerShell n'est pas chargé. Ce problème peut se produire si vous exécutez Azure AD Connect sur un contrôleur de domaine ou sur un serveur avec des niveaux de restriction PowerShell plus élevés que les paramètres par défaut. Si vous recevez cette erreur, exécutez `Import-Module ADSync` pour libérer l’applet de commande.
 
@@ -52,7 +53,8 @@ Si le message **La commande de synchronisation ou l’applet de commande n’est
 * **PurgeRunHistoryInterval**. Durée pendant laquelle les journaux des opérations doivent être conservés. Ces journaux peuvent être consultés dans Synchronization Service Manager. La valeur de conservation des journaux par défaut est de 7 jours.
 * **SyncCycleEnabled**. Indique si le planificateur exécute les processus d’importation, de synchronisation et d’exportation dans le cadre de son fonctionnement.
 * **MaintenanceEnabled**. Indique si le processus de maintenance est activé. Met à jour les certificats/clés et vide le journal des opérations.
-* **IsStagingModeEnabled**. Indique si le [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode) est activé. Si ce paramètre est activé, les exportations ne sont plus exécutées. Cependant, l’importation et la synchronisation sont toujours exécutées.
+* **StagingModeEnabled**. Indique si le [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode) est activé. Si ce paramètre est activé, les exportations ne sont plus exécutées. Cependant, l’importation et la synchronisation sont toujours exécutées.
+* **SchedulerSuspended**. Défini par Connect pendant une mise à niveau pour bloquer temporairement le l’exécution du planificateur.
 
 Vous pouvez modifier certains de ces paramètres avec `Set-ADSyncScheduler`. Les paramètres suivants peuvent être modifiés :
 
@@ -61,6 +63,8 @@ Vous pouvez modifier certains de ces paramètres avec `Set-ADSyncScheduler`. Les
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+Dans les versions antérieures d’Azure AD Connect, **isStagingModeEnabled** était exposé dans Set-ADSyncScheduler. Elle **n’est pas prise en charge** pour la définition de cette propriété. La propriété **SchedulerSuspended** doit uniquement être modifiée par Connect. Elle **n’est pas prise en charge** pour la définition avec PowerShell directement.
 
 La configuration du planificateur est stockée dans Azure AD. Si vous avez un serveur intermédiaire, toute modification sur le serveur principal a également un effet sur le serveur intermédiaire (à l’exception de IsStagingModeEnabled).
 
@@ -169,9 +173,4 @@ Si vous démarrez l’Assistant d’installation, le planificateur est temporair
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

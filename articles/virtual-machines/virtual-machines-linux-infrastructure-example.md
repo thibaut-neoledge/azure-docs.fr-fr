@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
-ms.openlocfilehash: e8ef1e52dec358fae00096df26b16fb9e3f46c2b
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 37e1783e10bf1cf84431a8d40b1e3d81b47188d2
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="example-azure-infrastructure-walkthrough"></a>Procédure pas à pas d’exemple d’infrastructure Azure
+# <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -120,10 +123,5 @@ Cette configuration comprend :
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

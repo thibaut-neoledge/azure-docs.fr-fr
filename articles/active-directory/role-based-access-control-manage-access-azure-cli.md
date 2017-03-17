@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: d9ef14d1d83d98de5c1d95b237a2e06ea2506766
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,12 +26,11 @@ ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
+
 
 Le contrôle d’accès en fonction du rôle (RBAC) disponible dans le portail Azure et l’API Azure Resource Manager permet une gestion très fine de l’accès à votre abonnement et à vos ressources. Cette fonctionnalité vous permet d’accorder l’accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
 
-Pour pouvoir utiliser l'interface de ligne de commande Azure (CLI) pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
+Pour pouvoir utiliser l’interface de ligne de commande (CLI) Azure afin de gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 * Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli-install.md).
 * Azure Resource Manager dans l’interface de ligne de commande Azure. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md) .
@@ -127,7 +127,7 @@ Pour affecter un rôle à un utilisateur pour le groupe de ressources, utilisez 
 
 L’exemple suivant affecte le rôle *Collaborateur de machine virtuelle* à l’utilisateur *samert@aaddemo.com* au groupe de ressources *Pharma-Sales-ProjectForcast*.
 
-![Ligne de commande Azure RBAC - création d’affectation de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
+![Ligne de commande Azure RBAC - création des affectations de rôle azure par utilisateur - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Affectation d'un rôle à un utilisateur pour des ressources
 Pour affecter un rôle à un groupe au niveau des ressources, utilisez :
@@ -153,7 +153,7 @@ Pour créer un rôle personnalisé, utilisez :
 
     azure role create --inputfile <file path>
 
-L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle*. Le rôle personnalisé accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* ainsi que l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Le rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
+L’exemple suivant crée un rôle personnalisé appelé *Opérateur de machine virtuelle*. Ce rôle personnalisé accorde l’accès à toutes les opérations des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* ainsi que l’accès nécessaire pour démarrer, redémarrer et surveiller des machines virtuelles. Ce rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
 
 ![JSON - définition de rôle personnalisé - capture d’écran](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
@@ -180,7 +180,7 @@ L’exemple suivant supprime le rôle personnalisé *Opérateur de machine virtu
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 Pour répertorier les rôles pouvant être affectés dans une étendue, utilisez la commande `azure role list` .
 
-L’exemple suivant répertorie tous les rôles pouvant être affectés dans l’abonnement sélectionné.
+La commande suivante répertorie tous les rôles pouvant être affectés à l’abonnement sélectionné.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
@@ -198,10 +198,5 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ## <a name="rbac-topics"></a>Rubriques RBAC
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

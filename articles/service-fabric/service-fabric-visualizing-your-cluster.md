@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: bebfd5e0cc209d8c1fc28d2300c57e3519410954
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -83,11 +84,11 @@ Le tableau suivant répertorie les actions disponibles pour chaque entité :
 | Application |Supprimer l’application |Supprime l’application, y compris tous ses services et leur état (le cas échéant). |
 | de diffusion en continu |Supprimer le service |Supprime le service et son état (le cas échéant). |
 | Nœud |Activer |Active le nœud. |
-| Désactiver (pause) |Suspend le nœud dans son état actuel. Les services continuent à s’exécuter mais Service Fabric ne déplace rien de manière proactive, sauf si un déplacement est nécessaire pour éviter une panne ou une incohérence des données. Cette action est généralement utilisée pour activer les services de débogage sur un nœud spécifique afin de veiller à ce qu’ils ne se déplacent pas pendant l’inspection. | |
-| Désactiver (redémarrage) |Déplace en toute sécurité tous les services en mémoire d’un nœud et ferme les services persistants. Généralement utilisé quand les processus hôtes ou la machine ont besoin d’être redémarrés. | |
-| Désactiver (suppression de données) |Ferme en toute sécurité tous les services en cours d’exécution sur le nœud après avoir généré suffisamment de réplicas de réserve. Généralement utilisé quand un nœud (ou au moins son stockage) est définitivement mis hors service. | |
-| Supprimer l’état du nœud |Supprime la connaissance des réplicas d’un nœud du cluster. Généralement utilisé quand un nœud déjà défaillant est considéré comme irrécupérable. | |
-| Nœud | Redémarrer | Simulez une panne de nœud en redémarrant le nœud. Plus d’informations [ici](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
+| Nœud | Désactiver (pause) | Suspend le nœud dans son état actuel. Les services continuent à s’exécuter mais Service Fabric ne déplace rien de manière proactive, sauf si un déplacement est nécessaire pour éviter une panne ou une incohérence des données. Cette action est généralement utilisée pour activer les services de débogage sur un nœud spécifique afin de veiller à ce qu’ils ne se déplacent pas pendant l’inspection. | |
+| Nœud | Désactiver (redémarrage) | Déplace en toute sécurité tous les services en mémoire d’un nœud et ferme les services persistants. Généralement utilisé quand les processus hôtes ou la machine ont besoin d’être redémarrés. | |
+| Nœud | Désactiver (suppression de données) | Ferme en toute sécurité tous les services en cours d’exécution sur le nœud après avoir généré suffisamment de réplicas de réserve. Généralement utilisé quand un nœud (ou au moins son stockage) est définitivement mis hors service. | |
+| Nœud | Supprimer l’état du nœud | Supprime la connaissance des réplicas d’un nœud du cluster. Généralement utilisé quand un nœud déjà défaillant est considéré comme irrécupérable. | |
+| Nœud | Redémarrer | Simulez une panne de nœud en redémarrant le nœud. Plus d’informations [ici](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
 
 Étant donné que de nombreuses actions sont irréversibles, vous devrez peut-être confirmer votre intention pour pouvoir effectuer l’action.
 
@@ -132,9 +133,4 @@ Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster séc
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

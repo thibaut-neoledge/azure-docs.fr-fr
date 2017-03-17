@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 3c9b3a9509493e8c6900d90b5ab6519de7a0721f
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: e0f03adefe1c04b4d7b8cc2dea18f15eb3f05397
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="device-twins"></a>Représentations d’appareil physique
-## <a name="overview"></a>Vue d’ensemble
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les représentations d’appareil IoT Hub
+## <a name="overview"></a>Vue d'ensemble
 Les *représentations d’appareil* sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez. Cet article décrit ce qui suit :
 
 * la structure de la représentation d’appareil : *tags* (balises), propriétés *desired* (souhaitées) et *reported* (signalées)
@@ -332,9 +334,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

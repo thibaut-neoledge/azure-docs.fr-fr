@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b4fb534cf18fd17f636e88cc31d6c997a9f09e45
-ms.openlocfilehash: e72afd857025773b3aadc3de124b4e79ec6cd512
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-deployment-with-azure-resource-manager-templates"></a>Déploiement d’applications avec des modèles Azure Resource Manager
+# <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Déploiement d’applications avec des modèles Azure Resource Manager pour les machines virtuelles Windows
+
 Une fois que toutes les exigences infrastructurelles d’Azure sont identifiées et converties en un modèle de déploiement, le déploiement de l’application réelle doit être effectué. Le déploiement de l’application fait ici référence à l’installation des fichiers binaires de l’application réelle sur les ressources Azure. Pour l’exemple du Store musique, .NET Core et IIS doivent être installés et configurés sur chaque machine virtuelle. Les fichiers binaires du Store musique doivent être installés sur la machine virtuelle, et la base de données du Store musique doit avoir été créée au préalable.
 
 Ce document décrit en détail comment des extensions de machine virtuelle peuvent automatiser le déploiement et la configuration d’applications sur des machines virtuelles Azure. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour accéder au modèle complet, consultez [Déploiement du Store musique sous Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -124,10 +127,5 @@ Pour plus d’informations sur l’utilisation des extensions de script personna
 <hr>
 
 [Découvrir d’autres modèles Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

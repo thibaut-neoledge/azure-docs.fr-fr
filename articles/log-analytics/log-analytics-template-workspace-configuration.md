@@ -1,25 +1,28 @@
-
-
 ---
-title: Utiliser des modèles Azure Resource Manager pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
-description: Vous pouvez utiliser des modèles Azure Resource Manager pour créer et configurer des espaces de travail Log Analytics.
+title: "Utilisation de modèles Azure Resource Manager pour créer et configurer un espace de travail Log Analytics | Microsoft Docs"
+description: "Vous pouvez utiliser des modèles Azure Resource Manager pour créer et configurer des espaces de travail Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/01/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
+ms.lasthandoff: 03/03/2017
+
 
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
-Vous pouvez utiliser des [modèles Azure Resource Manager](../resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
+Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
 
 * Créer un espace de travail
 * Ajouter une solution
@@ -36,9 +39,9 @@ Vous pouvez utiliser des [modèles Azure Resource Manager](../resource-group-aut
 Cet article fournit des exemples de modèle qui illustrent des opérations de configuration que vous pouvez effectuer à partir de modèles.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Créer et configurer un espace de travail Log Analytics
-L’exemple de modèle suivant illustre comment :
+L’exemple de modèle suivant illustre comment :
 
-1. Créer un espace de travail
+1. Créer un espace de travail, y compris la rétention des données de paramètres
 2. Ajouter des solutions à l’espace de travail
 3. Créer des recherches enregistrées
 4. Créer un groupe d’ordinateurs
@@ -65,11 +68,20 @@ L’exemple de modèle suivant illustre comment :
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+    }
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -118,7 +130,8 @@ L’exemple de modèle suivant illustre comment :
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -415,7 +428,7 @@ L’exemple de modèle suivant illustre comment :
 
 ```
 ### <a name="deploying-the-sample-template"></a>Déploiement de l’exemple de modèle
-Pour déployer l’exemple de modèle :
+Pour déployer l’exemple de modèle :
 
 1. Enregistrez l’exemple joint dans un fichier, par exemple `azuredeploy.json`. 
 2. Modifiez le modèle afin de disposer de la configuration souhaitée.
@@ -432,7 +445,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Exemples de modèles Azure Resource Manager
-La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles pour Log Analytics, destinés aux opérations suivantes :
+La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles pour Log Analytics, destinés aux opérations suivantes :
 
 * [Déployer une machine virtuelle exécutant Windows avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
 * [Déployer une machine virtuelle exécutant Linux avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
@@ -444,7 +457,5 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
-
-<!--HONumber=Oct16_HO2-->
 
 

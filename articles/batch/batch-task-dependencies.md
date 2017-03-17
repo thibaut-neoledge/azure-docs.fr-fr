@@ -1,6 +1,6 @@
 ---
-title: "Configurer des tâches qui dépendent d’autres tâches - Azure Batch | Microsoft Docs"
-description: "Créez des tâches qui dépendent de l’exécution d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch."
+title: "Utiliser des dépendances de tâches pour exécuter des tâches basées sur l’achèvement d’autres tâches - Azure Batch | Microsoft Docs"
+description: "Créez des tâches qui dépendent de l’achèvement d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="task-dependencies-in-azure-batch"></a>Dépendances de tâches dans Azure Batch
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
+
 La fonctionnalité de dépendances de tâche d’Azure Batch est une solution parfaitement adaptée si vous souhaitez traiter :
 
 * des charges de travail MapReduce dans le cloud ;
@@ -166,9 +169,4 @@ Pour découvrir les différentes méthodes de préparation des nœuds à l’ex�
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Schéma : dépendance un-à-un"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Schéma : dépendance un-à-plusieurs"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Schéma : dépendance de plage d’ID de tâche"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

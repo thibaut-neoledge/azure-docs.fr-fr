@@ -15,12 +15,14 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 4953b9cb4db2fe0f5bf75589145fde39a6f35a68
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 89bec0e3af42b03ef21e3e8c4059f6aad86db4c0
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Étape de didacticiel pas à pas 6 : accéder au service web Azure Machine Learning
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Étape de didacticiel pas à pas 6 : accéder au service web Azure Machine Learning
+
 Voici la dernière étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,24 +33,21 @@ Voici la dernière étape de la procédure pas à pas [Développement d'une solu
 6. **Accéder au service web**
 
 - - -
-Dans l’étape précédente de cette procédure pas à pas, nous avons déployé un service web qui utilise notre modèle prédictif de risque de crédit. Désormais, les utilisateurs peuvent lui envoyer des données et recevoir des résultats. 
+Dans l'étape précédente de cette procédure pas à pas, nous avons déployé un service web qui utilise notre modèle prédictif de risque de crédit. Désormais, les utilisateurs peuvent lui envoyer des données et recevoir des résultats. 
 
-Il s’agit d’un service web Azure qui peut recevoir et renvoyer des données de deux manières à l’aide d’API REST :  
+Il s’agit d’un service web Azure qui peut recevoir et renvoyer des données de deux manières à l’aide d’API REST :  
 
 * **Demande/Réponse** : l'utilisateur envoie une ou plusieurs lignes de crédit au service en utilisant le protocole HTTP et le service répond avec un ou plusieurs jeux de résultats.
 * **Exécution en lots** : l'utilisateur stocke une ou plusieurs lignes de données de crédit dans le stockage d'objets blob Azure, puis envoie l'emplacement du stockage d'objets blob au service. Le service évalue toutes les lignes de données dans l'objet blob d'entrée, enregistre les résultats dans un autre objet blob et renvoie l'URL de ce conteneur.  
 
-Le moyen le plus rapide et le plus simple d’accéder au service web est d’utiliser [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) ou [Modèle d’application Web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
-Ces modèles d’applications web peuvent générer une application web personnalisée qui connaît les données d’entrée et les résultats attendus de votre service web. Il vous suffit de donner à l’application web l’accès à votre service web et aux données associées, et le modèle fait le reste.
+Le moyen le plus rapide et le plus simple d’accéder à un service web classique est d’utiliser [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) ou [Modèle d’application Web Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+
+Ces modèles d'applications web peuvent générer une application Web personnalisée qui connaît les données d'entrée et les résultats attendus de votre service Web. Il vous suffit de donner à l'application Web l'accès à votre service Web et aux données associées, et le modèle fait le reste.
 
 Pour plus d’informations sur les modèles d’applications web, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning à l’aide d’un modèle d’application Web](machine-learning-consume-web-service-with-web-app-template.md).
 
-Vous pouvez également développer une application personnalisée pour accéder au service web à l’aide du code de démarrage fourni dans R, C# et les langages de programmation Python.
+Vous pouvez également développer une application personnalisée pour accéder au service web à l'aide du code de démarrage fourni dans R, C# et les langages de programmation Python.
+
 Vous trouverez des détails complets dans [Utilisation d’un service web Microsoft Azure Machine Learning publié à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

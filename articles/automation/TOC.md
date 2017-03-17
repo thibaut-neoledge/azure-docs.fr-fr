@@ -54,6 +54,9 @@
 ### [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 ### [Intégration du contrôle de code source avec GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Intégration du contrôle de code source avec VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Solutions
+### [Suivi des modifications](../log-analytics/log-analytics-change-tracking.md)
+### [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
 ## Surveiller
 ### [Transférer des données de travaux Azure Automation à Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Supprimer le lien d’un compte Azure Automation à partir de Log Analytics](automation-unlink-from-log-analytics.md)

@@ -17,8 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ La liste suivante contient le workflow général pour la migration d’une base 
 
 La liste suivante contient des recommandations pour optimiser les performances pendant le processus d’importation.
 
-* Choisissez le niveau de service et le niveau de performance les plus élevés permis par votre budget pour maximiser les performances de transfert. Vous pourrez descendre en puissance une fois la migration terminée pour économiser de l’argent. Consultez [Modifier les niveaux de service et de performances d’une base de données unique à l’aide du portail Azure](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Modifier les niveaux de service et de performances d’une base de données unique à l’aide de PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database) ou [Modifier les niveaux de service et de performances d’une base de données unique à l’aide de Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database).
+* Choisissez le niveau de service et le niveau de performance les plus élevés permis par votre budget pour maximiser les performances de transfert. Vous pourrez descendre en puissance une fois la migration terminée pour économiser de l’argent. 
 * Minimisez la distance entre votre fichier BACPAC et le centre de données de destination.
 * Désactivez les statistiques automatiques pendant la migration.
 * Partitionnez les tables et les index.
@@ -119,10 +120,5 @@ Outre les recherches sur Internet et ces ressources, utilisez les [forums de com
 * Pour plus d’informations sur l’utilisation de l’heure UTC après la migration, consultez [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Modification du fuseau horaire par défaut pour votre fuseau horaire local).
 * Pour plus d’informations sur la modification de la langue par défaut d’une base de données après la migration, consultez [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Modification de la langue par défaut d’Azure SQL Database).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f058194302949d1f5ba7d86e9a693ba229bdc9a2
-ms.openlocfilehash: b913fd0d944568e422ffcf86791910a746367add
-
+ms.sourcegitcommit: 459d0526961d03b564a35178f9ff4ff2e343e08c
+ms.openlocfilehash: 70a9d96e36f5e386e8b1c0036ef8e2f770924930
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="i-cant-sign-up-for-azure"></a>Je ne parviens pas à m’inscrire à Azure
+# <a name="troubleshoot-sign-up-issues-for-azure"></a>Résoudre les problèmes d’inscription pour Azure
 Si vous ne parvenez pas à vous inscrire à Azure, il existe plusieurs choses que vous pouvez vérifier pour résoudre le problème.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barre de progression se bloque dans la section « Vérification d’identité par carte »
@@ -82,9 +83,4 @@ Si vous ne disposez d’aucune clé OSA, contactez l’un des partenaires Micros
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

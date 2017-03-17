@@ -1,6 +1,6 @@
 ---
-title: Surveiller le cluster Azure Kubernetes avec DataDog | Microsoft Docs
-description: "Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de DataDog"
+title: Surveiller le cluster Azure Kubernetes avec Datadog | Microsoft Docs
+description: "Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de Datadog"
 services: container-service
 documentationcenter: 
 author: bburns
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2984a3811eba670b54fd253a8d7dc84acd8c8ec4
+ms.sourcegitcommit: f7377b3d0c0b89d7e196a31890173575688687cf
+ms.openlocfilehash: 901cbf5093c6a547f5dffa7ed6d71fe67caaadb9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,16 +56,12 @@ Datadog est un service de surveillance qui regroupe les données de surveillance
 
 Vous devez d’abord [créer un compte](https://www.datadoghq.com/lpg/).
 
-## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Installation de DataDog Agent avec un DaemonSet
-Kubernetes utilise les DaemonSet pour exécuter une instance unique d’un conteneur sur chaque hôte du cluster.
-Ils sont idéaux pour exécuter des agents de surveillance.
+## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Installation de l’Agent Datadog avec un DaemonSet
+Les DaemonSets sont utilisés par DaemonSet pour exécuter une instance unique d’un conteneur sur chaque hôte du cluster.
+Ils sont parfaits pour exécuter des agents de surveillance.
 
-Lorsque vous êtes connecté à DataDog, suivez les [instructions de DataDog](https://app.datadoghq.com/account/settings#agent/kubernetes) pour installer des agents DataDog sur votre cluster à l’aide d’un DaemonSet.
+Lorsque vous êtes connecté à Datadog, suivez les [instructions de Datadog](https://app.datadoghq.com/account/settings#agent/kubernetes) pour installer des agents Datadog sur votre cluster à l’aide d’un DaemonSet.
 
 ## <a name="conclusion"></a>Conclusion
 Et voilà ! Dès que les agents sont en cours d’exécution, des données s’affichent dans la console après quelques minutes. Vous pouvez consulter le [tableau de bord intégré de Kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) pour obtenir une synthèse de votre cluster.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

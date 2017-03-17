@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 96747e898b2d84cbce9251758a90941f85112dd0
-ms.openlocfilehash: 7aa3844b9bdc2c5372c6e54b05296dcde6b1c05f
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dc8c7beaf5b8e8d4f5467ffe22390c41f446d787
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +56,7 @@ Notez le point d'interrogation en regard du type de données du champ **Durée**
 
 Dans le script, vous trouverez les concepts et les mots clés suivants :
 
-* Variables de l'ensemble de lignes: toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d'affectation de noms de variable T-SQL, par exemple (@searchlog, dans le script.
+* Variables de l'ensemble de lignes: toute expression de requête qui produit un ensemble de lignes peut être affectée à une variable. U-SQL suit le modèle d’affectation de noms variable T-SQL (@searchlog, par exemple) dans le script.
 
  >[!NOTE]
  >L'affectation ne force pas l'exécution. Elle nomme simplement l’expression pour vous permettre de construire des expressions plus complexes.
@@ -64,9 +65,9 @@ Dans le script, vous trouverez les concepts et les mots clés suivants :
 
  >[!NOTE]
  >Les deux chemins d'accès sont relatifs. Vous pouvez également utiliser des chemins d'accès absolus. Par exemple :    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
- >Vous devez utiliser un chemin d'accès absolu pour accéder aux fichiers dans les comptes de stockage liés.  La syntaxe des fichiers stockés dans le compte de stockage Azure lié est : wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+ >Vous devez utiliser un chemin d'accès absolu pour accéder aux fichiers dans les comptes de stockage liés.  La syntaxe des fichiers stockés dans le compte de stockage Azure lié est : wasb://\<nom-du-conteneur-blob>@\<nom-du-compte-de-stockage>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Les conteneurs de stockage d’objets Blob Azure avec des autorisations d’accès aux objets Blob publics ou aux conteneurs publics ne sont pas pris en charge actuellement.
@@ -410,9 +411,4 @@ Ce didacticiel couvre uniquement une petite partie du langage U-SQL. En raison d
 * [Soumettre une demande de fonctionnalité](http://aka.ms/adlafeedback)
 * [Obtenir de l'aide dans les forums](http://aka.ms/adlaforums)
 * [Faire des commentaires sur U-SQL](http://aka.ms/usqldiscuss)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

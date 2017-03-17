@@ -1,5 +1,5 @@
 ---
-title: "Gestion de la disponibilité des machines virtuelles Windows| Microsoft Docs"
+title: "Gestion de la disponibilité des machines virtuelles Windows dans Azure | Microsoft Docs"
 description: "Découvrez comment utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Windows dans Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 569f67da5d91264a20927da64e560ec35a9a2d81
-ms.openlocfilehash: a12b91a794301d616a736fb0bac8b11f7cae9b95
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 105880c146135a9ecdc29cf5363a240d3550a6a9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="manage-the-availability-of-virtual-machines"></a>Gestion de la disponibilité des machines virtuelles
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestion de la disponibilité des machines virtuelles Windows dans Azure 
+
 Découvrez comment configurer et gérer plusieurs machines virtuelles pour garantir une haute disponibilité pour votre application Windows dans Azure. Vous pouvez également [gérer la disponibilité des machines virtuelles Linux](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,10 +35,5 @@ Pour obtenir des instructions sur la création et l’utilisation de groupes à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’équilibrage de charge de vos machines virtuelles, consultez la rubrique concernant [l’équilibrage de charge des machines virtuelles](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

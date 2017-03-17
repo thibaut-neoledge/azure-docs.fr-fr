@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 02/28/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 296a842157e4ecae1b3700e1d22c56852ffc06a2
-ms.openlocfilehash: ad88d998302d264b2a0f607d8408cd12bf833a68
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 59d4e08d0e93096120cc74deb641385084cfd912
+ms.openlocfilehash: 8a4f3616ff314cb280e6673c71ebdcd5d9b3441c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,6 +52,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Persistance des données Redis](#redis-data-persistence)
     * [Planification de mises à jour](#schedule-updates)
     * [Réseau virtuel](#virtual-network)
+    * [Pare-feu](#firewall)
     * [Propriétés](#properties)
     * [Verrous](#locks)
     * [Script Automation](#automation-script)
@@ -104,6 +105,7 @@ La section **Paramètres** vous permet d’accéder aux paramètres suivants et 
 * [Persistance des données Redis](#redis-data-persistence)
 * [Planification de mises à jour](#schedule-updates)
 * [Réseau virtuel](#virtual-network)
+* [Pare-feu](#firewall)
 * [Propriétés](#properties)
 * [Verrous](#locks)
 * [Script Automation](#automation-script)
@@ -262,7 +264,7 @@ Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spé
 
 
 
-## <a name="virtual-network"></a>Réseau virtuel
+### <a name="virtual-network"></a>Réseau virtuel
 La section **Réseau virtuel** permet de configurer les paramètres de réseau virtuel de votre cache. Pour plus d’informations sur la création d’un cache Premium avec la prise en charge de réseau virtuel et sur la mise à jour de ses paramètres, consultez [Comment configurer la prise en charge de réseau virtuel pour un cache Redis Azure Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -270,6 +272,20 @@ La section **Réseau virtuel** permet de configurer les paramètres de réseau v
 > 
 > 
 
+### <a name="firewall"></a>Pare-feu
+
+Cliquez sur **Pare-feu** pour afficher et configurer des règles de pare-feu pour votre Cache Redis Azure Premium.
+
+![Pare-feu](./media/cache-configure/redis-firewall-rules.png)
+
+Vous pouvez spécifier des règles de pare-feu avec une des valeurs de début et de fin de plage d’adresses IP. Lorsque des règles de pare-feu sont configurées, seules les connexions client à partir des plages d’adresses IP spécifiées peuvent se connecter au cache. Lorsqu’une règle de pare-feu est enregistrée, il y a un bref délai avant que la règle soit effective. Ce délai est généralement inférieur à une minute.
+
+> [!IMPORTANT]
+> Les connexions depuis les systèmes de surveillance de cache Redis Azure sont toujours autorisées, même si des règles de pare-feu sont configurées.
+> 
+> Les règles de pare-feu son uniquement disponibles pour les caches de niveau Premium.
+> 
+> 
 
 ### <a name="properties"></a>Propriétés
 Cliquez sur **Propriétés** pour afficher des informations sur le cache, y compris le point de terminaison et les ports du cache.

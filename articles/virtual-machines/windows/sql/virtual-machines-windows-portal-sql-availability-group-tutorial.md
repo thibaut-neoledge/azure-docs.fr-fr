@@ -19,6 +19,7 @@ ms.author: mikeray
 translationtype: Human Translation
 ms.sourcegitcommit: 5e41a20f563eab6b236eaa6eaf0ce1d20ebfa493
 ms.openlocfilehash: d8982dda38df92c94e7dac4b5a1cf451bab3a5ce
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -89,7 +90,7 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
 3. Sélectionnez **Adresse IP statique** et spécifiez une adresse disponible dans le sous-réseau où se trouve le serveur SQL Server dans la zone de texte Adresse. Cliquez ensuite sur **OK**.
 4. Dans la section **Principales ressources du cluster**, cliquez avec le bouton droit sur le nom du cluster et cliquez sur **Mettre en ligne**. Attendez que les deux ressources soient en ligne. Lorsque la ressource du cluster apparaît en ligne, elle met à jour le serveur de contrôleur de domaine avec un nouveau compte d’ordinateur Active Directory (AD). Utilisez ce compte AD pour exécuter le service en cluster du groupe de disponibilité ultérieurement.
 
-### <a name="a-nameaddnodeaadd-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Ajouter l’autre serveur SQL Server au cluster
+### <a name="addNode"></a>Ajouter l’autre serveur SQL Server au cluster
 
 Ajoutez l’autre serveur SQL Server au cluster.
 
@@ -222,7 +223,7 @@ Repeat these steps on the second SQL Server.
 7. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Nouvelle base de données**.
 8. Dans **Nom de base de données**, saisissez **MyDB1**, puis cliquez sur **OK**.
 
-### <a name="a-namebackupsharea-create-a-backup-share"></a><a name="backupshare"></a> Créer un partage de sauvegarde
+### <a name="backupshare"></a> Créer un partage de sauvegarde
 
 1. Sur le premier serveur SQL Server dans **Gestionnaire de serveur**, cliquez sur **outils**. Ouvrez **Gestion de l’ordinateur**.
 
@@ -254,7 +255,7 @@ Repeat these steps on the second SQL Server.
 
 Vous devez sauvegarder la nouvelle base de données pour initialiser la chaîne du journal. Si vous ne sauvegardez pas la nouvelle base de données, elle ne peut pas être incluse dans un groupe de disponibilité.
 
-1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la base de données, pointez sur **Tâches... ** et cliquez sur **Sauvegarder**.
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur la base de données, pointez sur **Tâches...** et cliquez sur **Sauvegarder**.
 
 1. Cliquez sur **OK** pour effectuer une sauvegarde complète à l’emplacement de sauvegarde par défaut.
 
@@ -433,7 +434,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur **OK** pour définir les règles d’équilibrage de charge.
 
-## <a name="a-nameconfigure-listenera-configure-the-listener"></a><a name="configure-listener"></a> Configurer l’écouteur
+## <a name="configure-listener"></a> Configurer l’écouteur
 
 La prochaine étape consiste à configurer un écouteur de groupe de disponibilité sur le cluster de basculement.
 
@@ -502,9 +503,4 @@ La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébe
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Add an IP address to an existing load balancer with PowerShell (Ajouter une adresse IP à un équilibrage de charge pour un deuxième groupe de disponibilité)](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

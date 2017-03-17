@@ -2,13 +2,16 @@
 ## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
 
 # Prise en main
-## [Créer un groupe de machines virtuelles identiques dans le portail](virtual-machine-scale-sets-portal-create.md)
-## [Créer un groupe identique avec Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Créer un groupe identique à l’aide d’un modèle Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Déployer un groupe identique dans le portail](virtual-machine-scale-sets-portal-create.md)
+## [Déployer un groupe identique avec l’interface de ligne de commande Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Déployer un groupe identique simple à l’aide d’un modèle Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procédure
 ## Planifier et concevoir
 ### [Remarques relatives à la conception](virtual-machine-scale-sets-design-overview.md)
+## Écrire des modèles de groupes identiques pour
+### [Déployer un groupe identique simple](virtual-machine-scale-sets-mvss-start.md)
+### [Déployer un groupe identique dans un réseau virtuel existant](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Déployer
 ### [Groupes de machines virtuelles identiques avec le portail](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Résolution des problèmes
 ### [Mise à l’échelle automatique](virtual-machine-scale-sets-troubleshoot.md)
+
+## Forum Aux Questions
+### [FAQ sur le groupe identique](virtual-machine-scale-sets-faq.md)
 
 # Référence
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
-ms.author: sethm;jotaub
+ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 8e483b17e453dedf17a21c673d3b2231b9bfba3a
-ms.openlocfilehash: 3c04f0225ec36f700fff59d87c6d0939ab74355c
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/21/2017
 ## <a name="general"></a>Généralités
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Quelle est la différence entre les niveaux De Base et Standard pour les hubs d’événements ?
-Le niveau Standard de Event Hubs fournit des fonctionnalités au-delà de ce qui est disponible au niveau De base, ainsi que dans certains systèmes concurrents. Ces fonctionnalités incluent des périodes de rétention de plus de 24 heures et la possibilité d’utiliser une connexion AMQP unique pour envoyer des commandes à un grand nombre d’appareils avec des latences de moins d’une seconde, ainsi que pour envoyer la télémétrie de ces appareils vers Event Hubs. Pour consulter la liste des fonctionnalités, voir [Tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Le niveau Standard de Event Hubs fournit des fonctionnalités au-delà de ce qui est disponible au niveau De base, ainsi que dans certains systèmes concurrents. Ces fonctionnalités incluent des périodes de rétention de plus de 24 heures et la possibilité d’utiliser une connexion AMQP unique pour envoyer des commandes à un grand nombre d’appareils avec des latences de moins d’une seconde, ainsi que pour envoyer la télémétrie de ces appareils vers Event Hubs. Le niveau Standard offre également la fonctionnalité [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) Event Hubs. Pour obtenir la liste des fonctionnalités, consultez la [Tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>Que sont les unités de débit des hubs d'événements ?
 Vous devez sélectionner explicitement les unités de débit Event Hubs via le portail Azure ou les modèles Resource Manager Event Hubs. Les unités de débit s’appliquent à tous les Event Hubs dans un espace de noms Event Hubs, et chaque unité de débit fournit à l’espace de noms les fonctionnalités suivantes :
@@ -49,7 +49,7 @@ Par défaut, il existe un quota de 20 unités de débit par espace de noms. Vous
 Oui, à condition que la totalité des Event Hubs se trouve dans le même espace de noms.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Quelle est la période de rétention maximale pour les événements ?
-Le niveau Standard des hubs d'événements prend actuellement en charge une période de rétention maximale de 7 jours. Notez que les hubs d'événements ne sont pas destinés à servir de magasin de données permanent. Les périodes de rétention supérieures à 24 heures sont destinées aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d'événements sur les mêmes systèmes ; par exemple, pour tester ou vérifier un nouveau modèle d’apprentissage de machine sur des données existantes.
+Le niveau Standard des hubs d'événements prend actuellement en charge une période de rétention maximale de 7 jours. Notez que les hubs d'événements ne sont pas destinés à servir de magasin de données permanent. Les périodes de rétention supérieures à 24 heures sont destinées aux scénarios dans lesquels il est utile de pouvoir reproduire un flux d'événements sur les mêmes systèmes ; par exemple, pour tester ou vérifier un nouveau modèle d’apprentissage de machine sur des données existantes. Si vous avez besoin de la rétention de message au-delà de 7 jours, l’activation de la fonctionnalité [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) sur votre Event Hub se chargera d’extraire les données de votre Event Hub pour les transférer vers le stockage de votre choix. L’activation de la fonctionnalité Archive est facturée en fonction de votre unité de débit achetée.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Où Azure Event Hubs est-il disponible ?
 Azure Event Hubs est disponible dans toutes les régions Azure prises en charge. Pour obtenir une liste, visitez la page [Régions Azure](https://azure.microsoft.com/regions/).  
@@ -69,7 +69,7 @@ Toutefois, si vous disposez d’un modèle dans lequel votre application a une a
 Pour des informations complètes sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>Existe-t-il des frais pour la rétention de plus de 24 heures des événements de hubs d'événements ?
-Le niveau Standard des hubs d’événements permet de conserver les messages au-delà de 24 heures, avec un maximum de 30 jours. Si la taille du nombre total d’événements stockés dépasse l’allocation de stockage pour le nombre d’unités de débit sélectionnées (84 Go par unité de débit), la taille excédentaire est facturée au tarif de stockage Blob Azure publié. L'allocation de stockage dans chaque unité de débit couvre tous les frais de stockage pour les périodes de rétention de 24 heures (par défaut), même si l'unité de débit est utilisée pour l'allocation d'entrée maximale.
+Le niveau Standard Event Hubs permet de conserver les messages au-delà de 24 heures, avec un maximum de 7 jours. Si la taille du nombre total d’événements stockés dépasse l’allocation de stockage pour le nombre d’unités de débit sélectionnées (84 Go par unité de débit), la taille excédentaire est facturée au tarif de stockage Blob Azure publié. L'allocation de stockage dans chaque unité de débit couvre tous les frais de stockage pour les périodes de rétention de 24 heures (par défaut), même si l'unité de débit est utilisée pour l'allocation d'entrée maximale.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Comment la taille de stockage des hubs d'événements est-elle calculée et facturée ?
 La taille totale de tous les événements stockés, y compris de toute surcharge interne pour les en-têtes d'événements ou les structures de stockage sur disque dans tous les hubs d'événements, est mesurée tout au long de la journée. À la fin de la journée, la taille maximale de stockage est calculée. L'allocation de stockage quotidienne est calculée en fonction du nombre minimal d'unités de débit qui ont été sélectionnées pendant la journée (chaque unité de débit fournit une allocation de 84 Go). Si la taille totale dépasse l'allocation de stockage quotidienne calculée, l'excédent de stockage est facturé selon les taux de stockage Azure Blob (au taux **Stockage localement redondant** ).
@@ -80,7 +80,14 @@ Chaque événement envoyé à un hub d'événements est considéré comme un mes
 Les événements utilisés à partir d'un hub d'événements, ainsi que les opérations de gestion et les appels de contrôle comme les points de contrôle, ne sont pas comptabilisés comme des événements d'entrée facturables, mais s’ajoutent à l'allocation d'unité de débit.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Des frais de connexion répartie s'appliquent-ils aux hubs d'événements ?
-Des frais de connexion s'appliquent uniquement lorsque le protocole AMQP est utilisé. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. Si vous prévoyez d'utiliser AMQP (par exemple, pour améliorer le flux d'événements ou activer la communication bidirectionnelle sur des scénarios de commande et de contrôle IoT), reportez-vous à la page [Informations de tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pour plus de détails sur le nombre de connexions comprises dans chaque niveau de service.
+Des frais de connexion s'appliquent uniquement lorsque le protocole AMQP est utilisé. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de HTTP, quel que soit le nombre de systèmes ou de périphériques d’envoi. Si vous prévoyez d’utiliser AMQP (par exemple, pour améliorer le flux d’événements ou activer la communication bidirectionnelle sur des scénarios de commande et de contrôle IoT), reportez-vous à la page [Informations sur la tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pour plus de détails sur le nombre de connexions comprises dans chaque niveau de service.
+
+### <a name="how-is-event-hubs-archive-billed"></a>Comment est facturée la fonctionnalité Archive d’Event Hubs ?
+L’archive est activée lorsque la fonctionnalité d’archivage est activée sur un Event Hub quelconque de l’espace de noms. L’archive est facturée à l’heure par unité de débit achetée. La facturation de l’archive Event Hubs reflète les variations du nombre d’unités de débit sous forme d’incréments d’heure pleine.
+Consultez la page [Informations de tarification Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) pour plus d’informations concernant la facturation de la fonctionnalité Archive d’Event Hubs.
+
+### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-archive"></a>Serai-je facturé pour le compte de stockage que je sélectionne pour l’archive Event Hubs ?
+L’archive utilise un compte de stockage que vous fournissez lorsqu’elle est activée sur un Event Hub. Ce compte de stockage étant le vôtre, les éventuels frais associés seront facturés sur votre abonnement Azure.
 
 ## <a name="quotas"></a>Quotas
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 9c2817129162ab17faadf3c5ecf8ef7dcb370c3c
-ms.openlocfilehash: 2c9c4b59077ea7d31677a5e1c690160bf63633a6
+ms.sourcegitcommit: d04f073ebf846955fde81434fd015ee4b943f695
+ms.openlocfilehash: 179abb91438fb20cd6b6adebfedb8a25e0127ad7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -45,9 +46,9 @@ Les méthodes directes sont synchrones et réussissent ou échouent à l’issue
 
 Les méthodes directes sont exclusivement HTTP côté cloud, et exclusivement MQTT côté appareil.
 
-La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
+La charge utile pour les requêtes et les réponses de méthode correspond à un document JSON d’une taille pouvant aller jusqu’à 8 Ko.
 
-## <a name="reference-topics"></a>Rubriques de référence :
+## <a name="reference-topics"></a>Rubriques de référence :
 Les rubriques de référence suivantes vous fournissent des informations supplémentaires sur l’utilisation des méthodes directes.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Appeler une méthode directe à partir d’une application principale
@@ -141,9 +142,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

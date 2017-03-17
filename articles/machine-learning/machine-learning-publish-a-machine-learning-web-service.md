@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
-ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -62,6 +63,9 @@ Vous pouvez déployer l’expérience prédictive comme nouveau service web ou c
 À présent que l’expérience prédictive a été correctement préparée, vous pouvez la déployer comme nouveau service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
 Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Nouveau]**.  La page de déploiement du portail de service web Machine Learning s’ouvre.
+
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 #### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Page d’expérience de déploiement du portail du service web Machine Learning
 Sur la page de l’expérience de déploiement, entrez le nom du service web.
@@ -116,7 +120,7 @@ La page **Utiliser** fournit toutes les informations dont vous avez besoin pour 
 Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
-Vous pouvez gérer vos services web classiques via le portail de services web Machine Learning. Dans la [page principale du portail](https://services.azureml-test.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
+Vous pouvez gérer vos nouveaux services web par le biais du portail Service web Machine Learning. Dans la [page principale du portail](https://services.azureml-test.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Déployer l’expérience prédictive comme un service web classique
 
@@ -187,9 +191,4 @@ Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’ai
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

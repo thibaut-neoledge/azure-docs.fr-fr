@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03adc1873e8187a9104f42ba9b50df2ac0d015b5
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: ba06eb7e9f3f09e2d1d04cb4118dd81b9e66853e
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="the-azure-ad-privileged-identity-management-security-wizard"></a>Assistant Sécurité d’Azure AD Privileged Identity Management
+# <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Utilisation de l’Assistant Sécurité d’Azure AD Privileged Identity Management 
 Si vous êtes la première personne à exécuter Azure Privileged Identity Management (PIM) pour votre organisation, un Assistant s’affiche. Celui-ci vous aide à comprendre les risques liés à la sécurité des identités privilégiées et comment utiliser PIM pour les limiter. Vous n’avez pas besoin d’apporter des modifications aux affectations de rôle existantes dans l’Assistant. Vous pouvez le faire ultérieurement si vous préférez.
 
 ## <a name="what-to-expect"></a>À quoi s’attendre
@@ -41,10 +42,5 @@ Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

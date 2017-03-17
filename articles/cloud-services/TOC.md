@@ -36,8 +36,8 @@
 #### [Utiliser une tâche pour installer .NET sur un rôle de service cloud](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurer le Bureau à distance
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.JS](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Portail](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portail classique](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Déployer

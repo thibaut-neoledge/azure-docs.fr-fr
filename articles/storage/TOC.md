@@ -169,7 +169,7 @@
 ## [Interface de ligne de commande Azure](/cli/azure/storage)
 ## .NET
 ### [Gestionnaire de ressources](/dotnet/api/microsoft.azure.management.storage)
-### [Déplacement des données](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [Déplacement des données](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Objets blob, files d’attente, tables et fichiers](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)

@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
-ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -55,6 +56,8 @@ Notez les points suivants :
 
 * Pour `path`, consultez [Modèles de nom](#pattern) pour savoir comment mettre en forme les modèles de nom d’objet blob.
 * `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](). 
+
+Lors de l’exécution sur un plan Consommation, si une Function App est inactive, il peut y avoir jusqu’à 10 minutes par jour dans le traitement des nouveaux objets blob. Une fois la Function App en cours d’exécution, les objets blob sont traités plus rapidement. Pour éviter ce délai initial, utilisez un plan App Service régulier avec Toujours actif activé ou un autre mécanisme pour déclencher le traitement des objets blob, par exemple un message de file d’attente contenant le nom de l’objet blob. 
 
 En outre, consultez les sections suivantes pour plus d’informations :
 
@@ -235,7 +238,7 @@ Où `T` est le type de données dans lequel vous souhaitez désérialiser les do
 L’objet blob peut être désérialisé dans l’un des types suivants :
 
 * N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) : utile pour les données d’objet blob sérialisées en JSON.
-  Si vous déclarez un type d’entrée personnalisé (par exemple, `FooType`), Azure Functions tente de désérialiser les données JSON dans le type spécifié.
+  Si vous déclarez un type d’entrée personnalisé (par exemple, `InputType`), Azure Functions tente de désérialiser les données JSON dans le type spécifié.
 * Chaîne : utile pour les données d’objet blob de texte.
 
 Dans les fonctions C#, vous pouvez également effectuer une liaison vers un des types suivants (le runtime Functions tente de désérialiser les données d’objet blob à l’aide de ce type) :
@@ -347,7 +350,7 @@ Dans les fonctions C#, vous liez l’objet blob de sortie à l’aide du paramè
 Vous pouvez écrire dans l’objet blob de sortie à l’aide d’un des types suivants :
 
 * N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) : utile pour la sérialisation JSON.
-  Si vous déclarez un type de sortie personnalisée (par exemple, `out FooType paramName`), Azure Functions tente de sérialiser un objet en JSON. Si le paramètre de sortie est Null quand la fonction s’arrête, le runtime Functions crée un objet blob comme objet Null.
+  Si vous déclarez un type de sortie personnalisée (par exemple, `out OutputType paramName`), Azure Functions tente de sérialiser un objet en JSON. Si le paramètre de sortie est Null quand la fonction s’arrête, le runtime Functions crée un objet blob comme objet Null.
 * Chaîne : (`out string paramName`) utile pour les données d’objet blob de texte. Le runtime Functions crée un objet blob uniquement si le paramètre de chaîne n’est pas Null quand la fonction s’arrête.
 
 Dans les fonctions C#, vous pouvez également définir une sortie vers les types suivants :
@@ -358,8 +361,6 @@ Dans les fonctions C#, vous pouvez également définir une sortie vers les types
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (pour générer plusieurs objets Blob)
-* `IAsyncCollector<T>` (version asynchrone de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -368,10 +369,5 @@ Voir [Exemple d’entrée](#inputsample).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

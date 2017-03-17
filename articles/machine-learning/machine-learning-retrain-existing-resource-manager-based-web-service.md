@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,6 +26,9 @@ Ce document décrit le processus de reformation pour le scénario suivant :
 
 * Vous avez une expérience de formation et une expérience de prévision que vous avez déployées en tant que service web mis en œuvre.
 * Vous disposez de nouvelles données et souhaitez que votre service web prédictif les utilise pour produire des scores.
+
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 En partant de vos expériences et de votre service web existants, vous devez procédez comme suit :
 
@@ -190,9 +194,4 @@ Enfin, utilisez l’applet de commande [Update-AzureRmMlWebService](https://msdn
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

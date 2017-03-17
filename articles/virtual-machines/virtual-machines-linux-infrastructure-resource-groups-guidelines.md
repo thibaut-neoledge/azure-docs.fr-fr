@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: adf382fef7a83d31f35321187c7c5d20c48db6ef
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 5c86a7fab851d98a33e610c1625fd04ae9b29c28
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-resource-group-guidelines"></a>Instructions pour les groupes de ressources Azure
+# <a name="azure-resource-group-guidelines-for-linux-vms"></a>Instructions pour les groupes de ressources Azure pour les machines virtuelles Linux 
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension de la création logique de votre environnement et du regroupement de tous les composants dans des groupes de ressources.
@@ -53,10 +56,5 @@ Lorsque vous augmentez la taille des instances, la création de groupes de resso
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

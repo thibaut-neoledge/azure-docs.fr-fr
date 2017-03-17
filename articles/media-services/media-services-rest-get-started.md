@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f1b8c68639fd2b778e7e56a6826e91d5bffd4ae8
-ms.openlocfilehash: c6f843e452353edc7c4c7e9bacf653c555145afe
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Prendre en main la diffusion de contenus à la demande avec REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 Ce document de démarrage rapide vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec les API REST Azure Media Services (AMS).
 
@@ -52,6 +51,9 @@ Ce document de démarrage rapide présente les tâches suivantes.
 5. Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
 6. Lire votre contenu.
 
+>[!NOTE]
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 
 Pour plus d’informations sur les entités REST AMS utilisées dans cette rubrique, consultez [Informations de référence sur l’API REST de Media Services](/rest/api/media/services/azure-media-services-rest-api-reference). Consultez également [Concepts Azure Media Services](media-services-concepts.md).
 
@@ -73,7 +75,7 @@ Pour démarrer le point de terminaison de streaming, procédez comme suit :
 4. Cliquez sur l’icône de démarrage.
 5. Cliquez sur le bouton Enregistrer pour enregistrer vos modifications.
 
-## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
+## <a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
 Vous avez besoin de deux choses pour accéder à Azure Media Services : un jeton d’accès fourni par les Services de contrôle d’accès (ACS) Azure et l’URI de Media Services. Vous pouvez utiliser la méthode de votre choix lors de la création de ces demandes, tant que vous spécifiez les valeurs d’en-têtes appropriées et transmettez le jeton d’accès correctement lors de l’appel dans Media Services.
 
 Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisation de l’API REST Media Services pour se connecter à Media Services :
@@ -216,7 +218,7 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 >
 >
 
-## <a name="a-iduploadacreate-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
+## <a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
 
 Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
@@ -540,7 +542,7 @@ Si l’opération réussit, l’élément suivant est retourné :
     HTTP/1.1 204 No Content
     ...
 
-## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
+## <a id="encode"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
 
 Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s’appellent des travaux et chaque Travail se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource (pour plus d’informations, consultez les descriptions de [Travail](/rest/api/media/services/job) et [Tâche](/rest/api/media/services/task)).
 
@@ -829,7 +831,7 @@ Le code suivant montre comment demander l’ID de la ressource de sortie
 
 
 
-## <a name="a-idpublishgeturlsapublish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
+## <a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
 
 Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d'abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias. Pour plus d’informations sur les localisateurs de SAP, consultez [ce](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
@@ -1052,7 +1054,7 @@ Pour la diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) après «�
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a name="a-idplayaplay-your-content"></a><a id="play"></a>Lecture de votre contenu
+## <a id="play"></a>Lecture de votre contenu
 Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).

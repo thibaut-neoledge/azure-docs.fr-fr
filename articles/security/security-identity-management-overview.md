@@ -1,6 +1,6 @@
 ---
 title: "Fonctionnalités de sécurité Azure liées à la gestion des identités | Microsoft Docs"
-description: " Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure liées à la gestion des identités. Les solutions de gestion des identités et des accès de Microsoft aident les services informatiques à protéger l’accès aux applications et aux ressources dans le centre de données d’entreprise comme dans le cloud en activant des niveaux supplémentaires de validation, tels que l’authentification multifacteur et les stratégies d’accès conditionnel.. "
+description: " Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure liées à la gestion des identités. Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/09/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
-ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: bb9d08d6164ec01ce1d76fc4a23e782213ecfcd9
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -109,15 +110,15 @@ En savoir plus :
 * [Version préliminaire d’Azure Active Directory B2C : types d’applications](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Enregistrement de l’appareil
-Azure AD Device Registration est la base des scénarios d’ [accès conditionnel](../active-directory/active-directory-conditional-access-on-premises-setup.md) en fonction de l’appareil. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
+Azure AD Device Registration est la base des scénarios d’ [accès conditionnel](../active-directory/active-directory-conditional-access-device-registration-overview.md) en fonction de l’appareil. Lors de l’inscription d’un appareil, Azure Active Directory Device Registration fournit une identité à l’appareil qui sera utilisée pour authentifier l’appareil lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
 Quand ils sont associés à une solution de gestion des appareils mobiles comme Intune, les attributs de l’appareil dans Azure Active Directory sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos normes de sécurité et de conformité.
 
 En savoir plus :
 
 * [Prise en main du service Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 * [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 Le service Azure Active Directory (AD) Privileged Identity Management vous permet de gérer, de contrôler et de surveiller vos identités privilégiées et l’accès aux ressources dans Azure AD et dans d’autres services en ligne Microsoft tels qu’Office 365 ou Microsoft Intune.
@@ -153,9 +154,4 @@ En savoir plus :
 * [Livre blanc sur les identités hybrides](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog de l’équipe Active Directory](https://blogs.technet.microsoft.com/ad/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

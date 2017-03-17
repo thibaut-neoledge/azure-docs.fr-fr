@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> Stratégies de transformation  
+##  <a name="TransformationPolicies"></a> Stratégies de transformation  
   
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) : convertit le corps de la demande ou de la réponse de JSON en XML.  
   
@@ -44,7 +45,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) : applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Convert JSON to XML  
+##  <a name="ConvertJSONtoXML"></a> Convert JSON to XML  
  La stratégie `json-to-xml` convertit le corps de la demande ou de la réponse de JSON en XML.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -87,7 +88,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Convert XML to JSON  
+##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON  
  La stratégie `xml-to-json` convertit le corps de la demande ou de la réponse de XML en JSON. Cette stratégie peut être utilisée pour moderniser les API basées sur des services web exclusivement en XML.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -131,7 +132,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Find and replace string in body  
+##  <a name="Findandreplacestringinbody"></a> Find and replace string in body  
  La stratégie `find-and-replace` recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -166,7 +167,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> Mask URLs in content  
+##  <a name="MaskURLSContent"></a> Mask URLs in content  
  La stratégie `redirect-content-urls` réécrit (masque) les liens dans le corps de la réponse afin qu’ils pointent vers un lien équivalent par l’intermédiaire de la passerelle. À utiliser dans la section outbound pour réécrire les liens du corps de réponse afin qu’ils pointent vers la passerelle. À utiliser dans la section inbound pour obtenir l’effet opposé.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> Set backend service  
+##  <a name="SetBackendService"></a> Set backend service  
  Utilisez la stratégie `set-backend-service` pour rediriger une demande entrante vers un service principal autre que celui qui est spécifié dans les paramètres d’API de cette opération. Cette stratégie remplace l’URL de base du service principal de la demande entrante par celle qui est spécifiée dans la stratégie.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -254,7 +255,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> Set body  
+##  <a name="SetBody"></a> Set body  
  Utilisez la stratégie `set-body` pour définir le corps du message pour les demandes entrantes et sortantes. Pour accéder au corps du message, vous pouvez utiliser la propriété `context.Request.Body` ou `context.Response.Body`, selon que la stratégie se trouve dans la section inbound ou outbound.  
   
 > [!IMPORTANT]
@@ -330,21 +331,79 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>Utilisation de modèles Liquid avec Set body 
+La stratégie `set-body` peut être configurée pour utiliser le langage de modèle [Liquid](https://shopify.github.io/liquid/basics/introduction/) pour transformer le corps d’une requête ou réponse. Cela peut être très efficace si vous avez besoin de modifier complètement le format de votre message.
+
+> [!IMPORTANT]
+> L’implémentation Liquid utilisée dans la stratégie `set-body` est configurée en mode « C# ». Cela est particulièrement important lors d’opérations telles que le filtrage. Par exemple, l’utilisation d’un filtre de date nécessite l’emploi de la casse Pascal et de la mise en forme de date de C#, par exemple :
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Pour établir correctement une liaison avec un corps XML à l’aide du modèle Liquid, utilisez une stratégie `set-header` pour définir Content-Type pour application/xml, text/xml (ou n’importe quel type se terminant par +xml). Pour un corps JSON, la valeur doit être application/json, text/json (ou n’importe quel type se terminant par +json).
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Conversion de JSON en SOAP à l’aide d’un modèle Liquid
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Transformation de JSON à l’aide d’un modèle Liquid
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>Éléments  
   
 |Nom|Description|Requis|  
 |----------|-----------------|--------------|  
 |set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|  
+
+### <a name="properties"></a>Propriétés  
   
-### <a name="usage"></a>Usage  
+|Nom|Description|Requis|Default|  
+|----------|-----------------|--------------|-------------|  
+|template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non|liquid|  
+
+Pour accéder aux informations sur la requête et la réponse, le modèle Liquid peut lier à un objet de contexte aux propriétés suivantes : <br />
+<pre>contexte.
+Demande.
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+Url.
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl.
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
+### <a name="usage"></a>Utilisation  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend  
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> Set HTTP header  
+##  <a name="SetHTTPheader"></a> Set HTTP header  
  La stratégie `set-header` affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.  
   
  Insère une liste d'en-têtes HTTP dans un message HTTP. Lorsqu'elle est placée dans un pipeline entrant, cette stratégie définit les en-têtes HTTP pour la demande transmise au service cible. Lorsqu’elle est placée dans un pipeline outbound, cette stratégie définit les en-têtes HTTP pour la réponse envoyée au client de la passerelle.  
@@ -401,7 +460,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Set query string parameter  
+##  <a name="SetQueryStringParameter"></a> Set query string parameter  
  La stratégie `set-query-parameter` ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur. Peut être utilisée pour transmettre les paramètres de requête attendus par le service principal qui sont facultatifs ou ne sont jamais présents dans la demande.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -461,7 +520,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** global, product, API, operation  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> Rewrite URL  
+##  <a name="RewriteURL"></a> Rewrite URL  
  La stratégie `rewrite-uri` convertit une URL de demande de sa forme publique en une forme attendue par le service web, comme le montre l’exemple suivant.  
   
 -   URL publique : `http://api.example.com/storenumber/ordernumber`  
@@ -539,7 +598,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   **Étendues de la stratégie :** product, API, operation  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transform XML using an XSLT  
+##  <a name="XSLTransform"></a> Transform XML using an XSLT  
  La stratégie `Transform XML using an XSLT` applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.  
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -574,7 +633,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -582,7 +641,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -605,9 +664,4 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

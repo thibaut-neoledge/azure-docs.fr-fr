@@ -12,11 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/28/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: ef3f31c633eeba92f343e2126626bd029aebbf64
-ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
+ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
+ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,13 +38,13 @@ Les applets de commande Azure Analysis Services sont incluses dans le module de 
 
 |Applet de commande|Description| 
 |------------|-----------------| 
-|Get-AzureRmAnalysisServicesServer|Obtient les détails d’une instance de serveur.|  
-|New-AzureRmAnalysisServicesServer|Crée une instance de serveur.|
-|Remove-AzureRmAnalysisServicesServer|Supprime une instance de serveur.|  
-|Suspend-AzureRmAnalysisServicesServe|Interrompt une instance de serveur.| 
-|Resume-AzureRmAnalysisServicesServer|Reprend une instance de serveur.|  
-|Set-AzureRmAnalysisServicesServer|Modifie une instance de serveur.|   
-|Test-AzureRmAnalysisServicesServer|Teste l’existence d’une instance de serveur.| 
+|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/get-azurermanalysisservicesserver)|Obtient les détails d’une instance de serveur.|  
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/new-azurermanalysisservicesserver)|Crée une instance de serveur.|
+|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/remove-azurermanalysisservicesserver)|Supprime une instance de serveur.|  
+|[Suspend-AzureRmAnalysisServicesServe](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/suspend-azurermanalysisservicesserver)|Interrompt une instance de serveur.| 
+|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/resume-azurermanalysisservicesserver)|Reprend une instance de serveur.|  
+|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/set-azurermanalysisservicesserver)|Modifie une instance de serveur.|   
+|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Teste l’existence d’une instance de serveur.| 
 
 ## <a name="database-operations"></a>Opérations de base de données
 Les opérations de base de données Azure Analysis Services utilisent le même module [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) que SQL Server Analysis Services. Toutefois, certaines applets de commande ne sont pas prises en charge par la version préliminaire d’Azure Analysis Services. 
@@ -64,8 +65,3 @@ Le module SQLASCMDLETS fournit des applets de commande de gestion de base de don
 ## <a name="related-information"></a>Informations connexes
 * [Scripts PowerShell dans Analysis Services](https://msdn.microsoft.com/library/hh213141.aspx).
 * [Tabular Model Programming for Compatibility Level 1200](https://msdn.microsoft.com/library/mt712541.aspx) (Programmation de modèle tabulaire pour le niveau de compatibilité 1200)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

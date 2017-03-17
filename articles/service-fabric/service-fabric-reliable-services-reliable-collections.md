@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
+ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
+ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -147,6 +148,7 @@ Ainsi, lorsque le réplica doit être redémarré, les Collections fiables récu
 * N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
 * Envisagez d’utiliser la fonctionnalité de sauvegarde et de restauration pour bénéficier de la récupération d’urgence.
 * Évitez de combiner des opérations à une seule entité et des opérations à plusieurs entités (par exemple `GetCountAsync`, `CreateEnumerableAsync`) dans la même transaction en raison des différents niveaux d’isolement.
+* Gérez l’exception InvalidOperationException. Les transactions des utilisateurs peuvent être annulées par le système pour diverses raisons. Par exemple, lorsque le Gestionnaire d’état fiable abandonne le rôle Principal ou qu’une transaction longue bloque la troncature du journal des transactions. Dans ce cas, l’utilisateur peut recevoir l’exception InvalidOperationException, indiquant que sa transaction a déjà été terminée. Dans l’hypothèse où l’arrêt de la transaction n’était pas demandé par l’utilisateur, la meilleure façon de gérer cette exception consiste à supprimer la transaction, vérifier si le jeton d’annulation a été signalé (ou si le rôle du réplica a été modifié) et, si ce n’est pas le cas, créer une nouvelle transaction, puis réessayer.  
 
 Voici quelques points à retenir :
 
@@ -167,10 +169,5 @@ Voici quelques points à retenir :
 * [Prise en main des services API Web de Fabric Service](service-fabric-reliable-services-communication-webapi.md)
 * [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 * [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

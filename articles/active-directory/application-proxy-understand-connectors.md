@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 36e737ebc3451a190e99dc2bc91ef4242d2f573e
-ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 41d6f678dba769cf7f949751da8cacf3df7f88c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -26,8 +27,6 @@ Cet article traite des connecteurs, qui sont l’ingrédient secret de du proxy 
 
 > [!NOTE]
 > Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
-> 
-> 
 
 ## <a name="what-are-azure-ad-application-proxy-connectors"></a>Que sont les connecteurs de proxy d’application Azure AD ?
 Le Proxy d’application fonctionne après l’installation d’un service Windows Server léger appelé connecteur sur votre réseau. Vous pouvez installer des connecteurs en fonction de vos besoins en évolutivité et en haute disponibilité. Commencez avec un connecteur et en ajoutez-en d’autres en fonction de vos besoins. Chaque fois qu’un connecteur est installé, il est ajouté au pool de connecteurs qui sert votre client.
@@ -56,6 +55,8 @@ Le trafic sortant est envoyé au service de proxy d’application et aux applica
 Conséquence de la présence seule de trafic sortant, il est inutile de configurer d’équilibrage de charge entre les connecteurs ou de configurer l’accès entrant à travers vos pare-feu.
 
 Pour plus d’informations sur la configuration des règles sortantes de pare-feu, consultez [Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md).
+
+Utilisez [l’outil de test des ports du connecteur de proxy d’application Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) pour vous assurer que votre connecteur peut joindre le service de proxy d’application. Au minimum, assurez-vous d’avoir coché les États-Unis du Centre et les régions les plus proches de vous. En outre, un nombre plus élevé de coches vertes signifie une résilience accrue. 
 
 ## <a name="network-security"></a>Sécurité du réseau
 
@@ -114,7 +115,7 @@ Un autre facteur jouant sur les performances est la qualité de la connexion ré
 * _Applications principales :_ dans certains cas, il existe des proxys supplémentaires entre le connecteur et les applications principales. Il est facile de résoudre ce problème en ouvrant un navigateur à partir de l’ordinateur du connecteur et en accédant à ces applications. Si vous exécutez les connecteurs dans Azure et que les applications sont locales, l’expérience peut ne pas être celle que vos utilisateurs attendent.
 * _Contrôleurs de domaine :_ si les connecteurs effectuent l’authentification unique à l’aide de la délégation Kerberos contrainte (KCD), ils contactent les contrôleurs de domaine avant d’envoyer la requête au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans des environnements occupés, la réactivité des contrôleurs de domaine peut ralentir l’expérience. Cela est plus courant pour les connecteurs qui s’exécutent dans Azure, tandis que les contrôleurs de domaine sont locaux.
 
-##<a name="automatic-updates-to-the-connector"></a>Mises à jour automatiques sur le connecteur
+## <a name="automatic-updates-to-the-connector"></a>Mises à jour automatiques sur le connecteur
 
 Avec le service de mise à jour du connecteur, nous proposons une solution automatisée pour rester à jour. Ainsi, vous avez l’avantage continu de nouvelles fonctionnalités et d’améliorations de sécurité et de performances.
 
@@ -152,13 +153,9 @@ Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecte
 
 Pour plus d’informations sur la résolution des erreurs du connecteur de proxy d’application, consultez [Résoudre les problèmes du proxy d’application](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
-##<a name="next-steps"></a>Étapes suivantes
-[Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)<br>
+## <a name="next-steps"></a>Étapes suivantes
+[Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)
+
 [Comment installer silencieusement le connecteur du Proxy d'application Azure AD](active-directory-application-proxy-silent-installation.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

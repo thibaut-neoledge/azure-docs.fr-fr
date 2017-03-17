@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: d1f4b7806f72dc2632ba981781097b19e89d07f3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -56,10 +57,10 @@ Cette rubrique a été mise à jour pour la version 3.3.0. Si vous possédez un
 ## <a name="log-in-to-your-azure-account"></a>Connexion à votre compte Azure
 Avant de travailler sur votre solution, vous devez vous connecter à votre compte.
 
-Pour vous connecter à votre compte Azure, utilisez l’applet de commande **Add-AzureRmAccount**.
+Pour vous connecter à votre compte Azure, utilisez l’applet de commande **Login-AzureRmAccount**.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Les applets de commande vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l’applet de commande télécharge vos paramètres de compte pour qu’ils soient reconnus par Azure PowerShell.
@@ -273,10 +274,5 @@ Les rubriques suivantes vous montrent comment utiliser Azure Automation, Resourc
 * Pour savoir comment déployer des modèles, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 * Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,7 @@
 # Vue d’ensemble
 ## [Présentation d’Azure Batch](batch-technical-overview.md)
 ## [Présentation de fonctionnalités](batch-api-basics.md)
+## [API et outils](batch-apis-tools.md)
 ## [Quotas et limites](batch-quota-limit.md)
 # Prise en main
 ## [Création d’un compte Batch](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [Journaux de diagnostic de Batch](batch-diagnostics.md)
 
 # Référence
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Interface de ligne de commande Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,9 +47,4 @@
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Exemples de code C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Exemples de code Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

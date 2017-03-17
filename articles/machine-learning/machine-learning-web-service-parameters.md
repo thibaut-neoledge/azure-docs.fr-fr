@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
-ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -68,6 +69,9 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter l
 6. Cliquez sur **Exécuter**. 
 7. Cliquez sur **déployer le Service Web** et sélectionnez **déployer le Service Web [standard]** ou **déployer le Service Web [nouveau]** pour déployer le service web.
 
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 L’utilisateur du service web peut désormais indiquer une nouvelle destination pour le module [Exporter les données][writer] au moment d’accéder au service web.
 
 ## <a name="more-information"></a>Plus d’informations
@@ -85,10 +89,5 @@ Pour plus d'informations sur l'accès à un service Web Machine Learning, cons
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

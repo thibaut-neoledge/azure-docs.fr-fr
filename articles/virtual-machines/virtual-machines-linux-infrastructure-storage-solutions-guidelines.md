@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 61bd36ff8b3bff0acb262f6d181ffe69e6b92d27
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 2aba475cd93e4d3ec37d2eb70f7ba06bc317c222
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-storage-infrastructure-guidelines"></a>Instructions pour les infrastructures Stockage Azure
+# <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>Instructions pour les infrastructures Stockage Azure pour machines virtuelles Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des besoins de stockage et les considérations de conception pour obtenir des performances de machines virtuelles optimales.
@@ -84,10 +87,5 @@ Pour plus d’informations sur les fonctionnalités d’E/S des différentes opt
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

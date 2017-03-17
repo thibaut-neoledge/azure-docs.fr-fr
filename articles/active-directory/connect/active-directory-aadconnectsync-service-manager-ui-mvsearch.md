@@ -1,5 +1,5 @@
 ---
-title: "Synchronisation d’Azure AD Connect : Interface utilisateur de Synchronization Service Manager | Microsoft Docs"
+title: "La recherche de métaverse d’Azure AD Connect Sync Service Manager"
 description: "Comprendre l’onglet Recherche de métaverse dans Synchronization Service Manager pour Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 3b31ff58cab0133fd228e43b9fbe16d64f3e5de9
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 665dc43f9861baeef6fa61968a9dc873ce1dfdbf
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Synchronisation d’Azure AD Connect : Synchronization Service Manager
+# <a name="sync-service-manager-metaverse-search"></a>Recherche de métaverse de Sync Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -32,9 +33,4 @@ Dans les résultats de la recherche, sélectionnez un objet et **Propriétés** 
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

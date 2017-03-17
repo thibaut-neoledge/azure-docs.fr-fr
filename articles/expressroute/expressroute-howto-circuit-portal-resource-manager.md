@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 46b4e1b149a3e9427e1384abc0d95eb616002ab6
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -123,7 +123,7 @@ Vous pouvez afficher l’état d’un circuit en le sélectionnant.
 ![Statut d’un circuit ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modification d’un circuit ExpressRoute
-Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Pour le moment, vous ne pouvez pas modifier les propriétés du circuit ExpressRoute à l'aide du portail Azure. Toutefois, vous pouvez utiliser PowerShell pour modifier les propriétés du circuit. Pour plus d’informations, consultez la section [Modification d’un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-circuit-arm.md#modify).
+Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité.
 
 Vous pouvez effectuer les opérations suivantes sans entraîner d’interruption de service :
 
@@ -133,6 +133,19 @@ Vous pouvez effectuer les opérations suivantes sans entraîner d’interruption
 * Vous pouvez activer et désactiver **Autoriser les opérations classiques**.
 
 Pour plus d’informations sur les limites et les limitations, reportez-vous au [FAQ ExpressRoute](expressroute-faqs.md).
+
+Pour modifier un circuit ExpressRoute, cliquez sur la **Configuration** comme illustré dans la figure ci-dessous.
+
+![Modifier le circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques dans le panneau de configuration.
+
+> [!IMPORTANT]
+> Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. Le fait de passer à un niveau inférieur de bande passante vous oblige à annuler l’approvisionnement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
+> 
+> L’opération de désactivation du module complémentaire Premium peut échouer si vous utilisez des ressources supérieures à ce qui est autorisé pour le circuit standard.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer** . Notez les points suivants :

@@ -73,7 +73,7 @@ Au cours de cette étape, vous allez configurer l’intergiciel OWIN pour utilis
      }
      ```
 
-4. Ouvrez le fichier App_Start\Startup.Auth.cs, puis implémentez la méthode **ConfigureAuth(...) **. Les paramètres que vous fournissez dans *OpenIDConnectAuthenticationOptions* serviront de coordonnées pour que l’application puisse communiquer avec Azure AD. Vous devez également configurer l’authentification des cookies, car l’intergiciel OpenID Connect utilise des cookies en arrière-plan.
+4. Ouvrez le fichier App_Start\Startup.Auth.cs, puis implémentez la méthode **ConfigureAuth(...)**. Les paramètres que vous fournissez dans *OpenIDConnectAuthenticationOptions* serviront de coordonnées pour que l’application puisse communiquer avec Azure AD. Vous devez également configurer l’authentification des cookies, car l’intergiciel OpenID Connect utilise des cookies en arrière-plan.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)

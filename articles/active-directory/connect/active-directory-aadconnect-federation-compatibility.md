@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
-ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
+ms.sourcegitcommit: 1f004b499eb01009ae824ece74d06a03474c4d53
+ms.openlocfilehash: 93a159001fabad513295b0958cf7918b0ed2d1b7
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,8 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > Étant donné qu’il s’agit de produits tiers, Microsoft n’offre aucun support technique concernant les problèmes et questions liés au déploiement, à la configuration, au dépannage, aux meilleures pratiques, etc., de ces fournisseurs d’identité tiers. Pour toute question sur ces fournisseurs d’identité et pour bénéficier d’un support technique, contactez directement les éditeurs tiers pris en charge.
@@ -344,10 +346,17 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations, consultez [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
 
+## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
+NetIQ Access Manager implémente la norme d’identité WS Federation/WS-Trust largement utilisée pour fournir une expérience d’authentification unique et une structure d’échange d’attributs.
 
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
 
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun|
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
 
-
-<!--HONumber=Jan17_HO3-->
+Pour plus d'informations, consultez [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
 
 

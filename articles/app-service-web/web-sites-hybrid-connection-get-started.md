@@ -52,7 +52,7 @@ Vous pouvez connecter une application Azure App Service à n’importe quelle re
 > 
 > 
 
-1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau ** > **Web + mobile** > **Application web**.
+1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web + mobile** > **Application web**.
    
     ![New web app][NewWebsite]
 2. Dans le panneau **Application web**, indiquez une URL et cliquez sur **Créer**. 

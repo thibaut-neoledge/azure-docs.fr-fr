@@ -12,24 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 522496ddcd3cc21501f2390e8cdc158798b6289d
-ms.openlocfilehash: 35d33625badeb0b32079f0487b8bf2a3dd97e141
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 7680aafcefbe6f1e6e3b55137da2e46b42df5a9b
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corriger les vulnérabilités du système d’exploitation dans Azure Security Center
-Azure Security Center analyse quotidiennement le système d’exploitation de votre machine virtuelle afin d’identifier les configurations susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations surveillées. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation de votre machine virtuelle ne correspond pas aux règles de configuration recommandées.
+Azure Security Center analyse quotidiennement le système d’exploitation de votre machine virtuelle afin d’identifier les configurations susceptibles de rendre la machine virtuelle plus vulnérable aux attaques, et recommande des changements de configuration visant à résoudre ces problèmes. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation de votre machine virtuelle ne correspond pas aux règles de configuration recommandées.
+
+> [!NOTE]
+> Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations surveillées. À ce stade, Windows Server 2016 n’est pas entièrement pris en charge.
+>
+>
+
+## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implémenter la recommandation
 1. Dans le panneau **Recommandations**, sélectionnez **Corriger les vulnérabilités du système d’exploitation**.
    ![Corriger des vulnérabilités du système d’exploitation][1]
 

@@ -1,8 +1,8 @@
 ---
-title: "Se connecter à la base de données SQL avec une requête C# | Microsoft Docs"
-description: "Écrivez un programme en C# pour interroger et vous connecter à une base de données SQL. Informations sur les adresses IP, chaînes de connexion, connexion sécurisée et Visual Studio gratuit."
+title: "Connexion à Azure SQL Database avec Visual Studio | Microsoft Docs"
+description: "Découvrez comment vous connecter à une base de données SQL Azure dans Visual Studio."
 services: sql-database
-keywords: "requête de base de données c#, requête c#, se connecter à une base de données, SQL C#"
+keywords: "se connecter à la base de données"
 documentationcenter: 
 author: stevestein
 manager: jhubbard
@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 03/03/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 6789662847197ff3abb44df2d65a8ab761dfc1e7
+ms.lasthandoff: 03/04/2017
 
 
 ---

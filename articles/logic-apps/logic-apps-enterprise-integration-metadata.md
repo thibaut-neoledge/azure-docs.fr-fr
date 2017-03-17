@@ -1,6 +1,6 @@
 ---
-title: "Métadonnées de compte d’intégration Azure Logic Apps | Microsoft Docs"
-description: "Vue d’ensemble des métadonnées de compte d’intégration"
+title: "Gestion des métadonnées d’artefact de compte d’intégration - Azure Logic Apps | Microsoft Docs"
+description: "Ajout ou suppression de métadonnées d’artefact à partir de comptes d’intégration pour Azure Logic Apps"
 author: padmavc
 manager: anneta
 editor: 
@@ -12,60 +12,61 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: e5d567800d00b41ec0782216b442f437a2500928
-ms.openlocfilehash: 41edd713d85790793341e100f77300f999ac8c73
-
+ms.sourcegitcommit: ca8537a7e35e44efafb9b0a9d6ddefe069067475
+ms.openlocfilehash: de55bf7d9e68146745c90b96f280c8a71e27b2f9
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="azure-logic-apps-integration-account-metadata"></a>Métadonnées de compte d’intégration Azure Logic Apps
 
-## <a name="overview"></a>Vue d'ensemble
+# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gestion de métadonnées d’artefact dans des comptes d’intégration pour des applications logiques
 
-Les partenaires, contrats, schémas, mappages ajoutés à un compte d’intégration, stockent les métadonnées avec des combinaisons clé-valeur. Vous pouvez définir des métadonnées personnalisées qui peuvent être récupérées pendant l’exécution.  Pour l’instant, les artefacts n’ont pas la possibilité de créer des métadonnées dans l’interface utilisateur. Vous pouvez utiliser les API REST pour les créer.  Les partenaires, contrats et schémas disposent de **EDIT as JSON** (MODIFIER en tant que JSON) et permet la saisie d’informations sur les métadonnées.  Dans une application logique, **Integration Account Artifact LookUp** (Recherche d’artefact de compte d’intégration) permet de récupérer des informations sur les métadonnées.
+Vous pouvez définir des métadonnées personnalisées pour les artefacts dans les comptes d’intégration et récupérer ces métadonnées pendant l’exécution pour votre application logique. Par exemple, vous pouvez spécifier des métadonnées pour les artefacts tels que des partenaires, des contrats, des schémas et mappages - tous stockent les métadonnées à l’aide de paires clé-valeur. Actuellement, les artefacts ne peuvent pas créer de métadonnées via l’interface utilisateur, mais vous pouvez utiliser l’API REST pour créer des métadonnées. Pour ajouter des métadonnées lorsque vous créez ou sélectionnez un partenaire, un accord ou un schéma dans le portail Azure, choisissez **Modifier au format JSON**. Pour récupérer des métadonnées d’artefact dans des applications logiques, vous pouvez utiliser la fonctionnalité de Recherche d’artefact de compte d’intégration.
 
-## <a name="how-to-store-metadata"></a>Stockage des métadonnées
+## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Ajoute de métadonnées à des artefacts dans des comptes d’intégration
 
-1. Créez un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md).   
+1. Créez un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md).
 
-2. Ajoutez un [partenaire](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [contrat](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) ou un [schéma](logic-apps-enterprise-integration-schemas.md) au compte d’intégration.
+2. Ajoutez un artefact à votre compte d’intégration, par exemple, un [partenaire](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [contrat](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) ou un [schéma](logic-apps-enterprise-integration-schemas.md).
 
-3. Sélectionnez un partenaire, un contrat ou un schéma. Sélectionnez **Edit as JSON** (MODIFIER en tant que JSON) et entrez les informations sur les métadonnées    
-![Saisir les métadonnées](media/logic-apps-enterprise-integration-metadata/image1.png)  
+3.    Sélectionnez l’artefact. choisissez **Modifier au format JSON** et entrez les informations des métadonnées.
 
-## <a name="call-integration-account-artifact-lookup-from-a-logic-app"></a>Appelez **Integration Account Artifact LookUp** (Recherche d’artefact de compte d’intégration) à partir d’une application logique
+    ![Saisie des métadonnées](media/logic-apps-enterprise-integration-metadata/image1.png)
+
+## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Récupération des métadonnées à partir d’artefacts pour les applications logiques
 
 1. Créez une [application logique](logic-apps-create-a-logic-app.md).
 
-2. [Liez](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app) une application logique à un compte d’intégration.    
+2. Créez un [lien de votre application logique vers votre compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
-3. Créez un déclencheur, par exemple à l’aide de *Request* ou *HTTP* avant de rechercher **Integration Account Artifact LookUp** (Recherche d’artefact de compte d’intégration).  Tapez le mot clé **integration** pour rechercher **Integration Account Artifact LookUp**  
-![Recherche](media/logic-apps-enterprise-integration-metadata/image2.png)
+3. Dans le Concepteur d’application logique, ajoutez un déclencheur comme *Request* ou *HTTP* à votre application logique.
 
-3. Sélectionnez **Integration Account Artifact LookUp** (Recherche d’artefact de compte d’intégration)  
+4.    Choisissez **Étape suivante** > **Ajouter une action**. Recherchez *Intégration*, puis recherchez et sélectionnez **Compte d’intégration - Recherche d’artefact de compte d’intégration**.
 
-4. Sélectionnez le **type d’artefact** et indiquez son **nom**  
-![Recherche](media/logic-apps-enterprise-integration-metadata/image3.png)
+    ![Sélectionner Recherche d’artefact de compte d’intégration](media/logic-apps-enterprise-integration-metadata/image2.png)
 
-## <a name="an-example-to-retrieve-partner-metadata"></a>Exemple de récupération des métadonnées du partenaire
+5. Sélectionnez le **type d’artefact** et indiquez son **nom**.
 
-1. Les métadonnées du partenaire disposent de détails relatifs à l’url de routage    
-![Recherche](media/logic-apps-enterprise-integration-metadata/image6.png)
+    ![Sélectionner le type d’artefact et spécifiez son nom](media/logic-apps-enterprise-integration-metadata/image3.png)
 
-2. Dans une application logique, configurez **Integration Account Artifact LookUp** (Recherche d’artefact de compte d’intégration) et **HTTP**   
-![Recherche](media/logic-apps-enterprise-integration-metadata/image4.png)
+## <a name="example-retrieve-partner-metadata"></a>Exemple : récupération des métadonnées du partenaire
 
-3. Pour récupérer l’URI, la vue du code doit ressembler à ce qui suit :    
-![Recherche](media/logic-apps-enterprise-integration-metadata/image5.png)
+Les métadonnées du partenaire ont ces détails `routingUrl` :
+
+![Rechercher des métadonnées de « routingURL » de partenaire](media/logic-apps-enterprise-integration-metadata/image6.png)
+
+1. Dans votre application logique, ajoutez votre déclencheur, une action **Compte d’intégration - Recherche d’artefact de compte d’intégration** pour votre partenaire et une requête **HTTP**.
+
+    ![Ajouter un déclencheur, une recherche d’artefact et « HTTP » à votre application logique](media/logic-apps-enterprise-integration-metadata/image4.png)
+
+2. Pour récupérer l’URI, passez en mode Code pour votre application logique. La définition de votre application logique doit ressembler à cet exemple :
+
+    ![Recherche](media/logic-apps-enterprise-integration-metadata/image5.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les contrats](logic-apps-enterprise-integration-agreements.md "Découvrez les contrats d’intégration d’entreprise")  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

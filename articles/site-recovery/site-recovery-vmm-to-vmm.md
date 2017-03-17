@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff27bb866bd9b1f2a24b5c0ff5d83dea2227f49
-ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8af22f98b5dfde35df441ba054875616ced9988a
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
 >
 >
 
-Cet article décrit comment utiliser [Site Recovery](site-recovery-overview.md) dans le portail Azure pour répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center Virtual Machines Manager (VMM) dans un site secondaire. En savoir plus sur cette [architecture du scénario](site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site).
+Cet article décrit comment utiliser [Site Recovery](site-recovery-overview.md) dans le portail Azure pour répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center Virtual Machines Manager (VMM) dans un site secondaire. En savoir plus sur cette [architecture du scénario](site-recovery-components.md#hyper-v-vm-replication-to-a-secondary-site).
 
 Après avoir lu cet article, publiez des commentaires au bas de ce dernier ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -43,7 +44,7 @@ Après avoir lu cet article, publiez des commentaires au bas de ce dernier ou su
 **Hyper-V** | Les serveurs Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.<br/><br/> Un serveur Hyper-V doit contenir au moins une machine virtuelle.<br/><br/>  Les serveurs hôtes Hyper-V doivent être situés dans des groupes hôtes dans les clouds VMM principaux et secondaires.<br/><br/> Si vous exécutez Hyper-V dans un cluster sur Windows Server 2012 R2, installez la [mise à jour 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si vous exécutez Hyper-V dans un cluster sous Windows Server 2012, notez que le répartiteur de clusters n’est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Configurez manuellement le répartiteur de cluster. [En savoir plus](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Les serveurs Hyper-V doivent disposer d’un accès Internet.
 **URLs** | Les serveurs VMM et les hôtes Hyper-V doivent être en mesure d’atteindre ces URL :<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## <a name="steps"></a>Étapes
+## <a name="deployment-steps"></a>Étapes du déploiement
 
 Voici la procédure à suivre :
 
@@ -64,7 +65,7 @@ Pour préparer le déploiement :
 
     - Assurez-vous que l’ensemble des machines virtuelles du serveur hôte Hyper-V source sont connectées à un réseau de machines virtuelles VMM. Ce réseau doit être lié à un réseau logique lui-même associé au cloud.
     Vérifiez que le cloud secondaire que vous utilisez pour la récupération est configuré avec un réseau de machines virtuelles correspondant. Ce réseau de machines virtuelles doit être lié à un réseau logique lui-même associé au cloud secondaire.
-    
+
 3. Préparer un [déploiement de serveur unique](#single-vmm-server-deployment), si vous souhaitez répliquer des machines virtuelles entre des clouds sur le même serveur VMM.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
@@ -173,7 +174,7 @@ Sélectionnez le cloud et le serveur VMM cible.
 10. Dans **Méthode de réplication initiale**, si vous effectuez une réplication sur le réseau, indiquez si vous souhaitez lancer la réplication initiale ou la planifier. Pour économiser de la bande passante réseau, il peut être intéressant de la planifier en dehors des heures de pointe. Cliquez ensuite sur **OK**.
 
      ![Stratégie de réplication](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
-11. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Dans **Stratégie de réplication**, cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles qu’ils contiennent) à cette stratégie de réplication en cliquant sur **Paramètres** > **Réplication** > nom de la stratégie > **Associate VMM Cloud** (Associer un cloud VMM).
+11. Lorsque vous créez une stratégie, elle est automatiquement associée au cloud VMM. Dans **Stratégie de réplication**, cliquez sur **OK**. Vous pouvez associer des clouds VMM supplémentaires (ainsi que les machines virtuelles correspondantes) à cette stratégie de réplication en cliquant sur **Réplication** > Nom de la stratégie > **Associer un Cloud VMM**.
 
      ![Stratégie de réplication](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -184,7 +185,7 @@ Sélectionnez le cloud et le serveur VMM cible.
 - Vérifiez que les machines virtuelles sur les serveurs VMM sont connectées à un réseau de machines virtuelles.
 
 
-1. Dans **Paramètres** > **Infrastructure Site Recovery** > **Mappage réseau** > **Mappages réseau**, cliquez sur **+Mappage réseau**.
+1. Dans **Infrastructure Site Recovery** > **Mappage réseau** > **Mappages réseau**, cliquez sur **+Mappage réseau**.
 
     ![Mappage réseau](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Dans l’onglet **Ajouter un mappage réseau**, sélectionnez les serveurs VMM source et cible. Les réseaux de machines virtuelles associés aux serveurs VMM sont récupérés.
@@ -224,12 +225,12 @@ Votre infrastructure de base est désormais configurée. Vous pouvez donc réfl�
 
     ![Activer la protection pour les machines virtuelles](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-Vous pouvez suivre la progression de l’action **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Lorsque la tâche de **finalisation de la protection** s’exécute, la machine virtuelle est prête à être basculée.
+Vous pouvez suivre la progression de l’action **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Lorsque la tâche de **finalisation de la protection** s’exécute, la machine virtuelle est prête à être basculée.
 
 Notez les points suivants :
 
 - Vous pouvez également activer la protection des machines virtuelles dans la console VMM. Cliquez sur **Activer la protection** dans la barre d’outils dans les propriétés de la machine virtuelle > onglet **Azure Site Recovery**.
-- Une fois que vous avez activé la réplication, vous pouvez afficher les propriétés de la machine virtuelle dans **Paramètres** > **Éléments répliqués**. Dans le tableau de bord **Essentials**, vous pouvez voir des informations sur la stratégie de réplication pour la machine virtuelle et son état. Cliquez sur **Propriétés** pour obtenir plus de détails.
+- Une fois que vous avez activé la réplication, vous pouvez afficher les propriétés de la machine virtuelle dans **Éléments répliqués**. Dans le tableau de bord **Essentials**, vous pouvez voir des informations sur la stratégie de réplication pour la machine virtuelle et son état. Cliquez sur **Propriétés** pour obtenir plus de détails.
 
 ### <a name="onboard-existing-virtual-machines"></a>Intégrer des machines virtuelles existantes
 Si vous avez des machines virtuelles existantes dans VMM qui sont répliquées à l’aide du réplica Hyper-V, vous pouvez les intégrer à la réplication Azure Site Recovery comme suit :
@@ -242,10 +243,6 @@ Si vous avez des machines virtuelles existantes dans VMM qui sont répliquées �
 
 Pour tester votre déploiement, vous pouvez exécuter un [test de basculement](site-recovery-test-failover-vmm-to-vmm.md) pour une seule machine virtuelle ou [créer un plan de récupération](site-recovery-create-recovery-plans.md) qui contient une ou plusieurs machines virtuelles.
 
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Une fois que vous avez testé le déploiement, apprenez-en davantage sur les autres types de [basculement](site-recovery-failover.md).
 
 
 ## <a name="prepare-for-offline-initial-replication"></a>Préparer la réplication initiale hors connexion
@@ -444,8 +441,7 @@ Le tableau suivant résume la façon dont les données sont stockées dans ce sc
 | **Mappage réseau** | Mappe les informations de réseau du centre de données principal vers le centre de données de récupération. Dès lors que les machines virtuelles sont récupérées sur le site de récupération, le mappage réseau permet d’établir une connectivité réseau. |Site Recovery collecte, traite et transmet les métadonnées des réseaux logiques pour chaque site (principal et centre de données). |Les métadonnées sont utilisées pour remplir les paramètres de réseau afin de vous permettre de mapper les informations réseau. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, n’utilisez pas le mappage réseau. |
 | **Basculement (planifié/non planifié/test)** | Le basculement bascule les machines virtuelles d’un centre de données géré par VMM à un autre. L’action de basculement est déclenchée manuellement dans le portail Azure. |Le fournisseur du serveur VMM est averti de l’événement de basculement par Site Recovery et exécute une action de basculement sur l’hôte Hyper-V au moyen des interfaces VMM. Le basculement réel d’une machine virtuelle s’effectue d’un hôte Hyper-V à un autre et est géré par un réplica Hyper-V Windows Server 2012 ou Windows Server 2012 R2. Site Recovery utilise les informations envoyées pour spécifier l’état des informations de l’action de basculement dans le portail Azure. | Cette fonctionnalité joue un rôle essentiel dans le service et ne peut pas être désactivée. Si vous ne souhaitez pas envoyer ces informations à Site Recovery, n’utilisez pas le basculement. |
 
+## <a name="next-steps"></a>Étapes suivantes
 
-
-<!--HONumber=Feb17_HO2-->
-
+Une fois que vous avez testé le déploiement, apprenez-en davantage sur les autres types de [basculement](site-recovery-failover.md).
 

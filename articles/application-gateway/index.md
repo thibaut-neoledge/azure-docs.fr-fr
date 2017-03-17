@@ -13,11 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
-ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Documentation Application Gateway
+# <a name="application-gateway-documentation"></a>Documentation Application Gateway
 
 Apprenez à déployer Application Gateway, un contrôleur de remise d’applications sous forme de service. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des services d’équilibrage de charge et de routage au niveau de l’application qui vous permettent de créer un serveur frontal web évolutif et hautement disponible.
 
@@ -125,7 +126,7 @@ Apprenez à déployer Application Gateway, un contrôleur de remise d’applicat
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Version préliminaire d’Azure CLI 2.0</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ Apprenez à déployer Application Gateway, un contrôleur de remise d’applicat
     </li>
 </ul>    
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
 title: "Déploiement et gestion d’une sauvegarde pour les machines virtuelles Azure à l’aide de PowerShell | Microsoft Docs"
-description: "Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell"
+description: "Découvrez comment déployer et gérer Azure Backup à l’aide de PowerShell."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
 ms.service: backup
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Déploiement et gestion de la sauvegarde pour les machines virtuelles Azure à l’aide de PowerShell
+# <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisation des applets de commande AzureRM.Backup pour sauvegarder des machines virtuelles
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](backup-azure-vms-automation.md)
 > * [Classique](backup-azure-vms-classic-automation.md)
@@ -349,10 +351,5 @@ $DAILYBACKUPSTATS | Out-GridView
 Si vous souhaitez ajouter des fonctionnalités graphiques à ce rapport, consultez le billet de blog TechNet sur [Fonctionnalités graphiques avec PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation-classic.md). Il existe également un article de PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation-classic.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article de PowerShell pour la protection de Windows Server : [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation-classic.md). Il existe également un article PowerShell sur la gestion des sauvegardes DPM : [Déployer et gérer une sauvegarde pour DPM](backup-dpm-automation-classic.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.
 

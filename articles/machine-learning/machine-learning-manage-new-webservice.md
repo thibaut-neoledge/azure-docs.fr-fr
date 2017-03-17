@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: ef24162006c508134db3f385e791306495ac4614
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: ad1314aa4b504bd2cb3285789073d4f1de1f545d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -32,6 +33,19 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 * ajouter et supprimer des points de terminaison (classique uniquement).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorisations pour gérer des services web basés sur le gestionnaire de nouvelles ressources
+
+De nouveaux services web sont déployés en tant que ressources Azure. Par conséquent, vous devez disposer des autorisations appropriées pour déployer et gérer de nouveaux services web.  Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur à un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur sur l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
+
+Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux ressources dans le portail Service web Machine Learning, il recevra le message d’erreur suivant s’il tente de déployer un service web :
+
+*Échec du déploiement d’un service web. Ce compte n’a pas de droits d’accès suffisants à l’abonnement Azure qui contient l’espace de travail. Pour déployer un service web sur Azure, le même compte doit être invité à l’espace de travail et disposer de l’accès à l’abonnement Azure qui contient l’espace de travail.*
+
+Pour plus d'informations sur la création d'un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
+
+Pour plus d’informations sur la définition des autorisations d’accès, consultez la rubrique [Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure - Version préliminaire publique](../active-directory/role-based-access-control-manage-assignments.md).
+
 
 ## <a name="manage-new-web-services"></a>Gérer de nouveaux services web
 Pour gérer vos nouveaux service web :
@@ -174,10 +188,5 @@ Pour gérer des comptes supplémentaires qui ont accès à l’espace de travail
 > Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

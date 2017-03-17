@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 57d7475db8183cfaad017fc934210d0481868d5f
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Configuration de pilotes GPU pour les machines virtuelles série N
+# <a name="set-up-gpu-drivers-for-n-series-windows-vms"></a>Configuration de pilotes GPU pour les machines virtuelles Windows série N
 Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant Windows Server, vous devez installer des pilotes graphiques NVIDIA sur chaque machine virtuelle après le déploiement. Il est également disponible pour les [machines virtuelles Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour plus d’informations sur les spécifications de base, les capacités de stockage et les disques, consultez l’article [Tailles de machines virtuelles](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -67,10 +69,5 @@ Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne
 
 * Les développeurs qui créent des applications avec accélération GPU pour les GPU Tesla NVIDIA peuvent également télécharger et installer le [kit d’outils 8 CUDA](https://developer.nvidia.com/cuda-downloads).
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
