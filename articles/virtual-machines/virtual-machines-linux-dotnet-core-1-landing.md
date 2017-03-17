@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
-ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d9d65d8fb5fd7b1ff226e96fe33f8b0757d7a12e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automatisation des déploiements d’applications sur Machines Virtuelles Azure
+# <a name="automating-application-deployments-to-linux-virtual-machines"></a>Automatisation des déploiements d’applications sur machines virtuelles Linux 
+
 Cette série en quatre parties détaille le déploiement et la configuration des ressources et applications Azure à l’aide de modèles Azure Resource Manager. Dans cette série, un exemple de modèle est déployé et le modèle de déploiement examiné. L’objectif de cette série est d’informer concernant la relation entre les ressources Azure et de fournir une expérience pratique concernant le déploiement de modèles Azure Resource Manager entièrement intégrés. Ce document suppose que le lecteur dispose d’un niveau de connaissance élémentaire concernant Azure Resource Manager. Avant de commencer ce didacticiel, nous vous recommandons de vous familiariser avec les concepts de base d’Azure Resource Manager. 
 
 ## <a name="music-store-application"></a>Application du Store musique
@@ -69,10 +72,5 @@ Une fois le déploiement du modèle terminé, accédez à l’adresse IP publiqu
 [Étape 3 : disponibilité et mise à l’échelle dans les modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Étape 4 : déploiement d’application avec des modèles Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/22/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
-ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
+ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
+ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -46,7 +47,7 @@ DocumentDB est une option conseillée pour les nouvelles applications web, mobil
 ### <a name="how-does-documentdb-offer-predictable-performance"></a>Comment DocumentDB offre-t-il des performances prévisibles ?
 Une [unité de requête](documentdb-request-units.md) est la mesure du débit dans DocumentDB. 1 RU correspond au débit de la requête GET d’un document d’1 Ko. Chaque opération dans DocumentDB, y compris les lectures, les écritures, les requêtes SQL et les exécutions de procédures stockées, comporte une valeur d’unité de requête déterministe basée sur le débit nécessaire pour terminer l’opération. Au lieu de penser à l’UC, à l’E/S et à la mémoire, et à la façon dont ils impactent le débit de votre application, vous pouvez penser en termes de mesure d’unité de requête unique.
 
-Chaque collection DocumentDB peut être réservée avec un débit approvisionné en termes d’unités de requête de débit par seconde. Pour les applications quelle que soit leur échelle, vous pouvez évaluer les requêtes individuelles pour mesurer leur valeur d’unités de requête, et approvisionner les collections pour gérer la somme totale des unités de requête sur l’ensemble des requêtes. Vous pouvez également mettre à l’échelle le débit de votre collection à mesure de l’évolution des besoins de votre application. Pour plus d’informations sur les unités de requête et pour obtenir de l’aide afin de déterminer vos besoins en termes de collections, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et [Calculatrice de débit](https://www.documentdb.com/capacityplanner).
+Chaque collection DocumentDB peut être réservée avec un débit approvisionné en termes d’unités de requête de débit par seconde. Pour les applications quelle que soit leur échelle, vous pouvez évaluer les requêtes individuelles pour mesurer leur valeur d’unités de requête, et approvisionner les collections pour gérer la somme totale des unités de requête sur l’ensemble des requêtes. Vous pouvez également mettre à l’échelle le débit de votre collection à mesure de l’évolution des besoins de votre application. Pour plus d’informations sur les unités de requête et pour obtenir de l’aide afin de déterminer vos besoins en matière de collections, consultez [Estimation des besoins de débit](documentdb-request-units.md#estimating-throughput-needs) et essayez la [calculatrice de débit](https://www.documentdb.com/capacityplanner).
 
 ### <a name="is-documentdb-hipaa-compliant"></a>DocumentDB est-il conforme à HIPAA ?
 Oui, DocumentDB est conforme à HIPAA. HIPAA établit les conditions requises pour l’utilisation, la divulgation et la protection des informations de santé identifiables de façon individuelle. Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -88,15 +89,18 @@ Vous pouvez créer des utilisateurs et des autorisations en utilisant un [Kit de
 
 ## <a name="database-questions-about-developing-against-microsoft-azure-documentdb"></a>Questions à propos du développement avec Microsoft Azure DocumentDB
 ### <a name="how-to-do-i-start-developing-against-documentdb"></a>Comment développer avec DocumentDB ?
-[Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) sont disponibles pour .NET, Python, Node.js, JavaScript et Java.  Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur de nombreuses plateformes et dans de nombreux langages.
+[Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) sont disponibles pour .NET, Python, Node.js, JavaScript et Java.  Les développeurs peuvent également utiliser les [API RESTful HTTP](https://msdn.microsoft.com/library/azure/dn781481.aspx) pour interagir avec les ressources DocumentDB sur différentes plateformes et dans de nombreux langages.
 
 Des exemples de kits de développement logiciel (SDK) DocumentDB [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md) et [Python](documentdb-python-samples.md) sont disponibles sur GitHub.
 
 ### <a name="does-documentdb-support-sql"></a>DocumentDB prend-il en charge SQL ?
-Le langage de requête SQL DocumentDB est un sous-ensemble amélioré des fonctionnalités de requête prises en charge par SQL. Le langage de requête SQL de DocumentDB fournit des opérateurs relationnels et hiérarchiques enrichis ainsi qu’une extensibilité par le biais de fonctions JavaScript définies par l’utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes en tant que nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le langage de requête SQL de ce dernier.  Pour plus d’informations sur l’utilisation de la syntaxe SQL, consultez l’article [Interrogation de DocumentDB][query].
+Le langage de requête SQL DocumentDB est un sous-ensemble amélioré des fonctionnalités de requête prises en charge par SQL. Le langage de requête SQL de DocumentDB fournit des opérateurs relationnels et hiérarchiques enrichis ainsi qu’une extensibilité par le biais de fonctions JavaScript définies par l’utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu’arborescences avec des étiquettes en tant que nœuds d’arborescence. Cette capacité est exploitée par les techniques d’indexation automatique de DocumentDB et le langage de requête SQL de ce dernier.  Pour plus d’informations sur l’utilisation de la syntaxe SQL, consultez l’article relatif à [l’interrogation de DocumentDB][query].
+
+### <a name="does-documentdb-support-sql-aggregation-functions"></a>DocumentDB prend-il en charge les fonctions d’agrégation SQL ?
+DocumentDB prend en charge l’agrégation à faible latence à n’importe quelle échelle via les fonctions d’agrégation `COUNT`, `MIN`, `MAX`, `AVG` et `SUM` via la syntaxe SQL. Pour plus d’informations, consultez [Fonctions d’agrégation](documentdb-sql-query.md#Aggregates).
 
 ### <a name="what-are-the-data-types-supported-by-documentdb"></a>Quels sont les types de données pris en charge par DocumentDB ?
-Les types de données primitifs pris en charge dans DocumentDB sont identiques à ceux pris en charge dans JSON. JSON dispose d'un système de type simple constitué de chaînes, de chiffres (double précision IEEE754), ainsi que de valeurs booléennes (true, false et null).  Des types de données plus complexes, tels que DateTime, Guid, Int64 et Geometry peuvent être représentés dans JSON et DocumentDB en créant des objets imbriqués à l'aide de l'opérateur { } et des tableaux à l'aide de l'opérateur [ ].
+Les types de données primitifs pris en charge dans DocumentDB sont identiques à ceux pris en charge dans JSON. JSON dispose d'un système de type simple constitué de chaînes, de chiffres (double précision IEEE754), ainsi que de valeurs booléennes (true, false et null). DocumentDB prend en charge en mode natif les types de données spatiales Point, Polygon et LineString exprimées sous la forme GeoJSON. Des types de données plus complexes, tels que DateTime, Guid, Int64 et Geometry peuvent être représentés dans JSON et DocumentDB en créant des objets imbriqués à l'aide de l'opérateur { } et des tableaux à l'aide de l'opérateur [ ].
 
 ### <a name="how-does-documentdb-provide-concurrency"></a>Quels sont les avantages concurrentiels de DocumentDB ?
 DocumentDB prend en charge le contrôle d’accès concurrentiel optimiste via les balises d’entité HTTP ou etags. Chaque ressource DocumentDB dispose d’une balise etag et l’etag est définie sur le serveur à chaque fois qu’un document est mis à jour. L’en-tête de l’etag et la valeur actuelle sont inclus dans tous les messages de réponse. Les balises etags peuvent être utilisées avec l’en-tête If-Match pour permettre au serveur de déterminer si une ressource doit être mise à jour. La valeur If-Match est la valeur etag utilisée pour la vérification. Si la valeur etag correspond à la valeur etag du serveur, la ressource sera mise à jour. Si la balise etag n’est plus active, le serveur rejette l’opération avec un code de réponse « HTTP 412 Échec de la condition préalable ». Le client doit alors récupérer à nouveau la ressource pour obtenir la valeur etag actuelle pour la ressource. En outre, les balises etags peuvent être utilisées avec un en-tête If-None-Match pour déterminer si la nouvelle extraction d’une ressource est nécessaire.
@@ -121,9 +125,4 @@ Oui. [L’émulateur Azure DocumentDB](documentdb-nosql-local-emulator.md) fourn
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

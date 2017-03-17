@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0966b1332ee6d831a1f24ee817aa8022538a5558
-ms.openlocfilehash: f8cd2b907bd6b20ec778dc6257e2a30113dd4909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7e16fa749389ab876ae413e2ffef7713ed22adac
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,6 +34,37 @@ Rubrique |  Détails
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="114430"></a>1.1.443.0
+Publication : mars 2017
+
+**Problèmes résolus :**
+
+Synchronisation d’Azure AD Connect
+* Résolution d’un problème qui provoquait l’échec de l’assistant Azure AD Connect si le nom complet du connecteur Azure AD ne contenait pas le domaine onmicrosoft.com initialement affecté au client Azure AD.
+* Résolution d’un problème qui provoquait l’échec de l’assistant Azure AD Connect lors de la connexion à une base de données SQL lorsque le mot de passe du compte de service de synchronisation contenait des caractères spéciaux tels que l’apostrophe, les deux-points ou l’espace.
+* Correction d’un problème qui provoquait l’erreur « la dimage a une ancre qui est différente de celle de l’image » sur un serveur Azure AD Connect en mode intermédiaire après avoir exclu temporairement an objet Active Directory local de la synchronisation et l’avoir inclus à nouveau pour la synchronisation.
+* Correction d’un problème qui provoque l’erreur « l’objet se trouve par nom de domaine est un fantôme » sur un serveur Azure AD Connect en mode, intermédiaire une fois que vous avez exclu temporairement sur les sites Active Directory à partir de la synchronisation de l’objet et inclus à nouveau pour la synchronisation.
+
+Gestion AD FS.
+* Correction d’un problème qui empêchait l’assistant Azure AD Connect de mettre à jour la configuration AD FS et définir les bonnes revendications sur l’approbation de partie de confiance après configuration de l’ID de connexion secondaire.
+* Correction d’un problème qui empêchait l’assistant Azure AD Connect de traiter correctement les serveurs AD FS dont les comptes de service sont configurés à l’aide du format d’userPrincipalName au lieu du format sAMAccountName.
+
+Authentification directe
+* Résolution d’un problème qui provoquait l’échec de l’assistant Azure AD Connect si l’authentification directe était activée mais que l’inscription de son connecteur échouait.
+* Résolution du problème qui provoquait le contournement des vérifications de validation par l’assistant Azure AD Connect sur la méthode de connexion sélectionnée lorsque la fonctionnalité d’authentification unique de bureau était activée.
+
+**Nouvelles fonctionnalités/améliorations :**
+
+Synchronisation d’Azure AD Connect
+* L’applet de commande Get-ADSyncScheduler renvoie désormais une nouvelle propriété booléenne nommée SyncCycleInProgress. Si la valeur renvoyée est true, cela signifie qu’il existe un cycle de synchronisation planifié en cours.
+* Le dossier de destination pour les journaux d’installation et de configuration d’Azure Connect AD a été déplacé de %localappdata%\AADConnect à %programdata%\AADConnect pour améliorer l’accessibilité aux fichiers journaux.
+
+Gestion AD FS.
+* Prise en charge supplémentaire de la mise à jour du certificat SSL de batterie de serveurs AD FS.
+* Prise en charge ajoutée pour la gestion de serveurs AD FS 2016.
+* Vous pouvez maintenant spécifier un gMSA (compte de service géré de groupe) existant lors de l’installation d’AD FS.
+* Vous pouvez maintenant configurer SHA-256 comme algorithme de hachage de signature pour l’approbation de partie de confiance Azure AD.
 
 ## <a name="113800"></a>1.1.380.0
 Publication : décembre 2016

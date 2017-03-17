@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: e657e901900b4879d649ac82d8de026957a409c2
-ms.openlocfilehash: 36a872e3e5bd3230dcfe2abdab9b4dbf25212cdb
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
+ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -123,5 +123,5 @@ Ce fichier journal contient des informations sur chaque règle appliquée aux re
 
 ## <a name="view-and-analyze-logs"></a>Afficher et analyser les journaux
 
-Pour savoir comment voir les données du journal d’activité, lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Pour savoir comment voir les données des journaux de diagnostic, lisez l’article [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si vous envoyez les données de diagnostic à Log Analytics, vous pouvez utiliser la solution de gestion [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (préversion) pour obtenir des insights de meilleure qualité. 
+Pour savoir comment voir les données du journal d’activité, lisez l’article [Vue d’ensemble du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Pour savoir comment voir les données des journaux de diagnostic, lisez l’article [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Si vous envoyez des données de diagnostic à Log Analytics, vous pouvez utiliser la solution de gestion [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) (version préliminaire) pour obtenir des données de meilleure qualité. 
 

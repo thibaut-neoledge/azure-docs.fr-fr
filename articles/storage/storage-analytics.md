@@ -1,5 +1,5 @@
 ---
-title: "Utiliser Storage Analytics pour collecter les données de journaux et de métriques | Microsoft Docs"
+title: "Utiliser Azure Storage Analytics pour collecter les données de journaux et de mesures | Microsoft Docs"
 description: "Storage Analytics vous permet d’une part d’effectuer le suivi des données de métriques pour tous les services de stockage et, d’autre part, de collecter les journaux de Blob Storage, Queue Storage et Table Storage."
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="storage-analytics"></a>Storage Analytics
-## <a name="overview"></a>Vue d'ensemble
+
 Azure Storage Analytics effectue la journalisation et fournit des données de métriques pour un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage
 
 Pour utiliser Storage Analytics, vous devez l'activer individuellement pour chaque service que vous souhaitez analyser. Vous pouvez l’activer à partir du [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) et [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) pour activer Storage Analytics pour chaque service.
@@ -150,7 +151,7 @@ Toutes les données de métriques pour chacun des services de stockage sont stoc
 
 | Niveau de métriques | Noms de tables | Versions prises en charge |
 | --- | --- | --- |
-| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d'utiliser les tables répertoriées ci-dessous. |
+| Métriques toutes les heures, emplacement principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions antérieures à la version du 15 août 2013 uniquement. Bien que ces noms soient toujours pris en charge, il est recommandé d'utiliser les tables répertoriées ci-dessous. |
 | Métriques toutes les heures, emplacement principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques par minute, emplacement principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. |
 | Métriques toutes les heures, emplacement secondaire |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Toutes les versions, y compris celle du 15 août 2013. La géo-réplication redondante avec accès en lecture doit être activée. |
@@ -163,7 +164,7 @@ Ces tables sont automatiquement créées lorsque Storage Analytics est activé p
 Toutes les données des tables de métriques sont accessibles à l'aide des API du service de Table, y compris les API .NET fournies par la bibliothèque managée Azure. L'administrateur de compte de stockage peut lire et supprimer des entités de table, mais il ne peut pas les créer ou les mettre à jour.
 
 ## <a name="billing-for-storage-analytics"></a>Facturation pour Storage Analytics
-Storage Analytics est activé par un propriétaire de compte de stockage ; il n'est pas activé par défaut. Toutes les données de métriques sont écrites par les services d'un compte de stockage. En conséquence, chaque opération d'écriture effectuée par Storage Analytics est facturable. En outre, la quantité de stockage utilisée par les données de métriques est également facturable.
+Toutes les données de métriques sont écrites par les services d'un compte de stockage. En conséquence, chaque opération d'écriture effectuée par Storage Analytics est facturable. En outre, la quantité de stockage utilisée par les données de métriques est également facturable.
 
 Les actions suivantes effectuées par Storage Analytics sont facturables :
 
@@ -191,10 +192,5 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 * [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

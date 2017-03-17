@@ -12,19 +12,45 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
-ms.openlocfilehash: 32e74821309507fed4a20b005dbfbba12ffb0703
+ms.sourcegitcommit: cf0cd5202288a9da55e0f8409a51ea904eeb2d55
+ms.openlocfilehash: 775ef958846ad2a780abb761d1c3934e671d5f1c
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestion d'un espace de travail Azure Machine Learning
+
 > [!NOTE]
-> Les procédures décrites dans cet article s’appliquent aux services web Azure Machine Learning classiques. Pour plus d’informations sur la gestion des services web dans le portail des services web Azure Machine Learning, voir [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md).
+> Pour plus d’informations sur la gestion des services web dans le portail des services web Azure Machine Learning, voir [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md).
 > 
 > 
+
+Vous pouvez gérer les espaces de travail Machine Learning dans le portail Azure ou le portail Azure Classic.
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+
+Pour gérer un espace de travail dans le portail Azure :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur d’abonnements Azure.
+2. Dans la zone de recherche située en haut de la page, entrez « espaces de travail machine learning », puis sélectionnez **Espaces de travail Machine Learning**.
+3. Cliquez sur l’espace de travail que vous souhaitez gérer.
+
+Outre les options et les informations de gestion des ressources standard disponibles, vous pouvez :
+
+- Afficher la page **Propriétés** : cette page contient les informations d’espace de travail et de ressource. Vous pouvez modifier l’abonnement et le groupe de ressources auxquels cet espace de travail est connecté.
+- **Resynchroniser les clés de stockage** : l’espace de travail gère les clés d’accès au compte de stockage. Si le compte de stockage modifie les clés, vous pouvez cliquer sur **Resynchroniser les clés** pour les synchroniser avec l’espace de travail.
+
+Pour gérer les services web associés à cet espace de travail, utilisez le portail des services web Machine Learning. Pour en savoir plus, consultez l’article [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md).
+
+> [!NOTE]
+> Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
+
+## <a name="use-the-azure-classic-portal"></a>Utilisation du portail Azure Classic
 
 À l’aide du portail Azure Classic, vous pouvez gérer vos espaces de travail Machine Learning pour :
 
@@ -33,8 +59,6 @@ ms.openlocfilehash: 32e74821309507fed4a20b005dbfbba12ffb0703
 * Gérer les services web créés dans l’espace de travail
 * supprimer l’espace de travail
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 De plus, l’onglet du tableau de bord affiche l’utilisation de l’espace de travail, ainsi que des informations sur ce dernier en un clin d’œil.  
 
 > [!TIP]
@@ -42,7 +66,7 @@ De plus, l’onglet du tableau de bord affiche l’utilisation de l’espace de 
 > 
 > 
 
-Pour gérer un espace de travail :
+Pour gérer un espace de travail dans le portail Azure Classic :
 
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
@@ -54,7 +78,7 @@ La page de l’espace de travail comporte trois onglets :
 * **CONFIGURATION** : vous permet de gérer l’accès à l’espace de travail
 * **SERVICES WEB** : vous permet de gérer les services web publiés à partir de cet espace de travail
 
-## <a name="to-monitor-how-the-workspace-is-being-used"></a>Pour surveiller l’utilisation de l’espace de travail
+### <a name="to-monitor-how-the-workspace-is-being-used"></a>Pour surveiller l’utilisation de l’espace de travail
 Cliquez sur l’onglet **TABLEAU DE BORD** .
 
 Dans le tableau de bord, vous pouvez afficher l’utilisation globale de votre espace de travail et obtenir un aperçu rapide des informations de l’espace de travail.
@@ -68,7 +92,7 @@ Dans le tableau de bord, vous pouvez afficher l’utilisation globale de votre e
 > 
 > 
 
-## <a name="to-grant-or-suspend-access-for-users"></a>Pour octroyer ou suspendre un accès pour les utilisateurs
+### <a name="to-grant-or-suspend-access-for-users"></a>Pour octroyer ou suspendre un accès pour les utilisateurs
 Cliquez sur l’onglet **Configurer** .
 
 Sous l’onglet Configuration, vous pouvez :
@@ -77,7 +101,7 @@ Sous l’onglet Configuration, vous pouvez :
 
 Pour gérer des comptes supplémentaires qui ont accès à l’espace de travail dans Machine Learning Studio, cliquez sur **Se connecter à ML Studio** sous l’onglet **TABLEAU DE BORD** (voir la remarque précédente concernant **Se connecter à ML Studio**). Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES**, puis sur **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
 
-## <a name="to-manage-web-services-in-this-workspace"></a>Pour gérer des services Web dans cet espace de travail
+### <a name="to-manage-web-services-in-this-workspace"></a>Pour gérer des services Web dans cet espace de travail
 Cliquez sur l’onglet **SERVICES WEB** .
 
 Cela affiche une liste des services Web publiés à partir de cet espace de travail.
@@ -110,10 +134,5 @@ Dans la page Configurer, vous pouvez mettre à jour les propriétés suivantes 
 * **Description** pour entrer une description du service web. Le champ Description est obligatoire.
 * **Journalisation** pour activer ou désactiver la journalisation des erreurs sur le point de terminaison. Pour plus d’informations sur la journalisation, voir [Activation de la journalisation pour les services web Machine Learning](machine-learning-web-services-logging.md).
 * **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio, les exemples de données proviennent des données utilisées dans votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

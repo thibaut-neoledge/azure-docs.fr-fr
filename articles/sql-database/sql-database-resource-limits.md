@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/24/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
-ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8441a5318bfee3fc45482a61db13adaa034b824a
+ms.openlocfilehash: 7d50a2861e4dae06d4de09417a2208b453fa499b
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -62,8 +62,8 @@ Pour consulter une définition étendue de chaque ressource répertoriée dans l
 | Domaine | Limite | Description |
 | --- | --- | --- |
 | Bases de données utilisant l’exportation automatique par abonnement |10 |L’exportation automatique vous permet de créer une planification personnalisée pour sauvegarder vos bases de données SQL. La version préliminaire de cette fonctionnalité se terminera le 1er mars 2017.  |
-| Base de données par serveur |Jusqu'à 5000 |Jusqu'à 5000 bases de données sont autorisées par serveur sur les serveurs V12. |
-| DTU par serveur |45000 |45&000; DTU sont disponibles par serveur sur des serveurs V12 pour l’approvisionnement des bases de données, des pools élastiques et des entrepôts de données. |
+| Bases de données par serveur |Jusqu'à 5000 |Jusqu'à 5000 bases de données sont autorisées par serveur sur les serveurs V12. |
+| DTU par serveur |45000 |45000 DTU sont autorisés par serveur sur des serveurs V12 pour l’approvisionnement des bases de données autonomes et des pools élastiques. Le nombre total de bases de données autonomes et de pools autorisé par serveur est uniquement limité par le nombre de DTU par serveur.  
 
 > [!IMPORTANT]
 > La fonctionnalité Automatiser l’exportation Azure SQL Database est maintenant disponible en version préliminaire et sera supprimée le 1er mars 2017. À partir du 1er décembre 2016, vous ne pourrez plus configurer l’exportation automatisée sur une base de données SQL. Tous vos travaux d’exportation automatisée existants continueront à fonctionner jusqu’au 1er mars 2017. Après le 1er décembre 2016, vous pouvez utiliser [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md) ou [Azure Automation](../automation/automation-intro.md) pour archiver des bases de données SQL régulièrement à l’aide de PowerShell en fonction d’une planification de votre choix. Pour obtenir un exemple de script, vous pouvez télécharger [l’exemple de script sur GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/19/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: c4129d5b5ebd0295035e81760b2a39f3caf16499
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -121,8 +121,8 @@ Lancez la fonction Prise en main en sélectionnant le mode de déploiement de Si
 ## <a name="step-1-choose-your-protection-goals"></a>Étape 1 : sélectionner vos objectifs en matière de protection
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 
-1. Dans le volet **Coffres Recovery Services**, choisissez votre coffre et cliquez sur **Paramètres**.
-2. Dans **Paramètres** > **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
+1. Sélectionnez le coffre parmi les **Coffres Recovery Services**.
+2. Dans **Prise en main**, cliquez sur **Site Recovery** > **Étape 1 : Préparer l’infrastructure** > **Objectif de protection**.
 
     ![Sélectionner des objectifs](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 3. Dans la zone **Protection goal (Objectif de la protection)**, sélectionnez **To Azure (Vers Azure)**, puis **Yes, with Hyper-V (Oui, avec Hyper-V)**. Sélectionnez **Non** pour confirmer que vous n’utilisez pas VMM. Cliquez ensuite sur **OK**.
@@ -168,7 +168,7 @@ Configurez le site Hyper-V, installez le fournisseur Azure Site Recovery et l’
 
     ![Emplacement d’installation](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7. Une fois l’inscription terminée, les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans le panneau **Paramètres** > **Infrastructure Site Recovery** > **Hôtes Hyper-V**.
+7. Une fois l’inscription terminée, les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans le panneau **Infrastructure Site Recovery** > **Hôtes Hyper-V**.
 
 ### <a name="command-line-installation"></a>Installation à partir de la ligne de commande
 L’agent et le fournisseur Azure Site Recovery peuvent également être installés à l’aide de la ligne de commande suivante. Cette méthode peut être utilisée pour installer le fournisseur sur un module Server Core pour Windows Server 2012 R2.
@@ -204,7 +204,7 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
 
-      ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png))
+      ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
 
 4. Si vous n’avez pas créé de compte de stockage et que vous souhaitez le faire à l’aide de Resource Manager, cliquez sur **+Compte de stockage** pour effectuer l’opération en ligne. Dans le panneau **Créer un compte de stockage** , saisissez le nom, le type, l’abonnement associé et l’emplacement du compte de stockage. Ce compte doit se trouver au même emplacement que le coffre Recovery Services.
@@ -233,7 +233,7 @@ Si vous souhaitez créer un réseau en suivant le modèle classique, vous pouvez
 
     ![Stratégie de réplication](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-Lorsque vous créez une stratégie, elle est automatiquement associée au site Hyper-V. Cliquez sur **OK**. Vous pouvez associer un site Hyper-V (et les machines virtuelles qu’il contient) à plusieurs stratégies de réplication dans **Paramètres** > **Réplication** > nom de la stratégie > **Associate Hyper-V Site** (Associer le site Hyper-V).
+Lorsque vous créez une stratégie, elle est automatiquement associée au site Hyper-V. Cliquez sur **OK**. Vous pouvez associer un site Hyper-V (et les machines virtuelles qu’il contient) à plusieurs stratégies de réplication dans **Réplication** > nom de la stratégie > **Associer le site Hyper-V**.
 
 ## <a name="step-5-capacity-planning"></a>Étape 5 : planifier la capacité
 Votre infrastructure de base est désormais configurée. Vous pouvez donc réfléchir à la planification de la capacité et déterminer si des ressources supplémentaires sont nécessaires.
@@ -304,16 +304,16 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
     >
     >       
 
-8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Paramètres** > **Stratégies de réplication** > nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez seront utilisées pour les nouvelles machines et les machines dont la réplication est déjà en cours.
+8. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, sélectionnez la stratégie de réplication que vous souhaitez appliquer aux machines virtuelles protégées. Cliquez ensuite sur **OK**. Vous pouvez modifier la stratégie de réplication dans **Stratégies de réplication** > Nom de la stratégie > **Modifier les paramètres**. Les modifications que vous appliquez seront utilisées pour les nouvelles machines et les machines dont la réplication est déjà en cours.
 
    ![Activer la réplication](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
-Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
+Vous pouvez suivre la progression du travail **Activer la protection** dans **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
 ### <a name="view-and-manage-vm-properties"></a>Afficher et gérer les propriétés des machines virtuelles
 Nous vous recommandons de vérifier les propriétés de la machine source.
 
-1. Cliquez sur **Paramètres** > **Éléments protégés** > **Éléments répliqués** et sélectionnez la machine.
+1. Dans **Éléments protégés**, cliquez sur **Éléments répliqués** et sélectionnez la machine.
 
     ![Activer la réplication](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)
 2. Dans **Propriétés** , vous pouvez afficher les informations sur la réplication et le basculement de la machine virtuelle.
@@ -369,10 +369,10 @@ Si vous souhaitez accéder à une machine virtuelle Azure exécutant Linux aprè
 ## <a name="step-7-run-a-test-failover"></a>Étape 7 : Exécution d’un test de basculement
 Pour tester le déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou un plan de récupération qui contient une ou plusieurs machines virtuelles.
 
-1. Pour effectuer le basculement d’une seule machine, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle, puis sur l’icône **+Test de basculement**.
-2. Pour effectuer le basculement d’un plan de récupération, dans **Paramètres** > **Plans de récupération**, cliquez avec le bouton droit sur le plan et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
+1. Pour effectuer le basculement d’une seule machine, cliquez sur la machine virtuelle dans **Éléments répliqués**, puis sur l’icône **+Test de basculement**.
+2. Pour effectuer le basculement d’un plan de récupération, cliquez avec le bouton droit sur le plan dans **Plans de récupération** et sélectionnez **Test de basculement**. Pour créer un plan de récupération, suivez [ces instructions](site-recovery-create-recovery-plans.md).
 3. Dans **Test de basculement**, sélectionnez le réseau Azure auquel les machines virtuelles Azure seront connectées après le basculement.
-4. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom de l’archivage > **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+4. Cliquez sur **OK** pour commencer le basculement. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés, ou en sélectionnant le travail **Test de basculement** dans le nom du coffre > **Travaux** > **Travaux Site Recovery**.
 5. Une fois le basculement terminé, vous devez également voir la machine Azure de réplication apparaître dans le Portail Azure > **Machines virtuelles**. Vous devrez peut-être vous assurer que la machine virtuelle présente la taille appropriée, qu’elle est bien connectée au réseau approprié et qu’elle s’exécute.
 6. Si vous avez [préparé les connexions après le basculement](#prepare-to-connect-to-azure-vms-after-failover), vous devez être à même de vous connecter à la machine virtuelle Azure.
 7. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines virtuelles qui ont été créés au cours du test de basculement.
@@ -417,10 +417,10 @@ Ce type de basculement doit être choisi lorsqu’un site principal devient inac
 >
 
 1. Effectuez le basculement planifié comme indiqué [ici](site-recovery-failover.md).
-2. Dans **Paramètres > Éléments répliqués**, cliquez sur la machine virtuelle et sélectionnez **Terminer la migration**.
+2. Dans **Éléments répliqués**, cliquez sur la machine virtuelle et sélectionnez **Terminer la migration**.
 
     ![Terminer la migration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Cliquez sur **OK** pour terminer la migration. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés ou en sélectionnant le travail Terminer la migration dans **Paramètres > Travaux Site Recovery**.
+3. Cliquez sur **OK** pour terminer la migration. Vous pouvez suivre la progression du basculement en cliquant sur la machine virtuelle pour ouvrir ses propriétés ou en sélectionnant le travail Terminer la migration dans **Travaux Site Recovery**.
 
 ## <a name="monitor-your-deployment"></a>Surveiller votre déploiement
 Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètres de configuration de votre déploiement Site Recovery :
@@ -429,5 +429,5 @@ Voici comment vous pouvez surveiller l’intégrité, l’état et les paramètr
 
     ![Essentials](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 2. Dans la mosaïque **Intégrité** , vous pouvez surveiller le fonctionnement des serveurs du site qui rencontrent un problème, ainsi que les événements signalés par Site Recovery au cours des dernières 24 heures.
-3. Vous pouvez gérer et surveiller la réplication dans les vignettes **Éléments répliqués**, **Plans de récupération** et **Travaux Site Recovery**. Vous pouvez accéder au détail des travaux dans **Paramètres** -> **Travaux** -> **Travaux Site Recovery**.
+3. Vous pouvez gérer et surveiller la réplication dans les vignettes **Éléments répliqués**, **Plans de récupération** et **Travaux Site Recovery**. Vous pouvez accéder au détail des travaux dans **Travaux** > **Travaux Site Recovery**.
 

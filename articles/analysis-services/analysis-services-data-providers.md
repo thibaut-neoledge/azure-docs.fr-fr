@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03720b926e3a75c5443308f510b38132144318ff
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -32,8 +32,17 @@ Analysis Services utilise trois fournisseurs de données. ADOMD.NET et Analysis 
 Les applications clientes Microsoft telles que Power BI Desktop et Excel installent les trois fournisseurs de données. Toutefois, selon la version d’Excel, ou selon que des versions plus récentes d’Excel et de Power BI Desktop soient ou non mises à jour tous les mois, il se peut que les fournisseurs installés ne puissent pas être mis à jour vers les dernières versions requises par Azure Analysis Service. Il en va de même pour les applications personnalisées ou d’autres interfaces telles que AsCmd, TOM, ADOMD.NET. Ces applications nécessitent l’installation manuelle des fournisseurs. Les fournisseurs de données pour l’installation manuelle sont inclus dans les packs de fonctionnalités SQL Server sous forme de packages distribuables. Toutefois, comme ils sont liés à la version de SQL Server, il se peut qu’ils ne soient pas à jour.  
 
 Les fournisseurs de données pour les connexions clientes sont différents des fournisseurs de données requis pour connecter un serveur Azure Analysis Services à une source de données. Pour plus d’informations sur les connexions aux sources de données, consultez [Connexions de source de données](analysis-services-datasource.md).
- 
-## <a name="download-the-latest-data-providers"></a>Télécharger les dernières versions des fournisseurs de données  
+
+## <a name="download-the-latest-preview-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **préliminaires**  
+Utilisez les fournisseurs de données suivants pour obtenir les derniers correctifs de bogues et mises à jour. Ces fournisseurs de données sont recommandés lors de la connexion à la version préliminaire d’Azure Analysis Services ou de SQL Server vNext Analysis Services.
+
+[MSOLAP (amd64) en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
+[Version préliminaire de MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
+[AMO en version préliminaire](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
+[Version préliminaire de ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+
+## <a name="download-the-latest-rtm-data-providers"></a>Télécharger les dernières versions des fournisseurs de données **RTM**  
+Utilisez les fournisseurs de données suivants si vous êtes dans un environnement de production et avez besoin de versions entièrement publiées et prises en charge.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

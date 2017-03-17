@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b321683b2080e5af3a112791eae416e03dee0080
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilité et scalabilité dans les modèles Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-windows-vms"></a>Disponibilité et scalabilité dans les modèles Azure Resource Manager pour les machines virtuelles Windows
+
 La disponibilité et la scalabilité font référence au temps de fonctionnement et à la capacité de répondre à la demande. Si une application doit être opérationnelle pendant jusqu’à 99,9 % du temps, elle doit présenter une architecture permettant l’utilisation de plusieurs ressources de calcul simultanées. Par exemple, au lieu d’avoir un seul site web, une configuration avec un niveau supérieur de disponibilité comprend plusieurs instances du même site, avec une technologie d’équilibrage placée devant celles-ci. Dans cette configuration, une instance de l’application peut être retirée à des fins de maintenance, tandis que les autres continuent de fonctionner. Par ailleurs, la scalabilité fait référence à la capacité d’une application à répondre à la demande. Avec une application dont la charge est équilibrée, l’ajout ou la suppression d’instances du pool permet la scalabilité d’une application pour répondre à la demande.
 
 Ce document décrit en détail comment l’exemple de déploiement du Store musique est configuré pour la disponibilité et la scalabilité. Toutes les dépendances et configurations uniques sont en surbrillance. Pour optimiser l’expérience, prédéployez une instance de la solution sur votre abonnement Azure et travaillez avec le modèle Azure Resource Manager. Pour accéder au modèle complet, consultez [Déploiement du Store musique sous Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -249,10 +252,5 @@ Pour plus d’informations sur l’utilisation de la fonction de copie, consulte
 <hr>
 
 [Étape 4 : Déploiement d’application avec des modèles Azure Resource Manager](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

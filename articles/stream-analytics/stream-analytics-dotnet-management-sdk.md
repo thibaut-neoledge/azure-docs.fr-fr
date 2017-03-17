@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 55fc17009a31c84f7ef23140b31bf53858e56ec7
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b2729dfdb6bf85e6d254b08669eeb259f4ab59d5
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -31,8 +32,8 @@ Azure Stream Analytics est un service entièrement géré permettant de traiter 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* Installez Visual Studio 2012 ou 2013
-* Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/).
+* Installez Visual Studio 2017 ou 2015.
+* Téléchargez et installez le [Kit SDK Azure .NET](https://azure.microsoft.com/downloads/).
 * Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell : Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 
         # Log in to your Azure account
@@ -350,9 +351,4 @@ Vous avez appris les principes de base de l’utilisation d’un Kit de dévelop
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 58398a8963ca834ed04d50a4715b29cbd3200b53
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: c74e8c40ba259df8d22c11f930073ab83e900c62
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-c"></a>Prise en main de Raspberry Pi 3 (C)
+# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-c"></a>Connecter votre appareil Raspberry Pi 3 à votre IoT hub à l’aide de C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -126,9 +128,4 @@ Accédez à [Section facultative : Modification du comportement activé/désact
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions dans l’article [Résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

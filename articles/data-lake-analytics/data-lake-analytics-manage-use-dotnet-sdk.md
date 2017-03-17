@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed1b4121e8e64b07abaeb1117f2b8a0cfd75406
-ms.openlocfilehash: 7b2380e45c62684ed29fe819db7e254b968d55d0
+ms.sourcegitcommit: cf8873a3cc5067717edf586da209b05cef3092ff
+ms.openlocfilehash: fc921785e5e4aae84982a348814c1760ddd6bb8c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -500,7 +501,7 @@ Pour lire les données d’un objet blob sur un compte de stockage Azure lié, v
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-Par exemple, si un fichier source (SearchLog.tsv) est stocké dans un conteneur d’objets blob nommé « samples » dans le compte de stockage « contso_33 », le chemin d’accès à l’instruction FROM est :
+Par exemple, si un fichier source (SearchLog.tsv) est stocké dans un conteneur d’objets blob nommé « samples » dans le compte de stockage « contoso_33 », le chemin d’accès à l’instruction FROM est :
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
@@ -528,9 +529,4 @@ Le groupe Resource Management peut cependant se trouver dans un autre centre de 
 * [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
 * [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)
 * [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

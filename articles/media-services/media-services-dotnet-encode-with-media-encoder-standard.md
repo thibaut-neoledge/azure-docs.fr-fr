@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
+ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
+ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 * Création d’une tâche d’encodage.
 * Obtention d’une référence à l’encodeur Media Encoder Standard.
-* Indiquez l'utilisation des paramètres prédéfinis « 720p débits binaires multiples H264 ». Vous pouvez afficher tous les paramètres prédéfinis [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Vous pouvez également consulter le schéma auquel ces paramètres de présélection doivent se conformer dans [cette rubrique](https://msdn.microsoft.com/library/mt269962.aspx) .
+* Spécifiez l’utilisation de la présélection [Diffusion en continu adaptative](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Ajout d’une tâche d’encodage unique. 
 * Spécification de l’élément multimédia d’entrée à encoder.
 * Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
@@ -73,10 +74,10 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
             // Specify the input asset to be encoded.
@@ -146,10 +147,5 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 ## <a name="see-also"></a>Voir aussi
 [Comment générer une miniature à l’aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Vue d’ensemble du codage Media Services](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: dd5ce9de46d4089d285268125f2b63f1117d48c7
+ms.sourcegitcommit: ac5dfa34c867ecf2f38ebe33d7f5cf6610c33472
+ms.openlocfilehash: 005d96d66843b50d9c7003ae5264896718c37151
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -113,6 +114,10 @@ Vous pouvez configurer le service en cliquant sur l'onglet **CONFIGURATION** . V
 ![Configurer le service web][5]  
 
 ### <a name="deploy-as-a-new-web-service"></a>Déployer comme un nouveau service web
+
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Pour déployer un nouveau service web dérivé de notre expérience :
 
 1. Cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [nouveau]**. Machine Learning Studio vous redirige vers la page **Deploy Experiment (Déployer l’expérience)** des services web Azure Machine Learning.
@@ -225,9 +230,4 @@ Pour surveiller les performances de votre service web :
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

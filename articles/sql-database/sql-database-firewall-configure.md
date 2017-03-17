@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6654b49658818a3dfd5297dc551a45de0f0968dc
+ms.openlocfilehash: 196a627b4c5cf921ddc99a0634f48f807593f8cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -79,7 +79,7 @@ Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, l
 Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation à l’aide de l’API REST ou d’Azure PowerShell. Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et par le biais de Transact-SQL. Pour améliorer les performances, les règles de pare-feu au niveau du serveur sont temporairement mises en cache au niveau de la base de données. Pour actualiser le cache, consultez [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). Pour plus d’informations sur les règles de pare-feu au niveau du serveur, consultez [Configurer un pare-feu sur un serveur Azure SQL à l’aide du portail Azure](sql-database-configure-firewall-settings.md).
 
 ## <a name="creating-database-level-firewall-rules"></a>Création de règles de pare-feu au niveau de la base de données
-Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations sur la configuration des règles de pare-feu au niveau de la base de données, consultez [sp_set_database_firewall_rule (base de données SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+ Après avoir configuré le premier pare-feu au niveau du serveur, vous pouvez limiter l’accès à certaines bases de données. Si vous spécifiez dans la règle de pare-feu au niveau de la base de données une plage d’adresses IP qui se situe en dehors de la plage spécifiée dans la règle de pare-feu au niveau du serveur, seuls les clients dont les adresses IP appartiennent à la plage de niveau de base de données peuvent accéder à la base de données. Vous pouvez avoir un maximum de 128 règles de pare-feu au niveau de la base de données par base de données. Les règles de pare-feu au niveau de la base données pour les bases de données principale et utilisateur peuvent être créées et gérées via Transact-SQL. Pour plus d’informations sur la configuration des règles de pare-feu au niveau de la base de données, consultez [sp_set_database_firewall_rule (base de données SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gestion par programmation des règles de pare-feu
 Outre avec le portail Azure, les règles de pare-feu peuvent être gérées par programmation à l’aide de Transact-SQL, de l’API REST et d’Azure PowerShell. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles pour chaque méthode.
@@ -112,8 +112,26 @@ Outre avec le portail Azure, les règles de pare-feu peuvent être gérées par 
 
 > [!NOTE]
 > il peut y avoir un délai maximal de cinq minutes pour que les modifications apportées au pare-feu soient appliquées.
-> 
-> 
+ 
+ 
+### <a name="faq-when-should-you-use-a-server-level-firewall-rule-and-when-should-you-use-a-database-level-firewall-rule"></a>FAQ : Quand faut-il utiliser une règle de pare-feu au niveau du serveur ou une règle de pare-feu au niveau de la base de données ?   
+Q : Les utilisateurs d’une base de données doivent-ils être totalement isolés d’une autre base de données ?   
+  Si oui, accordez l’accès à l’aide de règles de pare-feu au niveau de la base de données. Cela évite d’utiliser des règles de pare-feu au niveau du serveur, qui autorisent l’accès à travers le pare-feu à toutes les bases de données, ce qui réduit la profondeur de vos défenses.   
+ 
+Q : Les utilisateurs à l’adresse IP ont-ils besoin d’accéder à toutes les bases de données ?   
+  Utilisez des règles de pare-feu au niveau du serveur pour réduire le nombre de fois où vous devez configurer des règles de pare-feu.   
+
+Q : La personne ou l’équipe qui configure les règles de pare-feu y a-t-elle seulement accès par le biais du Portail Azure, de PowerShell ou de l’API REST ?   
+  Vous devez utiliser des règles de pare-feu au niveau du serveur. Les règles de pare-feu au niveau de la base de données ne peuvent être configurées qu’avec Transact-SQL.  
+
+Q : La personne ou l’équipe qui configure les règles de pare-feu a-t-elle l’interdiction de disposer d’une autorisation globale au niveau de la base de données ?   
+  Utilisez des règles de pare-feu au niveau du serveur. La configuration des règles de pare-feu au niveau de la base de données avec Transact-SQL requiert au moins l’autorisation `CONTROL DATABASE` au niveau de la base de données.  
+
+Q : La personne ou l’équipe qui configure ou vérifie les règles de pare-feu gère-t-elle de façon centralisée les règles de pare-feu pour un grand nombre de bases de données (par exemple plusieurs centaines) ?   
+  Cette sélection dépend de vos besoins et de votre environnement. Les règles de pare-feu au niveau du serveur peuvent être plus faciles à configurer, mais des scripts peuvent configurer les règles au niveau de la base de données. Et, même si vous utilisez des règles de pare-feu au niveau du serveur, vous devrez peut-être vérifier les règles de pare-feu au niveau de la base de données, afin de déterminer si les utilisateurs disposant de l’autorisation `CONTROL` sur la base de données ont créé des règles de pare-feu au niveau de la base de données.   
+
+Q : Puis-je utiliser à la fois des règles de pare-feu au niveau du serveur et des règles de pare-feu au niveau de la base de données ?   
+  Oui. Certains utilisateurs, par exemple les administrateurs, peuvent avoir besoin des règles de pare-feu au niveau du serveur. D’autres utilisateurs, tels que les utilisateurs d’une application de base de données, peuvent avoir besoin de règles de pare-feu au niveau de la base de données.   
 
 ## <a name="troubleshooting-the-database-firewall"></a>Dépannage du pare-feu de base de données
 Considérez les points suivants quand l’accès au service Microsoft Azure SQL Database est anormal :
@@ -128,7 +146,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
   * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez les adresses IP en tant que règles de pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des articles sur la création de règles de pare-feu au niveau du serveur et au niveau de la base de données, consultez :
+Pour obtenir des informations sur la création de règles de pare-feu au niveau du serveur et au niveau de la base de données, consultez les articles suivants :
 
 * [Configurer des règles de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
 * [Configurer des règles de pare-feu au niveau du serveur et au niveau de la base de données sur une base de données SQL Azure à l’aide de T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -137,7 +155,8 @@ Pour obtenir des articles sur la création de règles de pare-feu au niveau du s
 
 Pour consulter un didacticiel sur la création d’une base de données, voir [Création de votre première base de données SQL Azure](sql-database-get-started.md).
 Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Pour comprendre comment naviguer dans les bases de données, consultez [Gérer la sécurité d’accès et de connexion aux bases de données](https://msdn.microsoft.com/library/azure/ee336235.aspx).   
+Pour obtenir des informations sur la création de connexions, d’utilisateurs et de pare-feu, consultez le didacticiel de bout en bout de la page [Authentification SQL Server, accès et règles de pare-feu au niveau de la base de données](sql-database-control-access-sql-authentication-get-started.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Sécurisation de votre base de données](sql-database-security-overview.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 307070c755cff059b4b82494d28e06cf490a6f7a
-ms.openlocfilehash: 6c5badbbea7385cac1407e4af148d5b647af04ac
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 01c75f20909c7334981bf407e775656476972276
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -38,7 +38,9 @@ Voici quelques considérations importantes pour l’utilisation de HDInsight ave
 
 * L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage par défaut est disponible si vous utilisez HDInsight version 3.5.
 
-* Pour les clusters HBase (Windows et Linux), Data Lake Store n’est **pas pris en charge** comme option de stockage par défaut ou supplémentaire.
+* L’option permettant de créer des clusters HDInsight avec accès au Data Lake Store comme stockage par défaut n’est pas disponible pour les clusters HDInsight Premium.
+
+* Pour les clusters HBase (Windows et Linux), Data Lake Store n'est **pas pris en charge** comme option de stockage par défaut ou supplémentaire.
 
 
 Pour configurer HDInsight afin qu'il fonctionne avec Data Lake Store à l'aide de PowerShell, la procédure est la suivante :

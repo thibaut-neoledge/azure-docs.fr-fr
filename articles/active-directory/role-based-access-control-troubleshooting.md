@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes de contrôle d’accès en fonction du rôle | Microsoft Docs"
+title: "Résoudre les problèmes d’Azure RBAC | Microsoft Docs"
 description: "Obtenez de l’aide en cas de problèmes ou de questions concernant les ressources de contrôle d’accès en fonction du rôle."
 services: azure-portal
 documentationcenter: na
@@ -12,19 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Résolution des problèmes de contrôle d’accès en fonction du rôle
-## <a name="introduction"></a>Introduction
-[contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) est une fonctionnalité puissante qui vous permet de déléguer l’accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu’elle a besoin de faire, sans plus. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
 
-Ce document vous permet de savoir ce à quoi vous pouvez vous attendre quand vous utilisez les rôles sur le portail Azure. Ces trois rôles couvrent tous les types de ressources :
+Cet article répond aux questions courantes sur les droits d’accès spécifiques qui sont accordés aux rôles, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès. Ces trois rôles couvrent tous les types de ressources :
 
 * Propriétaire  
 * Collaborateur  
@@ -36,7 +35,7 @@ Les propriétaires et collaborateurs disposent tous les deux d’un accès compl
 ### <a name="write-access-capabilities"></a>Fonctionnalités d’accès en écriture
 Si vous accordez un accès utilisateur en lecture seule à une seule application web, certaines fonctionnalités sont désactivées, ce que vous n’avez peut-être pas prévu. Les fonctionnalités de gestion suivantes exigent un accès en **écriture** à une application web (Collaborateur ou Propriétaire) et ne sont pas disponibles en lecture seule.
 
-* Commandes (par ex., start, stop, etc.)
+* Commandes (comme start, stop, etc.)
 * Modification de paramètres tels que la configuration générale, les paramètres de mise à l’échelle, les paramètres de sauvegarde et les paramètres d’analyse
 * Accès aux informations d’identification de publication et autres informations secrètes, telles que les paramètres d’application et les chaînes de connexion
 * Diffusion de journaux
@@ -88,17 +87,12 @@ Les éléments suivants requièrent l’accès **en écriture** à la **machine 
 * Jeu d'équilibrage de la charge  
 * Règles d'alerte  
 
-Si vous n'accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l'accès Collaborateur au groupe de ressources.
+Si vous n’accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l’accès Collaborateur au groupe de ressources.
 
 ## <a name="see-more"></a>En savoir plus
 * [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
 * [Rôles intégrés](role-based-access-built-in-roles.md): obtenez des informations sur les rôles qui livrés en standard dans RBAC.
 * [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](role-based-access-control-custom-roles.md): découvrez comment créer des rôles personnalisés selon vos besoins d'accès.
 * [Créer un rapport d’historique des modifications d’accès](role-based-access-control-access-change-history-report.md): effectuez le suivi des changements d'affection de rôle dans RBAC.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

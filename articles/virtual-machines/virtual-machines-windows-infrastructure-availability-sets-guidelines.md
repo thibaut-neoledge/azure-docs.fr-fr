@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0d4a7f8d7f469c43c972a163651688796483f8fc
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c3aca63e0810e97cee58d145423d6b3f5edabeb4
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="azure-availability-sets-guidelines"></a>Instructions pour les groupes à haute disponibilité Azure
+# <a name="azure-availability-sets-guidelines-for-windows-vms"></a>Instructions pour les groupes à haute disponibilité Azure pour les machines virtuelles Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification requises pour les groupes à haute disponibilité afin d’assurer que vos applications restent accessibles aux cours des événements planifiés et non planifiés.
@@ -42,7 +45,9 @@ Dans Azure, les machines virtuelles peuvent être placées dans un groupement lo
 
 En tant que meilleure pratique, les applications ne doivent pas résider sur une seule machine virtuelle. Un groupe à haute disponibilité qui contient une seule machine virtuelle ne gagne aucune protection contre les événements planifiés ou non planifiés dans la plateforme Azure. Le [Contrat de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) nécessite deux machines virtuelles ou plus au sein d’un groupe à haute disponibilité défini afin de permettre la distribution des machines virtuelles sur l’infrastructure sous-jacente.
 
-L’infrastructure sous-jacente dans Azure est divisée en domaines de mise à jour et domaines d’erreur. Ces domaines sont définis par les hôtes qui partagent un cycle de mise à jour commun, ou une infrastructure physique similaire, comme l’alimentation ou la mise en réseau. Azure distribue automatiquement vos machines virtuelles au sein d’un groupe à haute disponibilité sur plusieurs domaines pour assurer la disponibilité et la tolérance aux pannes. Selon la taille de votre application et le nombre de machines virtuelles au sein d’un groupe à haute disponibilité, vous pouvez régler le nombre de domaines que vous souhaitez utiliser. Vous pouvez en savoir plus sur [la gestion de la disponibilité et l’utilisation des domaines d’erreur et de mise à jour](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+L’infrastructure sous-jacente dans Azure est divisée en plusieurs clusters de matériel. Chaque cluster de matériel peut prendre en charge une plage de tailles de machine virtuelle. Un groupe à haute disponibilité ne peut être hébergé que sur un seul cluster de matériel à la fois. Par conséquent, les tailles des machines virtuelles qui peuvent exister dans un groupe à haute disponibilité sont limitées aux tailles des machines virtuelles prises en charge par le cluster de matériel. Le cluster de matériel pour le groupe à haute disponibilité est sélectionné lorsque la première machine virtuelle du groupe à haute disponibilité est déployée ou lors du démarrage de la première machine virtuelle dans un groupe à haute disponibilité où toutes les machines virtuelles se trouvent actuellement en état arrêté-libéré. La commande PowerShell suivante peut être utilisée pour déterminer les tailles des machines virtuelles disponibles pour une haute disponibilité : "Get-AzureRmVMSize -ResourceGroupName \<string\> -AvailabilitySetName \<string\>"
+
+Chaque cluster matériel est divisé en plusieurs domaines de mise à jour et d’erreur. Ces domaines sont définis par les hôtes qui partagent un cycle de mise à jour commun, ou une infrastructure physique similaire, comme l’alimentation ou la mise en réseau. Azure distribue automatiquement vos machines virtuelles au sein d’un groupe à haute disponibilité sur plusieurs domaines pour assurer la disponibilité et la tolérance aux pannes. Selon la taille de votre application et le nombre de machines virtuelles au sein d’un groupe à haute disponibilité, vous pouvez régler le nombre de domaines que vous souhaitez utiliser. Vous pouvez en savoir plus sur [la gestion de la disponibilité et l’utilisation des domaines d’erreur et de mise à jour](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Lorsque vous concevez l’infrastructure de votre application, vous devez également planifier les couches Application que vous utilisez. Groupez les machines virtuelles qui ont la même fonction dans des groupes à haute disponibilité définis, comme un groupe à haute disponibilité pour vos machines virtuelles frontales exécutant IIS. Créez un groupe à haute disponibilité distinct pour les machines virtuelles principales exécutant SQL Server. L’objectif est de vous assurer que chaque composant de votre application est protégé par un groupe à haute disponibilité et qu’au moins une instance est toujours exécutée.
 
@@ -52,10 +57,5 @@ Concevez votre application à des fins de haute disponibilité au niveau de la c
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

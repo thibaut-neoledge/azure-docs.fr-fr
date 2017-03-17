@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 794f87c3d4b8378d7aeca63791a8fbfd03e44ceb
-ms.openlocfilehash: c226d43e8cc24af7c86ae13b3752bfd6fb53b1c8
+ms.sourcegitcommit: e34a2bfbf5f1ae544a729c994d91c485d48bb440
+ms.openlocfilehash: 1027f9c73a45b7d148643f5ec217683f71c4e899
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,15 +36,12 @@ Examinons comment les disques sont utilisés par les machines virtuelles.
 Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte le nom de lecteur C: par défaut. Ce disque a une capacité maximale de 1 023 gigaoctets. 
 
 ### <a name="temporary-disk"></a>Disque temporaire
-Le disque temporaire est automatiquement créé pour vous. Le disque temporaire est étiqueté lecteur D: par défaut, et utilisé pour le stockage de pagefile.sys. 
+Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou quand vous [redéployez une machine virtuelle](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
 
-La taille du disque temporaire varie en fonction de la taille de la machine virtuelle. Pour plus d’informations, voir [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md).
+Le disque temporaire est étiqueté lecteur D: par défaut, et utilisé pour le stockage de pagefile.sys. Pour remapper ce disque à une autre lettre de lecteur, voir [Modification de la lettre de lecteur du disque temporaire Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md). La taille du disque temporaire varie en fonction de la taille de la machine virtuelle. Pour plus d’informations, voir [Tailles des machines virtuelles Windows](../virtual-machines/virtual-machines-windows-sizes.md).
 
-> [!WARNING]
-> Ne stockez pas de données sur le disque temporaire. Il assure un stockage temporaire pour les applications et les processus et est destiné à stocker uniquement des données telles que les fichiers d’échange. Pour remapper ce disque à une autre lettre de lecteur, voir [Modification de la lettre de lecteur du disque temporaire Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
-> 
+Pour plus d’informations sur l’utilisation du disque temporaire par Azure, voir [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-Pour plus d’informations sur la manière dont Azure utilise le disque temporaire, voir [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ### <a name="data-disk"></a>Disque de données
 Un disque de données est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
@@ -80,10 +78,5 @@ fsutil behavior set DisableDeleteNotify 0
 * [Attacher un disque](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
 * [Charger une image de machine virtuelle Windows dans Azure](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à utiliser lors de la création d’une machine virtuelle.
 * [Changer la lettre de lecteur du disque temporaire Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour que votre application puisse utiliser le lecteur D: pour les données.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

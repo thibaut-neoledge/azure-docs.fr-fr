@@ -1,6 +1,6 @@
 ---
 title: "Mise à l’échelle d’un cluster Azure Container Service | Microsoft Docs"
-description: "Procédure de mise à l’échelle de votre cluster Azure Container Service à l’aide de l’interface de ligne de commande Azure ou du portail Azure."
+description: "Guide pratique de mise à l’échelle du nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes dans Azure Container Service à l’aide du Portail Azure ou de l’interface de ligne de commande Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 022e34811de9d2023d113c43d6f85842812dfee3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Mise à l’échelle d’un cluster Azure Container Service
+# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Mettre à l’échelle des nœuds d’agent dans un cluster Container Service
 Après le [déploiement d’un cluster Azure Container Service](container-service-deployment.md), vous devez peut-être modifier le nombre de nœuds de l’agent. Vous risquez par exemple d’avoir besoin de davantage d’agents afin de pouvoir exécuter davantage d’instances ou d’applications de conteneur. 
 
-Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI 2.0. Azure CLI 2.0 est la [CLI nouvelle génération](/cli/azure/old-and-new-clis) pour le modèle de déploiement Resource Manager.
+Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI 2.0. 
 
 ## <a name="scale-with-the-azure-portal"></a>Mise à l’échelle avec le portail Azure
 

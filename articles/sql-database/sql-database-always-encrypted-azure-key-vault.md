@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -60,8 +60,8 @@ Vous devez autoriser votre application cliente à accéder au service SQL Databa
 7. Copiez votre **ID CLIENT**. (vous aurez besoin cette valeur dans votre code ultérieurement).
 8. Dans la section **Clés**, dans la liste déroulante **Sélectionner une durée**, sélectionnez **1 an** (vous copierez la clé après l’enregistrement à l’étape 13).
 9. Faites défiler et cliquez sur **Ajouter une application**.
-10. Laissez la valeur **AFFICHER** définie sur **Microsoft Apps**, puis sélectionnez **Microsoft Azure Service Management**. Cliquez sur la coche pour continuer.
-11. Dans la liste déroulante **Autorisations déléguées**, sélectionnez **Accéder à la gestion des services Azure**.
+10. Laissez la valeur **AFFICHER** définie sur **Applications Microsoft**, puis sélectionnez **API Gestion des services Microsoft Azure**. Cliquez sur la coche pour continuer.
+11. Dans la liste déroulante **Autorisations déléguées**, sélectionnez **Accéder à la gestion des services Azure...**.
 12. Cliquez sur **ENREGISTRER**.
 13. Une fois l’enregistrement terminé, copiez la valeur de clé dans la section **Clés** (vous aurez besoin cette valeur dans votre code ultérieurement).
 

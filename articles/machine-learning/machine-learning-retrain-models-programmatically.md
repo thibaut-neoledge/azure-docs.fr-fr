@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
-ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -56,6 +57,9 @@ Ensuite, vous créez une expérience prédictive.
 1. En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Service web prédictif**. Le modèle est enregistré sous forme d’un modèle formé, et des modules d’entrée et de sortie du service web sont ajoutés. 
 2. Cliquez sur **Exécuter**. 
 3. Une fois l’exécution de l’expérience terminée, cliquez sur **Déployer le service web [classique]** ou **Déployer le service web [nouveau]**.
+
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Déployer l’expérience de formation comme service web de formation
 Pour reformer le modèle, vous devez déployer l’expérience de formation que vous avez créée comme service web de reformation. Ce service web a besoin d’un module *Sortie du service web* connecté au module *[Former le modèle][train-model]* afin de pouvoir produire de nouveaux modèles formés.
@@ -183,9 +187,4 @@ Si vous avez déployé le service web prédictif en cliquant sur **Déployer un 
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

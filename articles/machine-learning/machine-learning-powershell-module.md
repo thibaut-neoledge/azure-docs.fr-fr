@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/01/2016
 ms.author: garye;haining
 translationtype: Human Translation
-ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
-ms.openlocfilehash: b10cb3446462989caf9cbb856dab07dc1f5ef71e
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: ee3255493760917b2a96facfabe17120764cb638
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Module PowerShell pour Microsoft Azure Machine Learning
-Le module PowerShell pour Azure Machine Learning est un outil puissant qui vous permet d’utiliser Windows PowerShell pour gérer des espaces de travail, des expériences, des jeux de données, des services web, etc.
+Le module PowerShell pour Azure Machine Learning est un outil puissant qui vous permet d’utiliser Windows PowerShell pour gérer des espaces de travail, des expériences, des jeux de données, des services web classiques, etc.
 
 Vous pouvez consulter la documentation et télécharger le module, ainsi que le code source complet, à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
 
@@ -30,7 +31,9 @@ Vous pouvez consulter la documentation et télécharger le module, ainsi que le 
 > Le module PowerShell pour Azure Machine Learning est actuellement en version préliminaire. Nous continuerons d’améliorer et de développer le module pendant toute la durée de la version préliminaire. Pour vous tenir informé, consultez régulièrement le blog [Cortana Intelligence and Machine Learning](https://blogs.technet.microsoft.com/machinelearning/) (en anglais).
 
 ## <a name="what-is-the-machine-learning-powershell-module"></a>Qu’est-ce que le module Machine Learning PowerShell ?
-Le module Machine Learning PowerShell est un module DLL basé sur .NET qui vous permet de gérer entièrement les espaces de travail, les expériences, les jeux de données, les services web et les points de terminaison de services web Azure Machine Learning depuis Windows PowerShell. En plus du module, vous pouvez télécharger le code source complet, qui inclut une [couche d’API C#](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs)bien distincte. Cela signifie que vous pouvez référencer cette DLL depuis votre propre projet .NET et gérer Azure Machine Learning via le code .NET. En outre, la DLL repose sur des API REST sous-jacentes que vous pouvez exploiter directement depuis le client de votre choix.
+Le module Machine Learning PowerShell est un module DLL basé sur .NET qui vous permet de gérer entièrement les espaces de travail, les expériences, les jeux de données, les services web classiques et les points de terminaison de services web classiques Azure Machine Learning depuis Windows PowerShell. 
+
+En plus du module, vous pouvez télécharger le code source complet, qui inclut une [couche d’API C#](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs) bien distincte. Vous pouvez référencer cette DLL depuis votre propre projet .NET et gérer Azure Machine Learning par le biais du code .NET. En outre, la DLL repose sur des API REST sous-jacentes que vous pouvez utiliser directement depuis le client de votre choix.
 
 ## <a name="what-can-i-do-with-the-powershell-module"></a>Quelles sont les possibilités offertes par le module PowerShell ?
 Voici quelques-unes des tâches que vous pouvez effectuer avec ce module PowerShell. Pour plus d’informations sur celles-ci et les nombreuses autres fonctions disponibles, consultez la [documentation complète](https://aka.ms/amlps) .
@@ -52,7 +55,7 @@ Voici un exemple rapide d’utilisation de PowerShell pour exécuter une expéri
 Pour un cas d’utilisation plus approfondi, consultez l’article suivant sur l’utilisation du module PowerShell pour automatiser une tâche souvent demandée : [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
 
 ## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
-Pour bien démarrer avec Machine Learning PowerShell, téléchargez le [package de la version](https://github.com/hning86/azuremlps/releases) dans GitHub et suivez les [instructions d’installation](https://github.com/hning86/azuremlps/blob/master/README.md). Les instructions indiquent comment débloquer la DLL téléchargée/décompressée et l’importer dans votre environnement PowerShell. La plupart des applets de commande nécessitent que vous fournissiez l’ID de l’espace de travail, le jeton d’autorisation de l’espace de travail et la région Azure dans laquelle l’espace de travail se trouve. La façon la plus simple de fournir ces informations est d’utiliser un fichier config.json par défaut. Les instructions expliquent également comment configurer ce fichier. 
+Pour bien démarrer avec Machine Learning PowerShell, téléchargez le [package de la version](https://github.com/hning86/azuremlps/releases) dans GitHub et suivez les [instructions d’installation](https://github.com/hning86/azuremlps/blob/master/README.md). Les instructions indiquent comment débloquer la DLL téléchargée/décompressée et l’importer dans votre environnement PowerShell. La plupart des applets de commande nécessitent que vous fournissiez l’ID de l’espace de travail, le jeton d’autorisation de l’espace de travail et la région Azure dans laquelle l’espace de travail se trouve. La façon la plus simple de fournir ces valeurs est d’utiliser un fichier config.json par défaut. Les instructions expliquent également comment configurer ce fichier. 
 
 Si vous le souhaitez, vous pouvez cloner l’arborescence git, modifier le code et le compiler localement à l’aide de Visual Studio.
 
@@ -60,9 +63,4 @@ Si vous le souhaitez, vous pouvez cloner l’arborescence git, modifier le code 
 Vous trouverez la documentation complète pour le module PowerShell à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
 
 Pour obtenir un exemple de l’utilisation du module dans un scénario réel, consultez le cas d’utilisation détaillé, [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

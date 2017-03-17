@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ Pour déployer comme un service web classique et créer une application afin de 
 9. Recherchez la déclaration de requête et mettez à jour les valeurs des paramètres du service web passés aux modules *Importer des données* et *Exporter des données*. Dans ce cas, vous allez utiliser la requête d’origine mais définir un nouveau nom de table.
    
         var request = new BatchExecutionRequest() 
-        {           
+        {            
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -118,6 +119,10 @@ Pour déployer comme un service web classique et créer une application afin de 
 À la fin de l’exécution, une nouvelle table est ajoutée à la base de données contenant les résultats de notation.
 
 ### <a name="deploy-a-new-web-service"></a>Déployer comme un nouveau service web
+
+> [!NOTE] 
+> Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Pour déployer comme un nouveau service web et créer une application afin de l’utiliser :
 
 1. En bas de la zone de dessin de l’expérience, cliquez sur **Exécuter**.
@@ -131,7 +136,7 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
 9. Recherchez la déclaration *scoreRequest* et mettez à jour les valeurs des paramètres du service Web passés aux modules *Importer des données* et *Exporter des données*. Dans ce cas, vous allez utiliser la requête d’origine mais définir un nouveau nom de table.
    
         var scoreRequest = new
-        {       
+        {        
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -141,10 +146,5 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
             }
         };
 10. Exécutez l'application. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

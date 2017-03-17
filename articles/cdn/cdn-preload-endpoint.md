@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,11 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
    > [!TIP]
    > Après avoir saisi du texte, d’autres zones de texte **Chemin d’accès** s’afficheront pour vous permettre de créer une liste de plusieurs éléments multimédias.  Vous pouvez supprimer des éléments multimédias de la liste en cliquant sur le bouton points de suspension (...).
    > 
-   > Les chemins doivent être une URL relative qui satisfait à [l’expression régulière](https://msdn.microsoft.com/library/az24scfc.aspx) suivante : `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Chaque élément multimédia doit avoir son propre chemin d’accès.  Il n’existe aucune fonctionnalité de caractère générique pour le préchargement d’éléments multimédias.
+   > Les chemins d’accès doivent être une URL relative qui satisfait à [l’expression régulière](https://msdn.microsoft.com/library/az24scfc.aspx) suivante :  
+   > >Chargement d’un fichier unique `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > >Chargement d’un fichier unique avec chaîne de requête `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > 
+   > Chaque élément multimédia doit avoir son propre chemin d’accès.  Il n’existe aucune fonctionnalité de caractère générique pour le préchargement d’éléments multimédias.
    > 
    > 
    
@@ -66,10 +71,5 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 ## <a name="see-also"></a>Voir aussi
 * [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
 * [Référence API REST du CDN Azure - Vider ou pré-charger un point de terminaison](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

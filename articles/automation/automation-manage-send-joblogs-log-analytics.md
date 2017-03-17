@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
+ms.date: 02/24/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d7cba9126c11418f8ccafb1ace0816a9a9cc3b6d
-ms.openlocfilehash: babfda8735699b9f9991bffd22a8d2d9847ae759
+ms.sourcegitcommit: 83ae00afbcbb5d3ff38ee1f934e3b2f8d1c8f624
+ms.openlocfilehash: 95a6933d64428255eb061e7077c3e0768c72e207
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -52,22 +53,24 @@ Pour rechercher Le *Nom* de votre compte Automation, sélectionnez votre compte 
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurer l’intégration avec Log Analytics
 1. Sur votre ordinateur, démarrez **Windows PowerShell** à partir de l’écran **Démarrer**.  
-2. Copiez et collez la commande PowerShell suivante et modifiez la valeur de `$workspaceId` et `$automationAccountId`.  Si vous travaillez dans le cloud Azure Government, vous devez définir la valeur booléenne de `$GovCloud` sur *$True* ou *1* lorsque vous l’exécutez.     
+2. Copiez et collez la commande PowerShell suivante et modifiez la valeur de `$workspaceId` et `$automationAccountId`.  Pour le paramètre `-Environment`, les valeurs valides sont *AzureCloud* ou *AzureUSGovernment* selon l’environnement cloud dans lequel vous travaillez.     
 
 ```powershell
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
+
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -88,16 +91,17 @@ Pour confirmer que votre compte Automation envoie des journaux à votre espace d
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -203,9 +207,4 @@ Log Analytics offre une plus grande visibilité opérationnelle sur vos travaux 
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur à partir des runbooks, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 * Pour en savoir plus sur OMS Log Analytics et sur les sources de collecte de données, consultez [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
