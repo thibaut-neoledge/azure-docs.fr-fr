@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 58881fd4608deddd8390cf4905b31a57f526e492
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -57,10 +59,5 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
    
     ![Image Galerie de mise en route](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

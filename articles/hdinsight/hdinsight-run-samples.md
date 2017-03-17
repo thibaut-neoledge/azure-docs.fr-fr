@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
 ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
@@ -57,7 +58,7 @@ Aujourd'hui, de nombreuses personnes choisissent Hive et Pig par l’intermédia
     >
     > Suivez les étapes indiquées dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
+## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
 Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
@@ -123,7 +124,7 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
     La tâche MapReduce produit un fichier nommé *part-r-00000*avec les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant *« there »*.
 3. Définissez les trois premières variables, puis exécutez le script.
 
-## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Nombre de mots - Diffusion en continu C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Nombre de mots - Diffusion en continu C#
 Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d’écrire des fonctions de mappage et de réduction dans d’autres langages que Java.
 
 > [!NOTE]
@@ -156,7 +157,7 @@ Entre-temps, le réducteur collecte les résultats en forme de lignes depuis le 
 
         example/data/StreamingOutput/wc.txt/part-00000
 
-## <a name="a-namehdinsight-sample-pi-estimatorapi-estimator"></a><a name="hdinsight-sample-pi-estimator"></a>Estimateur de la valeur de PI
+## <a name="hdinsight-sample-pi-estimator"></a>Estimateur de la valeur de PI
 L'estimateur de la valeur de Pi utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi. Des points placés aléatoirement à l’intérieur d’un carré unitaire se retrouvent également à l’intérieur d’un cercle inscrit dans ce carré avec une probabilité égale à l’aire du cercle, Pi/4. La valeur de Pi peut être estimée à partir de la valeur de 4R, où R est le rapport entre le nombre de points situés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré. Plus l'échantillon de points est grand, plus l'estimation est précise.
 
 Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et il est configuré pour fonctionner avec une valeur de 16 mappages qui sont tous requis pour le calcul de 10 millions de points d’échantillonnage par les valeurs de paramètre. Ces dernières peuvent être modifiées pour améliorer la valeur estimée de Pi. Pour référence, voici les 10 premières décimales de Pi : 3,1415926535.
@@ -172,7 +173,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>GraySort 10 Go
+## <a name="hdinsight-sample-10gb-graysort"></a>GraySort 10 Go
 Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/) .
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
