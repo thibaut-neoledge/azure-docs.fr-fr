@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
-ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b0fb6e2b86aa0a47b7250face90be8ab2d06b78e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,7 +35,7 @@ Publier des commentaires ou des questions au bas de cet article, ou sur le [Foru
 ## <a name="prerequisites"></a>Conditions préalables
 Voici ce dont vous avez besoin pour ce déploiement :
 
-* **Serveur de configuration**: une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Pour en savoir plus, consultez [Architecture du scénario](site-recovery-components.md#vmware-replication-to-azure) et [Conditions préalables en matière de serveur de configuration](site-recovery-vmware-to-azure.md#prerequisites).
+* **Serveur de configuration**: une machine virtuelle locale exécutant Windows Server 2012 R2 qui agit en tant que serveur de configuration. Vous installez aussi les autres composants Site Recovery (y compris le serveur de traitement et le serveur maître) sur cette machine virtuelle. Pour en savoir plus, consultez [Architecture du scénario](site-recovery-components.md#vmware-to-azure) et [Conditions préalables en matière de serveur de configuration](site-recovery-vmware-to-azure.md#prerequisites).
 * **Machines virtuelles IaaS**: machines virtuelles à migrer. Vous migrez ces machines virtuelles en les traitant comme des machines physiques.
 
 ## <a name="deployment-steps"></a>Étapes du déploiement

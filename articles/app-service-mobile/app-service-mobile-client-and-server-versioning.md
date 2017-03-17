@@ -4,7 +4,7 @@ description: "Liste des Kits de développement logiciel (SDK) clients et des com
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ Le tableau ci-dessous indique les compatibilités entre tous les types de client
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>Client et serveur Mobile Services
+## <a name="1.0.0"></a>Client et serveur Mobile Services
 Les SDK clients du tableau ci-dessous sont compatibles avec **Mobile Services**.
 
 Remarque : les SDK clients Mobile Services n’envoient *pas* de valeur d’en-tête pour `ZUMO-API-VERSION`. Si le service reçoit cette valeur d'en-tête ou de chaîne de requête, une erreur est renvoyée, sauf en cas de désactivation expresse comme indiqué ci-dessus.
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> SDK clients Mobile *Services*
+### <a name="MobileServicesClients"></a> SDK clients Mobile *Services*
 | Plateforme cliente | Version | Valeur d'en-tête de version |
 | --- | --- | --- |
 | Client géré (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/a |
@@ -91,8 +92,8 @@ Remarque : les SDK clients Mobile Services n’envoient *pas* de valeur d’en-
 | Valeur quelconque |True |200 - OK |
 | Valeur quelconque |False/Non spécifié |400 - Requête incorrecte |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Client et serveur Azure Mobile Apps
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> SDK clients Mobile *Apps*
+## <a name="2.0.0"></a>Client et serveur Azure Mobile Apps
+### <a name="MobileAppsClients"></a> SDK clients Mobile *Apps*
 La vérification de version a été introduite à partir des versions suivantes du SDK client pour **Azure Mobile Apps**:
 
 | Plateforme cliente | Version | Valeur d'en-tête de version |
@@ -127,12 +128,7 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 [Clients Mobile Apps]: #MobileAppsClients
 
 
-[Kit de développement logiciel (SDK) Mobile App Server]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

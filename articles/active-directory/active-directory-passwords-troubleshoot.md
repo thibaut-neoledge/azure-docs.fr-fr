@@ -3,7 +3,7 @@ title: "Résolution des problèmes : Gestion des mots de passe Azure AD | Micr
 description: "Étapes courantes de résolution des problèmes de la gestion des mots de passe Azure AD, y compris la réinitialisation, la modification, l’écriture différée, l’inscription et les informations à inclure lorsque vous recherchez de l’aide."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3aa3a2fce46f37b06b60472d296e21fd10e070dc
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>Résolution des problèmes de gestion des mots de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
 Si vous rencontrez des problèmes de gestion des mots de passe, nous sommes ici pour vous aider. La plupart des problèmes que vous pouvez rencontrer peuvent être résolus par quelques étapes simples de dépannage que vous trouverez ci-dessous pour résoudre les problèmes de votre déploiement :
 
@@ -47,11 +47,11 @@ Si vous ne pouvez pas résoudre le problème avec les conseils ci-dessous, vous 
 * **Page** : sur quelle page vous trouviez-vous lorsque l’erreur est apparue (incluez l’URL) ?
 * **Date/heure/fuseau horaire** : quelles étaient la date et l’heure auxquelles l’erreur s’est produite (incluez le fuseau horaire) ?
 * **Code de support** : quel était le code de support généré lorsque l’erreur s’est produite (pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu).
-  
+
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
-    
+
     ![][001]
-* **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com)?
+* **ID utilisateur** : quel est l’ID de l’utilisateur qui a vu l’erreur (par exemple user@contoso.com) ?
 * **Informations sur l’utilisateur** : l’utilisateur était-il fédéré, disposait-il de la synchronisation du hachage de mot de passe ou était-ce un utilisateur du cloud uniquement ?  L’utilisateur dispose-t-il d’une licence AAD Premium ou AAD Basic ?
 * **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’envoyer avec votre demande.
 
@@ -1456,7 +1456,7 @@ Le redémarrage du service de synchronisation d’Azure AD Connect peut aider à
 2. Tapez **« services.msc »** dans la zone de recherche et appuyez sur **Entrée**.
 3. Recherchez l’entrée **Microsoft Azure AD Connect** .
 4. Cliquez avec le bouton droit sur l’entrée du service, cliquez sur **Redémarrer**et attendez que l’opération soit terminée.
-   
+
    ![][002]
 
 Ces étapes vont rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté.  Si le redémarrage du service de synchronisation ne résout pas votre problème, nous vous recommandons d’essayer de le désactiver et de réactiver la fonctionnalité d’écriture différée de mot de passe comme prochaine étape.
@@ -1469,14 +1469,14 @@ La désactivation et la réactivation de la fonctionnalité d’écriture diffé
 3. Dans la boîte de dialogue **Connexion à AD DS**, entrez vos **informations d’identification d’administrateur des services de domaine AD**.
 4. Dans la boîte de dialogue **Identification de vos utilisateurs uniquement**, cliquez sur le bouton **Suivant**.
 5. Dans la boîte de dialogue **Fonctionnalités facultatives**, désactivez la case à cocher **Écriture différée du mot de passe**.
-   
+
    ![][003]
 6. Cliquez sur **Suivant** dans les pages restantes de la boîte de dialogue sans apporter de modification jusqu’à ce que vous atteigniez la page **Prêt pour la configuration**.
 7. Vérifiez que la page de configuration indique **l’option d’écriture différée du mot de passe comme désactivée**, puis cliquez sur le bouton vert **Configurer** pour valider vos modifications.
 8. Dans la boîte de dialogue **Terminé**, désactivez l’option **Synchroniser maintenant**, puis cliquez sur **Terminer** pour fermer l’Assistant.
 9. Ouvrez à nouveau l’ **Assistant Configuration d’Azure AD Connect**.
 10. **Répétez les étapes 2 à 8**, en vous assurant cette fois que vous **activez l’option d’écriture différée du mot de passe** dans l’écran **Fonctionnalités facultatives** pour réactiver le service.
-    
+
     ![][004]
 
 Ces étapes vont rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté.
@@ -1497,14 +1497,12 @@ Si l’installation de la dernière version du serveur Azure AD Connect ne réso
 
 Si cela ne résout pas votre problème, nous vous recommandons de consulter [Résoudre les problèmes liés à l’écriture différée du mot de passe](#troubleshoot-password-writeback) et la [FAQ sur la gestion des mots de passe Azure AD](active-directory-passwords-faq.md) pour voir s’il n’y est pas déjà exposé.
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>Liens vers la documentation de réinitialisation du mot de passe
+
+## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.

@@ -12,78 +12,122 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2016
+ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
-ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 
-Pour utiliser [l’accès conditionnel en fonction de l’appareil à Azure Active Directory](active-directory-conditional-access.md), vos ordinateurs doivent être inscrits auprès d’Azure Active Directory (Azure AD). Cet article vous présente les étapes de configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine dans votre organisation.
+Pour utiliser [l’accès conditionnel à Azure Active Directory en fonction de l’appareil](active-directory-conditional-access-azure-portal.md), vos ordinateurs doivent être inscrits auprès d’Azure Active Directory (Azure AD). Vous pouvez obtenir la liste des appareils inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/). 
 
-> [!NOTE]
-> La mise à jour Windows 10 de novembre offre certaines des expériences utilisateur améliorées dans Azure AD, mais la mise à jour anniversaire Windows 10 prend entièrement en charge l’accès conditionnel en fonction de l’appareil. Pour plus d’informations sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md). Pour plus d’informations sur les appareils Windows 10 dans l’espace de travail et sur la façon dont un utilisateur inscrit un appareil Windows 10 auprès d’Azure AD, consultez [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md).
-> 
-> 
-
-Pour les appareils exécutant Windows, vous pouvez inscrire certaines versions antérieures de Windows, notamment :
-
-- Windows 8.1
-- Windows 7
-
-Pour les appareils exécutant Windows Server, vous pouvez inscrire les plateformes suivantes :
-
-- Windows Server 2016
-- Windows Server 2012 R2
-- Windows Server 2012
-- Windows Server 2008 R2
+Cet article vous présente les étapes de configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine dans votre organisation.
 
 
+Le cas échéant, consultez les références suivantes :
 
-## <a name="prerequisites"></a>Conditions préalables
+- Pour plus d’informations sur l’accès conditionnel, consultez l’article [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md). 
+- Pour plus d’informations sur les appareils Windows 10 dans l’espace de travail et sur les expériences améliorées après inscription auprès d’Azure AD, consultez l’article [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md).
 
-La principale exigence pour l’inscription automatique des appareils joints à un domaine auprès d’Azure AD est d’avoir une version à jour d’Azure Active Directory Connect (Azure AD Connect).
 
-Selon la façon dont vous avez déployé Azure AD Connect, et si vous avez choisi l’installation expresse ou personnalisée ou une mise à niveau sur place, les conditions préalables suivantes peuvent avoir été configurées automatiquement :
+## <a name="before-you-begin"></a>Avant de commencer
 
-- **Le point de connexion de service dans Active Directory en local** : pour la découverte d’informations de client Azure AD par les ordinateurs s’inscrivant auprès d’Azure AD.
- 
-- **Émission de règles de transformation Active Directory Federation Services (AD FS)** : pour l’authentification d’ordinateur lors de l’inscription (applicable aux configurations fédérées).
+Avant de commencer à configurer l’inscription automatique des appareils Windows joints à un domaine dans votre environnement, vous devez vous familiariser avec les scénarios pris en charge et avec les contraintes.  
 
-Si certains appareils dans vos organisations ne sont pas des appareils Windows 10 joints à un domaine, exécutez les étapes suivantes :
+Pour améliorer la lisibilité des descriptions, cet article utilise les termes suivants : 
 
-* Définir une stratégie dans Azure AD pour permettre aux utilisateurs d’inscrire des appareils
-* Définir l’authentification intégrée Windows comme une alternative valide à l’authentification multifacteur dans AD FS
+- **Appareils Windows actuels** : ce terme désigne les appareils joints à un domaine qui exécutent Windows 10 ou Windows Server 2016.
+- **Appareils Windows de bas niveau** : ce terme fait référence à tous les appareils Windows joints à un domaine **pris en charge** qui n’exécutent ni Windows 10 ni Windows Server 2016.  
 
-## <a name="step-1-configure-service-connection-point"></a>Étape 1 : Configuration du point de connexion de service 
 
-Un objet de point de connexion de service (SCP) doit exister dans la partition de contexte de dénomination de configuration du domaine de l’ordinateur. Le point de connexion de service conserve des informations de détection sur le client Azure AD sur lequel les ordinateurs s’inscrivent. Dans une configuration Active Directory de forêts multiples, le point de connexion de service doit exister dans toutes les forêts qui ont des ordinateurs joints à un domaine.
+### <a name="windows-current-devices"></a>Appareils Windows actuels
 
-Le SCP se situe sous :  
+- Pour les appareils qui exécutent le système d’exploitation d’ordinateur Windows, nous recommandons d’utiliser Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. 
+- L’inscription des appareils Windows actuels **est** prise en charge dans les environnements non fédérés tels que les configurations de synchronisation du hachage de mot de passe.  
 
-**CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Contexte de dénomination de votre configuration]**
 
-Pour une forêt avec un nom de domaine Active Directory *example.com*, le contexte de dénomination de configuration est :  
+### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
 
-**CN=Configuration,DC=example,DC=com**
+- Les appareils Windows de bas niveau pris en charge sont les suivants :
+    - Windows 8.1
+    - Windows 7
+    - Windows Server 2012 R2
+    - Windows Server 2012
+    - Windows Server 2008 R2
+- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les éléments suivants :
+    - Environnements non fédérés (configurations de synchronisation du hachage de mot de passe).  
+    - Appareils utilisant des profils itinérants. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
 
-Avec le script Windows PowerShell suivant, vous pouvez vérifier l’existence de l’objet et récupérer les valeurs de la découverte : 
+
+
+## <a name="prerequisites"></a>Composants requis
+
+Avant de commencer à activer l’inscription automatique d’appareils joints à un domaine dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
+
+Azure AD Connect :
+
+- Conserve l’association entre le compte d’ordinateur dans votre service Active Directory (AD) local et l’objet appareil dans Azure AD. 
+- Permet d’utiliser d’autres fonctionnalités liées aux appareils telles que Windows Hello Entreprise.
+
+
+
+## <a name="configuration-steps"></a>Configuration
+
+Cet article inclut les étapes requises pour tous les scénarios de configuration classiques.  
+Pour obtenir une vue d’ensemble des étapes requises par votre scénario, utilisez le tableau ci-après :  
+
+
+
+| Étapes                                      | Appareils Windows actuels et synchronisation du hachage de mot de passe | Appareils Windows actuels et fédération | Appareils Windows de bas niveau |
+| :--                                        | :-:                                    | :-:                            | :-:                |
+| Étape 1 : Configuration du point de connexion de service | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
+| Étape 2 : Configuration de l’émission de revendications           |                                        | ![Vérification][1]                    | ![Vérification][1]        |
+| Étape 3 : Activation d’appareils non-Windows 10      |                                        |                                | ![Vérification][1]        |
+
+
+
+
+## <a name="step-1-configure-service-connection-point"></a>Étape 1 : Configuration du point de connexion de service
+
+Vos appareils utilisent l’objet point de connexion de service (SCP) lors de l’inscription pour détecter les informations de client Azure AD. Dans votre service Active Directory (AD) local, l’objet SCP pour l’inscription automatique des appareils joints à un domaine doit exister dans la partition de contexte d’appellation de configuration de la forêt de l’ordinateur. Il n’existe qu’un seul contexte d’appellation de configuration par forêt. Dans une configuration Active Directory à forêts multiples, le point de connexion de service doit exister dans toutes les forêts qui contiennent des ordinateurs joints à un domaine.
+
+Pour récupérer le contexte d’appellation de configuration de votre forêt, vous pouvez utiliser l’applet de commande [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx).  
+
+Pour une forêt avec le nom de domaine Active Directory *fabrikam.com*, le contexte d’appellation de configuration est le suivant :
+
+`CN=Configuration,DC=fabrikam,DC=com`
+
+Dans votre forêt, l’objet SCP pour l’inscription automatique des appareils joints à un domaine se trouve à l’emplacement suivant :  
+
+`CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
+
+Selon la façon dont vous avez déployé Azure AD Connect, il est possible que l’objet SCP ait déjà été configuré.
+Vous pouvez vérifier l’existence de l’objet et récupérer les valeurs de détection à l’aide du script Windows PowerShell suivant : 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
-    $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration,DC=example,DC=com";
+    $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration,DC=fabrikam,DC=com";
 
     $scp.Keywords;
 
 La sortie de **$scp.Keywords** présente les informations de client Azure AD, par exemple :
 
-azureADName:microsoft.com  
-azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
+    azureADName:microsoft.com
+    azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Si le point de connexion de service n’existe pas, vous pouvez le créer en exécutant le script PowerShell suivant sur votre serveur Azure AD Connect :
+Si le point de connexion de service n’existe pas, vous pouvez le créer en exécutant l’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` sur votre serveur Azure AD Connect.  
+Cette applet de commande :
+
+- Crée le point de connexion de service dans la forêt Active Directory à laquelle Azure AD Connect est connecté. 
+- Vous demande de spécifier le paramètre `AdConnectorAccount`. Il s’agit du compte configuré en tant que compte de connecteur Active Directory dans Azure AD Connect. 
+
+
+Le script ci-après présente un exemple d’utilisation de l’applet de commande. Dans ce script, la chaîne `$aadAdminCred = Get-Credential` exige que vous tapiez un nom d’utilisateur. Vous devez indiquer le nom d’utilisateur au format de nom d’utilisateur principal (UPN) (`user@example.com`). 
+
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
 
@@ -91,277 +135,443 @@ Si le point de connexion de service n’existe pas, vous pouvez le créer en ex�
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
+L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` utilise le module Active Directory PowerShell qui s’appuie sur les services Web Active Directory (ADWS) s’exécutant sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures. 
 
+Pour les contrôleurs de domaine exécutant Windows Server 2008 ou des versions antérieures, utilisez le script ci-après pour créer le point de connexion de service.
 
-**Remarques :**
-
-- Lorsque vous exécutez **$aadAdminCred = Get-Credential**, vous devez entrer un nom d’utilisateur. Pour le nom d’utilisateur, utilisez le format suivant : **user@example.com** 
-
-
-- Lorsque vous exécutez l’applet de commande **Initialize-ADSyncDomainJoinedComputerSync**, remplacez [*nom de compte de connecteur*] par le compte de domaine utilisé comme compte de connecteur Active Directory.
-  
-- L’applet de commande utilise le module Active Directory PowerShell qui s’appuie sur les services Web Active Directory (ADWS) dans un contrôleur de domaine. Les services Web Active Directory sont pris en charge dans les contrôleurs de domaine dans Windows Server 2008 R2 et les versions ultérieures. Pour les contrôleurs de domaine dans Windows Server 2008 ou les versions antérieures, utilisez l’API System.DirectoryServices via PowerShell pour créer le point de connexion de service, puis affectez les valeurs de mots-clés.
+Dans une configuration à forêts multiples, vous devez utiliser le script ci-dessous pour créer le point de connexion de service dans chacune des forêts contenant des ordinateurs :
  
+    $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
+    $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
+    $configNC = "CN=Configuration,DC=corp,DC=contoso,DC=com"    # Replace this with your AD configuration naming context
+
+    $de = New-Object System.DirectoryServices.DirectoryEntry
+    $de.Path = "LDAP://CN=Services," + $configNC
+
+    $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
+    $deDRC.CommitChanges()
+
+    $deSCP = $deDRC.Children.Add("CN=62a0ff2e-97b9-4513-943f-0d221bd30080", "serviceConnectionPoint")
+    $deSCP.Properties["keywords"].Add("azureADName:" + $verifiedDomain)
+    $deSCP.Properties["keywords"].Add("azureADId:" + $tenantID)
+
+    $deSCP.CommitChanges()
+
+
+## <a name="step-2-setup-issuance-of-claims"></a>Étape 2 : Configuration de l’émission de revendications
+
+Dans une configuration Azure AD fédérée, les appareils s’appuient sur les services de fédération Active Directory (AD FS) ou sur un service de fédération local tiers pour s’authentifier auprès d’Azure AD. Les appareils s’authentifient pour obtenir un jeton d’accès afin de s’inscrire auprès du service Azure Active Directory Device Registration Service (Azure DRS).
+
+Les appareils Windows actuels s’authentifient à l’aide de l’authentification Windows intégrée auprès d’un point de terminaison WS-Trust actif (version 1.3 ou 2005) hébergé par le service de fédération local.
+
+> [!NOTE]
+> En cas d’utilisation d’AD FS, il est nécessaire d’activer **adfs/services/trust/13/windowstransport** ou **adfs/services/trust/2005/windowstransport**. Si vous utilisez le proxy d’authentification web, vérifiez également que ce point de terminaison est publié via le proxy. Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service > Points de terminaison**.
+>
+>Si vous n’utilisez pas AD FS en tant que service de fédération local, suivez les instructions de votre fournisseur pour vous assurer que celui-ci prend en charge les points de terminaison WS-Trust 1.3 ou 2005 et que ces derniers sont publiés par le biais du fichier Metadata Exchange (MEX).
+
+Pour que l’inscription d’appareils puisse s’effectuer, les revendications ci-après doivent exister dans le jeton reçu par Azure DRS. Azure DRS crée un objet appareil dans Azure AD avec certaines de ces informations, qu’Azure AD Connect utilise ensuite pour associer l’objet appareil nouvellement créé au compte d’ordinateur local.
+
+* `http://schemas.microsoft.com/ws/2012/01/accounttype`
+* `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
+
+Si vous disposez de plusieurs noms de domaine vérifiés, vous devez fournir la revendication ci-après pour les ordinateurs :
+
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
+
+Si vous émettez déjà une revendication ImmutableID (par exemple, un ID de connexion alternatif), vous devez fournir une seule revendication correspondante pour les ordinateurs :
+
+* `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
+
+Dans les sections ci-après, vous trouverez des informations concernant :
  
+- Les valeurs requises pour chaque revendication
+- L’aspect d’une définition dans AD FS
 
+La définition vous permet de vérifier si les valeurs sont présentes ou si vous devez les créer.
 
+> [!NOTE]
+> Si vous n’utilisez pas AD FS pour votre serveur de fédération local, suivez les instructions de votre fournisseur afin de créer la configuration appropriée pour l’émission de ces revendications.
 
-##<a name="step-2-register-your-devices"></a>Étape 2 : Inscription de vos appareils
+### <a name="issue-account-type-claim"></a>Émission de la revendication du type de compte
 
-Les étapes d’inscription de votre appareil dépendent du fait que votre organisation est fédérée ou non. 
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** : cette revendication doit contenir la valeur **DJ**, qui identifie l’appareil en tant qu’ordinateur joint à un domaine. Dans AD FS, vous pouvez ajouter une règle de transformation d’émission ressemblant à ceci :
 
+    @RuleName = "Issue account type for domain-joined computers"
+    c:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value = "DJ"
+    );
 
-### <a name="device-registration-in-non-federated-organizations"></a>Inscription d’appareil dans les organisations non fédérées
+### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Émission de la valeur ObjectGUID du compte d’ordinateur local
 
-L’inscription d’appareil dans une organisation non fédérée n’est possible que si les conditions suivantes sont réunies :
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** : cette revendication doit contenir la valeur **objectGUID** du compte d’ordinateur local. Dans AD FS, vous pouvez ajouter une règle de transformation d’émission ressemblant à ceci :
 
-- Vous exécutez Windows 10 et Windows Server 2016 sur votre appareil
-- Vos appareils sont joints à un domaine
-- La synchronisation du mot de passe à l’aide d’Azure AD Connect est activée
-
-Si toutes ces exigences sont satisfaites, vous n’avez rien à faire pour inscrire vos appareils.  
-
-
-### <a name="device-registration-in-federated-organizations"></a>Inscription d’appareil dans les organisations fédérées
-
-Dans une configuration Azure AD fédérée, les appareils s’appuient sur AD FS (ou sur le serveur de fédération local) pour s’authentifier auprès d’Azure AD. Ils s’inscrivent auprès du service Azure Active Directory Device Registration.
-
-Pour les ordinateurs Windows 10 et Windows Server 2016, Azure AD Connect associe l’objet d’appareil dans Azure AD à l’objet de compte d’ordinateur local. Les revendications suivantes doivent être remplies lors de l’authentification auprès du service Azure AD Device Registration pour terminer l’inscription et créer l’objet d’appareil :
-
-- **http://schemas.microsoft.com/ws/2012/01/accounttype** contient la valeur DJ, qui identifie l’authentificateur principal comme un ordinateur joint au domaine.
-
-- **http://schemas.microsoft.com/identity/claims/onpremobjectguid** contient la valeur de l’attribut **objectGUID** du compte d’ordinateur local.
+    @RuleName = "Issue object GUID for domain-joined computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        store = "Active Directory", 
+        types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), 
+        query = ";objectguid;{0}", 
+        param = c2.Value
+    );
  
-- **http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid** contient l’ID de sécurité principal de l’ordinateur, qui correspond à la valeur d’attribut **objectSid** du compte d’ordinateur local.
+### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Émission de la valeur objectSID du compte d’ordinateur local
 
-- **http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid** contient la valeur qu’utilise Azure AD pour approuver le jeton émis à partir d’AD FS ou à partir du service d’émission de jeton de sécurité (STS). Ceci est important si vous avez plusieurs domaines vérifiés dans Azure AD. Dans le cas d’AD FS, utilisez **http://\<*domain-name*\>/adfs/services/trust/**, où **\<domain-name\>** correspond au nom de domaine vérifié dans Azure AD.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** : cette revendication doit contenir la valeur **objectSid** du compte d’ordinateur local. Dans AD FS, vous pouvez ajouter une règle de transformation d’émission ressemblant à ceci :
+
+    @RuleName = "Issue objectSID for domain-joined computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(claim = c2);
+
+### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Émission de la valeur issuerID pour l’ordinateur s’il existe plusieurs noms de domaine vérifiés dans Azure AD
+
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** : cette revendication doit contenir l’URI (Uniform Resource Identifier) des noms de domaine vérifiés qui se connectent avec le service de fédération local (AD FS ou tiers) émettant le jeton. Dans AD FS, vous pouvez ajouter des règles de transformation d’émission qui ressemblent à celles ci-dessous dans l’ordre indiqué après les règles mentionnées ci-dessus. Notez qu’il doit exister une règle régissant l’émission explicite de la règle pour les utilisateurs. Dans les règles ci-dessous, une première règle est ajoutée afin d’identifier l’authentification d’un utilisateur plutôt que d’un ordinateur.
+
+    @RuleName = "Issue account type with the value User when its not a computer"
+    NOT EXISTS(
+    [
+        Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value == "DJ"
+    ]
+    )
+    => add(
+        Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value = "User"
+    );
+    
+    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    c1:[
+        Type == "http://schemas.xmlsoap.org/claims/UPN"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value == "User"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
+        Value = regexreplace(
+        c1.Value, 
+        ".+@(?<domain>.+)", 
+        "http://${domain}/adfs/services/trust/"
+        )
+    );
+    
+    @RuleName = "Issue issuerID for domain-joined computers"
+    c:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
+        Value = "http://<verified-domain-name>/adfs/services/trust/"
+    );
+
+> [!NOTE]
+> La revendication issuerID pour l’ordinateur dans la règle ci-dessus doit contenir l’un des noms de domaine vérifiés dans Azure AD. Il ne s’agit pas de l’URL des services AD FS.
 
 Pour plus d’informations sur la vérification du domaine, consultez [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-add-domain.md).  
 Pour obtenir une liste de vos domaines d’entreprise vérifiés, vous pouvez utiliser l’applet de commande [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
+### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Émission de la valeur ImmutableID pour l’ordinateur s’il en existe une pour les utilisateurs (par exemple, définition d’un ID de connexion alternatif)
 
-Les ordinateurs Windows 10 et Windows Server 2016 joints à un domaine s’authentifient à l’aide de l’authentification intégrée de Windows vers un point de terminaison WS-Trust actif hébergé par AD FS. Vérifiez que ce point de terminaison est activé. Si vous utilisez le proxy d’authentification web, vérifiez également que ce point de terminaison est publié via le proxy. Le point de terminaison est **adfs/services/trust/13/windowstransport**. 
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** : cette revendication doit contenir une valeur valide pour les ordinateurs. Dans AD FS, vous pouvez créer une règle de transformation d’émission comme suit :
 
-Il doit être activé dans la console de gestion AD FS sous **Service > Points de terminaison**. Si vous ne disposez pas d’AD FS en tant que serveur de fédération local, suivez les instructions de votre fournisseur pour vérifier que le point de terminaison correspondant est activé. 
+    @RuleName = "Issue ImmutableID for computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ] 
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        store = "Active Directory", 
+        types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), 
+        query = ";objectguid;{0}", 
+        param = c2.Value
+    );
 
+### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>Script d’assistance pour la création des règles de transformation d’émission AD FS
 
+Le script ci-après vous aide à créer les règles de transformation d’émission décrites ci-dessus.
 
-> [!NOTE]
-> Si vous n’utilisez pas AD FS pour votre serveur de fédération local, suivez les instructions de votre fournisseur pour créer les règles qui émettent ces revendications.
-> 
-> 
+    $multipleVerifiedDomainNames = $false
+    $immutableIDAlreadyIssuedforUsers = $false
+    $oneOfVerifiedDomainNames = 'example.com'   # Replace example.com with one of your verified domains
+    
+    $rule1 = '@RuleName = "Issue account type for domain-joined computers"
+    c:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value = "DJ"
+    );'
 
+    $rule2 = '@RuleName = "Issue object GUID for domain-joined computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        store = "Active Directory", 
+        types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), 
+        query = ";objectguid;{0}", 
+        param = c2.Value
+    );'
 
+    $rule3 = '@RuleName = "Issue objectSID for domain-joined computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(claim = c2);'
 
+    $rule4 = ''
+    if ($multipleVerifiedDomainNames -eq $true) {
+    $rule4 = '@RuleName = "Issue account type with the value User when it is not a computer"
+    NOT EXISTS(
+    [
+        Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value == "DJ"
+    ]
+    )
+    => add(
+        Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value = "User"
+    );
+    
+    @RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+    c1:[
+        Type == "http://schemas.xmlsoap.org/claims/UPN"
+    ]
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", 
+        Value == "User"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
+        Value = regexreplace(
+        c1.Value, 
+        ".+@(?<domain>.+)", 
+        "http://${domain}/adfs/services/trust/"
+        )
+    );
+    
+    @RuleName = "Issue issuerID for domain-joined computers"
+    c:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", 
+        Value = "http://<verified-domain-name>/adfs/services/trust/"
+    );'
+    }
 
-**Pour créer les règles manuellement, dans AD FS :**
-
-- Sélectionnez l’un des scripts Windows PowerShell suivants. 
-- Exécutez le script Windows PowerShell dans une session connectée à votre serveur. 
-- Remplacez la première ligne par le nom de domaine validé de votre organisation dans Azure AD.
-
-
-
-
-#### <a name="setting-ad-fs-rules-in-a-single-domain-environment"></a>Configuration des règles AD FS dans un environnement de domaine unique
-
-Utilisez le script suivant pour ajouter les règles AD FS si vous n’avez **qu’un domaine vérifié** :
-
-
-    <#----------------------------------------------------------------------
-    |   Modify the Azure AD Relying Party to include the claims needed
-    |   for DomainJoin++. The rules include:
-    |   -ObjectGuid
-    |   -AccountType
-    |   -ObjectSid
-    +---------------------------------------------------------------------#>
-
-    $rule1 = '@RuleName = "Issue object GUID" 
-
-    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
-
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
-
-    => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
-
-    $rule2 = '@RuleName = "Issue account type for domain joined computers" 
-
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
-
-    => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
-
-    $rule3 = '@RuleName = "Pass through primary SID" 
-
-    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
-
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
-
-    => issue(claim = c2);' 
+    $rule5 = ''
+    if ($immutableIDAlreadyIssuedforUsers -eq $true) {
+    $rule5 = '@RuleName = "Issue ImmutableID for computers"
+    c1:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
+        Value =~ "-515$", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ] 
+    && 
+    c2:[
+        Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", 
+        Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"
+    ]
+    => issue(
+        store = "Active Directory", 
+        types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), 
+        query = ";objectguid;{0}", 
+        param = c2.Value
+    );'
+    }
 
     $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 
-    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3
+    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5
 
     $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
 
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
+### <a name="remarks"></a>Remarques 
 
-#### <a name="setting-ad-fs-rules-in-a-multi-domain-environment"></a>Configuration des règles AD FS dans un environnement à plusieurs domaines
+- Ce script ajoute les règles aux règles existantes. N’exécutez pas le script à deux reprises, car l’ensemble de règles serait alors ajouté deux fois. Avant de réexécuter le script, assurez-vous qu’il n’existe aucune règle correspondante pour ces revendications (sous les conditions associées).
 
-Si vous avez plusieurs domaines vérifiés, procédez comme suit :
-
-1. Supprimer la règle **IssuerID** existante créée par Azure AD Connect.  
-Voici un exemple de cette règle : c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+- Si vous disposez de plusieurs noms de domaine vérifiés (comme indiqué dans le portail Azure AD ou par le biais de l’applet de commande Get-MsolDomains), définissez l’élément **$multipleVerifiedDomainNames** du script sur la valeur **$true**. Veillez également à supprimer toute revendication issuerid existante pouvant avoir été créée par Azure AD Connect ou par d’autres moyens. Voici un exemple de cette règle :
 
 
-2. Exécutez ce script : 
+        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-        <#----------------------------------------------------------------------  
-        |   Modify the Azure AD Relying Party to include the claims needed  
-        |   for DomainJoin++. The rules include:
-        |   -ObjectGuid
-        |   -AccountType
-        |   -ObjectSid
-        +---------------------------------------------------------------------#>
+- Si vous avez déjà émis une revendication **ImmutableID** pour les comptes d’utilisateurs, définissez l’élément **$oneOfVerifiedDomainNames** du script sur la valeur **$true**.
 
-        $VerifiedDomain = 'example.com'      # Replace example.com with one of your verified domains
+## <a name="step-3-enable-windows-down-level-devices"></a>Étape 3 : Activation des appareils Windows de bas niveau
 
-        $rule1 = '@RuleName = "Issue object GUID" 
+Si certains de vos appareils joints à un domaine sont des appareils Windows de bas niveau, vous devez :
 
-        c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
+- Définir une stratégie dans Azure AD pour permettre aux utilisateurs d’inscrire des appareils
+ 
+- Configurer votre service de fédération local pour l’émission de revendications afin de prendre en charge **l’authentification Windows intégrée (IWA)** pour l’inscription des appareils
+ 
+- Ajouter le point de terminaison d’authentification d’appareil Azure AD aux zones Intranet local afin d’éviter les invites de certificat lors de l’authentification des appareils
 
-        c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Définir une stratégie dans Azure AD pour permettre aux utilisateurs d’inscrire des appareils
 
-        => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
+Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que le paramètre permettant aux utilisateurs d’inscrire des appareils dans Azure AD est défini. Dans le Portail Azure, ce paramètre est disponible à l’emplacement suivant :
 
-        $rule2 = '@RuleName = "Issue account type for domain joined computers" 
+`Azure Active Directory > Users and groups > Device settings`
+    
+La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**.
 
-        c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
-
-        => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
-
-        $rule3 = '@RuleName = "Pass through primary SID" 
-
-        c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
-
-        c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
-
-        => issue(claim = c2);' 
-
-        $rule4 = '@RuleName = "Issue AccountType with the value User when its not a computer account" 
-
-        NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]) 
-
-        => add(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "User");' 
-
-        $rule5 = '@RuleName = "Capture UPN when AccountType is User and issue the IssuerID" 
-
-        c1:[Type == "http://schemas.xmlsoap.org/claims/UPN"] && 
-
-        c2:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "User"] 
-
-        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c1.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));' 
-
-        $rule6 = '@RuleName = "Update issuer for DJ computer auth" 
-
-        c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"] 
-
-        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$VerifiedDomain+'/adfs/services/trust/");' 
-
-        $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
-
-        $updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4+ $rule5+  $rule6 
-
-        $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
-
-        Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
+![Inscrire des appareils](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
 
 
+### <a name="configure-on-premises-federation-service"></a>Configurer le service de fédération local 
 
-## <a name="step-3-setup-ad-fs-for-authentication-of-device-registration"></a>Étape 3 : Configuration d’AD FS pour l’authentification de l’inscription de l’appareil
+Votre service de fédération local doit prendre en charge l’émission des revendications **authenticationmehod** et **wiaormultiauthn** lors de la réception d’une demande d’authentification auprès de la partie de confiance Azure AD qui contient un paramètre resouce_params avec une valeur encodée comme indiqué ci-dessous :
 
-Assurez-vous que l’authentification intégrée Windows est définie comme une alternative valide à l’authentification multifacteur pour l’inscription de l’appareil dans AD FS. Pour cela, vous devez disposer d’une règle de transformation d’émission qui transmet la méthode d’authentification.
+    eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
-1. Dans la console de gestion d’AD FS, accédez à **AD FS** > **Relations d’approbation** > **Approbations de partie de confiance**.
+    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
+
+Lorsqu’une telle demande est reçue, le service de fédération local doit authentifier l’utilisateur à l’aide de l’authentification Windows intégrée et, en cas de réussite, doit émettre les deux revendications suivantes :
+
+    http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
+    http://schemas.microsoft.com/claims/wiaormultiauthn
+
+Dans AD FS, vous devez ajouter une règle de transformation d’émission qui est transmise directement par le biais de la méthode d’authentification.  
+
+**Pour ajouter cette règle :**
+
+1. Dans la console de gestion AD FS, accédez à `AD FS > Trust Relationships > Relying Party Trusts`.
 2. Cliquez avec le bouton droit sur l’objet d’approbation de partie de confiance de la plateforme d’identité Microsoft Office 365 et sélectionnez **Modifier les règles de revendication**.
 3. Sous l’onglet **Règles de transformation d’émission**, sélectionnez **Ajouter une règle**.
 4. Sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la liste de modèles **Règle de revendication**.
 5. Sélectionnez **Suivant**.
 6. Dans la zone **Nom de la règle de revendication**, tapez **Règle de revendication de méthode d’authentification**.
-7. Dans la zone **Règle de revendication**, tapez cette règle :  
-**c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);**
-8. Sur votre serveur de fédération, tapez la commande PowerShell suivante :
+7. Dans la zone **Règle de revendication**, tapez la règle suivante :
+
+    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
+
+8. Sur votre serveur de fédération, tapez la commande PowerShell ci-dessous après avoir remplacé **\<RPObjectName\>** par le nom d’objet de partie de confiance de votre objet Approbation de partie de confiance Azure AD. Cet objet est généralement nommé **plateforme d’identité Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-**\<RPObjectName\>** est le nom de l’objet de partie de confiance de votre objet d’approbation de partie de confiance Azure AD. Cet objet est généralement nommé **plateforme d’identité Microsoft Office 365**.
+### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Ajouter le point de terminaison d’authentification d’appareil Azure AD aux zones Intranet local
 
+Pour éviter les invites de certificat lorsque les utilisateurs des appareils inscrits s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine pour ajouter l’URL ci-après à la zone Intranet local dans Internet Explorer :
 
+`https://device.login.microsoftonline.com`
 
-##<a name="step-4-deployment-and-rollout"></a>Étape 4 : Déploiement
+## <a name="step-4-control-deployment-and-rollout"></a>Étape 4 : Contrôle du déploiement et du lancement
 
-Lorsque les ordinateurs joints à un domaine respectent les conditions préalables, ils sont prêts à s’inscrire auprès d’Azure AD.
+Une fois que vous avez exécuté les étapes requises, les appareils joints à un domaine sont prêts à s’inscrire automatiquement auprès d’Azure AD. Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs. Les nouveaux appareils s’inscrivent auprès d’Azure AD au moment de leur redémarrage une fois l’opération de jonction de domaine effectuée.
 
-Les ordinateurs Mise à jour anniversaire Windows 10 et Windows Server 2016 joints à un domaine s’inscrivent automatiquement auprès d’Azure AD lors du prochain redémarrage de l’appareil ou de la prochaine connexion utilisateur à Windows. Les nouveaux ordinateurs qui sont joints au domaine s’inscrivent auprès d’Azure AD lors du redémarrage de l’appareil après l’opération de jonction au domaine.
+### <a name="remarks"></a>Remarques
 
-> [!NOTE]
-> Les ordinateurs Windows 10 joints à un domaine exécutant la mise à jour Windows 10 de novembre s’inscriront automatiquement auprès d’Azure AD uniquement si l’objet de stratégie de groupe de déploiement est défini.
-> 
-> 
+- Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine.
 
-Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. 
+- La mise à jour de novembre 2015 de Windows 10 s’inscrit automatiquement auprès d’Azure AD **uniquement** si l’objet de stratégie de groupe de lancement est défini.
 
-Pour le déploiement de l’inscription automatique des ordinateurs autres que Windows 10 joints à un domaine, vous pouvez déployer un package Windows Installer sur les ordinateurs que vous sélectionnez.
+- Pour lancer l’inscription automatique des ordinateurs Windows de bas niveau, vous pouvez déployer un [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) sur les ordinateurs que vous sélectionnez.
 
-> [!NOTE]
-> Pour tous les ordinateurs non Windows 10/Windows Server 2016, il est recommandé d’utiliser le package Windows Installer, comme décrit dans ce document.
-> 
-> 
+- Si vous transmettez l’objet de stratégie de groupe à des appareils Windows 8.1 joints à un domaine, l’inscription sera tentée ; toutefois, il est recommandé d’utiliser le [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) pour inscrire tous vos appareils Windows de bas niveau. 
 
-### <a name="create-a-group-policy-object-to-control-the-rollout-of-automatic-registration"></a>Créer un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique
+### <a name="create-a-group-policy-object"></a>Créer un objet de stratégie de groupe 
 
-Pour contrôler le déploiement de l’inscription automatique des ordinateurs joints à un domaine auprès d’Azure AD, vous pouvez déployer la stratégie de groupe **d’inscription des ordinateurs joints à un domaine comme appareils** sur les ordinateurs que vous souhaitez inscrire. Par exemple, vous pouvez déployer la stratégie sur un groupe de sécurité ou sur une unité organisationnelle.
+Pour contrôler le lancement de l’inscription automatique des ordinateurs Windows actuels, vous devez déployer l’objet de stratégie de groupe **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils** sur les appareils que vous souhaitez inscrire. Par exemple, vous pouvez déployer la stratégie sur un groupe de sécurité ou sur une unité organisationnelle.
 
 **Pour configurer la stratégie :**
 
-1. Ouvrez le Gestionnaire de serveur et accédez à **Outils** > **Gestion des stratégies de groupe**.
-2. Accédez au nœud de domaine qui correspond au domaine dans lequel vous souhaitez activer l’inscription automatique d’ordinateurs Windows 10 ou Windows Server 2016.
+1. Ouvrez **Gestionnaire de serveur**, puis accédez à `Tools > Group Policy Management`.
+2. Accédez au nœud de domaine qui correspond au domaine dans lequel vous souhaitez activer l’inscription automatique d’ordinateurs Windows actuels.
 3. Cliquez avec le bouton droit sur **Objets de stratégie de groupe**, puis sélectionnez **Nouveau**.
 4. Entrez un nom pour votre objet de stratégie de groupe. Par exemple, *Inscription automatique dans Azure AD*. Sélectionnez **OK**.
 5. Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
-6. Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Enregistrement d’appareil**. Cliquez avec le bouton droit sur **Inscrire les ordinateurs joints du domaine en tant qu’appareils**, puis sélectionnez **Modifier**.
+6. Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Enregistrement d’appareil**. Cliquez avec le bouton droit sur **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils**, puis sélectionnez **Modifier**.
    
    > [!NOTE]
-   > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Jonction d’espace de travail** > **Joindre automatiquement les ordinateurs clients à l’espace de travail**.
-   > 
-   > 
+   > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
+
 7. Sélectionnez **Activé**, puis **Appliquer**.
 8. Sélectionnez **OK**.
 9. Liez l’objet de stratégie de groupe à un emplacement de votre choix. Par exemple, vous pouvez le lier à une unité organisationnelle spécifique. Vous pouvez également le lier à un groupe de sécurité spécifique d’ordinateurs qui s’inscrivent automatiquement auprès d’Azure AD. Pour définir cette stratégie pour tous les ordinateurs Windows 10 ou Windows Server 2016 joints à un domaine de votre organisation, liez l’objet de stratégie de groupe au domaine.
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Packages Windows Installer pour les ordinateurs autres que Windows 10
-Pour inscrire les ordinateurs joints à un domaine exécutant Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 dans un environnement fédéré, vous pouvez télécharger et installer les fichiers de package Windows Installer (.msi) suivants :
 
-* [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
-* [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
+Pour inscrire des ordinateurs Windows de bas niveau joints à un domaine dans un environnement fédéré, vous pouvez télécharger et installer ce package Windows Installer (.msi) à partir du Centre de téléchargement au niveau de la page [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) (Microsoft Workplace pour les ordinateurs non-Windows 10).
 
-Déployez le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package prend en charge les options d’installation en mode silencieux standard avec le paramètre *quiet*. System Center Configuration Manager 2016 offre des avantages supplémentaires issus des versions précédentes, comme la possibilité de suivre les inscriptions terminées. Pour plus d’informations, consultez [System Center 2016](https://www.microsoft.com/en-us/cloud-platform/system-center).
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package prend en charge les options d’installation en mode silencieux standard avec le paramètre *quiet*. System Center Configuration Manager Current Branch offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions terminées. Pour plus d’informations, consultez l’article [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
-Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche inscrit l’appareil en mode silencieux auprès d’Azure AD avec les informations d’identification de l’utilisateur après l’avoir authentifié à l’aide de l’authentification intégrée Windows. Pour afficher la tâche planifiée, accédez à **Microsoft** > **Jonction d’espace de travail**, puis accédez à la bibliothèque du Planificateur de tâches.
+Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche inscrit l’appareil en mode silencieux auprès d’Azure AD avec les informations d’identification de l’utilisateur après l’avoir authentifié à l’aide de l’authentification Windows intégrée. Pour visualiser la tâche planifiée, sélectionnez sur l’appareil **Microsoft** > **Rattacher à l’espace de travail**, puis accédez à la bibliothèque du Planificateur de tâches.
+
+## <a name="step-5-verify-registered-devices"></a>Étape 5 : Vérification des appareils inscrits
+
+Vous pouvez vérifier les appareils qui ont été correctement inscrits dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/).
+
+La sortie de cette applet de commande affiche les appareils inscrits dans Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si un problème est survenu lors de l’inscription automatique, consultez les rubriques de dépannage suivantes pour obtenir de l’aide :
-    - [Pour Windows 10 et Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-    - [Pour les clients de bas niveau Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
-- Pour obtenir des réponses aux questions courantes, consultez le [forum aux questions sur l'inscription automatique](active-directory-conditional-access-automatic-device-registration-faq.md).
+* [FAQ sur l’inscription d’appareils automatique](active-directory-device-registration-faq.md)
+* [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD – Windows 10 et Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+* [Résolution des problèmes d’inscription automatique des ordinateurs non-Windows 10 joints à un domaine auprès d’Azure AD](active-directory-device-registration-troubleshoot-windows-legacy.md)
+* [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 
 
-
-<!--HONumber=Feb17_HO2-->
-
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
 

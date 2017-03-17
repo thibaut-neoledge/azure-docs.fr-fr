@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 
 **Détails supplémentaires :**
 
-* [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md)
+* [Comment mettre à jour votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (moteur de synchronisation qui étend les annuaires locaux dans Azure Active Directory)
 **Type :** Fonctionnalités communes
@@ -241,7 +242,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 ## <a name="premium-features"></a>Fonctionnalités Premium
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Gestion d’applications et de groupes libre-service/ajout d’applications libre-service/groupes dynamiques
+#### <a name="self-service-group"></a>Gestion d’applications et de groupes libre-service/ajout d’applications libre-service/groupes dynamiques
 **Type :** Fonctionnalités Premium
 
 **Disponibilité :**
@@ -273,7 +274,7 @@ Le quota d’utilisation par défaut est de 150 000 objets. Un objet est une e
 * [Présentation d'Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Licence d’accès client MIM + serveur MIM
+#### <a name="mim-cal-mim-server"></a>Licence d’accès client MIM + serveur MIM
 Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Comme Microsoft Identity Manager s’exécute sur le système d’exploitation Windows Server, tant que le serveur exécute une copie sous licence valide de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
 
 **Type :** Fonctionnalités Premium
@@ -344,7 +345,7 @@ Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les
 | ![Vérification][12] |![Vérification][12] |![Vérification][12] |![Vérification][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Inscription automatique GPM, récupération Bitlocker libre-service, administrateurs locaux supplémentaires pour appareils Windows 10 par le biais d’Azure AD Join
+#### <a name="mdm-auto-enrollment"></a>Inscription automatique GPM, récupération Bitlocker libre-service, administrateurs locaux supplémentaires pour appareils Windows 10 par le biais d’Azure AD Join
 **Type :** Azure Active Directory Join - Fonctionnalités propres à Windows 10
 
 **Disponibilité :**
@@ -384,9 +385,4 @@ Outre les fonctionnalités généralement disponibles des éditions gratuite, de
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Utiliser le Concepteur de vues pour créer des vues personnalisées dans Log Analytics
-Le Concepteur de vues de [Log Analytics]() permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
+Le Concepteur de vues de [Log Analytics](log-analytics-overview.md) permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article contient une présentation du Concepteur de vues et des procédures de création et modification des vues personnalisées.
 
 Autres articles disponibles concernant le Concepteur de vues :
 
@@ -95,10 +96,5 @@ Les vues ne comprennent qu’une seule ligne de composants de visualisation.  R�
 ## <a name="next-steps"></a>Étapes suivantes
 * Ajouter des [vignettes](log-analytics-view-designer-tiles.md) à votre vue personnalisée.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

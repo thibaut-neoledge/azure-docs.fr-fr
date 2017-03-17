@@ -1,22 +1,27 @@
 ---
-title: Ajout de l’authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs
-description: Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft.
+title: "Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs"
+description: "Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d&quot;identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: ggailey777
-manager: erikre
-editor: ''
-
+author: adrianhall
+manager: adrianha
+editor: 
+ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/14/2016
-ms.author: glenga
+ms.date: 10/01/2016
+ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
+ms.lasthandoff: 03/09/2017
+
 
 ---
-# Ajout de l'authentification à votre application Windows
+# <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 Cette rubrique indique comment ajouter l'authentification basée sur le cloud à votre application mobile. Dans ce didacticiel, vous ajoutez l'authentification au projet de démarrage rapide de plateforme Windows universelle pour Mobile Apps à l'aide d'un fournisseur d'identité pris en charge par Azure App Service. Une fois l'utilisateur authentifié et autorisé par votre backend d'application Mobile, la valeur de l'ID utilisateur s'affiche.
@@ -29,12 +34,12 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Vous devez com
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Avec le projet d’application Windows défini en tant que projet de démarrage, déployez et exécutez l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application. Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table *TodoItem* requiert désormais une authentification.
+À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Avec le projet d’application Windows défini en tant que projet de démarrage, déployez et exécutez l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application. Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table *TodoItem* requiert désormais une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
 ## <a name="add-authentication"></a>Ajout de l’authentification à l’application
-1. Dans le fichier de projet d’application UWP MainPage.cs et ajoutez l'extrait de code suivant à la classe MainPage :
+1. Dans le fichier de projet d’application UWP MainPage.cs et ajoutez l'extrait de code suivant à la classe MainPage :
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -68,8 +73,8 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
         }
    
     Ce code authentifie l’utilisateur à l’aide d’une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de **MobileServiceAuthenticationProvider** ci-dessus par la valeur de votre fournisseur.
-2. Commentez ou supprimez l'appel de la méthode **ButtonRefresh\_Click** (ou **InitLocalStoreAsync**) dans la méthode à substituer **OnNavigatedTo** existante. Cela empêche les données d'être chargées avant que l'utilisateur ne soit authentifié. Ensuite, vous allez ajouter à l’application un bouton **Connexion** qui déclenche l’authentification.
-3. Ajoutez l'extrait de code suivant à la classe MainPage :
+2. Commentez ou supprimez l’appel de la méthode **ButtonRefresh_Click** (ou **InitLocalStoreAsync**) dans la méthode à substituer **OnNavigatedTo** existante. Cela empêche les données d'être chargées avant que l'utilisateur ne soit authentifié. Ensuite, vous allez ajouter à l’application un bouton **Connexion** qui déclenche l’authentification.
+3. Ajoutez l'extrait de code suivant à la classe MainPage :
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -111,13 +116,15 @@ L’exemple précédent montrait une connexion standard, qui nécessite que le c
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## Étapes suivantes
-Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
+## <a name="next-steps"></a>Étapes suivantes
+Maintenant que vous avez terminé ce didacticiel sur l'authentification de base, vous pouvez passer à l'un des didacticiels suivants :
 
-* [Ajouter des notifications Push à votre application Android](app-service-mobile-windows-store-dotnet-get-started-push.md) Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
-* [Activer la synchronisation hors connexion pour votre application](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal d’applications mobiles. La synchronisation hors connexion permet aux utilisateurs finaux d'interagir avec une application mobile pour afficher, ajouter ou modifier des données, même lorsqu'il n'existe aucune connexion réseau.
+* [Ajouter des notifications Push à votre application Android](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+  Apprenez à ajouter la prise en charge des notifications Push à votre application et à configurer le serveur principal d’applications mobiles pour utiliser Azure Notification Hubs afin d’envoyer des notifications Push.
+* [Activer la synchronisation hors connexion pour votre application](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+  Apprenez à ajouter une prise en charge hors connexion à votre application à l’aide d’un backend Mobile App. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+
