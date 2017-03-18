@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 0ecc959a3376dc7cb0320a43b425f9cdd7897216
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3408fa87794c47b48fb64c579fc5191aec73a333
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -32,8 +32,7 @@ ms.lasthandoff: 02/23/2017
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
 
-> [!IMPORTANT]
-> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md). Pour une machine virtuelle Linux, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 Cet article passe en revue les différentes tâches de gestion actuellement disponibles pour la capture de paquets.
 
@@ -49,6 +48,8 @@ Cet article passe en revue les différentes tâches de gestion actuellement disp
 Dans ce scénario, vous appelez l’API REST Network Watcher pour exécuter la vérification des flux IP. ARMclient permet d’appeler l’API REST à l’aide de PowerShell. ARMClient est accessible sur le site chocolatey à partir de la page [ARMClient sur Chocolatey](https://chocolatey.org/packages/ARMClient).
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
+
+> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md). Pour une machine virtuelle Linux, consultez la page [Extension de machine virtuelle Agent Network Watcher pour Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Se connecter à ARMClient
 

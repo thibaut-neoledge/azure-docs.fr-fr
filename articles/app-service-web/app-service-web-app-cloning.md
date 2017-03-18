@@ -17,6 +17,7 @@ ms.author: aelnably
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -46,7 +47,7 @@ Pour créer un plan App Service, nous pouvons utiliser la commande New-AzureRmA
 
 Pour cloner une application web existante, y compris le déploiement de tous les emplacements, l’utilisateur doit utiliser le paramètre IncludeSourceWebAppSlots, la commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande New-AzureRmWebApp :
 
-    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots $true
+    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 
 Pour cloner une application web existante dans la même région, l’utilisateur doit créer un groupe de ressources et un plan de service d’application dans la même région, puis utiliser la commande PowerShell suivante pour cloner l’application web :
 
@@ -112,10 +113,5 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 * [Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Présentation de l'environnement App Service](app-service-app-service-environment-intro.md)
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
