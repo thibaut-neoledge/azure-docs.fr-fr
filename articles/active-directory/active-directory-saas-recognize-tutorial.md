@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43e9febd4bc230db69b55ae3f5bb13ff17b2e3f6
+ms.sourcegitcommit: a2ce8c3a6aad76ca491ca17beab8555ad77a1142
+ms.openlocfilehash: 3bfb340639674406a0a983106b56ca4a993aaf14
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Recognize �
 L’intégration de Recognize à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Recognize
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Recognize (par le biais de l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Recognize via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,18 +38,17 @@ Pour configurer l’intégration d’Azure AD à Recognize, vous avez besoin de
 * Un abonnement Azure AD
 * Un abonnement Recognize pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
-> 
+ >[!NOTE]
+ >Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
+ > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
@@ -80,8 +80,8 @@ Pour configurer l’intégration de Recognize à Azure AD, vous devez ajouter R
    
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Recognize au moyen d’un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Recognize, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Recognize équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Recognize associé doit être établie.
 
@@ -92,11 +92,11 @@ Pour configurer et tester l’authentification unique Azure AD avec Recognize, 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Recognize](#creating-a-recognize-test-user)** pour avoir un équivalent de Britta Simon dans Recognize lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application Recognize.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et la configurer dans votre application Recognize.
 
 **Pour configurer l’authentification unique Azure AD avec Recognize, procédez comme suit :**
 
@@ -109,17 +109,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_04.png)
-   
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://recognizeapp.com/<your-domain>/saml/sso`.
-   
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://recognizeapp.com/<your-domain>/saml/metadata`.
-   
-    c. Cliquez sur **Suivant**
-   
-   > [!NOTE]
-   > Si vous ne connaissez pas sur ces URL, tapez les exemples d’URL de l’exemple de modèle. Pour obtenir ces valeurs, vous pouvez vous référer à l’étape 9 pour plus d’informations ou contacter l’équipe de support Recognize via <mailto:support@recognizeapp.com>.
-   > 
-   > 
+  1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://recognizeapp.com/<your-domain>/saml/sso`. 
+  2. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://recognizeapp.com/<your-domain>/saml/metadata`.
+  3. Cliquez sur **Suivant**.
+  
+    >[!NOTE]
+    >Si vous ne connaissez pas sur ces URL, tapez les exemples d’URL de l’exemple de modèle. Pour obtenir ces valeurs, vous pouvez vous référer à l’étape 9 pour plus d’informations ou contacter l’équipe de support Recognize via <mailto:support@recognizeapp.com>.
+    >
+
 4. Dans la page **Configurer l’authentification unique sur Recognize**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_05.png)
@@ -133,18 +130,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 8. Dans la section **Paramètres d’authentification unique** , procédez comme suit.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_002.png)
-   
-    a. Pour **Activer l’authentification unique**, sélectionnez **Activé**.
-   
-    b. Dans la zone de texte **ID de l’entité IDP**, copiez la valeur de **URL de l’émetteur** indiquée dans l’Assistant Configuration de l’application Azure AD.
-   
-    c. Dans la zone de texte **URL cible d’authentification unique**, copiez la valeur de **URL du service d’authentification unique** indiquée dans l’Assistant Configuration de l’application Azure AD.
-   
-    d. Dans la zone de texte **URL cible de déconnexion unique**, copiez la valeur de **URL du service de déconnexion unique** indiquée dans l’Assistant Configuration de l’application Azure AD.
-   
-    e. Ouvrez votre fichier de certificat téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat**. 
-   
-    f. Cliquez sur le bouton **Enregistrer les paramètres**. 
+ 1. Pour **Activer l’authentification unique**, sélectionnez **Activé**.
+ 2. Dans la zone de texte **ID de l’entité IDP**, copiez la valeur de **URL de l’émetteur** indiquée dans l’Assistant Configuration de l’application Azure AD. 
+ 3. Dans la zone de texte **URL cible d’authentification unique**, copiez la valeur de **URL du service d’authentification unique** indiquée dans l’Assistant Configuration de l’application Azure AD. 
+ 4. Dans la zone de texte **URL cible de déconnexion unique**, copiez la valeur de **URL du service de déconnexion unique** indiquée dans l’Assistant Configuration de l’application Azure AD. 
+ 5. Ouvrez votre fichier de certificat téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat**.  
+ 6. Cliquez sur le bouton **Enregistrer les paramètres**. 
 9. En regard de la section **Paramètres d’authentification unique**, copiez l’URL sous **URL de métadonnées du fournisseur de services**.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_003.png)
@@ -158,7 +149,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -178,56 +169,44 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_05.png)
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.  
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png)
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png) 
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**. 
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_07.png)
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png)
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png) 
+ 1. Notez la valeur du **Nouveau mot de passe**. 
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-recognize-test-user"></a>Création d’un utilisateur de test Recognize
+### <a name="create-a-recognize-test-user"></a>Créer un utilisateur de test Recognize
 Pour se connecter à Recognize, les utilisateurs d’Azure AD doivent être approvisionnés dans Recognize. Dans le cas de Recognize, l’approvisionnement est une tâche manuelle.
 
 Cette application ne prend pas en charge l’approvisionnement SCIM, mais inclut une autre synchronisation de l’autre utilisateur qui approvisionne les utilisateurs. 
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+
 1. Connectez-vous à votre site d’entreprise Recognize en tant qu’administrateur.
 2. Dans l’angle supérieur droit, cliquez sur **Menu**. Accédez à **Administrateur d’entreprise**.
 3. Dans le volet de navigation gauche, cliquez sur **Paramètres**.
 4. Dans la section **Synchronisation de l’utilisateur**, procédez comme suit.
    
-   ![New User](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "New User")
-   
-   a. Pour l’option **Synchronisation activée**, sélectionnez **Activé**.
-   
-   b. Pour **Choisir le fournisseur de synchronisation**, sélectionnez **Microsoft / Office 365**.
-   
-   c. Cliquer sur **Exécuter la synchronisation de l’utilisateur**
+   ![Nouvel utilisateur](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "Nouvel utilisateur")   
+ 1. Pour l’option **Synchronisation activée**, sélectionnez **Activé**. 
+ 2. Pour **Choisir le fournisseur de synchronisation**, sélectionnez **Microsoft / Office 365**. 
+ 3. Cliquez sur **Run User Sync (Exécuter la synchronisation des utilisateurs)**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Recognize.
 
 ![Affecter des utilisateurs][200]
@@ -248,7 +227,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la mosaïque Recognize dans le volet d’accès, vous devez être connecté automatiquement à votre application Recognize.
@@ -274,9 +253,4 @@ Quand vous cliquez sur la mosaïque Recognize dans le volet d’accès, vous dev
 [203]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,9 +30,9 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 Pour copier des données à partir d’Amazon S3, assurez-vous que vous disposez des autorisations ci-dessous :
 
 * **S3:GetObject** et **s3:GetObjectVersion** pour les opérations d’objet Amazon S3
-* **S3:ListBucket** et **s3:ListAllMyBuckets** (utilisé dans l’Assistant Copie uniquement) pour les opérations de compartiment Amazon S3
+* **s3:ListBucket** pour les opérations de compartiment Amazon S3 Si vous utilisez l’Assistant Copie, **s3:ListAllMyBuckets** est également requis.
 
-Pour obtenir la liste complète des autorisations Amazon S3 avec des détails, voir [Spécification des autorisations d’une stratégie](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+Pour obtenir la liste complète des autorisations Amazon S3 avec des détails, consultez l’article [Spécification des autorisations d’une stratégie](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="copy-data-wizard"></a>Assistant Copier des données
 Le moyen le plus simple de créer un pipeline qui copie les données depuis Amazon S3 consiste à utiliser l’Assistant Copier des données. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
@@ -239,7 +240,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | prefix |Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la clé est vide. |string |Non |
 | version |La version de l’objet S3 si le contrôle de version S3 est activé. |string |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non | |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non | |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non | |
 
 
 > [!NOTE]
@@ -340,9 +341,4 @@ Consultez l’article [Guide sur les performances et le réglage de l’activit�
 Consultez les articles suivants :
 
 * [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec Activité de copie.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

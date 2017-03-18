@@ -16,15 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
-ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
+ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Créer et gérer un pool élastique avec C&#x23;
 
-Cette rubrique montre comment créer et gérer des [pools élastiques](sql-database-elastic-pool.md) évolutifs avec C#. Vous pouvez également créer et gérer un pool élastique Azure avec le [portail Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) et l’API REST. Vous pouvez également créer et déplacer des bases de données vers et depuis des pools élastiques à l’aide de [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Cette rubrique montre comment créer et gérer des [pools élastiques](sql-database-elastic-pool.md) évolutifs avec C#. Vous pouvez également créer et gérer un pool élastique Azure avec le [portail Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) ou l’API REST. Vous pouvez également créer et déplacer des bases de données vers et depuis des pools élastiques à l’aide de [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Nombre des nouvelles fonctionnalités de SQL Database ne sont prises en charge que si vous utilisez le [modèle de déploiement Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), c’est pourquoi vous devez toujours utiliser la toute dernière **bibliothèque de base de données SQL Azure pour .NET. ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Package NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Les anciennes [bibliothèques basées sur des modèles de déploiement classique](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) sont prises en charge pour la compatibilité ascendante uniquement, donc nous vous recommandons d’utiliser les bibliothèques Resource Manager plus récentes.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 5b83fbe9e22949b6ddee1c077c02af26c62fc9b4
+ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
+ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -68,8 +69,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | name |`name` |`Babe Ruth` |La revendication de nom fournit une valeur explicite qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Adresse de messagerie principale associée au compte d’utilisateur, le cas échéant. Sa valeur est mutable et peut changer au fil du temps. L’étendue `email` est requise afin de recevoir cette revendication. |
 | nom d’utilisateur par défaut |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nom d’utilisateur principal qui représente l’utilisateur dans le point de terminaison v2.0. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. L’étendue `profile` est requise afin de recevoir cette revendication. |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` |Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. |
-| ID d’objet |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` |ID d’objet du compte professionnel ou scolaire dans le système Azure AD. Cette revendication n’est pas émise pour les comptes Microsoft personnels. L’étendue `profile` est requise afin de recevoir cette revendication. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné.  Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet.  Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. |
+| ID d’objet |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur.  Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`.  Cela signifie qu’il peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph.  Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné.  `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
 
 ### <a name="access-tokens"></a>Jetons d’accès
 Actuellement, les jetons d’accès émis par le point de terminaison v2.0 peuvent être utilisés uniquement par les services Microsoft. Vos applications n’ont pas besoin de valider ou d’inspecter les jetons d’accès dans les scénarios actuellement pris en charge. Vous pouvez traiter les jetons d’accès complètement opaques. Ce sont seulement des chaînes que votre application peut transmettre à Microsoft dans des requêtes HTTP.
@@ -152,9 +153,4 @@ Nous indiquons les durées de vie des jetons ci-après uniquement à des fins d�
 | Jetons d’actualisation (comptes personnels) |Jusqu’à 1 an |Un jeton d’actualisation est valide pendant 1 an au maximum. Toutefois, le jeton d’actualisation peut devenir non valide à tout moment pour différentes raisons. Votre application doit donc continuer d’utiliser un jeton d’actualisation jusqu’à ce qu’il échoue. |
 | Codes d’autorisation (comptes professionnels ou scolaires) |10 minutes |Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand les jetons sont reçus. |
 | Codes d’autorisation (comptes personnels) |5 minutes |Les codes d’autorisation, qui sont volontairement de courte durée, doivent être échangés immédiatement contre des jetons d’accès et des jetons d’actualisation quand les jetons sont reçus. Les codes d’autorisation émis au nom de comptes personnels sont à usage unique. |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

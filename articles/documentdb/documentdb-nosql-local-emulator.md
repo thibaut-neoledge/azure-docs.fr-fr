@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
-ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
+ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
+ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -38,9 +39,9 @@ L’émulateur DocumentDB nécessite la configuration matérielle et logicielle 
 
 * Configuration logicielle requise
   * Windows Server 2012 R2, Windows Server 2016 ou Windows 10
-*   Conditions matérielles minimales requises
-  * 2 Go de RAM
-  * 10 Go d’espace disque disponible
+*    Conditions matérielles minimales requises
+  *    2 Go de RAM
+  *    10 Go d’espace disque disponible
 
 ## <a name="installing-the-documentdb-emulator"></a>Installation de l'émulateur DocumentDB
 Vous pouvez télécharger et installer l’émulateur DocumentDB à partir du [Centre de téléchargement Microsoft](https://aka.ms/documentdb-emulator). 
@@ -117,7 +118,7 @@ Le certificat X.509 peut être importé dans le magasin de certificats Java en 
 
 Lors de la connexion à l’émulateur à partir des Kits de développement logiciel (SDK) Python et Node.js, la vérification SSL est désactivée.
 
-## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>Référence de l’outil en ligne de commande de l’émulateur DocumentDB
+## <a id="command-line"></a>Référence de l’outil en ligne de commande de l’émulateur DocumentDB
 À partir de l’emplacement d’installation, vous pouvez utiliser la ligne de commande pour démarrer et arrêter l’émulateur, configurer les options et effectuer d’autres opérations.
 
 ### <a name="command-line-syntax"></a>Syntaxe de ligne de commande
@@ -223,7 +224,7 @@ L’émulateur DocumentDB étant un environnement émulé exécuté sur une stat
 * L’émulateur DocumentDB ne prend pas en charge les substitutions de quota de service disponibles dans le service Azure DocumentDB (par exemple, les limites de taille de document ou l'augmentation du stockage d'une collection partitionnée).
 * Votre copie de l’émulateur DocumentDB n'a peut-être pas été mise à jour avec les dernières modifications apportées au service Azure DocumentDB, veuillez consulter la section [Planificateur de capacité DocumentDB](https://www.documentdb.com/capacityplanner) pour évaluer avec précision les besoins de débit de production (RU) de votre application.
 
-## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>Modification du nombre de collections
+## <a id="set-partitioncount"></a>Modification du nombre de collections
 
 Par défaut, vous pouvez créer jusqu’à 25 collections à partition unique ou 1 collection partitionnée à l’aide de l’émulateur DocumentDB. En modifiant la valeur **PartitionCount**, vous pouvez créer jusqu'à 250 collections à partition unique ou 10 collections partitionnées, ou n’importe quelle combinaison des deux qui ne dépasse pas 250 partitions uniques (où 1 collection partitionnée = 25 collections à partition unique).
 
@@ -249,9 +250,11 @@ Utilisez les conseils suivants pour vous aider à résoudre les problèmes renco
 
 - Si l’émulateur DocumentDB se bloque, collectez les fichiers de vidage dans le dossier sous c:\Utilisateurs\nom_utilisateur\AppData\Local\CrashDumps, compressez-les et joignez-les à un e-mail à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+- Si des incidents se produisent dans DocumentDB.StartupEntryPoint.exe, exécutez la commande suivante depuis une invite de commandes administrateur : `lodctr /R` 
+
 - Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et joignez-les à un e-mail à [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>Collecter les fichiers de trace
+### <a id="trace-files"></a>Collecter les fichiers de trace
 
 Pour collecter des traces de débogage, exécutez les commandes suivantes à partir d’une invite de commande d’administration :
 
@@ -268,9 +271,4 @@ Pour collecter des traces de débogage, exécutez les commandes suivantes à par
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur DocumentDB, consultez la rubrique [Présentation d’Azure DocumentDB](documentdb-introduction.md)
 * Pour vous initier au développement de l’émulateur DocumentDB, téléchargez un des [Kits de développement logiciel (SDK) DocumentDB pris en charge](documentdb-sdk-dotnet.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

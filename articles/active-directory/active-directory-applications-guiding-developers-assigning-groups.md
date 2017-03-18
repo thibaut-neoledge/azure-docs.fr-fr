@@ -1,9 +1,9 @@
 ---
-title: "Attribution de groupes à des applications Azure AD | Microsoft Docs"
+title: "Attribuer des groupes à des applications Azure AD | Microsoft Docs"
 description: "Implémentation de l’attribution de groupe pour les applications Azure."
 services: active-directory
 documentationcenter: 
-author: IHenkel
+author: kgremban
 manager: femila
 editor: 
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: inhenk
+ms.date: 02/27/2017
+ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: 81b9b66bb16e183b8c3c206a4a49b2f4845bc201
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: f58c051bc25544d2811738b8ade483c82f3901b2
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-assign-groups-to-an-application"></a>Azure AD et applications : attribution de groupes à une application
+# <a name="assign-azure-active-directory-groups-to-an-application"></a>Attribuer des groupes Azure Active Directory à une application
 Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour savoir comment demander l’affectation d’utilisateurs, consultez l’article [Demande de l’affectation de l’utilisateur](active-directory-applications-guiding-developers-requiring-user-assignment.md) .
 
 Cet article suppose que vous avez déjà créé des groupes dans le répertoire actif que vous utilisez pour cette application.
@@ -39,9 +40,4 @@ Cet article suppose que vous avez déjà créé des groupes dans le répertoire 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

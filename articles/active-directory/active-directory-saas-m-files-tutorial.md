@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb78abd45760c17e94f35be0a6c78ab5d91253d3
+ms.sourcegitcommit: 4a07f946d396a9263d5b00202cd5229ddc86d1be
+ms.openlocfilehash: 78f0a065b675326a9a507e0cf480bc779fd458a9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ Dans ce didacticiel, vous allez apprendre à intégrer M-Files à Azure Active D
 L’intégration de M-Files dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à M-Files
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à M-Files (via l'authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à M-Files via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,9 +38,8 @@ Pour configurer l'intégration d'Azure AD avec M-Files, vous avez besoin des é
 * Un abonnement Azure AD
 * Un abonnement **M-Files** pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
@@ -78,20 +78,21 @@ Pour configurer l’intégration de M-Files avec Azure AD, vous devez ajouter M
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec M-Files avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec M-Files avec un utilisateur de test nommé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur M-Files équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur M-Files associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur M-Files équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur M-Files associé doit être établie.
+
 Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans M-Files. Pour configurer et tester l’authentification unique Azure AD avec M-Files, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test M-Files](#creating-a-m-file-test-user)** pour avoir un équivalent de Britta Simon dans M-Files lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application M-Files.
+### <a name="configuring-azure-ad-sso"></a>Configuration de l’authentification unique Azure AD
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application M-Files.
 
 **Pour configurer l’authentification unique Azure AD avec M-Files, procédez comme suit :**
 
@@ -104,44 +105,32 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_07.png)
-
-    a. Dans la zone de texte URL de connexion, tapez une URL au format suivant : `https://<tenant-name>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`.
-
-    b. Cliquez sur **Next**.
-
-
-1. Sur la page **Configurer l’authentification unique sur M-Files**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+  1. Dans la zone de texte URL de connexion, tapez une URL au format suivant : `https://<tenant-name>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
+  2. Cliquez sur **Suivant**.
+4. Sur la page **Configurer l’authentification unique sur M-Files**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_09.png)
-2. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support M-Files à l’adresse <mailto:support@m-files.com> , en lui fournissant les métadonnées téléchargées.
+5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support M-Files à l’adresse <mailto:support@m-files.com> , en lui fournissant les métadonnées téléchargées.
    
-   > [!NOTE]
-   > Suivez les étapes suivantes si vous souhaitez configurer l’authentification unique pour votre application de bureau M-Files. Aucune étape supplémentaire n’est nécessaire si vous souhaitez configurer l’authentification unique pour la version web de M-Files uniquement. 
+   >[!NOTE]
+   >Suivez les étapes suivantes si vous souhaitez configurer l’authentification unique pour votre application de bureau M-Files. Aucune étape supplémentaire n’est nécessaire si vous souhaitez configurer l’authentification unique pour la version web de M-Files uniquement.  
    > 
-   > 
-3. Suivez la procédure suivante pour configurer l’application de bureau M-Files de sorte à activer l’authentification unique avec Azure AD. Pour télécharger M-Files, accédez à la page [Téléchargement de M-Files](https://www.m-files.com/en/download-latest-version).
-4. Ouvrez la fenêtre **Paramètres de bureau M-Files**. Cliquez ensuite sur **Add**.
+6. Suivez la procédure suivante pour configurer l’application de bureau M-Files de sorte à activer l’authentification unique avec Azure AD. Pour télécharger M-Files, accédez à la page [Téléchargement de M-Files](https://www.m-files.com/en/download-latest-version).
+7. Ouvrez la fenêtre **Paramètres de bureau M-Files**. Cliquez ensuite sur **Add**.
    
     ![Configurer l’authentification unique](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_10.png)
-5. Dans la fenêtre **Propriétés de connexion au coffre de documents**, procédez comme suit :
+8. Dans la fenêtre **Propriétés de connexion au coffre de documents**, procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_11.png)
-   
-    Sous la section **Serveur**, tapez les valeurs comme suit :
-   
-    a. Pour **Nom**, saisissez `<tenant-name>.cloudvault.m-files.com`.
-   
-    b. Pour **Numéro de port**, saisissez **4466**.
-   
-    c. Pour **Protocole**, sélectionnez **HTTPS**.
-   
-    d. Dans le champ **Authentification**, sélectionnez **Utilisateur Windows spécifique**. Ensuite, une page de signature s’affiche. Entrez vos informations d’identification Azure AD.
-   
-    e. Pour **Coffre sur le serveur**,  sélectionnez le coffre correspondant sur le serveur.
-   
-    f. Cliquez sur **OK**.
+  ![Configurer l’authentification unique](./media/active-directory-saas-m-files-tutorial/tutorial_m_files_11.png)  
+    Sous la section **Serveur**, tapez les valeurs comme suit :  
+ 1. Pour **Nom**, saisissez `<tenant-name>.cloudvault.m-files.com`.  
+ 2. Pour **Numéro de port**, saisissez **4466**. 
+ 3. Pour **Protocole**, sélectionnez **HTTPS**. 
+ 4. Dans le champ **Authentification**, sélectionnez **Utilisateur Windows spécifique**. Ensuite, une page de signature s’affiche. Entrez vos informations d’identification Azure AD. 
+ 5. Pour **Coffre sur le serveur**,  sélectionnez le coffre correspondant sur le serveur. 
+ 6. Cliquez sur **OK**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 ![Créer un utilisateur Azure AD][20]
@@ -161,40 +150,30 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.  
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_06.png) 
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**. 
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_07.png) 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-m-files-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**. 
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-m-files-test-user"></a>Création d’un utilisateur de test M-Files
+### <a name="create-a-m-files-test-user"></a>Créer un utilisateur de test M-Files
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans M-Files. Si vous ne savez pas comment créer un utilisateur dans M-Files, contactez l’assistance technique de M-Files à l’adresse <mailto:support@m-files.com>.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à M-Files.
 
 ![Affecter des utilisateurs][200]
@@ -215,8 +194,8 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque M-Files dans le volet d'accès, vous êtes connecté automatiquement à votre application M-Files.
 
@@ -244,9 +223,4 @@ Lorsque vous cliquez sur la mosaïque M-Files dans le volet d'accès, vous êtes
 [203]: ./media/active-directory-saas-m-files-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-m-files-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-m-files-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

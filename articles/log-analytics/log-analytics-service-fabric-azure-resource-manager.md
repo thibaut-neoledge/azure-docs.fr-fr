@@ -1,6 +1,6 @@
 ---
-title: Optimiser votre environnement avec la solution Service Fabric dans Log Analytics | Microsoft Docs
-description: "Vous pouvez utiliser la solution Service Fabric pour évaluer les risques et l’intégrité de vos applications, microservices, nœuds et clusters Service Fabric."
+title: "Évaluer des applications Service Fabric avec Log Analytics à l’aide du portail Azure | Microsoft Docs"
+description: "Vous pouvez utiliser la solution Service Fabric dans Log Analytics, à l’aide du portail Azure, pour évaluer les risques et l’intégrité de vos applications, micro-services, nœuds et clusters Service Fabric."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Solution Service Fabric dans Log Analytics
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
+
 > [!div class="op_single_selector"]
-> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Gestionnaire de ressources](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 Cet article décrit comment utiliser la solution Service Fabric dans Log Analytics pour identifier et résoudre les problèmes sur l’ensemble de votre cluster Service Fabric.
 
@@ -79,11 +81,11 @@ Pour afficher les données de performances de vos nœuds :
 * Accédez à Paramètres dans le volet gauche, puis sélectionnez Données >> Compteurs de performances Windows >> Ajouter les compteurs de performances sélectionnés : ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 * Dans Recherche dans les journaux, utilisez les requêtes suivantes pour étudier les mesures clés sur vos nœuds :
   </br>
-  
+
     a. Comparez l’utilisation moyenne du processeur sur tous les nœuds au cours de l’heure écoulée pour identifier les nœuds qui ont des problèmes et l’intervalle de temps dans lequel un nœud a connu une pointe d’activité :
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Examinez des graphiques en courbes similaires pour la mémoire disponible sur chaque nœud avec cette requête :
@@ -115,8 +117,8 @@ Ce modèle ajoute simplement vos comptes de stockage existant à un espace de tr
 > [!NOTE]
 > Si vous disposez déjà d’un espace de travail Log Analytics au moment de la sélection d’un groupe, sélectionnez Utiliser l’existant et recherchez le groupe de ressources contenant l’espace de travail OMS. Dans le cas contraire, créez-en un.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 Une fois ce modèle déployé, vous pouvez voir le compte de stockage connecté à votre espace de travail Log Analytics. Ici, j’ai ajouté un compte de stockage à l’espace de travail Exchange créé précédemment.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 > [!NOTE]
 > Vous pouvez modifier l’étendue de ces événements dans la solution Service Fabric en cliquant sur **Données basées sur les 7 derniers jours** dans la partie supérieure du tableau de bord. Vous pouvez également afficher les événements générés durant les 7 derniers jours, la journée précédente ou les 6 dernières heures. Vous pouvez aussi sélectionner **Personnalisé** pour spécifier une plage de dates personnalisée.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur les événements Service Fabric.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

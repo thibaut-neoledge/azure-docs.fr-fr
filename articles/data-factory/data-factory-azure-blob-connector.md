@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
+ms.sourcegitcommit: 3ec7a230a4051d23e741360f3f714cccadf85902
+ms.openlocfilehash: 511021e43e7d5b3247744592cbeab67769758375
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 ## <a name="supported-sources-and-sinks"></a>Sources et récepteurs pris en charge
 Consultez le tableau [Banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des banques de données prises en charge en tant que sources et réceptrices pour l’activité de copie. Vous pouvez déplacer des données à partir de toute banque de données source prise en charge vers le stockage blob Azure ou à partir du stockage blob Azure vers toute banque de données réceptrice prise en charge.
 
-L’activité de copie prend en charge la copie des données depuis/vers des comptes de stockage Azure à usage général et le stockage d’objets blob à chaud/froid. L’activité prend en charge la lecture à partir d’objets blob de blocs, d’annexe ou de page, mais l’écriture vers les objets blob de blocs uniquement.
+L’activité de copie prend en charge la copie des données depuis/vers des comptes de stockage Azure à usage général et le stockage d’objets blob à chaud/froid. L’activité prend en charge la lecture à partir d’objets blob de blocs, d’annexe ou de page, mais l’écriture vers les objets blob de blocs uniquement. Notez que l’offre Stockage Premium Azure n’est pas prise en charge en tant que récepteur donné sous ses objets blob de pages.
 
 ## <a name="create-pipeline"></a>Création d’un pipeline
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis un stockage blob Azure à l’aide de différents outils/API.  
@@ -422,7 +423,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | fileName |Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n'est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l'exemple suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la section propriété partitionedBy](#using-partitionedBy-property) pour obtenir plus d’informations et des exemples. |Non |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](#specifying-textformat), [format Json](#specifying-jsonformat), [format Avro](#specifying-avroformat), [format Orc](#specifying-orcformat) et [format Parquet](#specifying-parquetformat). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour en savoir plus, voir [Prise en charge de la compression](#specifying-compression). |Non |
 
 ### <a name="using-partitionedby-property"></a>Utilisation de la propriété partitionedBy
 Comme mentionné dans la section précédente, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy** , les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
@@ -521,9 +522,4 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

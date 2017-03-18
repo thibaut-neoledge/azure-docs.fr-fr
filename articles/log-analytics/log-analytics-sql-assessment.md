@@ -1,6 +1,6 @@
 ---
-title: "Optimiser votre environnement avec la solution d’évaluation de SQL dans Log Analytics | Microsoft Docs"
-description: "Avec Azure Log Analytics, la solution d’évaluation de SQL permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers."
+title: Optimisation de votre environnement SQL Server avec Azure Log Analytics | Microsoft Docs
+description: "Avec Azure Log Analytics, la solution d’évaluation de SQL permet d’évaluer les risques et l’intégrité de vos environnements de serveurs SQL à intervalles réguliers."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: fc8b2d74737bc334d5c4f27782d4e0d46adbcb18
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimiser votre environnement avec la solution d’évaluation de SQL dans Log Analytics
+# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimisez votre environnement SQL Server avec la solution d’évaluation de SQL dans Log Analytics
+
 La solution d’évaluation de SQL permet d’évaluer les risques et l’intégrité de vos environnements de serveurs à intervalles réguliers. Cet article vous aidera à installer la solution pour vous permettre de prendre les mesures correctives pour régler des problèmes potentiels.
 
 Cette solution fournit une liste hiérarchisée de recommandations propres à votre infrastructure de serveurs déployée. Les recommandations sont classées en six domaines pour vous aider à rapidement mesurer les risques et prendre les mesures correctives appropriées.

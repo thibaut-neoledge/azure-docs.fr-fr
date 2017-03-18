@@ -1,6 +1,6 @@
 ---
-title: "Ajouter et gérer plusieurs annuaires Azure Active Directory | Microsoft Docs"
-description: "Instructions et meilleures pratiques concernant l’ajout et la gestion de vos annuaires Azure Active Directory, les annuaires étant considérés comme une ressource entièrement indépendante"
+title: "Caractéristiques des annuaires Azure Active Directory | Microsoft Docs"
+description: "Gérer vos annuaires Azure Active Directory en les considérant comme des ressources entièrement indépendantes"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Ajouter et gérer plusieurs annuaires Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Comprendre l’interaction de plusieurs annuaires Azure Active Directory
 Dans Azure Active Directory (Azure AD), chaque annuaire est une ressource entièrement indépendante : un homologue complet et logiquement indépendant des autres annuaires que vous gérez. Il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
 ## <a name="resource-independence"></a>Indépendance des ressources
@@ -49,9 +51,4 @@ Pour ajouter un annuaire Azure AD dans le portail Azure Classic, sélectionnez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir une vue d’ensemble des problèmes de licence Azure AD et pour découvrir les meilleures pratiques, voir l’article [Qu’est-ce que la gestion des licences Azure Active Directory ?](active-directory-licensing-what-is.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

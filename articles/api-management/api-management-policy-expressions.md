@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
@@ -35,12 +36,12 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 > -   Pour télécharger les instructions de stratégies utilisées dans cette vidéo, consultez le référentiel GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> Syntaxe  
+##  <a name="Syntax"></a> Syntaxe  
  Les expressions à instruction unique sont entre `@(expression)`, où `expression` est une instruction d’expression C# bien formée.  
   
  Les expressions à instructions multiples sont entre `@{expression}`. Tous les chemins d’accès de code au sein des expressions à instructions multiples doivent se terminer par une instruction `return`.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> Exemples  
+##  <a name="PolicyExpressionsExamples"></a> Exemples  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> Utilisation  
+##  <a name="PolicyExpressionsUsage"></a> Utilisation  
  Les expressions peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des [stratégies](api-management-policies.md) de la Gestion des API, sauf si la référence de la stratégie le spécifie autrement.  
   
 > [!IMPORTANT]
 >  Notez que, lorsque vous utilisez des expressions de stratégie, elles ne font l’objet que d’une vérification limitée lors de la définition de la stratégie. Étant donné que les expressions sont exécutées à l’exécution dans le pipeline inbound ou outbound par la passerelle, toutes les exceptions d’exécution générées par les expressions de stratégie entraîneront une erreur d’exécution dans l’appel d’API.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie  
+##  <a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie  
  Le tableau suivant liste les types .NET Framework et leurs membres qui sont autorisés dans les expressions de stratégie.  
   
 |Type CLR|Méthodes prises en charge|  
@@ -166,12 +167,12 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 |System.Xml.Linq.XText|Toutes les méthodes sont prises en charge.|  
 |System.Xml.XmlNodeType|Tout|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> Variable de contexte  
+##  <a name="ContextVariables"></a> Variable de contexte  
  Une variable nommée `context` est implicitement disponible dans toutes les [expressions](api-management-policy-expressions.md#Syntax) de stratégie. Ses membres fournissent des informations pertinentes pour la `\request`. Tous les membres `context` sont en lecture seule.  
   
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Déploiement<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Demande<br /><br /> Response<br /><br /> Abonnement<br /><br /> Tracing: bool<br /><br /> Utilisateur<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Déploiement<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Demande<br /><br /> RequestId: string<br /><br /> Réponse<br /><br /> Abonnement<br /><br /> Tracing: bool<br /><br /> Utilisateur<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|  
@@ -201,8 +202,4 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
 

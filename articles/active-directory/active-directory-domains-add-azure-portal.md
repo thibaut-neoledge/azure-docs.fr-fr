@@ -3,7 +3,7 @@ title: "Ajout de votre nom de domaine personnalisé dans la version préliminair
 description: "Comment ajouter les noms de domaine de votre société à Azure Active Directory et comment vérifier le nom de domaine."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: d97e57c6-578a-4929-8fb8-42e858a711c7
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
 > 
 > 
 
-Votre organisation utilise un ou plusieurs noms de domaine pour mener ses activités, et vos utilisateurs se connectent au réseau d’entreprise en utilisant votre nom de domaine d’entreprise. Lorsque vous utilisez la version préliminaire d’Azure Active Directory (Azure AD), vous pouvez également ajouter votre nom de domaine d’entreprise à ce dernier. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Cette tâche vous permet d’attribuer des noms de répertoire qui sont familiers à vos utilisateurs, comme ‘alice@contoso.com.’. Le processus est simple :
+Votre organisation utilise un ou plusieurs noms de domaine pour mener ses activités, et vos utilisateurs se connectent au réseau d’entreprise en utilisant votre nom de domaine d’entreprise. Lorsque vous utilisez la version préliminaire d’Azure Active Directory (Azure AD), vous pouvez également ajouter votre nom de domaine d’entreprise à ce dernier. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Elle vous permet d’affecter des noms de répertoire avec lesquels vos utilisateurs sont familiarisés, comme « alice@contoso.com ». Le processus est simple :
 
 1. Ajoutez le nom de domaine personnalisé à votre annuaire.
 2. Ajoutez une entrée DNS pour le nom de domaine au niveau du bureau d’enregistrement de noms de domaine.
@@ -83,10 +84,5 @@ Si votre organisation utilise plusieurs noms de domaine personnalisés, tels que
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Gérer les noms de domaine personnalisés](active-directory-domains-manage-azure-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

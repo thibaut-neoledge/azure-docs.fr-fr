@@ -1,23 +1,7 @@
----
-title: "Chiffrement d’une machine virtuelle Azure| Microsoft Docs"
-description: "Cet article vous explique comment chiffrer une machine virtuelle Azure après avoir reçu une alerte du Centre de sécurité Azure."
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- title: Chiffrement d’une machine virtuelle Azure | Microsoft Docs description : Cet article vous explique comment chiffrer une machine virtuelle Azure après avoir reçu une alerte du Centre de sécurité Azure.
+services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
@@ -26,7 +10,7 @@ Le Centre de sécurité Azure émet une alerte si certaines de vos machines virt
 ![Recommandation de chiffrement de disque](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Les informations contenues dans ce document s’appliquent à la version préliminaire du Centre de sécurité Azure.
+> Les informations contenues dans ce document concernent le chiffrement des machines virtuelles sans utiliser une clé de chiffrement à clé (requise pour la sauvegarde des machines virtuelles à l’aide d’Azure Backup). Consultez l’article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) (Utilisation d’Azure Disk Encryption pour les machines virtuelles Azure exécutées sous Windows et Linux) pour plus d’informations sur l’utilisation d’une clé de chiffrement à clé pour prendre en charge Azure Backup pour les machines virtuelles Azure chiffrées.
 >
 >
 
@@ -178,9 +162,3 @@ Dans ce document, vous avez appris à chiffrer une machine virtuelle Azure. Pour
 * [Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure](security-center-managing-and-responding-alerts.md) – Découvrez comment gérer et résoudre les alertes de sécurité
 * [FAQ du Centre de sécurité Azure](security-center-faq.md) – Forum Aux Questions concernant l’utilisation de ce service
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

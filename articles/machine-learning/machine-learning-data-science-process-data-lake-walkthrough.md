@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
-ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -45,8 +46,8 @@ Seules les principales étapes sont décrites dans cette procédure pas à pas. 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ces rubriques, vous devez disposer des éléments suivants :
 
-* Un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Recommandé] Visual Studio 2013 ou 2015. Si vous ne disposez pas d’une de ces versions, vous pouvez télécharger une édition Community gratuite [ici](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Cliquez sur le bouton **Télécharger Community 2015** situé sous la section Visual Studio. 
+* Un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* [Recommandé] Visual Studio 2013 ou ultérieur. Si vous ne disposez pas d’une de ces versions, vous pouvez télécharger une version Community gratuite depuis [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > Vous pouvez également utiliser le portail Azure au lieu de Visual Studio pour envoyer des requêtes Azure Data Lake. Nous fournissons des instructions sur la façon de procéder avec Visual Studio et sur le portail dans la section intitulée **Traiter des données avec U-SQL**. 
@@ -145,8 +146,8 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
-L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()**. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data_{\*\}.csv** pour lire les 12 fichiers de course. 
+### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
+L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container_name@blob_storage_account_name.blob.core.windows.net/nom_objet_blob**, peut être extrait à l’aide de **Extractors.Csv()**.. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data_{\*\}.csv** pour lire les 12 fichiers de course. 
 
     ///Read in Trip data
     @trip0 =
@@ -169,7 +170,7 @@ L’emplacement des données dans l’objet blob Azure, auquel il est fait réf�
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dans la mesure où la première ligne comporte des en-têtes, nous devons les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide de **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name** ou dans un compte de stockage d’objets blob Azure à l’aide de **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
+Dans la mesure où la première ligne comporte des en-têtes, nous devons les supprimer et modifier les types de colonne afin de les adapter. Vous pouvez enregistrer les données traitées dans Azure Data Lake Storage à l’aide de **swebhdfs://nom_data_lake_storage.azuredatalakestorage.net/nom_dossier/nom_fichier** ou dans un compte de stockage Blob Azure à l’aide de **wasb://container_name@blob_storage_account_name.blob.core.windows.net/nom_objet_blob**. 
 
     // change data types
     @trip =
@@ -207,7 +208,7 @@ De même, nous pouvons lire les jeux de données relatifs aux tarifs. Cliquez av
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>Contrôles de qualité des données
+### <a name="quality"></a>Contrôles de qualité des données
 Une fois les tables relatives aux courses et aux tarifs lues, les contrôles de qualité des données peuvent être effectués de la façon suivante. Les fichiers CSV qui en résultent peuvent être sortis dans le stockage d’objets blob Azure ou Azure Data Lake Store. 
 
 Recherchez le nombre de médaillons et le nombre unique de médaillons :
@@ -279,7 +280,7 @@ Recherchez les valeurs manquantes pour certaines variables :
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>Exploration des données
+### <a name="explore"></a>Exploration des données
 Nous pouvons effectuer des explorations de données pour obtenir une meilleure compréhension des données.
 
 Recherchez la répartition des courses avec et sans pourboire :
@@ -346,7 +347,7 @@ Recherchez les percentiles de distance de la course :
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>Joindre des tables relatives aux courses et aux tarifs
+### <a name="join"></a>Joindre des tables relatives aux courses et aux tarifs
 Les tables relatives aux courses et aux tarifs peuvent être jointes par médaillon, hack_license et pickup_time.
 
     //join trip and fare table
@@ -388,7 +389,7 @@ Pour chaque niveau de nombre de passagers, calculez le nombre d’enregistrement
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>Échantillonnage des données
+### <a name="sample"></a>Échantillonnage des données
 Tout d’abord, nous sélectionnons aléatoirement 0,1 % des données à partir de la table jointe :
 
     //random select 1/1000 data for modeling purpose
@@ -428,7 +429,7 @@ Ensuite, nous procédons à un échantillonnage stratifié par variable binaire 
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>Exécuter des travaux U-SQL
+### <a name="run"></a>Exécuter des travaux U-SQL
 Lorsque vous avez terminé la modification de scripts U-SQL, vous pouvez les envoyer au serveur à l’aide de votre compte Azure Data Lake Analytics. Cliquez sur **Data Lake**, **Envoyer le travail**, sélectionnez votre **Compte Analytics**, choisissez **Parallélisme**, puis cliquez sur le bouton **Envoyer**.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -685,10 +686,5 @@ Le parcours d’apprentissage du [processus TDSP (Team Data Science Process)](ht
 * [Processus TDSP (Team Data Science Process) en action : utilisation de clusters Hadoop HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
 * [Processus TDSP (Team Data Science Process) : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 * [Vue d’ensemble du processus de science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

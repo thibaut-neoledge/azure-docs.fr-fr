@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
-ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
-Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent du niveau tarifaire (**Gratuit**, **De base** ou **Standard**) de la Recherche Azure.
+Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent du niveau tarifaire (**Gratuit**, **De base** ou **Standard**) de la [Recherche Azure](search-create-service-portal.md).
 
 * **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées.
 * Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
 * Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard apparaît dans : S1, S2, S3 et S3 Haute densité (S3 HD).
 
-Tous les niveaux peuvent être [configurés dans le portail](search-create-service-portal.md). Un service se voit initialement allouer une partition et un réplica, mais vous pouvez augmenter l’allocation des ressources une fois le service créé.
-
-Un service est approvisionné à un niveau spécifique. Si vous avez besoin de passer au niveau supérieur pour obtenir plus de capacité, vous devez approvisionner un nouveau service (il n’existe pas de mise à niveau sur place). Pour en savoir plus sur ces niveaux, consultez [Choisir une référence (SKU) ou un niveau tarifaire](search-sku-tier.md). Pour en savoir plus sur le réglage de capacité dans un service que vous avez déjà approvisionné, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md).
+> [!NOTE]
+> Un service est approvisionné à un niveau spécifique. Si vous avez besoin de passer au niveau supérieur pour obtenir plus de capacité, vous devez approvisionner un nouveau service (il n’existe pas de mise à niveau sur place). Pour en savoir plus, consultez [Choisir une référence (SKU) ou un niveau tarifaire](search-sku-tier.md). Pour en savoir plus sur le réglage de capacité dans un service que vous avez déjà approvisionné, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md).
+>
 
 ## <a name="per-subscription-limits"></a>Limites par abonnement
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -93,9 +94,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 
 * 2 clés administrateur maximum par service
 * 50 clés de requête maximum par service
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

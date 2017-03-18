@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4b8343ac07aa7b2c0771a723306cf1f875cb6147
-ms.openlocfilehash: aeba32d62458f948c7aa99294c90519979924d57
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-batch-diagnostic-logging"></a>Journalisation des diagnostics Azure Batch
+# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Consigner des événements pour l’analyse et l’évaluation de diagnostic des solutions Batch
+
 Comme de nombreux services Azure, le service Batch génère des événements de journal pour certaines ressources pendant la durée de vie de celles-ci. Vous pouvez activer les journaux de diagnostic Azure Batch afin d’enregistrer des événements pour des ressources telles que des pools et des tâches, puis utiliser les journaux à des fins d’évaluation et d’analyse des diagnostics. Des événements tels qu’une création de pool, une suppression de pool, un démarrage de tâche ou un achèvement de tâche sont consignés dans les journaux de diagnostic de Batch.
 
 > [!NOTE]
@@ -105,9 +108,4 @@ Outre le stockage d’événements du journal de diagnostic dans un compte de St
 [task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
 [task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
 [task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

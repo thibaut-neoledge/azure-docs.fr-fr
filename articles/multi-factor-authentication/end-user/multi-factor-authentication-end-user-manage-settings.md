@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 02/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: b5c031d1e36508e7622ba516d7bb8b2cfb3d7a89
+ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
+ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -30,7 +31,7 @@ Selon la façon dont vous utilisez Azure Multi-Factor Authentication, vous pouve
 Si votre administrateur informatique vous a envoyé une URL spécifique ou des étapes pour gérer la vérification en deux étapes, suivez ces instructions. Dans le cas contraire, suivez celles indiquées ci-dessous. Si vous effectuez ces étapes et que vous ne voyez pas les mêmes options, cela signifie que votre entreprise ou établissement scolaire a personnalisé le portail. Demandez à l’administrateur de vous donner le lien à votre portail Azure Multi-Factor Authentication.
 
 1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. En haut de la page, sélectionnez **profil**.  
+2. Sélectionnez votre nom de compte dans la partie supérieure droite, puis sélectionnez **profil**.  
 3. Sélectionnez **Vérification de sécurité supplémentaire**.  
 
     ![MyApps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
@@ -56,15 +57,17 @@ Il est important de configurer un numéro de téléphone d’authentification se
 2. Entrez votre numéro de téléphone secondaire dans la zone de texte.  
 3. Sélectionnez **Enregistrer**. Vos modifications sont apportées.  
 
+## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Exiger une nouvelle vérification en deux étapes sur un appareil marqué comme approuvé
+
+Selon les paramètres de votre organisation, vous pouvez disposer d’une case à cocher libellée « Ne plus me le demander pendant **X** jours » lorsque vous effectuez une vérification en deux étapes sur votre navigateur. Si vous cochez cette case, puis que vous perdez votre appareil ou que vous pensez que l’intégrité de votre compte est compromise, vous devez restaurer la vérification en deux étapes pour tous vos appareils. 
+
+1. Sur la page de vérification de sécurité supplémentaire, sélectionnez l’option **Restaurer Multi-Factor Authentication sur des appareils précédemment définis comme étant de confiance**.
+2. La prochaine fois que vous vous connecterez sur l’un des appareils, vous serez invité à effectuer une vérification en deux étapes. 
+
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Comment nettoyer Microsoft Authenticator sur mon ancien appareil et le transférer vers un autre ?
 Quand vous désinstallez l’application de votre appareil ou que vous réinitialisez ce dernier, l’application n’est pas désactivée sur le serveur principal. Pour plus d’informations, consultez [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Obtenir des conseils de dépannage et de l’aide dans [Problèmes avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md)
 * Configurer des [mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) pour les applications qui ne prennent pas en charge la vérification en deux étapes
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

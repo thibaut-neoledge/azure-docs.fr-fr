@@ -1,5 +1,5 @@
 ---
-title: "Limitations actuelles d’Azure Active Directory B2B Collaboration | Microsoft Docs"
+title: "Limitations d’Azure Active Directory B2B Collaboration | Microsoft Docs"
 description: "Limitations actuelles de la version préliminaire d’Azure Active Directory B2B Collaboration"
 services: active-directory
 documentationcenter: 
@@ -16,31 +16,41 @@ ms.workload: identity
 ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 4dae74740d8fd00d36492e5a9fad8848b5d03952
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0e71a840d4f503779131ee4a21fe6063d33185f1
+ms.openlocfilehash: cbefca2d45a332cd57cfea49dfeaa300426d5502
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
-# <a name="azure-active-directory-b2b-collaboration-current-limitations"></a>Limitations actuelles d’Azure Active Directory B2B Collaboration
+# <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitations d’Azure AD B2B Collaboration
+Azure Active Directory (Azure AD) B2B Collaboration subit actuellement les limitations décrites dans le présent article.
 
-1. Les API d’invitation d’Azure Active Directory (Azure AD) B2B Collaboration sont en test de version bêta. Cette surface d’API est la direction à suivre, toutefois, comme toutes les versions bêta, elle est soumise au contrat de l’espace de noms de la version bêta. L’API sera intégrée à une version numérotée lors de la publication de la version grand public.
-2. La possibilité d’une double authentification multifacteur (MFA) si votre partenaire dispose déjà d’une stratégie d’authentification multifacteur dans B2B Collaboration sera exécutée et gérée par l’organisation à l’origine de l’invitation. Ceci est souhaitable, car cela couvre toutes les identités et vous permet de contrôler la force d’authentification de vos invités dans B2B Collaboration. Toutefois, si vous avez un partenaire qui dispose déjà de l’authentification multifacteur configurée et appliquée, ses utilisateurs devront peut-être procéder à l’authentification multifacteur une fois dans leur organisation d’origine, puis à nouveau dans votre organisation. Dans les versions à venir, nous lancerons une stratégie qui vous permettra d’approuver l’authentification multifacteur de certains partenaires pour éviter le problème relatif à l’authentification multifacteur double.
-3. Activation instantanée Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent en général dans une instance de répertoire et doivent être répliquées entre toutes les instances. Nous avons observé que, dans certains cas, le laps de temps limité nécessaire à l’exécution de la réplication peut entraîner des problèmes qui se manifestent sous forme de problèmes d’autorisation. Nous nous efforçons de réduire/d’éliminer cet ensemble de problèmes avant la Mise à la disposition générale. En attendant, vous ne devriez pas rencontrer ce problème, mais si c’est le cas, l’actualisation ou une nouvelle tentative permet en général de résoudre le problème.
+## <a name="invitation-apis-are-in-preview"></a>Les API d’invitation sont en version préliminaire
+Nous visons pour demain la surface d’API. Toutefois, comme toutes les versions préliminaires, l’API est soumise au contrat d’espace de noms des versions préliminaires. L’API sera intégrée à une version numérotée lors de la publication de la version grand public (GA).
 
-  ## <a name="next-steps"></a>Étapes suivantes
+## <a name="possible-double-multi-factor-authentication"></a>Risque de redondance de l’authentification multifacteur
+Cette redondance peut se produire si votre partenaire a déjà mis en place une stratégie Azure Multi-Factor Authentication. L’authentification multifacteur pour les utilisateurs B2B Collaboration est exécutée et gérée dans l’organisation à l’origine de l’invitation. Cette authentification est souhaitable car elle couvre toutes les identités et vous permet de contrôler la force d’authentification de vos invités dans B2B Collaboration.
 
-  Consultez les autres articles sur la collaboration B2B d'Azure AD :
+Toutefois, si un partenaire a déjà configuré et appliqué Multi-Factor Authentication, ses utilisateurs devront peut-être effectuer l’authentification une fois dans leur organisation d’origine, puis de nouveau dans les vôtres.
 
-  * [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
-  * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
-  * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
-  * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
-  * [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)
-  * [Code B2B Collaboration et exemples PowerShell](active-directory-b2b-code-samples.md)
-  * [Configurer des applications SaaS pour B2B Collaboration](active-directory-b2b-configure-saas-apps.md)
-  * [Jetons utilisateur B2B Collaboration](active-directory-b2b-user-token.md)
-  * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
-  * [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
+Dans une prochaine version, nous prévoyons de présenter une stratégie qui vous évitera le problème de double authentification en choisissant de faire confiance à l’authentification multi-facteur du partenaire.
+
+## <a name="instant-on"></a>Activation instantanée
+Dans les flux B2B Collaboration, nous ajoutons des utilisateurs au répertoire et les mettons à jour de manière dynamique pendant l’échange d’invitation, l’affectation d’application, etc. Les mises à jour et les écritures se produisent d’ordinaire dans une instance de répertoire et doivent être répliquées entre toutes les instances. Nous avons observé que le laps de temps limité nécessaire à l’exécution de la réplication peut entraîner des problèmes d’autorisation. Nous déployons tous les efforts nécessaires pour réduire ou éliminer ces problèmes avant la publication de notre version grand public. Vous risquez de rencontrer ces problèmes entre-temps, mais vous pouvez actualiser ou effectuer de nouvelles tentatives pour tenter de les résoudre.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez les autres articles sur la collaboration B2B d'Azure AD :
+
+* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
+* [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
+* [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
+* [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)
+* [Code B2B Collaboration et exemples PowerShell](active-directory-b2b-code-samples.md)
+* [Configurer des applications SaaS pour B2B Collaboration](active-directory-b2b-configure-saas-apps.md)
+* [Jetons utilisateur B2B Collaboration](active-directory-b2b-user-token.md)
+* [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
+* [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
 

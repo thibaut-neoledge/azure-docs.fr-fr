@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ Chaque lien de l’homologation de réseaux virtuels présente l’ensemble des 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. Dans un navigateur, accédez à http://portal.azure.com et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Dans cet exemple, l’UtilisateurA est doté d’autorisations administratives pour l’AbonnementA et l’UtilisateurB est doté d’autorisations administratives pour l’AbonnementB.
+2. Dans cet exemple, l’UtilisateurA est doté d’autorisations administratives pour l’AbonnementA et l’UtilisateurB est doté d’autorisations administratives pour l’AbonnementB. Les deux abonnements sont associés au même locataire Azure Active Directory. Vous ne pouvez pas créer d’homologation entre des abonnements associés à différents locataires Azure Active Directory.
 3. Dans le portail, cliquez sur **Parcourir** et choisissez **Réseaux virtuels**. Cliquez sur le réseau virtuel pour lequel vous souhaitez configurer l’homologation.
 4. Dans le panneau du réseau virtuel sélectionné, cliquez sur **Contrôle d’accès**, puis cliquez sur **Ajouter**, comme illustré dans l’image suivante :
 

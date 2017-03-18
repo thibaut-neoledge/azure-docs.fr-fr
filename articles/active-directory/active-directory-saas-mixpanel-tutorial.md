@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58c8e1b6bcc90ecf5cc630aa0249ea811c1d1174
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 87b409c73e68a6ed6ea84e92b15bbcf3ed82d5f9
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Mixpanel da
 L’intégration de Mixpanel dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Mixpanel
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Mixpanel (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Mixpanel via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,25 +38,24 @@ Pour configurer l’intégration d’Azure AD avec Mixpanel, vous avez besoin d
 * Un abonnement Azure AD
 * Un abonnement Mixpanel pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test. 
 
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Mixpanel à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-mixpanel-from-the-gallery"></a>Ajout de Mixpanel à partir de la galerie
+## <a name="add-mixpanel-from-the-gallery"></a>Ajouter Mixpanel à partir de la galerie
 Pour configurer l’intégration de Mixpanel à Azure AD, vous devez ajouter Mixpanel à votre liste d’applications SaaS gérées à partir de la galerie.
 
 **Pour ajouter Mixpanel à partir de la galerie, procédez comme suit :**
@@ -78,8 +78,8 @@ Pour configurer l’intégration de Mixpanel à Azure AD, vous devez ajouter Mi
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_01.png)
 7. Dans le volet des résultats, sélectionnez **Mixpanel**, puis cliquez sur **Terminé** pour ajouter l’application.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Mixpanel avec un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec Mixpanel, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Mixpanel équivalent dans Azure AD. En d’autres termes, il faut établir une relation entre l’utilisateur Azure AD et l’utilisateur Mixpanel associé.
 
@@ -88,13 +88,13 @@ Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme va
 Pour configurer et tester l’authentification unique Azure AD avec Mixpanel, vous devez suivre les blocs élémentaires suivants :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Mixpanel](#creating-a-mixpanel-test-user)** pour avoir un équivalent de Britta Simon dans Mixpanel lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application Mixpanel.
+L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de la configurer dans votre application Mixpanel.
 
 **Pour configurer l’authentification unique Azure AD avec Mixpanel, procédez comme suit :**
 
@@ -106,23 +106,20 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     ![Configurer l’authentification unique](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_03.png) 
 3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_04.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_04.png)
+  1. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Mixpanel, au format suivant : **« https://mixpanel.com/login/ »**.
 
-    a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application Mixpanel, au format suivant : **« https://mixpanel.com/login/ »**.
+    >[!NOTE]
+    >Inscrivez-vous à l’adresse [https://mixpanel.com/register/](https://mixpanel.com/register/) pour configurer vos informations d’identification et contactez [l’équipe du support technique Mixpanel](mailto:support@Mixpanel.com) pour activer les paramètres d’authentification unique de votre client. Vous pouvez également obtenir la valeur de l’URL de connexion si nécessaire à partir de votre équipe de support Mixpanel.
+    >
 
-    > [AZURE.NOTE] Inscrivez-vous à l’adresse [https://mixpanel.com/register/](https://mixpanel.com/register/) pour configurer vos informations d’identification et contactez [l’équipe du support technique Mixpanel](mailto:support@Mixpanel.com) pour activer les paramètres d’authentification unique de votre client. Vous pouvez également obtenir la valeur de l’URL de connexion si nécessaire à partir de votre équipe de support Mixpanel.
-
-    b. Cliquez sur **Suivant**.
-
-
+  2. Cliquez sur **Suivant**.
 
 1. Sur la page **Configurer l’authentification unique sur Mixpanel** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_05.png) 
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur. 
-   
-    b. Cliquez sur **Next**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur. 
+  2. Cliquez sur **Suivant**.
 2. Dans une autre fenêtre de navigateur, connectez-vous à votre application Mixpanel en tant qu’administrateur.
 3. Dans le coin gauche en bas de la page, cliquez sur l’icône représentant un petit **engrenage** . 
    
@@ -144,9 +141,10 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+* Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -164,38 +162,28 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) 
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png)  
+ 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) 
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.  
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_07.png) 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**.
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-mixpanel-test-user"></a>Création d’un utilisateur de test Mixpanel
+### <a name="create-a-mixpanel-test-user"></a>Créer un utilisateur de test Mixpanel
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Mixpanel. 
 
 1. Connectez-vous à votre site d’entreprise Mixpanel en tant qu’administrateur.
@@ -208,8 +196,8 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 L’utilisateur recevra un courrier électronique pour configurer son profil.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Mixpanel.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Mixpanel.
 
 ![Affecter des utilisateurs][200] 
 
@@ -229,8 +217,8 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Mixpanel dans le volet d’accès, vous êtes connecté automatiquement à votre application Mixpanel.
 
@@ -255,9 +243,4 @@ Lorsque vous cliquez sur la mosaïque Mixpanel dans le volet d’accès, vous ê
 [203]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

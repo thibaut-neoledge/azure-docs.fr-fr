@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 4e127422e2ad4644aa028cdb987ca5bafa101868
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="query-the-azure-batch-service-efficiently"></a>Interroger efficacement le service Azure Batch
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
+
 Vous allez découvrir ici comment augmenter les performances de votre application Azure Batch en réduisant la quantité de données retournées par le service lorsque vous interrogez des travaux, des tâches et des nœuds de calcul à l’aide de la bibliothèque [Batch .NET][api_net].
 
 Presque toutes les applications Batch doivent effectuer un certain type de surveillance ou une autre opération qui interroge le service Batch, souvent à intervalles réguliers. Par exemple, pour déterminer s’il existe des tâches restant en file d’attente dans un travail, vous devez obtenir des données sur chaque tâche du travail. Pour déterminer l’état des nœuds dans le pool, vous devez obtenir des données sur chacun d’eux. Cet article explique comment exécuter ces requêtes de la manière la plus efficace.
@@ -289,9 +292,4 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

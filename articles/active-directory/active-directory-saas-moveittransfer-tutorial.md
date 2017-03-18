@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3207124143dbc148206ea33d6030a986226c4d66
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: e1b4cda400205611a957c23d9a9b90c918d260f3
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer MOVEit Tran
 L’intégration de MOVEit Transfer à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à MOVEit Transfer
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à MOVEit Transfer (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à MOVEit Transfer via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -80,23 +81,23 @@ Pour configurer l’intégration de MOVEit Transfer avec Azure AD, vous devez aj
    
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec MOVEit Transfer, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur MOVEit Transfer équivalent dans Azure AD. En d’autres termes, il faut établir une relation entre l’utilisateur Azure AD et l’utilisateur MOVEit Transfer associé.
 
 Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans MOVEit Transfer.
 
-Pour configurer et tester l’authentification unique Azure AD avec MOVEit Transfer, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec MOVEit Transfer, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test MOVEit Transfer](#creating-a-moveit-transfer-test-user)** pour avoir un équivalent de Britta Simon dans MOVEit Transfer lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application MOVEit Transfer.
+### <a name="configuring-azure-ad-sso"></a>Configuration de l’authentification unique Azure AD
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure Classic et la configurer dans votre application MOVEit Transfer.
 
 **Pour configurer l’authentification unique Azure AD avec MOVEit Transfer, procédez comme suit :**
 
@@ -109,71 +110,58 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
+  1. Dans la zone de texte **URL de connexion** , entrez l’URL de connexion avec votre propre domaine.
+  2. Dans la zone de texte **Identificateur** , tapez l’URL de l’ID d’entité.
+  3. Dans la zone de texte **URL de réponse** , tapez une URL de l’interface Assertion Consumer.
+  4. Cliquez sur **Suivant**.
    
-    a. Dans la zone de texte **URL de connexion** , entrez l’URL de connexion avec votre propre domaine.
-   
-    b. Dans la zone de texte **Identificateur** , tapez l’URL de l’ID d’entité.
-   
-    c. Dans la zone de texte **URL de réponse** , tapez une URL de l’interface Assertion Consumer.
-   
-    d. Cliquez sur **Suivant**
-   
-   > [!NOTE]
-   > Notez que vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, vous pouvez vous référer à l’étape 8 pour plus d’informations ou contacter [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
-   > 
-   > 
+   >[!NOTE]
+   >Notez que vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, vous pouvez vous référer à l’étape 8 pour plus d’informations ou contacter [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
+   >  
 4. Dans la page **Configurer l’authentification unique sur MOVEit Transfer**, procédez comme suit et cliquez sur **Suivant** :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
-   
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
+  ![Configurer l’authentification unique](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)  
+  1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 5. Connectez-vous à votre client MOVEit Transfer en tant qu’administrateur.
 6. Dans le volet de navigation gauche, cliquez sur **Paramètres**.
    
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+  ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 7. Cliquez sur le lien **Single Signon** (Authentification unique) qui se trouve sous **Security Policies -> User Auth** (Stratégies de sécurité -> Authentification de l’utilisateur).
    
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+  ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 8. Cliquez sur le lien URL de métadonnées pour télécharger le document de métadonnées.
    
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
-   
-   * Vérifiez que le paramètre **entityID** correspond à **l’identificateur** de l’étape 3.
-   * Vérifiez que l’URL de l’emplacement **AssertionConsumerService** correspond à **l’URL de réponse** de l’étape 3.
+  ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)   
+  * Vérifiez que le paramètre **entityID** correspond à **l’identificateur** de l’étape 3.
+  * Vérifiez que l’URL de l’emplacement **AssertionConsumerService** correspond à **l’URL de réponse** de l’étape 3.
      
-     ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 9. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité) pour ajouter un nouveau fournisseur d’identité fédéré.
    
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
+  ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 10. Cliquez sur **Parcourir...** pour sélectionner le fichier de métadonnées que vous avez téléchargé à l’étape 4, puis cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité) pour charger le fichier téléchargé. 
     
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+  ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 11. Sélectionnez **Oui** sous **Activé** dans la page **Edit Federated Identity Provider Settings** (Modifier les paramètres du fournisseur d’identité fédéré...), puis cliquez sur **Enregistrer**.
     
-     ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
-12. Dans la page **Edit Federated Identity Provider User Settings** (Modifier les paramètres utilisateur du fournisseur d’identité fédéré), effectuez les actions suivantes, puis cliquez sur **Enregistrer**.
-    
-    a. Sélectionnez **SAML NameID** comme **Nom de connexion**.
-    
-    b. Sélectionnez **Autres** comme **Nom complet** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.microsoft.com/identity/claims/displayname.
-    
-    c. Sélectionnez **Autres** comme **Email** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress.
-    
-    d. Sélectionnez **Oui** sous **Auto-create account on signon** (Créer automatiquement un compte lors de l’authentification).
-    
-    e. Cliquez sur le bouton **Enregistrer** .
-    
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+   ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+12. Dans la page **Edit Federated Identity Provider User Settings** (Modifier les paramètres utilisateur du fournisseur d’identité fédéré), effectuez les actions suivantes, puis cliquez sur **Enregistrer**.   
+  1. Sélectionnez **SAML NameID** comme **Nom de connexion**. 
+  2. Sélectionnez **Autres** comme **Nom complet** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.microsoft.com/identity/claims/displayname. 
+  3. Sélectionnez **Autres** comme **Email** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress. 
+  4. Sélectionnez **Oui** sous **Auto-create account on signon** (Créer automatiquement un compte lors de l’authentification). 
+  5. Cliquez sur le bouton **Enregistrer** .
+ 
+   ![Configurer l’authentification unique côté application](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
 13. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
     
     ![Authentification unique Azure AD][10]
 14. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
     
-    ![Authentification unique Azure AD][11]
+   ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -193,48 +181,37 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.  
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-moveit-transfer-test-user"></a>Création d’un utilisateur de test MOVEit Transfer
+### <a name="create-a-moveit-transfer-test-user"></a>Créer un utilisateur de test MOVEit Transfer
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans MOVEit Transfer. MOVEit Transfer prend en charge l’approvisionnement juste-à-temps que vous avez activé.
 
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à MOVEit Transfer s’il n’existe pas déjà.
 
-> [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique MOVEit Transfer.
-> 
+>[!NOTE]
+>Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique MOVEit Transfer.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à MOVEit Transfer.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à MOVEit Transfer.
 
 ![Affecter des utilisateurs][200]
 
@@ -254,7 +231,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque MOVEit Transfer dans le volet d’accès, vous êtes connecté automatiquement à votre application MOVEit Transfer.
@@ -280,9 +257,4 @@ Lorsque vous cliquez sur la mosaïque MOVEit Transfer dans le volet d’accès, 
 [203]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

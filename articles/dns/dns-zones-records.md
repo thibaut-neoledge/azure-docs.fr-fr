@@ -11,16 +11,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: 4950edd41f58175c675afb7a7ea9f14fe4a59b26
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="dns-zones-and-records"></a>Enregistrements et zones DNS
+# <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
 Cette page explique les concepts clés des domaines, zones DNS, enregistrements DNS et jeux d’enregistrements, et la manière dont ces éléments sont pris en charge dans le DNS Azure.
 
@@ -58,19 +60,19 @@ Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’
 
 Les jeux d’enregistrements CNAME ne peuvent pas coexister avec d’autres jeux d’enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un jeu d’enregistrements CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps.
 
-Étant donné que l’extrémité de la zone (nom = '@')) contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone.
+Étant donné que le sommet (apex) de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau du sommet (apex) de la zone.
 
 Ces contraintes résultent des normes DNS. Il ne s’agit pas de limites posées par le DNS Azure.
 
 ### <a name="ns-records"></a>Enregistrements NS
 
-Un jeu d’enregistrements NS est créé automatiquement au sommet (apex) de chaque zone (name = '@'),, qui est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).  Vous pouvez modifier la durée de vie de ce jeu d’enregistrements, mais pas les enregistrements. Ceux-ci sont en effet préconfigurés pour faire référence aux serveurs de noms le DNS Azure affectés à la zone.
+Un jeu d’enregistrements NS est créé automatiquement au sommet (apex) de chaque zone (nom = « @ »), et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).  Vous pouvez modifier la durée de vie de ce jeu d’enregistrements, mais pas les enregistrements. Ceux-ci sont en effet préconfigurés pour faire référence aux serveurs de noms le DNS Azure affectés à la zone.
 
 Vous pouvez créer et supprimer d’autres enregistrements NS de la zone, mais non au sommet (apex) de celle-ci.  Cela permet de configurer des zones enfants (voir [Délégation de sous-domaines dans Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
 
 ### <a name="soa-records"></a>Enregistrements SOA
 
-Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (name = '@'),, qui est automatiquement supprimé lorsque la zone est supprimée.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
+Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (nom = « @ »), et est automatiquement supprimé lors de la suppression de la zone.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
 
 Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la propriété « host » qui est préconfigurée pour faire référence au nom du serveur de noms principal fourni par le DNS Azure.
 
@@ -86,7 +88,7 @@ Les normes RFC en matière de DNS ont initialement introduit un type d’enregis
 
 Les [enregistrements SRV](https://en.wikipedia.org/wiki/SRV_record) sont utilisés par différents services pour spécifier les emplacements de serveur. Lorsque vous spécifiez un enregistrement SRV dans le DNS Azure :
 
-* Le *service* et le *protocole* doivent être spécifiés dans le nom du jeu d’enregistrements, préfixés avec des traits de soulignement.  Par exemple, « \_sip.\_TCP.Name ».  Pour un enregistrement au sommet (apex) de la zone, il est inutile de spécifier '@' dans son nom. Utilisez simplement le service et le protocole, par exemple, « \_sip.\_TCP ».
+* Le *service* et le *protocole* doivent être spécifiés dans le nom du jeu d’enregistrements, préfixés avec des traits de soulignement.  Par exemple, « \_sip.\_TCP.Name ».  Pour un enregistrement au sommet (apex) de la zone, il est inutile de spécifier « @ » dans son nom. Utilisez simplement le service et le protocole, par exemple, « \_sip.\_tcp ».
 * La *priorité*, le *poids*, le *port* et la *cible* sont spécifiés en tant que paramètres de chaque enregistrement dans le jeu d’enregistrements.
 
 ### <a name="txt-records"></a>Enregistrements TXT
@@ -139,10 +141,5 @@ Les limites par défaut suivantes s’appliquent lors de l’utilisation du DNS 
 
 * Pour commencer à utiliser le DNS Azure, découvrez comment [créer une zone DNS](dns-getstarted-create-dnszone-portal.md) et [créer des enregistrements DNS](dns-getstarted-create-recordset-portal.md).
 * Pour migrer une zone DNS, découvrez comment [importer et exporter un fichier de zone DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

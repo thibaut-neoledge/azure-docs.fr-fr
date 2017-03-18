@@ -1,5 +1,5 @@
 ---
-title: "Utiliser les tâches de préparation et lancement - Azure Batch | Microsoft Docs"
+title: "Créer des tâches pour préparer et exécuter des travaux sur les nœuds de calcul - Azure Batch | Microsoft Docs"
 description: "Utilisez des tâches de préparation au niveau du travail afin de minimiser le transfert de données vers les nœuds de calcul Azure Batch, et utilisez des tâches de validation pour le nettoyage des nœuds une fois le travail achevé."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Exécution de tâches de préparation et de fin du travail sur les nœuds de calcul Azure Batch
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch
+
  Un travail Azure Batch nécessite souvent une certaine forme de préparation avant l’exécution de ses tâches, ainsi qu’une maintenance ultérieure une fois les tâches terminées. Vous pouvez avoir besoin de télécharger les données d’entrée de tâche communes dans vos nœuds de calcul, ou de charger les données de sortie de tâche dans le stockage Azure une fois le travail terminé. Vous pouvez effectuer ces opérations à l’aide des tâches de **préparation du travail** et de **validation du travail**.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>En quoi consistent les tâches de préparation et de validation du travail ?
@@ -222,9 +225,4 @@ Rédigé par l’un des membres de l’équipe Azure Batch, ce billet décrit pl
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

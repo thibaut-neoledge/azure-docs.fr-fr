@@ -1,5 +1,5 @@
 ---
-title: "Réinitialiser le mot de passe d’un utilisateur dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+title: "Réinitialisation de mot de passe dans Azure Active Directory | Microsoft Docs"
 description: "Explique comment réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Réinitialiser le mot de passe d’un utilisateur dans la version préliminaire d’Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory - Version préliminaire publique
 > [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-users-reset-password-azure-portal.md)
+> * [portail Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portail Azure Classic](active-directory-create-users-reset-password.md)
 >
 >
@@ -47,9 +49,4 @@ ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 * [Modifier les informations de travail d’un utilisateur](active-directory-users-work-info-azure-portal.md)
 * [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 * [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

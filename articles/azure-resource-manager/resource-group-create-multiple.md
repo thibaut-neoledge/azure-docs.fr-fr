@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 02/24/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
+ms.sourcegitcommit: 04a3866f88b00486c30c578699d34cd6e8e776d7
+ms.openlocfilehash: 056ee5e67b9a6d396586c53b04d50f89e6fbb560
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,45 +27,53 @@ Cette rubrique explique comment procéder à une itération dans votre modèle A
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex et length
 Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez définir un objet **copy** qui indique le nombre d’itérations à effectuer. La copie respecte le format suivant :
 
-    "copy": { 
-        "name": "websitescopy", 
-        "count": "[parameters('count')]" 
-    } 
+```json
+"copy": { 
+    "name": "websitescopy", 
+    "count": "[parameters('count')]" 
+} 
+```
 
 Vous pouvez accéder à la valeur d’itération actuelle avec la fonction **copyIndex()**. L’exemple suivant utilise copyIndex avec la fonction concat pour construire un nom.
 
-    [concat('examplecopy-', copyIndex())]
+```json
+[concat('examplecopy-', copyIndex())]
+```
 
 Lorsque vous créez plusieurs ressources à partir d'un tableau de valeurs, vous pouvez utiliser la fonction **length** pour spécifier le nombre. Vous passez le tableau en paramètre de la fonction length.
 
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
+```json
+"copy": {
+    "name": "websitescopy",
+    "count": "[length(parameters('siteNames'))]"
+}
+```
 
 Vous pouvez appliquer l’objet de copie uniquement à une ressource de niveau supérieur. Vous ne pouvez pas l’appliquer à une propriété sur un type de ressource ou à une ressource enfant. Toutefois, cette rubrique montre comment spécifier plusieurs éléments pour une propriété et créer plusieurs instances d’une ressource enfant. L’exemple de pseudo-code suivant indique où la copie peut être appliquée :
 
+```json
+"resources": [
+  {
+    "type": "{provider-namespace-and-type}",
+    "name": "parentResource",
+    "copy": {  
+      /* yes, copy can be applied here */
+    },
+    "properties": {
+      "exampleProperty": {
+        /* no, copy cannot be applied here */
+      }
+    },
     "resources": [
       {
-        "type": "{provider-namespace-and-type}",
-        "name": "parentResource",
-        "copy": {  
-          /* yes, copy can be applied here */
-        },
-        "properties": {
-          "exampleProperty": {
-            /* no, copy cannot be applied here */
-          }
-        },
-        "resources": [
-          {
-            "type": "{provider-type}",
-            "name": "childResource",
-            /* copy can be applied if resource is promoted to top level */ 
-          }
-        ]
+        "type": "{provider-type}",
+        "name": "childResource",
+        /* copy can be applied if resource is promoted to top level */ 
       }
-    ] 
+    ]
+  }
+] 
+```
 
 Même si vous ne pouvez pas appliquer la **copy** à une propriété, cette propriété fait toujours partie des itérations de la ressource qui contient la propriété. Par conséquent, vous pouvez utiliser **copyIndex()** au sein de la propriété pour spécifier des valeurs.
 
@@ -81,27 +90,29 @@ Vous pouvez utiliser l’opération de copie pour créer plusieurs instances d�
 
 Utilisez le modèle suivant :
 
-    "parameters": { 
-      "count": { 
-        "type": "int", 
-        "defaultValue": 3 
-      } 
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', copyIndex())]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[parameters('count')]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          }
-      } 
-    ]
+```json
+"parameters": { 
+  "count": { 
+    "type": "int", 
+    "defaultValue": 3 
+  } 
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', copyIndex())]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[parameters('count')]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
+      }
+  } 
+]
+```
 
 ## <a name="offset-index-value"></a>Valeur d’index de décalage
 Dans l’exemple précédent, la valeur d’index s’étend de 0 à 2. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction **copyIndex()**, par exemple **copyIndex(1)**. Le nombre d’itérations à effectuer est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Ainsi, si nous utilisons le même modèle que dans l’exemple précédent, mais que nous spécifions **copyIndex(1)** , nous déploierons trois sites web nommés :
@@ -119,115 +130,119 @@ L’opération copy se révèle utile lorsque vous travaillez avec des tableaux,
 
 Utilisez le modèle suivant :
 
-    "parameters": { 
-      "org": { 
-         "type": "array", 
-         "defaultValue": [ 
-             "Contoso", 
-             "Fabrikam", 
-             "Coho" 
-          ] 
-      }
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[length(parameters('org'))]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          } 
+```json
+"parameters": { 
+  "org": { 
+     "type": "array", 
+     "defaultValue": [ 
+         "Contoso", 
+         "Fabrikam", 
+         "Coho" 
+      ] 
+  }
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[length(parameters('org'))]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
       } 
-    ]
+  } 
+]
+```
 
 Bien sûr, vous pouvez définir le nombre de copies sur une valeur autre que la longueur du tableau. Par exemple, vous pouvez créer un tableau avec de nombreuses valeurs et ensuite passer une valeur de paramètre qui spécifie le nombre d'éléments du tableau à déployer. Dans ce cas, vous définissez le nombre de copies comme indiqué dans le premier exemple. 
 
 ## <a name="depend-on-resources-in-a-loop"></a>En fonction des ressources dans une boucle
 Vous pouvez spécifier qu’une ressource est déployée après une autre ressource à l’aide de l’élément **dependsOn**. Pour déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément **dependsOn**. L’exemple suivant montre comment déployer trois comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le **nom** de l’élément de copie a la valeur **storagecopy** et que l’élément **dependsOn** pour la machine virtuelle est également défini sur **storagecopy**.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "resources": [
-            {
-                "apiVersion": "2015-06-15",
-                "type": "Microsoft.Storage/storageAccounts",
-                "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-                "location": "[resourceGroup().location]",
-                "properties": {
-                    "accountType": "Standard_LRS"
-                 },
-                "copy": { 
-                     "name": "storagecopy", 
-                     "count": 3 
-                  }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": [
+        {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accountType": "Standard_LRS"
             },
-            {
-                "apiVersion": "2015-06-15", 
-                "type": "Microsoft.Compute/virtualMachines", 
-                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-                "dependsOn": ["storagecopy"],
-                ...
+            "copy": { 
+                "name": "storagecopy", 
+                "count": 3 
             }
-        ],
-        "outputs": {}
-    }
+        },
+        {
+            "apiVersion": "2015-06-15", 
+            "type": "Microsoft.Compute/virtualMachines", 
+            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+            "dependsOn": ["storagecopy"],
+            ...
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="create-multiple-instances-of-a-child-resource"></a>Création de plusieurs instances d’une ressource enfant
 Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que vous définissez généralement comme imbriquée dans une autre ressource, vous devez plutôt créer cette ressource comme une ressource de niveau supérieur. Vous définissez la relation avec la ressource parente par le biais des propriétés **type** et **name**.
 
 Par exemple, supposons que vous définissez généralement un jeu de données comme une ressource enfant dans une fabrique de données.
 
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
     "resources": [
     {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-        "resources": [
-        {
-            "type": "datasets",
-            "name": "exampleDataSet",
-            "dependsOn": [
-                "exampleDataFactory"
-            ],
-            ...
-        }
-    }]
-
-Pour créer plusieurs instances de jeux de données, vous devez le déplacer en dehors de la fabrique de données. Le jeu de données doit être au même niveau que la fabrique de données, mais il est toujours une ressource enfant de la fabrique de données. Vous conservez la relation entre le jeu de données et la fabrique de données par le biais des propriétés **type** et **name**. Étant donné que le type ne peut plus peut être déduit à partir de sa position dans le modèle, vous devez fournir le type qualifié complet au format suivant :
-
- **{espace de noms du fournisseur de ressource}/{type de ressource parente}/{type de ressource enfant}** 
-
-Pour établir une relation parent/enfant avec une instance de la fabrique de données, fournissez un nom pour le jeu de données incluant le nom de la ressource parente. Utilisez le format de nom suivant :
-
-**{nom de la ressource parente}/{nom de ressource enfant}**.  
-
-L’exemple ci-après illustre l’implémentation :
-
-    "resources": [
-    {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-    },
-    {
-        "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+        "type": "datasets",
+        "name": "exampleDataSet",
         "dependsOn": [
             "exampleDataFactory"
         ],
-        "copy": { 
-            "name": "datasetcopy", 
-            "count": "3" 
-        } 
         ...
-    }]
+    }
+}]
+```
+
+Pour créer plusieurs instances de jeux de données, vous devez le déplacer en dehors de la fabrique de données. Le jeu de données doit être au même niveau que la fabrique de données, mais il est toujours une ressource enfant de la fabrique de données. Vous conservez la relation entre le jeu de données et la fabrique de données par le biais des propriétés **type** et **name**. Étant donné que le type ne peut plus peut être déduit à partir de sa position dans le modèle, vous devez fournir le type qualifié complet au format : `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+
+Pour établir une relation parent/enfant avec une instance de la fabrique de données, fournissez un nom pour le jeu de données incluant le nom de la ressource parente. Utilisez le format : `{parent-resource-name}/{child-resource-name}`.  
+
+L’exemple ci-après illustre l’implémentation :
+
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
+},
+{
+    "type": "Microsoft.DataFactory/datafactories/datasets",
+    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+    "dependsOn": [
+        "exampleDataFactory"
+    ],
+    "copy": { 
+        "name": "datasetcopy", 
+        "count": "3" 
+    } 
+    ...
+}]
+```
 
 ## <a name="create-multiple-instances-when-copy-wont-work"></a>Création de plusieurs instances lorsque l’opération copy ne fonctionne pas
 Vous pouvez uniquement utiliser l’opération **copy** sur les types de ressources, et non sur les propriétés d’un type de ressource. Cette exigence peut poser des problèmes lorsque vous souhaitez créer plusieurs instances d’un élément faisant partie d’une ressource. Il arrive souvent qu’un utilisateur souhaite créer plusieurs disques de données pour une machine virtuelle. Vous ne pouvez pas utiliser **copy** avec les disques de données, car **dataDisks** est une propriété sur la machine virtuelle et ne constitue pas son propre type de ressource. Au lieu de cela, vous créez un tableau avec autant de disques de données que nécessaire et vous transmettez le nombre réel de disques de données à créer. Dans la définition de la machine virtuelle, vous utilisez la fonction **take** pour obtenir uniquement le nombre d’éléments que vous souhaitez réellement obtenir à partir du tableau.
@@ -236,7 +251,7 @@ Un exemple complet de ce modèle est illustré dans le modèle de [création d�
 
 Les sections pertinentes du modèle de déploiement sont présentées dans l’exemple suivant. Une grande partie du modèle a été supprimée pour mettre l’accent sur les sections impliquées dans la création dynamique d’un nombre de disques de données. Notez le paramètre **numDataDisks** , qui vous permet de transmettre le nombre de disques à créer. 
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -338,7 +353,7 @@ Les sections pertinentes du modèle de déploiement sont présentées dans l’e
 
 Vous pouvez utiliser la fonction **take** et l’élément **copy** ensemble lorsque vous avez besoin de créer plusieurs instances d’une ressource avec un nombre variable d’éléments pour une propriété. Par exemple, supposons que vous devez créer plusieurs machines virtuelles, mais que chaque machine virtuelle possède un nombre différent de disques de données. Pour donner à chaque disque de données un nom qui identifie la machine virtuelle associée, placez votre baie de disques de données dans un modèle séparé. Incluez les paramètres pour le nom de la machine virtuelle et le nombre de disques de données à retourner. Dans la section des sorties, retournez le nombre d’éléments spécifiés.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -382,7 +397,7 @@ Vous pouvez utiliser la fonction **take** et l’élément **copy** ensemble lor
 
 Dans le modèle parent, vous incluez des paramètres pour le nombre de machines virtuelles et un tableau pour le nombre de disques de données pour chaque machine virtuelle.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -404,7 +419,7 @@ Dans le modèle parent, vous incluez des paramètres pour le nombre de machines 
 
 Dans la section de ressources, déployez plusieurs instances du modèle qui définit les disques de données. 
 
-```
+```json
 {
   "apiVersion": "2016-09-01",
   "name": "[concat('nested-', copyIndex())]",
@@ -430,7 +445,7 @@ Dans la section de ressources, déployez plusieurs instances du modèle qui déf
 
 Dans la section de ressources, déployez plusieurs instances de la machine virtuelle. Pour les disques de données, référencez le déploiement imbriqué qui contient le nombre correct de disques de données et les noms corrects des disques de données.
 
-```
+```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[concat('myvm', copyIndex())]",
@@ -454,7 +469,7 @@ Même si la création de plusieurs instances d’un type de ressource est pratiq
 
 Tout d’abord, créez le modèle imbriqué qui crée le compte de stockage. Notez qu’il accepte un paramètre de tableau pour les URI d’objets blob. Vous utilisez ce paramètre pour un aller-retour de toutes les valeurs à partir des déploiements précédents. La sortie du modèle est un tableau qui concatène le nouvel URI d’objet blob selon l’URI précédent.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -495,7 +510,7 @@ Tout d’abord, créez le modèle imbriqué qui crée le compte de stockage. Not
 
 Maintenant, créez le modèle parent qui a une seule instance statique du modèle imbriqué, et exécute des boucles avec les autres instances du modèle imbriqué. Pour chaque instance du déploiement en boucle, transmettez un tableau qui contient la sortie du déploiement précédent.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -552,10 +567,5 @@ Maintenant, créez le modèle parent qui a une seule instance statique du modèl
 * Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
 * Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

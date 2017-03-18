@@ -16,35 +16,34 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: 716d19be09085db91c17d7ed76422e05d164d137
+ms.sourcegitcommit: 6c8d7dc7d070ce65cbe637359bf7933eac68ce23
+ms.openlocfilehash: ae87c3487abd194c524d067a2a9b7bb9f8df8ac7
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Partage externe dans Office 365 et Azure Active Directory B2B Collaboration
 
-Le partage externe dans Office&365; (OneDrive, SharePoint Online, groupes unifiés, etc.) et à l’aide d’Azure Active Directory (Azure AD) B2B Collaboration revient techniquement au même. Tous les partages externes, (à l’exception de OneDrive / SharePoint Online), notamment les **invités dans des groupes unifiés** utilisent déjà l’API d'invitation Azure AD B2B Collaboration pour le partage.
+Le partage externe dans Office 365 (OneDrive, SharePoint Online, groupes unifiés, etc.) et Azure Active Directory (Azure AD) B2B Collaboration revient techniquement au même. Tous les partages externes (à l’exception de OneDrive/SharePoint Online), notamment les invités dans des groupes unifiés utilisent déjà les API d’invitation Azure AD B2B Collaboration pour le partage.
 
-OneDrive/SharePoint Online (ODSP) possède un gestionnaire d’invitation distinct, car la prise en charge par ODSP du partage externe a démarré avant qu’il ne soit automatiquement pris en charge dans le cadre de l’infrastructure Azure AD. Au fil du temps, plusieurs fonctionnalités ont été ajoutées au partage externe ODSP, ce qui a attiré de des millions d'utilisateurs exploitant le modèle de partage intégré. Nous travaillons avec ODSP à intégrer les API d’invitation Azure AD B2B (abordées dans cette documentation), pour exploiter tous les avantages de bout en bout toutes les innovations dans les expériences proposées par Azure AD. En attendant, il existe quelques différences subtiles entre le fonctionnement du partage externe ODSP et le fonctionnement d’Azure AD B2B :
+OneDrive/SharePoint Online possède un gestionnaire d’invitation distinct. La prise en charge par OneDrive/SharePoint Online du partage externe a démarré avant qu’Azure AD ne propose sa prise en charge. Au fil du temps, plusieurs fonctionnalités ont été ajoutées au partage externe OneDrive/SharePoint Online, ce qui a attiré de des millions d’utilisateurs exploitant le modèle de partage intégré. Nous travaillons avec OneDrive/SharePoint Online en vue d’intégrer les API d’invitation Azure AD B2B (abordées dans cette documentation) afin d’unifier le processus pour tous les produits et d’adopter toutes les innovations proposées par Azure AD. En attendant, il existe quelques différences subtiles entre le fonctionnement du partage externe OneDrive/SharePoint Online et le fonctionnement d’Azure AD B2B Collaboration :
 
-1. ODSP ajoute l’utilisateur au répertoire une fois qu'il a utilisé son invitation. Par conséquent, vous ne verrez pas l'utilisateur dans le portail Azure jusqu'à ce qu'il utilise son invitation. Si un utilisateur est invité par un autre site dans l’intervalle, une nouvelle invitation est générée. Toutefois, lorsque vous utilisez B2B Collaboration, nous ajoutons l’utilisateur immédiatement à l'invitation afin qu’il soit affiché partout.
+- OneDrive/SharePoint Online ajoute les utilisateurs au répertoire une fois qu’ils ont utilisé leurs invitations. Par conséquent, avant qu’il utilise son invitation, l’utilisateur n’apparaît pas dans le portail Azure AD. Si un autre site invite un utilisateur dans l’intervalle, une nouvelle invitation est générée. En revanche, lorsque vous utilisez Azure AD B2B Collaboration, les utilisateurs sont ajoutés immédiatement sur invitation afin qu’ils apparaissent partout.
 
-2. L’expérience d'utilisation de l'invitation dans ODSP diffère de celle de B2B Collaboration.
+- L’expérience d’utilisation de l’invitation dans OneDrive/SharePoint Online est différente de celle d’Azure AD B2B Collaboration. Une fois l’invitation utilisée, les expériences sont similaires.
 
-3. Toutefois, lorsque l’utilisateur a utilisé l’invitation, les deux expériences sont similaires.
+- Les utilisateurs invités par Azure AD B2B Collaboration peuvent être sélectionnés à partir des boîtes de dialogue de partage de OneDrive/SharePoint Online. Les utilisateurs invités par OneDrive/SharePoint Online apparaissent également dans Azure AD une fois qu’ils ont utilisé leur invitation.
 
-4. Les utilisateurs invités par B2B Collaboration peuvent être sélectionnés dans les boîtes de dialogue de partage ODSP. Les utilisateurs invités par ODSP apparaissent également dans Azure AD une fois qu’ils ont utilisé leur invitation.
+- Pour utiliser le partage externe dans OneDrive/SharePoint Online avec Azure AD B2B Collaboration d’une manière gérée, administrée et contrôlée, définissez le paramètre OneDrive/SharePoint Online de partage externe sur **Autoriser le partage uniquement avec des utilisateurs externes figurant déjà dans le répertoire**. Les utilisateurs peuvent accéder à des sites partagés de manière externe et choisir parmi les collaborateurs externes ajoutés par l’administrateur. L’administrateur peut ajouter les collaborateurs externes par le biais des API d’invitation B2B Collaboration.
 
-5. Pour utiliser le partage externe dans ODSP avec B2B Collaboration d'une manière gérée, administrée et contrôlée, définissez le paramètre de partage ODSP externe sur **Autoriser le partage uniquement avec des utilisateurs externes figurant déjà dans le répertoire**. Les utilisateurs peuvent accéder à des sites partagés de manière externe et choisir parmi les collaborateurs externes ajoutés par l'administrateur. L’administrateur peut ajouter les collaborateurs externes par le biais des API d’invitation B2B Collaboration.
-
-![le paramètre de partage ODSP externe](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
+![Paramètre OneDrive/SharePoint Online de partage externe](media/active-directory-b2b-o365-external-user/odsp-sharing-setting.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)
@@ -54,9 +53,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Jetons utilisateur B2B Collaboration](active-directory-b2b-user-token.md)
 * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
 * [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

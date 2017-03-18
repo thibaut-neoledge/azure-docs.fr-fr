@@ -1,5 +1,5 @@
 ---
-title: "Personnalisation des mappages d’attributs | Microsoft Docs"
+title: "Personnalisation des mappages d’attributs Azure AD | Microsoft Docs"
 description: "Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b73c9dc8edd341898ede06f67f383b86010e1e39
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="customizing-attribute-mappings"></a>Personnalisation des mappages d’attributs
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’approvisionnement d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS tierce, le portail de gestion Azure contrôle ses valeurs d’attributs sous forme d’une configuration appelée « mappage d’attributs ».
 
 Il existe un ensemble préconfiguré de mappages d’attributs entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets, tels que des groupes ou des contacts. <br> 
@@ -49,7 +51,7 @@ Si vous souhaitez personnaliser les mappages d’attributs ou rétablir la confi
 
 Des applications SaaS nécessitent certains mappages d’attributs pour fonctionner correctement. Dans la table d’attributs, les mappages d’attributs associés ont **Oui** comme valeur pour l’attribut **Requis**. Si un mappage d’attributs est requis, vous ne pouvez pas le supprimer. Dans ce cas, l’option **Supprimer** n’est pas disponible.
 
-Pour modifier un mappage d’attribut existant, sélectionnez le mappage et cliquez sur **Modifier**. Ceci affiche une page de boîte de dialogue qui vous permet de modifier le mappage d’attribut sélectionné.
+Pour modifier un mappage d’attribut existant, sélectionnez le mappage, puis cliquez sur **Modifier**. Ceci affiche une page de boîte de dialogue qui vous permet de modifier le mappage d’attribut sélectionné.
 
 ![Modifier le mappage d’attribut][4]  
 
@@ -59,12 +61,12 @@ Avec les mappages d’attributs, vous contrôlez la façon dont les attributs so
 * **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Azure AD.
 * **Constant** : l’attribut cible est renseigné avec une chaîne spécifique que vous avez spécifiée.
 * **Expression** : l’attribut cible est renseigné en fonction du résultat d’une expression semblable à un script. 
-  Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il sera renseigné avec la valeur par défaut que vous spécifiez.
+  Pour plus d’informations, consultez l’article [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il est renseigné avec la valeur par défaut que vous spécifiez.
 
 Outre ces quatre types de mappages d’attributs de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** . L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur ni dans Azure AD, ni sur l’objet cible.
 
-Microsoft Azure AD fournit une implémentation très efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. En effet, une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. Pour cette raison, il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
+Microsoft Azure AD fournit une implémentation efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. Il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
@@ -80,9 +82,4 @@ Microsoft Azure AD fournit une implémentation très efficace d’un processus d
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+ms.sourcegitcommit: 149896e820d7873752fc40ee8270a8fc00ee0b0c
+ms.openlocfilehash: 96c5d5aafaff24d618f930a1b5fcedcc5c52a9a9
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer 8x8 Virtual
 L’intégration de 8x8 Virtual Office dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à 8x8 Virtual Office.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à 8x8 Virtual Office (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à 8x8 Virtual Office via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,15 +38,14 @@ Pour configurer l’intégration d’Azure AD à 8x8 Virtual Office, vous avez 
 * Un abonnement Azure AD
 * Un abonnement 8x8 Virtual Office pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
+    To test the steps in this tutorial, you should follow these recommendations:
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Microsoft Azure AD dans un environnement de test.
@@ -80,23 +80,23 @@ Pour configurer l’intégration de 8x8 Virtual Office avec Azure AD, vous devez
    
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Microsoft Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Microsoft Azure AD avec 8x8 Virtual Office au moyen d’un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configurer et tester l’authentification unique Microsoft Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Microsoft Azure AD avec 8x8 Virtual Office avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur 8x8 Virtual Office équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur 8x8 Virtual Office associé doit être établie.
 
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans 8x8 Virtual Office.
 
-Pour configurer et tester l’authentification unique Microsoft Azure AD avec 8x8 Virtual Office, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Microsoft Azure AD avec 8x8 Virtual Office, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test 8x8 Virtual Office](#creating-a-8x8-virtual-office-test-user)** pour avoir un équivalent de Britta Simon dans 8x8 Virtual Office lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Microsoft Azure AD
-Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et configurer l’authentification unique dans votre application 8x8 Virtual Office.
+### <a name="configuring-microsoft-azure-ad-sso"></a>Configuration de l’authentification unique Microsoft Azure AD
+Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et la configurer dans votre application 8x8 Virtual Office.
 
 **Pour configurer l’authentification unique Microsoft Azure AD avec 8x8 Virtual Office, procédez comme suit :**
 
@@ -109,17 +109,13 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
-   
-    a. Dans la zone de texte **URL de réponse**, tapez : `https://sso.8x8.com/saml2`
-   
-    b. Cliquez sur **Suivant**
+  1. Dans la zone de texte **URL de réponse**, tapez : `https://sso.8x8.com/saml2`
+  2. Cliquez sur **Suivant**.
 4. Dans la page **Configurer l’authentification unique sur 8x8 Virtual Office**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_05.png)
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
+  2. Cliquez sur **Suivant**.
 5. Connectez-vous à votre client 8x8 Virtual Office en tant qu’administrateur.
 6. Sélectionnez **Virtual Office Account Mgr** (Gestionnaire de compte Virtual Office) dans le volet Applications.
    
@@ -141,16 +137,15 @@ Dans cette section, vous allez activer l’authentification unique Microsoft Azu
     ![Configurer l’authentification côté application](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
     
     ![Configurer l’authentification côté application](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_007.png)
-12. Cliquez sur le bouton **Explorateur** pour télécharger le certificat que vous avez téléchargé à partir d’Azure AD.
-13. Cliquez sur le bouton **Enregistrer** .
-14. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+12. Cliquez sur le bouton **Explorateur** pour charger le certificat que vous avez téléchargé à partir d’Azure AD, puis cliquez sur le bouton **Enregistrer**.
+13. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
     
     ![Authentification unique Azure AD][10]
-15. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
+14. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
     
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -170,47 +165,36 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_05.png)
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_06.png)
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**.  
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_07.png)
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_08.png)
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**.
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-8x8-virtual-office-test-user"></a>Création d’un utilisateur de test 8x8 Virtual Office
+### <a name="create-a-8x8-virtual-office-test-user"></a>Créer un utilisateur de test 8x8 Virtual Office
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans 8x8 Virtual Office. 8x8 Virtual Office prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à 8x8 Virtual Office s’il n’existe pas déjà. 
 
-> [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique 8x8 Virtual Office.
-> 
+>[!NOTE]
+>Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique 8x8 Virtual Office. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à 8x8 Virtual Office.
 
 ![Affecter des utilisateurs][200]
@@ -231,8 +215,8 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique avec Microsoft Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Microsoft Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette 8x8 Virtual Office dans le volet d’accès, vous devez être connecté automatiquement à votre application 8x8 Virtual Office.
 
@@ -257,9 +241,4 @@ Lorsque vous cliquez sur la vignette 8x8 Virtual Office dans le volet d’accès
 [203]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

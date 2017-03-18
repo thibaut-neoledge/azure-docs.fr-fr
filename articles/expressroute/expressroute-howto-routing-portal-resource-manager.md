@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 879207512b7c61d48dcd25342ab88121258ba853
+ms.sourcegitcommit: 65eef5df67adc089f52d8478fd1bb37a481d7d2a
+ms.openlocfilehash: 8d0b9f142ef274667692009bf8dafeb1f2f0f9c7
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -41,6 +42,7 @@ Cet article vous guide tout au long des étapes de création et de gestion d'une
 ## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
+* Si vous prévoyez d’utiliser une clé partagée/le hachage MD5, veillez à l’utiliser aux deux extrémités du tunnel et à limiter le nombre de caractères à 25 maximum.
 
 Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement IPVPN, à l’image de MPLS), votre fournisseur de connectivité configure et gère le routage pour vous. 
 
@@ -189,10 +191,5 @@ Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto
 * Pour plus d'informations sur les workflows ExpressRoute, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 * Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 * Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

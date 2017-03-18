@@ -14,24 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="best-practices-for-azure-functions"></a>Bonnes pratiques pour Azure Functions
+# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Conseils pour améliorer les performances et la fiabilité d’Azure Functions
 
 ##<a name="overview"></a>Vue d'ensemble
 
-Cet article fournit un ensemble de bonnes pratiques à prendre en compte durant l’implémentation des applications de fonction. Gardez à l’esprit que votre application de fonction Azure est un service d’application Azure. Ainsi, pensez à suivre ces bonnes pratiques.
+Cet article fournit un ensemble de bonnes pratiques à prendre en compte durant l’implémentation des applications de fonction. Gardez à l’esprit que votre Function App est une application dans Azure App Service. Les meilleures pratiques App Service s’appliquent donc également.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Éviter les fonctions volumineuses dont l’exécution prend beaucoup de longtemps
 
-Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Une fonction peut être volumineuse en raison des nombreuses dépendances Node.js. L’importation de ces dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances Node.js peuvent être chargées explicitement par plusieurs instructions `require()` dans votre code. Elles peuvent également être implicites, en fonction d’un module spécifique chargé par votre code possédant ses propres dépendances internes.  
+Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Une fonction peut être volumineuse en raison des nombreuses dépendances Node.js. L’importation de ces dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances Node.js peuvent être chargées explicitement par plusieurs instructions `require()` dans votre code. Les dépendances peuvent également être implicites, en fonction d’un module spécifique chargé par votre code possédant ses propres dépendances internes.  
 
 Chaque fois que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui collaborent et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate. Il est courant que les webhooks demandent une réponse immédiate.
 
@@ -71,8 +74,6 @@ Si un élément de file d’attente a déjà été traité, permettez à votre f
 Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation sur les [déclencheurs de file d’attente Stockage Azure](functions-bindings-storage-queue.md#trigger).
  
 
-
-
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Ne pas mélanger code de test et code de production dans la même application de fonction
 
 Les fonctions d’une application de fonction partagent des ressources. Par exemple, la mémoire est partagée. Si vous utilisez une application de fonction en production, n’y ajoutez pas de ressources et de fonctions de test. Cela peut entraîner une surcharge inattendue pendant l’exécution du code de production.
@@ -103,10 +104,6 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
 * [Informations de référence pour les développeurs F# sur Azure Functions](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+* [Modèles et pratiques d’optimisations des performances HTTP](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 
 

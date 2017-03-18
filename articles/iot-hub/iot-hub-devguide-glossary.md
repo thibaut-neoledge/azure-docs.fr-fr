@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
-ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,8 +30,8 @@ Cet article répertorie certains termes courants utilisés dans les articles rel
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
 L’[interface de ligne de commande Azure (Azure CLI)](../xplat-cli-install.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (version préliminaire)
-L’interface [Azure CLI 2.0 (version préliminaire)](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+L’[interface de ligne de commande Azure 2.0 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.
 
 
 ## <a name="azure-iot-device-sdks"></a>Kits de développement logiciel (SDK) d’appareils Azure IoT
@@ -61,7 +62,7 @@ Le [Stockage Azure](../storage/storage-introduction.md) est une solution de stoc
 Dans le contexte de [IoT Hub](#iot-hub), une application principale est une application qui se connecte à l’un points de terminaison côté service sur un IoT Hub. Par exemple, une application principale peut récupérer des messages [appareil-à-cloud](#device-to-cloud) ou gérer le [registre des identités](#identity-registry). En règle générale, une application principale s’exécute dans le cloud mais, dans de nombreux didacticiels, les applications principales sont des applications console qui s’exécutent sur votre ordinateur de développement local.
 
 ## <a name="built-in-endpoints"></a>Points de terminaison intégrés
-Chaque IoT Hub inclut un [point de terminaison](iot-hub-devguide-endpoints.md) intégré compatible Event Hubs. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages Appareil vers cloud à partir de ce point de terminaison.
+Chaque IoT Hub inclut un [point de terminaison](iot-hub-devguide-endpoints.md) intégré compatible avec Event Hub. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages Appareil vers cloud à partir de ce point de terminaison.
 
 ## <a name="cloud-gateway"></a>Passerelle cloud
 Une passerelle cloud assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). Une passerelle cloud est hébergée dans le cloud, contrairement à un [passerelle de champ](#field-gateway) qui s’exécute localement sur vos appareils. Un cas d’utilisation classique d’une passerelle cloud est l’implémentation d’une traduction de protocole pour vos appareils.
@@ -256,8 +257,3 @@ Vous pouvez utiliser un service d’émission de jeton pour implémenter un méc
 
 ## <a name="x509-client-certificate"></a>Certificat client X.509
 Un appareil peut utiliser un certificat X.509 pour s’authentifier auprès du [IoT Hub](#iot-hub). L’utilisation d’un certificat X.509 est une alternative à l’utilisation d’un [jeton SAP](#shared-access-signature).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

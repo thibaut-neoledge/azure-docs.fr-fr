@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: c8a53cbbfdb0f3d5d5b4b3a1e70f2c08d50c6004
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
+ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel.  Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication.  Ces fonctionnalités ne sont pas disponibles dans toutes les versions d’Azure Multi-Factor Authentication.
 
-| Fonctionnalité | Description | |:--- |:--- || | [Alerte fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. | | [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s’authentifier une seule fois en « contournant » l’authentification multifacteur. | | [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d’utiliser vos propres enregistrements ou messages d’accueil avec l’authentification multifacteur. | | [Mise en cache](#caching-in-azure-multi-factor-authentication) |La mise en cache vous permet de définir une période spécifique pour que les tentatives d’authentification suivantes aboutissent automatiquement. | | [Adresses IP approuvées](#trusted-ips) |Les administrateurs d’un locataire géré ou fédéré peuvent utiliser les adresses IP approuvées pour contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. | | [Mots de passe d’application](#app-passwords) |Un mot de passe d’application permet à une application qui ne prend pas en charge MFA de contourner l’authentification multifacteur et de continuer à fonctionner. | | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) (Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés) |Vous permet de mémoriser les appareils pendant un nombre défini de jours lorsqu’un utilisateur est parvenu à se connecter à l’aide de l’authentification MFA. | | [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d’authentification disponibles pour les utilisateurs. |
+| Fonctionnalité | Description | |:--- |:--- || | [Alerte fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. | | [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s’authentifier une seule fois en « contournant » l’authentification multifacteur. | | [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d’utiliser vos propres enregistrements ou messages d’accueil avec l’authentification multifacteur. | | [Mise en cache](#caching-in-azure-multi-factor-authentication) |La mise en cache vous permet de définir une période spécifique pour que les tentatives d’authentification suivantes aboutissent automatiquement. | | [Adresses IP approuvées](#trusted-ips) |Les administrateurs d’un locataire géré ou fédéré peuvent utiliser les adresses IP approuvées pour contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. | | [Mots de passe d’application](#app-passwords) |Un mot de passe d’application permet à une application qui ne prend pas en charge MFA de contourner l’authentification multifacteur et de continuer à fonctionner. | | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) (Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés) |Vous permet de mémoriser les appareils pendant un nombre défini de jours lorsqu’un utilisateur est parvenu à se connecter à l’aide de l’authentification MFA. | | [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d’authentification disponibles pour les utilisateurs. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Accéder au portail de gestion Azure MFA
 
@@ -164,7 +164,7 @@ La mise en cache n’est pas destinée à être utilisée pour les connexions à
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
-La fonction Adresses IP approuvées d’Azure MFA permet aux administrateurs d’un client géré ou fédéré de contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. Cette fonctionnalité est disponible avec la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [comment obtenir Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).
+La fonction Adresses IP approuvées d’Azure MFA permet aux administrateurs d’un client géré ou fédéré de contourner la vérification en deux étapes des utilisateurs qui se connectent depuis l’intranet local de l’entreprise. Cette fonctionnalité est disponible avec la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Type de client Azure AD | Options d’Adresses IP approuvées disponibles |
 |:--- |:--- |
@@ -260,13 +260,18 @@ Les utilisateurs peuvent également créer des mots de passe d’application apr
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Mémoriser Multi-Factor Authentication pour les appareils utilisateur de confiance
 La mémorisation Multi-Factor Authentication pour les appareils et les navigateurs de confiance est une fonctionnalité disponible gratuitement pour tous les utilisateurs MFA. Elle vous permet de donner aux utilisateurs la possibilité de contourner MFA pour un nombre défini de jours après une connexion réussie à l’aide de l’authentification multifacteur. Cela permet d’améliorer le confort d’utilisation en réduisant le nombre de fois où un utilisateur peut effectuer la vérification en deux étapes sur le même appareil.
 
+Toutefois, si un appareil ou un compte est compromis, la mémorisation MFA des appareils de confiance est susceptible d’affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Cette action a pour effet de révoquer le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer MFA sur leurs propres appareils en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
+
+### <a name="how-it-works"></a>Fonctionnement
+
+La mémorisation de Multi-Factor Authentication consiste à configurer un cookie persistant sur le navigateur lorsqu’un utilisateur coche la case « Ne plus me demander pendant **X** jours » lors de sa connexion. L’utilisateur ne recevra plus aucune invite de vérification MFA sur ce navigateur jusqu’à l’expiration du cookie. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification. 
+
+La case « Ne plus me demander pendant **X** jours » ne s’affiche pas dans les applications non liées à un navigateur, qu’elles prennent ou non en charge les fonctions d’authentification modernes. Ces applications utilisent des jetons d’actualisation qui fournissent de nouveaux jetons d’accès toutes les heures. Lorsqu’un jeton d’actualisation est validé, Azure AD vérifie que la dernière vérification en deux étapes effectuée respecte le délai configuré. 
+
+La mémorisation de MFA sur les appareils fiables réduit donc le nombre d’authentifications sur les applications web (qui déclenchent normalement une invite à chaque fois), mais augmente le nombre d’authentifications pour les clients d’authentification moderne (qui déclenchent normalement une invite tous les 90 jours).
+
 > [!NOTE]
-> Cette fonctionnalité est implémentée comme un cache de cookie du navigateur. Elle ne fonctionne pas si les cookies de votre navigateur ne sont pas activés.
-
-Toutefois, si un appareil ou un compte est compromis, la mémorisation MFA des appareils de confiance est susceptible d’affecter la sécurité. Pour garantir la sécurité du compte, il existe une option pour restaurer l’authentification multifacteur sur tous les appareils. Cela signifie que tous les appareils perdent leur statut approuvé, et que l’utilisateur doit procéder à la vérification en deux étapes. Vous devez restaurer Multi-Factor Authentication sur leurs appareils dans les deux scénarios suivants :
-
-* Si leur compte d'entreprise est devenu compromis
-* Si un appareil mémorisé a été perdu ou volé
+>Cette fonctionnalité n’est pas compatible avec la fonctionnalité « Maintenir la connexion » d’AD FS lorsque l’utilisateur effectue la vérification en deux étapes pour AD FS via le serveur Azure MFA ou via une solution MFA tierce. Si vos utilisateurs cochent la case « Maintenir la connexion » sur AD FS alors qu’ils marquent leur appareil comme digne de confiance pour MFA, ils ne pourront pas procéder à la vérification une fois le délai associé à la mémorisation MFA expiré. Azure AD demande une vérification immédiate en deux étapes, mais AD FS renvoie un jeton avec la revendication MFA d’origine et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. Ceci permet de définir une boucle de vérification entre Azure AD et AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
 1. Connectez-vous au [portail Azure Classic](https://portal.azure.com/).

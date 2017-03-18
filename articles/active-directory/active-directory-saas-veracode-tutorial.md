@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: d6845f666c8b987319bd0b5a7bbe8726f8501249
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 8c8ac0af8a39afdd9755040d21585185ceca890e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-veracode-tutorial/IC802903.png "Scenario")
+![Scénario](./media/active-directory-saas-veracode-tutorial/IC802903.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-veracode"></a>Activation de l’intégration d’applications pour Veracode
 Cette section décrit l’activation de l’intégration d’applications pour Veracode.
@@ -52,15 +53,15 @@ Cette section décrit l’activation de l’intégration d’applications pour V
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-veracode-tutorial/IC749321.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-veracode-tutorial/IC749321.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-veracode-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-veracode-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, entrez **Veracode**.
    
-    ![Galerie d’applications](./media/active-directory-saas-veracode-tutorial/IC802904.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-veracode-tutorial/IC802904.png "Galerie d’applications")
 
 7. Dans le volet des résultats, sélectionnez **Veracode**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -71,24 +72,24 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 Votre application Veracode s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration **Attributs du jeton SAML** .  
 La capture d’écran suivante montre un exemple :
 
-![Attributs](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+![Attributs](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributs")
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’applications **Veracode** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Veracode ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer les paramètres de l’application**, cliquez sur **Suivant**.
    
-    ![Configurer les paramètres d’application](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configure App Settings")
+    ![Configurer les paramètres d’application](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configurer les paramètres d’application")
 
 4. Dans la page **Configurer l’authentification unique sur Veracode**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configurer l’authentification unique")
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Veracode en tant qu’administrateur.
 
@@ -128,17 +129,17 @@ La capture d’écran suivante montre un exemple :
       * **Appartenance aux équipes**
       * **Équipe par défaut**
 
-10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configurer l’authentification unique")
 
 11. Dans le menu situé en haut, cliquez sur **Attributs** to open the **SAML Token Attributs** .
     
-    ![Attributs](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributes")
+    ![Attributs](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributs")
 
 12. Pour ajouter les mappages d’attribut requis, procédez comme suit :
     
-    ![Attributs](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
+    ![Attributs](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributs")
     
     | Nom de l'attribut | Valeur de l’attribut |
     |:--- |:--- |
@@ -176,17 +177,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 2. Dans la page d’intégration d’applications **Veracode**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-veracode-tutorial/IC802915.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-veracode-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-veracode-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

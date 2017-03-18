@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: chrande; glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
-ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
+ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-timer-trigger"></a>Déclencheur de minuteur Azure Functions
+# <a name="schedule-code-execution-with-azure-functions"></a>Planifier l’exécution de code avec Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des déclencheurs de minuteur dans Azure Functions. Azure Functions prend en charge le déclencheur pour les minuteurs. Les déclencheurs de minuteur appellent des fonctions basées sur une planification ponctuelle ou périodique. 
+Cet article explique comment configurer et coder des déclencheurs de minuteur dans Azure Functions. Azure Functions offre une liaison de déclencheur de minuteur qui vous permet d’exécuter votre code de fonction selon une planification définie. 
 
 Le déclencheur du minuteur prend en charge la montée en charge multi-instance. Une instance unique d’une fonction de minuteur spécifique est exécutée sur toutes les instances.
 
@@ -45,21 +47,26 @@ Le déclencheur de minuteur d’une fonction utilise l’objet JSON suivant dans
 }
 ```
 
-La valeur de `schedule` est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`. De nombreuses expressions CRON disponibles en ligne omettent le champ `{second}`. Si vous effectuez une copie à partir de l’une d’entre elles, vous devez l’adapter de façon à prendre en compte le champ `{second}` supplémentaire. Pour obtenir des exemples spécifiques, consultez la section [Exemples de planification](#examples) plus bas.
+La valeur de `schedule` est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient les six champs suivants : 
 
-Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Si vous souhaitez que votre expression CRON soit basée sur un autre fuseau horaire, créez un nouveau paramètre d’application pour votre application de fonction, nommé `WEBSITE_TIME_ZONE`. Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans le [l’index des fuseaux horaires de Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+    {second} {minute} {hour} {day} {month} {day-of-week}
+&nbsp;
+>[!NOTE]   
+>De nombreuses expressions CRON disponibles en ligne omettent le champ `{second}`. Si vous effectuez une copie à partir de l’une d’entre elles, vous devez l’adapter de façon à prendre en compte le champ `{second}` supplémentaire. Pour obtenir des exemples spécifiques, consultez la section [Exemples de planification](#examples) plus bas.
 
-Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Si vous souhaitez que votre déclencheur de minuteur se déclenche à 10h00 selon l’heure de l’Est chaque jour, vous pouvez utiliser l’expression CRON suivante, qui tient compte du fuseau horaire UTC :
+Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Pour baser votre expression CRON sur un autre fuseau horaire, créez un nouveau paramètre d’application nommé `WEBSITE_TIME_ZONE` pour votre application de fonction. Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+
+Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Pour que votre déclencheur de minuteur se déclenche chaque jour à 10 h 00 (heure de l’Est), vous pouvez utiliser l’expression CRON suivante, qui tient compte du fuseau horaire UTC :
 
 ```json
 "schedule": "0 0 15 * * *",
-``` 
+```    
 
 Sinon, vous pouvez ajouter un nouveau paramètre d’application pour votre application de fonction nommé `WEBSITE_TIME_ZONE` et définir la valeur sur **Est**.  L’expression CRON suivante peut alors être utilisée pour 10h00 EST : 
 
 ```json
 "schedule": "0 0 10 * * *",
-``` 
+```    
 
 
 <a name="examples"></a>
@@ -67,7 +74,7 @@ Sinon, vous pouvez ajouter un nouveau paramètre d’application pour votre appl
 ## <a name="schedule-examples"></a>Exemples de planification :
 Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour la propriété `schedule`. 
 
-Pour déclencher la fonction toutes les 5 minutes :
+Pour déclencher la fonction toutes les cinq minutes :
 
 ```json
 "schedule": "0 */5 * * * *"
@@ -184,10 +191,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

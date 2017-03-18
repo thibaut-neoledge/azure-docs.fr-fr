@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
-ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
+ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
+ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -27,26 +28,27 @@ Le Centre de sécurité Azure vous aide à prévenir, détecter et résoudre les
 Security Center est proposé en deux niveaux :
 
 * Le **niveau Gratuit** est automatiquement activé dans tous les abonnements Azure. Le niveau Gratuit vous permet de voir l’état de sécurité de vos ressources Azure, vos stratégies de sécurité de base, vos recommandations de sécurité, ainsi que l’intégration des produits et services de partenaires.
-* Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports d’évaluation des menaces. Une **évaluation gratuite de&90; jours** est disponible pour le niveau Standard.
+* Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports d’évaluation des menaces. Le niveau Standard est gratuit les 60 premiers jours.
 
 Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 > [!NOTE]
-> Security Center utilise le stockage Azure pour enregistrer les données de sécurité générées à partir de vos nœuds protégés. Les coûts associés à ce stockage ne sont pas inclus dans le prix du service. Ils sont facturés séparément au [tarif normal du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Les frais de stockage s’appliquent également pendant la période d’évaluation.
+> Security Center utilise le stockage Azure pour enregistrer les données de sécurité générées à partir de vos nœuds protégés. Les coûts associés à ce stockage ne sont pas inclus dans le prix du service. Ils sont facturés séparément au [tarif normal du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Les frais de stockage s’appliquent également pendant la période d’essai gratuit de 60 jours.
 >
 >
 
-## <a name="try-standard-free-for-90-days"></a>Essayez gratuitement la version Standard pendant 90 jours
-Une évaluation gratuite de 90 jours est disponible pour le niveau Standard. Pour obtenir la version d’évaluation gratuite du niveau Standard, sélectionnez la mosaïque **Stratégie** dans le panneau **Security Center**. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard – Essai gratuit**.
+## <a name="try-standard-free-for-60-days"></a>Essayer gratuitement le niveau Standard pendant 60 jours
+Le niveau Standard est gratuit les 60 premiers jours. Une fois ces 60 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
 
-![Essai gratuit][1]
+Pour obtenir le niveau Standard :
 
-Une fois les 90 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
+1. Dans le panneau **Centre de sécurité**, cliquez sur la vignette **Stratégie**.
+2. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard.
+3. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**.
+4. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
+5. Cliquez sur **Sélectionner**.
 
-## <a name="upgrade-to-standard"></a>Mise à niveau vers le niveau Standard
-Passez au niveau Standard pour bénéficier d’une détection avancée des menaces. Pour passer au niveau Standard, sélectionnez la mosaïque **Stratégie** dans le panneau **Security Center**. Sélectionnez l’abonnement que vous souhaitez mettre à niveau vers la version Standard. Dans le panneau **Stratégie de sécurité**, sélectionnez **Niveau tarifaire**. Dans le panneau **Choisir votre niveau tarifaire**, sélectionnez **Standard**.
-
-![Niveau standard][2]
+![Niveau standard][1]
 
 ## <a name="why-upgrade-to-standard"></a>Pourquoi passer au niveau Standard ?
 Le niveau Standard de Security Center fournit toutes les fonctionnalités du niveau Gratuit, ainsi qu’une détection avancée des menaces. La détection avancée des menaces vous aide à identifier les menaces actives qui ciblent vos ressources Azure, et vous donne les informations nécessaires pour corriger rapidement le problème.
@@ -61,16 +63,22 @@ Les fonctionnalités d’analyse de la sécurité fournies avec le niveau Standa
 
 Dans le panneau **Alertes de sécurité** ci-dessous, Security Center a détecté un **incident** de sécurité. Un incident de sécurité est un regroupement de toutes les alertes d’une ressource correspondant à des modèles de chaîne de destruction. Quand vous sélectionnez un incident de sécurité, vous affichez des informations détaillées sur l’incident, ainsi que la liste des alertes associées. Quand vous sélectionnez une alerte, vous affichez des informations supplémentaires sur celle-ci.
 
-![Incident de sécurité][3]
+![Incident de sécurité][2]
 
 L’alerte **Communication réseau** ci-dessous fournit des informations détaillées sur l’alerte. Ces informations incluent la description complète de l’alerte, son niveau de gravité, son état actuel (dans ce cas, l’alerte a été ignorée, ce qui implique que l’utilisateur a exécuté une action pour l’ignorer), la ressource attaquée, ainsi que les étapes de résolution. Elles comprennent également une liste de liens vers des rapports d’informations sur les menaces fournis par Microsoft. Ces rapports peuvent être utilisés à des fins de protection et de résolution des problèmes de sécurité.
 
-![Détails des alertes de sécurité][4]
+![Détails des alertes de sécurité][3]
 
 ## <a name="enable-data-collection"></a>Activer la collecte des données
-Pour activer l’analyse comportementale des machines virtuelles, vous devez activer la collecte des données. Il est possible que vous deviez activer la collecte des données lorsque vous accédez à Security Center pour la première fois ou lorsque vous créez une stratégie de sécurité.
+Pour activer l’analyse comportementale des machines virtuelles, vous devez activer la collecte des données.
 
-Pour vérifier que la collecte des données est activée, sélectionnez la mosaïque **Stratégie**. Le panneau **Stratégie de sécurité** s’ouvre et affiche la liste de vos abonnements Azure. Sélectionnez un abonnement. Si la **Collecte des données** est désactivée, activez-la, puis enregistrez la modification. Consultez [Activer la collecte des données dans Azure Security Center](security-center-enable-data-collection.md).
+Pour vérifier que la collecte des données est activée :
+
+1. Sélectionnez la vignette **Stratégie**. Le panneau **Stratégie de sécurité** s’ouvre et affiche la liste de vos abonnements Azure.
+2. Sélectionnez un abonnement.
+3. Si la **Collecte des données** est désactivée, activez-la, puis enregistrez la modification.
+
+Pour plus d’informations, consultez [Activer la collecte des données dans Azure Security Center](security-center-enable-data-collection.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Ce document vous a présenté la tarification de Security Center. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -79,13 +87,7 @@ Pour vérifier que la collecte des données est activée, sélectionnez la mosa�
 * Si vous avez des questions sur l’utilisation de Security Center ou d’Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/free-trial.png
-[2]: ./media/security-center-pricing/standard.png
-[3]: ./media/security-center-pricing/incident.png
-[4]: ./media/security-center-pricing/network-alert.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[1]: ./media/security-center-pricing/standard.png
+[2]: ./media/security-center-pricing/incident.png
+[3]: ./media/security-center-pricing/network-alert.png
 

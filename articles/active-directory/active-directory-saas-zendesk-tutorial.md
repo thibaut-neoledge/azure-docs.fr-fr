@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: ac22518bb36cc9d4c7a581dab8aca22ffde986e5
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 4ef08fb592ff8558fa779d628945d14144dc09b7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-zendesk-tutorial/IC773083.png "Scenario")
+![Scénario](./media/active-directory-saas-zendesk-tutorial/IC773083.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-zendesk"></a>Activation de l’intégration d’applications pour Zendesk
 Cette section décrit l’activation de l’intégration d’applications pour Zendesk.
@@ -53,15 +54,15 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zendesk-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, entrez **Zendesk**.
    
-    ![Galerie d’applications](./media/active-directory-saas-zendesk-tutorial/IC773084.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-zendesk-tutorial/IC773084.png "Galerie d’applications")
 
 7. Dans le volet de résultats, sélectionnez **Zendesk**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -75,15 +76,15 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Sur la page d’intégration d’applications **Zendesk** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single sign-on")
+    ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zendesk** ?, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer l’URL de l’application** , procédez comme suit :
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configurer l’URL de l’application")
    
     a. Dans la zone de texte **URL de connexion de Zendesk**, entrez votre URL au format suivant : `https://<tenant-name>.zendesk.com`
    
@@ -91,7 +92,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 4. Sur la page **Configurer l’authentification unique sur Zendesk**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sur votre ordinateur.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configurer l’authentification unique")
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zendesk en tant qu’administrateur.
 
@@ -99,7 +100,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 7. Dans le volet de navigation gauche, cliquez sur **Settings**, puis sur **Security**.
    
-    ![Sécurité](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Security")
+    ![Sécurité](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Sécurité")
 
 8. Dans la page **Sécurité**, cliquez sur l’onglet **Admin & Agents**.
 
@@ -109,7 +110,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 11. Dans la page **Configurer l’authentification unique sur Zendesk** du portail Azure AD, copiez la valeur de **l’URL de déconnexion distante**, puis collez-la dans la zone de texte **Remote Logout URL**.
     
-    ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single sign-on")
+    ![Authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Authentification unique")
 
 12. Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.
     
@@ -122,7 +123,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 14. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configurer l’authentification unique")
 
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 Pour pouvoir se connecter à **Zendesk**, les utilisateurs d’Azure AD doivent être approvisionnés dans **Zendesk**.  
@@ -135,10 +136,10 @@ Dans le cas de **Zendesk**, l’approvisionnement est une tâche manuelle.
 
 3. Sélectionnez l’onglet **User**, puis cliquez sur **Add**.
    
-    ![Ajouter un utilisateur](./media/active-directory-saas-zendesk-tutorial/IC773632.png "Add user")
+    ![Ajouter un utilisateur](./media/active-directory-saas-zendesk-tutorial/IC773632.png "Ajouter un utilisateur")
 4. Tapez l’adresse de messagerie du compte Azure AD que vous souhaitez approvisionner, puis cliquez sur **Save**.
    
-    ![Nouvel utilisateur](./media/active-directory-saas-zendesk-tutorial/IC773633.png "New user")
+    ![Nouvel utilisateur](./media/active-directory-saas-zendesk-tutorial/IC773633.png "Nouvel utilisateur")
 
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zendesk pour approvisionner des comptes d’utilisateurs Azure AD.
@@ -153,17 +154,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 2. Dans la page d’intégration de l’application **Zendesk**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Assign users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-zendesk-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

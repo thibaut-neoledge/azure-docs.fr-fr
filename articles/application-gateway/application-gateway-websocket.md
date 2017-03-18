@@ -15,12 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: a3c0aaae014619fb3f4a2fffa6063a473da691e1
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 5af1b1bacce2fe189a7b557527520795ed622b54
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-websocket-support"></a>Prise en charge de WebSocket pour la passerelle Application Gateway
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
 
 Application Gateway prend en charge WebSocket de manière native, quelle que soit la taille de la passerelle. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Vous pouvez continuer à utiliser un élément HTTPListener standard sur le port 80/443 pour recevoir le trafic WebSocket. Le trafic WebSocket est ensuite dirigé vers le serveur principal compatible WebSocket à l’aide du pool principal approprié tel que spécifié dans les règles Application Gateway. Le protocole WebSocket, standardisé dans la [RFC6455](https://tools.ietf.org/html/rfc6455) , permet une communication bidirectionnelle entre le serveur et le client via une connexion TCP de longue durée. Cette fonctionnalité permet une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogation, comme c’est le cas pour les mises en œuvre basées sur le protocole HTTP.  Contrairement au protocole HTTP, WebSocket engendre une faible surcharge et peut réutiliser la même connexion TCP pour plusieurs demandes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Les protocoles WebSocket sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
 
@@ -120,10 +121,5 @@ Autre raison : la sonde d’intégrité principale d’Application Gateway prend
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir découvert la prise en charge de WebSocket, consultez [Créer une passerelle Application Gateway](application-gateway-create-gateway.md) pour commencer à utiliser une application web compatible avec WebSocket.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

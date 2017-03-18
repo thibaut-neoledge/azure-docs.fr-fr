@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
+ms.sourcegitcommit: 32364c5a681c1d614abbc32cc8b73dba4e5a2d18
+ms.openlocfilehash: 00a576357c6e89d7943e6c6c6a83c2c1535d549e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,6 +50,7 @@ Vous trouverez ci-dessous une description des points de terminaison :
   * *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre serveur principal à envoyer des [messages cloud-à-appareil][lnk-c2d] et à recevoir les accusés de réception ou d’expiration correspondants.
   * *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil. 
   * *Invocation de méthode directe*. Ce point de terminaison permet à un service principal d’appeler une [méthode directe][lnk-methods] sur un appareil.
+  * *Recevoir les événements de surveillance des opérations*. Ce point de terminaison vous permet de recevoir les événements de surveillance des opérations si votre IoT hub a été configuré pour les émettre. Pour plus d’informations, voir [Surveillance des opérations IoT Hub][lnk-operations-mon].
 
 L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
 
@@ -109,9 +111,5 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[lnk-operations-mon]: iot-hub-operations-monitoring.md
 

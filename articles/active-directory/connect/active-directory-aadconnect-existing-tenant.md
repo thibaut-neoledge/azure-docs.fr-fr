@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : lorsque vous avez un client existant | Microsoft Docs"
+title: "Azure AD Connect : lorsque vous avez déjà Azure AD | Microsoft Docs"
 description: "Cette rubrique décrit comment utiliser Connect lorsque vous avez un client Azure AD existant."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 160a3ae7190dab76eee4634bd6babb5b047cd5ac
+ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
+ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -26,7 +27,7 @@ La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vo
 ## <a name="the-basics"></a>Concepts de base
 Un objet dans Azure AD est soit contrôlé dans le cloud (Azure AD), soit local. Pour un objet unique, vous ne pouvez pas gérer certains attributs en local et d’autres attributs dans Azure AD. Chaque objet dispose d’un indicateur qui indique où l’objet est géré.
 
-Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. Un scénario courant pour cette configuration est une organisation qui regroupe des employés de bureau et des ouvriers. Les employés de bureau ont un compte AD local, ce qui n’est pas le cas des ouvriers. Vous devez alors gérer certains utilisateurs en local et d’autres dans Azure AD.
+Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. Un scénario courant pour cette configuration est une organisation qui regroupe des comptables et des commerciaux. Les comptables ont un compte AD local, mais les commerciaux n’en ont pas. Ils disposent d’un compte dans Azure AD. Vous devez alors gérer certains utilisateurs en local et d’autres dans Azure AD.
 
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
@@ -60,9 +61,4 @@ Si la seule raison pour laquelle vous souhaitez ajouter un répertoire AD local 
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

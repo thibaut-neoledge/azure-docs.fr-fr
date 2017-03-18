@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -139,6 +140,9 @@ namespaceManager.CreateTopic(td);
 
 Si un message contenant des informations sensibles ne devant pas être égarées est envoyé à une entité rapide, l’expéditeur peut forcer Service Bus à placer immédiatement le message dans un dispositif de stockage stable en définissant la propriété [ForcePersistence][ForcePersistence] sur **true**.
 
+> [!NOTE]
+> Notez que les entités rapides ne prennent pas en charge les transactions.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>Utilisation de files d’attente partitionnées ou de rubriques
 En interne, Service Bus utilise le même nœud et stockage de messagerie pour traiter et stocker tous les messages d’une entité de messagerie (file d’attente ou rubrique). Une file d’attente ou une rubrique partitionnée, elle, se répartit sur plusieurs nœuds et banques de messagerie. Les rubriques et files d’attente partitionnées donnent non seulement un débit plus élevé que les rubriques et files d’attente standard, mais ils présentent également une disponibilité supérieure. Pour créer une entité partitionnée, définissez la propriété [EnablePartitioning][EnablePartitioning] sur **true**, comme illustré dans l’exemple suivant. Pour plus d’informations sur les entités partitionnées, consultez [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
 
@@ -256,9 +260,4 @@ Pour en savoir plus sur l’optimisation des performances Service Bus, consultez
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

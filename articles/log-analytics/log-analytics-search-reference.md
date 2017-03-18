@@ -1,5 +1,5 @@
 ---
-title: "Référence de recherche Log Analytics | Microsoft Docs"
+title: "Référence de recherche Azure Log Analytics | Microsoft Docs"
 description: "La référence de recherche Log Analytics décrit le langage de recherche et fournit la syntaxe de requête générale que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
-ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>Expressions régulières
-Vous pouvez spécifier les conditions de recherche pour un champ avec une expression régulière en utilisant le mot clé Regex.
+Vous pouvez spécifier les conditions de recherche pour un champ avec une expression régulière en utilisant le mot clé Regex.  Obtenez une description complète de la syntaxe que vous pouvez utiliser dans les expressions régulières dans l’article [Using regular expressions to filter log searches in Log Analytics (Utilisation d’expressions régulières pour filtrer les recherches dans les journaux dans Log Analytics)](log-analytics-log-searches-regex.md).
 
 **Syntaxe**
 
@@ -581,7 +583,29 @@ Exemples :
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-Syntaxe :
+Le mot-clé **IN** vous permet de sélectionner un élément dans une liste de valeurs.  En fonction de la syntaxe utilisée, il peut s’agir d’une liste simple de valeurs que vous fournissez ou d’une liste de valeurs provenant d’une agrégation.
+
+Syntaxe 1 :
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Description : cette syntaxe vous permet d’inclure toutes les valeurs dans une liste simple.
+
+
+
+Exemples :
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Syntaxe 2 :
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -810,9 +834,4 @@ Pour plus d’informations sur les recherches de journal :
 
 * Familiarisez-vous avec les [recherches de journaux](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 * Utilisez [Champs personnalisés dans Log Analytics](log-analytics-custom-fields.md) pour étendre les recherches de journal.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

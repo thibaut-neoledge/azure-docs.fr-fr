@@ -16,43 +16,44 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 6c6d757a770613498bedca0f8f3a965241d692eb
+ms.sourcegitcommit: f06af80b14b439a223607e91c031a887c200d88d
+ms.openlocfilehash: 11da3f4ff55e8d52a1d0cecb0e275a8af80727ea
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Déléguer des invitations pour Azure Active Directory B2B Collaboration
 
-Avec l’actualisation de la version préliminaire publique d’Azure Active Directory (Azure AD) B2B Collaboration, il n’est pas nécessaire d’être un administrateur général pour inviter des utilisateurs. Vous pouvez contrôler qui peut envoyer des invitations à l’aide de stratégies et déléguer les invitations aux utilisateurs qui disposent des rôles autorisés à inviter. Le rôle Inviteur d’invités est une nouvelle façon importante de déléguer les invitations d’utilisateurs invités.
+Avec l’actualisation de la version préliminaire publique d’Azure Active Directory (Azure AD) B2B Collaboration, il n’est pas nécessaire d’être un administrateur général pour inviter des utilisateurs. Vous pouvez utiliser des stratégies et déléguer des invitations aux utilisateurs dont les rôles les autorisent à envoyer des invitations. Le rôle Inviteur d’invités est une nouvelle façon importante de déléguer les invitations d’utilisateurs invités.
 
 ## <a name="guest-inviter-role"></a>Rôle Inviteur d’invités
-Il est possible d’affecter l’utilisateur au rôle Inviteur d’invités pour envoyer des invitations. Vous n’êtes pas obligé d’être membre du rôle Administrateur général pour envoyer des invitations. Par défaut, les utilisateurs normaux peuvent également appeler l’API d’invitation, sauf si l’administrateur général a désactivé les invitations pour les utilisateurs normaux. Pour ce faire, vous pouvez utiliser le portail Azure et également PowerShell.
+Il est possible d’affecter l’utilisateur au rôle Inviteur d’invités pour envoyer des invitations. Vous n’êtes pas tenu d’être membre du rôle Administrateur général pour envoyer des invitations. Par défaut, les utilisateurs standard peuvent également appeler l’API d’invitation, sauf si un administrateur général a désactivé les invitations à leur intention. Vous pouvez effectuer cette opération dans le portail Azure ou à l’aide de PowerShell.
 
-Voici un exemple illustrant l’ajout d’un utilisateur au rôle Inviteur d’invités via PowerShell :
+Voici un exemple qui montre comment utiliser PowerShell pour ajouter un utilisateur au rôle Inviteur d’invités :
 
 ```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress >
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
-## <a name="controlling-who-can-invite"></a>Contrôler qui peut inviter
+## <a name="control-who-can-invite"></a>Contrôler qui peut inviter
 
-![contrôler comment inviter](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
+![Contrôler comment inviter](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
-Avec Azure AD B2B Collaboration, nous autorisons l’administrateur du client à définir les stratégies d’invitation suivantes :
+Avec Azure AD B2B Collaboration, un administrateur de clients peut définir les stratégies d’invitation suivantes :
 
-1. Désactiver les invitations
-2. Seuls les administrateurs et les utilisateurs membres du rôle Inviteur d’invités peuvent inviter
-3. Les administrateurs, le rôle Inviteur d’invités et les membres peuvent inviter
-4. Tous les utilisateurs, notamment les invités, peuvent inviter
+- Désactiver les invitations
+- Seuls les administrateurs et les utilisateurs membres du rôle Inviteur d’invités peuvent envoyer des invitations
+- Les administrateurs, le rôle Inviteur d’invités et les membres peuvent envoyer des invitations
+- Tous les utilisateurs, notamment les invités, peuvent inviter
 
-Par défaut, les clients sont définis sur l’option 4 (tous les utilisateurs, notamment les invités, peuvent inviter des utilisateurs B2B).
+Par défaut, les clients sont définis sur 4. Tous les utilisateurs, notamment les invités, peuvent inviter des utilisateurs B2B.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Groupes dynamiques et B2B Collaboration](active-directory-b2b-dynamic-groups.md)
@@ -62,9 +63,4 @@ Consultez les autres articles sur la collaboration B2B d'Azure AD :
 * [Mappage des revendications utilisateur B2B Collaboration](active-directory-b2b-claims-mapping.md)
 * [Partage externe d’Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitations actuelles de B2B Collaboration](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
