@@ -17,6 +17,7 @@ ms.author: elioda
 translationtype: Human Translation
 ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
 ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -275,9 +276,4 @@ Utilisez les ressources suivantes :
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

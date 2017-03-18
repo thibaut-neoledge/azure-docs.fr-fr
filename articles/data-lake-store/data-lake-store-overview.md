@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -55,7 +56,7 @@ Azure Data Lake Store peut stocker des données dans leur format natif, en l'ét
 
 Les conteneurs Azure Data Lake Store pour données sont essentiellement des dossiers et des fichiers. Vous travaillez sur les données stockées à l'aide de kits de développement logiciel (SDK), du portail Azure et d’Azure Powershell. Tant que vous placez vos données dans le magasin en utilisant ces interfaces et les conteneurs appropriés, vous pouvez stocker n'importe quel type de données. Data Lake Store n'effectue aucune opération particulière sur les données en fonction du type de données qu’il contient.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Sécurisation des données dans Azure Data Lake Store
+## <a name="DataLakeStoreSecurity"></a>Sécurisation des données dans Azure Data Lake Store
 Azure Data Lake Store utilise Azure Active Directory pour l'authentification et les listes de contrôle d'accès pour gérer l'accès à vos données.
 
 | Fonctionnalité | Description |
@@ -101,10 +102,5 @@ Si vous préférez apprendre en regardant des vidéos, Data Lake Store contient 
 * [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Utiliser Apache Sqoop pour déplacer des données entre les sources relationnelles et Azure Data Lake Store)](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Orchestration de données pour Azure Data Lake Store à l’aide d’Azure Data Factory)](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Securing Data in the Azure Data Lake Store (Sécurisation des données dans Azure Data Lake Store)](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

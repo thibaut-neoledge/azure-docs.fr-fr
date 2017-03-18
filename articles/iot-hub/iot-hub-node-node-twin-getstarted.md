@@ -17,6 +17,7 @@ ms.author: elioda
 translationtype: Human Translation
 ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
 ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -229,9 +230,4 @@ Utilisez les ressources suivantes :
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
