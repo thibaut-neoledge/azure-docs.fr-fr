@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par co
 | Rôles d’application | [Pris en charge](https://msdn.microsoft.com/library/ms190998.aspx) | [Pris en charge](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Mise à l’échelle automatique | Non pris en charge | [Pris en charge](sql-database-service-tiers.md) |
 | Azure Active Directory | Non pris en charge | [Pris en charge](sql-database-aad-authentication.md) |
-| Azure Data Factory | Non pris en charge - voir [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Pris en charge](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Pris en charge](../data-factory/data-factory-introduction.md) | [Pris en charge](../data-factory/data-factory-introduction.md) |
 | Audit | [Pris en charge](https://msdn.microsoft.com/library/cc280386.aspx) | [Pris en charge](sql-database-auditing.md) |
 | Fichier BACPAC (exporter) | [Pris en charge](https://msdn.microsoft.com/library/hh213241.aspx) | [Pris en charge](sql-database-export.md) |
 | Fichier BACPAC (importer) | [Pris en charge](https://msdn.microsoft.com/library/hh710052.aspx) | [Pris en charge](sql-database-import-portal.md) |
