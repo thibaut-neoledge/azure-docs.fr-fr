@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
-experimental: true
-experiment_id: heidist-experiment1-20170221
+experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: f7e657906d24693dffd84ebbd348d1940f271931
-ms.openlocfilehash: a4e28e17cd3ce2488bd292a4c5e95fb532526a56
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>Présentation d’Azure Search
@@ -29,7 +28,7 @@ La Recherche Azure propose un moteur de recherche dédié et programmable pourvu
 
 La plupart des applications web et mobiles nécessitent une expérience de recherche solide. Malgré la complexité technique sur laquelle repose l’expérience, la barre de recherche comporte au minimum la recherche en texte intégral avec des termes de requête automatiques, les corrections orthographiques et les correspondances basées sur les entrées sémantiquement identiques, mais en apparence différentes (« car » et « auto »). Les exigences opérationnelles en matière de mise à l’échelle, de fiabilité et de synchronisation entre les magasins de données principales et de recherche sont tout aussi importantes. 
 
-La Recherche Azure offre un large éventail de fonctionnalités pour satisfaire les exigences opérationnelles et de recherche.
+La Recherche Azure offre des fonctionnalités complètes conçues pour satisfaire aussi bien aux exigences opérationnelles qu’aux exigences de recherche.
 
 ![Barre de recherche et page de recherche personnalisée avec des fonctionnalités de recherche classiques](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -50,7 +49,7 @@ Les services dédiés sont exécutés à l’échelle 24 heures sur 24, 7 jour
 
 Plusieurs fournisseurs de services cloud offrent des moteurs de recherche personnalisés comportant des fonctionnalités qui alimentent une barre de recherche dans les applications personnalisées. Certains proposent des fonctionnalités de base comparables, notamment la recherche en texte intégral, la recherche géographique et la capacité à gérer un certain niveau d’ambiguïté dans les entrées de recherche. En général, c’est une [fonctionnalité spécialisée](#feature-drilldown) ou l’ergonomie et la simplicité globales des API, des outils et de la gestion qui déterminent la meilleure option.
 
-Par rapport aux autres solutions de recherche, la Recherche Azure est plus puissante pour les charges de travail de recherche en texte intégral sur les bases de données et magasins de contenu sur Azure. Pour les applications qui s’appuient principalement sur la recherche de navigation de contenu, une couche supplémentaire de fonctionnalités est nécessaire. 
+Par rapport aux autres solutions de recherche, la Recherche Azure est plus puissante pour les charges de travail de recherche en texte intégral sur les bases de données et magasins de contenu sur Azure. Pour les applications qui s’appuient principalement sur la recherche d’informations, sur la récupération et sur la navigation de contenu, une couche supplémentaire de fonctionnalités est nécessaire. Voici les principaux atouts :
 
 + Intégration de données Azure (robots) au niveau de la couche d’indexation
 + Portail Azure de gestion centralisée
@@ -61,7 +60,9 @@ Par rapport aux autres solutions de recherche, la Recherche Azure est plus puiss
 > [!Note]
 > Les sources de données non Azure sont entièrement prises en charge. Vous pouvez diriger n’importe quelle collection de documents JSON vers un index de la Recherche Azure.
 
-### <a name="a-namefeature-drilldownafeature-drilldown"></a><a name="feature-drilldown"></a>Détail des fonctionnalités
+Les nombreuses fonctionnalités de la Recherche Azure sont tout particulièrement utiles pour les catalogues en ligne, les programmes métier et les applications de détection de document.
+
+### <a name="feature-drilldown"></a>Détail des fonctionnalités
 
 #### <a name="full-text-search-and-text-analysis"></a>Recherche en texte intégral et analyse de texte
 

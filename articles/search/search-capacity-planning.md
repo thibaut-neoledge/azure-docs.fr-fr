@@ -16,26 +16,32 @@ ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
-ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.lasthandoff: 02/24/2017
 
 ---
 
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.
 
-La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services facturables à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, plus la facture diminue. La facturation reste en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule manière d’éviter la facturation consiste à supprimer ce service, puis à le recréer lorsque vous en avez besoin.
+La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services facturables à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
+
+La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, plus la facture diminue. La facturation reste en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule manière d’éviter la facturation consiste à supprimer ce service, puis à le recréer lorsque vous en avez besoin.
+
+> [!Note]
+> La suppression d’un service a pour effet de supprimer toutes les données qui s’y trouvent. Il n’existe aucune fonctionnalité dans Azure Search permettant de sauvegarder et restaurer les données de recherche persistantes. Pour redéployer un index existant sur un nouveau service, vous devez exécuter le programme initialement utilisé pour le créer et le charger. 
 
 ## <a name="terminology-partitions-and-replicas"></a>Terminologie : partitions et réplicas
 Les partitions et les réplicas sont les principales ressources qui sous-tendent un service de recherche.
 
-Les *partitions* fournissent un stockage des index et des E/S pour les opérations de lecture-écriture (par exemple, lors de la reconstruction ou de l’actualisation d’un index).
-
-*réplicas* sont des instances du service de recherche, principalement utilisées pour équilibrer la charge des opérations de requête. Chaque réplica héberge toujours une seule copie d’un index. Si vous avez 12 réplicas, vous aurez 12 copies de chaque index chargées sur le service.
+| Ressource | Définition |
+|----------|------------|
+|*Partitions* | Fournissent un stockage des index et des E/S pour les opérations de lecture-écriture (par exemple, lors de la reconstruction ou de l’actualisation d’un index).|
+|*Réplicas* | Instances du service de recherche, principalement utilisées pour équilibrer la charge des opérations de requête. Chaque réplica héberge toujours une seule copie d’un index. Si vous avez 12 réplicas, vous aurez 12 copies de chaque index chargées sur le service.|
 
 > [!NOTE]
 > Il n’existe aucun moyen de manipuler ou de gérer directement les index qui s’exécutent sur un réplica. Une copie de chaque index sur chaque réplica fait partie de l’architecture de service.
->
 >
 
 ## <a name="how-to-allocate-partitions-and-replicas"></a>Comment allouer des partitions et des réplicas
@@ -122,9 +128,4 @@ Les unités de recherche, leur tarification et leur capacité sont détaillées 
 La formule de calcul du nombre de SU utilisées pour des combinaisons données est le produit des réplicas et des partitions, soit (R X P = SU). Par exemple, le produit de trois réplicas par trois partitions est facturé comme neuf SU.
 
 Le coût par SU est déterminé par le niveau, avec un taux de facturation inférieur par unité pour le niveau de base par rapport au niveau standard. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/)pour connaître les coûts pour chaque niveau.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

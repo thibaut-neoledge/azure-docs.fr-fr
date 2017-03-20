@@ -1,5 +1,5 @@
 ---
-title: "API et Kit de développement logiciel (SDK) Java DocumentDB | Microsoft Docs"
+title: "API Java, Kit de développement logiciel (SDK) et ressources Azure DocumentsDB | Microsoft Docs"
 description: "Découvrez l&quot;API et le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB."
 services: documentdb
 documentationcenter: java
@@ -12,15 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: rnagpal
+ms.date: 02/22/2017
+ms.author: khdang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 50f8f6a2d64959a1981f95bfe821a2a79f6cafc6
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>API DocumentDB et Kits de développement logiciel (SDK)
+# <a name="documentdb-java-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java DocumentDB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
 > 
 > 
 
-## <a name="documentdb-java-api-and-sdk"></a>API Java DocumentDB et Kit de développement logiciel (SDK)
 <table>
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
@@ -42,12 +43,45 @@ ms.openlocfilehash: 35a773e5f91490c3d4eb053d71ce1d189ba96872
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Java](documentdb-java-get-started.md)</td></tr>
+
+<tr><td>**Didacticiel d’application web**</td><td>[Développement d’une application web avec DocumentDB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Runtime actuellement pris en charge**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Correction d’un bogue dans la configuration du moteur de requête qui peut provoquer des exceptions pour les requêtes en mode de passerelle.
+* Correction de quelques bogues dans le conteneur de session qui peut provoquer une exception « Ressource propriétaire introuvable » pour les demandes dès la création de la collection.
+
+### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](documentdb-sql-query.md#Aggregates).
+* Ajout de la prise en charge de la modification de flux.
+* Ajout de la prise en charge des informations relatives aux quotas de collections via RequestOptions.setPopulateQuotaInfo.
+* Ajout de la prise en charge de l’enregistrement de script de procédure stockée via RequestOptions.setScriptLoggingEnabled.
+* Correction d’un bogue dans lequel la requête en mode DirectHttps peut se bloquer lorsqu’elle rencontre des échecs de limitation.
+* Correction d’un bogue dans le mode de cohérence de session.
+* Correction d’un bogue susceptible d’entraîner l’exception NullReferenceException dans HttpContext lorsque le taux de demandes est élevé.
+* Amélioration des performances du mode DirectHttps.
+
+### <a name="a-name194194httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb194"></a><a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+* Ajout de la prise en charge simple d’un proxy basé sur les instances d’un client avec l’API ConnectionPolicy.setProxy().
+* Ajout de l’API DocumentClient.close() permettant de fermer correctement l’instance DocumentClient.
+* Amélioration des performances de requête en mode de connectivité directe en dérivant le plan de requête à partir de l’assembly natif au lieu de la passerelle.
+* Définissez FAIL_ON_UNKNOWN_PROPERTIES = false, de sorte que les utilisateurs n’aient pas besoin de définir JsonIgnoreProperties dans leur POJO.
+* Journalisation refactorisée pour utiliser SLF4J.
+* Correction de quelques autres bogues dans un lecteur de cohérence.
+
+### <a name="a-name193193httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb193"></a><a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+* Correction d’un bogue dans la gestion des connexions pour éviter les fuites de connexion en mode de connectivité directe.
+* Correction d’un bogue dans la requête TOP des exceptions NullReference peuvent être levées.
+* Amélioration des performances avec la réduction du nombre d’appels réseau pour les caches internes.
+* Ajout d’un code d’état, d’un ID d’activité et d’un URI de requête dans DocumentClientException pour une meilleure résolution des problèmes.
+
+### <a name="a-name192192httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb192"></a><a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+* Résolution d’un problème de gestion des connexions pour plus de stabilité.
+
 ### <a name="a-name191191httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb191"></a><a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
 * Ajout de la prise en charge du niveau de cohérence BoundedStaleness.
 * Ajout de la prise en charge de la connectivité directe pour les opérations CRUD pour les collections partitionnées.
@@ -122,7 +156,12 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.9.1](#1.9.1) |28 octobre 2016 |--- |
+| [1.9.6](#1.9.6) |21 février 2017 |--- |
+| [1.9.5](#1.9.5) |31 janvier 2017 |--- |
+| [1.9.4](#1.9.4) |24 novembre 2016 |--- |
+| [1.9.3](#1.9.3) |30 octobre 2016 |--- |
+| [1.9.2](#1.9.2) |28 octobre 2016 |--- |
+| [1.9.1](#1.9.1) |26 octobre 2016 |--- |
 | [1.9.0](#1.9.0) |3 octobre 2016 |--- |
 | [1.8.1](#1.8.1) |30 juin 2016 |--- |
 | [1.8.0](#1.8.0) |14 juin 2016 |--- |
@@ -149,10 +188,5 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

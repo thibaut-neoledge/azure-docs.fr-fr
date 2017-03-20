@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: d5c8972e539ace9440a166eaed6c95fe93e2792a
-ms.openlocfilehash: 792e6c0d70a4786535174fa9c5f863a72da41143
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
+ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -45,7 +45,7 @@ Avant d’apporter des modifications au filtrage, veillez à [désactiver la tâ
 
 Pour vous protéger contre la suppression par inadvertance de nombreux objets, la fonctionnalité « [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) » est activée par défaut. Si vous supprimez de nombreux objets suite à un filtrage (500 par défaut), vous devez exécuter les étapes décrites dans cet article pour que les suppressions soient appliquées à Azure AD.
 
-Si vous utilisez une version antérieure à novembre 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), que vous modifiez une configuration de filtre et que vous utilisez la synchronisation de mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour plus d’informations sur le déclenchement d’une synchronisation complète des mots de passe, consultez la section [Déclencher une synchronisation complète de tous les mots de passe](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être ou non synchronisés et si cette étape supplémentaire n’est plus nécessaire.
+Si vous utilisez une version antérieure à novembre 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), que vous modifiez une configuration de filtre et que vous utilisez la synchronisation de mot de passe, vous devez déclencher une synchronisation complète de tous les mots de passe une fois la configuration terminée. Pour plus d’informations sur le déclenchement d’une synchronisation complète des mots de passe, consultez la section [Déclencher une synchronisation complète de tous les mots de passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si vous utilisez la version 1.0.9125 ou une version ultérieure, l’opération standard de **synchronisation complète** détermine également si les mots de passe doivent être ou non synchronisés et si cette étape supplémentaire n’est plus nécessaire.
 
 Si des objets **utilisateur** ont été accidentellement supprimés d’Azure AD à la suite d’une erreur de filtrage, vous pouvez recréer ces objets utilisateur dans Azure AD en supprimant vos configurations de filtrage. Vous pouvez ensuite resynchroniser vos annuaires. Cette opération restaure les utilisateurs présents dans la corbeille d’Azure AD. Toutefois, vous ne pouvez pas annuler la suppression d’autres types d’objets. Par exemple, si vous supprimez accidentellement un groupe de sécurité et que ce dernier a été utilisé comme liste de contrôle d’accès (ACL, access-control list) d’une ressource, le groupe et ses ACL ne sont pas récupérables.
 

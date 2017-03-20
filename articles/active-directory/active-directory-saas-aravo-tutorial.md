@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 894e19d2873f2a7db81aa992cab569ae1a0aca60
+ms.sourcegitcommit: a0d34b1e75395abafa26c9ea1604567e9ad916e1
+ms.openlocfilehash: b6717b7f5dbcedc96b1cb24dc25ea79fbeedef0a
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ L’objectif de ce didacticiel est de vous montrer comment intégrer Aravo avec 
 L’intégration d’Aravo avec Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Aravo.
-* Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Aravo (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Aravo via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,15 +38,14 @@ Pour configurer l’intégration d’Azure AD avec Aravo, vous avez besoin des �
 * Un abonnement Azure AD
 * Un abonnement Aravo pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Ce didacticiel vise à vous permettre de tester l’authentification unique Microsoft Azure AD dans un environnement de test.
@@ -55,7 +55,7 @@ Le scénario décrit dans ce didacticiel se compose des deux sections principale
 1. Ajout d’Aravo à partir de la galerie
 2. Configuration et test de l’authentification unique Microsoft Azure AD
 
-## <a name="adding-aravo-from-the-gallery"></a>Ajout d’Aravo à partir de la galerie
+## <a name="add-aravo-from-the-gallery"></a>Ajouter Aravo à partir de la galerie
 Pour configurer l’intégration d’Aravo avec Azure AD, vous devez ajouter Aravo, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Aravo à partir de la galerie, procédez comme suit :**
@@ -80,25 +80,25 @@ Pour configurer l’intégration d’Aravo avec Azure AD, vous devez ajouter Ara
    
     ![Sélection de l’application dans la galerie](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Microsoft Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Microsoft Azure AD avec Aravo et un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configurer et tester l’authentification unique Microsoft Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Microsoft Azure AD avec Aravo avec un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Aravo équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Aravo associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Aravo équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Aravo associé doit être établie.
 
 Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Aravo.
 
-Pour configurer et tester l’authentification unique Microsoft Azure AD avec Aravo, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Microsoft Azure AD avec Aravo, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Microsoft Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Aravo](#creating-a-aravo-test-user)** pour avoir un équivalent de Britta Simon dans Aravo, lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Microsoft Azure AD
-Dans cette section, vous activez l’authentification unique Microsoft Azure AD dans le portail Azure Classic et configurez l’authentification unique dans votre application Aravo.
+### <a name="configure-microsoft-azure-ad-sso"></a>Configurer l’authentification unique Microsoft Azure AD
+Dans cette section, vous allez activer l’authentification unique Microsoft Azure AD dans le portail Azure Classic et la configurer dans votre application Aravo.
 
-**Pour configurer l’authentification unique Microsoft Azure AD avec Aravo, procédez comme suit :**
+**Pour configurer l’authentification unique Microsoft Azure AD avec Aravo, procédez comme suit :**
 
 1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Aravo**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
@@ -109,41 +109,32 @@ Dans cette section, vous activez l’authentification unique Microsoft Azure AD 
 3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_04.png)
+  1. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.aravo.com`
+  2. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.aravo.com/aems/login.do`
+  3. Cliquez sur **Suivant**.
    
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.aravo.com`
-   
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.aravo.com/aems/login.do`
-   
-    c. Cliquez sur **Suivant**
-   
-   > [!NOTE]
-   > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour les valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez Aravo.
-   > 
-   > 
+    >[!NOTE]
+    >Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour les valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez Aravo. 
+    > 
 4. Dans la page **Configurer l’authentification unique sur Aravo**, procédez comme suit et cliquez sur **Suivant** :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_05.png)
-   
-    a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Suivant**.
+  1. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur. 
+  2. Cliquez sur **Suivant**.
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Aravo et fournissez-lui les éléments suivants : 
-   
-    -Le fichier de **certificat téléchargé**
-   
-    - **L’URL de l’émetteur**
-   
-    - **L’URL d’authentification unique SAML**
-   
-    - le fichier de **l’URL du service de déconnexion unique**
-6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+ 
+  *  Le fichier de **certificat téléchargé**
+  *  L’ **URL de l’émetteur** 
+  *  L’ **URL d’authentification unique SAML**
+  *  L’ **URL du service de déconnexion unique**
+6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
 7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
 ![Créer un utilisateur Azure AD][20]
@@ -163,41 +154,31 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-aravo-tutorial/create_aaduser_05.png)
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-aravo-tutorial/create_aaduser_06.png)
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+  1. Dans la zone de texte **First Name**, tapez **Britta**. 
+  2. Dans la zone de texte **Last Name**, tapez **Simon**.
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-aravo-tutorial/create_aaduser_07.png)
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-aravo-tutorial/create_aaduser_08.png)
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**. 
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-aravo-test-user"></a>Création d’un utilisateur de test Aravo
+### <a name="create-a-aravo-test-user"></a>Créer un utilisateur de test Aravo
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Aravo. Veuillez contacter l’équipe de support Aravo pour ajouter les utilisateurs dans le compte Aravo.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Aravo.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Aravo.
 
 ![Affecter des utilisateurs][200]
 
@@ -217,8 +198,8 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique avec Microsoft Azure AD à l’aide du volet d’accès.
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Microsoft Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Aravo dans le volet d’accès, vous devez être connecté automatiquement à votre application Aravo.
 
@@ -243,9 +224,4 @@ Lorsque vous cliquez sur la vignette Aravo dans le volet d’accès, vous devez 
 [203]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-aravo-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

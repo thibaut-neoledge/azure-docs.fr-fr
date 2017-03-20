@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: d77e9309fa8823846f25c58276bfbaaf8d65717a
+ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
+ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -40,7 +41,7 @@ Il est possible qu’un objet soit promu de Contact en User quand davantage d’
 
 Par exemple, dans une topologie GALSync, nous trouverons des objets contacts pour tous les membres de la deuxième forêt quand nous importerons la première forêt. De nouveaux objets contacts seront ainsi créés dans le connecteur AAD. Quand plus tard nous importerons et synchroniserons la deuxième forêt, nous trouverons les utilisateurs réels et nous les joindrons aux objets de métaverse existants. Nous supprimerons ensuite l’objet contact dans AAD et nous créerons un objet utilisateur à la place.
 
-Si vous avez une topologie où les utilisateurs sont représentés en tant que contacts, assurez-vous de sélectionner la mise en correspondance des utilisateurs sur l’attribut de messagerie dans le guide d’installation. Si vous sélectionnez une autre option, vous aurez une configuration dépendant de l’ordre. Les objets contacts seront toujours joints sur l’attribut de messagerie, mais les objets utilisateurs seront joints sur l’attribut de messagerie uniquement si cette option a été sélectionnée dans le guide d’installation. Vous pourriez alors vous retrouver avec deux objets différents dans le métaverse avec le même attribut de messagerie si l’objet contact a été importé avant l’objet utilisateur. Lors de l’exportation vers Azure AD, une erreur sera levée. Ce comportement est normal et indique que des données sont incorrectes ou que la topologie n’a pas été identifiée correctement lors de l’installation.
+Si vous disposez d’une topologie dans laquelle les utilisateurs sont représentés en tant que contacts, veillez à sélectionner la mise en correspondance des utilisateurs sur l’attribut de messagerie dans le guide d’installation. Si vous sélectionnez une autre option, vous aurez une configuration dépendant de l’ordre. Les objets contacts seront toujours joints sur l’attribut de messagerie, mais les objets utilisateurs seront joints sur l’attribut de messagerie uniquement si cette option a été sélectionnée dans le guide d’installation. Vous pourriez alors vous retrouver avec deux objets différents dans le métaverse avec le même attribut de messagerie si l’objet contact a été importé avant l’objet utilisateur. Lors de l’exportation vers Azure AD, une erreur sera levée. Ce comportement est normal et indique que des données sont incorrectes ou que la topologie n’a pas été identifiée correctement lors de l’installation.
 
 ## <a name="disabled-accounts"></a>Comptes désactivés
 Les comptes désactivés sont aussi synchronisés vers Azure AD. Les comptes désactivés représentent couramment des ressources dans Exchange, par exemple des salles de conférence. L’exception concerne les utilisateurs avec une boîte aux lettres liée ; comme mentionné précédemment, ces utilisateurs ne configureront jamais un compte dans Azure AD.
@@ -53,10 +54,5 @@ Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modi
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

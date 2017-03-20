@@ -10,16 +10,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfb59158facd2a4f861fa3221f032fc65419bdc0
-ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements DNS dans Azure DNS avec Azure PowerShell
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [portail Azure](dns-operations-recordsets-portal.md)
@@ -55,7 +57,7 @@ L’exemple suivant crée un jeu d’enregistrements avec le nom relatif « www 
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Pour créer un jeu d’enregistrements à l’apex (au sommet) d’une zone (en l’occurrence, « contoso.com »), utilisez le nom de jeu d’enregistrements '@' (guillemets non compris) :
+Pour créer un jeu d’enregistrements à l’apex (au sommet) d’une zone (en l’occurrence, « contoso.com »), utilisez le nom de jeu d’enregistrements « @ » (guillemets non compris) :
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -110,7 +112,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements MX avec un seul enregistrement
 
-Dans cet exemple, nous utilisons le nom de jeu d’enregistrements '@' pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
+Dans cet exemple, nous utilisons le nom de jeu d’enregistrements « @ » pour créer un enregistrement MX à l’apex de la zone (dans ce cas, « contoso.com »).
 
 
 ```powershell
@@ -133,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements SRV avec un seul enregistrement
 
-Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure '@' dans le nom du jeu d’enregistrements lors de la création d’un enregistrement SRV défini à l’apex de la zone.
+Lorsque vous créez un [jeu d’enregistrements SRV](dns-zones-records.md#srv-records), spécifiez le * \_service* et le * \_protocole* dans le nom du jeu d’enregistrements. Il est inutile d’inclure « @ » dans le nom du jeu d’enregistrements lors de la création d’un jeu d’enregistrements SRV à l’apex de la zone.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -384,9 +386,4 @@ Apprenez-en davantage sur les [zones et enregistrements dans Azure DNS](dns-zone
 Découvrez comment [protéger vos zones et enregistrements](dns-protect-zones-recordsets.md) lors de l’utilisation d’Azure DNS.
 <br>
 Examinez la [documentation de référence d’Azure DNS PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

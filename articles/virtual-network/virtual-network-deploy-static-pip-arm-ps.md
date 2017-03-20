@@ -1,10 +1,10 @@
 ---
-title: "Créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell | Microsoft Docs"
-description: "Apprenez à créer une machine virtuelle avec une adresse IP publique statique via Azure Resource Manager à l’aide de PowerShell."
+title: "Créer une machine virtuelle avec une adresse IP publique statique - Azure PowerShell | Microsoft Docs"
+description: "Découvrez comment créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 989236033c263bae3cc54260e1b2e6c31c30af03
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: fb071365d8d716085d1b1bd1cb52fffc830fd75c
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-powershell"></a>Déployer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
+# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
 - [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
@@ -245,10 +247,5 @@ Une fois que vous avez effectué les modifications nécessaires et compris le sc
         EndTime             : [Subscription Id]
         Error               : 
         ErrorText           : 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

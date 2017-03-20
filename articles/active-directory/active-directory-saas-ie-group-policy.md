@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe | Microsoft Docs"
+title: "Déployer l’extension Volet d’accès Azure pour IE à l’aide d’un GPO | Microsoft Docs"
 description: "Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
 services: active-directory
 documentationcenter: 
@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: af36f45e66b68e2e76651eb408682f36ee0cbb68
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’ [authentification unique par mot de passe](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-Il est recommandé que les administrateurs automatisent le déploiement de cette extension. Dans le cas contraire, les utilisateurs devront télécharger et installer l’extension eux-mêmes, ce qui peut entraîner des erreurs des utilisateurs et nécessite des autorisations d’administrateur. Ce didacticiel présente une méthode d’automatisation des déploiements de logiciels à l’aide d’une stratégie de groupe. [En savoir plus sur la stratégie de groupe.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+Il est recommandé que les administrateurs automatisent le déploiement de cette extension. Dans le cas contraire, les utilisateurs doivent télécharger et installer l’extension eux-mêmes, ce qui peut entraîner des erreurs des utilisateurs et nécessite des autorisations d’administrateur. Ce didacticiel présente une méthode d’automatisation des déploiements de logiciels à l’aide d’une stratégie de groupe. [En savoir plus sur la stratégie de groupe.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 L’extension Volet d’accès est également disponible pour [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) et [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) qui ne requièrent pas d’autorisations d’administrateur pour l’installation.
 
 ## <a name="prerequisites"></a>Conditions préalables
 * Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
-* Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier des objets de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants jouissent de cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires créateurs de la stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Étape 1 : Créer le point de distribution
-Tout d’abord, vous devez placer le package d’installation sur un emplacement réseau accessible à partir de tous les ordinateurs sur lesquels vous souhaitez installer l’extension à distance. Pour ce faire, procédez comme suit :
+Tout d’abord, vous devez placer le package d’installation sur un emplacement réseau accessible à tous les ordinateurs sur lesquels vous souhaitez installer l’extension à distance. Pour ce faire, procédez comme suit :
 
 1. Connectez-vous au serveur en tant qu’administrateur.
 2. Dans la fenêtre **Gestionnaire de serveur**, accédez à **Services de fichiers et de stockage**.
@@ -44,7 +46,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 5. Téléchargez le package Microsoft Windows Installer (fichier .msi) suivant : [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi) (Panel Extension.msi)
 6. Copiez le package d’installation vers l’emplacement souhaité sur le partage.
    
-    ![Copiez le fichier .msi sur votre partage.](./media/active-directory-saas-ie-group-policy/copy-package.png)
+    ![Copiez le fichier .msi dans le partage.](./media/active-directory-saas-ie-group-policy/copy-package.png)
 7. Vérifiez que vos ordinateurs client sont en mesure d’accéder au package d’installation à partir du partage. 
 
 ## <a name="step-2-create-the-group-policy-object"></a>Étape 2 : Créer l’objet de stratégie de groupe
@@ -64,7 +66,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 5. Dans l’invite **Nouvel objet GPO** , tapez un nom pour le nouvel objet de stratégie de groupe.
    
     ![Nommer le nouvel objet GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Cliquez avec le bouton droit sur l’objet de stratégie de groupe que vous venez de créer, puis sélectionnez **Modifier**.
+6. Cliquez avec le bouton droit sur l’objet de stratégie de groupe que vous avez créé, puis sélectionnez **Modifier**.
    
     ![Modifier le nouvel objet GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
@@ -121,7 +123,7 @@ Lorsque les utilisateurs se connectent à des sites Web à l'aide de l'Extension
 
 Si vous ne souhaitez pas que les utilisateurs puissent accéder à ce message, suivez les étapes mentionnées ci-dessous pour que la saisie semi-automatique ne procède pas à la mémorisation de mots de passe :
 
-1. Dans la fenêtre **Éditeur de gestion des stratégies de groupe** , accédez au chemin d'accès ci-dessous. Notez que ce paramètre de configuration n’est disponible que sous **Configuration utilisateur**.
+1. Dans la fenêtre **Éditeur de gestion des stratégies de groupe** , accédez au chemin d'accès ci-dessous. Ce paramètre de configuration n’est disponible que sous **Configuration utilisateur**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
 2. Recherchez le paramètre nommé **Activer la saisie semi-automatique des noms d'utilisateur et des mots de passe dans les formulaires**.
@@ -162,10 +164,5 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

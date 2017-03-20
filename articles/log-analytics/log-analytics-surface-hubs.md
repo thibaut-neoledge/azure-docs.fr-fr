@@ -1,5 +1,5 @@
 ---
-title: Surveiller les Surface Hubs avec Log Analytics | Microsoft Docs
+title: "Surveiller les Surface Hubs avec Azure Log Analytics | Microsoft Docs"
 description: "La solution Surface Hub permet de suivre l’intégrité de vos Surface Hubs et de comprendre comment ils sont utilisés."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="monitor-surface-hubs-with-log-analytics"></a>Surveiller les Surface Hubs avec Log Analytics
+# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surveiller les Surface Hubs avec Log Analytics pour suivre leur intégrité
+
 Cet article décrit comment utiliser la solution Surface Hub dans Log Analytics pour surveiller des appareils Microsoft Surface Hub avec Microsoft Operations Management Suite (OMS). Log Analytics vous aide à suivre l’intégrité de vos Surface Hubs ainsi qu’à comprendre comment ils sont utilisés.
 
 Chaque Surface Hub a un Microsoft Monitoring Agent installé. C’est via cet agent que vous pouvez envoyer des données de votre Surface Hub à OMS. Les fichiers journaux sont lus à partir de vos Surface Hubs, puis envoyés au Service OMS. Des problèmes tels que des serveurs hors connexion, un calendrier qui ne se synchronise pas, ou un compte d’appareil incapable de se connecter à Skype s’affichent sur le tableau de bord Surface Hub d’OMS. Les données du tableau de bord vous permettent d’identifier les appareils qui ne sont pas en cours d’exécution ou qui rencontrent d’autres problèmes, voire d’appliquer des correctifs pour les problèmes détectés.
@@ -84,9 +87,4 @@ Vous pouvez créer des [alertes](log-analytics-alerts.md) basées sur des recher
 ## <a name="next-steps"></a>Étapes suivantes
 * Utiliser des [recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées de Surface Hub.
 * Créer des [alertes](log-analytics-alerts.md) pour être averti en cas de problèmes avec vos Surface Hubs.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

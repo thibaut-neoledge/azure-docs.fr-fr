@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bc60476253fd3e646fbd08cd6749e06fb403959c
-ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 391943c6057081b48594d74898d798e5365509d3
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -308,6 +309,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 ### <a name="creating-a-amazon-web-services-aws-test-user"></a>Création d’un utilisateur de test Amazon Web Services (AWS)
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Amazon Web Services (AWS).
 
+> [!NOTE]
+> AWS prend en charge l’approvisionnement juste-à-temps des utilisateurs. Comme il est activé par défaut, il est inutile d’approvisionner les utilisateurs dans AWS.
+> 
+> 
+
 ### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>Pour créer un utilisateur appelé Britta Simon dans Amazon Web Service (AWS), procédez comme suit :
 1. Connectez-vous au site de votre entreprise **Amazon Web Services (AWS)** en tant qu’administrateur.
 
@@ -421,10 +427,5 @@ Lorsque vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 80668119e273aaaa7d36d2c093fba344ea50e3d8
+ms.sourcegitcommit: f5640d84774898e1c51c5dcfa52aab781cddf044
+ms.openlocfilehash: eb4966d74ffc4360605f6c88570bfb7833abaef1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-zoom-tutorial/IC784693.png "Scenario")
+![Scénario](./media/active-directory-saas-zoom-tutorial/IC784693.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-zoom"></a>Activation de l’intégration d’applications pour Zoom
 Cette section décrit l’activation de l’intégration d’applications pour Zoom.
@@ -50,13 +51,13 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
    ![Applications](./media/active-directory-saas-zoom-tutorial/IC700994.png "Applications")
 4. Cliquez sur **Ajouter** en bas de la page.
    
-   ![Ajouter une application](./media/active-directory-saas-zoom-tutorial/IC749321.png "Add application")
+   ![Ajouter une application](./media/active-directory-saas-zoom-tutorial/IC749321.png "Ajouter une application")
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zoom-tutorial/IC749322.png "Add an application from gallerry")
+   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-zoom-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 6. Dans la **zone de recherche**, tapez **Zoom**.
    
-   ![Galerie d’applications](./media/active-directory-saas-zoom-tutorial/IC784694.png "Application Gallery")
+   ![Galerie d’applications](./media/active-directory-saas-zoom-tutorial/IC784694.png "Galerie d’applications")
 7. Dans le volet de résultats, sélectionnez **Zoom**, puis cliquez sur **Terminer** pour ajouter l’application.
    
    ![Zoom](./media/active-directory-saas-zoom-tutorial/IC784695.png "Zoom")
@@ -69,24 +70,24 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’application **Zoom** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784696.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784696.png "Configurer l’authentification unique")
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zoom**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configurer l’authentification unique")
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Zoom**, tapez l’URL d’après le modèle « *http://company.zoom.us* », puis cliquez sur **Suivant**.
    
-   ![Configurer l’URL de l’application](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configure App URL")
+   ![Configurer l’URL de l’application](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configurer l’URL de l’application")
 4. Dans la page **Configurer l’authentification unique sur Zoom**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784699.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784699.png "Configurer l’authentification unique")
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zoom en tant qu’administrateur.
 6. Cliquez sur l’onglet **Single Sign-On** .
    
-   ![Authentification unique](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single sign-on")
+   ![Authentification unique](./media/active-directory-saas-zoom-tutorial/IC784700.png "Authentification unique")
 7. Cliquez sur l’onglet **Security Control**, puis accédez aux paramètres **Single Sign-On**.
 8. Dans la section Single Sign-On, procédez comme suit :
    
-   ![Authentification unique](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
+   ![Authentification unique](./media/active-directory-saas-zoom-tutorial/IC784701.png "Authentification unique")
    
    1. Dans la page **Configurer l’authentification unique sur Zoom** du portail Azure Classic, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Sign-in page URL** (URL de la page de connexion).
    2. Dans la page **Configurer l’authentification unique sur Zoom** du portail Azure Classic, copiez la valeur **URL du service de déconnexion unique**, puis collez-la dans la zone de texte **Sign-out page URL** (URL de la page de connexion).
@@ -101,7 +102,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
    6. Cliquez sur **Save**.
 9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configure single sign-on")
+   ![Configurer l’authentification unique](./media/active-directory-saas-zoom-tutorial/IC784702.png "Configurer l’authentification unique")
 
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 Pour pouvoir se connecter à Zoom, les utilisateurs d’Azure AD doivent être approvisionnés dans Zoom.  
@@ -112,10 +113,10 @@ Dans le cas de Zoom, l’approvisionnement est une tâche manuelle.
 2. Cliquez sur l’onglet **Account Management**, puis sur **User Management**.
 3. Dans la section User Management, cliquez sur **Add users**.
    
-   ![User Management](./media/active-directory-saas-zoom-tutorial/IC784703.png "User management")
+   ![Gestion des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784703.png "gestion des utilisateurs")
 4. Dans la page **Add users** , procédez comme suit :
    
-   ![Ajouter des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784704.png "Add users")
+   ![Ajouter des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784704.png "Ajouter des utilisateurs")
    
    1. Comme **User Type**, sélectionnez **Basic**.
    2. Tapez l’adresse de messagerie du compte Azure AD valide que vous souhaitez approvisionner dans la zone de texte **Emails** .
@@ -133,16 +134,11 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 1. Dans le portail Azure Classic, créez un compte de test.
 2. Dans la page d’intégration d’application **Zoom**, cliquez sur **Affecter des utilisateurs**.
    
-   ![Affecter des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784705.png "Assign users")
+   ![Affecter des utilisateurs](./media/active-directory-saas-zoom-tutorial/IC784705.png "Affecter des utilisateurs")
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-   ![Oui](./media/active-directory-saas-zoom-tutorial/IC767830.png "Yes")
+   ![Oui](./media/active-directory-saas-zoom-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

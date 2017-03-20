@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 02/28/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4b7912b48ef37eac3148582d1d635d8a4c4a4b44
-ms.openlocfilehash: 8ee5dfea961984bd01a24815b9d3c94f486a57d7
-
+ms.sourcegitcommit: ca145339ab14ef29851b53deca9be9ad137317c9
+ms.openlocfilehash: 77d3a4114b23114c0b4bf97a461cee2356d66a4a
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="azure-automation-hybrid-runbook-workers"></a>Runbooks Workers hybrides Azure Automation
+
+# <a name="automate-resources-in-your-data-center-with-hybrid-runbook-worker"></a>Automatiser des ressources dans votre centre de données à l’aide d’un Runbook Worker hybride
 Dans Azure Automation, les Runbooks ne peuvent pas accéder aux ressources de votre centre de données local, car ils s'exécutent dans le cloud Azure.  La fonctionnalité Runbook Worker hybride d'Azure Automation vous permet d'exécuter des Runbooks sur des machines situées dans votre centre de données afin de gérer les ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs locaux.  
 
 Cette fonctionnalité est illustrée dans l’image suivante.<br>  
@@ -34,7 +35,7 @@ Il n'existe aucune exigence relative aux pare-feu entrants pour prendre en charg
 > [!NOTE]
 > Pour gérer la configuration de vos serveurs prenant en charge le rôle Runbook Worker hybride avec configuration de l’état souhaité (DSC), vous devez les ajouter en tant que nœuds DSC.  Pour obtenir plus d’informations sur leur intégration pour les gérer avec DSC, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).           
 ><br>
->Actuellement, si vous activez la [Solution de gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md), n’importe quel ordinateur Windows connecté à votre espace de travail OMS sera automatiquement configuré comme un Runbook Worker hybride pour prendre en charge les runbooks qui font partie de cette solution.  Toutefois, il n’est inscrit avec aucun groupe de Workers hybrides que vous avez créé dans votre compte Automation, et vous ne pouvez pas l’ajouter à un groupe de travail hybride pour exécuter vos propres runbooks.  Si un ordinateur Windows est déjà désigné comme un Runbook Worker hybride et est connecté à l’espace de travail OMS, vous devrez le supprimer de l’espace de travail OMS avant d’ajouter la solution afin de permettre aux runbooks de fonctionner comme prévu.  
+>Si vous activez la [solution Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md), tout ordinateur Windows connecté à votre espace de travail OMS sera automatiquement configuré comme un Runbook Worker hybride pour prendre en charge les runbooks inclus dans cette solution.  Toutefois, il n’est inscrit avec aucun groupe de Workers hybrides que vous avez déjà défini dans votre compte Automation.  L’ordinateur peut être ajouté à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides.  Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.  
 
 
 ## <a name="hybrid-runbook-worker-groups"></a>Groupes de Runbooks Workers hybrides
@@ -56,7 +57,7 @@ Tenez compte des recommandations suivantes pour les Workers hybrides :
 * Envisagez d’utiliser un ordinateur physiquement situé au sein ou à proximité de la région de votre compte Automation, car les données des travaux sont renvoyées à Azure Automation lorsqu’un travail se termine.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>Configuration des paramètres de proxy et de pare-feu
-Pour que le Runbook Worker hybride local se connecte à Microsoft Operations Management Suite (OMS) et soit enregistré, il doit avoir accès au numéro de port et aux URL décrits ci-dessous.  Il s’agit d’un ajout aux [ports et URL requis pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent) se connecte à OMS. Si vous utilisez un serveur proxy pour la communication entre l'agent et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès.
+Pour que le Runbook Worker hybride local se connecte à Microsoft Operations Management Suite (OMS) et soit enregistré, il doit avoir accès au numéro de port et aux URL décrits ci-dessous.  Il s’agit d’un ajout aux [ports et URL requis pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) se connecte à OMS. Si vous utilisez un serveur proxy pour la communication entre l'agent et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès.
 
 Les informations ci-dessous répertorient le port et les URL requis pour que le Runbook Worker hybride communique avec Automation.
 
@@ -248,9 +249,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md).  
 * Pour comprendre les différentes procédures pour utiliser des Runbooks PowerShell et Workflow PowerShell dans Azure Automation à l’aide de l’éditeur de texte, consultez [Modifier des Runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

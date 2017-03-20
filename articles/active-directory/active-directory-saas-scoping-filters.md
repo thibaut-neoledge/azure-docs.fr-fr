@@ -1,5 +1,5 @@
 ---
-title: "Approvisionnement d’applications basé sur les attributs avec filtres d’étendue | Microsoft Docs"
+title: "Approvisionnement d’applications avec filtres d’étendue | Microsoft Docs"
 description: "Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être approvisionnés si un objet n’est pas conforme à vos besoins."
 services: active-directory
 documentationcenter: 
@@ -11,23 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
-L’objectif de cette section est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs seront approvisionnés pour l’application.
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
+L’objectif de cette section est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour l’application.
 
 ## <a name="clauses-and-scope-groups"></a>Clauses et groupes d’étendue
 ![Filtre d’étendue][1] 
 
 Les filtres d’étendue sont définis par un ou plusieurs **groupes d’étendue**, chacun contenant une ou plusieurs **clauses**. Pour afficher les clauses d’un groupe d’étendue particulier, développez-le en cliquant sur la flèche située à gauche du nom du groupe.
 
-Une **clause** détermine quels utilisateurs sont autorisés à traverser le filtre d’étendue en évaluant les attributs de chaque utilisateur. Par exemple, vous pouvez avoir une clause qui exige que l’attribut « état » d’un utilisateur soit égal à New York, ce qui signifie que seuls les utilisateurs de New York seront approvisionnés dans l’application.
+Une **clause** détermine quels utilisateurs sont autorisés à traverser le filtre d’étendue en évaluant les attributs de chaque utilisateur. Par exemple, l’une de vos clauses peut exiger que l’attribut « état » d’un utilisateur soit égal à New York, afin que seuls les utilisateurs de New York soient approvisionnés dans l’application.
 
 ![Nom du groupe d’étendue][2] 
 
@@ -44,7 +46,7 @@ En d’autres termes, on peut considérer les groupes d’étendue comme étant 
 
 ![Nom du groupe d’étendue][3]  
 
-D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux critères suivants pour être approvisionnés :
+D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux critères suivants pour être approvisionnés :
 
 1. Ils doivent être affectés à l’application.
 2. Ils doivent travailler dans le service Ingénierie
@@ -63,9 +65,4 @@ D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux cr
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./media/active-directory-saas-scoping-filters/ic782813.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

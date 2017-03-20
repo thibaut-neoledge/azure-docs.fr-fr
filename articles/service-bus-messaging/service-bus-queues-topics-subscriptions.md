@@ -1,5 +1,5 @@
 ---
-title: "Files d’attente, rubriques et abonnements Service Bus | Microsoft Docs"
+title: "Présentation des files d’attente de messagerie, des rubriques et des abonnements Service Bus | Microsoft Docs"
 description: "Présentation des entités de messagerie Service Bus"
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
-ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: b4c551e1d0511c868c8a54d1307529436c107945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -165,10 +166,5 @@ Consultez les rubriques avancées suivantes pour obtenir plus d’informations e
 * [Didacticiel REST sur la messagerie répartie Service Bus](service-bus-brokered-tutorial-rest.md)
 * [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Exemple de filtres de rubrique)
 * [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Messagerie répartie : exemples de filtres avancés)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

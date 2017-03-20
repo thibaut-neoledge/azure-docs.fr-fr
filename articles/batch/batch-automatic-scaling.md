@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: 89ff5d5deeda72361cb619516681aca386c5a422
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
+# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
+
 Grâce à la mise à l’échelle automatique, le service Azure Batch peut ajouter ou supprimer de manière dynamique des nœuds de calcul dans un pool en fonction des paramètres que vous définissez. Vous pouvez potentiellement gagner du temps et de l’argent en ajustant automatiquement la quantité de puissance de calcul utilisée par votre application : ajoutez des nœuds lorsque les demandes des tâches de votre travail augmentent et supprimez-les lorsqu’elles diminuent.
 
 Vous activez la mise à l’échelle automatique sur un pool de nœuds de calcul en lui associant une *formule de mise à l’échelle automatique* que vous définissez selon le même principe que la méthode [PoolOperations.EnableAutoScale][net_enableautoscale] dans la bibliothèque [Batch .NET](batch-dotnet-get-started.md). Le service Batch utilise ensuite cette formule pour déterminer le nombre de nœuds de calcul nécessaires à l’exécution de vos charges de travail. Le service Batch répond aux échantillons de données de mesure de service collectés à intervalles réguliers, et ajuste le nombre de nœuds de calcul du pool à un intervalle configurable en fonction de la formule associée.
@@ -182,7 +185,7 @@ Certaines des fonctions décrites dans le tableau ci-dessus peuvent accepter une
 
 La valeur *doubleVecList* est convertie en un seul paramètre *doubleVec* avant l’évaluation. Par exemple, si `v = [1,2,3]`, alors appeler `avg(v)` revient à appeler `avg(1,2,3)`. Appeler `avg(v, 7)` équivaut à appeler `avg(1,2,3,7)`.
 
-## <a name="a-namegetsampledataaobtain-sample-data"></a><a name="getsampledata"></a>Obtenir des échantillons de données
+## <a name="getsampledata"></a>Obtenir des échantillons de données
 Les formules de mise à l’échelle automatique agissent sur les données métriques (échantillons) qui sont fournies par le service Batch. Une formule augmente ou réduit la taille du pool en fonction des valeurs obtenues à partir du service. Les variables définies par le service qui sont illustrées ci-dessus sont des objets qui fournissent diverses méthodes pour accéder aux données associées à chaque objet. Par exemple, l’expression ci-après présente une requête visant à obtenir les cinq dernières minutes de l’utilisation du processeur :
 
 ```
@@ -643,9 +646,4 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

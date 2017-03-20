@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
-ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>Connecter des ordinateurs et appareils à OMS à l’aide de la passerelle OMS
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Connecter des ordinateurs et des appareils à OMS sans accès Internet à l’aide de la passerelle OMS
+
 Ce document décrit comment vos appareils gérés par OMS et les ordinateurs contrôlés par System Center Operations Manager (SCOM) peuvent envoyer des données au service OMS lorsqu’ils n’ont pas accès à Internet. La passerelle OMS peut collecter les données et les envoyer au service OMS en leur nom.
 
 La passerelle est un proxy de transfert HTTP qui prend en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT. La passerelle peut gérer jusqu'à 2 000 appareils OMS connectés simultanément lorsqu’elle est exécutée sur un serveur 16 Go doté d’un processeur 4 cœurs sous Windows.
@@ -277,9 +280,4 @@ Vous pouvez également laisser des commentaires sur OMS ou Log Analytics sur le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajoutez des sources de données](log-analytics-data-sources.md) pour collecter des données à partir des sources connectées de votre espace de travail OMS et les stocke dans le référentiel OMS.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

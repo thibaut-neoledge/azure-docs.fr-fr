@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 509053c87e84a4dbff78eee503dcf3af149b6f1e
-ms.openlocfilehash: 81d2a746b5e1df2cfd5b8fc465045cb92af01358
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
+ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 Apache Ambari simplifie la gestion et la surveillance d'un cluster Hadoop en fournissant une interface utilisateur web et une API REST faciles à utiliser. Ambari est inclus dans les clusters HDInsight utilisant le système d’exploitation Linux et sert à surveiller le cluster et à apporter des modifications de configuration. Dans ce document, vous allez apprendre les bases de l’utilisation de l’API REST Ambari.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>Présentation d'Ambari
+## <a id="whatis"></a>Présentation d'Ambari
 
 [Apache Ambari](http://ambari.apache.org) simplifie la gestion de Hadoop en fournissant une interface utilisateur web conviviale qui peut être utilisée pour approvisionner, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -43,7 +43,7 @@ Les exemples contenus dans ce document s’appliquent au Bourne shell (Bash) et 
 
 Si vous utilisez le __Bourne shell__ (Bash), les éléments suivants doivent être installés :
 
-* [cURL](http://curl.haxx.se/): cURL est un utilitaire utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
+* [cURL](http://curl.haxx.se/) : cURL est un utilitaire utilisable pour travailler en ligne de commande avec les API REST. Dans ce document, il est utilisé pour communiquer avec l'API REST d'Ambari.
 
 Que vous utilisiez Bash ou PowerShell, vous devez également avoir installé [jq](https://stedolan.github.io/jq/). Jq est un utilitaire permettant de travailler avec des documents JSON. Il est utilisé dans **tous** les exemples de Bash et dans l’**un** des exemples de PowerShell.
 
@@ -207,7 +207,7 @@ Lorsque vous travaillez avec HDInsight, vous pouvez avoir besoin de connaître l
 >
 > Pour plus d’informations sur l’utilisation de HDInsight et des réseaux virtuels, consultez [Étendre les fonctionnalités HDInsight à l’aide d’un réseau virtuel Azure personnalisé](hdinsight-extend-hadoop-virtual-network.md).
 
-Vous devez d’abord connaître le nom de domaine complet de l’ordinateur hôte pour pouvoir obtenir l’adresse IP. Lorsque cela est fait, vous pouvez ensuite obtenir l’adresse IP de l’hôte. Les exemples suivants interrogent d’abord Ambari pour connaître le nom de domaine complet de tous les nœuds de l’hôte, puis l’adresse IP de chaque hôte.
+Vous devez connaître le nom de domaine complet de l’ordinateur hôte pour pouvoir obtenir l’adresse IP. Lorsque cela est fait, vous pouvez ensuite obtenir l’adresse IP de l’hôte. Les exemples suivants interrogent d’abord Ambari pour connaître le nom de domaine complet de tous les nœuds de l’hôte, puis l’adresse IP de chaque hôte.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -293,7 +293,55 @@ La valeur de retour est similaire à l’un des exemples suivants :
 > [!NOTE]
 > L’applet de commande `Get-AzureRmHDInsightCluster` fournie par [Azure PowerShell](https://docs.microsoft.com/powershell/) retourne également les informations de stockage du cluster.
 
-## <a name="example-update-ambari-configuration"></a>Exemple : mise à jour de la configuration Ambari
+
+## <a name="example-get-configuration"></a>Exemple : obtenir la configuration
+
+1. Récupérez les configurations disponibles pour votre cluster.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    ```
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+        -Credential $creds
+    ```
+
+    Cet exemple renvoie un document JSON avec la configuration actuelle (identifiée par la valeur *tag* ) pour les composants installés sur le cluster. L’exemple suivant est un extrait des données renvoyées à partir d’un type de cluster Spark.
+   
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
+
+2. Récupérez la configuration du composant qui vous intéresse. Dans l’exemple suivant, remplacez `INITIAL` par la valeur de balise retournée à partir de la requête précédente.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
+        -Credential $creds
+    $resp.Content
+    ```
+
+    Cet exemple renvoie un document JSON qui contient la configuration actuelle pour le composant `core-site`.
+
+## <a name="example-update-configuration"></a>Exemple : mettre à jour la configuration
 
 1. Obtenir la configuration actuelle, qu’Ambari enregistre comme « configuration souhaitée » :
 
@@ -354,7 +402,7 @@ La valeur de retour est similaire à l’un des exemples suivants :
 
     * Il supprime les éléments `href`, `version` et `Config`, car ils ne sont pas nécessaires à l’envoi d’une nouvelle configuration.
 
-    * Il ajoute un nouvel élément `tag` avec une valeur de `version#################`. La partie numérique est basée sur la date actuelle. Chaque configuration doit avoir une balise unique.
+    * Ajoute un élément `tag` avec une valeur de `version#################`. La partie numérique est basée sur la date actuelle. Chaque configuration doit avoir une balise unique.
      
     Enfin, les données sont enregistrées dans le document `newconfig.json`. La structure du document doit se présenter comme suit :
      

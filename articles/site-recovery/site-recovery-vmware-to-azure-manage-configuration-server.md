@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 0e49b7dded14ab6b76c7c73af714af5f5c854bbc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
+ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -104,11 +104,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Si vous avez attaché des serveurs de processus de montée en puissance parallèle à ce serveur de configuration, vous devez [corriger les paramètres de proxy sur tous les serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) de votre déploiement.
+  Si vous avez attaché des serveurs de processus de montée en puissance parallèle à ce serveur de configuration, vous devez [corriger les paramètres de proxy sur tous les serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) de votre déploiement.
+
+## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Réinscription d’un serveur de configuration auprès du même coffre Recovery Services
+  1. Connectez-vous à votre serveur de configuration.
+  2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre serveur.
+  3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
+  4. Téléchargez un nouveau fichier d’inscription à partir du portail et indiquez-le comme entrée de l’outil.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
+  6. Ouvrez une fenêtre de commandes PowerShell administrateur.
+  7. Exécutez la commande suivante
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  Si vous avez attaché des serveurs de processus de montée en puissance parallèle à ce serveur de configuration, vous devez [réinscrire tous les serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) de votre déploiement.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Inscription d’un serveur de configuration auprès d’un autre coffre Recovery Services.
 1. Connectez-vous à votre serveur de configuration.
 2. À partir d’une invite de commandes d’administration, exécutez la commande indiquée ci-dessous.
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -152,11 +173,11 @@ Effectuez les opérations suivantes avant de désaffecter votre serveur de confi
 1. Connectez-vous au serveur de configuration en tant qu’administrateur.
 2. Ouvrez le Panneau de configuration > Programme > Désinstaller des programmes.
 3. Désinstallez les programmes dans la séquence suivante :
+  * Agent Microsoft Azure Recovery Services
   * Service Mobilité/Serveur cible maître Microsoft Azure Site Recovery
+  * Fournisseur Microsoft Azure Site Recovery
   * Serveur de configuration/Serveur de processus Microsoft Azure Site Recovery
   * Dépendances du serveur de configuration Microsoft Azure Site Recovery
-  * Agent Microsoft Azure Recovery Services
-  * Fournisseur Microsoft Azure Site Recovery
   * MySQL Server 5.5
 4. Exécutez la commande suivante à partir d’une invite de commandes d’administration :
   ```

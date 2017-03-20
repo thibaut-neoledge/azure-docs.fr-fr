@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 993408c9d008a94dfd4004ed6826a2fe6180b20c
-ms.openlocfilehash: aa3c77c0bf9db1f875dd992c4eb7a494af58c400
+ms.sourcegitcommit: 11a120338a9f76bfb0a56a70d0c566625bc518b9
+ms.openlocfilehash: ee3265032a839b1c35821e60e1143ae772389804
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -46,7 +47,6 @@ Tous les profils Traffic Manager incluent une surveillance de l’intégrité de
 ## <a name="priority-traffic-routing-method"></a>Méthode de routage du trafic basé sur la priorité
 
 Souvent, une organisation souhaite assurer la fiabilité de ses services en déployant un ou plusieurs services de sauvegarde utilisables en cas de défaillance du service principal. La méthode de routage du trafic « Priorité » permet aux clients Azure d’implémenter facilement ce modèle de basculement.
-
 ![Méthode de routage du trafic « Priorité » d’Azure Traffic Manager][1]
 
 Le profil Traffic Manager contient une liste hiérarchisée de points de terminaison de service. Par défaut, Traffic Manager envoie tout le trafic vers le point de terminaison principal (priorité la plus élevée). Si le point de terminaison principal n’est pas disponible, Traffic Manager route le trafic vers le deuxième point de terminaison. Si les points de terminaison de type principal et secondaire ne sont pas disponibles, le trafic est envoyé vers le troisième, et ainsi de suite. La disponibilité du point de terminaison est basée sur l’état configuré (activé ou désactivé) et la surveillance du point de terminaison en cours.
@@ -58,7 +58,6 @@ Avec Azure Resource Manager, vous configurez la priorité de point de terminaiso
 Avec l’interface classique, la priorité du point de terminaison est configurée de façon implicite. La priorité est basée sur l’ordre dans lequel les points de terminaison sont répertoriés dans la définition du profil.
 
 ## <a name="weighted-traffic-routing-method"></a>Méthode de routage du trafic basé sur la pondération
-
 La méthode de routage du trafic « Pondéré » vous permet de répartir le trafic uniformément ou d’utiliser une pondération prédéfinie.
 
 ![Méthode de routage du trafic « Pondéré » d’Azure Traffic Manager][2]
@@ -97,7 +96,9 @@ Traffic Manager recherche l’adresse IP source de la demande DNS entrante dans 
 
 Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer le point de terminaison « le plus proche » n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
 
-Traffic Manager met régulièrement à jour la Table de latence Internet pour refléter les modifications de l’Internet global et des nouvelles régions Azure. Toutefois, les performances des applications varient en fonction des variations en temps réel de la charge sur Internet. Le routage du trafic Performance ne surveille pas la charge sur un point de terminaison de service donné. En revanche, si un point de terminaison n’est plus disponible, Traffic Manager ne le retourne pas dans les réponses aux requêtes DNS.
+
+Traffic Manager met régulièrement à jour la Table de latence Internet pour refléter les modifications de l’Internet global et des nouvelles régions Azure. Toutefois, les performances des applications varient en fonction des variations en temps réel de la charge sur Internet. Le routage du trafic Performance ne surveille pas la charge sur un point de terminaison de service donné. En revanche, si un point de terminaison devient indisponible, Traffic Manager ne l’inclut pas dans les réponses aux requêtes DNS.
+
 
 Points à noter :
 
@@ -117,9 +118,4 @@ En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

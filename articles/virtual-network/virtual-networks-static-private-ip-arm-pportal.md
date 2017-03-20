@@ -1,10 +1,10 @@
 ---
-title: "Guide pratique pour définir une adresse IP privée statique en mode ARM à partir du portail Azure | Microsoft Docs"
-description: "Présentation des adresses IP privées (adresses IP dynamiques) et de leur gestion en mode ARM à l&quot;aide du portail Azure"
+title: "Configurer des adresses IP privées pour des machines virtuelles - Portail Azure | Microsoft Docs"
+description: "Découvrez comment configurer des adresses IP privées pour des machines virtuelles à l’aide du portail Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Définition d'une adresse IP privée statique dans le portail Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
-- [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
+- [portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
 - [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 - [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
 - [Portail Azure (classique)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -104,10 +106,5 @@ Pour supprimer l’adresse IP privée statique de la machine virtuelle créée c
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .
 * En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md) .
 * Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

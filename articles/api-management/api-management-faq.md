@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
-ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
+ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
+ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
@@ -44,7 +45,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Pourquoi l’authentification échoue-t-elle lors d’une tentative de clonage d’un référentiel GIT ?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Le service Gestion des API est-il compatible avec Azure ExpressRoute ?](#does-api-management-work-with-azure-expressroute)
 * [Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?](#api-management-api-import-restrictions)
+* [Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?
 Vous pouvez nous contacter de l’une des façons suivantes :
@@ -62,7 +63,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Configuration des paramètres de l’API](api-management-howto-create-apis.md#configure-api-settings).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
 * Utiliser une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante. Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
-* Connectez votre instance de gestion des API à un réseau virtuel Azure. Pour plus d’informations, consultez [Comment configurer des connexions VPN dans Gestion des API Azure](api-management-howto-setup-vpn.md).
+* Connectez votre instance de gestion des API à un réseau virtuel Azure. 
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?
 Il existe plusieurs manières de copier une instance de gestion des API vers une nouvelle instance. Vous pouvez :
@@ -149,9 +150,4 @@ Oui. Pour savoir comment procéder, consultez [Déplacer des ressources vers un 
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?
 [Problèmes connus et restrictions](api-management-api-import-restrictions.md) pour les formats Open API(Swagger), WSDL et WADL.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

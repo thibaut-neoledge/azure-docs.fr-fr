@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 85458f4477dadb83a6a2627ef490471ca38ac634
-ms.openlocfilehash: c2b78731feb1993e5c7123ff676f38704120ccff
+ms.sourcegitcommit: c22a8f4a895efc86abc328c6cf82685d7db8c19c
+ms.openlocfilehash: 33de5839e1e8fa70f75636488a0769f7aebf8b95
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -72,14 +73,35 @@ Non, cela n’est pas pris en charge actuellement.
 **Q : Est-il possible de définir manuellement l’attribut ImmutableId sur des objets Groupe/Contact Azure AD existants pour la mise en correspondance exacte avec les objets Groupe/Contact locaux ?**  
 Non, cela n’est pas pris en charge actuellement.
 
+## <a name="security"></a>Sécurité
+**Q : Les comptes sont-ils verrouillés après un nombre spécifique de tentatives infructueuses, ou une stratégie plus élaborée est-elle utilisée ?**</br>
+Nous appliquons une stratégie plus étoffée pour verrouiller les comptes.  Cette dernière repose sur l’adresse IP de la demande et sur les mots de passe entrés. La durée du verrouillage augmente également en fonction de la probabilité de l’existence d’une attaque.  
+
+**Q : Certains mots de passe (courants) sont rejetés avec un message du type : « Ce mot de passe a été utilisé trop souvent ». Ce message fait-il référence aux mots de passe utilisés dans l’instance Active Directory actuelle ?**</br>
+Ce message s’applique aux mots de passe couramment utilisés au niveau mondial, tels que toutes les variantes de « Password » et de «&12345;6 ».
+
+**Q : Une demande de connexion émanant de sources douteuses (botnets, point de terminaison Tor) sera-t-elle bloquée dans un client B2C ou nécessite-t-elle un client d’une édition De base ou Premium ?**</br>
+Nous disposons d’une passerelle qui filtre les demandes et offre une certaine protection contre les botnets. Elle s’applique à tous les clients B2C. 
+
 ## <a name="custom-configuration"></a>Configuration personnalisée
 **Q : Où réside la documentation sur les applets de commande PowerShell pour Azure Active Directory ?**  
 À l’exception des applets de commande décrites sur ce site, les autres applets de commande PowerShell disponibles dans Azure AD Connect ne sont pas prises en charge par le client.
 
 **Q : Puis-je utiliser « exportation serveur/importation serveur » dans le *Synchronization Service Manager* pour déplacer la configuration entre des serveurs ?**  
-Non. Cette option ne récupérera pas tous les paramètres de configuration et ne doit pas être utilisée. Vous devez plutôt utiliser l’Assistant pour créer la configuration de base sur le deuxième serveur et utiliser l’éditeur de règles de synchronisation pour générer des scripts PowerShell afin de déplacer une règle personnalisée entre les serveurs. Consultez [Déplacer une configuration personnalisée du serveur actif au serveur intermédiaire](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
+Non. Cette option ne récupérera pas tous les paramètres de configuration et ne doit pas être utilisée. Vous devez plutôt utiliser l’Assistant pour créer la configuration de base sur le deuxième serveur et utiliser l’éditeur de règles de synchronisation pour générer des scripts PowerShell afin de déplacer une règle personnalisée entre les serveurs. Consultez la section [Migration « Swing »](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+**Q : Les mots de passe peuvent-ils être mis en cache pour la page de connexion Azure, et est-il possible d’empêcher cela, étant donné que la page contient un élément d’entrée de mot de passe avec l’attribut autocomplete = "false" ?**</br>
+Pour l’instant, nous ne prenons pas en charge la modification des attributs HTML du champ d’entrée de mot de passe, et notamment de la balise « autocomplete ». Nous travaillons actuellement à l’élaboration d’une fonctionnalité d’autorisation d’un code Javascript personnalisé qui vous permettra d’ajouter n’importe quel attribut au champ du mot de passe. Cette fonctionnalité devrait être accessible courant 2017.
+
+**Q : La page de connexion Azure affiche les noms d’utilisateur des utilisateurs qui se sont déjà connectés avec succès.  Est-il possible de désactiver ce comportement ?**</br>
+Pour l’instant, nous ne prenons pas en charge la modification des attributs HTML de la page de connexion. Nous travaillons actuellement à l’élaboration d’une fonctionnalité d’autorisation d’un code Javascript personnalisé qui vous permettra d’ajouter n’importe quel attribut au champ du mot de passe. Cette fonctionnalité devrait être accessible courant 2017.
+
+**Q : Existe-t-il un moyen d’empêcher les sessions simultanées ?**</br>
+Non.
+
+
+
+## <a name="troubleshooting"></a>Résolution des problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
 [Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
@@ -93,10 +115,5 @@ Non. Cette option ne récupérera pas tous les paramètres de configuration et n
 [Service clientèle Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 * Cliquez sur ce lien pour bénéficier du support par le biais du portail Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

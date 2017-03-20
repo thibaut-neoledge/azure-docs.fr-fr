@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e6b1c8cbf45fea4f5af16231003ccc07a2a53233
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -32,7 +33,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Configuration de l'approvisionnement des utilisateurs
 
-![Scénario](./media/active-directory-saas-workday-tutorial/IC782919.png "Scenario")
+![Scénario](./media/active-directory-saas-workday-tutorial/IC782919.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-workday"></a>Activation de l’intégration d’application pour Workday
 Cette section décrit l’activation de l’intégration d’application pour Workday.
@@ -50,7 +51,7 @@ Cette section décrit l’activation de l’intégration d’application pour Wo
 
 4. Pour ouvrir la **Galerie d’applications**, cliquez sur **Ajouter une application**, puis sur **Ajouter une application utilisable par mon organisation**.
    
-    ![Que voulez-vous faire ?](./media/active-directory-saas-workday-tutorial/IC700995.png "What do you want to do?")
+    ![Que souhaitez-vous faire ?](./media/active-directory-saas-workday-tutorial/IC700995.png "Que souhaitez-vous faire ?")
 
 5. Dans la **zone de recherche**, entrez **Workday**.
    
@@ -68,15 +69,15 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Dans la page d’intégration d’application **Workday**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782920.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782920.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Workday**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782921.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782921.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant**.
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-workday-tutorial/IC782957.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-workday-tutorial/IC782957.png "Configurer l’URL de l’application")
    
     a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Workday au format suivant : `https://impl.workday.com/<tenant>/login-saml2.htmld`
    
@@ -89,7 +90,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 4. Dans la page **Configurer l’authentification unique sur Workday**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782922.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782922.png "Configurer l’authentification unique")
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Workday en tant qu’administrateur.
 
@@ -99,15 +100,15 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 7. Accédez à **Administration des comptes**.
    
-    ![Administration des comptes](./media/active-directory-saas-workday-tutorial/IC782924.png "Account Administration")
+    ![Administration des comptes](./media/active-directory-saas-workday-tutorial/IC782924.png "Administration des comptes")
 
 8. Accédez à **Edit Tenant Setup – Security**.
    
-    ![Modifier la sécurité du locataire](./media/active-directory-saas-workday-tutorial/IC782925.png "Edit Tenant Security")
+    ![Modifier la sécurité du locataire](./media/active-directory-saas-workday-tutorial/IC782925.png "Modifier la sécurité du locataire")
 
 9. Dans la section **Redirection URLs** , procédez comme suit :
    
-    ![Redirection URLs](./media/active-directory-saas-workday-tutorial/IC7829581.png "Redirection URLs")
+    ![URL de redirection](./media/active-directory-saas-workday-tutorial/IC7829581.png "URL de redirection")
    
     a. Cliquez sur le **signe plus**pour ajouter une ligne.
    
@@ -124,7 +125,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 1. Dans la section **SAML Setup** , procédez comme suit :
    
-    ![SAML Setup](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML Setup")
+    ![Configuration de SAML](./media/active-directory-saas-workday-tutorial/IC782926.png "Configuration de SAML")
    
     a.  Sélectionnez **Enable SAML Authentication**.
    
@@ -132,7 +133,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 2. Dans la section SAML Identity Providers, procédez comme suit :
    
-    ![Fournisseurs d’identité SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "SAML Identity Providers")
+    ![Fournisseurs d’identité SAML](./media/active-directory-saas-workday-tutorial/IC7829271.png "Fournisseurs d’identité SAML")
    
     a. Dans la zone de texte Identity Provider Name, saisissez le nom d’un fournisseur (par ex., *SPInitiatedSSO*).
    
@@ -144,16 +145,16 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     e. Cliquez sur **Certificat de clé publique du fournisseur d’identité**, puis sur **Créer**. 
 
-    ![Créer](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
+    ![Créer](./media/active-directory-saas-workday-tutorial/IC782928.png "créer")
 
     f. Cliquez sur **Créer la clé publique x509**. 
 
-    ![Créer](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
+    ![Créer](./media/active-directory-saas-workday-tutorial/IC782929.png "créer")
 
 
 1. Dans la section **Afficher la clé publique x509** , procédez comme suit : 
    
-    ![Afficher la clé publique x509](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key") 
+    ![Afficher la clé publique x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Afficher la clé publique x509") 
    
     a. Dans la zone de texte **Name**, tapez le nom du certificat (par ex. : *PPE\_SP*).
    
@@ -181,7 +182,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 2. Procédez comme suit : 
    
-    ![Configuration SSO](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO configuration")
+    ![Configuration SSO](./media/active-directory-saas-workday-tutorial/IC7829351111.png "Configuration SSO")
    
     a.  Activez **x509 Private Key Pair**.
    
@@ -195,7 +196,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
    
     f. Comme **Méthode de signature de la demande d’authentification**, sélectionnez **SHA256**. 
    
-    ![Méthode de signature de la demande d’authentification](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") 
+    ![Méthode de signature de demande la d’authentification](./media/active-directory-saas-workday-tutorial/IC782932.png "Méthode de signature de la demande d’authentification") 
    
     g. Cliquez sur **OK**. 
    
@@ -203,11 +204,11 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 3. Dans la page **Configurer l’authentification unique sur Workday** du portail Azure Classic, cliquez sur **Suivant**. 
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782934.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782934.png "Configurer l’authentification unique")
 
 4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. 
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configurer l’authentification unique")
 
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 Pour approvisionner un utilisateur test dans Workday, vous devez contacter l’équipe du support technique Workday.  
@@ -221,17 +222,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 2. Dans la page d’intégration d’application **Workday**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-workday-tutorial/IC782935.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-workday-tutorial/IC782935.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-workday-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-workday-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

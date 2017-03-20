@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 34bb02d93f74d437962334802f3bfbf938bbb258
-ms.openlocfilehash: 2bc98da479e6efea322a3782879fae72b106538a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -190,7 +190,7 @@ Vérifiez la barre d’état pour vous assurer que le coffre a été créé corr
 
    * Si vous souhaitez utiliser un proxy personnalisé, configurez-le avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy.
    * Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris son adresse et son port.
-   * Les [URL](site-recovery-best-practices.md#url-access) suivantes doivent être accessibles à partir du serveur VMM.
+   * Les URL requises doivent être accessibles à partir du serveur VMM.
    * Si vous utilisez un proxy personnalisé, un compte d’identification VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s’authentifier. Vous pouvez modifier les paramètres de compte d’identification dans la console VMM (**Paramètres** > **Sécurité** > **Comptes d’identification** > **DRAProxyAccount**). Vous devez redémarrer le service VMM pour que la modification prenne effet.
 10. Dans **Clé d’inscription**, sélectionnez la clé que vous avez téléchargée depuis le portail et copiez-la sur le serveur VMM.
 11. Dans **Vault name**, vérifiez le nom du coffre dans lequel le serveur est enregistré.
@@ -321,7 +321,7 @@ Pour vous assurer que les machines virtuelles basculent comme prévu, testez vot
 
     ![Sélectionner les machines virtuelles](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. Une fois le plan de récupération créé, il s’affiche dans la liste de l’onglet **Plans de récupération** . Sélectionnez le plan, puis choisissez **Test de basculement**.
-5. Dans la page **Confirmer le test de basculement**, sélectionnez **Aucun**. Si cette option est activée, les machines virtuelles de réplication basculées ne sont connectées à aucun réseau. Ce test vérifie que les machines virtuelles basculent correctement, mais il ne vérifie pas l’environnement réseau. Pour plus d’informations sur les autres options de mise en réseau, consultez [Basculement Site Recovery](site-recovery-failover.md#run-a-test-failover).
+5. Dans la page **Confirmer le test de basculement**, sélectionnez **Aucun**. Si cette option est activée, les machines virtuelles de réplication basculées ne sont connectées à aucun réseau. Ce test vérifie que les machines virtuelles basculent correctement, mais il ne vérifie pas l’environnement réseau. Pour plus d’informations sur les autres options de mise en réseau, consultez [Basculement Site Recovery](site-recovery-failover.md).
 
     ![Sélectionner le réseau de test](./media/site-recovery-vmm-san/test-fail1.png)
 

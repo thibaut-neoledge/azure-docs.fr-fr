@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -107,7 +107,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
 
 2. Utilisez la commande suivante pour démarrer un exemple de topologie :
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm jar org.apache.storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
    
     > [!NOTE]
     > Sur les versions antérieures de HDInsight, le nom de classe de la topologie est `storm.starter.WordCountTopology` au lieu de `org.apache.storm.starter.WordCountTopology`.
@@ -199,7 +199,7 @@ Retournez à la page **Résumé de la topologie**, puis sélectionnez le bouton 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 
 Dans ce didacticiel Apache Storm, vous avez découvert les principes de base de l’utilisation de Storm sur HDInsight. À présent, découvrez comment [développer des topologies basées sur Java à l’aide de Maven](hdinsight-storm-develop-java-topology.md).
 

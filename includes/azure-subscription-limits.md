@@ -10,15 +10,9 @@
 | Adresses IP réservées par abonnement |20 |100 |
 | Certificats de services hébergés par abonnement |400 |400 |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |256 |256 |
-| [Batch](https://azure.microsoft.com/services/batch/) par région et par abonnement |1 |50 |
 | Règles d’alerte par abonnement |250 |250 |
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
 <sup>2</sup>Cela inclut à la fois les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/)pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage. 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

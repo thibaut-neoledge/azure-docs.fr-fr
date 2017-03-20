@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2016
+ms.date: 02/28/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 01c6d3c3fa8648ef9ecaefcf43191315380d13d4
+ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
+ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>Comment obtenir une certification AppSource pour Azure Active Directory (AD)
-Afin de recevoir une certification AppSource pour Azure AD, votre application doit implémenter le modèle de connexion mutualisée dans Azure AD en utilisant les protocoles OpenID Connect, OAuth 2.0 ou SAML 2.0. 
+Pour recevoir une certification AppSource pour Azure AD, votre application doit implémenter le modèle de connexion mutualisée dans Azure AD en utilisant les protocoles OpenID Connect ou OAuth 2.0.  
 
 Si vous n’êtes pas familiarisé avec la connexion Azure AD ou le développement d’une application mutualisée :
 
@@ -57,10 +58,5 @@ Utilisez la section Commentaires Disqus disponible à la fin de cet article pour
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

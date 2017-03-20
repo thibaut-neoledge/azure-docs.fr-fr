@@ -1,6 +1,6 @@
 ---
 
-title: "Affectation de licences à un groupe dans Azure Active Directory | Microsoft Docs"
+title: "Affecter des licences à un groupe dans Azure Active Directory | Microsoft Docs"
 description: "Comment affecter des licences à l’aide de la gestion des licences basée sur le groupe Azure Active Directory"
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: cea745934c36297f5fe0867f4335a797a3ae2515
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 909402b0c603433883757dc3082676462a7c6683
+ms.lasthandoff: 03/08/2017
 
 
 ---
 
-# <a name="assigning-licenses-to-a-group-in-azure-active-directory"></a>Affectation de licences à un groupe dans Azure Active Directory
+# <a name="assign-licenses-to-a-group-of-users-in-azure-active-directory"></a>Affecter des licences à un groupe d’utilisateurs dans Azure Active Directory
 
 Dans cet article, nous allons suivre un scénario de base d’affectation de licences du produit à un groupe et de vérification que tous les membres du groupe disposent d’une licence appropriée.
 
-Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Department** qui inclut tous les membres du service des ressources humaines, qui dans ce cas compte 1 000 utilisateurs environ. L’administrateur souhaite affecter des licences Office 365 Enterprise E3 à l’ensemble du service ; le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à une date ultérieure, lorsque le service est prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security sur le même groupe d’utilisateurs.
+Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Department** qui inclut tous les membres du service des ressources humaines (dans ce cas, 1 000 utilisateurs environ). L’administrateur souhaite affecter des licences Office 365 Enterprise E3 à l’ensemble du service ; le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à une date ultérieure, lorsque le service est prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security sur le même groupe d’utilisateurs.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
@@ -46,7 +47,7 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 
   ![Sélectionner un groupe](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Dans le panneau **Affecter une licence**, cliquez sur **Options d'affectation (facultatif)** qui affiche tous les plans de service comprenant les deux produits que nous avons sélectionnés précédemment. Recherchez Yammer Enterprise et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options d’affectation**.
+6. Dans le panneau **Affecter une licence**, cliquez sur **Options d’affectation (facultatif)** qui affiche tous les plans de service comprenant les deux produits que nous avons sélectionnés précédemment. Recherchez Yammer Enterprise et définissez-le sur **Désactivé** pour désactiver ce service à partir de la licence du produit. Confirmez en cliquant sur **OK** en bas des **options d’affectation**.
 
   ![options d’affectation](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
@@ -63,11 +64,11 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 
 1. Accédez à **Azure Active Directory &gt; Utilisateurs et groupes &gt; Tous les groupes** et recherchez le groupe *HR Department* auquel des licences ont été affectées.
 
-2. Dans le panneau du groupe *HR Department*, sélectionnez **Licences** pour vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et si des erreurs doivent être étudiées, notamment :
+2. Dans le panneau du groupe *HR Department*, sélectionnez **Licences** pour vérifier rapidement si les licences ont été entièrement affectées aux utilisateurs et si des erreurs doivent être étudiées. Les informations suivantes sont disponibles :
 
-  - Licences du produit affectées au groupe. Sélectionnez une entrée pour afficher les services spécifiques qui ont été activés et pour apporter des modifications.
+  - Liste des licences du produit qui sont actuellement affectées au groupe. Sélectionnez une entrée pour afficher les services spécifiques qui ont été activés et pour apporter des modifications.
 
-  - État des dernières modifications apportées à l’affectation de licences : si les modifications sont en cours de traitement ou si le traitement a été effectué sur tous les membres de l’utilisateur.
+  - État des dernières modifications de licences affectant le groupe : si les modifications sont en cours de traitement ou si le traitement a été effectué sur tous les membres de l’utilisateur.
 
   - En cas d’erreur, les informations relatives aux utilisateurs sont à l’état d’erreur, pour lesquels des licences n’ont pas pu être affectées.
 
@@ -84,7 +85,7 @@ Nous avons maintenant spécifié un modèle de licence sur le groupe HR Departme
 
 1. Accédez à **Azure Active Directory &gt; Utilisateurs et groupes &gt; Tous les groupes** et recherchez le groupe *HR Department* auquel des licences ont été affectées.
 
-2. Dans le panneau **HR Department**, sélectionnez **Licences**. La notification en haut du panneau indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Elle ouvre une liste de tous les utilisateurs à l’état d’erreur de licence pour ce groupe.
+2. Dans le panneau **HR Department**, sélectionnez **Licences**. La notification en haut du panneau indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Cliquer dessus a pour effet d’ouvrir une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.
 
 3. La colonne **Échec d’affectations** indique que les deux licences de produit n’ont pas pu être affectées aux utilisateurs. **Raison principale de l’échec** indique la cause de l’échec, dans ce cas **Plans de service en conflit**.
 
@@ -104,6 +105,6 @@ Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des l
 
 * [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](active-directory-licensing-whatis-azure-portal.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Autres scénarios de licence basée sur le groupe Azure Active Directory](active-directory-licensing-group-advanced.md)
+* [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Autres scénarios de licences basées sur les groupes Azure Active Directory](active-directory-licensing-group-advanced.md)
 

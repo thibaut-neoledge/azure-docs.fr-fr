@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -97,10 +98,5 @@ Pour plus d’informations, consultez [User States in Azure Multi-Factor Authent
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez configuré Azure Multi-Factor Authentication dans le cloud, vous pouvez configurer et installer votre déploiement. Pour plus d’informations, consultez [Configuration d’Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

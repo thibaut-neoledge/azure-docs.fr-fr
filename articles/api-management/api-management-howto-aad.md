@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: bc77893c80e9ede11a60aa7d809ac4311b44f5cc
+ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
+ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
 ## <a name="overview"></a>Vue d'ensemble
-Ce guide vous explique comment activer l’accès au portail des développeurs pour tous les utilisateurs dans un ou plusieurs annuaires Azure Active Directory. Il vous montre également comment gérer des groupes d’utilisateurs Azure Active Directory en ajoutant des groupes externes qui contiennent les utilisateurs d’un annuaire Azure Active Directory.
+Ce guide vous explique comment activer l’accès au portail des développeurs pour les utilisateurs d’Azure Active Directory. Il vous montre également comment gérer des groupes d’utilisateurs Azure Active Directory en ajoutant des groupes externes qui contiennent les utilisateurs d’un annuaire Azure Active Directory.
 
 > Pour effectuer les étapes de ce guide, vous devez disposer d’un annuaire Azure Active Directory dans lequel vous souhaitez créer une application.
 > 
@@ -110,19 +111,24 @@ Revenez au portail des éditeurs et collez la clé dans la zone de texte **Clé 
 
 ![Locataires autorisés][api-management-client-allowed-tenants]
 
-Plusieurs domaines peuvent être spécifiés dans la section **Locataires autorisés** . Avant qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder cette autorisation, l’administrateur général doit se connecter à l’application et cliquer sur **Accepter**. Dans l’exemple suivant, `miaoaad.onmicrosoft.com` a été ajouté à **Locataires autorisés** et un administrateur général de ce domaine se connecte pour la première fois.
+
+Une fois la configuration souhaitée spécifiée, cliquez sur **Enregistrer**.
+
+![Enregistrer][api-management-client-allowed-tenants-save]
+
+Après avoir enregistré les modifications, les utilisateurs de l’annuaire Azure Active Directory spécifié peuvent se connecter au portail des développeurs en suivant les étapes de la section [Connexion au portail des développeurs avec un compte Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
+
+Plusieurs domaines peuvent être spécifiés dans la section **Locataires autorisés** . Avant qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit accéder à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent), entrer le nom de domaine du client Active Directory auquel il souhaite accorder l’accès, puis cliquer sur Envoyer. Dans l’exemple suivant, un administrateur général de `miaoaad.onmicrosoft.com` tente d’accorder l’autorisation à ce portail développeur spécifique. 
+
+![Autorisations][api-management-aad-consent]
+
+Dans l’écran suivant, l’administrateur général sera invité à confirmer l’octroi de l’autorisation. 
 
 ![Autorisations][api-management-permissions-form]
 
 > Si un administrateur autre que l’administrateur global tente de se connecter avant que les autorisations ne soient accordées par un administrateur général, la tentative de connexion échoue et un écran d’erreur s’affiche.
 > 
 > 
-
-Une fois la configuration souhaitée spécifiée, cliquez sur **Enregistrer**.
-
-![Enregistrer][api-management-client-allowed-tenants-save]
-
-Après avoir enregistré les modifications, les utilisateurs de l’annuaire Active Directory Azure spécifié peuvent se connecter au portail des développeurs en suivant les étapes de la section [Connexion au portail des développeurs avec un compte Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Ajout d’un groupe Azure Active Directory externe
 Après avoir activé l’accès pour les utilisateurs dans Azure Active Directory, vous pouvez ajouter des groupes Azure Active Directory à Gestion des API pour gérer plus facilement l’association des développeurs du groupe avec les produits souhaités.
@@ -147,7 +153,7 @@ Ce nom de groupe se trouve dans la liste **Groupes** de votre annuaire Azure Act
 
 ![Liste des groupes Azure Active Directory][api-management-aad-groups-list]
 
-Cliquez sur **Ajouter** pour valider le nom du groupe et ajouter le groupe. Dans cet exemple, le groupe externe **Contoso 5 Developpers** est ajouté. 
+Cliquez sur **Ajouter** pour valider le nom du groupe et ajouter le groupe. Dans cet exemple, le groupe externe **Contoso 5 Developers** est ajouté. 
 
 ![Group added][api-management-aad-group-added]
 
@@ -155,7 +161,7 @@ Cliquez sur **Enregistrer** pour enregistrer la nouvelle sélection de groupe.
 
 Une fois le groupe Azure Active Directory configuré à partir d’un produit, il est consultable dans l’onglet **Visibilité** des autres produits dans l’instance de service Gestion des API.
 
-Pour vérifier et configurer les propriétés des groupes externes une fois qu’ils ont été ajoutés, cliquez sur le nom du groupe dans l’onglet **Groupes** .
+Pour vérifier et configurer les propriétés des groupes externes une fois qu’ils ont été ajoutés, cliquez sur le nom du groupe dans l’onglet **Groupes**.
 
 ![Gérer les groupes][api-management-groups]
 
@@ -204,6 +210,7 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
+[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
 [api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
 [api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
@@ -234,10 +241,5 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

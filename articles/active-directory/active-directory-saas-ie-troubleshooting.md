@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer | Microsoft Docs"
+title: "Résolution des problèmes liés à l’extension Volet d’accès Azure pour IE| Microsoft Docs"
 description: "Comment utiliser la stratégie de groupe pour déployer le module complémentaire Internet Explorer du portail Mes applications."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -50,7 +52,7 @@ Vous pouvez diagnostiquer les problèmes d’installation de l’extension Volet
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>Vérifiez que l’extension Volet d’accès est activée.
 Pour vérifier que l’extension Volet d’accès est activée dans Internet Explorer :
 
-1. Dans Internet Explorer, cliquez sur l’ **icône d’engrenage** en haut à droite de la fenêtre. Puis sélectionnez **Options Internet**.<br />(Dans les versions antérieures d’Internet Explorer, ce menu se trouve dans **Outils > Options Internet**.
+1. Dans Internet Explorer, cliquez sur l’**icône d’engrenage** en haut à droite de la fenêtre. Puis sélectionnez **Options Internet**.<br />(Dans les versions antérieures d’Internet Explorer, ce menu se trouve dans **Outils > Options Internet**.
    
     ![Accéder à Outils > Options Internet](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 2. Cliquez sur l’onglet **Programmes**, puis sur le bouton **Gérer les modules complémentaires**.
@@ -64,7 +66,7 @@ Pour vérifier que l’extension Volet d’accès est activée dans Internet Ex
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Activation des extensions pour la navigation InPrivate
 Si vous utilisez le mode de navigation InPrivate :
 
-1. Dans Internet Explorer, cliquez sur l’ **icône d’engrenage** en haut à droite de la fenêtre. Puis sélectionnez **Options Internet**.<br />(Dans les versions antérieures d’Internet Explorer, ce menu se trouve dans **Outils > Options Internet**.
+1. Dans Internet Explorer, cliquez sur l’**icône d’engrenage** en haut à droite de la fenêtre. Puis sélectionnez **Options Internet**.<br />(Dans les versions antérieures d’Internet Explorer, ce menu se trouve dans **Outils > Options Internet**.
    
     ![Exemple de fenêtre de diagnostic](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 2. Accédez à l’onglet **Confidentialité**, puis **décochez** la case **Désactiver les barres d’outils et les extensions lors du démarrage de la navigation InPrivate**</p>
@@ -78,7 +80,7 @@ Pour désinstaller l’extension Volet d’accès de votre ordinateur :
 1. Sur votre clavier, appuyez sur la **touche Windows** pour ouvrir le menu Démarrer. Ce menu vous permet de rechercher une application. Tapez « Panneau de configuration », puis ouvrez le **Panneau de configuration** quand il apparaît dans les résultats de recherche.
    
     ![Rechercher le Panneau de configuration](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. En haut à droite du Panneau de configuration, choisissez **Grandes icônes** sous l’option **Afficher par**. Recherchez et sélectionnez le bouton **Programmes et fonctionnalités** .
+2. En haut à droite du Panneau de configuration, choisissez **Grandes icônes** sous l’option **Afficher par**. Recherchez et sélectionnez le bouton **Programmes et fonctionnalités**.
    
     ![Modifier l’affichage pour afficher les Grandes icônes](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 3. Dans la liste, sélectionnez **Extension Volet d’accès**, puis cliquez sur le bouton **Désinstaller**.
@@ -92,10 +94,5 @@ Si vous rencontrez des problèmes pour désinstaller l’extension, vous pouvez 
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

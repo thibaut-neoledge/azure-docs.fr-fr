@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: adc7cbb938d396979a87d22ec86c82a801f4be5b
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 68860006266a60bf8e87f72d8669fb26ed3a5486
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -35,9 +35,11 @@ La vérification des flux IP est une fonctionnalité de Network Watcher qui vous
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher ou que vous disposez d’une instance existante de Network Watcher. Ce scénario suppose également qu’un groupe de ressources avec une machine virtuelle valide existe et peut être utilisé.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="scenario"></a>Scénario
 
-Ce scénario utilise la vérification des flux IP pour savoir si une machine virtuelle peut communiquer avec une adresse IP Bing connue. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour plus d’informations sur la vérification des flux IP, consultez la page [Présentation de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md)
+Ce scénario utilise la vérification des flux IP pour savoir si une machine virtuelle peut communiquer avec une adresse IP Bing connue. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour en savoir plus sur la vérification des flux IP, consultez [Vue d’ensemble de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md).
 
 ## <a name="retrieve-network-watcher"></a>Récupérer Network Watcher
 
@@ -75,7 +77,7 @@ Test-AzureRmNetworkWatcherIPFlow -NetworkWatcher $networkWatcher -TargetVirtualM
 ```
 
 > [!NOTE]
-> La vérification des flux IP nécessite l’attribution de la ressource de machine virtuelle.
+> La vérification des flux IP nécessite l’allocation de la ressource de machine virtuelle.
 
 ## <a name="review-results"></a>Analyser les résultats
 

@@ -1,5 +1,5 @@
 ---
-title: Configuration de l&quot;authentification unique pour les applications ne faisant pas partie de la galerie d&quot;applications Azure Active Directory | Microsoft Docs
+title: "Configurer l’authentification unique Azure AD pour les applications | Microsoft Docs"
 description: "Découvrez comment connecter les applications à Azure Active Directory à l&quot;aide de SAML et de l&quot;authentification unique basée sur le mot de passe en libre-service"
 services: active-directory
 author: asmalser-msft
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 02/27/2017
 ms.author: asmalser
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8274e47e99998b735e7252ce72bb3ac7c2ecc672
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -139,9 +141,4 @@ Remarque : Vous pouvez télécharger un logo de la mosaïque pour l'application
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

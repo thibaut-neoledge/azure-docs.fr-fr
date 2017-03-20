@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 27ff53646992308d574dcc2e631cd63b8227f9c8
-ms.openlocfilehash: 826fc2b2eaaf180d922c7a9a4c329ec4379c2ae0
+ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
+ms.openlocfilehash: 43ab735b91bf3f3f1e9631067827f2c456dd7b72
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="managing-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
-En tant qu'administrateur, vous pouvez gérer les paramètres utilisateur et périphérique.  
+En tant qu’administrateur, vous pouvez gérer les paramètres des utilisateurs et des appareils :
 
-* [Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact](#require-selected-users-to-provide-contact-methods-again)
-* [Supprimer les mots de passe d’application existants des utilisateurs](#delete-users-existing-app-passwords)
-* [Restaurer MFA sur tous les appareils interrompus d’un utilisateur](#restore-mfa-on-all-suspended-devices-for-a-user)
-
-Ceci est utile si un ordinateur ou un appareil a été perdu ou volé ou si vous devez supprimer l’accès aux utilisateurs.
+* Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact
+* Supprimer les mots de passe d’application existants des utilisateurs
+* Restaurer MFA sur tous les appareils interrompus d’un utilisateur
 
 ## <a name="require-selected-users-to-provide-contact-methods-again"></a>Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact
 Ce paramètre forcera l'utilisateur à réexécuter le processus d'inscription lorsqu'il se connecte. N'oubliez pas que les applications sans navigateur continueront de fonctionner si l'utilisateur dispose pour elles de mots de passe d'application.  Vous pouvez supprimer les mots de passe d’application des utilisateurs en choisissant **Supprimer tous les mots d'application existants, générés par les utilisateurs sélectionnés**.
@@ -62,7 +61,11 @@ Cela supprime tous les mots de passe d'application créés par un utilisateur. L
 10. Cliquez sur Fermer.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Restaurer MFA sur tous les appareils mémorisés d’un utilisateur
-Les administrateurs ont la possibilité de restaurer Multi-Factor Authentication sur les appareils et les navigateurs des utilisateurs. Cette opération supprime la mémorisation MFA de tous les appareils et navigateurs de l’utilisateur. Celui-ci devra utiliser l’authentification multifacteur lors de sa prochaine connexion.
+L’une des fonctionnalités configurables d’Azure Multi-Factor Authentication permet à vos utilisateurs de marquer les appareils comme approuvés. Pour plus d’informations, consultez [Configurer les paramètres d’Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md#remember-multi-factor-authentication-for-devices-that-users-trust).
+
+Les utilisateurs ont la possibilité de refuser la vérification en deux étapes pendant un nombre configurable de jours sur les appareils qu’ils utilisent régulièrement. Si un compte est compromis ou si un appareil de confiance est perdu, vous devez être en mesure de supprimer l’état approuvé et d’exiger à nouveau la vérification en deux étapes.
+
+Le paramètre **Restaurer l’authentification multifacteur pour tous les appareils mémorisés** signifie que l’utilisateur sera invité à procéder à la vérification en deux étapes lors de sa prochaine connexion, qu’il ait choisi ou non de marquer son appareil comme approuvé. 
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Restaurer MFA sur tous les appareils interrompus d’un utilisateur
 1. Connectez-vous au portail Azure Classic.
@@ -76,9 +79,4 @@ Les administrateurs ont la possibilité de restaurer Multi-Factor Authenticatio
    ![Supprimer des mots de passe d’application](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
 9. Cliquez sur Enregistrer.
 10. Cliquez sur Fermer.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

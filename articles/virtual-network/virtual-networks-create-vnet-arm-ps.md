@@ -1,6 +1,6 @@
 ---
-title: "Création d’un réseau virtuel à l’aide de PowerShell | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l’aide de PowerShell | Resource Manager."
+title: "Créer un réseau virtuel - Azure PowerShell | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 33f3a1f490b51123054440b6098de1ae4aca941f
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -180,9 +182,4 @@ Apprenez à connecter :
 - Une machine virtuelle à un réseau virtuel en lisant l’article [Création d’une machine virtuelle Windows](../virtual-machines/virtual-machines-windows-ps-create.md). Au lieu de créer un réseau virtuel et un sous-réseau comme indiqué dans les procédures de ces articles, vous pouvez sélectionner un réseau virtuel et un sous-réseau existants pour établir la connexion à une machine virtuelle.
 - Le réseau virtuel à d’autres réseaux virtuels en lisant l’article sur la [connexion des réseaux virtuels](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Le réseau virtuel à un réseau local à l’aide d’un réseau privé virtuel (VPN) site à site ou d’un circuit ExpressRoute. Découvrez comment en lisant les articles [Connecter un réseau virtuel à un réseau local à l’aide d’un VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) et [Lier un réseau virtuel à un circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

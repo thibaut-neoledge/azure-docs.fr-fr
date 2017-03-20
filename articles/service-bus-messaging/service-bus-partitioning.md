@@ -1,5 +1,5 @@
 ---
-title: "Files d’attente et rubriques partitionnées | Microsoft Docs"
+title: "Créer des rubriques et des files d’attente Azure Service Bus partitionnées | Microsoft Docs"
 description: "Décrit comment partitionner des files d’attente et des rubriques Service Bus à l’aide de plusieurs courtiers de messages."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/22/2016
 ms.author: sethm;hillaryc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b169b3501ac938c1c0d621909dfc82418a7146e
-ms.openlocfilehash: 7da16e2bca1332b63709ecff39af7124656db98a
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: af2024f059efa9cb51d6e52b599c00d71f941423
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -143,9 +144,4 @@ Consultez la discussion sur la [prise en charge par AMQP 1.0 des rubriques et fi
 [OperationTimeout]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

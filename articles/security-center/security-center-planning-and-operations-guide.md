@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 71fdf71d48959856697603c765e299f8a40b089e
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -284,10 +285,5 @@ Dans ce document, vous avez vu comment planifier l’adoption du Centre de sécu
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

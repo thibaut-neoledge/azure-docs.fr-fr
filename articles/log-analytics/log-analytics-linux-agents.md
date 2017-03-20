@@ -1,5 +1,5 @@
 ---
-title: "Connecter des ordinateurs Linux à Log Analytics | Microsoft Docs"
+title: "Connecter des ordinateurs Linux à Azure Log Analytics | Microsoft Docs"
 description: "Avec Log Analytics, vous pouvez collecter et exploiter les données générées par des ordinateurs Linux."
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-linux-computers-to-log-analytics"></a>Connecter des ordinateurs Linux à Log Analytics
-Avec Log Analytics, vous pouvez collecter et exploiter les données générées par des ordinateurs Linux. L’ajout de données collectées sur Linux dans OMS vous permet de gérer les systèmes Linux et les solutions de conteneur telles que Docker, indépendamment de l’emplacement de vos ordinateurs. Ces sources de données peuvent résider sur des serveurs physiques de votre centre de données local, sur des ordinateurs virtuels dans un service hébergé sur le cloud comme Amazon Web Services (AWS) ou Microsoft Azure, voire sur votre ordinateur portable. De plus, OMS collecte les données des ordinateurs Windows de la même façon, prenant en charge un véritable environnement informatique hybride.
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Connecter vos ordinateurs Linux à Log Analytics
+Avec Log Analytics, vous pouvez collecter et exploiter les données générées par des ordinateurs Linux. L’ajout de données collectées sur Linux dans OMS vous permet de gérer les systèmes Linux et les solutions de conteneur comme Docker, indépendamment de l’emplacement de vos ordinateurs. Les sources de données peuvent résider sur des serveurs physiques de votre centre de données local, sur des ordinateurs virtuels dans un service hébergé sur le cloud comme Amazon Web Services (AWS) ou Microsoft Azure, voire sur votre ordinateur portable. De plus, OMS collecte les données des ordinateurs Windows de la même façon, prenant en charge un véritable environnement informatique hybride.
 
 Vous pouvez afficher et gérer les données de toutes ces sources avec Log Analytics dans OMS, via un portail unique. Plus besoin de multiplier les systèmes de surveillance des données. De plus, vous pouvez exporter toutes les données que vous souhaitez vers la solution ou le système d’analyse marketing dont vous disposez.
 
@@ -96,9 +98,7 @@ Exécutez les commandes suivantes pour télécharger l’omsagent, valider la so
 ![détails sur l’espace de travail](./media/log-analytics-linux-agents/oms-direct-agent-primary-key.png)
 
 ```
-wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-28/omsagent-1.1.0-28.universal.x64.sh
-sha256sum ./omsagent-1.1.0-28.universal.x64.sh
-sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
 ```
 
 Il existe plusieurs autres méthodes pour installer l’agent et le mettre à niveau. Pour les découvrir, consultez [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux).
@@ -108,7 +108,7 @@ Vous pouvez également regarder la [présentation vidéo d’Azure](https://www.
 ## <a name="choose-your-linux-data-collection-method"></a>Choisir la mode de collecte des données Linux
 Le choix des types de données à collecter varie selon que vous souhaitez utiliser le portail OMS ou modifier plusieurs fichiers de configuration directement sur vos clients Linux. Si vous choisissez d’utiliser le portail, la configuration est automatiquement envoyée à tous vos clients Linux. Si vous avez besoin de différentes configurations pour différents clients Linux, vous devez modifier les fichiers de chaque client ou utiliser une solution telle que PowerShell DSC, Chef ou Puppet.
 
-Vous pouvez spécifier les événements syslog et les compteurs de performances que vous souhaitez collecter, à l’aide des fichiers de configuration sur les ordinateurs Linux. *Si vous avez choisi de configurer la collecte des données en modifiant les fichiers de configuration de l’agent, vous devez désactiver la configuration centralisée.*   Les instructions ci-dessous permettent de configurer la collecte des données dans les fichiers de configuration de l’agent, mais aussi de désactiver la configuration centralisée sur tous les agents OMS pour Linux ou sur chaque ordinateur individuellement.
+Vous pouvez spécifier les événements syslog et les compteurs de performances que vous souhaitez collecter, à l’aide des fichiers de configuration sur les ordinateurs Linux. *Si vous avez choisi de configurer la collecte des données en modifiant les fichiers de configuration de l’agent, vous devez désactiver la configuration centralisée.*  Les instructions ci-dessous permettent de configurer la collecte des données dans les fichiers de configuration de l’agent, mais aussi de désactiver la configuration centralisée sur tous les agents OMS pour Linux ou sur chaque ordinateur individuellement.
 
 ### <a name="disable-oms-management-for-an-individual-linux-computer"></a>Désactiver la gestion OMS sur un ordinateur Linux
 La collecte centralisée des données de configuration est désactivée sur un ordinateur Linux grâce au script OMS_MetaConfigHelper.py. Ce script est très utile si quelques ordinateurs requièrent une configuration spéciale.
@@ -458,7 +458,7 @@ Le fichier d’authentification OMI de MySQL est un fichier texte qui contient l
 * Port
 * Adresse de liaison
 * Nom d’utilisateur MySQL
-* Mot de passe encodé en base 64
+* Mot de passe encodé en base&64;
 
 Le fichier d’authentification OMI de MySQL n’accorde que des droits de lecture/écriture à l’utilisateur de Linux qui l’a généré.
 
@@ -493,7 +493,7 @@ Instance par défaut et instance avec port 3308 + mot de passe différent encod�
 | Port |Le port représente le port actif écouté par l’instance MySQL.  Le port 0 implique que les propriétés suivantes sont utilisées pour l’instance par défaut. |
 | Adresse de liaison |Cette adresse est l’adresse de liaison MySQL actuelle. |
 | username |Il s’agit du nom d’utilisateur MySQL que vous souhaitez utiliser pour surveiller l’instance de serveur MySQL. |
-| Mot de passe encodé en base 64 |Il s’agit du mot de passe encodé en base 64, de l’utilisateur surveillant MySQL. |
+| Mot de passe encodé en base&64; |Il s’agit du mot de passe encodé en base&64;, de l’utilisateur surveillant MySQL. |
 | AutoUpdate |Lors de sa mise à niveau, le fournisseur OMI de MySQL recherche les modifications dans le fichier my.cnf et remplace le fichier d’authentification OMI de MySQL. Activez (True) ou désactivez (False) cet indicateur selon que le fichier d’authentification OMI de MySQL requiert ou non des mises à jour. |
 
 #### <a name="authentication-file-location"></a>Emplacement du fichier d’authentification
@@ -782,9 +782,4 @@ rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon sy
 * [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 * Familiarisez-vous avec les [recherches de journal](log-analytics-log-searches.md) pour afficher les informations détaillées collectées par les solutions.
 * Utilisez les [tableaux de bord](log-analytics-dashboards.md) pour enregistrer et afficher vos propres recherches personnalisées.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

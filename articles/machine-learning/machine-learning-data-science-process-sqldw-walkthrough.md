@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -25,7 +26,7 @@ Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’
 
 La procédure suit le flux de travail [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
 
-## <a name="a-namedatasetathe-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Jeu de données NYC Taxi Trips
+## <a name="dataset"></a>Jeu de données NYC Taxi Trips
 Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), correspondant à plus de 173 millions de courses et au prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
 1. Le fichier **trip_data.csv** contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
@@ -51,10 +52,10 @@ La **clé unique** utilisée pour joindre trip\_data et trip\_fare se compose de
 * hack\_license (licence de taxi) et
 * pickup\_datetime (date et heure d’embarquement).
 
-## <a name="a-namemltasksaaddress-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Traiter trois types de tâches de prédiction
+## <a name="mltasks"></a>Traiter trois types de tâches de prédiction
 Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amount* pour illustrer trois genres de tâches de modélisation :
 
-1. **Classification binaire** : pour prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : pour prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à&0; $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de&0; $ est un exemple négatif.
 2. **Classification multiclasse**: prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
@@ -64,7 +65,7 @@ Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amou
         Class 4 : tip_amount > $20
 3. **Tâche de régression**: prédire le montant du pourboire versé pour une course.  
 
-## <a name="a-namesetupaset-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configurer l’environnement de science des données Azure pour l’analyse avancée
+## <a name="setup"></a>Configurer l’environnement de science des données Azure pour l’analyse avancée
 Pour configurer votre environnement de science des données Azure, procédez comme suit :
 
 **Créez votre propre compte de stockage d’objets blob Azure**
@@ -84,7 +85,7 @@ Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../sql-
 * **Nom d’utilisateur**
 * **Mot de passe**
 
-**Installez Visual Studio 2015 et SQL Server Data Tools.** Pour connaître les instructions à suivre, consultez l’article [Installer Visual Studio 2015 et/ou SSDT pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installez Visual Studio et SQL Server Data Tools.** Pour connaître les instructions à suivre, consultez l’article [Installer Visual Studio 2015 et/ou SSDT pour SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connectez-vous à votre Azure SQL DW avec Visual Studio.** Pour connaître les instructions à suivre, consultez les étapes 1 et 2 dans [Se connecter à SQL Data Warehouse avec Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -103,7 +104,7 @@ Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../sql-
 
 **Créez un espace de travail Azure Machine Learning dans votre abonnement Azure.** Pour connaître les instructions à suivre, consultez l’article [Création d’un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
 
-## <a name="a-namegetdataaload-the-data-into-sql-data-warehouse"></a><a name="getdata"></a>Charger les données dans SQL Data Warehouse
+## <a name="getdata"></a>Charger les données dans SQL Data Warehouse
 Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes PowerShell suivantes pour télécharger les fichiers d’exemple de script SQL que nous partageons avec vous sur GitHub dans un répertoire local que vous spécifiez avec le paramètre *-DestDir*. Vous pouvez remplacer la valeur du paramètre *-DestDir* par un répertoire local. Si *-DestDir* n’existe pas, il est créé par le script PowerShell.
 
 > [!NOTE]
@@ -338,7 +339,7 @@ Ce script Powershell relie également les informations d’Azure SQL DW aux fi
 
 ![][20]
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-azure-sql-data-warehouse"></a><a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans Azure SQL Data Warehouse
 Dans cette section, nous effectuons une exploration des données et une génération de caractéristiques en exécutant des requêtes SQL directement dans Azure SQL DW à l’aide de **Visual Studio Data Tools**. Toutes les requêtes SQL utilisées dans cette section se trouvent dans l’exemple de script nommé *SQLDW_Explorations.sql*. Ce fichier a déjà été téléchargé dans votre répertoire local par le script PowerShell. Vous pouvez également le récupérer à partir de [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), mais les informations d’Azure SQL DW ne sont pas reliées à ce fichier situé dans GitHub.
 
 Connectez-vous à votre Azure SQL DW en utilisant Visual Studio avec le nom et le mot de passe de connexion de SQL DW et ouvrez l’ **Explorateur d’objets SQL** pour vérifier que la base de données et les tables ont été importées. Récupérez le fichier *SQLDW_Explorations.sql*.
@@ -564,7 +565,7 @@ Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choi
 1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning, ou
 2. stocker les données échantillonnées et générées que vous envisagez d’utiliser pour la création de modèles dans une nouvelle table SQL DW et utiliser cette table dans le module [Importer les données][import-data] d’Azure Machine Learning. Le script PowerShell de l’étape précédente a effectué cette opération pour vous. Vous pouvez lire directement cette table dans le module Importer les données.
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans IPython Notebook
+## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans IPython Notebook
 Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans le SQL DW créé précédemment. Un exemple d’IPython Notebook nommé **SQLDW_Explorations.ipynb** et le fichier de script Python **SQLDW_Explorations_Scripts.py** ont été téléchargés dans votre répertoire local. Ils sont également disponibles sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Ces deux fichiers sont identiques dans les scripts Python. Le fichier de script Python vous est fourni dans le cas où vous ne disposeriez pas d’un serveur IPython Notebook. Ces deux exemples de fichier Python sont conçus sous **Python 2.7**.
 
 Les informations d’Azure SQL DW nécessaires dans l’exemple de IPython Notebook et dans le fichier de script Python téléchargés sur votre ordinateur local ont été reliées précédemment par le script PowerShell. Elles peuvent être exécutées sans aucune modification.
@@ -804,7 +805,7 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Créer des modèles dans Azure Machine Learning
+## <a name="mlmodel"></a>Créer des modèles dans Azure Machine Learning
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes à être utilisées dans tous les problèmes de prédiction identifiés précédemment, à savoir :
 
 1. **Classification binaire**: prédire si un pourboire a ou non été versé pour une course.
@@ -853,7 +854,7 @@ Un exemple d’expérience de classification binaire lisant directement les donn
 > 
 > 
 
-## <a name="a-namemldeployadeploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Déployer des modèles dans Azure Machine Learning
+## <a name="mldeploy"></a>Déployer des modèles dans Azure Machine Learning
 Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur le déploiement de services web Azure Machine Learning, consultez [Déployer un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Pour déployer un nouveau service web, vous devez :
@@ -920,9 +921,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 064c8f7c312aaac94f20224e99b9e29c641e0349
-ms.openlocfilehash: 7099081e7294c64c1b9076b58a2c87f4f7ca7e44
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bdaf5afff8466a189afe96517135b1b347b85550
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -25,22 +25,24 @@ ms.lasthandoff: 03/01/2017
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. La surveillance au niveau des scénarios vous permet de diagnostiquer les problèmes avec une vue de bout en bout du réseau. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="register-the-preview-capability"></a>Inscrire la fonction de version préliminaire
 
-Network Watcher est actuellement disponible en version préliminaire. Pour utiliser les fonctionnalités de Network Watcher, la fonctionnalité doit être inscrite. Pour ce faire, exécutez l’exemple PowerShell suivant :
+Network Watcher est actuellement disponible en préversion. Pour utiliser Network Watcher, la fonctionnalité doit être inscrite. Pour ce faire, exécutez l’exemple PowerShell suivant :
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Pour vérifier que l’inscription s’est bien déroulée, exécutez l’exemple Powershell suivant :
+Pour vérifier que l’inscription s’est bien déroulée, exécutez l’exemple Powershell suivant :
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace  Microsoft.Network
 ```
 
-Si la fonction a correctement été inscrite, le résultat doit ressembler à ce qui suit :
+Si la fonctionnalité a été correctement inscrite, vous devez obtenir la sortie suivante :
 
 ```
 FeatureName         ProviderName      RegistrationState
@@ -48,21 +50,23 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-####<a name="instructions-for-cli"></a>Instructions relatives à l’interface de ligne de commande
+### <a name="instructions-for-cli"></a>Instructions relatives à l’interface de ligne de commande
 
 Pour l’inscription
 
 ```CLI
-azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
+azure provider register Microsoft.Network
 ```
-Pour vérifier que l’inscription s’est bien déroulée, exécutez la commande de l’interface de ligne de commande suivante :
+
+Pour vérifier que l’inscription s’est bien déroulée, exécutez la commande de l’interface de ligne de commande suivante :
 
 ```CLI
 azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
-Si la fonction a correctement été inscrite, le résultat doit ressembler à ce qui suit :
+Si la fonctionnalité a été correctement inscrite, vous devez obtenir la sortie suivante :
+
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher
@@ -123,7 +127,7 @@ Maintenant que vous avez une instance de Network Watcher, découvrez les fonctio
 * [Journalisation des flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md)
 * [Résolution des problèmes de passerelle de réseau virtuel](network-watcher-troubleshoot-overview.md)
 
-Après avoir créé une instance Network Watcher, la capture de paquets peut être configurée en suivant l’article [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) (Utiliser la capture de paquets pour surveiller un réseau de manière proactive avec Azure Functions).
+Après la création d’une instance Network Watcher, lisez l’article [Créer une capture de paquets déclenchée par une alerte](network-watcher-alert-triggered-packet-capture.md) pour configurer la capture de paquets.
 
 [1]: ./media/network-watcher-create/figure1.png
 

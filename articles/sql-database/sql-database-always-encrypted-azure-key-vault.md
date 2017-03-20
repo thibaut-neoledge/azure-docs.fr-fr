@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -192,9 +192,8 @@ Maintenant qu’Always Encrypted est configuré, nous allons créer une applicat
 > 
 > 
 
-1. Ouvrez Visual Studio et créez une nouvelle application console C#. Assurez-vous que votre projet est défini sur **.NET Framework 4.6** ou version ultérieure.
+1. Ouvrez Visual Studio et créez une **application console** C# (Visual Studio 2015 et versions antérieures) ou une **application console (.NET Framework)** (Visual Studio 2017 et versions ultérieures). Assurez-vous que votre projet est défini sur **.NET Framework 4.6** ou version ultérieure.
 2. Nommez le projet **AlwaysEncryptedConsoleAKVApp**, puis cliquez sur **OK**.
-   ![Nouvelle application de console](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
 3. Installez les packages NuGet suivants en accédant à **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**.
 
 Dans la Console du Gestionnaire de package, exécutez ces deux lignes de code.

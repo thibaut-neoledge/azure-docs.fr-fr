@@ -1,6 +1,6 @@
 ---
 
-title: "Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory | Microsoft Docs"
+title: "Résolution des problèmes de licence pour un groupe dans Azure Active Directory | Microsoft Docs"
 description: "Identification et résolution des problèmes d’attribution de licence avec la licence basée sur le groupe Azure Active Directory"
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 5d1c24f0423feffcbde0387ebf3f23a32fda50ce
+ms.lasthandoff: 03/08/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licence lors de l’utilisation de groupes dans Azure Active Directory
 
 
 Les licences basées sur le groupe dans Azure Active Directory (Azure AD) introduisent le concept d’utilisateurs en état d’erreur d’attribution de licence. Cet article explique les raisons pour lesquelles les utilisateurs peuvent se trouver dans cet état. Lorsque des licences sont attribuées directement à des utilisateurs individuels, sans recours à une licence basée sur le groupe, l’opération d’attribution peut échouer. Par exemple, lorsque l’administrateur exécute l’applet de commande PowerShell `Set-MsolUserLicense` sur un utilisateur, cette applet de commande peut échouer pour diverses raisons liées à la logique métier, comme un nombre insuffisant de licences ou un conflit entre deux plans de service qui ne peuvent pas être attribués en même temps. Ce problème est signalé immédiatement à l’utilisateur qui exécute la commande.
 
-Avec les licences basées sur le groupe, les mêmes erreurs peuvent se produire, mais elles restent en arrière-plan lors de l’attribution des licences par le service Azure AD. C’est pourquoi elles ne peuvent pas être communiquées immédiatement à l’administrateur. Au lieu de cela, elles sont enregistrées sur l’objet utilisateur et signalées par le biais du portail d’administration. L’intention initiale d’attribuer une licence à l’utilisateur perdure, mais elle peut être appliquée dans un état actif ou être enregistrée dans un état d’erreur pour aboutir à un examen ultérieur et à la résolution du problème.
+Avec les licences basées sur le groupe, les mêmes erreurs peuvent se produire, mais elles restent en arrière-plan lors de l’attribution des licences par le service Azure AD. C’est pourquoi elles ne peuvent pas être communiquées immédiatement à l’administrateur. Au lieu de cela, elles sont enregistrées sur l’objet utilisateur et signalées par le biais du portail d’administration. L’intention initiale d’attribuer une licence à l’utilisateur perdure, mais elle est enregistrée dans un état d’erreur et fera l’objet d’un examen et d’une résolution du problème ultérieurs.
 
-Pour rechercher des utilisateurs en état d’erreur dans chaque groupe, ouvrez le panneau de chaque groupe. Sous **Licences**, une notification indique si des utilisateurs sont en état d’erreur. Sélectionnez la notification pour faire apparaître la liste de tous les utilisateurs affectés. Vous pouvez afficher chaque utilisateur un par un afin de comprendre le problème sous-jacent. Cet article décrit les problèmes potentiels et explique comment les résoudre.
+Pour rechercher des utilisateurs en état d’erreur dans chaque groupe, ouvrez le panneau de chaque groupe. Sous **Licences**, une notification indique si des utilisateurs sont en état d’erreur. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs affectés. Vous pouvez afficher chaque utilisateur un par un afin de comprendre le problème sous-jacent. Cet article décrit les problèmes potentiels et explique comment les résoudre.
 
 ## <a name="not-enough-licenses"></a>Nombre insuffisant de licences
 
@@ -45,7 +46,7 @@ Pour voir quels utilisateurs et quels groupes utilisent des licences, cliquez su
 
 L’un des produits spécifiés dans le groupe contient un plan de service en conflit avec un autre plan de service déjà attribué à l’utilisateur par le biais d’un autre produit. Certains plans de service sont configurés de sorte qu’ils ne puissent pas être attribués à l’utilisateur d’un autre plan de service lié.
 
-Prenons l’exemple suivant : un utilisateur possède une licence Office 365 Entreprise **E1** qui lui a été attribuée directement, avec tous les plans activés. L’utilisateur a été ajouté à un groupe auquel le produit Office 365 Entreprise **E3** est attribué. Ce produit contient des plans de service incompatibles entre E1 et E3. Par conséquent, l’attribution de la licence de groupe échoue et l’erreur « Plans de service en conflit » s’affiche. Dans cet exemple, les plans de service en conflit sont les suivants :
+Prenons l’exemple suivant : un utilisateur possède une licence Office 365 Entreprise **E1** qui lui a été attribuée directement, avec tous les plans activés. L’utilisateur a été ajouté à un groupe auquel le produit Office 365 Entreprise **E3** est attribué. Ce produit contient des plans de service incompatibles avec les plans contenus dans E1. Par conséquent, l’attribution de la licence de groupe échoue et l’erreur « Plans de service en conflit » s’affiche. Dans cet exemple, les plans de service en conflit sont les suivants :
 
 -   SharePoint Online (Plan 2) est en conflit avec SharePoint Online (Plan 1)
 
@@ -59,13 +60,18 @@ Seul l’administrateur peut décider de la méthode à utiliser pour résoudre 
 
 L’un des produits spécifiés dans le groupe contient un plan de service qui doit être activé pour un autre plan de service, dans un autre produit, afin de fonctionner. Cette erreur se produit lorsque Azure AD tente de supprimer le plan de service sous-jacent, par exemple après la suppression d’un utilisateur dans le groupe.
 
+Pour résoudre ce problème, vous devez vérifier que le plan requis est toujours attribué aux utilisateurs par une autre méthode ou que les services dépendants sont désactivés pour ces utilisateurs. C’est alors seulement que la licence de groupe peut être dissociée de ces utilisateurs.
+
 ## <a name="usage-location-not-allowed"></a>Emplacement d’utilisation non autorisé
 
 Certains services Microsoft ne sont pas disponibles partout en raison de lois et réglementations locales. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété « Emplacement d’utilisation » relative à l’utilisateur. Pour ce faire, il doit se rendre dans la section **Utilisateur &gt; Profil &gt; Paramètres** du portail Azure.
 
-Lorsque vous attribuez une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si certains de vos utilisateurs se trouvent dans des emplacements où les plans ne sont pas disponibles, pensez à modifier l’attribution de licence au niveau du groupe afin de désactiver les plans concernés. Vous pouvez également déplacer ces utilisateurs vers un autre groupe dont les attributions de licence ne sont pas en conflit avec l’emplacement.
+Si le service Azure AD tente d’attribuer une licence de groupe à un utilisateur dont l’emplacement d’utilisation n’est pas pris en charge, il échoue et enregistre l’erreur correspondante pour cet utilisateur.
 
-Si vos utilisateurs se trouvent à différents emplacements, assurez-vous de bien prendre en compte cette situation dans vos objets utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
+Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs résidant à des emplacements non pris en charge. Autrement, si les valeurs d’emplacement d’utilisation actuelles ne représentent pas l’emplacement réel des utilisateurs, vous pouvez modifier ceux-ci de sorte que les licences soient attribuées correctement la prochaine fois (à condition que le nouvel emplacement soit pris en charge).
+
+> [!NOTE]
+> Lorsque Azure AD attribue des licences de groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Nous recommandons aux administrateurs de définir des valeurs d’emplacement d’utilisation correctes pour les utilisateurs avant d’utiliser la licence groupée afin de se conformer aux lois et réglementations locales. 
 
 ## <a name="what-happens-when-there-is-more-than-1-product-license-on-a-group"></a>Que se passe-t-il lorsqu’un groupe est concerné par plusieurs licences produit ?
 
@@ -79,7 +85,7 @@ Vous pourrez voir les utilisateurs pour lesquels l’attribution a échoué et v
 
 Selon les actions entreprises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un groupe afin de mettre à jour l’état utilisateur.
 
-Par exemple, si vous avez acheté des licences supplémentaires pour couvrir tous les utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour ce faire, accédez au panneau du groupe, puis ouvrez **Licences** et cliquez sur le bouton **Retraiter** de la barre d’outils.
+Par exemple, si vous avez libéré des licences en retirant des affectations directes de licences à des utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour ce faire, accédez au panneau du groupe, puis ouvrez **Licences** et cliquez sur le bouton **Retraiter** de la barre d’outils.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -89,5 +95,5 @@ Pour plus d’informations sur d’autres scénarios de gestion des licences par
 * [Assigning licenses to a group in Azure Active Directory (Attribution de licences à un groupe dans Azure Active Directory)](active-directory-licensing-group-assignment-azure-portal.md)
 * [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](active-directory-licensing-whatis-azure-portal.md)
 * [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios (Autres scénarios de licence basée sur le groupe Azure Active Directory)](active-directory-licensing-group-advanced.md)
+* [Autres scénarios de licences basées sur les groupes Azure Active Directory](active-directory-licensing-group-advanced.md)
 
