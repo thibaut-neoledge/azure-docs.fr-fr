@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 84c9ac92ec08d1e7c1a163c2990c4fe3e14bf9e5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aebd94edbad210f15bce5b39ebf73269ec67a209
+ms.openlocfilehash: 3bcba1123d3ec00c760d022d200609bf28c22362
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -129,10 +129,10 @@ Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l�
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Si je réplique vers Azure, de quel type de compte de stockage ai-je besoin ?
 * **Portail Azure Classic**: si vous déployez Site Recovery dans le portail Azure Classic, vous avez besoin d’un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage). Premium Storage n’est pas actuellement pris en charge. Ce compte doit se trouver dans la même région que le coffre Site Recovery.
-* **Portail Azure**: si vous déployez Site Recovery dans le portail Azure, vous avez besoin d’un compte de stockage LRS ou GRS. Nous vous recommandons d’utiliser un compte GRS, afin que les données soient résilientes si une panne se produit au niveau régional, ou si la région principale ne peut pas être récupérée. Ce compte doit se trouver dans la même région que le coffre Recovery Services. Stockage Premium est pris en charge uniquement pour la réplication de machines virtuelles VMware ou de serveurs physiques.
+* **Portail Azure**: si vous déployez Site Recovery dans le portail Azure, vous avez besoin d’un compte de stockage LRS ou GRS. Nous vous recommandons d’utiliser un compte GRS, afin que les données soient résilientes si une panne se produit au niveau régional, ou si la région principale ne peut pas être récupérée. Ce compte doit se trouver dans la même région que le coffre Recovery Services. Le Stockage Premium est maintenant pris en charge pour les machines virtuelles VMware, les machines virtuelles Hyper-V et la réplication de serveurs physiques lorsque vous déployez Site Recovery dans le portail Azure.
 
 ### <a name="how-often-can-i-replicate-data"></a>À quelle fréquence puis-je répliquer les données ?
-* **Hyper-V :** les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes, 5 minutes ou 15 minutes. Si vous avez configuré une réplication SAN, la réplication est alors synchrone.
+* **Hyper-V :** les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes (sauf pour le Stockage Premium), 5 minutes ou 15 minutes. Si vous avez configuré une réplication SAN, la réplication est alors synchrone.
 * **Serveurs VMware et physiques :** une fréquence de réplication n’est pas pertinente ici. La réplication est continue.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Puis-je étendre la réplication depuis un site de récupération existant à un site tiers ?
@@ -142,7 +142,7 @@ La réplication étendue ou chaînée n’est pas prise en charge. Demandez cett
 Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Puis-je exclure des disques spécifiques de la réplication ?
-Cette fonctionnalité est prise en charge dans le cadre d’une [réplication de machines virtuelles VMware et de serveurs physiques](site-recovery-exclude-disk.md) vers Azure à l’aide du portail Azure.
+Cette fonctionnalité est prise en charge dans le cadre d’une [réplication de machines virtuelles VMware et de machines virtuelles Hyper-V](site-recovery-exclude-disk.md) vers Azure à l’aide du portail Azure.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Puis-je répliquer des machines virtuelles avec des disques dynamiques ?
 Les disques dynamiques sont pris en charge lors de la réplication de machines virtuelles Hyper-V. Ils sont également pris en charge lors de la réplication des machines virtuelles et physiques VMware. Le disque du système d’exploitation doit être un disque de base.

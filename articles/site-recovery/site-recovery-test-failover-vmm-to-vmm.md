@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 1c3a3a3e9381e20382bb537299b04993180ee729
-ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
+ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
+ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Test de basculement (VMM vers VMM) dans Site Recovery
+> [!div class="op_single_selector"]
+> * [Test de basculement vers Azure](./site-recovery-test-failover-to-azure.md)
+> * [Test de basculement (VMM à VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 Cet article fournit des informations et des instructions relatives à l’exécution d’un test de basculement ou d’un test de récupération d’urgence de machines virtuelles et de serveurs physiques protégés par Site Recovery en utilisant un site local géré par VMM comme site de récupération. 
 
@@ -67,6 +72,8 @@ Préparer un serveur DNS pour le test de basculement en procédant comme suit 
 ## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
 Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles** .
 
+![Test Failover](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Test Type de basculement**.
 1. Dans le panneau **Test de basculement**, indiquez le mode à utiliser pour la connexion des machines virtuelles aux réseaux après le test de basculement. Pour plus d’informations, consultez les [options réseau](#network-options-in-site-recovery).
 1. Effectuez un suivi de l’opération sur l’onglet **Tâches** . 
@@ -100,9 +107,4 @@ Lorsque vous effectuez un test de basculement, nous vous conseillons de choisir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que votre tentative de test de basculement a réussi, vous pouvez essayer d’effectuer un [basculement](site-recovery-failover.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

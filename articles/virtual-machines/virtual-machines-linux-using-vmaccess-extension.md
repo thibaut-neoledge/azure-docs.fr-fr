@@ -1,6 +1,6 @@
 ---
-title: "Réinitialiser l’accès avec l’extension VMAccess et Azure CLI 2.0 (version préliminaire) | Microsoft Docs"
-description: "Guide pratique de gestion des utilisateurs et de réinitialisation de l’accès sur des machines virtuelles Linux à l&quot;aide de l’extension VMAccess et Azure CLI 2.0 (version préliminaire)"
+title: "Réinitialiser l’accès avec l’extension VMAccess et Azure CLI 2.0 | Microsoft Docs"
+description: "Guide pratique de gestion des utilisateurs et de réinitialisation de l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -16,32 +16,25 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 98646daf5a4d2c9aca7dfc02a36f39d12f749443
-ms.openlocfilehash: 7752b486bda4a68b14ff3e8aaf1a369a649c83b5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 4fac98d37dde195af69d8bd03fd796c6eeae3734
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20-preview"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l'aide de l’extension VMAccess avec Azure CLI 2.0 (version préliminaire)
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
 Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Dans les anciens centres de données, vous deviez aller sur place et ouvrir le KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
-Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSHD sous Linux.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
-
-- [Azure CLI 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 (version préliminaire)](#ways-to-use-the-vmaccess-extension) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
+Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs, gérer les comptes d’utilisateur ou réinitialiser la configuration SSHD sous Linux. Vous pouvez également suivre ces étapes avec [Azure CLI 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Méthodes d’utilisation de l’extension VMAccess
 Il existe deux façons d’utiliser l’extension VMAccess sur vos machines virtuelles Linux :
 
-* À l’aide d’Azure CLI 2.0 (version préliminaire) et des paramètres requis.
+* À l’aide de l’interface Azure CLI 2.0 et des paramètres requis.
 * [À l’aide de fichiers JSON bruts que l’extension VMAccess va traiter](#use-json-files-and-the-vmaccess-extension) et exploiter.
 
-Les exemples suivants utilisent [az vm access](/cli/azure/vm/access), ainsi que les paramètres appropriés. Pour effectuer ces étapes, vous devez disposer de la dernière version [d’Azure CLI 2.0 (version préliminaire)](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#login).
+Les exemples suivants utilisent [az vm access](/cli/azure/vm/access), ainsi que les paramètres appropriés. Pour suivre ces étapes, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/#login).
 
 ## <a name="reset-ssh-key"></a>Réinitialisation d’une clé SSH
 L’exemple suivant réinitialise la clé SSH pour l’utilisateur `azureuser` sur la machine virtuelle `myVM` :

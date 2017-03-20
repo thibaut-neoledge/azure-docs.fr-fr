@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 665dc43f9861baeef6fa61968a9dc873ce1dfdbf
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 
 L’onglet de recherche de métaverse est utile pour la résolution des problèmes liés aux données. Dans la partie supérieure, vous pouvez créer une requête basée sur une combinaison d’attributs. Quand vous êtes satisfait de votre requête, cliquez sur **Recherche**. Le résultat s’affiche dans la grille inférieure. Vous pouvez sélectionner les colonnes qui doivent être visibles à l’aide de **Paramètres de colonne**.
 
-Dans les résultats de la recherche, sélectionnez un objet et **Propriétés** pour afficher les [propriétés de l’objet métaverse](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
+Dans les résultats de la recherche, sélectionnez un objet et **Propriétés** pour afficher les [propriétés de l’objet métaverse](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

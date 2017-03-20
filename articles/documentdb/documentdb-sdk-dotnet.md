@@ -1,5 +1,5 @@
 ---
-title: "API .NET et ressources du Kit de développement logiciel (SDK) - Azure DocumentDB | Microsoft Docs"
+title: SDK et ressources .NET Azure DocumentDB | Microsoft Docs
 description: "Découvrez l&quot;API et le Kit SDK .NET, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit SDK .NET DocumentDB."
 services: documentdb
 documentationcenter: .net
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e37416268802b849f6be350a8d7e0e6b284e830b
-ms.openlocfilehash: c92a54c40c329e519832f2f8de71aa5d8e15a090
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a3aa00bce54ad9d2aa0236cc211affaa537a36e5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>API DocumentDB et Kits de développement logiciel (SDK)
+# <a name="documentdb-net-sdk-download-and-release-notes"></a>SDK .NET Core DocumentDB : téléchargement et notes de publication
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/22/2017
 > 
 > 
 
-## <a name="documentdb-net-api-and-sdk"></a>API .NET DocumentDB et Kit de développement logiciel (SDK)
 <table>
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>

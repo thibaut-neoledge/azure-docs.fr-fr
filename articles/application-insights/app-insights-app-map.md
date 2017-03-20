@@ -1,21 +1,22 @@
 ---
-title: "Mise en correspondance d’applications dans Application Insights | Microsoft Docs"
+title: "Mise en correspondance d’applications dans Azure Application Insights | Microsoft Docs"
 description: "Une présentation visuelle des dépendances entre les composants d’application, intégrant des indicateurs de performance clés et des alertes."
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
-ms.openlocfilehash: f7ee8a43c83b1bad53acdb71de7a66d8afaa09b2
+ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
+ms.openlocfilehash: 04a34eb24df356018590b1791ecc7719a550ab51
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,7 @@ Si vous avez de nombreuses dépendances d’un type (SQL, HTTP, etc.), elles peu
 ## <a name="spot-problems"></a>Détecter les problèmes
 Chaque nœud possède des indicateurs de performance pertinents, tels que les taux de charge, de performances et de défaillances de ce composant. 
 
-Les icônes d’avertissement mettent en évidence les problèmes éventuels. Un avertissement orange signifie qu’il existe des défaillances dans les requêtes, les vues de page ou les appels de dépendance. Un avertissement rouge signifie un taux de défaillance de plus de 5 %.
+Les icônes d’avertissement mettent en évidence les problèmes éventuels. Un avertissement orange signifie qu’il existe des défaillances dans les requêtes, les vues de page ou les appels de dépendance. Un avertissement rouge signifie un taux de défaillance de plus de 5 %. Si vous souhaitez ajuster ces seuils, ouvrez Options.
 
 ![icônes de défaillance](./media/app-insights-app-map/04.png)
 
@@ -105,9 +106,6 @@ Veuillez [fournir des commentaires via l’option Commentaires du portail](app-i
 
 ![Image MapLink-1](./media/app-insights-app-map/13.png)
 
+## <a name="next-steps"></a>Étapes suivantes
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
+* [portail Azure](https://portal.azure.com)

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
-ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
+ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
+ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 
-![Scénario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
+![Scénario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scénario")
 
 ## <a name="enabling-the-application-integration-for-itrp"></a>Activation de l’intégration d’application pour ITRP
 Cette section décrit l’activation de l’intégration d’application pour ITRP.
@@ -53,15 +54,15 @@ Cette section décrit l’activation de l’intégration d’application pour IT
 
 4. Cliquez sur **Ajouter** en bas de la page.
    
-    ![Ajouter une application](./media/active-directory-saas-itrp-tutorial/IC749321.png "Add application")
+    ![Ajouter une application](./media/active-directory-saas-itrp-tutorial/IC749321.png "Ajouter une application")
 
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
    
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-itrp-tutorial/IC749322.png "Add an application from gallerry")
+    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-itrp-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
 6. Dans la **zone de recherche**, tapez **ITRP**.
    
-    ![Galerie d’applications](./media/active-directory-saas-itrp-tutorial/IC775565.png "Application Gallery")
+    ![Galerie d’applications](./media/active-directory-saas-itrp-tutorial/IC775565.png "Galerie d’applications")
 
 7. Dans le volet de résultats, sélectionnez **ITRP**, puis cliquez sur **Terminer** pour ajouter l’application.
    
@@ -76,19 +77,19 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
 1. Sur la page d’intégration d’applications **ITRP** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
+    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurer l’authentification unique")
 
 2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à ITRP**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configurer l’authentification unique")
 
 3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL selon le modèle « *https://\<nom-locataire\>.ITRP.com* », puis cliquez sur **Suivant**.
    
-    ![Configurer l’URL de l’application](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
+    ![Configurer l’URL de l’application](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configurer l’URL de l’application")
 
 4. Dans la page **Configurer l’authentification unique sur ITRP**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat en local sous **c:\\ITRP.cer**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configurer l’authentification unique")
 
 5. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ITRP en tant qu’administrateur.
 
@@ -98,13 +99,13 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
 7. Dans le volet de navigation de gauche, sélectionnez **Single Sign-On**.
    
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")
+    ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775571.png "Authentification unique")
 
 8. Dans la section de configuration Single Sign-On, procédez comme suit :
    
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
+    ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775572.png "Authentification unique")
     
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
+    ![Authentification unique](./media/active-directory-saas-itrp-tutorial/IC775573.png "Authentification unique")
    
     a. Cliquez sur **Enable**.
    
@@ -121,9 +122,9 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
    
     e. Cliquez sur **Enregistrer**.
 
-9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
+    ![Configurer l’authentification unique](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurer l’authentification unique")
    
 ## <a name="configuring-user-provisioning"></a>Configuration de l'approvisionnement des utilisateurs
 
@@ -135,19 +136,19 @@ Dans le cas d’ITRP, l’approvisionnement est une tâche manuelle.
 
 2. Dans la barre d’outils située en haut, cliquez sur **Records**.
    
-    ![Administrateur](./media/active-directory-saas-itrp-tutorial/IC775575.png "Admin")
+    ![Administrateur](./media/active-directory-saas-itrp-tutorial/IC775575.png "Administrateur")
 
 3. Dans le menu contextuel, sélectionnez **People**.
    
-    ![Personnes](./media/active-directory-saas-itrp-tutorial/IC775587.png "People")
+    ![Personnes](./media/active-directory-saas-itrp-tutorial/IC775587.png "Personnes")
 
 4. Cliquez sur **Add New Person** (« + »).
    
-    ![Administrateur](./media/active-directory-saas-itrp-tutorial/IC775576.png "Admin")
+    ![Administrateur](./media/active-directory-saas-itrp-tutorial/IC775576.png "Administrateur")
 
 5. Dans la boîte de dialogue Add New Person, procédez comme suit :
    
-    ![Utilisateur](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
+    ![Utilisateur](./media/active-directory-saas-itrp-tutorial/IC775577.png "Utilisateur")
    
     a. Entrez le **nom**, et **l’adresse de messagerie** d’un compte AAD valide que vous voulez approvisionner.
    
@@ -166,17 +167,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 2. Dans la page d’intégration d’applications **ITRP**, cliquez sur **Affecter des utilisateurs**.
    
-    ![Affecter des utilisateurs](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assign Users")
+    ![Affecter des utilisateurs](./media/active-directory-saas-itrp-tutorial/IC775588.png "Affecter des utilisateurs")
 
 3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
    
-    ![Oui](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
+    ![Oui](./media/active-directory-saas-itrp-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: b181c2e325621023753d420d0f005c71822db346
-ms.openlocfilehash: 81aee56a4a6e5759987108effe0f6abef0852852
+ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
+ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -118,7 +119,7 @@ Notez qu'un seul lot ne doit pas dépasser la limite de 256 Ko d'un événement
 Vous pouvez également envoyer de manière asynchrone des événements à un concentrateur d'événements. L’envoi de manière asynchrone peut augmenter la vitesse à laquelle un client peut envoyer des événements. Les deux méthodes [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) et [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) sont disponibles dans les versions asynchrones qui retournent un objet [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Tandis que cette technique peut augmenter le débit, elle peut également entraîner le client à continuer à envoyer des événements même lorsqu’elle est limitée par le service des concentrateurs d’événements et peut entraîner des échecs du client ou la perte de messages si elle n'est pas implémentée correctement. En outre, vous pouvez utiliser la propriété [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) sur le client pour les options de nouvelle tentative du client.
 
 ## <a name="create-a-partition-sender"></a>Création d'un expéditeur de partition
-Même s'il est plus courant d’envoyer des événements à un concentrateur d'événements avec une clé de partition, dans certains cas vous pouvez envoyer des événements directement à une partition donnée. Par exemple :
+Même s’il est plus courant d’envoyer des événements à un concentrateur d’événements sans clé de partition, dans certains cas vous pouvez envoyer des événements directement à une partition donnée. Par exemple :
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -190,9 +191,4 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

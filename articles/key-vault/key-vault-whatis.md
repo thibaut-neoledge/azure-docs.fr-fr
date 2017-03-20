@@ -17,6 +17,7 @@ ms.author: cabailey
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -59,9 +60,4 @@ Pour en savoir plus sur l’utilisation des clés et des secrets avec Azure Key
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

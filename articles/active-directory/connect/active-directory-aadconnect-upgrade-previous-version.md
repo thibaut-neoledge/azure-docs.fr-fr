@@ -15,9 +15,9 @@ ms.workload: Identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b6ec60f9e15e459f70127448eb7d9c03e4b118e8
-ms.openlocfilehash: 3bd1ca8e0bb9f17b76dda68a6cb2f9f64a5d05dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,15 +40,15 @@ Pour plus d’informations sur les autorisations, reportez-vous aux [autorisatio
 > Une fois que vous avez activé votre nouveau serveur Azure AD Connect pour démarrer la synchronisation des modifications avec Azure AD, vous ne devez pas revenir à l’utilisation de DirSync ou Azure AD Sync. La rétrogradation à partir d’Azure AD Connect vers des clients hérités, notamment DirSync et Azure AD Sync, n’est pas prise en charge et peut entraîner des problèmes tels que la perte de données dans Azure AD.
 
 ## <a name="in-place-upgrade"></a>Mise à niveau sur place
-Une mise à niveau sur place fonctionne à partir d’Azure AD Sync ou d’Azure AD Connect, Elle ne fonctionnera pas pour la migration à partir de DirSync ou pour une solution avec Forefront Identity Manager (FIM) + connecteur Azure AD.
+Une mise à niveau sur place fonctionne à partir d’Azure AD Sync ou d’Azure AD Connect, Elle ne fonctionne pas pour la migration à partir de DirSync ou pour une solution avec Forefront Identity Manager (FIM) + connecteur Azure AD.
 
-Nous vous recommandons cette méthode si vous avez un seul serveur et moins de 100 000 objets environ. Après la mise à niveau, une importation et une synchronisation complètes se produisent si des modifications ont été apportées aux règles de synchronisation out-of-box, afin que la nouvelle configuration s’applique à tous les objets existants dans le système. Cette opération peut prendre plusieurs heures selon le nombre d’objets dans l’étendue du moteur de synchronisation. La synchronisation différentielle normale planifiée (par défaut toutes les 30 minutes) est suspendue, mais la synchronisation des mots de passe continue. Vous pouvez envisager une mise à niveau sur place pendant le week-end. S’il n’y a aucune modification de la configuration out-of-box avec la nouvelle version d’Azure AD Connect, une importation/synchronisation différentielle normale démarre à la place.  
+Nous vous recommandons cette méthode si vous avez un seul serveur et moins de 100 000 objets environ. Après la mise à niveau, une importation et une synchronisation complètes se produisent si des modifications ont été apportées aux règles de synchronisation out-of-box, pour que la nouvelle configuration s’applique à tous les objets existants dans le système. Cette opération peut prendre plusieurs heures selon le nombre d’objets figurant dans l’étendue du moteur de synchronisation. La synchronisation différentielle normale planifiée (par défaut toutes les 30 minutes) est suspendue, mais la synchronisation des mots de passe continue. Vous pouvez envisager une mise à niveau sur place pendant le week-end. S’il n’y a aucune modification de la configuration par défaut avec la nouvelle version d’Azure AD Connect, une importation/synchronisation différentielle normale démarre à la place.  
 ![Mise à niveau sur place](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
 Si vous avez apporté des modifications aux règles de synchronisation par défaut, celles-ci retrouvent leur configuration par défaut au moment de la mise à niveau. Pour conserver votre configuration d’une mise à niveau à l’autre, vérifiez que les modifications sont effectuées conformément aux [meilleures pratiques pour modifier la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 ## <a name="swing-migration"></a>Migration « swing »
-Si vous avez un déploiement complexe ou un nombre d’objets élevé, il peut être difficile d’effectuer une mise à niveau sur place sur le système réel. Pour certains clients, cette opération pourrait prendre plusieurs jours pendant lesquels aucune modification différentielle ne serait traitée. Vous pouvez également utiliser cette méthode lorsque vous envisagez d’apporter des modifications importantes à votre configuration et que vous souhaitez les tester avant de les envoyer dans le cloud.
+Si vous avez un déploiement complexe ou un nombre d’objets élevé, il peut être difficile d’effectuer une mise à niveau sur place sur le système réel. Pour certains clients, ce processus peut prendre plusieurs jours pendant lesquels aucune modification différentielle n’est traitée. Vous pouvez également utiliser cette méthode lorsque vous envisagez d’apporter des modifications importantes à votre configuration et que vous souhaitez les tester avant de les envoyer dans le cloud.
 
 La méthode recommandée pour ces scénarios consiste à utiliser une migration « swing ». Vous devez avoir (au moins) deux serveurs : un serveur actif et un serveur intermédiaire. Le serveur actif (représenté par des lignes bleues continues dans l’image ci-dessous) est responsable de la charge de production active. Le serveur intermédiaire (représenté par des lignes violettes en pointillé) est préparé avec la nouvelle version ou configuration. Lorsqu’il est prêt, ce serveur devient actif. Le serveur actif précédent, sur lequel est désormais installée l’ancienne version ou configuration, devient le serveur intermédiaire et est mis à niveau.
 
@@ -70,9 +70,9 @@ Ces étapes fonctionnent également pour la migration à partir d’Azure AD Syn
 7. Si vous mettez à niveau Azure AD Connect, mettez à niveau le serveur actuellement en mode intermédiaire vers la dernière version. Suivez la même procédure pour mettre à niveau les données et la configuration. Si vous avez effectué une mise à niveau à partir d’Azure AD Sync, vous pouvez maintenant désactiver et retirer votre ancien serveur.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Déplacer une configuration personnalisée depuis le serveur actif vers le serveur intermédiaire
-Si vous avez apporté des modifications à la configuration du serveur actif, vous devez vérifier que les mêmes modifications sont appliquées au serveur intermédiaire.
+Si vous avez apporté des modifications à la configuration du serveur actif, vous devez vérifier que les mêmes modifications sont appliquées au serveur intermédiaire. Pour faciliter ce déplacement, vous pouvez utiliser la [documentation de configuration d’Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-Vous pouvez migrer les règles de synchronisation personnalisées que vous avez créées à l’aide de PowerShell. Vous devez appliquer d’autres modifications de la même manière sur les deux systèmes, et vous ne pouvez pas migrer les modifications.
+Vous pouvez migrer les règles de synchronisation personnalisées que vous avez créées à l’aide de PowerShell. Vous devez appliquer d’autres modifications de la même manière sur les deux systèmes, et vous ne pouvez pas migrer les modifications. La [documentation de configuration](https://github.com/Microsoft/AADConnectConfigDocumenter) peut vous aider à comparer les deux systèmes pour vérifier qu’ils sont identiques. L’outil peut également vous aider à automatiser les étapes indiquées dans cette section.
 
 Vous devez configurer ce qui suit de la même façon sur les deux serveurs :
 

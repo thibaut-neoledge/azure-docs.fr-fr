@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8194e0d72bd8547595b15d5e1dcba5771d7b11c8
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 4d4cc0c13fb0d05ecad6c81c4f7b704fa3152ed5
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Dans ce didacticiel, vous allez apprendre à intégrer Reward Gateway à Azure A
 L’intégration de Reward Gateway à Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Reward Gateway
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Reward Gateway (via l’authentification unique) avec leur compte Azure AD
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Reward Gateway via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -37,15 +38,14 @@ Pour configurer l’intégration d’Azure AD à Reward Gateway, vous avez beso
 * Un abonnement Azure AD
 * Un abonnement Reward Gateway pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
@@ -53,9 +53,9 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Reward Gateway à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique (SSO) Azure AD
 
-## <a name="adding-reward-gateway-from-the-gallery"></a>Ajout de Reward Gateway à partir de la galerie
+## <a name="add-reward-gateway-from-the-gallery"></a>Ajouter Reward Gateway à partir de la galerie
 Pour configurer l’intégration de Reward Gateway à Azure AD, vous devez ajouter Reward Gateway à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Reward Gateway à partir de la galerie, procédez comme suit :**
@@ -80,7 +80,7 @@ Pour configurer l’intégration de Reward Gateway à Azure AD, vous devez ajou
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique (SSO) Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Reward Gateway, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Reward Gateway équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Reward Gateway associé doit être établie.
@@ -93,10 +93,10 @@ Pour configurer et tester l’authentification unique Azure AD avec Reward Gate
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Reward Gateway](#creating-a-reward-gateway-test-user)** pour avoir un équivalent de Britta Simon dans Reward Gateway lié à la représentation Azure AD associée.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application Reward Gateway.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et la configurer dans votre application Reward Gateway.
 
 **Pour configurer l’authentification unique Azure AD avec Reward Gateway, procédez comme suit :**
 
@@ -109,17 +109,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_04.png) 
+  1. Dans la zone de texte **URL d’identificateur**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Reward Gateway, au format suivant : 
    
-    a. Dans la zone de texte **URL d’identificateur**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Reward Gateway, au format suivant : 
-   
-   | URL d’identificateur |
-   | --- |
-   | `https://<company name>.rewardgateway.com/` |
-   | `https://<company name>.rewardgateway.co.uk/` |
-   | `https://<company name>.rewardgateway.co.nz/` |
-   | `https://<company name>.rewardgateway.com.au/` |
-
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : 
+    | URL d’identificateur |
+    | --- |
+    | `https://<company name>.rewardgateway.com/` |
+    | `https://<company name>.rewardgateway.co.uk/` |
+    | `https://<company name>.rewardgateway.co.nz/` |
+    | `https://<company name>.rewardgateway.com.au/` |
+  2. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : 
 
     | URL de réponse |
     | --- |
@@ -128,25 +126,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     | `https://<company name>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>` |
     | `https://<company name>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
+  3. Cliquez sur **Suivant**.
 
-    c. Cliquez sur **Suivant**
-
-1. Sur la page **Configurer l’authentification unique sur Reward Gateway** , procédez comme suit :
+4. Sur la page **Configurer l’authentification unique sur Reward Gateway** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_05.png)
-   
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-2. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support](mailTo:clientsupport@rewardgateway.com) Reward Gateway et fournissez les informations suivantes :
+  * Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
+5. Pour configurer l’authentification unique pour votre application, contactez l’[équipe de support](mailTo:clientsupport@rewardgateway.com) Reward Gateway et fournissez les informations suivantes :
    
     • Les **métadonnées**
-3. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+6. Dans le portail Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
-4. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
+6. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
     ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
 
 ![Créer un utilisateur Azure AD][20]
@@ -163,39 +159,33 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_04.png) 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit :  ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_05.png) 
-   
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
-6. Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_06.png) 
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_05.png)    
+  1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
+  2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
+  3. Cliquez sur **Suivant**.
+6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
+
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_06.png)    
+  1. Dans la zone de texte **First Name**, tapez **Britta**.   
+  2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+  3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
+  4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
+  5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_07.png) 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+  1. Notez la valeur du **Nouveau mot de passe**. 
+  2. Cliquez sur **Terminé**.   
 
-### <a name="creating-an-reward-gateway-test-user"></a>Création d’un utilisateur de test Reward Gateway
+### <a name="create-an-reward-gateway-test-user"></a>Créer un utilisateur de test Reward Gateway
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Reward Gateway. Collaborez avec l’[équipe de support](mailTo:clientsupport@rewardgateway.com) Reward Gateway pour ajouter des utilisateurs à la plateforme Reward Gateway.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Reward Gateway.
 
 ![Affecter des utilisateurs][200] 
@@ -216,7 +206,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Reward Gateway dans le panneau d’accès, vous devriez être connecté automatiquement à votre application Reward Gateway.
@@ -242,9 +232,4 @@ Lorsque vous cliquez sur la mosaïque Reward Gateway dans le panneau d’accès,
 [203]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

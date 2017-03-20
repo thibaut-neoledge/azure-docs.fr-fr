@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
-ms.openlocfilehash: 98e06e683e6ee473a0747b423ed7cf6ae2b8cfed
+ms.sourcegitcommit: aada5b96eb9ee999c5b1f60b6e7b9840fd650fbe
+ms.openlocfilehash: 2831416bbb290905835396835db2eb6cb5e7b46f
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -559,7 +560,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 5. Il n’y a pas de `columnMapping` utilisé dans l’activité de copie associée.
 
 ### <a name="staged-copy-using-polybase"></a>Copie intermédiaire à l’aide de PolyBase
-Lorsque votre source de données ne répond pas aux critères présentés dans la section précédente, vous pouvez activer la copie des données par le biais d’un stockage d’objets blob Azure intermédiaire. Dans ce cas, Azure Data Factory effectue des transformations sur les données pour répondre aux exigences de format de données de PolyBase, puis utilise PolyBase pour charger des données dans SQL Data Warehouse. Consultez la rubrique [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) pour plus d’informations sur le fonctionnement général de la copie des données par le biais d’un Blob Azure.
+Lorsque vos données source ne répondent pas aux critères présentés dans la section précédente, vous pouvez activer la copie des données par le biais d’un Stockage Blob Azure intermédiaire (il ne peut pas s’agir d’une offre Stockage Premium). Dans ce cas, Azure Data Factory effectue des transformations sur les données pour répondre aux exigences de format de données de PolyBase, puis utilise PolyBase pour charger des données dans SQL Data Warehouse. Consultez la rubrique [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) pour plus d’informations sur le fonctionnement général de la copie des données par le biais d’un Blob Azure.
 
 > [!NOTE]
 > Lors de la copie de données à partir d’un magasin de données local dans Azure SQL Data Warehouse à l’aide de PolyBase et du stockage intermédiaire, si la version de votre passerelle de gestion des données est antérieure à la version 2.4, vous devez installer JRE (Java Runtime Environment) sur votre ordinateur passerelle, qui est utilisé pour convertir vos données source dans le bon format. Nous vous conseillons de mettre à niveau votre passerelle vers la dernière version pour éviter une telle dépendance.
@@ -596,17 +597,13 @@ Pour utiliser cette fonctionnalité, vous devez créer un [service lié Azure St
 ### <a name="required-database-permission"></a>Autorisation de base de données requise
 Pour utiliser PolyBase, il est nécessaire que l’utilisateur utilisé pour charger des données dans SQL Data Warehouse ait [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez, pour cela, ajouter l’utilisateur en tant que membre du rôle « db_owner ». Découvrez comment procéder dans [cette section](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### <a name="row-size-limitation"></a>Limite de taille de ligne
-Polybase ne prend pas en charge les lignes d’une taille supérieure à 32 Ko. Toute tentative de chargement d’une table avec des lignes supérieures à 32 Ko génère l’erreur suivante :
+### <a name="row-size-and-data-type-limitation"></a>Limitations en matière de taille de ligne et de type de données
+Les charges Polybase sont limitées au chargement de lignes de moins de **1 Mo** et ne peuvent pas charger vers VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX). Consultez cette [section](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-```
-Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
-```
-
-Si les données source dont vous disposez ont des lignes d’une taille supérieure à 32 Ko, vous pouvez fractionner verticalement les tables source en plusieurs tables plus petites dans lesquelles la taille de ligne maximale ne dépasse pas la limite. Vous pouvez ensuite charger les tables plus petites à l’aide de PolyBase et les fusionner dans Azure SQL Data Warehouse.
+Si les données source dont vous disposez comportent des lignes d’une taille supérieure à 1 Mo, vous pouvez fractionner verticalement les tables source en plusieurs tables plus petites dont la taille de ligne maximale ne dépasse pas cette limite. Vous pouvez ensuite charger les tables plus petites à l’aide de PolyBase et les fusionner dans Azure SQL Data Warehouse.
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
-Pour obtenir le meilleur débit possible, envisagez d’attribuer une classe de ressources plus volumineuse à l’utilisateur utilisé pour charger des données dans SQL Data Warehouse via PolyBase. Découvrez comment procéder en consultant [Exemple de modification d’une classe de ressources utilisateur](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+Pour obtenir le meilleur débit possible, envisagez d’attribuer une classe de ressources plus volumineuse à l’utilisateur utilisé pour charger des données dans SQL Data Warehouse via PolyBase. Découvrez comment procéder en consultant [Exemple de modification d’une classe de ressources utilisateur](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName dans Azure SQL Data Warehouse
 Le tableau suivant fournit des exemples sur la façon de spécifier la propriété **tableName** dans le jeu de données JSON pour différentes combinaisons de schémas et noms de table.
@@ -723,9 +720,4 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

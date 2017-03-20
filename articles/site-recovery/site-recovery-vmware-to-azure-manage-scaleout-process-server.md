@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: af40c53972845d93a2fbbdf3210d55d84d55650e
+ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
+ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -95,11 +95,27 @@ Le paramètre ProxySettingsFilePath prend un fichier en tant qu’entrée. Crée
   ```
   cmd
   cdpcli.exe --registermt
+  
+  net stop obengine
+
+  net start obengine
+
   exit
   ```
 
 ## <a name="re-registering-a-scale-out-process-server"></a>Réinscription d’un serveur de traitement de montée en puissance parallèle
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+
+* Ouvrez ensuite une invite de commandes administrateur.
+* Accédez au répertoire **%PROGRAMDATA%\ASR\Agent**, puis exécutez la commande
+
+```
+cdpcli.exe --registermt
+
+net stop obengine
+
+net start obengine
+```
 
 ## <a name="upgrading-a-scale-out-process-server"></a>Mise à niveau d’un serveur de traitement de montée en puissance parallèle
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
@@ -112,7 +128,7 @@ Le paramètre ProxySettingsFilePath prend un fichier en tant qu’entrée. Crée
 3. Ouvrez le Panneau de configuration > Programme > Désinstaller des programmes
 4. Désinstallez les programmes dans l’ordre donné suivant :
   * Serveur de configuration Microsoft Azure Site Recovery/Serveur de traitement
-  * Dépendances du serveur de configuration Microsoft Azure Site Recovery
+  * Dépendances du serveur de configuration Microsoft Azure Site Recovery
   * Agent Microsoft Azure Recovery Services
 
 La suppression du serveur de traitement peut prendre jusqu’à 15 minutes pour être prise en compte dans le portail Azure.

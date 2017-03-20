@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user"></a>Réinitialisation du mot de passe pour un utilisateur
+# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Réinitialiser le mot de passe d’un utilisateur dans le portail Azure Classic
 > [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-users-reset-password-azure-portal.md)
-> * [Portail Azure Classic](active-directory-create-users-reset-password.md)
+> * [portail Azure](active-directory-users-reset-password-azure-portal.md)
+> * [portail Azure Classic](active-directory-create-users-reset-password.md)
 >
 >
 
-Que vous répondiez à un utilisateur qui demande une réinitialisation de son mot de passe après le verrouillage de son compte ou que vous exécutiez une maintenance de routine de la sécurité, vous devez parfois réinitialiser le mot de passe d’un utilisateur. Azure Active Directory (Azure AD) facilite cette opération.
+Azure Active Directory (Azure AD) simplifie le processus de réinitialisation du mot de passe des utilisateurs en cas d’oubli et de verrouillage ou lors des opérations de maintenance de sécurité de routine. 
 
 1. Ouvrez votre annuaire.
 2. Sélectionnez l’onglet **Utilisateurs** , puis sélectionnez le nom d’affichage de l’utilisateur que vous souhaitez modifier.
@@ -40,9 +42,4 @@ Que vous répondiez à un utilisateur qui demande une réinitialisation de son m
 * [Administration d’Azure AD](active-directory-administer.md)
 * [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
 * [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

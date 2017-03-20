@@ -1,5 +1,5 @@
 ---
-title: Collecter et analyser les compteurs de performances dans Log Analytics | Microsoft Docs
+title: Collecter et analyser les compteurs de performances dans Azure Log Analytics | Microsoft Docs
 description: "Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans le référentiel OMS et comment les analyser dans le portail OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
+ms.sourcegitcommit: 853177202e4724546242d4e8d1b41b456a444eeb
+ms.openlocfilehash: 2381b7e9ab4514d6668569c2a58d108af5008a7e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Lorsque vous configurez initialement des compteurs de performances Windows ou Li
 
 Suivez cette procédure pour ajouter un nouveau compteur de performances Windows à collecter.
 
-1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*. 
+1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*.
 2. Cliquez sur **+** ou appuyez sur **Entrée** pour ajouter le compteur à la liste.
 3. Lorsque vous ajoutez un compteur, il utilise la valeur par défaut de 10 secondes comme **Intervalle d’échantillonnage**.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
 4. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
@@ -92,19 +93,9 @@ Lorsque vous recherchez des données de performances dans un journal, la vue **J
 
 ![Vue Mesures réduite](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-Si l’intervalle sélectionné ne dépasse pas 6 heures, le graphique est actualisé à intervalles de quelques secondes.  Les données actives s’affichent à droite du graphique en bleu clair.
-
-![Vue Mesures développée avec des données actives](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
-
 Pour agréger des données de performances dans une recherche de journal, voir [Agrégation et visualisation de mesures à la demande dans OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
 * Exporter les données collectées vers [Power BI](log-analytics-powerbi.md) à des fins d’analyse et de visualisation.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

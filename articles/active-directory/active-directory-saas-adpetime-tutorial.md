@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 56e3a4ee3cc52fc2b18e78a42a65af33a61ff349
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 84c23a43b87c7357ed99f33c275717c68cf7c8bb
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-etime"></a>Didacticiel : Intégration d’Azure AD à ADP eTime
-L’objectif de ce didacticiel est de vous montrer comment intégrer ADP eTime à Azure Active Directory (Azure AD).  
+L’objectif de ce didacticiel est de vous montrer comment intégrer ADP eTime à Azure Active Directory (Azure AD).
+
 L’intégration d’ADP eTime dans Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à ADP eTime.
-* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à ADP eTime (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à ADP eTime via l’authentification unique (SSO) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
@@ -36,24 +38,24 @@ Pour configurer l’intégration d’Azure AD à ADP eTime, vous avez besoin de
 * Un abonnement Azure AD
 * Un abonnement ADP eTime pour lequel l’authentification unique est activée
 
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-> 
+>[!NOTE]
+>Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. 
 > 
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
 * Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.  
+Ce didacticiel vise à vous permettre de tester l’authentification unique Azure AD dans un environnement de test.
+
 Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de ADP eTime à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique (SSO) Azure AD
 
-## <a name="adding-adp-etime-from-the-gallery"></a>Ajout de ADP eTime à partir de la galerie
+## <a name="add-adp-etime-from-the-gallery"></a>Ajouter ADP eTime à partir de la galerie
 Pour configurer l’intégration d’ADP eTime à Azure AD, vous devez ajouter ADP eTime à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter ADP eTime à partir de la galerie, procédez comme suit :**
@@ -78,24 +80,27 @@ Pour configurer l’intégration d’ADP eTime à Azure AD, vous devez ajouter 
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec ADP eTime au moyen d’un utilisateur de test appelé « Britta Simon ».
+## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique (SSO) Azure AD
+L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec ADP eTime, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur ADP eTime équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur ADP eTime associé doit être établie.  
+
 Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** dans ADP eTime.
 
 Pour configurer et tester l’authentification unique Azure AD avec ADP eTime, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur test ADP eTime](#creating-a-adpetime-test-user)** pour avoir un équivalent de Britta Simon dans ADP eTime lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configuring-azure-ad-sso"></a>Configuration de l’authentification unique Azure AD
 L’objectif de cette section est d’activer l’authentification unique Azure AD dans le portail Azure Classic et de configurer l’authentification unique dans votre application ADP eTime.
 
-Votre application ADP eTime s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à ExtensionAttribute2 qui contient la valeur EmployeeID de l’utilisateur. Ici, le mappage utilisateur d’Azure AD à ADP eTime est effectué avec EmployeeID, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Par conséquent, collaborez avec l’équipe ADP eTime pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur avec la revendication **« PersonImmutableID »**.  
+Votre application ADP eTime s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre un exemple : Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à ExtensionAttribute2 qui contient la valeur EmployeeID de l’utilisateur. 
+
+Ici, le mappage utilisateur d’Azure AD à ADP eTime est effectué avec EmployeeID, mais vous pouvez le mapper à une valeur différente également basée sur les paramètres de votre application. Par conséquent, collaborez avec l’équipe ADP eTime pour utiliser l’identificateur correct d’un utilisateur et mapper cette valeur avec la revendication **« PersonImmutableID »**.  
 
 ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_02.png) 
 
@@ -112,74 +117,59 @@ Avant de pouvoir configurer votre assertion SAML, vous devez contacter l’équ
 3. Sur la page de boîte de dialogue **Configurer les paramètres de l’application** , procédez comme suit :
    
     ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png) 
-
-    a. Dans la zone de texte **URL de réponse**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application ADP eTime au format suivant : `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer`.
-
-    b. Cliquez sur **Next**.
-
-1. Dans la page **Configurer l’authentification unique sur ADP eTime** , procédez comme suit :
+  1. Dans la zone de texte **URL de réponse**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application ADP eTime au format suivant : `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer`.
+  2. Cliquez sur **Suivant**.
+4. Dans la page **Configurer l’authentification unique sur ADP eTime** , procédez comme suit :
    
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png) 
-   
-    a. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur.
-   
-    b. Cliquez sur **Next**.
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png)  
+  1. Cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur. 
+  2. Cliquez sur **Suivant**.
 2. Pour configurer l’authentification unique pour votre application, contactez l’équipe du support technique ADP eTime et joignez le fichier de métadonnées téléchargé à votre courrier électronique. Vous pouvez ainsi les configurer pour l’intégration de l’authentification unique.
    
-   > [!NOTE]
-   > Une fois que l’équipe **ADP eTime** a configuré l’instance, obtenez la valeur **RelayState** à partir de ceux-ci. Suivez les étapes mentionnées ci-dessous afin de la configurer. Une fois cette configuration effectuée, vous pouvez tester l’intégration. Par conséquent, notez qu’il s’agit d’une configuration importante pour que l’intégration de cette application fonctionne.
-   > 
-   > 
-3. Pour configurer la valeur RelayState dans Azure AD, procédez comme suit : 
+   >[!NOTE]
+   >Une fois que l’équipe **ADP eTime** a configuré l’instance, obtenez la valeur **RelayState** à partir de ceux-ci. Suivez les étapes mentionnées ci-dessous afin de la configurer. Une fois cette configuration effectuée, vous pouvez tester l’intégration. Par conséquent, notez qu’il s’agit d’une configuration importante pour que l’intégration de cette application fonctionne.
+   >  
+6. Pour configurer la valeur RelayState dans Azure AD, procédez comme suit : 
+  1. Connectez-vous au [portail de gestion Azure](https://portal.azure.com) en tant qu’administrateur.
+  2. Dans le volet de navigation de gauche, cliquez sur **Plus de services**.  
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_07.png) 
+ 3. Dans la zone de texte **Recherche**, tapez **Azure Active Directory**, puis cliquez sur le lien associé. 
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_08.png)   
+ 4. Cliquez sur **Applications d’entreprise**. 
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_09.png)  
+ 5. Dans la section **Gérer**, cliquez sur **Toutes les applications**.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_10.png) 
+ 6. Dans la zone de texte **Recherche**, tapez **Azure Active Directory**, puis cliquez sur le lien associé. 
    
-    a. Connectez-vous au [portail de gestion Azure](https://portal.azure.com) en tant qu’administrateur.
-   
-    b. Dans le volet de navigation de gauche, cliquez sur **Plus de services**. 
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_07.png)
-   
-    c. Dans la zone de texte **Recherche**, tapez **Azure Active Directory**, puis cliquez sur le lien associé.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_08.png)
-   
-    d. Cliquez sur **Applications d’entreprise**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_09.png)
-   
-    e. Dans la section **Gérer**, cliquez sur **Toutes les applications**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_10.png)
-   
-    f. Dans la zone de texte **Recherche**, tapez **Azure Active Directory**, puis cliquez sur le lien associé. 
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_11.png)
-   
-    g. Dans la section **Gérer**, cliquez sur **Authentification unique**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_12.png)
-   
-    h. Sélectionnez **Afficher les paramètres d’URL avancés**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_13.png)
-   
-    i. Dans la zone de texte **Relay State** (État du relais), tapez une valeur en respectant les formats suivants :
-   
-   * Environnement de production : `https://fed.adp.com/saml/fedlanding.html?<id>` 
-   * Environnement intermédiaire : `https://fed-stag.adp.com/saml/fedlanding.html?PORTAL`
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_11.png)  
+ 7. Dans la section **Gérer**, cliquez sur **Authentification unique**. 
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_12.png) 
+ 8. Sélectionnez **Afficher les paramètres d’URL avancés**.
+ 
+     ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_13.png) 
+ 9. Dans la zone de texte **État de relais**, tapez une valeur en respectant les formats suivants, puis enregistrez les paramètres : 
+ 
+    * Environnement de production : `https://fed.adp.com/saml/fedlanding.html?<id>` 
+    * Environnement intermédiaire : `https://fed-stag.adp.com/saml/fedlanding.html?PORTAL`
      
-     ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_14.png)
-     
-     j. Enregistrez les paramètres.
+    ![Configurer l’authentification unique](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_14.png) 
+
 4. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-   
-    ![Authentification unique Azure AD][10]
+ 
+ ![Authentification unique Azure AD][10]
 5. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
    
-    ![Authentification unique Azure AD][11]
+ ![Authentification unique Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure Classic.  
-Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+
+* Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 ![Créer un utilisateur Azure AD][20]
 
@@ -197,47 +187,36 @@ Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png) 
 5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png) 
-   
-    a. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
-   
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-   
-    c. Cliquez sur **Next**.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png)  
+ 1. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
+ 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**. 
+ 3. Cliquez sur **Next**.
 6. Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
    
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png) 
-   
-   a. Dans la zone de texte **First Name**, tapez **Britta**.  
-   
-   b. Dans la zone de texte **Last Name**, tapez **Simon**.
-   
-   c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-   
-   d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   
-   e. Cliquez sur **Next**.
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png)  
+ 1. Dans la zone de texte **First Name**, tapez **Britta**.   
+ 2. Dans la zone de texte **Last Name**, tapez **Simon**. 
+ 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**. 
+ 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**. 
+ 5. Cliquez sur **Next**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png) 
 8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png) 
-   
-    a. Notez la valeur du **Nouveau mot de passe**.
-   
-    b. Cliquez sur **Terminé**.   
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png)  
+ 1. Notez la valeur du **Nouveau mot de passe**.
+ 2. Cliquez sur **Terminé**.   
 
-### <a name="creating-a-adp-etime-test-user"></a>Création d’un utilisateur test ADP eTime
+### <a name="create-a-adp-etime-test-user"></a>Créer un utilisateur de test ADP eTime
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ADP eTime. Collaborez avec l’équipe du support technique ADP eTime pour ajouter les utilisateurs au compte ADP eTime. 
 
-> [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique ADP eTime.
-> 
+>[!NOTE]
+>Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique ADP eTime.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à ADP eTime.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+L’objectif de cette section est de permettre à Britta Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à ADP eTime.
 
 ![Affecter des utilisateurs][200] 
 
@@ -257,8 +236,9 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
    
     ![Affecter des utilisateurs][205]
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.  
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
 Quand vous cliquez sur la vignette ADP eTime dans le volet d’accès, vous devez être connecté automatiquement à votre application ADP eTime.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -282,9 +262,4 @@ Quand vous cliquez sur la vignette ADP eTime dans le volet d’accès, vous deve
 [203]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpetime-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

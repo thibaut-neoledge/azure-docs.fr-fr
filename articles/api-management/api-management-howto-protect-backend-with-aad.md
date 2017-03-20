@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: af21253dadd5cd2f64149aa2738e459da9f8325a
+ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
+ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
@@ -512,7 +513,7 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
-* Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification avec certificats mutuels](api-management-howto-mutual-certificates.md) et [Connexion via VPN ou ExpressRoute](api-management-howto-setup-vpn.md).
+* Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -562,9 +563,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

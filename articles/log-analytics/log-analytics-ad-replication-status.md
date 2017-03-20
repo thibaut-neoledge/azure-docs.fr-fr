@@ -1,5 +1,5 @@
 ---
-title: "Solution État de la réplication Active Directory dans Log Analytics | Microsoft Docs"
+title: "Surveiller l’état de la réplication Active Directory avec Azure Log Analytics | Microsoft Docs"
 description: "Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent et indique les résultats dans votre tableau de bord OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
-ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solution État de la réplication Active Directory dans Log Analytics
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Surveiller l’état de la réplication Active Directory avec Log Analytics
+
 Active Directory est un composant clé de l’environnement informatique d’une entreprise. Pour garantir une haute disponibilité et des performances élevées, chaque contrôleur de domaine a sa propre copie de la base de données Active Directory. Les contrôleurs de domaine se répliquent entre eux pour propager les modifications dans l’entreprise. L’échec de ce processus de réplication peut entraîner divers problèmes au sein de l’entreprise.
 
 Le pack de solution État de la réplication AD surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent et indique les résultats dans votre tableau de bord OMS.
@@ -150,9 +153,4 @@ Si vous ne souhaitez pas connecter un de vos contrôleurs de domaine directement
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md) pour afficher des données détaillées sur l’état de la réplication Active Directory.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

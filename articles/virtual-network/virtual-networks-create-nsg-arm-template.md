@@ -1,10 +1,10 @@
 ---
-title: "Guide pratique pour créer des groupes de sécurité réseau en mode ARM à l’aide d’un modèle | Microsoft Docs"
-description: "Apprenez à créer et déployer des NSG dans ARM en utilisant un modèle"
+title: "Créer des groupes de sécurité réseau - Modèle Azure Resource Manager | Microsoft Docs"
+description: "Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 627dba0f3a0a65ad75ef2799b7e5df56e9d8bfcb
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-create-nsgs-using-a-template"></a>Création de NSG à l’aide d’un modèle
+# <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Créer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -187,10 +190,5 @@ Pour déployer le modèle ARM à l’aide de l’interface de ligne de commande 
    * **-l (ou --location)**. Région Azure où le groupe de ressources sera créé.
    * **-f (ou --template-file)**. Chemin d'accès à votre fichier de modèle ARM.
    * **-e (ou --parameters-file)**. Chemin d'accès à votre fichier de paramètres ARM.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

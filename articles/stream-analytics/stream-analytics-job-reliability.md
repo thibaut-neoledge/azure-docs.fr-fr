@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a2892343432f7dced535efb3917d915736580dfb
-ms.openlocfilehash: cf8eba0f68e1e803026079f02b91f1bbaec189da
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -30,20 +30,7 @@ Stream Analytics garantit que les travaux dans les régions jumelées sont mis �
 
 _À l’exception du Centre de l’Inde_ (dont la région jumelée, Inde du Sud, ne prend pas en charge Stream Analytics), le déploiement d’une mise à jour sur Stream Analytics ne se produit pas en même temps dans un ensemble de régions jumelées. Les déploiements dans plusieurs régions **dans le même groupe** peuvent se produire **en même temps**.
 
-Consultez le tableau suivant pour connaître la liste des groupes jumelés :
+L’article sur **[la disponibilité et les régions jumelées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** contient les informations les plus récentes sur le jumelage des régions.
 
-Régions du groupe A |  | Régions du groupe B
-------- | ------- | -------
-Japon de l’Est | Jumelé avec | Ouest du Japon
-Europe du Nord |  | Europe de l'Ouest
-Centre des États-Unis |  | Est des États-Unis&2;
-Est de l'Asie |  | Asie du Sud-Est
-États-Unis - partie centrale septentrionale |  | Centre-Sud des États-Unis
-Est de l’Australie |  | Sud-Est de l’Australie
-Est des États-Unis |  | Ouest des États-Unis
-Sud du Brésil |  | Centre-Sud des États-Unis
-Chine du Nord |  | Chine orientale
-Nord-Est de l’Allemagne |  | Centre de l’Allemagne
-
-Nous conseillons aux clients de déployer des travaux identiques sur les deux régions jumelées. Outre la surveillance interne de Stream Analytics, nous recommandons également aux clients de surveiller les travaux comme si **les deux** étaient des travaux de production. Si un arrêt survient suite à la mise à jour du service Stream Analytics, signalez l’incident de manière appropriée et basculez les consommateurs en aval sur la sortie de travail intègre. Le signalement à l’équipe de support permettra d’empêcher la région jumelée d’être affectée par le nouveau déploiement et de maintenir l’intégrité des travaux jumelés.
+Nous conseillons aux clients de déployer des travaux identiques sur les deux régions jumelées. Outre les fonctionnalités de surveillance interne de Stream Analytics, nous recommandons aux clients de surveiller les travaux comme si **les deux** étaient des travaux de production. Si un arrêt survient suite à la mise à jour du service Stream Analytics, signalez l’incident de manière appropriée et basculez les consommateurs en aval sur la sortie de travail intègre. Le signalement à l’équipe de support permettra d’empêcher la région jumelée d’être affectée par le nouveau déploiement et de maintenir l’intégrité des travaux jumelés.
 

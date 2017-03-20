@@ -1,5 +1,5 @@
 ---
-title: "Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ? | Microsoft Docs"
+title: "Accorder des licences aux utilisateurs Azure Active Directory dans le portail Azure Classic | Microsoft Docs"
 description: "Description de la gestion des licences Microsoft Azure Active Directory, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Basic."
 services: active-directory
 keywords: Gestion des licences Azure AD
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae4961611195c1574f5b94edbca74e1f182b4361
-ms.openlocfilehash: eb0b428f84dc16abd5cfee73dc8e4191698ebdd6
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-is-microsoft-azure-active-directory-licensing"></a>Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
+# <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Qu’est-ce que la gestion des licences Microsoft Azure Active Directory dans le portail Azure Classic ?
 
 > [!div class="op_single_selector"]
 > * [portail Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -158,9 +160,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 * [Attribution de groupe aux applications](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

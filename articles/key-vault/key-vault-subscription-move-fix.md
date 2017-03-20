@@ -17,6 +17,7 @@ ms.author: ambapat
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7fc69510ee07f8a0c50fa7ab59c7e1fac38fc5bb
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -40,10 +41,5 @@ Maintenant que votre coffre est associé avec l’ID de client correct et que le
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour toute question concernant le coffre de clés Azure, rendez-vous sur les [forums sur les coffres de clés Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

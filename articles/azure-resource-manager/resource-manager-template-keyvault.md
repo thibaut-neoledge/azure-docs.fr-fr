@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Pour créer un coffre de clés, ajoutez le schéma suivant à la section des res
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -75,7 +76,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 | --- | --- |
 | enabledForDeployment |Booléen<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le déploiement d’une machine virtuelle ou Service Fabric. |
 | enabledForTemplateDeployment |Booléen<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour une utilisation dans les déploiements de modèle Resource Manager. Pour plus d'informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Booléen<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le chiffrement de volume. |
+| enabledForDiskEncryption |Boolean<br />Facultatif<br />**true** ou **false**<br /><br />Spécifie si le coffre est activé pour le chiffrement de volume. |
 | tenantId |String<br />Requis<br />**Identificateur global unique**<br /><br />Identificateur de client pour l’abonnement. Vous pouvez le récupérer à l’aide de l’applet de commande [PowerShell Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) ou de la commande d’interface de ligne de commande (CLI) Azure **azure account show** . |
 | accessPolicies |Tableau<br />Requis<br />[objet accessPolicies](#accesspolicies)<br /><br />Tableau contenant jusqu’à 16 objets qui spécifient les autorisations de l’utilisateur ou du principal du service. |
 | sku |Object<br />Requis<br />[objet SKU](#sku)<br /><br />Référence (SKU) du coffre de clés. |
@@ -169,7 +170,7 @@ L'exemple suivant déploie un coffre de clés et la clé secrète.
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ L'exemple suivant déploie un coffre de clés et la clé secrète.
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -240,10 +241,5 @@ Le modèle de démarrage rapide suivant déploie un coffre de clés.
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md).
 * Pour obtenir un exemple de référencement d'une clé secrète de coffre de clés lors du déploiement, consultez [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

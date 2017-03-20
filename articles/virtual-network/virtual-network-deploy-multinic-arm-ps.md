@@ -1,10 +1,10 @@
 ---
-title: "Créer une machine virtuelle avec plusieurs cartes réseau à l’aide de PowerShell | Microsoft Docs"
-description: "Apprenez à créer une machine virtuelle avec plusieurs cartes réseau via Azure Resource Manager à l’aide de PowerShell."
+title: "Créer une machine virtuelle avec plusieurs cartes réseau - Azure PowerShell | Microsoft Docs"
+description: "Apprenez à créer une machine virtuelle avec plusieurs cartes réseau à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 88880483-8f9e-4eeb-b783-64b8613407d9
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
-ms.openlocfilehash: f2d9ee0d7e7d1168407e545de4f2614e7d12a9b3
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: ae6c92d4f005b389de2d65c30113580190914b42
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -44,7 +46,7 @@ Les étapes suivantes utilisent un groupe de ressources nommé *IaaSStory* pour 
 Avant de créer les serveurs de base de données, vous devez créer le groupe de ressources *IaaSStory* avec toutes les ressources nécessaires pour ce scénario. Pour créer ces ressources, exécutez les étapes suivantes :
 
 1. Accédez à la [page de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Dans la page de modèle, à droite du **groupe de ressources parent**, cliquez sur **Déployer dans Azure**.
+2. Dans la page de modèle, à droite du **groupe de ressources parent**, cliquez sur **Déployer sur Azure**.
 3. Si nécessaire, modifiez les valeurs de paramètre, puis suivez les étapes du portail Azure en version préliminaire pour déployer le groupe de ressources.
 
 > [!IMPORTANT]
@@ -226,8 +228,8 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
         Tags                         :
         TagsText                     : null
         AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-        AvailabilitySetReferenceText :  {
-                                    "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
+        AvailabilitySetReferenceText :     {
+                                     "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
                                     }
         Extensions                   :
         ExtensionsText               : null
@@ -335,9 +337,4 @@ Maintenant que vous avez téléchargé et modifié le script selon vos besoins, 
         TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         StatusCode          : OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

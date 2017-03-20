@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 28846f2effd26c5b7ca7a79fba52d8ba1cb4ea91
-ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
+ms.sourcegitcommit: 7c91ae265dd86e8d7f206c1ada021c40fd8c4479
+ms.openlocfilehash: cb3b7cfefe22176e17064ad6cbb9df4da8c57c0f
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,13 +25,19 @@ ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 
 Cet article répond aux questions courantes que nous recevons sur l’application Microsoft Authenticator. Si vous ne trouvez pas la réponse à votre question, consultez le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Nous avons également une autre FAQ sur une fonctionnalité de l’application en particulier, [FAQ Se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md).
 
-L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. Cette application est disponible pour Windows Phone, Android et iOS.
+L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
-### <a name="what-happened-to-the-azure-authenticator-multi-factor-auth-and-microsoft-account-apps"></a>Qu’est-il arrivé aux applications de compte Microsoft, Azure Authenticator et Multi-Factor Auth ?
-L’application Microsoft Authenticator remplace chacune de ces applications. Azure Authenticator a été mis à niveau vers Microsoft Authenticator. Si vous utilisez l’application Multi-Factor Auth ou le compte Microsoft, installez Microsoft Authenticator et ajoutez de nouveau vos comptes. Prenez soin de finir d’ajouter vos comptes à la nouvelle application avant de supprimer les anciens.
 
-L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>À quoi servent les codes de l’application ? Pourquoi le nombre ne cesse de diminuer ?
+
+Lorsque vous ouvrez l’application Microsoft Authenticator, vous voyez les comptes que vous avez ajoutés ainsi qu’un numéro de six ou huit chiffres à côté de chacun d’eux. Vous pouvez voir un minuteur de trente secondes exécutant un compte à rebours.
+
+Ces codes sont utilisés lorsque vous vous connectez à votre compte. Après avoir entré votre nom d’utilisateur et votre mot de passe, vous serez peut-être invité à entrer un code de vérification. Ouvrez l’application Microsoft Authenticator et copiez le code qui est actuellement affiché. Entrez ce code dans la page de connexion pour terminer.
+
+Comme les codes changent toutes les 30 secondes, vous n’utilisez donc jamais deux fois le même code. Ce n’est pas comme un mot de passe que vous êtes censé mémoriser. L’idée est que seules les personnes ayant accès à votre téléphone connaissent votre code de vérification.
+
+Comme les codes ne nécessitent ni Internet ni données, vous n’avez pas à vous soucier de disposer d’un service téléphonique pour vous connecter ou que l’application utilisera votre forfait de données. Lorsque vous fermez l’application, elle arrête de s’exécuter en arrière-plan et ne décharge donc pas la batterie. Vous pouvez fermer l’application et l’ignorer jusqu’à la prochaine connexion.  
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>J’utilise déjà l’application Microsoft Authenticator pour les codes de vérification. Comment puis-je activer les notifications push en un clic ?
 L’approbation d’une connexion via notification push est disponible uniquement pour les comptes Microsoft personnels, professionnels ou scolaires. Les comptes tiers tels que Google ou Facebook ne bénéficient pas de cette fonctionnalité. Si vous disposez d’un compte Microsoft professionnel ou scolaire, votre organisation peut choisir de désactiver cette option.
@@ -87,10 +94,5 @@ Si vous n’avez pas trouvé la réponse à votre question ici, rendez-vous sur 
 * [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) pour les comptes Microsoft
 * Vous rencontrez des [difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) pour votre compte professionnel ou scolaire ?
 * [Utiliser Microsoft Authenticator pour se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

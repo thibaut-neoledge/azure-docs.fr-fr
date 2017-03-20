@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/05/2017
 ms.author: rayne
 translationtype: Human Translation
-ms.sourcegitcommit: 6521cada7adeacd98fae46e5119ceffa0351e9b5
-ms.openlocfilehash: a5c6759d9826084ae339dd291140f8383b55b6db
+ms.sourcegitcommit: 993449b7840f5077f23b3809439b89f27759e35d
+ms.openlocfilehash: 1a991d1e4ac20019695fb557310e1981b5b491ec
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,22 +27,7 @@ Utilisez cet article pour déterminer comment planifier la capacité et la mise 
 
 ## <a name="how-do-i-start-capacity-planning"></a>Comment dois-je commencer la planification de la capacité ?
 
-1. Collectez des informations sur votre environnement de réplication à l’aide d’Azure Site Recovery Capacity Planner. Cela inclut des informations sur les machines virtuelles, les disques par machine virtuelle et le stockage par disque.
-2. Déterminer le taux de modification (l’évolution) quotidien des données répliquées dans votre environnement.
-
-
-## <a name="gather-information"></a>Collecter des informations
-
-1. Téléchargez et exécutez [Capacity Planner[(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)].
-2. [Obtenez des instructions](site-recovery-capacity-planner.md) pour exécuter l’outil.
-
-
-## <a name="estimate-the-daily-churn-rate"></a>Déterminer le taux d’évolution quotidien
-
-Site Recovery Capacity Planner vous demande d’entrer un taux de modification des données quotidien moyen en pourcentage. Actuellement, vous pouvez collecter ces informations à l’aide de [l’Appliance de planification de la capacité vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
-
-Dans l’outil, vous pouvez calculer le pourcentage en pointant l’outil de planification vSphere vers toutes les machines virtuelles source et obtenir le taux de modification quotidien total. Il s’agit essentiellement du trafic réseau. [En savoir plus](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) sur l’exécution de cet outil.
-
+Collectez des informations sur votre environnement de réplication à l’aide de l’outil [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Cela inclut des informations sur le nombre de machines virtuelles compatibles et incompatibles, le nombre de disques par machine virtuelle, le taux d’activité des données par disque, les besoins en bande passante, ainsi que l’infrastructure Azure requise pour mener à bien la réplication, le test de basculement et le basculement.
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 
@@ -55,9 +41,9 @@ Dans l’outil, vous pouvez calculer le pourcentage en pointant l’outil de pla
 
 **UC** | **Mémoire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées**
 --- | --- | --- | --- | ---
-8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | Répliquez moins de 100 machines.
-12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz) | 18 Go | 600 Go | 500 Go à 1 To | Répliquez entre 100 et 150 machines.
-16 processeurs virtuels (2 sockets * 8 cœurs @ 2,5 GHz) | 32 Go | 1 To | 1 To à 2 To | Répliquez entre 150 et 200 machines.
+8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | Répliquez moins de 100 machines.
+12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz) | 18 Go | 600 Go | 500 Go à 1 To | Répliquez entre 100 et 150 machines.
+16 processeurs virtuels (2 sockets * 8 cœurs à 2,5 GHz) | 32 Go | 1 To | 1 To à 2 To | Répliquez entre 150 et 200 machines.
 Déployer un autre serveur de traitement | | | > 2 To | Déployez des serveurs de traitement supplémentaires si vous effectuez la réplication de plus de 200 ordinateurs, ou si le taux de changement des données quotidien dépasse 2 To.
 
 Où :
@@ -81,9 +67,9 @@ Ce tableau décrit un scénario dans lequel :
 
 **Serveur de configuration** | **Serveur de traitement supplémentaire** | **Taille du disque cache** | **Taux de modification des données** | **Machines protégées**
 --- | --- | --- | --- | ---
-8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz), 16 Go de mémoire | 4 processeurs virtuels (2 sockets * 2 cœurs @ 2,5 GHz), 8 Go de mémoire | 300 Go | 250 Go ou moins | Répliquez 85 machines ou moins.
-8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz), 16 Go de mémoire | 8 processeurs virtuels (2 sockets * 4 cœurs @ 2,5 GHz), 12 Go de mémoire | 600 Go | 250 Go à 1 To | Répliquez entre 85 et 150 machines.
-12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz), 18 Go de mémoire | 12 processeurs virtuels (2 sockets * 6 cœurs @ 2,5 GHz), 24 Go de mémoire | 1 To | 1 To à 2 To | Répliquez entre 150 et 225 machines.
+8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz), 16 Go de mémoire | 4 processeurs virtuels (2 sockets * 2 cœurs à 2,5 GHz), 8 Go de mémoire | 300 Go | 250 Go ou moins | Répliquez 85 machines ou moins.
+8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz), 16 Go de mémoire | 8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz), 12 Go de mémoire | 600 Go | 250 Go à 1 To | Répliquez entre 85 et 150 machines.
+12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz), 18 Go de mémoire | 12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz), 24 Go de mémoire | 1 To | 1 To à 2 To | Répliquez entre 150 et 225 machines.
 
 La façon dont vous allez mettre à niveau vos serveurs dépend de votre préférence pour un modèle de type Scale up ou Scale out.  Vous pouvez aboutir à une montée en puissance avec le développement de serveurs de configuration et de processus haut de gamme, ou à une montée en charge avec le déploiement d’un nombre de serveurs supérieur avec moins de ressources. Par exemple, si vous avez besoin de protéger les 220 machines, vous pouvez effectuer des opérations suivantes :
 
@@ -93,7 +79,7 @@ La façon dont vous allez mettre à niveau vos serveurs dépend de votre préfé
 
 ## <a name="control-network-bandwidth"></a>Contrôler la bande passante réseau
 
-Vous pouvez utiliser l’outil Capacity Planner pour calculer la bande passante requise par la réplication (réplication initiale, puis delta). Vous disposez de plusieurs options pour déterminer la quantité de bande passante utilisée pour la réplication :
+Vous pouvez utiliser l’[outil Deployment Planner](https://aka.ms/asr-deployment-planner-doc) pour calculer la bande passante requise par la réplication (réplication initiale, puis delta). Vous disposez de plusieurs options pour déterminer la quantité de bande passante utilisée pour la réplication :
 
 * **Limiter la bande passante**: le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter la bande passante sur les machines qui s’exécutent en tant que serveurs de processus.
 * **Influer sur la bande passante**: vous pouvez influer sur la bande passante utilisée pour la réplication à l’aide de quelques clés de Registre :
@@ -158,10 +144,5 @@ Si vous devez monter en charge votre déploiement au-delà de 200 machines sourc
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

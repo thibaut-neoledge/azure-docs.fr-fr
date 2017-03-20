@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5c26aaea6acfab8c4c60478968e0b68543086a9d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -68,9 +69,9 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
     >[!NOTE]
     >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**. 
 
-12. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+12. Démarrez le programme dès que vous êtes prêt à lancer le streaming et l’archivage.
 13. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-14. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+14. Arrêtez le programme chaque fois que vous voulez arrêter le streaming et l’archivage de l’événement.
 15. Supprimez le programme (et éventuellement la ressource).
 
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
@@ -101,6 +102,8 @@ Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation g
 
 ## <a name="considerations"></a>Considérations
 * Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
+* Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 
 ## <a name="download-sample"></a>Charger l’exemple
 Obtenez et exécutez un exemple [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -129,6 +132,7 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 
 
 ## <a name="code-example"></a>Exemple de code
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -524,10 +528,5 @@ Consultez les parcours d’apprentissage de Media Services.
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

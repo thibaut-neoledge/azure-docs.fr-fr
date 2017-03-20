@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
-ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>Authentification unique avec le proxy d’application
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>Fournir une authentification unique à vos applications avec le proxy d’application
 L’authentification unique est un élément clé du proxy d’application Azure AD. Elle procure une expérience utilisateur optimale grâce aux étapes suivantes :
 
 1. L’utilisateur se connecte au cloud.  
@@ -124,8 +126,8 @@ Sauf s’il est configuré différemment, le proxy d’application suppose que l
 
 Grâce à cette fonctionnalité, de nombreuses organisations qui ont des identités locales et cloud différentes peuvent mettre en œuvre l’authentification unique des applications cloud aux applications locales sans contraindre les utilisateurs à entrer des noms d’utilisateur et des mots de passe différents. Cela inclut les organisations qui :
 
-* disposent de plusieurs domaines en interne (joe@us.contoso.com, joe@eu.contoso.com) et d’un domaine unique dans le cloud (joe@contoso.com).
-* disposent d’un nom de domaine non routable en interne (joe@contoso.usa) et d’un nom de domaine légal dans le cloud.
+* disposent de plusieurs domaines en interne (joe@us.contoso.com, joe@eu.contoso.com) et d’un domaine unique dans le cloud (joe@contoso.com) ;
+* disposent d’un nom de domaine non routable en interne (joe@contoso.usa) et d’un nom de domaine légal dans le cloud ;
 * n’utilisent pas de noms de domaine en interne (joe) ;
 * utilisent différents alias localement et dans le cloud, Par exemple, joe-johns@contoso.com vs. joej@contoso.com  
 
@@ -159,9 +161,4 @@ Pour les dernières nouvelles et mises à jour, consultez le site [Application P
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

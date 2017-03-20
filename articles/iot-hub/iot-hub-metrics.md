@@ -14,24 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3f3ff3d196e9c640e9bd7cf01f9f1218c774ec6b
-ms.openlocfilehash: c06c43d430760a56d08dc0c2f9d158f4124db6d3
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: a736be397e07a1ea98819f6e016df8c0c7c637eb
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="iot-hub-metrics"></a>Métriques d’IoT Hub
-Les métriques IoT Hub vous offrent de meilleures données sur l’état des ressources Azure IoT de votre abonnement Azure. Grâce aux métriques d’IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
+# <a name="understand-iot-hub-metrics"></a>Comprendre les métriques IoT Hub
+Les métriques IoT Hub vous offrent de meilleures données sur l’état des ressources Azure IoT de votre abonnement Azure. Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
 
-Les métriques sont activées par défaut. Vous pouvez afficher les métriques de l’IoT Hub à partir du portail Azure.
+Les métriques sont activées par défaut. Vous pouvez afficher les métriques IoT Hub à partir du portail Azure.
 
-## <a name="how-to-view-iot-hub-metrics"></a>Affichage des métriques de l’IoT Hub
-1. Créez un hub IoT. Pour savoir comment créer un IoT Hub, consultez le guide [Prise en main][lnk-get-started].
+## <a name="how-to-view-iot-hub-metrics"></a>Affichage des métriques IoT Hub
+1. Créez un hub IoT. Pour savoir comment créer un hub IoT, consultez le guide [Prise en main][lnk-get-started].
 2. Ouvrez le panneau de votre hub IoT. Ici, cliquez sur **Métriques**.
    
     ![][1]
-3. Dans le panneau de métriques, vous pouvez afficher les métriques de l’IoT Hub et créer des vues personnalisées de ces dernières. Vous pouvez choisir d’envoyer vos données métriques vers un point de terminaison Event Hubs ou un compte de stockage Azure en cliquant sur **Paramètres de diagnostic**.
+3. Dans le panneau de métriques, vous pouvez afficher les métriques IoT Hub et créer des vues personnalisées de ces dernières. Vous pouvez choisir d’envoyer vos données métriques vers un point de terminaison Event Hubs ou un compte de stockage Azure en cliquant sur **Paramètres de diagnostic**.
    
     ![][2]
 
@@ -93,7 +94,7 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |jobs.failed|Travaux en échec|Count|Total|Total des travaux en échec.|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les métriques d’IoT Hub n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
+Les métriques IoT Hub n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
 
 * [Surveillance des opérations][lnk-monitor]
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
-ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
+ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
+ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -88,10 +89,10 @@ Pour plus d’informations sur la création de points de terminaison personnalis
 
 ### <a name="built-in-endpoint-messagesevents"></a>Point de terminaison prédéfini : messages/events
 
-Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages **messages/events** prédéfini.
+Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
 
-* **Nombre de partitions**. Configurez cette propriété lors de la création pour définir le nombre de partitions pour la réception d’événements appareil-à-cloud.
-* **Durée de rétention**. Cette propriété spécifie la durée de rétention des messages appareil-à-cloud. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours.
+* **Nombre de partitions**. Configurez cette propriété lors de la création pour définir le nombre de [partitions][lnk-event-hub-partitions] pour la réception d’événements appareil-à-cloud.
+* **Durée de rétention**. Cette propriété spécifie la durée en jours de conservation des messages par IoT Hub. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours.
 
 IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
 
@@ -232,7 +233,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour la messagerie 
 Pour plus d’informations, consultez [créer des IoT Hubs][lnk-portal].
 
 ## <a name="read-device-to-cloud-messages"></a>Lires les messages appareil-à-cloud
-IoT Hub expose le point de terminaison prédéfini **messages/events** pour permettre à vos services principaux de lire les messages appareil vers cloud que reçoit votre hub. Ce point de terminaison est compatible avec Event Hubs, ce qui vous permet d’utiliser tous les mécanismes pris en charge par le service Event Hubs pour lire les messages.
+IoT Hub expose le point de terminaison prédéfini **messages/events** pour permettre à vos services principaux de lire les messages appareil vers cloud que reçoit votre hub. Ce point de terminaison est compatible avec Event Hub, ce qui vous permet d’utiliser tout mécanisme pris en charge par le service Event Hubs pour la lecture des messages.
 
 Vous pouvez également créer des points de terminaison personnalisés dans IoT Hub. IoT Hub prend actuellement en charge les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus. Pour plus d’informations sur la lecture à partir de ces services, consultez les pages : lecture à partir [d’Event Hubs][lnk-getstarted-eh], lecture à partir de [Files d’attente Service Bus][lnk-getstarted-queue], lecture à partir de [Rubriques Service Bus][lnk-getstarted-topic].
 
@@ -434,9 +435,4 @@ Si vous souhaitez tenter de mettre en pratique certains des concepts décrits da
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions

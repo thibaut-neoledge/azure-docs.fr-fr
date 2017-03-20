@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 03dbde64aefc12145a589d8b741c67865162b9b5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -36,6 +36,8 @@ Cet article présente la surveillance au niveau des ressources et la surveillanc
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 Network Watcher propose actuellement les fonctionnalités suivantes :
 
 * **[Topologie](network-watcher-topology-overview.md)** - Fournit une vue au niveau du réseau montrant les différentes interconnexions et associations entre les ressources réseau dans un groupe de ressources.
@@ -50,7 +52,7 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Contrôle d’accès basé sur les rôles dans Network Watcher
 
-Network Watcher utilise le [modèle de contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-what-is.md). Les autorisations suivantes sont requises par la version préliminaire de Network Watcher. Il est important de s’assurer que le rôle utilisé pour démarrer les API de Network Watcher ou utiliser Network Watcher depuis le portail dispose de l’accès requis.
+Network Watcher utilise le [modèle de contrôle d’accès basé sur les rôles](../active-directory/role-based-access-control-what-is.md). Les autorisations suivantes sont exigées par la préversion de Network Watcher. Il est important de s’assurer que le rôle utilisé pour démarrer les API de Network Watcher ou utiliser Network Watcher depuis le portail dispose de l’accès requis.
 
 |Ressource| Autorisation|
 |---|---|
@@ -74,7 +76,7 @@ Network Watcher utilise le [modèle de contrôle d’accès basé sur les rôles
 
 ### <a name="network-subscription-limits"></a>Limites d’abonnement réseau
 
-Les limites d’abonnement réseau vous fournissent des informations sur l’utilisation de chacune des ressources réseau d’un abonnement dans une région par rapport au nombre maximal de ressources disponibles.
+Les limites d’abonnement réseau fournissent des informations sur l’utilisation de chacune des ressources réseau d’un abonnement dans une région par rapport au nombre maximal de ressources disponibles.
 
 ![limite d’abonnement réseau][nsl]
 
@@ -100,25 +102,25 @@ Les événements périodiques et spontanés sont créés par les ressources rés
 
 Les journaux de diagnostic sont disponibles pour [l’équilibrage de charge](../load-balancer/load-balancer-monitor-log.md), [les groupes de sécurité réseau](../virtual-network/virtual-network-nsg-manage-log.md), les itinéraires, et [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
 
-Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage contient toutes les ressources réseau qui prennent en charge la journalisation des diagnostics. Depuis celui-ci, vous pouvez activer et désactiver les ressources réseau facilement et rapidement.
+Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage contient toutes les ressources réseau qui prennent en charge la journalisation des diagnostics. À partir de celui-ci, vous pouvez activer et désactiver les ressources réseau facilement et rapidement.
 
 ![journaux][logs]
 
 ### <a name="troubleshooting"></a>Résolution des problèmes
 
-Le panneau de résolution des problèmes, une expérience dans le portail, est proposé pour les ressources réseau dès aujourd’hui pour diagnostiquer les problèmes courants associés à une ressource individuelle. Cette expérience est disponible pour les ressources réseau suivantes : ExpressRoute, passerelle VPN, Application Gateway, journaux de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager. Pour plus d’informations sur la résolution des problèmes au niveau des ressources, consultez [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/) (Diagnostiquer et résoudre les problèmes avec la résolution des problèmes Azure)
+Le panneau de résolution des problèmes, une expérience dans le portail, est proposé pour les ressources réseau dès aujourd’hui pour diagnostiquer les problèmes courants associés à une ressource individuelle. Cette expérience est disponible pour les ressources réseau suivantes : ExpressRoute, passerelle VPN, Application Gateway, journaux de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager. Pour plus d’informations sur la résolution des problèmes au niveau des ressources, consultez [Diagnostiquer et résoudre les problèmes avec la résolution des problèmes Azure](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
 ![informations sur la résolution des problèmes][TS]
 
 ### <a name="resource-health"></a>Intégrité des ressources
 
-L’intégrité des ressources réseau est fournie sur une base périodique. Ces ressources incluent la passerelle VPN et le tunnel VPN. L’intégrité des ressources est accessible sur le portail Azure. Pour en savoir plus sur l’intégrité des ressources, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
+L’intégrité d’une ressource réseau est fournie régulièrement. Ces ressources incluent la passerelle VPN et le tunnel VPN. L’intégrité des ressources est accessible sur le portail Azure. Pour en savoir plus sur l’intégrité des ressources, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir découvert Network Watcher, vous pouvez apprendre à :
 
-Effectuer une capture de paquets sur votre machine virtuelle en consultant [Manage packet captures with Azure Network Watcher using the portal](network-watcher-packet-capture-manage-portal.md) (Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail).
+Effectuer une capture de paquets sur votre machine virtuelle en consultant [Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail](network-watcher-packet-capture-manage-portal.md).
 
 Mener une surveillance et faire des diagnostics de manière proactive à l’aide [des captures de paquets déclenchées par des alertes](network-watcher-alert-triggered-packet-capture.md).
 

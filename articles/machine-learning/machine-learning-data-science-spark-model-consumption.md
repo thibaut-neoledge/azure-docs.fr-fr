@@ -1,6 +1,6 @@
 ---
-title: "Noter les modèles Machine Learning créés avec Spark | Microsoft Docs"
-description: "Comment noter les modèles d’apprentissage stockés Azure Blob Storage (WASB)."
+title: "Faire fonctionner les modèles Machine Learning créés avec Spark | Microsoft Docs"
+description: "Comment charger et noter les modèles d’apprentissage stockés dans Azure Blob Storage (WASB) avec Python."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,28 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/24/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
-ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
+ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="score-spark-built-machine-learning-models"></a>Noter les modèles Machine Learning créés avec Spark
+# <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Cette rubrique décrit comment charger des modèles Machine Learning (ML) créés avec Spark MLlib et stockés dans Azure Blob Storage (WASB) et les noter avec des jeux de données également stockées dans WASB. Il montre comment prétraiter les données d’entrée, transformer les caractéristiques à l’aide des fonctions d’indexation et d’encodage du kit d’outils MLlib, et comment créer un objet de données point étiqueté, utilisable comme entrée de notation avec les modèles ML. Les modèles utilisés pour la notation sont les suivants : Régression linéaire, Régression logistique, Modèles de forêts aléatoires et Modèles GBT (Gradient Boosting Tree).
+Cette rubrique montre comment faire fonctionner un modèle Machine Learning (ML) à l’aide de Python sur des clusters HDInsight Spark. Elle décrit comment charger des modèles Machine Learning créés avec Spark MLlib et stockés dans Azure Blob Storage (WASB), et explique comment les noter avec des jeux de données également stockés dans WASB. Il montre comment prétraiter les données d’entrée, transformer les caractéristiques à l’aide des fonctions d’indexation et d’encodage du kit d’outils MLlib, et comment créer un objet de données point étiqueté, utilisable comme entrée de notation avec les modèles ML. Les modèles utilisés pour la notation sont les suivants : Régression linéaire, Régression logistique, Modèles de forêts aléatoires et Modèles GBT (Gradient Boosting Tree).
+
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Clusters Spark et notebooks Jupyter
+Cette procédure pas à pas fournit les étapes d’installation et le code permettant de faire fonctionner un modèle ML pour un cluster HDInsight Spark 1.6 ainsi que pour un cluster Spark 2.0. Le code de ces procédures est également fourni dans les notebooks Jupyter.
+
+### <a name="notebook-for-spark-16"></a>Notebook pour Spark 1.6
+Le notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) montre comment utiliser un modèle enregistré à l’aide de Python sur des clusters HDInsight. 
+
+### <a name="notebook-for-spark-20"></a>Notebook pour Spark 2.0
+Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Ce code montre comment utiliser les modèles créés dans Spark 2.0.
+
 
 ## <a name="prerequisites"></a>Composants requis
 
-1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 ou Spark 2.0 pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
-2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. Notez que les notebooks Spark 2.0 utilisent un jeu de données supplémentaire pour la tâche de classification, le jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. 
-
-
-## <a name="setup-spark-clusters-and-notebooks"></a>Configuration : clusters et notebooks Spark
-Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Le notebook [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) montre comment utiliser un modèle enregistré à l’aide de Python sur des clusters HDInsight. Pour modifier ce notebook Jupyter et l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](machine-learning-data-science-spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
+2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](machine-learning-data-science-spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 
+3. Les notebooks Spark 2.0 utilisent un jeu de données supplémentaire pour la tâche de classification, le jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -521,7 +528,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Utiliser les modèles Spark via une interface web
-Spark fournit un mécanisme permettant de soumettre à distance des travaux par lots ou des requêtes interactives via une interface REST dotée d’un composant appelé Livy. Par défaut, Livy est activé sur votre cluster HDInsight Spark. Pour plus d’informations, consultez [Envoi de travaux Spark à distance en utilisant Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark fournit un mécanisme permettant de soumettre à distance des travaux par lots ou des requêtes interactives via une interface REST dotée d’un composant appelé Livy. Par défaut, Livy est activé sur votre cluster HDInsight Spark. Pour plus d’informations sur Livy, consultez [Envoi de travaux Spark à distance en utilisant Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
 Vous pouvez utiliser Livy pour envoyer à distance un travail qui note un fichier stocké dans un objet blob Azure, puis consigne les résultats dans un autre objet blob. Pour ce faire, téléchargez le script Python à partir de   
 [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) dans l’objet blob du cluster Spark. Vous pouvez utiliser un outil tel que l’**Explorateur de stockage Microsoft Azure** ou **AzCopy** pour copier le script dans l’objet blob de cluster. Dans le cas présent, nous avons chargé le script ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -578,7 +585,7 @@ Vous pouvez également ajouter ce code Python dans [Azure Functions](https://azu
 Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) pour appeler la notation groupée Spark en définissant une action HTTP dans le **Concepteur d’applications logiques** et en définissant ses paramètres. 
 
 * Sur le portail Azure, créez une application logique en sélectionnant **+Nouveau** -> **Web + Mobile** -> **Application logique**. 
-* Pour afficher les **Concepteur d’applications logiques**, entrez le nom de l’application logique et le Plan App Service.
+* Pour afficher le **Concepteur d’applications logiques**, entrez le nom de l’application logique et le plan App Service.
 * Sélectionnez une action HTTP, puis entrez les paramètres indiqués dans la figure suivante :
 
 ![Concepteur Logic Apps](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)

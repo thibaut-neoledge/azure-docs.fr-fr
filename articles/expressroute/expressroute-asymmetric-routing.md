@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -71,10 +72,5 @@ Les problèmes de routage asymétrique peuvent également être résolus à l’
 
 ## <a name="asymmetric-routing-detection"></a>Détection du routage asymétrique
 La détermination d’itinéraire constitue le meilleur moyen de vous assurer que le trafic réseau circule par le chemin attendu. Si vous souhaitez que le trafic entre votre serveur SMTP local et Microsoft passe par Internet, déterminez son itinéraire attendu à partir du serveur SMTP vers Office 365. Le résultat valide le passage du trafic sortant de votre réseau par Internet et non par ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Novatus | Microsoft Docs"
+title: "Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et 10,000ft Plans."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -112,7 +113,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     b. Dans la zone de texte **Identificateur**, tapez `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
-    > La valeur de **l’identificateur** est différente si vous avez un domaine personnalisé. Si vous avez besoin d’aide, contactez votre [équipe d’assistance 10,000ft Plans](mailto:support@10000ft.com).  
+    > La valeur de **l’identificateur** est différente si vous avez un domaine personnalisé. Si vous avez besoin d’aide, contactez votre [équipe d’assistance&10;,000ft Plans](mailto:support@10000ft.com).  
 
     c. Cliquez sur **Suivant**
 
@@ -124,7 +125,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
     a. Cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur.
    
     b. Cliquez sur **Suivant**.
-2. Pour configurer l’authentification unique pour votre application, contactez votre [équipe de support technique 10,000ft Plans](mailto:support@10000ft.com), joignez le certificat téléchargé et fournissez-lui l’URL de l’émetteur, l’URL d’authentification unique SAML et l’URL de déconnexion unique.
+2. Pour configurer l’authentification unique pour votre application, contactez votre [équipe de support technique&10;,000ft Plans](mailto:support@10000ft.com), joignez le certificat téléchargé et fournissez-lui l’URL de l’émetteur, l’URL d’authentification unique SAML et l’URL de déconnexion unique.
 3. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
    
     ![Authentification unique Azure AD][10]
@@ -239,9 +240,4 @@ Lorsque vous cliquez sur la vignette 10,000ft Plans dans le volet d’accès, vo
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

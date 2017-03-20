@@ -1,10 +1,10 @@
 ---
-title: "Gérer les groupes de sécurité réseau avec PowerShell | Microsoft Docs"
-description: "Découvrez comment gérer des groupes de sécurité réseau existants avec PowerShell."
+title: "Gérer des groupes de sécurité réseau - Azure PowerShell | Microsoft Docs"
+description: "Découvrez comment gérer les groupes de sécurité réseau à l’aide de PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3706ce6c-d9ae-46cb-a048-f0a4e84dc5cc
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
-ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: edb23ae41e175061607d3a191c839e1194fa862b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="manage-nsgs-using-powershell"></a>Gérer les groupes de sécurité réseau avec PowerShell
+# <a name="manage-network-security-groups-using-powershell"></a>Gérer des groupes de sécurité réseau à l’aide de PowerShell
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 
@@ -513,10 +515,5 @@ Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est asso
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activez la journalisation](virtual-network-nsg-manage-log.md) des groupes de sécurité réseau.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

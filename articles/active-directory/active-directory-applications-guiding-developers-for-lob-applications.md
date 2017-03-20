@@ -1,5 +1,5 @@
 ---
-title: "Développer des applications métier pour Azure AD | Microsoft Docs"
+title: "Développer des applications pour Azure AD | Microsoft Docs"
 description: "Destiné aux professionnels de l’informatique, cet article fournit des instructions pour l’intégration d’applications Azure à Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-develop-line-of-business-apps"></a>Azure AD et applications : développement des applications métier
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -80,9 +81,4 @@ Pour en savoir plus sur le consentement de l’utilisateur et sur l’expérienc
 * [Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Gestion de l’accès aux applications](active-directory-managing-access-to-apps.md)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

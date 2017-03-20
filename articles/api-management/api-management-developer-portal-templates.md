@@ -15,20 +15,28 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles
-Le service Gestion des API Azure intègre plusieurs fonctionnalités de personnalisation qui permettent aux administrateurs de [personnaliser l’apparence du portail des développeurs](api-management-customize-portal.md), ainsi que le contenu des pages du portail des développeurs au moyen d’un ensemble de modèles qui configurent le contenu des pages elles-mêmes. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et un ensemble de ressources de chaîne localisées, d’icônes et de contrôles de page, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins.
+
+Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
+
+* [Modifier le contenu des pages statiques et des éléments de mise en page][modify-content-layout]
+* [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
+* [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (expliqué dans ce guide)
+
+Les modèles permettent de personnaliser le contenu des pages du portail développeur générées par le système (par exemple, les documents API, les produits, l’authentification utilisateur, etc.). En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et un ensemble de ressources de chaîne localisées, d’icônes et de contrôles de page, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins.
 
 ## <a name="developer-portal-templates-overview"></a>Vue d’ensemble des modèles du portail des développeurs
-Les modèles du portail des développeurs sont gérés dans le portail des développeurs par les administrateurs de l’instance du service Gestion des API. Pour gérer les modèles pour développeurs, accédez à votre instance du service Gestion des API dans le portail Azure Classic, puis cliquez sur **Portail des développeurs** dans la barre d'outils.
+La modification des modèles s’effectue à partir du **portail des développeurs** lorsque vous êtes connecté en tant qu’administrateur. Pour y accéder, ouvrez tout d’abord le portail Azure et cliquez sur **Portail des éditeurs** à partir de la barre d’outils de services de votre instance de gestion des API.
 
-![Portail des développeurs][api-management-browse]
+![Portail des éditeurs][api-management-management-console]
 
-Si vous êtes déjà dans le portail des éditeurs, vous pouvez accéder au portail des développeurs en cliquant sur **Portail des développeurs**.
+Cliquez ensuite sur le **portail des développeurs** en haut à droite. 
 
 ![Menu du portail des développeurs][api-management-developer-portal-menu]
 
@@ -181,6 +189,9 @@ Les modèles restaurés doivent ensuite être publiés un par un ou tous en mêm
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations de référence sur les modèles du portail des développeurs, les ressources de chaîne, les icônes et les contrôles de page, consultez les [informations de référence sur les modèles du portail des développeurs Gestion des API](api-management-developer-portal-templates-reference.md).
 
+[modify-content-layout]: api-management-modify-content-layout.md
+[customize-styles]: api-management-customize-styles.md
+[portal-templates]: api-management-developer-portal-templates.md
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -188,6 +199,7 @@ Pour obtenir des informations de référence sur les modèles du portail des dé
 [api-management-template]: ./media/api-management-developer-portal-templates/api-management-template.png
 [api-management-template-data]: ./media/api-management-developer-portal-templates/api-management-template-data.png
 [api-management-developer-portal-menu]: ./media/api-management-developer-portal-templates/api-management-developer-portal-menu.png
+[api-management-management-console]: ./media/api-management-developer-portal-templates/api-management-management-console.png
 [api-management-browse]: ./media/api-management-developer-portal-templates/api-management-browse.png
 [api-management-user-profile-templates]: ./media/api-management-developer-portal-templates/api-management-user-profile-templates.png
 [api-management-save-template]: ./media/api-management-developer-portal-templates/api-management-save-template.png
@@ -206,10 +218,5 @@ Pour obtenir des informations de référence sur les modèles du portail des dé
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

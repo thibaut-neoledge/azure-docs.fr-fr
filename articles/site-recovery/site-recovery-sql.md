@@ -3,8 +3,8 @@ title: "Répliquer des applications avec SQL Server et Azure Site Recovery | Mic
 description: "Cet article décrit comment répliquer SQL Server à l’aide d’Azure Site Recovery et des fonctionnalités de récupération de SQL Server."
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2017
-ms.author: raynew
+ms.date: 02/22/2017
+ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: f822756c0ce45c98b95a0cec2efd1353aff71561
-ms.openlocfilehash: f2d8a9221a989f9e79b6f4e17d9448303544ffd6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 9ea73dd91c9637692bbc3d6d2aa97fbed7ae500d
+ms.openlocfilehash: 79c110031a47f1bdb78f4acfcadd7bff1e909807
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -33,8 +33,8 @@ Avant de commencer, assurez-vous que vous comprenez les fonctionnalités de réc
 De nombreuses charges de travail utilisent SQL Server comme base, qui peut être intégré avec des applications telles que SharePoint, Dynamics et SAP pour mettre en œuvre des services de données.  SQL Server peut être déployé de plusieurs façons :
 
 * **SQL Server autonome**: le serveur SQL et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Quand le serveur est virtualisé, le cluster hôte est utilisé pour la haute disponibilité locale. La haute disponibilité pour le niveau invité n’est pas mise en œuvre.
-* **Instances de clustering de basculement SQL Server (Always On FCI)** : au moins deux nœuds exécutant des instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si un nœud est inactif, le cluster peut basculer SQL Server vers une autre instance. Cette configuration est généralement utilisée pour mettre en œuvre la haute disponibilité sur un site principal. Ce type de déploiement ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Un disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
-* **Groupes de disponibilité SQL Always On** : au moins deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
+* **Instances de clustering de basculement SQL Server (AlwaysOn FCI)** : au moins deux nœuds exécutant des instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si un nœud est inactif, le cluster peut basculer SQL Server vers une autre instance. Cette configuration est généralement utilisée pour mettre en œuvre la haute disponibilité sur un site principal. Ce type de déploiement ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Un disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
+* **Groupes de disponibilité SQL AlwaysOn** : au moins deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
 
  Cet article s’appuie sur les technologies de récupération d’urgence SQL natives suivantes pour mettre en œuvre la récupération des bases de données vers un site distant :
 
@@ -72,15 +72,17 @@ Azure Site Recovery peut être intégré aux technologies BCDR SQL Server native
 
 ## <a name="deployment-recommendations"></a>Recommandations concernant le déploiement
 
-**Version** | **Déploiement** | **Local vers site secondaire** | **Local vers Azure** |
---- | --- | --- | --- | --- |
-**Instance de cluster de basculement SQL Server 2014/2012 Enterprise** | Cluster de basculement | Groupes de disponibilité AlwaysOn | Groupes de disponibilité AlwaysOn
-**SQL Server 2014/2012 AlwaysOn** | Groupes de disponibilité AlwaysOn | AlwaysOn | AlwaysOn
-**Instance de cluster de basculement SQL Server 2014/2012 Standard** | Cluster de basculement | Réplication Site Recovery avec miroir local | Réplication Site Recovery avec miroir local
-**SQL Server 2014/2012 Enterprise/Standard** | Standalone | Réplication de la récupération de sites | Réplication de la récupération de sites
-**SQL Server 2008 R2 Enterprise/Standard** | Instance de cluster de basculement |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local |
-**SQL Server 2008 R2 Enterprise/Standard** | Standalone |Réplication de la récupération de sites | Réplication de la récupération de sites
-**SQL Server (toute version) Enterprise/Standard** |Instance de cluster de basculement - application DTC | Réplication de la récupération de sites |Non pris en charge
+Ce tableau récapitule nos recommandations pour intégrer les technologies BCDR de SQL Server à Site Recovery.
+
+| **Version** | **Édition** | **Déploiement** | **Local à local** | **Local vers Azure** |
+| --- | --- | --- | --- | --- |
+| SQL Server 2014 ou 2012 |Entreprise |Instance de cluster de basculement |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn |
+|| Entreprise |Groupes de disponibilité AlwaysOn pour la haute disponibilité |Groupes de disponibilité AlwaysOn |Groupes de disponibilité AlwaysOn | |
+|| Standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local | |
+|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |
+| SQL Server 2008 R2 |Enterprise ou Standard |Instance de cluster de basculement (FCI) |Réplication Site Recovery avec miroir local |Réplication Site Recovery avec miroir local |
+|| Enterprise ou Standard |Standalone |Réplication de la récupération de sites |Réplication de la récupération de sites | |
+| SQL Server (toute version) |Enterprise ou Standard |Instance de cluster de basculement - application DTC |Réplication de la récupération de sites |Non pris en charge |
 
 ## <a name="deployment-prerequisites"></a>Conditions préalables au déploiement
 
@@ -97,15 +99,16 @@ Configurez Active Directory sur le site de récupération secondaire afin que SQ
 
 Les instructions fournies dans cet article supposent qu’un contrôleur de domaine est disponible sur le site secondaire. [ici](site-recovery-active-directory.md) .
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure (portail Azure Classic avec un serveur VMM/de configuration)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure (portail Azure Classic avec un serveur VMM/de configuration)
 
 
 Site Recovery prend en charge SQL AlwaysOn en mode natif. Si vous avez créé un groupe de disponibilité SQL avec une machine virtuelle Azure configurée comme emplacement secondaire, vous pouvez utiliser Site Recovery pour gérer le basculement des groupes de disponibilité.
 
 > [!NOTE]
-> Pour le moment, cette fonctionnalité n’est disponible que dans la version préliminaire. Elle est disponible lorsque le site principal possède des serveurs hôtes Hyper-V gérés dans des clouds VMM System Center, ou lorsque vous avez configuré la [réplication VMware](site-recovery-vmware-to-azure.md). La fonctionnalité n’est actuellement pas disponible dans le nouveau portail Azure. Actuellement, cette fonctionnalité n’est pas disponible dans le nouveau portail Azure.
+> Pour le moment, cette fonctionnalité n’est disponible que dans la version préliminaire. Elle est disponible lorsque le site principal possède des serveurs hôtes Hyper-V gérés dans des clouds VMM System Center, ou lorsque vous avez configuré la [réplication VMware](site-recovery-vmware-to-azure.md). La fonctionnalité n’est actuellement pas disponible dans le nouveau portail Azure. Si vous utilisez le nouveau portail Azure, suivez les étapes de [cette section](site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server).
 >
 >
+
 
 #### <a name="before-you-start"></a>Avant de commencer
 
@@ -169,7 +172,7 @@ Dans l’exemple, l’application Sharepoint est composée de trois machines vir
 
 ![Personnaliser un plan de récupération](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="fail-over"></a>Effectuer un basculement
+### <a name="failover"></a>Basculement
 
 Une fois le groupe de disponibilité ajouté à un plan de récupération, différentes options de basculement sont disponibles.
 
@@ -195,7 +198,7 @@ Si vous voulez définir de nouveau le groupe de disponibilité comme principal s
 >
 >
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure (portail Azure/Azure Classic sans serveur VMM/de configuration)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure (portail Azure/Azure Classic sans serveur VMM/de configuration)
 
 Ces instructions sont pertinentes en cas d’intégration avec des groupes de disponibilité SQL Server sur le nouveau portail Azure, ou sur le portail Azure Classic si vous n’utilisez pas de serveur VMM ou de configuration. Dans ce scénario, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script.
 
@@ -304,7 +307,7 @@ Voici ce que vous devez faire :
          }
      }``
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers un site local secondaire
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-a-secondary-on-premises-site"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers un site local secondaire
 
 Si le serveur SQL Server utilise des groupes de disponibilité pour la haute disponibilité (ou une instance de cluster de basculement), nous vous recommandons d’utiliser également les groupes de disponibilité sur le site de récupération. Notez que ceci vaut pour les applications qui n’utilisent pas les transactions distribuées.
 

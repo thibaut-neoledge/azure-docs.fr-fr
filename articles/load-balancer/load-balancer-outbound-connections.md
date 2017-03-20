@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 0bf40c5b44ea87c88d4464baf958e8afb7a59c38
+ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
+ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
+ms.lasthandoff: 02/28/2017
 
 ---
 
@@ -36,7 +37,7 @@ Si vous ne souhaitez pas qu’une machine virtuelle communique avec les points d
 
 ## <a name="standalone-vm-with-no-instance-level-public-ip-address"></a>Machine virtuelle autonome sans adresse IP publique de niveau d’instance
 
-Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool Azure Load Balancer et aucune adresse IP publique de niveau d’instance (ILPIP) n’y est affectée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
+Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool Azure Load Balancer et aucune adresse IP publique de niveau d’instance (ILPIP) n’y est affectée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable et n’entre pas en compte dans la limite de ressource IP publique de l’abonnement. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
 
 Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun d’eux dirigé vers une adresse IP de destination différente, utilisent un seul port SNAT par destination. L’adresse IP de destination rend les flux uniques.
 
@@ -65,9 +66,4 @@ Il existe de nombreuses manières de déterminer l’adresse IP source publique 
 Parfois, il n’est pas souhaitable d’autoriser une machine virtuelle à créer un flux sortant, ou il peut y avoir une exigence de gestion les destinations pouvant être atteinte avec des flux sortants. Dans ce cas, vous utilisez des [groupes de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) pour gérer les destinations que la machine virtuelle peut atteindre. Lorsque vous appliquez un groupe de sécurité réseau à une machine Virtuelle à charge équilibrée, vous devez faire attention aux [balises par défaut](../virtual-network/virtual-networks-nsg.md#default-tags) et aux [règles par défaut](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’analyse d’intégrité d’Azure Load Balancer. Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre analyse de l’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme défaillante. L’équilibrage de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

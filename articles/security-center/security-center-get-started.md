@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -91,7 +92,7 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
    ![Alertes de sécurité dans le Centre de sécurité Azure][7]
 
    > [!NOTE]
-   > Les alertes de sécurité sont seulement disponibles si le niveau Standard d’Azure Security Center est activé. Une évaluation gratuite de 90 jours du niveau Standard est disponible. Pour plus d’informations sur la façon d’obtenir le niveau Standard, consultez [Étapes suivantes](#next-steps).
+   > Les alertes de sécurité sont seulement disponibles si le niveau Standard d’Azure Security Center est activé. Un essai gratuit de 60 jours du niveau Standard est disponible. Pour plus d’informations sur la façon d’obtenir le niveau Standard, consultez [Étapes suivantes](#next-steps).
    >
    >
 2. Sélectionnez une alerte pour afficher des informations supplémentaires. Dans cet exemple, nous sélectionnons **Fichier binaire système modifié détecté**. Les panneaux contenant des informations supplémentaires sur l’alerte s’ouvrent.
@@ -109,7 +110,7 @@ Cet article vous a présenté les composants de surveillance de sécurité et de
 * Configurez une stratégie de sécurité pour votre abonnement Azure. Pour en savoir plus, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md).
 * Suivez les recommandations d’Azure Security Center pour protéger vos ressources Azure. Pour en savoir plus, consultez [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 * Passez en revue et gérez vos alertes de sécurité actuelles. Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Apprenez-en plus sur les [fonctionnalités avancées de détection des menaces](security-center-detection-capabilities.md) fournies avec le [niveau Standard](security-center-pricing.md) d’Azure Security Center. Une évaluation gratuite de 90 jours du niveau Standard est disponible.
+* Apprenez-en plus sur les [fonctionnalités avancées de détection des menaces](security-center-detection-capabilities.md) fournies avec le [niveau Standard](security-center-pricing.md) d’Azure Security Center. Le niveau Standard est gratuit les 60 premiers jours.
 * Si vous avez des questions sur l’utilisation d’Azure Security Center, consultez le [FAQ d’Azure Security Center](security-center-faq.md).
 
 <!--Image references-->
@@ -123,9 +124,4 @@ Cet article vous a présenté les composants de surveillance de sécurité et de
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

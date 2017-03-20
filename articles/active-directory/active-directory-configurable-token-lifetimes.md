@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
-ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
+ms.sourcegitcommit: d7e635f7e84ac53399309bf4ec8a7fa9e70e3728
+ms.openlocfilehash: aa18efb0c622ae38eea0de28f25c72788e6d0f20
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -192,103 +193,135 @@ Dans les exemples de scénarios, nous allons créer, mettre à jour, lier et sup
 
 1. Pour commencer, téléchargez la dernière [version d’évaluation des applets de commande Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Une fois que vous disposez des applets de commande Azure AD PowerShell, exécutez la commande Connect pour vous connecter à votre compte d’administrateur Azure AD. Vous devez procéder ainsi à chaque fois que vous démarrez une nouvelle session.
-   
-     Connect-AzureAD -Confirm
+
+    ```PowerShell
+    Connect-AzureAD -Confirm
+    ```
+
 3. Exécutez la commande suivante pour afficher toutes les stratégies qui ont été créées dans votre organisation.  Cette commande doit être utilisée après la plupart des opérations dans les scénarios suivants.  Elle vous aide également à obtenir **l’ID d’objet** de vos stratégies. 
    
-     Get-AzureADPolicy
+    ```PowerShell
+    Get-AzureADPolicy
+    ```
 
 ### <a name="sample-managing-a-organizations-default-policy"></a>Exemple : gestion de la stratégie par défaut d’une organisation
 Dans cet exemple, nous allons créer une stratégie qui permet aux utilisateurs de se connecter moins fréquemment dans votre organisation entière. 
 
 Pour ce faire, nous allons créer une stratégie de durée de vie des jetons pour les jetons d’actualisation à facteur unique, qui sera appliquée à votre organisation. Cette stratégie est appliquée à toutes les applications de votre organisation et à chaque principal du service pour lequel aucune stratégie n’est déjà définie. 
 
-1. **Créez une stratégie de durée de vie des jetons.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Créer une stratégie de durée de vie des jetons
 
 Définissez le jeton d’actualisation à facteur unique sur Jusqu’à révocation (il n’arrivera pas à expiration tant que l’accès ne sera pas révoqué).  La définition de stratégie ci-dessous correspond à ce que nous allons créer :
 
-        @("{
-          `"TokenLifetimePolicy`":
-              {
-                 `"Version`":1, 
-                 `"MaxAgeSingleFactor`":`"until-revoked`"
-              }
-        }")
+```PowerShell
+@('{
+    "TokenLifetimePolicy":
+    {
+        "Version":1, 
+        "MaxAgeSingleFactor":"until-revoked"
+    }
+}')
+```
 
 Exécutez ensuite la commande ci-dessous pour créer cette stratégie. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Mettez à jour la stratégie.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-update-the-policy"></a>2. Mettre à jour la stratégie
 
 Vous pensez que la première stratégie n’est pas aussi stricte qu’il le faut pour votre service, et souhaitez que vos jetons d’actualisation à facteur unique arrivent à expiration dans 2 jours. Exécutez la commande ci-dessous. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+```
 
-&nbsp;&nbsp;3. **Vous avez terminé !** 
+#### <a name="3-youre-done"></a>3. Vous avez terminé ! 
 
 ### <a name="sample-creating-a-policy-for-web-sign-in"></a>Exemple : création d’une stratégie de connexion web
+
 Dans cet exemple, nous allons créer une stratégie qui nécessitera que vos utilisateurs s’authentifient plus fréquemment dans votre application web. Cette stratégie définit la durée de vie des jetons d’accès/ID et l’âge maximal d’un jeton de session multifacteur pour le principal du service de votre application web.
 
-1. **Créez une stratégie de durée de vie des jetons.**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Créez une stratégie de durée de vie des jetons.
 
 Cette stratégie de connexion web définit la durée de vie des jetons d’accès/ID et l’âge maximal de jeton de session à facteur unique sur 2 heures.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Affectez la stratégie au principal du service.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-assign-the-policy-to-your-service-principal"></a>2. Affectez la stratégie au principal de service.
 
 Nous allons lier cette nouvelle stratégie à un principal du service.  Vous devrez également accéder à **l’ID d’objet** du principal du service. Vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou accéder à notre [outil Afficheur Graph](https://graphexplorer.cloudapp.net/) et vous connecter à votre compte Azure AD pour voir tous les principaux du service de votre organisation. 
 
 Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.    **Vous avez terminé.** 
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
- 
+#### <a name="3-youre-done"></a>3. Vous avez terminé ! 
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Exemple : création d’une stratégie pour les applications natives appelant une API web
 Dans cet exemple, nous allons créer une stratégie qui nécessitera que les utilisateurs s’authentifient moins souvent et prolonger la période pendant laquelle ils peuvent être inactifs sans devoir s’authentifier de nouveau. La stratégie sera appliquée à l’API web. De cette façon, lorsque l’application native la demandera en tant que ressource, cette stratégie sera appliquée.
 
-1. **Créez une stratégie de durée de vie des jetons.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Créez une stratégie de durée de vie des jetons. 
 
 Cette commande crée une stratégie stricte pour une API web. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Affectez la stratégie à votre API web.**
+#### <a name="2-assign-the-policy-to-your-web-api"></a>2. Affectez la stratégie à votre API web.
 
 Nous allons lier cette nouvelle stratégie à une application.  Vous devrez également accéder à **l’ID d’objet** de votre application. La meilleure façon de trouver **l’ID d’objet** de votre application consiste à utiliser le [portail Azure](https://portal.azure.com/). 
 
 Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
-    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Vous avez terminé.** 
+#### <a name="3-youre-done"></a>3. Vous avez terminé ! 
 
 ### <a name="sample-managing-an-advanced-policy"></a>Exemple : gestion d’une stratégie avancée
 Dans cet exemple, nous allons créer quelques stratégies pour montrer le fonctionnement du système de priorité et la façon dont vous pouvez gérer plusieurs stratégies appliquées à plusieurs objets. Cela vous donne une idée de la priorité des stratégies expliquée ci-dessus et vous permet de gérer des scénarios plus complexes. 
 
-1. **Créez une stratégie de durée de vie des jetons.**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Créez une stratégie de durée de vie des jetons.
 
 Pour l’instant, c’est plutôt simple. Nous avons créé une stratégie par défaut d’organisation qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
 Pour afficher votre nouvelle stratégie et obtenir son ID d’objet, exécutez la commande ci-après.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Affectez la stratégie à un principal du service.**
+#### <a name="2-assign-the-policy-to-a-service-principal"></a>2. Affectez la stratégie à un principal de service.
 
 À présent, nous disposons d’une stratégie sur toute l’organisation.  Supposons que nous souhaitions conserver cette stratégie de 30 jours pour un principal du service spécifique, mais que nous changions la stratégie par défaut d’organisation pour qu’elle soit la limite supérieure du paramètre « Jusqu’à révocation ». 
 
@@ -296,84 +329,104 @@ Nous allons commencer par lier cette nouvelle stratégie à notre principal du s
 
 Une fois que vous disposez de **l’ID d’objet**, exécutez la commande ci-dessous.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Définissez l’indicateur IsOrganizationDefault sur false à l’aide de la commande ci-dessous**. 
+#### <a name="3-set-the-isorganizationdefault-flag-to-false"></a>3. Définissez l’indicateur IsOrganizationDefault sur false.
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
-&nbsp;&nbsp;4.    **Créer une stratégie par défaut d’organisation**
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+```
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
+#### <a name="4-create-a-new-organization-default-policy"></a>4. Créez une stratégie par défaut d’organisation.
 
-&nbsp;&nbsp;5.     **Vous avez terminé.** 
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
+#### <a name="5-youre-done"></a>5. Vous avez terminé ! 
 
 À présent, la stratégie d’origine est liée à votre principal du service, et la nouvelle stratégie est définie comme stratégie par défaut de votre organisation.  Il est important de se rappeler que les stratégies appliquées aux principaux de service ont priorité sur les stratégies par défaut d’organisation. 
 
 ## <a name="cmdlet-reference"></a>Informations de référence sur les applets de commande
+
 ### <a name="manage-policies"></a>Gérer les stratégies
-Les applets de commande suivantes permettent de gérer les stratégies.</br></br>
+
+Les applets de commande suivantes permettent de gérer les stratégies.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
+
 Permet de créer une stratégie.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```PowerShell
+New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -Definition |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
-| -IsOrganizationDefault |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |-IsOrganizationDefault $true |
-| -Type |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
+| <code>&#8209;Definition</code> |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Facultatif] |Définit un autre ID pour la stratégie. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Permet d’obtenir toutes les stratégies d’Azure AD ou une stratégie spécifiée. 
 
-    Get-AzureADPolicy 
+```PowerShell
+Get-AzureADPolicy 
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId [Optional] |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> [Facultatif] |ID d’objet de la stratégie que vous souhaitez obtenir. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Permet d’obtenir toutes les applications et tous les principaux de service liés à une stratégie.
 
-    Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
+```PowerShell
+Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy> 
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de la stratégie que vous souhaitez obtenir. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Met à jour une stratégie existante.
 
-    Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string> 
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
-| -DisplayName |Chaîne du nom de la stratégie |-DisplayName MyTokenPolicy |
-| -Definition [Optional] |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsOrganizationDefault [en option] |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |-IsOrganizationDefault $true |
-| -Type [Optional] |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [Optional] |Définit un autre ID pour la stratégie. |-AlternativeIdentifier myAltId |
+| <code>&#8209;ObjectId</code> |ID d’objet de la stratégie que vous souhaitez obtenir. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code> [Facultatif] |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Facultatif] |Si la valeur true définit la stratégie comme stratégie par défaut de l’organisation la valeur false n’a aucun effet |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Facultatif] |Type de stratégie. Pour les durées de vie des jetons, utilisez toujours « TokenLifetimePolicy ». |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Facultatif] |Définit un autre ID pour la stratégie. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Supprime la stratégie spécifiée.
 
-     Remove-AzureADPolicy -ObjectId <object id of policy>
+```PowerShell
+ Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de la stratégie que vous souhaitez obtenir. |-ObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de la stratégie que vous souhaitez obtenir. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -383,35 +436,41 @@ Les applets de commande suivantes peuvent être utilisées pour les stratégies 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Lie la stratégie spécifiée à une application.
 
-    Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |ID d’objet de la stratégie. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |ID d’objet de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Permet d’obtenir la stratégie affectée à une application.
 
-    Get-AzureADApplicationPolicy -ObjectId <object id of application>
+```PowerShell
+Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Supprime une stratégie d’une application.
 
-    Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |ID d’objet de stratégie. |-PolicyId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |ID d’objet de la stratégie. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -421,39 +480,40 @@ Les applets de commande suivantes peuvent être utilisées pour les stratégies 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Lie la stratégie spécifiée à un principal du service.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -RefObjectId |ID d’objet de la stratégie. |-RefObjectId &lt;ObjectID of Policy&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |ID d’objet de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Permet d’obtenir une stratégie liée au principal du service spécifié.
 
-    Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
+```PowerShell
+Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Supprime la stratégie du principal du service spécifié.
 
-    Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+```
 
 | Paramètres | Description | Exemple |
 | --- | --- | --- |
-| -ObjectId |ID d’objet de l’application. |-ObjectId &lt;ObjectID of Application&gt; |
-| -PolicyId |ID d’objet de stratégie. |-PolicyId &lt;ObjectID of Policy&gt; |
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+| <code>&#8209;ObjectId</code> |ID d’objet de l’application. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |ID d’objet de la stratégie. | `-PolicyId <ObjectId of Policy>` |
 
 

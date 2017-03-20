@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
-ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
+ms.sourcegitcommit: 3b9d269a780e9a4c61263208f26f440b1121c682
+ms.openlocfilehash: f437598b612a145c5dd8b46a1ba340d298a76981
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -62,7 +63,7 @@ vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement)  <br/><
 
 ### <a name="machines-replicate-to-azure"></a>Machines (réplication vers Azure)
 
-Les machines virtuelles doivent respecter la [configuration requise pour Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Les machines virtuelles doivent respecter la [configuration requise pour Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Prérequis** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
@@ -163,17 +164,17 @@ Disque > 1 To | Non | Non | Non
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui | Oui | Oui
 Espaces de stockage | Non | Oui | Oui
 Ajout/suppression de disque à chaud | Non | Non | Non
-Exclure le disque | Oui | Non | Non
+Exclure le disque | Oui | Oui | Oui
 Chemins d’accès multiples (MPIO) | N/D | Oui | Oui
 
 **Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
 LRS | Oui | Oui | Oui
-GRS | Oui | Oui | Oui
+GRS (uniquement pour le stockage Standard) | Oui | Oui | Oui
 Stockage froid | Non | Non | Non
 Stockage chaud| Non | Non | Non
 Chiffrement au repos | Oui | Oui | Oui
-Stockage Premium | Oui | Non | Non
+Stockage Premium | Oui | Oui | Oui
 Service Import/Export | Non | Non | Non
 
 
@@ -261,10 +262,5 @@ Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Préparer le déploiement](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Consultez la [configuration requise](site-recovery-prereq.md).
 
