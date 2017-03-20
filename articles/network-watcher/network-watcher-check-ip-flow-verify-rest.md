@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 5c2054800d2234653c60c35f9c009499e231fd31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Vérifier si le trafic est autorisé ou refusé en direction ou en provenance d’une machine virtuelle avec le composant de vérification des flux IP d’Azure Network Watcher
+# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Vérifier si le trafic est autorisé ou refusé avec le composant de vérification des flux IP d’Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [portail Azure](network-watcher-check-ip-flow-verify-portal.md)
+> - [Portail Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [INTERFACE DE LIGNE DE COMMANDE](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST Azure](network-watcher-check-ip-flow-verify-rest.md)
@@ -37,9 +37,11 @@ ARMclient permet d’appeler l’API REST à l’aide de PowerShell. ARMClient e
 
 Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="scenario"></a>Scénario
 
-Ce scénario utilise la vérification des flux IP pour vérifier si une machine virtuelle peut communiquer avec une autre machine via le port 443. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour plus d’informations sur la vérification des flux IP, consultez la page [Présentation de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md)
+Ce scénario utilise la vérification des flux IP pour vérifier si une machine virtuelle peut communiquer avec une autre machine par le biais du port 443. Si le trafic est refusé, la règle de sécurité refusant ce trafic est renvoyée. Pour en savoir plus sur la vérification des flux IP, consultez [Vue d’ensemble de la vérification des flux IP](network-watcher-ip-flow-verify-overview.md).
 
 Dans ce scénario, vous allez :
 
@@ -102,7 +104,7 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 L’exemple suivant crée une demande pour vérifier le trafic d’une machine virtuelle spécifiée. La réponse renvoyée indique si le trafic est autorisé ou si le trafic est refusé. Si le trafic est refusé, elle indique également quelle règle bloque le trafic.
 
 > [!NOTE]
-> La vérification des flux IP nécessite l’allocation de la ressource de machine virtuelle.
+> La vérification des flux IP nécessite l’attribution de la ressource de machine virtuelle.
 
 Le script requiert l’ID de la ressource d’une machine virtuelle et d’une carte d’interface réseau sur la machine virtuelle. Ces valeurs sont fournies par le résultat précédent.
 

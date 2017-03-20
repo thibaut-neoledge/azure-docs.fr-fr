@@ -15,15 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3bde4a676cce8ab914c000c8fef2b07d0c77e380
-ms.openlocfilehash: e172756f60ac1e8361f5481cd9defe61fa5f6448
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dcf8a88ebd66f5e4a5a06538532fbfbae7ce852e
+ms.lasthandoff: 03/04/2017
 
 ---
 
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
 Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse de ces passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel. Cette fonctionnalité de résolution peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle de réseau virtuel ou de la connexion et retourne les résultats appropriés. Cette demande est une transaction à long terme, et les résultats sont retournés à l’issue du diagnostic.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="results"></a>Résultats
 
@@ -43,7 +45,7 @@ La liste suivante répertorie les valeurs retournées par l’API de résolution
       * **actionUri** : URI de la documentation sur le mode d’action.
       * **actionUriText** : brève description du texte de l’action.
 
-Les tableaux suivants présentent les différents types d’erreur (id dans les résultats de la liste précédente) qui sont disponibles et indiquent si l’erreur génère des journaux.
+Les tableaux suivants présentent les différents types d’erreur (« id » dans les résultats de la liste précédente) qui sont disponibles et indiquent si l’erreur génère des journaux.
 
 ### <a name="gateway"></a>Passerelle
 
@@ -57,7 +59,7 @@ Les tableaux suivants présentent les différents types d’erreur (id dans les 
 | PlatformInActive | Il existe un problème avec la plateforme. | Non|
 | ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
 | NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
-| ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| Oui|
+| ConnectionsNotConnected | Aucune connexion n’est établie. Il s’agit simplement d’un avertissement.| Oui|
 | GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
 ### <a name="connection"></a>Connexion

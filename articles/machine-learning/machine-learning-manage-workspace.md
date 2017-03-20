@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: cf0cd5202288a9da55e0f8409a51ea904eeb2d55
-ms.openlocfilehash: 775ef958846ad2a780abb761d1c3934e671d5f1c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -49,6 +49,8 @@ Pour gérer les services web associés à cet espace de travail, utilisez le por
 
 > [!NOTE]
 > Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
+> 
+>Pour plus d’informations sur la définition des autorisations d’accès, consultez [Afficher les affectations d’accès des utilisateurs et des groupes sur le portail Azure - Préversion publique](../active-directory/role-based-access-control-manage-assignments.md).
 
 ## <a name="use-the-azure-classic-portal"></a>Utilisation du portail Azure Classic
 

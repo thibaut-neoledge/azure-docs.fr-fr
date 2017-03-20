@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
-ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -82,6 +82,30 @@ Pour pouvoir effectuer l’installation de transmission (push) du service Mobili
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+> [!NOTE]
 Une fois que le service Mobilité est installé, vous pouvez utiliser le bouton **+Répliquer** dans le portail Azure pour démarrer l’activation de la protection de ces machines virtuelles.
+
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Désinstaller le service Mobilité sur des serveurs Windows
+Vous pouvez désinstaller le service Mobilité sur un serveur Windows de deux façons :
+
+### <a name="uninstall-using-graphical-user-interface"></a>Désinstaller le service à l’aide de l’interface utilisateur graphique
+1. Ouvrez Panneau de configuration > Programmes.
+2. Sélectionnez **Service Mobilité/Serveur cible maître Microsoft Azure Site Recovery**, puis cliquez sur Désinstaller.
+
+### <a name="uninstall-using-command-line"></a>Désinstaller le service à l’aide de la ligne de commande
+1. Ouvrez une invite de commandes d’administration.
+2. Exécutez la commande suivante pour désinstaller le service Mobilité.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Désinstaller le service Mobilité sur des ordinateurs Linux
+1. Connectez-vous en tant que **ROOT** sur votre serveur Linux.
+2. Dans un **Terminal**, accédez à /user/local/ASR.
+3. Exécutez la commande suivante pour désinstaller le service Mobilité.
+
+```
+uninstall.sh -Y
+```
 

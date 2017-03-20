@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 437bbb47a490ecc66c5820eccfc8db8ec28d76be
-ms.openlocfilehash: 0a5aaf64f22e6c116165a63b77618b535dfd3797
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/24/2017
 Les journaux des flux de groupe de sécurité réseau fournissent des informations permettant de comprendre le trafic IP entrant et sortant sur les groupes de sécurité réseau. Ces journaux de flux affichent les flux entrants et sortants en fonction de la règle, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
 Ces journaux de flux peuvent être difficiles à analyser et à exploiter manuellement. Toutefois, il existe de nombreux outils open source qui peuvent aider à visualiser ces données. Cet article propose une solution pour visualiser ces journaux à l’aide de la Suite Elastic, qui vous permet d’indexer et de visualiser rapidement vos journaux de flux dans un tableau de bord Kibana.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scénario
 
@@ -61,7 +63,7 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
     curl http://127.0.0.1:9200
     ```
 
-    Une réponse similaire à celle ci-dessous doit s’afficher :
+    Une réponse similaire à celle ci-dessous devrait s’afficher :
 
     ```
     {
@@ -156,7 +158,7 @@ Pour plus d’informations sur l’installation de Logstash, reportez-vous à la
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installer le plug-in d’entrée Logstash pour le stockage Blob Azure
 
-Ce plug-in Logstash vous permettra d’accéder directement aux journaux de flux à partir de leur compte de stockage désigné. Pour installer ce plug-in, exécutez la commande :
+Ce plug-in Logstash vous permettra d’accéder directement aux journaux de flux à partir de leur compte de stockage désigné. Pour installer ce plug-in, exécutez la commande suivante à partir du répertoire d’installation par défaut de Logstash (dans ce cas, /usr/share/logstash/bin) :
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -230,7 +232,7 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 1. Tuples de flux : ce tableau affiche les informations contenues dans chaque tuple du flux, ainsi que ses groupes de sécurité réseau et ses règles correspondants.
 
   ![figure 7][7]
-  
+
 À l’aide de la barre de requête située en haut du tableau de bord, vous pouvez filtrer le tableau de bord en fonction de n’importe quel paramètre des flux, tel que l’ID d’abonnement, les groupes de ressources, la règle ou toute autre variable d’intérêt. Pour plus d’informations sur les requêtes et les filtres de Kibana, reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 
 ## <a name="conclusion"></a>Conclusion
@@ -252,5 +254,4 @@ Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consulta
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-
 
