@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 842eb16768fd5064bd57a0c3672e7ae57885720e
-ms.openlocfilehash: 6ed0f07268715102be197bb8a6654fb05b52b0c4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -61,6 +61,10 @@ Si vous avez une question, veuillez commenter l’article ; nous vous répondron
 **Q :** Prenez-vous en charge les applications .NET Core non compilées ?
 
 **R :** Non. Vous devez déployer des applications .NET Core compilées avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement et de compilation complète pour une version ultérieure.
+
+**Q :** Prenez-vous en charge Composer en tant que gestionnaire de dépendances pour les applications PHP ?
+
+**R :** Non. Vous devez déployer des applications PHP avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement complète dans une version ultérieure.
 
 ## <a name="custom-containers"></a>Conteneurs personnalisés
 

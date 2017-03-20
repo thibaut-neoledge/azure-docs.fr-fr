@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
-ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -59,7 +59,9 @@ Chaque abonnement se compose d’un ou de plusieurs plans de services, mappant c
 
 Alors que la configuration des fonctionnalités payantes ne nécessite rien d’autre qu’un abonnement, l’utilisation des fonctionnalités Azure AD payantes requiert la distribution de licences aux personnes adéquates. En général, une licence doit être attribuée à tout utilisateur ayant besoin d’accéder à une fonctionnalité Azure AD payante ou géré par le biais de ce type de fonctionnalité. L’attribution d’une licence est un mappage entre un utilisateur et un service acheté, comme Azure AD Premium, Azure AD Standard ou Enterprise Mobility Suite.
 
-La gestion des utilisateurs de votre annuaire qui doivent disposer d’une licence est simple. Vous pouvez assurer ce processus en attribuant des licences à des groupes dans le portail Azure, ou en attribuant les licences directement aux utilisateurs adéquats par l’intermédiaire du portail, de PowerShell ou d’API. Lorsque vous attribuez des licences à un groupe, tous les membres de ce groupe disposent alors d’une licence. Si des utilisateurs sont ajoutés au groupe ou en sont supprimés, la licence appropriée leur est également attribuée ou retirée. L’attribution à un groupe peut utiliser toute gestion de groupe qui vous est accessible, et est cohérente avec l’attribution par groupe aux applications. Grâce à cette approche, vous pouvez configurer des règles telles que l’attribution automatique à tous les utilisateurs de votre annuaire, vous assurer que toute personne occupant la fonction appropriée dispose bien d’une licence, ou même déléguer la décision à d’autres gestionnaires de l’organisation. Pour une présentation détaillée de l’attribution de licences à des groupes, avec notamment des scénarios avancés et des scénarios d’attribution de licences Office 365, consultez cet article.
+La gestion des utilisateurs de votre annuaire qui doivent disposer d’une licence est simple. Vous pouvez assurer ce processus en attribuant des licences à des groupes dans le portail Azure, ou en attribuant les licences directement aux utilisateurs adéquats par l’intermédiaire du portail, de PowerShell ou d’API. Lorsque vous attribuez des licences à un groupe, tous les membres de ce groupe disposent alors d’une licence. Si des utilisateurs sont ajoutés au groupe ou en sont supprimés, la licence appropriée leur est également attribuée ou retirée. L’attribution à un groupe peut utiliser toute gestion de groupe qui vous est accessible, et est cohérente avec l’attribution par groupe aux applications. Grâce à cette approche, vous pouvez configurer des règles telles que l’attribution automatique à tous les utilisateurs de votre annuaire, vous assurer que toute personne occupant la fonction appropriée dispose bien d’une licence, ou même déléguer la décision à d’autres gestionnaires de l’organisation. 
+
+Pour une présentation détaillée de l’attribution de licences à des groupes, avec notamment des scénarios avancés et des scénarios d’attribution de licences Office 365, consultez [cet article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## <a name="getting-started-with-azure-ad-licensing"></a>Prise en main de la gestion des licences Azure AD
 
@@ -152,6 +154,7 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 * [Gestion des groupes en libre service](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Attribution de groupe aux applications](active-directory-manage-groups.md)
+* [Attribution de licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 

@@ -1,5 +1,5 @@
 ---
-title: "API et Kit de développement logiciel (SDK) .NET Core de DocumentDB | Microsoft Docs"
+title: API, SDK et ressources .NET Core Azure DocumentDB | Microsoft Docs
 description: "Découvrez l’API et le Kit de développement logiciel (SDK) .NET Code, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) .NET Core de DocumentDB."
 services: documentdb
 documentationcenter: .net
@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 02/22/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a04860ea7349798d5786e50dc1d564896341d60
-ms.openlocfilehash: 50f13ae0184e5b9609994d382acc126eb2868271
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: f6e788ed734ce68f4eb9da35bf676f3980e07e62
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>API DocumentDB et Kits de développement logiciel (SDK)
+# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>SDK .NET Core DocumentDB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/18/2017
 > 
 > 
 
-## <a name="documentdb-net-core-api-and-sdk"></a>API et Kit de développement logiciel (SDK) .NET Core de DocumentDB
 <table>
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
@@ -59,7 +59,8 @@ Le Kit de développement logiciel (SDK) .NET Core de DocumentDB offre les mêmes
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
 
-Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](documentdb-sql-query.md#Aggregates).
+* Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 
