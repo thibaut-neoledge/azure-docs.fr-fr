@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f31188ed3216034ef8ec056023472844ec4debd6
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -161,10 +162,5 @@ Configuration ou condition dans Azure Active Directory qui rend l’annuaire vul
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
