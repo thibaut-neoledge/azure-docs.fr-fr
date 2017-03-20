@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -31,10 +32,5 @@ Si vous rencontrez des problèmes lors de la [création d’un client Azure Acti
 * Si le client Azure AD B2C figure dans la liste des clients et que vous voyez s’afficher un message d’erreur ("Impossible de terminer la création du client B2C 'contosob2c'. Consultez ce [lien](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) pour plus d’informations."), supprimez le client que vous venez de créer, puis réessayez.
 * Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C existant et à sa recréation sous le même nom de domaine. Vous devez créer un client B2C portant un nom de domaine différent.
 * Si aucune de ces solutions ne résout votre problème, contactez le support technique. En savoir plus sur la [prise en charge des demandes d’assistance pour Azure AD B2C](active-directory-b2c-support.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

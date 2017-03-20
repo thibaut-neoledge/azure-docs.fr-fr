@@ -17,6 +17,7 @@ ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
 ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -166,10 +167,5 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
 * Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

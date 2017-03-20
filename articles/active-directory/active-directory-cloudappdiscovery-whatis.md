@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -50,10 +51,5 @@ Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App 
 * [Cloud App Discovery - Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 * [Cloud App Discovery - Forum aux Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
