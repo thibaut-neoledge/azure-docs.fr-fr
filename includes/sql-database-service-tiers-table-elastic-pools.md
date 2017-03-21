@@ -75,6 +75,20 @@ sql-database-service-tiers.md
 | Nombre maximal d’eDTU par base de données | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
+### <a name="premium-rs-elastic-pool-limits"></a>Limites du pool élastique Premium RS
+
+| Taille du pool (nombre d’eDTU)  | **125** | **250** | **500** | **1&000;** |
+|:---|---:|---:|---:| ---: | ---: | 
+| Espace de stockage de données maximal par pool* | 250 Go| 500 Go | 750 Go | 750 Go |
+| Stockage OLTP en mémoire maximal par pool* | 1 Go | 2 Go | 4 Go | 10 Go |
+| Nombre maximal de bases de données par pool | 50 | 100 | 100 | 100 |
+| Nombre maximal d’ouvriers simultanés par pool | 200 | 400 | 800 | 1&600; |
+| Nombre maximal de connexions simultanées par pool | 200 | 400 | 800 | 1&600; |
+| Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |
+| Nombre minimal d’eDTU par base de données | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
+| Nombre maximal d’eDTU par base de données | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
+||||||||
+
 > [!IMPORTANT]
 >\* Les bases de données regroupées se partagent l’espace de stockage du pool. Par conséquent, le stockage de données dans un pool élastique est limité au stockage de pool minimal restant ou au stockage maximal par base de données.
 >

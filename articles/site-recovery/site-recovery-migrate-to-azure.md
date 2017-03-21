@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -26,6 +26,9 @@ ms.lasthandoff: 02/23/2017
 Lisez cet article pour apprendre à utiliser le service Azure Site Recovery pour la migration des machines virtuelles et des serveurs physiques.
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence en orchestrant la réplication des machines virtuelles et des serveurs physiques locaux dans le cloud (Azure) ou sur un centre de données secondaire. Lorsque des pannes se produisent sur votre site principal, vous effectuez un basculement sur le site secondaire pour préserver la disponibilité des applications et des charges de travail. Vous restaurez votre site principal dès lors qu’il retrouve un fonctionnement normal. Pour en savoir plus, consultez [Qu’est-ce que Site Recovery ?](site-recovery-overview.md) Vous pouvez également utiliser Site Recovery pour migrer vos charges de travail locales existantes vers Azure afin d’accélérer votre transition vers le cloud et de bénéficier de l’ensemble de fonctionnalités offertes par Azure.
+
+Pour obtenir un aperçu rapide de la procédure permettant d’effectuer une migration, reportez-vous à cette vidéo.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 Cet article décrit le déploiement dans le [portail Azure](https://portal.azure.com). Le [portail Azure Classic](https://manage.windowsazure.com/) permet de gérer les coffres Site Recovery existants, mais pas de créer des coffres.
 

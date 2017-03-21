@@ -13,35 +13,168 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Prise en main de la gestion de mot de passe
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 Pour permettre à vos utilisateurs de gérer eux-mêmes leurs mots de passe Azure Active Directory pour le cloud ou pour une utilisation en local, il suffit de suivre une procédure simple. Après avoir vérifié que vous disposez de la configuration requise, vous pouvez rapidement activer la modification et la réinitialisation des mots de passe pour toute votre organisation. Cet article présente les concepts suivants :
 
+* [**Les meilleurs conseils de nos clients à lire avant de commencer**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**PRINCIPAL CONSEIL : NAVIGATION DANS LA DOCUMENTATION** - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**Conseil 1 : GESTION DES LICENCES** -Assurez-vous que vous comprenez les accords de licence](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Conseil 3 : DÉPLOIEMENT** -Préremplissez les données de vos utilisateurs afin qu’ils n’aient pas à s’inscrire](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**Conseil 4 : DÉPLOIEMENT** -Utilisez la réinitialisation de mot de passe pour éviter la transmission de mots de passe temporaires](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**Conseil 5 : ÉCRITURE DIFFÉRÉE** - Consultez le journal des événements d’application sur votre ordinateur AAD Connect pour résoudre les problèmes d’écriture différée de mot de passe](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**Conseil 6 : ÉCRITURE DIFFÉRÉE** - Assurez-vous que vous activez les autorisations appropriées, les règles de pare-feu et les paramètres de connexion pour l’écriture différée de mot de passe](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**Conseil 7 : CRÉATION DE RAPPORTS** - Identifiez qui inscrit ou réinitialise les mots de passe grâce aux journaux d’audit SSPR d’Azure AD](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**Conseil 8 : RÉSOLUTION DES PROBLÈMES** - Lisez notre guide de résolution des problèmes et le FAQ pour résoudre de nombreux problèmes](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**Conseil 9 : RÉSOLUTION DES PROBLÈMES** - Si vous avez besoin d’aide, indiquez suffisamment d’informations pour que nous puissions vous aider](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**Comment permettre aux utilisateurs de réinitialiser leur mot de passe Azure Active Directory**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [Configuration requise pour la réinitialisation du mot de passe libre-service](#prerequisites)
-  * [Étape 1 : configuration de la stratégie de réinitialisation du mot de passe](#step-1-configure-password-reset-policy)
-  * [Étape 2 : ajout de données de contact pour votre utilisateur de test](#step-2-add-contact-data-for-your-test-user)
-  * [Étape 3 : réinitialisation de votre mot de passe en tant qu’utilisateur](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [Configuration requise pour la réinitialisation du mot de passe libre-service](#prerequisites)
+ * [Étape 1 : configuration de la stratégie de réinitialisation du mot de passe](#step-1-configure-password-reset-policy)
+ * [Étape 2 : ajout de données de contact pour votre utilisateur de test](#step-2-add-contact-data-for-your-test-user)
+ * [Étape 3 : réinitialisation de votre mot de passe en tant qu’utilisateur](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Comment permettre aux utilisateurs de réinitialiser leurs mots de passe Active Directory Azure pour une utilisation en local**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [Configuration requise pour l’écriture différée de mot de passe](#writeback-prerequisites)
-  * [Étape 1 : téléchargement de la dernière version d’Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [Étape 2 : activation et vérification de l’écriture différée des mots de passe dans Azure AD Connect via l’interface utilisateur ou PowerShell](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [Étape 3 : configuration de votre pare-feu](#step-3-configure-your-firewall)
-  * [Étape 4 : configuration des autorisations appropriées](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [Étape 5 : réinitialisation de votre mot de passe Active Directory en tant qu’utilisateur, puis vérification de son fonctionnement](#step-5-reset-your-ad-password-as-a-user)
+ * [Configuration requise pour l’écriture différée de mot de passe](#writeback-prerequisites)
+ * [Étape 1 : téléchargement de la dernière version d’Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [Étape 2 : activation et vérification de l’écriture différée des mots de passe dans Azure AD Connect via l’interface utilisateur ou PowerShell](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [Étape 3 : configuration de votre pare-feu](#step-3-configure-your-firewall)
+ * [Étape 4 : configuration des autorisations appropriées](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [Étape 5 : réinitialisation de votre mot de passe Active Directory en tant qu’utilisateur, puis vérification de son fonctionnement](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>Les meilleurs conseils de nos clients à lire avant de commencer
+Voici certains conseils qui se sont avérés utiles pour les clients ayant déployé la gestion des mots de passe dans leur organisation.
+
+* [**PRINCIPAL CONSEIL : NAVIGATION DANS LA DOCUMENTATION** - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**Conseil 1 : GESTION DES LICENCES** -Assurez-vous que vous comprenez les accords de licence](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**Conseil 2 : TEST** - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Conseil 3 : DÉPLOIEMENT** -Préremplissez les données de vos utilisateurs afin qu’ils n’aient pas à s’inscrire](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**Conseil 4 : DÉPLOIEMENT** -Utilisez la réinitialisation de mot de passe pour éviter la transmission de mots de passe temporaires](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**Conseil 5 : ÉCRITURE DIFFÉRÉE** - Consultez le journal des événements d’application sur votre ordinateur AAD Connect pour résoudre les problèmes d’écriture différée de mot de passe](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Conseil 6 : ÉCRITURE DIFFÉRÉE** - Assurez-vous que vous activez les autorisations appropriées, les règles de pare-feu et les paramètres de connexion pour l’écriture différée de mot de passe](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**Conseil 7 : CRÉATION DE RAPPORTS** - Identifiez qui inscrit ou réinitialise les mots de passe grâce aux journaux d’audit SSPR d’Azure AD](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Conseil 8 : RÉSOLUTION DES PROBLÈMES** - Lisez notre guide de résolution des problèmes et le FAQ pour résoudre de nombreux problèmes](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Conseil 9 : RÉSOLUTION DES PROBLÈMES** - Si vous avez besoin d’aide, indiquez suffisamment d’informations pour que nous puissions vous aider](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>CONSEIL : NAVIGATION DANS LA DOCUMENTATION - Utilisez notre table des matières et la fonction de recherche de votre navigateur pour trouver des réponses
+Dans notre documentation, nous nous sommes efforcés de fournir dans notre table des matières des liens rapides vers tous les contenus intéressants pour les administrateurs qui souhaitent en savoir plus. 
+
+Consultez la table des matières ci-dessous : 
+* [Réinitialisation de mot de passe Azure AD : Table des matières de la documentation](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Conseil 1 : GESTION DES LICENCES -Assurez-vous que vous comprenez les accords de licence
+Pour que la réinitialisation de mot de passe Azure AD fonctionne, vous devez disposer d’au moins une licence affectée dans votre organisation. Nous n’appliquons pas la gestion des licences par utilisateur dans l’expérience de réinitialisation de mot de passe en elle-même, toutefois, si vous utilisez la fonctionnalité sans disposer d’une licence affectée à un utilisateur, cela sera considéré comme une violation de votre contrat de licence Microsoft et vous devrez affecter des licences à ces utilisateurs.
+
+Voici quelques documents qui peuvent vous aider à comprendre quelles licences sont requises pour la réinitialisation du mot de passe.
+* [Informations générales sur la gestion des licences de réinitialisation de mot de passe]()
+* [Informations sur la gestion des licences de réinitialisation de mot de passe par fonctionnalité]()
+* [Scénarios pris en charge par l’écriture différée de mot de passe]()
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Conseil 2 : TEST - Effectuez des tests avec un utilisateur final, et non un administrateur, et pilotez un petit groupe d’utilisateurs
+Lors des tests avec un administrateur, nous appliquons la stratégie de réinitialisation de mot de passe administrateur définie ci-dessous.  Cela signifie que vous ne verrez PAS les résultats attendus de la stratégie que vous avez configurée pour vos utilisateurs finaux.
+
+Les stratégies configurées dans l’expérience utilisateur d’administration s’appliquent uniquement aux utilisateurs finaux, et non aux administrateurs. Microsoft met en œuvre des stratégies de réinitialisation de mot de passe par défaut robustes pour les administrateurs. Celles-ci peuvent être différentes des stratégies que vous définissez pour vos utilisateurs finaux, afin de garantir la sécurité de votre organisation.
+
+#### <a name="administrator-password-reset-policy"></a>Stratégie de réinitialisation de mot de passe administrateur
+* **S’applique à** : n’importe quel rôle d’administrateur (administrateur général, administrateur de support technique, administrateur de mots de passe, etc.)
+* **La stratégie à une entrée s’applique...**
+ * ... pendant les 30 premiers jours après le démarrage d’un essai **OU**
+ * ... lorsqu’un domaine personnel n’est pas présent **ET** qu’Azure AD Connect ne synchronise pas les identités
+ * **_Requiert_** : la présence d’une valeur dans **l’une** des options suivantes : Adresse électronique d’authentification, Adresse de messagerie de secours, Téléphone d’authentification, Téléphone mobile ou Téléphone (bureau)
+* **La stratégie à deux entrées s’applique...** 
+ * ... à l’issue des 30 premiers jours de l’essai **OU**
+ * ... lorsqu’un domaine personnel est présent **OU** 
+ * ... si vous avez activé Azure AD Connect pour synchroniser les identités de votre environnement local
+ * _**Requiert**_ : la présence d’une valeur dans **deux** des options suivantes : Adresse électronique d’authentification, Adresse de messagerie de secours, Téléphone d’authentification, Téléphone mobile ou Téléphone (bureau)
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>Conseil 3 : DÉPLOIEMENT -Préremplissez les données de vos utilisateurs afin qu’ils n’aient pas à s’inscrire
+La plupart des gens ignorent qu’il n’est pas nécessaire que vos utilisateurs s’inscrivent à la réinitialisation de mot de passe pour pouvoir utiliser cette fonctionnalité.  En définissant les propriétés de téléphone ou de courrier électronique pour vos utilisateurs au préalable, vous pouvez immédiatement déployer la réinitialisation de mot de passe dans l’ensemble de l’organisation **sans que vos utilisateurs ne doivent effectuer quelque opération que ce soit !**
+
+Pour savoir comment procéder à l’aide d’une API, de PowerShell ou d’Azure AD Connect, lisez la documentation ci-dessous :
+* [Déploiement de la réinitialisation du mot de passe sans demander l’inscription des utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Données utilisées par la réinitialisation de mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>Conseil 4 : DÉPLOIEMENT - Utilisez la réinitialisation de mot de passe pour éviter la transmission de mots de passe temporaires
+Il s’agit d’un complément du conseil n° 3. Une fois vos utilisateurs configurés pour la réinitialisation de mot de passe, imaginez un scénario dans lequel un employé rejoint votre entreprise pour la première fois. Au lieu de lui communiquer le mot de passe temporaire, vous pouvez simplement lui demander d’accéder au [portail de réinitialisation de mot de passe Azure AD](https://passwordreset.microsoftonline.com) pour réinitialiser son mot de passe.
+
+Si l’utilisateur fait usage d’un [appareil joint à un domaine Azure AD de Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy), il peut même effectuer l’opération directement dans l’écran de connexion de Windows 10, ce qui lui permet d’accéder à un tout nouveau PC sans aucune intervention de votre part !
+
+Pour savoir comment procéder à l’aide d’une API, de PowerShell ou d’Azure AD Connect, lisez la documentation ci-dessous. Une fois ces données préremplies, invitez vos utilisateurs à réinitialiser leurs mots de passe. Ils peuvent alors accéder immédiatement à leurs comptes :
+* [Déploiement de la réinitialisation du mot de passe sans demander l’inscription des utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Données utilisées par la réinitialisation de mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>Conseil 5 : ÉCRITURE DIFFÉRÉE - Consultez le journal des événements d’application sur votre ordinateur AAD Connect pour résoudre les problèmes d’écriture différée de mot de passe
+Le journal des événements de l’application de connexion Azure AD contient un ensemble complet d’informations de journalisation qui décrit une grande partie de ce qui se produit avec le service d’écriture différée de mot de passe, en temps réel. Pour accéder à ce journal, procédez comme suit :
+
+1. Connectez-vous à votre ordinateur **Azure AD Connect**.
+2. Ouvrez **l’observateur d’événements Windows** en cliquant sur **Démarrer** et en tapant **« Observateur d’événements »**.
+3. Ouvrez le journal d’événements de **l’application**.
+4. Recherchez des événements à partir des sources suivantes : **PasswordResetService** ou **ADSync** pour en savoir plus sur le problème qui se produit.
+
+Pour obtenir une liste complète des événements qui peuvent apparaître dans ce journal, ainsi que quelques conseils de dépannage supplémentaires en matière d’écriture différée de mot de passe, consultez :
+* [Résoudre les problèmes d’écriture différée du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Codes d’erreur du journal des événements d’écriture différée](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Résoudre des problèmes de connectivité d’écriture différée du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Déploiement de l’écriture différée - Étape 3 : Configurer votre pare-feu](#step-3-configure-your-firewall)
+* [Déploiement de l’écriture différée - Étape 4 : Configurer les autorisations appropriées](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>Conseil 6 : ÉCRITURE DIFFÉRÉE - Assurez-vous que vous activez les autorisations appropriées, les règles de pare-feu et les paramètres de connexion pour l’écriture différée de mot de passe
+Pour que l’écriture différée fonctionne correctement, vous devez vérifier les points suivants :
+
+1. Les **autorisations Active Directory** appropriées ont été définies pour les utilisateurs à l’aide de la fonctionnalité d’écriture différée de mot de passe de sorte qu’ils disposent de droits permettant de modifier leurs propres mots de passe et les indicateurs de déverrouillage de compte dans Active Directory
+2. Les **ports de pare-feu** appropriés ont été ouverts pour permettre au service d’écriture différée de mot de passe de communiquer de manière sécurisée avec le monde extérieur à l’aide d’une connexion sortante
+3. Les **exceptions de pare-feu** appropriées ont été définies pour les URL de service de réinitialisation de mot de passe de clé, comme Service Bus
+4. Votre **proxy et votre pare-feu n’arrêtent pas les connexions sortantes inactives** (nous recommandons une durée d’au moins 10 minutes)
+
+Pour obtenir la liste complète des conseils de dépannage et des recommandations spécifiques pour la configuration des autorisations et des règles de pare-feu pour l’écriture différée de mot de passe, consultez :
+* [Résoudre les problèmes d’écriture différée du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Codes d’erreur du journal des événements d’écriture différée](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Résoudre des problèmes de connectivité d’écriture différée du mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Déploiement de l’écriture différée - Étape 3 : Configurer votre pare-feu](#step-3-configure-your-firewall)
+* [Déploiement de l’écriture différée - Étape 4 : Configurer les autorisations appropriées](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Conseil 7 : CRÉATION DE RAPPORTS - Identifiez qui inscrit ou réinitialise des mots de passe grâce aux journaux d’audit SSPR d’Azure AD 
+Une fois que la réinitialisation de mot de passe est déployée et fonctionne, l’étape logique suivante consiste à observer son fonctionnement et à analyser les personnes devant toujours s’inscrire, les problèmes fréquents rencontrés par vos utilisateurs lors de la réinitialisation et votre retour sur investissement par rapport à la fonctionnalité.
+
+Grâce aux journaux d’audit de réinitialisation de mot de passe Azure AD, vous pouvez effectuer cette opération et bien plus encore à partir du portail Azure, à partir de Power BI, à partir de l’API d’événements de rapports Azure AD ou à partir de PowerShell.  Pour en savoir plus sur l’utilisation de ces fonctions de génération de rapports, consultez :
+* [Vue d’ensemble des rapports de gestion des mots de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports)
+* [Comment visualiser les rapports de gestion des mots de passe dans le portail Azure](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)
+* [Types d’activités de gestion des mots de passe libre-service dans le portail Azure](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [Comment récupérer les événements de gestion des mots de passe à partir de l’API de rapports et d’événements Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
+* [Comment télécharger rapidement les événements d’inscription de réinitialisation de mot de passe avec PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>Conseil 8 : RÉSOLUTION DES PROBLÈMES - Lisez notre guide de résolution des problèmes et le FAQ pour résoudre de nombreux problèmes
+Saviez-vous que la réinitialisation de mot de passe possède un ensemble complet de conseils de dépannage et un forum aux questions ? Si vous avez une question, il est probable que vous trouviez la réponse dans les liens ci-dessous.
+
+En outre, vous pouvez également utiliser le panneau **« Support et dépannage »** dans le [portail Azure](https://portal.azure.com) pour accéder à un ensemble complet de contenus liés à la résolution des problèmes, directement à partir de l’expérience utilisateur d’administration de gestion des mots de passe disponible sous **Azure Active Directory** -> **Utilisateurs et groupes** -> **Réinitialisation de mot de passe** -> **Support et dépannage** dans le volet de navigation de gauche.
+
+Liens vers des conseils et le FAQ relatifs à la résolution des problèmes de réinitialisation des mots de passe :
+* [Résolution des problèmes de gestion des mots de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [FAQ sur la gestion des mots de passe](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>Conseil 9 : RÉSOLUTION DES PROBLÈMES - Si vous avez besoin d’aide, indiquez suffisamment d’informations pour que nous puissions vous aider.
+Si malgré toutes ces informations vous avez besoin d’aide pour résoudre un problème, n’hésitez pas à nous contacter. Vous pouvez ouvrir un cas de support ou faire appel à votre équipe de gestion de compte pour nous contacter directement. Nous sommes à votre écoute.
+
+Cependant, avant de nous contacter, **veillez à rassembler toutes les informations indiquées ci-dessous** afin que nous puissions vous aider rapidement !
+* [Informations à inclure lorsque vous avez besoin d’aide](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>Méthodes de transmission de commentaires relatifs à la réinitialisation de mot de passe
+* [Demandes ou résolutions de problèmes liées aux fonctionnalités - Publication sur les forums MSDN d’Azure AD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Demandes ou résolutions de problèmes liées aux fonctionnalités - Publication sur StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Demandes ou résolutions de problèmes liées aux fonctionnalités - Tweet @azuread!](https://twitter.com/azuread)
+* [Demandes liées aux fonctionnalités uniquement - Laissez un message sur UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Activation de la réinitialisation du mot de passe pour les utilisateurs Azure AD
 Cette section explique comment activer la réinitialisation du mot de passe libre-service pour votre annuaire cloud AAD, en y inscrivant vos utilisateurs, puis comment effectuer un test de réinitialisation du mot de passe libre-service en tant qu’utilisateur.
@@ -267,11 +400,11 @@ Une fois que vous avez activé l’écriture différée du mot de passe, vous de
 
 Pour que l’écriture différée du mot de passe fonctionne correctement, la machine exécutant Azure AD Connect doit être en mesure d’établir des connexions HTTPS sortantes à **.servicebus.windows.net* et à une adresse IP spécifique utilisée par Azure, tel que défini dans la [liste des plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Pour la version **1.1.439.0** et les versions ultérieures de l’outil Azure AD Connect :
+Pour la version **1.1.443.0** et les versions ultérieures de l’outil Azure AD Connect :
 
 - La version la plus récente de l’outil Azure AD Connect a besoin d’un accès **HTTPS sortant** à :
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 Pour les versions **1.0.8667.0** à **1.1.380.0** de l’outil Azure AD Connect :
 
@@ -302,11 +435,11 @@ Pour les versions **1.0.8667.0** à **1.1.380.0** de l’outil Azure AD Connect
 
 Une fois que les appliances réseau ont été configurées, redémarrez la machine exécutant l’outil Azure AD Connect.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Connexion inactives sur Azure AD Connect (version 1.1.439.0 et ultérieure)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Connexion inactives sur Azure AD Connect (version 1.1.443.0 et ultérieure)
 L’outil Azure AD Connect envoie des pings/appels keepalives périodiques aux points de terminaison ServiceBus pour garantir que les connexions restent actives. Si l’outil détecte la suppression d’un trop grand nombre de connexions, il augmente automatiquement la fréquence des pings adressés au point de terminaison. L’« intervalle de pings » le plus faible possible est de 1 ping toutes les 60 secondes. Toutefois, **nous recommandons vivement de configurer les proxys/pare-feux pour qu’ils autorisent les connexions inactives pendant au moins 2 à 3 minutes.** \*Pour les versions antérieures, nous suggérons 4 minutes ou plus.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Étape 4 : définition des autorisations Active Directory adéquates
-Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime`, et les droits **Autorisations en écriture** sur `pwdLastSet` sur l’objet racine de chaque domaine dans cette forêt. Le droit doit être marqué comme hérité par tous les objets utilisateur.  
+Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime`, et les droits **Autorisations en écriture** sur `pwdLastSet`, sur l’objet racine de chaque domaine dans cette forêt OU sur l’unité d’organisation utilisateur que vous souhaitez faire figurer dans la portée de SSPR.  Vous pouvez utiliser cette dernière option si vous souhaitez étendre vos autorisations de réinitialisation à un ensemble spécifique d’objets utilisateur dans le cas où cela serait impossible sur la racine du domaine. Le droit doit être marqué comme hérité par tous les objets utilisateur.  
 
 Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option **Vérification de votre solution** .  Le compte auquel vous devez ajouter des autorisations est souligné en rouge dans la capture d’écran ci-dessous.
 
@@ -361,7 +494,7 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
+* **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.

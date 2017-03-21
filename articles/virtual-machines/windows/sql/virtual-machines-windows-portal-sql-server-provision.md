@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,8 +53,8 @@ Ce didacticiel présente les procédures suivantes :
 
    ![Panneau Machines virtuelles Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Passez en revue les modèles SQL Server disponibles. Chaque modèle identifie une version de SQL Server et un système d’exploitation. 
-6. Sélectionnez le modèle pour SQL Server 2016 SP1 Developer sur Windows Server 2016.
+5. Passez en revue les images SQL Server disponibles. Chaque image identifie une version de SQL Server et un système d’exploitation. 
+6. Sélectionnez l’image pour SQL Server 2016 SP1 Developer sur Windows Server 2016.
 
    > [!TIP]
    > L’édition Developer est utilisée dans ce didacticiel, car il s’agit d’une version complète de SQL Server qui est gratuite à des fins de test de développement. Vous payez uniquement pour le coût d’exécution de la machine virtuelle.
@@ -97,7 +97,7 @@ Dans le panneau **De base** , fournissez les informations suivantes :
     ![Panneau SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Choisir la taille de machine virtuelle
-Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Le panneau affiche d’abord les tailles de machine virtuelle recommandées en fonction du modèle que vous avez sélectionné. Le coût mensuel lié à l’exécution de la machine virtuelle est également estimé.
+Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Le panneau affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée. Le coût mensuel lié à l’exécution de la machine virtuelle est également estimé.
 
 ![Options de taille de machine virtuelle SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ Pour créer un espace de travail, vous devez :
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Définition du nombre d’espaces de travail nécessaires
 Un espace de travail est une ressource Azure et un conteneur dans lequel les données sont collectées, agrégées, analysées et présentées dans le portail Azure.
 
-Il est possible de créer plusieurs espaces de travail pour permettre aux utilisateurs d’accéder à un ou plusieurs d’entre eux. Minimisez le nombre d’espaces de travail pour que vous puissiez interroger et mettre en corrélation le plus de données. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
+Vous pouvez disposer de plusieurs espaces de travail par abonnement Azure et vous pouvez avoir accès à plus d’un espace de travail. La réduction du nombre d’espaces de travail vous permet d’interroger et de mettre en corrélation la plupart des données, car il n’est pas possible d’exécuter des requêtes dans plusieurs espaces de travail. Cette section décrit dans quelles conditions il peut être utile de créer plusieurs espaces de travail.
 
 Aujourd'hui, un espace de travail fournit :
 
@@ -52,7 +52,7 @@ Compte tenu des caractéristiques précédentes, vous pouvez créer plusieurs es
 * Vous êtes un fournisseur de services gérés et vous devez isoler les données Log Analytics des autres données de vos clients.
 * Vous gérez plusieurs clients et vous souhaitez que chaque client/service/groupe d’entreprise ait uniquement accès à ses propres données.
 
-Lorsque vous utilisez des agents pour collecter des données, vous pouvez configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail.
+Lorsque vous utilisez des agents pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](log-analytics-windows-agents.md).
 
 Si vous utilisez System Center Operations Manager, chaque groupe d’administration Operations Manager ne peut être connecté qu’à un seul espace de travail. Vous pouvez installer Microsoft Monitoring Agent sur les ordinateurs gérés par Operations Manager et configurer l’agent pour qu’il fournisse des rapports à Operations Manager et à un espace de travail Log Analytics différent.
 
@@ -71,34 +71,64 @@ Vous pouvez afficher des détails sur votre espace de travail dans le portail Az
 
 
 ## <a name="manage-accounts-and-users"></a>Gérer les comptes et les utilisateurs
-Chaque espace de travail peut être associé à plusieurs comptes utilisateur et chaque compte utilisateur (compte Microsoft ou compte professionnel) peut également avoir accès à plusieurs espaces de travail.
+Chaque espace de travail peut être associé à plusieurs comptes et chaque compte (compte Microsoft ou compte professionnel) peut également avoir accès à plusieurs espaces de travail.
 
-Par défaut, le compte Microsoft ou le compte professionnel utilisé pour créer l’espace de travail devient l’administrateur de l’espace de travail. L’administrateur peut ensuite inviter d’autres comptes Microsoft ou choisir des utilisateurs à partir de Microsoft Azure Active Directory.
+Par défaut, le compte Microsoft ou le compte professionnel qui crée l’espace de travail devient l’administrateur de l’espace de travail.
 
-Deux emplacements permettent de contrôler l’accès à l’espace de travail :
+Il existe deux modèles d’autorisation qui contrôlent l’accès à un espace de travail Log Analytics :
 
-* Dans Microsoft Azure, le contrôle d’accès basé sur les rôles permet de donner accès à l’abonnement Azure et aux ressources Azure associées. Ces autorisations servent aussi à donner accès à l’API REST et à PowerShell.
-* Dans le portail OMS, vous pouvez accéder au portail OMS uniquement, et non à l’abonnement Azure.
+1. Rôles d’utilisateur Log Analytics hérités
+2. [Accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md) 
 
-Pour voir les données dans les vignettes des solutions Sauvegarde et Site Recovery, vous devez disposer d’autorisations d’administrateur ou de coadministrateur pour l’abonnement Azure auquel l’espace de travail est lié.   
+Le tableau suivant résume l’accès qui peut être défini à l’aide de chaque modèle d’autorisation :
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Gestion de l’accès à Log Analytics à l’aide du portail Azure
-Si vous octroyez à certaines personnes un accès à l’espace de travail Log Analytics au moyen d’autorisations Azure, dans le portail Azure par exemple, ces mêmes utilisateurs peuvent accéder au portail Log Analytics. Si des utilisateurs se trouvent dans le portail Azure, ils peuvent accéder au portail OMS en cliquant sur la tâche **Portail OMS** lors de l’affichage de la ressource d’espace de travail Log Analytics.
+|                          | Portail Log Analytics | Portail Azure | API (y compris PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Rôles d’utilisateur Log Analytics | Oui                  | Non           | Non                         |
+| Accès en fonction du rôle Azure  | Oui                  | Oui          | Oui                        |
+
+> [!NOTE]
+> Log Analytics est déplacé pour utiliser l’accès en fonction du rôle Azure en tant que modèle d’autorisation, à la place des rôles d’utilisateur Log Analytics.
+>
+>
+
+Les rôles d’utilisateur Log Analytics hérités contrôlent uniquement l’accès aux opérations effectuées dans le [portail Log Analytics](https://mms.microsoft.com).
+
+Les activités suivantes dans le portail Log Analytics nécessitent également des autorisations Azure :
+
+| Action                                                          | Autorisations Azure nécessaires | Remarques |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Ajout et suppression de solutions de gestion                        | Écriture du groupe de ressources <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Modification du niveau tarifaire                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Affichage des données dans les mosaïques de solution *Sauvegarde* et *Site Recovery* | Administrateur/coadministrateur | Accède aux ressources déployées à l’aide du modèle de déploiement Classic |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestion de l’accès à Log Analytics à l’aide des autorisations Azure
+Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
+
+Si vous disposez au moins de l’autorisation en lecture Azure sur l’espace de travail Log Analytics, vous pouvez ouvrir le portail OMS en cliquant sur la tâche **Portail OMS** lors de l’affichage de l’espace de travail Log Analytics.
+
+Lorsque vous ouvrez le portail Log Analytics, vous passez à l’utilisation des rôles d’utilisateur Log Analytics hérités. Si vous ne disposez pas d’une affectation de rôle dans le portail Log Analytics, le service [vérifie les autorisations Azure dont vous disposez sur l’espace de travail](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Votre affectation de rôle dans le portail Log Analytics est déterminée en utilisant les éléments suivants :
+
+| Conditions                                                   | Rôle d’utilisateur Log Analytics affecté | Remarques |
+|--------------------------------------------------------------|----------------------------------|-------|
+| Votre compte appartient à un rôle d’utilisateur Log Analytics hérité     | Rôle d’utilisateur Log Analytics spécifié | |
+| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisations Azure complètes pour l’espace de travail (`*`autorisation <sup>1</sup>) | Administrateur ||
+| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisations Azure complètes pour l’espace de travail (`*`autorisation <sup>1</sup>) <br> *non-actions* de `Microsoft.Authorization/*/Delete` et `Microsoft.Authorization/*/Write` | Collaborateur ||
+| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Autorisation d’accès en lecture Azure | Lecture seule ||
+| Votre compte n’appartient pas à un rôle d’utilisateur Log Analytics hérité <br> Les autorisations Azure ne sont pas comprises | Lecture seule ||
+| Pour les abonnements gérés par le fournisseur de solutions Cloud (CSP) <br> Le compte auquel vous êtes connecté est dans l’instance Azure Active Directory associée à l’espace de travail | Administrateur | En général, il s’agit du client d’un fournisseur de solutions Cloud |
+| Pour les abonnements gérés par le fournisseur de solutions Cloud (CSP) <br> Le compte auquel vous êtes connecté n’est pas dans l’instance Azure Active Directory associée à l’espace de travail | Collaborateur | En général, il s’agit du fournisseur de solutions Cloud |
+
+<sup>1</sup> Pour plus d’informations sur les définitions de rôles, reportez-vous à [Autorisations Azure](../active-directory/role-based-access-control-custom-roles.md). Lors de l’évaluation des rôles, une action de `*` n’est pas équivalente à `Microsoft.OperationalInsights/workspaces/*`. 
 
 Tenez compte des considérations suivantes concernant le portail Azure :
 
-* Il ne s’agit pas d’un *contrôle d’accès basé sur les rôles*. Si vous disposez d’autorisations d’accès *Lecteur* dans le portail Azure pour l’espace de travail Log Analytics, vous pouvez apporter des modifications à l’aide du portail OMS. Le portail OMS est associé aux concepts suivants : Administrateur, Collaborateur et Utilisateur en lecture seule. Si le compte avec lequel vous êtes connecté figure dans le service Azure Active Directory lié à l’espace de travail, vous avez le rôle d’administrateur dans le portail OMS ; sinon, vous disposez d’un rôle de collaborateur.
-* Lorsque vous vous connectez dans le portail OMS à l’aide de http://mms.microsoft.com, par défaut, vous voyez s’afficher la liste **Sélectionner un espace de travail**. Elle contient uniquement les espaces de travail qui ont été ajoutés à l’aide du portail OMS. Pour afficher les espaces de travail auxquels vous pouvez accéder avec un abonnement Azure, vous devez indiquer un locataire dans l’URL. Par exemple :
-
-  `mms.microsoft.com/?tenant=contoso.com` L’identificateur du locataire représente souvent la dernière partie de l’adresse e-mail avec laquelle vous vous connectez.
-* Si le compte avec lequel vous êtes connecté est un compte dans le locataire Azure Active Directory, vous bénéficiez d’un rôle *Administrateur* dans le portail OMS. C’est généralement le cas, sauf si vous vous connectez à un fournisseur de services de chiffrement.  Si votre compte ne figure pas dans le répertoire Azure Active Directory du locataire, vous bénéficiez du rôle *Utilisateur* dans le portail OMS.
+* Lorsque vous vous connectez dans le portail OMS à l’aide de http://mms.microsoft.com, vous voyez s’afficher la liste **Sélectionner un espace de travail**. Cette liste contient uniquement des espaces de travail dans lesquels vous avez un rôle d’utilisateur Log Analytics. Pour afficher les espaces de travail auxquels vous pouvez accéder avec un abonnement Azure, vous devez indiquer un locataire dans l’URL. Par exemple : `mms.microsoft.com/?tenant=contoso.com`. L’identificateur du locataire représente souvent la dernière partie de l’adresse e-mail avec laquelle vous vous connectez.
 * Si vous souhaitez accéder directement à un portail auquel vous avez accès par le biais d’autorisations Azure, vous devez spécifier la ressource dans l’URL. Il est possible d’obtenir cette URL à l’aide de PowerShell.
 
   Par exemple, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   L’URL a l’aspect suivant : `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-Par exemple, pour ajouter ou supprimer des solutions de gestion, l’utilisateur doit être un administrateur ou un collaborateur sur l’abonnement Azure lors de l’utilisation du portail Azure. En outre, l’utilisateur doit être membre du rôle collaborateur ou administrateur de l’espace de travail OMS dans le portail OMS.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Gestion des utilisateurs dans le portail OMS
 Vous pouvez gérer les utilisateurs et les groupes sur l’onglet **Gérer les utilisateurs** sous l’onglet **Comptes** de la page Paramètres.   
@@ -114,11 +144,11 @@ Procédez comme suit pour ajouter un utilisateur ou un groupe à un espace de tr
 3. Dans la section **Gérer les utilisateurs**, sélectionnez le type de compte à ajouter : **Compte d’organisation**, **Compte Microsoft** ou **Support Microsoft**.
 
    * Si vous choisissez Compte Microsoft, saisissez l’adresse électronique de l’utilisateur associé au compte Microsoft.
-   * Si vous choisissez Compte d’organisation, saisissez une partie du nom de l’utilisateur ou du groupe ou l’alias de messagerie électronique. Une liste d’utilisateurs et de groupes s’affiche alors dans une zone déroulante. Sélectionnez un utilisateur ou un groupe.
+   * Si vous choisissez Compte d’organisation, saisissez une partie du nom de l’utilisateur/du groupe ou l’alias de messagerie électronique. Une liste d’utilisateurs et de groupes s’affiche alors dans une zone déroulante. Sélectionnez un utilisateur ou un groupe.
    * Utilisez Support Microsoft pour donner à un ingénieur du support technique Microsoft ou à un autre employé de Microsoft un accès temporaire à votre espace de travail dans le but de faciliter le dépannage.
 
      > [!NOTE]
-     > Pour obtenir de meilleurs résultats, limitez à trois le nombre de groupes Active Directory associés à un seul compte OMS : un pour les administrateurs, un pour les collaborateurs et un pour les utilisateurs en lecture seule. L’utilisation d’un plus grand nombre de groupes peut avoir une incidence sur les performances de Log Analytics.
+     > Pour obtenir de meilleurs résultats, limitez à trois le nombre de groupes Active Directory associés à un seul compte OMS : un pour les administrateurs, un pour les collaborateurs et un pour les utilisateurs en lecture seule. L’utilisation d’un plus grand nombre de groupes peut avoir une incidence sur les performances de Log Analytics.
      >
      >
 4. Choisissez le type d’utilisateur ou de groupe à ajouter : **Administrateur**, **Collaborateur**, ou **Utilisateur en lecture seule**.  
@@ -154,7 +184,7 @@ Procédez comme suit pour supprimer un utilisateur d’un espace de travail. Not
 4. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
 
 ### <a name="add-a-group-to-an-existing-workspace"></a>Ajout d’un groupe à un espace de travail existant
-1. Suivez les étapes 1 à 4 ci-dessus pour ajouter un utilisateur à un espace de travail existant.
+1. Dans la section précédente, « Ajout d’un utilisateur à un espace de travail existant », suivez les étapes 1 à 4.
 2. Sous **Choisir un utilisateur/groupe**, sélectionnez **Groupe**.  
    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
 3. Entrez le nom d’affichage ou l’adresse électronique du groupe que vous souhaitez ajouter.
@@ -204,7 +234,7 @@ Il existe trois types de plan pour les espaces de travail OMS : **Gratuit**, **
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Utilisation de droits dans le cadre d’un abonnement OMS
 Pour utiliser les droits que vous obtenez à l’achat d’un plan OMS E1, OMS E2 ou Complément OMS pour System Center, choisissez le plan *OMS* d’OMS Log Analytics.
 
-Lorsque vous achetez un abonnement OMS, les droits sont ajoutés à votre Contrat Entreprise. Tout abonnement Azure créé dans le cadre de ce contrat peut faire valoir ces droits. Cela vous permet, par exemple, de disposer de plusieurs espaces de travail qui utilisent le droit issu des abonnements OMS.
+Lorsque vous achetez un abonnement OMS, les droits sont ajoutés à votre Contrat Entreprise. Tout abonnement Azure créé dans le cadre de ce contrat peut faire valoir ces droits. Tous les espaces de travail sur ces abonnements utilisent les droits OMS.
 
 Pour vous assurer que l’utilisation d’un espace de travail est appliquée à vos droits à partir de l’abonnement OMS, vous devez :
 
@@ -219,11 +249,11 @@ Pour vous assurer que l’utilisation d’un espace de travail est appliquée à
 Les droits de l’abonnement OMS ne sont pas visibles dans le portail Azure ou OMS. Vous pouvez les consulter, ainsi que l’utilisation, dans le portail Enterprise Portal.  
 
 Si vous devez modifier l’abonnement Azure auquel votre espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .
-
+to
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Utilisation de l’engagement Azure d’un Contrat Entreprise
 Si vous n’avez pas d’abonnement OMS, vous payez séparément pour chaque composant OMS et l’utilisation apparaît sur votre facture Azure.
 
-Si vous disposez d’un engagement monétaire Azure dans le cadre de l’inscription d’entreprise à laquelle vos abonnements Azure sont liés, toute utilisation de Log Analytics est automatiquement débitée de votre engagement monétaire restant.
+Si vous disposez d’un engagement monétaire Azure dans le cadre de l’inscription d’entreprise à laquelle vos abonnements Azure sont liés, l’utilisation de Log Analytics est automatiquement débitée de votre engagement monétaire restant.
 
 Si vous devez modifier l’abonnement Azure auquel l’espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
 
@@ -242,13 +272,13 @@ Si vous devez modifier l’abonnement Azure auquel l’espace de travail est li�
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Modifier votre forfait de données dans le portail OMS
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Migrer un espace de travail vers un niveau tarifaire payant dans le portail OMS
 
-Pour modifier un forfait de données à l’aide du portail OMS, l’utilisateur connecté doit déjà disposer d’un compte Azure.
+Pour modifier le niveau tarifaire à l’aide du portail OMS, vous devez posséder un abonnement Azure.
 
 1. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
 2. Cliquez sur l’onglet **Comptes**, puis sur l’onglet **Azure Subscription & Data Plan** (Forfait de données et abonnement Azure).
-3. Cliquez sur le forfait de données que vous voulez utiliser.
+3. Cliquez sur le niveau tarifaire que vous souhaitez utiliser.
 4. Cliquez sur **Save**.  
    ![forfaits d’abonnement et de données](./media/log-analytics-manage-access/subscription-tab.png)
 
