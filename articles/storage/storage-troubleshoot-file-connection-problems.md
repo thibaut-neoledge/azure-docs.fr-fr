@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -48,10 +48,6 @@ Cet article répertorie les problèmes courants liés au Stockage Fichier Micros
 * [Erreur de montage 115 lors de la tentative de montage Azure Files sur la machine virtuelle Linux](#error15)
 * [Partage de fichiers Azure monté sur la machine virtuelle Linux subissant une baisse des performances](#delayproblem)
 
-
-**Accès depuis d'autres applications**
-
-* [Puis-je faire référence au partage de fichiers Azure pour mon application via une tâche Web ?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -275,11 +271,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Si les options cache = strict ou serverino ne sont pas présentes, démontez puis remontez Azure Files en exécutant la commande mount à partir de la [documentation](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée « /etc/fstab ».
 
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>Accès depuis d’autres applications
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Puis-je faire référence au partage de fichiers Azure pour mon application via une tâche Web ?
-Le montage de partages SMB dans le service d’application sandbox n’est pas possible. Pour résoudre ce problème, vous pouvez mapper le partage de fichiers Azure comme un lecteur mappé et permettre à l’application d’y accéder en tant que lettre de lecteur.
 ## <a name="learn-more"></a>En savoir plus
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 * [Prise en main d’Azure File Storage sur Linux](storage-how-to-use-files-linux.md)
