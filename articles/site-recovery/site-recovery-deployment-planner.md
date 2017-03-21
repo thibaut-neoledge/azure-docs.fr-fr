@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Copiez le fichier zip sur le serveur Windows Server à partir duquel vous voule
 Extrayez le dossier zip. Vous pouvez observer plusieurs fichiers et sous-dossiers. Le fichier exécutable s’appelle ASRDeploymentPlanner.exe dans le dossier parent.
 
 Exemple : copiez le fichier .zip sur le lecteur E:\ et extrayez-le.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Fonctionnalités
 L’outil de ligne de commande (ASRDeploymentPlanner.exe) peut être exécuté dans l’un des trois modes suivants :
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Exemple 2 : pour générer un rapport lorsque les données profilées sont situées sur un serveur distant L’utilisateur doit disposer d’un accès en lecture/écriture sur le répertoire distant.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** « \\PS1-W2K12R2\vCenter1_ProfiledData » **-VMListFile** « \\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt »
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** « \\\\PS1-W2K12R2\vCenter1_ProfiledData » **-VMListFile** « \\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt »
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemple 3 : pour générer un rapport contenant la bande passante spécifique et les objectifs pour terminer le RI dans le temps indiqué
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** « E:\vCenter1_ProfiledData » **-VMListFile** « E:\vCenter1_ProfiledData\ProfileVMList1.txt » **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Le nombre total de disques sur toutes les machines virtuelles compatibles est le
 
 **Virtual Machines to Place** répertorie toutes les machines virtuelles qui doivent être placées dans le compte de stockage Azure donné pour optimiser les performances et l’utilisation.
 
-##<a name="compatible-vms"></a>Machines virtuelles compatibles
+## <a name="compatible-vms"></a>Machines virtuelles compatibles
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** représente le nom de la machine virtuelle ou l’adresse IP utilisés dans le paramètre VMListFile au moment de la génération de rapport. Cette colonne répertorie également les disques (VMDK) attachés aux machines virtuelles.
+**VM Name** représente le nom de la machine virtuelle ou l’adresse IP utilisés dans le paramètre VMListFile au moment de la génération de rapport. Cette colonne répertorie également les disques (VMDK) attachés aux machines virtuelles. Les machines virtuelles sur un serveur vCenter avec des noms ou des adresses IP en double sont mentionnées avec le nom d’hôte ESXi pour pouvoir les distinguer. L’hôte ESXi répertorié est l’hôte sur lequel la machine virtuelle était placée lorsque l’outil l’a découvert pour la première fois pendant le profilage.
 
 **VM Compatibility** possède deux valeurs – Yes / Yes*. La valeur Yes* est destinée aux cas dans lesquels la machine virtuelle est une solution adaptée pour le [stockage Azure Premium](https://aka.ms/premium-storage-workload) avec l’activité élevée profilée/le disque IOPS s’inscrivant dans la catégorie P20 ou P30, mais la taille du disque provoque le mappage à la catégorie P10 ou P20. Stockage Azure décide du type de disque de stockage Premium auquel mapper un disque en fonction de sa taille. Exemple : un disque inférieur à 128 Go est de type P10, un disque compris entre 128 et 512 Go est de type P20, et un disque compris entre 512 Go et 1 023 Go est de type P30. Si les caractéristiques de charge de travail d’un disque l’inscrivent dans la catégorie P20 ou P30, mais que sa taille entraîne son mappage à un type de disque de stockage Premium inférieur, l’outil marque cette machine virtuelle de la valeur Yes* et vous recommande de modifier la taille du disque source pour l’inscrire dans le type de disque de stockage Premium recommandé ou de changer le type de disque cible après le basculement.
 Le stockage est de type standard ou Premium.
@@ -439,7 +439,7 @@ Le stockage est de type standard ou Premium.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** représente le nom de la machine virtuelle ou l’adresse IP utilisés dans le paramètre VMListFile au moment de la génération de rapport. Cette colonne répertorie également les disques (VMDK) attachés aux machines virtuelles.
+**VM Name** représente le nom de la machine virtuelle ou l’adresse IP utilisés dans le paramètre VMListFile au moment de la génération de rapport. Cette colonne répertorie également les disques (VMDK) attachés aux machines virtuelles. Les machines virtuelles sur un serveur vCenter avec des noms ou des adresses IP en double sont mentionnées avec le nom d’hôte ESXi pour pouvoir les distinguer. L’hôte ESXi répertorié est l’hôte sur lequel la machine virtuelle était placée lorsque l’outil l’a découvert pour la première fois pendant le profilage.
 
 **VM Compatibility** indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Azure Site Recovery. Les raisons sont présentées par disque incompatible de machine virtuelle. Il peut s’agir des raisons indiquées ci-après en fonction des [limites](https://aka.ms/azure-storage-scalbility-performance) de stockage Azure publiées.
 
@@ -483,10 +483,27 @@ Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 %. Azure 
 
 Les limites publiées ci-dessus sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, même après la planification du déploiement, il est toujours recommandé d’effectuer des tests d’application approfondis à l’aide du test de basculement pour obtenir une image réelle des performances.
 
-##<a name="release-notes"></a>Notes de publication
+## <a name="how-to-update-the-deployment-planner"></a>Comment mettre à jour Deployment Planner ?
+[Téléchargez](site-recovery-deployment-planner.md#download) la dernière version d’Azure Site Recovery Deployment Planner. Copiez le fichier zip sur le serveur sur lequel vous souhaitez l’exécuter. Extrayez le fichier zip.
+Si vous disposez déjà de la précédente version de Deployment Planner et que le profilage est en cours, vous n’avez pas besoin d’arrêter le profilage, sauf si la nouvelle version possède le correctif de profilage. Si la publication contient des correctifs inclus dans le composant de profilage, il est recommandé d’arrêter le profilage à l’aide de l’ancienne version, puis de le relancer en utilisant la nouvelle version. Lorsque vous commencez le profilage à l’aide de la nouvelle version, vous devez transmettre le même chemin de répertoire de sortie afin que l’outil ajoute les données de profil aux fichiers existants et que le jeu complet de données profilées soit utilisé pour la génération de rapports. Si vous transmettez un répertoire de sortie différent, des fichiers seront créés et les anciennes données profilées ne pourront pas être utilisées lors de la génération de rapports.<br> Chaque mise à jour est une mise à jour cumulative avec un fichier zip. Vous n’avez pas besoin de copier les fichiers de la nouvelle version dans le dossier de la version précédente pour pouvoir les utiliser. Vous pouvez utiliser un nouveau dossier.
+
+
+##<a name="version-history"></a>Historique des versions
+### <a name="11"></a>1.1
+Mise à jour du 9 mars 2017 <br>
+
+Les problèmes suivants ont été résolus :<br>
+
+* Impossibilité de profiler de machines virtuelles si le serveur vCenter possède au moins deux machines virtuelles ayant le même nom/la même adresse IP sur différents hôtes ESXi.<br>
+* La copie et la recherche ont été désactivées pour les feuilles « Compatible VMs » et « Incompatible VMs ».
+
+
+### <a name="10"></a>1.0 
+Mise à jour du 23 février 2017 
+
 La préversion publique d’Azure Site Recovery 1.0 rencontre les problèmes connus suivants qui seront traités dans les prochaines mises à jour.
 
-* L’outil fonctionne uniquement pour le scénario VMware vers Azure, mais pas pour les déploiements Hyper-V vers Azure. Pour ce dernier scénario, utilisez l’[outil de planification de la capacité Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+* L’outil fonctionne uniquement pour le scénario VMware vers Azure, mais pas pour les déploiements Hyper-V vers Azure. Pour ce dernier scénario, utilisez [l’outil de planification de la capacité Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * L’opération GetThroughput n’est pas prise en charge dans les régions Microsoft Azure US Government et Chine.
 * L’outil ne peut pas profiler de machines virtuelles si le serveur vCenter possède au moins deux machines virtuelles ayant le même nom/la même adresse IP sur différents hôtes ESXi. Dans cette version, l’outil ignore le profilage des noms/adresses IP des machines virtuelles en double dans le fichier VMListFile. La solution de contournement consiste à profiler des machines virtuelles avec un hôte ESXi au lieu d’un serveur vCenter. Vous devez exécuter une instance par hôte ESXi.
 
