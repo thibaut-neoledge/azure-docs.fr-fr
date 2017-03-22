@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: f157a68f502f018bab83a377367f92ce20f89adf
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -82,10 +83,5 @@ Vous avez installé les outils de développement et le logiciel nécessaire pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Création et déploiement de l’exemple d’application de clignotement](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

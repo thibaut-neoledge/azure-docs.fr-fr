@@ -3,7 +3,7 @@ title: "Gestion des noms de domaine personnalisés dans Azure Active Directory |
 description: "Concepts de gestion et procédures pour gérer un domaine personnalisé dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: cf3523bd-9ee0-439e-963d-ccea038867b9
@@ -17,6 +17,7 @@ ms.author: curtand;jeffsta
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -66,10 +67,5 @@ La plupart des tâches de gestion des noms de domaine dans Azure Active Director
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les noms de domaine dans Azure AD](active-directory-add-domain-concepts.md)
 * [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

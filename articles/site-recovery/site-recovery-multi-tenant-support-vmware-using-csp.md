@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -193,9 +194,4 @@ Un partenaire peut également ajouter un nouvel utilisateur à l’abonnement du
     ![abonnement-utilisateur](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Le rôle Contributeur suffit pour la plupart des opérations de gestion. Un utilisateur disposant de ce niveau d’accès peut effectuer toutes les opérations sur un abonnement, à l’exception du changement de niveau d’accès (pour cette opération, un niveau d’accès Propriétaire est nécessaire). Vous pouvez également régler les niveaux d’accès en fonction des besoins.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

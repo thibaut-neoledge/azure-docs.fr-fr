@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -27,8 +28,8 @@ Découvrez comment installer Data Lake Tools pour Visual Studio et utiliser Data
 
 U-SQL est un langage hyper évolutif et hautement extensible conçu pour préparer, transformer et analyser toutes les données dans le lac de données et au-delà. Pour plus d'informations, consultez [Référence U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-## <a name="prerequisites"></a>Configuration requise
-* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge. Visual Studio 2017 n’est pas pris en charge pour l’instant.**
+## <a name="prerequisites"></a>Composants requis
+* **Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 ou Visual Studio 2012. Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge ; l’édition Express n’est pas prise en charge. Visual Studio 2017 n’est pas pris en charge pour l’instant.**
 * **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.7.1 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -127,9 +128,9 @@ Les travaux Data Lake Analytics sont écrits en langage U-SQL. Pour en savoir pl
        Nom renseigné automatiquement et les membres seront affichés pour Ensemble de lignes, Classes, Bases de données, Schémas et Objets définis par l'utilisateur (UDO).
 
        IntelliSense pour les entités de catalogue (Bases de données, Schémas, Tables, UDO, etc.) est lié à votre compte de calcul. Vous pouvez vérifier le compte de calcul, la base de données et le schéma actifs actuels dans la barre d'outils supérieure et les faire commuter via les listes déroulantes.
-   * **Développer les colonnes * **
+   * **Développer les colonnes ***
 
-       Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous *. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas.
+       Cliquez à droite de *. Un trait de soulignement bleu doit s’afficher sous*. Placez le curseur sur le trait de soulignement bleu, puis cliquez sur la flèche vers le bas.
        ![Outils Data Lake Visual Studio : développer *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Cliquez sur **Développer les colonnes**. L’outil remplace alors * par le nom des colonnes.
@@ -349,9 +350,4 @@ Le script PowerShell ci-après prépare un compte Azure Data Lake Analytics et l
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

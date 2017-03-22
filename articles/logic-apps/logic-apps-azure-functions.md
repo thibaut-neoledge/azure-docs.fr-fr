@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
-ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -37,7 +37,7 @@ Nous vous recommandons de créer une fonction dans le portail Azure Functions à
 
 Dans le portail Azure, dans le volet **Intégrer** de votre fonction, votre modèle doit montrer que **Mode** a la valeur **Webhook** et que **Type de webhook** est défini sur **JSON générique**. 
 
-Les fonctions de webhook acceptent une demande et la passent à la méthode par le biais d’une variable `data` . Vous pouvez accéder aux propriétés de votre charge utile à l’aide d’une notation par points telle que `data.foo`. Par exemple, une fonction JavaScript simple qui convertit une valeur DateTime en une chaîne de date se présente comme suit :
+Les fonctions de webhook acceptent une demande et la passent à la méthode par le biais d’une variable `data` . Vous pouvez accéder aux propriétés de votre charge utile à l’aide d’une notation par points telle que `data.function-name`. Par exemple, une fonction JavaScript simple qui convertit une valeur DateTime en une chaîne de date se présente comme suit :
 
 ```
 function start(req, res){

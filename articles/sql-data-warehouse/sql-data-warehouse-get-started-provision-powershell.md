@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +35,7 @@ Cet article vous explique comment créer un entrepôt SQL Data Warehouse à l’
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Compte Azure** : consultez [Évaluation gratuite d’Azure][Azure Free Trial] ou [Crédits Azure MSDN][MSDN Azure Credits] pour créer un compte.
-* **Serveur Azure SQL Server** : consultez [Créer un serveur logique de base de données SQL Azure avec le Portail Azure][Create an Azure SQL Database logical server with the Azure Portal] ou [Créer un serveur logique de base de données SQL Azure avec PowerShell][Create an Azure SQL Database logical server with PowerShell] pour plus d’informations.
+* **Serveur Azure SQL Server** : consultez [Create an Azure SQL database in the Azure Portal][Create an Azure SQL database in the Azure Portal] (Créer une base de données SQL Azure dans le Portail Azure) ou [Didacticiel : approvisionner une base de données Azure SQL Database et y accéder à l’aide de PowerShell][Create an Azure SQL database with PowerShell] pour plus d’informations.
 * **Groupe de ressources**: utilisez le même groupe de ressources que votre serveur Azure SQL Server ou consultez [Créer un groupe de ressources](../azure-resource-manager/resource-group-portal.md).
 * **PowerShell version 1.0.3 ou supérieure** : vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name Azure**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 
@@ -84,7 +85,7 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-load-with-bcp.md
@@ -94,8 +95,8 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database
+[Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
@@ -108,9 +109,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

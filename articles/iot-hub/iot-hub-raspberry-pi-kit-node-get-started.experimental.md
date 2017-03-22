@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1a67616d42d233866d5d3eb86aafb1df911d5cdf
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ Accédez à [Section facultative : Modification du comportement activé/désact
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 Si vous rencontrez des problèmes au cours des leçons, vous pouvez rechercher des solutions dans l’article [Résolution des problèmes](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

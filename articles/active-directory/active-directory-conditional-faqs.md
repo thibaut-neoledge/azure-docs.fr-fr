@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -36,10 +37,5 @@ La stratégie ne s’applique actuellement pas aux utilisateurs SharePoint invit
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>La stratégie d’accès conditionnel s’applique-t-elle aux comptes de service ?
 **R :** Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateurs. Cela inclut les comptes d’utilisateurs utilisés comme comptes de service. Dans de nombreux cas, un compte de service qui s’exécute sans assistance n’est pas en mesure de remplir les conditions d’une stratégie. C’est par exemple le cas lorsque l’authentification multi-facteur est requise. Dans ces cas, les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion de stratégie accès conditionnel. Pour en savoir plus sur l’application d’une stratégie à des utilisateurs, rendez-vous ici.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

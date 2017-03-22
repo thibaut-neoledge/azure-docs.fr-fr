@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Ajoutez la nouvelle clé GPG à votre porte-clés apt.
+3. Ajoutez le référentiel dotnet à votre liste de sources.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Ajoutez la nouvelle clé GPG à votre porte-clés apt.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Actualisez vos listes de packages selon les référentiels nouvellement ajoutés.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Actualisez vos listes de packages selon les référentiels nouvellement ajoutés.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>Installer et configurer le Kit de développement logiciel (SDK)
 Une fois vos sources mises à jour, vous pouvez installer le Kit de développement logiciel (SDK).
 
@@ -136,16 +145,19 @@ Le Kit de développement logiciel (SDK) Java fournit les bibliothèques et les m
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’IDE Eclipse Neon.
+Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de **l’IDE Eclipse pour les développeurs Java**.
 
-1. Dans Eclipse, assurez-vous que vous avez Buildship version 1.0.17 ou une version ultérieure. Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
+1. Dans Eclipse, assurez-vous que vous disposez de la dernière version d’Eclipse **Neon** et de Buildship (version&1;.0.17 ou ultérieure). Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
 2. Pour installer le plug-in Service Fabric, choisissez **Aide > Installer un nouveau logiciel...**
 3. Dans la zone de texte « Utiliser », entrez : http://dl.windowsazure.com/eclipse/servicefabric
 4. Cliquez sur Ajouter.
-
     ![Plug-in Eclipse][sf-eclipse-plugin]
 5. Choisissez le plug-in Service Fabric et cliquez sur Suivant.
 6. Suivez les étapes d’installation et acceptez le contrat de licence d’utilisateur final.
+
+Si le plug-in Eclipse de Service Fabric est déjà installé, assurez-vous que vous disposez de la dernière version. Vous pouvez vérifier s’il peut être mis à jour en suivant - ``Help => Installation Details``. Recherchez ensuite Service Fabric dans la liste des plug-ins installés, puis cliquez sur Mettre à jour. Les mises à jour en attente seront extraites et installées.
+
+Pour plus d’informations sur l’utilisation du plug-in Eclipse de Service Fabric pour créer, générer, déployer ou mettre à niveau une application Java Service Fabric, reportez-vous à notre guide détaillé [Service Fabric getting started with eclipse](service-fabric-get-started-eclipse.md) (Service Fabric : prise en main avec Eclipse).
 
 ## <a name="install-the-net-core-sdk-optional"></a>Installer le Kit de développement (SDK) .NET Core (facultatif)
 Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de .Net Core interplateforme.
@@ -174,7 +186,8 @@ Pour mettre à jour vers la dernière version du kit de développement logiciel 
 Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman (Créer et déployer votre première application Java Service Fabric sur Linux à l’aide de Yeoman)](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse (Créer et déployer votre première application Java Service Fabric sur Linux à l’aide du plug-in Service Fabric pour Eclipse)](service-fabric-get-started-eclipse.md)
 * [Create your first Java application on Linux (Créer votre première application Java sur Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
 * [Use the Azure CLI to manage your Service Fabric applications (Utiliser l’interface Azure CLI pour gérer vos applications Service Fabric)](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez clo
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

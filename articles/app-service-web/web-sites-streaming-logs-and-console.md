@@ -57,7 +57,7 @@ console.log("My trace statement").
 ### <a name="how-to-enable-and-view-the-streaming-logs"></a>Activation et affichage des journaux en continu
 ![][BrowseSitesScreenshot] Les diagnostics sont activés par application. Commencez par naviguer jusqu’au site pour lequel vous souhaitez activer cette fonctionnalité.  
 
-![][DiagnosticsLogs] À partir du menu Paramètres, faites défiler jusqu’à la section **Analyse** et cliquez sur **(1) Journaux de diagnostic**. Puis **(2) activez ** **Journal des applications (Filesystem)** ou **Journal des applications (Blob)** L’option **Niveau** vous permet de modifier le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront collectées.
+![][DiagnosticsLogs] À partir du menu Paramètres, faites défiler jusqu’à la section **Analyse** et cliquez sur **(1) Journaux de diagnostic**. Puis **(2) activez** **Journal des applications (Filesystem)** ou **Journal des applications (Blob)** L’option **Niveau** vous permet de modifier le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront collectées.
 
 Cliquez sur **SAVE** en haut du volet pour afficher les journaux.
 

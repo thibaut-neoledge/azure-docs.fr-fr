@@ -13,13 +13,13 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
-ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,11 +37,15 @@ Dans ce didacticiel, vous allez apprendre à utiliser SQL Server Management Stud
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/free/) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+* **Un compte Azure**. Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://azure.microsoft.com/free/) ou [activer les avantages de l’abonnement à Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
+* **Des autorisations de création Azure**. Vous devez être en mesure de vous connecter au portail Azure à l’aide d’un compte qui est membre du propriétaire de l’abonnement ou du rôle du collaborateur. Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC), consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 
-* Vous avez exécuté le didacticiel [Prise en main des serveurs Azure SQL Database, des bases de données et des règles de pare-feu à l’aide du portail Azure et de SQL Server Management Studio](sql-database-get-started.md) ou la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel. Dans le cas contraire, suivez ce didacticiel préalable ou exécutez le script PowerShell à la fin de la [version PowerShell](sql-database-get-started-powershell.md) de ce didacticiel avant de continuer.
+* **SQL Server Management Studio**. Pour télécharger et installer la dernière version de SQL Server Management Studio (SSMS), consultez l’article [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Lorsque vous vous connectez à Azure SQL Database, utilisez toujours la dernière version de SSMS, car de nouvelles fonctionnalités sont continuellement publiées.
+
+* **Serveur de base et bases de données**. Pour installer et configurer un serveur et deux bases de données utilisés dans ce didacticiel, cliquez sur le bouton **Déployer sur Azure**. Lorsque vous cliquez sur le bouton, le panneau **Deploy from a template** (Déployer à partir d’un modèle) s’ouvre. Créez un groupe de ressources et indiquez le **mot de passe de connexion administrateur** pour le nouveau serveur qui sera créé :
+
+   [![télécharger](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
    > Vous n’êtes pas obligé de suivre le didacticiel associé à l’authentification SQL Server, à savoir : [Authentification SQL, connexions et comptes utilisateur, rôles de base de données, autorisations, règles de pare-feu de niveau serveur et règles de pare-feu de niveau base de données](sql-database-control-access-sql-authentication-get-started.md). Toutefois, certains concepts abordés dans ce didacticiel ne sont pas mentionnés ici. Les procédures décrites dans ce didacticiel, qui porte sur les pare-feu de niveau serveur et base de données, ne sont pas obligatoires si vous avez effectué ce didacticiel connexe sur les mêmes machines (avec la même adresse IP). C’est pour cette raison qu’ils sont indiqués comme étant facultatifs. En outre, les captures d’écran de ce didacticiel supposent que vous avez effectué ce didacticiel connexe. 

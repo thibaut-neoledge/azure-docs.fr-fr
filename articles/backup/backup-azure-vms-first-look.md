@@ -1,6 +1,6 @@
 ---
-title: "Découverte : Protéger les machines virtuelles Azure avec un coffre de sauvegarde | Microsoft Docs"
-description: "Protégez les machines virtuelles Azure avec un coffre de sauvegarde. Ce didacticiel explique comment créer un archivage, inscrire des machines virtuelles, créer des stratégies et protéger des machines virtuelles dans Azure."
+title: "Découverte : Sauvegarder des machines virtuelles Azure avec un coffre de sauvegarde | Microsoft Docs"
+description: "Utilisez le portail classique pour sauvegarder des machines virtuelles Azure dans un coffre de sauvegarde. Ce didacticiel décrit toutes les phases, y compris la création du coffre de sauvegarde, l’inscription des machines virtuelles, l’élaboration de la stratégie de sauvegarde et l’exécution du travail de sauvegarde initiale."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/10/2017
-ms.author: markgal; jimpark
+ms.date: 3/10/2017
+ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,66 +28,30 @@ ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 >
 >
 
-Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers un archivage de sauvegarde dans Azure. Cet article décrit le modèle Classic ou le modèle de déploiement Service Manager, pour la sauvegarde des machines virtuelles. Si vous souhaitez sauvegarder une machine virtuelle dans un coffre Recovery Services qui appartient à un groupe de ressources, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md). Pour pouvoir suivre ce didacticiel, ces conditions préalables doivent être réunies :
+Ce didacticiel vous accompagne tout au long de la procédure de sauvegarde d’une machine virtuelle Azure vers un archivage de sauvegarde dans Azure. Cet article décrit le modèle classique ou le modèle de déploiement Service Manager, pour la sauvegarde des machines virtuelles. Les étapes suivantes s’appliquent uniquement aux coffres de sauvegarde créés dans le portail classique. Pour les nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+
+Si vous souhaitez sauvegarder une machine virtuelle dans un coffre Recovery Services qui appartient à un groupe de ressources, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+
+Pour pouvoir suivre ce didacticiel, les conditions préalables ci-après doivent être réunies :
 
 * Vous avez créé une machine virtuelle dans votre abonnement Azure.
 * La machine virtuelle dispose d’une connectivité à des adresses IP publiques Azure. Pour plus d’informations, consultez la rubrique [Connectivité réseau](backup-azure-vms-prepare.md#network-connectivity).
 
-La sauvegarde d’une machine virtuelle se compose de cinq étapes principales :  
-
-![step-one](./media/backup-azure-vms-first-look/step-one.png) Créez un coffre de sauvegarde ou identifiez un coffre de sauvegarde existant. <br/>
-![step-two](./media/backup-azure-vms-first-look/step-two.png) Utilisez le portail Azure Classic pour découvrir et inscrire les machines virtuelles. <br/>
-![step-three](./media/backup-azure-vms-first-look/step-three.png) Installez l’agent de machine virtuelle. <br/>
-![step-four](./media/backup-azure-vms-first-look/step-four.png) Créez la stratégie de protection des machines virtuelles. <br/>
-![step-five](./media/backup-azure-vms-first-look/step-five.png) Exécutez la sauvegarde.
-
-![Vue d’ensemble du processus de sauvegarde de machine virtuelle](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Ce didacticiel est destiné aux machines virtuelles qui peuvent être créées dans le portail Azure Classic. Le service Azure Backup prend en charge les machines virtuelles basées sur Resource Manager. Pour plus d’informations sur la sauvegarde des machines virtuelles dans un coffre Recovery Services, consultez l’article [Découverte : Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Ce didacticiel est destiné aux machines virtuelles créées dans le portail classique.
 >
 >
 
-## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Étape 1 : création d’un archivage (ou coffre) de sauvegarde pour une machine virtuelle
+## <a name="create-a-backup-vault"></a>Créer un coffre de sauvegarde
 Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. Le coffre de sauvegarde contient également les stratégies de sauvegarde qui sont appliquées aux machines virtuelles en cours de sauvegarde.
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/).
-2. Dans le coin inférieur gauche du portail Azure, cliquez sur **Nouveau**
+> [!IMPORTANT]
+> Depuis mars 2017, vous ne pouvez plus utiliser le portail classique pour créer des coffres de sauvegarde. Les coffres de sauvegarde existants sont toujours pris en charge, et il est possible [d’utiliser Azure PowerShell pour créer des coffres de sauvegarde](./backup-client-automation-classic.md#create-a-backup-vault). Toutefois, Microsoft vous recommande de créer des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services.
 
-    ![Cliquez sur le menu Nouveau](./media/backup-azure-vms-first-look/new-button.png)
-3. Dans l’Assistant Création rapide, cliquez sur **Data Services** > **Recovery Services** > **Coffre de sauvegarde** > **Création rapide**.
 
-    ![Créer un archivage de sauvegarde](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    L’Assistant vous invite à entrer le **Nom** et la **Région**. Si vous gérez plusieurs abonnements, une boîte de dialogue de choix de l'abonnement s'affiche.
-4. Pour le champ **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure.
-5. Dans **Region**, sélectionnez la région géographique du coffre. Le coffre **doit** se trouver dans la même région que les machines virtuelles qu’il protège.
-
-    Si vous ne connaissez pas la région dans laquelle se trouve votre machine virtuelle, fermez cet Assistant et cliquez sur **Machines virtuelles** dans la liste des services Azure. La colonne Emplacement fournit le nom de la région. Si vous avez des machines virtuelles dans plusieurs régions, créez un coffre de sauvegarde par région.
-6. Si la boîte de dialogue de l’Assistant ne contient aucun **Abonnement** , passez à l’étape suivante. Si vous travaillez avec plusieurs abonnements, sélectionnez un abonnement à associer au nouveau coffre de sauvegarde.
-
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
-7. Cliquez sur **Create vault**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d'état en bas du portail.
-
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo.png)
-
-    Un message confirme que le coffre a été correctement créé. Celui-ci est répertorié dans la page **Recovery Services** comme étant **Actif**.
-
-    ![Créer une notification toast l’archivage](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
-8. Dans la liste des coffres de la page **Recovery Services**, sélectionnez le coffre que vous avez créé pour ouvrir la page **Démarrage rapide**.
-
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look/active-vault-demo.png)
-9. Dans la page **Démarrage rapide**, cliquez sur **Configurer** pour accéder à l’option de réplication du stockage.
-    ![Liste des coffres de sauvegarde](./media/backup-azure-vms-first-look/configure-storage.png)
-10. Dans l’option **Réplication du stockage** , choisissez l’option de réplication de votre coffre.
-
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
-
-    Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, choisissez Stockage géo-redondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage géo-redondant et localement redondant, consultez l’article [Réplication Azure Storage](../storage/storage-redundancy.md).
-
-Après avoir sélectionné l’option de stockage pour votre archivage, vous pouvez associer la machine virtuelle à l’archivage. Pour commencer l’association, découvrez et enregistrez les machines virtuelles Azure.
-
-## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Étape 2 : découverte et enregistrement des machines virtuelles Azure
+## <a name="discover-and-register-azure-virtual-machines"></a>Découverte et inscription des machines virtuelles Azure
 Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus de découverte pour identifier les nouvelles machines virtuelles éventuelles. Ce dernier renvoie la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
 1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/)
@@ -133,12 +98,12 @@ Avant d’enregistrer la machine virtuelle dans un coffre, lancez le processus d
 
     ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Étape 3 : installation de l’agent de machine virtuelle sur la machine virtuelle
-L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent est déjà installé sur la machine virtuelle ! Vous pouvez passer à la [protection de vos machines virtuelles](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installer l’agent de machine virtuelle sur la machine virtuelle
+L’agent de machine virtuelle Azure doit être installé sur la machine virtuelle Azure pour permettre la prise en charge de l’extension Backup. Si votre machine virtuelle a été créée à partir de la galerie Azure, l’agent de machine virtuelle est déjà installé sur la machine virtuelle. Vous pouvez directement passer à l’étape de [protection de vos machines virtuelles](backup-azure-vms-first-look.md#create-the-backup-policy).
 
 Si votre machine virtuelle a migré à partir d'un centre de données local, il est probable que l’agent de machine virtuelle n’y soit pas installé. Vous devez installer l'agent sur la machine virtuelle avant de passer à l’étape de protection de la machine virtuelle. Pour obtenir des instructions détaillées sur l’installation de l’agent de machine virtuelle, consultez la [section Agent VM de l’article sur la sauvegarde des machines virtuelles](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4---create-the-backup-policy"></a>Étape 4 : création de la stratégie de sauvegarde
+## <a name="create-the-backup-policy"></a>Création de la stratégie de sauvegarde
 Avant de déclencher le travail de sauvegarde initiale, définissez la planification des instantanés de sauvegarde. La planification des instantanés de sauvegarde et la durée de rétention de ces instantanés constituent la stratégie de sauvegarde. Les informations de rétention sont basées sur le schéma de rotation des sauvegardes grand-père-père-fils.
 
 1. Accédez au coffre de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure Classic, puis cliquez sur **Éléments inscrits**.
@@ -175,7 +140,7 @@ Avant de déclencher le travail de sauvegarde initiale, définissez la planifica
 
     Maintenant que vous avez créé la stratégie, passez à l'étape suivante et lancez la sauvegarde initiale.
 
-## <a name="step-5---initial-backup"></a>Étape 5 : sauvegarde initiale
+## <a name="initial-backup"></a>Sauvegarde initiale
 Une fois la machine virtuelle protégée par une stratégie, vous pouvez afficher cette relation dans l’onglet **Éléments protégés** . Avant l’exécution de la sauvegarde initiale, la valeur **Protégé (en attente de sauvegarde initiale)** s’affiche sous **État de la protection**. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
 ![Sauvegarde en attente](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -208,9 +173,4 @@ Maintenant que vous êtes parvenu à sauvegarder une machine virtuelle, d’autr
 
 ## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

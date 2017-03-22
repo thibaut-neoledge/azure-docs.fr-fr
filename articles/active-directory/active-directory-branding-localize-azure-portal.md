@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -48,9 +49,4 @@ Il peut s’écouler jusqu’à une heure avant que les modifications que vous a
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Ajouter votre marque à votre page de connexion](active-directory-branding-custom-signon-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
