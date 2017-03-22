@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +108,3 @@ Si vous rencontrez des problèmes au cours des leçons, recherchez des solutions
 
 ## <a name="explore-more"></a>Aller plus loin
 Consultez la [zone pour développeurs Intel IoT Gateway Kit](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) pour en savoir plus.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

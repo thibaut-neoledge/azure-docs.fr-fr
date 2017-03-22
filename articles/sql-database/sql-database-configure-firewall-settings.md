@@ -13,11 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/21/2017
 ms.author: rickbyh
 translationtype: Human Translation
 ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
 ms.openlocfilehash: 1939b69ee806d9091a21f3b21a276175d5a19a62
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -53,10 +54,5 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications.
 * [Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)   
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

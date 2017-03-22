@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2016
+ms.date: 3/21/2017
 ms.author: raiye
 translationtype: Human Translation
 ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
 ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -73,10 +74,5 @@ Les services cloud de la famille 1 des SE invités ne sont plus pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

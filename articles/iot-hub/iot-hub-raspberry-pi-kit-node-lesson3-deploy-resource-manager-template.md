@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -74,10 +75,5 @@ Vous avez créé votre application de fonction Azure pour traiter les messages d
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécuter l’exemple d’application pour envoyer des messages appareil-à-cloud sur un Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
