@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -44,10 +45,5 @@ Cela s’applique aux stratégies MFA / d’emplacement, ainsi qu’aux stratég
 ## <a name="see-also"></a>Voir aussi
 * [Utilisation de l’accès conditionnel avec Office 365 et les autres applications connectées à Azure Active Directory](active-directory-conditional-access.md)
 * [Prise en main de l’accès conditionnel à Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

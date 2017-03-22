@@ -148,7 +148,7 @@ Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autr
 
 1. Assurez-vous que la dernière version de [WMF 5](http://aka.ms/wmf5latest) est installée sur les ordinateurs que vous souhaitez intégrer à Azure Automation DSC.
 2. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) ci-après pour générer un dossier contenant les métaconfigurations DSC nécessaires.
-3. Appliquez à distance la métaconfiguration DSC PowerShell aux machines que vous voulez intégrer. **La machine à partir de laquelle cette commande est exécutée doit disposer de la dernière version de [WMF 5](http://aka.ms/wmf5latest) **:
+3. Appliquez à distance la métaconfiguration DSC PowerShell aux machines que vous voulez intégrer. **La machine à partir de laquelle cette commande est exécutée doit disposer de la dernière version de [WMF 5](http://aka.ms/wmf5latest)**:
 
     ```powershell
     Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2

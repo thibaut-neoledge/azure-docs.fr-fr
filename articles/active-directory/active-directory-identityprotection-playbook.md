@@ -6,18 +6,18 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -131,15 +131,10 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 10. Vous pouvez maintenant tester l’accès conditionnel en fonction des risques en simulant les événements à risque liés à des emplacements inhabituels ou à des adresses IP anonymes, dont le risque est considéré comme **moyen** .
 
 
-![Manuel](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+![Manuel](./media/active-directory-identityprotection-playbook/200.png "Manuel")
 
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

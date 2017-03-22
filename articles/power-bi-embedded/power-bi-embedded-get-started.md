@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Prise en main de Microsoft Power BI Embedded
+
 **Power BI Embedded** est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications. **Power BI Embedded** fonctionne avec les applications existantes sans avoir besoin de repenser ou de modifier le mode de connexion des utilisateurs.
 
 Les ressources de **Microsoft Power BI Embedded** sont approvisionnées via les [API Azure ARM](https://msdn.microsoft.com/library/mt712306.aspx). Dans ce cas, la ressource que vous approvisionnez constitue une **collection d’espaces de travail Power BI**.
@@ -30,6 +30,7 @@ Les ressources de **Microsoft Power BI Embedded** sont approvisionnées via les 
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Création d’une collection d’espaces de travail
+
 Une **collection d’espaces de travail** est la ressource Azure de premier niveau, qui contient les données intégrées à votre application. Pour créer une **collection d’espaces de travail** , deux possibilités s’offrent à vous :
 
 * Création manuelle à l’aide du portail Azure
@@ -55,7 +56,8 @@ Le **panneau Création** contient les informations nécessaires pour appeler les
 
 <a name="view-access-keys"/>
 
-## <a name="view-power-bi-api-access-keys"></a>Affichage des touches d'accès rapide aux API de Power BI
+## <a name="view-power-bi-api-access-keys"></a>Affichage des touches d’accès rapide aux API de Power BI
+
 Les **touches d’accès rapide**sont l’un des éléments d’informations les plus importants pour appeler les API REST de Power BI. Elles sont utilisées pour générer les **jetons d’application** qui servent à authentifier les demandes d’API. Pour afficher vos **touches d’accès rapide**, cliquez sur **Touches d’accès rapide** dans le **panneau Paramètres**. Pour en savoir plus sur les **jetons d’application**, voir [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ Maintenant que vous disposez d’une instance de Power BI pour votre application
 
 Une fois votre collection d’espaces de travail créée, vous devrez créer un espace de travail qui hébergera vos rapports et vos jeux de données. Pour créer un espace de travail, vous devrez utiliser [l’API REST Post Workspace](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Création de rapports et de jeux de données à intégrer dans une application
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Création de rapports et de jeux de données Power BI à intégrer dans une application avec Power BI Desktop
+
 Maintenant que vous avez créé une instance de Power BI pour votre application et que vous avez des **touches d’accès rapide**, vous devez créer les rapports et les jeux de données Power BI à intégrer. Vous pouvez créer des rapports et des jeux de données à l’aide de **Power BI Desktop**. Vous pouvez télécharger [Power BI Desktop gratuitement](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, pour une prise en main rapide, vous pouvez télécharger [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
@@ -95,20 +98,25 @@ Lorsque vous enregistrez votre travail dans **Power BI Desktop**, un fichier PBI
 > [!NOTE]
 > **Power BI Embedded** contient d’autres API pour modifier le serveur et la base de données vers lesquels pointe votre jeu de données, et définir les informations d’identification du compte de service utilisé par le jeu de données pour se connecter à votre base de données. Consultez les pages [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) et [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans les étapes précédentes, vous avez créé une collection d’espaces de travail, votre premier rapport et votre premier jeu de données. Maintenant, vous allez découvrir comment écrire du code pour **Power BI Embedded**. Pour faciliter vos premiers pas, nous avons créé un exemple d’application web : [Prise en main de l’exemple Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). Cet exemple vous montre comment :
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Création de rapports et de jeux de données Power BI avec des API
 
-* Approvisionner du contenu
-  * Créer un espace de travail
-  * Importer un fichier PBIX
-  * Mettre à jour les chaînes de connexion et définir les informations d'identification de vos jeux de données.
-* Intégrer un rapport en toute sécurité
+### <a name="datsets"></a>Jeux de données
+
+Vous pouvez créer des jeux de données dans Power BI Embedded avec l’API REST. Vous pouvez ensuite transmettre les données dans votre jeu de données. Cela vous permet d’utiliser des données sans avoir besoin de Power BI Desktop. Pour plus d’informations, consultez [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Opération Post Datasets).
+
+### <a name="reports"></a>Rapports
+
+Vous pouvez créer un rapport directement à partir d’un jeu de données de votre application avec l’API JavaScript. Pour plus d’informations, consultez [Create a new report from a dataset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md) (Créer un rapport à partir d’un jeu de données dans Power BI Embedded).
 
 ## <a name="see-also"></a>Voir aussi
-* [Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)
-* [Authentification et autorisation avec Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Prise en main de l’exemple](power-bi-embedded-get-started-sample.md)  
+[Authentification et autorisation dans Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Embed a report](power-bi-embedded-embed-report.md) (Intégrer un rapport)  
+[Create a new report from a dataset in Power BI Embedded](power-bi-embedded-create-report-from-dataset.md) (Créer un rapport à partir d’un jeu de données dans Power BI Embedded)
+[Save reports in Power BI Embedded](power-bi-embedded-save-reports.md) (Enregistrer des rapports dans Power BI Embedded)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Exemple d’incorporation JavaScript)  
 Des questions ? [Essayer la communauté Power BI](http://community.powerbi.com/)
 
 

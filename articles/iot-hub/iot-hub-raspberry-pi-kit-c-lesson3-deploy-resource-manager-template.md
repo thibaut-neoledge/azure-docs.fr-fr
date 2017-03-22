@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 402a5dac4e77f64576acb968b67df92167f54f27
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,10 +74,5 @@ Vous avez créé votre application de fonction Azure pour traiter les messages d
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

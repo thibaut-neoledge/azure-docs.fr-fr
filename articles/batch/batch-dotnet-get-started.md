@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ Cet article suppose que vous avez acquis une connaissance pratique de C# et Visu
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Vous devez disposer de **Visual Studio 2015** pour générer l’exemple de projet. Des versions gratuites et d’évaluation de Visual Studio sont accessibles à partir de la page [Vue d’ensemble des produits de Visual Studio 2015][visual_studio].
+Vous devez disposer de **Visual Studio 2015 ou d’une version ultérieure** pour générer l’exemple de projet. Des versions gratuites et d’évaluation de Visual Studio sont accessibles à partir de la page [Vue d’ensemble des produits de Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*
 L’exemple [DotNetTutorial][github_dotnettutorial] est l’un des nombreux exemples de code Batch disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub. Vous pouvez télécharger tous les exemples en cliquant sur le bouton **Cloner ou télécharger > Télécharger ZIP** de la page d’accueil du référentiel ou en cliquant sur le lien de téléchargement direct [azure-batch-samples-master.zip][github_samples_zip]. Après avoir extrait le contenu de ce fichier ZIP, vous trouverez la solution dans le dossier suivant :
@@ -59,7 +59,7 @@ L’exemple [DotNetTutorial][github_dotnettutorial] est l’un des nombreux exem
 [Azure Batch Explorer][github_batchexplorer] est un utilitaire gratuit inclus dans le référentiel [azure-batch-samples][github_samples] sur GitHub. Bien qu’il ne soit pas nécessaire pour suivre ce didacticiel, il peut être utile lors du développement et du débogage de vos solutions Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Vue d’ensemble de l’exemple de projet DotNetTutorial
-L’exemple de code *DotNetTutorial* est une solution Visual Studio 2015 qui se compose de deux projets : **DotNetTutorial** et **TaskApplication**.
+L’exemple de code *DotNetTutorial* est une solution Visual Studio qui se compose de deux projets : **DotNetTutorial** et **TaskApplication**.
 
 * **DotNetTutorial** est l’application cliente qui interagit avec les services Batch et Storage pour exécuter une charge de travail parallèle sur des nœuds de calcul (machines virtuelles). DotNetTutorial s’exécute sur votre station de travail locale.
 * **TaskApplication** est le programme qui s’exécute sur les nœuds de calcul dans Azure pour mener à bien l’opération proprement dite. Dans l’exemple, `TaskApplication.exe` analyse le texte d’un fichier téléchargé depuis Stockage Azure (le fichier d’entrée). Ensuite, il génère un fichier texte (fichier de sortie) qui contient une liste des trois mots principaux qui s’affichent dans le fichier d’entrée. Après avoir créé le fichier de sortie, TaskApplication télécharge le fichier dans Azure Storage. Il est ainsi mis à la disposition de l’application cliente pour le téléchargement. TaskApplication s’exécute en parallèle sur plusieurs nœuds de calcul dans le service Batch.
@@ -792,7 +792,7 @@ Vous pouvez apporter des modifications à *DotNetTutorial* et à *TaskApplicatio
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Créer des conteneurs dans le Stockage Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Charger les fichiers d’application de tâche et les fichiers (de données) d’entrée dans les conteneurs"

@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,9 +26,9 @@ Avec Visual Studio et les [Kits de développement logiciel (SDK) Azure](https:/
 
 Les projets de groupe de ressources Azure contiennent des modèles JSON Azure Resource Manager, qui définissent les ressources que vous déployez sur Azure. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md). Visual Studio vous permet de modifier ces modèles et fournit des outils qui simplifient l’utilisation des modèles.
 
-Dans cette rubrique, vous déployez une application web et SQL Database. Toutefois, les étapes sont presque identiques pour tous les types de ressources. Vous pouvez tout aussi facilement déployer une machine virtuelle et ses ressources associées. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants.
+Dans cet article, vous déployez une application web et SQL Database. Toutefois, les étapes sont presque identiques pour tous les types de ressources. Vous pouvez tout aussi facilement déployer une machine virtuelle et ses ressources associées. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants.
 
-Cet article présente Visual Studio 2015 Update 2 et le Kit de développement logiciel (SDK) Microsoft Azure pour .NET 2.9. Si vous utilisez Visual Studio 2013 avec le Kit de développement logiciel (SDK) Azure 2.9, votre expérience sera en grande partie la même. Vous pouvez également utiliser la version 2.6 ou les versions ultérieures du Kit de développement logiciel (SDK) Azure, mais l’interface utilisateur que vous verrez peut différer de celle illustrée dans cet article. Nous vous recommandons fortement d’installer la dernière version du [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) avant de commencer à suivre les étapes. 
+Cet article présente Visual Studio 2017. Si vous utilisez Visual Studio 2015 Update 2 et le kit de développement logiciel (SDK) Microsoft Azure pour .NET 2.9 ou Visual Studio 2013 avec Azure SDK 2.9, votre expérience sera sensiblement identique. Vous pouvez également utiliser la version 2.6 ou les versions ultérieures du Kit de développement logiciel (SDK) Azure, mais l’interface utilisateur que vous verrez peut différer de celle illustrée dans cet article. Nous vous recommandons fortement d’installer la dernière version du [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) avant de commencer à suivre les étapes. 
 
 ## <a name="create-azure-resource-group-project"></a>Créer un projet de groupe de ressources Azure
 Au cours de cette procédure, vous allez apprendre à créer un projet de groupe de ressources Azure avec un modèle **Application web + SQL** .
@@ -35,7 +36,7 @@ Au cours de cette procédure, vous allez apprendre à créer un projet de groupe
 1. Dans Visual Studio, sélectionnez **Fichier**, **Nouveau projet**, puis choisissez **C#** ou **Visual Basic**. Choisissez ensuite **Cloud** et le projet de **Groupe de ressources Azure**.
    
     ![Projet de déploiement cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Choisissez le modèle à déployer sur Azure Resource Manager. Notez qu’il existe de nombreuses options différentes selon le type de projet que vous voulez déployer. Pour cet exemple, sélectionnez le modèle **Application web + SQL** .
+2. Choisissez le modèle à déployer sur Azure Resource Manager. Notez qu’il existe de nombreuses options différentes selon le type de projet que vous voulez déployer. Pour cet article, sélectionnez le modèle **Application web + SQL** .
    
     ![Sélectionner un modèle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +48,7 @@ Au cours de cette procédure, vous allez apprendre à créer un projet de groupe
    > 
    
     Visual Studio crée un projet de déploiement de groupe de ressources Azure pour une application web et une base de données SQL.
-3. Pour voir les éléments créés, développez les nœuds du projet de déploiement.
+3. Pour voir les éléments créés, consultez les nœuds du projet de déploiement.
    
     ![afficher les nœuds](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,7 +114,7 @@ Vous pouvez définir **numberOfWorkers** sur 1.
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Déployer le projet de groupe de ressources sur Azure
 Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un projet de groupe de ressources Azure, vous le déployez dans un groupe de ressources Azure. Un groupe de ressources est un regroupement logique de ressources qui partagent un cycle de vie commun.
 
-1. Dans le menu contextuel du nœud du projet de déploiement, choisissez **Déployer** > **Nouveau déploiement**.
+1. Dans le menu contextuel du nœud du projet de déploiement, choisissez **Déployer** > **Nouveau**.
    
     ![Déployer, élément de menu Nouveau déploiement](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
@@ -141,7 +142,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
     **databaseName** spécifie le nom de la base de données à créer. 
    
     ![Boîte de dialogue Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Une console PowerShell s’ouvre en dehors de l’instance de Visual Studio. Entrez le mot de passe d’administrateur SQL Server dans la console PowerShell lorsque vous y êtes invité. **Votre console PowerShell peut être masquée par d’autres éléments ou réduite dans la barre des tâches.**  Recherchez-la et sélectionnez-la pour indiquer le mot de passe.
+5. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Une console PowerShell s’ouvre en dehors de l’instance de Visual Studio. Entrez le mot de passe d’administrateur SQL Server dans la console PowerShell lorsque vous y êtes invité. **Votre console PowerShell peut être masquée par d’autres éléments ou réduite dans la barre des tâches.** Recherchez-la et sélectionnez-la pour indiquer le mot de passe.
    
    > [!NOTE]
    > Il se peut que Visual Studio vous invite à installer les applets de commande Azure PowerShell. Vous devez disposer des applets de commande Azure PowerShell pour déployer des groupes de ressources. Si vous y êtes invité, installez-les.
@@ -150,7 +151,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 6. Ce déploiement peut prendre quelques minutes. La fenêtre **Sortie** indique l’état du déploiement. Lorsque le déploiement est terminé, le dernier message indique que le déploiement a été réalisé avec succès :
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. Dans un navigateur, ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous à votre compte. Pour afficher le groupe de ressources, sélectionnez **Groupes de ressources** et le groupe de ressources vers lequel vous avez effectué le déploiement.
    
     ![sélectionner un groupe](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +163,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
     ![Groupe de ressources Azure déployé](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Déployer le code avec votre infrastructure
-À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet. Cette rubrique montre comment déployer une application web et des tables SQL Database lors du déploiement. Si vous déployez une machine virtuelle au lieu d’une application web, vous devrez exécuter du code sur la machine dans le cadre du déploiement. Le processus de déploiement du code pour une application web ou pour la configuration d’une machine virtuelle est quasiment le même.
+À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet. Cet article montre comment déployer une application web et des tables SQL Database lors du déploiement. Si vous déployez une machine virtuelle au lieu d’une application web, vous devrez exécuter du code sur la machine dans le cadre du déploiement. Le processus de déploiement du code pour une application web ou pour la configuration d’une machine virtuelle est quasiment le même.
 
 1. Ajoutez un projet à votre solution Visual Studio. Cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet**.
    
@@ -170,7 +171,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 2. Ajoutez une **application web ASP.NET**. 
    
     ![ajouter une application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Sélectionnez **MVC** et effacez le champ **Héberger dans le cloud** car le projet de groupe de ressources effectue cette tâche.
+3. Sélectionnez **MVC**.
    
     ![sélectionner MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Une fois votre application web créée par Visual Studio, vous voyez les deux projets dans la solution.
@@ -194,7 +195,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
    * La valeur par défaut **Build;Package** permet au déploiement de construire et créer un package de déploiement web (package.zip).  
      
      Vous n’avez pas besoin de profil de publication, car le déploiement obtient les informations nécessaires à partir des propriétés pour créer le package.
-7. Ajoutez une ressource au modèle.
+7. Revenez à WebSiteSQLDatabase.json et ajoutez une ressource au modèle.
    
     ![ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**. 
@@ -215,10 +216,5 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la gestion des ressources via le portail, voir [Utilisation du portail Azure pour gérer vos ressources Azure](resource-group-portal.md).
 * Pour en savoir plus sur les modèles, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

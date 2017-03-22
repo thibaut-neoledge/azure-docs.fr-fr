@@ -276,7 +276,7 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 
 ## <a name="n-series"></a>Série N
-Les tailles NC et NV sont également appelées instances compatibles GPU. Il s’agit de machines virtuelles spécialisées qui incluent des cartes GPU NVIDIA, optimisées pour différents scénarios et cas d’utilisation. Les tailles NV sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX. Les tailles NC sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL. 
+Les tailles NC et NV sont également appelées instances compatibles GPU. Il s’agit de machines virtuelles spécialisées qui incluent des cartes GPU NVIDIA, optimisées pour différents scénarios et cas d’utilisation. Les tailles NV sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, le codage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX. Les tailles NC sont optimisées pour les applications nécessitant des ressources réseau et de calcul importantes, les algorithmes, notamment les applications et simulations CUDA et OpenCL. Il n’existe aucune option de stockage Premium pour les tailles de série N.
 
 
 ### <a name="nv-instances"></a>Instances NV

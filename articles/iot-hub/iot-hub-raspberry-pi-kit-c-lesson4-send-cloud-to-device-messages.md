@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 3a6957ebbb239eacb4fce696b7fcfd02e690310b
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -87,9 +88,4 @@ Vous avez correctement envoyé des messages à partir de votre IoT Hub vers Pi p
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Modification du comportement activé/désactivé de la LED](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

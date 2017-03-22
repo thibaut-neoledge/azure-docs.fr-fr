@@ -4,7 +4,7 @@ description: "Informations détaillées sur la façon dont les conditions basée
 services: active-directory
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -46,10 +47,5 @@ La feuille de route indique d’étendre la stratégie d’accès conditionnel a
 Q : quand la stratégie d’accès conditionnel aux services Office 365 sera-t-elle étendue aux applications basées sur le navigateur (par exemple, OWA, SharePoint basé sur le navigateur) ?
 
 R : à l’heure actuelle, l’accès conditionnel aux services Office 365 est limité aux applications riches sur l’appareil. La feuille de route indique d’étendre la stratégie d’accès conditionnel aux utilisateurs qui accèdent aux services depuis les navigateurs.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

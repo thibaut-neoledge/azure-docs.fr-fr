@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN pour les connexions de la passerelle VPN de site à site
-Un périphérique VPN est requis pour configurer une connexion VPN site à site (S2S) entre locaux à l’aide d’une passerelle VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
+
+Un périphérique VPN est requis pour configurer une connexion VPN site à site (S2S) entre locaux à l’aide d’une passerelle VPN. Vous pouvez utiliser des connexions site à site pour créer une solution hybride, ou chaque fois que vous souhaitez disposer d'une connexion sécurisée entre votre réseau local et votre réseau virtuel. Cet article traite des périphériques VPN compatibles et des paramètres de configuration associés. Ce document fournit la liste des paramètres IPsec/IKE pour les passerelles VPN Azure et une liste de périphériques VPN validés qui se connectent à des passerelles VPN Azure.
 
 
 > [!IMPORTANT]
-> Si vous rencontrez des problèmes de connectivité entre vos appareils VPN locaux et les passerelles VPN Azure, voir [Problèmes de compatibilité connus avec le matériel](#known).
-> 
-> 
+> Si vous rencontrez des problèmes de connectivité entre vos appareils VPN locaux et les passerelles VPN Azure, voir [Problèmes de compatibilité connus avec le matériel](#known). 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Éléments à noter lorsque vous affichez les tables :
 
-* Une modification de la terminologie a eu lieu pour le routage statique et dynamique. Vous rencontrerez probablement les deux termes. Seuls les noms ont été modifiés, pas la fonctionnalité.
+* Une modification de la terminologie a eu lieu pour les passerelles VPN Azure. Vous rencontrerez probablement les deux termes. Seuls les noms ont été modifiés, pas la fonctionnalité.
   * Routage statique = basé sur des stratégies
   * Routage dynamique = basé sur un itinéraire
 * Sauf indication contraire, les spécifications des passerelles VPN hautes performances sont identiques à celles des passerelles VPN basées sur itinéraire. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN basées sur itinéraire sont également compatibles avec la passerelle VPN hautes performances Azure.
 
 > [!NOTE]
 > Lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Périphériques VPN validés
@@ -102,58 +99,80 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | &lt;SP_AzureGatewayIpAddress&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
 | &lt;SP_PresharedKey&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
-## <a name="IPSec"></a>Paramètres IPsec
+## <a name="IPSec"></a>Paramètres IPsec/IKE
 > [!NOTE]
-> Même si les valeurs répertoriées dans le tableau ci-dessous sont prises en charge par la passerelle VPN Azure, il n’existe pour le moment aucun moyen de spécifier ou de sélectionner une combinaison spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local. En outre, vous devez définir MSS sur 1350.
->
->
+> Même si les valeurs répertoriées dans le tableau ci-dessous sont prises en charge par la passerelle VPN Azure, il n’existe pour le moment aucun moyen de spécifier ou de sélectionner une combinaison d’algorithmes ou de paramètres spécifique de la passerelle VPN Azure. Vous devez spécifier des contraintes à partir du périphérique VPN local.
+> 
+> En outre, vous devez définir **MSS** sur **1350**.
 
-### <a name="ike-phase-1-setup"></a>Configuration IKE Phase 1
-| **Propriété** | **PolicyBased** | **Basé sur un itinéraire et passerelle VPN standard ou hautes performances** |
-| --- | --- | --- |
-| Version IKE |IKEv1 |IKEv2 |
-| Groupe Diffie-Hellman |Groupe 2 (1 024 bits) |Groupe 2 (1 024 bits) |
-| Méthode d'authentification |Clé prépartagée |Clé prépartagée |
-| Algorithmes de chiffrement |AES256 AES128 3DES |AES256 3DES |
-| Algorithme de hachage |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Durée de vie d’association de sécurité de phase 1 (temps) |28 800 secondes |10&800; secondes |
+Dans les tableaux ci-dessous :
 
-### <a name="ike-phase-2-setup"></a>Configuration IKE Phase 2
-| **Propriété** | **PolicyBased** | **Basé sur un itinéraire et passerelle VPN standard ou hautes performances** |
-| --- | --- | --- |
-| Version IKE |IKEv1 |IKEv2 |
-| Algorithme de hachage |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Durée de vie d’association de sécurité de phase 2 (temps) |3&600; secondes |3&600; secondes |
-| Durée de vie d’association de sécurité de phase 2 (débit) |102 400 000 Ko |- |
-| Offres d’authentification et de chiffrement d’association de sécurité IPsec (par ordre de préférence) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |Voir « Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire » (ci-dessous) |
-| PFS (Perfect Forward Secrecy) |Non |Non (*) |
-| Détection d’homologue mort |Non pris en charge |Pris en charge |
+* AS = association de sécurité
+* IKE Phase 1 est également appelé « Mode principal »
+* IKE Phase 2 est également appelé « Mode rapide »
 
-(*) La passerelle Azure en tant que répondeur IKE peut accepter le groupe DH PFS 1, 2, 5, 14, 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)
+| **Propriété**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| Version IKE           |IKEv1              |IKEv2              |
+| Groupe Diffie-Hellman  |Groupe 2 (1 024 bits) |Groupe 2 (1 024 bits) |
+| Méthode d'authentification |Clé prépartagée     |Clé prépartagée     |
+| Chiffrement et algorithmes de hachage |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| Durée de vie de l’AS           |28 800 secondes     |10&800; secondes     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Offres d’association de sécurité IPsec pour passerelle basée sur un itinéraire
-Le tableau suivant répertorie les offres d’authentification et de chiffrement d’association de sécurité IPsec. Les offres sont énumérées dans l’ordre de préférence dans lequel elles sont présentées ou acceptées.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Paramètres IKE Phase 2 (Mode rapide)
+| **Propriété**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| Version IKE                   |IKEv1          |IKEv2                                        |
+| Chiffrement et algorithmes de hachage |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
+| Durée de vie de l’AS (durée)            |3&600; secondes  |3&600; secondes                                |
+| Durée de vie de l’AS (octets)           |102 400 000 Ko | -                                           |
+| PFS (Perfect Forward Secrecy) |Non             |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
+| Détection d’homologue mort     |Non pris en charge  |Pris en charge                                    |
 
-| **Offres d’authentification et de chiffrement d’association de sécurité IPsec** | **Passerelle Azure en tant qu’initiateur** | **Passerelle Azure en tant que répondeur** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 avec ESP AES_128 et HMAC Null |
-| 5 |AH SHA1 avec ESP AES_256 et HMAC Null |AH SHA1 avec ESP 3_DES et HMAC Null |
-| 6 |AH SHA1 avec ESP AES_128 et HMAC Null |AH MD5 avec ESP 3_DES et HMAC Null, aucune durée de vie proposée |
-| 7 |AH SHA1 avec ESP 3_DES et HMAC Null |AH SHA1 avec ESP 3_DES SHA1, aucune durée de vie |
-| 8 |AH MD5 avec ESP 3_DES et HMAC Null, aucune durée de vie proposée |AH MD5 avec ESP 3_DES MD5, aucune durée de vie |
-| 9 |AH SHA1 avec ESP 3_DES SHA1, aucune durée de vie |ESP DES MD5 |
-| 10 |AH MD5 avec ESP 3_DES MD5, aucune durée de vie |ESP DES SHA1, aucune durée de vie |
-| 11 |ESP DES MD5 |AH SHA1 avec ESP DES et HMAC Null, aucune durée de vie proposée |
-| 12 |ESP DES SHA1, aucune durée de vie |AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée |
-| 13. |AH SHA1 avec ESP DES et HMAC Null, aucune durée de vie proposée |AH SHA1 avec ESP DES SHA1, aucune durée de vie |
-| 14 |AH MD5 avec ESP DES et HMAC Null, aucune durée de vie proposée |AH MD5 avec ESP DES MD5, aucune durée de vie |
-| 15 |AH SHA1 avec ESP DES SHA1, aucune durée de vie |ESP SHA, aucune durée de vie |
-| 16 |AH MD5 avec ESP DES MD5, aucune durée de vie |ESP MD5, aucune durée de vie |
-| 17 |- |AH SHA, aucune durée de vie |
-| 18 |- |AH MD5, aucune durée de vie |
+
+### <a name ="RouteBasedOffers"></a>Offres d’association de sécurité VPN IPsec RouteBased (AS IKE en mode rapide)
+Le tableau suivant répertorie les offres d’association de sécurité IPsec (IKE en mode rapide). Les offres sont énumérées dans l’ordre de préférence dans lequel elles sont présentées ou acceptées.
+
+#### <a name="azure-gateway-as-initiator"></a>Passerelle Azure en tant qu’initiateur
+|-  |**Chiffrement**|**Authentification**|**Groupe PFS**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Aucun         |
+| 2 |AES256        |SHA1              |Aucun         |
+| 3 |3DES          |SHA1              |Aucun         |
+| 4 |AES256        |SHA256            |Aucun         |
+| 5 |AES128        |SHA1              |Aucun         |
+| 6 |3DES          |SHA256            |Aucun         |
+
+#### <a name="azure-gateway-as-responder"></a>Passerelle Azure en tant que répondeur
+|-  |**Chiffrement**|**Authentification**|**Groupe PFS**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Aucun         |
+| 2 |AES256        |SHA1              |Aucun         |
+| 3 |3DES          |SHA1              |Aucun         |
+| 4 |AES256        |SHA256            |Aucun         |
+| 5 |AES128        |SHA1              |Aucun         |
+| 6 |3DES          |SHA256            |Aucun         |
+| 7 |DES           |SHA1              |Aucun         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13.|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |Aucun         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * Vous pouvez spécifier le chiffrement IPsec ESP NULL avec les passerelles VPN basées sur un itinéraire et hautes performances. Le chiffrement Null ne fournit pas de protection des données en transit. Il doit être utilisé uniquement lorsqu’un débit maximal et une latence minimale sont requis.  Les clients peuvent choisir de l’utiliser dans les scénarios de communication entre les réseaux virtuels ou lorsque le chiffrement est appliqué ailleurs dans la solution.
 * Pour les connexions entre locaux par le biais d’Internet, utilisez les paramètres de passerelle VPN Azure par défaut avec les algorithmes de chiffrement et de hachage répertoriés dans les tableaux ci-dessus pour garantir la sécurité de vos communications cruciales.

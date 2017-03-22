@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c290266a09bf6f75ab7eb9247120b921c7f841fb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fbb295d00f90a70b6d8505575e9260d0d8c98f1f
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -66,10 +67,5 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -150,10 +151,5 @@ Une expérience complète de l’interface de ligne de commande vous permet de c
 
 ## <a name="azure-storage-issues"></a>Problèmes liés au Stockage Azure
 [L’Explorateur de stockage Microsoft Azure (en version préliminaire)](http://storageexplorer.com) est une application autonome de Microsoft qui vous permet d’utiliser des données du Stockage Azure sur Windows, macOS et Linux. Cet outil vous permet de vous connecter à votre table et d’en consulter les données. Vous pouvez l’utiliser cet outil pour résoudre des problèmes liés au Stockage Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

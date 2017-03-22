@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 4226075affd1ae03c7bd258b244718f7bb72f127
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -57,10 +58,5 @@ Lorsque le consommateur se connecte (à l’aide d’un compte local ou social),
 
 ## <a name="multi-factor-authentication-on-other-policies"></a>Authentification multifacteur sur d’autres stratégies
 Comme décrit pour les stratégies d’inscription et de connexion ci-dessus, il est également possible d’activer l’authentification multifacteur sur les stratégies d’inscription ou d’authentification ainsi que sur les stratégies de réinitialisation de mot de passe. Cette fonctionnalité sera également disponible prochainement sur les stratégies de modification de profil.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

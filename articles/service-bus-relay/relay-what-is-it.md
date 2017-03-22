@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/09/2017
 ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,7 +33,7 @@ Les principaux éléments de fonctionnalité d’Azure Relay sont la communicati
 Azure Relay comprend deux fonctionnalités :
 
 1. [Connexions hybrides](#hybrid-connections) : utilise les sockets web standard ouverts permettant des scénarios multi-plateformes.
-2. [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est le relais hérité que de nombreux clients peuvent déjà utiliser avec leurs modèles de programmation WCF.
+2. [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est le relais hérité que de nombreux clients utilisent déjà avec leurs modèles de programmation WCF.
 
 Les connexions hybrides et relais WCF permettent une connexion sécurisée aux actifs existants au sein d’un réseau d’entreprise. L’utilisation de l’un par rapport à l’autre dépend de vos besoins particuliers, comme décrit dans le tableau suivant :
 
@@ -41,12 +42,9 @@ Les connexions hybrides et relais WCF permettent une connexion sécurisée aux a
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **Protocole Open basé sur des normes** | |x |
 | **Plusieurs modèles de programmation RPC** | |x |
-
-*Par disponibilité générale
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 La fonctionnalité de [connexions hybrides Azure Relay](relay-hybrid-connections-protocol.md) est une évolution de protocole ouvert sécurisé des fonctionnalités existantes du relais, qui peut être implémentée sur n’importe quelle plateforme et dans n’importe quel langage incluant une fonctionnalité WebSocket de base, ce qui comprend explicitement l’API WebSocket dans les navigateurs web courants. Les connexions hybrides sont basées sur HTTP et WebSockets.
@@ -62,10 +60,5 @@ Les connexions hybrides remplacent l’ancienne fonctionnalité appelée « Biz
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

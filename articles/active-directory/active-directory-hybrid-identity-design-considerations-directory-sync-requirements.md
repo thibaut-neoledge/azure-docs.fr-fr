@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fc6aa1baa5f558b8e706d94e3e604824f531d4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32039e6c9291879a4151cd12dfa5dac11a153ee0
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -73,10 +74,5 @@ Vous devez également déterminer la synchronisation des annuaires d'exigences e
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

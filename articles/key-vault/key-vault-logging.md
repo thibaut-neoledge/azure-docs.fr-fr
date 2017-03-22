@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier 
 Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous allez consigner, tapez :
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> Cette étape est importante et particulièrement utile si plusieurs abonnements sont associés à votre compte. Vous risquez de recevoir une erreur d’inscription de Microsoft.Insights si vous ignorez cette étape. 
+>   
+>
 
 Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -120,8 +125,13 @@ Si vous le souhaitez, vous pouvez également définir une stratégie de rétenti
 ## <a id="access"></a>Accéder à vos journaux
 Les journaux de coffre de clés sont stockés dans le conteneur **insights-logs-auditevent** du compte de stockage que vous avez fourni. Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Commencez par créer une variable pour le nom du conteneur. Ce nom sera utilisé dans le reste de cette procédure pas à pas.
 
+    $container = 'insights-logs-auditevent'
+
+Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 Le résultat ressemble à ce qui suit :
 
 **URI du conteneur : https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

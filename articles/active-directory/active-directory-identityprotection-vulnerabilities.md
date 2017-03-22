@@ -6,18 +6,18 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
 ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
 Les vulnérabilités sont des points faibles exploitables par un cybercriminel au sein de votre environnement. Nous vous recommandons de les résoudre afin d’améliorer la posture de sécurité de votre organisation et d’empêcher des personnes malveillantes d’en tirer parti.
 
 
-![vulnérabilités](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+![vulnérabilités](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnérabilités")
 
 
 
@@ -60,10 +60,5 @@ Pour plus d’informations, consultez l’article [Azure AD Privileged Identity 
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

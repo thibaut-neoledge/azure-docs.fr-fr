@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
-ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -54,7 +55,7 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
      
      Tous les autres paramètres sont facultatifs.  
      
-     Chaque cluster possède une dépendance de compte Azure Blob Storage. Après avoir supprimé un cluster, les données sont conservées dans le compte de stockage. Le nom du compte de stockage par défaut du cluster est le nom du cluster suivi du suffixe « store ». Il est codé en dur dans la section des variables du modèle.
+     Chaque cluster possède une dépendance de compte Stockage Azure. Après avoir supprimé un cluster, les données sont conservées dans le compte de stockage. Le nom du compte de stockage par défaut du cluster est le nom du cluster suivi du suffixe « store ». Il est codé en dur dans la section des variables du modèle.
 3. Sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter**. La création d’un cluster prend environ 20 minutes.
 
 > [!NOTE]
@@ -280,9 +281,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

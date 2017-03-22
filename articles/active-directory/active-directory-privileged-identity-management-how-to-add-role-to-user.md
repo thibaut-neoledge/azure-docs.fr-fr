@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -64,10 +65,5 @@ Si vous ne savez pas quels utilisateurs ont toujours besoin de leurs attribution
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
