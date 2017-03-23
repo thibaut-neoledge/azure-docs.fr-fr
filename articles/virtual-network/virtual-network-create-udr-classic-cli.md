@@ -18,17 +18,18 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
 ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
+ms.lasthandoff: 02/01/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de l'Interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
-- [Modèle](virtual-network-create-udr-arm-template.md)
-- [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
-- [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modèle](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
+> * [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -137,10 +138,5 @@ Pour créer la table d’itinéraires et l’itinéraire nécessaires au sous-r�
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

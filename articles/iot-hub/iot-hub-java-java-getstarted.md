@@ -62,9 +62,10 @@ Dans cette section, vous allez créer une application console Java qui crée une
 3. Dans un éditeur de texte, ouvrez le fichier pom.xml situé dans le dossier create-device-identity et ajoutez la dépendance suivante au nœud **dependencies** . Cette dépendance permet d’utiliser le package client du service IoT dans votre application :
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.1.15</version>
     </dependency>
     ```
     
@@ -77,8 +78,8 @@ Dans cette section, vous allez créer une application console Java qui crée une
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
