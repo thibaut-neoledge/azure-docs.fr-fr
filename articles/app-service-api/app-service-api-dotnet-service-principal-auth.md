@@ -3,7 +3,7 @@ title: Authentification de principal du service pour API Apps dans Azure App Ser
 description: "Découvrez comment protéger une application API dans Azure App Service pour les scénarios de service à service."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
@@ -37,7 +37,7 @@ Cet article contient deux sections :
 * La section intitulée [Procédure de configuration de l’authentification du principal du service dans Azure App Service](#authconfig) explique comment configurer l’authentification en général pour n’importe quelle application API et comment utiliser l’application API protégée. Cette section s’applique également à toutes les infrastructures prises en charge par App Service, y compris .NET, Node.js et Java.
 * Commençant par la section [Suite des didacticiels dédiés à la mise en route de .NET](#tutorialstart) , le didacticiel vous guide à travers la configuration d’un scénario « d’accès interne » pour un exemple d’application .NET exécuté dans App Service. 
 
-## <a name="a-idauthconfiga-how-to-configure-service-principal-authentication-in-azure-app-service"></a><a id="authconfig"></a> Procédure de configuration de l’authentification du principal du service dans Azure App Service
+## <a id="authconfig"></a> Procédure de configuration de l’authentification du principal du service dans Azure App Service
 Cette section fournit des instructions générales s’appliquant à n’importe quelle application API. Pour connaître les étapes spécifiques à l’exemple d’application .NET To Do List, passez à la section [Suite de la série de didacticiels API Apps .NET](#tutorialstart).
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez au panneau **Paramètres** de l’application API que vous souhaitez protéger, puis recherchez la section **Fonctionnalités** et cliquez sur **Authentification/Autorisation**.
@@ -84,7 +84,7 @@ App Service fournit également la revendication `objectidentifier` dans l’en-t
 ### <a name="how-to-protect-the-api-app-from-browser-access"></a>Comment protéger l’application API contre tout accès navigateur
 Si vous ne validez pas les déclarations contenues dans le code de l’application API protégée, et si vous utilisez une application Azure AD distinctes pour l’application API protégée, assurez-vous que l’URL de réponse de l’application Azure AD est différente de l’URL de base de l’application API. Si l’URL de réponse pointe directement vers l’application API protégée, un utilisateur du même client Azure AD peut accéder à l’application API, se connecter et appeler l’API.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorial-series"></a><a id="tutorialstart"></a> Suite de la série de didacticiels API Apps .NET
+## <a id="tutorialstart"></a> Suite de la série de didacticiels API Apps .NET
 Si vous suivez la série de didacticiels Node.js ou Java pour les applications API, passez à la section [Étapes suivantes](#next-steps) . 
 
 Le reste de cet article poursuit la série de didacticiels API Apps .NET. Vous devez avoir terminé le [didacticiel sur l’authentification utilisateur](app-service-api-dotnet-user-principal-auth.md) et lancé l’exécution de l’exemple d’application dans Azure avec l’authentification utilisateur activée.

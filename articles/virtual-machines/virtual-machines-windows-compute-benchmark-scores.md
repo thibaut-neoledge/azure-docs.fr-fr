@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
 ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -69,10 +70,5 @@ Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://w
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
