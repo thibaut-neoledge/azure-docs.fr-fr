@@ -38,13 +38,13 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
     Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-- [Portail](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
-- [Modèle](virtual-networks-create-vnet-arm-template-click.md)
-- [Portail (classique)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (classique)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Interface de ligne de commande (classique)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portail](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
+> * [Modèle](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portail (classique)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (classique)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Interface de ligne de commande (classique)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -65,22 +65,22 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme su
 
     ```azurecli
     az network vnet create \
-        --name TestVNet \
-        --resource-group TestRG \
-        --location centralus \
-        --address-prefix 192.168.0.0/16 \
-        --subnet-name FrontEnd \
-        --subnet-prefix 192.168.1.0/24
+    --name TestVNet \
+    --resource-group TestRG \
+    --location centralus \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name FrontEnd \
+    --subnet-prefix 192.168.1.0/24
     ```
 
     Sortie attendue :
-   
+    
     ```json
     {
         "newVNet": {
             "addressSpace": {
             "addressPrefixes": [
-                "192.168.0.0/16"
+            "192.168.0.0/16"
             ]
             },
             "dhcpOptions": {
@@ -100,7 +100,7 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme su
                 "resourceGroup": "TestRG"
             }
             ]
-        }
+            }
     }
     ```
 
@@ -121,20 +121,20 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme su
 
     Ce qui génère la sortie suivante :
 
-            Where      Name      Group
-            ---------  --------  -------
-            centralus  TestVNet  TestRG
+        Where      Name      Group
+
+        centralus  TestVNet  TestRG
 
 4. Créez un sous-réseau :
 
     ```azurecli
     az network vnet subnet create \
-        --address-prefix 192.168.2.0/24 \
-        --name BackEnd \
-        --resource-group TestRG \
-        --vnet-name TestVNet
+    --address-prefix 192.168.2.0/24 \
+    --name BackEnd \
+    --resource-group TestRG \
+    --vnet-name TestVNet
     ```
-   
+
     Sortie attendue :
 
     ```json
@@ -168,11 +168,11 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme su
     --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
     -o table
     ```
-   
+
     Sortie attendue :
-   
+
         Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
+
         TestVNet  centralus  TestRG   Succeeded              2
 
 6. Interrogez les propriétés des sous-réseaux :
@@ -188,7 +188,7 @@ Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme su
     Sortie attendue :
 
         Name      CIDR            Status
-        --------  --------------  ---------
+
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 

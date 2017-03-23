@@ -10,9 +10,3 @@ Les images sont utilisées dans Azure pour fournir une nouvelle machine virtuell
 Deux types d’images peuvent être utilisés dans Azure : *l’image de machine virtuelle* et *l’image du système d’exploitation*. Une image de machine virtuelle inclut un système d'exploitation et tous les disques attachés à une machine virtuelle lors de la création de l'image. L’image de machine virtuelle est le type d’image le plus récent. Avant l'introduction d'images de machine virtuelle, une image dans Azure ne pouvait avoir qu’un système d'exploitation généralisé et aucun disque supplémentaire. Une image de machine virtuelle qui contient uniquement un système d’exploitation généralisé est en fait identique au type d’image d’origine, c’est-à-dire l’image du système d’exploitation.
 
 Vous pouvez créer vos propres images, basées sur une machine virtuelle dans Azure ou une machine virtuelle exécutée dans un autre emplacement et que vous avez copiée et téléchargée. Si vous souhaitez utiliser une image pour créer plus d'une machine virtuelle, vous devez préparer son utilisation en tant qu'image en la généralisant. Pour créer une image Windows Server, exécutez la commande Sysprep sur le serveur pour le généraliser avant de télécharger le fichier .vhd. Pour plus d’informations sur Sysprep, consultez [Introduction à l’utilisation de Sysprep](http://go.microsoft.com/fwlink/p/?LinkId=392030) et [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Sauvegardez la machine virtuelle avant d’exécuter Sysprep. La création d’une image Linux varie selon la distribution. En règle générale, vous devez exécuter un ensemble de commandes qui sont spécifiques à la distribution et exécuter l’Azure Linux Agent.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

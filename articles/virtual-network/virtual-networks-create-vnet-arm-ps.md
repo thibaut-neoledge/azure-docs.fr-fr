@@ -32,13 +32,13 @@ Azure propose deux modèles de déploiement : Azure Resource Manager et classi
 Cet article explique comment créer un réseau virtuel dans le modèle de déploiement Resource Manager à l’aide de PowerShell. Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-- [Portail](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
-- [Modèle](virtual-networks-create-vnet-arm-template-click.md)
-- [Portail (classique)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (classique)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Interface de ligne de commande (classique)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portail](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
+> * [Modèle](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portail (classique)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (classique)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Interface de ligne de commande (classique)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -118,10 +119,5 @@ Pour obtenir des exemples de l’ensemble du processus, consultez :
 
 * [Didacticiel sur l'apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md)
 * [Guide pas à pas : développer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
