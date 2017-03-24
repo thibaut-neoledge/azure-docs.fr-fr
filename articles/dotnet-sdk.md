@@ -2,8 +2,7 @@
 title: "Présentation du Kit de développement logiciel (SDK) Azure pour .NET"
 description: "Découvrez ce qui est inclus dans le Kit de développement logiciel (SDK) .NET Azure."
 documentationcenter: .net
-author: juliako
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: 
 ms.assetid: f70279ac-7c56-4d6a-9882-352a8b644a4b

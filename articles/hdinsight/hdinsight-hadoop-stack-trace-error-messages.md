@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -18,6 +19,7 @@ ms.author: rashimg;jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -37,10 +39,5 @@ Les articles sont organisés par types d’erreur.
 * [Accéder aux journaux des applications YARN Hadoop dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Notes de publication pour les composants Hadoop sur Azure HDInsight](hdinsight-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
